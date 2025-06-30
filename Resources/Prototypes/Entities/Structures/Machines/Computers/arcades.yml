@@ -273,4 +273,3 @@
     maximumWait: 240
   - type: SpeakOnUIClosed
     pack: BlockGameGoodbyes
-

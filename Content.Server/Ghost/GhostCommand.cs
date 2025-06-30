@@ -125,4 +125,3 @@ namespace Content.Server.Ghost
         }
     }
 }
-

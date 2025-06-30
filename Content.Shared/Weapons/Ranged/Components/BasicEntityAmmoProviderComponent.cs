@@ -43,4 +43,3 @@ public sealed partial class BasicEntityAmmoProviderComponent : AmmoProviderCompo
     [AutoNetworkedField]
     public int? Count = null;
 }
-

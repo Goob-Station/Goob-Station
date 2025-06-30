@@ -17,4 +17,3 @@ namespace Content.Server.Tools.Innate
         public List<string> ToSpawn = new();
     }
 }
-

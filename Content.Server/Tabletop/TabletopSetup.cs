@@ -26,4 +26,3 @@ namespace Content.Server.Tabletop
         public string BoardPrototype = default!;
     }
 }
-

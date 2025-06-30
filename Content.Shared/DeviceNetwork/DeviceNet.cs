@@ -245,4 +245,3 @@ public sealed class DeviceNet
         return address;
     }
 }
-

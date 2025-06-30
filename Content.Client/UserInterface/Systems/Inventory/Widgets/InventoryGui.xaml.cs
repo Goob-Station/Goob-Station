@@ -22,4 +22,3 @@ public sealed partial class InventoryGui : UIWidget
         LayoutContainer.SetGrowVertical(this, LayoutContainer.GrowDirection.Begin);
     }
 }
-

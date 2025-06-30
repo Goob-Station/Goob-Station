@@ -14,4 +14,3 @@ namespace Content.Goobstation.Common.Materials;
 /// </summary>
 [RegisterComponent]
 public sealed partial class RecyclableOnUnlockComponent : Component;
-

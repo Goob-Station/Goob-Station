@@ -14,4 +14,3 @@ public enum AirlockWireIdentifier : byte
     Timing,
     Safety,
 }
-

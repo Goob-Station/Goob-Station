@@ -62,4 +62,3 @@ public sealed partial class ExtendedContainerComponent : Component
     [ViewVariables]
     public SoundSpecifier? RemoveSound;
 }
-

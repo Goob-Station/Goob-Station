@@ -56,4 +56,3 @@
   - type: CartridgeAmmo
     proto: BulletMinigun
     deleteOnSpawn: true
-

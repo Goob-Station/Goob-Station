@@ -51,4 +51,3 @@ public sealed partial class ProjectileGrenadeComponent : Component
     [DataField]
     public float MaxVelocity = 6f;
 }
-

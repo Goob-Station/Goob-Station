@@ -114,4 +114,3 @@ public sealed partial class ReproductiveComponent : Component
     [DataField(required: true)]
     public EntityWhitelist PartnerWhitelist = default!;
 }
-

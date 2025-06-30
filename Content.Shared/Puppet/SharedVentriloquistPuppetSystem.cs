@@ -73,4 +73,3 @@ public abstract class SharedVentriloquistPuppetSystem : EntitySystem
         args.Cancel();
     }
 }
-

@@ -16,4 +16,3 @@ public sealed class GetStandingUpTimeMultiplierEvent : EntityEventArgs, IInvento
 
     public float Multiplier = 1f;
 }
-

@@ -263,4 +263,3 @@ public sealed class AnimalHusbandrySystem : EntitySystem
         }
     }
 }
-

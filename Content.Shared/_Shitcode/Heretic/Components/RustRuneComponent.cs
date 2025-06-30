@@ -74,4 +74,3 @@ public enum RustRuneKey : byte
     Rune,
     Overlay,
 }
-

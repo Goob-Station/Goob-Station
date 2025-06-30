@@ -142,4 +142,3 @@ namespace Content.Client.Options.UI.Tabs
         }
     }
 }
-

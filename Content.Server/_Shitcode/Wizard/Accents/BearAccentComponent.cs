@@ -18,4 +18,3 @@ public sealed partial class BearAccentComponent : AnimalAccentComponent
         "accent-words-bear-4",
     };
 }
-

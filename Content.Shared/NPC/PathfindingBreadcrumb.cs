@@ -127,4 +127,3 @@ public enum PathfindingBreadcrumbFlag : ushort
     /// </summary>
     Climb = 1 << 4,
 }
-

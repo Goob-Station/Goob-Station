@@ -15,4 +15,3 @@ namespace Content.Shared.Shuttles.Components
         Thrusting,
     }
 }
-

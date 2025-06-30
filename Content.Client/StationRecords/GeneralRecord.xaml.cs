@@ -73,4 +73,3 @@ public sealed partial class GeneralRecord : Control
         }
     }
 }
-

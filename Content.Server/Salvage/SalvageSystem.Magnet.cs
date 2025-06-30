@@ -496,4 +496,3 @@ public record struct SalvageMagnetActivatedEvent
 {
     public EntityUid Magnet;
 }
-

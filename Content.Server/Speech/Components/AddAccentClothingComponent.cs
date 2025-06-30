@@ -36,4 +36,3 @@ public sealed partial class AddAccentClothingComponent : Component
     /// </summary>
     public bool IsActive = false;
 }
-

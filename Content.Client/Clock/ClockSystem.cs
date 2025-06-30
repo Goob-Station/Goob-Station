@@ -31,4 +31,3 @@ public sealed class ClockSystem : SharedClockSystem
         }
     }
 }
-

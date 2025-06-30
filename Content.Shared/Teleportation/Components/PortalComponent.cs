@@ -62,4 +62,3 @@ public sealed partial class PortalComponent : Component
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool RandomTeleport = true;
 }
-

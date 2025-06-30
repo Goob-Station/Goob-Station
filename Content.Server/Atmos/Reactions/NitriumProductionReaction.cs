@@ -51,4 +51,3 @@ public sealed partial class NitriumProductionReaction : IGasReactionEffect
         return ReactionResult.Reacting;
     }
 }
-

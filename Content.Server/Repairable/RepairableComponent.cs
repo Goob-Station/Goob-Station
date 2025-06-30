@@ -81,4 +81,3 @@ namespace Content.Server.Repairable
         public bool AllowSelfRepair = true;
     }
 }
-

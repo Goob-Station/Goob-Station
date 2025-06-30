@@ -32,4 +32,3 @@ public sealed partial class RadioSpeakerComponent : Component
     [DataField("enabled")]
     public bool Enabled;
 }
-

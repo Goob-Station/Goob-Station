@@ -255,4 +255,3 @@ public abstract class SharedCryostorageSystem : EntitySystem
         return comp.MapUid != null && comp.MapUid == PausedMap;
     }
 }
-

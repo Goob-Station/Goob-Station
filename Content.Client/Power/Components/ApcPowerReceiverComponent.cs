@@ -12,4 +12,3 @@ namespace Content.Client.Power.Components;
 public sealed partial class ApcPowerReceiverComponent : SharedApcPowerReceiverComponent
 {
 }
-

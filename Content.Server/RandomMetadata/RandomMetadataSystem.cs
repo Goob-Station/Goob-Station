@@ -70,4 +70,3 @@ public sealed class RandomMetadataSystem : EntitySystem
         return Loc.GetString(format, _outputSegments.ToArray());
     }
 }
-

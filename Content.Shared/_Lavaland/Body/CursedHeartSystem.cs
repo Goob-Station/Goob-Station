@@ -123,4 +123,3 @@ public sealed class CursedHeartSystem : EntitySystem
         args.Handled = true;
     }
 }
-

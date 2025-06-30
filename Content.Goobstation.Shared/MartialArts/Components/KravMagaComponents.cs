@@ -75,4 +75,3 @@ public enum KravMagaMoves
     NeckChop,
     LungPunch,
 }
-

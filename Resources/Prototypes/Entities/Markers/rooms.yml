@@ -15,4 +15,3 @@
       - state: red
       - sprite: Mobs/Aliens/elemental.rsi
         state: alive
-

@@ -63,4 +63,3 @@ public sealed partial class AnomalySystem
             : CompletionResult.FromHintOptions(CompletionHelper.Components<AnomalyComponent>(args[0]), "<uid>");
     }
 }
-

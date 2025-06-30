@@ -136,4 +136,3 @@ public sealed class ShuttleAddStationEvent : EntityEventArgs
         MapId = mapId;
     }
 }
-

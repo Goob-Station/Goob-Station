@@ -12,4 +12,3 @@ namespace Content.Shared.Actions.Events;
 /// </summary>
 [ByRefEvent]
 public record struct ActionAttemptEvent(EntityUid User, bool Cancelled = false);
-

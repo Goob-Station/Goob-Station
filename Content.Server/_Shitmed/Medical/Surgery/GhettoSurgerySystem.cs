@@ -69,4 +69,3 @@ public sealed partial class GhettoSurgerySystem : EntitySystem
             RemComp<BoneSawComponent>(ent);
     }
 }
-

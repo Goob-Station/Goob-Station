@@ -104,4 +104,3 @@ public sealed class GlobalTileMovementSystem : EntitySystem
         EnsureComp<HierophantBeatComponent>(ev.Mob);
     }
 }
-

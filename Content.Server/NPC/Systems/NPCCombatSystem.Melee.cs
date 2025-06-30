@@ -157,4 +157,3 @@ public sealed partial class NPCCombatSystem
         }
     }
 }
-

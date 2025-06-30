@@ -51,4 +51,3 @@ public sealed partial class AnomalyScannerMenu : FancyWindow
             UpdateMenu();
     }
 }
-

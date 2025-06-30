@@ -84,4 +84,3 @@ public sealed class ToggleNukeCommand : LocalizedCommands
         return CompletionResult.Empty;
     }
 }
-

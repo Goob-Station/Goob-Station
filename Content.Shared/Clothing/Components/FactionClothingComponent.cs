@@ -31,4 +31,3 @@ public sealed partial class FactionClothingComponent : Component
     [DataField]
     public bool AlreadyMember;
 }
-

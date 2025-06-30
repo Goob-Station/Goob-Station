@@ -42,4 +42,3 @@ public sealed class EnergyKatanaSystem : EntitySystem
             args.Cancelled = true;
     }
 }
-

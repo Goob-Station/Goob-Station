@@ -31,4 +31,3 @@ public sealed class WizardTrapsSystem : SharedWizardTrapsSystem
             _flammable.AdjustFireStacks(victim, comp.FireStacks, flammable, true);
     }
 }
-

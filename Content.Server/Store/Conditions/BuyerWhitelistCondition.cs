@@ -39,4 +39,3 @@ public sealed partial class BuyerWhitelistCondition : ListingCondition
         return true;
     }
 }
-

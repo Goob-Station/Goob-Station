@@ -33,4 +33,3 @@ public sealed class MothAccentSystem : EntitySystem
         args.Message = message;
     }
 }
-

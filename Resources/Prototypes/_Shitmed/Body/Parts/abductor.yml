@@ -111,4 +111,3 @@
   parent: [ PartAbductorBase, BaseRightFoot ]
   id: RightFootAbductor
   name: "right abductor foot"
-

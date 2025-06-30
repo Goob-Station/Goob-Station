@@ -42,4 +42,3 @@ public sealed partial class SpeakOnUIClosedComponent : Component
     [DataField, AutoNetworkedField]
     public bool Flag;
 }
-

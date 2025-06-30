@@ -10,4 +10,3 @@ namespace Content.Client.Salvage;
 public sealed class RestrictedRangeSystem : SharedRestrictedRangeSystem
 {
 }
-

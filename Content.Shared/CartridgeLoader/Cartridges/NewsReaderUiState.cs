@@ -36,4 +36,3 @@ public sealed class NewsReaderEmptyBoundUserInterfaceState : BoundUserInterfaceS
         NotificationOn = notificationOn;
     }
 }
-

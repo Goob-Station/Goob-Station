@@ -46,4 +46,3 @@
     sprite: Structures/Power/Generation/PA/power_box.rsi
   - type: Construction
     graph: ParticleAcceleratorPowerBox
-

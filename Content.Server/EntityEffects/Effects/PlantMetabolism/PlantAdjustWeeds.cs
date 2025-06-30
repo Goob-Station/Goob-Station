@@ -22,4 +22,3 @@ public sealed partial class PlantAdjustWeeds : PlantAdjustAttribute
         plantHolderComp.WeedLevel += Amount;
     }
 }
-

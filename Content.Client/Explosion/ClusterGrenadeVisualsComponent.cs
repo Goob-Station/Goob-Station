@@ -13,4 +13,3 @@ public sealed partial class ClusterGrenadeVisualsComponent : Component
     [DataField("state")]
     public string? State;
 }
-

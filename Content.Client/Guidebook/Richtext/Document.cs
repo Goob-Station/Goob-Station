@@ -33,4 +33,3 @@ public interface IDocumentTag
 {
     public bool TryParseTag(Dictionary<string, string> args, [NotNullWhen(true)] out Control? control);
 }
-

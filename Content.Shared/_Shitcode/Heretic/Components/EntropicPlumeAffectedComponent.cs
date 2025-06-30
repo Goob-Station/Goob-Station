@@ -29,4 +29,3 @@ public enum EntropicPlumeKey : byte
 {
     Key,
 }
-

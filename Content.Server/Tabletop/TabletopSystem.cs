@@ -234,4 +234,3 @@ namespace Content.Server.Tabletop
         }
     }
 }
-

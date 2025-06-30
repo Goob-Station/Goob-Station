@@ -85,4 +85,3 @@
   - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
-

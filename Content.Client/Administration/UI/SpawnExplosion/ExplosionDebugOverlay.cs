@@ -212,4 +212,3 @@ public sealed class ExplosionDebugOverlay : Overlay
         return result;
     }
 }
-

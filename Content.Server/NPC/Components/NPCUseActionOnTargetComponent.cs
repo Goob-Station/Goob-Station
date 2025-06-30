@@ -30,4 +30,3 @@ public sealed partial class NPCUseActionOnTargetComponent : Component
     [DataField]
     public EntityUid? ActionEnt;
 }
-

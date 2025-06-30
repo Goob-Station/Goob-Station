@@ -60,4 +60,3 @@ public sealed class RejuvenateOnProjectileHitSystem : EntitySystem
         }
     }
 }
-

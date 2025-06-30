@@ -12,4 +12,3 @@ namespace Content.Server.Station.Events;
 
 [ByRefEvent]
 public readonly record struct StationJobsGetCandidatesEvent(NetUserId Player, List<ProtoId<JobPrototype>> Jobs);
-

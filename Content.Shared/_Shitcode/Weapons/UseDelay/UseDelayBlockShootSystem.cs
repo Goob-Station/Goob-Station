@@ -29,4 +29,3 @@ public sealed class UseDelayBlockShootSystem : EntitySystem
             args.Cancelled = true;
     }
 }
-

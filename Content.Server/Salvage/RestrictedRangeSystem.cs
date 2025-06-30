@@ -48,4 +48,3 @@ public sealed class RestrictedRangeSystem : SharedRestrictedRangeSystem
         return boundaryUid;
     }
 }
-

@@ -390,4 +390,3 @@ namespace Content.Shared.Hands
         }
     }
 }
-

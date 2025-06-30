@@ -22,4 +22,3 @@ public sealed partial class EmitSoundOnInteractUsingComponent : BaseEmitSoundCom
     [DataField(required: true)]
     public EntityWhitelist Whitelist = new();
 }
-

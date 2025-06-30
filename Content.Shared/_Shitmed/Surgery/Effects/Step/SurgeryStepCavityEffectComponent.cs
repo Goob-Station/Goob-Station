@@ -13,4 +13,3 @@ public sealed partial class SurgeryStepCavityEffectComponent : Component
     [DataField]
     public string Action = "Insert";
 }
-

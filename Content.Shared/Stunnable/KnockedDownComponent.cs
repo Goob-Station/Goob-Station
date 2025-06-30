@@ -39,4 +39,3 @@ public sealed partial class KnockedDownComponent : Component
     [DataField, AutoNetworkedField]
     public bool StandOnRemoval = true;
 }
-

@@ -10,4 +10,3 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class ActivePullerComponent : Component;
-

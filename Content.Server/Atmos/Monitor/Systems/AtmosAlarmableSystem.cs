@@ -391,4 +391,3 @@ public sealed class AtmosAlarmEvent : EntityEventArgs
         AlarmType = netMax;
     }
 }
-

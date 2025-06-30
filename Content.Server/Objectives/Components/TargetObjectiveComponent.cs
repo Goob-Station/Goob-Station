@@ -40,4 +40,3 @@ public sealed partial class TargetObjectiveComponent : Component
     [DataField]
     public bool ShowJobTitle = true;
 }
-

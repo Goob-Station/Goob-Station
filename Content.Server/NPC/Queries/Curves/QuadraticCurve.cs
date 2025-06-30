@@ -16,4 +16,3 @@ public sealed partial class QuadraticCurve : IUtilityCurve
 
     [DataField("xOffset")] public  float XOffset;
 }
-

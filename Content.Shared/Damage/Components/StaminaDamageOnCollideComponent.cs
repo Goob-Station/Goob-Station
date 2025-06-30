@@ -27,4 +27,3 @@ public sealed partial class StaminaDamageOnCollideComponent : Component
     [DataField("sound")]
     public SoundSpecifier? Sound;
 }
-

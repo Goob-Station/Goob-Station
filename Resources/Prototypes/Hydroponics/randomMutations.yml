@@ -194,4 +194,3 @@
       baseOdds: 0.036
       persists: false
       effect: !type:PlantMutateHarvest
-

@@ -91,4 +91,3 @@ public sealed class LavalandMappingCommand : IConsoleCommand
         shell.WriteLine($"Successfully created new lavaland map: {_entityManager.ToPrettyString(lavaland)}");
     }
 }
-

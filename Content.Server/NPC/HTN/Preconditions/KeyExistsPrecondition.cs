@@ -22,4 +22,3 @@ public sealed partial class KeyExistsPrecondition : HTNPrecondition
         return blackboard.ContainsKey(Key);
     }
 }
-

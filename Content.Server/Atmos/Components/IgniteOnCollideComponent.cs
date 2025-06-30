@@ -28,4 +28,3 @@ public sealed partial class IgniteOnCollideComponent : Component
     public string FixtureId = "ignition";
 
 }
-

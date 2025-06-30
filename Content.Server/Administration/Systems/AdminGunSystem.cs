@@ -20,4 +20,3 @@ public sealed class AdminGunSystem : EntitySystem
         args.FireRate = 15;
     }
 }
-

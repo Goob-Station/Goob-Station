@@ -76,4 +76,3 @@ public abstract class SharedPowerSwitchableSystem : EntitySystem
         return comp.Cables[NextIndex(uid, comp)].Voltage;
     }
 }
-

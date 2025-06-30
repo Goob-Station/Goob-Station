@@ -28,4 +28,3 @@ public sealed partial class HTNCompoundPrototype : IPrototype
     [DataField]
     public bool AllowRecursion = false;
 }
-

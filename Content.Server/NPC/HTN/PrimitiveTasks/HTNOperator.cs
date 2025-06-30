@@ -65,4 +65,3 @@ public abstract partial class HTNOperator
     /// </summary>
     public virtual void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status) {}
 }
-

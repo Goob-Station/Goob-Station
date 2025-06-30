@@ -35,4 +35,3 @@ public sealed partial class ArrivalsShuttleComponent : Component
     public bool FirstRun = true;
 
 }
-

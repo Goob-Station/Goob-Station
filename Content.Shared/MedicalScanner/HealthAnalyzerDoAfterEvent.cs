@@ -12,4 +12,3 @@ namespace Content.Shared.MedicalScanner;
 public sealed partial class HealthAnalyzerDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

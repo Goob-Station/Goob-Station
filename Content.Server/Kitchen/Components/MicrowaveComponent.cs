@@ -185,4 +185,3 @@ namespace Content.Server.Kitchen.Components
         }
     }
 }
-

@@ -44,4 +44,3 @@ namespace Content.Server.EntityEffects.Effects
             Loc.GetString("reagent-effect-guidebook-add-to-solution-reaction", ("chance", Probability));
     }
 }
-

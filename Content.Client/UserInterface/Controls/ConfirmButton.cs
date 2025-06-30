@@ -145,4 +145,3 @@ public sealed class ConfirmButton : Button
         IsConfirming = !IsConfirming;
     }
 }
-

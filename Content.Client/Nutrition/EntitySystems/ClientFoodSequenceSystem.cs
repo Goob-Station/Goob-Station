@@ -181,4 +181,3 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         }
     }
 }
-

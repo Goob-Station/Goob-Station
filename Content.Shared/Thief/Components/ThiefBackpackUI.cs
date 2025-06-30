@@ -68,4 +68,3 @@ public partial struct ThiefBackpackSetInfo
         Selected = selected;
     }
 }
-

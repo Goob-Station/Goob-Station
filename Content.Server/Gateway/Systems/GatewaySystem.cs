@@ -324,4 +324,3 @@ public record struct AttemptGatewayOpenEvent(EntityUid MapUid, EntityUid Gateway
 /// </summary>
 [ByRefEvent]
 public readonly record struct GatewayOpenEvent(EntityUid MapUid, EntityUid GatewayDestinationUid);
-

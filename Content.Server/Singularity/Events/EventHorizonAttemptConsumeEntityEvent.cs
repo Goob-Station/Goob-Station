@@ -36,4 +36,3 @@ public record struct EventHorizonAttemptConsumeEntityEvent
     /// </summary>
     public bool Cancelled = false;
 }
-

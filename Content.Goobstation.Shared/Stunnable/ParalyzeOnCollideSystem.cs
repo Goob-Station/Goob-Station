@@ -50,4 +50,3 @@ public sealed class ParalyzeOnCollideSystem : EntitySystem
         }
     }
 }
-

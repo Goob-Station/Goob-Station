@@ -29,4 +29,3 @@ namespace Content.Server.Atmos.Components
         [DataField("air")] public GasMixture Air { get; set; } = new GasMixture();
     }
 }
-

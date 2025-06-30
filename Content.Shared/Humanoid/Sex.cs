@@ -32,4 +32,3 @@ namespace Content.Shared.Humanoid
     /// </summary>
     public record struct SexChangedEvent(Sex OldSex, Sex NewSex);
 }
-

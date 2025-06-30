@@ -574,4 +574,3 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         _userInterface.SetUiState(uid, SurveillanceCameraMonitorUiKey.Key, state);
     }
 }
-

@@ -12,4 +12,3 @@ public record struct GetDisposalsNextDirectionEvent(DisposalHolderComponent Hold
 {
     public Direction Next;
 }
-

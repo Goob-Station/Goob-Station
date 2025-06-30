@@ -298,4 +298,3 @@ public sealed class AtmosDebugOverlay : Overlay
         });
     }
 }
-

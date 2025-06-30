@@ -116,4 +116,3 @@ public sealed class PathResultEvent
         Path = path;
     }
 }
-

@@ -134,4 +134,3 @@ public sealed partial class SiliconLawContainer : BoxContainer
         }
     }
 }
-

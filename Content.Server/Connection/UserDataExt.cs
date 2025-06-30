@@ -27,4 +27,3 @@ public static class UserDataExt
             : new ImmutableTypedHwid(userData.ModernHWIds[0], HwidType.Modern);
     }
 }
-

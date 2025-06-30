@@ -50,4 +50,3 @@ public sealed partial class BossMusicPrototype : IPrototype
     [DataField]
     public float? PositionOnEnd;
 }
-

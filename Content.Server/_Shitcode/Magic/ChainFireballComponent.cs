@@ -19,4 +19,3 @@ public sealed partial class ChainFireballComponent : Component
 
     public List<EntityUid> IgnoredTargets = new();
 }
-

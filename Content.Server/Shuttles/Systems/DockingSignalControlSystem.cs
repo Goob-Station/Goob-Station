@@ -31,4 +31,3 @@ public sealed class DockingSignalControlSystem : EntitySystem
         _deviceLinkSystem.SendSignal(ent, ent.Comp.DockStatusSignalPort, signal: false);
     }
 }
-

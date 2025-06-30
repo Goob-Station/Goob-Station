@@ -46,4 +46,3 @@ namespace Content.Shared.Decals
         public Decal WithCleanable(bool cleanable) => new(Coordinates, Id, Color, Angle, ZIndex, cleanable);
     }
 }
-

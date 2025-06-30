@@ -247,4 +247,3 @@ public partial class MapGridControl : LayoutContainer
         }
     }
 }
-

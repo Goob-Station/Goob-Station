@@ -38,4 +38,3 @@ public sealed partial class LaserPointerData(Color color, Vector2 start, Vector2
     {
     }
 }
-

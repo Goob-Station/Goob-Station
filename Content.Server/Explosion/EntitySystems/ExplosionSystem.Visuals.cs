@@ -140,4 +140,3 @@ public sealed partial class ExplosionSystem
         return explosionEntity;
     }
 }
-

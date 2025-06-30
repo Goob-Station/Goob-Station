@@ -174,4 +174,3 @@ namespace Content.IntegrationTests.Tests
         }
     }
 }
-

@@ -57,4 +57,3 @@ public sealed partial class EmoteOnDamageComponent : Component
     [DataField("emoteCooldown"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan EmoteCooldown = TimeSpan.FromSeconds(2);
 }
-

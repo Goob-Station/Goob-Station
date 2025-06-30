@@ -9,4 +9,3 @@
   wires:
   - !type:PowerWireAction
   - !type:AutodocSafetyWireAction
-

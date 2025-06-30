@@ -82,4 +82,3 @@ public sealed class ZoomCommand : LocalizedCommands
         _eyeManager.CurrentEye.Zoom = zoom;
     }
 }
-

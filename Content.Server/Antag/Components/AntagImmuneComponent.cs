@@ -94,4 +94,3 @@ public sealed partial class AntagImmuneComponent : Component
 {
 
 }
-

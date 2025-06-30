@@ -123,4 +123,3 @@ public record struct UncuffAttemptEvent(EntityUid User, EntityUid Target)
 /// </summary>
 [ByRefEvent]
 public record struct ModifyUncuffDurationEvent(EntityUid User, EntityUid Target, float Duration);
-

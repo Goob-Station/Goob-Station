@@ -70,4 +70,3 @@ public sealed partial class PickAccessibleOperator : HTNOperator
         });
     }
 }
-

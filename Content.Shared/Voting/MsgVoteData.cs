@@ -99,4 +99,3 @@ namespace Content.Shared.Voting
         public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableOrdered;
     }
 }
-

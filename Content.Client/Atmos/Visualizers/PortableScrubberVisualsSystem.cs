@@ -45,4 +45,3 @@ public enum PortableScrubberVisualLayers : byte
 
     IsDraining
 }
-

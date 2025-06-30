@@ -45,4 +45,3 @@ public sealed class GatewayBoundUserInterface : BoundUserInterface
         _window?.UpdateState(current);
     }
 }
-

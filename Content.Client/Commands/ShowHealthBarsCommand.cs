@@ -64,4 +64,3 @@ public sealed class ShowHealthBarsCommand : LocalizedCommands
         return;
     }
 }
-

@@ -157,4 +157,3 @@ public sealed class DeployFoldableSystem : EntitySystem
         args.Handled = true;
     }
 }
-

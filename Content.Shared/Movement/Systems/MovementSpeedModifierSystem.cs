@@ -314,4 +314,3 @@ namespace Content.Shared.Movement.Systems
         SlotFlags IInventoryRelayEvent.TargetSlots =>  ~SlotFlags.POCKET;
     }
 }
-

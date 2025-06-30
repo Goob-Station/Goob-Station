@@ -28,4 +28,3 @@ public sealed partial class HandPlaceholderRemoveableComponent : Component
     [DataField, AutoNetworkedField]
     public bool Enabled;
 }
-

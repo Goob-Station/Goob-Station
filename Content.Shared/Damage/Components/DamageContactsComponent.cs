@@ -24,4 +24,3 @@ public sealed partial class DamageContactsComponent : Component
     [DataField("ignoreWhitelist")]
     public EntityWhitelist? IgnoreWhitelist;
 }
-

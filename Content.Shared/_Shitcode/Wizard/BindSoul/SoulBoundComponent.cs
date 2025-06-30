@@ -35,4 +35,3 @@ public sealed partial class SoulBoundComponent : Component
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public int ResurrectionsCount;
 }
-

@@ -15,4 +15,3 @@ namespace Content.Server.Station.Components;
 public sealed partial class StationVariationHasRunComponent : Component
 {
 }
-

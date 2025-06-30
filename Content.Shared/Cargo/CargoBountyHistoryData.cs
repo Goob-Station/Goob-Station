@@ -70,4 +70,3 @@ public readonly partial record struct CargoBountyHistoryData
         Skipped = 1,
     }
 }
-

@@ -13,4 +13,3 @@ public abstract partial class UtilityQueryFilter : UtilityQuery
 {
 
 }
-

@@ -38,4 +38,3 @@ public sealed record SharedRMCPatronTier(
     bool RoundEndShoutout,
     string Tier
 );
-

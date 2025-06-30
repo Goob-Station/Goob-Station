@@ -16,4 +16,3 @@ public sealed class CargoPalletSellMessage : BoundUserInterfaceMessage
 {
 
 }
-

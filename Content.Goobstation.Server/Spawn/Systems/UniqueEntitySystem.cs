@@ -48,4 +48,3 @@ public sealed partial class UniqueEntitySystem : EntitySystem
         }
     }
 }
-

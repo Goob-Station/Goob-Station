@@ -57,4 +57,3 @@ namespace Content.Server.GameTicking.Presets
         public string? MapPool;
     }
 }
-

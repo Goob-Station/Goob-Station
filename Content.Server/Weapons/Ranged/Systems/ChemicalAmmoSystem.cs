@@ -64,4 +64,3 @@ namespace Content.Server.Weapons.Ranged.Systems
         }
     }
 }
-

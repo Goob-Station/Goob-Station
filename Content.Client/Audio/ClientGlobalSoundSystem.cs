@@ -128,4 +128,3 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
         _eventAudio.Clear();
     }
 }
-

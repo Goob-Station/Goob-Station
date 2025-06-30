@@ -16,4 +16,3 @@
     sprite: Effects/explosion.rsi
     state: explosion
   - type: StressTestMovement
-

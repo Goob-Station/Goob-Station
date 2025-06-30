@@ -9,4 +9,3 @@ public sealed partial class OrderedTargetCon : UtilityConsideration
 {
 
 }
-

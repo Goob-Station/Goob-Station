@@ -16,4 +16,3 @@ public struct BeforeCastSpellEvent(EntityUid performer)
 
     public bool Cancelled;
 }
-

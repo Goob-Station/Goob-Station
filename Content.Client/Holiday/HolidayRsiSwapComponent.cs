@@ -17,4 +17,3 @@ public sealed partial class HolidayRsiSwapComponent : Component
     [DataField]
     public Dictionary<string, string> Sprite = new();
 }
-

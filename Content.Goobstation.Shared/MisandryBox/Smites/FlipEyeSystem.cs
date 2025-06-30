@@ -21,4 +21,3 @@ public sealed class FlipEyeSystem : ToggleableSmiteSystem<FlipEyeComponent>
         _eyeSystem.SetZoom(owner, comp.TargetZoom * -1, ignoreLimits: true);
     }
 }
-

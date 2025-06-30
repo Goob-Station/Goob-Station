@@ -14,4 +14,3 @@ public enum ConstructionVisuals : byte
     Layer,
     Wired,
 }
-

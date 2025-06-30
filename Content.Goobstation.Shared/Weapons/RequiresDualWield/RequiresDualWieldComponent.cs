@@ -30,4 +30,3 @@ public sealed partial class RequiresDualWieldComponent : Component
     [DataField]
     public EntityWhitelist? Whitelist;
 }
-

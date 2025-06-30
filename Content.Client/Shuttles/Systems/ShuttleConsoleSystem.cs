@@ -73,4 +73,3 @@ namespace Content.Client.Shuttles.Systems
         }
     }
 }
-

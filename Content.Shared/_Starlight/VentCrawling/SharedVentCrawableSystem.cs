@@ -259,4 +259,3 @@ public sealed class SharedVentCrawableSystem : EntitySystem
         }
     }
 }
-

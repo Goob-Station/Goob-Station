@@ -69,4 +69,3 @@ namespace Content.Client.Mail
         Breakage,
     }
 }
-

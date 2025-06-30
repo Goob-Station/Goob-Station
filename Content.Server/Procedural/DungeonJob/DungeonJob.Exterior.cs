@@ -76,4 +76,3 @@ public sealed partial class DungeonJob
         return dungeons;
     }
 }
-

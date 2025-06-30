@@ -18,4 +18,3 @@ public sealed partial class ActivatedElectrifiedComponent : Component
     [ViewVariables]
     public float TimeLeft = 1f;
 }
-

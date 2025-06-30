@@ -87,4 +87,3 @@ namespace Content.Server.Verbs.Commands
         }
     }
 }
-

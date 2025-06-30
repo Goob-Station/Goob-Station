@@ -59,4 +59,3 @@ public sealed class FollowerSystemTest
         await pair.CleanReturnAsync();
     }
 }
-

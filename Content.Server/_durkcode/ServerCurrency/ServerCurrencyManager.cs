@@ -216,4 +216,3 @@ namespace Content.Server._durkcode.ServerCurrency
         #endregion
     }
 }
-

@@ -469,4 +469,3 @@ namespace Content.Client.LateJoin
         }
     }
 }
-

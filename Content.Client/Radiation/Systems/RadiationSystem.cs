@@ -58,4 +58,3 @@ public sealed class RadiationSystem : EntitySystem
         ResistanceGrids = ev.Grids;
     }
 }
-

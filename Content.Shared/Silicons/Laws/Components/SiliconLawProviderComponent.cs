@@ -48,4 +48,3 @@ public sealed partial class SiliconLawProviderComponent : Component
     public bool Subverted = false;
 
 }
-

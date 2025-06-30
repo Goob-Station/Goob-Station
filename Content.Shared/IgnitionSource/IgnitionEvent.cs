@@ -13,4 +13,3 @@ namespace Content.Shared.IgnitionSource;
 /// </summary>
 [ByRefEvent]
 public readonly record struct IgnitionEvent(bool Ignite = false);
-

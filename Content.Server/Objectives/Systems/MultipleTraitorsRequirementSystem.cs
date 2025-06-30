@@ -33,4 +33,3 @@ public sealed class MultipleTraitorsRequirementSystem : EntitySystem
             args.Cancelled = true;
     }
 }
-

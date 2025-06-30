@@ -241,4 +241,3 @@ public sealed partial class BlockGame
         }
     }
 }
-

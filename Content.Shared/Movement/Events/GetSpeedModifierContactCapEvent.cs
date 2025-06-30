@@ -25,4 +25,3 @@ public record struct GetSpeedModifierContactCapEvent() : IInventoryRelayEvent
         MaxWalkSlowdown = MathF.Max(MaxWalkSlowdown, valueWalk);
     }
 }
-

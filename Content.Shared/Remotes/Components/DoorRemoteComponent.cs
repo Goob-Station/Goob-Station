@@ -23,4 +23,3 @@ public enum OperatingMode : byte
     ToggleEmergencyAccess,
     placeholderForUiUpdates
 }
-

@@ -20,4 +20,3 @@ public sealed partial class StealTargetComponent : Component
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public string StealGroup;
 }
-

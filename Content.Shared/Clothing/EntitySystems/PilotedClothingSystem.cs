@@ -200,4 +200,3 @@ public record struct StartingBeingPilotedByClothing(EntityUid Clothing, EntityUi
 /// </summary>
 [ByRefEvent]
 public record struct StoppedBeingPilotedByClothing(EntityUid Clothing, EntityUid Pilot);
-

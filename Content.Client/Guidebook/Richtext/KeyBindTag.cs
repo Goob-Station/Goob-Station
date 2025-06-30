@@ -29,4 +29,3 @@ public sealed class KeyBindTag : IMarkupTag
         return binding.GetKeyString();
     }
 }
-

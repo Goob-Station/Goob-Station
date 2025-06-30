@@ -20,4 +20,3 @@ namespace Content.Server.DeviceNetwork.Components.Devices
         [ViewVariables] public bool State;
     }
 }
-

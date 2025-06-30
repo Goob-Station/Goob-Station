@@ -21,4 +21,3 @@ namespace Content.Shared.Explosion.Components
         GrenadesCounter
     }
 }
-

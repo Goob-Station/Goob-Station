@@ -55,4 +55,3 @@ public sealed partial class MakeSentient : EntityEffect
         ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
     }
 }
-

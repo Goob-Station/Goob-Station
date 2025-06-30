@@ -18,4 +18,3 @@ public sealed partial class DamagedByFlashingComponent : Component
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier FlashDamage = new();
 }
-

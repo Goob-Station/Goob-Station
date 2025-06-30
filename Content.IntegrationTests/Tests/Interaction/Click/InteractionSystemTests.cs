@@ -440,4 +440,3 @@ namespace Content.IntegrationTests.Tests.Interaction.Click
 
     }
 }
-

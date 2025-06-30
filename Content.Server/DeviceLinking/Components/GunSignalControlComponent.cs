@@ -28,4 +28,3 @@ public sealed partial class GunSignalControlComponent : Component
     [DataField]
     public ProtoId<SinkPortPrototype> OffPort = "Off";
 }
-

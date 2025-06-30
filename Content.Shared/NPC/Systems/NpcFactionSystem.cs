@@ -409,4 +409,3 @@ public sealed partial class NpcFactionSystem : EntitySystem
         }
     }
 }
-

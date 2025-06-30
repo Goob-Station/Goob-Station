@@ -27,4 +27,3 @@ public sealed partial class CritFakeDeathEvent : InstantActionEvent
 public sealed partial class CritLastWordsEvent : InstantActionEvent
 {
 }
-

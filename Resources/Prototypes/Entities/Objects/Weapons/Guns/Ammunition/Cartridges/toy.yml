@@ -50,4 +50,3 @@
   components:
   - type: CartridgeAmmo
     proto: BulletCap
-

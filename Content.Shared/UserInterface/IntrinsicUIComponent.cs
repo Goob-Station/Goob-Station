@@ -34,4 +34,3 @@ public sealed partial class IntrinsicUIEntry
     [DataField("toggleActionEntity")]
     public EntityUid? ToggleActionEntity = new();
 }
-

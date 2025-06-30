@@ -12,4 +12,3 @@ namespace Content.Shared.Radio.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TelecomExemptComponent : Component;
-

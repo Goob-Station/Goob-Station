@@ -16,4 +16,3 @@ namespace Content.Server.Power.Pow3r
         void Validate(PowerState state);
     }
 }
-

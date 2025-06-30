@@ -50,4 +50,3 @@ public sealed class PullerTest
         await pair.CleanReturnAsync();
     }
 }
-

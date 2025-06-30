@@ -159,4 +159,3 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
         return true;
     }
 }
-

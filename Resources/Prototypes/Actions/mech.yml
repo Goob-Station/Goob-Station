@@ -43,4 +43,3 @@
       sprite: Interface/Actions/actions_mecha.rsi
       state: mech_eject
     event: !type:MechEjectPilotEvent
-

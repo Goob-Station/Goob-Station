@@ -373,4 +373,3 @@ namespace Content.Client.PDA
         }
     }
 }
-

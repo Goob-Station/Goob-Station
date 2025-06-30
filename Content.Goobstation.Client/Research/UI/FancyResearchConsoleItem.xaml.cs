@@ -92,4 +92,3 @@ public sealed class DrawButton : Button
         OnDrawModeChanged?.Invoke();
     }
 }
-

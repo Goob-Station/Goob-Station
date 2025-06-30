@@ -17,4 +17,3 @@ namespace Content.Server.Traitor.Uplink;
 /// </summary>
 [RegisterComponent]
 public sealed partial class UplinkComponent : Component;
-

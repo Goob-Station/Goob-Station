@@ -68,4 +68,3 @@ public sealed partial class TileMovementComponent : Component
     [AutoNetworkedField]
     public Vector2? LastTickLocalCoordinates;
 }
-

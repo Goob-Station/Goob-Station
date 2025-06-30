@@ -206,4 +206,3 @@
         - state: rock_bluespace_crystal
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
           visible: false # Lavaland Change
-

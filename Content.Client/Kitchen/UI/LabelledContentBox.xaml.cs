@@ -18,4 +18,3 @@ namespace Content.Client.Kitchen.UI
         public string? ButtonText { get => EjectButton.Text; set => EjectButton.Text = value; }
     }
 }
-

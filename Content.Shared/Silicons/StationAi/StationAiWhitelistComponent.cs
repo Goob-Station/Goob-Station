@@ -33,4 +33,3 @@ public sealed partial class StationAiWhitelistComponent : Component
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
 }
-

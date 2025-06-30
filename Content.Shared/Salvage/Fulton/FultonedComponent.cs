@@ -45,4 +45,3 @@ public sealed partial class FultonedComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("removeable")]
     public bool Removeable = true;
 }
-

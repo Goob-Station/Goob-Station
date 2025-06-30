@@ -16,4 +16,3 @@ public sealed partial class ActivatableUiUserWhitelistComponent : Component
     [DataField(required: true)]
     public EntityWhitelist Whitelist;
 }
-

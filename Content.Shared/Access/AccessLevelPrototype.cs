@@ -49,4 +49,3 @@ namespace Content.Shared.Access
         }
     }
 }
-

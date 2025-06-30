@@ -153,4 +153,3 @@ namespace Content.Shared.Lathe
     [ByRefEvent]
     public readonly record struct LatheStartPrintingEvent(LatheRecipePrototype Recipe);
 }
-

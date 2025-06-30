@@ -85,4 +85,3 @@ entities:
     - type: MovedGrids
     - type: GridPathfinding
 ...
-

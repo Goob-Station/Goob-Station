@@ -31,4 +31,3 @@ public sealed partial class AmeShieldComponent : SharedAmeShieldComponent
     [ViewVariables]
     public int CoreIntegrity = 100;
 }
-

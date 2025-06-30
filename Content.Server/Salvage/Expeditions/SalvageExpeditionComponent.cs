@@ -71,4 +71,3 @@ public sealed partial class SalvageExpeditionComponent : SharedSalvageExpedition
     [DataField]
     public ResolvedSoundSpecifier SelectedSong;
 }
-

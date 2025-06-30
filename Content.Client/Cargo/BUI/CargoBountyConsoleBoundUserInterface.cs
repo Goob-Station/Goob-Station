@@ -51,4 +51,3 @@ public sealed class CargoBountyConsoleBoundUserInterface : BoundUserInterface
         _menu?.UpdateEntries(state.Bounties, state.History, state.UntilNextSkip);
     }
 }
-

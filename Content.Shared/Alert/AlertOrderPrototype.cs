@@ -128,4 +128,3 @@ namespace Content.Shared.Alert
         }
     }
 }
-

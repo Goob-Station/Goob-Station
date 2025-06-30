@@ -14,4 +14,3 @@ namespace Content.Shared.Guardian;
 public sealed partial class GuardianCreatorDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

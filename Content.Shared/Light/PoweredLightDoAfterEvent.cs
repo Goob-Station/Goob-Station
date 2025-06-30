@@ -14,4 +14,3 @@ namespace Content.Shared.Light;
 public sealed partial class PoweredLightDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

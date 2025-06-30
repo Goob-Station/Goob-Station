@@ -111,4 +111,3 @@ public sealed partial class CrimeHistoryWindow : FancyWindow
             _index = null;
     }
 }
-

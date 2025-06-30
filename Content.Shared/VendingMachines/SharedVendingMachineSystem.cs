@@ -431,4 +431,3 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         }
     }
 }
-

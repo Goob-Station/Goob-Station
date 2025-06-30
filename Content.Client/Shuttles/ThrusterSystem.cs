@@ -57,4 +57,3 @@ public enum ThrusterVisualLayers : byte
     Thrusting,
     ThrustingUnshaded,
 }
-

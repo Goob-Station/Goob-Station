@@ -54,4 +54,3 @@ public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         _sprite.LayerSetVisible((ent.Owner, sprite), index, false);
     }
 }
-

@@ -18,4 +18,3 @@ public sealed partial class HereticSacrificeConditionComponent : Component
     /// </summary>
     [DataField] public bool IsCommand = false;
 }
-

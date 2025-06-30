@@ -21,4 +21,3 @@ public sealed partial class StationArrivalsComponent : Component
 
     [DataField("shuttlePath")] public ResPath ShuttlePath = new("/Maps/Shuttles/arrivals.yml");
 }
-

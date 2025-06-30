@@ -61,4 +61,3 @@ public sealed partial class RatKingRummageableComponent : Component
     [DataField("sound")]
     public SoundSpecifier? Sound = new SoundCollectionSpecifier("storageRustle");
 }
-

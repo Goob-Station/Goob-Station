@@ -47,4 +47,3 @@ public sealed partial class TimerTriggerVisualsComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public Animation PrimingAnimation = default!;
 }
-

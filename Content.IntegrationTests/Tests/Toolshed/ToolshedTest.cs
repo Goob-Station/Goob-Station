@@ -198,4 +198,3 @@ public abstract class ToolshedTest : IInvocationContext
         _expectedErrors.Enqueue(typeof(T));
     }
 }
-

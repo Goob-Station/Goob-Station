@@ -21,4 +21,3 @@ public sealed partial class DashingComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? Weapon;
 }
-

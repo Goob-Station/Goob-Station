@@ -18,4 +18,3 @@ public sealed partial class AutoShootGunComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool Enabled;
 }
-

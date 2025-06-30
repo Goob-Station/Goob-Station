@@ -16,4 +16,3 @@ public sealed partial class UtilityCurvePresetPrototype : IPrototype
 
     [DataField("curve", required: true)] public IUtilityCurve Curve = default!;
 }
-

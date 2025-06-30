@@ -76,4 +76,3 @@
             frame_mailing: { state: frame_unit } # not a typo, there is no frame_mailing state.
             frame_inlet: { state: frame_inlet }
             frame_outlet: { state: frame_outlet }
-

@@ -128,4 +128,3 @@ public sealed class ChangableCVar
         }
     }
 }
-

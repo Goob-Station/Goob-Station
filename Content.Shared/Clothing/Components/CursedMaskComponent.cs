@@ -138,4 +138,3 @@ public enum CursedMaskExpression : byte
     Despair,
     Anger
 }
-

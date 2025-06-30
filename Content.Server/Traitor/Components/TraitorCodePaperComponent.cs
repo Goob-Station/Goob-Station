@@ -100,4 +100,3 @@ public sealed partial class TraitorCodePaperComponent : Component
     [DataField]
     public bool CodewordShowAll = false;
 }
-

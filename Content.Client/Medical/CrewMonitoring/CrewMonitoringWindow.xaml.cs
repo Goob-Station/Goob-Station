@@ -548,4 +548,3 @@ public sealed class CrewMonitoringButton : Button
     public NetEntity SuitSensorUid;
     public EntityCoordinates? Coordinates;
 }
-

@@ -24,4 +24,3 @@ public sealed class RequestShootEvent : EntityEventArgs
     public NetCoordinates Coordinates;
     public NetEntity? Target;
 }
-

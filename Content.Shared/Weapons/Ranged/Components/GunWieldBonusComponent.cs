@@ -46,4 +46,3 @@ public sealed partial class GunWieldBonusComponent : Component
     [DataField]
     public LocId? WieldBonusExamineMessage = "gunwieldbonus-component-examine";
 }
-

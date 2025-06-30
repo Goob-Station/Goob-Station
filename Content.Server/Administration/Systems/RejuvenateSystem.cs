@@ -15,4 +15,3 @@ public sealed class RejuvenateSystem : EntitySystem
         RaiseLocalEvent(target, new RejuvenateEvent());
     }
 }
-

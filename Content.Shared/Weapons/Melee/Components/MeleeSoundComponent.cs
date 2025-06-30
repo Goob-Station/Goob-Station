@@ -39,4 +39,3 @@ public sealed partial class MeleeSoundComponent : Component
     /// </summary>
     [DataField("noDamageSound")] public SoundSpecifier? NoDamageSound;
 }
-

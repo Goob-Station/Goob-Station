@@ -431,4 +431,3 @@ public sealed class MindSystem : SharedMindSystem
         _tag.RemoveTag(target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
     }
 }
-

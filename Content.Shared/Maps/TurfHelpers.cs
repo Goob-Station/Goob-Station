@@ -171,4 +171,3 @@ namespace Content.Shared.Maps
         }
     }
 }
-

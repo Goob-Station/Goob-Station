@@ -74,4 +74,3 @@ public sealed class ItemTogglePointLightSystem : EntitySystem
         }
     }
 }
-

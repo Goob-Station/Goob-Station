@@ -14,4 +14,3 @@ namespace Content.Shared.CombatMode.Pacification;
 public sealed partial class PacifismAllowedGunComponent : Component
 {
 }
-

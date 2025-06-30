@@ -62,4 +62,3 @@ public abstract class SharedBlobObserverSystem : EntitySystem
         return (nearestEntityUid, nearestDistance);
     }
 }
-

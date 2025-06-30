@@ -26,4 +26,3 @@ public partial class DisposalJunctionComponent : Component
     /// </summary>
     [DataField("degrees")] public List<Angle> Degrees = new();
 }
-

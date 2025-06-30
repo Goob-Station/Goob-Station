@@ -55,4 +55,3 @@ public sealed class RandomStatusActivationSystem : EntitySystem
         }
     }
 }
-

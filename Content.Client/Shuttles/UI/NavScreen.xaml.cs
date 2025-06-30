@@ -104,4 +104,3 @@ public sealed partial class NavScreen : BoxContainer
             ("angularVelocity", $"{-MathHelper.RadiansToDegrees(gridBody.AngularVelocity) + 10f * float.Epsilon:0.0}"));
     }
 }
-

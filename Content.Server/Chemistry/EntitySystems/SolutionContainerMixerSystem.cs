@@ -68,4 +68,3 @@ public sealed class SolutionContainerMixerSystem : SharedSolutionContainerMixerS
         return this.IsPowered(entity, EntityManager);
     }
 }
-

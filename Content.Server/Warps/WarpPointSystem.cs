@@ -27,4 +27,3 @@ public sealed class WarpPointSystem : EntitySystem
         args.PushText(Loc.GetString("warp-point-component-on-examine-success", ("location", loc)));
     }
 }
-

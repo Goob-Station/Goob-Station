@@ -46,4 +46,3 @@ public abstract partial class ComponentWireAction<TComponent> : BaseWireAction w
             Pulse(user, wire, component);
     }
 }
-

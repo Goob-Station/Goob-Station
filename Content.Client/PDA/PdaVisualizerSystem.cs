@@ -34,4 +34,3 @@ public sealed class PdaVisualizerSystem : VisualizerSystem<PdaVisualsComponent>
         IdLight
     }
 }
-

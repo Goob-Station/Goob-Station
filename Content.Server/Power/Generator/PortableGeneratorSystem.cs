@@ -313,4 +313,3 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
             new PortableGeneratorComponentBuiState(fuelComp, fuel, clogged, networkStats));
     }
 }
-

@@ -25,4 +25,3 @@ public sealed partial class AdminNotesWindow : FancyWindow
         Title = Loc.GetString("admin-notes-title", ("player", playerName));
     }
 }
-

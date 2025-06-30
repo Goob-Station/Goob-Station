@@ -73,4 +73,3 @@
       state: icon
     itemIconStyle: BigAction
     event: !type:DisguiseToggleAnchoredEvent
-

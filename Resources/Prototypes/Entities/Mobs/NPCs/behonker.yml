@@ -289,4 +289,3 @@
     releasedGas: 8 # Frezon. Please replace if there is a better way to specify this
     releaseOnMaxSeverity: true
     spawnRadius: 0
-

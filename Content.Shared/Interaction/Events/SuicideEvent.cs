@@ -48,4 +48,3 @@ public sealed class SuicideGhostEvent : HandledEntityEventArgs
     public EntityUid Victim { get; set; }
     public bool CanReturnToBody;
 }
-

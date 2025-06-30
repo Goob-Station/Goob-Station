@@ -116,4 +116,3 @@ public sealed class ResearchTest
         await pair.CleanReturnAsync();
     }
 }
-

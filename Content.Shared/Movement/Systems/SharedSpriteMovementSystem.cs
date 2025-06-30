@@ -26,4 +26,3 @@ public abstract class SharedSpriteMovementSystem : EntitySystem
         Dirty(ent);
     }
 }
-

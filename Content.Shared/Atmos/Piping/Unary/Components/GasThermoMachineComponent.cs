@@ -95,4 +95,3 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         public bool Atmospheric;
     }
 }
-

@@ -116,4 +116,3 @@ public abstract class SharedBlobPodSystem : EntitySystem
 public sealed partial class BlobPodZombifyDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

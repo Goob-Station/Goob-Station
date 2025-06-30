@@ -52,4 +52,3 @@ public enum IFFFlags : byte
 
     // TODO: Need one that hides its outline, just replace it with a bunch of triangles or lines or something.
 }
-

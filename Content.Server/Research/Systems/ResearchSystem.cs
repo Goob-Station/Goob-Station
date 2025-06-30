@@ -140,4 +140,3 @@ namespace Content.Server.Research.Systems
         }
     }
 }
-

@@ -160,4 +160,3 @@ namespace Content.Shared.Construction.Prototypes
         }
     }
 }
-

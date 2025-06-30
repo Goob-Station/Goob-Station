@@ -99,4 +99,3 @@ public sealed partial class ClickableComponent : Component
         [DataField] public Box2 West;
     }
 }
-

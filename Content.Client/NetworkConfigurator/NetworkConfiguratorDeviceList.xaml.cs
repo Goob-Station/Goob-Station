@@ -69,4 +69,3 @@ public sealed partial class NetworkConfiguratorDeviceList : ScrollContainer
         return row;
     }
 }
-

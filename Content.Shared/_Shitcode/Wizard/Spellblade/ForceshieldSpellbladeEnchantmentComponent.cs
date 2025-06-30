@@ -13,4 +13,3 @@ public sealed partial class ForceshieldSpellbladeEnchantmentComponent : Componen
     [DataField]
     public float ShieldLifetime = 5f;
 }
-

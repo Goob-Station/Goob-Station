@@ -17,4 +17,3 @@ public struct IsJobAllowedEvent(ICommonSession player, ProtoId<JobPrototype> job
     public readonly ProtoId<JobPrototype> JobId = jobId;
     public bool Cancelled = cancelled;
 }
-

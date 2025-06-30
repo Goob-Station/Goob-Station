@@ -16,4 +16,3 @@ namespace Content.Goobstation.Shared.Changeling.Actions;
 public sealed partial class AbsorbDNADoAfterEvent : SimpleDoAfterEvent { }
 [Serializable, NetSerializable]
 public sealed partial class AbsorbBiomatterDoAfterEvent : SimpleDoAfterEvent { }
-

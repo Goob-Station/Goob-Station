@@ -50,4 +50,3 @@ public sealed partial class ParticleAcceleratorStrengthWireAction : ComponentWir
         paSystem.SetStrength(wire.Owner, (ParticleAcceleratorPowerState) ((int) controller.SelectedStrength + 1), user, controller);
     }
 }
-

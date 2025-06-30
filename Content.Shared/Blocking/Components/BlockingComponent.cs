@@ -87,4 +87,3 @@ public sealed partial class BlockingComponent : Component
     [DataField]
     public float ActiveBlockFraction = 1.0f;
 }
-

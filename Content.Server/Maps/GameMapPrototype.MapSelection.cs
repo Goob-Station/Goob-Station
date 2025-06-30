@@ -35,4 +35,3 @@ public sealed partial class GameMapPrototype
     /// </summary>
     public IReadOnlyList<GameMapCondition> Conditions => _conditions;
 }
-

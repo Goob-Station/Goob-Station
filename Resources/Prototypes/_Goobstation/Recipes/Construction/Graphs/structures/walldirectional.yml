@@ -36,4 +36,3 @@
           steps:
             - tool: Welding
               doAfter: 2
-

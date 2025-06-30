@@ -22,4 +22,3 @@ public abstract class InGameScreen : UIScreen
 
     public abstract void SetChatSize(Vector2 size);
 }
-

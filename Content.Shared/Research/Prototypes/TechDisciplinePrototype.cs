@@ -67,4 +67,3 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     [DataField(required: true)]
     public string UiName = string.Empty;
 }
-

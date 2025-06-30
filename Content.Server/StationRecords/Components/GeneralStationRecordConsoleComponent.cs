@@ -36,4 +36,3 @@ public sealed partial class GeneralStationRecordConsoleComponent : Component
     [DataField]
     public bool CanDeleteEntries;
 }
-

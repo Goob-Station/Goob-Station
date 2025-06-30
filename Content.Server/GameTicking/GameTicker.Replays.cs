@@ -162,4 +162,3 @@ public sealed partial class GameTicker
 
     private sealed record ReplayRecordState(ResPath? MoveToPath);
 }
-

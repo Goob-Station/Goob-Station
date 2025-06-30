@@ -32,4 +32,3 @@ public abstract class SharedPowerMonitoringConsoleSystem : EntitySystem
         return new Vector2i(x, y);
     }
 }
-

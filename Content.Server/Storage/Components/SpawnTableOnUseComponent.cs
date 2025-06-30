@@ -21,4 +21,3 @@ public sealed partial class SpawnTableOnUseComponent : Component
     [DataField(required: true)]
     public EntityTableSelector Table = default!;
 }
-

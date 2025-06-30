@@ -28,4 +28,3 @@ public sealed class GasPressurePumpChangeOutputPressureMessage(float pressure) :
 {
     public float Pressure { get; } = pressure;
 }
-

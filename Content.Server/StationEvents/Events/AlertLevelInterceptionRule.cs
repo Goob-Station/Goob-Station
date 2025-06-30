@@ -29,4 +29,3 @@ public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelIn
         _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, true, component.Locked); // Goobstation
     }
 }
-

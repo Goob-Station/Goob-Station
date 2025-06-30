@@ -56,4 +56,3 @@ public sealed class GasValveSystem : SharedGasValveSystem
         }
     }
 }
-

@@ -54,4 +54,3 @@ public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : Switcha
         worldHandle.UseShader(null);
     }
 }
-

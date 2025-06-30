@@ -157,4 +157,3 @@ public sealed class ForceMapTest
         await pair.CleanReturnAsync();
     }
 }
-

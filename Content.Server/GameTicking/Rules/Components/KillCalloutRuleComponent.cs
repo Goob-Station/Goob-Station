@@ -36,4 +36,3 @@ public sealed partial class KillCalloutRuleComponent : Component
     [DataField("selfKillCalloutAmount")]
     public int SelfKillCalloutAmount = 10;
 }
-

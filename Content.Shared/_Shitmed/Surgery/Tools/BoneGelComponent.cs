@@ -19,4 +19,3 @@ public sealed partial class BoneGelComponent : Component, ISurgeryToolComponent
     [DataField]
     public float Speed { get; set; } = 1f;
 }
-

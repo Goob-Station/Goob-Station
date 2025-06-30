@@ -69,4 +69,3 @@ namespace Content.Shared.PDA
         public Color StationAlertColor;
     }
 }
-

@@ -19,4 +19,3 @@ public sealed partial class UIFragmentComponent : Component
     [DataField("ui", true)]
     public UIFragment? Ui;
 }
-

@@ -98,4 +98,3 @@
   components:
   - type: BallisticAmmoProvider
     proto: GrenadeBaton
-

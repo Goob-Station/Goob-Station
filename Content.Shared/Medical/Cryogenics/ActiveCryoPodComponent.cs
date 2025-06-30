@@ -13,4 +13,3 @@ namespace Content.Server.Medical.Components;
 public sealed partial class ActiveCryoPodComponent : Component
 {
 }
-

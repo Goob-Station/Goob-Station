@@ -15,4 +15,3 @@ public sealed partial class VentCrawlerEntryComponent : Component
     [DataField]
     public string HolderPrototypeId = "VentCrawlerHolder";
 }
-

@@ -34,4 +34,3 @@ public sealed partial class BiomeTileLayer : IBiomeLayer
     [DataField(required: true)]
     public ProtoId<ContentTileDefinition> Tile = string.Empty;
 }
-

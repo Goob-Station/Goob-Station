@@ -316,4 +316,3 @@ public sealed class CargoTest
         await pair.CleanReturnAsync();
     }
 }
-

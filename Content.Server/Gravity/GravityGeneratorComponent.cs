@@ -50,4 +50,3 @@ namespace Content.Server.Gravity
         public bool GravityActive { get; set; } = false;
     }
 }
-

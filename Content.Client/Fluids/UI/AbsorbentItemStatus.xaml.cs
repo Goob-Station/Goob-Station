@@ -57,4 +57,3 @@ namespace Content.Client.Fluids.UI
         }
     }
 }
-

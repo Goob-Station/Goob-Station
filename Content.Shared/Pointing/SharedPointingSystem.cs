@@ -40,4 +40,3 @@ public sealed class PointAttemptEvent : CancellableEntityEventArgs
 
     public EntityUid Uid { get; }
 }
-

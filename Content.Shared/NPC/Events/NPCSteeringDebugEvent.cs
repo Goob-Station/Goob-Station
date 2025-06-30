@@ -36,4 +36,3 @@ public readonly record struct NPCSteeringDebugData(
     public readonly float[] Danger = Danger;
     public readonly List<Vector2> DangerPoints = DangerPoints;
 }
-

@@ -50,4 +50,3 @@ public sealed class ThiefBackpackBoundUserInterface : BoundUserInterface
         SendMessage(new ThiefBackpackApproveMessage());
     }
 }
-

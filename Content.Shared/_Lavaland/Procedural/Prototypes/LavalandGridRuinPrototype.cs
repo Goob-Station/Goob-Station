@@ -50,4 +50,3 @@ public sealed partial class LavalandGridRuinPrototype : IPrototype
     [DataField]
     public ComponentRegistry ComponentsToGrant = new();
 }
-

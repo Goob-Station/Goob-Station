@@ -157,4 +157,3 @@ namespace Content.Shared.DrawDepth
         Overlays = DrawDepthTag.Default + 13,
     }
 }
-

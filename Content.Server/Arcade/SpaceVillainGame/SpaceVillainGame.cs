@@ -258,4 +258,3 @@ public sealed partial class SpaceVillainGame
         }
     }
 }
-

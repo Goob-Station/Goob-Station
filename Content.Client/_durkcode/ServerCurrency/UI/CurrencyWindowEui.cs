@@ -41,4 +41,3 @@ namespace Content.Client._durkcode.ServerCurrency.UI
         }
     }
 }
-

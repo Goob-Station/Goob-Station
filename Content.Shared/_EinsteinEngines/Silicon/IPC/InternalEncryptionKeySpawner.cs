@@ -43,4 +43,3 @@ public sealed class InternalEncryptionKeySpawner : EntitySystem
         Del(headset);
     }
 }
-

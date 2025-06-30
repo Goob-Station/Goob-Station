@@ -49,4 +49,3 @@ public sealed class PainNumbnessSystem : EntitySystem
             args.CancelUpdate = true;
     }
 }
-

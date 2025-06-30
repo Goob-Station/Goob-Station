@@ -16,4 +16,3 @@ public sealed partial class SpawnSpiderEggsComponent : SpawnEntityEffectComponen
 {
     public override string EntityPrototype { get; set; } = "EggSpiderFertilized";
 }
-

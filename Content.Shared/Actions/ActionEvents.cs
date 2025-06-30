@@ -289,4 +289,3 @@ public abstract partial class BaseActionEvent : HandledEntityEventArgs
     /// </summary>
     public bool Toggle;
 }
-

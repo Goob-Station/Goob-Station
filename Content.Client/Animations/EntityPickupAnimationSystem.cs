@@ -93,4 +93,3 @@ public sealed class EntityPickupAnimationSystem : EntitySystem
         }, "fancy_pickup_anim");
     }
 }
-

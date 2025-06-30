@@ -191,4 +191,3 @@ public sealed class AdminLogsEui : BaseEui
         ClydeWindow?.Dispose();
     }
 }
-

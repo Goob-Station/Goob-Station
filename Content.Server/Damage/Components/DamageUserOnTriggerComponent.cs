@@ -25,4 +25,3 @@ public sealed partial class DamageUserOnTriggerComponent : Component
     [DataField]
     public TargetBodyPart? TargetPart = TargetBodyPart.Feet;
 }
-

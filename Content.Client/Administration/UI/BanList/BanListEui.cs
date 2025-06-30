@@ -121,4 +121,3 @@ public sealed class BanListEui : BaseEui
         _popup.Open(box);
     }
 }
-

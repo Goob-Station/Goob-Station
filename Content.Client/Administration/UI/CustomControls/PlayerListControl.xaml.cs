@@ -192,4 +192,3 @@ public sealed partial class PlayerListControl : BoxContainer
 }
 
 public record PlayerListData(PlayerInfo Info) : ListData;
-

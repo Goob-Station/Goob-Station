@@ -16,4 +16,3 @@ public readonly record struct InjectOverTimeEvent(EntityUid embeddedIntoUid)
     /// </summary>
     public readonly EntityUid EmbeddedIntoUid = embeddedIntoUid;
 }
-

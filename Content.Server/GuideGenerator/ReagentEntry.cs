@@ -107,4 +107,3 @@ public sealed class ReactantEntry
         Catalyst = cata;
     }
 }
-

@@ -123,4 +123,3 @@ public sealed class HideMechanismsCommand : LocalizedCommands
         }
     }
 }
-

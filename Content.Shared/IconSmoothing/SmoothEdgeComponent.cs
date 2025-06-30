@@ -16,4 +16,3 @@ public sealed partial class SmoothEdgeComponent : Component
 {
 
 }
-

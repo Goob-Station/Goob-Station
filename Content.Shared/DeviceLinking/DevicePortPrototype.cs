@@ -55,4 +55,3 @@ public sealed partial class SourcePortPrototype : DevicePortPrototype, IPrototyp
     [DataField("defaultLinks", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<SinkPortPrototype>))]
     public HashSet<string>? DefaultLinks;
 }
-

@@ -31,4 +31,3 @@ public sealed partial class SurveillanceCameraMicrophoneComponent : Component
     [DataField("range")]
     public int Range { get; private set; } = 10;
 }
-

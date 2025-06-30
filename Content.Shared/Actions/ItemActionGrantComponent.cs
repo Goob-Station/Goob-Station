@@ -63,4 +63,3 @@ public sealed partial class ItemActionGrantComponent : Component
     public SlotFlags? RestrictedSlots;
     // Goobstation end
 }
-

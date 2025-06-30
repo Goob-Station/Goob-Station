@@ -49,4 +49,3 @@ public sealed class PendingAntagSystem : EntitySystem
         PendingAntags.Clear();
     }
 }
-

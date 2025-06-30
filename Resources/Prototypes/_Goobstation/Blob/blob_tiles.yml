@@ -364,4 +364,3 @@
       - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
         state: blob_glow
         shader: unshaded
-

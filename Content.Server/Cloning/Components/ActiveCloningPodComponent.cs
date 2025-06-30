@@ -15,4 +15,3 @@ namespace Content.Server.Cloning.Components;
 public sealed partial class ActiveCloningPodComponent : Component
 {
 }
-

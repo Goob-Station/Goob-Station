@@ -13,4 +13,3 @@ namespace Content.Shared.Ghost;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SpectralComponent : Component { }
-

@@ -14,4 +14,3 @@ namespace Content.Shared._Goobstation.Silo;
 public sealed partial class SiloComponent : Component
 {
 }
-

@@ -12,4 +12,3 @@ namespace Content.Server.MouseRotator;
 public sealed class MouseRotatorSystem : SharedMouseRotatorSystem
 {
 }
-

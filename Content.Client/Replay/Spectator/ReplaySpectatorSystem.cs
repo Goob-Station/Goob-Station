@@ -93,4 +93,3 @@ public sealed partial class ReplaySpectatorSystem : EntitySystem
         _conHost.UnregisterCommand(SpectateCmd);
     }
 }
-

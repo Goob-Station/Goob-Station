@@ -88,4 +88,3 @@ public sealed partial class ToggleClothingComponent : Component
 /// </summary>
 [ByRefEvent]
 public record struct ToggleClothingCheckEvent(EntityUid User, bool Cancelled = false);
-

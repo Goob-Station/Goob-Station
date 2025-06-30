@@ -35,4 +35,3 @@ public sealed record SharedRMCRoundEndShoutouts(string? NT)
 {
     public const int CharacterLimit = 50;
 }
-

@@ -245,4 +245,3 @@ namespace Content.Shared.Movement.Components
         #endregion
     }
 }
-

@@ -44,4 +44,3 @@ public sealed class AdminFaxEui : BaseEui
         _window.PopulateFaxes(cast.Entries);
     }
 }
-

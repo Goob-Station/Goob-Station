@@ -54,4 +54,3 @@ public sealed partial class MechAssemblyComponent : Component
     [DataField("qualityNeeded", customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
     public string QualityNeeded = "Prying";
 }
-

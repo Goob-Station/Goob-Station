@@ -52,4 +52,3 @@ public sealed class ProtodataTag : IMarkupTag
         return value?.ToString() ?? "NULL";
     }
 }
-

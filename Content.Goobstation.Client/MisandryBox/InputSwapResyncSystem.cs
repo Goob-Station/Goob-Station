@@ -42,4 +42,3 @@ public sealed class InputSwapResyncSystem : EntitySystem
         _move.RefreshMovementSpeedModifiers(_playMan.LocalSession.AttachedEntity.Value);
     }
 }
-

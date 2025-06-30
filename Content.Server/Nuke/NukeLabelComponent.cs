@@ -19,4 +19,3 @@ public sealed partial class NukeLabelComponent : Component
     [DataField] public LocId Prefix = "nuke-label-nanotrasen";
     [DataField] public int SerialLength = 6;
 }
-

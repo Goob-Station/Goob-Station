@@ -48,4 +48,3 @@ public sealed class GuidebookDataSystem : EntitySystem
         return _data.TryGetValue(prototype, component, field, out value);
     }
 }
-

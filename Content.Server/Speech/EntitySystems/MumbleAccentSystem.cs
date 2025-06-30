@@ -28,4 +28,3 @@ public sealed class MumbleAccentSystem : EntitySystem
         args.Message = Accentuate(args.Message, component);
     }
 }
-

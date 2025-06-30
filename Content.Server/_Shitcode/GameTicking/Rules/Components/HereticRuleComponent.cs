@@ -38,4 +38,3 @@ public sealed partial class HereticRuleComponent : Component
         "HereticPathSide",
     };
 }
-

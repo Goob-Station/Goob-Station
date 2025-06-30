@@ -41,4 +41,3 @@ public sealed partial class GreytideVirusRuleComponent : Component
     [DataField]
     public List<ProtoId<AccessLevelPrototype>> Blacklist = new();
 }
-

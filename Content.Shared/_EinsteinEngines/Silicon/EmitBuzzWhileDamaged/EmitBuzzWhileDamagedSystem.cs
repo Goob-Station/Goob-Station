@@ -29,4 +29,3 @@ public sealed partial class EmitBuzzWhileDamagedComponent : Component
     [DataField("sound")]
     public SoundSpecifier Sound = new SoundCollectionSpecifier("buzzes");
 }
-

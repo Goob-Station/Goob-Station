@@ -233,4 +233,3 @@ public sealed partial class NetworkConfiguratorLinkMenu : FancyWindow
         }
     }
 }
-

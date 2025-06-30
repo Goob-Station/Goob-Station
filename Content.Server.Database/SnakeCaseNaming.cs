@@ -351,4 +351,3 @@ namespace Content.Server.Database
         private static partial Regex UpperCaseLocator();
     }
 }
-

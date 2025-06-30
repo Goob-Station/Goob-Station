@@ -47,4 +47,3 @@ namespace Content.Server.Connection.Whitelist.Conditions;
 public sealed partial class ConditionManualWhitelistMembership : WhitelistCondition
 {
 }
-

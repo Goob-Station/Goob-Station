@@ -15,4 +15,3 @@ public sealed partial class LockOnMarkActionComponent : Component
     [DataField]
     public float LockOnRadius = 3f;
 }
-

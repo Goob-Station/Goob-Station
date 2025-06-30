@@ -12,4 +12,3 @@ namespace Content.Server.GameTicking.Rules.Components;
 public sealed partial class StationVariationPassRuleComponent : Component
 {
 }
-

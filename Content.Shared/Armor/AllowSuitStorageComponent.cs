@@ -23,4 +23,3 @@ public sealed partial class AllowSuitStorageComponent : Component
         Components = new[] {"Item"}
     };
 }
-

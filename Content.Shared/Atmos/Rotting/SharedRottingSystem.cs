@@ -181,4 +181,3 @@ public abstract class SharedRottingSystem : EntitySystem
         return (int) (comp.TotalRotTime.TotalSeconds / perishable.RotAfter.TotalSeconds);
     }
 }
-

@@ -12,4 +12,3 @@ public enum HolidayVisuals : byte
 {
     Holiday
 }
-

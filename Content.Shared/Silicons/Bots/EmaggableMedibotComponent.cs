@@ -26,4 +26,3 @@ public sealed partial class EmaggableMedibotComponent : Component
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public Dictionary<MobState, MedibotTreatment> Replacements = new();
 }
-

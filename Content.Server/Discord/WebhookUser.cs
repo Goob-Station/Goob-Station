@@ -61,4 +61,3 @@ public struct WebhookUser
     [JsonPropertyName("avatar_decoration")]
     public string? AvatarDecoration { get; set; }
 }
-

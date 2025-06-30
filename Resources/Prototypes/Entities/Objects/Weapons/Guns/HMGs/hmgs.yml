@@ -134,4 +134,3 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
-

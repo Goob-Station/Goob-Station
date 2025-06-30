@@ -29,4 +29,3 @@ public sealed class GasMixtureStringRepresentationConverter : AdminLogConverter<
         writer.WriteEndObject();
     }
 }
-

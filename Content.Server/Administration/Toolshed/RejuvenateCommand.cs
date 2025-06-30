@@ -44,4 +44,3 @@ public sealed class RejuvenateCommand : ToolshedCommand
             _rejuvenate.PerformRejuvenate(ent);
     }
 }
-

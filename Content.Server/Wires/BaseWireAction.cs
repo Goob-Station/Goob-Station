@@ -101,4 +101,3 @@ public abstract partial class BaseWireAction : IWireAction
         return WiresSystem.IsPowered(uid, EntityManager);
     }
 }
-

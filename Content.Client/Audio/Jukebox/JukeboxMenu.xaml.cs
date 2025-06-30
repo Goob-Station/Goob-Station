@@ -169,4 +169,3 @@ public sealed partial class JukeboxMenu : FancyWindow
         }
     }
 }
-

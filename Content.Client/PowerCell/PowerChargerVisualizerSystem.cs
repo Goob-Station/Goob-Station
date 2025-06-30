@@ -46,4 +46,3 @@ public enum PowerChargerVisualLayers : byte
     Base,
     Light,
 }
-

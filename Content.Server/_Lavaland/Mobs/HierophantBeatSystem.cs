@@ -43,4 +43,3 @@ public sealed class HierophantBeatSystem : EntitySystem
         args.ModifySpeed(component.MovementSpeedBuff, component.MovementSpeedBuff);
     }
 }
-

@@ -11,4 +11,3 @@ namespace Content.Server.CartridgeLoader.Cartridges;
 public sealed partial class AstroNavCartridgeComponent : Component
 {
 }
-

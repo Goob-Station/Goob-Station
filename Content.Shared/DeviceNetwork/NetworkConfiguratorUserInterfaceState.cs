@@ -66,4 +66,3 @@ public sealed class DeviceLinkUserInterfaceState : BoundUserInterfaceState
         Sinks = sinks;
     }
 }
-

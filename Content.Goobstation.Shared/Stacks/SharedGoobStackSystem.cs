@@ -23,4 +23,3 @@ public abstract class GoobSharedStackSystem : EntitySystem
      // client shouldn't try to split stacks so do nothing on client
     protected virtual void OnCustomSplitMessage(Entity<StackComponent> ent, ref StackCustomSplitAmountMessage message) {}
 }
-

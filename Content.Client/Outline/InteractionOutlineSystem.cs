@@ -241,4 +241,3 @@ public sealed class InteractionOutlineSystem : EntitySystem
         }
     }
 }
-

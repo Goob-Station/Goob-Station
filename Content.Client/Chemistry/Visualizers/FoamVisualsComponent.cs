@@ -47,4 +47,3 @@ public sealed partial class FoamVisualsComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Animation Animation = default!;
 }
-

@@ -69,4 +69,3 @@ public enum SpawnPointType
     Job,
     Observer,
 }
-

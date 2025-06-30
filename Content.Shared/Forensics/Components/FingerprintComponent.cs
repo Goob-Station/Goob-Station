@@ -16,4 +16,3 @@ public sealed partial class FingerprintComponent : Component
     [DataField, AutoNetworkedField]
     public string? Fingerprint;
 }
-

@@ -92,4 +92,3 @@ public sealed partial class InstrumentComponent : SharedInstrumentComponent
 
     public void PlaybackEndedInvoke() => OnMidiPlaybackEnded?.Invoke();
 }
-

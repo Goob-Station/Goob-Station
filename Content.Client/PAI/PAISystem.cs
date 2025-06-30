@@ -12,4 +12,3 @@ namespace Content.Client.PAI
     {
     }
 }
-

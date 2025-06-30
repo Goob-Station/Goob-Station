@@ -11,4 +11,3 @@ namespace Content.Goobstation.Server.Vehicles;
 public sealed class VehicleSystem : SharedVehicleSystem
 {
 }
-

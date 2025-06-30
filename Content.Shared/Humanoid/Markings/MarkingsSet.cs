@@ -845,4 +845,3 @@ public sealed class MarkingsEnumerator : IEnumerator<Marking>
         get => _markings[position];
     }
 }
-

@@ -13,4 +13,3 @@ namespace Content.Server.Shuttles.Events;
 /// </summary>
 [ByRefEvent]
 public readonly record struct FTLCompletedEvent(EntityUid Entity, EntityUid MapUid);
-

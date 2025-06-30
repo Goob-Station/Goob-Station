@@ -183,4 +183,3 @@ public abstract class SharedNinjaSuitSystem : EntitySystem
             _toggle.TryDeactivate(uid, user: user);
     }
 }
-

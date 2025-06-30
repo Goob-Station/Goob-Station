@@ -15,4 +15,3 @@ public sealed partial class GoobInventorySystem : EntitySystem
         InitializeRelays();
     }
 }
-

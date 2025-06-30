@@ -18,4 +18,3 @@
   - type: EmitSoundOnSpawn
     sound: 
       path: /Audio/Effects/Lightning/lightningbolt.ogg
-

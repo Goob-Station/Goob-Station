@@ -138,4 +138,3 @@ public sealed class TwoStageTriggerSystem : EntitySystem
         }
     }
 }
-

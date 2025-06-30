@@ -66,4 +66,3 @@ namespace Content.Shared.Interaction
         }
     }
 }
-

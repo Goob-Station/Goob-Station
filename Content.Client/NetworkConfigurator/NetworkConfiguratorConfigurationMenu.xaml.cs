@@ -40,4 +40,3 @@ public sealed partial class NetworkConfiguratorConfigurationMenu : FancyWindow
         Count.Text = Loc.GetString("network-configurator-ui-count-label", ("count", state.DeviceList.Count));
     }
 }
-

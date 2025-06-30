@@ -39,4 +39,3 @@ public sealed partial class RuneCarvingPrototype : IPrototype, ICloneable
         };
     }
 }
-

@@ -74,4 +74,3 @@ public sealed class HumanoidMarkingModifierState : BoundUserInterfaceState
     public Color? FacialHairColor { get; }
     public Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> CustomBaseLayers { get; }
 }
-

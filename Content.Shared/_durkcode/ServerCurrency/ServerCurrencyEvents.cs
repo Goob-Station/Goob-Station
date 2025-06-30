@@ -81,4 +81,3 @@ public sealed class PlayerBalanceRequestEvent : EntityEventArgs
     /// </summary>
     public PlayerBalanceRequestEvent(){}
 }
-

@@ -22,4 +22,3 @@ public sealed class ExamineCompletedEvent : EntityEventArgs
         IsSecondaryInfo = isSecondaryInfo;
     }
 }
-

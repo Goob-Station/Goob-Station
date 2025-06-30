@@ -12,4 +12,3 @@ namespace Content.Server.GameTicking.Rules.VariationPass.Components.ReplacementM
 public sealed partial class WallReplacementMarkerComponent : Component
 {
 }
-

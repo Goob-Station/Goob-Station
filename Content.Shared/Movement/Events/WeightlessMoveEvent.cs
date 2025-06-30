@@ -13,4 +13,3 @@ public record struct CanWeightlessMoveEvent(EntityUid Uid)
 {
     public bool CanMove = false;
 }
-

@@ -110,4 +110,3 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, newState);
     }
 }
-

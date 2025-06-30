@@ -19,4 +19,3 @@ public sealed partial class ImmovableRodRuleComponent : Component
     [DataField]
     public List<EntitySpawnEntry> RodPrototypes = new();
 }
-

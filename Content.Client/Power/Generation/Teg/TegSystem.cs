@@ -34,4 +34,3 @@ public sealed class TegSystem : EntitySystem
         Spawn(ArrowPrototype, new EntityCoordinates(uid, 0, 0));
     }
 }
-

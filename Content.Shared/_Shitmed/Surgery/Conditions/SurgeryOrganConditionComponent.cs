@@ -21,4 +21,3 @@ public sealed partial class SurgeryOrganConditionComponent : Component
     [DataField]
     public bool Reattaching;
 }
-

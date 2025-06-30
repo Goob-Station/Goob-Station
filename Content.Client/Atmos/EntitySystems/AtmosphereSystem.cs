@@ -30,4 +30,3 @@ public sealed class AtmosphereSystem : SharedAtmosphereSystem
         component.OverlayData = state.Overlay;
     }
 }
-

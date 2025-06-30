@@ -32,4 +32,3 @@ public sealed class SetBarSignMessage(ProtoId<BarSignPrototype> sign) : BoundUse
 {
     public ProtoId<BarSignPrototype> Sign = sign;
 }
-

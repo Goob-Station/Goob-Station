@@ -77,4 +77,3 @@ public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
         }
     }
 }
-

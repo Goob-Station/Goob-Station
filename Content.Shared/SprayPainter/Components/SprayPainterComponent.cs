@@ -47,4 +47,3 @@ public sealed partial class SprayPainterComponent : Component
     [DataField, AutoNetworkedField]
     public int Index;
 }
-

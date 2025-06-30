@@ -78,4 +78,3 @@ public sealed class ActionsAddedTest
         await pair.CleanReturnAsync();
     }
 }
-

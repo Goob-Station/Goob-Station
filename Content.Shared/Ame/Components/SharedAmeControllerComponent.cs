@@ -84,4 +84,3 @@ public enum AmeControllerState
     Fuck,
     Off,
 }
-

@@ -22,4 +22,3 @@ public sealed partial class BiomeMarkerLayerDunGen : IDunGenLayer
     [DataField(required: true)]
     public ProtoId<WeightedRandomPrototype> MarkerTemplate;
 }
-

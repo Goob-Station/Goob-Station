@@ -47,4 +47,3 @@ public sealed partial class SpellbookComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool LearnPermanently;
 }
-

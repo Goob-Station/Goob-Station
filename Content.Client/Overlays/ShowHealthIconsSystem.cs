@@ -168,4 +168,3 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
         return result;
     }
 }
-

@@ -12,4 +12,3 @@ namespace Content.Client.Botany.Components;
 public sealed partial class ProduceComponent : SharedProduceComponent
 {
 }
-

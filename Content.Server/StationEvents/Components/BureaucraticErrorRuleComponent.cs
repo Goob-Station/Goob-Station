@@ -21,4 +21,3 @@ public sealed partial class BureaucraticErrorRuleComponent : Component
     [DataField]
     public List<ProtoId<JobPrototype>> IgnoredJobs = new();
 }
-

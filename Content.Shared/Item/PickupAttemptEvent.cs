@@ -37,4 +37,3 @@ public class BasePickupAttemptEvent : CancellableEntityEventArgs
         Item = item;
     }
 }
-

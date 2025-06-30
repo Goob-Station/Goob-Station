@@ -29,4 +29,3 @@ public sealed class DockEmergencyShuttleCommand : IConsoleCommand
         system.DockEmergencyShuttle();
     }
 }
-

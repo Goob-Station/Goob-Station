@@ -20,4 +20,3 @@ public sealed partial class SurgeryStepButton : ChoiceControl
         RobustXamlLoader.Load(this);
     }
 }
-

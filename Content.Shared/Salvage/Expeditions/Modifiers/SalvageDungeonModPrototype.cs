@@ -39,4 +39,3 @@ public sealed partial class SalvageDungeonModPrototype : IPrototype, IBiomeSpeci
     [DataField(required: true)]
     public ProtoId<DungeonConfigPrototype> Proto = string.Empty;
 }
-

@@ -26,4 +26,3 @@ namespace Content.Shared.Wires
         West = 8
     }
 }
-

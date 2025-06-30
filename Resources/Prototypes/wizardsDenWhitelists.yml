@@ -77,4 +77,3 @@
   #  action: Deny
   - !type:ConditionAlwaysMatch
     action: Deny
-

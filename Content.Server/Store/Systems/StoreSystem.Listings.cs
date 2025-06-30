@@ -148,4 +148,3 @@ public sealed partial class StoreSystem
         return false;
     }
 }
-

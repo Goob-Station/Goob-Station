@@ -18,4 +18,3 @@ public sealed partial class BlockMovementComponent : Component
     [DataField]
     public bool BlockInteraction = true;
 }
-

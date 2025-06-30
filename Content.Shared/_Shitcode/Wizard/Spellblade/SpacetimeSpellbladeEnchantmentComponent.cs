@@ -11,4 +11,3 @@ namespace Content.Shared._Goobstation.Wizard.Spellblade;
 public sealed partial class SpacetimeSpellbladeEnchantmentComponent : Component
 {
 }
-

@@ -167,4 +167,3 @@ namespace Content.Client.PDA
         }
     }
 }
-

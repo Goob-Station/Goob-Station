@@ -58,4 +58,3 @@ public sealed class DockingConsoleBoundUserInterface : BoundUserInterface
             _window?.Orphan();
     }
 }
-

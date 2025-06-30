@@ -240,4 +240,3 @@ public sealed class MaskSystem : EntitySystem
         Dirty(mask);
     }
 }
-

@@ -59,4 +59,3 @@ public sealed partial class UltraVisionOverlay : Overlay
         worldHandle.UseShader(null); // important - as of writing, construction overlay breaks without this
     }
 }
-

@@ -38,4 +38,3 @@ public sealed partial class MeleeRequiresWieldComponent : Component
     [DataField]
     public bool FumbleOnAttempt = false;
 }
-

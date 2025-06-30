@@ -28,4 +28,3 @@ public enum ToggleVisuals : byte
     Toggled,
     Layer
 }
-

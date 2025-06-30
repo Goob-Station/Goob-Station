@@ -366,4 +366,3 @@ namespace Content.Server.Medical.BiomassReclaimer
         }
     }
 }
-

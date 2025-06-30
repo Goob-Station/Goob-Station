@@ -52,4 +52,3 @@ public sealed partial class LungComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> Alert = "LowOxygen";
 }
-

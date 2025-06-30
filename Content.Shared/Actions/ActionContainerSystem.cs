@@ -382,4 +382,3 @@ public readonly struct ActionRemovedEvent
         Component = component;
     }
 }
-

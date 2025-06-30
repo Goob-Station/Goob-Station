@@ -257,4 +257,3 @@ public sealed class BatteryBulletRenderer : BaseBulletRenderer
         handle.DrawRect(UIBox2.FromDimensions(renderPos, new Vector2(SizeH, SizeV)), color);
     }
 }
-

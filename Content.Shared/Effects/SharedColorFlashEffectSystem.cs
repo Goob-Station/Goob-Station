@@ -11,4 +11,3 @@ public abstract class SharedColorFlashEffectSystem : EntitySystem
 {
     public abstract void RaiseEffect(Color color, List<EntityUid> entities, Filter filter);
 }
-

@@ -185,4 +185,3 @@ public sealed class FlightSystem : SharedFlightSystem
     }
     #endregion
 }
-

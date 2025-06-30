@@ -67,4 +67,3 @@ namespace Content.Shared.Preferences
         }
     }
 }
-

@@ -137,4 +137,3 @@ public sealed class LatheTest
         await pair.CleanReturnAsync();
     }
 }
-

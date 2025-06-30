@@ -229,4 +229,3 @@ public sealed class AbductorConsoleBui : BoundUserInterface
             _window?.Dispose();
     }
 }
-

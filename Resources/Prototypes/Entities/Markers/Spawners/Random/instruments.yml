@@ -59,4 +59,3 @@
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: RandomInstrumentTable
-

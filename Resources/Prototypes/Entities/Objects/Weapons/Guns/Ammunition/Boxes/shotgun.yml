@@ -175,4 +175,3 @@
       - state: mag-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: tranquilizer
-

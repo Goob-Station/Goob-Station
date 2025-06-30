@@ -338,4 +338,3 @@
   - type: Construction # Frontier
     graph: SofasGraph # Frontier
     node: BenchSofaCorpCornerNode # Frontier
-

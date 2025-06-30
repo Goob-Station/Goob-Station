@@ -50,4 +50,3 @@ public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior
             args.EntityManager.System<TransformSystem>().GetMapCoordinates(args.Platform));
     }
 }
-

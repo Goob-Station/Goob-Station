@@ -68,4 +68,3 @@ public sealed class ShowHealthBarsSystem : EquipmentHudSystem<ShowHealthBarsComp
         _overlayMan.RemoveOverlay(_overlay);
     }
 }
-

@@ -32,4 +32,3 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     [DataField]
     public int? MaxTraitPoints;
 }
-

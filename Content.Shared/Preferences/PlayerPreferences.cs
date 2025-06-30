@@ -74,4 +74,3 @@ namespace Content.Shared.Preferences
         }
     }
 }
-

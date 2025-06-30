@@ -151,4 +151,3 @@ public sealed class GlorpAccentSystem : EntitySystem
         args.Message = Accentuate(args.Message, component);
     }
 }
-

@@ -113,4 +113,3 @@ public sealed class DecalPainter
         canvas.Mutate(o => o.DrawImage(image, new Point(pointX, pointY), alpha));
     }
 }
-

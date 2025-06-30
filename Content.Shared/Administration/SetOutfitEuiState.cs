@@ -19,4 +19,3 @@ namespace Content.Shared.Administration
         public NetEntity TargetNetEntity;
     }
 }
-

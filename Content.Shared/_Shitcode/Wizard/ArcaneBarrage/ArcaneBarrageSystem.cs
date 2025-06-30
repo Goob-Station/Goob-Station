@@ -121,4 +121,3 @@ public sealed class ArcaneBarrageSystem : EntitySystem
             _useDelay.ResetAllDelays((uid, delay));
     }
 }
-

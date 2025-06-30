@@ -190,4 +190,3 @@ namespace Content.Server.Nutrition.EntitySystems
         }
     }
 }
-

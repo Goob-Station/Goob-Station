@@ -15,4 +15,3 @@ public sealed class PlayEmoteMessage(ProtoId<EmotePrototype> protoId) : EntityEv
 {
     public readonly ProtoId<EmotePrototype> ProtoId = protoId;
 }
-

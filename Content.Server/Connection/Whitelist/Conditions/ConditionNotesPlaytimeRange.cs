@@ -69,4 +69,3 @@ public sealed partial class ConditionNotesPlaytimeRange : WhitelistCondition
     [DataField]
     public bool IncludeSecret = false;
 }
-

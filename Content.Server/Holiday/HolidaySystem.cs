@@ -143,4 +143,3 @@ namespace Content.Server.Holiday
         }
     }
 }
-

@@ -176,4 +176,3 @@ public sealed class LightningSystem : SharedLightningSystem
 /// <param name="Target">The entity that was struck by lightning.</param>
 [ByRefEvent]
 public readonly record struct HitByLightningEvent(EntityUid Source, EntityUid Target);
-

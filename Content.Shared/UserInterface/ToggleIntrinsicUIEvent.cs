@@ -15,4 +15,3 @@ public sealed partial class ToggleIntrinsicUIEvent : InstantActionEvent
     [DataField("key", customTypeSerializer: typeof(EnumSerializer), required: true)]
     public Enum? Key { get; set; }
 }
-

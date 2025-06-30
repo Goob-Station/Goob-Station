@@ -114,4 +114,3 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
 
 [ByRefEvent]
 public record struct SiliconEmaggedEvent(EntityUid user);
-

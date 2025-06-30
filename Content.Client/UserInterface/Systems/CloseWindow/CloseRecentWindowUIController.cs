@@ -146,4 +146,3 @@ public sealed class CloseRecentWindowUIController : UIController
         return false;
     }
 }
-

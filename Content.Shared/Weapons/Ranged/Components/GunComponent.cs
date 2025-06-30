@@ -332,4 +332,3 @@ public enum SelectiveFire : byte
     Burst = 1 << 1,
     FullAuto = 1 << 2, // Not in the building!
 }
-

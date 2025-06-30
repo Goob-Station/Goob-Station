@@ -456,4 +456,3 @@ public sealed class TegSystem : EntitySystem
             outlet.Air.Temperature);
     }
 }
-

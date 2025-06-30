@@ -14,4 +14,3 @@ public struct GetSecretRecipesEvent()
 {
     public List<FoodRecipePrototype> Recipes = new();
 }
-

@@ -29,4 +29,3 @@
               doAfter: 1
     - node: bananiumHorn
       entity: BananiumHorn
-

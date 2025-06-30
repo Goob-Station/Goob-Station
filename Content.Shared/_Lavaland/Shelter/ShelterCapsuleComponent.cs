@@ -44,4 +44,3 @@ public sealed partial class ShelterCapsuleComponent : Component
     [DataField]
     public Vector2 Offset;
 }
-

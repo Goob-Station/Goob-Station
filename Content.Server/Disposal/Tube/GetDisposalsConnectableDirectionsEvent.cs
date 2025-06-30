@@ -11,4 +11,3 @@ public record struct GetDisposalsConnectableDirectionsEvent
 {
     public Direction[] Connectable;
 }
-

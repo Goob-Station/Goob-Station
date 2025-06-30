@@ -31,4 +31,3 @@ public sealed partial class InContainerPrecondition : HTNPrecondition
                !IsInContainer && !_container.IsEntityInContainer(owner);
     }
 }
-

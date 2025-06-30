@@ -77,4 +77,3 @@ public sealed partial class PathfindingSystem
         return path;
     }
 }
-

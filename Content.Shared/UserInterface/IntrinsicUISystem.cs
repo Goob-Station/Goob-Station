@@ -77,4 +77,3 @@ public sealed class IntrinsicUIOpenAttemptEvent : CancellableEntityEventArgs
         Key = key;
     }
 }
-

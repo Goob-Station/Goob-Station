@@ -24,4 +24,3 @@ public sealed partial class PlantAdjustNutrition : PlantAdjustAttribute
         plantHolder.AdjustNutrient(args.TargetEntity, Amount, plantHolderComp);
     }
 }
-

@@ -27,4 +27,3 @@ namespace Content.Server.Atmos.Piping.Binary.Components
         public float FlowRate { get; set; } = 0;
     }
 }
-

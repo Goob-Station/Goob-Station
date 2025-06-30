@@ -49,4 +49,3 @@
   fractalLacunarityByPi: 0.666666666
   remapTo0Through1: true
   inputMultiplier: 6 # Makes wreck concentration very low noise at scale.
-

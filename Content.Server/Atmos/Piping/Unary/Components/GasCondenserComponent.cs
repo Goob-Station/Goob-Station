@@ -48,4 +48,3 @@ public sealed partial class GasCondenserComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float MolesToReagentMultiplier = 0.2137f;
 }
-

@@ -18,4 +18,3 @@ public sealed class Attributes
     [JsonPropertyName("title")]
     public string Title = default!;
 }
-

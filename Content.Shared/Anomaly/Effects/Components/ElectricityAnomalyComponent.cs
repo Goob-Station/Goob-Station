@@ -75,4 +75,3 @@ public sealed partial class ElectricityAnomalyComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float EmpDisabledDuration = 60f;
 }
-

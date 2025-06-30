@@ -35,4 +35,3 @@ public sealed class SurgeryStepChosenBuiMsg(NetEntity part, EntProtoId surgery, 
     // Used as a marker for whether or not we're hijacking surgery by applying it on the body itself.
     public readonly bool IsBody = isBody;
 }
-

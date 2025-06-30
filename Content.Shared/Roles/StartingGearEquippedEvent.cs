@@ -15,4 +15,3 @@ public record struct StartingGearEquippedEvent(EntityUid Entity)
 {
     public readonly EntityUid Entity = Entity;
 }
-

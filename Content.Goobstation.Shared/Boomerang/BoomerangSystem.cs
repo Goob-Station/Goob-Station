@@ -96,4 +96,3 @@ public sealed class BoomerangSystem : EntitySystem
         meleeThrowOnHitComponent.ActivateOnThrown = false;
     }
 }
-

@@ -80,4 +80,3 @@ public sealed partial class BuyerAntagCondition : ListingCondition
         return true;
     }
 }
-

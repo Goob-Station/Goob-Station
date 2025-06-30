@@ -41,4 +41,3 @@ public sealed class Thirsty : LocalizedEntityCommands
         EntityManager.System<ThirstSystem>().SetThirst(playerEntity, thirst, thirstyThreshold);
     }
 }
-

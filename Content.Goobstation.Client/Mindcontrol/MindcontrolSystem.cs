@@ -26,4 +26,3 @@ public sealed class MindcontrolSystem : EntitySystem
             args.StatusIcons.Add(iconPrototype);
     }
 }
-

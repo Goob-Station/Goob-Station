@@ -49,4 +49,3 @@ public sealed partial class ConditionPlaytime : WhitelistCondition
     [DataField]
     public int MinimumPlaytime = 0; // In minutes
 }
-

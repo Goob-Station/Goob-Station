@@ -25,4 +25,3 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
-

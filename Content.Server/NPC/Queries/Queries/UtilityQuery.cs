@@ -14,4 +14,3 @@ public abstract partial class UtilityQuery
 {
 
 }
-

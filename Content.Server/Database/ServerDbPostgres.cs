@@ -665,4 +665,3 @@ WHERE to_tsvector('english'::regconfig, a.message) @@ websearch_to_tsquery('engl
         }
     }
 }
-

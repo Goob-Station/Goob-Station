@@ -20,4 +20,3 @@ public sealed partial class DungeonPresetPrototype : IPrototype
     [DataField("roomPacks", required: true)]
     public List<Box2i> RoomPacks = new();
 }
-

@@ -31,4 +31,3 @@ namespace Content.Shared.Sandbox
         protected sealed class MsgSandboxSuicide : EntityEventArgs {}
     }
 }
-

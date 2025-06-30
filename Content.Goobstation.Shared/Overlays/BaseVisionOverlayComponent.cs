@@ -22,4 +22,3 @@ public abstract partial class BaseVisionOverlayComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public virtual Color Color { get; set; } = Color.White;
 }
-

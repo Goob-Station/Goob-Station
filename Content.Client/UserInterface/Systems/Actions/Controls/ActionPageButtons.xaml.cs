@@ -23,4 +23,3 @@ public sealed partial class ActionPageButtons : Control
         RobustXamlLoader.Load(this);
     }
 }
-

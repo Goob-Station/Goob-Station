@@ -173,4 +173,3 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
         public delegate void MakeRole(NetEntity uid, string name, string description, string rules, bool makeSentient, GhostRoleRaffleSettings? settings);
     }
 }
-

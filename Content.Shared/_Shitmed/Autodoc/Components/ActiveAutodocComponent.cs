@@ -48,4 +48,3 @@ public sealed partial class ActiveAutodocComponent : Component
     [AutoPausedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 }
-

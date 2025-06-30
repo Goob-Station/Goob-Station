@@ -43,4 +43,3 @@ public sealed partial class ChasmFallingComponent : Component
     /// </summary>
     public Vector2 AnimationScale = new Vector2(0.01f, 0.01f);
 }
-

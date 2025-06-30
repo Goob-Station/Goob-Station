@@ -32,4 +32,3 @@ public sealed partial class LerpingEyeComponent : Component
     [ViewVariables]
     public Vector2 TargetZoom;
 }
-

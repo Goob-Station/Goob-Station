@@ -13,4 +13,3 @@ public record struct ShuttleExclusionObject(NetCoordinates Coordinates, float Ra
 {
     public bool HideButton => false;
 }
-

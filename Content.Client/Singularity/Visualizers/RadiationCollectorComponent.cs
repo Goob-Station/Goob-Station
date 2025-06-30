@@ -66,4 +66,3 @@ public sealed partial class RadiationCollectorComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public Animation DeactiveAnimation = default!;
 }
-

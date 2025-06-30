@@ -12,4 +12,3 @@ namespace Content.Server.Guardian;
 public sealed partial class CanHostGuardianComponent : Component
 {
 }
-

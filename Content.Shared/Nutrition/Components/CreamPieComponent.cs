@@ -30,4 +30,3 @@ namespace Content.Shared.Nutrition.Components
         public const string PayloadSlotName = "payloadSlot";
     }
 }
-

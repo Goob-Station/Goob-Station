@@ -65,4 +65,3 @@ public sealed partial class HierophantClubItemComponent : Component
     [DataField]
     public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
 }
-

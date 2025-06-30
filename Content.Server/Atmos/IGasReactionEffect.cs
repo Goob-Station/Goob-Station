@@ -37,4 +37,3 @@ namespace Content.Server.Atmos
             float heatScale);
     }
 }
-

@@ -42,4 +42,3 @@ namespace Content.Server.Atmos.Piping.Trinary.Components
         public Gas? FilteredGas;
     }
 }
-

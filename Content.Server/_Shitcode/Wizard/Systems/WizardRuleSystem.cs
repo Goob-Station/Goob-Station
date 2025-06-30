@@ -294,4 +294,3 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         return true;
     }
 }
-

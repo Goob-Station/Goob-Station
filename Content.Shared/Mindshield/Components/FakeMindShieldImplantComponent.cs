@@ -11,4 +11,3 @@ namespace Content.Shared.Mindshield.Components;
 public sealed partial class FakeMindShieldImplantComponent : Component
 {
 }
-

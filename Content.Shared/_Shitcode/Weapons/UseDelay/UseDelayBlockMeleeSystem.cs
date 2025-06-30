@@ -33,4 +33,3 @@ public sealed class UseDelayBlockMeleeSystem : EntitySystem
             args.Cancelled = true;
     }
 }
-

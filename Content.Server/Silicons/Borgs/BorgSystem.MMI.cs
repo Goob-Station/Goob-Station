@@ -104,4 +104,3 @@ public sealed partial class BorgSystem
         _appearance.SetData(linked, MMIVisuals.BrainPresent, false);
     }
 }
-

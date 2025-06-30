@@ -30,4 +30,3 @@ public sealed class TimeTransferPanelCommand : LocalizedCommands
         _euis.OpenEui(new TimeTransferPanelEui(), player);
     }
 }
-

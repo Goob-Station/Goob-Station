@@ -39,4 +39,3 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
         sprite.LayerMapSet(IceCubeKey.Key, layer);
     }
 }
-

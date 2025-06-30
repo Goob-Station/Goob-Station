@@ -21,4 +21,3 @@ public sealed partial class CarpRiftsConditionComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int RiftsCharged;
 }
-

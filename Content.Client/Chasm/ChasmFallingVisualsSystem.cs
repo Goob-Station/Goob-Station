@@ -87,4 +87,3 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
         };
     }
 }
-

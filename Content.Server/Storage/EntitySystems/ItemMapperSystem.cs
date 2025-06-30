@@ -19,4 +19,3 @@ namespace Content.Server.Storage.EntitySystems
     [UsedImplicitly]
     public sealed class ItemMapperSystem : SharedItemMapperSystem {}
 }
-

@@ -28,4 +28,3 @@ public sealed partial class ThirstyPrecondition : HTNPrecondition
         return _entManager.TryGetComponent<ThirstComponent>(owner, out var thirst) ? thirst.CurrentThirstThreshold <= MinThirstState : false;
     }
 }
-

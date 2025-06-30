@@ -19,4 +19,3 @@ public sealed partial class ActivelyMicrowavedComponent : Component
     [DataField]
     public EntityUid? Microwave;
 }
-

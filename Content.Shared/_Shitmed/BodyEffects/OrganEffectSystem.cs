@@ -100,4 +100,3 @@ public sealed partial class OrganEffectSystem : EntitySystem
         }
     }
 }
-

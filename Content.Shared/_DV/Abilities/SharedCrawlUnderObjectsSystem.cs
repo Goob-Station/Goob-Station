@@ -32,4 +32,3 @@ public abstract class SharedCrawlUnderObjectsSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("crawl-under-objects-toggle-off"), uid);
     }
 }
-

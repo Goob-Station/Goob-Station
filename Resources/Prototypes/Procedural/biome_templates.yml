@@ -602,4 +602,3 @@
     - !type:BiomeTileLayer
       threshold: -1.0
       tile: FloorAsteroidSand
-

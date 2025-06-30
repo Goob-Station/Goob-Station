@@ -34,4 +34,3 @@ public sealed partial class DoorMetricComponent : Component
     [DataField("fireCost"), ViewVariables(VVAccess.ReadWrite)]
     public double FireCost = 400.0f;
 }
-

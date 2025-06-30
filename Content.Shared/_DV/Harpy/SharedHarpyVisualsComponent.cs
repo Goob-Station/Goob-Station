@@ -16,4 +16,3 @@ public enum HardsuitWings : byte
 {
     Worn
 }
-

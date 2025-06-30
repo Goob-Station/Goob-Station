@@ -66,4 +66,3 @@ public sealed class ToggleClothingSystem : EntitySystem
             _toggle.TryDeactivate(ent.Owner, args.Wearer);
     }
 }
-

@@ -72,4 +72,3 @@ public sealed partial class CCVars
             CVar.SERVER | CVar.SERVERONLY | CVar.ARCHIVE,
             "A message broadcast to each player that joins the lobby.");
 }
-

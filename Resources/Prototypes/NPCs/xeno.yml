@@ -13,4 +13,3 @@
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
-

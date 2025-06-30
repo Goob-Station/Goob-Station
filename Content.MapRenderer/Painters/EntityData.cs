@@ -21,4 +21,3 @@ public readonly record struct EntityData(EntityUid Owner, SpriteComponent Sprite
 
     public readonly float Y = Y;
 }
-

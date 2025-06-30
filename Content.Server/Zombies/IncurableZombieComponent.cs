@@ -21,4 +21,3 @@ public sealed partial class IncurableZombieComponent : Component
     [DataField]
     public EntityUid? Action;
 }
-

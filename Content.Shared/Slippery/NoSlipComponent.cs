@@ -20,4 +20,3 @@ public sealed partial class NoSlipComponent : Component
 {
 
 }
-

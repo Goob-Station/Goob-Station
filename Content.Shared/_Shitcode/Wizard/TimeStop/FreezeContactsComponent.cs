@@ -13,4 +13,3 @@ namespace Content.Shared._Goobstation.Wizard.TimeStop;
 public sealed partial class FreezeContactsComponent : Component
 {
 }
-

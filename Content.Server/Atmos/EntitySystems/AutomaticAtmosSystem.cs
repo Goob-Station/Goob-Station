@@ -49,4 +49,3 @@ public sealed class AutomaticAtmosSystem : EntitySystem
         return;
     }
 }
-

@@ -13,4 +13,3 @@ namespace Content.Shared._Goobstation.Wizard.Components;
 public sealed partial class HasJobIconsComponent : Component
 {
 }
-

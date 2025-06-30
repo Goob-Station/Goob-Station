@@ -83,4 +83,3 @@ public sealed class GasMinerSystem : SharedGasMinerSystem
 {
 
 }
-

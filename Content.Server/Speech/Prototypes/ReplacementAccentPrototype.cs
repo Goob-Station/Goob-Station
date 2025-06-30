@@ -34,4 +34,3 @@ public sealed partial class ReplacementAccentPrototype : IPrototype
     [DataField]
     public float ReplacementChance = 1f;
 }
-

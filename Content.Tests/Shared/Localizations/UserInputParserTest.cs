@@ -44,4 +44,3 @@ namespace Content.Tests.Shared.Localizations
         }
     }
 }
-

@@ -44,4 +44,3 @@ public sealed class ShopVendorBoundUserInterface : BoundUserInterface
         _window.OnItemSelected += index => SendMessage(new ShopVendorPurchaseMessage(index));
     }
 }
-

@@ -44,4 +44,3 @@ public sealed class SeeIdentityAttemptEvent : CancellableEntityEventArgs, IInven
     // cumulative coverage from each relayed slot
     public IdentityBlockerCoverage TotalCoverage = IdentityBlockerCoverage.NONE;
 }
-

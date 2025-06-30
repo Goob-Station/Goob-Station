@@ -20,4 +20,3 @@ public sealed partial class SiliconDownOnDeadComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Dead;
 }
-

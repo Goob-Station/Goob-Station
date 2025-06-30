@@ -12,4 +12,3 @@ namespace Content.Client.Access;
 public sealed class AccessSystem : SharedAccessSystem
 {
 }
-

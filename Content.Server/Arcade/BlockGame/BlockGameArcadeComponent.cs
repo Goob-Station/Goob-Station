@@ -28,4 +28,3 @@ public sealed partial class BlockGameArcadeComponent : Component
     /// </summary>
     public readonly List<EntityUid> Spectators = new();
 }
-

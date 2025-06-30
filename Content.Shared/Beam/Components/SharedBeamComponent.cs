@@ -127,4 +127,3 @@ public sealed class BeamVisualizerEvent : EntityEventArgs
         Shader = shader;
     }
 }
-

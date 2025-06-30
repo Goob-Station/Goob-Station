@@ -107,4 +107,3 @@ public sealed class StatusIconSystem : SharedStatusIconSystem
         return true;
     }
 }
-

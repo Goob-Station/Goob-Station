@@ -36,4 +36,3 @@ public sealed class FalseAlarmRule : StationEventSystem<FalseAlarmRuleComponent>
         base.Started(uid, component, gameRule, args);
     }
 }
-

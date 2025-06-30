@@ -192,4 +192,3 @@ public sealed class TrailOverlay : Overlay
         handle.DrawRect(boxRotated, color);
     }
 }
-

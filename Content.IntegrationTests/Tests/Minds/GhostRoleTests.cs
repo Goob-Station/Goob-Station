@@ -139,4 +139,3 @@ public sealed class GhostRoleTests
         await pair.CleanReturnAsync();
     }
 }
-

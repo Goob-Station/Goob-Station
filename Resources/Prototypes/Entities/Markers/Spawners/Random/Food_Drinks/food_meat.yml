@@ -150,4 +150,3 @@
           - id: FoodMeatXenoCutlet
             amount: !type:RangeNumberSelector
               range: 1, 4
-

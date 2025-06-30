@@ -16,4 +16,3 @@ public sealed partial class SecretRuleComponent : Component
     [DataField("additionalGameRules")]
     public HashSet<EntityUid> AdditionalGameRules = new();
 }
-

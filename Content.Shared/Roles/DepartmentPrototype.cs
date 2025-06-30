@@ -154,4 +154,3 @@ public sealed class DepartmentUIComparer : IComparer<DepartmentPrototype>
         return cmp != 0 ? cmp : string.Compare(x.ID, y.ID, StringComparison.Ordinal);
     }
 }
-

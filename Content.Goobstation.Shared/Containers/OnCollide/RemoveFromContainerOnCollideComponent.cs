@@ -83,4 +83,3 @@ public sealed partial class RemoveFromContainerOnCollideComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float EjectPushbackRatio;
 }
-

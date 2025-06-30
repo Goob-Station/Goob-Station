@@ -26,4 +26,3 @@ public record struct SpreadNeighborsEvent
     /// </summary>
     public int Updates;
 }
-

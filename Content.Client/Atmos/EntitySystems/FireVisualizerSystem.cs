@@ -111,4 +111,3 @@ public enum FireVisualLayers : byte
 {
     Fire
 }
-

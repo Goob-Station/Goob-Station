@@ -165,4 +165,3 @@ public sealed class SimpleCensorTests
         Assert.That(output, Is.EqualTo("*********** hello ****** hello *** ********"));
     }
 }
-

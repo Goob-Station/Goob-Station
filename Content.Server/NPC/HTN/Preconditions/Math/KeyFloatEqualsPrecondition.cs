@@ -25,4 +25,3 @@ public sealed partial class KeyFloatEqualsPrecondition : HTNPrecondition
                MathHelper.CloseTo(value, value);
     }
 }
-

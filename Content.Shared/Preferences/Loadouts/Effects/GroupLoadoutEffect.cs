@@ -40,4 +40,3 @@ public sealed partial class GroupLoadoutEffect : LoadoutEffect
         return reason == null;
     }
 }
-

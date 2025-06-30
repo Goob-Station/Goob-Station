@@ -58,4 +58,3 @@ public sealed class ClipControl : Control
         return finalSize;
     }
 }
-

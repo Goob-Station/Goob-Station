@@ -21,4 +21,3 @@ namespace Content.Goobstation.Shared.ChronoLegionnaire.Components
         public float StaminaModifier = 10f;
     }
 }
-

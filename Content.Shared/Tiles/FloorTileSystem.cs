@@ -278,4 +278,3 @@ public sealed class FloorTileSystem : EntitySystem
         return true;
     }
 }
-

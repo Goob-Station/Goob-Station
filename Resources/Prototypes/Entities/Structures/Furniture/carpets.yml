@@ -388,4 +388,3 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
   - type: TrayScanReveal
-

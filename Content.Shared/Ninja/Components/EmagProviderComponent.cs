@@ -46,4 +46,3 @@ public sealed partial class EmagProviderComponent : Component
     [DataField]
     public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
 }
-

@@ -68,4 +68,3 @@ namespace Content.Server.Speech.Muting
         }
     }
 }
-

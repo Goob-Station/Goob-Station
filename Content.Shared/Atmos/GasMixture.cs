@@ -380,4 +380,3 @@ namespace Content.Shared.Atmos
         }
     }
 }
-

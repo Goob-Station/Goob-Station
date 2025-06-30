@@ -75,4 +75,3 @@ public sealed class ChameleonBoundUserInterface : BoundUserInterface
         SendMessage(new ChameleonPrototypeSelectedMessage(selectedId));
     }
 }
-

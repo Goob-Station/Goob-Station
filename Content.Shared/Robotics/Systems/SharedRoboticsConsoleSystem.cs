@@ -14,4 +14,3 @@ namespace Content.Shared.Robotics.Systems;
 public abstract class SharedRoboticsConsoleSystem : EntitySystem
 {
 }
-

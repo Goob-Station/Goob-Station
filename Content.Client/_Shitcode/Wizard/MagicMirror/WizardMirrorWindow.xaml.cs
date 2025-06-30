@@ -738,4 +738,3 @@ public sealed partial class WizardMirrorWindow : DefaultWindow
         UpdateNameEdit();
     }
 }
-

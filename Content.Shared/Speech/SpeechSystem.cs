@@ -43,4 +43,3 @@ namespace Content.Shared.Speech
         }
     }
 }
-

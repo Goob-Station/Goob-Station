@@ -28,4 +28,3 @@ public sealed partial class RejuvenateOnProjectileHitComponent : Component
     [DataField]
     public ProtoId<TagPrototype> SoulTappedTag = "SoulTapped";
 }
-

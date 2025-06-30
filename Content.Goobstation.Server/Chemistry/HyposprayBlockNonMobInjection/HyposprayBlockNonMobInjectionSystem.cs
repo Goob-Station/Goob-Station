@@ -47,4 +47,3 @@ public sealed class HyposprayBlockNonMobInjectionSystem : EntitySystem
         return HasComp<MobStateComponent>(uid);
     }
 }
-

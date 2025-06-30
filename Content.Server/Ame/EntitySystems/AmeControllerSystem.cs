@@ -429,4 +429,3 @@ public sealed class AmeControllerSystem : EntitySystem
         return true;
     }
 }
-

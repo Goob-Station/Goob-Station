@@ -14,4 +14,3 @@ namespace Content.Shared.SubFloor;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TrayScanRevealComponent : Component;
-

@@ -16,4 +16,3 @@ public interface IBanListLine<T> where T : SharedServerBan
     Label Expires { get; }
     Label BanningAdmin { get; }
 }
-

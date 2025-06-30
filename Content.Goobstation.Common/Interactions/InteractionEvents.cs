@@ -16,4 +16,3 @@ public sealed class UseInHandAttemptEvent(EntityUid user) : CancellableEntityEve
 {
     public EntityUid User { get; } = user;
 }
-

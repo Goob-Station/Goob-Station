@@ -58,4 +58,3 @@ public sealed partial class NPCImprintingOnSpawnBehaviourSystem : SharedNPCImpri
         exception.Ignored.Add(friend);
     }
 }
-

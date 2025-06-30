@@ -21,4 +21,3 @@ namespace Content.Shared.Fluids
         Safety
     }
 }
-

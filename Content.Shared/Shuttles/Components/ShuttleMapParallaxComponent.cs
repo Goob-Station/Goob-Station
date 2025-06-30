@@ -20,4 +20,3 @@ public sealed partial class ShuttleMapParallaxComponent : Component
     [DataField, AutoNetworkedField]
     public ResPath TexturePath;
 }
-

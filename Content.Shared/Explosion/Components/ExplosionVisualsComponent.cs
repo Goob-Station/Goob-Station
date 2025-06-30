@@ -65,4 +65,3 @@ public enum ExplosionAppearanceData
 {
     Progress, // iteration index tracker for explosions that are still expanding outwards,
 }
-

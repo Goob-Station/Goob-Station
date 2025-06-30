@@ -21,4 +21,3 @@ namespace Content.Server.GameTicking.Rules.Components;
 /// </summary>
 [RegisterComponent, Access(typeof(ThiefRuleSystem))]
 public sealed partial class ThiefRuleComponent : Component;
-

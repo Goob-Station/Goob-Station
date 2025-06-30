@@ -29,4 +29,3 @@ public sealed class GeigerSystem : SharedGeigerSystem
         component.UiUpdateNeeded = true;
     }
 }
-

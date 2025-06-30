@@ -42,4 +42,3 @@ public enum NoteType
     /// </summary>
     RoleBan = 4,
 }
-

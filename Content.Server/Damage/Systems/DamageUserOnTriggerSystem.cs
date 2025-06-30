@@ -57,4 +57,3 @@ public sealed class BeforeDamageUserOnTriggerEvent : EntityEventArgs
         Tripper = target;
     }
 }
-

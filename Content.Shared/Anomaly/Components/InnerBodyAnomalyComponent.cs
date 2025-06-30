@@ -84,4 +84,3 @@ public sealed partial class InnerBodyAnomalyComponent : Component
 /// </summary>
 [ByRefEvent]
 public record struct BeforeRemoveAnomalyOnDeathEvent(bool Cancelled = false);
-

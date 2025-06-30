@@ -229,4 +229,3 @@ public sealed partial class AutodocWindow : FancyWindow
         UpdatePrograms();
     }
 }
-

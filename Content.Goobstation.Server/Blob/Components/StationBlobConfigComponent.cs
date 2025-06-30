@@ -30,4 +30,3 @@ public sealed partial class StationBlobConfigComponent : Component
     /*[DataField("specForceTeam")]  //Goobstation - Disabled automatic ERT
     public ProtoId<SpecForceTeamPrototype> SpecForceTeam { get; set; } = "RXBZZBlobDefault";*/
 }
-

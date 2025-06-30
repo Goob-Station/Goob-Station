@@ -37,4 +37,3 @@ namespace Content.Shared.Throwing
     /// </summary>
     public sealed class ThrowPushbackAttemptEvent : CancellableEntityEventArgs {}
 }
-

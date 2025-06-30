@@ -60,4 +60,3 @@ public sealed class AdminTestArenaSystem : EntitySystem
         return (mapUid, grid.Value.Owner);
     }
 }
-

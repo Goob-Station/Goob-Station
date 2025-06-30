@@ -37,4 +37,3 @@ public sealed class GasThermomachineChangeTemperatureMessage : BoundUserInterfac
         Temperature = temperature;
     }
 }
-

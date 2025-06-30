@@ -103,4 +103,3 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
             UIBox2.FromDimensions(centerPos - expandedSize * 0.5f, expandedSize), MainColor);
     }
 }
-

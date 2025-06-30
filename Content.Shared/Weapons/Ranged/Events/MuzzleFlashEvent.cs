@@ -26,4 +26,3 @@ public sealed class MuzzleFlashEvent : EntityEventArgs
         Angle = angle;
     }
 }
-

@@ -72,4 +72,3 @@ public sealed class GoliathTentacleSystem : EntitySystem
         args.Handled = true;
     }
 }
-

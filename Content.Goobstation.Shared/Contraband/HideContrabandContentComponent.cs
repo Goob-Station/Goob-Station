@@ -18,4 +18,3 @@ namespace Content.Goobstation.Shared.Contraband;
 public sealed partial class HideContrabandContentComponent : Component
 {
 }
-

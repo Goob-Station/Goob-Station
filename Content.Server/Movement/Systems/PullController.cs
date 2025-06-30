@@ -347,4 +347,3 @@ public sealed class PullController : VirtualController
         }
     }
 }
-

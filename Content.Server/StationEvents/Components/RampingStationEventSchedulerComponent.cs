@@ -48,4 +48,3 @@ public sealed partial class RampingStationEventSchedulerComponent : Component
     [DataField(required: true)]
     public EntityTableSelector ScheduledGameRules = default!;
 }
-

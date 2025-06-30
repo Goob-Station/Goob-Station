@@ -109,4 +109,3 @@ public sealed partial class FaxWindow : DefaultWindow
             PaperButton.Text = Loc.GetString("fax-machine-ui-paper-button-normal");
     }
 }
-

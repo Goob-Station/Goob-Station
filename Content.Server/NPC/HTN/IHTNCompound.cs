@@ -11,4 +11,3 @@ namespace Content.Server.NPC.HTN;
 public interface IHTNCompound
 {
 }
-

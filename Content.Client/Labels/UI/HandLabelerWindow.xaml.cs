@@ -78,4 +78,3 @@ namespace Content.Client.Labels.UI
         }
     }
 }
-

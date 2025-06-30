@@ -108,4 +108,3 @@ public abstract partial class SharedBodySystem : EntitySystem
         return OrganSlotContainerIdPrefix + slotId;
     }
 }
-

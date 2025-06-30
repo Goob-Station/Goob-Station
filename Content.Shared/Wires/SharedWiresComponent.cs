@@ -334,4 +334,3 @@ namespace Content.Shared.Wires
         }
     }
 }
-

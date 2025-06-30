@@ -10,4 +10,3 @@ public record struct AttemptClimbEvent(EntityUid User, EntityUid Climber, Entity
 {
     public bool Cancelled;
 }
-

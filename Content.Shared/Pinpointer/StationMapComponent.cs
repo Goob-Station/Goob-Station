@@ -84,4 +84,3 @@ public sealed partial class StationMapComponent : Component
     [DataField]
     public bool ShowLocation = true;
 }
-

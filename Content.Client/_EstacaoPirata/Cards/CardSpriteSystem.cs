@@ -92,4 +92,3 @@ public sealed class CardSpriteSystem : EntitySystem
         return true;
     }
 }
-

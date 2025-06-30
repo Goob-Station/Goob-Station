@@ -61,4 +61,3 @@ public sealed partial class PaperRandomStoryComponent : Component
     [DataField]
     public ProtoId<StoryTemplatePrototype> Template;
 }
-

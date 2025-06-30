@@ -395,4 +395,3 @@ namespace Content.Client.Chat.UI
         }
     }
 }
-

@@ -29,4 +29,3 @@ public sealed partial class ParticleAcceleratorPartComponent : Component
     [ViewVariables]
     public EntityUid? Master;
 }
-

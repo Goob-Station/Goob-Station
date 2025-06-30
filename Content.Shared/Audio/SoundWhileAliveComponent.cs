@@ -14,4 +14,3 @@ namespace Content.Shared.Audio;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SoundWhileAliveComponent : Component;
-

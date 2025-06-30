@@ -156,4 +156,3 @@ namespace Content.Server.Light.EntitySystems
         }
     }
 }
-

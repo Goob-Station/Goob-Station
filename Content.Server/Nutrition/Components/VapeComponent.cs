@@ -52,4 +52,3 @@ namespace Content.Server.Nutrition.Components // Vapes are very nutritious.
         public string SolutionNeeded = "Water";
     }
 }
-

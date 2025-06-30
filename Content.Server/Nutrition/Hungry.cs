@@ -116,4 +116,3 @@ public sealed class Hungry : LocalizedEntityCommands
         EntityManager.System<HungerSystem>().SetHunger(playerEntity, hungryThreshold, hunger);
     }
 }
-

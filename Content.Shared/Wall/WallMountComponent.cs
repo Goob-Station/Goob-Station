@@ -101,4 +101,3 @@ public sealed partial class WallMountComponent : Component
     [DataField("direction"), AutoNetworkedField]
     public Angle Direction = Angle.Zero;
 }
-

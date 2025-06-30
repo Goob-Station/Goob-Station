@@ -59,4 +59,3 @@ public class GuideEntry
     /// </summary>
     [DataField] public int Priority = 0;
 }
-

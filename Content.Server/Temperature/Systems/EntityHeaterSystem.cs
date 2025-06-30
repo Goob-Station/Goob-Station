@@ -101,4 +101,3 @@ public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
         power.Load = SettingPower(setting, ent.Comp.Power);
     }
 }
-

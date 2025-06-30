@@ -60,4 +60,3 @@ public sealed partial class ToolRefinableComponent : Component
     [DataField]
     public ProtoId<ToolQualityPrototype> QualityNeeded = "Welding";
 }
-

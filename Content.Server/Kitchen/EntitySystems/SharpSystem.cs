@@ -291,4 +291,3 @@ public sealed class SharpSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 }
-

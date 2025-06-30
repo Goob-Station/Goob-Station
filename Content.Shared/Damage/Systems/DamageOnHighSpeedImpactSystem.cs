@@ -112,4 +112,3 @@ public sealed class DamageOnHighSpeedImpactSystem : EntitySystem
         Dirty(uid, collide);
     }
 }
-

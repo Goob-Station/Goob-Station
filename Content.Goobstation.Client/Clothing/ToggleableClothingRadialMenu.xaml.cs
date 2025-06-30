@@ -110,4 +110,3 @@ public sealed class ToggleableClothingRadialMenuButton : RadialMenuTextureButton
 {
     public EntityUid AttachedClothingId { get; set; }
 }
-

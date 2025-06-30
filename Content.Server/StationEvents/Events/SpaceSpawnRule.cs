@@ -71,4 +71,3 @@ public sealed class SpaceSpawnRule : StationEventSystem<SpaceSpawnRuleComponent>
             args.Coordinates.Add(coords);
     }
 }
-

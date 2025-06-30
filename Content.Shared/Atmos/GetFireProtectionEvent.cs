@@ -44,4 +44,3 @@ public sealed class GetFireProtectionEvent : EntityEventArgs, IInventoryRelayEve
         Multiplier = MathF.Max(Multiplier, 0f);
     }
 }
-

@@ -96,4 +96,3 @@ public sealed partial class ReactionMixerSystem : EntitySystem
         return true;
     }
 }
-

@@ -137,4 +137,3 @@ public sealed class EmitSoundSystem : SharedEmitSoundSystem
             SpamEmitSoundReset((entity, entity.Comp));
     }
 }
-

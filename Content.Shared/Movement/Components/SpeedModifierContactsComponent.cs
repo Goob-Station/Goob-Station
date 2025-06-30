@@ -46,4 +46,3 @@ public sealed partial class SpeedModifierContactsComponent : Component
     [DataField]
     public EntityWhitelist? IgnoreWhitelist;
 }
-

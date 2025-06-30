@@ -67,4 +67,3 @@ public enum HwidType
     /// </summary>
     Modern = 1,
 }
-

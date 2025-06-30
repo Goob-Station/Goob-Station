@@ -45,4 +45,3 @@ public sealed partial class NavMapBlipPrototype : IPrototype
     [DataField]
     public float Scale { get; private set; } = 1f;
 }
-

@@ -52,4 +52,3 @@ public sealed partial class StoreOnCollideComponent : Component
     [DataField, AutoNetworkedField]
     public bool DisableOnSleep;
 }
-

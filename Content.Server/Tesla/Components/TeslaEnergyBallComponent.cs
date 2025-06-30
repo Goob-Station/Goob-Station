@@ -59,4 +59,3 @@ public sealed partial class TeslaEnergyBallComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId ConsumeEffectProto = "EffectTeslaSparks";
 }
-

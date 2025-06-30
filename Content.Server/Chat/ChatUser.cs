@@ -37,4 +37,3 @@ public sealed class ChatUser
         Entities.Add(entity);
     }
 }
-

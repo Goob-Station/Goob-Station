@@ -183,4 +183,3 @@ public sealed class GhostTests
     }
 
 }
-

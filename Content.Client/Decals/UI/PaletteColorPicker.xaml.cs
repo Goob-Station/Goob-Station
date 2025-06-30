@@ -59,4 +59,3 @@ public sealed partial class PaletteColorPicker : DefaultWindow
         }
     }
 }
-

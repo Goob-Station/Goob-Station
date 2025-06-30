@@ -18,4 +18,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool>
         EventsEnabled = CVarDef.Create("events.enabled", true, CVar.ARCHIVE | CVar.SERVERONLY);
 }
-

@@ -44,4 +44,3 @@ public sealed partial class ContrabandComponent : Component
     [AutoNetworkedField]
     public HashSet<ProtoId<JobPrototype>> AllowedJobs = new();
 }
-

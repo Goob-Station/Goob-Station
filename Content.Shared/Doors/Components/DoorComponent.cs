@@ -353,4 +353,3 @@ public enum DoorVisualLayers : byte
     BaseBolted,
     BaseEmergencyAccess,
 }
-

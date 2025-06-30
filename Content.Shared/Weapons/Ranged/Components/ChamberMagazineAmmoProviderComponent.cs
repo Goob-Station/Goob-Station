@@ -121,4 +121,3 @@ public sealed partial class ChamberMagazineAmmoProviderComponent : MagazineAmmoP
     [ViewVariables(VVAccess.ReadWrite), DataField("soundRack"), AutoNetworkedField]
     public SoundSpecifier? RackSound = new SoundPathSpecifier("/Audio/Weapons/Guns/Cock/ltrifle_cock.ogg");
 }
-

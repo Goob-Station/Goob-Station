@@ -12,4 +12,3 @@ namespace Content.Shared.Atmos.Piping.Unary;
 public sealed partial class VentScrewedDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

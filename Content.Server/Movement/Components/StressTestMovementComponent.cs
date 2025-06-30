@@ -18,4 +18,3 @@ public sealed partial class StressTestMovementComponent : Component
     public float Progress { get; set; }
     public Vector2 Origin { get; set; }
 }
-

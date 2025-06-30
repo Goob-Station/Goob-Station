@@ -34,4 +34,3 @@ public sealed class EmergencyLightSystem : VisualizerSystem<EmergencyLightCompon
         }
     }
 }
-

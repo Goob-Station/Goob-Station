@@ -315,4 +315,3 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
         Key,
     }
 }
-

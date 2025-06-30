@@ -80,4 +80,3 @@ public sealed partial class PlayerConnectionWhitelistPrototype : IPrototype
     [DataField]
     public WhitelistCondition[] Conditions = default!;
 }
-

@@ -72,4 +72,3 @@ namespace Content.Client.Power.APC
         }
     }
 }
-

@@ -20,4 +20,3 @@ public sealed partial class ModifyDelayedKnockdownComponent : Component
     [DataField]
     public float KnockdownTimeDelta;
 }
-

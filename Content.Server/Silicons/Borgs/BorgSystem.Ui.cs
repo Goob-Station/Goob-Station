@@ -119,4 +119,3 @@ public sealed partial class BorgSystem
         _ui.SetUiState(uid, BorgUiKey.Key, state);
     }
 }
-

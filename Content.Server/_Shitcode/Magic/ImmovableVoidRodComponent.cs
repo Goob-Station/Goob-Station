@@ -18,4 +18,3 @@ public sealed partial class ImmovableVoidRodComponent : Component
     public float Accumulator = 0f;
     [NonSerialized] public Entity<HereticComponent>? User = null;
 }
-

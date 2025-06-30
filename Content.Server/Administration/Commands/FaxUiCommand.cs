@@ -36,4 +36,3 @@ public sealed class FaxUiCommand : IConsoleCommand
         eui.OpenEui(ui, player);
     }
 }
-

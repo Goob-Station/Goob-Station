@@ -27,4 +27,3 @@ public sealed partial class ActionsProviderSystem : EntitySystem
             _actions.AddAction(ent, action);
     }
 }
-

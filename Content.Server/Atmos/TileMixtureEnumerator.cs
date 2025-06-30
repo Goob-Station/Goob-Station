@@ -34,4 +34,3 @@ public struct TileMixtureEnumerator
         return false;
     }
 }
-

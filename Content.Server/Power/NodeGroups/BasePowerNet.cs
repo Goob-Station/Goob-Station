@@ -67,4 +67,3 @@ public abstract class BasePowerNet<TNetType> : BaseNetConnectorNodeGroup<TNetTyp
 
     public abstract void QueueNetworkReconnect();
 }
-

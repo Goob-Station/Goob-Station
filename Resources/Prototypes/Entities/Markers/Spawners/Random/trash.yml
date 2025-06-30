@@ -76,4 +76,3 @@
     offset: 0.2
     table: !type:NestedSelector
       tableId: GenericTrashItems
-

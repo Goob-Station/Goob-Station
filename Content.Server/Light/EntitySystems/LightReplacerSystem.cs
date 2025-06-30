@@ -273,4 +273,3 @@ public sealed class LightReplacerSystem : SharedLightReplacerSystem
         _container.EmptyContainer(replacer.Comp.InsertedBulbs, destination: args.ReclaimerCoordinates);
     }
 }
-

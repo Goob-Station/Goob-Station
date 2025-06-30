@@ -188,4 +188,3 @@ public sealed partial class ItemStatusPanel : Control
         }
     }
 }
-

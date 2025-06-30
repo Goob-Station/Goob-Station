@@ -20,4 +20,3 @@ public sealed partial class ContainerHeldComponent: Component
     [DataField("threshold")]
     public int Threshold { get; private set; } = 1;
 }
-

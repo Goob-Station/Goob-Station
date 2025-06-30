@@ -431,4 +431,3 @@
         conditions:
         - !type:ReagentThreshold
           min: 50
-

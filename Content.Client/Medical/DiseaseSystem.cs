@@ -12,4 +12,3 @@ public enum DiseaseMachineVisualLayers : byte
     IsOn,
     IsRunning
 }
-

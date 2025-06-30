@@ -18,4 +18,3 @@ namespace Content.Server.Sound.Components
     {
     }
 }
-

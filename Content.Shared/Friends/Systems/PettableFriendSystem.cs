@@ -80,4 +80,3 @@ public sealed class PettableFriendSystem : EntitySystem
         _factionException.IgnoreEntities(args.Entity, comp.Ignored);
     }
 }
-

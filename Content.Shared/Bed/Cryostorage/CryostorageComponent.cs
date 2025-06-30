@@ -117,4 +117,3 @@ public enum CryostorageUIKey : byte
 {
     Key
 }
-

@@ -32,4 +32,3 @@ public abstract class PollingItemStatusControl<TData> : Control where TData : st
     protected abstract TData PollData();
     protected abstract void Update(in TData data);
 }
-

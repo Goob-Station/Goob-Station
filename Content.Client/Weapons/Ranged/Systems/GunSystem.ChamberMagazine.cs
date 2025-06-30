@@ -87,4 +87,3 @@ public sealed partial class GunSystem
         control.Update(chambered != null, magEntity != null, ammoCountEv.Count, ammoCountEv.Capacity);
     }
 }
-

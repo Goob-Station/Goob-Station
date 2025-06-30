@@ -20,4 +20,3 @@ public enum ToggleableGhostRoleStatus : byte
     Searching,
     On
 }
-

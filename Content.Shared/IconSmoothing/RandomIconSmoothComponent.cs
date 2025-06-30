@@ -19,4 +19,3 @@ public sealed partial class RandomIconSmoothComponent : Component
     [DataField(required: true)]
     public List<string> RandomStates = new();
 }
-

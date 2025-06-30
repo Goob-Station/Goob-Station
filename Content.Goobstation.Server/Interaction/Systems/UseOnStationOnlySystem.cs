@@ -33,4 +33,3 @@ public sealed partial class UseOnStationOnlySystem : EntitySystem
         args.Cancel();
     }
 }
-

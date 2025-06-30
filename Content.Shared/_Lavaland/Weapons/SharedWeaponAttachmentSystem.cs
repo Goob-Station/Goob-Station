@@ -184,4 +184,3 @@ public abstract partial class SharedWeaponAttachmentSystem : EntitySystem
         Dirty(uid, component);
     }
 }
-

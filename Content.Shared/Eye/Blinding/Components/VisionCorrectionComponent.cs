@@ -28,4 +28,3 @@ public sealed partial class VisionCorrectionComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("correctionPower"), AutoNetworkedField]
     public float CorrectionPower = 2f;
 }
-

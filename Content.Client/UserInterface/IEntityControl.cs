@@ -13,4 +13,3 @@ public interface IEntityControl
 {
     EntityUid? UiEntity { get; }
 }
-

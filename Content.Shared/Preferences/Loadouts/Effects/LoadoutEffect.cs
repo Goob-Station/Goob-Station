@@ -27,4 +27,3 @@ public abstract partial class LoadoutEffect
 
     public virtual void Apply(RoleLoadout loadout) {}
 }
-

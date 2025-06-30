@@ -18,4 +18,3 @@ public sealed class StationsUpdatedEvent : EntityEventArgs
         Stations = stations;
     }
 }
-

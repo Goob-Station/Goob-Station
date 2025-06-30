@@ -221,4 +221,3 @@ public sealed partial class MappingSystem : EntitySystem
             _placementMan.ToggleEraser();
     }
 }
-

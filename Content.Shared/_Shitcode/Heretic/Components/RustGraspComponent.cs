@@ -28,4 +28,3 @@ public sealed partial class RustGraspComponent : Component
     [DataField]
     public EntProtoId TileRune = "TileHereticRustRune";
 }
-

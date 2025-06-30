@@ -133,4 +133,3 @@ public enum GasMinerState : byte
     Idle,
     Working,
 }
-

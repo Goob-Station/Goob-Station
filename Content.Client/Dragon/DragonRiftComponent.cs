@@ -13,4 +13,3 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
 {
 
 }
-

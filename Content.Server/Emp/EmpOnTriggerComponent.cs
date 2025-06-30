@@ -29,4 +29,3 @@ public sealed partial class EmpOnTriggerComponent : Component
     [DataField("disableDuration"), ViewVariables(VVAccess.ReadWrite)]
     public float DisableDuration = 60f;
 }
-

@@ -113,4 +113,3 @@ public sealed partial class PlayerTabEntry : PanelContainer
         OverallPlaytimeLabel.Text = player.PlaytimeString;
     }
 }
-

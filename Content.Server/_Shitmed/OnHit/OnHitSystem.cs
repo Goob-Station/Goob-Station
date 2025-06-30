@@ -41,4 +41,3 @@ public sealed partial class OnHitSystem : SharedOnHitSystem
             QueueDel(handcuffs);
     }
 }
-

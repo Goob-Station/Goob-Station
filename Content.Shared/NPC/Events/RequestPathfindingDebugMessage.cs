@@ -12,4 +12,3 @@ public sealed class RequestPathfindingDebugMessage : EntityEventArgs
 {
     public PathfindingDebugMode Mode;
 }
-

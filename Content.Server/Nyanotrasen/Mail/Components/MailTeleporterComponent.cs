@@ -125,4 +125,3 @@ namespace Content.Server.Mail.Components
         // End Frontier: Large mail
     }
 }
-

@@ -12,4 +12,3 @@ public sealed partial class FlippingComponent : Component
 {
     public const string AnimationKey = "flip";
 }
-

@@ -62,4 +62,3 @@
       enum.GatewayUiKey.Key:
         type: GatewayBoundUserInterface
   - type: Gateway
-

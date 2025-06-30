@@ -37,4 +37,3 @@ public sealed partial class GridPathfindingComponent : Component
     [ViewVariables]
     public readonly List<PathPortal> DirtyPortals = new();
 }
-

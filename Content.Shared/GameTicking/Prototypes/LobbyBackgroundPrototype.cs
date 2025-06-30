@@ -37,4 +37,3 @@ public sealed partial class LobbyBackgroundPrototype : IPrototype
     [DataField("artist")]
     public string? Artist;
 }
-

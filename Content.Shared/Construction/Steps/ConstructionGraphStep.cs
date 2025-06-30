@@ -32,4 +32,3 @@ namespace Content.Shared.Construction.Steps
         public abstract ConstructionGuideEntry GenerateGuideEntry();
     }
 }
-

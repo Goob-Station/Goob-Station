@@ -164,4 +164,3 @@ public sealed class CrayonSystem : SharedCrayonSystem
         EntityManager.QueueDeleteEntity(uid);
     }
 }
-

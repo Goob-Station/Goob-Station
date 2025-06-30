@@ -115,4 +115,3 @@ public enum PaperVisualLayers
     Stamp,
     Writing
 }
-

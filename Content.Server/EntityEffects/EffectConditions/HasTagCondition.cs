@@ -45,4 +45,3 @@ public sealed partial class HasTag : EntityEffectCondition
         return Loc.GetString("reagent-effect-condition-guidebook-has-tag", ("tag", Tag), ("invert", Invert));
     }
 }
-

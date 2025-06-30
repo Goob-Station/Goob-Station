@@ -36,4 +36,3 @@ public sealed partial class ListingRelativeLimitedStockCondition : ListingCondit
         return false;
     }
 }
-

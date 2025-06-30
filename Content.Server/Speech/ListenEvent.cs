@@ -26,4 +26,3 @@ public sealed class ListenAttemptEvent : CancellableEntityEventArgs
         Source = source;
     }
 }
-

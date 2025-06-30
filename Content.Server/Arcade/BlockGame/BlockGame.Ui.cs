@@ -362,4 +362,3 @@ public sealed partial class BlockGame
         SendMessage(new BlockGameMessages.BlockGameHighScoreUpdateMessage(_arcadeSystem.GetLocalHighscores(), _arcadeSystem.GetGlobalHighscores()), actor);
     }
 }
-

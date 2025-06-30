@@ -46,4 +46,3 @@ public sealed partial class AttachedClothingComponent : Component
     [ViewVariables]
     public ContainerSlot ClothingContainer = default!;
 }
-

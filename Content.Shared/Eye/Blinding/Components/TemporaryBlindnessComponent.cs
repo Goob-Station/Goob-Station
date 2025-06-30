@@ -16,4 +16,3 @@ namespace Content.Shared.Eye.Blinding.Components;
 public sealed partial class TemporaryBlindnessComponent : Component
 {
 }
-

@@ -127,4 +127,3 @@ public ref struct LogStringHandler
         return _handler.ToStringAndClear();
     }
 }
-

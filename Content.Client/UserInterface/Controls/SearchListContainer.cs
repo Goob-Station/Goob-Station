@@ -72,4 +72,3 @@ public sealed class SearchListContainer : ListContainer
         base.PopulateList(filteredData);
     }
 }
-

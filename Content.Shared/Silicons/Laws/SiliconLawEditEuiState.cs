@@ -102,4 +102,3 @@ public sealed class SiliconLawsSaveMessage : EuiMessageBase
         Target = target;
     }
 }
-

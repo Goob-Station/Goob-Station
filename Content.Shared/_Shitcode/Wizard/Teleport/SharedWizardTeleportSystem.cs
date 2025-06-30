@@ -35,4 +35,3 @@ public abstract class SharedWizardTeleportSystem : EntitySystem
         args.PushMarkup(Loc.GetString("teleport-scroll-uses-left", ("uses", ent.Comp.UsesLeft)));
     }
 }
-

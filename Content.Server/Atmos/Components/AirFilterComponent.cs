@@ -50,4 +50,3 @@ public sealed partial class AirFilterComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float TransferRate = 0.1f;
 }
-

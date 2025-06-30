@@ -81,4 +81,3 @@ public sealed partial class FatExtractorComponent : Component
     [DataField("minHungerThreshold")]
     public HungerThreshold MinHungerThreshold = HungerThreshold.Okay;
 }
-

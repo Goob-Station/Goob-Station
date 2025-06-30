@@ -298,4 +298,3 @@ public abstract class SharedEmitSoundSystem : EntitySystem
     {
     }
 }
-

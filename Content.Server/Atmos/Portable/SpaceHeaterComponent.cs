@@ -66,4 +66,3 @@ public sealed partial class SpaceHeaterComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float PowerConsumption = 3500f;
 }
-

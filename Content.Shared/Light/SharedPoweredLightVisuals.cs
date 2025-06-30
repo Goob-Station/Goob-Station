@@ -36,4 +36,3 @@ namespace Content.Shared.Light
         Glow
     }
 }
-

@@ -23,4 +23,3 @@ public sealed partial class MovementSoundComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? SoundEntity;
 }
-

@@ -162,4 +162,3 @@ public sealed partial class DialogWindow : FancyWindow
 
     #endregion
 }
-

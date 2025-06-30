@@ -113,4 +113,3 @@
           steps:
             - tool: Anchoring
               doAfter: 2
-

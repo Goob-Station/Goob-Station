@@ -79,4 +79,3 @@ public sealed class MemoryCellSystem : EntitySystem
         _deviceLink.SendSignal(ent, ent.Comp1.OutputPort, value, ent.Comp2);
     }
 }
-

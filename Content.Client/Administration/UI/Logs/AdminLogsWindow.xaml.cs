@@ -22,4 +22,3 @@ public sealed partial class AdminLogsWindow : DefaultWindow
         RobustXamlLoader.Load(this);
     }
 }
-

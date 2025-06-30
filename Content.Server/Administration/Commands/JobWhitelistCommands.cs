@@ -219,4 +219,3 @@ public sealed class RemoveJobWhitelistCommand : LocalizedCommands
         return CompletionResult.Empty;
     }
 }
-

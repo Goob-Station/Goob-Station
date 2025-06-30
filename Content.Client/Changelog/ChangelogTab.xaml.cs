@@ -182,4 +182,3 @@ public sealed partial class ChangelogTab : Control
         };
     }
 }
-

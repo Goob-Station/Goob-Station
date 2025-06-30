@@ -56,4 +56,3 @@ public sealed partial class DoorBoltComponent : Component
     [DataField, AutoNetworkedField]
     public bool Powered;
 }
-

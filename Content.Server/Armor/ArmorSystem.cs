@@ -53,4 +53,3 @@ public sealed class ArmorSystem : SharedArmorSystem
         }
     }
 }
-

@@ -111,4 +111,3 @@ public sealed class ClimbingTest : MovementTest
         });
     }
 }
-

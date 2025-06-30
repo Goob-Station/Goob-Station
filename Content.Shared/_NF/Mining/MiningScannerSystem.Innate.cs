@@ -36,4 +36,3 @@ public sealed partial class MiningScannerSystem : EntitySystem
         Dirty(ent.Owner, comp);
     }
 }
-

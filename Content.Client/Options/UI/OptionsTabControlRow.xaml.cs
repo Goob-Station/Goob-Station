@@ -806,4 +806,3 @@ public sealed class OptionDropDownCVar<T> : BaseOptionCVar<T> where T : notnull
         public T Key;
     }
 }
-

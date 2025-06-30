@@ -130,4 +130,3 @@ public sealed class GetBriefingEvent
         }
     }
 }
-

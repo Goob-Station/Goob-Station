@@ -143,4 +143,3 @@ public enum ImplanterImplantOnlyVisuals : byte
 {
     ImplantOnly
 }
-

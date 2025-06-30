@@ -38,4 +38,3 @@ public sealed class WallConstruction : InteractionTest
         await AssertEntityLookup((Steel, 4));
     }
 }
-

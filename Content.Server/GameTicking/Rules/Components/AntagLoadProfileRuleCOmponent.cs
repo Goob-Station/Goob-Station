@@ -46,4 +46,3 @@ public sealed partial class AntagLoadProfileRuleComponent : Component
     [DataField]
     public ProtoId<SpeciesPrototype>? SpeciesHardOverride;
 }
-

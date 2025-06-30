@@ -146,4 +146,3 @@ namespace Content.Server.Power.EntitySystems
         }
     }
 }
-

@@ -138,4 +138,3 @@
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
       networkSet: true
-

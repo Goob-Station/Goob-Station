@@ -78,4 +78,3 @@ public sealed record GeneralStationRecord
     [DataField]
     public string? DNA;
 }
-

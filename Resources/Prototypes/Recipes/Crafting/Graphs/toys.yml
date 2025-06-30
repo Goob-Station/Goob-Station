@@ -43,4 +43,3 @@
         doAfter: 5
   - node: suit
     entity: ClothingOuterSuitIan
-

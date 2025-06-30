@@ -39,4 +39,3 @@ public enum RefundUiKey : byte
 {
     Key
 }
-

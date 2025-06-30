@@ -84,4 +84,3 @@ public sealed partial class GatewayComponent : Component
     [DataField]
     public ProtoId<TagPrototype>? TagRestriction;
 }
-

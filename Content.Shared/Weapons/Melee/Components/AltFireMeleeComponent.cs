@@ -25,4 +25,3 @@ public enum AltFireAttackType : byte
     Heavy = 1 << 0, // Wide swing.
     Disarm = 1 << 1
 }
-

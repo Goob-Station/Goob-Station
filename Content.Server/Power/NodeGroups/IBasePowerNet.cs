@@ -33,4 +33,3 @@ namespace Content.Server.Power.NodeGroups
         PowerState.Network NetworkNode { get; }
     }
 }
-

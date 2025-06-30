@@ -10,4 +10,3 @@ namespace Content.Shared.Morgue.Components;
 public sealed partial class EntityStorageLayingDownOverrideComponent : Component
 {
 }
-

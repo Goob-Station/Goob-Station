@@ -317,4 +317,3 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler
         }
     }
 }
-

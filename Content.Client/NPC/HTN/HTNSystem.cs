@@ -58,4 +58,3 @@ public sealed class HTNSystem : EntitySystem
         htn.DebugText = ev.Text;
     }
 }
-

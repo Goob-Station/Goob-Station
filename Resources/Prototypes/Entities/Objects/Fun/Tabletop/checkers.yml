@@ -78,4 +78,3 @@
     - type: Sprite
       sprite: Objects/Fun/Tabletop/checker_pieces.rsi
       state: b_checker_crown
-

@@ -590,4 +590,3 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
     }
     #endregion Event Handlers
 }
-

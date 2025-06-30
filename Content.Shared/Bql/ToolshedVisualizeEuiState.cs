@@ -21,4 +21,3 @@ public sealed class ToolshedVisualizeEuiState : EuiStateBase
         Entities = entities;
     }
 }
-

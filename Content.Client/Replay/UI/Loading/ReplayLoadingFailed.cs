@@ -39,4 +39,3 @@ public sealed class ReplayLoadingFailed : State
         _control?.Orphan();
     }
 }
-

@@ -18,4 +18,3 @@ namespace Content.Shared.Emoting
         public EntityUid Uid { get; }
     }
 }
-

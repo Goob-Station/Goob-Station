@@ -62,4 +62,3 @@ public sealed partial class ClimbingComponent : Component
     [AutoNetworkedField, DataField]
     public Dictionary<string, int> DisabledFixtureMasks = new();
 }
-

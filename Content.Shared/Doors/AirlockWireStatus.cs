@@ -42,4 +42,3 @@ namespace Content.Shared.Doors
         SafetyIndicator,
     }
 }
-

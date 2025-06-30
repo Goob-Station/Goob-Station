@@ -22,4 +22,3 @@ namespace Content.Server.Roles;
 public sealed partial class DragonRoleComponent : BaseMindRoleComponent
 {
 }
-

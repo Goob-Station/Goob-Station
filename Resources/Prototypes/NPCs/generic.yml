@@ -28,4 +28,3 @@
     - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:DropOperator
-

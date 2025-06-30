@@ -29,4 +29,3 @@
     state: cpu_supply
   - type: ComputerBoard
     prototype: ComputerShuttleMiningLavaland
-

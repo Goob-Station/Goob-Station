@@ -16,4 +16,3 @@ public sealed partial class HierophantBeatComponent : Component
     [DataField]
     public string HierophantBeatAlertKey = "HierophantBeat";
 }
-

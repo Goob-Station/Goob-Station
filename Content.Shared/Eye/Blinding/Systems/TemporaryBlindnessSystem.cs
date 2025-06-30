@@ -42,4 +42,3 @@ public sealed class TemporaryBlindnessSystem : EntitySystem
             args.Cancel();
     }
 }
-

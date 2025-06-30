@@ -54,4 +54,3 @@ public enum GibContentsOption : byte
     Drop,
     Gib
 }
-

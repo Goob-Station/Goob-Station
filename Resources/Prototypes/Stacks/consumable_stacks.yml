@@ -98,4 +98,3 @@
   name: stack-dried-rainbow-cannabis-leaves
   icon: { sprite: /Textures/Objects/Specific/Hydroponics/rainbow_cannabis.rsi, state: dried }
   spawn: LeavesCannabisRainbowDried
-

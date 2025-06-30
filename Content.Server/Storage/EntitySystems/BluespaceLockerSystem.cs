@@ -490,4 +490,3 @@ public sealed class BluespaceLockerSystem : EntitySystem
         }
     }
 }
-

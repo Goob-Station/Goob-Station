@@ -12,4 +12,3 @@ public enum PathResult : byte
     Path,
     Continuing,
 }
-

@@ -192,4 +192,3 @@
 - type: entity
   parent: [BaseBureaucraticStorageFill, filingCabinetDrawer]
   id: filingCabinetDrawerRandom
-

@@ -32,4 +32,3 @@ namespace Content.Shared.Database
         High = 3,
     }
 }
-

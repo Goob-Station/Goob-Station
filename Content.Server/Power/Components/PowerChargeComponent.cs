@@ -71,4 +71,3 @@ public sealed partial class PowerChargeComponent : SharedPowerChargeComponent
     [ViewVariables]
     public bool NeedUIUpdate { get; set; }
 }
-

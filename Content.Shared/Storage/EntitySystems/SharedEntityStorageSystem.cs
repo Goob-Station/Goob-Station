@@ -525,4 +525,3 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         _container.EmptyContainer(component.Contents, destination: args.ReclaimerCoordinates);
     }
 }
-

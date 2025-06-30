@@ -39,4 +39,3 @@ public sealed partial class DisposalSignalRouterComponent : Component
     [DataField]
     public ProtoId<SinkPortPrototype> TogglePort = "Toggle";
 }
-

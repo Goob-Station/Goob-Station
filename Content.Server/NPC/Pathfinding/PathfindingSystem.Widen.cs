@@ -93,4 +93,3 @@ public sealed partial class PathfindingSystem
         public required List<Vector2i> Path;
     }
 }
-

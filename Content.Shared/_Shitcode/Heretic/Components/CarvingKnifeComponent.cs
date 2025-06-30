@@ -64,4 +64,3 @@ public sealed partial class CarveRuneDoAfterEvent(ProtoId<RuneCarvingPrototype> 
 }
 
 public sealed partial class DeleteAllCarvingsEvent : InstantActionEvent;
-

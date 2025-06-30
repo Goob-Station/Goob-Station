@@ -95,4 +95,3 @@ public sealed class AnomalySystem : SharedAnomalySystem
         _sprite.SetColor((ent.Owner, sprite), sprite.Color.WithAlpha(1f));
     }
 }
-

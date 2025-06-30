@@ -131,4 +131,3 @@ public sealed class AirAlarmBoundUserInterface : BoundUserInterface
             _window?.Dispose();
     }
 }
-

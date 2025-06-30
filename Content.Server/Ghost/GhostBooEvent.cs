@@ -13,4 +13,3 @@ namespace Content.Server.Ghost
 
     }
 }
-

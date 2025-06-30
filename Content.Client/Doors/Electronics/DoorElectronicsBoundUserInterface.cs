@@ -72,4 +72,3 @@ public sealed class DoorElectronicsBoundUserInterface : BoundUserInterface
         SendMessage(new DoorElectronicsUpdateConfigurationMessage(newAccessList));
     }
 }
-

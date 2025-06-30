@@ -36,4 +36,3 @@ public sealed partial class CanPerformComboComponent : Component
     [DataField]
     public int ConsecutiveGnashes = 0;
 }
-

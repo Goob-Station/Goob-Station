@@ -29,4 +29,3 @@ public sealed partial class NameIdentifierComponent : Component
     [DataField("fullIdentifier"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public string FullIdentifier = string.Empty;
 }
-

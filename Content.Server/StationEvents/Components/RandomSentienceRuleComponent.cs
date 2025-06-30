@@ -19,4 +19,3 @@ public sealed partial class RandomSentienceRuleComponent : Component
     [DataField]
     public int MaxSentiences = 1;
 }
-

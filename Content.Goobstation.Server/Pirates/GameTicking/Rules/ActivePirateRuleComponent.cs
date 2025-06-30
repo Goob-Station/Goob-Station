@@ -19,4 +19,3 @@ public sealed partial class ActivePirateRuleComponent : Component
     [ViewVariables(VVAccess.ReadWrite)] public float Credits = 0f;
     [ViewVariables(VVAccess.ReadWrite)] public EntityUid? BoundSiphon;
 }
-

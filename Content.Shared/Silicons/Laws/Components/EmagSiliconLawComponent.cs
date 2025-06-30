@@ -48,4 +48,3 @@ public sealed partial class EmagSiliconLawComponent : Component
     public SoundSpecifier EmaggedSound = new SoundPathSpecifier("/Audio/Ambience/Antag/emagged_borg.ogg");
 
 }
-

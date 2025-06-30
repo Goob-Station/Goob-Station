@@ -33,4 +33,3 @@ public enum BoundaryWallFlags : byte
     Rooms = 1 << 0,
     Corridors = 1 << 1,
 }
-

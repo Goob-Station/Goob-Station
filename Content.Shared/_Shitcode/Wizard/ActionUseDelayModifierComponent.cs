@@ -15,4 +15,3 @@ public sealed partial class ActionUseDelayModifierComponent : Component
     [DataField(required: true)]
     public TimeSpan? UseDelay;
 }
-

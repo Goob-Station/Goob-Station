@@ -19,4 +19,3 @@ public sealed partial class MechAssemblyVisualsComponent : Component
     [DataField("statePrefix", required: true)]
     public string StatePrefix = string.Empty;
 }
-

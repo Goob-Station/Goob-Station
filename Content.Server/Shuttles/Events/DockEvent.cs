@@ -18,4 +18,3 @@ public sealed class DockEvent : EntityEventArgs
     public EntityUid GridAUid = default!;
     public EntityUid GridBUid = default!;
 }
-

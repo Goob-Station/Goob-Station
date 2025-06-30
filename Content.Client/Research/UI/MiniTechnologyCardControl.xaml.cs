@@ -37,4 +37,3 @@ public sealed partial class MiniTechnologyCardControl : Control
         Technology = technology;
     }
 }
-

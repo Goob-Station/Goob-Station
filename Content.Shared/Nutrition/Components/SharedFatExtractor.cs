@@ -19,4 +19,3 @@ public enum FatExtractorVisualLayers : byte
     Stack,
     Smoke
 }
-

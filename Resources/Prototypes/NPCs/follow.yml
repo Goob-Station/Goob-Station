@@ -62,4 +62,3 @@
               rangeKey: FollowRange
           operator: !type:WaitOperator
             key: IdleTime
-

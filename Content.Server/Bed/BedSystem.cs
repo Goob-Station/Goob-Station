@@ -211,4 +211,3 @@ namespace Content.Server.Bed
         }
     }
 }
-

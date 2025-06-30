@@ -43,4 +43,3 @@ public sealed class AtmosMonitoringConsoleBoundUserInterface : BoundUserInterfac
         _menu?.Dispose();
     }
 }
-

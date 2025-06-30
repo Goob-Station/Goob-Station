@@ -87,4 +87,3 @@ public enum OptionVisualizerOptions
     /// </summary>
     ReducedMotion = 1 << 1,
 }
-

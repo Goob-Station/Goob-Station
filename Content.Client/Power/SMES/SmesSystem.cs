@@ -56,4 +56,3 @@ public enum SmesVisualLayers : byte
     Charge,
     Output,
 }
-

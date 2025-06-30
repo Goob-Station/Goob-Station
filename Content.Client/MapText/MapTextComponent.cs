@@ -23,4 +23,3 @@ public sealed partial class MapTextComponent : SharedMapTextComponent
     /// </summary>
     public string CachedText = string.Empty;
 }
-

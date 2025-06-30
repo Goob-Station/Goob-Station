@@ -51,4 +51,3 @@ public sealed class SpawnEntityEffectSystem : EntitySystem
 
 
 }
-

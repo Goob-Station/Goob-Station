@@ -114,4 +114,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> ExplosionCanCreateVacuum =
         CVarDef.Create("explosion.can_create_vacuum", true, CVar.SERVERONLY);
 }
-

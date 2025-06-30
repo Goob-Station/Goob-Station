@@ -24,4 +24,3 @@ public sealed class RenderedGridImage<T> where T : unmanaged, IPixel<T>
         Image = image;
     }
 }
-

@@ -31,4 +31,3 @@ public sealed partial class SpeciesLoadoutEffect : LoadoutEffect
         return false;
     }
 }
-

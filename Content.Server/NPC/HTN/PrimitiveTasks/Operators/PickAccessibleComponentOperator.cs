@@ -113,4 +113,3 @@ public sealed partial class PickAccessibleComponentOperator : HTNOperator
         return (false, null);
     }
 }
-

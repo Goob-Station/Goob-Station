@@ -22,4 +22,3 @@ public abstract class SharedLightningSystem : EntitySystem
         return ("lightning_" + spriteStateNumber);
     }
 }
-

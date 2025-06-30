@@ -48,4 +48,3 @@ namespace Content.Shared.Eui
         }
     }
 }
-

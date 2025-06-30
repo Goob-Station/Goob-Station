@@ -41,4 +41,3 @@ namespace Content.Shared.Atmos.Piping.Binary.Components
         }
     }
 }
-

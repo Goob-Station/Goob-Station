@@ -22,4 +22,3 @@ public sealed class RedialManager : SharedRedialManager
     private void RedialOnMessage(MsgRedial message)
         => IoCManager.Resolve<IGameController>().Redial(message.Address);
 }
-

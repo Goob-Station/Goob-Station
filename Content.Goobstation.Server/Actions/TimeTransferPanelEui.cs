@@ -140,4 +140,3 @@ public sealed class TimeTransferPanelEui : BaseEui
         StateDirty();
     }
 }
-

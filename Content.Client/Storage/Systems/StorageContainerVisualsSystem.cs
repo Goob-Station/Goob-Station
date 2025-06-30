@@ -49,4 +49,3 @@ public sealed class StorageContainerVisualsSystem : VisualizerSystem<StorageCont
         }
     }
 }
-

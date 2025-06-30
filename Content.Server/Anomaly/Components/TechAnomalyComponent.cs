@@ -64,4 +64,3 @@ public sealed partial class TechAnomalyComponent : Component
     [DataField]
     public float TimerFrequency = 3f;
 }
-

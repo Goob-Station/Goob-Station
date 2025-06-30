@@ -209,4 +209,3 @@ public sealed partial class AdminNotesLine : BoxContainer
         OnClicked = null;
     }
 }
-

@@ -44,4 +44,3 @@ public sealed partial class ProduceComponent : SharedProduceComponent
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SeedPrototype>))]
     public string? SeedId;
 }
-

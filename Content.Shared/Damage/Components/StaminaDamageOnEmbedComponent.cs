@@ -27,4 +27,3 @@ public sealed partial class StaminaDamageOnEmbedComponent : Component
     [DataField]
     public float Overtime = 0f;
 }
-

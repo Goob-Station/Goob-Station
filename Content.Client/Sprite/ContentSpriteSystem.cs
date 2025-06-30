@@ -232,4 +232,3 @@ public sealed class ContentSpriteSystem : EntitySystem
         }
     }
 }
-

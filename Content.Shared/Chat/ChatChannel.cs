@@ -127,4 +127,3 @@ namespace Content.Shared.Chat
         AdminRelated = Admin | AdminAlert | AdminChat,
     }
 }
-

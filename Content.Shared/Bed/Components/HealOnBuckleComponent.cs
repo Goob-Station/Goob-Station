@@ -76,4 +76,3 @@ namespace Content.Shared.Bed.Components
         public EntityUid? SleepAction;
     }
 }
-

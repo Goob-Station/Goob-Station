@@ -152,4 +152,3 @@ var yaml = patronList.Select(p => $"""
 var output = string.Join(NewLine, yaml) + NewLine;
 File.WriteAllText(patronsPath, output);
 Console.WriteLine($"Updated {patronsPath} with {patronList.Count} patrons.");
-

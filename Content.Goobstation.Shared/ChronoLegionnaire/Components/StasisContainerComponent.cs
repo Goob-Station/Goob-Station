@@ -18,4 +18,3 @@ namespace Content.Goobstation.Shared.ChronoLegionnaire.Components
     {
     }
 }
-

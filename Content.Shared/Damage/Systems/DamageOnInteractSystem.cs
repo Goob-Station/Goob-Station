@@ -207,4 +207,3 @@ public sealed class DamageOnInteractSystem : EntitySystem
         Dirty(entity);
     }
 }
-

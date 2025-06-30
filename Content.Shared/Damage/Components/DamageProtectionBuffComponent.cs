@@ -20,4 +20,3 @@ public sealed partial class DamageProtectionBuffComponent : Component
     [DataField]
     public Dictionary<string, DamageModifierSetPrototype> Modifiers = new();
 }
-

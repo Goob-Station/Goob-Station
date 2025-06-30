@@ -29,4 +29,3 @@ public sealed partial class BodyEmotesComponent : Component
     /// </summary>
     public EmoteSoundsPrototype? Sounds;
 }
-

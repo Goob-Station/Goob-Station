@@ -144,4 +144,3 @@ public sealed partial class ExplosionPrototype : IPrototype
         return _tileBreakChance[i - 1] + slope * (intensity - _tileBreakIntensity[i - 1]);
     }
 }
-

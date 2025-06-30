@@ -47,4 +47,3 @@
           completed:
             - !type:SetAnchor
               value: false
-

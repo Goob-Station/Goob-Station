@@ -10,4 +10,3 @@ namespace Content.Server.Speech.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class BleatingAccentComponent : Component { }
-

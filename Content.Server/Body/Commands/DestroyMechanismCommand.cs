@@ -80,4 +80,3 @@ namespace Content.Server.Body.Commands
         }
     }
 }
-

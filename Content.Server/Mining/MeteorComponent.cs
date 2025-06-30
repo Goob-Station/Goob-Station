@@ -28,4 +28,3 @@ public sealed partial class MeteorComponent : Component
     [DataField]
     public HashSet<EntityUid> HitList = new();
 }
-

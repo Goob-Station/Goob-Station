@@ -131,4 +131,3 @@ public abstract partial class JobRequirement
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         [NotNullWhen(false)] out FormattedMessage? reason);
 }
-

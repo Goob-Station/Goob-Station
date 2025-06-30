@@ -34,4 +34,3 @@ public sealed class DeviceLinkOverloadSystem : EntitySystem
         Spawn(component.Prototype, Transform(uid).Coordinates);
     }
 }
-

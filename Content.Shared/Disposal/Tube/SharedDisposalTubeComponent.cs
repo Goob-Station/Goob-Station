@@ -27,4 +27,3 @@ namespace Content.Shared.Disposal.Components
         Anchored,
     }
 }
-

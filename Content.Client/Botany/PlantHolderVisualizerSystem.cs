@@ -61,4 +61,3 @@ public enum PlantHolderLayers : byte
     AlertLight,
     HarvestLight,
 }
-

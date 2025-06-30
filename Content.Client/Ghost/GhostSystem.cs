@@ -252,4 +252,3 @@ namespace Content.Client.Ghost
         }
     }
 }
-

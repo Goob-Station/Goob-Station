@@ -45,4 +45,3 @@ namespace Content.Server.Pointing.Components
         public float ChasingTime = 1;
     }
 }
-

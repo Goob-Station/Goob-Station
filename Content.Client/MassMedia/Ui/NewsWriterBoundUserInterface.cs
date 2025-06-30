@@ -92,4 +92,3 @@ public sealed class NewsWriterBoundUserInterface : BoundUserInterface
         SendMessage(new NewsWriterSaveDraftMessage(title, content));
     }
 }
-

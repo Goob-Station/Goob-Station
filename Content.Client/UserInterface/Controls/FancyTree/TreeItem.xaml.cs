@@ -96,4 +96,3 @@ public sealed partial class TreeItem : PanelContainer
         Icon.Visible = Icon.Texture != null || !Tree.HideEmptyIcon;
     }
 }
-

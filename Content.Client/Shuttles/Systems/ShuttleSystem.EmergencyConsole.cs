@@ -91,4 +91,3 @@ public sealed class EmergencyShuttleOverlay : Overlay
         args.WorldHandle.SetTransform(Matrix3x2.Identity);
     }
 }
-

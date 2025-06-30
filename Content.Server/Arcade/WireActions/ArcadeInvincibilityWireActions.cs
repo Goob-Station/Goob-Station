@@ -88,4 +88,3 @@ public enum ArcadeInvincibilityWireActionKeys : short
     Player,
     Enemy
 }
-

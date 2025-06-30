@@ -74,4 +74,3 @@ namespace Content.Server.Alert.Commands
         }
     }
 }
-

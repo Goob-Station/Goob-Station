@@ -335,4 +335,3 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation, ev.SpriteRotation, ev.FlipAnimation);
     }
 }
-

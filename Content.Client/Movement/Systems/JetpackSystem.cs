@@ -179,4 +179,3 @@ public sealed class JetpackSystem : SharedJetpackSystem
         Spawn("JetpackEffect", coordinates);
     }
 }
-

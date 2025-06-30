@@ -233,4 +233,3 @@ public static class HandLocationExt
         };
     }
 }
-

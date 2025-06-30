@@ -31,4 +31,3 @@ public sealed partial class SpeechSoundsReplacerComponent : Component
     [DataField]
     public ProtoId<SpeechSoundsPrototype>? PreviousSound;
 }
-

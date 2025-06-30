@@ -38,4 +38,3 @@ public sealed partial class SpellCardsActionComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool PurpleCard = false;
 }
-

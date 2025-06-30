@@ -20,4 +20,3 @@ public sealed class HypospraySystem : SharedHypospraySystem
         Subs.ItemStatus<HyposprayComponent>(ent => new HyposprayStatusControl(ent, _solutionContainers));
     }
 }
-

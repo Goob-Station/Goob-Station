@@ -38,4 +38,3 @@ public sealed partial class FlyBySoundComponent : Component
     [AutoNetworkedField]
     public float Range = 1.5f;
 }
-

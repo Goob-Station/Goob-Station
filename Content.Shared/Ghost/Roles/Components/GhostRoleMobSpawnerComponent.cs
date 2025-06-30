@@ -50,4 +50,3 @@ namespace Content.Shared.Ghost.Roles.Components
         public List<string> SelectablePrototypes = [];
     }
 }
-

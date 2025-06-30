@@ -25,4 +25,3 @@ public sealed partial class ThermalVisionComponent : SwitchableVisionOverlayComp
 }
 
 public sealed partial class ToggleThermalVisionEvent : InstantActionEvent;
-

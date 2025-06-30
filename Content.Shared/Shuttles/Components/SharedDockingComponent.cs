@@ -16,4 +16,3 @@ namespace Content.Shared.Shuttles.Components
         public abstract bool Docked { get; }
     }
 }
-

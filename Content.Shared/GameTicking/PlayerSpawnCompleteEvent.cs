@@ -47,4 +47,3 @@ public sealed class PlayerSpawnCompleteEvent : EntityEventArgs
         JoinOrder = joinOrder;
     }
 }
-

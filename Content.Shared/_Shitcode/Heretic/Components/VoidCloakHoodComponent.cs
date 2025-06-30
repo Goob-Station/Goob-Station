@@ -14,4 +14,3 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class VoidCloakHoodComponent : Component
 {
 }
-

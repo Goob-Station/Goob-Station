@@ -42,4 +42,3 @@ public sealed class ShopInventoryPrototype : IPrototype
 
 [DataRecord, Serializable]
 public record struct ShopListing(EntProtoId Id, uint Cost);
-

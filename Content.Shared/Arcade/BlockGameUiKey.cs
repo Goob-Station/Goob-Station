@@ -17,4 +17,3 @@ namespace Content.Shared.Arcade
         Key
     }
 }
-

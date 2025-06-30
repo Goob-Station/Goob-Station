@@ -37,4 +37,3 @@ public sealed class WeaponRandomSystem : EntitySystem
         }
     }
 }
-

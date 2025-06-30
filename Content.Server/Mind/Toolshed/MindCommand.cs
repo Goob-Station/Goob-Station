@@ -54,4 +54,3 @@ public sealed class MindCommand : ToolshedCommand
         return target;
     }
 }
-

@@ -77,4 +77,3 @@ public sealed partial class NanoChatLookupView : PanelContainer
         }
     }
 }
-

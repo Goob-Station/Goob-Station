@@ -34,4 +34,3 @@ public sealed partial class MapAtmosphereComponent : SharedMapAtmosphereComponen
 
     public SharedGasTileOverlaySystem.GasOverlayData Overlay;
 }
-

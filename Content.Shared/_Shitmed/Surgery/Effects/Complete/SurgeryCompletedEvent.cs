@@ -10,4 +10,3 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Effects.Complete;
 /// </summary>
 [ByRefEvent]
 public record struct SurgeryCompletedEvent;
-

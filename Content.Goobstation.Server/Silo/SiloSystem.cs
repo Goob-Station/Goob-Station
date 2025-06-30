@@ -99,4 +99,3 @@ public sealed class SiloSystem : SharedSiloSystem
         }
     }
 }
-

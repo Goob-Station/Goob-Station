@@ -30,4 +30,3 @@ public sealed partial class OrbitVisualsComponent : Component
     /// </summary>
     public float OrbitStopLength = 1.0f;
 }
-

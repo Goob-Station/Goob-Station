@@ -345,4 +345,3 @@ public sealed partial class PlayerTab : Control
 }
 
 public record PlayerListData(PlayerInfo Info, string FilteringString) : ListData;
-

@@ -9,4 +9,3 @@ public abstract partial class SharedSpamEmitSoundRequirePowerSystem : EntitySyst
 {
     [Dependency] protected readonly SharedEmitSoundSystem EmitSound = default!;
 }
-

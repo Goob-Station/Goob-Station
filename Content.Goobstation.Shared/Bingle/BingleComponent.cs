@@ -34,4 +34,3 @@ public enum BingleVisual : byte
     Upgraded,
     Combat
 }
-

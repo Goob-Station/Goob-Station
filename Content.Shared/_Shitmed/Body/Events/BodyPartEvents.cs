@@ -23,4 +23,3 @@ public readonly record struct BodyPartEnabledEvent(Entity<BodyPartComponent> Par
 public readonly record struct BodyPartDisabledEvent(Entity<BodyPartComponent> Part);
 
 public readonly record struct BodyPartComponentsModifyEvent(EntityUid Body, bool Add);
-

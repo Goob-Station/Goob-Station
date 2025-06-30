@@ -139,4 +139,3 @@ public sealed class TechAnomalySystem : EntitySystem
         _signal.InvokePort(tech, tech.Comp.PulsePort);
     }
 }
-

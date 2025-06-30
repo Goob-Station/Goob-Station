@@ -90,4 +90,3 @@ public sealed class ShuttleConsoleBoundUserInterface : BoundUserInterface
         _window?.UpdateState(Owner, cState);
     }
 }
-

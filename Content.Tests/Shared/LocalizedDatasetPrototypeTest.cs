@@ -63,4 +63,3 @@ public sealed class LocalizedDatasetPrototypeTest : ContentUnitTest
         Assert.That(testPrototype.Values[^1], Is.EqualTo("test-dataset-4"));
     }
 }
-

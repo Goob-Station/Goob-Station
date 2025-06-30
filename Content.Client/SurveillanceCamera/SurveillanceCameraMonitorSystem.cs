@@ -37,4 +37,3 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         RemCompDeferred<ActiveSurveillanceCameraMonitorVisualsComponent>(uid);
     }
 }
-

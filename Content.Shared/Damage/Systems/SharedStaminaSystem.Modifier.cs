@@ -57,4 +57,3 @@ public partial class SharedStaminaSystem
         }
     }
 }
-

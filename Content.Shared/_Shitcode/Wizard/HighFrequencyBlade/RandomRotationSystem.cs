@@ -29,4 +29,3 @@ public sealed class RandomRotationSystem : EntitySystem
             _transform.SetLocalRotation(ent, _random.NextAngle());
     }
 }
-

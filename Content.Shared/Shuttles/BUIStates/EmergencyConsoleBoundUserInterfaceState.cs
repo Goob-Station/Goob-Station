@@ -20,4 +20,3 @@ public sealed class EmergencyConsoleBoundUserInterfaceState : BoundUserInterface
 
     public TimeSpan? TimeToLaunch;
 }
-

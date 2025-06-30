@@ -36,4 +36,3 @@
           - !type:DeleteEntity {}
           steps:
             - tool: Cutting
-

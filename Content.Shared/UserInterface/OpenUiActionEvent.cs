@@ -16,4 +16,3 @@ public sealed partial class OpenUiActionEvent : InstantActionEvent
     [DataField(required: true, customTypeSerializer: typeof(EnumSerializer))]
     public Enum? Key { get; private set; }
 }
-

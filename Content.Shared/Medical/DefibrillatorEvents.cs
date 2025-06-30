@@ -42,4 +42,3 @@ public sealed class TargetBeforeDefibrillatorZapsEvent : BeforeDefibrillatorZaps
 {
     public TargetBeforeDefibrillatorZapsEvent(EntityUid entityUsingDefib, EntityUid defib, EntityUid defibtarget) : base(entityUsingDefib, defib, defibtarget) { }
 }
-

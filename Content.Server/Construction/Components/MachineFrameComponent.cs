@@ -57,4 +57,3 @@ namespace Content.Server.Construction.Components
         public Container PartContainer = default!;
     }
 }
-

@@ -31,4 +31,3 @@ public sealed partial class NPCPerceptionSystem
         }
     }
 }
-

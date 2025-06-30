@@ -19,4 +19,3 @@ public sealed class SpawnerSpawnedEvent : EntityEventArgs
         IsFriendly = isFriendly;
     }
 }
-

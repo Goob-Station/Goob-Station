@@ -46,4 +46,3 @@ public enum DoorElectronicsConfigurationUiKey : byte
 {
     Key
 }
-

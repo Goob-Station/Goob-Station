@@ -46,4 +46,3 @@ public sealed partial class RoomFillComponent : Component
     [DataField]
     public bool ClearExisting = true;
 }
-

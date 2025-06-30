@@ -144,4 +144,3 @@ namespace Content.IntegrationTests.Tests.DoAfter
         }
     }
 }
-

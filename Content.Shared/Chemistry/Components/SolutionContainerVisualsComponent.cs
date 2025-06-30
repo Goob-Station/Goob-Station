@@ -76,4 +76,3 @@ namespace Content.Shared.Chemistry.Components
         public int EquippedMaxFillLevels = 0;
     }
 }
-

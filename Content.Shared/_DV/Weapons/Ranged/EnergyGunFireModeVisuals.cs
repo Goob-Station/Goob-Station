@@ -28,4 +28,3 @@ public enum EnergyGunFireModeState : byte
     Cooling,
     Heating
 }
-

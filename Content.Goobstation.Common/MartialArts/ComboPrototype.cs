@@ -77,4 +77,3 @@ public sealed partial class ComboListPrototype : IPrototype
     [DataField( required: true)]
     public List<ProtoId<ComboPrototype>> Combos = new();
 }
-

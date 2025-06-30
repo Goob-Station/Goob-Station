@@ -84,4 +84,3 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
         component.TimeUntilNextEvent = _random.NextFloat(240f / mod, 720f / mod);
     }
 }
-

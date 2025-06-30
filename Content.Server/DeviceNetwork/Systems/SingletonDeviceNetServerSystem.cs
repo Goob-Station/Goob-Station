@@ -181,4 +181,3 @@ public record struct DeviceNetServerConnectedEvent;
 /// </summary>
 [ByRefEvent]
 public record struct DeviceNetServerDisconnectedEvent;
-

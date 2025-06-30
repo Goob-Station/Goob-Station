@@ -18,4 +18,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> ParallaxLowQuality =
         CVarDef.Create("parallax.low_quality", false, CVar.ARCHIVE | CVar.CLIENTONLY);
 }
-

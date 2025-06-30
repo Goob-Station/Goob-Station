@@ -13,4 +13,3 @@ namespace Content.Client._Shitcode.Wizard.Systems;
 public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
 {
 }
-

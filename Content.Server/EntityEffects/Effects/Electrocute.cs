@@ -41,4 +41,3 @@ public sealed partial class Electrocute : EntityEffect
         }
     }
 }
-

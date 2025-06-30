@@ -90,4 +90,3 @@ public sealed class MailMetricsCartridgeSystem : EntitySystem
         return unopenedMail;
     }
 }
-

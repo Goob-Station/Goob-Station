@@ -28,4 +28,3 @@ public sealed class StruckByLightningSystem : EntitySystem
         }
     }
 }
-

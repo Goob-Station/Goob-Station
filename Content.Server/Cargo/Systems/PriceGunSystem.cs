@@ -61,4 +61,3 @@ public sealed class PriceGunSystem : SharedPriceGunSystem
         return true;
     }
 }
-

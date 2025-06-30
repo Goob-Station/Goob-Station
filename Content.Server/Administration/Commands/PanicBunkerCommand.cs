@@ -198,4 +198,3 @@ public sealed class PanicBunkerMinOverallMinutesCommand : LocalizedCommands
         shell.WriteLine(Loc.GetString("panicbunker-command-min-overall-minutes-set", ("minutes", minutes)));
     }
 }
-

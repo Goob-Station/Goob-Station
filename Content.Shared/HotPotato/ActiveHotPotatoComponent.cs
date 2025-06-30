@@ -28,4 +28,3 @@ public sealed partial class ActiveHotPotatoComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan TargetTime = TimeSpan.Zero;
 }
-

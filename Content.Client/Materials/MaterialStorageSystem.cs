@@ -68,4 +68,3 @@ public enum MaterialStorageVisualLayers : byte
 {
     Inserting
 }
-

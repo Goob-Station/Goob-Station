@@ -85,4 +85,3 @@ public abstract partial class BaseToggleWireAction : BaseWireAction
         }
     }
 }
-

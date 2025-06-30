@@ -106,4 +106,3 @@
   - type: ConditionalSpawner
     prototypes:
       - MobRandomCommandCorpse
-

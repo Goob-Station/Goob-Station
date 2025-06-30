@@ -78,4 +78,3 @@
           preconditions:
             - !type:KeyExistsPrecondition
               key: IdleTime
-

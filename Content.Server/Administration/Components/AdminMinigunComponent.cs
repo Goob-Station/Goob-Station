@@ -10,4 +10,3 @@ public sealed partial class AdminMinigunComponent : Component
 {
 
 }
-

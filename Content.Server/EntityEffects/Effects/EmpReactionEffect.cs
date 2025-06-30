@@ -68,4 +68,3 @@ public sealed partial class EmpReactionEffect : EntityEffect
             DisableDuration);
     }
 }
-

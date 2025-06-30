@@ -86,4 +86,3 @@ public sealed partial class InternalsDoAfterEvent : SimpleDoAfterEvent
 }
 
 public sealed partial class ToggleInternalsAlertEvent : BaseAlertEvent;
-

@@ -100,4 +100,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<float> PointingCooldownSeconds =
         CVarDef.Create("pointing.cooldown_seconds", 0.5f, CVar.SERVERONLY);
 }
-

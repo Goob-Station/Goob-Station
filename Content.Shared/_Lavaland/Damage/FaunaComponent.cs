@@ -29,4 +29,3 @@ namespace Content.Shared._Lavaland.Mobs;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FaunaComponent : Component
 { }
-

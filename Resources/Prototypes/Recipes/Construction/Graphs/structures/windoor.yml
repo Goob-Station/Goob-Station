@@ -776,4 +776,3 @@
       steps:
       - tool: Welding
         doAfter: 10
-

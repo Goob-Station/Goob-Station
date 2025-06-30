@@ -139,4 +139,3 @@ namespace Content.Shared.Tabletop
         #endregion
     }
 }
-

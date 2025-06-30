@@ -70,4 +70,3 @@ namespace Content.Shared.Storage.Components
         }
     }
 }
-

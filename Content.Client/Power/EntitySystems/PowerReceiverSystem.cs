@@ -99,4 +99,3 @@ public sealed class PowerReceiverSystem : SharedPowerReceiverSystem
         return true;
     }
 }
-

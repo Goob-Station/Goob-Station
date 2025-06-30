@@ -33,4 +33,3 @@ public sealed class GasMixtureTest
         Assert.That(mixture, Is.EquivalentTo(expectedList));
     }
 }
-

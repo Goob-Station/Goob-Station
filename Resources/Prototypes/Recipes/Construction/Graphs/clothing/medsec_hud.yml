@@ -38,4 +38,3 @@
               doAfter: 5
     - node: medsecHud
       entity: ClothingEyesHudMedSec
-

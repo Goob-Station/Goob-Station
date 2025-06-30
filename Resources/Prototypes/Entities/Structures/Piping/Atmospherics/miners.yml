@@ -200,4 +200,3 @@
   components:
     - type: GasMiner
       spawnGas: NitrousOxide
-

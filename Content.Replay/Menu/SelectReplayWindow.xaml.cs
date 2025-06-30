@@ -64,4 +64,3 @@ public sealed partial class SelectReplayWindow : DefaultWindow
         }
     }
 }
-

@@ -95,4 +95,3 @@ namespace Content.Client.Info
 
     }
 }
-

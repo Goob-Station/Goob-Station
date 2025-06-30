@@ -91,4 +91,3 @@ public sealed partial class PlaytimeStatsHeader : Control
         }
     }
 }
-

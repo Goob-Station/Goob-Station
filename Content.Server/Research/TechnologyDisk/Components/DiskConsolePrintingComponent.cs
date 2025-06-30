@@ -11,4 +11,3 @@ public sealed partial class DiskConsolePrintingComponent : Component
 {
     public TimeSpan FinishTime;
 }
-

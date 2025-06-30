@@ -20,4 +20,3 @@ public record SharedServerBan(
     string? BanningAdminName,
     SharedServerUnban? Unban
 );
-

@@ -56,4 +56,3 @@ public sealed partial class OrganType : EntityEffectCondition
             ("shouldhave", ShouldHave));
     }
 }
-

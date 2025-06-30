@@ -22,4 +22,3 @@
   icon: { sprite: "/Textures/Objects/Materials/ingots.rsi", state: silver }
   spawn: IngotSilver1
   maxCount: 30
-

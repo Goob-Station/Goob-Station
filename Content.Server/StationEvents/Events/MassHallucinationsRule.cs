@@ -56,4 +56,3 @@ public sealed class MassHallucinationsRule : StationEventSystem<MassHallucinatio
         component.AffectedEntities.Clear();
     }
 }
-

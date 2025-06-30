@@ -25,4 +25,3 @@ public sealed partial class TeleportSpellEvent : WorldTargetActionEvent
     [DataField]
     public float BlinkVolume = 5f;
 }
-

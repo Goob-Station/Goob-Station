@@ -38,4 +38,3 @@ public partial class SharedPseudoItemSystem
         return _storage.CanInsert(storageEnt, itemEnt, out _, storageEnt.Comp, item, ignoreStacks: true);
     }
 }
-

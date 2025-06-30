@@ -15,4 +15,3 @@ public sealed partial class SlipOnCollideComponent : Component
     [DataField]
     public bool Force = true;
 }
-

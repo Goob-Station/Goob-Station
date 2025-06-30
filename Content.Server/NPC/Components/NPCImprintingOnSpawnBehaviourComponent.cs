@@ -39,4 +39,3 @@ public sealed partial class NPCImprintingOnSpawnBehaviourComponent : Component
     [DataField]
     public List<EntityUid> Friends = new();
 }
-

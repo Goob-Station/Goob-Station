@@ -39,4 +39,3 @@ public sealed partial class IngestionBlockerComponent : Component
     [DataField]
     public bool BlockSmokeIngestion { get; set; }
 }
-

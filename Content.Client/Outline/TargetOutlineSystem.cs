@@ -286,4 +286,3 @@ public sealed class TargetOutlineSystem : EntitySystem
         _highlightedSprites.Clear();
     }
 }
-

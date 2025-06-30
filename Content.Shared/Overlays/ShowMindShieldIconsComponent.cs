@@ -14,4 +14,3 @@ namespace Content.Shared.Overlays;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShowMindShieldIconsComponent : Component { }
-

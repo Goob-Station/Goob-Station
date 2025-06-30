@@ -12,4 +12,3 @@ public abstract class SharedJukeboxSystem : EntitySystem
 {
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
 }
-

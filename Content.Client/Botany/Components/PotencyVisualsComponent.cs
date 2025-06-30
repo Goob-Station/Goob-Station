@@ -18,4 +18,3 @@ public sealed partial class PotencyVisualsComponent : Component
     [DataField("maximumScale")]
     public float MaximumScale = 2f;
 }
-

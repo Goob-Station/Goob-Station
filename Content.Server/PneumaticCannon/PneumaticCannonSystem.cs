@@ -166,4 +166,3 @@ public sealed class PneumaticCannonSystem : SharedPneumaticCannonSystem
         };
     }
 }
-

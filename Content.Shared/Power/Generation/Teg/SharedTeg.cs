@@ -39,4 +39,3 @@ public enum TegCirculatorSpeed
     SpeedSlow,
     SpeedFast
 }
-

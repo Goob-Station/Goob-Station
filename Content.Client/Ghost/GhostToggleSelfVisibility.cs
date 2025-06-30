@@ -34,4 +34,3 @@ public sealed class GhostToggleSelfVisibility : IConsoleCommand
         spriteSys.SetVisible((attachedEntity.Value, spriteComponent), !spriteComponent.Visible);
     }
 }
-

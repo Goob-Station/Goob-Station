@@ -21,4 +21,3 @@ public sealed class VSpacer : Control
         MinWidth = width;
     }
 }
-

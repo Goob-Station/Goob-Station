@@ -41,4 +41,3 @@ namespace Content.Server.Mail
         };
     }
 }
-

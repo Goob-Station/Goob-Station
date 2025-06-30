@@ -106,4 +106,3 @@ public sealed class CardMenuButton : RadialMenuTextureButtonWithSector
 
     }
 }
-

@@ -80,4 +80,3 @@ public sealed class SolutionSpikerSystem : EntitySystem
         return true;
     }
 }
-

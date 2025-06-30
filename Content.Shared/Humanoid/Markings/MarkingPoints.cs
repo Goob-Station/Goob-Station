@@ -67,4 +67,3 @@ public sealed partial class MarkingPointsPrototype : IPrototype
     [DataField(required: true)]
     public Dictionary<MarkingCategories, MarkingPoints> Points { get; private set; } = default!;
 }
-

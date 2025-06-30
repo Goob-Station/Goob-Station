@@ -22,4 +22,3 @@ public sealed partial class ActivatableUIRequiresPanelComponent : Component
     [DataField]
     public bool RequireOpen = true;
 }
-

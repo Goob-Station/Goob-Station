@@ -37,4 +37,3 @@ namespace Content.Client.Wires.Visualizers
         MaintenancePanel
     }
 }
-

@@ -62,4 +62,3 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
         args.Cancelled = true;
     }
 }
-

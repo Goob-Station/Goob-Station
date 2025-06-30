@@ -21,4 +21,3 @@ namespace Content.Server.DeviceNetwork.Components
         public int Range { get; set; }
     }
 }
-

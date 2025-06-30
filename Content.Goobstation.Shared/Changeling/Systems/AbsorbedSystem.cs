@@ -37,4 +37,3 @@ public sealed partial class AbsorbedSystem : EntitySystem
             RemComp<AbsorbedComponent>(ent);
     }
 }
-

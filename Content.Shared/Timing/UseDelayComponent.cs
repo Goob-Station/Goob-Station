@@ -68,4 +68,3 @@ public sealed partial class UseDelayInfo
         EndTime = endTime;
     }
 }
-

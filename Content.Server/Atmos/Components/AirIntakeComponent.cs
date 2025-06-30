@@ -33,4 +33,3 @@ public sealed partial class AirIntakeComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float Pressure = Atmospherics.OneAtmosphere;
 }
-

@@ -99,4 +99,3 @@ public sealed partial class AtmosMonitorComponent : Component
     [DataField]
     public string NodeNameMonitoredPipe = "monitored";
 }
-

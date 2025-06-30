@@ -60,4 +60,3 @@ public sealed partial class CriminalRecordsConsoleComponent : Component
     [DataField]
     public uint MaxStringLength = 256;
 }
-

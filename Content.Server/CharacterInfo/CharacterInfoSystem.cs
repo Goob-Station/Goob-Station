@@ -77,4 +77,3 @@ public sealed class CharacterInfoSystem : EntitySystem
         RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing), args.SenderSession);
     }
 }
-

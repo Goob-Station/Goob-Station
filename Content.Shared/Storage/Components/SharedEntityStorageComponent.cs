@@ -239,4 +239,3 @@ public readonly record struct StorageBeforeCloseEvent(HashSet<EntityUid> Content
 
 [ByRefEvent]
 public readonly record struct StorageAfterCloseEvent;
-

@@ -20,4 +20,3 @@ public sealed class RoleBriefingSystem : EntitySystem
         args.Append(Loc.GetString(comp.Briefing));
     }
 }
-

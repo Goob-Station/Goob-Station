@@ -38,4 +38,3 @@ public sealed partial class ThrowInsertContainerComponent : Component
     [DataField]
     public LocId MissLocString = "container-thrown-missed";
 }
-

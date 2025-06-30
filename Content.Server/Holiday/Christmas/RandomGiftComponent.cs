@@ -49,4 +49,3 @@ public sealed partial class RandomGiftComponent : Component
     [DataField("selectedEntity"), ViewVariables(VVAccess.ReadWrite)]
     public string? SelectedEntity;
 }
-

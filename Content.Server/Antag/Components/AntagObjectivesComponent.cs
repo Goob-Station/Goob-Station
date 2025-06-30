@@ -23,4 +23,3 @@ public sealed partial class AntagObjectivesComponent : Component
     [DataField(required: true)]
     public List<EntProtoId<ObjectiveComponent>> Objectives = new();
 }
-

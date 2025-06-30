@@ -23,4 +23,3 @@ public sealed partial class RestrictedRangeComponent : Component
     [DataField]
     public EntityUid BoundaryEntity;
 }
-

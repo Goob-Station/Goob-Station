@@ -22,4 +22,3 @@ public sealed partial class StationRecordsComponent : Component
     [IncludeDataField]
     public StationRecordSet Records = new();
 }
-

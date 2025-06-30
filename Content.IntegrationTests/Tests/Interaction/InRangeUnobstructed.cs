@@ -136,4 +136,3 @@ namespace Content.IntegrationTests.Tests.Interaction
         }
     }
 }
-

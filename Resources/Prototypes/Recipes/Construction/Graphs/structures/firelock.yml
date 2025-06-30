@@ -240,4 +240,3 @@
           steps:
             - tool: Anchoring
               doAfter: 0.25
-

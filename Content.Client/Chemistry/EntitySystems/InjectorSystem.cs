@@ -23,4 +23,3 @@ public sealed class InjectorSystem : SharedInjectorSystem
         Subs.ItemStatus<InjectorComponent>(ent => new InjectorStatusControl(ent, SolutionContainers));
     }
 }
-

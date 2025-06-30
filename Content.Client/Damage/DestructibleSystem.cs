@@ -11,4 +11,3 @@ public sealed class DestructibleSystem : SharedDestructibleSystem
 {
 
 }
-

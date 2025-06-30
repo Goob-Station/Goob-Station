@@ -114,4 +114,3 @@ namespace Content.Shared.Strip.Components
         public override DoAfterEvent Clone() => this;
     }
 }
-

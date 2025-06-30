@@ -185,4 +185,3 @@ public sealed class VoteWebhooks : IPostInjectInit
 
     void IPostInjectInit.PostInject() { }
 }
-

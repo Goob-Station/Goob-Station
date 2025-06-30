@@ -36,4 +36,3 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
         }
     }
 }
-

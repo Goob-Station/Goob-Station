@@ -86,4 +86,3 @@ public enum RevenantVisualLayers : byte
     Digit2,
     Digit3
 }
-

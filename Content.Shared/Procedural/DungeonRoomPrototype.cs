@@ -44,4 +44,3 @@ public sealed partial class DungeonRoomPrototype : IPrototype
     [DataField]
     public ProtoId<ContentTileDefinition>? IgnoreTile;
 }
-

@@ -29,4 +29,3 @@ public sealed class ThievingSystem : EntitySystem
         args.Additive -= component.StripTimeReduction;
     }
 }
-

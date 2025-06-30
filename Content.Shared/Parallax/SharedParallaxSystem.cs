@@ -20,4 +20,3 @@ public abstract class SharedParallaxSystem: EntitySystem
         public string Parallax = string.Empty;
     }
 }
-

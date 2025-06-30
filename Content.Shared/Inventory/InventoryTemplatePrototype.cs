@@ -86,4 +86,3 @@ public sealed partial class SlotDefinition
     /// </summary>
     [DataField("blacklist")] public EntityWhitelist? Blacklist = null;
 }
-

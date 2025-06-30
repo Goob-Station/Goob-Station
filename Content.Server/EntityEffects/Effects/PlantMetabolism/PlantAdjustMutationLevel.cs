@@ -19,4 +19,3 @@ public sealed partial class PlantAdjustMutationLevel : PlantAdjustAttribute
         plantHolderComp.MutationLevel += Amount * plantHolderComp.MutationMod;
     }
 }
-

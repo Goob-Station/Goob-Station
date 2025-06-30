@@ -290,4 +290,3 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
         return DeviceListUpdateResult.UpdateOk;
     }
 }
-

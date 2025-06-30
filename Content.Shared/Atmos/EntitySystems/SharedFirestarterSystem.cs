@@ -28,4 +28,3 @@ public abstract class SharedFirestarterSystem : EntitySystem
         Dirty(uid, component);
     }
 }
-

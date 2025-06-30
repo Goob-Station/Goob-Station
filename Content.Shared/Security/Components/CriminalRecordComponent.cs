@@ -89,4 +89,3 @@ public sealed partial class CriminalRecordComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<SecurityIconPrototype> StatusIcon = "SecurityIconWanted";
 }
-

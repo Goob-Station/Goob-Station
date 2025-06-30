@@ -79,4 +79,3 @@ public sealed partial class MiningVoucherMenu : RadialMenu
         }
     }
 }
-

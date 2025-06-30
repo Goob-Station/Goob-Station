@@ -74,4 +74,3 @@ public sealed class DeployableBarrierSystem : EntitySystem
         }
     }
 }
-

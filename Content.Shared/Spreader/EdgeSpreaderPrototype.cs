@@ -26,4 +26,3 @@ public sealed partial class EdgeSpreaderPrototype : IPrototype
     [DataField]
     public bool PreventSpreadOnSpaced = true;
 }
-

@@ -14,4 +14,3 @@ public sealed class PathfindingRequestEvent : EntityEventArgs
 
     // TODO: Need stuff like can we break shit, can we pry, collision mask, etc
 }
-

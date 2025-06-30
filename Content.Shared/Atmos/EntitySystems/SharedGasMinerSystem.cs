@@ -128,4 +128,3 @@ public abstract class SharedGasMinerSystem : EntitySystem
         }
     }
 }
-

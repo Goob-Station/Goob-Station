@@ -48,4 +48,3 @@ public sealed partial class RevolutionaryRuleComponent : Component
     [DataField] public bool HasRevAnnouncementPlayed = false;
     // gobo edit end
 }
-

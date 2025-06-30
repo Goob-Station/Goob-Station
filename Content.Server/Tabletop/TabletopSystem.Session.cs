@@ -166,4 +166,3 @@ namespace Content.Server.Tabletop
         }
     }
 }
-

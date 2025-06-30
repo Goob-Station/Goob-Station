@@ -201,4 +201,3 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         return anySuccess;
     }
 }
-

@@ -46,4 +46,3 @@ public sealed class MeleeSpreadCommand : IConsoleCommand
             sysManager.GetEntitySystem<SharedTransformSystem>()));
     }
 }
-

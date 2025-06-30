@@ -156,4 +156,3 @@ public sealed class StationAiSystem : SharedStationAiSystem
         // Apparently there's no sound for this.
     }
 }
-

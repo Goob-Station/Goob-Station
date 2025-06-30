@@ -28,4 +28,3 @@ public sealed partial class ActionUpgradeComponent : Component
 
     // TODO: Branching level upgrades
 }
-

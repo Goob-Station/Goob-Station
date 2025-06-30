@@ -126,4 +126,3 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
             args.Args.FoundBattery = (batteryEnt.Value, battery);
     }
 }
-

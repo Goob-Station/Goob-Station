@@ -217,4 +217,3 @@ public sealed class SignalTimerSystem : EntitySystem
         _signalSystem.InvokePort(uid, component.StartPort);
     }
 }
-

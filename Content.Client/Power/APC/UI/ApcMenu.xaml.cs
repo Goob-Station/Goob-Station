@@ -141,4 +141,3 @@ namespace Content.Client.Power.APC.UI
         }
     }
 }
-

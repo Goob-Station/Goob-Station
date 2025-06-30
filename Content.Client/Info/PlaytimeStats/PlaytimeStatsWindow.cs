@@ -143,4 +143,3 @@ public sealed partial class PlaytimeStatsWindow : FancyWindow
         }
     }
 }
-

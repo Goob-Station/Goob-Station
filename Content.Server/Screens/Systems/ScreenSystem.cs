@@ -120,4 +120,3 @@ public sealed class ScreenSystem : EntitySystem
             _appearanceSystem.SetData(uid, TextScreenVisuals.Color, color);
     }
 }
-

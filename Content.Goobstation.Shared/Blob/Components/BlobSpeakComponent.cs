@@ -32,4 +32,3 @@ public sealed partial class BlobSpeakComponent : Component
     [DataField]
     public LocId Name = "speak-vv-blob";
 }
-

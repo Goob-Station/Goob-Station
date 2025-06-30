@@ -465,4 +465,3 @@
     - id: GrenadeFoamDart
       prob: 0.001
       orGroup: NotUseful
-

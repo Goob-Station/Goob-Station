@@ -118,4 +118,3 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
         WestConnection = PipeDirection.West,
     }
 }
-

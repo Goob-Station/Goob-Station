@@ -31,4 +31,3 @@ namespace Content.Goobstation.Server.Destructible.Thresholds.Behaviors
         }
     }
 }
-

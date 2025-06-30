@@ -305,4 +305,3 @@ namespace Content.Shared.Decals
         }
     }
 }
-

@@ -74,4 +74,3 @@ namespace Content.Shared.Administration
         public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableOrdered;
     }
 }
-

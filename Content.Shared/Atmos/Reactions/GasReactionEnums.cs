@@ -17,4 +17,3 @@ public enum GasReaction : byte
 {
     Fire = 0,
 }
-

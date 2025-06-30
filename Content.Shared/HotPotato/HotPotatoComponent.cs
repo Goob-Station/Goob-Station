@@ -24,4 +24,3 @@ public sealed partial class HotPotatoComponent : Component
     [AutoNetworkedField]
     public bool CanTransfer = true;
 }
-

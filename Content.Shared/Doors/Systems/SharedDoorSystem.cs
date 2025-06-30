@@ -876,4 +876,3 @@ public abstract partial class SharedDoorSystem : EntitySystem
     }
     #endregion
 }
-

@@ -28,4 +28,3 @@ namespace Content.Server.DeviceLinking.Components
         public string Port = "Pressed";
     }
 }
-

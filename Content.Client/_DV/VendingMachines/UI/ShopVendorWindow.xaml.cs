@@ -171,4 +171,3 @@ public sealed partial class ShopVendorWindow : FancyWindow
 }
 
 public record ShopVendorListingData(int Index, EntProtoId ItemId, string Text, uint Cost) : ListData;
-

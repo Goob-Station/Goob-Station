@@ -56,4 +56,3 @@ public sealed partial class ContainerCompComponent : Component
     [DataField(required: true)]
     public string Container = string.Empty;
 }
-

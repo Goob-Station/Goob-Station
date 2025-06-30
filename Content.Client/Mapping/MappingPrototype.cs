@@ -112,4 +112,3 @@ public sealed class MappingPrototype
         Name = name;
     }
 }
-

@@ -51,4 +51,3 @@ public sealed partial class WireLayoutPrototype : IPrototype, IInheritingPrototy
     [NeverPushInheritance]
     public List<IWireAction>? Wires { get; private set; }
 }
-

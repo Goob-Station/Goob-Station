@@ -53,4 +53,3 @@ public sealed class FadingTimedDespawnSystem : SharedFadingTimedDespawnSystem
         return IsClientSide(uid);
     }
 }
-

@@ -46,4 +46,3 @@
       action: Allow # Allow connection if matched
     - !type:ConditionAlwaysMatch # Condition that always matches
       action: Deny # Deny connection if matched
-

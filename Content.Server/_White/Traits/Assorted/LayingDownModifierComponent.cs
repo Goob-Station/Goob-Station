@@ -23,4 +23,3 @@ public sealed partial class LayingDownModifierComponent : Component
     [DataField]
     public float DownedSpeedMultiplierMultiplier = 1f;
 }
-

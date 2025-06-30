@@ -225,4 +225,3 @@ public abstract class SharedIceCubeSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed partial class BreakFreeDoAfterEvent : SimpleDoAfterEvent;
-

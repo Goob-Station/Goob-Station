@@ -23,4 +23,3 @@ public sealed partial class AirlockGroupPrototype : IPrototype
     [DataField("iconPriority")]
     public int IconPriority = 0;
 }
-

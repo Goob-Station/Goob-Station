@@ -89,4 +89,3 @@ namespace Content.Server.Tabletop
         }
     }
 }
-

@@ -18,4 +18,3 @@ public abstract partial class SharedDrainSystem : EntitySystem
     {
     }
 }
-

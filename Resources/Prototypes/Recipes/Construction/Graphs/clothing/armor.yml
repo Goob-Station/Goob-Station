@@ -30,4 +30,3 @@
         doAfter: 1
   - node: helmet
     entity: ClothingHeadHelmetBone
-

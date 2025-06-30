@@ -11,4 +11,3 @@ namespace Content.Client.Power.Generator;
 public sealed class PowerSwitchableSystem : SharedPowerSwitchableSystem
 {
 }
-

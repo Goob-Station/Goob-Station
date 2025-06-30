@@ -64,4 +64,3 @@ public sealed partial class SolarFlareRuleComponent : Component
     [DataField("doorToggleChancePerSecond")]
     public float DoorToggleChancePerSecond;
 }
-

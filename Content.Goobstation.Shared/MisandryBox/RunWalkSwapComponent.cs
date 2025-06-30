@@ -14,4 +14,3 @@ public sealed partial class RunWalkSwapComponent : Component
 {
 
 }
-

@@ -169,4 +169,3 @@ public sealed class LogicGateSystem : EntitySystem
         }
     }
 }
-

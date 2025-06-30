@@ -52,4 +52,3 @@ public sealed class CardHandMenuBoundUserInterface : BoundUserInterface
         _menu?.Dispose();
     }
 }
-

@@ -64,4 +64,3 @@ public partial class SharedGunSystem
         Appearance.SetData(uid, AmmoVisuals.AmmoMax, component.MaxShots, appearance);
     }
 }
-

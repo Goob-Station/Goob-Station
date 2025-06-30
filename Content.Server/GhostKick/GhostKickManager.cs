@@ -83,4 +83,3 @@ public sealed class GhostKickCommand : IConsoleCommand
         ghostKick.DoDisconnect(player.Channel, reason);
     }
 }
-

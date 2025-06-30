@@ -87,4 +87,3 @@ public sealed partial class DeviceLinkSinkComponent : Component
     [DataField]
     public int InvokeLimit = 10;
 }
-

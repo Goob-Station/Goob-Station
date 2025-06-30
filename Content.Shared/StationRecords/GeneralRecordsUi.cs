@@ -96,4 +96,3 @@ public sealed class DeleteStationRecord : BoundUserInterfaceMessage
 
     public readonly uint Id;
 }
-

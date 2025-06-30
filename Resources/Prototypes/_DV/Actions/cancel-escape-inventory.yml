@@ -17,4 +17,3 @@
     icon: _DV/Actions/escapeinventory.rsi/cancel-escape.png
     event: !type:EscapeInventoryCancelActionEvent
     useDelay: 2
-

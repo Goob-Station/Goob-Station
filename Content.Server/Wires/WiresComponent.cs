@@ -94,4 +94,3 @@ public sealed partial class WiresComponent : Component
     public ProtoId<TagPrototype> ShowWiresTag = "ShowWires";
     // Shitmed Change End
 }
-

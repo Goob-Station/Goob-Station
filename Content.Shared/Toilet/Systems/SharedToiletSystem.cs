@@ -113,4 +113,3 @@ namespace Content.Shared.Toilet.Systems
         }
     }
 }
-

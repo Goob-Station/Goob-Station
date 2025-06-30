@@ -67,4 +67,3 @@ public sealed class SurveillanceCameraSpeakerSystem : EntitySystem
         _chatSystem.TrySendInGameICMessage(uid, args.Message, InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: name);
     }
 }
-

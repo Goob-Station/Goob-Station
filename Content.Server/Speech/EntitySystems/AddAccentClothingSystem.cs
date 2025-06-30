@@ -55,4 +55,3 @@ public sealed class AddAccentClothingSystem : EntitySystem
         component.IsActive = false;
     }
 }
-

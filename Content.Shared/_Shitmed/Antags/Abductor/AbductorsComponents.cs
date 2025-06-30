@@ -137,4 +137,3 @@ public sealed partial class AbductorReturnToShipEvent : InstantActionEvent
 {
 
 }
-

@@ -15,4 +15,3 @@ public sealed partial class SmartGunComponent : Component
     [DataField]
     public bool RequiresWield;
 }
-

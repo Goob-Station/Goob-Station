@@ -110,4 +110,3 @@ public sealed class SlimPoweredLightSystem : EntitySystem
         _lights.SetEnabled(entity.Owner, enabled);
     }
 }
-

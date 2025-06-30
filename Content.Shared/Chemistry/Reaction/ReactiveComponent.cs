@@ -50,4 +50,3 @@ public sealed partial class ReactiveReagentEffectEntry
         customTypeSerializer:typeof(PrototypeIdDictionarySerializer<HashSet<ReactionMethod>, ReactiveGroupPrototype>))]
     public Dictionary<string, HashSet<ReactionMethod>>? ReactiveGroups { get; private set; }
 }
-

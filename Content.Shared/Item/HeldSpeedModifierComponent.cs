@@ -37,4 +37,3 @@ public sealed partial class HeldSpeedModifierComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool MirrorClothingModifier = true;
 }
-

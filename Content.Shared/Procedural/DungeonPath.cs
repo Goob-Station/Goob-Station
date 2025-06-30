@@ -13,4 +13,3 @@ public sealed record DungeonPath(string Tile, string Wall, HashSet<Vector2i> Til
     public string Tile = Tile;
     public string Wall = Wall;
 }
-

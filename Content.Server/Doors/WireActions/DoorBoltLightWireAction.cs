@@ -46,4 +46,3 @@ public sealed partial class DoorBoltLightWireAction : ComponentWireAction<DoorBo
         EntityManager.System<DoorSystem>().SetBoltLightsEnabled((wire.Owner, door), !door.BoltLightsEnabled);
     }
 }
-

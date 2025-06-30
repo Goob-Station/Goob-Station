@@ -20,4 +20,3 @@ public sealed class CameraRecoilSystem : SharedCameraRecoilSystem
         RaiseNetworkEvent(new CameraKickEvent(GetNetEntity(euid), kickback), euid);
     }
 }
-

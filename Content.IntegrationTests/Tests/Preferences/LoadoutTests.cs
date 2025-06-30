@@ -177,4 +177,3 @@ public sealed class LoadoutTests
         await pair.CleanReturnAsync();
     }
 }
-

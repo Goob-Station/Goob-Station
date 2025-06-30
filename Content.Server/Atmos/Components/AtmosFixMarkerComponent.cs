@@ -23,4 +23,3 @@ namespace Content.Server.Atmos.Components
         public int Mode { get; set; } = 0;
     }
 }
-

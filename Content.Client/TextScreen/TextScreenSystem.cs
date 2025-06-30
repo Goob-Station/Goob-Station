@@ -367,4 +367,3 @@ public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsCompone
         return null;
     }
 }
-

@@ -26,4 +26,3 @@ public sealed partial class StationMemberComponent : Component
     [DataField]
     public EntityUid Station = EntityUid.Invalid;
 }
-

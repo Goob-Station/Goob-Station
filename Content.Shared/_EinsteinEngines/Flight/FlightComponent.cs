@@ -107,4 +107,3 @@ public sealed partial class FlightComponent : Component
 
     public float TimeUntilFlap;
 }
-

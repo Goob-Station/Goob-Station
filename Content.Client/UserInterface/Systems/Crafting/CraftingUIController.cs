@@ -84,4 +84,3 @@ public sealed class CraftingUIController : UIController, IOnStateChanged<Gamepla
         _presenter?.OnHudCraftingButtonToggled(obj);
     }
 }
-

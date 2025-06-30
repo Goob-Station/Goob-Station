@@ -23,4 +23,3 @@ public sealed class RingerSetRingtoneMessage : BoundUserInterfaceMessage
         Ringtone = ringTone;
     }
 }
-

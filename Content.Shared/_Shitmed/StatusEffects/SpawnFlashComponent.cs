@@ -17,4 +17,3 @@ public sealed partial class SpawnFlashComponent : SpawnEntityEffectComponent
     public override string EntityPrototype { get; set; } = "AdminInstantEffectFlash";
     public override bool AttachToParent { get; set; } = true;
 }
-

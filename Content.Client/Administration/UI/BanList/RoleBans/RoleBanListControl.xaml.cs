@@ -39,4 +39,3 @@ public sealed partial class RoleBanListControl : Control
         }
     }
 }
-

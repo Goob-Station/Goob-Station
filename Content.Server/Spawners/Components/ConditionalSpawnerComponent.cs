@@ -56,4 +56,3 @@ namespace Content.Server.Spawners.Components
         public float Chance { get; set; } = 1.0f;
     }
 }
-

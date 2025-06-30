@@ -75,4 +75,3 @@ public sealed class SolutionInjectWhileEmbeddedSystem : EntitySystem
         }
     }
 }
-

@@ -17,4 +17,3 @@
         doAfter: 3
   - node: cottoncloth
     entity: MaterialCloth1
-

@@ -97,4 +97,3 @@
         amount: !type:RangeNumberSelector
           range: 1, 2
       - id: EggBoxBroken
-

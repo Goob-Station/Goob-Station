@@ -26,4 +26,3 @@ public sealed partial class SolutionItemStatusComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string Solution = "default";
 }
-

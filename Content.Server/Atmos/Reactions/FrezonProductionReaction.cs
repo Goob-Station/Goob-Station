@@ -51,4 +51,3 @@ public sealed partial class FrezonProductionReaction : IGasReactionEffect
         return ReactionResult.Reacting;
     }
 }
-

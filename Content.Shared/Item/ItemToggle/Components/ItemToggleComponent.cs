@@ -174,4 +174,3 @@ public readonly record struct ItemToggledEvent(bool Predicted, bool Activated, E
     public readonly bool Activated = Activated;
     public readonly EntityUid? User = User;
 }
-

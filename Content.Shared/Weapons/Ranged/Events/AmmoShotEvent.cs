@@ -17,4 +17,3 @@ public sealed class AmmoShotEvent : EntityEventArgs
 {
     public List<EntityUid> FiredProjectiles = default!;
 }
-

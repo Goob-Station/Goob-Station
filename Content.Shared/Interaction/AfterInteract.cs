@@ -92,4 +92,3 @@ namespace Content.Shared.Interaction
         { }
     }
 }
-

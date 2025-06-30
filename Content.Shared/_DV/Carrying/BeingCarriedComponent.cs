@@ -20,4 +20,3 @@ public sealed partial class BeingCarriedComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid Carrier;
 }
-

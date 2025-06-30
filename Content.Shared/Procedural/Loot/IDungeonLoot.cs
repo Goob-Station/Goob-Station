@@ -10,4 +10,3 @@ namespace Content.Shared.Procedural.Loot;
 public partial interface IDungeonLoot
 {
 }
-

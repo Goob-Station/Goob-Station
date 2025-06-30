@@ -41,4 +41,3 @@ public enum PathFlags : byte
 
      Blob = 1 << 5,  // Goobstation - Blob
 }
-

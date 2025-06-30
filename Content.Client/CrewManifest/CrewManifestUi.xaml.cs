@@ -80,4 +80,3 @@ public sealed partial class CrewManifestUi : DefaultWindow
         CrewManifestListing.AddCrewManifestEntries(entries);
     }
 }
-

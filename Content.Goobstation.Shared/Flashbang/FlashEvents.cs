@@ -31,4 +31,3 @@ public sealed class FlashDurationMultiplierEvent : EntityEventArgs, IInventoryRe
 
     public SlotFlags TargetSlots => SlotFlags.EYES | SlotFlags.HEAD | SlotFlags.MASK;
 }
-

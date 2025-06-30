@@ -38,4 +38,3 @@ public sealed partial class BiomeDecalLayer : IBiomeWorldLayer
     [DataField("decals", required: true, customTypeSerializer:typeof(PrototypeIdListSerializer<DecalPrototype>))]
     public List<string> Decals = new();
 }
-

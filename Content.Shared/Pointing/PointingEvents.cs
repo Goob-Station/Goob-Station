@@ -38,4 +38,3 @@ public readonly record struct AfterPointedAtEvent(EntityUid Pointed);
 /// <param name="Pointer"></param>
 [ByRefEvent]
 public readonly record struct AfterGotPointedAtEvent(EntityUid Pointer);
-

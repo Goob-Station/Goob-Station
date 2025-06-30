@@ -67,4 +67,3 @@ public sealed class SealableClothingVisualizerSystem : VisualizerSystem<Sealable
         }
     }
 }
-

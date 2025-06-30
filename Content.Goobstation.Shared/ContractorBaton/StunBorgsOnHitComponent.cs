@@ -15,4 +15,3 @@ public sealed partial class StunBorgsOnHitComponent : Component
     [DataField]
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
 }
-

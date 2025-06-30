@@ -131,4 +131,3 @@ namespace Content.Server.Power.Components
         public float PowerReceived => NetworkLoad.ReceivingPower;
     }
 }
-

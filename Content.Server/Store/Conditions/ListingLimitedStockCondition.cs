@@ -24,4 +24,3 @@ public sealed partial class ListingLimitedStockCondition : ListingCondition
         return args.Listing.PurchaseAmount < Stock;
     }
 }
-

@@ -19,4 +19,3 @@ namespace Content.Shared.Movement.Events
         }
     }
 }
-

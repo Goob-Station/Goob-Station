@@ -15,4 +15,3 @@ public enum RandomIconSmoothState : byte
 {
     State
 }
-

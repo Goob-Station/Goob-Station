@@ -14,4 +14,3 @@ namespace Content.Client.Nutrition.EntitySystems
     {
     }
 }
-

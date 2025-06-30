@@ -31,4 +31,3 @@ public sealed partial class HomingProjectileComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public float HomingAccumulator;
 }
-

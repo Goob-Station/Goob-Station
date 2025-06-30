@@ -129,4 +129,3 @@ public sealed class PlayerPanelCommand : LocalizedCommands
         return CompletionResult.Empty;
     }
 }
-

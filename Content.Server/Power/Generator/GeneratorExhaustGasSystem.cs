@@ -33,4 +33,3 @@ public sealed class GeneratorExhaustGasSystem : EntitySystem
             _atmosphere.Merge(environment, exhaustMixture);
     }
 }
-

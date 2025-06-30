@@ -12,4 +12,3 @@ public sealed class RatKingSystem : SharedRatKingSystem
 {
 
 }
-

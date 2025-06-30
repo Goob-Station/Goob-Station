@@ -51,4 +51,3 @@ namespace Content.Server.Atmos.Piping.Trinary.Components
         public float MaxTransferRate { get; set; } = Atmospherics.MaxTransferRate;
     }
 }
-

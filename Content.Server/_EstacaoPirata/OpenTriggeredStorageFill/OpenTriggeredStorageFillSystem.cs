@@ -73,4 +73,3 @@ public sealed class OpenTriggeredStorageFillSystem : EntitySystem
     }
 
 }
-

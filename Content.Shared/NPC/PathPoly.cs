@@ -35,4 +35,3 @@ public sealed class DebugPathPolyNeighbor
 {
     public NetCoordinates Coordinates;
 }
-

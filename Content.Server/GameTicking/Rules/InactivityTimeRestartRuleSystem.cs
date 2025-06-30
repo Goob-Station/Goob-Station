@@ -124,4 +124,3 @@ public sealed class InactivityTimeRestartRuleSystem : GameRuleSystem<InactivityR
         }
     }
 }
-

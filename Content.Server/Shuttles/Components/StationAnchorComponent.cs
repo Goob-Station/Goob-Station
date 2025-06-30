@@ -16,4 +16,3 @@ public sealed partial class StationAnchorComponent : Component
     [DataField("switchedOn")]
     public bool SwitchedOn { get; set; } = true;
 }
-

@@ -56,4 +56,3 @@ public sealed class ResearchStealerSystem : SharedResearchStealerSystem
 /// </summary>
 [ByRefEvent]
 public record struct ResearchStolenEvent(EntityUid Used, EntityUid Target, List<string> Techs);
-

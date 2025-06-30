@@ -32,4 +32,3 @@ public abstract class SharedRotationVisualsSystem : EntitySystem
             SetHorizontalAngle(ent, ent.Comp.DefaultRotation);
     }
 }
-

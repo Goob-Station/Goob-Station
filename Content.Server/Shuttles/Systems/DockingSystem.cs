@@ -507,4 +507,3 @@ namespace Content.Server.Shuttles.Systems
         }
     }
 }
-

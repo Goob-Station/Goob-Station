@@ -120,4 +120,3 @@ public sealed partial class DamageOnAttackedComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsDamageActive = true;
 }
-

@@ -57,4 +57,3 @@ public sealed class BlobbernautVisualizerSystem : VisualizerSystem<BlobbernautCo
         UpdateAppearance(uid, component);
     }
 }
-

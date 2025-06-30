@@ -25,4 +25,3 @@ public sealed partial class InnateMiningScannerViewerComponent : Component
     public SoundSpecifier? PingSound = null;
 
 }
-

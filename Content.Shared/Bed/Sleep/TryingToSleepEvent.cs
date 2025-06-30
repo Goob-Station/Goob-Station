@@ -11,4 +11,3 @@ namespace Content.Shared.Bed.Sleep;
 /// </summary>
 [ByRefEvent]
 public record struct TryingToSleepEvent(EntityUid uid, bool Cancelled = false);
-

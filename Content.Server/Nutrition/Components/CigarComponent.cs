@@ -19,4 +19,3 @@ namespace Content.Server.Nutrition.Components
     {
     }
 }
-

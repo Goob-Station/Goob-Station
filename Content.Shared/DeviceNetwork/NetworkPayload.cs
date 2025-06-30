@@ -27,4 +27,3 @@ public sealed class NetworkPayload : Dictionary<string, object?>
         return false;
     }
 }
-

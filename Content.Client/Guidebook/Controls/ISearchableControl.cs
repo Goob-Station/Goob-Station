@@ -12,4 +12,3 @@ public interface ISearchableControl
     /// </summary>
     public void SetHiddenState(bool state, string query);
 }
-

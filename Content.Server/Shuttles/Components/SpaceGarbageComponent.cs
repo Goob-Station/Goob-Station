@@ -12,4 +12,3 @@ namespace Content.Server.Shuttles.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class SpaceGarbageComponent : Component {}
-

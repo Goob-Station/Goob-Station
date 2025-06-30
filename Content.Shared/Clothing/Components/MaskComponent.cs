@@ -122,4 +122,3 @@ public sealed partial class MaskComponent : Component
     [DataField, AutoNetworkedField]
     public bool DisableOnFolded;
 }
-

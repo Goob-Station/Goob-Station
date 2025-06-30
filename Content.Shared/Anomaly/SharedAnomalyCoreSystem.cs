@@ -119,4 +119,3 @@ public sealed class SharedAnomalyCoreSystem : EntitySystem
         Dirty(uid, component);
     }
 }
-

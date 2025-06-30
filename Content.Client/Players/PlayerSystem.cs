@@ -17,4 +17,3 @@ public sealed class PlayerSystem : SharedPlayerSystem
         return null;
     }
 }
-

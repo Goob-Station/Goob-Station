@@ -275,4 +275,3 @@ public abstract class SharedNavMapSystem : EntitySystem
 
     #endregion
 }
-

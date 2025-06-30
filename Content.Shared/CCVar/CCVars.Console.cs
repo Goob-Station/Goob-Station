@@ -18,4 +18,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> ConsoleLoginHostUser =
         CVarDef.Create("console.login_host_user", "", CVar.ARCHIVE | CVar.SERVERONLY);
 }
-

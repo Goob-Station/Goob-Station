@@ -21,4 +21,3 @@ public sealed partial class BiomeTemplatePrototype : IPrototype
     [DataField("layers")]
     public List<IBiomeLayer> Layers = new();
 }
-

@@ -53,4 +53,3 @@ public sealed partial class BarSignMenu : FancyWindow
         SignOptions.TrySelectId(idx);
     }
 }
-

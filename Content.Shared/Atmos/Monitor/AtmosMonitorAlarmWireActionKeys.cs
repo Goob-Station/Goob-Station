@@ -14,4 +14,3 @@ public enum AtmosMonitorAlarmWireActionKeys : byte
 {
     Network,
 }
-

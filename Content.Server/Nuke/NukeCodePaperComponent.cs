@@ -27,4 +27,3 @@ namespace Content.Server.Nuke
         public bool AllNukesAvailable;
     }
 }
-

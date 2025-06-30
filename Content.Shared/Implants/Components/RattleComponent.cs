@@ -26,4 +26,3 @@ public sealed partial class RattleComponent : Component
     [DataField]
     public LocId DeathMessage = "deathrattle-implant-dead-message";
 }
-

@@ -54,4 +54,3 @@ public sealed class SecretStartsTest
         await pair.CleanReturnAsync();
     }
 }
-

@@ -162,4 +162,3 @@ public sealed class DoAfterCancellationTests : InteractionTest
         });
     }
 }
-

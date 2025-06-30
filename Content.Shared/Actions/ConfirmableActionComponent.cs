@@ -72,4 +72,3 @@ public sealed partial class ConfirmableActionComponent : Component
     [DataField]
     public bool ShouldCancel = true;
 }
-

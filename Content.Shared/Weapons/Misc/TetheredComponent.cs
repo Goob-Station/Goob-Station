@@ -19,4 +19,3 @@ public sealed partial class TetheredComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("originalAngularDamping"), AutoNetworkedField]
     public float OriginalAngularDamping;
 }
-

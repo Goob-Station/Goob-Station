@@ -57,4 +57,3 @@ public sealed partial class BlueprintReceiverComponent : Component
     [DataField(required: true)]
     public EntityWhitelist Whitelist = new();
 }
-

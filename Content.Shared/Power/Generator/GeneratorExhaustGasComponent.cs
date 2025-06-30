@@ -36,4 +36,3 @@ public sealed partial class GeneratorExhaustGasComponent : Component
     [DataField("temperature"), ViewVariables(VVAccess.ReadWrite)]
     public float Temperature = Atmospherics.T0C + 100;
 }
-

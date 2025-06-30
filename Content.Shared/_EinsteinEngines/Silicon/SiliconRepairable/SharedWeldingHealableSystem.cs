@@ -16,4 +16,3 @@ public abstract partial class SharedWeldingHealableSystem : EntitySystem
         public float Delay;
     }
 }
-

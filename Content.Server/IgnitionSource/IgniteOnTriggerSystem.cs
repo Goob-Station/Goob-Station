@@ -62,4 +62,3 @@ public sealed class IgniteOnTriggerSystem : EntitySystem
         ent.Comp.IgnitedUntil = _timing.CurTime + ent.Comp.IgnitedTime;
     }
 }
-

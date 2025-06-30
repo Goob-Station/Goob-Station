@@ -27,4 +27,3 @@ public sealed partial class DamageEntity : IGraphAction
         entityManager.System<DamageableSystem>().TryChangeDamage(uid, Damage, origin: userUid);
     }
 }
-

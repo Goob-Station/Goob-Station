@@ -17,4 +17,3 @@ public abstract class SharedPlayerSystem : EntitySystem
 {
     public abstract ContentPlayerData? ContentData(ICommonSession? session);
 }
-

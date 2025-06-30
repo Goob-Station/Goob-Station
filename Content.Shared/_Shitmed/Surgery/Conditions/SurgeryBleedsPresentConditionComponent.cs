@@ -8,4 +8,3 @@ public sealed partial class SurgeryBleedsPresentConditionComponent : Component
     [DataField]
     public bool Inverted = false;
 }
-

@@ -184,4 +184,3 @@ public sealed class BlobNodeSystem : EntitySystem
         }
     }
 }
-

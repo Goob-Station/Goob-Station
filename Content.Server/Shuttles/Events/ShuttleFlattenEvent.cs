@@ -10,4 +10,3 @@ namespace Content.Server.Shuttles.Events;
 /// </summary>
 [ByRefEvent]
 public readonly record struct ShuttleFlattenEvent(EntityUid MapUid, List<Box2> AABBs);
-

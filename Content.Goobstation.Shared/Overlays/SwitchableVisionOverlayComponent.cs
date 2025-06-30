@@ -62,4 +62,3 @@ public sealed class SwitchableVisionOverlayComponentState : IComponentState
     public EntProtoId? ToggleAction;
     public float LightRadius;
 }
-

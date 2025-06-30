@@ -132,4 +132,3 @@ public sealed class WizardMirrorMessage(HumanoidCharacterProfile profile) : Boun
 {
     public HumanoidCharacterProfile Profile = profile;
 }
-

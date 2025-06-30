@@ -24,4 +24,3 @@ namespace Content.Server.Ghost.Roles.Components
     {
     }
 }
-

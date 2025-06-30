@@ -15,4 +15,3 @@ public sealed partial class DropItemsOnTimedDespawnComponent : Component
     [DataField]
     public bool DropDespawningItems;
 }
-

@@ -19,4 +19,3 @@ public sealed partial class SurplusBundleComponent : Component
     [DataField]
     public int TotalPrice = 20;
 }
-

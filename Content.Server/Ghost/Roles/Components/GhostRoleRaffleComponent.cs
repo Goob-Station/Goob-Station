@@ -61,4 +61,3 @@ public sealed partial class GhostRoleRaffleComponent : Component
     [DataField("maxDuration")]
     public TimeSpan MaxDuration { get; set; }
 }
-

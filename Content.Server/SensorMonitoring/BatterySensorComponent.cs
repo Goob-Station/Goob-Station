@@ -36,4 +36,3 @@ public sealed record BatterySensorData(
     float Supplying,
     float MaxSupplying
 );
-

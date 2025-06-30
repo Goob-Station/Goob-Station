@@ -49,4 +49,3 @@ public sealed class CardFlipUpdatedEvent(NetEntity card) : EntityEventArgs
 {
     public NetEntity Card = card;
 }
-

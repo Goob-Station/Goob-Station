@@ -72,4 +72,3 @@ public sealed partial class ThermalRegulatorComponent : Component
     [DataField]
     public float ThermalRegulationTemperatureThreshold;
 }
-

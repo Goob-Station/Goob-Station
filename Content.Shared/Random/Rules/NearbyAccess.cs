@@ -80,4 +80,3 @@ public sealed partial class NearbyAccessRule : RulesRule
         return !Inverted;
     }
 }
-

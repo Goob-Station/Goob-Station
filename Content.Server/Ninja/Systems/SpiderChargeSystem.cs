@@ -168,4 +168,3 @@ public sealed class SpiderChargeSystem : SharedSpiderChargeSystem
         _ninja.DetonatedSpiderCharge((comp.Planter.Value, ninja));
     }
 }
-

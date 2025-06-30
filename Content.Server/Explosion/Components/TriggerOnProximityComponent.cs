@@ -105,4 +105,3 @@ namespace Content.Server.Explosion.Components
         public int Layer = (int) (CollisionGroup.MidImpassable | CollisionGroup.LowImpassable | CollisionGroup.HighImpassable);
     }
 }
-

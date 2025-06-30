@@ -69,4 +69,3 @@ public sealed partial class GravitySystem
         _sharedCameraRecoil.KickCamera(localPlayer.Value, kick);
     }
 }
-

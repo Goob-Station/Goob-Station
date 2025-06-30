@@ -249,4 +249,3 @@ public sealed partial class TestPair : IAsyncDisposable
         Assert.That(mind.UserId, Is.EqualTo(session.UserId));
     }
 }
-

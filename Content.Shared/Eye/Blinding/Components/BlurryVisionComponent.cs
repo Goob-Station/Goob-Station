@@ -35,4 +35,3 @@ public sealed partial class BlurryVisionComponent : Component
     public const float MaxMagnitude = 6;
     public const float DefaultCorrectionPower = 2f;
 }
-

@@ -22,4 +22,3 @@ public sealed partial class ExaminableSolutionComponent : Component
     [DataField]
     public bool HeldOnly;
 }
-

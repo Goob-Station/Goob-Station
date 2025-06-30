@@ -20,4 +20,3 @@ namespace Pow3r
         }
     }
 }
-

@@ -55,4 +55,3 @@
     event: !type:CritLastWordsEvent
     startDelay: true
     useDelay: 10
-

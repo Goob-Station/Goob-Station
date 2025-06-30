@@ -80,4 +80,3 @@ public sealed class ProgressColorSystem : EntitySystem
         return new Color((float) r / total, (float) g / total, (float) b / total);
     }
 }
-

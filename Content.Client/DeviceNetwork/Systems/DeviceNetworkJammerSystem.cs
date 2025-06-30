@@ -37,4 +37,3 @@ namespace Content.Client.DeviceNetwork.Systems;
 
 /// <inheritdoc/>
 public sealed class DeviceNetworkJammerSystem : SharedDeviceNetworkJammerSystem;
-

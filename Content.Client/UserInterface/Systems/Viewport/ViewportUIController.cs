@@ -186,4 +186,3 @@ public sealed class ViewportUIController : UIController
         Logger.Warning($"Main viewport's eye is in nullspace (main eye is null?). Attached entity: {_entMan.ToPrettyString(ent.Value)}. Entity has eye comp: {eye != null}");
     }
 }
-

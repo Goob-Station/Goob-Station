@@ -107,4 +107,3 @@ namespace Content.Shared.Chat
         }
     }
 }
-

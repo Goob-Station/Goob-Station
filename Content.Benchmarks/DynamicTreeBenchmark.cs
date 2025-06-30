@@ -79,4 +79,3 @@ namespace Content.Benchmarks
         }
     }
 }
-

@@ -58,4 +58,3 @@ public abstract class SharedPlayerRateLimitManager
     /// </summary>
     public abstract void Initialize();
 }
-

@@ -65,4 +65,3 @@
     count: 10
   - type: TimedDespawn
     lifetime: 0.25
-

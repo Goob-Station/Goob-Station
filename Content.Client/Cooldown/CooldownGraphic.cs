@@ -81,4 +81,3 @@ namespace Content.Client.Cooldown
         }
     }
 }
-

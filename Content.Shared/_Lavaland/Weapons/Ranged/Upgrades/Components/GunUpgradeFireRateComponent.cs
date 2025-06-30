@@ -32,4 +32,3 @@ public sealed partial class GunUpgradeFireRateComponent : Component
     [DataField]
     public float Coefficient = 1;
 }
-

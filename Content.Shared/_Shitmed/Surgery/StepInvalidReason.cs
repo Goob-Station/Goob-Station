@@ -13,4 +13,3 @@ public enum StepInvalidReason
     Armor,
     MissingTool,
 }
-

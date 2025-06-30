@@ -35,4 +35,3 @@ public sealed partial class JointVisualsComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("offsetB"), AutoNetworkedField]
     public Vector2 OffsetB;
 }
-

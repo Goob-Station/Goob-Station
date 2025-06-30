@@ -102,4 +102,3 @@ public sealed class FloatingVisualizerSystem : SharedFloatingVisualizerSystem
         FloatAnimation(uid, component.Offset, component.AnimationKey, component.AnimationTime, stop: !component.CanFloat);
     }
 }
-

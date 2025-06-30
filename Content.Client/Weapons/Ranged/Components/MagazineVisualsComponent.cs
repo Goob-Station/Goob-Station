@@ -47,4 +47,3 @@ public enum GunVisualLayers : byte
     Mag,
     MagUnshaded,
 }
-

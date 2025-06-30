@@ -16,4 +16,3 @@ public sealed class ShuttleConsoleFTLBeaconMessage : BoundUserInterfaceMessage
     public NetEntity Beacon;
     public Angle Angle;
 }
-

@@ -22,4 +22,3 @@ public sealed partial class HeadsetComponent : Component
     [DataField("requiredSlot")]
     public SlotFlags RequiredSlot = SlotFlags.EARS;
 }
-

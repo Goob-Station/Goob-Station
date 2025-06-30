@@ -29,4 +29,3 @@ public sealed partial class ResearchSystem
         return source.Comp.Active && this.IsPowered(source, EntityManager);
     }
 }
-

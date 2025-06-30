@@ -24,4 +24,3 @@ public sealed partial class SpiderChargeConditionComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? Target;
 }
-

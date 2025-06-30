@@ -12,4 +12,3 @@ namespace Content.Shared.Interaction.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedInteractionSystem))]
 public sealed partial class ComplexInteractionComponent : Component;
-

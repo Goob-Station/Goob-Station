@@ -28,4 +28,3 @@ public sealed class EmpSystem : SharedEmpSystem
         }
     }
 }
-

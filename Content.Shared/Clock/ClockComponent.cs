@@ -45,4 +45,3 @@ public enum ClockVisualLayers : byte
     HourHand,
     MinuteHand
 }
-

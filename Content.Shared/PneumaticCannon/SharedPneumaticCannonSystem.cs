@@ -44,4 +44,3 @@ public abstract class SharedPneumaticCannonSystem : EntitySystem
         }
     }
 }
-

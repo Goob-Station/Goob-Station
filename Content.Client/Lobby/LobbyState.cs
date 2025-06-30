@@ -375,4 +375,3 @@ namespace Content.Client.Lobby
         }
     }
 }
-

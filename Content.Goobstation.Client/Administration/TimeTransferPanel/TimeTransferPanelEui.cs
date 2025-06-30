@@ -49,4 +49,3 @@ public sealed class TimeTransferPanelEui : BaseEui
         TimeTransferPanel.UpdateWarning(warning.Message, warning.WarningColor);
     }
 }
-

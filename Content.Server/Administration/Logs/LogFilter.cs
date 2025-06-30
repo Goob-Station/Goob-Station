@@ -45,4 +45,3 @@ public sealed class LogFilter
 
     public DateOrder DateOrder { get; set; } = DateOrder.Descending;
 }
-

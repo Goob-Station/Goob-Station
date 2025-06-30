@@ -81,4 +81,3 @@ public sealed partial class PanicBunkerTab : Control
         _minOverallMinutes = MinOverallMinutes.Text;
     }
 }
-

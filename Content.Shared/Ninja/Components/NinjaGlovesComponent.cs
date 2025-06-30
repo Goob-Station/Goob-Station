@@ -60,4 +60,3 @@ public partial record struct NinjaGloveAbility()
     [DataField(required: true)]
     public ComponentRegistry Components = new();
 }
-

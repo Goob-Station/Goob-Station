@@ -439,4 +439,3 @@ public sealed partial class AtmosMonitoringConsoleWindow : FancyWindow
         }
     }
 }
-

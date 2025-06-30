@@ -17,4 +17,3 @@ namespace Content.Client.Markers
     {
     }
 }
-

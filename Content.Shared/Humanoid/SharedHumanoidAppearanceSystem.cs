@@ -586,4 +586,3 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         return Loc.GetString("identity-age-old");
     }
 }
-

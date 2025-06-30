@@ -15,4 +15,3 @@ namespace Content.Server.Holiday.Interfaces
         bool ShouldCelebrate(DateTime date, HolidayPrototype holiday);
     }
 }
-

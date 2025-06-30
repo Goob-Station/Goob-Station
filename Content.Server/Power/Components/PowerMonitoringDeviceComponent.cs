@@ -93,4 +93,3 @@ public sealed partial class PowerMonitoringDeviceComponent : Component
     [DataField("group", required: true), ViewVariables]
     public PowerMonitoringConsoleGroup Group;
 }
-

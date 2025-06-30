@@ -34,4 +34,3 @@ public sealed partial class RadiationPulseComponent : Component
     /// </summary>
     public float VisualRange = 5f;
 }
-

@@ -36,4 +36,3 @@ public sealed partial class ContainedSolutionComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public string ContainerName = default!;
 }
-

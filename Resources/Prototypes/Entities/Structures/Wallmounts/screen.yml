@@ -57,4 +57,3 @@
   - type: DeviceNetwork
     deviceNetId: Private
     receiveFrequencyId: ArrivalsShuttleTimer
-

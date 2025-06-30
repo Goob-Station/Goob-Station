@@ -199,4 +199,3 @@
     nutritionLevel: 0
     # for the lights to update immediately
     updateSpriteAfterUpdate: true
-

@@ -51,4 +51,3 @@
   - type: SeedExtractor
   - type: Machine
     board: SeedExtractorMachineCircuitboard
-

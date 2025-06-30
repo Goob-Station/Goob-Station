@@ -58,4 +58,3 @@
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: DubiousOrgansTable
-

@@ -26,4 +26,3 @@ public sealed partial class SlidingComponent : Component
     [DataField, AutoNetworkedField]
     public float FrictionModifier;
 }
-

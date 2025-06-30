@@ -21,4 +21,3 @@ public sealed partial class HandsFillComponent : Component
     [DataField(required: true)]
     public Dictionary<string, EntProtoId?> Hands = new();
 }
-

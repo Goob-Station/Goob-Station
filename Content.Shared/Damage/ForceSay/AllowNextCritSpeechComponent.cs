@@ -28,4 +28,3 @@ public sealed partial class AllowNextCritSpeechComponent : Component
     /// </summary>
     public TimeSpan? Timeout = null;
 }
-

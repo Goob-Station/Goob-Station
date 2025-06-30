@@ -53,4 +53,3 @@ public sealed partial class OuterSlotPenaltyComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float UnequipDelay = 2f;
 }
-

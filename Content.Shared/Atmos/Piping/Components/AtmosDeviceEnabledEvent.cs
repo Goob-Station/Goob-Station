@@ -10,4 +10,3 @@ namespace Content.Shared.Atmos.Piping.Components;
 /// </summary>
 [ByRefEvent]
 public readonly record struct AtmosDeviceEnabledEvent;
-

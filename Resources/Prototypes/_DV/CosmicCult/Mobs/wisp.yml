@@ -65,4 +65,3 @@
        reverseWhenFinished: true
   - type: WeakToHoly # Goobstation Shitchap
     alwaysTakeHoly: true
-

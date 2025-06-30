@@ -74,4 +74,3 @@ public sealed class PickRandomSystem : EntitySystem
         _hands.TryPickupAnyHand(user, picked);
     }
 }
-

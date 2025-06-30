@@ -113,4 +113,3 @@ public sealed class StickyVisualizerSystem : VisualizerSystem<StickyVisualizerCo
         SpriteSystem.SetDrawDepth((uid, args.Sprite), drawDepth);
     }
 }
-

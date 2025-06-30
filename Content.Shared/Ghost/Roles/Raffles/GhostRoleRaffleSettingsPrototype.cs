@@ -26,4 +26,3 @@ public sealed partial class GhostRoleRaffleSettingsPrototype : IPrototype
     [DataField(required: true)]
     public GhostRoleRaffleSettings Settings { get; private set; } = new();
 }
-

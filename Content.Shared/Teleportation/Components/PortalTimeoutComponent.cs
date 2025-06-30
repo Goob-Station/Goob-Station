@@ -22,4 +22,3 @@ public sealed partial class PortalTimeoutComponent : Component
     [ViewVariables, DataField, AutoNetworkedField]
     public EntityUid? EnteredPortal;
 }
-

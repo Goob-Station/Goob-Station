@@ -16,4 +16,3 @@ public sealed partial class ThrownLightningComponent : Component
     [DataField]
     public LocId? Speech = "action-speech-spell-thrown-lightning";
 }
-

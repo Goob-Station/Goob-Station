@@ -75,4 +75,3 @@ public sealed partial class HolopadHologramComponent : Component
     [ViewVariables, AutoNetworkedField]
     public EntityUid? LinkedEntity = null;
 }
-

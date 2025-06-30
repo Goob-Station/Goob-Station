@@ -42,4 +42,3 @@ public sealed partial class DiceComponent : Component
     public int CurrentValue { get; set; } = 20;
 
 }
-

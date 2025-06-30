@@ -49,4 +49,3 @@ public sealed partial class AnomalyBehaviorPrototype : IPrototype
     [DataField(serverOnly: true)]
     public ComponentRegistry Components = new();
 }
-

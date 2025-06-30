@@ -47,4 +47,3 @@ namespace Content.Server.Jobs
         }
     }
 }
-

@@ -114,4 +114,3 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         }
     }
 }
-

@@ -340,4 +340,3 @@ public sealed class AmbientSoundSystem : SharedAmbientSoundSystem
         DebugTools.Assert(_playingCount.All(x => x.Value == PlayingCount(x.Key)));
     }
 }
-

@@ -60,4 +60,3 @@ public sealed partial class IonStormTargetComponent : Component
 /// </summary>
 [ByRefEvent]
 public record struct IonStormLawsEvent(SiliconLawset Lawset);
-

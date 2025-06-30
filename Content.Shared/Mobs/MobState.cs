@@ -47,4 +47,3 @@ public enum MobStateVisuals : byte
 {
     State
 }
-

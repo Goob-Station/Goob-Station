@@ -273,4 +273,3 @@ public sealed class DamageOverlay : Overlay
         return adjustment;
     }
 }
-

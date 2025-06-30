@@ -45,4 +45,3 @@ public sealed partial class SolidFuelGeneratorAdapterComponent : Component
     [DataField("multiplier"), ViewVariables(VVAccess.ReadWrite)]
     public float Multiplier;
 }
-

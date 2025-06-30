@@ -91,4 +91,3 @@ public sealed class EssenceSystem : EntitySystem
         }
     }
 }
-

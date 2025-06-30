@@ -22,4 +22,3 @@ public sealed partial class SelectedGameRulesComponent : Component
     [DataField(required: true)]
     public EntityTableSelector ScheduledGameRules = default!;
 }
-

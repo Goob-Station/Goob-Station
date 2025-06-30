@@ -24,4 +24,3 @@ namespace Content.Shared.Mind.Components
     {
     }
 }
-

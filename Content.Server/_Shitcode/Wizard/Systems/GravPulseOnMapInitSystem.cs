@@ -32,4 +32,3 @@ public sealed class GravPulseOnMapInitSystem : EntitySystem
             comp.BaseTangentialAcceleration);
     }
 }
-

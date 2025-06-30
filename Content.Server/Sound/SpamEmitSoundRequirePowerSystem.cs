@@ -78,4 +78,3 @@ public sealed partial class SpamEmitSoundRequirePowerSystem : SharedSpamEmitSoun
         }
     }
 }
-

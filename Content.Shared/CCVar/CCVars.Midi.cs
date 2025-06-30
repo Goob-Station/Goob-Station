@@ -21,4 +21,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<int> MaxMidiLaggedBatches =
         CVarDef.Create("midi.max_lagged_batches", 8, CVar.SERVERONLY);
 }
-

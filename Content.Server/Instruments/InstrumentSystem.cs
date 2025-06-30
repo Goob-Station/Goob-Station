@@ -484,4 +484,3 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         return component != null;
     }
 }
-

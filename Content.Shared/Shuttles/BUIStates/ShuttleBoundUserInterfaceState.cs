@@ -22,4 +22,3 @@ public sealed class ShuttleBoundUserInterfaceState : BoundUserInterfaceState
         DockState = dockState;
     }
 }
-

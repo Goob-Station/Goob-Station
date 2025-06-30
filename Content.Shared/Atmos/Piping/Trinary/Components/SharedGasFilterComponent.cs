@@ -69,4 +69,3 @@ namespace Content.Shared.Atmos.Piping.Trinary.Components
         }
     }
 }
-

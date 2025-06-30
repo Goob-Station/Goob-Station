@@ -35,4 +35,3 @@ namespace Content.Server.Shuttles.Components
         public List<EntityUid> FTLWhitelist = new List<EntityUid>();
     }
 }
-

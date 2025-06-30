@@ -107,4 +107,3 @@ public sealed class InnateToolSystem : EntitySystem
         component.ToolUids.Clear();
     }
 }
-

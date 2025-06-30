@@ -36,4 +36,3 @@ public sealed partial class ImpersonateConditionComponent : Component
 
     public bool Completed = false;
 }
-

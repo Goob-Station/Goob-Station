@@ -181,4 +181,3 @@ public enum CollisionGroup
     BlobTileLayer = Opaque | BlobImpassable | BulletImpassable
     // end-goobstation: blob
 }
-

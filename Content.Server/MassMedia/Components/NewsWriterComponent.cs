@@ -41,4 +41,3 @@ public sealed partial class NewsWriterComponent : Component
     [DataField, ViewVariables]
     public string DraftContent = "";
 }
-

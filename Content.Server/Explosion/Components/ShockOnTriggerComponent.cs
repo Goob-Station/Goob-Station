@@ -41,4 +41,3 @@ public sealed partial class ShockOnTriggerComponent : Component
     [AutoPausedField]
     public TimeSpan NextTrigger = TimeSpan.Zero;
 }
-

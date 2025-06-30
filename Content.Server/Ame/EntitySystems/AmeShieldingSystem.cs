@@ -45,4 +45,3 @@ public sealed class AmeShieldingSystem : EntitySystem
         _appearanceSystem.SetData(uid, AmeShieldVisuals.CoreState, injectionStrength > 2 ? AmeCoreState.Strong : AmeCoreState.Weak);
     }
 }
-

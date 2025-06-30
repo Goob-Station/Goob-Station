@@ -24,4 +24,3 @@ public sealed partial class RavenAccentComponent : AnimalAccentComponent
 
     public override float AltNoiseProbability => 0.01f;
 }
-

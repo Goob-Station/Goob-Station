@@ -33,4 +33,3 @@ public sealed class VotePlayerListResponseEvent : EntityEventArgs
     /// </summary>
     public bool Denied;
 }
-

@@ -16,4 +16,3 @@ namespace Content.Goobstation.Server.Pirates.Roles;
 public sealed partial class PirateRoleComponent : BaseMindRoleComponent
 {
 }
-

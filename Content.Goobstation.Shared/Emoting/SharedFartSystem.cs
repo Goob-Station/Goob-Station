@@ -22,4 +22,3 @@ public abstract class SharedFartSystem : EntitySystem
         args.State = new FartComponentState(ent.Comp.Emote, ent.Comp.FartTimeout, ent.Comp.FartInhale, ent.Comp.SuperFarted);
     }
 }
-

@@ -13,4 +13,3 @@ public readonly record struct ShuttleBeaconObject(NetEntity Entity, NetCoordinat
 {
     public bool HideButton => false;
 }
-

@@ -114,4 +114,3 @@ public enum SpellbladeUiKey : byte
 {
     Key
 }
-

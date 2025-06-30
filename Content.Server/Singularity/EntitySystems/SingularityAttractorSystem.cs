@@ -106,4 +106,3 @@ public sealed class SingularityAttractorSystem : EntitySystem
         ent.Comp.LastPulseTime = _timing.CurTime;
     }
 }
-

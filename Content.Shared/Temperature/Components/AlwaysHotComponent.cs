@@ -15,4 +15,3 @@ namespace Content.Shared.Temperature.Components;
 public sealed partial class AlwaysHotComponent : Component
 {
 }
-

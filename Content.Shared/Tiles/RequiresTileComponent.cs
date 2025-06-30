@@ -16,4 +16,3 @@ public sealed partial class RequiresTileComponent : Component
 {
 
 }
-

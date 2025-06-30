@@ -91,4 +91,3 @@ public sealed partial class IconSmoothSystem
         West
     }
 }
-

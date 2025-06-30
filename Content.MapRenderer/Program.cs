@@ -210,4 +210,3 @@ namespace Content.MapRenderer
         }
     }
 }
-

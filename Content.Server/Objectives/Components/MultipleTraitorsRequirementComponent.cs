@@ -20,4 +20,3 @@ public sealed partial class MultipleTraitorsRequirementComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int Traitors = 2;
 }
-

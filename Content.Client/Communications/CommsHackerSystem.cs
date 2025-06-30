@@ -14,4 +14,3 @@ namespace Content.Client.Communications;
 public sealed class CommsHackerSystem : SharedCommsHackerSystem
 {
 }
-

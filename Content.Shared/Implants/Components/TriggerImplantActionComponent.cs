@@ -19,4 +19,3 @@ public sealed partial class TriggerImplantActionComponent : Component
 {
 
 }
-

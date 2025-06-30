@@ -274,4 +274,3 @@ public enum AiUi : byte
 {
     Key,
 }
-

@@ -17,4 +17,3 @@ namespace Content.Server.Holiday.Interfaces
         void Celebrate(HolidayPrototype holiday);
     }
 }
-

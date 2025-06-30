@@ -81,4 +81,3 @@ public abstract class SharedDockingSystem : EntitySystem
         return CanDock(mapPosA, worldRotA, mapPosB, worldRotB);
     }
 }
-

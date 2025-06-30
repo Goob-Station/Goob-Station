@@ -27,4 +27,3 @@ public sealed partial class EncryptionKeyComponent : Component
     [DataField("defaultChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
     public string? DefaultChannel;
 }
-

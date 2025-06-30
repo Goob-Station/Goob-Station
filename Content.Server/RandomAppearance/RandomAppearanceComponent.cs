@@ -27,4 +27,3 @@ public sealed partial class RandomAppearanceComponent : Component
     [DataField(required: true, customTypeSerializer: typeof(EnumSerializer))]
     public Enum? EnumKey;
 }
-

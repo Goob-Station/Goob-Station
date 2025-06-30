@@ -20,4 +20,3 @@ public sealed partial class TileEmissionComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public Color Color = Color.Transparent;
 }
-

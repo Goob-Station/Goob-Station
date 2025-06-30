@@ -178,4 +178,3 @@ namespace Content.Benchmarks
 #endif
     }
 }
-

@@ -40,4 +40,3 @@ public sealed partial class TwoStageTriggerComponent : Component
     [DataField("ComponentsIsLoaded")]
     public bool ComponentsIsLoaded = false;
 }
-

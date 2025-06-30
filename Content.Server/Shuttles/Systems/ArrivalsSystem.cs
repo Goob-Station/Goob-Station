@@ -685,4 +685,3 @@ public sealed class ArrivalsSystem : EntitySystem
         timer.Lifetime = 15f;
     }
 }
-

@@ -102,4 +102,3 @@ public enum EmoteCategory : byte
     Farts = 1 << 2, // Goobstation - Fart Emotes
     General = byte.MaxValue
 }
-

@@ -243,4 +243,3 @@ public sealed partial class PossibleEvent
         Chaos = chaos;
     }
 }
-

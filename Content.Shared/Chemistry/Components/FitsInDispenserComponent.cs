@@ -33,4 +33,3 @@ public sealed partial class FitsInDispenserComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string Solution = "default";
 }
-

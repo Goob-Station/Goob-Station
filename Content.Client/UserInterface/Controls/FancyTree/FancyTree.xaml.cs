@@ -326,4 +326,3 @@ public sealed partial class FancyTree : Control
         base.StylePropertiesChanged();
     }
 }
-

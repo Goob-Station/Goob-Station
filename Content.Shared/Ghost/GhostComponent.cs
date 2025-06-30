@@ -129,4 +129,3 @@ public sealed partial class ToggleGhostHearingActionEvent : InstantActionEvent {
 public sealed partial class ToggleGhostVisibilityToAllEvent : InstantActionEvent { }
 
 public sealed partial class BooActionEvent : InstantActionEvent { }
-

@@ -412,4 +412,3 @@ public abstract record ListData;
 
 public record EntityListData(EntityUid Uid) : ListData;
 #endregion
-

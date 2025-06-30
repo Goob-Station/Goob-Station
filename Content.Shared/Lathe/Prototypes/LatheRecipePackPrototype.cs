@@ -35,4 +35,3 @@ public sealed partial class LatheRecipePackPrototype : IPrototype, IInheritingPr
     [AlwaysPushInheritance]
     public HashSet<ProtoId<LatheRecipePrototype>> Recipes = new();
 }
-

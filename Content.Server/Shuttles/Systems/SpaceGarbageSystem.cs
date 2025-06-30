@@ -41,4 +41,3 @@ public sealed class SpaceGarbageSystem : EntitySystem
         QueueDel(uid);
     }
 }
-

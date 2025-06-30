@@ -111,4 +111,3 @@ enum OpenedMailPercentGrade
     Average,
     Bad
 }
-

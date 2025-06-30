@@ -49,4 +49,3 @@ public sealed partial class CryostorageEntryControl : BoxContainer
         Collapsible.BodyVisible = LastOpenState;
     }
 }
-

@@ -15,4 +15,3 @@ namespace Content.Server.Objectives.Components;
 public sealed partial class EscapeShuttleConditionComponent : Component
 {
 }
-

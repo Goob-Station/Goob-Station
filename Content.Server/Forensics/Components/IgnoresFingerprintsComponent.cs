@@ -10,4 +10,3 @@ namespace Content.Server.Forensics.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class IgnoresFingerprintsComponent : Component { }
-

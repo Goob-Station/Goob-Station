@@ -94,4 +94,3 @@ public sealed class BuckleMovementTest : MovementTest
         Assert.That(Delta(), Is.LessThan(-1));
     }
 }
-

@@ -37,4 +37,3 @@ public sealed class HolidaySystem : EntitySystem
             _sprite.SetBaseRsi((ent.Owner, args.Sprite), rsi.RSI);
     }
 }
-

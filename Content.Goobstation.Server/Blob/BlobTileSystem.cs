@@ -475,4 +475,3 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
         RaiseNetworkEvent(new BlobAttackEvent(GetNetEntity(from), GetNetEntity(target), localPos), Filter.Pvs(from));
     }
 }
-

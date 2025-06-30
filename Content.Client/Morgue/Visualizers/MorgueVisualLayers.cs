@@ -10,4 +10,3 @@ public enum MorgueVisualLayers : byte
     Base,
     Light,
 }
-

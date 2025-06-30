@@ -79,4 +79,3 @@ public enum GravityGeneratorVisualLayers : byte
     Base,
     Core
 }
-

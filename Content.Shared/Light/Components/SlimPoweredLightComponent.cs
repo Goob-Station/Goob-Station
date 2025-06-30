@@ -56,4 +56,3 @@ public sealed partial class SlimPoweredLightComponent : Component
     [DataField, AutoNetworkedField]
     public bool Enabled = true;
 }
-

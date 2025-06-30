@@ -21,4 +21,3 @@ public sealed partial class MMILinkedComponent : Component
     [DataField("linkedMMI"), AutoNetworkedField]
     public EntityUid? LinkedMMI;
 }
-

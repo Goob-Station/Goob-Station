@@ -24,4 +24,3 @@ public sealed class EmpImmuneSystem : EntitySystem
         args.Cancel();
     }
 }
-

@@ -13,4 +13,3 @@ public sealed partial class DunGenEuclideanSquaredDistance : IDunGenDistance
     [DataField]
     public float BlendWeight { get; set; } = 0.50f;
 }
-

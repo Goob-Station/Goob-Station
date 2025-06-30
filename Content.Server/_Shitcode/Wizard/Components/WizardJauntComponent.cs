@@ -31,4 +31,3 @@ public sealed partial class WizardJauntComponent : Component
     [DataField]
     public EntityUid? JauntEndEffectEntity;
 }
-

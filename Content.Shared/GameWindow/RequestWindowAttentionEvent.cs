@@ -14,4 +14,3 @@ namespace Content.Shared.GameWindow
     {
     }
 }
-

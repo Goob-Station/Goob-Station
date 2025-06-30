@@ -83,4 +83,3 @@ namespace Content.Shared.Humanoid
         }
     }
 }
-

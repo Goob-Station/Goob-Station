@@ -37,4 +37,3 @@ public sealed partial class ExplosionAnomalyComponent : Component
     [DataField("explosionMaxTileIntensity")]
     public float MaxTileIntensity = 10f;
 }
-

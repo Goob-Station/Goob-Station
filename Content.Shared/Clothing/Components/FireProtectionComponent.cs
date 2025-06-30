@@ -29,4 +29,3 @@ public sealed partial class FireProtectionComponent : Component
     [DataField]
     public LocId ExamineMessage = "fire-protection-reduction-value";
 }
-

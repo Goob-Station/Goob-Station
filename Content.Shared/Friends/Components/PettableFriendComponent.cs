@@ -29,4 +29,3 @@ public sealed partial class PettableFriendComponent : Component
     [DataField(required: true)]
     public LocId FailureString = string.Empty;
 }
-

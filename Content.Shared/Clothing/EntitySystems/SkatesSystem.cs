@@ -54,4 +54,3 @@ public sealed class SkatesSystem : EntitySystem
         args.Args.ModifyAcceleration(ent.Comp.Acceleration);
     }
 }
-

@@ -66,4 +66,3 @@ public sealed partial class CargoGiftsRuleComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float TimeUntilNextGifts = 10.0f;
 }
-

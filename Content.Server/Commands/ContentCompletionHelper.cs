@@ -25,4 +25,3 @@ public static class ContentCompletionHelper
         }
     }
 }
-

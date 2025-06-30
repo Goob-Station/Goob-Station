@@ -16,4 +16,3 @@ public sealed partial class SurgerySpecialDamageChangeEffectComponent : Componen
     [DataField]
     public bool IsConsumable;
 }
-

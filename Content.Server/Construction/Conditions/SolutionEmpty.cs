@@ -62,4 +62,3 @@ public sealed partial class SolutionEmpty : IGraphCondition
         };
     }
 }
-

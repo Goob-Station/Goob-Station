@@ -58,4 +58,3 @@ public sealed partial class DroppableBorgItem
     [DataField(required: true)]
     public EntityWhitelist Whitelist;
 }
-

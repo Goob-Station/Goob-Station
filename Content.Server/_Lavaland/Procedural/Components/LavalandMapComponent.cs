@@ -48,4 +48,3 @@ public sealed partial class LavalandMapComponent : Component
     [DataField("loadedChunks")]
     public HashSet<Vector2i> LoadedChunks = new();
 }
-

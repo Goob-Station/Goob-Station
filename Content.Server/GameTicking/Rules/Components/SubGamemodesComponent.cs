@@ -24,4 +24,3 @@ public sealed partial class SubGamemodesComponent : Component
     [DataField(required: true)]
     public List<EntitySpawnEntry> Rules = new();
 }
-

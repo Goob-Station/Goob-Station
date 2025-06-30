@@ -31,4 +31,3 @@ public sealed partial class PaintableAirlockComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public ProtoId<DepartmentPrototype>? Department;
 }
-

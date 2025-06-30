@@ -570,4 +570,3 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         _audio.PlayPvs(electrified.ShockNoises, targetUid, AudioParams.Default.WithVolume(electrified.ShockVolume));
     }
 }
-

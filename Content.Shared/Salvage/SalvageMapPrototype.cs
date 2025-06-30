@@ -27,4 +27,3 @@ public sealed partial class SalvageMapPrototype : IPrototype
     [DataField(required: true)]
     public LocId SizeString;
 }
-

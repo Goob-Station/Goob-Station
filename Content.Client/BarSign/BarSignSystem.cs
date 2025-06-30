@@ -59,4 +59,3 @@ public sealed class BarSignSystem : VisualizerSystem<BarSignComponent>
         }
     }
 }
-

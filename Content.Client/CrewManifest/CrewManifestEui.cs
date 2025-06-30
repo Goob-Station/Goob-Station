@@ -53,4 +53,3 @@ public sealed class CrewManifestEui : BaseEui
         _window.Populate(cast.StationName, cast.Entries);
     }
 }
-

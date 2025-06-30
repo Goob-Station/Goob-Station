@@ -124,4 +124,3 @@ public abstract class SharedAdminFrozenSystem : EntitySystem
             args.Cancel();
     }
 }
-

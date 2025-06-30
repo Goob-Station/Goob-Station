@@ -42,4 +42,3 @@ public sealed partial class LavalandStormedMapComponent : Component
     [DataField]
     public float DamageAccumulator;
 }
-

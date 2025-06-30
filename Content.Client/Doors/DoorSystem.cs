@@ -169,4 +169,3 @@ public sealed class DoorSystem : SharedDoorSystem
         _sprite.SetBaseRsi(sprite.AsNullable(), res.RSI);
     }
 }
-

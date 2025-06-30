@@ -56,4 +56,3 @@ namespace Content.Tests.Client
         }
     }
 }
-

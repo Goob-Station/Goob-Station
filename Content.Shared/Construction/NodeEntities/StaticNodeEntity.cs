@@ -32,4 +32,3 @@ public sealed partial class StaticNodeEntity : IGraphNodeEntity
         return Id;
     }
 }
-

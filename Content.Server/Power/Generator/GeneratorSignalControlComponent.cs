@@ -72,4 +72,3 @@ public sealed partial class GeneratorSignalControlComponent: Component
     [DataField]
     public ProtoId<SinkPortPrototype> TogglePort = "Toggle";
 }
-

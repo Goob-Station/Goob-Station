@@ -119,4 +119,3 @@ public sealed partial class RadiationReactiveGas
     [DataField]
     public float MolarRatio = 1f;
 }
-

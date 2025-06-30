@@ -118,4 +118,3 @@ public sealed class JobWhitelistManager : IPostInjectInit
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
     }
 }
-

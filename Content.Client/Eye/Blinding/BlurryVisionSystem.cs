@@ -58,4 +58,3 @@ public sealed class BlurryVisionSystem : EntitySystem
         }
     }
 }
-

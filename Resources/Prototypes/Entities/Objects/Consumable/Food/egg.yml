@@ -223,4 +223,3 @@
   - type: Temperature
     # preserve temperature from the boiling step
     currentTemperature: 344
-

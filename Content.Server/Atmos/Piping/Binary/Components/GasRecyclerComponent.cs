@@ -35,4 +35,3 @@ namespace Content.Server.Atmos.Piping.Binary.Components
         public float MinPressure = 30 * Atmospherics.OneAtmosphere;
     }
 }
-

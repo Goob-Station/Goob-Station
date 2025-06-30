@@ -162,4 +162,3 @@ public enum SpeciesNaming : byte
     LastNoFirst, // DeltaV
     FirstDashLast, // Goobstation
 }
-

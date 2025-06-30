@@ -21,4 +21,3 @@ public sealed partial class TeslaCoilComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float ChargeFromLightning = 50000f;
 }
-

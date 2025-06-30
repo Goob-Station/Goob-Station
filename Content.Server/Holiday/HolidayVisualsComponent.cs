@@ -20,4 +20,3 @@ public sealed partial class HolidayVisualsComponent : Component
     [DataField]
     public Dictionary<string, List<ProtoId<HolidayPrototype>>> Holidays = new();
 }
-

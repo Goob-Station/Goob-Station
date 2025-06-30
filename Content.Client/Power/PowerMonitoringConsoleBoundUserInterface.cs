@@ -49,4 +49,3 @@ public sealed class PowerMonitoringConsoleBoundUserInterface : BoundUserInterfac
         SendMessage(new PowerMonitoringConsoleMessage(netEntity, group));
     }
 }
-

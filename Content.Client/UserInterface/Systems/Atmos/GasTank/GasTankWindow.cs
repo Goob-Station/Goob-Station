@@ -257,4 +257,3 @@ public sealed class GasTankWindow
         return false;
     }
 }
-

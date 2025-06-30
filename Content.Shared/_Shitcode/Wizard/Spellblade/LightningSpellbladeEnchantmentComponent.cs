@@ -33,4 +33,3 @@ public sealed partial class LightningSpellbladeEnchantmentComponent : Component
     [DataField]
     public EntProtoId LightningPrototype = "HyperchargedLightning";
 }
-

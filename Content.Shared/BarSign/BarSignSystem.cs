@@ -61,4 +61,3 @@ public sealed class BarSignSystem : EntitySystem
             .ToList();
     }
 }
-

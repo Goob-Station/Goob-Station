@@ -10,4 +10,3 @@ namespace Content.Shared.Climbing.Events;
 /// </summary>
 [ByRefEvent]
 public readonly record struct EndClimbEvent;
-

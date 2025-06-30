@@ -115,4 +115,3 @@ public sealed class SuperBonkSystem : EntitySystem
         return true;
     }
 }
-

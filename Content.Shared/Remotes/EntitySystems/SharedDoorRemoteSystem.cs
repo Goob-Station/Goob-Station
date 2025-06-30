@@ -49,4 +49,3 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
         Popup.PopupClient(Loc.GetString(switchMessageId), entity, args.User);
     }
 }
-

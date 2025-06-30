@@ -29,4 +29,3 @@ public sealed partial class RevolutionaryRoleComponent : BaseMindRoleComponent
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public uint ConvertedCount = 0;
 }
-

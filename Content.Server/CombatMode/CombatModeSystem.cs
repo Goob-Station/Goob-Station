@@ -32,4 +32,3 @@ public sealed class CombatModeSystem : SharedCombatModeSystem
         return HasComp<HTNComponent>(uid);
     }
 }
-

@@ -55,4 +55,3 @@ public sealed partial class ParalyzeOnCollideComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ParalyzeSelf = true;
 }
-

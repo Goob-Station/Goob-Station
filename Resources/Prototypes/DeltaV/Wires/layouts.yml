@@ -26,4 +26,3 @@
   - !type:PowerWireAction
   - !type:AccessWireAction
   - !type:LogWireAction
-

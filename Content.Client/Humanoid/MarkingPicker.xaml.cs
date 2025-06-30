@@ -562,4 +562,3 @@ public sealed partial class MarkingPicker : Control
         OnMarkingRemoved?.Invoke(_currentMarkings);
     }
 }
-

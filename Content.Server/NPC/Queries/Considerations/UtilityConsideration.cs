@@ -15,4 +15,3 @@ public abstract partial class UtilityConsideration
     [DataField("curve", required: true)]
     public IUtilityCurve Curve = default!;
 }
-

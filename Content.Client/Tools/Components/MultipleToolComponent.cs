@@ -52,4 +52,3 @@ namespace Content.Client.Tools.Components
         }
     }
 }
-

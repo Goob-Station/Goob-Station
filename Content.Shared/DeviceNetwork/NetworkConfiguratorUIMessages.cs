@@ -94,4 +94,3 @@ public sealed class NetworkConfiguratorLinksSaveMessage : BoundUserInterfaceMess
         Links = links;
     }
 }
-

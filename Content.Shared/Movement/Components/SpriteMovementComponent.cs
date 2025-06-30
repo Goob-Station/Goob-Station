@@ -42,4 +42,3 @@ public sealed partial class SpriteMovementComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsMoving;
 }
-

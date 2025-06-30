@@ -32,4 +32,3 @@ public sealed class StencilOverlaySystem : EntitySystem
         _overlay.RemoveOverlay<StencilOverlay>();
     }
 }
-

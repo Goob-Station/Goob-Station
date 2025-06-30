@@ -400,4 +400,3 @@ namespace Content.Server.Kitchen.EntitySystems
         }
     }
 }
-

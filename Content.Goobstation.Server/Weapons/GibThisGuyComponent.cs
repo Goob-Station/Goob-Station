@@ -19,4 +19,3 @@ public sealed partial class GibThisGuyComponent : Component
     [DataField]
     public bool RequireBoth = false;
 }
-

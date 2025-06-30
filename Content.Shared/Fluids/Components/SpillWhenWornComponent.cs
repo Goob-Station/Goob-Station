@@ -63,4 +63,3 @@ public sealed partial class SpillWhenWornComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsWorn;
 }
-

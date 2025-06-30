@@ -208,4 +208,3 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         return true;
     }
 }
-

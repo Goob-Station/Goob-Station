@@ -109,4 +109,3 @@ public sealed partial class ChainFireballSystem : EntitySystem
         return true;
     }
 }
-

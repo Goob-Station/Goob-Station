@@ -547,4 +547,3 @@ public sealed partial class AdminLogsControl : Control
         ResetRoundButton.OnPressed -= ResetRoundPressed;
     }
 }
-

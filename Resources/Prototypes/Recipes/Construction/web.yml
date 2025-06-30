@@ -92,4 +92,3 @@
     - SpiderCraft
   conditions:
     - !type:TileNotBlocked
-

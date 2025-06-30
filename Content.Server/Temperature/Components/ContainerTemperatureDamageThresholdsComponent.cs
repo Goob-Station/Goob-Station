@@ -17,4 +17,3 @@ public sealed partial class ContainerTemperatureDamageThresholdsComponent: Compo
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float? ColdDamageThreshold;
 }
-

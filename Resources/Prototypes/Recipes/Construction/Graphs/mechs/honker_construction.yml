@@ -121,4 +121,3 @@
     actions:
     - !type:BuildMech
       mechPrototype: MechHonker
-

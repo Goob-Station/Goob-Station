@@ -63,4 +63,3 @@ public sealed class StartEndGameRulesTest
         await pair.CleanReturnAsync();
     }
 }
-

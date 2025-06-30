@@ -34,4 +34,3 @@ public sealed record SharedAdminNote(
     string? UnbannedByName, // Only valid for bans. Set if unbanned
     bool? Seen // Only valid for messages, otherwise should be null. Has the user seen this message?
     );
-

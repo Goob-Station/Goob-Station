@@ -258,4 +258,3 @@
         sprite: Objects/Devices/gps.rsi
         state: icon
     - type: AstroNavCartridge
-

@@ -16,4 +16,3 @@ public sealed partial class ChangeTemperatureOnHitComponent : Component
     [DataField]
     public bool IgnoreResistances = true;
 }
-

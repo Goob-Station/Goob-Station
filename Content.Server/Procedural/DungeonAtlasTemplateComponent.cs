@@ -18,4 +18,3 @@ public sealed partial class DungeonAtlasTemplateComponent : Component
     [DataField("path", required: true)]
     public ResPath Path;
 }
-

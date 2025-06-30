@@ -17,4 +17,3 @@ namespace Content.Server.CPUJob.JobQueues.Queues
         public override double MaxTime => 0.003;
     }
 }
-

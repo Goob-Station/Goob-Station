@@ -217,4 +217,3 @@ public sealed partial class TegNodeCirculator : Node
         }
     }
 }
-

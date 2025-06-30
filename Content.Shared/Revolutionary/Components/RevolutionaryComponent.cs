@@ -107,4 +107,3 @@ public sealed partial class RevolutionaryComponent : Component
 
     public override bool SessionSpecific => true;
 }
-

@@ -24,4 +24,3 @@ public sealed class SharedFakeMindShieldSystem : EntitySystem
 }
 
 public sealed partial class FakeMindShieldToggleEvent : InstantActionEvent;
-

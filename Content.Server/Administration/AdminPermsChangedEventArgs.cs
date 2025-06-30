@@ -39,4 +39,3 @@ namespace Content.Server.Administration
         public bool IsAdmin => Flags.HasValue;
     }
 }
-

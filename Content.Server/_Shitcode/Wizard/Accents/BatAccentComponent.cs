@@ -21,4 +21,3 @@ public sealed partial class BatAccentComponent : AnimalAccentComponent
         "accent-words-mouse-7",
     };
 }
-

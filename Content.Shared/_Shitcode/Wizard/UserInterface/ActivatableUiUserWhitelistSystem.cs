@@ -32,4 +32,3 @@ public sealed class ActivatableUiUserWhitelistSystem : EntitySystem
         return !Resolve(uid, ref component, false) || _whitelist.IsValid(component.Whitelist, user);
     }
 }
-

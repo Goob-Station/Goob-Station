@@ -98,4 +98,3 @@ namespace Content.Server.Tabletop
         }
     }
 }
-

@@ -44,4 +44,3 @@ namespace Content.Server.Power.Components
         [DataField] public TimeSpan NextAutoRecharge = TimeSpan.FromSeconds(0f);
     }
 }
-

@@ -80,4 +80,3 @@
               doAfter: 0.5
     - node: shell
       entity: ShellShotgunImprovised
-

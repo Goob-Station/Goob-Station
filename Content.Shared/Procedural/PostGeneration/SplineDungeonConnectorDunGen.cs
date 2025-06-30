@@ -26,4 +26,3 @@ public sealed partial class SplineDungeonConnectorDunGen : IDunGenLayer
     [DataField]
     public float VarianceMax = 0.35f;
 }
-

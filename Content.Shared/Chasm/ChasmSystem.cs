@@ -114,4 +114,3 @@ public sealed class ChasmSystem : EntitySystem
         args.Cancel();
     }
 }
-

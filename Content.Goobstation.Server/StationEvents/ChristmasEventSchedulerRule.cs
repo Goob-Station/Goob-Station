@@ -57,4 +57,3 @@ public sealed partial class ChristmasEventSchedulerRule : GameRuleSystem<Christm
         ResetTimer(component);
     }
 }
-

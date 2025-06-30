@@ -35,4 +35,3 @@ public sealed partial class EntityReplaceVariationPassComponent : Component
     [DataField(required: true)]
     public List<EntitySpawnEntry> Replacements = default!;
 }
-

@@ -62,4 +62,3 @@ public sealed class MechSoundboardSystem : EntitySystem
         _audio.PlayPvs(comp.Sounds[msg.Sound], uid);
     }
 }
-

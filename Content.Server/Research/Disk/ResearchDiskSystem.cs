@@ -53,4 +53,3 @@ namespace Content.Server.Research.Disk
         }
     }
 }
-

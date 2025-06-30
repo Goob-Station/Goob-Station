@@ -34,4 +34,3 @@ namespace Content.Shared.EntityList
         }
     }
 }
-

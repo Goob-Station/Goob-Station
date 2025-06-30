@@ -85,4 +85,3 @@ public sealed class KillPersonConditionSystem : EntitySystem
         return 1f; // Good job you did it woohoo
     }
 }
-

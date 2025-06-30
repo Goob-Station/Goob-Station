@@ -108,4 +108,3 @@ public readonly record struct ClothingDidEquippedEvent(Entity<ClothingComponent>
 /// </summary>
 [ByRefEvent]
 public readonly record struct ClothingDidUnequippedEvent(Entity<ClothingComponent> Clothing);
-

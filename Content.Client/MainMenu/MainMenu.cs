@@ -213,4 +213,3 @@ namespace Content.Client.MainMenu
         }
     }
 }
-

@@ -59,4 +59,3 @@ public sealed class MeleeSpeechBoundUserInterface : BoundUserInterface
         _window?.Dispose();
     }
 }
-

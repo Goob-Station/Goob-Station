@@ -18,4 +18,3 @@ public sealed partial class ComponentQuery : UtilityQuery
     [DataField("components", required: true)]
     public ComponentRegistry Components = default!;
 }
-

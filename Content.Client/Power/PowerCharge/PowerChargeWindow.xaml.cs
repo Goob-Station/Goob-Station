@@ -77,4 +77,3 @@ public sealed partial class PowerChargeWindow : FancyWindow
         EtaLabel.SetOnlyStyleClass(state.EtaSeconds >= 0 ? "Caution" : "Disabled");
     }
 }
-

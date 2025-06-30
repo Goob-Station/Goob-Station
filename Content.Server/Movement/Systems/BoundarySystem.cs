@@ -35,4 +35,3 @@ public sealed class BoundarySystem : EntitySystem
         _xform.SetWorldPosition((args.OtherEntity, otherXform), center + offset);
     }
 }
-

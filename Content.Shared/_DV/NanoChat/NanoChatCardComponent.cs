@@ -80,4 +80,3 @@ public sealed partial class NanoChatCardComponent : Component
     [DataField]
     public bool IsClosed;
 }
-

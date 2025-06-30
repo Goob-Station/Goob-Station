@@ -37,4 +37,3 @@ public abstract partial class SharedSiliconLawSystem
         // TODO: Prediction
     }
 }
-

@@ -252,4 +252,3 @@ public enum BuckleVisuals
 {
     Buckled
 }
-

@@ -20,4 +20,3 @@ public enum IFFConsoleUiKey : byte
 {
     Key,
 }
-

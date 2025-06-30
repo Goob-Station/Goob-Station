@@ -31,4 +31,3 @@ namespace Content.Shared.StatusEffect
         public bool AlwaysAllowed { get; private set; }
     }
 }
-

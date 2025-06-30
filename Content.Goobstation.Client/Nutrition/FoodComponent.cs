@@ -14,4 +14,3 @@ namespace Content.Goobstation.Client.Nutrition;
 public sealed partial class FoodComponent : SharedFoodComponent
 {
 }
-

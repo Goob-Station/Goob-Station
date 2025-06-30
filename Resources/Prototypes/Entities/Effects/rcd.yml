@@ -120,4 +120,3 @@
     state: deconstruct8
   - type: TimedDespawn
     lifetime: 9.2
-

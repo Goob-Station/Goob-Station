@@ -13,4 +13,3 @@ public interface ISharedAdminLogManager
 
     void Add(LogType type, ref LogStringHandler handler);
 }
-

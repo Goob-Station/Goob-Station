@@ -26,4 +26,3 @@ public sealed class EntityTrailSystem : EntitySystem
         Dirty(uid, trail);
     }
 }
-

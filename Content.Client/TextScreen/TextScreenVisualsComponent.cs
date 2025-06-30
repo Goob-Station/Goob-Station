@@ -87,4 +87,3 @@ public sealed partial class TextScreenVisualsComponent : Component
     [DataField("secondFormat")]
     public string SecondFormat = "D2";
 }
-

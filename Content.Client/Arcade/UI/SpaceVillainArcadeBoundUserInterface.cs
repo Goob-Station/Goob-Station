@@ -47,4 +47,3 @@ public sealed class SpaceVillainArcadeBoundUserInterface : BoundUserInterface
             _menu?.UpdateInfo(msg);
     }
 }
-

@@ -13,4 +13,3 @@ public sealed partial class OreDunGenPrototype : OreDunGen, IPrototype
     [IdDataField]
     public string ID { set; get; } = default!;
 }
-

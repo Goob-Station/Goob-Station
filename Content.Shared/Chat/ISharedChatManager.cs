@@ -11,4 +11,3 @@ public interface ISharedChatManager
     void SendAdminAlert(string message);
     void SendAdminAlert(EntityUid player, string message);
 }
-

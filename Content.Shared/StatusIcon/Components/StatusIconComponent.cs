@@ -35,4 +35,3 @@ public sealed partial class StatusIconComponent : Component
 /// <param name="StatusIcons"></param>
 [ByRefEvent]
 public record struct GetStatusIconsEvent(List<StatusIconData> StatusIcons);
-

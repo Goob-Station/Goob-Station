@@ -262,4 +262,3 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         return _roles;
     }
 }
-

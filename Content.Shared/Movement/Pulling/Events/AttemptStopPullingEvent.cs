@@ -16,4 +16,3 @@ public record struct AttemptStopPullingEvent(EntityUid? User = null)
     public readonly EntityUid? User = User;
     public bool Cancelled;
 }
-

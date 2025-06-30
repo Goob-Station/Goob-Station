@@ -95,4 +95,3 @@ public sealed partial class ExtendedContainerSystem : EntitySystem
             _audioSystem.PlayPredicted(component.InsertSound, Transform(uid).Coordinates, uid);
     }
 }
-

@@ -73,4 +73,3 @@ public sealed partial class FTLComponent : Component
     [DataField]
     public EntityUid? TravelStream;
 }
-

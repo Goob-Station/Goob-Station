@@ -39,4 +39,3 @@ public sealed class SpeciesRequirementSystem : EntitySystem
         }
     }
 }
-

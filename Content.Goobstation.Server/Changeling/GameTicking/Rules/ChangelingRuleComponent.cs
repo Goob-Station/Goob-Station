@@ -25,4 +25,3 @@ public sealed partial class ChangelingRuleComponent : Component
         "ChangelingAbilityUtility"
     };
 }
-

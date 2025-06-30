@@ -113,4 +113,3 @@ public sealed partial class MaterialDisplay : PanelContainer
         }
     }
 }
-

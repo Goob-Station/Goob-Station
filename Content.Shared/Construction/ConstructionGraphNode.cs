@@ -88,4 +88,3 @@ namespace Content.Shared.Construction
         }
     }
 }
-

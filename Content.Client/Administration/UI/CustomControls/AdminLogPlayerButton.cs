@@ -21,4 +21,3 @@ public sealed class AdminLogPlayerButton : Button
 
     public Guid Id { get; }
 }
-

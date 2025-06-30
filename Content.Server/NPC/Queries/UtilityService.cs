@@ -38,4 +38,3 @@ public sealed partial class UtilityService
     [DataField("key", required: true)]
     public string Key = string.Empty;
 }
-

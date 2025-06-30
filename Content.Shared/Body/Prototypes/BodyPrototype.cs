@@ -41,4 +41,3 @@ public sealed partial class BodyPrototype : IPrototype
 
 [DataRecord]
 public sealed partial record BodyPrototypeSlot(EntProtoId? Part, HashSet<string> Connections, Dictionary<string, string> Organs);
-

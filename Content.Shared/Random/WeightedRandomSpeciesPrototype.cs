@@ -23,4 +23,3 @@ public sealed partial class WeightedRandomSpeciesPrototype : IWeightedRandomProt
     [DataField("weights", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, SpeciesPrototype>))]
     public Dictionary<string, float> Weights { get; private set; } = new();
 }
-

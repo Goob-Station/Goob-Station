@@ -37,4 +37,3 @@ public sealed class RoofSystem : SharedRoofSystem
         QueueDel(ent.Owner);
     }
 }
-

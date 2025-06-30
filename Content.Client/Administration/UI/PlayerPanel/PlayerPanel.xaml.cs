@@ -208,4 +208,3 @@ public sealed partial class PlayerPanel : FancyWindow
         DeleteButton.Disabled = !_adminManager.HasFlag(AdminFlags.Debug);
     }
 }
-

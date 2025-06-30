@@ -19,4 +19,3 @@ namespace Content.Server.Station.Components;
 public sealed partial class StationSpawningComponent : Component
 {
 }
-

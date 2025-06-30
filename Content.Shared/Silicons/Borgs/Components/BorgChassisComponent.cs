@@ -115,4 +115,3 @@ public enum BorgVisualLayers : byte
     /// </summary>
     LightStatus,
 }
-

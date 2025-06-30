@@ -59,4 +59,3 @@ public sealed partial class FultonComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("soundFulton"), AutoNetworkedField]
     public SoundSpecifier? FultonSound = new SoundPathSpecifier("/Audio/Items/Mining/fultext_deploy.ogg");
 }
-

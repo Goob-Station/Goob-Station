@@ -52,4 +52,3 @@ public sealed partial class ContrabandDetectorBadChanceWireAction : BaseToggleWi
         return EntityManager.TryGetComponent<ContrabandDetectorComponent>(owner, out var component) && !component.IsFalseDetectingChanged;
     }
 }
-

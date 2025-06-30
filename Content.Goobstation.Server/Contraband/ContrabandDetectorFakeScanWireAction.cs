@@ -52,4 +52,3 @@ public sealed partial class ContrabandDetectorFakeScanWireAction : BaseToggleWir
         return EntityManager.TryGetComponent<ContrabandDetectorComponent>(owner, out var component) && !component.IsFalseScanning;
     }
 }
-

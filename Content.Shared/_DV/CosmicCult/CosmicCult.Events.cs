@@ -19,4 +19,3 @@ public sealed partial class CosmicCultLeadChangedEvent() : EntityEventArgs
 public sealed partial class CosmicCultAddedCultistEvent(): EntityEventArgs
 {
 }
-

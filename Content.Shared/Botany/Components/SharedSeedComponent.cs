@@ -12,4 +12,3 @@ namespace Content.Shared.Botany.Components;
 public abstract partial class SharedSeedComponent : Component
 {
 }
-

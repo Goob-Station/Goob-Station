@@ -37,4 +37,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> HudVersionWatermark =
         CVarDef.Create("hud.version_watermark", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
-

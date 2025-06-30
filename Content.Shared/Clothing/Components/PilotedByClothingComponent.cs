@@ -72,4 +72,3 @@ namespace Content.Shared.Clothing.Components;
 public sealed partial class PilotedByClothingComponent : Component
 {
 }
-

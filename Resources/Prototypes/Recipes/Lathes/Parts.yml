@@ -96,4 +96,3 @@
   parent: BaseStockPartRecipe
   id: MicroManipulatorStockPart
   result: MicroManipulatorStockPart
-

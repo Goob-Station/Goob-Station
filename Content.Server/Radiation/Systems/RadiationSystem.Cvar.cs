@@ -25,4 +25,3 @@ public partial class RadiationSystem
         Subs.CVar(_cfg, CCVars.RadiationGridcastMaxDistance, maxDistance => GridcastMaxDistance = maxDistance, true);
     }
 }
-

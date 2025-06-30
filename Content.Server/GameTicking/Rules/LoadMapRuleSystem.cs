@@ -117,4 +117,3 @@ public sealed class LoadMapRuleSystem : StationEventSystem<LoadMapRuleComponent>
         base.Added(uid, comp, rule, args);
     }
 }
-

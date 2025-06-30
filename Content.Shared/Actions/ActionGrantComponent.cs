@@ -56,4 +56,3 @@ public sealed partial class ActionGrantComponent : Component
     [DataField, AutoNetworkedField]
     public List<EntityUid> ActionEntities = new();
 }
-

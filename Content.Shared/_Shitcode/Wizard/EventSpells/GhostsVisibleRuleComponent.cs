@@ -14,4 +14,3 @@ namespace Content.Shared._Goobstation.Wizard.EventSpells;
 public sealed partial class GhostsVisibleRuleComponent : Component
 {
 }
-

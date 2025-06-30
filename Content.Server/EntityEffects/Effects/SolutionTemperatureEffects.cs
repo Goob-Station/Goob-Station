@@ -147,4 +147,3 @@ public sealed partial class AdjustSolutionThermalEnergyEffect : EntityEffect
         => Loc.GetString("reagent-effect-guidebook-adjust-solution-temperature-effect",
             ("chance", Probability), ("deltasign", MathF.Sign(_delta)), ("mintemp", _minTemp), ("maxtemp", _maxTemp));
 }
-

@@ -71,4 +71,3 @@ public sealed class DoorElectronicsSystem : EntitySystem
         UpdateUserInterface(uid, component);
     }
 }
-

@@ -104,4 +104,3 @@
       layers:
         - state: box_security
         - state: evidence_markers
-

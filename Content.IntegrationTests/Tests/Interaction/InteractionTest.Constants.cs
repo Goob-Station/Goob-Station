@@ -43,4 +43,3 @@ public abstract partial class InteractionTest
     protected const string Battery1 = "PowerCellSmall";
     protected const string Battery4 = "PowerCellHyper";
 }
-

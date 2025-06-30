@@ -94,4 +94,3 @@ public sealed class SpellsSystem : SharedSpellsSystem
             args.StatusIcons.Add(iconPrototype);
     }
 }
-

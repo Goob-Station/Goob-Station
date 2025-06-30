@@ -306,4 +306,3 @@ public sealed partial class NavMapSystem
         return true;
     }
 }
-

@@ -116,4 +116,3 @@ public sealed partial class MiningScannerSystem : EntitySystem // Frontier: part
         }
     }
 }
-

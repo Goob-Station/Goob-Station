@@ -75,4 +75,3 @@
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: ruglass }
   color: "#2d872a"
   price: 1.075 # 2-2-1 mix of uranium, glass, and metal.
-

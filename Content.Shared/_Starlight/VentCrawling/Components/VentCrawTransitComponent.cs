@@ -13,4 +13,3 @@ namespace Content.Shared._Starlight.VentCrawling.Components;
 public partial class VentCrawlerTransitComponent : Component
 {
 }
-

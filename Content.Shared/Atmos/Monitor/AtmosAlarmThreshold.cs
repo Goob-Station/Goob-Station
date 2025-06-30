@@ -403,4 +403,3 @@ public enum AtmosMonitorVisuals : byte
 {
     AlarmType,
 }
-

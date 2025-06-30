@@ -338,4 +338,3 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         _tracking.QueueRefreshTrackers(player);
     }
 }
-

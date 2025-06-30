@@ -98,4 +98,3 @@ public sealed partial class AllSelector : EntityTableSelector
         }
     }
 }
-

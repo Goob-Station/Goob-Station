@@ -49,4 +49,3 @@ public record struct UnwieldAttemptEvent(EntityUid User, bool Cancelled = false)
         Cancelled = true;
     }
 }
-

@@ -23,4 +23,3 @@ public sealed partial class InsideCryoPodComponent: Component
     [DataField] // Shitmed Change
     public EntityUid? SleepAction;
 }
-

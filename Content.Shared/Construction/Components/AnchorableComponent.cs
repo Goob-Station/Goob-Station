@@ -153,4 +153,3 @@ namespace Content.Shared.Construction.Components
         public UserUnanchoredEvent(EntityUid user, EntityUid tool) : base(user, tool) { }
     }
 }
-

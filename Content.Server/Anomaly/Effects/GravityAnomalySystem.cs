@@ -54,4 +54,3 @@ public sealed class GravityAnomalySystem : SharedGravityAnomalySystem
             gravityWell.MaxRange = anomaly.Comp.MaxGravityWellRange * args.Stability;
     }
 }
-

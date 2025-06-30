@@ -44,4 +44,3 @@ public sealed partial class PolymorphSystem
         _map.SetPaused(PausedMap.Value, true);
     }
 }
-

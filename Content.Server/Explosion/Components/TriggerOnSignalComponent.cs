@@ -21,4 +21,3 @@ namespace Content.Server.Explosion.Components
         public string Port = "Trigger";
     }
 }
-

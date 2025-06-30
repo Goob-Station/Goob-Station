@@ -547,4 +547,3 @@ public sealed class AtmosMonitoringConsoleSystem : SharedAtmosMonitoringConsoleS
         return relativeTile.X * ChunkSize + relativeTile.Y;
     }
 }
-

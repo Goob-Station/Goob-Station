@@ -28,4 +28,3 @@ namespace Content.Shared.Tabletop.Events
         }
     }
 }
-

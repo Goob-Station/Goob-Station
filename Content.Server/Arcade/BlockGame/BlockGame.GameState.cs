@@ -259,4 +259,3 @@ public sealed partial class BlockGame
     /// </summary>
     private ArcadeSystem.HighScorePlacement? _highScorePlacement = null;
 }
-

@@ -56,4 +56,3 @@ public sealed class DispenserTest : InteractionTest
         AssertPrototype("Beaker", SEntMan.GetNetEntity(Hands.ActiveHandEntity));
     }
 }
-

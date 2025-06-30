@@ -49,4 +49,3 @@ public sealed partial record CriminalRecord
 /// </summary>
 [Serializable, NetSerializable]
 public record struct CrimeHistory(TimeSpan AddTime, string Crime, string? InitiatorName);
-

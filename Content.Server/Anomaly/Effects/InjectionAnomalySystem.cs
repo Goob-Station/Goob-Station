@@ -81,4 +81,3 @@ public sealed class InjectionAnomalySystem : EntitySystem
         }
     }
 }
-

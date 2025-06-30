@@ -124,4 +124,3 @@ public sealed class CameraKickEvent : EntityEventArgs
         NetEntity = netEntity;
     }
 }
-

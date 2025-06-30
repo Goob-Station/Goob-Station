@@ -21,4 +21,3 @@ public static class StaticPowerSystem
         return receiver.Powered;
     }
 }
-

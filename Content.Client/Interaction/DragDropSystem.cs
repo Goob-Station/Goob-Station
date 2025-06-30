@@ -682,4 +682,3 @@ public enum DragState : byte
     /// </summary>
     Dragging,
 }
-

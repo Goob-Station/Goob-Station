@@ -52,4 +52,3 @@ public sealed partial class RequirePanelSystem : EntitySystem
         return wiresPanel.Open == isRequireOpen;
     }
 }
-

@@ -19,4 +19,3 @@ public sealed record DungeonRoom(HashSet<Vector2i> Tiles, Vector2 Center, Box2i 
     /// </summary>
     public readonly HashSet<Vector2i> Exterior = Exterior;
 }
-

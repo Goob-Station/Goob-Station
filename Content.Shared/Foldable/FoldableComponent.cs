@@ -36,4 +36,3 @@ public sealed partial class FoldableComponent : Component
     [DataField]
     public LocId FoldVerbText = "fold-verb";
 }
-

@@ -14,4 +14,3 @@ namespace Content.Shared.Magic.Components;
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedMagicSystem))]
 public sealed partial class WizardClothesComponent : Component;
-

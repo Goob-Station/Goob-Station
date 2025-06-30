@@ -147,4 +147,3 @@ public enum TrayScannerVisual : sbyte
     On,
     Off
 }
-

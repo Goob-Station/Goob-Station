@@ -15,4 +15,3 @@ public enum AnomalyCoreVisuals : byte
 {
     Decaying
 }
-

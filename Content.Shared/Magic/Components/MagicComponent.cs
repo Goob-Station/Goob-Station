@@ -65,4 +65,3 @@ public enum MagicSchool : byte // Goobstation
     Sanguine,
     Chuuni, // Specifically for chuuni invocations spell
 }
-

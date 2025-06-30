@@ -132,4 +132,3 @@ public sealed class EnsnaredChangedEvent : EntityEventArgs
         IsEnsnared = isEnsnared;
     }
 }
-

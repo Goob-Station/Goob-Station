@@ -21,4 +21,3 @@ namespace Content.Server.Nutrition.Components
         public string Solution { get; set; } = string.Empty;
     }
 }
-

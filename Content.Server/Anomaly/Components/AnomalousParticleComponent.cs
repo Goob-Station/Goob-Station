@@ -84,4 +84,3 @@ public sealed partial class AnomalousParticleComponent : Component
     [DataField]
     public bool TransmutationOverride = false;
 }
-

@@ -52,4 +52,3 @@ public sealed class NumberObjectiveSystem : EntitySystem
         return comp.Target;
     }
 }
-

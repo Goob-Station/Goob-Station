@@ -76,4 +76,3 @@ public sealed class PowerCellSystem : SharedPowerCellSystem
         Unshaded,
     }
 }
-

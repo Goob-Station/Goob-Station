@@ -62,4 +62,3 @@ public sealed class BeforeFullySlicedEvent : CancellableEntityEventArgs
     /// </summary>
     public EntityUid User;
 }
-

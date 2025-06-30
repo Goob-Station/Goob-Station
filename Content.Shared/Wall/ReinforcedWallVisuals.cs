@@ -20,4 +20,3 @@ namespace Content.Shared.Wall
         DeconstructionStage,
     }
 }
-

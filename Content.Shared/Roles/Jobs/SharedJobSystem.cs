@@ -207,4 +207,3 @@ public abstract class SharedJobSystem : EntitySystem
         return prototype.Goobcoins;
     }
 }
-

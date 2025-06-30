@@ -19,4 +19,3 @@ namespace Content.Server.Tabletop.Components
         public EntityUid Tabletop { get; set; } = EntityUid.Invalid;
     }
 }
-

@@ -482,4 +482,3 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
         return false;
     }
 }
-

@@ -58,4 +58,3 @@ namespace Content.Shared.Interaction
         }
     }
 }
-

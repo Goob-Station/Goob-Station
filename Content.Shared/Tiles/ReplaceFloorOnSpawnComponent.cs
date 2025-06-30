@@ -39,4 +39,3 @@ public sealed partial class ReplaceFloorOnSpawnComponent : Component
     [DataField]
     public List<Vector2i> Offsets = new() { Vector2i.Up, Vector2i.Down, Vector2i.Left, Vector2i.Right, Vector2i.Zero };
 }
-

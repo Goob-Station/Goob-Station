@@ -16,4 +16,3 @@ public interface IWeightedRandomPrototype : IPrototype
     [ViewVariables]
     public Dictionary<string, float> Weights { get; }
 }
-

@@ -32,4 +32,3 @@ public sealed partial class FadingTimedDespawnComponent : Component
 
     public const string AnimationKey = "fadeout";
 }
-

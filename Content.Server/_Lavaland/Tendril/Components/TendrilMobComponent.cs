@@ -29,4 +29,3 @@ public sealed partial class TendrilMobComponent : Component
 {
     public EntityUid? Tendril;
 }
-

@@ -89,4 +89,3 @@ public sealed class LinkAccountManager : IPostInjectInit
         _net.RegisterNetMessage<RMCChangeNTShoutoutMsg>();
     }
 }
-

@@ -76,4 +76,3 @@ public enum AutodocWireStatus : byte
     PowerIndicator,
     SafetyIndicator
 }
-

@@ -96,4 +96,3 @@ public abstract class SharedShelterCapsuleSystem : EntitySystem
         return true;
     }
 }
-

@@ -96,4 +96,3 @@ public sealed partial class InteractionPopupComponent : Component
     [DataField]
     public bool OnActivate;
 }
-

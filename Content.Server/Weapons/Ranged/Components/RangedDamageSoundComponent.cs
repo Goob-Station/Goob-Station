@@ -40,4 +40,3 @@ public sealed partial class RangedDamageSoundComponent : Component
          customTypeSerializer: typeof(PrototypeIdDictionarySerializer<SoundSpecifier, DamageTypePrototype>))]
     public Dictionary<string, SoundSpecifier>? SoundTypes;
 }
-

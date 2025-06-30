@@ -44,4 +44,3 @@ namespace Content.Shared.Damage.Prototypes
         public List<string> SupportedTypes = new();
     }
 }
-

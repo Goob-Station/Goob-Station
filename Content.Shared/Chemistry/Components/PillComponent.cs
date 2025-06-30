@@ -19,4 +19,3 @@ public sealed partial class PillComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public uint PillType;
 }
-

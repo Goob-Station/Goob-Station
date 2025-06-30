@@ -14,4 +14,3 @@ namespace Content.Shared._Goobstation.Weapons.Misc;
 public sealed partial class PhysicsGunBlacklistComponent : Component
 {
 }
-

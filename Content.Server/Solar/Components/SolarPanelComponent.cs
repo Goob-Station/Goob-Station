@@ -54,4 +54,3 @@ namespace Content.Server.Solar.Components
         public float Coverage { get; set; } = 0;
     }
 }
-

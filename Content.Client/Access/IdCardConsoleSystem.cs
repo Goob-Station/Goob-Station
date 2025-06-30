@@ -16,4 +16,3 @@ namespace Content.Client.Access
         // I hate this.
     }
 }
-

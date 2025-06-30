@@ -18,4 +18,3 @@ public sealed class StopAttackEvent : EntityEventArgs
         Weapon = weapon;
     }
 }
-

@@ -189,4 +189,3 @@ public sealed class PlayerRateLimitManager : SharedPlayerRateLimitManager
         public TimeSpan NextAdminAnnounce;
     }
 }
-

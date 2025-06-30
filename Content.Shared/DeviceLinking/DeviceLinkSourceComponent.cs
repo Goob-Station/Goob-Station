@@ -79,4 +79,3 @@ public sealed partial class DeviceLinkSourceComponent : Component
     [DataField]
     public float Range = 30f;
 }
-

@@ -70,4 +70,3 @@ namespace Content.Server.Atmos.Portable
         #endregion
     }
 }
-

@@ -19,4 +19,3 @@ public sealed partial class ObjectiveBlacklistRequirementComponent : Component
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public EntityWhitelist Blacklist = new();
 }
-

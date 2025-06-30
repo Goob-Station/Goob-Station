@@ -32,4 +32,3 @@ public sealed partial class PlantAdjustPotency : PlantAdjustAttribute
         plantHolderComp.Seed.Potency = Math.Max(plantHolderComp.Seed.Potency + Amount, 1);
     }
 }
-

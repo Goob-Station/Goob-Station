@@ -276,4 +276,3 @@ public sealed class QueryBenchSystem : EntitySystem
         args.HashCode = HashCode.Combine(args.HashCode, component.GetHashCode());
     }
 }
-

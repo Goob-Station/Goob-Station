@@ -28,4 +28,3 @@ namespace Content.Shared.Interaction
 
     }
 }
-

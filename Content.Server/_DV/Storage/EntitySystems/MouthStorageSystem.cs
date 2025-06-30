@@ -49,4 +49,3 @@ public sealed class MouthStorageSystem : SharedMouthStorageSystem
         args.Cancel();
     }
 }
-

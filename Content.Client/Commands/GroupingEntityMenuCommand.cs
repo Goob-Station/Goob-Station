@@ -51,4 +51,3 @@ public sealed class GroupingEntityMenuCommand : LocalizedCommands
         shell.WriteLine(LocalizationManager.GetString($"cmd-{Command}-notify", ("cvar", _configurationManager.GetCVar(cvar))));
     }
 }
-

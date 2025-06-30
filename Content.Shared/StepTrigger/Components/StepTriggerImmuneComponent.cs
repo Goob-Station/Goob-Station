@@ -35,4 +35,3 @@ public sealed partial class StepTriggerImmuneComponent : Component
     [DataField]
     public StepTriggerGroup? Whitelist;
 }
-

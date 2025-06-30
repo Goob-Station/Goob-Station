@@ -40,4 +40,3 @@ public sealed partial class TypingIndicatorPrototype : IPrototype
     public string Shader = "shaded";
 
 }
-

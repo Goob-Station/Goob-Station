@@ -87,4 +87,3 @@ public sealed partial class SiliconLawsetPrototype : IPrototype
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public string ObeysTo = string.Empty;
 }
-

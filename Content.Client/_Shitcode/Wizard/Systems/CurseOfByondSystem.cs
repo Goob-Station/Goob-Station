@@ -49,4 +49,3 @@ public sealed class CurseOfByondSystem : EntitySystem
         _cfg.SetCVar(CVars.NetPredict, false);
     }
 }
-

@@ -37,4 +37,3 @@ public sealed class Box : BoxContainer, IDocumentTag
         return true;
     }
 }
-

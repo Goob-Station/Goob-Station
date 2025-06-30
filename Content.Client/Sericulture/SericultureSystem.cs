@@ -11,4 +11,3 @@ namespace Content.Client.Sericulture;
 /// <inheritdoc/>
 /// </summary>
 public sealed partial class SericultureSystem : SharedSericultureSystem { }
-

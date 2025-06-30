@@ -25,4 +25,3 @@ public sealed partial class FireSpellbladeEnchantmentComponent : Component
     [DataField]
     public EntProtoId Effect = "FireFlashEffect";
 }
-

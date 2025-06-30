@@ -39,4 +39,3 @@ public sealed class InfantSystem : EntitySystem
         _sprite.SetScale((uid, sprite), component.DefaultScale);
     }
 }
-

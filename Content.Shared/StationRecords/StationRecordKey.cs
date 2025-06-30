@@ -47,4 +47,3 @@ public readonly struct StationRecordKey : IEquatable<StationRecordKey>
 
     public bool IsValid() => OriginStation.IsValid();
 }
-

@@ -17,4 +17,3 @@ public sealed partial class GhostRoleAntagSpawnerComponent : Component
     [DataField]
     public AntagSelectionDefinition? Definition;
 }
-

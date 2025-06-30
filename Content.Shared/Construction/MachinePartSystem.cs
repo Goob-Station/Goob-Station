@@ -132,4 +132,3 @@ namespace Content.Shared.Construction
         }
     }
 }
-

@@ -78,4 +78,3 @@ public sealed class SurgeryToolExamineSystem : EntitySystem
 
 [ByRefEvent]
 public record struct SurgeryToolExaminedEvent(FormattedMessage Message);
-

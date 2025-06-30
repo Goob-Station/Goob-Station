@@ -142,4 +142,3 @@ public sealed class CartridgeUiReadyEvent : EntityEventArgs
 /// <param name="Message">The message to be displayed</param>
 [ByRefEvent]
 public record struct CartridgeLoaderNotificationSentEvent(string Header, string Message);
-

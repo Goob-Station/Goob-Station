@@ -40,4 +40,3 @@ public sealed class ContentNetworkResourceManager
             await _serverDb.PurgeUploadedResourceLogAsync(days);
     }
 }
-

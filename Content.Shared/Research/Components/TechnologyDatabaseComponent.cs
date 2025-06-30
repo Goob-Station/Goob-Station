@@ -79,4 +79,3 @@ public readonly record struct TechnologyDatabaseModifiedEvent // Goobstation - L
 /// </summary>
 [ByRefEvent]
 public readonly record struct TechnologyDatabaseSynchronizedEvent;
-

@@ -13,4 +13,3 @@ namespace Content.Goobstation.Shared.ContractorBaton;
 public sealed partial class TogglePreventStaminaDamageComponent : Component
 {
 }
-

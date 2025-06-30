@@ -30,4 +30,3 @@ namespace Content.Shared._durkcode.ServerCurrency.UI
         }
     }
 }
-

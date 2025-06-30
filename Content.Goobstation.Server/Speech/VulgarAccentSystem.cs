@@ -58,4 +58,3 @@ public sealed class VulgarAccentSystem : EntitySystem
         args.Message = Accentuate(args.Message, component);
     }
 }
-

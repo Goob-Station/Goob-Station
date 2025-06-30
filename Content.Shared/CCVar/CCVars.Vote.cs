@@ -183,4 +183,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> VotekickIgnoreGhostReqInLobby =
         CVarDef.Create("votekick.ignore_ghost_req_in_lobby", true, CVar.SERVERONLY);
 }
-

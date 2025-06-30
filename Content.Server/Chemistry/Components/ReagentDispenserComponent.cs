@@ -80,4 +80,3 @@ namespace Content.Server.Chemistry.Components
         public ReagentDispenserDispenseAmount DispenseAmount = ReagentDispenserDispenseAmount.U10;
     }
 }
-

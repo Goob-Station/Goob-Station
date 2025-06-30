@@ -102,4 +102,3 @@ public sealed partial class DamageOnInteractProtectionComponent : Component, ICl
     [DataField]
     public SlotFlags Slots { get; set; } = SlotFlags.GLOVES;
 }
-

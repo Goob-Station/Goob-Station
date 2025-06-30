@@ -17,4 +17,3 @@ public sealed partial class WizardComponent : Component
     [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon = "WizardFaction";
 }
-

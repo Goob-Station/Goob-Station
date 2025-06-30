@@ -29,4 +29,3 @@ public sealed partial class ItemToggleActiveSoundComponent : Component
     [DataField]
     public EntityUid? PlayingStream;
 }
-

@@ -28,4 +28,3 @@
     component:
     - type: VentCrawler
       allowInventory: true
-

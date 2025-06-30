@@ -48,4 +48,3 @@ public enum SolutionContainerMixerVisuals : byte
 {
     Mixing
 }
-

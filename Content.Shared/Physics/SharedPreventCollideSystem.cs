@@ -34,4 +34,3 @@ public sealed class SharedPreventCollideSystem : EntitySystem
             args.Cancelled = true;
     }
 }
-

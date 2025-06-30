@@ -19,4 +19,3 @@ public abstract partial class SpawnEntityEffectComponent : Component
 
     public virtual bool AttachToParent { get; set; }
 }
-

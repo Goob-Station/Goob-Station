@@ -26,4 +26,3 @@ public sealed partial class HolidayMapCondition : GameMapCondition
         return Holidays.Any(holiday => holidaySystem.IsCurrentlyHoliday(holiday)) ^ Inverted;
     }
 }
-

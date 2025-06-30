@@ -51,4 +51,3 @@ public sealed class ShowMindShieldIconsSystem : EquipmentHudSystem<ShowMindShiel
             ev.StatusIcons.Add(iconPrototype);
     }
 }
-

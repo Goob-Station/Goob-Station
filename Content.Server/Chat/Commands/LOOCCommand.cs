@@ -58,4 +58,3 @@ namespace Content.Server.Chat.Commands
         }
     }
 }
-

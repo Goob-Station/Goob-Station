@@ -26,4 +26,3 @@ namespace Content.Server.NodeContainer.Nodes
         bool RotateNode(in MoveEvent ev);
     }
 }
-

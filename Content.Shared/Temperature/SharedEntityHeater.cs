@@ -25,4 +25,3 @@ public enum EntityHeaterSetting
     Medium,
     High
 }
-

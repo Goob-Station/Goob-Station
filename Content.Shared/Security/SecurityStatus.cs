@@ -32,4 +32,3 @@ public enum SecurityStatus : byte
     Perma,
     Dangerous
 }
-

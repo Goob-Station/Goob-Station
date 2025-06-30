@@ -80,4 +80,3 @@ public sealed class MechEquipmentSystem : EntitySystem
         args.Handled = true;
     }
 }
-

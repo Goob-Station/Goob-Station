@@ -54,4 +54,3 @@
   parent: [ShotGunCabinetFilled, ShotGunCabinetOpen]
   id: ShotGunCabinetFilledOpen
   suffix: Filled, Open
-

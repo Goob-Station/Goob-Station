@@ -43,4 +43,3 @@ public enum SlotFlags
 
     WITHOUT_POCKET = All & ~POCKET
 }
-

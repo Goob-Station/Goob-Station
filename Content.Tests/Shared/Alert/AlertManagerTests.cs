@@ -75,4 +75,3 @@ namespace Content.Tests.Shared.Alert
         }
     }
 }
-

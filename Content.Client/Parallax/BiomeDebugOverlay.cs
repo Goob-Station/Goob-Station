@@ -90,4 +90,3 @@ public sealed class BiomeDebugOverlay : Overlay
         args.ScreenHandle.DrawString(_font, mouseScreenPos.Position + new Vector2(0f, 32f), sb.ToString());
     }
 }
-

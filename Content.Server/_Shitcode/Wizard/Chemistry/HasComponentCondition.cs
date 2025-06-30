@@ -45,4 +45,3 @@ public sealed partial class HasComponentCondition : EntityEffectCondition
             ("invert", Invert));
     }
 }
-

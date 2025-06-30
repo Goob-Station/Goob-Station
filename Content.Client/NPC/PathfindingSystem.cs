@@ -594,4 +594,3 @@ namespace Content.Client.NPC
         }
     }
 }
-

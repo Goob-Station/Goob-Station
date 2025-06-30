@@ -155,4 +155,3 @@ public readonly struct Position
         return new Position(0, 0);
     }
 }
-

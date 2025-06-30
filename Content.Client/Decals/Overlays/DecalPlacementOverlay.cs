@@ -144,4 +144,3 @@ public sealed class DecalPlacementOverlay : Overlay
         handle.SetTransform(Matrix3x2.Identity);
     }
 }
-

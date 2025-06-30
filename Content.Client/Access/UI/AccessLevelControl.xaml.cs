@@ -63,4 +63,3 @@ public sealed partial class AccessLevelControl : GridContainer
         }
     }
 }
-

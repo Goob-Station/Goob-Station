@@ -26,4 +26,3 @@ public sealed class AnnounceOnSpawnSystem : EntitySystem
         _chat.DispatchGlobalAnnouncement(message, sender, playSound: true, comp.Sound, comp.Color);
     }
 }
-

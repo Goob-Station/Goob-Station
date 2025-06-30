@@ -154,4 +154,3 @@ namespace Content.Server.Chat.Managers
         RateLimitStatus HandleRateLimit(ICommonSession player);
     }
 }
-

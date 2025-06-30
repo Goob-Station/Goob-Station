@@ -28,4 +28,3 @@ public sealed partial class AreaPickupDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone() => this;
 }
-

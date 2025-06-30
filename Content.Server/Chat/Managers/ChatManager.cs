@@ -590,4 +590,3 @@ public enum OOCChatType : byte
     OOC,
     Admin
 }
-

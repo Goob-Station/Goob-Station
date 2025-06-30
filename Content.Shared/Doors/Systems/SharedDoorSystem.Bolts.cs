@@ -134,4 +134,3 @@ public abstract partial class SharedDoorSystem
         return component.BoltsDown;
     }
 }
-

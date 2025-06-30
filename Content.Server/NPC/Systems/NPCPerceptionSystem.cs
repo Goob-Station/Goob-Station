@@ -17,4 +17,3 @@ public sealed partial class NPCPerceptionSystem : EntitySystem
         UpdateRecentlyInjected(frameTime);
     }
 }
-

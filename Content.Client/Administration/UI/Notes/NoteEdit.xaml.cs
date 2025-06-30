@@ -307,4 +307,3 @@ public sealed partial class NoteEdit : FancyWindow
         SubmitPressed = null;
     }
 }
-

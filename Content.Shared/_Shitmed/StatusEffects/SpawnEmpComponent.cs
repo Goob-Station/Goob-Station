@@ -17,4 +17,3 @@ public sealed partial class SpawnEmpComponent : SpawnEntityEffectComponent
     public override string EntityPrototype { get; set; } = "AdminInstantEffectEMP7";
     public override bool AttachToParent { get; set; } = true;
 }
-

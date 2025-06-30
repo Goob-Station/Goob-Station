@@ -299,4 +299,3 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         return new(this);
     }
 }
-

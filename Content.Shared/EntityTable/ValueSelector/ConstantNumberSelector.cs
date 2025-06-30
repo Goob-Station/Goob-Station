@@ -95,4 +95,3 @@ public sealed partial class ConstantNumberSelector : NumberSelector
         return Value;
     }
 }
-

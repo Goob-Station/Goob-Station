@@ -12,4 +12,3 @@ public enum StationMapUiKey : byte
 {
     Key,
 }
-

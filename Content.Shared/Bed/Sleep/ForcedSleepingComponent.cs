@@ -16,4 +16,3 @@ namespace Content.Shared.Bed.Sleep
     public sealed partial class ForcedSleepingComponent : Component
     {}
 }
-

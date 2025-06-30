@@ -98,4 +98,3 @@ public enum VehicleRenderOver
     West = 64,
     NorthWest = 128,
 }
-

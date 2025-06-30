@@ -40,4 +40,3 @@ public sealed partial class SealableClothingComponent : Component
     [DataField]
     public SoundSpecifier SealDownSound = new SoundPathSpecifier("/Audio/Mecha/mechmove03.ogg");
 }
-

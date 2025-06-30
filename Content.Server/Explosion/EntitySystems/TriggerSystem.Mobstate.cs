@@ -80,4 +80,3 @@ public sealed partial class TriggerSystem
         OnMobStateChanged(uid, component, args.Event);
     }
 }
-

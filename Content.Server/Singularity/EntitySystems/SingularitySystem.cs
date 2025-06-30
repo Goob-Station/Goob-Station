@@ -345,4 +345,3 @@ public sealed class SingularitySystem : SharedSingularitySystem
 
 #endregion Event Handlers
 }
-

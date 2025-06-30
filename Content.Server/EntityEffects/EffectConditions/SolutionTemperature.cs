@@ -43,4 +43,3 @@ public sealed partial class SolutionTemperature : EntityEffectCondition
             ("min", Min));
     }
 }
-

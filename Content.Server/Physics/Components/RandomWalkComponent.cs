@@ -82,4 +82,3 @@ public sealed partial class RandomWalkComponent : Component
 
     #endregion Update Timing
 }
-

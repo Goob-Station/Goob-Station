@@ -274,4 +274,3 @@ namespace Content.Server.Solar.EntitySystems
         }
     }
 }
-

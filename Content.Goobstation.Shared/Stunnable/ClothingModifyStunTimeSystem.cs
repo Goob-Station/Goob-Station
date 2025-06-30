@@ -47,4 +47,3 @@ public record struct ModifyStunTimeEvent(float Modifier) : IInventoryRelayEvent
 {
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }
-

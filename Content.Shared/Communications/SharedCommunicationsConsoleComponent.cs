@@ -95,4 +95,3 @@ namespace Content.Shared.Communications
         Key
     }
 }
-

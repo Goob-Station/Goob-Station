@@ -17,4 +17,3 @@ public abstract class PullMessage : EntityEventArgs
         PulledUid = pulledUid;
     }
 }
-

@@ -158,4 +158,3 @@
   name: "flash timed rune"
   components:
     - type: FlashOnTrigger
-

@@ -28,4 +28,3 @@ public sealed partial class ThievingComponent : Component
     [DataField("stealthy")]
     public bool Stealthy;
 }
-

@@ -33,4 +33,3 @@ public sealed class LightAttackDamageMultiplierSystem : EntitySystem
         _audio.PlayPredicted(comp.ExtraSound, ent, args.User);
     }
 }
-

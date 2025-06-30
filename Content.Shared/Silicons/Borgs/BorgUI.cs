@@ -61,4 +61,3 @@ public sealed class BorgRemoveModuleBuiMessage : BoundUserInterfaceMessage
         Module = module;
     }
 }
-

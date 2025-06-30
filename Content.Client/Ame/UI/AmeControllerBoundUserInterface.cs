@@ -58,4 +58,3 @@ namespace Content.Client.Ame.UI
         }
     }
 }
-

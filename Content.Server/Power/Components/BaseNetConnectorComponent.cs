@@ -122,4 +122,3 @@ namespace Content.Server.Power.Components
         Apc = NodeGroupID.Apc,
     }
 }
-

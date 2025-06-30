@@ -16,4 +16,3 @@ namespace Content.Shared.Maths
         public const float ZERO_CELCIUS = 273.15f;
     }
 }
-

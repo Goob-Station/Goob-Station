@@ -22,4 +22,3 @@ public sealed partial class StationCargoShuttleComponent : Component
     [DataField(required: true)]
     public ResPath Path = new("/Maps/Shuttles/cargo.yml");
 }
-

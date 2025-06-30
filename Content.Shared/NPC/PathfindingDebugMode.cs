@@ -51,4 +51,3 @@ public enum PathfindingDebugMode : ushort
 
     Steering = 1 << 8,
 }
-

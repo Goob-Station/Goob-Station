@@ -52,4 +52,3 @@ public sealed partial class EntityStorageVisualsComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int? ClosedDrawDepth;
 }
-

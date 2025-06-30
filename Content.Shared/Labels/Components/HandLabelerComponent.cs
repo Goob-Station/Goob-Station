@@ -35,4 +35,3 @@ public sealed class HandLabelerComponentState(string assignedLabel) : IComponent
 
     public int MaxLabelChars;
 }
-

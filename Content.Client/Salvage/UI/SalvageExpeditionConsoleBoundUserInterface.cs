@@ -194,4 +194,3 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
         }
     }
 }
-

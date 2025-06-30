@@ -14,4 +14,3 @@ public interface IBiomeSpecificMod : ISalvageMod
     /// </summary>
     List<string>? Biomes { get; }
 }
-

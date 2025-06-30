@@ -83,4 +83,3 @@ public record struct ValidateActionEntityWorldTargetEvent(
     EntityUid? Target,
     EntityCoordinates? Coords,
     bool Cancelled = false);
-

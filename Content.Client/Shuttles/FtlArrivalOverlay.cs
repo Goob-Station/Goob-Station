@@ -86,4 +86,3 @@ public sealed class FtlArrivalOverlay : Overlay
         args.WorldHandle.SetTransform(Matrix3x2.Identity);
     }
 }
-

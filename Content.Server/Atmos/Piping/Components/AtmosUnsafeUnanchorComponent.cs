@@ -16,4 +16,3 @@ namespace Content.Server.Atmos.Piping.Components
         public bool Enabled { get; set; } = true;
     }
 }
-

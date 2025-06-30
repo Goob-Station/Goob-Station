@@ -135,4 +135,3 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         Dirty(uid, humanoid);
     }
 }
-

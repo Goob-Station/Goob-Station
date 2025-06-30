@@ -17,4 +17,3 @@ public sealed partial class BuckleOnMapInitComponent : Component
     [DataField(required: true)]
     public EntProtoId Prototype;
 }
-

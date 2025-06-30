@@ -242,4 +242,3 @@ public sealed partial class WaitAutodocStep : IAutodocStep
         return true; // Waiting is for surgery
     }
 }
-

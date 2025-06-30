@@ -118,4 +118,3 @@ public sealed class StationAiElectrifiedEvent : BaseStationAiAction
     /// <summary> Marker, should door be electrified or no. </summary>
     public bool Electrified;
 }
-

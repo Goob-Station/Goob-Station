@@ -58,4 +58,3 @@ public sealed partial class DeviceNetworkJammerComponent : Component
     public HashSet<string> JammableNetworks = [];
 
 }
-

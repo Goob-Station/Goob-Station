@@ -14,4 +14,3 @@ public sealed partial class HandheldGPSComponent : Component
     [DataField]
     public float UpdateRate = 1.5f;
 }
-

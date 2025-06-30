@@ -110,4 +110,3 @@ public sealed class DrunkOverlay : Overlay
         }
     }
 }
-

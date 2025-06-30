@@ -296,4 +296,3 @@ public sealed class LoadoutSystem : EntitySystem
         return HumanoidCharacterProfile.Random();
     }
 }
-

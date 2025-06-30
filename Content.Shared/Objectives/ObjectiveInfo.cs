@@ -57,4 +57,3 @@ namespace Content.Shared.Objectives;
 /// </remarks>
 [Serializable, NetSerializable]
 public record struct ObjectiveInfo(string Title, string Description, SpriteSpecifier Icon, float Progress);
-

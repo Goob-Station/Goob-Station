@@ -25,4 +25,3 @@ public sealed partial class ShuttleSystem
         _overlays.RemoveOverlay<FtlArrivalOverlay>();
     }
 }
-

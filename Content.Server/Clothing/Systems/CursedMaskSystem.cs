@@ -183,4 +183,3 @@ public sealed class CursedMaskSystem : SharedCursedMaskSystem
         RandomizeCursedMask(ent, args.Wearer);
     }
 }
-

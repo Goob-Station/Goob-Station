@@ -74,4 +74,3 @@ public sealed partial class NearbyComponentsRule : RulesRule
         return !Inverted;
     }
 }
-

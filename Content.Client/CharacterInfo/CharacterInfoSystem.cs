@@ -81,4 +81,3 @@ public sealed class CharacterInfoSystem : EntitySystem
         public readonly EntityUid Entity = Entity;
     }
 }
-

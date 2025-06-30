@@ -422,4 +422,3 @@ public sealed class PlayTimeFlushCommand : IConsoleCommand
         return CompletionResult.Empty;
     }
 }
-

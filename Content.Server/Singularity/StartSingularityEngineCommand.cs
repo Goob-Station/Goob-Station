@@ -81,4 +81,3 @@ namespace Content.Server.Singularity
         }
     }
 }
-

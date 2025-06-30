@@ -83,4 +83,3 @@ public sealed class MeleeArcOverlay : Overlay
         args.WorldHandle.DrawLine(playerPos.Position, playerPos.Position + new Angle(weapon.Angle / 2).RotateVec(diff), Color.Orange);
     }
 }
-

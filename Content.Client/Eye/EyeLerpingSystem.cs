@@ -230,4 +230,3 @@ public sealed class EyeLerpingSystem : EntitySystem
         }
     }
 }
-

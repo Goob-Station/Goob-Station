@@ -86,4 +86,3 @@ public sealed partial class BorgTransponderComponent : Component
     [DataField]
     public bool FakeDisabled;
 }
-

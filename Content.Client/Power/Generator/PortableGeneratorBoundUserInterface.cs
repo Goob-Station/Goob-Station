@@ -77,4 +77,3 @@ public sealed class PortableGeneratorBoundUserInterface : BoundUserInterface
         SendMessage(new PortableGeneratorEjectFuelMessage());
     }
 }
-

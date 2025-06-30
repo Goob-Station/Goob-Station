@@ -20,4 +20,3 @@ public sealed partial class HTNCompoundTask : HTNTask, IHTNCompound
     [DataField("task", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<HTNCompoundPrototype>))]
     public string Task = string.Empty;
 }
-

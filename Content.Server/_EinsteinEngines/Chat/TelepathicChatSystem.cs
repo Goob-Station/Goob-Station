@@ -84,4 +84,3 @@ public sealed partial class TelepathicChatSystem : EntitySystem
         _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, adminMessageWrap, source, hideChat, true, admins, Color.PaleVioletRed);
     }
 }
-

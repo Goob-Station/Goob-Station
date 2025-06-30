@@ -103,4 +103,3 @@ public sealed class ContainerFillSerializer : ITypeValidator<Dictionary<string, 
         return new ValidatedMappingNode(mapping);
     }
 }
-

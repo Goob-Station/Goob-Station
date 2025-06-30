@@ -31,4 +31,3 @@ public sealed partial class NanotrasenNameGenerator : StationNameGenerator
         return string.Format(input, $"{Prefix}{PrefixCreator}", $"{random.Pick(SuffixCodes)}-{random.Next(0, 999):D3}");
     }
 }
-

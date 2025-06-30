@@ -94,4 +94,3 @@ public sealed class BackStabSystem : EntitySystem
             _audio.PlayPvs(BackstabSound, target);
     }
 }
-

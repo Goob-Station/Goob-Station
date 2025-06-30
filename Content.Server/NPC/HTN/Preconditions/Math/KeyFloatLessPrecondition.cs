@@ -24,4 +24,3 @@ public sealed partial class KeyFloatLessPrecondition : HTNPrecondition
         return blackboard.TryGetValue<float>(Key, out var value, _entManager) && value < Value;
     }
 }
-

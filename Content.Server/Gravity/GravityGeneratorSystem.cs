@@ -85,4 +85,3 @@ public sealed class GravityGeneratorSystem : EntitySystem
         }
     }
 }
-

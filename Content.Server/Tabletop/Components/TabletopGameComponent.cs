@@ -66,4 +66,3 @@ namespace Content.Server.Tabletop.Components
         public int MaximumHologramsAllowed { get; set; } = 10;
     }
 }
-

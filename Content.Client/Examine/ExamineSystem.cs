@@ -568,4 +568,3 @@ namespace Content.Client.Examine
         }
     }
 }
-

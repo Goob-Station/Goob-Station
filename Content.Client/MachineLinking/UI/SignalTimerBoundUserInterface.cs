@@ -71,4 +71,3 @@ public sealed class SignalTimerBoundUserInterface : BoundUserInterface
         _window.SetHasAccess(cast.HasAccess);
     }
 }
-

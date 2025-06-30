@@ -82,4 +82,3 @@ public readonly record struct ItemPlacedEvent(EntityUid OtherEntity);
 /// </summary>
 [ByRefEvent]
 public readonly record struct ItemRemovedEvent(EntityUid OtherEntity);
-

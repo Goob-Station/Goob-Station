@@ -40,4 +40,3 @@ public sealed partial class SpookySpeakerComponent : Component
     [DataField, AutoPausedField]
     public TimeSpan NextSpeakTime;
 }
-

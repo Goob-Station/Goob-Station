@@ -159,4 +159,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<float> AtmosTankFragment =
         CVarDef.Create("atmos.max_explosion_range", 26f, CVar.SERVERONLY);
 }
-

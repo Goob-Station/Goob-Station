@@ -239,4 +239,3 @@ public sealed partial class DecalPlacerWindow : DefaultWindow
         _decalPlacementSystem.SetActive(false);
     }
 }
-

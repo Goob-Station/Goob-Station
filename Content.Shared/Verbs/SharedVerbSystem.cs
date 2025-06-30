@@ -260,4 +260,3 @@ namespace Content.Shared.Verbs
         All = NoFov | InContainer | Invisible
     }
 }
-

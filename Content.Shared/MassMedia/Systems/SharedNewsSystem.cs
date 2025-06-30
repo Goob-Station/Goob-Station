@@ -40,4 +40,3 @@ public record struct NewsArticlePublishedEvent(NewsArticle Article);
 
 [ByRefEvent]
 public record struct NewsArticleDeletedEvent;
-

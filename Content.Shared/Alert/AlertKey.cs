@@ -66,4 +66,3 @@ public struct AlertKey
         return new(null, category);
     }
 }
-

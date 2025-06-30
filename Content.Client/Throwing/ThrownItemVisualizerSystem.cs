@@ -108,4 +108,3 @@ public sealed class ThrownItemVisualizerSystem : EntitySystem
         };
     }
 }
-

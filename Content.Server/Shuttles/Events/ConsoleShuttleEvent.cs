@@ -18,4 +18,3 @@ public struct ConsoleShuttleEvent
     /// </summary>
     public EntityUid? Console;
 }
-

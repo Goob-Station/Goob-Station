@@ -42,4 +42,3 @@ namespace Content.Server.Storage.Components
         public int Uses = 1;
     }
 }
-

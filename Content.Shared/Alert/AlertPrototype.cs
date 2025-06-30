@@ -223,4 +223,3 @@ public abstract partial class BaseAlertEvent : HandledEntityEventArgs
         AlertId = alertId;
     }
 }
-

@@ -60,4 +60,3 @@ public sealed class CarpRiftsConditionSystem : EntitySystem
         comp.RiftsCharged = 0;
     }
 }
-

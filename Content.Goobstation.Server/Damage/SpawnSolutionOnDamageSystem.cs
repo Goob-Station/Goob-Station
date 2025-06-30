@@ -37,4 +37,3 @@ public sealed partial class SpawnSolutionOnDamageSystem : EntitySystem
         Spawn(ent.Comp.Solution, Transform(ent).Coordinates);
     }
 }
-

@@ -330,4 +330,3 @@ public sealed class ExplosionGridTileFlood : ExplosionTileFlood
         return ~_airtightMap.GetValueOrDefault(tile).BlockedDirections;
     }
 }
-

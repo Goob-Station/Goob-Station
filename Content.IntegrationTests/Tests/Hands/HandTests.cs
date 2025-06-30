@@ -149,4 +149,3 @@ public sealed class HandTests
         await pair.CleanReturnAsync();
     }
 }
-

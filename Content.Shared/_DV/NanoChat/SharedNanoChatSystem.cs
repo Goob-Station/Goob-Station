@@ -317,4 +317,3 @@ public abstract class SharedNanoChatSystem : EntitySystem
 
     #endregion
 }
-

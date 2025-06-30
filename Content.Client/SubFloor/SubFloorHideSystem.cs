@@ -152,4 +152,3 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         }
     }
 }
-

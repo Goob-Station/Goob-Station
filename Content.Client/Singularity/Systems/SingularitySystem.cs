@@ -42,4 +42,3 @@ public sealed class SingularitySystem : SharedSingularitySystem
         SetLevel(uid, state.Level, comp);
     }
 }
-

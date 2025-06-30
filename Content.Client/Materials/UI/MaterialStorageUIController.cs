@@ -15,4 +15,3 @@ public sealed class MaterialStorageUIController : UIController
         EntityManager.RaisePredictiveEvent(new EjectMaterialMessage(EntityManager.GetNetEntity(uid), material, sheetsToEject));
     }
 }
-

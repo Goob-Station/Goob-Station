@@ -20,4 +20,3 @@ public record struct SurgeryStepEvent(EntityUid User, EntityUid Body, EntityUid 
 /// </summary>
 [ByRefEvent]
 public record struct SurgeryStepFailedEvent(EntityUid User, EntityUid Body, EntProtoId SurgeryId, EntProtoId StepId);
-

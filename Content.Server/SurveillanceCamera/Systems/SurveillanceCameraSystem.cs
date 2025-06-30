@@ -501,4 +501,3 @@ public sealed class SurveillanceCameraDeactivateEvent : EntityEventArgs
 
 [ByRefEvent]
 public record struct SurveillanceCameraSetActiveAttemptEvent(bool Cancelled);
-

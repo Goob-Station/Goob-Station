@@ -6,4 +6,3 @@
 - type: ghostRoleRaffleDecider
   id: default
   decider: !type:RngGhostRoleRaffleDecider {}
-

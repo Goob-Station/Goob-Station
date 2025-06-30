@@ -218,4 +218,3 @@ public sealed partial class SalvageSystem
         }
     }
 }
-

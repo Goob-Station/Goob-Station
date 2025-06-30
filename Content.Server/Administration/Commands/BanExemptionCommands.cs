@@ -128,4 +128,3 @@ public sealed class BanExemptionGetCommand : LocalizedCommands
         return CompletionResult.Empty;
     }
 }
-

@@ -12,4 +12,3 @@ public sealed partial class ExplosiveShockIgnitedComponent : Component
 {
     public TimeSpan ExplodeAt;
 }
-

@@ -78,4 +78,3 @@ public abstract class SharedScatteringGrenadeSystem : EntitySystem
         _appearance.SetData(entity, ClusterGrenadeVisuals.GrenadesCounter, entity.Comp.Count, appearanceComponent);
     }
 }
-

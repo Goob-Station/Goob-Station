@@ -17,4 +17,3 @@ public sealed partial class ReactiveGroupPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 }
-

@@ -59,4 +59,3 @@ public sealed class MiningSystem : EntitySystem
         component.CurrentOre = _proto.Index<WeightedRandomOrePrototype>(component.OreRarityPrototypeId).Pick(_random);
     }
 }
-

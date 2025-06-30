@@ -676,4 +676,3 @@ public class RadialMenuTextureButtonWithSector : RadialMenuTextureButton, IRadia
         return new Angle(angleSectorFrom).EqualsApprox(new Angle(angleSectorTo));
     }
 }
-

@@ -18,4 +18,3 @@ public sealed partial class Info : ScrollContainer
         RobustXamlLoader.Load(this);
     }
 }
-

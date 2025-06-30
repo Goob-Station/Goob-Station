@@ -56,4 +56,3 @@ public sealed class ChangelingSystem : SharedChangelingSystem
             args.StatusIcons.Add(iconPrototype);
     }
 }
-

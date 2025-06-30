@@ -199,4 +199,3 @@ public sealed partial class ChaosMetrics : IEquatable<ChaosMetrics>
         return true;
     }
 }
-

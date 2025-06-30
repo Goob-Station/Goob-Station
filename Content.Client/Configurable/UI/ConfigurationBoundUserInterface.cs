@@ -105,4 +105,3 @@ namespace Content.Client.Configurable.UI
         }
     }
 }
-

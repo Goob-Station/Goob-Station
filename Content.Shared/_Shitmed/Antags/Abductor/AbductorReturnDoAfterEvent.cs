@@ -53,4 +53,3 @@ public sealed partial class AbductorAttractDoAfterEvent : SimpleDoAfterEvent
 
     public override DoAfterEvent Clone() => this;
 }
-

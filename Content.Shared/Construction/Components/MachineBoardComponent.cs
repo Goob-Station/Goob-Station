@@ -62,4 +62,3 @@ public partial struct GenericPartInfo
     [DataField]
     public LocId? ExamineName;
 }
-

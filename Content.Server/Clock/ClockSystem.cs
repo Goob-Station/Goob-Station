@@ -45,4 +45,3 @@ public sealed class ClockSystem : SharedClockSystem
         Dirty(ent, ent.Comp);
     }
 }
-

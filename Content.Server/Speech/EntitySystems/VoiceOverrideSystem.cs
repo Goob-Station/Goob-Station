@@ -25,4 +25,3 @@ public sealed partial class VoiceOverrideSystem : EntitySystem
         args.SpeechVerb = entity.Comp.SpeechVerbOverride ?? args.SpeechVerb;
     }
 }
-

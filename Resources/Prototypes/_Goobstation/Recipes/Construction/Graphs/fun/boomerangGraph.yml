@@ -23,4 +23,3 @@
               doAfter: 4
     - node: boomerangFinish
       entity: boomerang
-

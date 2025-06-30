@@ -30,4 +30,3 @@ public sealed partial class ElectrocutionComponent : Component
     [DataField("timeLeft")]
     public float TimeLeft;
 }
-

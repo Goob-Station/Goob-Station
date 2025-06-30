@@ -11,4 +11,3 @@ public partial interface IUtilityCurve
 {
 
 }
-

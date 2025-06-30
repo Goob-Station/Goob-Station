@@ -29,4 +29,3 @@ public sealed partial class ChristmasEventSchedulerComponent : Component
     /// </summary>
     [DataField] public MinMax Delays = new(5 * 60, 30 * 60);
 }
-

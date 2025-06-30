@@ -37,4 +37,3 @@ public sealed class EntryPoint : GameClient
         _stateMan.RequestStateChange<ReplayMainScreen>();
     }
 }
-

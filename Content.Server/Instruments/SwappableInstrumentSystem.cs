@@ -55,4 +55,3 @@ public sealed class SwappableInstrumentSystem : EntitySystem
         }
     }
 }
-

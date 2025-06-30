@@ -68,4 +68,3 @@ public sealed class ShopVendorSystem : SharedShopVendorSystem
             _speakOnUIClosed.TrySetFlag((ent.Owner, speak));
     }
 }
-

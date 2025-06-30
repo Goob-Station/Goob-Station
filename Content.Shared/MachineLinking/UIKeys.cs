@@ -20,4 +20,3 @@ namespace Content.Shared.MachineLinking
         Key
     }
 }
-

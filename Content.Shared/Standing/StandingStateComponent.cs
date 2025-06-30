@@ -51,4 +51,3 @@ public enum StandingState
     Standing,
 }
 // WD EDIT END
-

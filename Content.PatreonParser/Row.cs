@@ -22,4 +22,3 @@ public sealed class Row
     [Name("Content"), Index(3)]
     public string ContentJson { get; set; } = default!;
 }
-

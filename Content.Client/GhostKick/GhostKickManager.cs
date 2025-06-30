@@ -44,4 +44,3 @@ public sealed class GhostKickManager
         _cfg.SetCVar(CVars.NetFakeLoss, 1);
     }
 }
-

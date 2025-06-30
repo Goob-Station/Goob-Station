@@ -59,4 +59,3 @@ public partial record struct NoiseDunGenLayer
     [DataField(required: true)]
     public FastNoiseLite Noise;
 }
-

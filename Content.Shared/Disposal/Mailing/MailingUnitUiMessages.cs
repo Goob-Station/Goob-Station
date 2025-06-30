@@ -27,4 +27,3 @@ public sealed class TargetSelectedMessage : BoundUserInterfaceMessage
         Target = target;
     }
 }
-

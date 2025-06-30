@@ -51,4 +51,3 @@ public sealed partial class NPCCombatSystem : EntitySystem
         UpdateRanged(frameTime);
     }
 }
-

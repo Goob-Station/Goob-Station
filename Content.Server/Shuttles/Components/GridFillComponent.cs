@@ -29,4 +29,3 @@ public sealed partial class GridFillComponent : Component
     [DataField]
     public ComponentRegistry AddComponents = new();
 }
-

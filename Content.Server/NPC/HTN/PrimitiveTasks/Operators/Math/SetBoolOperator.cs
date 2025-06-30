@@ -32,4 +32,3 @@ public sealed partial class SetBoolOperator : HTNOperator
         );
     }
 }
-

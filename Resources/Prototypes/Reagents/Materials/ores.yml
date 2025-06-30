@@ -84,4 +84,3 @@
   icon: { sprite: Objects/Materials/ore.rsi, state: salt }
   color: "#f5e7d7"
   price: 0.075
-

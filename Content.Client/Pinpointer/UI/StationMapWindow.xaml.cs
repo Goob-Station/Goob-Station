@@ -85,4 +85,3 @@ public sealed partial class StationMapWindow : FancyWindow
             BeaconButtons.AddChild(button);
     }
 }
-

@@ -189,4 +189,3 @@ public sealed class ImmovableRodSystem : EntitySystem
         }
     }
 }
-

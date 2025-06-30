@@ -94,4 +94,3 @@ public sealed partial class GravityAnomalyComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float SpaceRange = 3f;
 }
-

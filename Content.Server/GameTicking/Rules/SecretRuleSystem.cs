@@ -191,4 +191,3 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
         return true;
     }
 }
-

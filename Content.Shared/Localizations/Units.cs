@@ -148,4 +148,3 @@ namespace Content.Shared.Localizations
         };
     }
 }
-

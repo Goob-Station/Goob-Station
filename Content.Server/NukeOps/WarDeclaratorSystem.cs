@@ -100,4 +100,3 @@ public sealed class WarDeclaratorSystem : EntitySystem
             new WarDeclaratorBoundUserInterfaceState(status, ent.Comp.DisableAt, ent.Comp.ShuttleDisabledTime));
     }
 }
-

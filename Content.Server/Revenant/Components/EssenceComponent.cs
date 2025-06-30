@@ -29,4 +29,3 @@ public sealed partial class EssenceComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public float EssenceAmount = 0f;
 }
-

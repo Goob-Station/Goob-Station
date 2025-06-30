@@ -22,4 +22,3 @@ public class CartridgeLoaderUiState : BoundUserInterfaceState
         ActiveUI = activeUI;
     }
 }
-

@@ -20,4 +20,3 @@ public sealed partial class ClothingSlowOnDamageModifierComponent : Component
     [DataField]
     public float Modifier = 1;
 }
-

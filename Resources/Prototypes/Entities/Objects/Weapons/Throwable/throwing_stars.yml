@@ -67,4 +67,3 @@
   # also limits the crew's use
   - type: TimedDespawn
     lifetime: 30
-

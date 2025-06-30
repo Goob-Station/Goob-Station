@@ -25,4 +25,3 @@ public sealed partial class CharacterSetupGuiSavePanel : DefaultWindow
         CloseButton.Visible = false;
     }
 }
-

@@ -22,4 +22,3 @@ public sealed partial class StasisOnCollideComponent : Component
     [DataField("fixture")]
     public string FixtureID = "projectile";
 }
-

@@ -358,4 +358,3 @@ public sealed class AddTests
         Assert.Pass();
     }
 }
-

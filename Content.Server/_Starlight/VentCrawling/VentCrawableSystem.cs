@@ -80,4 +80,3 @@ public sealed class VentCrawableSystem : EntitySystem
         EntityManager.DeleteEntity(uid);
     }
 }
-

@@ -393,4 +393,3 @@ public abstract class SharedItemSystem : EntitySystem
         }
     }
 }
-

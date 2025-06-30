@@ -38,4 +38,3 @@ public static partial class PoolManager
         }
     }
 }
-

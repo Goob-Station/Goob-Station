@@ -33,4 +33,3 @@ public sealed partial class SmesComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public string OutputOverlayPrefix = "smes-op";
 }
-

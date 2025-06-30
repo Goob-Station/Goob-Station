@@ -30,4 +30,3 @@ namespace Content.Goobstation.Shared.Clothing.Systems
         }
     }
 }
-

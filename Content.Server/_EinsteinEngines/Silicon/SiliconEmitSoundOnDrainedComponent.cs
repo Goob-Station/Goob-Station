@@ -31,4 +31,3 @@ public sealed partial class SiliconEmitSoundOnDrainedComponent : Component
     [DataField]
     public string? PopUp;
 }
-

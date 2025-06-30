@@ -24,4 +24,3 @@ public sealed partial class VulgarAccentComponent : Component
     [DataField]
     public float SwearProb = 0.5f;
 }
-

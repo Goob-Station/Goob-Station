@@ -22,4 +22,3 @@ public enum SmesVisuals
     LastChargeState,
     LastChargeLevel,
 }
-

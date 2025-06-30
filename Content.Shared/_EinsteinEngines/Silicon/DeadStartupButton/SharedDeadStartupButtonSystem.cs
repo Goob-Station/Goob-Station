@@ -72,4 +72,3 @@ public abstract partial class SharedDeadStartupButtonSystem : EntitySystem
 
 
 }
-

@@ -135,4 +135,3 @@ public sealed class FoodSequenceElementEntry
     /// </summary>
     public string? Proto { get; set; } = null; // Goobstation - anythingburgers
 }
-

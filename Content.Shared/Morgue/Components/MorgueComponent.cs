@@ -34,4 +34,3 @@ public sealed partial class MorgueComponent : Component
     [DataField]
     public SoundSpecifier OccupantHasSoulAlarmSound = new SoundPathSpecifier("/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg");
 }
-

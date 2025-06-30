@@ -16,4 +16,3 @@ namespace Content.IntegrationTests;
 public sealed class TestPrototypesAttribute : Attribute
 {
 }
-

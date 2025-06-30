@@ -93,4 +93,3 @@ namespace Content.Client.Kitchen.UI
         }
     }
 }
-

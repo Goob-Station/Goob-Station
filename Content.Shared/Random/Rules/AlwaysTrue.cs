@@ -15,4 +15,3 @@ public sealed partial class AlwaysTrueRule : RulesRule
         return !Inverted;
     }
 }
-

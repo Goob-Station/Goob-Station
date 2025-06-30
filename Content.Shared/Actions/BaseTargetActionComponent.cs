@@ -46,4 +46,3 @@ public abstract partial class BaseTargetActionComponent : BaseActionComponent
     /// </summary>
     [DataField("targetingIndicator")] public bool TargetingIndicator = true;
 }
-

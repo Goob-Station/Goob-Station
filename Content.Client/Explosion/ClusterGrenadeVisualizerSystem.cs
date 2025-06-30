@@ -23,4 +23,3 @@ public sealed class ClusterGrenadeVisualizerSystem : VisualizerSystem<ClusterGre
             SpriteSystem.LayerSetRsiState((uid, args.Sprite), 0, $"{comp.State}-{grenadesCounter}");
     }
 }
-

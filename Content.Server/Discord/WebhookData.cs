@@ -45,4 +45,3 @@ public struct WebhookData
         return new WebhookIdentifier(Id, Token);
     }
 }
-

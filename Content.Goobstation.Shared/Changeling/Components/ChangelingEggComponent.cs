@@ -30,4 +30,3 @@ public sealed partial class ChangelingEggComponent : Component
     public float UpdateCooldown = 120f;
     public bool active = false;
 }
-

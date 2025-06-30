@@ -17,4 +17,3 @@ public sealed partial class RustRequiresPathStageComponent : Component
     [DataField]
     public int PathStage = 2;
 }
-

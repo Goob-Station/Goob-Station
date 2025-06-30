@@ -89,4 +89,3 @@ public sealed partial class NoneSelector : EntityTableSelector
         yield break;
     }
 }
-

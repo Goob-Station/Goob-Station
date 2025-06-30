@@ -1108,4 +1108,3 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         _mapSystem.SetTiles(mapUid, mapGrid, tiles);
     }
 }
-

@@ -153,4 +153,3 @@ public sealed class BlueprintSystem : EntitySystem
         return recipes;
     }
 }
-

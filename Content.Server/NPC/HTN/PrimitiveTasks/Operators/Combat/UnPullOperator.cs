@@ -112,4 +112,3 @@ public sealed partial class UnPullOperator : HTNOperator
         return HTNOperatorStatus.Finished;
     }
 }
-

@@ -22,4 +22,3 @@ public sealed partial class FollowerComponent : Component
     [AutoNetworkedField, DataField("following")]
     public EntityUid Following;
 }
-

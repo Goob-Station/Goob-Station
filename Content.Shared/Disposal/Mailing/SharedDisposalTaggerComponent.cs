@@ -60,4 +60,3 @@ namespace Content.Shared.Disposal.Components
         }
     }
 }
-

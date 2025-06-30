@@ -48,4 +48,3 @@ public sealed partial class SpeechWireAction : ComponentWireAction<SpeechCompone
         _popup.PopupEntity(Loc.GetString("wire-speech-pulse", ("name", wire.Owner)), wire.Owner);
     }
 }
-

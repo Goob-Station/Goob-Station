@@ -14,4 +14,3 @@ public enum SpiderWebVisuals
 {
     Variant
 }
-

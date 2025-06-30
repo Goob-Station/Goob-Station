@@ -29,4 +29,3 @@ public sealed partial class BatteryDrinkerSourceComponent : Component
     [DataField]
     public SoundSpecifier? DrinkSound = new SoundCollectionSpecifier("sparks");
 }
-

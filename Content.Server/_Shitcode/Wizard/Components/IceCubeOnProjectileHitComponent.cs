@@ -15,4 +15,3 @@ public sealed partial class IceCubeOnProjectileHitComponent : Component
     [DataField]
     public EntityWhitelist Whitelist = new();
 }
-

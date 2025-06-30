@@ -20,4 +20,3 @@ public abstract partial class SharedClowncarSystem
         args.Handled = true;
     }
 }
-

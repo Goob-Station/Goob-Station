@@ -167,4 +167,3 @@ public sealed class EntityPainter
         }
     }
 }
-

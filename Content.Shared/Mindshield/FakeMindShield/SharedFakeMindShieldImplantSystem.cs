@@ -48,4 +48,3 @@ public sealed class SharedFakeMindShieldImplantSystem : EntitySystem
         RemComp<FakeMindShieldComponent>(ev.Container.Owner);
     }
 }
-

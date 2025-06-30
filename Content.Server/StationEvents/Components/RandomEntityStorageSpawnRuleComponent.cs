@@ -25,4 +25,3 @@ public sealed partial class RandomEntityStorageSpawnRuleComponent : Component
     [DataField(required: true)]
     public EntProtoId Prototype;
 }
-

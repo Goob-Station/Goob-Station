@@ -26,4 +26,3 @@ public sealed class AntiGravityClothingSystem : EntitySystem
         args.Args.IsWeightless = true;
     }
 }
-

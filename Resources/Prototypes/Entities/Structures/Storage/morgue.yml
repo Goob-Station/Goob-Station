@@ -171,4 +171,3 @@
           False: { visible: false }
   - type: Transform
     anchored: true
-

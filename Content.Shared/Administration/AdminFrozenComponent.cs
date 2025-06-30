@@ -22,4 +22,3 @@ public sealed partial class AdminFrozenComponent : Component
     [DataField, AutoNetworkedField]
     public bool Muted;
 }
-

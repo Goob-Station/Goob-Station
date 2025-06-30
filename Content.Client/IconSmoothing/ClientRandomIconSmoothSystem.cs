@@ -32,4 +32,3 @@ public sealed class ClientRandomIconSmoothSystem : SharedRandomIconSmoothSystem
         _iconSmooth.SetStateBase(ent, smooth, state);
     }
 }
-

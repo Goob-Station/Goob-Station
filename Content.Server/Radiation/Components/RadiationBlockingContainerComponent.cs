@@ -21,4 +21,3 @@ public sealed partial class RadiationBlockingContainerComponent : Component
     [DataField("resistance")]
     public float RadResistance = 1f;
 }
-

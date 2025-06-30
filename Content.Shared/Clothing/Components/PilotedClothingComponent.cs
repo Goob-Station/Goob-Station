@@ -69,4 +69,3 @@ public sealed partial class PilotedClothingComponent : Component
 
     public bool IsActive => Pilot != null && Wearer != null;
 }
-

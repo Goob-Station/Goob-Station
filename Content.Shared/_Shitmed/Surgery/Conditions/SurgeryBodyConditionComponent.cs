@@ -23,4 +23,3 @@ public sealed partial class SurgeryBodyConditionComponent : Component
     [DataField]
     public bool Inverse;
 }
-

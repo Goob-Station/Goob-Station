@@ -24,4 +24,3 @@ public sealed class GameplayStateLoadController : UIController
         OnScreenLoad?.Invoke();
     }
 }
-

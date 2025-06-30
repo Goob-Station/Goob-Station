@@ -51,4 +51,3 @@ namespace Content.Shared.Power
         Apc,
     }
 }
-

@@ -34,4 +34,3 @@ public sealed partial class RadarConsoleComponent : Component
     [DataField]
     public bool FollowEntity = false;
 }
-

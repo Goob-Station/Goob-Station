@@ -104,4 +104,3 @@ public sealed partial class ExplosionSystem
         Subs.CVar(_cfg, CCVars.ExplosionCanCreateVacuum, value => CanCreateVacuum = value, true);
     }
 }
-

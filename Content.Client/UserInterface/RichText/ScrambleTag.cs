@@ -47,4 +47,3 @@ public sealed class ScrambleTag : IMarkupTag
         return sb.ToString();
     }
 }
-

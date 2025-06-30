@@ -103,4 +103,3 @@ public sealed partial class StencilOverlay
         worldHandle.UseShader(null);
     }
 }
-

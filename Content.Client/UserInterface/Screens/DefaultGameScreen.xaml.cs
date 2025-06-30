@@ -83,4 +83,3 @@ public sealed partial class DefaultGameScreen : InGameScreen
         SetMarginTop(Alerts, size.X);
     }
 }
-

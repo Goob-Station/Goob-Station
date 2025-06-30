@@ -89,4 +89,3 @@ public sealed class GermanAccentSystem : EntitySystem
         args.Message = Accentuate(args.Message);
     }
 }
-

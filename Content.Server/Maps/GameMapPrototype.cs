@@ -108,4 +108,3 @@ public sealed partial class GameMapPrototype : IPrototype
         };
     }
 }
-

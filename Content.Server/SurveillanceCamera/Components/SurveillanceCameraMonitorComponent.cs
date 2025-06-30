@@ -51,4 +51,3 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
     // The subnets known by this camera monitor.
     public Dictionary<string, string> KnownSubnets { get; } = new();
 }
-

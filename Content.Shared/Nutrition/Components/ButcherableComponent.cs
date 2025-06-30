@@ -50,4 +50,3 @@ namespace Content.Shared.Nutrition.Components
         Gibber // e.g. humans. TODO
     }
 }
-

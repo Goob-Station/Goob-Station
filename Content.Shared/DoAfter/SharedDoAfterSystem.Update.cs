@@ -327,4 +327,3 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         return false;
     }
 }
-

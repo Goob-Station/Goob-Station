@@ -19,4 +19,3 @@ public sealed partial class TabletopDraggableComponent : Component
     [ViewVariables, AutoNetworkedField]
     public NetUserId? DraggingPlayer;
 }
-

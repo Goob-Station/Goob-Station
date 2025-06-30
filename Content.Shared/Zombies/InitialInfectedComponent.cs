@@ -86,4 +86,3 @@ public sealed partial class InitialInfectedComponent : Component
     [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon = "InitialInfectedFaction";
 }
-

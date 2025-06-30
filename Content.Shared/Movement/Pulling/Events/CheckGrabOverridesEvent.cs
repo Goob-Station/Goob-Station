@@ -19,4 +19,3 @@ public sealed class CheckGrabOverridesEvent : EntityEventArgs
 
     public GrabStage Stage { get; set; }
 }
-

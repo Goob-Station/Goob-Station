@@ -94,4 +94,3 @@ namespace Content.Shared.Spawning
         }
     }
 }
-

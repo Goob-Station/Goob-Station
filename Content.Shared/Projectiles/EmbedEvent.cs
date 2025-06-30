@@ -19,4 +19,3 @@ public readonly record struct EmbedEvent(EntityUid? Shooter, EntityUid Embedded)
     /// </summary>
     public readonly EntityUid Embedded = Embedded;
 }
-

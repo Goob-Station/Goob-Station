@@ -19,4 +19,3 @@ public sealed partial class GodmodeComponent : Component
     [DataField("oldDamage")]
     public DamageSpecifier? OldDamage = null;
 }
-

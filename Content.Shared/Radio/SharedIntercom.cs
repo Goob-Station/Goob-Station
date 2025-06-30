@@ -46,4 +46,3 @@ public sealed class SelectIntercomChannelMessage : BoundUserInterfaceMessage
         Channel = channel;
     }
 }
-

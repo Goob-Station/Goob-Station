@@ -252,4 +252,3 @@ public sealed partial class TestPair
         await Server.WaitPost(() => prefMan.SetProfile(user, 0, newProfile).Wait());
     }
 }
-

@@ -40,4 +40,3 @@ public sealed partial class UniqueBloodstreamChemThreshold : EntityEffectConditi
             ("min", Min));
     }
 }
-

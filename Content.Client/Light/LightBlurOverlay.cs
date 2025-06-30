@@ -48,4 +48,3 @@ public sealed class LightBlurOverlay : Overlay
         _clyde.BlurRenderTarget(args.Viewport, target, _blurTarget, args.Viewport.Eye, 14f * 5f);
     }
 }
-

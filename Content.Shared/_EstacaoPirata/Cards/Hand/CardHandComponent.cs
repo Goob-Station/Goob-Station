@@ -43,4 +43,3 @@ public sealed class CardHandDrawMessage(NetEntity card) : BoundUserInterfaceMess
 {
     public NetEntity Card = card;
 }
-

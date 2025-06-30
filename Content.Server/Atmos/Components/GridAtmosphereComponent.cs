@@ -129,4 +129,3 @@ namespace Content.Server.Atmos.Components
         public AtmosphereProcessingState State { get; set; } = AtmosphereProcessingState.Revalidate;
     }
 }
-

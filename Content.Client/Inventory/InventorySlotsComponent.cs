@@ -22,4 +22,3 @@ public sealed partial class InventorySlotsComponent : Component
     [Access(typeof(ClientInventorySystem), Other = AccessPermissions.ReadWriteExecute)] // FIXME Friends
     public readonly Dictionary<string, HashSet<string>> VisualLayerKeys = new();
 }
-

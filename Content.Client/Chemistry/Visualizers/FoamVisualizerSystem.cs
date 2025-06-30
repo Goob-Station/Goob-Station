@@ -87,4 +87,3 @@ public enum FoamVisualLayers : byte
 {
     Base
 }
-

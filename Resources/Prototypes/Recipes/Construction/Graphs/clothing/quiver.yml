@@ -22,4 +22,3 @@
         doAfter: 2
   - node: Quiver
     entity: ClothingBeltQuiver
-

@@ -29,4 +29,3 @@ public sealed class InstantActionComponentState : BaseActionComponentState
     {
     }
 }
-

@@ -55,4 +55,3 @@ public sealed class NPCDomainCommand : IConsoleCommand
         return CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<HTNCompoundPrototype>(proto: _protoManager), "compound task");
     }
 }
-

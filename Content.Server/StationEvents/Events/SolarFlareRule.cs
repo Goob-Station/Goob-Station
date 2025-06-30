@@ -82,4 +82,3 @@ public sealed class SolarFlareRule : StationEventSystem<SolarFlareRuleComponent>
         }
     }
 }
-

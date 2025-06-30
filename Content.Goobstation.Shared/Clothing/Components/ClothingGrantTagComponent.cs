@@ -18,4 +18,3 @@ public sealed partial class ClothingGrantTagComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool IsActive = false;
 }
-

@@ -25,4 +25,3 @@ public sealed class LayingDownModifierSystem : EntitySystem
         layingDown.SpeedModify *= component.DownedSpeedMultiplierMultiplier;
     }
 }
-

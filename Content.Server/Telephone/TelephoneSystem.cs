@@ -499,4 +499,3 @@ public sealed class TelephoneSystem : SharedTelephoneSystem
         return this.IsPowered(entity, EntityManager) || !entity.Comp.RequiresPower;
     }
 }
-

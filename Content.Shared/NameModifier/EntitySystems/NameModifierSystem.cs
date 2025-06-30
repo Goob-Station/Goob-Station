@@ -159,4 +159,3 @@ public sealed class RefreshNameModifiersEvent : IInventoryRelayEvent
         return name;
     }
 }
-

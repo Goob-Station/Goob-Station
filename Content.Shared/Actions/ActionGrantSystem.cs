@@ -94,4 +94,3 @@ public sealed class ActionGrantSystem : EntitySystem
         }
     }
 }
-

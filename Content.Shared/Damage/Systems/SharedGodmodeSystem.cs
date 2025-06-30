@@ -104,4 +104,3 @@ public abstract class SharedGodmodeSystem : EntitySystem
         return true;
     }
 }
-

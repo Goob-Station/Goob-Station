@@ -59,4 +59,3 @@
           steps:
             - tool: Cutting
               doAfter: 0.25
-

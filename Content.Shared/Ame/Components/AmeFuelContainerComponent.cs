@@ -23,4 +23,3 @@ public sealed partial class AmeFuelContainerComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public int FuelCapacity = 500;
 }
-

@@ -210,4 +210,3 @@ public sealed partial class CargoSystem : SharedCargoSystem
         Dirty(ent);
     }
 }
-

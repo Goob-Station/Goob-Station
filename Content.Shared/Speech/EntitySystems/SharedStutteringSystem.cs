@@ -35,4 +35,3 @@ public abstract class SharedStutteringSystem : EntitySystem
        _statusEffectsSystem.TryRemoveStatusEffect(uid, StutterKey);
     }
 }
-

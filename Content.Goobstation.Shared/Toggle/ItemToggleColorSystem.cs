@@ -26,4 +26,3 @@ public sealed class ItemToggleColorSystem : EntitySystem
         _appearance.SetData(ent, ToggleableLightVisuals.Enabled, args.Activated);
     }
 }
-

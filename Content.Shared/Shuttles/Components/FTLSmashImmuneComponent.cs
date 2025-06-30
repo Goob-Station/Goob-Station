@@ -13,4 +13,3 @@ namespace Content.Shared.Shuttles.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FTLSmashImmuneComponent : Component;
-

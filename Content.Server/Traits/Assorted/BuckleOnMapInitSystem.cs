@@ -24,4 +24,3 @@ public sealed class BuckleOnMapInitSystem : EntitySystem
         _buckleSystem.TryBuckle(uid, uid, buckle);
     }
 }
-

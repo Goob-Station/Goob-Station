@@ -47,4 +47,3 @@ namespace Content.Shared.Tools
         public string Spawn { get; private set; } = string.Empty;
     }
 }
-

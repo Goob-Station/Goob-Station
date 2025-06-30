@@ -30,4 +30,3 @@ public sealed class PanicBunkerChangedEvent : EntityEventArgs
         Status = status;
     }
 }
-

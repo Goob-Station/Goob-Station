@@ -25,4 +25,3 @@ public sealed class AccountAppendPrototype : IPrototype
     [DataField("AppendComps")]
     public List<string> Components { get; init; } = [];
 }
-

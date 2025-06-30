@@ -482,4 +482,3 @@ public sealed class BlockedSpaceTile
         }
     }
 }
-

@@ -24,4 +24,3 @@ public readonly struct AFKEvent
         Session = playerSession;
     }
 }
-

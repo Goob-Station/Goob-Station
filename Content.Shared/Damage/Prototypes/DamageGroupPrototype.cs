@@ -40,4 +40,3 @@ namespace Content.Shared.Damage.Prototypes
         public List<string> DamageTypes { get; private set; } = default!;
     }
 }
-

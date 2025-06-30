@@ -39,4 +39,3 @@ public sealed partial class MainMenuControl : Control
         UsernameBox.Text = currentUserName;
     }
 }
-

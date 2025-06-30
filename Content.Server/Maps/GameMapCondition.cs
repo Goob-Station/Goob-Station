@@ -16,4 +16,3 @@ public abstract partial class GameMapCondition
     public bool Inverted { get; private set; }
     public abstract bool Check(GameMapPrototype map);
 }
-

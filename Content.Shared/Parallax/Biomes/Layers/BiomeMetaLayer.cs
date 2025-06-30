@@ -31,4 +31,3 @@ public sealed partial class BiomeMetaLayer : IBiomeLayer
     [DataField("template", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<BiomeTemplatePrototype>))]
     public string Template = string.Empty;
 }
-

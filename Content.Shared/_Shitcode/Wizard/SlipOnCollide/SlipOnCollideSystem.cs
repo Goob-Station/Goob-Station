@@ -34,4 +34,3 @@ public sealed class SlipOnCollideSystem : EntitySystem
         _slippery.TrySlip(uid, slippery, args.OtherEntity, force: comp.Force, predicted: false);
     }
 }
-

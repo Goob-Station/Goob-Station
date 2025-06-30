@@ -41,4 +41,3 @@ public sealed partial class GuideHelpComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool OpenOnActivation;
 }
-

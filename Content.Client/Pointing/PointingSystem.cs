@@ -94,4 +94,3 @@ public sealed partial class PointingSystem : SharedPointingSystem
         entity.Comp.EndTime = state.EndTime;
     }
 }
-

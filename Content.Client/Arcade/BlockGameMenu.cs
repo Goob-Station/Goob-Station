@@ -707,4 +707,3 @@ namespace Content.Client.Arcade
         }
     }
 }
-

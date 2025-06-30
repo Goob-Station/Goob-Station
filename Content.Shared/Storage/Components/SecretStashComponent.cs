@@ -148,4 +148,3 @@ namespace Content.Shared.Storage.Components
         public ContainerSlot ItemContainer = default!;
     }
 }
-

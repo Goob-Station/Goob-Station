@@ -74,4 +74,3 @@ public sealed partial class EggLayerComponent : Component
     [DataField, AutoPausedField]
     public TimeSpan NextGrowth = TimeSpan.Zero;
 }
-

@@ -40,4 +40,3 @@ public sealed class AdminLogSystem : EntitySystem
         _adminLogs.Shutdown();
     }
 }
-

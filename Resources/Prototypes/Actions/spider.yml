@@ -26,4 +26,3 @@
     icon: Interface/Actions/web.png
     event: !type:SericultureActionEvent
     useDelay: 1
-

@@ -267,4 +267,3 @@ public sealed partial class ConnectionManager
 
     #endregion
 }
-

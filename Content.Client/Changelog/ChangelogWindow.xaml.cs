@@ -146,4 +146,3 @@ namespace Content.Client.Changelog
         }
     }
 }
-

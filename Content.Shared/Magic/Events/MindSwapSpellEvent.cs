@@ -23,4 +23,3 @@ public sealed partial class MindSwapSpellEvent : EntityTargetActionEvent
     [DataField]
     public SoundSpecifier? Sound;
 }
-

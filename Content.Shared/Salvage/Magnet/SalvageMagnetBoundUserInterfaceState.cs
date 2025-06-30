@@ -25,4 +25,3 @@ public sealed class SalvageMagnetBoundUserInterfaceState : BoundUserInterfaceSta
         Offers = offers;
     }
 }
-

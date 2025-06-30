@@ -60,4 +60,3 @@ public sealed class AbductorVestModeChangeBuiMsg : BoundUserInterfaceMessage
 public sealed class AbductorLockBuiMsg : BoundUserInterfaceMessage
 {
 }
-

@@ -15,4 +15,3 @@ namespace Content.Shared._Goobstation.Weapons.UseDelay;
 public sealed partial class UseDelayBlockShootComponent : Component
 {
 }
-

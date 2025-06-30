@@ -55,4 +55,3 @@ namespace Content.Server.NPC.Commands
         }
     }
 }
-

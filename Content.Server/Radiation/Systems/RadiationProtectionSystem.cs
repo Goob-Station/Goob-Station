@@ -41,4 +41,3 @@ public sealed class RadiationProtectionSystem : EntitySystem
             RemComp<DamageProtectionBuffComponent>(uid);
     }
 }
-

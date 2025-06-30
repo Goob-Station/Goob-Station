@@ -21,4 +21,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> WorldgenConfig =
         CVarDef.Create("worldgen.worldgen_config", "Default", CVar.SERVERONLY);
 }
-

@@ -24,4 +24,3 @@ public sealed partial class WeightedRandomPrototype : IWeightedRandomPrototype
     [DataField("weights")]
     public Dictionary<string, float> Weights { get; private set; } = new();
 }
-

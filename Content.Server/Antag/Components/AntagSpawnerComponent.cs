@@ -21,4 +21,3 @@ public sealed partial class AntagSpawnerComponent : Component
     [DataField(required: true)]
     public EntProtoId Prototype = string.Empty;
 }
-

@@ -29,4 +29,3 @@ public sealed class ActivatableUIRequiresPowerSystem : SharedActivatableUIRequir
         args.Cancel();
     }
 }
-

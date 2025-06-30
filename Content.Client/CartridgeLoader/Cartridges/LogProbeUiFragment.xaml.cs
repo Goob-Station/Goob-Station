@@ -163,4 +163,3 @@ public sealed partial class LogProbeUiFragment : BoxContainer
         ProbedDeviceContainer.AddChild(entry);
     }
 }
-

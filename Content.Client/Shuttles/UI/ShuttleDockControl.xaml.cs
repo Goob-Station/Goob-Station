@@ -458,4 +458,3 @@ public sealed partial class ShuttleDockControl : BaseShuttleControl
         }
     }
 }
-

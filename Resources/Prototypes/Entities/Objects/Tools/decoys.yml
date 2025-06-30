@@ -143,4 +143,3 @@
     - state: folded
       map: ["foldedLayer"]
       visible: false
-

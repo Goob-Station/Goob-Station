@@ -23,4 +23,3 @@ public sealed class UseSlotNetworkMessage : EntityEventArgs
         Slot = slot;
     }
 }
-

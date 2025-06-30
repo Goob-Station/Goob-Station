@@ -27,4 +27,3 @@ public sealed partial class AdminMessagePopupMessage : Control
         Message.SetMessage(message.Text);
     }
 }
-

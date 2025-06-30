@@ -162,4 +162,3 @@
   - type: IngestionBlocker
   - type: StaticPrice
     price: 5000
-

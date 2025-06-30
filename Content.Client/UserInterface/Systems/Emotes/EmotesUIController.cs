@@ -197,4 +197,3 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         _entityManager.RaisePredictiveEvent(new PlayEmoteMessage(prototype.ID));
     }
 }
-

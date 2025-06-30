@@ -279,4 +279,3 @@ namespace Content.Client.UserInterface.Controls
         EntityUid? IEntityControl.UiEntity => Entity;
     }
 }
-

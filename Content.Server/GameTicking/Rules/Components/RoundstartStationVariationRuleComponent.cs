@@ -22,4 +22,3 @@ public sealed partial class RoundstartStationVariationRuleComponent : Component
     [DataField(required: true)]
     public List<EntitySpawnEntry> Rules = new();
 }
-

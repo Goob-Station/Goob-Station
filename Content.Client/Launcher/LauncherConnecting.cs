@@ -157,4 +157,3 @@ namespace Content.Client.Launcher
         }
     }
 }
-

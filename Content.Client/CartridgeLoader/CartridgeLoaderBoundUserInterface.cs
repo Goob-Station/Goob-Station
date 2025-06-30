@@ -151,4 +151,3 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
         return component?.Ui;
     }
 }
-

@@ -28,4 +28,3 @@ public sealed class MechAssemblyVisualizerSystem : VisualizerSystem<MechAssembly
         SpriteSystem.LayerSetRsiState((uid, args.Sprite), 0, state);
     }
 }
-

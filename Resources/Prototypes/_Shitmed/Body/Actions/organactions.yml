@@ -22,4 +22,3 @@
     event: !type:GoliathSummonTentacleAction
     useDelay: 80
     range: 10
-

@@ -58,4 +58,3 @@ public sealed partial class BlueprintComponent : Component
     [DataField(required: true)]
     public HashSet<ProtoId<LatheRecipePrototype>> ProvidedRecipes = new();
 }
-

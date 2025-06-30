@@ -82,4 +82,3 @@ public sealed class ChaoticJumpSystem : VirtualController
         _transform.SetWorldPosition(uid, targetPos);
     }
 }
-

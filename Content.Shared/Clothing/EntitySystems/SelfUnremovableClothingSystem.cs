@@ -40,4 +40,3 @@ public sealed class SelfUnremovableClothingSystem : EntitySystem
         args.PushMarkup(Loc.GetString("comp-self-unremovable-clothing"));
     }
 }
-

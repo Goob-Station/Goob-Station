@@ -17,4 +17,3 @@ namespace Content.Client.Shuttles;
 public sealed partial class ThrusterComponent : Component
 {
 }
-

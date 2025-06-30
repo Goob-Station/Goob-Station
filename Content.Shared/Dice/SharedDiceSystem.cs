@@ -96,4 +96,3 @@ public abstract class SharedDiceSystem : EntitySystem
         _audio.PlayPredicted(entity.Comp.Sound, entity, user);
     }
 }
-

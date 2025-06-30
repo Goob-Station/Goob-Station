@@ -336,4 +336,3 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         RemComp<CriminalRecordComponent>(uid);
     }
 }
-

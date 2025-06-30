@@ -73,4 +73,3 @@ public sealed class DamageMarkerSystem : SharedDamageMarkerSystem
     }
     // Lavaland Change End
 }
-

@@ -35,4 +35,3 @@ public sealed partial class MobStateActionsComponent : Component
 
     [DataField] public List<EntityUid> GrantedActions = new();
 }
-

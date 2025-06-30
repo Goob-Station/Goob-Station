@@ -26,4 +26,3 @@ public sealed partial class EnchantedBoltActionRifleComponent : Component
     [DataField]
     public Vector2 ThrowingSpeed = new(2f, 4f);
 }
-

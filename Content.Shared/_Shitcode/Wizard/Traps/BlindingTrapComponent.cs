@@ -16,4 +16,3 @@ public sealed partial class BlindingTrapComponent : Component
     [DataField]
     public TimeSpan BlurDuration = TimeSpan.FromSeconds(30);
 }
-

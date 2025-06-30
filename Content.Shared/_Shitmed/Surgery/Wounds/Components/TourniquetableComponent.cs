@@ -14,4 +14,3 @@ public sealed partial class TourniquetableComponent : Component
     [AutoNetworkedField]
     public BodyPartType SeveredPartType = BodyPartType.Head;
 }
-

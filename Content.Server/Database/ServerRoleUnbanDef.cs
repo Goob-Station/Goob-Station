@@ -22,4 +22,3 @@ public sealed class ServerRoleUnbanDef
         UnbanTime = unbanTime;
     }
 }
-

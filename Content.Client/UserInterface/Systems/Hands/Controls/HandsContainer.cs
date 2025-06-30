@@ -103,4 +103,3 @@ public sealed class HandsContainer : ItemSlotUIContainer<HandButton>
 
     public int ButtonCount => _grid.ChildCount;
 }
-

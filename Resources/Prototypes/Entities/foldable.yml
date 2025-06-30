@@ -27,4 +27,3 @@
   name: "deploy foldable"
   components:
   - type: DeployFoldable
-

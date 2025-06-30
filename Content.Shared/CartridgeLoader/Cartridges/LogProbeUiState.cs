@@ -53,4 +53,3 @@ public sealed partial class PulledAccessLog
         Accessor = accessor;
     }
 }
-

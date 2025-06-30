@@ -73,4 +73,3 @@ public sealed class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
         _smoke.StartSmoke(ent, comp.Solution, comp.Duration, comp.SpreadAmount, smoke); 
     }
 }
-

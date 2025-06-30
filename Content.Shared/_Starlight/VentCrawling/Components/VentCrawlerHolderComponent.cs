@@ -68,4 +68,3 @@ public record struct VentCrawlingExitEvent
 {
     public TransformComponent? holderTransform;
 }
-

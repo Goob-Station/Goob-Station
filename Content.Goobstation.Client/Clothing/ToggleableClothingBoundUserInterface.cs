@@ -47,4 +47,3 @@ public sealed class ToggleableClothingBoundUserInterface : BoundUserInterface
         SendPredictedMessage(message);
     }
 }
-

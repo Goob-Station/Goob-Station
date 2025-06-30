@@ -47,4 +47,3 @@ public sealed class SetLOOCCommand : IConsoleCommand
         shell.WriteLine(Loc.GetString(looc ? "set-looc-command-looc-enabled" : "set-looc-command-looc-disabled"));
     }
 }
-

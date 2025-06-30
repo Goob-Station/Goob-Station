@@ -27,4 +27,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> CrewManifestUnsecure =
         CVarDef.Create("crewmanifest.unsecure", true, CVar.REPLICATED);
 }
-

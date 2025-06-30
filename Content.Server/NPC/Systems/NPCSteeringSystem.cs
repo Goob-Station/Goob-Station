@@ -576,4 +576,3 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         tileMovement.CurrentSlideMoveButtons = MoveButtons.None;
     }
 }
-

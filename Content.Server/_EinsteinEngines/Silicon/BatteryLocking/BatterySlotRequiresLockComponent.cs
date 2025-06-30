@@ -11,4 +11,3 @@ public sealed partial class BatterySlotRequiresLockComponent : Component
     [DataField]
     public string ItemSlot = string.Empty;
 }
-

@@ -30,4 +30,3 @@ public sealed class AdminsCommand : ToolshedCommand
         return _admin.AllAdmins;
     }
 }
-

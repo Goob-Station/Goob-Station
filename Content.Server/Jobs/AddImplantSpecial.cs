@@ -32,4 +32,3 @@ public sealed partial class AddImplantSpecial : JobSpecial
         implantSystem.AddImplants(mob, Implants);
     }
 }
-

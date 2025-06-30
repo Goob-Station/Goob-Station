@@ -13,4 +13,3 @@ public sealed class IFFShowVesselMessage : BoundUserInterfaceMessage
 {
     public bool Show;
 }
-

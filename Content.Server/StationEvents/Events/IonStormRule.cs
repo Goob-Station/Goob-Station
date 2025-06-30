@@ -42,4 +42,3 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
         }
     }
 }
-

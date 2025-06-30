@@ -34,4 +34,3 @@ public sealed partial class ChemHealEyeDamage : EntityEffect
         args.EntityManager.EntitySysManager.GetEntitySystem<BlindableSystem>().AdjustEyeDamage(args.TargetEntity, Amount);
     }
 }
-

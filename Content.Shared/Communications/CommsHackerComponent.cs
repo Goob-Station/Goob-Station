@@ -55,4 +55,3 @@ public sealed partial class NinjaHackingThreatPrototype : IPrototype
     [DataField(required: true)]
     public EntProtoId Rule;
 }
-

@@ -65,4 +65,3 @@ namespace Content.Server._durkcode.ServerCurrency.UI
         }
     }
 }
-

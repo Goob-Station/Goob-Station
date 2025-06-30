@@ -31,4 +31,3 @@
           Off: { state: goldpai-off-overlay }
           Searching: { state: goldpai-searching-overlay }
           On: { state: goldpai-on-overlay }
-

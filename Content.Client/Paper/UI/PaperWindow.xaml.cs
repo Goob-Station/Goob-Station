@@ -442,4 +442,3 @@ namespace Content.Client.Paper.UI
         }
     }
 }
-

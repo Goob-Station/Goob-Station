@@ -49,4 +49,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> ReplayAutoRecordTempDir =
         CVarDef.Create("replay.auto_record_temp_dir", "", CVar.SERVERONLY);
 }
-

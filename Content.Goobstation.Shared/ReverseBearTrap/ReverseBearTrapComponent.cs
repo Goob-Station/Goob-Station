@@ -54,4 +54,3 @@ public sealed partial class ReverseBearTrapComponent : Component
     [DataField]
     public float BaseEscapeChance;
 }
-

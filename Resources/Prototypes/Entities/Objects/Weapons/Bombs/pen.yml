@@ -55,4 +55,3 @@
     - id: PenExploding
     sound:
       path: /Audio/Effects/unwrap.ogg
-

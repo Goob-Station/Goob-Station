@@ -11,4 +11,3 @@ namespace Content.Goobstation.Client.ToggleableLightWieldable;
 public sealed partial class ToggleableLightWieldableComponent : Component
 {
 }
-

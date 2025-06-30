@@ -199,4 +199,3 @@
   loots:
     - !type:BiomeMarkerLoot
       proto: OreArtifactFragment
-

@@ -18,4 +18,3 @@ namespace Content.Shared.Preferences
         High = 3
     }
 }
-

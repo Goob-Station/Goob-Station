@@ -107,4 +107,3 @@ public sealed class LightCollideSystem : EntitySystem
         _lights.SetEnabled(args.OtherEntity, true);
     }
 }
-

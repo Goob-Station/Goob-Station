@@ -35,4 +35,3 @@ public sealed partial class MailMetricUi : UIFragment
         }
     }
 }
-

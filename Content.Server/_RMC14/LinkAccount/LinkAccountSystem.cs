@@ -188,4 +188,3 @@ public sealed class LinkAccountSystem : EntitySystem
         GetRandomLobbyMessage();
     }
 }
-

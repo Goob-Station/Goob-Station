@@ -57,4 +57,3 @@ public sealed partial class GraveComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public DoAfterId? HandDiggingDoAfter;
 }
-

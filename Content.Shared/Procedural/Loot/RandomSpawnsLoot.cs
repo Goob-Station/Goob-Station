@@ -37,4 +37,3 @@ public partial record struct RandomSpawnLootEntry() : IBudgetEntry
     [ViewVariables(VVAccess.ReadWrite), DataField("prob")]
     public float Prob { get; set; } = 1f;
 }
-

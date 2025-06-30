@@ -29,4 +29,3 @@ public sealed partial class RandomBatteryChargeComponent : Component
     [DataField]
     public bool BasedOnMaxCharge = true;
 }
-

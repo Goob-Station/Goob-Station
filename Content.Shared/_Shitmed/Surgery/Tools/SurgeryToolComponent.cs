@@ -28,4 +28,3 @@ public sealed partial class SurgeryToolComponent : Component
 /// </summary>
 [ByRefEvent]
 public record struct SurgeryToolUsedEvent(EntityUid User, EntityUid Target, bool Cancelled = false);
-

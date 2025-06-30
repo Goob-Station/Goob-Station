@@ -65,4 +65,3 @@ public sealed class MeleeLungeEvent : EntityEventArgs
         FlipAnimation = flipAnimation;
     }
 }
-

@@ -198,4 +198,3 @@ public sealed partial class ParticleAcceleratorSystem
             RescanParts(comp.Master!.Value);
     }
 }
-

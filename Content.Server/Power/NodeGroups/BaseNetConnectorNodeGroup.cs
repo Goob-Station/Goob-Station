@@ -54,4 +54,3 @@ namespace Content.Server.Power.NodeGroups
         protected abstract void SetNetConnectorNet(IBaseNetConnectorComponent<TNetType> netConnectorComponent);
     }
 }
-

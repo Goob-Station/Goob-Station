@@ -234,4 +234,3 @@ namespace Content.Client.Light
         }
     }
 }
-

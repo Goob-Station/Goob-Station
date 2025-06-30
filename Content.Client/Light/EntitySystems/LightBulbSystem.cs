@@ -43,4 +43,3 @@ public sealed class LightBulbSystem : VisualizerSystem<LightBulbComponent>
         }
     }
 }
-

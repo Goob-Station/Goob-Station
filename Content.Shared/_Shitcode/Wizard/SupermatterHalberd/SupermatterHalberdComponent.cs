@@ -30,4 +30,3 @@ public sealed partial class SupermatterHalberdComponent : Component
     [DataField]
     public EntityWhitelist ObliterateWhitelist;
 }
-

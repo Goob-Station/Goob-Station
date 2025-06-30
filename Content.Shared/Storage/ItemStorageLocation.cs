@@ -47,4 +47,3 @@ public partial record struct ItemStorageLocation
                Position == other.Value.Position;
     }
 };
-

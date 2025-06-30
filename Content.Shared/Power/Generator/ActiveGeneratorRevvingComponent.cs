@@ -16,4 +16,3 @@ public sealed partial class ActiveGeneratorRevvingComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public TimeSpan CurrentTime = TimeSpan.Zero;
 }
-

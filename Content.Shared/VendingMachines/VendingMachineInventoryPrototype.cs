@@ -39,4 +39,3 @@ namespace Content.Shared.VendingMachines
         public Dictionary<string, uint>? ContrabandInventory { get; private set; }
     }
 }
-

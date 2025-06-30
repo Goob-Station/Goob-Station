@@ -84,4 +84,3 @@ public sealed class MapTextSystem : SharedMapTextSystem
         component.CachedFont = new VectorFont(fontResource, component.FontSize);
     }
 }
-

@@ -51,4 +51,3 @@ public sealed class PuddleCreateAnomalySystem : EntitySystem
         _puddle.TrySpillAt(xform.Coordinates, sol, out _);
     }
 }
-

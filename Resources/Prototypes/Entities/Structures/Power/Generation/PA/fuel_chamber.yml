@@ -37,4 +37,3 @@
     sprite: Structures/Power/Generation/PA/fuel_chamber.rsi
   - type: Construction
     graph: ParticleAcceleratorFuelChamber
-

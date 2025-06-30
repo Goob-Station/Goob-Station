@@ -29,4 +29,3 @@ public sealed partial class ReplacementAccentComponent : Component
     public string Accent = default!;
 
 }
-

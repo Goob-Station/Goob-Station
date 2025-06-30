@@ -53,4 +53,3 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-

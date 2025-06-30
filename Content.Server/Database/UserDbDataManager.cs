@@ -166,4 +166,3 @@ public sealed class UserDbDataManager : IPostInjectInit
 
     public delegate void OnPlayerDisconnect(ICommonSession player);
 }
-

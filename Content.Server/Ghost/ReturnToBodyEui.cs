@@ -46,4 +46,3 @@ public sealed class ReturnToBodyEui : BaseEui
         Close();
     }
 }
-

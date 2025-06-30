@@ -303,4 +303,3 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         return null;
     }
 }
-

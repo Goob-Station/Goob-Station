@@ -34,4 +34,3 @@ public sealed partial class InsideStasisComponent : Component
 /// </summary>
 [ByRefEvent]
 public record struct StasisEvent;
-

@@ -123,4 +123,3 @@ public sealed partial class DoAfter
 ///     Can be used to track currently active do-afters to prevent simultaneous do-afters.
 /// </remarks>
 public record struct DoAfterId(EntityUid Uid, ushort Index);
-

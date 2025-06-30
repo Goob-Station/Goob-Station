@@ -215,4 +215,3 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         }
     }
 }
-

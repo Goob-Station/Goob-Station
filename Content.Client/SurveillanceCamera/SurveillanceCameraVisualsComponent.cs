@@ -17,4 +17,3 @@ public sealed partial class SurveillanceCameraVisualsComponent : Component
     [DataField("sprites")]
     public Dictionary<SurveillanceCameraVisuals, string> CameraSprites = new();
 }
-

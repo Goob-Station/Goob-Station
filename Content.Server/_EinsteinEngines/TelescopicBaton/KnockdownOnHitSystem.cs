@@ -66,4 +66,3 @@ public sealed class KnockdownOnHitSystem : EntitySystem
             RaiseLocalEvent(entity, new KnockdownOnHitSuccessEvent(knockedDown));
     }
 }
-

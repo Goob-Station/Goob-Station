@@ -66,4 +66,3 @@ public sealed partial class EnvelopeComponent : Component
 public sealed partial class EnvelopeDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

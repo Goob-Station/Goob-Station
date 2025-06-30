@@ -62,4 +62,3 @@ public sealed class AutodocImportProgramMessage(AutodocProgram program) : BoundU
 
 [Serializable, NetSerializable]
 public sealed class AutodocStopMessage : BoundUserInterfaceMessage;
-

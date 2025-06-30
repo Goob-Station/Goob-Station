@@ -32,4 +32,3 @@ public sealed class EntityStorageLayingDownOverrideSystem : EntitySystem
         }
     }
 }
-

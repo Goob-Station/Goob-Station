@@ -121,4 +121,3 @@ public sealed partial class StealthComponent : Component
     public float Threshold = 5;// Goobstation - Stealth change
 
 }
-

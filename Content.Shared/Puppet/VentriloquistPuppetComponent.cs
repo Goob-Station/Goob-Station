@@ -11,4 +11,3 @@ namespace Content.Shared.Puppet;
 public sealed partial class VentriloquistPuppetComponent : Component
 {
 }
-

@@ -95,4 +95,3 @@ public sealed class StationAnchorSystem : EntitySystem
         ent.Comp.SwitchedOn = enabled;
     }
 }
-

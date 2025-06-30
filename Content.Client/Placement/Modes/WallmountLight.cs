@@ -70,4 +70,3 @@ namespace Content.Client.Placement.Modes
         }
     }
 }
-

@@ -37,4 +37,3 @@ public sealed partial class StationDataComponent : Component
     [DataField("grids")]
     public HashSet<EntityUid> Grids = new();
 }
-

@@ -548,4 +548,3 @@ public sealed class PowerMonitoringButton : Button
         MainContainer.AddChild(PowerValue);
     }
 }
-

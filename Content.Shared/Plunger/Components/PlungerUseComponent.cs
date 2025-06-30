@@ -45,4 +45,3 @@ namespace Content.Shared.Plunger.Components
         public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Effects/Fluids/glug.ogg");
     }
 }
-

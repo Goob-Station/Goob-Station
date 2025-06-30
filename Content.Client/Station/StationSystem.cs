@@ -39,4 +39,3 @@ public sealed partial class StationSystem : SharedStationSystem
         _stations.AddRange(ev.Stations);
     }
 }
-

@@ -53,4 +53,3 @@ public sealed class EntityUidConverter : AdminLogConverter<EntityUid>
         Write(writer, value, options, entityManager);
     }
 }
-

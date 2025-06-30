@@ -30,4 +30,3 @@ public partial class ChoiceControl : Control
         Texture.Texture = texture;
     }
 }
-

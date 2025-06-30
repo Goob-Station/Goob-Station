@@ -90,4 +90,3 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
         return "TODO";
     }
 }
-

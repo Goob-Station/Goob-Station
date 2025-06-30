@@ -169,4 +169,3 @@ namespace Content.Client.Gameplay
         }
     }
 }
-

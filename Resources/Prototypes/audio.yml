@@ -345,4 +345,3 @@
   id: OnMapGrid
   rules:
     - !type:OnMapGridRule
-

@@ -29,4 +29,3 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
         Dirty(uid, comp);
     }
 }
-

@@ -71,4 +71,3 @@ public sealed partial class GivePrototype : IGraphAction
         }
     }
 }
-

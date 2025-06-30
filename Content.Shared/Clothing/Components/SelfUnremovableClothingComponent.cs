@@ -22,4 +22,3 @@ public sealed partial class SelfUnremovableClothingComponent : Component
 {
 
 }
-

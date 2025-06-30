@@ -28,4 +28,3 @@ public sealed partial class BlockingUserComponent : Component
     [DataField("originalBodyType")]
     public BodyType OriginalBodyType;
 }
-

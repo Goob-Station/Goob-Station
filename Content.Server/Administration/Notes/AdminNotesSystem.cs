@@ -91,4 +91,3 @@ public sealed class AdminNotesSystem : EntitySystem
         _euis.OpenEui(ui, e.Session);
     }
 }
-

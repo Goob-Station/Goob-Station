@@ -21,4 +21,3 @@ public sealed partial class InjectableSolutionComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string Solution = "default";
 }
-

@@ -86,4 +86,3 @@ public interface IWireAction
     /// <returns>StatusLightData to display light data, null to have no status light.</returns>
     public StatusLightData? GetStatusLightData(Wire wire);
 }
-

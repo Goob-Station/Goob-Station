@@ -13,4 +13,3 @@ public sealed partial class WizardTeleportLocationComponent : Component
     [DataField]
     public string? Location;
 }
-

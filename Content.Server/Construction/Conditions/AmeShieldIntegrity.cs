@@ -90,4 +90,3 @@ public sealed partial class AmeShieldIntegrity : IGraphCondition
         yield return new ConstructionGuideEntry();
     }
 }
-

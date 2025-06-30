@@ -160,4 +160,3 @@ public sealed partial class DragInsertContainerSystem : EntitySystem
     {
     }
 }
-

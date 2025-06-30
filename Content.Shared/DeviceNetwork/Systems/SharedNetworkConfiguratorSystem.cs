@@ -47,4 +47,3 @@ public enum NetworkConfiguratorLayers
 {
     ModeLight
 }
-

@@ -153,4 +153,3 @@ namespace Content.Shared.Interaction
         }
     }
 }
-

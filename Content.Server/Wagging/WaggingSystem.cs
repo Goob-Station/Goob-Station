@@ -109,4 +109,3 @@ public sealed class WaggingSystem : EntitySystem
         return true;
     }
 }
-

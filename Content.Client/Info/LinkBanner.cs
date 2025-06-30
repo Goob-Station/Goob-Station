@@ -121,4 +121,3 @@ namespace Content.Client.Info
         }
     }
 }
-

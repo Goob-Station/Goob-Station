@@ -69,4 +69,3 @@ public sealed partial class ConditionNotesDateRange : WhitelistCondition
     [DataField]
     public bool IncludeSecret = false;
 }
-

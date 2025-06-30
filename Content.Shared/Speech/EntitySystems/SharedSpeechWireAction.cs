@@ -12,4 +12,3 @@ public enum SpeechWireActionKey : byte
 {
     StatusKey,
 }
-

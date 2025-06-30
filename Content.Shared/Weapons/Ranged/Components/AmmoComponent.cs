@@ -119,4 +119,3 @@ public sealed partial class CartridgeAmmoComponent : AmmoComponent
     [DataField("soundEject")]
     public SoundSpecifier? EjectSound = new SoundCollectionSpecifier("CasingEject");
 }
-

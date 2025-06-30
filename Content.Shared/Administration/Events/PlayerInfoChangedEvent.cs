@@ -18,4 +18,3 @@ public sealed class PlayerInfoChangedEvent : EntityEventArgs
 {
     public PlayerInfo? PlayerInfo;
 }
-

@@ -189,4 +189,3 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
         return new BodyPrototype(id, name, root, slots);
     }
 }
-

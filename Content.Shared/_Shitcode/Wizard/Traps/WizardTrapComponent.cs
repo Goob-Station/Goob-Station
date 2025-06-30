@@ -74,4 +74,3 @@ public enum TrapVisuals : byte
 {
     Alpha,
 }
-

@@ -10,4 +10,3 @@ namespace Content.Server.Atmos.Components;
 public sealed partial class PressureImmunityComponent : Component
 {
 }
-

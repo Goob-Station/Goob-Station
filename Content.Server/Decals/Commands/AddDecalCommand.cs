@@ -130,4 +130,3 @@ namespace Content.Server.Decals.Commands
         }
     }
 }
-

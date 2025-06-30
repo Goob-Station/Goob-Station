@@ -57,4 +57,3 @@ public sealed partial class KudzuComponent : Component
     [DataField]
     public int SpriteVariants = 3;
 }
-

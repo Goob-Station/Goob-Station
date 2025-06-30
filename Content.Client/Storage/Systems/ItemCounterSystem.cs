@@ -76,4 +76,3 @@ public sealed class ItemCounterSystem : SharedItemCounterSystem
         return null;
     }
 }
-

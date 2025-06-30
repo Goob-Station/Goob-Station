@@ -34,4 +34,3 @@ public static class PlayerDataExt
         return session.Data.ContentData()?.Mind;
     }
 }
-

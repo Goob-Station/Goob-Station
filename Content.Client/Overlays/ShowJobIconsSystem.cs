@@ -137,4 +137,3 @@ public sealed class ShowJobIconsSystem : EquipmentHudSystem<ShowJobIconsComponen
             Log.Error($"Invalid job icon prototype: {iconPrototype}");
     }
 }
-

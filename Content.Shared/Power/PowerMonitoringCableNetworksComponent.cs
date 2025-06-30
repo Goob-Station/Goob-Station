@@ -42,4 +42,3 @@ public struct PowerCableChunk
         PowerCableData = new int[3];
     }
 }
-

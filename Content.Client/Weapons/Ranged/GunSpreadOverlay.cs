@@ -91,4 +91,3 @@ public sealed class GunSpreadOverlay : Overlay
         worldHandle.DrawLine(mapPos.Position, mousePos.Position + (-currentAngle).RotateVec(direction), Color.Yellow);
     }
 }
-

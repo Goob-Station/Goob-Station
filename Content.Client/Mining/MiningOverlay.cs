@@ -99,4 +99,3 @@ public sealed class MiningOverlay : Overlay
         handle.SetTransform(Matrix3x2.Identity);
     }
 }
-

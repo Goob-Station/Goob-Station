@@ -59,4 +59,3 @@ namespace Content.Server.Mail
         }
     }
 }
-

@@ -20,4 +20,3 @@ public sealed class ShowHTNCommand : IConsoleCommand
         npcs.EnableOverlay ^= true;
     }
 }
-

@@ -96,4 +96,3 @@ public sealed class CarvingKnifeMenuButton : RadialMenuTextureButtonWithSector
 {
     public ProtoId<RuneCarvingPrototype> ProtoId { get; set; }
 }
-

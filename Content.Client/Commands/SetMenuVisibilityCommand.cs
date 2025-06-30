@@ -96,4 +96,3 @@ internal sealed class SetMenuVisibilityCommand : LocalizedCommands
         return true;
     }
 }
-

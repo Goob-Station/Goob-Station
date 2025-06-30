@@ -26,4 +26,3 @@ public sealed partial class RequiresEyeProtectionComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("toggled"), AutoNetworkedField]
     public bool Toggled;
 }
-

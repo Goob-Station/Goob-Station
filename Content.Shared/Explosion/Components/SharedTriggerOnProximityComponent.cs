@@ -15,4 +15,3 @@ public abstract partial class SharedTriggerOnProximityComponent : Component
 {
 
 }
-

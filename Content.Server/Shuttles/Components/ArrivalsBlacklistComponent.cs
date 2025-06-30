@@ -13,4 +13,3 @@ namespace Content.Server.Shuttles.Components;
 public sealed partial class ArrivalsBlacklistComponent : Component
 {
 }
-

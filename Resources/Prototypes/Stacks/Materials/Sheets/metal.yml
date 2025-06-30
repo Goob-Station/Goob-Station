@@ -31,4 +31,3 @@
   icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: brass }
   spawn: SheetBrass1
   maxCount: 30
-

@@ -58,4 +58,3 @@ public sealed partial class BinComponent : Component
     [DataField, AutoNetworkedField]
     public int MaxItems = 20;
 }
-

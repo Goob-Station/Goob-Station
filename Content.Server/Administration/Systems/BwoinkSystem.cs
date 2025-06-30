@@ -1128,4 +1128,3 @@ namespace Content.Server.Administration.Systems
         Banned,
     }
 }
-

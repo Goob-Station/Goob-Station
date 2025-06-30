@@ -350,4 +350,3 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         return (value - MidPointVector) / MinimapScale;
     }
 }
-

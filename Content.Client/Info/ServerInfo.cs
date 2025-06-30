@@ -41,4 +41,3 @@ namespace Content.Client.Info
         }
     }
 }
-

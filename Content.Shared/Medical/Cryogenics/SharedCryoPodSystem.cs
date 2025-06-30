@@ -206,4 +206,3 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
     {
     }
 }
-

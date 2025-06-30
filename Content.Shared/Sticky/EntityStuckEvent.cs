@@ -99,4 +99,3 @@ public record struct EntityStuckEvent(EntityUid Target, EntityUid User);
 /// </summary>
 [ByRefEvent]
 public record struct EntityUnstuckEvent(EntityUid Target, EntityUid User);
-

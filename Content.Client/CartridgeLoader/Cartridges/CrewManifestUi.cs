@@ -36,4 +36,3 @@ public sealed partial class CrewManifestUi : UIFragment
         _fragment?.UpdateState(crewManifestState.StationName, crewManifestState.Entries);
     }
 }
-

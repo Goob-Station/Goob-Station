@@ -59,4 +59,3 @@ namespace Content.Server.Spawners.Components
         public bool DeleteSpawnerAfterSpawn = true;
     }
 }
-

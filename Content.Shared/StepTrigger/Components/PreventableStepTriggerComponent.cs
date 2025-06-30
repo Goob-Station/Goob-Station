@@ -16,4 +16,3 @@ namespace Content.Shared.StepTrigger.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PreventableStepTriggerComponent : Component;
-

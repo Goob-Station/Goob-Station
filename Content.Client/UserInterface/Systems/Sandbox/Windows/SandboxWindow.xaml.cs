@@ -33,4 +33,3 @@ public sealed partial class SandboxWindow : DefaultWindow
         ToggleSubfloorButton.Pressed = _entManager.System<SubFloorHideSystem>().ShowAll;
     }
 }
-

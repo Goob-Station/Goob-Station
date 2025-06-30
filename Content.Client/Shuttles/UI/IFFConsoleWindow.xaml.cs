@@ -90,4 +90,3 @@ public sealed partial class IFFConsoleWindow : FancyWindow,
         }
     }
 }
-

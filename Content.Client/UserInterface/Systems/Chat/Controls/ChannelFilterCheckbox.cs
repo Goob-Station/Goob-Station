@@ -42,4 +42,3 @@ public sealed class ChannelFilterCheckbox : CheckBox
         UpdateText(unread);
     }
 }
-

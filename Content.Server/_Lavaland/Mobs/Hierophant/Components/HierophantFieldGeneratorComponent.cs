@@ -44,4 +44,3 @@ public sealed partial class HierophantFieldGeneratorComponent : Component
     [DataField]
     public EntityUid? ConnectedHierophant;
 }
-

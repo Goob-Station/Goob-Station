@@ -68,4 +68,3 @@ public sealed class RgbLightControllerState : ComponentState
         Layers = layers;
     }
 }
-

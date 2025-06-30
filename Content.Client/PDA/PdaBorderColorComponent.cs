@@ -24,4 +24,3 @@ public sealed partial class PdaBorderColorComponent : Component
     [DataField("accentVColor")]
     public string? AccentVColor;
 }
-

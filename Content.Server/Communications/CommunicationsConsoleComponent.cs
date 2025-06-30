@@ -109,4 +109,3 @@ namespace Content.Server.Communications
         public bool AnnounceSentBy = true;
     }
 }
-

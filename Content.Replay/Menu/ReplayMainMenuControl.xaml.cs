@@ -47,4 +47,3 @@ public sealed partial class ReplayMainMenuControl : Control
         };
     }
 }
-

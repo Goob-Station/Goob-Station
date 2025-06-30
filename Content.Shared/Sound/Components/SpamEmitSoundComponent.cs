@@ -48,4 +48,3 @@ public sealed partial class SpamEmitSoundComponent : BaseEmitSoundComponent
     [Access(typeof(SharedEmitSoundSystem))]
     public bool Enabled = true;
 }
-

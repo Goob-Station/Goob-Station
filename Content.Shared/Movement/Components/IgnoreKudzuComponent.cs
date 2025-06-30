@@ -16,4 +16,3 @@ namespace Content.Shared.Movement.Components;
 public sealed partial class IgnoreKudzuComponent : Component
 {
 }
-

@@ -49,4 +49,3 @@ public sealed partial class GunSignalControlSystem : EntitySystem
             _gun.SetEnabled(gunControl, autoShoot, false);
     }
 }
-

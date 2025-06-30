@@ -27,4 +27,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> GhostKillCrit =
         CVarDef.Create("ghost.kill_crit", true, CVar.REPLICATED | CVar.SERVER);
 }
-

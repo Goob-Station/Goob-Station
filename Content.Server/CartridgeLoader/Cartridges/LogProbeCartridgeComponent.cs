@@ -67,4 +67,3 @@ public sealed partial class LogProbeCartridgeComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextPrintAllowed = TimeSpan.Zero;
 }
-

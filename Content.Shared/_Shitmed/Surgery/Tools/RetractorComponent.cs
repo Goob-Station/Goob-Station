@@ -17,4 +17,3 @@ public sealed partial class RetractorComponent : Component, ISurgeryToolComponen
     [DataField]
     public float Speed { get; set; } = 1f;
 }
-

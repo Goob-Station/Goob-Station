@@ -44,4 +44,3 @@ public sealed partial class MiningVoucherComponent : Component
     [DataField]
     public SoundSpecifier? RedeemSound = new SoundPathSpecifier("/Audio/Machines/twobeep.ogg");
 }
-

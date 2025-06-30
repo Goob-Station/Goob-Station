@@ -52,4 +52,3 @@ public sealed class ColorBox : PanelContainer, IDocumentTag
         return true;
     }
 }
-

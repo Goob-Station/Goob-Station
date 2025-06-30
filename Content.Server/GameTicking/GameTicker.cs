@@ -193,4 +193,3 @@ namespace Content.Server.GameTicking
         }
     }
 }
-

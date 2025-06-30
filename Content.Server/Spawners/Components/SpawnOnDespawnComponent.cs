@@ -41,4 +41,3 @@ public sealed partial class SpawnOnDespawnComponent : Component
     public List<EntProtoId> Prototypes = [];
     // Lavaland Change end
 }
-

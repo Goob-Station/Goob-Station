@@ -34,4 +34,3 @@ public sealed class ExitContainerOnMoveSystem : EntitySystem
         _container.RemoveEntity(ent, args.Entity, containerManager);
     }
 }
-

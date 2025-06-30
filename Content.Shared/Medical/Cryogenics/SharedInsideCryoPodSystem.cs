@@ -32,4 +32,3 @@ public abstract partial class SharedCryoPodSystem
         RemComp<InsideCryoPodComponent>(uid);
     }
 }
-

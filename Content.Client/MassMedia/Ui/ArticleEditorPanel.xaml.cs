@@ -133,4 +133,3 @@ public sealed partial class ArticleEditorPanel : Control
         ButtonPublish.OnPressed -= OnPublish;
     }
 }
-

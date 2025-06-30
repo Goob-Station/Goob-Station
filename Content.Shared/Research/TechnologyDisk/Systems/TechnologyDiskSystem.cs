@@ -124,4 +124,3 @@ public sealed class TechnologyDiskSystem : EntitySystem
         args.PushMarkup(message);
     }
 }
-

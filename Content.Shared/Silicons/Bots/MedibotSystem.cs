@@ -157,4 +157,3 @@ public sealed class MedibotSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed partial class MedibotInjectDoAfterEvent : SimpleDoAfterEvent { }
-

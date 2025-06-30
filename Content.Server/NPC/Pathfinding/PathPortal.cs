@@ -33,4 +33,3 @@ public struct PathPortal
         return Handle;
     }
 }
-

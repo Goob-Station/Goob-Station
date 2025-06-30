@@ -11,4 +11,3 @@ namespace Content.Shared.Weapons.Ranged.Events;
 /// <param name="Cancelled">If set to true, the muzzle flash will not be shown.</param>
 [ByRefEvent]
 public record struct GunMuzzleFlashAttemptEvent(bool Cancelled);
-

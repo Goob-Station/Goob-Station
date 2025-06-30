@@ -95,4 +95,3 @@ public sealed class UiControlTest
         await pair.CleanReturnAsync();
     }
 }
-

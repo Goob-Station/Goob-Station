@@ -25,4 +25,3 @@ public sealed class AccessToggleSystem : EntitySystem
         _access.SetAccessEnabled(ent, args.Activated);
     }
 }
-

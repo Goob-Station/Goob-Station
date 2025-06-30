@@ -25,4 +25,3 @@ public interface IBiomeMarkerLayer : IPrototype
     /// </summary>
     public int Size { get; }
 }
-

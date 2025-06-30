@@ -122,4 +122,3 @@ public sealed class PlayGlobalSoundCommand : IConsoleCommand
         return CompletionResult.Empty;
     }
 }
-

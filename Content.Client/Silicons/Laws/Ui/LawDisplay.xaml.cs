@@ -119,4 +119,3 @@ public sealed partial class LawDisplay : Control
         }
     }
 }
-

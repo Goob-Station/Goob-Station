@@ -97,4 +97,3 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
         }
     }
 }
-

@@ -200,4 +200,3 @@ public record struct ShopVendorBalanceEvent(EntityUid User, uint Balance = 0);
 /// </summary>
 [ByRefEvent]
 public record struct ShopVendorPurchaseEvent(EntityUid User, uint Cost, bool Paid = false);
-

@@ -195,4 +195,3 @@ public sealed partial class SurveillanceCameraMonitorWindow : DefaultWindow
         CameraSelected!((string) SubnetList[args.ItemIndex].Metadata!);
     }
 }
-

@@ -23,4 +23,3 @@ namespace Content.Shared.Atmos.Visuals
         Blocked,
     }
 }
-

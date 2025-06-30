@@ -15,4 +15,3 @@ public sealed partial class BackStabComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Angle Tolerance = Angle.FromDegrees(45d);
 }
-

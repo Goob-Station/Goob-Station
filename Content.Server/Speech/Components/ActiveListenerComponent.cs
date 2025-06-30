@@ -17,4 +17,3 @@ public sealed partial class ActiveListenerComponent : Component
     [DataField("range")]
     public float Range = ChatSystem.VoiceRange;
 }
-

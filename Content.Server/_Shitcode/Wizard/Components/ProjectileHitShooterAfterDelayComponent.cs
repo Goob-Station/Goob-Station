@@ -16,4 +16,3 @@ public sealed partial class ProjectileHitShooterAfterDelayComponent : Component
     [DataField]
     public float Delay = 1f;
 }
-

@@ -62,4 +62,3 @@ public sealed class EntityTargetActionComponentState : BaseActionComponentState
         CanTargetSelf = component.CanTargetSelf;
     }
 }
-

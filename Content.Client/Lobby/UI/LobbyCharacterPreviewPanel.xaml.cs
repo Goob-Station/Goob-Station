@@ -104,4 +104,3 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
         _previewDummy = null;
     }
 }
-

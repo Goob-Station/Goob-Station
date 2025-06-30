@@ -145,4 +145,3 @@ public abstract partial class SharedBorgSystem : EntitySystem
         Dirty(ent);
     }
 }
-

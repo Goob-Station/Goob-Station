@@ -166,4 +166,3 @@ public sealed class GetEyeProtectionEvent : EntityEventArgs, IInventoryRelayEven
 
     public SlotFlags TargetSlots => SlotFlags.EYES | SlotFlags.MASK | SlotFlags.HEAD;
 }
-

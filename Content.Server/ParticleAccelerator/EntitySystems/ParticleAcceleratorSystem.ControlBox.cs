@@ -461,4 +461,3 @@ public sealed partial class ParticleAcceleratorSystem
         };
     }
 }
-

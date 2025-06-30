@@ -53,4 +53,3 @@ public sealed class WarDeclaratorActivateMessage : BoundUserInterfaceMessage
         Message = msg;
     }
 }
-

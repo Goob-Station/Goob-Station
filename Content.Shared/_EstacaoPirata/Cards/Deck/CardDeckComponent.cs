@@ -33,4 +33,3 @@ public sealed partial class CardDeckComponent : Component
     [DataField("limit")]
     public int CardLimit = 5;
 }
-

@@ -27,4 +27,3 @@ public sealed class SkinTonesTest
         Assert.That(SkinColor.VerifyHumanSkinTone(SkinColor.ValidHumanSkinTone));
     }
 }
-

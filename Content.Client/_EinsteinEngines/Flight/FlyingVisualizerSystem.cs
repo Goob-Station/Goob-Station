@@ -71,4 +71,3 @@ public sealed class FlyingVisualizerSystem : EntitySystem
         comp.Shader.SetParameter("Multiplier", multiplier);
     }
 }
-

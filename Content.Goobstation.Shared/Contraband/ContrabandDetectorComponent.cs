@@ -98,4 +98,3 @@ public enum ContrabandDetectorFakeScanWireKey : byte
     StatusKey,
     TimeoutKey
 }
-

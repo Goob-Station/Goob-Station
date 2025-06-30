@@ -50,4 +50,3 @@ public sealed partial class BlockChargeComponent : Component
     [DataField, AutoNetworkedField]
     public bool HasCharge;
 }
-

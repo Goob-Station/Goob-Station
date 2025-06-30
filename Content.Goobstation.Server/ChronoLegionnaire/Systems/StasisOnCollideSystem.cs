@@ -54,4 +54,3 @@ public sealed class StasisOnCollideSystem : EntitySystem
     }
 
 }
-

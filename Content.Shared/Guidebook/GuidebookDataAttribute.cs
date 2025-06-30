@@ -15,4 +15,3 @@ namespace Content.Shared.Guidebook;
 /// </remarks>
 [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
 public sealed class GuidebookDataAttribute : Attribute { }
-

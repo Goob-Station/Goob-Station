@@ -30,4 +30,3 @@ public sealed class ContentMagicAczProvider : IMagicAczProvider
         await ClientPackaging.WriteResources(contentDir, pass, logger, cancel);
     }
 }
-

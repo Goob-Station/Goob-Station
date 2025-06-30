@@ -13,4 +13,3 @@ namespace Content.Server._Shitmed.Objectives.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class RoleplayObjectiveComponent : Component;
-

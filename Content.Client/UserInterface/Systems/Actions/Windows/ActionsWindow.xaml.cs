@@ -52,4 +52,3 @@ public sealed partial class ActionsWindow : DefaultWindow
         Targeted
     }
 }
-

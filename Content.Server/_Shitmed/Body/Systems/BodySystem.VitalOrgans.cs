@@ -29,4 +29,3 @@ public partial class BodySystem
         return TryGetBodyOrganEntityComps<HeartComponent>(ent, out _);
     }
 }
-

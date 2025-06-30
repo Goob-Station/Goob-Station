@@ -12,4 +12,3 @@ namespace Content.Server.SurveillanceCamera;
 public sealed partial class ActiveSurveillanceCameraMonitorComponent : Component
 {
 }
-

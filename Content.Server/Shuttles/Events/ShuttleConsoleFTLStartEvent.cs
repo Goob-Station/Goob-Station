@@ -14,4 +14,3 @@ public record struct ShuttleConsoleFTLTravelStartEvent(EntityUid Uid)
 {
     public EntityUid Uid = Uid;
 }
-

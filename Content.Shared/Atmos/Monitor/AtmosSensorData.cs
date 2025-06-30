@@ -54,4 +54,3 @@ public sealed class AtmosSensorData : IAtmosDeviceData
     public AtmosAlarmThreshold TemperatureThreshold { get; }
     public Dictionary<Gas, AtmosAlarmThreshold> GasThresholds { get; }
 }
-

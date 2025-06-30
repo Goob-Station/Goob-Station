@@ -453,4 +453,3 @@ public sealed partial class ReverseBearTrapSystem : EntitySystem
 
     private static readonly VerbCategory TimerOptions = new("verb-categories-timer", "/Textures/Interface/VerbIcons/clock.svg.192dpi.png");
 }
-

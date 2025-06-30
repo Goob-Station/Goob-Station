@@ -12,4 +12,3 @@ namespace Content.Shared.Abilities;
 
 public sealed partial class DogVisionComponent : Component
 {}
-

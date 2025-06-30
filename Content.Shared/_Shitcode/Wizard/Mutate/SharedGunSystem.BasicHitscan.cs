@@ -32,4 +32,3 @@ public abstract partial class SharedGunSystem
         }
     }
 }
-

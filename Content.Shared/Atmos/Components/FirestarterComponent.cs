@@ -38,4 +38,3 @@ public sealed partial class FirestarterComponent : Component
     [DataField]
     public SoundSpecifier IgniteSound = new SoundPathSpecifier("/Audio/Magic/rumble.ogg");
 }
-

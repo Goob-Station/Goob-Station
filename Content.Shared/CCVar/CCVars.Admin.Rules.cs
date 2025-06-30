@@ -21,4 +21,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> RulesExemptLocal =
         CVarDef.Create("rules.exempt_local", true, CVar.SERVERONLY);
 }
-

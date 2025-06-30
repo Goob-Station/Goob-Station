@@ -88,4 +88,3 @@ public sealed partial class RadiationSystem : EntitySystem
         }
     }
 }
-

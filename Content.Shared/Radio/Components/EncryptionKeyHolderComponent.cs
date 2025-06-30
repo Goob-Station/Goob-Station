@@ -70,4 +70,3 @@ public sealed partial class EncryptionKeyHolderComponent : Component
     [DataField("examineWhileLocked")]
     public bool ExamineWhileLocked = true;
 }
-

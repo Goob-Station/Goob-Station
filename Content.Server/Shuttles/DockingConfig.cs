@@ -35,4 +35,3 @@ public sealed class DockingConfig
     /// </summary>
     public Angle Angle;
 }
-

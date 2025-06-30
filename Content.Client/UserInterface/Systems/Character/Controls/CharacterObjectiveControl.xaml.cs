@@ -25,4 +25,3 @@ public sealed partial class CharacterObjectiveControl : BoxContainer
         RobustXamlLoader.Load(this);
     }
 }
-

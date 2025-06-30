@@ -2073,4 +2073,3 @@ public abstract class SharedStorageSystem : EntitySystem
         public EntityWhitelist? Blacklist;
     }
 }
-

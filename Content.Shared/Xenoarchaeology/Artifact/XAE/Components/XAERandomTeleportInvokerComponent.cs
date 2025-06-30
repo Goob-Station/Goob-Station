@@ -27,4 +27,3 @@ public sealed partial class XAERandomTeleportInvokerComponent : Component
     [DataField, AutoNetworkedField]
     public float MinRange = 6f;
 }
-

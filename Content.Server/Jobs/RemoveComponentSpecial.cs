@@ -89,4 +89,3 @@ public sealed partial class RemoveComponentSpecial : JobSpecial
         entMan.RemoveComponents(mob, Components);
     }
 }
-

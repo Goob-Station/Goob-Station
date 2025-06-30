@@ -20,4 +20,3 @@ public sealed partial class PostTabledComponent : Component
     [DataField]
     public float ParalyzeChance = 0.35f;
 }
-

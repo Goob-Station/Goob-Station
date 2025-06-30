@@ -22,4 +22,3 @@ public sealed partial class AlertAutoRemoveComponent : Component
 
     public override bool SendOnlyToOwner => true;
 }
-

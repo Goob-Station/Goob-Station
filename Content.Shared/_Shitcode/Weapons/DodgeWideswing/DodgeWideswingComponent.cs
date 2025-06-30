@@ -34,4 +34,3 @@ public sealed partial class DodgeWideswingComponent : Component
     [DataField]
     public LocId? PopupId = "wideswing-dodge-generic";
 }
-

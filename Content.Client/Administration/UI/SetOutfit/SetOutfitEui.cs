@@ -51,4 +51,3 @@ namespace Content.Client.Administration.UI.SetOutfit
         }
     }
 }
-

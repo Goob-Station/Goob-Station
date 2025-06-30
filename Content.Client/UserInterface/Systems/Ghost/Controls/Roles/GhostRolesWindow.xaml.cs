@@ -124,4 +124,3 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
         }
     }
 }
-

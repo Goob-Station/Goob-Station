@@ -87,4 +87,3 @@ public abstract class SharedFadingTimedDespawnSystem : EntitySystem
 
     protected abstract bool CanDelete(EntityUid uid);
 }
-

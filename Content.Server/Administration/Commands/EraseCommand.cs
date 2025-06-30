@@ -103,4 +103,3 @@ public sealed class EraseCommand : LocalizedEntityCommands
         return CompletionResult.FromHintOptions(options, Loc.GetString("cmd-erase-player-completion"));
     }
 }
-

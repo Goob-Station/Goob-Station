@@ -13,4 +13,3 @@ namespace Content.Shared._Shitmed.Body.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class BreathingImmunityComponent : Component;
-

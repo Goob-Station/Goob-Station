@@ -41,4 +41,3 @@ public sealed partial class AmmoniaOxygenReaction : IGasReactionEffect
         return ReactionResult.Reacting;
     }
 }
-

@@ -36,4 +36,3 @@ public sealed class OpenAdminLogsCommand : IConsoleCommand
         eui.OpenEui(ui, player);
     }
 }
-

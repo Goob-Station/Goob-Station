@@ -69,4 +69,3 @@ public enum StorageContainerVisualLayers : byte
 {
     Fill
 }
-

@@ -24,4 +24,3 @@ public sealed partial class AtmosMonitoringConsoleDeviceComponent : Component
     [DataField, ViewVariables]
     public ProtoId<NavMapBlipPrototype>? NavMapBlip = null;
 }
-

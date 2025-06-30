@@ -18,4 +18,3 @@ public sealed partial class ChangelingDartComponent : Component
     [DataField]
     public float ReagentDivisor = 2;
 }
-

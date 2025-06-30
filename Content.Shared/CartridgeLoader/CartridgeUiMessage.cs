@@ -31,4 +31,3 @@ public abstract class CartridgeMessageEvent : EntityEventArgs
     [NonSerialized]
     public EntityUid Actor;
 }
-

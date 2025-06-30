@@ -20,4 +20,3 @@ public sealed partial class CarryingSlowdownComponent : Component
     [DataField, AutoNetworkedField]
     public float Modifier = 1.0f;
 }
-

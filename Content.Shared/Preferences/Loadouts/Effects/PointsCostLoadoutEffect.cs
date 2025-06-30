@@ -47,4 +47,3 @@ public sealed partial class PointsCostLoadoutEffect : LoadoutEffect
         loadout.Points -= Cost;
     }
 }
-

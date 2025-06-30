@@ -124,4 +124,3 @@ Output Storage: {ps.OutStorageCurrent:G3} / {ps.OutStorageMax:G3} ({outStorageRa
         }
     }
 }
-

@@ -53,4 +53,3 @@ public sealed partial class CargoTelepadComponent : Component
     [DataField("receiverPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>)), ViewVariables(VVAccess.ReadWrite)]
     public string ReceiverPort = "OrderReceiver";
 }
-

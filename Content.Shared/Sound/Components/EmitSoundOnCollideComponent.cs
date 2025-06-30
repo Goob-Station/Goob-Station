@@ -28,4 +28,3 @@ public sealed partial class EmitSoundOnCollideComponent : BaseEmitSoundComponent
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextSound;
 }
-

@@ -16,4 +16,3 @@ namespace Content.Goobstation.Client.MartialArts;
 public sealed class MartialArtsSystem : SharedMartialArtsSystem
 {
 }
-

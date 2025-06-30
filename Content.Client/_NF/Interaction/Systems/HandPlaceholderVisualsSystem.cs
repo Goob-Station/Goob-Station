@@ -53,4 +53,3 @@ public sealed partial class HandPlaceholderVisualsSystem : EntitySystem
             QueueDel(ent.Comp.Dummy);
     }
 }
-

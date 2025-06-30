@@ -69,4 +69,3 @@ public sealed partial class AnomalySynchronizerComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier DisconnectedSound = new SoundPathSpecifier("/Audio/Machines/anomaly_sync_connect.ogg");
 }
-

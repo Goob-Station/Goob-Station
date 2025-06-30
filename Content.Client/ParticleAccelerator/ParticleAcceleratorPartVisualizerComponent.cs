@@ -27,4 +27,3 @@ public sealed partial class ParticleAcceleratorPartVisualsComponent : Component
         {ParticleAcceleratorVisualState.Level3, "p3"},
     };
 }
-

@@ -19,4 +19,3 @@
     location: BookLocations
     element: BookStoryElements
     elementTrait: BookStoryElementTraits
-

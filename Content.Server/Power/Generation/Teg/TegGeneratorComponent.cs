@@ -83,4 +83,3 @@ public sealed partial class TegGeneratorComponent : Component
     [DataField("volumeMax")]
     public float VolumeMax = -4;
 }
-

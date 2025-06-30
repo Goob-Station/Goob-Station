@@ -163,4 +163,3 @@ public sealed class GasMinerSystem : SharedGasMinerSystem
         return toSpawnReal;
     }
 }
-

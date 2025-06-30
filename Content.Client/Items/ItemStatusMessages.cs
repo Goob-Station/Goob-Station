@@ -62,4 +62,3 @@ namespace Content.Client.Items
         }
     }
 }
-

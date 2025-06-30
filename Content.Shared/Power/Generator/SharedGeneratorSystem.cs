@@ -24,4 +24,3 @@ public abstract class SharedGeneratorSystem : EntitySystem
         return MathF.Pow(optimalPower / targetPower, component.FuelEfficiencyConstant);
     }
 }
-

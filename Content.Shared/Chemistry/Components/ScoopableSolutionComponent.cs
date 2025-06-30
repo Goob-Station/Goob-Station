@@ -36,4 +36,3 @@ public sealed partial class ScoopableSolutionComponent : Component
     [DataField]
     public LocId Popup = "scoopable-component-popup";
 }
-

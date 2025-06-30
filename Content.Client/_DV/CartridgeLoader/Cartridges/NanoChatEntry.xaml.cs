@@ -47,4 +47,3 @@ public sealed partial class NanoChatEntry : BoxContainer
         ChatButton.ModulateSelfOverride = isSelected ? NanoChatMessageBubble.OwnMessageColor : null;
     }
 }
-

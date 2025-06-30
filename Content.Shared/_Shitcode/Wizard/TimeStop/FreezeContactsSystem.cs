@@ -257,4 +257,3 @@ public sealed class FreezeContactsSystem : EntitySystem
         return fix.Hard || id == ProjectileFixture;
     }
 }
-

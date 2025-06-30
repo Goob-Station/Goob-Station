@@ -40,4 +40,3 @@ public sealed class LogErrorTest
         await pair.CleanReturnAsync();
     }
 }
-

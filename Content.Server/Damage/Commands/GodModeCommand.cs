@@ -82,4 +82,3 @@ namespace Content.Server.Damage.Commands
         }
     }
 }
-

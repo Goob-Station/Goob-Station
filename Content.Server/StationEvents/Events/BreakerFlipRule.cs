@@ -71,4 +71,3 @@ public sealed class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponen
         }
     }
 }
-

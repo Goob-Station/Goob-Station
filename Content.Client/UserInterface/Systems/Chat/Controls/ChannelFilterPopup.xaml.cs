@@ -160,4 +160,3 @@ public sealed partial class ChannelFilterPopup : Popup
             checkbox.UpdateUnreadCount(unread);
     }
 }
-

@@ -40,4 +40,3 @@
     sprite: Structures/Power/Generation/PA/end_cap.rsi
   - type: Construction
     graph: ParticleAcceleratorEndCap
-

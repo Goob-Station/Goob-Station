@@ -36,4 +36,3 @@ public sealed partial class GhostColorComponent : Component
     [DataField, AutoNetworkedField]
     public Color? Color;
 }
-

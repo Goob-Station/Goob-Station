@@ -57,4 +57,3 @@ public sealed partial class AiInteractWireAction : ComponentWireAction<StationAi
     {
     }
 }
-

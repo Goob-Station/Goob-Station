@@ -25,4 +25,3 @@ public sealed partial class TetherGunComponent : BaseForceGunComponent
     [ViewVariables(VVAccess.ReadWrite), DataField("tethered"), AutoNetworkedField]
     public override EntityUid? Tethered { get; set; }
 }
-

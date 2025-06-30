@@ -163,4 +163,3 @@ public enum InstrumentUiKey
 {
     Key,
 }
-

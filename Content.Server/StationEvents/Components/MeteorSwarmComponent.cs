@@ -61,4 +61,3 @@ public sealed partial class MeteorSwarmComponent : Component
     [DataField]
     public MinMax WaveCooldown = new (10, 60);
 }
-

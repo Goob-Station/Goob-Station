@@ -13,4 +13,3 @@ namespace Content.Shared._Goobstation.Wizard.EventSpells;
 public sealed partial class GlobalTileMovementRuleComponent : Component
 {
 }
-

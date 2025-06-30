@@ -39,4 +39,3 @@
         doAfter: 2
   - node: bot
     entity: MobFireBot
-

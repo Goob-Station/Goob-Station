@@ -120,4 +120,3 @@ public sealed class OrbitVisualsSystem : EntitySystem
         };
     }
 }
-

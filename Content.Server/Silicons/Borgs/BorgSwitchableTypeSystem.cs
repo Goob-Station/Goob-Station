@@ -105,4 +105,3 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         base.SelectBorgModule(ent, borgType);
     }
 }
-

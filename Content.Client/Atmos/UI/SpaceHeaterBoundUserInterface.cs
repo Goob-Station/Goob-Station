@@ -89,4 +89,3 @@ public sealed class SpaceHeaterBoundUserInterface : BoundUserInterface
         _window?.Dispose();
     }
 }
-

@@ -65,4 +65,3 @@ public sealed class CameraRecoilSystem : SharedCameraRecoilSystem
         component.LastKickTime = 0;
     }
 }
-

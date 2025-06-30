@@ -49,4 +49,3 @@ public sealed partial class Drunk : EntityEffect
         drunkSys.TryApplyDrunkenness(args.TargetEntity, boozePower, SlurSpeech);
     }
 }
-

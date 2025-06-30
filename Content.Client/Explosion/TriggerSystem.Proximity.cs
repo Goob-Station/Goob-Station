@@ -120,4 +120,3 @@ public sealed partial class TriggerSystem
         Base,
     }
 }
-

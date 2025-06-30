@@ -34,4 +34,3 @@
               amount: 5
             - !type:EmptyAllContainers
             - !type:DeleteEntity
-

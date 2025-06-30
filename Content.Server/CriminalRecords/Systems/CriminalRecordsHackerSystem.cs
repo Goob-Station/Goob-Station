@@ -67,4 +67,3 @@ public sealed class CriminalRecordsHackerSystem : SharedCriminalRecordsHackerSys
 /// </summary>
 [ByRefEvent]
 public record struct CriminalRecordsHackedEvent(EntityUid User, EntityUid Target);
-

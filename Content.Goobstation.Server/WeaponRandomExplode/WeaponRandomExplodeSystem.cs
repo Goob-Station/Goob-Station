@@ -53,4 +53,3 @@ namespace Content.Goobstation.Server.WeaponRandomExplode
         }
     }
 }
-

@@ -18,4 +18,3 @@ public sealed partial class MailMetricsCartridgeComponent : Component
     [DataField]
     public EntityUid? Station;
 }
-

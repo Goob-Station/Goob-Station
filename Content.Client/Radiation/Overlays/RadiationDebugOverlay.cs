@@ -145,4 +145,3 @@ public sealed class RadiationDebugOverlay : Overlay
         }
     }
 }
-

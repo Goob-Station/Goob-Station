@@ -33,4 +33,3 @@ public sealed partial class CargoBountyLabelComponent : Component
     [DataField]
     public EntityUid? AssociatedStationId;
 }
-

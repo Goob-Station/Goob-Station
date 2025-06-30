@@ -26,4 +26,3 @@ public sealed class PlayerRateLimitManager : SharedPlayerRateLimitManager
     {
     }
 }
-

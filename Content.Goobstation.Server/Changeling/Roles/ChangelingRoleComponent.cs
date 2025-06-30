@@ -16,4 +16,3 @@ namespace Content.Goobstation.Server.Changeling.Roles;
 public sealed partial class ChangelingRoleComponent : BaseMindRoleComponent
 {
 }
-

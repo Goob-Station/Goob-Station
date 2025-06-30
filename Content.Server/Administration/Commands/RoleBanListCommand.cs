@@ -88,4 +88,3 @@ public sealed class RoleBanListCommand : IConsoleCommand
         };
     }
 }
-

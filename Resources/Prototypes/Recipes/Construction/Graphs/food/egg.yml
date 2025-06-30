@@ -22,4 +22,3 @@
       # high enough so you can still microwave them for 5 seconds safely
       - minTemperature: 473.15 # 200°C
   - node: explode
-

@@ -19,4 +19,3 @@ public sealed class ReturnToBodyMessage : EuiMessageBase
         Accepted = accepted;
     }
 }
-

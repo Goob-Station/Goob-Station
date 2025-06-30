@@ -124,4 +124,3 @@ namespace Content.Shared.Kitchen
         }
     }
 }
-

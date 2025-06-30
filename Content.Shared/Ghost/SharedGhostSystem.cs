@@ -251,4 +251,3 @@ namespace Content.Shared.Ghost
         }
     }
 }
-

@@ -24,4 +24,3 @@ public sealed partial class CqcPressurePerformedEvent : EntityEventArgs;
 
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class CqcConsecutivePerformedEvent : EntityEventArgs;
-

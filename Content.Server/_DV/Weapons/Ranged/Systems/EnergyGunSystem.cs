@@ -174,4 +174,3 @@ public sealed class EnergyGunSystem : EntitySystem
         _appearance.SetData(uid, EnergyGunFireModeVisuals.State, state);
     }
 }
-

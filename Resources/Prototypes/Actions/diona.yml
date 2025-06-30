@@ -31,4 +31,3 @@
       state: full
     event: !type:ReformEvent {}
     useDelay: 600 # Once every 10 minutes. Keep them dead for a fair bit before reforming
-

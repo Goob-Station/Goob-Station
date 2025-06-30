@@ -27,4 +27,3 @@ public sealed partial class PortableScrubberVisualsComponent : Component
     [DataField("fullState", required: true)]
     public string FullState = default!;
 }
-

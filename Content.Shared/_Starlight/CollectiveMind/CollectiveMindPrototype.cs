@@ -35,4 +35,3 @@ public sealed partial class CollectiveMindPrototype : IPrototype
     [DataField]
     public bool ShowNames = true;
 }
-

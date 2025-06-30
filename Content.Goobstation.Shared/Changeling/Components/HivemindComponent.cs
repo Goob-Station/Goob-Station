@@ -18,4 +18,3 @@ namespace Content.Goobstation.Shared.Changeling.Components;
 public sealed partial class HivemindComponent : Component
 {
 }
-

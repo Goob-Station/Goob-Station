@@ -33,4 +33,3 @@ public sealed partial class UtilityQueryPrototype : IPrototype
     [DataField("limit")]
     public int Limit = 128;
 }
-

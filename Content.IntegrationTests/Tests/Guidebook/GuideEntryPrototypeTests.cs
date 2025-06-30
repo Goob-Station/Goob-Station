@@ -50,4 +50,3 @@ public sealed class GuideEntryPrototypeTests
         await pair.CleanReturnAsync();
     }
 }
-

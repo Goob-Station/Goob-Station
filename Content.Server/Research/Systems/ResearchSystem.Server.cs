@@ -181,4 +181,3 @@ public sealed partial class ResearchSystem
         Dirty(uid, component);
     }
 }
-

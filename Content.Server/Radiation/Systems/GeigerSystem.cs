@@ -192,4 +192,3 @@ public sealed class GeigerSystem : SharedGeigerSystem
         };
     }
 }
-

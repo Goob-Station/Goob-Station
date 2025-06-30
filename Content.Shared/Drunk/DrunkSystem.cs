@@ -77,4 +77,3 @@ public abstract class SharedDrunkSystem : EntitySystem
     }
 
 }
-

@@ -256,4 +256,3 @@
     energy: 1
   - type: RgbLightController
     layers: [ 1 ]
-

@@ -27,4 +27,3 @@ public sealed partial class FtlVisualizerComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid Grid;
 }
-

@@ -84,4 +84,3 @@ namespace Content.Shared.Paper;
 public sealed partial class ActivateOnPaperOpenedComponent : Component
 {
 }
-

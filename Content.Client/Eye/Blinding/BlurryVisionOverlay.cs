@@ -126,4 +126,3 @@ namespace Content.Client.Eye.Blinding
         }
     }
 }
-

@@ -16,4 +16,3 @@ public sealed partial class NukeOpsShuttleComponent : Component
     [DataField]
     public EntityUid AssociatedRule;
 }
-

@@ -103,4 +103,3 @@ public sealed class CrewManifestCartridgeSystem : EntitySystem
         }
     }
 }
-

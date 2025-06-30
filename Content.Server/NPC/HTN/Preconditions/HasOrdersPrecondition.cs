@@ -16,4 +16,3 @@ public sealed partial class HasOrdersPrecondition : HTNPrecondition
         return Equals(blackboard.GetValueOrDefault<Enum>(NPCBlackboard.CurrentOrders, _entManager), Orders);
     }
 }
-

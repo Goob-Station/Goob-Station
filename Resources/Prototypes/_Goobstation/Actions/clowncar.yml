@@ -30,4 +30,3 @@
       state: clowncar
     event: !type:QuietBackThereActionEvent
     useDelay: 30 # 30 sec delay
-

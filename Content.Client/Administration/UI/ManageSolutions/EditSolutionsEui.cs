@@ -45,4 +45,3 @@ namespace Content.Client.Administration.UI.ManageSolutions
         }
     }
 }
-

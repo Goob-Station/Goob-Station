@@ -13,4 +13,3 @@ public sealed class AdminInfoEvent(NetUserId userid) : EntityEventArgs
 {
     public NetUserId user = userid;
 }
-

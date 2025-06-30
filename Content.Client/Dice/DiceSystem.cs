@@ -35,4 +35,3 @@ public sealed class DiceSystem : SharedDiceSystem
         _sprite.LayerSetRsiState((entity.Owner, sprite), 0, $"{prefix}_{entity.Comp.CurrentValue}");
     }
 }
-

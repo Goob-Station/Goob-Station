@@ -107,4 +107,3 @@ public sealed class KillCalloutRuleSystem : GameRuleSystem<KillCalloutRuleCompon
         return Loc.GetString("death-match-name-npc", ("name", MetaData(source).EntityName));
     }
 }
-

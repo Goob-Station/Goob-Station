@@ -57,4 +57,3 @@ public sealed class StasisOverlay : Overlay
         handle.UseShader(null);
     }
 }
-

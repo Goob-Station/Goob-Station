@@ -85,4 +85,3 @@
         enum.SolutionHeaterVisuals.IsOn:
           True: { visible: true }
           False: { visible: false }
-

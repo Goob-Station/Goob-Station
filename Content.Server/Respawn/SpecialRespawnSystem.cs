@@ -283,4 +283,3 @@ public sealed class SpecialRespawnSystem : SharedSpecialRespawnSystem
         return true;
     }
 }
-

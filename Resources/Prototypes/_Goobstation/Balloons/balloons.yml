@@ -422,4 +422,3 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-

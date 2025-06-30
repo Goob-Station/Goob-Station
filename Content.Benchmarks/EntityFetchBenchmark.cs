@@ -328,4 +328,3 @@ namespace Content.Benchmarks
         }
     }
 }
-

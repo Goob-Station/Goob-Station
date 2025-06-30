@@ -29,4 +29,3 @@ public sealed partial class AnomalyPulsingComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan PulseDuration = TimeSpan.FromSeconds(5);
 }
-

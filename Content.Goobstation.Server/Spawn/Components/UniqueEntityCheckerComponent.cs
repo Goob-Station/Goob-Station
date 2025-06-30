@@ -20,4 +20,3 @@ public sealed partial class UniqueEntityCheckerComponent : Component
     [DataField]
     public string? MarkerName;
 }
-

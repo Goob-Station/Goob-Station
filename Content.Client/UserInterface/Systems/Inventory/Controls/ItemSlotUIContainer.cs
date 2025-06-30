@@ -148,4 +148,3 @@ public abstract class ItemSlotUIContainer<T> : GridContainer, IItemslotUIContain
         return (button = GetButton(slotName)) != null;
     }
 }
-

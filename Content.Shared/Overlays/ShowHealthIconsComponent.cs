@@ -31,4 +31,3 @@ public sealed partial class ShowHealthIconsComponent : Component
         "Biological"
     };
 }
-

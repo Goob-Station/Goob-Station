@@ -264,4 +264,3 @@ public sealed partial class GatewayWindow : FancyWindow,
         }
     }
 }
-

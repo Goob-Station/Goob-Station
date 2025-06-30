@@ -9,4 +9,3 @@ public abstract class SharedCardboardBoxSystem : EntitySystem
 {
 
 }
-

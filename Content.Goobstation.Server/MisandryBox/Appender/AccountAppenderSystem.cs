@@ -92,4 +92,3 @@ public sealed class AccountAppenderSystem : EntitySystem
         return false;
     }
 }
-

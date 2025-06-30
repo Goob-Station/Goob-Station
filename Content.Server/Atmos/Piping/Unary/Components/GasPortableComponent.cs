@@ -16,4 +16,3 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         public string PortName { get; set; } = "port";
     }
 }
-

@@ -57,4 +57,3 @@ namespace Content.Shared.Interaction.Events
         }
     }
 }
-

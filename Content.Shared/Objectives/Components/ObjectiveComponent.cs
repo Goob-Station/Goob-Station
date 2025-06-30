@@ -80,4 +80,3 @@ public record struct ObjectiveAfterAssignEvent(EntityUid MindId, MindComponent M
 /// </summary>
 [ByRefEvent]
 public record struct ObjectiveGetProgressEvent(EntityUid MindId, MindComponent Mind, float? Progress = null);
-

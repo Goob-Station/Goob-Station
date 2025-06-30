@@ -29,4 +29,3 @@ public sealed partial class InstantSpawnSpellEvent : InstantActionEvent
     [DataField]
     public MagicInstantSpawnData PosData = new TargetCasterPos();
 }
-

@@ -22,4 +22,3 @@ public sealed class FlipOnHitSystem : SharedFlipOnHitSystem
         RaiseNetworkEvent(new FlipOnHitEvent(GetNetEntity(user)), filter);
     }
 }
-

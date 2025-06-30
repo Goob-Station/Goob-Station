@@ -443,4 +443,3 @@ public sealed partial class ExplosionSystem
             );
     }
 }
-

@@ -150,4 +150,3 @@ public sealed class BanCommand : LocalizedCommands
         return CompletionResult.Empty;
     }
 }
-

@@ -11,4 +11,3 @@ namespace Content.Client.Mail
     public sealed partial class MailComponent : SharedMailComponent
     {}
 }
-

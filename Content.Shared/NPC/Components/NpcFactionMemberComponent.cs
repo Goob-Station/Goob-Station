@@ -46,4 +46,3 @@ public sealed partial class NpcFactionMemberComponent : Component
     [DataField, ViewVariables]
     public HashSet<ProtoId<NpcFactionPrototype>>? AddHostileFactions;
 }
-

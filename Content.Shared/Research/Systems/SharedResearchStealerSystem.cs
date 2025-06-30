@@ -72,4 +72,3 @@ public abstract class SharedResearchStealerSystem : EntitySystem
 public sealed partial class ResearchStealDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

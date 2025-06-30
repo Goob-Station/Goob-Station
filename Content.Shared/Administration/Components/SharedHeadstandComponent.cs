@@ -14,4 +14,3 @@ namespace Content.Shared.Administration.Components;
 /// </summary>
 [NetworkedComponent]
 public abstract partial class SharedHeadstandComponent : Component { }
-

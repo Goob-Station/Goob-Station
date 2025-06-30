@@ -49,4 +49,3 @@ public sealed partial class SalvageAirMod : IPrototype, IBiomeSpecificMod
     [DataField("gases")]
     public float[] Gases = new float[Atmospherics.AdjustedNumberOfGases];
 }
-

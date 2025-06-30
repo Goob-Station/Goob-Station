@@ -22,4 +22,3 @@ public sealed class ShowSpreadCommand : IConsoleCommand
         shell.WriteLine($"Set spread overlay to {system.SpreadOverlay}");
     }
 }
-

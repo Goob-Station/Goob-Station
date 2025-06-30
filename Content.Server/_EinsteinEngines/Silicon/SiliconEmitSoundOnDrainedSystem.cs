@@ -46,4 +46,3 @@ public sealed class EmitSoundOnCritSystem : EntitySystem
         RemComp<SpamEmitSoundComponent>(uid);
     }
 }
-

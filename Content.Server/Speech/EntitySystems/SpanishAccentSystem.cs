@@ -152,4 +152,3 @@ namespace Content.Server.Speech.EntitySystems
         }
     }
 }
-

@@ -25,4 +25,3 @@ public sealed partial class DroneConsoleComponent : Component
     [DataField("entity")]
     public EntityUid? Entity;
 }
-

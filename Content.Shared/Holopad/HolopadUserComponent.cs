@@ -48,4 +48,3 @@ public sealed class HolopadUserTypingChangedEvent : EntityEventArgs
         State = state;
     }
 }
-

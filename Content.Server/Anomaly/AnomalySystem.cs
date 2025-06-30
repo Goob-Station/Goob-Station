@@ -237,4 +237,3 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
     }
     #endregion
 }
-

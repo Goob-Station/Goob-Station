@@ -134,4 +134,3 @@ internal sealed class AtvCBMCommand : LocalizedCommands
         sys.CfgCBM = xFlag;
     }
 }
-

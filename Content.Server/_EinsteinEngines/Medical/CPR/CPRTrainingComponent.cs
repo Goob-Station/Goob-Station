@@ -31,4 +31,3 @@ public sealed partial class CPRTrainingComponent : Component
 
     public EntityUid? CPRPlayingStream;
 }
-

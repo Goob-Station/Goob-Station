@@ -40,4 +40,3 @@ public sealed class HandLabelerLabelChangedMessage(string label) : BoundUserInte
 {
     public string Label { get; } = label;
 }
-

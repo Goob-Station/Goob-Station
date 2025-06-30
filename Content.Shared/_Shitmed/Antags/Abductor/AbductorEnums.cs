@@ -32,4 +32,3 @@ public enum AbductorArmorModeType : byte
     Combat,
     Stealth
 }
-

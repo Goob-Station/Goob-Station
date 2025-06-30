@@ -30,4 +30,3 @@ namespace Content.Shared.Singularity.Components
         public float FalloffPower = MathF.Sqrt(2f);
     }
 }
-

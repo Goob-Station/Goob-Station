@@ -41,4 +41,3 @@ public sealed partial class AutodocSafetyWireAction : ComponentWireAction<Autodo
         EntityManager.System<SharedAutodocSystem>().SetSafety((uid, comp), !comp.RequireSleeping);
     }
 }
-

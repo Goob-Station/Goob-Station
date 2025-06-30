@@ -31,4 +31,3 @@
         doAfter: 10
   - node: shotgun
     entity: WeaponShotgunImprovised
-

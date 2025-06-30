@@ -14,4 +14,3 @@ namespace Content.Shared._Goobstation.Weapons.Ranged;
 public record struct RechargeBasicEntityAmmoGetCooldownModifiersEvent(
     float Multiplier
 );
-

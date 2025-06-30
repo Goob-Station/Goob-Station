@@ -487,4 +487,3 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
     }
 }
-

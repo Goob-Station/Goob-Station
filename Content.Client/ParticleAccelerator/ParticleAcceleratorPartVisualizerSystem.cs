@@ -38,4 +38,3 @@ public sealed class ParticleAcceleratorPartVisualizerSystem : VisualizerSystem<P
         }
     }
 }
-

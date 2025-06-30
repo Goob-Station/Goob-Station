@@ -78,4 +78,3 @@ namespace Content.Server.Kitchen.Components
         public GrinderProgram Program;
     }
 }
-

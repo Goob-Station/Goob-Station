@@ -52,4 +52,3 @@ public sealed partial class StationMapBeaconControl : Control, IComparable<Stati
         return string.Compare(Label, other.Label);
     }
 }
-

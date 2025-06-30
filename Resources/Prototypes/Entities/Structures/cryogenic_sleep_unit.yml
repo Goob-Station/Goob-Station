@@ -70,4 +70,3 @@
     - type: ContainerSpawnPoint
       containerId: storage
       spawnType: LateJoin
-

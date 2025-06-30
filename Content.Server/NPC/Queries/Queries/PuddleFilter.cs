@@ -10,4 +10,3 @@ public sealed partial class PuddleFilter : UtilityQueryFilter
 {
 
 }
-

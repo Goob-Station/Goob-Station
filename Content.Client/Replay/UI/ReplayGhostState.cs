@@ -43,4 +43,3 @@ public sealed class ReplayGhostState : ReplaySpectateEntityState
         base.Shutdown();
     }
 }
-

@@ -229,4 +229,3 @@ namespace Content.Server.Nuke
         // Goobstation end
     }
 }
-

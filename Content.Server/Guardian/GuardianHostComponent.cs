@@ -40,4 +40,3 @@ namespace Content.Server.Guardian
         [DataField] public EntityUid? ActionEntity;
     }
 }
-

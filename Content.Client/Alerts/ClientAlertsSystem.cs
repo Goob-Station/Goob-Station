@@ -209,4 +209,3 @@ public sealed class ClientAlertsSystem : AlertsSystem
         RaisePredictiveEvent(new ClickAlertEvent(alertType));
     }
 }
-

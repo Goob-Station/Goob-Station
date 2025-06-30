@@ -84,4 +84,3 @@ public sealed partial class StationMapUserComponent : Component
     [DataField("mapUid")]
     public EntityUid Map;
 }
-

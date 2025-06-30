@@ -16,4 +16,3 @@ public sealed partial class MiningScannerComponent : Component
     [DataField]
     public float Range = 5;
 }
-

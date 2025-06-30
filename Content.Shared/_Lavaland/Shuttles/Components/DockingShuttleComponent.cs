@@ -73,4 +73,3 @@ public partial struct DockingDestination
     [DataField]
     public MapId Map;
 }
-

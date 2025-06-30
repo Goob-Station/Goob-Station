@@ -17,4 +17,3 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Steps;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SurgeryAddOrganSlotStepComponent : Component;
-

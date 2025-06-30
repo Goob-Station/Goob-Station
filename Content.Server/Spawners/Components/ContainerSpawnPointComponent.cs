@@ -55,4 +55,3 @@ public sealed partial class ContainerSpawnPointComponent : Component, ISpawnPoin
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SpawnPointType SpawnType { get; set; } = SpawnPointType.Unset;
 }
-

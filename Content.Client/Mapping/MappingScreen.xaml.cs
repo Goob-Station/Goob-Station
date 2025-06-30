@@ -285,4 +285,3 @@ public sealed partial class MappingScreen : InGameScreen
         Delete.Pressed = Delete == except;
     }
 }
-

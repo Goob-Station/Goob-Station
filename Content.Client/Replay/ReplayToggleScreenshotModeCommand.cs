@@ -38,4 +38,3 @@ public sealed class ReplayToggleScreenshotModeCommand : BaseReplayCommand
         }
     }
 }
-

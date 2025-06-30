@@ -66,4 +66,3 @@ namespace Content.IntegrationTests.Tests
         }
     }
 }
-

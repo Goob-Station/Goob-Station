@@ -32,4 +32,3 @@ public sealed class NPCCommand : IConsoleCommand
         euiManager.OpenEui(new NPCEui(), playerSession);
     }
 }
-

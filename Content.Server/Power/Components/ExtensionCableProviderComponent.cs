@@ -35,4 +35,3 @@ namespace Content.Server.Power.Components
 
     }
 }
-

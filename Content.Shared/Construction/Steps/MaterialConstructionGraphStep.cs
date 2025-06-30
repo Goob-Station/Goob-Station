@@ -73,4 +73,3 @@ namespace Content.Shared.Construction.Steps
         }
     }
 }
-

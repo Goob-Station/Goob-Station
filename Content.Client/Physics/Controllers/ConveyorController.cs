@@ -12,4 +12,3 @@ public sealed class ConveyorController : SharedConveyorController
 {
     //Class is empty, needed for prediction and networking
 }
-

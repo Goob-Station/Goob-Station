@@ -45,4 +45,3 @@ public sealed class AddPolymorphActionCommand : IConsoleCommand
         polySystem.CreatePolymorphAction(args[1], (entityUid.Value, polymorphable));
     }
 }
-

@@ -9,4 +9,3 @@
   components:
     - type: StationMailRouter
     - type: StationLogisticStats # DeltaV - Tracks statistics related to mail and income
-

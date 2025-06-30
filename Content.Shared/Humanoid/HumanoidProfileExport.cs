@@ -22,4 +22,3 @@ public sealed partial class HumanoidProfileExport
     [DataField(required: true)]
     public HumanoidCharacterProfile Profile = default!;
 }
-

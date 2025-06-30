@@ -23,4 +23,3 @@ public sealed class JointVisualsSystem : EntitySystem
         _overlay.RemoveOverlay<JointVisualsOverlay>();
     }
 }
-

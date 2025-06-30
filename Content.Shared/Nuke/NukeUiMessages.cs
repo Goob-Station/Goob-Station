@@ -46,4 +46,3 @@ namespace Content.Shared.Nuke
     {
     }
 }
-

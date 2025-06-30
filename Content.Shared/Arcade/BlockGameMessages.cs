@@ -145,4 +145,3 @@ namespace Content.Shared.Arcade
         }
     }
 }
-

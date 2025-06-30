@@ -43,4 +43,3 @@ public sealed class EyeColorPicker : Control
         _lastColor = newColor;
     }
 }
-

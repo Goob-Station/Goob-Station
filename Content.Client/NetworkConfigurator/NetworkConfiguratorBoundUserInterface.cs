@@ -119,4 +119,3 @@ public sealed class NetworkConfiguratorBoundUserInterface : BoundUserInterface
         SendMessage(new NetworkConfiguratorButtonPressedMessage(buttonKey));
     }
 }
-

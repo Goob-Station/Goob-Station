@@ -14,4 +14,3 @@ namespace Content.Shared.Medical;
 public sealed partial class HealingDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

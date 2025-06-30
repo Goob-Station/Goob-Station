@@ -11,4 +11,3 @@ namespace Content.Shared.Storage.Components;
 public sealed partial class StoreAfterFailedInteractComponent : Component
 {
 }
-

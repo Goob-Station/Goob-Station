@@ -15,4 +15,3 @@ namespace Content.Server.DeviceNetwork.Components;
 public sealed partial class DeviceNetworkRequiresPowerComponent : Component
 {
 }
-

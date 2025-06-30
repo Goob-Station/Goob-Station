@@ -621,4 +621,3 @@ namespace Content.Client.Wires.UI
         }
     }
 }
-

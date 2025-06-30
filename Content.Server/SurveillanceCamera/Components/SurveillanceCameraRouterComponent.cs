@@ -36,4 +36,3 @@ public sealed partial class SurveillanceCameraRouterComponent : Component
     [DataField("setupAvailableNetworks", customTypeSerializer:typeof(PrototypeIdListSerializer<DeviceFrequencyPrototype>))]
     public List<string> AvailableNetworks { get; private set; } = new();
 }
-

@@ -25,4 +25,3 @@ namespace Content.Shared.Electrocution
         public float Coefficient { get; set; } = 0f;
     }
 }
-

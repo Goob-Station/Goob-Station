@@ -31,4 +31,3 @@ public sealed partial class DeviceFrequencyPrototype : IPrototype
     public string? Name;
 
 }
-

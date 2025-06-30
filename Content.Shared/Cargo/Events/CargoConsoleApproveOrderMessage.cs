@@ -23,4 +23,3 @@ public sealed class CargoConsoleApproveOrderMessage : BoundUserInterfaceMessage
         OrderId = orderId;
     }
 }
-

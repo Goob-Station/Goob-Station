@@ -80,4 +80,3 @@ public sealed partial class SprayPainterPipeDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone() => this;
 }
-

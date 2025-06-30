@@ -16,4 +16,3 @@ public sealed partial class AlertCarvingComponent : Component
     [DataField]
     public EntityUid? User;
 }
-

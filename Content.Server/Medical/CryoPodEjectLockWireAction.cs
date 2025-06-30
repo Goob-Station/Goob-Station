@@ -43,4 +43,3 @@ public sealed partial class CryoPodEjectLockWireAction: ComponentWireAction<Cryo
     public override StatusLightState? GetLightState(Wire wire, CryoPodComponent comp)
         => comp.Locked ? StatusLightState.On : StatusLightState.Off;
 }
-

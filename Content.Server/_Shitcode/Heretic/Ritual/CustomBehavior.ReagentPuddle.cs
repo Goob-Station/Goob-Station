@@ -66,4 +66,3 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
         uids = new();
     }
 }
-

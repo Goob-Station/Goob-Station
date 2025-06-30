@@ -48,4 +48,3 @@ public sealed partial class HealiumProductionReaction : IGasReactionEffect
         return ReactionResult.Reacting;
     }
 }
-

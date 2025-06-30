@@ -22,4 +22,3 @@ public sealed partial class JudoArmbarPerformedEvent : EntityEventArgs;
 
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class JudoGoldenBlastPerformedEvent : EntityEventArgs;
-

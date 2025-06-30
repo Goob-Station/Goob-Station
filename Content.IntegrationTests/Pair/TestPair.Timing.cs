@@ -80,4 +80,3 @@ public sealed partial class TestPair
         Assert.That(delta, Is.EqualTo(targetDelta));
     }
 }
-

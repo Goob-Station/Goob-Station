@@ -35,4 +35,3 @@ public sealed class LegsStartParalyzedSystem : EntitySystem
             EnsureComp<LimbParalyzedComponent>(legEntity);
     }
 }
-

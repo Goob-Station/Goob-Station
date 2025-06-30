@@ -776,4 +776,3 @@ public abstract class SharedStrippableSystem : EntitySystem
         return !HasComp<BypassInteractionChecksComponent>(viewer);
     }
 }
-

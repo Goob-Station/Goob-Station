@@ -140,4 +140,3 @@ public sealed partial class SensorMonitoringConsoleSystem
         component.InitialUIStateSent.Remove(args.Actor);
     }
 }
-

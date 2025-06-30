@@ -264,4 +264,3 @@ public readonly struct ImplantRemovedFromEvent
         Implanted = implanted;
     }
 }
-

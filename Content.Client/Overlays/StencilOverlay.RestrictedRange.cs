@@ -61,4 +61,3 @@ public sealed partial class StencilOverlay
         _parallax.DrawParallax(worldHandle, worldAABB, sprite, curTime, position, new Vector2(0.5f, 0f));
     }
 }
-

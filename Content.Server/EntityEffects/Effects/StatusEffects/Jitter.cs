@@ -45,4 +45,3 @@ public sealed partial class Jitter : EntityEffect
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
         Loc.GetString("reagent-effect-guidebook-jittering", ("chance", Probability));
 }
-

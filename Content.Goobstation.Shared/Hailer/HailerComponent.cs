@@ -20,4 +20,3 @@ public sealed partial class HailerComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? HailActionEntity;
 }
-

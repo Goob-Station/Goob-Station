@@ -31,4 +31,3 @@ public sealed partial class BleatingAccentSystem : EntitySystem
         return BleatRegex.Replace(message, "$1$2$2$2$2");
     }
 }
-

@@ -88,4 +88,3 @@
     event: !type:DashEvent
     checkCanAccess: false
     range: 0
-

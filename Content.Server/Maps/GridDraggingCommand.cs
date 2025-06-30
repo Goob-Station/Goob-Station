@@ -36,4 +36,3 @@ public sealed class GridDraggingCommand : IConsoleCommand
             shell.WriteLine("Grid dragging toggled off");
     }
 }
-

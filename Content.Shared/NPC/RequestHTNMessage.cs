@@ -13,4 +13,3 @@ public sealed class RequestHTNMessage : EntityEventArgs
 {
     public bool Enabled;
 }
-

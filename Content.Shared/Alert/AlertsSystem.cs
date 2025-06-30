@@ -437,4 +437,3 @@ public abstract class AlertsSystem : EntitySystem
         Dirty(uid, component);
     }
 }
-

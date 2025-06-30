@@ -11,4 +11,3 @@ public sealed class GravityAnomalySystem : SharedGravityAnomalySystem
 {
     // this is not the system you are looking for
 }
-

@@ -205,4 +205,3 @@ public enum WinCondition : byte
     SomeNukiesAlive,
     AllNukiesAlive
 }
-

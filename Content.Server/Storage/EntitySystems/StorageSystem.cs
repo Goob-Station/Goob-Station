@@ -80,4 +80,3 @@ public sealed partial class StorageSystem : SharedStorageSystem
         RaiseNetworkEvent(new PickupAnimationEvent(GetNetEntity(uid), GetNetCoordinates(initialCoordinates), GetNetCoordinates(finalCoordinates), initialRotation), filter);
     }
 }
-

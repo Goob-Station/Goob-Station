@@ -338,4 +338,3 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         }
     }
 }
-

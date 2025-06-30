@@ -395,4 +395,3 @@ public abstract class SharedBiomeSystem : EntitySystem
         return noiseCopy;
     }
 }
-

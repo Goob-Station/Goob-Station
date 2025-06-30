@@ -38,4 +38,3 @@ public sealed class HTNPlan
         Effects = effects;
     }
 }
-

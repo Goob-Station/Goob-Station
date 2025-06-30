@@ -44,4 +44,3 @@ public sealed partial class GlassTableComponent : Component
     /// </summary>
     public float StunTime = 2.0f;
 }
-

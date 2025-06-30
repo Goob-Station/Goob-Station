@@ -56,4 +56,3 @@ namespace Content.Client.Research.UI
         }
     }
 }
-

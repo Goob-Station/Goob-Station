@@ -14,4 +14,3 @@ namespace Content.Shared.Storage.EntitySystems;
 public sealed partial class BluespaceLockerDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

@@ -30,4 +30,3 @@ namespace Content.Server.GameTicking
         public string JobId { get; }
     }
 }
-

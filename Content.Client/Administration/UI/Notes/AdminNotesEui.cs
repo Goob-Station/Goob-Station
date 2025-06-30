@@ -57,4 +57,3 @@ public sealed class AdminNotesEui : BaseEui
         NoteWindow.OpenCentered();
     }
 }
-

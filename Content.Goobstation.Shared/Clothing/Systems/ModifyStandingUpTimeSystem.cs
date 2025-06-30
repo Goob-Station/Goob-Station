@@ -46,4 +46,3 @@ public sealed class MultiplyStandingUpTimeSystem : EntitySystem
         args.Multiplier *= ent.Comp.Multiplier;
     }
 }
-

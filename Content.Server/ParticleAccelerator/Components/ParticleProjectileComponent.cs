@@ -31,4 +31,3 @@ public sealed partial class ParticleProjectileComponent : Component
 {
     public ParticleAcceleratorPowerState State;
 }
-

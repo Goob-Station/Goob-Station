@@ -12,4 +12,3 @@ namespace Content.Server._Shitmed.GameTicking.Rules.Components;
 
 [RegisterComponent]
 public sealed partial class AbductorVictimRuleComponent : Component;
-

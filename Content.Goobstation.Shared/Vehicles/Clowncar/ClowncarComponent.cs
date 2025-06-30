@@ -54,4 +54,3 @@ public sealed partial class ClowncarComponent : Component
 
 //public sealed partial class ThankRiderAction : InstantActionEvent { }
 public sealed partial class CannonAction : InstantActionEvent { }
-

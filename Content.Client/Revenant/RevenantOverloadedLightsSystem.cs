@@ -67,4 +67,3 @@ public sealed class RevenantOverloadedLightsSystem : SharedRevenantOverloadedLig
 
     }
 }
-

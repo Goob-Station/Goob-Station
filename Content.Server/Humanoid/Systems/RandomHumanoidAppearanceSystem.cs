@@ -45,4 +45,3 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
             _metaData.SetEntityName(uid, profile.Name);
     }
 }
-

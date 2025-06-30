@@ -16,4 +16,3 @@ public sealed partial class TransferMindOnGibComponent : Component
     [DataField("targetTag", customTypeSerializer: typeof(PrototypeIdSerializer<TagPrototype>))]
     public string TargetTag = "MindTransferTarget";
 }
-

@@ -34,4 +34,3 @@ public sealed class MsgRedial : NetMessage
 
     public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableOrdered;
 }
-

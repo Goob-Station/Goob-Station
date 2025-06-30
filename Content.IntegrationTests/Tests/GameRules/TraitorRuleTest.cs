@@ -141,4 +141,3 @@ public sealed class TraitorRuleTest
         return $"{meta.EntityName} ({objective.Difficulty})";
     }
 }
-

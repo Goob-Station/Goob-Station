@@ -24,4 +24,3 @@ public sealed class BlockWritingSystem : EntitySystem
         args.Cancelled = true;
     }
 }
-

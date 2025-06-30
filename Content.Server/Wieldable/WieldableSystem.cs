@@ -65,4 +65,3 @@ public sealed class WieldableSystem : SharedWieldableSystem
         args.Args.Scale += eyeCursorOffset.PvsIncrease;
     }
 }
-

@@ -114,4 +114,3 @@ namespace Content.Server.Medical.Components
         public SoundSpecifier? HealingEndSound = null;
     }
 }
-

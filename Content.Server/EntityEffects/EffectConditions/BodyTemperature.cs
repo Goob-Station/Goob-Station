@@ -38,4 +38,3 @@ public sealed partial class Temperature : EntityEffectCondition
             ("min", Min));
     }
 }
-

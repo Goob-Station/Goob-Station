@@ -58,4 +58,3 @@ public readonly record struct AfterMixingEvent(EntityUid Mixed, EntityUid Mixer)
 public sealed partial class ReactionMixDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

@@ -90,4 +90,3 @@ namespace Content.Shared.Flash.Components
         Flashing,
     }
 }
-

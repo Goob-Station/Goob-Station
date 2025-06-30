@@ -41,4 +41,3 @@ namespace Content.Server.Disposal.Tube
         public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
     }
 }
-

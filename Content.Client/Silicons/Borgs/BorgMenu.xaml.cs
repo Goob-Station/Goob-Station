@@ -196,4 +196,3 @@ public sealed partial class BorgMenu : FancyWindow
         NameChanged?.Invoke(_lastValidName);
     }
 }
-

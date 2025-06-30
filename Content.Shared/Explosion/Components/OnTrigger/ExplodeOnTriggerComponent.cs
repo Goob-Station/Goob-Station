@@ -18,4 +18,3 @@ namespace Content.Shared.Explosion.Components.OnTrigger;
 public sealed partial class ExplodeOnTriggerComponent : Component
 {
 }
-

@@ -30,4 +30,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> ShowOocPatronColor =
         CVarDef.Create("ooc.show_ooc_patron_color", true, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT);
 }
-

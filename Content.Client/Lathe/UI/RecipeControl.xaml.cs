@@ -68,4 +68,3 @@ public sealed partial class RecipeControl : Control
         return new RecipeTooltip(TooltipTextSupplier());
     }
 }
-

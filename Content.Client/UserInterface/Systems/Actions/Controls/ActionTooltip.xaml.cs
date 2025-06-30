@@ -25,4 +25,3 @@ public sealed partial class ActionTooltip : PanelContainer
         RobustXamlLoader.Load(this);
     }
 }
-

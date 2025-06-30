@@ -196,4 +196,3 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         _system?.GhostBarSpawn();
     }
 }
-

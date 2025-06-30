@@ -119,4 +119,3 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
         }
     }
 }
-

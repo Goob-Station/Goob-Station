@@ -58,4 +58,3 @@ public sealed class BorgBoundUserInterface : BoundUserInterface
         _menu?.UpdateState(msg);
     }
 }
-

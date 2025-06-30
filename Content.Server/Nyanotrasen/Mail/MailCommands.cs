@@ -152,4 +152,3 @@ public sealed class MailNowCommand : IConsoleCommand
         shell.WriteLine(Loc.GetString("command-mailnow-success"));
     }
 }
-

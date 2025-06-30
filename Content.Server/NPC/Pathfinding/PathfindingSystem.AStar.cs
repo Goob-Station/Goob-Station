@@ -153,4 +153,3 @@ public sealed partial class PathfindingSystem
         return PathResult.Path;
     }
 }
-

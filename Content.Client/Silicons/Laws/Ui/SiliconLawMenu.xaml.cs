@@ -33,4 +33,3 @@ public sealed partial class SiliconLawMenu : FancyWindow
         }
     }
 }
-

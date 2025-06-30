@@ -86,4 +86,3 @@ namespace Content.Shared.Storage.Components
         public List<string> SpriteLayers = new();
     }
 }
-

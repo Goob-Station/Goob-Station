@@ -66,4 +66,3 @@ public sealed class NinjaGlovesSystem : SharedNinjaGlovesSystem
         }
     }
 }
-

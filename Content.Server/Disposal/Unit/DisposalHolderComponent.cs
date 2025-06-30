@@ -85,4 +85,3 @@ namespace Content.Server.Disposal.Unit
         public GasMixture Air { get; set; } = new(70);
     }
 }
-

@@ -33,4 +33,3 @@ public sealed partial class LavalandMemberComponent : Component
     [DataField]
     public LocId SignalName;
 }
-

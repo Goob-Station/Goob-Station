@@ -16,4 +16,3 @@ public record struct RefreshEquipmentHudEvent<T>(SlotFlags TargetSlots) : IInven
     public bool Active = false;
     public List<T> Components = new();
 }
-

@@ -23,4 +23,3 @@ public sealed partial class ExaminableDamageComponent : Component
 
     public ExaminableDamagePrototype? MessagesProto;
 }
-

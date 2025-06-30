@@ -298,4 +298,3 @@ public struct AtmosMonitoringConsoleLine
         Color = color;
     }
 }
-

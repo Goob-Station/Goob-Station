@@ -54,4 +54,3 @@ public sealed partial class ActiveGasAnalyzerComponent : Component
     [DataField("updateInterval"), ViewVariables(VVAccess.ReadWrite)]
     public float UpdateInterval = 1f;
 }
-

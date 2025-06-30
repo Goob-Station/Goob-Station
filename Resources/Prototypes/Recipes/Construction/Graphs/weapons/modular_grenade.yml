@@ -120,4 +120,3 @@
         completed:
         - !type:EmptyContainer
           container: payload
-

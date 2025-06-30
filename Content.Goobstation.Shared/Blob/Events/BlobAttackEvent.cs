@@ -27,4 +27,3 @@ public sealed class BlobAttackEvent : EntityEventArgs
         AttackedEntity = attackedEntity;
     }
 }
-

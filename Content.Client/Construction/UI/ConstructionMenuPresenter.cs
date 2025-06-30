@@ -677,4 +677,3 @@ namespace Content.Client.Construction.UI
         }
     }
 }
-

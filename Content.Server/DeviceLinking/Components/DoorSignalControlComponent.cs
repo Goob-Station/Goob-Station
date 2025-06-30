@@ -44,4 +44,3 @@ namespace Content.Server.DeviceLinking.Components
         public string OutOpen = "DoorStatus";
     }
 }
-

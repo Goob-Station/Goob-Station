@@ -25,4 +25,3 @@ public sealed partial class SurgeryPartRemovedConditionComponent : Component
     [DataField]
     public BodyPartSymmetry? Symmetry;
 }
-

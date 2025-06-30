@@ -13,4 +13,3 @@ public enum ProduceVisuals : byte
 {
     Potency
 }
-

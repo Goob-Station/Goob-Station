@@ -99,4 +99,3 @@ public sealed partial class BlobChemDamage : BlobChemTypedStorage<DamageSpecifie
 {
 
 }
-

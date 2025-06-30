@@ -16,4 +16,3 @@ namespace Content.Shared.GameTicking
     {
     }
 }
-

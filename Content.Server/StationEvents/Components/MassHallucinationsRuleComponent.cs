@@ -37,4 +37,3 @@ public sealed partial class MassHallucinationsRuleComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public List<EntityUid> AffectedEntities = new();
 }
-

@@ -23,4 +23,3 @@ public sealed partial class OpenBehavior : IThresholdBehavior
         openable.TryOpen(uid);
     }
 }
-

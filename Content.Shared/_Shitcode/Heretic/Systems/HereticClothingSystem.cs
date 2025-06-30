@@ -36,4 +36,3 @@ public sealed class HereticClothingSystem : EntitySystem
                HasComp<WizardComponent>(target) || HasComp<ApprenticeComponent>(target);
     }
 }
-

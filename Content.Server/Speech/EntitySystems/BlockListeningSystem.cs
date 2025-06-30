@@ -21,4 +21,3 @@ public sealed class BlockListeningSystem : EntitySystem
         args.Cancel();
     }
 }
-

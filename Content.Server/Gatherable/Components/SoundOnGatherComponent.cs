@@ -23,4 +23,3 @@ public sealed partial class SoundOnGatherComponent : Component
             .WithVolume(-3f),
     };
 }
-

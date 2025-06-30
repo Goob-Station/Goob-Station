@@ -22,4 +22,3 @@ public sealed partial class HighlightedContainer : PanelContainer
         RobustXamlLoader.Load(this);
     }
 }
-

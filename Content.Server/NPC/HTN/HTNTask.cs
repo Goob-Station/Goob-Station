@@ -18,4 +18,3 @@ public abstract partial class HTNTask
     [DataField]
     public int MaximumTasks = 1000;
 }
-

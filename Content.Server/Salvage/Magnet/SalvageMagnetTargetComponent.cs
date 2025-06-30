@@ -17,4 +17,3 @@ public sealed partial class SalvageMagnetTargetComponent : Component
     [DataField]
     public EntityUid DataTarget;
 }
-

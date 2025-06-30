@@ -40,4 +40,3 @@ public sealed partial class OuterSlotPenaltySystem : EntitySystem
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 }
-

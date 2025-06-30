@@ -183,4 +183,3 @@
         amount: 4
       - !type:EmptyAllContainers
       - !type:DeleteEntity
-

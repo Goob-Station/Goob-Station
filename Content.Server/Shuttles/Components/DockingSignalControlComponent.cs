@@ -17,4 +17,3 @@ public sealed partial class DockingSignalControlComponent : Component
     [DataField]
     public ProtoId<SourcePortPrototype> DockStatusSignalPort = "DockStatus";
 }
-

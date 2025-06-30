@@ -42,4 +42,3 @@ public sealed class GridDragVelocityRequest : EntityEventArgs
     public NetEntity Grid;
     public Vector2 LinearVelocity;
 }
-

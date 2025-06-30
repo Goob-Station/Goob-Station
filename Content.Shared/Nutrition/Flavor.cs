@@ -28,4 +28,3 @@ public enum FlavorType : byte
     Base,
     Complex
 }
-

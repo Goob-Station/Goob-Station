@@ -26,4 +26,3 @@ public sealed partial class FlavorProfileComponent : Component
         "Protein"
     };
 }
-

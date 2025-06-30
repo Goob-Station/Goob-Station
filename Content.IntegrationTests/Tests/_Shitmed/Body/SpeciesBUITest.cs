@@ -66,4 +66,3 @@ public sealed class SpeciesBUiTest
         await pair.CleanReturnAsync();
     }
 }
-

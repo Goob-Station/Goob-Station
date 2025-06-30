@@ -29,4 +29,3 @@ public sealed partial class RepeatingTriggerComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextTrigger;
 }
-

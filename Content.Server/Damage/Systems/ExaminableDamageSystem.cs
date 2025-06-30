@@ -77,4 +77,3 @@ public sealed class ExaminableDamageSystem : EntitySystem
         return level;
     }
 }
-

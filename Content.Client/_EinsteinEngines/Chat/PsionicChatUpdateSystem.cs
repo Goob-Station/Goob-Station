@@ -36,4 +36,3 @@ namespace Content.Client.Chat
         }
     }
 }
-

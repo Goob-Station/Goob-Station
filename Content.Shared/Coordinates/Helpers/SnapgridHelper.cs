@@ -63,4 +63,3 @@ namespace Content.Shared.Coordinates.Helpers
         }
     }
 }
-

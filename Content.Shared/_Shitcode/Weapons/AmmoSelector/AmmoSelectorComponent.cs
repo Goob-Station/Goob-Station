@@ -23,4 +23,3 @@ public sealed partial class AmmoSelectorComponent : Component
     [DataField]
     public SoundSpecifier? SoundSelect = new SoundPathSpecifier("/Audio/Weapons/Guns/Misc/selector.ogg");
 }
-

@@ -113,4 +113,3 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
             comp.Location = RobustRandom.Pick(_locations);
     }
 }
-

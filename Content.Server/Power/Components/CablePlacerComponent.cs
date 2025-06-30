@@ -44,4 +44,3 @@ namespace Content.Server.Power.Components
         public CableType BlockingCableType = CableType.HighVoltage;
     }
 }
-

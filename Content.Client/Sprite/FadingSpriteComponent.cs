@@ -17,4 +17,3 @@ public sealed partial class FadingSpriteComponent : Component
     [ViewVariables]
     public float OriginalAlpha;
 }
-

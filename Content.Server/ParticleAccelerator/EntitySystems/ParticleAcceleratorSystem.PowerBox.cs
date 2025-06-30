@@ -37,4 +37,3 @@ public sealed partial class ParticleAcceleratorSystem
         UpdateUI(master, controller);
     }
 }
-

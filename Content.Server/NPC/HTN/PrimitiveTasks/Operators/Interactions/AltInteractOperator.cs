@@ -63,4 +63,3 @@ public sealed partial class AltInteractOperator : HTNOperator
         return result ? HTNOperatorStatus.Finished : HTNOperatorStatus.Failed;
     }
 }
-

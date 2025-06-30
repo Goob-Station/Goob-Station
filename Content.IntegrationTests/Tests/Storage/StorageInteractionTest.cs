@@ -90,4 +90,3 @@ public sealed class StorageInteractionTest : InteractionTest
         return GetControlFromChildren<ItemGridPiece>(c => c.Entity == uid, storageContainer);
     }
 }
-

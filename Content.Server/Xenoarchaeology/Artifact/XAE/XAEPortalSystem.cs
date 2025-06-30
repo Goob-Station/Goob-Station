@@ -64,4 +64,3 @@ public sealed class XAEPortalSystem : BaseXAESystem<XAEPortalComponent>
         _link.TryLink(firstPortal.Value, secondPortal.Value, true);
     }
 }
-

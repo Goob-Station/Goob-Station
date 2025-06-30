@@ -461,4 +461,3 @@ public record struct EstimatedPriceCalculationEvent()
     /// </summary>
     public bool Handled = false;
 }
-

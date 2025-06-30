@@ -638,4 +638,3 @@ namespace Content.Server.Voting.Managers
         }
     }
 }
-

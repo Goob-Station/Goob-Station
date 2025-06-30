@@ -13,4 +13,3 @@ namespace Content.Shared._Goobstation.Wizard.BindSoul;
 public sealed partial class PhylacteryComponent : Component
 {
 }
-

@@ -25,4 +25,3 @@ public sealed class ClickAlertEvent : EntityEventArgs
         Type = alertType;
     }
 }
-

@@ -48,4 +48,3 @@ public sealed partial class LimitedItemGiverComponent : Component
     [DataField("requiredHoliday", customTypeSerializer: typeof(PrototypeIdSerializer<HolidayPrototype>)), ViewVariables(VVAccess.ReadWrite)]
     public string? RequiredHoliday = null;
 }
-

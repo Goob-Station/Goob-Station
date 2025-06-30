@@ -35,4 +35,3 @@ public sealed partial class BonusMeleeAttackRateComponent : Component
     [DataField("heavyWindupMultiplier"), ViewVariables(VVAccess.ReadWrite)]
     public float HeavyWindupMultiplier = 1;
 }
-

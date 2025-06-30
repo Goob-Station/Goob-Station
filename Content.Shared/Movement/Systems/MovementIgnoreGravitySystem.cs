@@ -38,4 +38,3 @@ public sealed class MovementIgnoreGravitySystem : EntitySystem
         args.State = new MovementIgnoreGravityComponentState(component);
     }
 }
-

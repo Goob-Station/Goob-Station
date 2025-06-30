@@ -49,4 +49,3 @@ public sealed class PolymorphCommand : ToolshedCommand
         )
         => input.Select(x => Polymorph(x, protoId)).Where(x => x is not null).Select(x => (EntityUid)x!);
 }
-

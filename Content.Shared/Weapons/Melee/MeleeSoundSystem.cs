@@ -150,4 +150,3 @@ public sealed class MeleeSoundSystem : EntitySystem
     }
 
 }
-

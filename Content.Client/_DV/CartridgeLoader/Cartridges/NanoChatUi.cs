@@ -51,4 +51,3 @@ public sealed partial class NanoChatUi : UIFragment
         userInterface.SendMessage(message);
     }
 }
-

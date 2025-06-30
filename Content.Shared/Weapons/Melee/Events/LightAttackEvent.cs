@@ -24,4 +24,3 @@ public sealed class LightAttackEvent : AttackEvent
         Weapon = weapon;
     }
 }
-

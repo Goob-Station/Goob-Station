@@ -79,4 +79,3 @@ public sealed class RiggableSystem : EntitySystem
         QueueDel(uid);
     }
 }
-

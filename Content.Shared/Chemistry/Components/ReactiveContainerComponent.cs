@@ -27,4 +27,3 @@ public sealed partial class ReactiveContainerComponent : Component
     [DataField(required: true)]
     public string Solution = default!;
 }
-

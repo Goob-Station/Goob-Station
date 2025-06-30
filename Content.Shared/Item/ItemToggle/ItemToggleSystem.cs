@@ -395,4 +395,3 @@ public sealed class ItemToggleSystem : EntitySystem
         }
     }
 }
-

@@ -12,4 +12,3 @@ public sealed partial class HTNComponent : NPCComponent
 {
     public string DebugText = string.Empty;
 }
-

@@ -27,4 +27,3 @@ public enum HereticRitualRuneUiKey : byte
 {
     Key
 }
-

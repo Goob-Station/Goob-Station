@@ -24,4 +24,3 @@ public sealed partial class StrippingWindow : UserInterface.Controls.FancyWindow
         LayoutContainer.SetAnchorAndMarginPreset(this, LayoutContainer.LayoutPreset.Center);
     }
 }
-

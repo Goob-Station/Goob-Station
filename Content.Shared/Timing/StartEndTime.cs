@@ -71,4 +71,3 @@ public record struct StartEndTime(TimeSpan Start, TimeSpan End)
         return FromStartDuration(gameTiming.CurTime, durationSeconds);
     }
 }
-

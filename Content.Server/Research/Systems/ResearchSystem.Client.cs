@@ -151,4 +151,3 @@ public sealed partial class ResearchSystem
         return true;
     }
 }
-

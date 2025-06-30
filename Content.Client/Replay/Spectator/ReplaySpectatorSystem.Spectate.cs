@@ -131,4 +131,3 @@ public sealed partial class ReplaySpectatorSystem
             EntityManager), Loc.GetString("cmd-replay-spectate-hint"));
     }
 }
-

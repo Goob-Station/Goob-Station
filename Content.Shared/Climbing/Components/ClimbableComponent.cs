@@ -49,4 +49,3 @@ namespace Content.Shared.Climbing.Components
         public SoundSpecifier? FinishClimbSound = null;
     }
 }
-

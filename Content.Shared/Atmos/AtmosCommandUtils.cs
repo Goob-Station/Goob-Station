@@ -31,4 +31,3 @@ namespace Content.Shared.Atmos
         }
     }
 }
-

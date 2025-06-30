@@ -15,4 +15,3 @@ public sealed partial class MadnessMaskComponent : Component
     public float UpdateAccumulator = 0f;
     [DataField] public float UpdateTimer = 1f;
 }
-

@@ -26,4 +26,3 @@ public sealed class CreditsCommand : LocalizedCommands
         new CreditsWindow().Open();
     }
 }
-

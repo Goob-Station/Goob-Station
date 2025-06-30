@@ -13,4 +13,3 @@ namespace Content.Shared.Spider;
 public sealed partial class SpiderWebObjectComponent : Component
 {
 }
-

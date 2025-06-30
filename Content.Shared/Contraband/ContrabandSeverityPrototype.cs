@@ -34,4 +34,3 @@ public sealed partial class ContrabandSeverityPrototype : IPrototype
     [DataField]
     public bool ShowDepartmentsAndJobs;
 }
-

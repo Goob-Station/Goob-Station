@@ -51,4 +51,3 @@ public sealed class RoomFillSystem : EntitySystem
         QueueDel(uid);
     }
 }
-

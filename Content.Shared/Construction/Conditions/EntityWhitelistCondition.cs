@@ -50,4 +50,3 @@ public sealed partial class EntityWhitelistCondition : IConstructionCondition
         };
     }
 }
-

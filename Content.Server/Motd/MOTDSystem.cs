@@ -104,4 +104,3 @@ public sealed class MOTDSystem : EntitySystem
 
     #endregion Event Handlers
 }
-

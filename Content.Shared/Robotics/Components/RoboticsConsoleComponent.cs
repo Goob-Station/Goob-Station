@@ -59,4 +59,3 @@ public sealed partial class RoboticsConsoleComponent : Component
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan NextDestroy = TimeSpan.Zero;
 }
-

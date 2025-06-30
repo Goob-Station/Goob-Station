@@ -32,4 +32,3 @@ public sealed partial class MechEquipmentControl : Control
         RemoveButton.OnPressed += _ => OnRemoveButtonPressed?.Invoke();
     }
 }
-

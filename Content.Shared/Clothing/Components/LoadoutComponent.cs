@@ -100,4 +100,3 @@ public sealed partial class LoadoutComponent : Component
     [AutoNetworkedField]
     public List<ProtoId<RoleLoadoutPrototype>>? RoleLoadout;
 }
-

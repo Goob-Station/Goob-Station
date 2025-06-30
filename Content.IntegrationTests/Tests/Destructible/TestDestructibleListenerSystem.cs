@@ -42,4 +42,3 @@ namespace Content.IntegrationTests.Tests.Destructible
         }
     }
 }
-

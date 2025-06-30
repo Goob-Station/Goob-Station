@@ -72,4 +72,3 @@ public sealed class FirelockSystem : SharedFirelockSystem
         _sprite.LayerSetVisible((uid, args.Sprite), DoorVisualLayers.BaseBolted, boltedVisible);
     }
 }
-

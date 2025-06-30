@@ -43,4 +43,3 @@ public sealed partial class SolutionContainerManagerComponent : Component
     [DataField, AutoNetworkedField]
     public Dictionary<string, Solution>? Solutions = null;
 }
-

@@ -11,4 +11,3 @@ public sealed partial class FootstepTrackComponent : Component
 {
 
 }
-

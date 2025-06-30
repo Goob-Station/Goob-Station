@@ -34,4 +34,3 @@ public sealed partial class FloatingVisualsComponent : Component
 
     public readonly string AnimationKey = "gravity";
 }
-

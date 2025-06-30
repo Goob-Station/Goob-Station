@@ -43,4 +43,3 @@ public sealed partial class ItemToggleSizeComponent : Component
     [DataField, AutoNetworkedField]
     public List<Box2i>? DeactivatedShape = null;
 }
-

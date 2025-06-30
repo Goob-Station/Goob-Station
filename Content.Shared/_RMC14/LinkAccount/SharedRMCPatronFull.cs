@@ -38,4 +38,3 @@ public sealed record SharedRMCPatronFull(
     SharedRMCLobbyMessage? LobbyMessage,
     SharedRMCRoundEndShoutouts? RoundEndShoutout
 );
-

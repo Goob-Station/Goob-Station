@@ -47,4 +47,3 @@ public sealed partial class TraitPreferenceSelector : Control
         PreferenceChanged?.Invoke(Preference);
     }
 }
-

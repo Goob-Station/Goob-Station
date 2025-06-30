@@ -206,4 +206,3 @@ public sealed class UniqueVector2iSet
         }
     }
 }
-

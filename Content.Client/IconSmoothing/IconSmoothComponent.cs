@@ -108,4 +108,3 @@ namespace Content.Client.IconSmoothing
         NoSprite,
     }
 }
-

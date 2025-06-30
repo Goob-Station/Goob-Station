@@ -36,4 +36,3 @@ public sealed class GetEyePvsScaleRelayedEvent : EntityEventArgs, IInventoryRela
 
     public float Scale;
 }
-

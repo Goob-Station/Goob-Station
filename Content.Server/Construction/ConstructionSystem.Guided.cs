@@ -277,4 +277,3 @@ namespace Content.Server.Construction
         }
     }
 }
-

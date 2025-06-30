@@ -38,4 +38,3 @@ public sealed partial class MegafaunaStartupEvent : EntityEventArgs;
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
 public sealed partial class MegafaunaDeinitEvent : EntityEventArgs;
-

@@ -92,4 +92,3 @@ public sealed class TagCommand : ToolshedCommand
     public IEnumerable<EntityUid> RmMany([PipedArgument] IEnumerable<EntityUid> input, IEnumerable<ProtoId<TagPrototype>> tags)
         => input.Select(x => RmMany(x, tags.ToArray()));
 }
-

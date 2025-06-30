@@ -104,4 +104,3 @@ public sealed class PresetIdCardSystem : EntitySystem
             _cardSystem.TryChangeJobIcon(uid, jobIcon);
     }
 }
-

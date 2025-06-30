@@ -536,4 +536,3 @@ public sealed class AccessReaderSystem : EntitySystem
         ent.Comp.AccessLog.Enqueue(new AccessRecord(stationTime, name));
     }
 }
-

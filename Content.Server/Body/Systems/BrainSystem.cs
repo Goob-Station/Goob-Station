@@ -131,4 +131,3 @@ namespace Content.Server.Body.Systems
         }
     }
 }
-

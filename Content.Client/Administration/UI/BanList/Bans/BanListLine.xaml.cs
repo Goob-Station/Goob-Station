@@ -41,4 +41,3 @@ public sealed partial class BanListLine : BoxContainer, IBanListLine<SharedServe
         IdsClicked = null;
     }
 }
-

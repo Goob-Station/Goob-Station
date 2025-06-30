@@ -89,4 +89,3 @@ public sealed class AlertLevelDisplaySystem : EntitySystem
         _appearance.SetData(uid, AlertLevelDisplay.Powered, args.Powered, appearance);
     }
 }
-

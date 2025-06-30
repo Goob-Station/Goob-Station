@@ -27,4 +27,3 @@ public sealed partial class NPCRetaliationComponent : Component
     [DataField("attackMemories")]
     public Dictionary<EntityUid, TimeSpan> AttackMemories = new();
 }
-

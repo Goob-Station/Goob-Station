@@ -26,4 +26,3 @@ internal sealed class GoliathTentacleSystem : EntitySystem
         _actionsSystem.RemoveAction(uid, component.ActionEntity);
     }
 }
-

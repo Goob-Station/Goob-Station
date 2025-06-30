@@ -161,4 +161,3 @@ public abstract partial class EntityTableSelector
         IEntityManager entMan,
         IPrototypeManager proto);
 }
-

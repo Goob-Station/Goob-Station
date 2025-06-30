@@ -89,4 +89,3 @@ public sealed partial class PayloadTriggerComponent : Component
     [DataField("grantedComponents", serverOnly: true)]
     public HashSet<Type> GrantedComponents = new();
 }
-

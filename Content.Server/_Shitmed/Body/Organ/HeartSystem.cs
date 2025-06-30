@@ -41,4 +41,3 @@ public sealed class HeartSystem : EntitySystem
     }
     // Shitmed-End
 }
-

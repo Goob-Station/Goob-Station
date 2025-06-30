@@ -66,4 +66,3 @@
               doAfter: 1
     - node: mimeHardsuit
       entity: ClothingOuterHardsuitMime
-

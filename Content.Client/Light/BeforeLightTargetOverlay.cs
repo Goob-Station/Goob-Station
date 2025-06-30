@@ -55,4 +55,3 @@ public sealed class BeforeLightTargetOverlay : Overlay
             }, _clyde.GetClearColor(args.MapUid));
     }
 }
-

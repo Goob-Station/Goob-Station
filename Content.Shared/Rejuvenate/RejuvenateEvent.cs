@@ -14,4 +14,3 @@ public sealed class RejuvenateEvent(bool uncuff = true, bool resetActions = true
     public bool ResetActions = resetActions;
     // Goobstation end
 }
-

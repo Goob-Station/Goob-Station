@@ -18,4 +18,3 @@ public sealed partial class AtmosAlertsDeviceComponent : Component
     [DataField, ViewVariables]
     public AtmosAlertsComputerGroup Group;
 }
-

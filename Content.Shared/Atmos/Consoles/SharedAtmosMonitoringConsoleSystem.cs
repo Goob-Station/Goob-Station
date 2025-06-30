@@ -118,4 +118,3 @@ public abstract class SharedAtmosMonitoringConsoleSystem : EntitySystem
 
     #endregion
 }
-

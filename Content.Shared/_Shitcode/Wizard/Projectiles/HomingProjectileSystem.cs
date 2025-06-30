@@ -72,4 +72,3 @@ public sealed class HomingProjectileSystem : EntitySystem
         }
     }
 }
-

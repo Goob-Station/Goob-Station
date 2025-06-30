@@ -13,4 +13,3 @@ namespace Content.Client.Robotics.Systems;
 public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
 {
 }
-

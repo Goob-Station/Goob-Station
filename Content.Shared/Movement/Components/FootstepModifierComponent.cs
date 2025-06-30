@@ -23,4 +23,3 @@ public sealed partial class FootstepModifierComponent : Component
     [DataField, AutoNetworkedField]
     public SoundSpecifier? FootstepSoundCollection;
 }
-

@@ -21,4 +21,3 @@ public sealed partial class RadiationProtectionComponent : Component
     [DataField("modifier")]
     public ProtoId<DamageModifierSetPrototype> RadiationProtectionModifierSetId = "PotassiumIodide";
 }
-

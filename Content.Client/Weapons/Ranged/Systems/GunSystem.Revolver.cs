@@ -47,4 +47,3 @@ public sealed partial class GunSystem
         args.Control = new RevolverStatusControl();
     }
 }
-

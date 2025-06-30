@@ -60,4 +60,3 @@ namespace Content.Shared.Bible.Components
         public float RespawnTime = 180f;
     }
 }
-

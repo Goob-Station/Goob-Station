@@ -215,4 +215,3 @@ public sealed partial class TimeTransferPanel : DefaultWindow
         SetTimeButton.Text = Loc.GetString("time-transfer-panel-set-time");
     }
 }
-

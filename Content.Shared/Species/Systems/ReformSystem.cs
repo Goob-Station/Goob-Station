@@ -119,4 +119,3 @@ public sealed partial class ReformSystem : EntitySystem
     [Serializable, NetSerializable]
     public sealed partial class ReformDoAfterEvent : SimpleDoAfterEvent { }
 }
-

@@ -102,4 +102,3 @@ public sealed partial class AddComponentSpecial : JobSpecial
         entMan.AddComponents(mob, Components, removeExisting: RemoveExisting);
     }
 }
-

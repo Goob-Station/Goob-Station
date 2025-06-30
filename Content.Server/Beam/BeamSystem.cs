@@ -227,4 +227,3 @@ public sealed class BeamSystem : SharedBeamSystem
         return true; // Goobstation
     }
 }
-

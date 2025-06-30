@@ -100,4 +100,3 @@ public partial class MagazineAmmoProviderComponent : AmmoProviderComponent
     [ViewVariables(VVAccess.ReadWrite), DataField("autoEject")]
     public bool AutoEject = false;
 }
-

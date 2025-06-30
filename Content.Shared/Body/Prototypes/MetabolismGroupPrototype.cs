@@ -26,4 +26,3 @@ namespace Content.Shared.Body.Prototypes
         public string LocalizedName => Loc.GetString(Name);
     }
 }
-

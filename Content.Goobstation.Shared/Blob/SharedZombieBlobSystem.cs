@@ -48,4 +48,3 @@ public abstract class SharedZombieBlobSystem : EntitySystem
         args.Cancel();
     }
 }
-

@@ -144,4 +144,3 @@ public sealed class EyeClosingSystem : EntitySystem
 public sealed partial class ToggleEyesActionEvent : InstantActionEvent
 {
 }
-

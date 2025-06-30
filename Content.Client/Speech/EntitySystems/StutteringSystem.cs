@@ -13,4 +13,3 @@ namespace Content.Client.Speech.EntitySystems
 
     }
 }
-

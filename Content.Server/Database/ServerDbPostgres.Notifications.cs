@@ -136,4 +136,3 @@ public sealed partial class ServerDbPostgres
         _notificationConnection.Notification -= OnNotification;
     }
 }
-

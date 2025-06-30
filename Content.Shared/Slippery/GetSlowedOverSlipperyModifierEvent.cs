@@ -13,4 +13,3 @@ public record struct GetSlowedOverSlipperyModifierEvent() : IInventoryRelayEvent
 
     public float SlowdownModifier = 1f;
 }
-

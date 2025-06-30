@@ -95,4 +95,3 @@ public sealed class BlobSpawnRule : StationEventSystem<BlobSpawnRuleComponent>
 
     }
 }
-

@@ -20,4 +20,3 @@ public enum FaxMachineVisualState : byte
     Inserting,
     Printing
 }
-

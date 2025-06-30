@@ -139,4 +139,3 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
         _bodySystem.GibBody(ent);
     }
 }
-

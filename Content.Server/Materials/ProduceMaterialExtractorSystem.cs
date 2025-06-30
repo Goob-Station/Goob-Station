@@ -51,4 +51,3 @@ public sealed class ProduceMaterialExtractorSystem : EntitySystem
         args.Handled = true;
     }
 }
-

@@ -184,4 +184,3 @@
     - type: Sprite
       sprite: Structures/Machines/parts.rsi
       state: destroyed
-

@@ -163,4 +163,3 @@ public sealed class TestRuleSystem : EntitySystem
 
 [RegisterComponent]
 public sealed partial class TestRuleComponent : Component;
-

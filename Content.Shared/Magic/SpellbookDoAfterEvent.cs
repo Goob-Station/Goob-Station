@@ -14,4 +14,3 @@ namespace Content.Shared.Magic;
 public sealed partial class SpellbookDoAfterEvent : SimpleDoAfterEvent
 {
 }
-

@@ -19,4 +19,3 @@ public sealed partial class NetworkConfiguratorActiveLinkOverlayComponent : Comp
     /// </summary>
     public HashSet<EntityUid> Devices = new();
 }
-

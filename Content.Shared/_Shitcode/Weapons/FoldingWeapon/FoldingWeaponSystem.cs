@@ -62,4 +62,3 @@ public sealed class FoldingWeaponSystem : EntitySystem
         return !TryComp(ent, out ItemToggleComponent? toggle) || toggle.Activated;
     }
 }
-

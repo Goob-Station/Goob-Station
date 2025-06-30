@@ -38,4 +38,3 @@ namespace Content.Shared.Body.Part
         Tail
     }
 }
-

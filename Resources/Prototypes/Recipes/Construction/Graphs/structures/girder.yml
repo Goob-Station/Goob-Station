@@ -482,4 +482,3 @@
           steps:
             - tool: Welding
               doAfter: 5
-

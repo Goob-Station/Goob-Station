@@ -32,4 +32,3 @@ public sealed class UseInHandEvent : HandledEntityEventArgs
         User = user;
     }
 }
-

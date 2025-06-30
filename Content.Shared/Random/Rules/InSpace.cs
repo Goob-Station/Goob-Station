@@ -21,4 +21,3 @@ public sealed partial class InSpaceRule : RulesRule
         return !Inverted;
     }
 }
-

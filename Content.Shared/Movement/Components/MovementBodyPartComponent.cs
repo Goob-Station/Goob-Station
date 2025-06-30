@@ -21,4 +21,3 @@ public sealed partial class MovementBodyPartComponent : Component
     [DataField("acceleration")]
     public float Acceleration = MovementSpeedModifierComponent.DefaultAcceleration;
 }
-

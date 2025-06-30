@@ -63,4 +63,3 @@ public sealed partial class MechGrabberComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public DoAfterId? DoAfter;
 }
-

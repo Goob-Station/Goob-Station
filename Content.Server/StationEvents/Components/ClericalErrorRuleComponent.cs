@@ -26,4 +26,3 @@ public sealed partial class ClericalErrorRuleComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float MaxToRemove = 0.1f;
 }
-

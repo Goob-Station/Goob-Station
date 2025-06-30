@@ -41,4 +41,3 @@ public record struct AsteroidOffering : ISalvageMagnetOffering
 
     uint ISalvageMagnetOffering.Cost => 0; // DeltaV
 }
-

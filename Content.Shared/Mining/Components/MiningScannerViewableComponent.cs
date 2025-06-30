@@ -16,4 +16,3 @@ public enum MiningScannerVisualLayers : byte
 {
     Overlay
 }
-

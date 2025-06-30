@@ -92,4 +92,3 @@ public readonly partial record struct CargoBountyItemEntry()
     [DataField]
     public LocId Name { get; init; } = string.Empty;
 }
-

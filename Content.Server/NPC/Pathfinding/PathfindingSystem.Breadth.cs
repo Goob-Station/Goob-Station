@@ -127,4 +127,3 @@ public sealed partial class PathfindingSystem
         return SimplePathResult.NoPath;
     }
 }
-

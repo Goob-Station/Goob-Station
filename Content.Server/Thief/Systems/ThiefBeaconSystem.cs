@@ -171,4 +171,3 @@ public sealed class ThiefBeaconSystem : EntitySystem
         area.Owners.Clear();
     }
 }
-

@@ -44,4 +44,3 @@ public sealed partial class BoltWireAction : ComponentWireAction<DefusableCompon
         EntityManager.System<DefusableSystem>().BoltWirePulse(user, wire, comp);
     }
 }
-

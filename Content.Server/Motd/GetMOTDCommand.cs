@@ -24,4 +24,3 @@ public sealed class GetMotdCommand : LocalizedCommands
         _entityManager.EntitySysManager.GetEntitySystem<MOTDSystem>().TrySendMOTD(shell);
     }
 }
-

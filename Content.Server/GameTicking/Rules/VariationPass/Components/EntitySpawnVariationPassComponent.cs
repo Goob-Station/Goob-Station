@@ -29,4 +29,3 @@ public sealed partial class EntitySpawnVariationPassComponent : Component
     [DataField(required: true)]
     public List<EntitySpawnEntry> Entities = default!;
 }
-

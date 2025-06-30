@@ -190,4 +190,3 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     [DataField]
     public LocId? NameSuffix;
 }
-

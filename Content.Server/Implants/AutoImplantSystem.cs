@@ -25,4 +25,3 @@ public sealed class AutoImplantSystem : EntitySystem
         RemComp<AutoImplantComponent>(uid);
     }
 }
-

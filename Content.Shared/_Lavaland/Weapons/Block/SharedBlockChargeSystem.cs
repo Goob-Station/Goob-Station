@@ -100,4 +100,3 @@ public abstract partial class SharedBlockChargeSystem : EntitySystem
         RemCompDeferred<BlockChargeUserComponent>(args.User);
     }
 }
-

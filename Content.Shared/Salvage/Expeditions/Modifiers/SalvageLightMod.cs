@@ -31,4 +31,3 @@ public sealed partial class SalvageLightMod : IPrototype, IBiomeSpecificMod
 
     [DataField("color", required: true)] public Color? Color;
 }
-

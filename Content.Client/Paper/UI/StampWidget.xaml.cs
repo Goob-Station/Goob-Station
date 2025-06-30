@@ -65,4 +65,3 @@ public sealed partial class StampWidget : PanelContainer
         handle.UseShader(null);
     }
 }
-

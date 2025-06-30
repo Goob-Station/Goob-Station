@@ -1081,4 +1081,3 @@ public sealed class QueuedExplosion
     public bool CanCreateVacuum;
     public EntityUid? Cause; // The entity that exploded, for logging purposes.
 }
-

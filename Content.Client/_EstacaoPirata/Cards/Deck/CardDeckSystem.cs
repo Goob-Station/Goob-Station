@@ -161,4 +161,3 @@ public sealed class CardDeckSystem : EntitySystem
     }
 
 }
-

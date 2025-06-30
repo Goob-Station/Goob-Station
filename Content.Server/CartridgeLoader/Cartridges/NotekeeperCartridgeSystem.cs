@@ -70,4 +70,3 @@ public sealed class NotekeeperCartridgeSystem : EntitySystem
         _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
     }
 }
-

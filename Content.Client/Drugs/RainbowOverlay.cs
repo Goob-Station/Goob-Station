@@ -113,4 +113,3 @@ public sealed class RainbowOverlay : Overlay
         handle.UseShader(null);
     }
 }
-

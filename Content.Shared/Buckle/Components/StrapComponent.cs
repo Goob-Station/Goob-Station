@@ -239,4 +239,3 @@ public enum StrapVisuals : byte
     RotationAngle,
     State
 }
-

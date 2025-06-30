@@ -15,4 +15,3 @@
   parent: BaseGameRule
   components:
   - type: ChristmasEventScheduler
-

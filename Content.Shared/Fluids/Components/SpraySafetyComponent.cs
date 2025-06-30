@@ -28,4 +28,3 @@ public sealed partial class SpraySafetyComponent : Component
     [DataField]
     public SoundSpecifier RefillSound = new SoundPathSpecifier("/Audio/Effects/refill.ogg");
 }
-

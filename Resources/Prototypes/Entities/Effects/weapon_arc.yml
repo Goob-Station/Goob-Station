@@ -143,4 +143,3 @@
       state: smash
     - type: TimedDespawn
       lifetime: 0.299
-

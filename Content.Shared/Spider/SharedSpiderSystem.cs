@@ -39,4 +39,3 @@ public abstract class SharedSpiderSystem : EntitySystem
         _appearance.SetData(uid, SpiderWebVisuals.Variant, _robustRandom.Next(1, 3));
     }
 }
-

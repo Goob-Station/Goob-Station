@@ -93,4 +93,3 @@ public sealed partial class SingularityComponent : Component
 
     #endregion Audio
 }
-

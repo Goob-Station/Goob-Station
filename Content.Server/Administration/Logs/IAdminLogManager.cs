@@ -33,4 +33,3 @@ public interface IAdminLogManager : ISharedAdminLogManager
     Task<Round> CurrentRound();
     Task<int> CountLogs(int round);
 }
-

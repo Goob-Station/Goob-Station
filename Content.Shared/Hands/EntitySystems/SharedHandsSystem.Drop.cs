@@ -256,4 +256,3 @@ public abstract partial class SharedHandsSystem
             RaiseLocalEvent(entity, new HandDeselectedEvent(uid));
     }
 }
-

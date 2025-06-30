@@ -36,4 +36,3 @@ public readonly struct MoveInputEvent
         State = state;
     }
 }
-

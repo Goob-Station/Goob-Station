@@ -39,4 +39,3 @@ namespace Content.Goobstation.Shared.Emoting;
         Emote = emote;
     }
 }
-

@@ -38,4 +38,3 @@ public sealed partial class ItemPlacerComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public uint MaxEntities = 1;
 }
-

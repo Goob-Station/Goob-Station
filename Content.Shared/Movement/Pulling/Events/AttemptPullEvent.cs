@@ -16,4 +16,3 @@ public sealed class PullAttemptEvent : PullMessage
 
     public bool Cancelled { get; set; }
 }
-

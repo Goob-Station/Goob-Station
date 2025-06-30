@@ -21,4 +21,3 @@ public sealed partial class GoliathTentacleComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;
 }
-

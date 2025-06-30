@@ -32,4 +32,3 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
                 sprite.LayerSetSprite(0, state.Sprite);
     }
 }
-

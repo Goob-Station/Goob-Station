@@ -21,4 +21,3 @@ public sealed partial class ActionsContainerComponent : Component
     [ViewVariables]
     public Container Container = default!;
 }
-

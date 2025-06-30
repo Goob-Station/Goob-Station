@@ -27,4 +27,3 @@ public sealed partial class AirlockDepartmentsPrototype : IPrototype
     [DataField(required: true)]
     public Dictionary<string, ProtoId<DepartmentPrototype>> Departments = new();
 }
-

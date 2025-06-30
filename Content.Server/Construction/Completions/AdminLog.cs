@@ -38,4 +38,3 @@ public sealed partial class AdminLog : IGraphAction
             logManager.Add(LogType, Impact, $"{Message} - Entity: {entityManager.ToPrettyString(uid):entity}");
     }
 }
-

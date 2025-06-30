@@ -64,4 +64,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> InfoLinksTelegram =
         CVarDef.Create("infolinks.telegram", "", CVar.SERVER | CVar.REPLICATED);
 }
-

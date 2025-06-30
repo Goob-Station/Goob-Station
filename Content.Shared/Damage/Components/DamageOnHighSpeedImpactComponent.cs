@@ -85,4 +85,3 @@ public sealed partial class DamageOnHighSpeedImpactComponent : Component
     [DataField("damage", required: true), ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier Damage = default!;
 }
-

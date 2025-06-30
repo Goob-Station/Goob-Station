@@ -33,4 +33,3 @@ public sealed partial class RotIntoComponent : Component
     [DataField("stage"), ViewVariables(VVAccess.ReadWrite)]
     public int Stage;
 }
-

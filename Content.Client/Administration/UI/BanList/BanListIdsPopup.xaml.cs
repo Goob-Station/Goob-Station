@@ -24,4 +24,3 @@ public sealed partial class BanListIdsPopup : Popup
         UserInterfaceManager.ModalRoot.AddChild(this);
     }
 }
-

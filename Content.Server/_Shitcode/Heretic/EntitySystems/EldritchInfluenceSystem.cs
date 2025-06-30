@@ -89,4 +89,3 @@ public sealed class EldritchInfluenceSystem : EntitySystem
         QueueDel(args.Target);
     }
 }
-

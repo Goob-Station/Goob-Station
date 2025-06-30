@@ -468,4 +468,3 @@ namespace Content.IntegrationTests.Tests.Networking
         public bool Foo;
     }
 }
-

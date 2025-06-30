@@ -385,4 +385,3 @@ namespace Content.Shared.Verbs
         public override int TypePriority => 5;
     }
 }
-

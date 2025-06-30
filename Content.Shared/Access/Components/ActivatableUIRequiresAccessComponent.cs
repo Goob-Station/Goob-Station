@@ -15,4 +15,3 @@ public sealed partial class ActivatableUIRequiresAccessComponent : Component
     [DataField]
     public LocId? PopupMessage = "lock-comp-has-user-access-fail";
 }
-

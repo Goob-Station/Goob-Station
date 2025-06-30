@@ -148,4 +148,3 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
         return status;
     }
 }
-

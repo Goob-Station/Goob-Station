@@ -486,4 +486,3 @@ public sealed partial class ShuttleSystem
         return !(_impactedAt.ContainsKey(uid) && _gameTiming.CurTime < _impactedAt[uid] + _adminLogSpacing);
     }
 }
-

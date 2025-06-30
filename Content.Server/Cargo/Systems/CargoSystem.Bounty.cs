@@ -622,4 +622,3 @@ public sealed partial class CargoSystem
         }
     }
 }
-

@@ -179,4 +179,3 @@ public sealed class StealthSystem : SharedStealthSystem
         _sprite.SetColor((uid, args.Sprite), new Color(visibility, visibility, 1, 1));
     }
 }
-

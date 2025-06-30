@@ -56,4 +56,3 @@ public sealed class SpawnerSystem : EntitySystem
         component.TokenSource?.Cancel();
     }
 }
-

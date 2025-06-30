@@ -87,4 +87,3 @@ namespace Content.Server.Administration.Managers
         bool TryGetCommandFlags(CommandSpec command, out AdminFlags[]? flags);
     }
 }
-

@@ -31,4 +31,3 @@ public sealed partial class XAEThrowThingsAroundComponent : Component
     [DataField("throwStrength"), ViewVariables(VVAccess.ReadWrite)]
     public float ThrowStrength = 5f;
 }
-

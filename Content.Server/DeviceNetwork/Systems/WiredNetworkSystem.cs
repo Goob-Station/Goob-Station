@@ -47,4 +47,3 @@ namespace Content.Server.DeviceNetwork.Systems
         //Cache an optimized representation of the traversed path (Probably just cache Devices)
     }
 }
-

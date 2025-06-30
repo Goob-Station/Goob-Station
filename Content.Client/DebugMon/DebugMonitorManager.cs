@@ -33,4 +33,3 @@ internal sealed class DebugMonitorManager
         }
     }
 }
-

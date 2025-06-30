@@ -633,4 +633,3 @@ namespace Content.Server.Decals
         #endregion
     }
 }
-

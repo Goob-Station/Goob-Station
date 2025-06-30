@@ -101,4 +101,3 @@ public enum HandheldLightPowerStates
     LowPower,
     Dying,
 }
-

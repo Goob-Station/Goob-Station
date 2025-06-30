@@ -73,4 +73,3 @@ public sealed partial class LoadoutGroupPrototype : IPrototype
     [DataField(required: true)]
     public List<ProtoId<LoadoutPrototype>> Loadouts = new();
 }
-

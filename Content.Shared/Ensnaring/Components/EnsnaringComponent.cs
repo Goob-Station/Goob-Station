@@ -115,4 +115,3 @@ public sealed class EnsnareRemoveEvent : CancellableEntityEventArgs
         SprintSpeed = sprintSpeed;
     }
 }
-

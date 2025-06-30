@@ -42,4 +42,3 @@ public sealed class EmoteSystem : EntitySystem
             args.Cancel();
     }
 }
-

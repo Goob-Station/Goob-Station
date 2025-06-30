@@ -56,4 +56,3 @@ public partial record struct MailStats
             : 0;
     }
 }
-

@@ -29,4 +29,3 @@ public sealed partial class BufferingComponent : Component
     [DataField("bufferingTimer")]
     public float BufferingTimer = 0.0f;
 }
-

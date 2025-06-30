@@ -127,4 +127,3 @@ namespace Content.IntegrationTests.Tests.Lobby
         }
     }
 }
-

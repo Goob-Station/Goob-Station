@@ -17,4 +17,3 @@ namespace Content.Server.ParticleAccelerator.Components;
 public sealed partial class ParticleAcceleratorEndCapComponent : Component
 {
 }
-

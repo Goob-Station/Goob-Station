@@ -26,4 +26,3 @@ public sealed class SolutionItemStatusSystem : EntitySystem
             entity => new SolutionStatusControl(entity, EntityManager, _solutionContainerSystem));
     }
 }
-

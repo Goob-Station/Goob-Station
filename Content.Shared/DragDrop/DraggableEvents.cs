@@ -70,4 +70,3 @@ public record struct DragDropTargetEvent(EntityUid User, EntityUid Dragged)
     public readonly EntityUid Dragged = Dragged;
     public bool Handled = false;
 }
-

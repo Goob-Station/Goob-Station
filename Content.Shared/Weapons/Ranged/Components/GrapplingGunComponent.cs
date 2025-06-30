@@ -46,4 +46,3 @@ public sealed partial class GrapplingGunComponent : Component
 
     public EntityUid? Stream;
 }
-

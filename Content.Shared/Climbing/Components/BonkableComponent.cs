@@ -32,4 +32,3 @@ public sealed partial class BonkableComponent : Component
     [DataField]
     public DamageSpecifier? BonkDamage;
 }
-

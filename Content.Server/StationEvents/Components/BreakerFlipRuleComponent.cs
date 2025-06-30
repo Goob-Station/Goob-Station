@@ -14,4 +14,3 @@ public sealed partial class BreakerFlipRuleComponent : Component
 {
 
 }
-

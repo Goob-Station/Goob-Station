@@ -20,4 +20,3 @@ public interface IHtnConditionalShutdown
     /// </summary>
     void ConditionalShutdown(NPCBlackboard blackboard);
 }
-

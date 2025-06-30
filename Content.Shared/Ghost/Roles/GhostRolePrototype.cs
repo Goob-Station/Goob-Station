@@ -52,4 +52,3 @@ public sealed partial class GhostRolePrototype : IPrototype
     [DataField(required: true)]
     public string Rules = default!;
 }
-

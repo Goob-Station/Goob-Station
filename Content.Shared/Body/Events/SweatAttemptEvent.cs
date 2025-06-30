@@ -15,4 +15,3 @@ public record struct SweatAttemptEvent(EntityUid Uid)
     public readonly EntityUid Uid = Uid;
     public bool Cancelled = false;
 }
-

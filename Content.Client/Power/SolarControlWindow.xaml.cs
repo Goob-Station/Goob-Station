@@ -183,4 +183,3 @@ namespace Content.Client.Power
         }
     }
 }
-

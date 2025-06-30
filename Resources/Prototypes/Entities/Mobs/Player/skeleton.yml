@@ -136,4 +136,3 @@
   - type: Loadout
     prototypes: [LimitedPassengerGear]
   - type: RandomHumanoidAppearance
-

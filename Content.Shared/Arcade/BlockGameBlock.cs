@@ -106,4 +106,3 @@ namespace Content.Shared.Arcade
         }
     }
 }
-

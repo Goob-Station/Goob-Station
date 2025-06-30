@@ -252,4 +252,3 @@ namespace Content.Server.GameTicking
             => PlayerGameStatuses.TryGetValue(userId, out var status) && status == PlayerGameStatus.JoinedGame;
     }
 }
-

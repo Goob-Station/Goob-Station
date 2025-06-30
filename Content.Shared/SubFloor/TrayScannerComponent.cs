@@ -41,4 +41,3 @@ public sealed class TrayScannerState : ComponentState
         Range = range;
     }
 }
-

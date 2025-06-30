@@ -19,4 +19,3 @@ public sealed partial class LightweightDrunkComponent : Component
     [DataField("boozeStrengthMultiplier"), ViewVariables(VVAccess.ReadWrite)]
     public float BoozeStrengthMultiplier = 4f;
 }
-

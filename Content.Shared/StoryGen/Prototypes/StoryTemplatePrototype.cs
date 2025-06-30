@@ -37,4 +37,3 @@ public sealed partial class StoryTemplatePrototype : IPrototype
     [DataField]
     public Dictionary<string, ProtoId<LocalizedDatasetPrototype>> Variables = [];
 }
-

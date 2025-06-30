@@ -106,4 +106,3 @@ public sealed partial class GatherableSystem : EntitySystem
         }
     }
 }
-

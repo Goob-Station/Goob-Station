@@ -47,4 +47,3 @@ public sealed partial class BodyPartAppearanceComponent : Component
     [DataField, AutoNetworkedField]
     public Color? EyeColor { get; set; }
 }
-

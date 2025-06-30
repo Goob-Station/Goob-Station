@@ -12,4 +12,3 @@ namespace Content.Server.Radiation.Events;
 ///     radiation receivers and radiation sources.
 /// </summary>
 public record struct RadiationSystemUpdatedEvent;
-

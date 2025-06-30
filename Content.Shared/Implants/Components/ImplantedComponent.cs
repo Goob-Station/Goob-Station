@@ -23,4 +23,3 @@ public sealed partial class ImplantedComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Container ImplantContainer = default!;
 }
-

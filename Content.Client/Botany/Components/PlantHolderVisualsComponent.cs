@@ -10,4 +10,3 @@ namespace Content.Client.Botany.Components;
 public sealed partial class PlantHolderVisualsComponent : Component
 {
 }
-

@@ -12,4 +12,3 @@ namespace Content.Shared.Ghost;
 public sealed partial class GhostHearingComponent : Component
 {
 }
-

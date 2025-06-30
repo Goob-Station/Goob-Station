@@ -33,4 +33,3 @@ public sealed class LobbyPlaylistChangedEvent : EntityEventArgs
 public sealed class LobbyMusicStopEvent : EntityEventArgs
 {
 }
-

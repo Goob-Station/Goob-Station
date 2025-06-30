@@ -95,4 +95,3 @@ public enum ThirstThreshold : byte
     Okay = 1 << 2,
     OverHydrated = 1 << 3,
 }
-

@@ -235,4 +235,3 @@ public sealed partial class SignalTimerWindow : DefaultWindow
         return TimeSpan.FromMinutes(minutes) + TimeSpan.FromSeconds(seconds);
     }
 }
-

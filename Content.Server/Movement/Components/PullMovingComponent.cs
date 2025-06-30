@@ -18,4 +18,3 @@ public sealed partial class PullMovingComponent : Component
     [ViewVariables]
     public EntityCoordinates MovingTo;
 }
-

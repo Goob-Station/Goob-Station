@@ -18,4 +18,3 @@ public sealed partial class ResidueComponent : Component
     [DataField]
     public string? ResidueColor;
 }
-

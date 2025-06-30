@@ -47,4 +47,3 @@
     sprite: _Goobstation/Wizard/Icons/spellblade.rsi
     state: shield
   event: !type:ForceshieldSpellbladeEnchantmentEvent
-

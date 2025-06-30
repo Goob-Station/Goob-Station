@@ -160,4 +160,3 @@ public sealed class MappingOverlay : Overlay
         handle.UseShader(null);
     }
 }
-

@@ -35,4 +35,3 @@ public sealed class CarryingSlowdownSystem : EntitySystem
         args.ModifySpeed(ent.Comp.Modifier, ent.Comp.Modifier);
     }
 }
-

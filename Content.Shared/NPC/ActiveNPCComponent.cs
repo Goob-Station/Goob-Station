@@ -15,4 +15,3 @@ namespace Content.Shared.NPC;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ActiveNPCComponent : Component {}
-

@@ -34,4 +34,3 @@
         base:
           True: { state: experimentator_1 }
           False: { state: experimentator_0 }
-

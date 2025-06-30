@@ -578,4 +578,3 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
     #endregion
 }
-

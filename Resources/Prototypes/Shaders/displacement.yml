@@ -13,4 +13,3 @@
     func: NotEqual
   params:
     displacementSize: 127
-

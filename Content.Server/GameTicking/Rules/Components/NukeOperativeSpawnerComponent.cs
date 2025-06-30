@@ -21,4 +21,3 @@ namespace Content.Server.GameTicking.Rules.Components;
 /// </summary>
 [RegisterComponent, EntityCategory("Spawner")]
 public sealed partial class NukeOperativeSpawnerComponent : Component;
-

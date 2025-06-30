@@ -27,4 +27,3 @@ public sealed partial class CharacterWindow : DefaultWindow
         RobustXamlLoader.Load(this);
     }
 }
-

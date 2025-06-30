@@ -123,4 +123,3 @@ namespace Content.Client.HealthAnalyzer.UI
         // Shitmed Change End
     }
 }
-

@@ -46,4 +46,3 @@ namespace Content.Shared.Construction
         public IReadOnlyList<ConstructionGraphStep> Steps => _steps;
     }
 }
-

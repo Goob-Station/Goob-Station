@@ -15,4 +15,3 @@ public sealed partial class LightFadeComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("duration")]
     public float Duration = 0.5f;
 }
-

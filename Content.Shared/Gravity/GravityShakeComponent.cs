@@ -23,4 +23,3 @@ public sealed partial class GravityShakeComponent : Component
     [AutoPausedField]
     public TimeSpan NextShake;
 }
-

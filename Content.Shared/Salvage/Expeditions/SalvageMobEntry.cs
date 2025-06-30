@@ -27,4 +27,3 @@ public partial record struct SalvageMobEntry() : IBudgetEntry
     [ViewVariables(VVAccess.ReadWrite), DataField("proto", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Proto { get; set; } = string.Empty;
 }
-

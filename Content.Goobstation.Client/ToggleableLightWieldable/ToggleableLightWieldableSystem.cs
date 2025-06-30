@@ -38,4 +38,3 @@ public sealed class ToggleableLightWieldableSystem : EntitySystem
         layerWielded.Visible = wieldable.Wielded;
     }
 }
-

@@ -29,4 +29,3 @@ public sealed partial class SurgeryMarkingConditionComponent : Component
     [DataField]
     public String MatchString = "";
 }
-

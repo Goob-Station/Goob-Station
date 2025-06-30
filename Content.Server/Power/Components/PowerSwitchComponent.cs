@@ -13,4 +13,3 @@ namespace Content.Server.Power.Components
     public sealed partial class PowerSwitchComponent : Component
     {}
 }
-

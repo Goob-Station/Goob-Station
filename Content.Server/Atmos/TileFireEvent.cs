@@ -23,4 +23,3 @@ namespace Content.Server.Atmos
         }
     }
 }
-

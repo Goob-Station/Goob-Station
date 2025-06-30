@@ -160,4 +160,3 @@ namespace Content.Server.Atmos.EntitySystems
         }
     }
 }
-

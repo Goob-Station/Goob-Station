@@ -14,4 +14,3 @@ public sealed class RandomSpriteColorComponentState : ComponentState
 {
     public Dictionary<string, (string State, Color? Color)> Selected = default!;
 }
-

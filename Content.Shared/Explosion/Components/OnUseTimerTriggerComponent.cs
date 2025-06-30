@@ -99,4 +99,3 @@ namespace Content.Shared.Explosion.Components
         #endregion GuidebookData
     }
 }
-

@@ -178,4 +178,3 @@ namespace Content.Server.NPC.Systems
         }
     }
 }
-

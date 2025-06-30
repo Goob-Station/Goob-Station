@@ -29,4 +29,3 @@ namespace Content.Goobstation.Shared.ChronoLegionnaire.Components
         public EntityUid? BlinkActionEntity;
     }
 }
-

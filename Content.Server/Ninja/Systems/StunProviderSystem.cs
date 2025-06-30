@@ -86,4 +86,3 @@ public sealed class StunProviderSystem : SharedStunProviderSystem
         SetBattery((ent, ent.Comp), args.Battery);
     }
 }
-

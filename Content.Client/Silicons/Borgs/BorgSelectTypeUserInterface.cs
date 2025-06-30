@@ -33,4 +33,3 @@ public sealed class BorgSelectTypeUserInterface : BoundUserInterface
         _menu.ConfirmedBorgType += prototype => SendPredictedMessage(new BorgSelectTypeMessage(prototype));
     }
 }
-

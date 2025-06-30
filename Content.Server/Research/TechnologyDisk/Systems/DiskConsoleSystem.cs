@@ -108,4 +108,3 @@ public sealed class DiskConsoleSystem : EntitySystem
         UpdateUserInterface(uid);
     }
 }
-

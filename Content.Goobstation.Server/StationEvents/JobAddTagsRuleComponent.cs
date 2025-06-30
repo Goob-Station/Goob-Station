@@ -28,4 +28,3 @@ public sealed partial class JobAddTagsRuleComponent : Component
     [DataField]
     public LocId? Message;
 }
-

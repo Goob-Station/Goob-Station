@@ -202,4 +202,3 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
         }
     }
 }
-

@@ -140,4 +140,3 @@ public sealed class EggLayerSystem : EntitySystem
         return true;
     }
 }
-

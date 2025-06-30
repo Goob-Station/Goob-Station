@@ -10,4 +10,3 @@ namespace Content.Server.Gravity;
 
 /// <inheritdoc/>
 public sealed class FloatingVisualizerSystem : SharedFloatingVisualizerSystem { }
-

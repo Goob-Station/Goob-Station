@@ -122,4 +122,3 @@ public sealed class MaterialStorageMagnetPickupSystem : EntitySystem
         }
     }
 }
-

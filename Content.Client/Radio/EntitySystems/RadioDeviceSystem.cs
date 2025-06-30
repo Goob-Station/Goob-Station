@@ -26,4 +26,3 @@ public sealed class RadioDeviceSystem : EntitySystem
             bui.Update(ent);
     }
 }
-

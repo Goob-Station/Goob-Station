@@ -84,4 +84,3 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         return Loc.GetString($"borg-type-{prototype.ID}-name");
     }
 }
-

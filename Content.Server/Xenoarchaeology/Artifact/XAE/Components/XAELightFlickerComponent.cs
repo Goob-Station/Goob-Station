@@ -24,4 +24,3 @@ public sealed partial class XAELightFlickerComponent : Component
     [DataField]
     public float FlickerChance = 0.75f;
 }
-

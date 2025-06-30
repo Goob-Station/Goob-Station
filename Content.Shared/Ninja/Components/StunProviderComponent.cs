@@ -81,4 +81,3 @@ public sealed partial class StunProviderComponent : Component
     [DataField(required: true)]
     public EntityWhitelist Whitelist = new();
 }
-

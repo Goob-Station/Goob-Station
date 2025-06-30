@@ -61,4 +61,3 @@ public sealed partial class AiVisionWireAction : ComponentWireAction<StationAiVi
         // Need timer cleanup first out of scope.
     }
 }
-

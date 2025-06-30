@@ -104,4 +104,3 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
     }
 
 }
-

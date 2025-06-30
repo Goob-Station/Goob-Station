@@ -41,4 +41,3 @@ public enum BlobStage : byte
     Critical,
     TheEnd,
 }
-

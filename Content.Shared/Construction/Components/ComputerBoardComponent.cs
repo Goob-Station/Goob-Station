@@ -27,4 +27,3 @@ namespace Content.Shared.Construction.Components
         public string? Prototype { get; private set; }
     }
 }
-

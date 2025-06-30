@@ -724,4 +724,3 @@ namespace Content.Server.Construction
         public HandleResult? Result;
     }
 }
-

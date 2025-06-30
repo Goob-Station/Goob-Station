@@ -171,4 +171,3 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     }
 
 }
-

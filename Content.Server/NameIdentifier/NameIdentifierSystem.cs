@@ -218,4 +218,3 @@ public sealed class NameIdentifierSystem : EntitySystem
         EnsureIds();
     }
 }
-

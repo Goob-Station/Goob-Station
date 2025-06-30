@@ -85,4 +85,3 @@ public sealed partial class StencilOverlay : Overlay
         args.WorldHandle.SetTransform(Matrix3x2.Identity);
     }
 }
-

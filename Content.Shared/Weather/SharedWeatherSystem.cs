@@ -306,4 +306,3 @@ public abstract class SharedWeatherSystem : EntitySystem
         }
     }
 }
-

@@ -101,4 +101,3 @@ public sealed partial class ActivatableUISystem
         }
     }
 }
-

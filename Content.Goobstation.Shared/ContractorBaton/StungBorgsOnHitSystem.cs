@@ -41,4 +41,3 @@ public sealed class StungBorgsOnHitSystem : EntitySystem
         }
     }
 }
-

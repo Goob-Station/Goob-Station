@@ -41,4 +41,3 @@ public sealed partial class RadioImplantComponent : Component
     [DataField]
     public HashSet<ProtoId<RadioChannelPrototype>> TransmitterAddedChannels = new();
 }
-

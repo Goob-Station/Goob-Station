@@ -296,4 +296,3 @@ public sealed class DormNotifier : EntitySystem
         }
     }
 }
-

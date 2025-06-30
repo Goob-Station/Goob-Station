@@ -16,4 +16,3 @@ namespace Content.Server.Electrocution
         public float[] List = { 0f };
     }
 }
-

@@ -74,4 +74,3 @@ public sealed class BlobResourceSystem : EntitySystem
             resource.PointsPerPulsed = 100;
     }
 }
-

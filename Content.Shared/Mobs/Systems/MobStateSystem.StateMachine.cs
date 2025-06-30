@@ -166,4 +166,3 @@ public partial class MobStateSystem
 [ByRefEvent]
 public record struct UpdateMobStateEvent(EntityUid Target, MobStateComponent Component, MobState State,
     EntityUid? Origin = null);
-

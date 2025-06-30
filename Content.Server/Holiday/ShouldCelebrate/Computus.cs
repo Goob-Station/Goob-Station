@@ -121,4 +121,3 @@ namespace Content.Server.Holiday.ShouldCelebrate
         }
     }
 }
-

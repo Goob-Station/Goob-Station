@@ -40,4 +40,3 @@ public sealed class BlinkEvent(NetEntity weapon, Vector2 direction) : EntityEven
     public readonly NetEntity Weapon = weapon;
     public readonly Vector2 Direction = direction;
 }
-

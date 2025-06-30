@@ -56,4 +56,3 @@ public sealed class RoundEndSummaryUIController : UIController,
             InputCmdHandler.FromDelegate(ToggleScoreboardWindow));
     }
 }
-

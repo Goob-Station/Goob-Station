@@ -41,4 +41,3 @@ public sealed class ObjectiveBlacklistRequirementSystem : EntitySystem
         }
     }
 }
-

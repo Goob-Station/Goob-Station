@@ -173,4 +173,3 @@ public sealed class ResistLockerSystem : EntitySystem
         args.Handled = true;
     }
 }
-

@@ -44,4 +44,3 @@ public enum NavMapBeaconVisuals : byte
 {
     Enabled
 }
-

@@ -48,4 +48,3 @@ public sealed class DetailExaminableSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 }
-

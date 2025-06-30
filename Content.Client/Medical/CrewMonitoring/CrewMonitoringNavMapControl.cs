@@ -83,4 +83,3 @@ public sealed partial class CrewMonitoringNavMapControl : NavMapControl
         _trackedEntityPanel.Visible = false;
     }
 }
-

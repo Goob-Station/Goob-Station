@@ -19,4 +19,3 @@ public sealed partial class BanListHeader : ContainerButton
         RobustXamlLoader.Load(this);
     }
 }
-

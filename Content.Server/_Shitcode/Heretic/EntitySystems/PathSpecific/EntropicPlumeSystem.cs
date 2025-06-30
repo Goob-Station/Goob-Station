@@ -13,4 +13,3 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 public sealed class EntropicPlumeSystem : SharedEntropicPlumeSystem
 {
 }
-

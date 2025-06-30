@@ -50,4 +50,3 @@ public sealed class ClericalErrorRule : StationEventSystem<ClericalErrorRuleComp
         }
     }
 }
-

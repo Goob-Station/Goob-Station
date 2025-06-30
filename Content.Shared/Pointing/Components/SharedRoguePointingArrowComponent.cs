@@ -24,4 +24,3 @@ namespace Content.Shared.Pointing.Components
         Rotation
     }
 }
-

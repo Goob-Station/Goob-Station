@@ -92,4 +92,3 @@ public sealed class TargetingUIController : UIController, IOnStateEntered<Gamepl
         }
     }
 }
-

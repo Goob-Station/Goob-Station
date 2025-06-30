@@ -95,4 +95,3 @@ public sealed partial class EventHorizonComponent : Component
 
     #endregion Update Timing
 }
-

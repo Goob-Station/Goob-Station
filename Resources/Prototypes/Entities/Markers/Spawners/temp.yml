@@ -15,4 +15,3 @@
     canCollide: false
   - type: TimedDespawn
     # we can't declare the SpawnOnDespawnComponent because the entity is required on yml
-

@@ -64,4 +64,3 @@ public abstract class SharedBlobMobSystem : EntitySystem
         args.Cancel();
     }
 }
-

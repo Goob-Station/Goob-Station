@@ -63,4 +63,3 @@
   baseSprite:
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
     state: borg_r_arm
-

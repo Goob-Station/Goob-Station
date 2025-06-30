@@ -19,4 +19,3 @@ public sealed class UserNotesEuiState : EuiStateBase
     }
     public Dictionary<(int, NoteType), SharedAdminNote> Notes { get; }
 }
-

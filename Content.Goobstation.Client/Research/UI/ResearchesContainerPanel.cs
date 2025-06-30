@@ -54,4 +54,3 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
         }
     }
 }
-

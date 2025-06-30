@@ -163,4 +163,3 @@
       sprite: Structures/Walls/solid.rsi
       state: full
     event: !type:InvisibleWallActionEvent
-

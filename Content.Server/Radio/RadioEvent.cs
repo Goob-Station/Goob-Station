@@ -34,4 +34,3 @@ public record struct RadioSendAttemptEvent(RadioChannelPrototype Channel, Entity
     public readonly EntityUid RadioSource = RadioSource;
     public bool Cancelled = false;
 }
-

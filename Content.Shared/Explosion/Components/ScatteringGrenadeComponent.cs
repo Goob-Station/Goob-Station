@@ -119,4 +119,3 @@ public sealed partial class ScatteringGrenadeComponent : Component
     /// </summary>
     public bool IsTriggered = false;
 }
-

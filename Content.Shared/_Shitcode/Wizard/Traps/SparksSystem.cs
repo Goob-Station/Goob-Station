@@ -58,4 +58,3 @@ public sealed class SparksSystem : EntitySystem
         }
     }
 }
-

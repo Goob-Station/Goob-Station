@@ -72,4 +72,3 @@ public enum PneumaticCannonPower : byte
     High = 2,
     Len = 3 // used for length calc
 }
-

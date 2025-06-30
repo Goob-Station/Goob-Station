@@ -132,4 +132,3 @@ public sealed class TileWallsCommand : IConsoleCommand
         shell.WriteLine($"Changed {changed} tiles.");
     }
 }
-

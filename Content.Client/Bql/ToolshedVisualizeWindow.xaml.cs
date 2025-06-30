@@ -55,4 +55,3 @@ internal sealed partial class ToolshedVisualizeWindow : DefaultWindow
         }
     }
 }
-

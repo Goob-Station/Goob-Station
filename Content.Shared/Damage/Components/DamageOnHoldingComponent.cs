@@ -38,4 +38,3 @@ public sealed partial class DamageOnHoldingComponent : Component
     [AutoPausedField]
     public TimeSpan NextDamage = TimeSpan.Zero;
 }
-

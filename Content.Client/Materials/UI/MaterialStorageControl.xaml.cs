@@ -145,4 +145,3 @@ public sealed partial class MaterialStorageControl : ScrollContainer
             .ToDictionary(pair => pair.Key, pair => pair.Value);
     }
 }
-

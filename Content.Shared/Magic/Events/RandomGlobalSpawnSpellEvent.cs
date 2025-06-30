@@ -23,4 +23,3 @@ public sealed partial class RandomGlobalSpawnSpellEvent : InstantActionEvent
     [DataField]
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Magic/staff_animation.ogg");
 }
-

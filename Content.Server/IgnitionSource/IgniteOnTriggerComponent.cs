@@ -34,4 +34,3 @@ public sealed partial class IgniteOnTriggerComponent : Component
     [DataField]
     public SoundSpecifier IgniteSound = new SoundCollectionSpecifier("WelderOn");
 }
-

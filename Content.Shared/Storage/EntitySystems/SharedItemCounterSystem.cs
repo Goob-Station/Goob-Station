@@ -63,4 +63,3 @@ namespace Content.Shared.Storage.EntitySystems
         protected abstract int? GetCount(ContainerModifiedMessage msg, ItemCounterComponent itemCounter);
     }
 }
-

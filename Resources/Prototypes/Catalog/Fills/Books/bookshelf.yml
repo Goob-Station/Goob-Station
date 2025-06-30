@@ -87,4 +87,3 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: BookshelfEntityTable
-

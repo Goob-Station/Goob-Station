@@ -182,4 +182,3 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         return emote is not null;
     }
 }
-

@@ -61,4 +61,3 @@ namespace Content.Tests.Shared.Chemistry
   color: " + "\"#008080\"";
     }
 }
-

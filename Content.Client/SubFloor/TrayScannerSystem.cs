@@ -184,4 +184,3 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
         _appearance.SetData(uid, SubFloorVisuals.ScannerRevealed, value);
     }
 }
-

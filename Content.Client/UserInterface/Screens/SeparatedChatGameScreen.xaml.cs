@@ -57,4 +57,3 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
         ScreenContainer.ResizeMode = SplitContainer.SplitResizeMode.RespectChildrenMinSize;
     }
 }
-

@@ -13,4 +13,3 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Conditions;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SurgeryHasBodyConditionComponent : Component;
-

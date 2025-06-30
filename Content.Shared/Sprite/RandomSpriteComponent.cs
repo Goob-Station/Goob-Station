@@ -33,4 +33,3 @@ public sealed partial class RandomSpriteComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("selected")]
     public Dictionary<string, (string State, Color? Color)> Selected = new();
 }
-

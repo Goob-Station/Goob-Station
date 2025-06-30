@@ -12,4 +12,3 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Conditions;
 /// </summary>
 [ByRefEvent]
 public record struct SurgeryValidEvent(EntityUid Body, EntityUid Part, bool Cancelled = false, BodyPartType PartType = default, BodyPartSymmetry? Symmetry = default);
-

@@ -438,4 +438,3 @@ public sealed partial class BorgSystem
         ent.Comp.ModuleWhitelist = whitelist;
     }
 }
-

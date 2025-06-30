@@ -10,4 +10,3 @@ public enum PowerDeviceVisualLayers : byte
 {
     Powered
 }
-

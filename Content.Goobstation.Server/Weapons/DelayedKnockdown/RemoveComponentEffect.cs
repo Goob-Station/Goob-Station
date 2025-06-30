@@ -30,4 +30,3 @@ public sealed partial class RemoveComponentEffect : EntityEffect
             args.EntityManager.ComponentFactory.GetRegistration(Component).Type);
     }
 }
-

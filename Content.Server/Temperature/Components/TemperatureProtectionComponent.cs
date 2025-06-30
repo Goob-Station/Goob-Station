@@ -33,4 +33,3 @@ public sealed partial class TemperatureProtectionComponent : Component
 /// </summary>
 [ByRefEvent]
 public record struct GetTemperatureProtectionEvent(float Coefficient);
-

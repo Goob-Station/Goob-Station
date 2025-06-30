@@ -17,4 +17,3 @@ namespace Content.Shared._Goobstation.Wizard.Projectiles;
 public sealed partial class EntityTrailComponent : Component
 {
 }
-

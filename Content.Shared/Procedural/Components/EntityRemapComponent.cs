@@ -16,4 +16,3 @@ public sealed partial class EntityRemapComponent : Component
     [DataField(required: true)]
     public Dictionary<EntProtoId, EntProtoId> Mask = new();
 }
-

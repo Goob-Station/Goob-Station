@@ -20,4 +20,3 @@ namespace Content.Server.Disposal.Tube
     {
     }
 }
-

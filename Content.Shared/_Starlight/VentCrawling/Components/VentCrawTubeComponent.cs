@@ -32,4 +32,3 @@ public record struct GetVentCrawlingsConnectableDirectionsEvent
 {
     public Direction[] Connectable;
 }
-

@@ -17,4 +17,3 @@ public sealed partial class GrabThrownComponent : Component
 
     public List<EntityUid> IgnoreEntity = new();
 }
-

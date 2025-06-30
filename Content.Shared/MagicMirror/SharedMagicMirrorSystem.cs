@@ -237,4 +237,3 @@ public sealed partial class MagicMirrorChangeColorDoAfterEvent : DoAfterEvent
     public int Slot;
     public List<Color> Colors = new List<Color>();
 }
-

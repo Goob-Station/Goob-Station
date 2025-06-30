@@ -55,4 +55,3 @@
   - type: SiloUtilizer
   - type: MaterialStorage
     connectToSilo: true
-

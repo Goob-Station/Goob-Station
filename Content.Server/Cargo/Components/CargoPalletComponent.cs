@@ -31,4 +31,3 @@ public sealed partial class CargoPalletComponent : Component
     [DataField]
     public BuySellType PalletType;
 }
-

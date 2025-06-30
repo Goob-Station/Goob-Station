@@ -42,4 +42,3 @@ public enum VotekickReasonType : byte
     Cheating,
     Spam
 }
-

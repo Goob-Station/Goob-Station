@@ -148,4 +148,3 @@ public sealed class HierophantChaserSystem : EntitySystem
             : new Vector2i(0, (int)delta.Y);
     }
 }
-

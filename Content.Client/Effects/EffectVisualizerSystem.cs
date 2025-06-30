@@ -25,4 +25,3 @@ public sealed class EffectVisualizerSystem : EntitySystem
         QueueDel(uid);
     }
 }
-

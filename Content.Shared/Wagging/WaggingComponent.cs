@@ -35,4 +35,3 @@ public sealed partial class WaggingComponent : Component
     [DataField]
     public bool Wagging = false;
 }
-

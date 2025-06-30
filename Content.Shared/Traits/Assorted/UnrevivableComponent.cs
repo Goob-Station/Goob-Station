@@ -31,4 +31,3 @@ public sealed partial class UnrevivableComponent : Component
     [DataField, AutoNetworkedField]
     public LocId ReasonMessage = "defibrillator-unrevivable";
 }
-

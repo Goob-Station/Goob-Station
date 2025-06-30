@@ -22,4 +22,3 @@ namespace Content.Shared.Lathe
         InsertingColor
     }
 }
-

@@ -35,4 +35,3 @@ public sealed partial class EmpDisabledComponent : Component
     [AutoPausedField]
     public TimeSpan TargetTime = TimeSpan.Zero;
 }
-

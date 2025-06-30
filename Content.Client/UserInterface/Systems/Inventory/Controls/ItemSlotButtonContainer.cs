@@ -36,4 +36,3 @@ public sealed class ItemSlotButtonContainer : ItemSlotUIContainer<SlotControl>
         _inventoryController = UserInterfaceManager.GetUIController<InventoryUIController>();
     }
 }
-

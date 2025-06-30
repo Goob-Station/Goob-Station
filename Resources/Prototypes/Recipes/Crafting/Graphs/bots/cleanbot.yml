@@ -32,4 +32,3 @@
         doAfter: 2
   - node: bot
     entity: MobCleanBot
-

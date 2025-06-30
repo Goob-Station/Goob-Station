@@ -83,4 +83,3 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), uid, uid);
     }
 }
-

@@ -12,4 +12,3 @@ namespace Content.Shared.Damage.Components;
 public sealed partial class DamageExaminableComponent : Component
 {
 }
-

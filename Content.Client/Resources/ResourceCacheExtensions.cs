@@ -59,4 +59,3 @@ namespace Content.Client.Resources
         }
     }
 }
-

@@ -23,4 +23,3 @@ public sealed partial class BorgModuleIconComponent : Component
     public SpriteSpecifier.Rsi Icon = default!;
 
 }
-

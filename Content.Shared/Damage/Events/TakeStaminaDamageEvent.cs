@@ -48,4 +48,3 @@ public sealed class StaminaDamageMeleeHitEvent(List<(EntityUid Entity, StaminaCo
 
     public Vector2? Direction = direction;
 }
-

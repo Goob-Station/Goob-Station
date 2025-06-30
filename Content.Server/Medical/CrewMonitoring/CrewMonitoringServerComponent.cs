@@ -25,4 +25,3 @@ public sealed partial class CrewMonitoringServerComponent : Component
     [DataField("sensorTimeout"), ViewVariables(VVAccess.ReadWrite)]
     public float SensorTimeout = 10f;
 }
-

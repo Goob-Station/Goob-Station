@@ -35,4 +35,3 @@ public sealed partial class JetpackComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("weightlessModifier")]
     public float WeightlessModifier = 1.2f;
 }
-

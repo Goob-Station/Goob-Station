@@ -84,4 +84,3 @@ public sealed class RepulseAttractSystem : EntitySystem
         return true;
     }
 }
-

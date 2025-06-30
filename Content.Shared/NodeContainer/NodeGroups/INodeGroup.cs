@@ -31,4 +31,3 @@ public interface INodeGroup
     /// </summary>
     string? GetDebugData();
 }
-

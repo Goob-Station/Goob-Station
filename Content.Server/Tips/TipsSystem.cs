@@ -254,4 +254,3 @@ public sealed class TipsSystem : EntitySystem
         }
     }
 }
-

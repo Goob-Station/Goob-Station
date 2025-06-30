@@ -143,4 +143,3 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
         args.Handled = DoAfter.TryStartDoAfter(doAfterEventArgs);
     }
 }
-

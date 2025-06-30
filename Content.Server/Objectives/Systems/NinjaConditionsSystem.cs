@@ -115,4 +115,3 @@ public sealed class NinjaConditionsSystem : EntitySystem
         return MathF.Min(comp.DownloadedNodes.Count / (float) target, 1f);
     }
 }
-

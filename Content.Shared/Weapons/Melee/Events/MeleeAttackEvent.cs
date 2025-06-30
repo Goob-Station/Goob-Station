@@ -11,4 +11,3 @@ namespace Content.Shared.Weapons.Melee.Events;
 /// </summary>
 [ByRefEvent]
 public record struct MeleeAttackEvent(EntityUid Weapon);
-

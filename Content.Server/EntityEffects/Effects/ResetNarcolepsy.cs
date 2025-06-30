@@ -40,4 +40,3 @@ public sealed partial class ResetNarcolepsy : EntityEffect
         args.EntityManager.EntitySysManager.GetEntitySystem<NarcolepsySystem>().AdjustNarcolepsyTimer(args.TargetEntity, TimerReset);
     }
 }
-

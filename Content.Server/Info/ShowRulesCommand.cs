@@ -75,4 +75,3 @@ public sealed class ShowRulesCommand : IConsoleCommand
         _net.ServerSendMessage(message, player.Channel);
     }
 }
-

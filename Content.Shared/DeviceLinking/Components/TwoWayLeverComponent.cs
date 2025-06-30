@@ -29,4 +29,3 @@ public sealed partial class TwoWayLeverComponent : Component
     [DataField]
     public ProtoId<SourcePortPrototype> MiddlePort = "Middle";
 }
-

@@ -47,4 +47,3 @@ public partial class OreDunGen : IDunGenLayer
     [DataField]
     public int MaxGroupSize = 1;
 }
-

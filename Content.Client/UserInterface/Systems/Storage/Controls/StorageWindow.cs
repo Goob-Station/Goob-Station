@@ -742,4 +742,3 @@ public sealed class StorageWindow : BaseWindow
         }
     }
 }
-

@@ -381,4 +381,3 @@ public enum AnchorVisuals : byte
 {
     Anchored
 }
-

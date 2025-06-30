@@ -253,4 +253,3 @@ public sealed class ResizableChatBox : ChatBox
                 DefaultCursorShape = CursorShape.Arrow;
         }
 }
-

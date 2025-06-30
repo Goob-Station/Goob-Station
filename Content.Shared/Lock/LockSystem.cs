@@ -500,4 +500,3 @@ public sealed class LockSystem : EntitySystem
         _activatableUI.CloseAll(uid);
     }
 }
-

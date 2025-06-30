@@ -95,4 +95,3 @@ public sealed partial class ContainerAmmoProviderComponent : AmmoProviderCompone
     [ViewVariables]
     public EntityUid? ProviderUid;
 }
-

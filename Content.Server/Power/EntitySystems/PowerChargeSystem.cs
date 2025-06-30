@@ -288,4 +288,3 @@ public sealed class PowerChargeSystem : EntitySystem
 
 [ByRefEvent] public record struct ChargedMachineActivatedEvent;
 [ByRefEvent] public record struct ChargedMachineDeactivatedEvent;
-

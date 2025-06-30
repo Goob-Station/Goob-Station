@@ -44,4 +44,3 @@ public sealed partial class HierophantChaserComponent : Component
     /// </summary>
     [DataField(required: true)] public EntProtoId SpawnPrototype;
 }
-

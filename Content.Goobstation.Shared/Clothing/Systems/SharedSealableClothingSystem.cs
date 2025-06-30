@@ -453,4 +453,3 @@ public sealed partial class ClothingSealAttemptEvent : CancellableEntityEventArg
         User = user;
     }
 }
-

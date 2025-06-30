@@ -308,4 +308,3 @@ public readonly record struct StepTriggeredOnEvent(EntityUid Source, EntityUid T
 /// </summary>
 [ByRefEvent]
 public readonly record struct StepTriggeredOffEvent(EntityUid Source, EntityUid Tripper);
-

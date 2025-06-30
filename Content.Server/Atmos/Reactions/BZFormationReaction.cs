@@ -60,4 +60,3 @@ public sealed partial class BZFormationReaction : IGasReactionEffect
         return ReactionResult.Reacting;
     }
 }
-

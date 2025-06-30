@@ -35,4 +35,3 @@ public sealed class SharedRMCShowLobbyMessageEvent(string text) : EntityEventArg
 {
     public readonly string Text = text;
 }
-

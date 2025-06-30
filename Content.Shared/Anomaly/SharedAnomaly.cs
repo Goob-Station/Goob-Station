@@ -120,4 +120,3 @@ public sealed class AnomalyGeneratorGenerateButtonPressedEvent : BoundUserInterf
 {
 
 }
-

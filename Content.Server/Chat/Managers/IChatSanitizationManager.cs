@@ -19,4 +19,3 @@ public interface IChatSanitizationManager
         out string sanitized,
         [NotNullWhen(true)] out string? emote);
 }
-

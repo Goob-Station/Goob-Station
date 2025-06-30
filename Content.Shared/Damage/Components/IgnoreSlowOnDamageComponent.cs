@@ -12,4 +12,3 @@ namespace Content.Shared.Damage.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SlowOnDamageSystem))]
 public sealed partial class IgnoreSlowOnDamageComponent : Component;
-

@@ -219,4 +219,3 @@ public record struct FoldAttemptEvent(FoldableComponent Comp, bool Cancelled = f
 /// <param name="IsFolded"></param>
 [ByRefEvent]
 public readonly record struct FoldedEvent(bool IsFolded);
-

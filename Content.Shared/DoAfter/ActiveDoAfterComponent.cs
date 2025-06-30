@@ -17,4 +17,3 @@ namespace Content.Shared.DoAfter;
 public sealed partial class ActiveDoAfterComponent : Component
 {
 }
-

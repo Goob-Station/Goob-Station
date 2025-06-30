@@ -19,4 +19,3 @@ public sealed partial class CyberneticsComponent : Component
     [DataField, AutoNetworkedField]
     public bool Disabled = false;
 }
-

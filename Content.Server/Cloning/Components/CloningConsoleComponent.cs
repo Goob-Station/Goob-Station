@@ -29,4 +29,3 @@ namespace Content.Server.Cloning.Components
         public bool CloningPodInRange = true;
     }
 }
-

@@ -119,4 +119,3 @@ public sealed class MappingMapDataMessage : NetMessage
         buffer.Write(buf.AsSpan(0, length));
     }
 }
-

@@ -119,4 +119,3 @@ public sealed class RemoveEncryptionKeys : InteractionTest
         AssertPrototype("MachineFrame");
     }
 }
-

@@ -22,4 +22,3 @@ public sealed partial class KravMagaBlockedBreathingComponent : Component
     [DataField]
     public TimeSpan BlockedTime = TimeSpan.Zero;
 }
-

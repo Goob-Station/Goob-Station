@@ -179,4 +179,3 @@
               prototype: MaterialWoodPlank1
               amount: 1
             - !type:DeleteEntity {}
-

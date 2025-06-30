@@ -52,4 +52,3 @@ public sealed partial class WearableReaction : EntityEffect
         }
     }
 }
-

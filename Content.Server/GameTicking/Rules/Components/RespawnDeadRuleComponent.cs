@@ -19,4 +19,3 @@ public sealed partial class RespawnDeadRuleComponent : Component
     [DataField]
     public bool AlwaysRespawnDead;
 }
-

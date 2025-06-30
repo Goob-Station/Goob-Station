@@ -494,4 +494,3 @@ namespace Content.Server.Construction
         }
     }
 }
-

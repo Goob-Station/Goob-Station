@@ -210,4 +210,3 @@ public sealed class DecalPlacementSystem : EntitySystem
             _inputSystem.SetEntityContextActive();
     }
 }
-

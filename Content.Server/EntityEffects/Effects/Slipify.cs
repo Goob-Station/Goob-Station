@@ -41,4 +41,3 @@ public sealed partial class Slipify : EntityEffect
         throw new NotImplementedException();
     }
 }
-

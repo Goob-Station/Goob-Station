@@ -35,4 +35,3 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> AllowDuplicatePkaModules =
         CVarDef.Create("modkit.dupes_enabled", true, CVar.REPLICATED | CVar.SERVER);
 }
-

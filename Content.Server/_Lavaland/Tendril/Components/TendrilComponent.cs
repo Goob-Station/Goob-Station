@@ -69,4 +69,3 @@ public sealed partial class TendrilComponent : Component
     [DataField]
     public float UpdateFrequency = 5;
 }
-

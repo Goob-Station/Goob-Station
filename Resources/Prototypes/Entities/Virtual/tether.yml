@@ -18,4 +18,3 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-

@@ -291,4 +291,3 @@ public static class EntitySpawnCollection
         return random.Next(entry.Amount, entry.MaxAmount);
     }
 }
-

@@ -14,4 +14,3 @@ public sealed class GettingUsedAttemptEvent(EntityUid user) : CancellableEntityE
 {
     public EntityUid User = user;
 }
-

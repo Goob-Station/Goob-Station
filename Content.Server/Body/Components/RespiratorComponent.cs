@@ -139,4 +139,3 @@ public enum RespiratorStatus
     Inhaling,
     Exhaling
 }
-

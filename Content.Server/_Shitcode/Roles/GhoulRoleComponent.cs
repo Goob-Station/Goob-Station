@@ -24,4 +24,3 @@ namespace Content.Server.Roles;
 public sealed partial class GhoulRoleComponent : BaseMindRoleComponent
 {
 }
-

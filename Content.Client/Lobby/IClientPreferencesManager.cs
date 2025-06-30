@@ -22,4 +22,3 @@ namespace Content.Client.Lobby
         void UpdateConstructionFavorites(List<ProtoId<ConstructionPrototype>> favorites);
     }
 }
-

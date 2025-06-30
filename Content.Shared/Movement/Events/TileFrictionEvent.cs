@@ -19,4 +19,3 @@ public struct TileFrictionEvent
         Modifier = modifier;
     }
 }
-

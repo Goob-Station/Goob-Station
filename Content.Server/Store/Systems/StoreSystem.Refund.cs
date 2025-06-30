@@ -75,4 +75,3 @@ public sealed partial class StoreSystem
         RaiseLocalEvent(ent.Comp.StoreEntity.Value, ref ev);
     }
 }
-

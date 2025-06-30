@@ -30,4 +30,3 @@ public sealed partial class NarcolepsyComponent : Component
 
     public float NextIncidentTime;
 }
-

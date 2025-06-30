@@ -64,4 +64,3 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
         _lightManager.DrawLighting = true;
     }
 }
-

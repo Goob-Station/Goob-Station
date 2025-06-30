@@ -28,4 +28,3 @@ public sealed partial class ModifyWearerNameComponent : Component
     [DataField, AutoNetworkedField]
     public int Priority;
 }
-

@@ -44,4 +44,3 @@ public sealed partial class BoomWireAction : ComponentWireAction<DefusableCompon
         EntityManager.System<DefusableSystem>().BoomWirePulse(user, wire, comp);
     }
 }
-

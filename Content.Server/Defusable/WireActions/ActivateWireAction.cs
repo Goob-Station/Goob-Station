@@ -45,4 +45,3 @@ public sealed partial class ActivateWireAction : ComponentWireAction<DefusableCo
         EntityManager.System<DefusableSystem>().ActivateWirePulse(user, wire, comp);
     }
 }
-

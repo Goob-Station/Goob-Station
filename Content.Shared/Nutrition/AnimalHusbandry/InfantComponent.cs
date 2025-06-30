@@ -45,4 +45,3 @@ public sealed partial class InfantComponent : Component
     [AutoPausedField]
     public TimeSpan InfantEndTime;
 }
-

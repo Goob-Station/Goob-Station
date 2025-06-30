@@ -110,4 +110,3 @@ public sealed class TileConstructionTests : InteractionTest
         await AssertEntityLookup((FloorItem, 1));
     }
 }
-

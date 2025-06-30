@@ -89,4 +89,3 @@ public sealed class EmoteOnDamageSystem : EntitySystem
         return true;
     }
 }
-

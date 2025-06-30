@@ -23,4 +23,3 @@ public static class SharedDirectionExtensions
         return coordinates.Offset(direction.ToVec());
     }
 }
-

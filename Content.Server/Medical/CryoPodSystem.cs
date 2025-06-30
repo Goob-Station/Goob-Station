@@ -376,4 +376,3 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
 
     #endregion
 }
-

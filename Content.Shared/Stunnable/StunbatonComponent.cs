@@ -29,4 +29,3 @@ public sealed partial class StunbatonComponent : Component
     [DataField("sparksSound")]
     public SoundSpecifier SparksSound = new SoundCollectionSpecifier("sparks");
 }
-

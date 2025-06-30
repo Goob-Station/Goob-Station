@@ -53,4 +53,3 @@ public sealed partial class AdvertiseComponent : Component
     public TimeSpan NextAdvertisementTime { get; set; } = TimeSpan.Zero;
 
 }
-

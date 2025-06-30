@@ -52,4 +52,3 @@ public sealed class StationMapSystem : EntitySystem
         comp.Map = uid;
     }
 }
-
