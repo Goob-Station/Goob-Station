@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -120,39 +121,6 @@
         - !type:RemoveComponentEffect
           component: LegsStartParalyzed
           locale: reagent-effect-guidebook-remove-legsstartparalyzed
-
-- type: reagent
-  id: LingFleshmend
-  name: reagent-name-fleshmend
-  group: Medicine
-  desc: reagent-desc-fleshmend
-  physicalDesc: reagent-physical-desc-ling
-  flavor: clean
-  color: "#ff0000"
-  worksOnTheDead: true
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.5
-      effects:
-        - !type:ModifyBloodLevel
-          amount: 10
-        - !type:ModifyBleedAmount
-          amount: -4
-        - !type:HealthChange
-          damage:
-            types:
-              Heat: -3.0
-              Cold: -3.0
-              Shock: -3.0
-              Caustic: -3.0
-              Asphyxiation: -2
-              Blunt: -7
-              Piercing: -7
-              Slash: -7
-        - !type:PopupMessage
-            type: Local
-            messages: [ "reagent-popup-fleshmend" ]
-            probability: 0.2
 
 - type: reagent
   id: LingAdrenaline
