@@ -84,3 +84,4 @@ server-ban-string-no-pii = {$admin} створив бан з серйозніс�
 server-ban-string-never = ніколи
 
 ban-kick-reason = Вас заблоковано
+cmd-banlist-hint = <ім'я/ID користувача>

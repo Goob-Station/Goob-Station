@@ -56,3 +56,5 @@ gun-magazine-whitelist-fail = Це не підходить до зброї!
 gun-magazine-fired-empty = Набоїв не залишилося!
 
 # SelectiveFire
+examine-gun-spread-modifier-reduction = Розсіювання зменшено на [color=yellow]{$percentage}%[/color].
+examine-gun-spread-modifier-increase = Розсіювання збільшено на [color=yellow]{$percentage}%[/color].

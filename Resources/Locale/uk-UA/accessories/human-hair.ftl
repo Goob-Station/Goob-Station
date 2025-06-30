@@ -199,3 +199,4 @@ marking-HumanHairPulato = Пулато
 marking-HumanHairShaped = У формі
 
 marking-HumanHairBAlt = Зачіска Джинкс
+marking-HumanHairLongWithBangs = Довге з чубчиком

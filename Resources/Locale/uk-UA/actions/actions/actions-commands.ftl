@@ -1,4 +1,4 @@
-﻿## Actions Commands loc
+## Actions Commands loc
 
 ## Upgradeaction command loc
 upgradeaction-command-need-one-argument = upgradeaction має принаймні один аргумент - сутність дії uid. Другим необов'язковим аргументом є вказаний рівень.
@@ -10,3 +10,5 @@ upgradeaction-command-entity-does-not-exist = Ця сутність не існ�
 upgradeaction-command-entity-is-not-action = Ця сутність не має компонента оновлення дії, тому ця дія не може бути вирівняна.
 upgradeaction-command-cannot-level-up = Дія не може бути нівельована.
 upgradeaction-command-description = Підвищує дію на один рівень або до вказаного рівня, якщо це можливо.
+
+upgradeaction-command-help = Використання: upgradeaction <entityUid> [рівень]

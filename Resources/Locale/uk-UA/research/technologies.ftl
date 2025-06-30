@@ -106,3 +106,4 @@ research-technology-special-means = Особливі засоби
 research-technology-bluespace-time-manipulation = Маніпуляція часом у блюспейсі
 
 research-technology-clowning-utilities = Клоунські утиліти
+research-technology-optimized-microgalvanism = Оптимізований мікрогальванізм
