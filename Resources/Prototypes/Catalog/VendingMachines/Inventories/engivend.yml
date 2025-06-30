@@ -99,6 +99,7 @@
   id: EngiVendInventory
   startingInventory:
     ClothingEyesGlassesMeson: 4
+    ClothingEyesHudDiagnostic: 8 # Goob - TODO; Give more engi usees for these - also we add more cause engi dont spawn with these
     ClothingHeadHatWelding: 6
     CrowbarYellow: 8
     Multitool: 4
@@ -110,3 +111,6 @@
   contrabandInventory:
     CowToolboxFilled: 1
     DrinkBeerCan: 3
+  emaggedInventory: #goob
+    ClothingHandsGlovesExplosiveShock: 2
+    RCDAmmo: 2

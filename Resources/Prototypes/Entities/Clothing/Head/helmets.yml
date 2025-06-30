@@ -514,6 +514,7 @@
         Slash: 0.9
         Heat: 0.8
         Cold: 0.8
+  - type: EyeProtection # goob
 
 #Chitinous Helmet
 - type: entity
@@ -597,12 +598,13 @@
   parent: ClothingHeadHelmetERTLeader
   id: ClothingHeadHelmetERTEngineer
   name: ERT engineer helmet
-  description: An in-atmosphere helmet worn by engineering members of the Nanotrasen Emergency Response Team. Has orange highlights.
+  description: An in-atmosphere helmet worn by engineering members of the Nanotrasen Emergency Response Team. Has orange highlights and keeps your eyes safe.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
+  - type: EyeProtection # goob - it literally has them in the sprite.
   - type: HideLayerClothing
     layers:
       Hair: HEAD

@@ -180,6 +180,7 @@
         Piercing: 0.9
         Heat: 0.8
         Radiation: 0.15
+  - type: EyeProtection # goob - do we even still use this suit
 
 #Engineering Hardsuit
 - type: entity
@@ -203,6 +204,7 @@
         Shock: 0.5
         Caustic: 0.7
         Radiation: 0.05
+  - type: EyeProtection # goob
 
 #Spationaut Hardsuit
 - type: entity
@@ -515,6 +517,8 @@
         Heat: 0.4
         Radiation: 0.0
         Caustic: 0.7
+  - type: EyeProtection # goob
+  - type: FlashImmunity # goob change - only for CE not regular engi/atmos
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -945,6 +949,7 @@
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
   - type: PointLight
     color: "#f4ffad"
+  - type: EyeProtection # goob
 
 #ERT Medical Hardsuit
 - type: entity

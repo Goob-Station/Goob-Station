@@ -52,6 +52,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     - NailgunStatic
+    - NailsStatic
     dynamicPacks:
     - AdvancedTools
     - AtmosTools
