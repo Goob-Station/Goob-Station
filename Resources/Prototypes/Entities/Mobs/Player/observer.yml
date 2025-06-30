@@ -198,6 +198,8 @@
   - type: CollectiveMind
     hearAll: true
     seeAllNames: true
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: UniversalLanguageSpeaker # Einstein Engines - Language
   - type: UserInterface
     interfaces:
       enum.RevivalContractUiKey.Key: # Goobstation - Devil
@@ -225,6 +227,7 @@
   - type: RadarConsole
     followEntity: true
   # </Goobstation>
+
 
 # Goobstation
 - type: entity

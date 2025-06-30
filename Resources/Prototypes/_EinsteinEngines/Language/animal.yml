@@ -197,3 +197,14 @@
     - won
     - wonk
     - wong
+
+- type: language # Goobstation - Reindeer
+  id: Deer
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - neigh
+    - ni
+    - brr

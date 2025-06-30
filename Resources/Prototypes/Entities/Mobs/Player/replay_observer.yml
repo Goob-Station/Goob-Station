@@ -16,3 +16,5 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 24
     baseWalkSpeed: 16
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: UniversalLanguageSpeaker # Einstein Engines - Language
