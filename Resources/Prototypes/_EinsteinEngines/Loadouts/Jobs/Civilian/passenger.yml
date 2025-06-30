@@ -391,13 +391,5 @@
     belt: ClothingBeltStorageWaistbag
 
 # Shoes
-- type: loadout
-  id: BlackShoes
-  equipment:
-    shoes: ClothingShoesColorBlack
 
-- type: loadout
-  id: WinterBoots
-  equipment:
-    shoes: ClothingShoesBootsWinter
 
