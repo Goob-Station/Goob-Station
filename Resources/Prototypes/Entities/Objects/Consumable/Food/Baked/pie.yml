@@ -125,6 +125,7 @@
   - type: Tag
     tags:
     - Pie
+    - VoxFood
 
 - type: entity
   parent: FoodInjectableBase # Not sliceable
