@@ -21,6 +21,10 @@
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kirus59 <145689588+Kirus59@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -29,6 +33,7 @@ using Content.Server._White.Blocking;
 using Content.Server.Cargo.Systems;
 using Content.Server.Emp;
 using Content.Server.Power.Components;
+using Content.Shared.Emp; // Goobstation
 using Content.Shared.Examine;
 using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
@@ -44,6 +49,8 @@ namespace Content.Server.Power.EntitySystems
         [Dependency] private readonly SharedContainerSystem _containers = default!; // WD EDIT
         [Dependency] private readonly IGameTiming Timing = default!;
 
+        private EntityQuery<EmpDisabledComponent> _disabledQuery; // Goobstation
+
         public override void Initialize()
         {
             base.Initialize();
@@ -58,6 +65,8 @@ namespace Content.Server.Power.EntitySystems
 
             SubscribeLocalEvent<NetworkBatteryPreSync>(PreSync);
             SubscribeLocalEvent<NetworkBatteryPostSync>(PostSync);
+
+            _disabledQuery = GetEntityQuery<EmpDisabledComponent>(); // Goobstation
         }
 
         private void OnNetBatteryRejuvenate(EntityUid uid, PowerNetworkBatteryComponent component, RejuvenateEvent args)
@@ -126,6 +135,10 @@ namespace Content.Server.Power.EntitySystems
                     if (comp.NextAutoRecharge > Timing.CurTime)
                         continue;
                 }
+
+                // Goobstation
+                if (comp.CanEmp && _disabledQuery.HasComponent(uid))
+                    continue;
 
                 SetCharge(uid, batt.CurrentCharge + comp.AutoRechargeRate * frameTime, batt);
             }
