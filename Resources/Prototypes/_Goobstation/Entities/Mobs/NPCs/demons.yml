@@ -10,6 +10,9 @@
   parent: [ SimpleSpaceMobBase, MobCombat ]
   description: Exceedingly slow, but is immune to all forms of damage, except holy.
   components:
+  - type: Bloodstream
+    bloodMaxVolume: 5
+    bloodReagent: MindbreakerToxin
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Mobs/Demons/curse.rsi
@@ -44,7 +47,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      20: Dead
+      60: Dead
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -53,8 +56,10 @@
       types:
         Caustic: 5
   - type: Damageable
-    damageContainer: BiologicalAdvancedMetaphysical
+    damageContainer: BiologicalMetaphysical
     damageModifierSet: AdvancedSpirit
+  - type: WeakToHoly
+    alwaysTakeHoly: true
   - type: NoSlip
   - type: MovementSpeedModifier
     baseWalkSpeed : 1
@@ -64,13 +69,6 @@
     reflects:
     - Nonenergy
     - Energy
-  - type: Butcherable
-    spawned:
-    - id: Ectoplasm
-      amount: 1
-    - id: AnomalyCoreShadow
-      amount: 1
-      prob: 0.2
   - type: AmbientSound
     range: 7
     volume: -5
@@ -80,4 +78,6 @@
     radius: 1.5
     energy: 12.5
     color: "#793a80"
+  - type: Megafauna
+    loot: AnomalyCoreShadow
   

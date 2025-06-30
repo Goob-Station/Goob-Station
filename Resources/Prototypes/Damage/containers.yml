@@ -106,11 +106,3 @@
   - Genetic
   supportedTypes: # Goobstation
   - Holy
-
-#Goobstation
-- type: damageContainer
-  id: BiologicalAdvancedMetaphysical
-  supportedGroups:
-    - Metaphysical
-  supportedTypes: # Goobstation
-  - Holy
