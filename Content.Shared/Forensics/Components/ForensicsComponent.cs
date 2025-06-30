@@ -9,21 +9,26 @@
 //
 // SPDX-License-Identifier: MIT
 
-namespace Content.Server.Forensics
+using Robust.Shared.GameStates;
+
+namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared Forensics Component
 {
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Einstein Engines - Network that shit
     public sealed partial class ForensicsComponent : Component
     {
-        [DataField("fingerprints")]
+        [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
         public HashSet<string> Fingerprints = new();
 
-        [DataField("fibers")]
+        [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
         public HashSet<string> Fibers = new();
 
-        [DataField("dnas")]
+        [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
         public HashSet<string> DNAs = new();
 
-        [DataField("residues")]
+        [DataField, AutoNetworkedField] // Einstein Engines - Scent Tracking
+        public string Scent = String.Empty;
+
+        [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
         public HashSet<string> Residues = new();
 
         /// <summary>
@@ -38,5 +43,11 @@ namespace Content.Server.Forensics
         /// </summary>
         [DataField("canDnaBeCleaned")]
         public bool CanDnaBeCleaned = true;
+
+        /// <summary>
+        /// Moment in time next effect will be spawned - Einstein Engines
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public TimeSpan TargetTime = TimeSpan.Zero;
     }
 }
