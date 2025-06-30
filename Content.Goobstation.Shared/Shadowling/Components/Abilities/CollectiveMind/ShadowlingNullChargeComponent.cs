@@ -12,12 +12,21 @@ public sealed partial class ShadowlingNullChargeComponent : Component
     [DataField]
     public EntProtoId NullChargeAction = "ActionNullCharge";
 
+    /// <summary>
+    /// The seconds it takes for the null charge ability to complete.
+    /// </summary>
     [DataField]
     public TimeSpan NullChargeToComplete = TimeSpan.FromSeconds(10);
 
+    /// <summary>
+    /// The search radius of this ability.
+    /// </summary>
     [DataField]
     public float Range = 1f;
 
+    /// <summary>
+    /// The effect that is used once the ability activates.
+    /// </summary>
     [DataField]
     public EntProtoId NullChargeEffect = "ShadowlingNullChargeEffect";
 }

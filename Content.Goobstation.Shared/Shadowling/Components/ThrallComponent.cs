@@ -11,9 +11,6 @@ namespace Content.Goobstation.Shared.Shadowling.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ThrallComponent : Component
 {
-    [DataField]
-    public float EnthrallDurationEffect = 1.5f;
-
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "ThrallFaction";
 
@@ -23,14 +20,11 @@ public sealed partial class ThrallComponent : Component
         "ActionGuise"
     };
 
-    public string? ActionThrallDarksight = "ActionThrallDarksight";
-    public string? ActionGuise = "ActionGuise";
+    public EntProtoId ActionThrallDarksight = "ActionThrallDarksight";
+    public EntProtoId ActionGuise = "ActionGuise";
 
     public EntityUid? ActionThrallDarksightEntity;
     public EntityUid? ActionGuiseEntity;
-
-    [DataField]
-    public bool NightVisionMode;
 
     [DataField]
     public SoundSpecifier? ThrallConverted = new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/thrall.ogg");

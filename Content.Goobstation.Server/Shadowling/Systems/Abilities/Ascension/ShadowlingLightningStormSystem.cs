@@ -29,15 +29,8 @@ public sealed class ShadowlingLightningStormSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ShadowlingLightningStormComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ShadowlingLightningStormComponent, LightningStormEvent>(OnLightningStorm);
         SubscribeLocalEvent<ShadowlingLightningStormComponent, LightningStormEventDoAfterEvent>(OnLightningStormDoAfter);
-    }
-
-    private void OnStartup(EntityUid uid, ShadowlingLightningStormComponent component, ComponentStartup args)
-    {
-        // So they don't get hit by their own lightning
-        EnsureComp<InsulatedComponent>(uid);
     }
 
     private void OnLightningStorm(EntityUid uid, ShadowlingLightningStormComponent component, LightningStormEvent args)

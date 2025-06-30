@@ -233,7 +233,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         if (!TryComp<LightDetectionDamageModifierComponent>(uid, out var lightDet))
             return;
 
-        args.PushMarkup($"[color=#D22B2B]You take {lightDet.ResistanceModifier * lightDet.DamageToDeal.GetTotal()} burn damage from light[/color]");
+        args.PushMarkup(Loc.GetString("shadowling-examine-self", ("damage", lightDet.ResistanceModifier * lightDet.DamageToDeal.GetTotal())));
     }
 
     #endregion

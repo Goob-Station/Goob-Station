@@ -23,6 +23,7 @@ public sealed partial class ShadowlingGlareComponent : Component
     // Variable activation time. On distance 1 or lower, it is immediate,
     // otherwise it gets increased based on distance.
     // Max time before stun is 2 seconds
+    // Note: needs to be rewritten to not use frametime
     // </summary>
     [DataField]
     public float GlareTimeBeforeEffect;

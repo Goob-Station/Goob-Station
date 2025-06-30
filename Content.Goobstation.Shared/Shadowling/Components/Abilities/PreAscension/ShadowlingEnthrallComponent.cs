@@ -12,6 +12,9 @@ public sealed partial class ShadowlingEnthrallComponent : Component
     [DataField]
     public EntProtoId ActionEnthrall = "ActionEnthrall";
 
+    /// <summary>
+    /// Indicates how long the enthrallment process takes.
+    /// </summary>
     [DataField]
     public TimeSpan EnthrallTime = TimeSpan.FromSeconds(5);
 }

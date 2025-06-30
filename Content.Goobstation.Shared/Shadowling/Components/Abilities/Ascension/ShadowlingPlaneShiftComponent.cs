@@ -9,15 +9,21 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Ascension;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingPlaneShiftComponent : Component
 {
+    /// <summary>
+    /// Indicates whether the ability is active, or not.
+    /// </summary>
     [DataField]
     public bool IsActive;
 
+    /// <summary>
+    /// Indicates the new walking speed of the ability user.
+    /// </summary>
     [DataField]
     public float WalkSpeedModifier = 1.25f;
 
+    /// <summary>
+    /// Indicates the new running speed of the ability user.
+    /// </summary>
     [DataField]
     public float RunSpeedModifier = 1.5f;
-
-    [DataField]
-    public EntProtoId ShadowWalkEffectOut = "ShadowlingShadowWalkOutEffect";
 }

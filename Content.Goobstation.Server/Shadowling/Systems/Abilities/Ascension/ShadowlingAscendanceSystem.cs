@@ -19,7 +19,9 @@ using Robust.Shared.Map;
 namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.Ascension;
 
 /// <summary>
-/// debug
+/// This is the ascendance ability.
+/// The ascendance ability only forms the Ascension Egg.
+/// Other info about the Ascension Egg exists in its own system.
 /// </summary>
 public sealed class ShadowlingAscendanceSystem : EntitySystem
 {

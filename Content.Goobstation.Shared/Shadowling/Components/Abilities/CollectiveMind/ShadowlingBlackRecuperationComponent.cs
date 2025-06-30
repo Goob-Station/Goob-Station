@@ -13,41 +13,53 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveM
 public sealed partial class ShadowlingBlackRecuperationComponent : Component
 {
     [DataField]
-    public bool IsEmpowering;
-
-    [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(5);
 
+    /// <summary>
+    /// The effect that is used once the ability activates.
+    /// </summary>
     [DataField]
     public EntProtoId BlackRecuperationEffect = "ShadowlingBlackRecuperationEffect";
 
+    /// <summary>
+    /// The max limit of Lesser Shadowlings that a Shadowling can have.
+    /// </summary>
     [DataField]
     public int LesserShadowlingMaxLimit = 5;
 
+    /// <summary>
+    /// The current amount of Lesser Shadowlings that the Shadowling has.
+    /// </summary>
     [DataField]
     public int LesserShadowlingAmount;
 
+    /// <summary>
+    /// The polymorph species of the Lesser Shadowlings
+    /// </summary>
     [DataField]
     public ProtoId<PolymorphPrototype> LesserShadowlingSpeciesProto = "ShadowPolymorph";
 
+    /// <summary>
+    /// The marking of the eyes of a Lesser Shadowling.
+    /// </summary>
     [DataField]
-    public string MarkingId = "LesserShadowlingEyes";
+    public EntProtoId MarkingId = "LesserShadowlingEyes";
 
+    /// <summary>
+    /// The sound that is used once the ability activates.
+    /// </summary>
     [DataField]
     public SoundSpecifier? BlackRecSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg");
 
-    [DataField]
-    public DamageSpecifier DamageToDeal = new()
-    {
-        DamageDict = new()
-        {
-            ["Cellular"] = 5,
-        }
-    };
-
+    /// <summary>
+    /// How much light resistance the ability removes from the Shadowling, if used on a dead Thrall
+    /// </summary>
     [DataField]
     public float ResistanceRemoveFromThralls = 0.5f;
 
+    /// <summary>
+    /// How much light resistance the ability removes from the Shadowling, if used to convert a Thrall to a Lesser Shadowling
+    /// </summary>
     [DataField]
     public float ResistanceRemoveFromLesser = 0.12f;
 }

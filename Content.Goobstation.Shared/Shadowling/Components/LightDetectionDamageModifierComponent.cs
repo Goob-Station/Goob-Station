@@ -90,6 +90,9 @@ public sealed partial class LightDetectionDamageModifierComponent : Component
         }
     };
 
+    /// <summary>
+    /// How much damage to heal to the entity.
+    /// </summary>
     [DataField]
     public DamageSpecifier DamageToHeal = new()
     {
@@ -110,6 +113,9 @@ public sealed partial class LightDetectionDamageModifierComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> AlertProto = "ShadowlingLight";
 
+    /// <summary>
+    /// If an alert prototype does not exist, this should be false. Otherwise, it is defaulted to the Shadowling's one.
+    /// </summary>
     [DataField]
     public bool ShowAlert = true;
 }

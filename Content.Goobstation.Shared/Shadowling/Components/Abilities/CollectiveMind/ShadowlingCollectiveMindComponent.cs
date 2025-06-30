@@ -3,6 +3,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 
+/// <summary>
+/// Holds the data used for adding new abilities to the shadowling
+/// </summary>
 [DataDefinition]
 public sealed partial class ShadowlingActionData
 {
@@ -78,18 +81,35 @@ public sealed partial class ShadowlingCollectiveMindComponent : Component
         }
     };
 
+    /// <summary>
+    /// The abilities that have already been added from collective mind.
+    /// </summary>
     [DataField]
     public int AbilitiesAdded;
 
+    /// <summary>
+    /// The amount of thralls that the Shadowling has, in order to check what abilities to give.
+    /// </summary>
     [DataField]
     public int AmountOfThralls;
 
+    /// <summary>
+    /// The required thralls for ascension.
+    /// Used to inform the Shadowling how many thralls they need to unlock the final ability.
+    /// </summary>
     [DataField]
     public int ThrallsRequiredForAscension = 20;
 
+    /// <summary>
+    /// How long the Thralls get stunned once the Shadowling gains a new ability
+    /// Gets modified with each new ability added.
+    /// </summary>
     [DataField]
     public float BaseStunTime = 0.5f;
 
+    /// <summary>
+    /// The effect that is used once the ability activates.
+    /// </summary>
     [DataField]
     public EntProtoId CollectiveMindEffect = "ShadowlingCollectiveMindEffect";
 }

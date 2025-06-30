@@ -22,6 +22,11 @@ public sealed class ShadowlingEggHatchSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
 
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<HatchingEggComponent, MapInitEvent>(OnMapInit);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -32,45 +37,49 @@ public sealed class ShadowlingEggHatchSystem : EntitySystem
         var query = EntityQueryEnumerator<HatchingEggComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            if (comp.HasBeenHatched)
+                continue;
+
             var shadowlingInside = comp.ShadowlingInside;
 
             if (shadowlingInside != null)
             {
                 var sUid = shadowlingInside.Value;
-                if (comp.CooldownTimer <= 12 && !comp.HasFirstMessageAppeared)
+
+                if (_timing.CurTime >= comp.NextUpdate)
+                    Cycle(sUid, uid, comp);
+
+                if (_timing.CurTime >= (comp.NextUpdate - TimeSpan.FromSeconds(12)) && !comp.HasFirstMessageAppeared)
                 {
                     _popupSystem.PopupEntity(Loc.GetString("sling-hatch-first"), uid, sUid, PopupType.Medium);
                     _audio.PlayPvs(comp.CrackFirst, uid, AudioParams.Default.WithVolume(-2f));
                     comp.HasFirstMessageAppeared = true;
                 }
 
-                if (comp.CooldownTimer <= 7 && !comp.HasSecondMessageAppeared)
+                if (_timing.CurTime >= (comp.NextUpdate - TimeSpan.FromSeconds(7)) && !comp.HasSecondMessageAppeared)
                 {
                     _popupSystem.PopupEntity(Loc.GetString("sling-hatch-second"), uid, sUid, PopupType.Medium);
                     _audio.PlayPvs(comp.CrackSecond, uid, AudioParams.Default.WithVolume(-2f));
                     comp.HasSecondMessageAppeared = true;
                 }
 
-                if (comp.CooldownTimer <= 3 && !comp.HasThirdMessageAppeared)
+                if (_timing.CurTime >= (comp.NextUpdate - TimeSpan.FromSeconds(3)) && !comp.HasThirdMessageAppeared)
                 {
                     _popupSystem.PopupEntity(Loc.GetString("sling-hatch-third"), uid, sUid, PopupType.Medium);
                     _audio.PlayPvs(comp.CrackFirst, uid, AudioParams.Default.WithVolume(-2f).WithPitchScale(2f));
                     comp.HasThirdMessageAppeared = true;
                 }
-
-
-                comp.CooldownTimer -= frameTime;
-                if (comp.CooldownTimer <= 0)
-                    Cycle(sUid, uid, comp);
             }
         }
     }
 
+    public void OnMapInit(Entity<HatchingEggComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.CooldownTimer;
+    }
+
     public void Cycle(EntityUid sling, EntityUid egg, HatchingEggComponent comp)
     {
-        if (comp.HasBeenHatched)
-            return;
-
         if (!TryComp<ShadowlingComponent>(sling, out var shadowling))
             return;
 

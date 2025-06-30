@@ -115,8 +115,6 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
 
             _audio.PlayPvs(component.BlackRecSound, target, AudioParams.Default.WithVolume(-1f));
 
-            _damageable.TryChangeDamage(uid, component.DamageToDeal);
-
             if (!TryComp<LightDetectionDamageModifierComponent>(uid, out var lightDetectionDamageModifier))
                 return;
 
