@@ -458,6 +458,11 @@
       Male: MaleHuman
       Female: FemaleHuman
       Unsexed: MaleHuman
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes

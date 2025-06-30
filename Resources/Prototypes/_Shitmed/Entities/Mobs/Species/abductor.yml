@@ -47,6 +47,12 @@
     defaultChannel: Abductormind
     channels:
     - Abductormind
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeeplian
+    understands:
+    - TauCetiBasic # Can understand, but cannot speak it.
+    - Xeeplian
 #  - type: DamageVisuals
 #    damageOverlayGroups:
 #      Brute:
