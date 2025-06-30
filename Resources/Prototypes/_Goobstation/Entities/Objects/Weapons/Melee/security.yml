@@ -36,6 +36,128 @@
     - SecBeltEquip
 
 - type: entity
+  id: SpearStun
+  parent: [BaseItem, BaseSecurityContraband]
+  name: stun spear
+  description: A compact, throwable spear with a retractable shaft. Designed for both melee and ranged use.
+  components:
+  - type: Item
+    size: Ginormous
+    storedRotation: 45
+    heldPrefix: off
+    shape:
+      - 0,0,3,0
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/telespear.rsi
+    layers:
+      - state: icon-off
+        map: [ "enum.ItemToggleVisuals.Layer" ]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/telespear.rsi
+    slots:
+      - Back
+      - suitStorage
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+            - -0.08,-0.06
+            - -0.06,-0.08
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+          - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: EmbeddableProjectile # This is goofy, but I can't make it toggleable because it tries
+    offset: -0.15,0.0 # to unstick from owned entity on component shutdown and drops out of hand
+  - type: LandAtCursor
+  - type: ThrowingAngle
+    angle: 225
+  - type: ItemToggle
+    soundActivate:
+      collection: sparks
+      params:
+        variation: 0.250
+    soundDeactivate:
+      collection: sparks
+      params:
+        variation: 0.250
+  - type: ComponentToggler
+    components:
+      - type: Sharp
+      - type: DisarmMalus
+        malus: 0.6
+      - type: Wieldable
+        unwieldOnUse: false
+        applyNewPrefixOnShutdown: true
+        newPrefixOnShutdown: off
+      - type: DamageOtherOnHit
+        damage:
+          types:
+            Piercing: 36
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    activatedDamage:
+      types:
+        Shock: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 6
+  - type: Stunbaton
+    energyPerUse: 120
+    lightAttackEnergyMultiplier: 1.5
+  - type: StaminaDamageOnHit # goob edited
+    damage: 15
+    overtime: 40
+    lightAttackDamageMultiplier: 5
+    lightAttackOvertimeDamageMultiplier: 0
+    sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide # goob edited
+    damage: 15
+    overtime: 40
+    sound: /Audio/Weapons/egloves.ogg
+  - type: DelayedKnockdownOnHit # Goobstation
+    useDelay: stunbaton
+  - type: UseDelayBlockMelee # Goobstation
+    delays:
+    - stunbaton
+  - type: Battery
+    maxCharge: 360
+    startingCharge: 360
+  - type: UseDelay
+    delays: # Goobstation
+      stunbaton:
+        length: 2.5
+  - type: MeleeWeapon
+    canWideSwing: false
+    range: 2.2
+    animationRotation: -135
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+        Piercing: 5
+    soundHit:
+      collection: MetalThud
+  - type: Appearance
+  - type: ItemToggleVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.ItemToggleVisuals.State:
+        enum.ItemToggleVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon-off }
+  - type: Tag
+    tags:
+    - SecBeltEquip
+    - Stunbaton
+
+- type: entity
   id: SpearTelescopic
   parent: [BaseItem, BaseSecurityContraband]
   name: telescopic spear
