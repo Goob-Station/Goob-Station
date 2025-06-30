@@ -29,7 +29,8 @@ using JetBrains.Annotations;
 
 namespace Content.Server.Atmos.Reactions
 {
-    [DataDefinition, UsedImplicitly]
+    [DataDefinition]
+    [UsedImplicitly]
     public sealed partial class TritiumFireReaction : IGasReactionEffect
     {
         public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
