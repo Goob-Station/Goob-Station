@@ -148,6 +148,7 @@
     - ActionSurvCameraLights
     - ActionAIViewLaws
     - ActionOpenRemoteDevicesMenu # Corvax-Next-AiRemoteControl
+    - ActionOpenCameraWarpMenu # Goobstation-Ai-Camera-Jumping
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -162,6 +163,8 @@
         type: CommunicationsConsoleBoundUserInterface
       enum.RemoteDeviceUiKey.Key: # Corvax-Next-AiRemoteControl
         type: RemoteDevicesBoundUserInterface
+      enum.CamWarpUiKey.Key: # Goobstation-Ai-Camera-Jumping
+        type: AiCameraWarpBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
