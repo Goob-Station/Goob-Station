@@ -319,6 +319,8 @@
     - id: CargoRequestEngineeringComputerCircuitboard
     - id: RCD
     - id: RCDAmmo
+    - id: RCDAmmo
+    - id: RPD
     - id: RubberStampCE
     # Goobstation V
     - id: BaseHandheldStationMapPowerCe
