@@ -15,8 +15,6 @@
 // SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
@@ -29,8 +27,8 @@ using JetBrains.Annotations;
 
 namespace Content.Server.Atmos.Reactions
 {
-    [DataDefinition]
     [UsedImplicitly]
+    [DataDefinition]
     public sealed partial class TritiumFireReaction : IGasReactionEffect
     {
         public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
@@ -39,7 +37,7 @@ namespace Content.Server.Atmos.Reactions
             var oldHeatCapacity = atmosphereSystem.GetHeatCapacity(mixture, true);
             var temperature = mixture.Temperature;
             var location = holder as TileAtmosphere;
-            mixture.ReactionResults[(byte) GasReaction.Fire] = 0f;
+            mixture.ReactionResults[(byte)GasReaction.Fire] = 0f;
             var burnedFuel = 0f;
             var initialTrit = mixture.GetMoles(Gas.Tritium);
 
@@ -55,9 +53,9 @@ namespace Content.Server.Atmos.Reactions
             else
             {
                 burnedFuel = initialTrit;
-                mixture.SetMoles(Gas.Tritium, mixture.GetMoles(Gas.Tritium) * (1 - 1 / Atmospherics.TritiumBurnTritFactor));
+                mixture.SetMoles(Gas.Tritium, mixture.GetMoles(Gas.Tritium ) * (1 - 1 / Atmospherics.TritiumBurnTritFactor));
                 mixture.AdjustMoles(Gas.Oxygen, -mixture.GetMoles(Gas.Tritium));
-                energyReleased += Atmospherics.FireHydrogenEnergyReleased * burnedFuel * (Atmospherics.TritiumBurnTritFactor - 1);
+                energyReleased += (Atmospherics.FireHydrogenEnergyReleased * burnedFuel * (Atmospherics.TritiumBurnTritFactor - 1));
             }
 
             if (burnedFuel > 0)
@@ -69,7 +67,7 @@ namespace Content.Server.Atmos.Reactions
                 // Conservation of mass is important.
                 mixture.AdjustMoles(Gas.WaterVapor, burnedFuel);
 
-                mixture.ReactionResults[(byte) GasReaction.Fire] += burnedFuel;
+                mixture.ReactionResults[(byte)GasReaction.Fire] += burnedFuel;
             }
 
             energyReleased /= heatScale; // adjust energy to make sure speedup doesn't cause mega temperature rise
