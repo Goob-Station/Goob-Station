@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -8,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -66,3 +69,62 @@
         - PressureDamageChange
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
+
+- type: entity
+  id: BorgModuleSyndicateMedical
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: syndicate medical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: SyndicateMedical
+    items:
+    - OmnimedToolSyndie
+    - MedicalBeamGunSyndicate
+    - DefibrillatorSyndicate # TODO: make an unpowered version
+  - type: BorgModuleIcon
+    icon: { sprite: /Textures/_Goobstation/Interface/Actions/Borg-actions.rsi, state: syndicate-surgery-module }
+  - type: DroppableBorgModule
+    moduleId: SyndicateMedical
+    items:
+    - id: OrganHumanBrain
+      whitelist:
+        components:
+        - BodyPart
+        tags:
+        - Organ
+
+- type: entity
+  id: BorgModuleSyndicateChemicals
+  parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: syndicate chemical cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: syndicate
+    - state: icon-syndicate
+  - type: ItemBorgModule
+    moduleId: SyndicateChemicals
+    items:
+    - SyndiHypo
+    - DartGun
+  - type: DroppableBorgModule
+    moduleId: SyndicateChemicals
+    items:
+    - id: BluespaceBeaker # B - balanced
+      whitelist:
+        components:
+        - FitsInDispenser
+    - id: LargeBeaker
+      whitelist:
+        components:
+        - FitsInDispenser
+    - id: LargeBeaker
+      whitelist:
+        components:
+        - FitsInDispenser
+  - type: BorgModuleIcon
+    icon: { sprite: /Textures/_Goobstation/Interface/Actions/Borg-actions.rsi, state: syndicate-medical-module }
