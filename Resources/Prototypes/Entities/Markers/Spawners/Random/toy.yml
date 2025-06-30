@@ -75,9 +75,9 @@
         - PlushieDiona
         - PlushieArachind
         - PlushieBingle # Goobstation
-        - PlushieSamantha # Goobstation
-        - PlushieJvne # Goobstation
-        - PlushieFern # Goobstation
+#        - PlushieSamantha # Corvax Goob
+#        - PlushieJvne # Corvax Goob
+#        - PlushieFern # Corvax Goob
         - PlushieAbductor # Goobstation
       chance: 0.5
       offset: 0.2

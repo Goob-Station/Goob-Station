@@ -39,7 +39,7 @@
   - type: PriorityDock
     tag: DockMining
   - type: GridFill
-    path: /Maps/_Lavaland/mining.yml
+    path: /Maps/_CorvaxGoob/Lavaland/mining.yml
     addComponents:
     - type: IFF
       flags:

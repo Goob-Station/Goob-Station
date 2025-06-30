@@ -341,124 +341,128 @@
 
 ## Admin plushies go above the rest of the chuds.
 
-- type: entity
-  parent: BasePlushie
-  id: PlushieSamantha
-  name: jane blueshield plushie
-  description: A cute stuffed toy that resembles a veteran blueshield officer. You feel a sudden urge for lollypops while holding it.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_samantha
-  - type: Item
-    heldPrefix: plushiesamantha
-  - type: Clothing
-    quickEquip: false
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    equippedPrefix: plushiesamantha
-    slots:
-    - HEAD
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 0
-    soundHit:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
-    soundNoDamage:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
-  - type: GibThisGuy # Death to myself. It'd be funny.
-    requireBoth: false
-    icNames:
-    - Samantha Withers
-    ocNames:
-    - SolsticeOfTheWinter
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: TableSalt # .... get it?
-        Quantity: 10
-      - ReagentId: Ice
-        Quantity: 10
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: Ice
-          Quantity: 5
-        - ReagentId: TableSalt
-          Quantity: 5
+# Corvax Goob-start
+#- type: entity
+#  parent: BasePlushie
+#  id: PlushieSamantha
+#  name: jane blueshield plushie
+#  description: A cute stuffed toy that resembles a veteran blueshield officer. You feel a sudden urge for lollypops while holding it.
+#  components:
+#  - type: Sprite
+#    sprite: _Goobstation/Objects/Fun/toys.rsi
+#    state: plushie_samantha
+#  - type: Item
+#    heldPrefix: plushiesamantha
+#  - type: Clothing
+#    quickEquip: false
+#    sprite: _Goobstation/Objects/Fun/toys.rsi
+#    equippedPrefix: plushiesamantha
+#    slots:
+#    - HEAD
+#  - type: EmitSoundOnUse
+#    sound:
+#      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+#  - type: EmitSoundOnLand
+#    sound:
+#      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+#  - type: EmitSoundOnActivate
+#    sound:
+#      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+#  - type: EmitSoundOnTrigger
+#    sound:
+#      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+#  - type: EmitSoundOnCollide
+#    sound:
+#      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+#  - type: MeleeWeapon
+#    damage:
+#      types:
+#        Blunt: 0
+#    soundHit:
+#      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+#    soundNoDamage:
+#      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+#  - type: GibThisGuy # Death to myself. It'd be funny.
+#    requireBoth: false
+#    icNames:
+#    - Samantha Withers
+#    ocNames:
+#    - SolsticeOfTheWinter
+#  - type: Extractable
+#    juiceSolution:
+#      reagents:
+#      - ReagentId: TableSalt # .... get it?
+#        Quantity: 10
+#      - ReagentId: Ice
+#        Quantity: 10
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        maxVol: 20
+#        reagents:
+#        - ReagentId: Fiber
+#          Quantity: 10
+#        - ReagentId: Ice
+#          Quantity: 5
+#        - ReagentId: TableSalt
+#          Quantity: 5
 
 ## Jvne goes here because she's cooler
 
-- type: entity
-  parent: BasePlushie
-  id: PlushieJvne
-  name: jvne plushie
-  description: It's been a rough day...
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_jvne
-  - type: Item
-    heldPrefix: plushiejvne
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 0
-    soundHit:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+#- type: entity
+#  parent: BasePlushie
+#  id: PlushieJvne
+#  name: jvne plushie
+#  description: It's been a rough day...
+#  components:
+#  - type: Sprite
+#    sprite: _Goobstation/Objects/Fun/toys.rsi
+#    state: plushie_jvne
+#  - type: Item
+#    heldPrefix: plushiejvne
+#  - type: EmitSoundOnUse
+#    sound:
+#      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+#  - type: EmitSoundOnLand
+#    sound:
+#      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+#  - type: EmitSoundOnActivate
+#    sound:
+#      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+#  - type: EmitSoundOnTrigger
+#    sound:
+#      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+#  - type: EmitSoundOnCollide
+#    sound:
+#      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+#  - type: MeleeWeapon
+#    damage:
+#      types:
+#        Blunt: 0
+#    soundHit:
+#      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
+#    soundNoDamage:
+#      path: /Audio/_DV/Voice/Vulpkanin/dog_snarl2.ogg
 
-- type: entity
-  parent: PlushieLizard
-  id: PlushieFern
-  name: mystical lizard plushie
-  description: You feel as if something else is watching you... just out of sight, in the shadows.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: plushie_fern
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/_Goobstation/Wizard/charge.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/_Goobstation/Wizard/teleport_app.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/_Goobstation/Wizard/charge.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/_Goobstation/Wizard/charge.ogg
+#- type: entity
+#  parent: PlushieLizard
+#  id: PlushieFern
+#  name: mystical lizard plushie
+#  description: You feel as if something else is watching you... just out of sight, in the shadows.
+#  components:
+#  - type: Sprite
+#    sprite: _Goobstation/Objects/Fun/toys.rsi
+#    state: plushie_fern
+#  - type: EmitSoundOnUse
+#    sound:
+#      path: /Audio/_Goobstation/Wizard/charge.ogg
+#  - type: EmitSoundOnLand
+#    sound:
+#      path: /Audio/_Goobstation/Wizard/teleport_app.ogg
+#  - type: EmitSoundOnActivate
+#    sound:
+#      path: /Audio/_Goobstation/Wizard/charge.ogg
+#  - type: EmitSoundOnTrigger
+#    sound:
+#      path: /Audio/_Goobstation/Wizard/charge.ogg
+# Corvax Goob-end

@@ -239,6 +239,8 @@
   - type: Anchorable
   - type: TypingIndicator
     proto: robot
+  - type: TTS # CorvaxGoob-TTS
+    voice: TrainingRobot
   - type: Speech
     speechVerb: Robotic
     speechSounds: Vending

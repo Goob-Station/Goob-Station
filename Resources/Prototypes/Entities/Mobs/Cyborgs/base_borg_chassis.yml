@@ -189,6 +189,8 @@
         - MobMask
         layer:
         - MobLayer
+  - type: TTS # CorvaxGoob-TTS
+    voice: TrainingRobot
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5

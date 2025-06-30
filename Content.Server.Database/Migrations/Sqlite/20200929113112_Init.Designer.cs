@@ -183,6 +183,13 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnName("skin_color")
                         .HasColumnType("TEXT");
 
+                    // CorvaxGoob-TTS-Start
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voice");
+                    // CorvaxGoob-TTS-End
+
                     b.Property<int>("Slot")
                         .HasColumnName("slot")
                         .HasColumnType("INTEGER");

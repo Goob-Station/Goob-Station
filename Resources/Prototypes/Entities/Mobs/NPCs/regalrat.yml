@@ -210,6 +210,8 @@
       types:
         Slash: 12
         Piercing: 8
+  - type: TTS # CorvaxGoob-TTS
+    voice: Rat
   - type: Body
     prototype: RatKing
     requiredLegs: 1 # TODO: More than 1 leg

@@ -148,6 +148,8 @@
       - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: short
+    - type: TTS # CorvaxGoob-TTS
+      voice: Gizmo
     - type: GhostTakeoverAvailable
     - type: Blobbernaut
     - type: Physics
