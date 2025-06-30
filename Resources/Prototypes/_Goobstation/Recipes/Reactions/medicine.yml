@@ -417,7 +417,7 @@
     Epinephrine:
       amount: 1
     Plasma:
-      amount: 5
+      amount: 1
       catalyst: true
   products:
     Oxycodone: 1
