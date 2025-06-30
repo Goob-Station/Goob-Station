@@ -47,3 +47,5 @@
     sprite: _Goobstation/Heretic/reality_fracture.rsi
     state: icon_harvested
   - type: Clickable
+  - type: Visibility
+    layer: 64 # keep in sync with VisibilityFlags.EldritchInfluenceSpent for upstream merges

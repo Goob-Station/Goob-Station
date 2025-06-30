@@ -187,3 +187,5 @@
   - type: Reactive
     groups:
       Acidic: [Touch]
+  - type: WeakToHoly # Goobstation Shitchap
+    alwaysTakeHoly: true
