@@ -522,7 +522,6 @@
         Radiation: 0.0
         Caustic: 0.7
   - type: EyeProtection # goob
-  - type: FlashImmunity # goob change - only for CE not regular engi/atmos
 
 #Chief Medical Officer's Hardsuit
 - type: entity
