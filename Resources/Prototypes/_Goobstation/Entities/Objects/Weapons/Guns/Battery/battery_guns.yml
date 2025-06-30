@@ -11,6 +11,7 @@
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -403,7 +404,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: EnergyMagRifleLethal
+        startingItem: null
         insertSound: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
         whitelist:
