@@ -1,0 +1,153 @@
+- type: documentType
+  id: SecurityDocument
+  startingText: ntr-document-security-starting-text1
+  template: ntr-document-security-document-text
+  textKeys:
+  - ntr-document-funny-sec1
+  - ntr-document-funny-sec2
+  - ntr-document-funny-sec3
+  - ntr-document-funny-sec4
+  textCounts:
+  - 15
+  - 4
+  - 2
+  - 8
+
+- type: documentType
+  id: CargoDocument
+  startingText: ntr-document-cargo-starting-text1
+  template: ntr-document-cargo-document-text
+  textKeys:
+  - ntr-document-funny-cargo1
+  - ntr-document-funny-cargo2
+  - ntr-document-funny-cargo3
+  textCounts:
+  - 5
+  - 8
+  - 9
+
+- type: documentType
+  id: MedicalDocument
+  startingText: ntr-document-medical-starting-text1
+  template: ntr-document-medical-document-text
+  textKeys:
+  - ntr-document-funny-med1
+  - ntr-document-funny-med2
+  - ntr-document-funny-med3
+  - ntr-document-funny-med4
+  textCounts:
+  - 2
+  - 8
+  - 6
+  - 10
+
+- type: documentType
+  id: ServiceDocument
+  startingText: ntr-document-service-starting-text1
+  template: ntr-document-service-document-text
+  textKeys:
+  - ntr-document-funny-service1
+  - ntr-document-funny-service2
+  - ntr-document-funny-service3
+  - ntr-document-funny-service4
+  textCounts:
+  - 15
+  - 15
+  - 15
+  - 15
+
+- type: documentType
+  id: ScienceDocument
+  startingText: ntr-document-science-starting-text1
+  template: ntr-document-science-document-text
+  textKeys:
+  - ntr-document-funny-sci1
+  - ntr-document-funny-sci2
+  - ntr-document-funny-sci3
+  - ntr-document-funny-sci4
+  textCounts:
+  - 8
+  - 19
+  - 16
+  - 8
+
+- type: documentType
+  id: EngineeringDocument
+  startingText: ntr-document-engineering-starting-text1
+  template: ntr-document-engineering-document-text
+  textKeys:
+  - ntr-document-funny-engi1
+  - ntr-document-funny-engi2
+  - ntr-document-funny-engi3
+  - ntr-document-funny-engi4
+  textCounts:
+  - 5
+  - 10
+  - 9
+  - 10
+
+# Documents
+- type: entity
+  name: Corporate Document
+  id: CorporateDocument
+  abstract: true
+  parent: Paper
+  description: An official NanoTrasen document. Looks like a ton of spam, as always.
+  components:
+  - type: RandomDocument
+    documentType: ServiceDocument # Default fallback
+
+# Regular Documents
+- type: entity
+  id: ServiceDocument
+  parent: CorporateDocument
+  components:
+  - type: RandomDocument
+    documentType: ServiceDocument
+    tasks:
+    - TaskStampHop
+
+- type: entity
+  id: SecurityDocument
+  parent: CorporateDocument
+  components:
+  - type: RandomDocument
+    documentType: SecurityDocument
+    tasks:
+    - TaskStampHos
+
+- type: entity
+  id: CargoDocument
+  parent: CorporateDocument
+  components:
+  - type: RandomDocument
+    documentType: CargoDocument
+    tasks:
+    - TaskStampQm
+
+- type: entity
+  id: MedicalDocument
+  parent: CorporateDocument
+  components:
+  - type: RandomDocument
+    documentType: MedicalDocument
+    tasks:
+    - TaskStampCmo
+
+- type: entity
+  id: EngineeringDocument
+  parent: CorporateDocument
+  components:
+  - type: RandomDocument
+    documentType: EngineeringDocument
+    tasks:
+    - TaskStampCe
+
+- type: entity
+  id: ScienceDocument
+  parent: CorporateDocument
+  components:
+  - type: RandomDocument
+    documentType: ScienceDocument
+    tasks:
+    - TaskStampRd
