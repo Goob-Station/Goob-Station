@@ -27,6 +27,17 @@
   - type: Body
     prototype: SiliconHand
     requiredLegs: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: HTN
     rootTask:
       task: FillbotCompound
