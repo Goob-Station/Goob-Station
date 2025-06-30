@@ -624,6 +624,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private ChangelingIdentityComponent? CopyChangelingComponent(EntityUid target, ChangelingIdentityComponent comp)
     {
+        EnsureComp<ChangelingComponent>(target);
+
         var newComp = EnsureComp<ChangelingIdentityComponent>(target);
         newComp.AbsorbedHistory = comp.AbsorbedHistory;
         newComp.AbsorbedDNA = comp.AbsorbedDNA;
