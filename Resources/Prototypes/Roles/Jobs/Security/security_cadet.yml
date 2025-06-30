@@ -102,10 +102,10 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 9000 #2.5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 #5 hrs
-      inverted: true # stop playing intern if you're good at security!
+    # - !type:DepartmentTimeRequirement
+    #   department: Security
+    #   time: 18000 #5 hrs
+    #   inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security

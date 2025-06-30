@@ -65,10 +65,10 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 1800 # 30 Minutes
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 18000 #5 hrs
-      inverted: true # stop playing intern if you're good at engineering!
+    # - !type:DepartmentTimeRequirement
+    #   department: Engineering
+    #   time: 18000 #5 hrs
+    #   inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
