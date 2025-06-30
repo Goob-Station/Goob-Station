@@ -74,6 +74,12 @@ public sealed partial class CloneProjectorComponent : Component
     [DataField]
     public EntityWhitelist? ClonedItemWhitelist;
 
+    /// <summary>
+    /// If the entity using this projector matches the whitelist, prevent use.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? UserBlacklist;
+
     [DataField]
     public ProtoId<DamageModifierSetPrototype> CloneDamageModifierSet ="LivingLight";
 
