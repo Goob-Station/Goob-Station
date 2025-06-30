@@ -128,8 +128,8 @@
   name: selectable-set-syndicate-spy-name
   description: selectable-set-syndicate-spy-description
   sprite:
-    sprite: Objects/Devices/jammer.rsi
-    state: jammer
+    sprite: Clothing/Mask/gas.rsi
+    state: icon
   content:
   - EncryptionKeySyndie
   - ClothingHandsChameleonThief
@@ -137,7 +137,8 @@
   - ClothingMaskGasVoiceChameleon
   - AgentIDCard
   - HypopenBox
-  - RadioJammer
+  - ChemistryBottleNocturine
+  - CameraBug
   - StealthBox
   - SyndicateJawsOfLife
 
@@ -156,7 +157,7 @@
   - MagazinePistolCaselessRifle
   - CQCManual
   - ClothingOuterArmourInvisibleSyndie
-  - ClothingShoesChameleonNoSlips
+  - ClothingShoesBootsJack
   - CigPackSyndicate
   - MedkitCombatFilled
   - ClothingEyesGlassesSunglasses
@@ -172,7 +173,7 @@
     state: icon
   content:
   - RadioImplanter
-  - EmpImplanter
+  - NutrimentImplanter
   - ScramImplanter
   - FreedomImplanter
   - SmokeImplanter
@@ -194,9 +195,9 @@
   - AntimovCircuitBoard
   - AccessBreaker
   - Emag
-  - CameraBug
+  - RadioJammer
   - ToolboxSyndicateFilled
-  - ClothingUniformJumpsuitAtmosSyndie
+  - ExperimentalSyndicateTeleporter
   - ClothingEyesGlassesOutlawGlasses
   - BinaryImplanter
 
@@ -211,8 +212,7 @@
   - EncryptionKeySyndie
   - EnergySwordDouble
   - StimkitFilled
-  - DrinkSpaceGlue
-  - ClothingShoesBootsJack
+  - ClothingShoesChameleonNoSlips
   - ClothingOuterArmorCloakSith # this is armor
 
 - type: selectableSet
@@ -290,12 +290,46 @@
     - DehydratedSpaceCarp # 3
     - DehydratedSpaceCarp # 4
     - DehydratedSpaceCarp # 5
-    - DehydratedSpaceCarp # 6
-    - DehydratedSpaceCarp # 7
-    - DehydratedSpaceCarp # 8
-    - DehydratedSpaceCarp # 9
-    - DehydratedSpaceCarp # 10
+    - DehydratedHolocarp # 1
+    - DehydratedHolocarp # 2
+    - DehydratedHolocarp # 3
+    - DehydratedHolocarp # 4
+    - DehydratedHolocarp # 5
+    - ClothingOuterHardsuitCarp
     - FireExtinguisher
+
+- type: selectableSet
+  id: SyndicateSusSet
+  name: selectable-set-syndicate-sus-name
+  description: selectable-set-syndicate-sus-description
+  sprite:
+    sprite: _White/Objects/Weapons/Melee/Daggers/betrayal_knife.rsi
+    state: icon
+  content:
+  - EncryptionKeySyndie
+  - BetrayalKnife
+  - MiniatureEnergyCrossbow
+  - ClothingUniformJumpsuitAtmosSyndieAdvanced
+  - ClothingBackpackDuffelSyndicateStealthHardsuitBundle
+
+- type: selectableSet
+  id: SyndicateBuilderSet
+  name: selectable-set-syndicate-builder-name
+  description: selectable-set-syndicate-builder-description
+  sprite:
+    sprite: _Goobstation/Structures/Machines/tc_printer.rsi
+    state: display
+  content:
+  - EncryptionKeySyndie
+  - TCminerFlatpack
+  - Multitool
+  - ToolboxElectricalTurretFilled
+  - ToolboxElectricalTurret
+  - SheetSteel # 30
+  - SheetSteel # 60
+  - SheetPlasteel # 30
+  - SheetPlasteel # 60
+  - PowerCellSmall
 
 # Blueshield officer
 

@@ -129,7 +129,6 @@
   - type: Tag
     tags:
     - Bread
-    - VoxFood
   - type: SolutionContainerManager
     solutions:
       food:
