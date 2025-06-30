@@ -172,6 +172,22 @@
   parent: BaseUplinkRadio
   # Goobstation - Telecrystal rework
   id: BaseUplinkRadio350TC
+  suffix: 350 TC, Commander #(LoneOps suffix Removed) Commander is goob only
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 350
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+    - NukeOpsCommanderUplink
+
+
+# Goob only LoneOp personal uplink
+- type: entity
+  parent: BaseUplinkRadio
+  # Goobstation - Telecrystal rework
+  id: LoneOpsUplink350TC
   suffix: 350 TC, LoneOps
   components:
   - type: Store
@@ -180,6 +196,7 @@
   - type: Tag
     tags:
     - NukeOpsUplink
+    - LoneOpsUplink
     - NukeOpsCommanderUplink
 
 - type: entity
