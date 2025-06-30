@@ -98,41 +98,37 @@
         damage:
           types:
             Piercing: 36
-  - type: ItemToggleMeleeWeapon
-    activatedSoundOnHit:
-      path: /Audio/Weapons/bladeslice.ogg
-    activatedDamage:
-      types:
-        Shock: 5
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Piercing: 6
-  - type: Stunbaton
-    energyPerUse: 120
-    lightAttackEnergyMultiplier: 1.5
-  - type: StaminaDamageOnHit # goob edited
-    damage: 15
-    overtime: 40
-    lightAttackDamageMultiplier: 5
-    lightAttackOvertimeDamageMultiplier: 0
-    sound: /Audio/Weapons/egloves.ogg
-  - type: StaminaDamageOnCollide # goob edited
-    damage: 15
-    overtime: 40
-    sound: /Audio/Weapons/egloves.ogg
-  - type: DelayedKnockdownOnHit # Goobstation
-    useDelay: stunbaton
-  - type: UseDelayBlockMelee # Goobstation
-    delays:
-    - stunbaton
-  - type: Battery
-    maxCharge: 360
-    startingCharge: 360
-  - type: UseDelay
-    delays: # Goobstation
-      stunbaton:
-        length: 2.5
+      - type: ItemToggleMeleeWeapon
+        activatedSoundOnHit:
+          path: /Audio/Weapons/bladeslice.ogg
+        activatedDamage:
+          types:
+            Shock: 5
+      - type: Stunbaton
+        energyPerUse: 120
+        lightAttackEnergyMultiplier: 1.5
+      - type: StaminaDamageOnHit
+        damage: 15
+        overtime: 40
+        lightAttackDamageMultiplier: 5
+        lightAttackOvertimeDamageMultiplier: 0
+        sound: /Audio/Weapons/egloves.ogg
+      - type: StaminaDamageOnCollide
+        damage: 15
+        overtime: 40
+        sound: /Audio/Weapons/egloves.ogg
+      - type: DelayedKnockdownOnHit
+        useDelay: stunbaton
+      - type: UseDelayBlockMelee
+        delays:
+          - stunbaton
+      - type: Battery
+        maxCharge: 360
+        startingCharge: 360
+      - type: UseDelay
+        delays: # Goobstation
+          stunbaton:
+             length: 2.5   
   - type: MeleeWeapon
     canWideSwing: false
     range: 2.2
@@ -141,7 +137,7 @@
     damage:
       types:
         Blunt: 5
-        Piercing: 5
+        Piercing: 36
     soundHit:
       collection: MetalThud
   - type: Appearance
