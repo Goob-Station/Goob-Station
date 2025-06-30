@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -19,22 +20,38 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._Lavaland.Mobs;
+using Robust.Shared.Prototypes;
+
+namespace Content.Server._Lavaland.Megafauna.Components;
 
 /// <summary>
-/// Raised when boss is fully defeated.
+/// Drops some loot when boss having this component dies.
 /// </summary>
-[ImplicitDataDefinitionForInheritors]
-public sealed partial class MegafaunaKilledEvent : EntityEventArgs;
+[RegisterComponent]
+public sealed partial class MegafaunaDropComponent : Component
+{
+    /// <summary>
+    /// Should it drop guaranteed loot when dead? If so what exactly?
+    /// </summary>
+    [DataField]
+    public EntProtoId? Loot;
 
-/// <summary>
-/// Raised when boss starts proceeding it's logic.
-/// </summary>
-[ImplicitDataDefinitionForInheritors]
-public sealed partial class MegafaunaStartupEvent : EntityEventArgs;
+    /// <summary>
+    /// Should it drop something besides the main loot as a crusher only reward?
+    /// </summary>
+    [DataField]
+    public EntProtoId? CrusherLoot;
 
-/// <summary>
-/// Raised when boss doesn't die but for any reason deactivates.
-/// </summary>
-[ImplicitDataDefinitionForInheritors]
-public sealed partial class MegafaunaDeinitEvent : EntityEventArgs;
+    /// <summary>
+    /// Should it delete itself after being killed?
+    /// </summary>
+    [DataField]
+    public bool DeleteOnDrop;
+
+    /// <summary>
+    /// Check if the boss got damaged by crusher only.
+    /// True by default. Will immediately switch to false if anything else hit it. Even the environmental stuff.
+    /// </summary>
+    [ViewVariables]
+    public bool CrusherOnly = true;
+}
