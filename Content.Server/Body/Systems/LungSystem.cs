@@ -41,6 +41,8 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory;
 using Content.Server.Power.EntitySystems;
 using Robust.Server.Containers;
+using BreathToolComponent = Content.Shared.Atmos.Components.BreathToolComponent;
+using InternalsComponent = Content.Shared.Body.Components.InternalsComponent;
 
 namespace Content.Server.Body.Systems;
 
@@ -60,7 +62,6 @@ public sealed class LungSystem : EntitySystem
         SubscribeLocalEvent<BreathToolComponent, ComponentInit>(OnBreathToolInit); // Goobstation - Modsuits - Update on component toggle
         SubscribeLocalEvent<BreathToolComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<BreathToolComponent, GotUnequippedEvent>(OnGotUnequipped);
-        SubscribeLocalEvent<BreathToolComponent, ItemMaskToggledEvent>(OnMaskToggled);
     }
 
     private void OnGotUnequipped(Entity<BreathToolComponent> ent, ref GotUnequippedEvent args)
@@ -74,8 +75,6 @@ public sealed class LungSystem : EntitySystem
         {
             return;
         }
-
-        ent.Comp.IsFunctional = true;
 
         if (TryComp(args.Equipee, out InternalsComponent? internals))
         {
@@ -98,8 +97,6 @@ public sealed class LungSystem : EntitySystem
     {
         var comp = ent.Comp;
 
-        comp.IsFunctional = true;
-
         if (!_inventory.TryGetContainingEntity(ent.Owner, out var parent) || !_inventory.TryGetContainingSlot(ent.Owner, out var slot))
             return;
 
@@ -110,25 +107,6 @@ public sealed class LungSystem : EntitySystem
         {
             ent.Comp.ConnectedInternalsEntity = parent;
             _internals.ConnectBreathTool((parent.Value, internals), ent);
-        }
-    }
-
-
-    private void OnMaskToggled(Entity<BreathToolComponent> ent, ref ItemMaskToggledEvent args)
-    {
-        if (args.Mask.Comp.IsToggled)
-        {
-            _atmos.DisconnectInternals(ent);
-        }
-        else
-        {
-            ent.Comp.IsFunctional = true;
-
-            if (TryComp(args.Wearer, out InternalsComponent? internals))
-            {
-                ent.Comp.ConnectedInternalsEntity = args.Wearer;
-                _internals.ConnectBreathTool((args.Wearer.Value, internals), ent);
-            }
         }
     }
 

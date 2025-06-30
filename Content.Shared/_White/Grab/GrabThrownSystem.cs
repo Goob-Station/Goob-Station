@@ -25,7 +25,7 @@ public sealed class GrabThrownSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;

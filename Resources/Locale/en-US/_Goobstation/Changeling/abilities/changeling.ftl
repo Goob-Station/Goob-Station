@@ -20,6 +20,8 @@ changeling-absorb-fail-absorbed = They've already been absorbed.
 changeling-absorb-fail-unabsorbable = The target is not absorbable.
 changeling-absorb-end-self = The organism was absorbed. We are evolving.
 changeling-absorb-end-self-ling = Another changeling was absorbed. Our body is filled with immense vigor as our cells rapidly evolve.
+changeling-absorb-end-self-ling-incompatible = Another changeling was absorbed. However, their current form prevented us from extracting their DNA sequence.
+changeling-absorb-end-partial = The organism was absorbed. We were unable to extract anything to aid in our evolution.
 changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
 changeling-absorb-fail-nograb = We aren't grabbing hard enough.
 changeling-absorb-fail-onfire = The target is on fire, put them out first!
@@ -36,12 +38,14 @@ changeling-transform-fail-choose = We did not choose a form to transform into!
 changeling-transform-fail-absorbed = We can't transform a husk!
 changeling-transform-finish = We are now {$target}.
 
+changeling-sting = We silently sting {CAPITALIZE(THE($target))}
 changeling-sting-fail-self = We tried to sting {CAPITALIZE(THE($target))}, but something stopped us from doing it!
 changeling-sting-fail-ling = Someone just tried to silently sting us!
+changeling-sting-fail-fakeweapon = They will be unable to sustain a faux weapon.
+changeling-sting-fail-hollow = We are unable to sting a hollow organism.
 
-changeling-sting = We silently sting {CAPITALIZE(THE($target))}
-changeling-sting-fail-simplemob = We can't sting a lesser creature!
-changeling-sting-extract-fail = Unable to extract DNA
+changeling-sting-extract-fail-duplicate = We have already extracted this DNA in the past.
+changeling-sting-extract-fail-lesser = We can't extract DNA from a lesser creature!
 changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
 
 changeling-dartgun-no-stings = We don't have any reagent stings evolved!

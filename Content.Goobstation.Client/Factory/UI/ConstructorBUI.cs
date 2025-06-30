@@ -28,7 +28,7 @@ public sealed class ConstructorBUI : BoundUserInterface
 
     private ConstructionMenu? _menu;
     private string? _id;
-    private List<ConstructionPrototype> _recipes = new();
+    private List<ConstructionMenu.ConstructionMenuListData> _recipes = new();
     private readonly LocId _favoriteCatName = "construction-category-favorites";
     private readonly LocId _forAllCategoryName = "construction-category-all";
 
@@ -53,13 +53,13 @@ public sealed class ConstructorBUI : BoundUserInterface
         _menu.RecipeSelected += (_, item) =>
         {
             _menu.ClearRecipeInfo();
-            if (item?.Metadata is ConstructionPrototype proto)
+            if (item != null && item.Prototype != null)
             {
-                _id = proto.ID;
-                _menu.SetRecipeInfo(proto.Name, proto.Description, _sprite.Frame0(proto.Icon),
-                    proto.Type != ConstructionType.Item, true); // TODO: favourites
+                _id = item.Prototype.ID;
+                _menu.SetRecipeInfo(item.Prototype.Name ?? "", item.Prototype.Description ?? "", item?.TargetPrototype,
+                    item!.Prototype.Type != ConstructionType.Item, true); // TODO: favourites
 
-                GenerateStepList(proto);
+                GenerateStepList(item.Prototype);
             }
             else
             {
@@ -133,6 +133,7 @@ public sealed class ConstructorBUI : BoundUserInterface
                 continue;
 
             if (searching 
+                && recipe.Name != null
                 && !recipe.Name.ToLowerInvariant().Contains(search))
                 continue;
 
@@ -147,32 +148,22 @@ public sealed class ConstructorBUI : BoundUserInterface
                     continue;
             }
 
-            _recipes.Add(recipe);
+            if (!_construction!.TryGetRecipePrototype(recipe.ID, out var targetProtoId))
+                continue;
+
+            if (!_proto.TryIndex(targetProtoId, out EntityPrototype? proto))
+                continue;
+
+            _recipes.Add(new(recipe, proto));
         }
 
-        _recipes.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.InvariantCulture));
+        _recipes.Sort((a, b) => string.Compare(a.Prototype.Name, b.Prototype.Name, StringComparison.InvariantCulture));
 
         var recipesList = menu.Recipes;
-        recipesList.Clear();
+        recipesList.PopulateList(_recipes);
 
         menu.RecipesGridScrollContainer.Visible = false;
         menu.Recipes.Visible = true;
-
-        // no grid because fuck you
-        foreach (var recipe in _recipes)
-            recipesList.Add(GetItem(recipe, recipesList));
-    }
-
-    private ItemList.Item GetItem(ConstructionPrototype recipe, ItemList itemList)
-    {
-        return new(itemList)
-        {
-            Metadata = recipe,
-            Text = recipe.Name,
-            Icon = _sprite.Frame0(recipe.Icon),
-            TooltipEnabled = true,
-            TooltipText = recipe.Description,
-        };
     }
 
     private void GenerateStepList(ConstructionPrototype proto)

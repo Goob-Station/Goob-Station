@@ -338,8 +338,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
         soulBound.Sex = sex;
         AddComp(mind, soulBound, true);
 
-        DelayedSpeech(ev.Speech, newEntity, ev.Performer, MagicSchool.Necromancy);
-
         _inventory.TransferEntityInventories(ev.Performer, newEntity);
         foreach (var hand in Hands.EnumerateHeld(ev.Performer))
         {
@@ -381,14 +379,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (TryComp(ev.Action.Owner, out MagicComponent? magic))
             school = magic.School;
 
-        DelayedSpeech(ev.Speech, newEnt.Value, ev.Performer, school);
-
         if (ev.LoadActions)
             RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(ev.Performer)), newEnt.Value);
 
         return true;
     }
-
     private void DelayedSpeech(string? speech, EntityUid speaker, EntityUid caster, MagicSchool school)
     {
         Timer.Spawn(200,
