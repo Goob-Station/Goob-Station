@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -53,10 +55,10 @@ public sealed partial class RatKingComponent : Component
     public float HungerPerDomainUse = 50f;
 
     /// <summary>
-    ///     How many moles of ammonia are released after one us of Domain
+    ///     How many moles of ammonia are released after one use of Domain
     /// </summary>
     [DataField("molesAmmoniaPerDomain"), ViewVariables(VVAccess.ReadWrite)]
-    public float MolesAmmoniaPerDomain = 200f;
+    public float MolesAmmoniaPerDomain = 300f;
 
     /// <summary>
     /// The current order that the Rat King assigned.
