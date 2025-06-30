@@ -358,8 +358,8 @@
   name: selectable-set-blueshield-cqc-name
   description: selectable-set-blueshield-cqc-description
   sprite:
-    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
-    state: icon-alt
+    sprite: _Goobstation/Objects/Misc/martial_arts.rsi
+    state: dragon
   content:
     - BSOManual
 
