@@ -11707,3 +11707,11 @@ Entries:
         ones.
   id: 1282
   time: '2025-06-30T02:40:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        NPCs should no longer fly off when trying to do anything in 0-gravity,
+        or if idle near space.
+  id: 1283
+  time: '2025-06-30T06:01:52.0000000+00:00'
