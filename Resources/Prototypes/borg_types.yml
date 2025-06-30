@@ -69,6 +69,8 @@
   - BorgModuleRCD
   - BorgModuleCable
 
+  lawset: Engineer # DeltaV: Custom lawset
+
   radioChannels:
   - Engineering
   - Science
@@ -149,6 +151,8 @@
   - Science
   - Service
 
+  lawset: Janitor # DeltaV: Custom lawset
+
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: janitor
@@ -183,6 +187,8 @@
   - BorgModuleRescue
   - BorgModuleSurgery
   - BorgModuleLollypop # Goobstation
+
+  lawset: Medical # DeltaV: Custom lawset
 
   radioChannels:
   - Science
@@ -241,6 +247,8 @@
   - BorgModuleGardening
   - BorgModuleHarvesting
   - BorgModuleLollypop # Goobstation
+
+  lawset: Clown # DeltaV: Custom lawset
 
   radioChannels:
   - Science
