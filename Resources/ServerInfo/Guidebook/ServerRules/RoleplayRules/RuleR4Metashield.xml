@@ -30,142 +30,54 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Nuclear Operatives
 
-  Nukies are considered propaganda by Nanotrasen, and crew isn't informed on them at all.
-  Posters seen on-station are ignored and called syndicate propaganda.
-
-  The fact that the nuke disk must be protected and could be used by a bad actor to try to destroy the station is not shielded.
-
-  The revealing condition for this shield is any of the following:
-  - discovering a nuclear operative's shuttle
-  - an operative name
-  - a War Ops announcement
-  - being a nuclear operative
+  - Nuclear Operatives are rumoured but not proven. Have fun with this rumour.
 
   ## Changelings
 
-  In the eyes of the public, changelings are an exterminated predatory lifeform and their potential existence on the station is shielded.
-  This metashield prohibits players from crew bloodtesting until the metashield is revealed.
-
-  Knowledge about the abilities of changelings is not shielded.
-
-  The revealing condition for this shield is any of the following:
-  - discovering a hollowed body
-  - witnessing changeling use their non-stealth abilities (not stings or passive abilities)
-  - witnessing someone trying to absorb a body
-  - witnessing someone changing their appearance
-  - being a changeling
+  - In the eyes of the public, changelings are an exterminated predatory lifeform, they could always come back, but they'd not be on our station, right?
 
   ## Heretics
 
-  To normal people, heretics are generally unknown. Security and Command may be aware that a group of people following a rogue god exists, but it's an absurd reality.
-  This metashield prohibits normal players from knowing what runes or reality fractures are. Security may be suspicious of them.
-
-  Knowledge about the ability of heretics is not shielded.
-
-  The revealing condition for this shield is any of the following:
-  - witnessing a crewmember drawing a rune
-  - witnessing a crewmember harvesting a reality fracture
-  - witnessing a crewmember using their powers
+  - The chaplain is aware of the existence of heretics, but the chaplain is always spewing nonsense. What do they even mean?
 
   ## Cosmic Cult
 
-  Like other practicians of forbidden arts, the Cosmic Cult is unknown to the common people.
-  Command is aware of eldritch forces existing, but the metashield prohibits players from knowing what glyphs and reality/malign shifts are.
-  
-  People may be suspicious of them, and the chaplain is aware it is an evil force to be contained.
+  - The chaplain is saying words again! Why do they hire such weird people?
 
-  The revealing condition for this shield is any of the following:
-  - witnessing a crewmember with the telltale facemask
-  - witnessing a crewmember using a glyph
-  - witnessing a crewmember absorb a malign shift
-  - witnessing a crewmember use a cult-specific ability
-  - witnessing cult gear like entropic swords and armor
-  
   ## Devils
 
-  To most ordinary people, a Devil is a fake fairy tale made to scare people from talking to strangers.
-  This metashield prohibits players from knowing that a player is a devil from their equipment alone, although they may distrust them as much as they wish.
+  - The chaplain is now...talking about DEVILS? What is this nonsense? Devils are just a myth, right? They can't be real!
 
   Knowledge about the abilities and consequences of a Devil deal are not shielded.
-
-  The revealing condition for this shield is any of the following:
-  - You are a Devil.
-  - You are the Chaplain, a lawyer, or a member of Central Command. (Including BSO and NTR)
-  - You have made a deal with the Devil.
-  - You have witnessed someone make a deal.
 
   ## Zombies
 
   Zombies are known galaxy-wide, but not as real-life, instead, as fiction.
-  Nuclear Operatives and Syndicate Agents are aware of Romerol and what it can do, but are prohibited of speaking about it publicly - unless they want their families to die.
+  Nuclear Operatives and Syndicate Agents are aware of Romerol and what it can do, but there's no benefit to revealing it to the crew. People likely won't believe you anyway.
 
-  Revealing conditions to the "Zombie" Shield:
-  - You are a Nuclear Operative
-  - You are a Syndicate Agent
-  - You are a Zombie
-  - You have seen Zombies on the station
+  ## Infections(Once the zombie virus is proven)
 
-  ## Infections
-
-  Zombies are known as extinct, they previously ravaged humanity hundreds of years ago in medieval times.
-  A cure was made, and is still held onto by chemists and Chief Medical Officers as a show of how long your family has been in the field.
-
-  Revealing conditions to the "Infections" Shield:
-  - You are a Chemist
-  - You are a Chief Medical Officer
-  - Zombies are announced to be real and station-wide
+  Such infections have been known to be extinct. But luckily advanced medicine has been able to cure the infection. The cure is not known to the public, but it is known to Chemists and Chief Medical Officers. The cure is not known to be a cure for the zombie virus, but it is known to be a cure for an infection that causes people to become zombies.
 
   ## Deathsquad
 
-  Deathsquad is known to exist - per the posters on the station, but they are not known as a crew killsquad, instead known as an elite team sent into stations to handle extreme threats even the best of ERT Security leaders could handle.
-  The station's Nanotrasen Representative and Blueshield Officer are aware that Deathsquad is a crew killsquad, but are heavily prohibited to mention it, and will be dealt with after, or during, the shift.
-
-  In private conversations, faxes, or phone calls, both BSO & NTR are advised to use the term 'Janitor Squad' to refer to the Deathsquad.
-  Crew can also choose to roleplay as if they've seen deathsquad movies, knowing limited aspects of their gear one would reasonably know watching an action-movie.
-
-  Revealing conditions to the "Deathsquad" Shield:
-  - Code Omicron is called, nuking the station
-  - Code Epsilon is called, terminating contracts
-  - You are the Nanotrasen Representative (NTR)
-  - You are the Blueshield Officer (BSO)
-  - A Central Command Official (Non-NTR/BSO) mentions Deathsquad as a [bold]Killsquad[/bold]
+  Deathsquad is a sci-fi trope that is well known in the galaxy, but not as a real thing. It is a myth, a legend, and a story that people tell each other. The Deathsquad is not real, but some will argue that it is.
 
   ## Implanted implants
 
-  Implanted, implants are shielded.
-
-  Implanters themselves and un-implanted implants are not shielded. This prohibits implant checking.
-
-  The revealing condition for this shield is any of the following:
-  - discovering a non-NT implanter, used or unused
-  - discovering a non-NT implant box
-  - discovering use of a non-NT implant by anyone
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
+  Implants are not shielded by default, but the fact that they are not Nanotrasen (NT) implants is shielded.
 
   ## Chameleon Items
 
   Chameleon items are shielded.
-
   Being suspicious of an item being fake or stolen is not shielded, but testing items or calling them chameleon is covered by this shield.
-
-  The revealing condition for this shield is any of the following:
-  - seeing someone else cause any chameleon item to change
-  - finding holographic nanomachine fibers
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
 
   ## Stealth Items
 
   The fact that an item can be something other than what its visual appearance and examine description indicate is shielded.
-
+  Security may be aware of tampered items, but they are not aware of the specific item that is tamped. This means that security may not act on the fact that an item is tamped, but they may act on the fact that an item is suspicious.  (Example: Non-NT weapons on a persons is suspicious, how did they get it on station?)
   This shield protects stealth items, including protecting them from being tested.
 
-  The revealing condition for this shield is any of the following:
-  - seeing the item behave differently than the expected behavior for the item
-  - seeing the item used for its hidden purpose
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
 
   ## Metafriending and Metagrudging
   This section provides additional information on a concept that is prohibited by multiple metashield items that are never revealed IC. Giving a person or character preferential treatment based on something that your character should not know is considered metafriending. Treating a person or character negatively based on something that your character should not know is considered metagrudging.
@@ -196,4 +108,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - A character's typical appearance. Though you should keep in mind that multiple characters can share the same name.
   - The fact that the Syndicate have covert items capable of getting items to them, and that these items are known as uplinks.
   - Wizards are not metashielded as the wizards federation is well rumoured about.
+
+  For revealing conditions check out [textlink="Antag revealing conditions" link="Conditions"]
 </Document>
