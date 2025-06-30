@@ -323,8 +323,8 @@
     - id: CargoRequestEngineeringComputerCircuitboard
     - id: RCD
     - id: RCDAmmo
-    - id: RCDAmmo
     - id: RPD
+    - id: RCDAmmo
     - id: RubberStampCE
     - id: MetalFoamGrenade
     # Goobstation V
@@ -582,3 +582,4 @@
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
+
