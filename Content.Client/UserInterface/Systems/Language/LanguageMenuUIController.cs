@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client._EinsteinEngines.Language;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
