@@ -99,7 +99,7 @@ public sealed partial class PTLSystem : EntitySystem
 
         var charge = ent.Comp2.CurrentCharge / megajoule;
         // some random formula i found in bounty thread i popped it into desmos i think it looks good
-        var spesos = (int) (charge * 1000 / (Math.Log(charge * 5) + 1));
+        var spesos = (int) (charge * 500 / (Math.Log(charge * 5) + 1));
 
         if (charge <= 0 || !double.IsFinite(spesos) || spesos < 0) return;
 
