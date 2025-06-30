@@ -1,0 +1,7 @@
+- type: entity
+  id: XenoExtractChronofield
+  parent: Chronofield
+  name: sepia chronofield
+  components:
+  - type: TimedDespawn
+    lifetime: 15
