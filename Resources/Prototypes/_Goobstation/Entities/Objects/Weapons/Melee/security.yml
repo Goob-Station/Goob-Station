@@ -42,7 +42,7 @@
   description: A compact, throwable spear with a retractable shaft. Designed for both melee and ranged use.
   components:
   - type: Item
-    size: Ginormous
+    size: Normal
     storedRotation: 45
     heldPrefix: off
     shape:
@@ -71,8 +71,8 @@
           - ItemMask
         restitution: 0.3
         friction: 0.2
-  - type: EmbeddableProjectile # This is goofy, but I can't make it toggleable because it tries
-    offset: -0.15,0.0 # to unstick from owned entity on component shutdown and drops out of hand
+  - type: EmbeddableProjectile
+    offset: -0.15,0.0
   - type: LandAtCursor
   - type: ThrowingAngle
     angle: 225
@@ -85,6 +85,8 @@
       collection: sparks
       params:
         variation: 0.250
+  - type: ItemToggleSize
+    activatedSize: Ginormous
   - type: ComponentToggler
     components:
       - type: Sharp
@@ -126,9 +128,13 @@
         maxCharge: 360
         startingCharge: 360
       - type: UseDelay
-        delays: # Goobstation
+        delays:
           stunbaton:
-             length: 2.5   
+            length: 2.5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 6
   - type: MeleeWeapon
     canWideSwing: false
     range: 2.2
@@ -137,7 +143,7 @@
     damage:
       types:
         Blunt: 5
-        Piercing: 36
+        Piercing: 5
     soundHit:
       collection: MetalThud
   - type: Appearance
