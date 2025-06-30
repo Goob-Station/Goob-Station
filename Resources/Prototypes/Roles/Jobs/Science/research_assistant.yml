@@ -55,10 +55,10 @@
   description: job-description-research-assistant
   playTimeTracker: JobResearchAssistant
   requirements:
-    # - !type:DepartmentTimeRequirement
-    #   department: Science
-    #   time: 18000 #5 hrs
-    #   inverted: true # stop playing intern if you're good at science!
+    # - !type:DepartmentTimeRequirement # Pirate
+    #   department: Science # Pirate
+    #   time: 18000 #5 hrs # Pirate
+    #   inverted: true # stop playing intern if you're good at science! # Pirate
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science
