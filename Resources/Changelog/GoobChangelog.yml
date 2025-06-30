@@ -11715,3 +11715,9 @@ Entries:
         or if idle near space.
   id: 1283
   time: '2025-06-30T06:01:52.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Updated base game to 25/05 release
+  id: 1284
+  time: '2025-06-30T17:41:57.0000000+00:00'
