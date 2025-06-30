@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -47,6 +48,17 @@
   components:
   - type: Unremoveable
 
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesResonant
+  name: resonant shoes
+  description: Is it not time yet… for the splendid curtain to rise?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/breverb.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/breverb.rsi
 
 - type: entity
   parent: [ClothingShoesBootsMagAdv, BaseJetpack, BaseCentcommContraband]
