@@ -66,6 +66,7 @@
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # species
@@ -233,7 +234,7 @@
       collection: ReptilianHiss
     # Floof end
     Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -267,7 +268,7 @@
       collection: ReptilianHiss
     # Floof end
     Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
 
 - type: emoteSounds
   id: MaleSlime
@@ -401,7 +402,7 @@
     DefaultDeathgasp:
       path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg
     Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
   params:
     variation: 0.125
 
@@ -427,7 +428,7 @@
     DefaultDeathgasp:
       collection: DeathGasp
     Gulp: # Goob
-      path: /Audio/_Goobstation/Voice/Human/gulp.ogg
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
   params:
     variation: 0.125
 
