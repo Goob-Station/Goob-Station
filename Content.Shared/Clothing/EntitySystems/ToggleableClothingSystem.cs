@@ -387,7 +387,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
     /// </summary>
     private void ToggleClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid attachedUid)
     {
-        var suitStorageItem = FindSuitStorage(user); // for single clothing we check once 
+        var suitStorageItem = FindSuitStorage(user); // for single clothing we check once
         var comp = toggleable.Comp;
         var attachedClothings = comp.ClothingUids;
         var container = comp.Container;
