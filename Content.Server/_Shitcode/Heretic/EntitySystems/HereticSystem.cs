@@ -141,7 +141,6 @@ public sealed class HereticSystem : EntitySystem
         // add influence layer
         if (TryComp<EyeComponent>(ent, out var eye)) // As a result, I'm afraid its complete shitcode however it's working shitcode.
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | eyeVisVal); 
-            //_eye.SetVisibilityMask(ent, eye.VisibilityMask | (int) VisibilityFlags.EldritchInfluenceSpent);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
