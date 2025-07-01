@@ -58,12 +58,30 @@
   - PowerCageHigh
 
 - type: latheRecipePack
-  id: Cybernetics
+  id: BasicCybernetics
   recipes:
+  - LeftArmCybernetic
+  - RightArmCybernetic
+  - LeftHandCybernetic
+  - RightHandCybernetic
+  - LeftLegCybernetic
+  - RightLegCybernetic
+  - LeftFootCybernetic
+  - RightFootCybernetic
+  - BasicCyberneticEyes
+  - BasicCyberneticHeart
+  - BasicCyberneticLungs
+  - BasicCyberneticLiver
+
+- type: latheRecipePack
+  id: AdvancedCybernetics
+  recipes:
+  - UpgradedCyberneticHeart
+  - UpgradedCyberneticLungs
   - JawsOfLifeLeftArm
   - JawsOfLifeRightArm
   - SpeedLeftLeg
   - SpeedRightLeg
   - DexLeftHand
   - DexRightHand
-  - BasicCyberneticEyes
+  - DiagnosticCyberneticEyes

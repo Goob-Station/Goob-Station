@@ -9,10 +9,10 @@
   result: SecurityCyberneticEyes
   categories:
   - Robotics
-  completetime: 5
+  completetime: 10
   materials:
-    Steel: 1000
-    Glass: 500
-    Plastic: 500
-    Gold: 300
-    Silver: 300
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600

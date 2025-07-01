@@ -636,7 +636,9 @@
     - Modsuits
     - PowerCages
     - BorgModulesGoob
-    - Cybernetics
+    - BasicCybernetics
+    - MedicalCybernetics
+    - AdvancedCybernetics
     - PowerCells
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:

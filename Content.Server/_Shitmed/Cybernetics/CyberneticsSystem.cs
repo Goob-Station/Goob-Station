@@ -36,7 +36,7 @@ internal sealed class CyberneticsSystem : EntitySystem
             ev.Disabled = true;
             cyberEnt.Comp.Disabled = true;
 
-            if (HasComp<OrganComponent>(cyberEnt))
+            if (TryComp(cyberEnt, out OrganComponent? organ))
             {
                 var disableEvent = new OrganEnableChangedEvent(false);
                 RaiseLocalEvent(cyberEnt, ref disableEvent);
