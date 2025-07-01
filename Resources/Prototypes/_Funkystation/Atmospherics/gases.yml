@@ -14,7 +14,7 @@
   specificHeat: 10
   heatCapacityRatio: 1.4
   molarMass: 15
-  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
   gasOverlayState: healium
   color: fa8072
   reagent: Healium
@@ -25,7 +25,7 @@
   name: gases-nitrium
   specificHeat: 10
   heatCapacityRatio: 1.4
-  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
   gasOverlayState: nitrium
   molarMass: 8
   color: a52a2a
@@ -57,7 +57,7 @@
   name: gases-hyper-noblium
   specificHeat: 2000
   heatCapacityRatio: 1.4
-  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
   gasOverlayState: frezon_old
   molarMass: 8
   color: 33cccc
@@ -69,7 +69,7 @@
   name: gases-proto-nitrate
   specificHeat: 30
   heatCapacityRatio: 1.3
-  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
   gasOverlayState: proto_nitrate
   gasMolesVisible: 0.1
   molarMass: 120
@@ -82,7 +82,7 @@
   name: gases-zauker
   specificHeat: 350
   heatCapacityRatio: 1.3
-  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
   gasOverlayState: zauker
   gasMolesVisible: 0.1
   molarMass: 110
@@ -95,7 +95,7 @@
   name: gases-halon
   specificHeat: 1.4
   heatCapacityRatio: 1.3
-  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
   gasOverlayState: halon
   gasMolesVisible: 0.1
   molarMass: 150
@@ -118,7 +118,7 @@
   name: gases-anti-noblium
   specificHeat: 1
   heatCapacityRatio: 1
-  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
   gasOverlayState: anti_noblium
   gasMolesVisible: 0.1
   molarMass: 200
