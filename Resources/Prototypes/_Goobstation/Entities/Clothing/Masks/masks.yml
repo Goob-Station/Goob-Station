@@ -144,3 +144,4 @@
   components:
   - type: ShockOnTrigger
   - type: TriggerOnSpeak
+  - type: ActiveListener
