@@ -11791,3 +11791,11 @@ Entries:
         printing slips
   id: 1292
   time: '2025-07-01T19:04:08.0000000+00:00'
+- author: SomethingUnbearable
+  changes:
+    - type: Add
+      message: >-
+        2 new signallers: voice signaller and proximity signaller that do
+        exactly what its name implies. 
+  id: 1293
+  time: '2025-07-01T19:04:38.0000000+00:00'
