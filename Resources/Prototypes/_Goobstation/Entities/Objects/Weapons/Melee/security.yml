@@ -57,6 +57,7 @@
     slots:
       - Back
       - suitStorage
+  - type: Pullable
   - type: Fixtures
     fixtures:
       fix1:
@@ -72,6 +73,7 @@
         restitution: 0.3
         friction: 0.2
   - type: ItemToggle
+    predictable: false
     toggleOnUse: true
     toggleOnActivate: false
     soundActivate:
