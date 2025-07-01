@@ -907,7 +907,7 @@
   name: uplink-binary-implant-name
   description: uplink-binary-implant-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
-  productEntity: BinaryImplant
+  productEntity: BinaryImplanter
   cost:
     Telecrystal: 5 # goob
   categories:
