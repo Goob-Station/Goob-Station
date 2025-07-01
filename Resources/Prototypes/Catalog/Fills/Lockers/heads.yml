@@ -48,7 +48,6 @@
 # SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ArchRBX <5040911+ArchRBX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
@@ -120,6 +119,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
@@ -129,8 +129,10 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
@@ -138,6 +140,8 @@
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tom <tnjans@outlook.de>
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -155,6 +159,7 @@
     - id: CargoSaleComputerCircuitboard
     - id: CargoShuttleConsoleCircuitboard
     - id: SalvageMagnetMachineCircuitboard
+    - id: SalvageJobBoardComputerCircuitboard
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
@@ -319,7 +324,10 @@
     - id: CargoRequestEngineeringComputerCircuitboard
     - id: RCD
     - id: RCDAmmo
+    - id: RPD
+    - id: RCDAmmo
     - id: RubberStampCE
+    - id: MetalFoamGrenade
     # Goobstation V
     - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard
@@ -329,6 +337,7 @@
     - id: MachinePowerTransmissionLaserFlatpack
     - id: WeaponNailgun
     - id: MagazineNailgun
+
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
@@ -570,8 +579,8 @@
   - type: StorageFill
     contents:
     - id: WeaponRevolverDeckard
-    - id: ClothingOuterHardsuitBasic
     - id: JetpackBlue
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
+
