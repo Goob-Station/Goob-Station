@@ -11761,3 +11761,9 @@ Entries:
       message: Vulpkanin can now track the scents of people.
   id: 1288
   time: '2025-07-01T18:53:51.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: Table smites are host-only
+  id: 1289
+  time: '2025-07-01T18:54:33.0000000+00:00'
