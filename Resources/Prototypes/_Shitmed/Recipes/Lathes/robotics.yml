@@ -1,8 +1,10 @@
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -127,8 +129,8 @@
     Gold: 50
 
 - type: latheRecipe
-  id: JawsOfLifeLeftArm
-  result: JawsOfLifeLeftArm
+  id: RightArmCybernetic
+  result: RightArmCybernetic
   categories:
   - Robotics
   completetime: 5
@@ -138,45 +140,149 @@
     Plastic: 500
     Gold: 300
     Silver: 300
+
+- type: latheRecipe
+  id: LeftArmCybernetic
+  result: LeftArmCybernetic
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+    Gold: 300
+    Silver: 300
+
+- type: latheRecipe
+  id: RightLegCybernetic
+  result: RightLegCybernetic
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+    Gold: 300
+    Silver: 300
+
+- type: latheRecipe
+  id: LeftLegCybernetic
+  result: LeftLegCybernetic
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+    Gold: 300
+    Silver: 300
+
+- type: latheRecipe
+  id: RightHandCybernetic
+  result: RightHandCybernetic
+  categories:
+  - Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Gold: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: LeftHandCybernetic
+  result: LeftHandCybernetic
+  categories:
+  - Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Gold: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: RightFootCybernetic
+  result: RightFootCybernetic
+  categories:
+  - Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Gold: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: LeftFootCybernetic
+  result: LeftFootCybernetic
+  categories:
+  - Robotics
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 200
+    Plastic: 300
+    Gold: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: JawsOfLifeLeftArm
+  result: JawsOfLifeLeftArm
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
 
 - type: latheRecipe
   id: JawsOfLifeRightArm
   result: JawsOfLifeRightArm
   categories:
   - Robotics
-  completetime: 5
+  completetime: 10
   materials:
-    Steel: 1000
-    Glass: 500
-    Plastic: 500
-    Gold: 300
-    Silver: 300
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
 
 - type: latheRecipe
   id: SpeedLeftLeg
   result: SpeedLeftLeg
   categories:
   - Robotics
-  completetime: 5
+  completetime: 10
   materials:
-    Steel: 1000
-    Glass: 500
-    Plastic: 500
-    Gold: 300
-    Silver: 300
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
 
 - type: latheRecipe
   id: SpeedRightLeg
   result: SpeedRightLeg
   categories:
   - Robotics
-  completetime: 5
+  completetime: 10
   materials:
-    Steel: 1000
-    Glass: 500
-    Plastic: 500
-    Gold: 300
-    Silver: 300
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
 
 - type: latheRecipe
   id: BasicCyberneticEyes
@@ -192,27 +298,40 @@
     Silver: 300
 
 - type: latheRecipe
+  id: DiagnosticCyberneticEyes
+  result: DiagnosticCyberneticEyes
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
+
+- type: latheRecipe
   id: DexLeftHand
   result: DexLeftHand
   categories:
   - Robotics
-  completetime: 5
+  completetime: 10
   materials:
-    Steel: 500
-    Glass: 250
-    Plastic: 250
-    Gold: 150
-    Silver: 150
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
 
 - type: latheRecipe
   id: DexRightHand
   result: DexRightHand
   categories:
   - Robotics
-  completetime: 5
+  completetime: 10
   materials:
-    Steel: 500
-    Glass: 250
-    Plastic: 250
-    Gold: 150
-    Silver: 150
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
