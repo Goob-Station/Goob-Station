@@ -11901,3 +11901,11 @@ Entries:
       message: Microreactors now get temporarily disabled when EMPed.
   id: 1306
   time: '2025-07-01T20:23:44.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        PTL current Speso creation is halved. No more Engineering being the
+        richest department.
+  id: 1307
+  time: '2025-07-01T20:25:45.0000000+00:00'
