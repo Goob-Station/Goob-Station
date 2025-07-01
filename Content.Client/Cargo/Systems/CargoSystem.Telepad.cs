@@ -20,6 +20,7 @@ namespace Content.Client.Cargo.Systems;
 public sealed partial class CargoSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private static readonly Animation CargoTelepadBeamAnimation = new()
     {
@@ -90,12 +91,12 @@ public sealed partial class CargoSystem
                     _player.Play((uid, player), CargoTelepadBeamAnimation, TelepadBeamKey);
                 break;
             case CargoTelepadState.Unpowered:
-                sprite.LayerSetVisible(CargoTelepadLayers.Beam, false);
+                _sprite.LayerSetVisible((uid, sprite), CargoTelepadLayers.Beam, false);
                 _player.Stop(uid, player, TelepadBeamKey);
                 _player.Stop(uid, player, TelepadIdleKey);
                 break;
             default:
-                sprite.LayerSetVisible(CargoTelepadLayers.Beam, true);
+                _sprite.LayerSetVisible((uid, sprite), CargoTelepadLayers.Beam, true);
 
                 if (_player.HasRunningAnimation(uid, player, TelepadIdleKey) ||
                     _player.HasRunningAnimation(uid, player, TelepadBeamKey))
