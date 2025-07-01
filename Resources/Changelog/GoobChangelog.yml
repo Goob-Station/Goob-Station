@@ -11783,3 +11783,11 @@ Entries:
       message: His Grace is no longer disarm-able.
   id: 1291
   time: '2025-07-01T18:58:01.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Tweak
+      message: >-
+        Request computers directly send their orders to cargo again instead of
+        printing slips
+  id: 1292
+  time: '2025-07-01T19:04:08.0000000+00:00'
