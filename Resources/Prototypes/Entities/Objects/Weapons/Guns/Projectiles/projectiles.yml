@@ -1110,9 +1110,6 @@
       types:
         Blunt: 250 # At this point you're firing a cannon shell at someone.
         Structural: 800 # Will instantly destroy pretty much any structure it hits.
-    forceSound: true
-    soundHit:
-      path: /Audio/DeltaV/Misc/reducedtoatmos.ogg
   - type: StaminaDamageOnCollide
     damage: 150 # JUST IN CASE THEY SOMEHOW SURVIVE IT.
 
