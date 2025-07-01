@@ -27,7 +27,7 @@
     Scream:
       collection: AvaliScreams
     Laugh:
-      collection: AvaliLaugh 
+      collection: AvaliLaugh
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -73,7 +73,7 @@
     Scream:
       collection: AvaliScreams
     Laugh:
-      collection: AvaliLaugh 
+      collection: AvaliLaugh
     Sneeze:
       collection: FemaleSneezes
     Cough:

@@ -88,7 +88,7 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
-    Gulp: # Goob 
+    Gulp: # Goob
       path: /Audio/_Goobstation/Voice/Human/gulp.ogg
 
 - type: emoteSounds
