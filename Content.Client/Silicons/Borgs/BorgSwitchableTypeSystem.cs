@@ -26,6 +26,7 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -63,6 +64,8 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
                 sprite.LayerSetRSI(BorgVisualLayers.Light, resource.RSI);
                 sprite.LayerSetRSI(BorgVisualLayers.LightStatus, resource.RSI);
             }
+            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
+            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);
         }
 
         if (TryComp(entity, out BorgChassisComponent? chassis))
