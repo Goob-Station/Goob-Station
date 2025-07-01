@@ -71,13 +71,6 @@
           - ItemMask
         restitution: 0.3
         friction: 0.2
-  - type: EmbeddableProjectile
-    offset: -0.15,0.0
-    embedSound:
-      path: /Audio/Weapons/bladeslice.ogg
-  - type: LandAtCursor
-  - type: ThrowingAngle
-    angle: 225
   - type: ItemToggle
     toggleOnUse: true
     toggleOnActivate: false
@@ -93,21 +86,15 @@
     unwieldOnUse: false
     applyNewPrefixOnShutdown: true
     newPrefixOnShutdown: off
+  - type: Sharp
+  - type: DisarmMalus
+    malus: 0.6
   - type: ComponentToggler
     components:
-      - type: Sharp
-      - type: DisarmMalus
-        malus: 0.6
       - type: ItemToggleMeleeWeapon
-        activatedSoundOnHit:
-          path: /Audio/Weapons/bladeslice.ogg
         activatedDamage:
           types:
             Shock: 5
-      - type: DamageOtherOnHit
-        damage:
-          types:
-            Piercing: -36
       - type: Stunbaton
         energyPerUse: 120
         lightAttackEnergyMultiplier: 1.5
@@ -145,9 +132,19 @@
     damage:
       types:
         Blunt: 5
-        Piercing: 36
+        Piercing: 13
     soundHit:
       collection: MetalThud
+  - type: EmbeddableProjectile
+    embedSound:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: LandAtCursor
+  - type: ThrowingAngle
+    angle: 225
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 36
   - type: Appearance
   - type: ItemToggleVisuals
   - type: GenericVisualizer
