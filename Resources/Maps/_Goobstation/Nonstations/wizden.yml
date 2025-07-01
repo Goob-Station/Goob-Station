@@ -2359,7 +2359,7 @@ entities:
     - type: Transform
       pos: 7.4508963,-19.545584
       parent: 2
-- proto: ClothingUnderShoessCrimson
+- proto: ClothingUnderShoesCrimson
   entities:
   - uid: 654
     components:
