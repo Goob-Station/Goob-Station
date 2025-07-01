@@ -6,8 +6,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Core Rule 6 - Do not attempt to evade bans
-  This is a zero tolerance rule.
+  # Core Rule 6 - In-game administration rulings are final
+
+  Incidences of admin abuse, negligence or disputed rulings can be taken to the Discord server. If an admin says something was 'looked into, handled, resolved' etc, regarding an issue, it is unlikely an admin will provide any further information. Admins are under no obligation to reveal IC information. Deliberately lying or misrepresenting facts in adminhelps will be dealt with harshly.
 
   Almost all bans may be appealed on our forums at discord.gg/goobstation in the ban appeals section. This is generally the only acceptable way to contact the administration team to discuss your ban and revise it if inappropriate, including mistaken bans.
 
@@ -19,4 +20,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   ## Additional Information
   - [textlink="Ban Types" link="BanTypes"]
   - [textlink="Ban Durations" link="BanDurations"]
+
+  ## Precedents
+  - Incidents of admin abuse or negligence should be reported along with a date and time, along with details to pinpoint the incident in the logs, to any full admin via forum PM or posted on the admin complaints sub-forum located at https://discord.gg/goobstation. Incidents of poorly conducted admin events may also be taken to https://discord.gg/goobstation in their respective feedback threads, for less serious complaints.
+  - Lying in adminhelps, misrepresenting facts deliberately, or logging off when an admin has asked a question may result in permabans. Admins will not automatically place bans for players logging off however, and will generally wait a while in case real life situations caused a player to disconnect or go AFK.
+
 </Document>
