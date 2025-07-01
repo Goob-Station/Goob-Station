@@ -18,7 +18,7 @@ public sealed partial class LightDetectionComponent : Component
     public TimeSpan NextUpdate = TimeSpan.Zero;
 
     [DataField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.25);
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
 
     /// <summary>
     ///  Indicates if the user has moved since the last time.

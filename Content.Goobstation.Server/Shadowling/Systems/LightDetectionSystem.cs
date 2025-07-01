@@ -17,6 +17,7 @@ public sealed class LightDetectionSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     protected override string SawmillName { get; } = "light_damage";
 
@@ -32,30 +33,26 @@ public sealed class LightDetectionSystem : EntitySystem
         component.NextUpdate = _timing.CurTime;
     }
 
+    [DataField]
+    public float LookupRange = 10f;
+
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<LightDetectionComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<LightDetectionComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var xform))
         {
-            // Skip dead entities
-            if (_mobStateSystem.IsDead(uid))
-                continue;
-
-            if (_timing.CurTime < comp.NextUpdate)
+            if (_timing.CurTime < comp.NextUpdate
+                || _mobStateSystem.IsDead(uid))
                 continue;
 
             comp.NextUpdate += comp.UpdateInterval;
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            DetectLight(uid, comp);
-            Log.Info($"Updated in {stopwatch.Elapsed.ToString()}");
+            DetectLight(uid, comp, xform);
         }
     }
 
-    private void DetectLight(EntityUid uid, LightDetectionComponent comp)
+    private void DetectLight(EntityUid uid, LightDetectionComponent comp, TransformComponent xform)
     {
-        var xform = EntityManager.GetComponent<TransformComponent>(uid);
-        var worldPos = _transformSystem.GetWorldPosition(uid);
+        var worldPos = _transformSystem.GetWorldPosition(xform);
 
         // We want to avoid this expensive operation if the user has not moved
         if ((comp.LastKnownPosition - worldPos).LengthSquared() < 0.01f)
@@ -63,13 +60,16 @@ public sealed class LightDetectionSystem : EntitySystem
 
         comp.LastKnownPosition = worldPos;
         comp.IsOnLight = false;
-        var query = EntityQueryEnumerator<PointLightComponent>();
-        while (query.MoveNext(out var point, out var pointLight))
+        var lookup = _lookup.GetEntitiesInRange<PointLightComponent>(xform.Coordinates, LookupRange);
+        foreach (var ent in lookup)
         {
+            var (point, pointLight) = ent;
+            var pointXform = Transform(point);
+
             if (!pointLight.Enabled)
                 continue;
 
-            var lightPos = _transformSystem.GetWorldPosition(point);
+            var lightPos = _transformSystem.GetWorldPosition(pointXform);
             var distance = (lightPos - worldPos).Length();
 
             if (distance <= 0.01f) // So the debug stops crashing
@@ -97,11 +97,11 @@ public sealed class LightDetectionSystem : EntitySystem
                 }
             }
 
-            if (!hasBeenBlocked)
-            {
-                comp.IsOnLight = true;
-                return;
-            }
+            if (hasBeenBlocked)
+                continue;
+
+            comp.IsOnLight = true;
+            return;
         }
     }
 }
