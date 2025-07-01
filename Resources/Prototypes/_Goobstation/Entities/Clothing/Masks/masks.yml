@@ -113,3 +113,33 @@
     graph: GasMaskHalf
     node: end
     deconstructionTarget: null
+
+- type: entity # TODO: Whenever vampirism is ported, make this block it.
+  parent: ClothingMaskBase
+  id: ClothingMaskMuzzleSecure
+  name: secure muzzle
+  description: Can prevent vampires from biting people, or prevent annoying people from talking.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Mask/securemuzzle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Mask/securemuzzle.rsi
+    equipDelay: 3
+    unequipDelay: 10
+  - type: IngestionBlocker
+  - type: AddAccentClothing
+    accent: MumbleAccent
+  - type: Tag
+    tags:
+    - Muzzle
+
+- type: entity # TODO: Whenever vampirism is ported, make this block it, and shock.
+  parent: ClothingMaskMuzzleSecure
+  id: ClothingMaskMuzzleShock
+  name: shock muzzle
+  description: A muzzle designed to prevent biting. This one is fitted with a behaviour correction system.
+  components:
+  - type: ShockOnTrigger
+  - type: TriggerOnSpeak

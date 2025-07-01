@@ -225,6 +225,7 @@
   position: 4,3
   technologyPrerequisites:
   - AdvancedRiotControl
+  - RestraintTechnology
   # Goobstation R&D Console rework end
 
 # Tier 2
