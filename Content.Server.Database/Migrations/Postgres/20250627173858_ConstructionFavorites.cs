@@ -16,6 +16,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 table: "preference",
                 type: "text[]",
                 nullable: false);
+                defaultValue: new string[0]);
         }
 
         /// <inheritdoc />
