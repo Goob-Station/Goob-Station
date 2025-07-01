@@ -11875,3 +11875,9 @@ Entries:
       message: Added a new outfit to the hacked autodrobe.
   id: 1302
   time: '2025-07-01T20:17:04.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Changed the heretic ascension announcements.
+  id: 1303
+  time: '2025-07-01T20:18:07.0000000+00:00'
