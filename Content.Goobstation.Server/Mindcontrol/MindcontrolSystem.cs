@@ -56,7 +56,7 @@ public sealed class MindcontrolSystem : EntitySystem
     {
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true);
         if (_mindSystem.TryGetMind(uid, out var mindId, out _))
-            _roleSystem.MindTryRemoveRole<MindcontrolledRoleComponent>(mindId);
+            _roleSystem.MindRemoveRole<MindcontrolledRoleComponent>(mindId);
         _popup.PopupEntity(Loc.GetString("mindcontrol-popup-stop"), uid, PopupType.Large);
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is no longer Mindcontrolled.");
     }
@@ -93,7 +93,7 @@ public sealed class MindcontrolSystem : EntitySystem
     }
     private void OnMindRemoved(EntityUid uid, MindcontrolledComponent component, MindRemovedMessage args)
     {
-        _roleSystem.MindTryRemoveRole<MindcontrolledRoleComponent>(args.Mind.Owner);
+        _roleSystem.MindRemoveRole<MindcontrolledRoleComponent>(args.Mind.Owner);
     }
     private void OnGetBriefing(Entity<MindcontrolledRoleComponent> target, ref GetBriefingEvent args)
     {
