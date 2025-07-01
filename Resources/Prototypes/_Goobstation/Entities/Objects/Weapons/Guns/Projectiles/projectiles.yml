@@ -15,6 +15,8 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -114,10 +116,10 @@
   name: bullet (.50 anti-materiel)
   components:
   - type: Projectile
-    armorPenetration: 0.5
     damage:
       types:
         Piercing: 35
+      armorPenetration: 0.5
     penetrationThreshold: 50
 
 - type: entity
@@ -188,8 +190,8 @@
   id: LaserSniper
   damage:
     types:
-      Heat: 20
-      Shock: 20
+      Heat: 30
+      Shock: 10
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
@@ -204,7 +206,8 @@
   id: RedMediumSplitLaser
   damage:
     types:
-      Heat: 25
+      Heat: 17
+      Shock: 2 # Lecter is slightly armor-piercing and so is this
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -225,7 +228,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 5.5
+        Heat: 8
 
 - type: entity
   name: heavy laser bolt
@@ -237,8 +240,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 14
-        Shock: 2
+        Heat: 12
         Structural: 10
 
 - type: entity
@@ -249,7 +251,7 @@
   components:
   - type: ProjectileSpread
     proto: BulletLaserHeavyStructural
-    count: 5
+    count: 6
     spread: 30
 
 - type: hitscan
@@ -308,7 +310,7 @@
 
 
 - type: entity
-  name : disabler bolt
+  name: disabler bolt
   id: BulletEnergyGunDisabler
   parent: BulletDisabler
   categories: [ HideSpawnMenu ]
@@ -352,7 +354,24 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 10
+        Ion: 15
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name: disabler bolt
+  id: BulletSyndicateDisabler
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaminaDamageOnCollide
+    damage: 27
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Ion: 5
     soundHit:
       collection: WeakHit
     forceSound: true

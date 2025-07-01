@@ -87,7 +87,8 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifle
-  name: ammunition box (9.5mm HP) # Goob edit
+  name: ammunition box (9.5mm HP)
+  description: A cardboard box of 9.5mm caseless rounds. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -101,7 +102,8 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRiflePractice
-  name: ammunition box (9.5mm practice) # Goob edit
+  name: ammunition box (9.5mm practice)
+  description: A cardboard box of 9.5mm caseless rounds. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice

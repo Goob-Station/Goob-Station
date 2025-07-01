@@ -29,3 +29,7 @@ research-technology-experimental-science = Experimental Science
 research-technology-rescue = Advanced Rescue Equipment
 research-technology-energy-bolt-weaponry = Energy Bolt Weaponry
 research-technology-pinpointing = Pinpointing Technologies
+research-technology-mag-fed-pistol = Energy Cell Handguns
+research-technology-mag-fed-smg = Energy Cell Sub Machine Guns
+research-technology-mag-fed-sniper = Energy Cell Snipers
+research-technology-mag-fed-lmg = Energy Cell Light Machine Guns

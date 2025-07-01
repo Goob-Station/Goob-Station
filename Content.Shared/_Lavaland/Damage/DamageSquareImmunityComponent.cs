@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -19,20 +20,22 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._Lavaland.Damage;
 
 /// <summary>
 /// Actor having this component will not get damaged by damage squares.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DamageSquareImmunityComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan HasImmunityUntil = TimeSpan.Zero;
 
     /// <summary>
     /// Setting this to true will ignore the timer and will make damage tile completely ignore an entity.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IsImmune;
 }

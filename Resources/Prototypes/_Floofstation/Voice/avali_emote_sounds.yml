@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -10,15 +12,20 @@
   files:
     - /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
 
+- type: soundCollection
+  id: AvaliLaugh
+  files:
+    - /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
+
 - type: emoteSounds
-  id: MaleAvali
+  id: MaleAvaliEmote
   params:
     variation: 0.125
   sounds:
     Scream:
       collection: AvaliScreams
     Laugh:
-      collection: MaleLaugh
+      collection: AvaliLaugh 
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -45,16 +52,24 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Trill:
+      collection: Trill
+    Warble:
+      collection: Warble
+    Wurble:
+      collection: Wurble
+    Chirp:
+      collection: ResomiChirp
 
 - type: emoteSounds
-  id: FemaleAvali
+  id: FemaleAvaliEmote
   params:
     variation: 0.125
   sounds:
     Scream:
       collection: AvaliScreams
     Laugh:
-      collection: FemaleLaugh
+      collection: AvaliLaugh 
     Sneeze:
       collection: FemaleSneezes
     Cough:
@@ -81,3 +96,11 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Trill:
+      collection: Trill
+    Warble:
+      collection: Warble
+    Wurble:
+      collection: Wurble
+    Chirp:
+      collection: ResomiChirp

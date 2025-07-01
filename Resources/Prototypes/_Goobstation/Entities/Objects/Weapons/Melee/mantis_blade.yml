@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  categories: [ DoNotMap ]
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: MantisBlade
+  name: mantis blade
+  description: They won’t see the steel until it’s too late.
+  components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi
+    state: icon
+  - type: MeleeWeapon
+    animationRotation: 120
+    swingLeft: true
+    wideAnimationRotation: 135
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 7
+        Piercing: 7
+        Structural: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Tag
+    tags:
+    - MantisBlade
+  - type: Multihit
+    multihitWhitelist:
+      tags:
+      - MantisBlade
+  - type: ChangePrefixAfterDelay
+  - type: Item
+    size: Ginormous
+    heldPrefix: popout
+  - type: Tool
+    qualities:
+    - Slicing

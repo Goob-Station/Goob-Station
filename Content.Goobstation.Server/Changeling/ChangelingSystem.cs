@@ -4,7 +4,6 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
 // SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
@@ -18,13 +17,16 @@
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
@@ -35,7 +37,9 @@ using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
+using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
@@ -71,7 +75,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -79,6 +82,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
+using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -90,6 +94,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
@@ -134,7 +139,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
@@ -146,6 +151,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly ChangelingRuleSystem _changelingRuleSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -167,6 +173,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
+        SubscribeLocalEvent<ChangelingIdentityComponent, RejuvenateEvent>(OnRejuvenate);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
@@ -248,28 +256,21 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
     {
-        UpdateChemicals(uid, comp);
+        UpdateChemicals(uid, comp, manualAdjust: false);
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
+    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null, bool manualAdjust = true)
     {
-        var chemicals = comp.Chemicals;
-        // either amount or regen
-
-        if (!CheckFireStatus(uid)) // if on fire, reduce total chemicals restored to a 1/4 //
-        {
-            chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
-        }
+        if (manualAdjust)
+            AdjustChemicals(uid, comp, amount ?? 1);
         else
-        {
-            chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
-        }
+            RegenerateChemicals(uid, comp, amount ?? 1);
 
-        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
     }
+
     private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)
     {
         _speed.RefreshMovementSpeedModifiers(uid);
@@ -280,6 +281,36 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
+
+        if (comp.IsInStasis && comp.StasisTime > 0f)
+            comp.StasisTime -= 1f;
+
+    }
+
+    private void RegenerateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens passively
+    {
+        var chemicals = comp.Chemicals;
+
+        if (CheckFireStatus(uid)) // if on fire, reduce total chemicals restored to a 1/4 //
+        {
+            chemicals += (amount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
+            comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
+            return;
+        }
+
+        chemicals += (amount + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
+        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
+        return;
+
+    }
+
+    private void AdjustChemicals(EntityUid uid, ChangelingIdentityComponent comp, float amount) // this happens via abilities and such
+    {
+        var chemicals = comp.Chemicals;
+
+        chemicals += amount;
+        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
+        return;
     }
 
     #region Helper Methods
@@ -423,10 +454,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         var target = action.Target;
 
-        // can't get his dna if he doesn't have it!
-        if (!HasComp<AbsorbableComponent>(target) || HasComp<AbsorbedComponent>(target))
+        // can't sting a dried out husk
+        if (HasComp<AbsorbedComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("changeling-sting-fail"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-hollow"), uid, uid);
             return false;
         }
 
@@ -520,6 +551,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 newArmor.Add(armor);
             }
 
+            _audio.PlayPvs(comp.ArmourSound, uid, AudioParams.Default);
+
             comp.ActiveArmor = newArmor;
             comp.ChemicalRegenMultiplier -= 0.25f; // base chem regen slowed by a flat 25%
             return true;
@@ -529,6 +562,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             // Unequip armor
             foreach (var armor in comp.ActiveArmor)
                 QueueDel(armor);
+
+            _audio.PlayPvs(comp.ArmourStripSound, uid, AudioParams.Default);
 
             comp.ActiveArmor = null!;
             comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
@@ -542,12 +577,18 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         || !TryComp<MetaDataComponent>(target, out var metadata)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
-            return false;
-
-        foreach (var storedDNA in comp.AbsorbedDNA)
         {
-            if (storedDNA.DNA != null && storedDNA.DNA == dna.DNA)
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail-lesser"), uid, uid);
+            return false;
+        }
+
+        foreach (var storedDNA in comp.AbsorbedHistory)
+        {
+            if (storedDNA.DNA != null && storedDNA.DNA == dna.DNA) // the dna NEEDS to be unique
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail-duplicate"), uid, uid);
                 return false;
+            }
         }
 
         var data = new TransformData
@@ -560,18 +601,23 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (fingerprint.Fingerprint != null)
             data.Fingerprint = fingerprint.Fingerprint;
 
-        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
-        else comp.AbsorbedDNA.Add(data);
-
         if (countObjective
         && _mind.TryGetMind(uid, out var mindId, out var mind)
-        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
+        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind)
+        && comp.AbsorbedDNA.Count < comp.MaxAbsorbedDNA) // no cheesing by spamming dna extract
         {
             objective.DNAStolen += 1;
         }
 
-        comp.TotalStolenDNA++;
+        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
+        else
+        {
+            comp.AbsorbedHistory.Add(data); // so we can't just come back and sting them again 
+
+            comp.AbsorbedDNA.Add(data);
+            comp.TotalStolenDNA++;
+        }
 
         return true;
     }
@@ -579,6 +625,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private ChangelingIdentityComponent? CopyChangelingComponent(EntityUid target, ChangelingIdentityComponent comp)
     {
         var newComp = EnsureComp<ChangelingIdentityComponent>(target);
+        newComp.AbsorbedHistory = comp.AbsorbedHistory;
         newComp.AbsorbedDNA = comp.AbsorbedDNA;
         newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
 
@@ -766,6 +813,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // making sure things are right in this world
         comp.Chemicals = comp.MaxChemicals;
 
+        // make sure its set to the default
+        comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
+
+        // don't want instant stasis
+        comp.StasisTime = comp.DefaultStasisTime;
+
         // show alerts
         UpdateChemicals(uid, comp, 0);
         // make their blood unreal
@@ -781,6 +834,24 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnDamageChange(Entity<ChangelingIdentityComponent> ent, ref DamageChangedEvent args)
     {
         var target = args.Damageable;
+
+        if (!ent.Comp.IsInStasis)
+        {
+            var lowestStasisTime = ent.Comp.DefaultStasisTime;
+            var highestStasisTime = ent.Comp.MaxStasisTime; // 1.5 minutes
+            var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 2 minutes
+            var catastrophicDamage = 200f; // 100% dead
+
+            var damageTaken = float.Round(target.TotalDamage.Float()) / 2;
+            var damageToTime = MathF.Min(damageTaken, highestStasisTime);
+
+            var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
+
+            if (damageTaken < catastrophicDamage)
+                ent.Comp.StasisTime = newStasisTime;
+            else
+                ent.Comp.StasisTime = catastrophicStasisTime;
+        }
 
         if (!TryComp<MobStateComponent>(ent, out var mobState))
             return;
@@ -799,5 +870,28 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemoveAllChangelingEquipment(ent, ent.Comp);
     }
 
+    private void OnDefibZap(Entity<ChangelingIdentityComponent> ent, ref TargetBeforeDefibrillatorZapsEvent args)
+    {
+        if (ent.Comp.IsInStasis) // so you don't get a free insta-rejuvenate after being defibbed
+        {
+            ent.Comp.IsInStasis = false;
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-defib"), ent, ent);
+        }
+    }
+
+    // triggered by leaving stasis and by admin rejuvenate
+    private void OnRejuvenate(Entity<ChangelingIdentityComponent> ent, ref RejuvenateEvent args)
+    {
+        if (ent.Comp.IsInStasis) // only triggered if event raised by stasis (or admin rejuv'd in stasis)
+        {
+            ent.Comp.IsInStasis = false;
+            ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
+        }
+        else
+        {
+            UpdateChemicals(ent, ent.Comp, ent.Comp.MaxChemicals); // only by admin rejuv, for testing and whatevs
+            _popup.PopupEntity(Loc.GetString("changeling-rejuvenate"), ent, ent); // woah...
+        }
+    }
     #endregion
 }

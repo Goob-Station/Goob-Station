@@ -6,14 +6,17 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -34,11 +37,35 @@
   - type: TriggerImplantAction
   - type: DeleteParentOnTrigger
   - type: SpawnOnTrigger
-    proto: BluespaceLifeline
+    proto: BluespaceLifelineSpawnCore
   - type: Tag
     tags:
     - SubdermalImplant
     - HideContextMenu
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: CommandTrackingImplant
+  name: Command tracking implant
+  description: This implant reserved for command has a tracking device attached to a private suit sensor network, as well as a condition monitor for the Command radio channel.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      whitelist:
+        components:
+        - MobState # admeme implanting a chair with tracking implant needs to give the chair mobstate so it can die first
+    - type: SuitSensor
+      randomMode: false
+      controlsLocked: true
+      commandTracker: true #for BSO command monitor
+      mode: SensorCords
+      activationContainer: "implant"
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      transmitFrequencyId: SuitSensor
+    - type: StationLimitedNetwork
+    - type: WirelessNetworkConnection
+      range: 500
 
 - type: entity
   parent: BaseSubdermalImplant
@@ -118,6 +145,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StypticStimulatorImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BinaryImplant
+  name: binary decoder implant
+  description: This implant allows the user to access Binary and communicate with silicons (use +b).
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ImplantGrantCollectiveMind
+    collectiveMind: Binary
 
 # Admeme
 

@@ -91,9 +91,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -117,7 +119,7 @@
     - Dwarf
     - Human
     - Moth
-    # - Reptilian - Goobstation
+    - Reptilian
     # Goobstation - Custom Races
     - Vulpkanin
     - Felinid
@@ -128,6 +130,7 @@
     - Oni
     - Resomi
     - Tajaran
+    - Shadowkin
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
@@ -135,13 +138,6 @@
   - !type:SpeciesLoadoutEffect
     species:
     - Vox
-
-- type: loadoutEffectGroup # Goobstation
-  id: EffectSpeciesReptilian
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Reptilian
 
 # Basic
 - type: loadout
@@ -182,11 +178,29 @@
     - BoxHugSlotsNitrogen # Goobstation - Slots Based Survival Boxes
 
 # Mime
+- type: loadoutEffectGroup
+  id: OxygenBreatherMime
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Arachnid
+    - Diona
+    - Dwarf
+    - Human
+    - Reptilian
+
+- type: loadoutEffectGroup
+  id: OxygenBreatherMimeMoth
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Moth
+
 - type: loadout
   id: EmergencyOxygenMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherMime
   storage:
     back:
     - BoxMimeSlots # Goobstation - Slots Based Survival Boxes
@@ -200,6 +214,14 @@
     back:
     - BoxMimeSlotsNitrogen # Goobstation - Slots Based Survival Boxes
 
+- type: loadout
+  id: EmergencySpeciesMothMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherMimeMoth
+  storage:
+    back:
+    - BoxMimeMoth
 
 # Engineering / Extended
 - type: loadout
@@ -268,15 +290,6 @@
     back:
     - BoxSurvivalSlotsSyndicate # Goobstation - Slots Based Survival Boxes
 
-- type: loadout # Goobstation
-  id: LoadoutSpeciesHeatlampSyndicate
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EffectSpeciesReptilian
-  storage:
-    back:
-    - HeatLampEvil
-
 - type: loadout
   id: EmergencyNitrogenSyndicate
   effects:
@@ -339,15 +352,6 @@
     proto: EffectSpeciesVox
   equipment:
     outerClothing: ClothingOuterVestTank
-
-# Heatlamp - Goobstation
-- type: loadout
-  id: LoadoutSpeciesHeatingTool
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EffectSpeciesReptilian
-  equipment:
-    belt: HeatLamp
 
 # Breath Tool On Face
 - type: loadout

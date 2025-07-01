@@ -83,6 +83,7 @@ guide-entry-sop-doctorintern = Doctor/Intern
 guide-entry-sop-roboticist = Roboticist
 guide-entry-sop-scientist = Scientist
 # - Security
+guide-entry-sop-brigmedic = Brigmedic
 guide-entry-sop-detective = Detective
 guide-entry-sop-officercadet = Officer/Cadet
 guide-entry-sop-warden = Warden

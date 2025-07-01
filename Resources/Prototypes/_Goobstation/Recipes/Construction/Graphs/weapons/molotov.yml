@@ -16,7 +16,7 @@
             impact: High
           steps:
             - tag: MolotovConstruction
-              name: Glass Bottle
+              name: construction-graph-tag-glass-bottle
               icon:
                 sprite: Objects/Consumable/Drinks/vodkabottle.rsi
                 state: icon
