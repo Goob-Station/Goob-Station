@@ -171,7 +171,7 @@
     nameSuffix: monozygotic-projector-clone-name-suffix
     ghostRoleName: ghost-role-information-monozygotic-clone-name
     ghostRoleDescription: ghost-role-information-monozygotic-clone-description
-    stunOnDestroyed: false
+    DoStun: false
     restrictRangedWeapons: false
     addedComponents:
     - type: MobThresholds

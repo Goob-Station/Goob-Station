@@ -160,7 +160,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
 
         TryGenerateClone(projector, args.User);
 
-        _stun.TryParalyze(args.User, projector.Comp.StunDuration, true);
+        if (projector.Comp.DoStun)
+            _stun.TryParalyze(args.User, projector.Comp.StunDuration, true);
 
         EnsureComp<WearingCloneProjectorComponent>(args.User).ConnectedProjector = projector;
     }
@@ -173,7 +174,8 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
         var popup = Loc.GetString(projector.Comp.UnequippedMessage);
         _popup.PopupEntity(popup, args.Equipee, args.Equipee);
 
-        _stun.TryParalyze(args.Equipee, projector.Comp.StunDuration, true);
+        if (projector.Comp.DoStun)
+            _stun.TryParalyze(args.Equipee, projector.Comp.StunDuration, true);
 
         RemComp<WearingCloneProjectorComponent>(args.Equipee);
     }

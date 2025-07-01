@@ -42,7 +42,7 @@ public sealed partial class CloneProjectorComponent : Component
     /// Should the host be stunned when the clone is destroyed?
     /// </summary>
     [DataField]
-    public bool StunOnDestroyed = true;
+    public bool DoStun = true;
 
     /// <summary>
     ///  How much damage does the host take when the clone is destroyed?
