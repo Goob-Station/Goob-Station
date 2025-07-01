@@ -11849,3 +11849,9 @@ Entries:
       message: Fixed hardgrab grammar
   id: 1298
   time: '2025-07-01T19:42:09.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Fix
+      message: Fixed the NTRep not getting his special disabler
+  id: 1299
+  time: '2025-07-01T19:43:55.0000000+00:00'
