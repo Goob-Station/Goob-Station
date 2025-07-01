@@ -11895,3 +11895,9 @@ Entries:
         wolf, and the living curse.
   id: 1305
   time: '2025-07-01T20:20:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Microreactors now get temporarily disabled when EMPed.
+  id: 1306
+  time: '2025-07-01T20:23:44.0000000+00:00'
