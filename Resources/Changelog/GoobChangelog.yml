@@ -11755,3 +11755,9 @@ Entries:
         organs and limbs.
   id: 1287
   time: '2025-07-01T18:50:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Vulpkanin can now track the scents of people.
+  id: 1288
+  time: '2025-07-01T18:53:51.0000000+00:00'
