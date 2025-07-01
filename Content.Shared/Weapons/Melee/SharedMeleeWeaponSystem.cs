@@ -99,6 +99,7 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
@@ -119,9 +120,13 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.MartialArts; // Goobstation - Martial Arts
+using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared._Shitmed.Weapons.Melee.Events; // Shitmed Change
 using Content.Shared.ActionBlocker;
+using Content.Shared.Actions.Events;
+using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared.Coordinates;
@@ -132,23 +137,35 @@ using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Hands.EntitySystems; // Shitmed Change
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using ItemToggleMeleeWeaponComponent = Content.Shared.Item.ItemToggle.Components.ItemToggleMeleeWeaponComponent;
 
@@ -156,21 +173,50 @@ namespace Content.Shared.Weapons.Melee;
 
 public abstract class SharedMeleeWeaponSystem : EntitySystem
 {
-    [Dependency] protected readonly ISharedAdminLogManager   AdminLogger     = default!;
-    [Dependency] protected readonly ActionBlockerSystem      Blocker         = default!;
-    [Dependency] protected readonly SharedCombatModeSystem   CombatMode      = default!;
-    [Dependency] protected readonly DamageableSystem         Damageable      = default!;
-    [Dependency] protected readonly SharedInteractionSystem  Interaction     = default!;
-    [Dependency] protected readonly IMapManager              MapManager      = default!;
-    [Dependency] protected readonly SharedPopupSystem        PopupSystem     = default!;
-    [Dependency] protected readonly IGameTiming              Timing          = default!;
-    [Dependency] protected readonly SharedTransformSystem    TransformSystem = default!;
-    [Dependency] private   readonly InventorySystem         _inventory       = default!;
-    [Dependency] private   readonly MeleeSoundSystem        _meleeSound      = default!;
-    [Dependency] private   readonly SharedPhysicsSystem     _physics         = default!;
-    [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
-    [Dependency] private   readonly StaminaSystem           _stamina         = default!;
-    [Dependency] private   readonly SharedHandsSystem             _hands           = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly IMapManager MapManager = default!;
+    [Dependency] private   readonly INetManager _netMan = default!;
+    [Dependency] private   readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private   readonly IRobustRandom _random = default!;
+    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
+    [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
+    [Dependency] protected readonly DamageableSystem Damageable = default!;
+    [Dependency] private   readonly InventorySystem _inventory = default!;
+    [Dependency] private   readonly MeleeSoundSystem _meleeSound = default!;
+    [Dependency] protected readonly MobStateSystem MobState = default!;
+    [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] protected readonly SharedCombatModeSystem CombatMode = default!;
+    [Dependency] protected readonly SharedInteractionSystem Interaction = default!;
+    [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
+    [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
+    [Dependency] private   readonly ContestsSystem _contests = default!;
+    [Dependency] private   readonly ThrowingSystem _throwing = default!;
+    [Dependency] private   readonly INetConfigurationManager _config = default!;
+    [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
+
+    //Goob - Shove
+    private float _shoveRange;
+    private float _shoveSpeed;
+    private float _shoveMass;
+    //Goob - Shove
+
+    // Goobstation - Shove
+    private void SetShoveRange(float value)
+    {
+        _shoveRange = value;
+    }
+
+    private void SetShoveSpeed(float value)
+    {
+        _shoveSpeed = value;
+    }
+
+    private void SetShoveMass(float value)
+    {
+        _shoveMass = value;
+    }
+    //Goob - Shove
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -201,6 +247,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         SubscribeAllEvent<LightAttackEvent>(OnLightAttack);
         SubscribeAllEvent<DisarmAttackEvent>(OnDisarmAttack);
         SubscribeAllEvent<StopAttackEvent>(OnStopAttack);
+
+        Subs.CVar(_config, GoobCVars.ShoveRange, SetShoveRange, true);
+        Subs.CVar(_config, GoobCVars.ShoveSpeed, SetShoveSpeed, true);
+        Subs.CVar(_config, GoobCVars.ShoveMassFactor, SetShoveMass, true);
 
 #if DEBUG
         SubscribeLocalEvent<MeleeWeaponComponent,
@@ -563,7 +613,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     DoLightAttack(user, light, weaponUid, weapon, session);
                     break;
                 case DisarmAttackEvent disarm:
-                    DoDisarm(user, disarm, weaponUid, weapon, session); // Goob edit
+                    if (!DoDisarm(user, disarm, weaponUid, weapon, session)) // Goob edit
+                        return false;
 
                     animation = weapon.DisarmAnimation; // WWDP
                     DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
@@ -953,38 +1004,151 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         return highestDamageType;
     }
 
-    protected virtual bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
+    private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, CombatModeComponent disarmerComp)
     {
-        var target = GetEntity(ev.Target);
+        if (HasComp<DisarmProneComponent>(disarmer))
+            return 1.0f;
+
+        if (HasComp<DisarmProneComponent>(disarmed))
+            return 0.0f;
+
+        var chance = 1 - disarmerComp.BaseDisarmFailChance;
+
+        // Goob - Shove Rework disarm based on health & stamina
+        chance *= Math.Clamp(
+            _contests.StaminaContest(disarmer, disarmed)
+            * _contests.HealthContest(disarmer, disarmed),
+            0f,
+            1f);
+
+        if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
+            chance *= 1 - malus.Malus; // Goob - Shove Rework edit
+
+        if (TryComp<ShovingComponent>(disarmer, out var shoving))
+            chance *= 1 + shoving.DisarmBonus; // Goob - Shove Rework edit
+
+        return chance;
+
+    }
+
+    // Goob - Shove Rework shove stamina damage based on mass
+    private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
+    {
+        var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;
+
+        return
+            baseStaminaDamage
+            * _contests.MassContest(disarmer, disarmed, false, 4f);
+    }
+
+    protected virtual bool DoDisarm(EntityUid user,
+        DisarmAttackEvent ev,
+        EntityUid meleeUid,
+        MeleeWeaponComponent component,
+        ICommonSession? session) // Goobstation - Shove Rework
+    {
+
+        if (!ev.Target.HasValue)
+            return false;
+
+        var target = GetEntity(ev.Target.Value);
 
         if (Deleted(target)
             || user == target)
-        {
             return false;
+
+        EntityUid? inTargetHand = null;
+
+        if (!TryComp<CombatModeComponent>(user, out var combatMode))
+            return false;
+
+        if (!InRange(user, target, component.Range, session))
+            return false;
+
+        PhysicalShove(user, target);
+        Interaction.DoContactInteraction(user, target);
+
+        if (MobState.IsIncapacitated(target))
+            return true;
+
+        if (!TryComp<PhysicsComponent>(target, out var targetPhysicsComponent))
+            return false;
+
+        if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
+        {
+            if (!TryComp<StatusEffectsComponent>(target, out var status) ||
+                !status.AllowedEffects.Contains("KnockedDown"))
+            {
+                return true;
+            }
         }
 
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm == false) // WWDP
+        if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
         {
-            return false;
+            inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
         }
 
-        if (!InRange(user, target.Value, component.Range, session)) // WWDP
+        Interaction.DoContactInteraction(user, target);
+
+        var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboEv);
+
+        var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
+        if (inTargetHand != null)
         {
-            return false;
+            RaiseLocalEvent(inTargetHand.Value, ref attemptEvent);
         }
 
-        // Play a sound to give instant feedback; same with playing the animations
-        _meleeSound.PlaySwingSound(user, meleeUid, component);
+        RaiseLocalEvent(target, ref attemptEvent);
 
-        // Goobstation start
-        var beforeEvent = new BeforeHarmfulActionEvent(user, HarmfulActionType.Disarm);
-        RaiseLocalEvent(target.Value, beforeEvent);
-        if (beforeEvent.Cancelled)
-            return false;
-        // Goobstation end
+        if (attemptEvent.Cancelled)
+            return true;
+
+        var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
+
+        _audio.PlayPredicted(combatMode.DisarmSuccessSound,
+            user, user,
+            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
+        AdminLogger.Add(LogType.DisarmedAction,
+            $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
+
+        var staminaDamage = CalculateShoveStaminaDamage(user, target);
+
+        var eventArgs = new DisarmedEvent(target,user,chance)
+        {
+            StaminaDamage = staminaDamage,
+        };
+        RaiseLocalEvent(target, ref eventArgs);
+
+        if (!eventArgs.Handled)
+        {
+            ShoveOrDisarmPopup(false);
+            return true;
+        }
+
+        ShoveOrDisarmPopup(true);
 
         return true;
+
+        // Goob - Shove Rework edit (moved to function)
+        void ShoveOrDisarmPopup(bool disarm)
+        {
+            var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
+            var msgPrefix = "disarm-action-";
+
+            if (!disarm)
+                msgPrefix = "disarm-action-shove-";
+
+            var msgOther = Loc.GetString(
+                msgPrefix + "popup-message-other-clients",
+                ("performerName", Identity.Entity(user, EntityManager)),
+                ("targetName", Identity.Entity(target, EntityManager)));
+
+            var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor", ("targetName", Identity.Entity(target, EntityManager)));
+
+            PopupSystem.PopupPredicted(msgOther, target, null, filterOther, false);
+            PopupSystem.PopupClient(msgUser, user);
+        }
     }
 
     private void DoLungeAnimation(EntityUid user, EntityUid weapon, Angle angle, MapCoordinates coordinates, float length, string? animation, Angle spriteRotation, bool flipAnimation)
@@ -1009,6 +1173,26 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             localPos = localPos.Normalized() * visualLength;
 
         DoLunge(user, weapon, angle, localPos, animation, spriteRotation, flipAnimation);
+    }
+
+    private void PhysicalShove(EntityUid user, EntityUid target)
+    {
+        var force = _shoveRange * _contests.MassContest(user, target, rangeFactor: _shoveMass);
+
+        var userPos = TransformSystem.ToMapCoordinates(user.ToCoordinates()).Position;
+        var targetPos = TransformSystem.ToMapCoordinates(target.ToCoordinates()).Position;
+        var pushVector = (targetPos - userPos).Normalized() * force;
+
+        var animated = false;
+        var throwInAir = false;
+
+        if (HasComp<ItemComponent>(target)) // Throw items instead of shoving
+        {
+            animated = true;
+            throwInAir = true;
+        }
+
+        _throwing.TryThrow(target, pushVector, force * _shoveSpeed, animated: animated, throwInAir: throwInAir);
     }
 
     public abstract void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool flipAnimation, bool predicted = true);

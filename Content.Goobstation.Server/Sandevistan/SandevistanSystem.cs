@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.Sandevistan;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Abilities;
@@ -26,7 +32,7 @@ public sealed class SandevistanSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -98,8 +104,8 @@ public sealed class SandevistanSystem : EntitySystem
         }
     }
 
-    private void OnStartup(Entity<SandevistanUserComponent> ent, ref ComponentStartup args)
-        => ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
+    private void OnStartup(Entity<SandevistanUserComponent> ent, ref ComponentStartup args) =>
+        ent.Comp.ActionUid = _actions.AddAction(ent, ent.Comp.ActionProto);
 
     private void OnToggle(Entity<SandevistanUserComponent> ent, ref ToggleSandevistanEvent args)
     {
@@ -114,7 +120,7 @@ public sealed class SandevistanSystem : EntitySystem
         }
 
         ent.Comp.Active = EnsureComp<ActiveSandevistanUserComponent>(ent);
-        ent.Comp.CurrentLoad = MathF.Max(0, ent.Comp.CurrentLoad + ent.Comp.LoadPerInactiveSecond * (_timing.CurTime - ent.Comp.LastEnabled).Seconds);
+        ent.Comp.CurrentLoad = MathF.Max(0, ent.Comp.CurrentLoad + ent.Comp.LoadPerInactiveSecond * (float)(_timing.CurTime - ent.Comp.LastEnabled).TotalSeconds);
         _speed.RefreshMovementSpeedModifiers(ent);
 
         if (!HasComp<TrailComponent>(ent))
@@ -156,8 +162,8 @@ public sealed class SandevistanSystem : EntitySystem
         weapon.NextAttack -= rate - rate / ent.Comp.AttackSpeedModifier;
     }
 
-    private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args)
-        => Disable(ent, ent.Comp);
+    private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args) =>
+        Disable(ent, ent.Comp);
 
     private void OnShutdown(Entity<SandevistanUserComponent> ent, ref ComponentShutdown args)
     {
@@ -177,13 +183,13 @@ public sealed class SandevistanSystem : EntitySystem
 
         if (comp.Overlay != null)
         {
-            RemComp<DogVisionComponent>(uid);
+            RemComp(uid, comp.Overlay);
             comp.Overlay = null;
         }
 
         if (comp.Trail != null)
         {
-            RemComp<TrailComponent>(uid);
+            RemComp(uid, comp.Trail);
             comp.Trail = null;
         }
     }

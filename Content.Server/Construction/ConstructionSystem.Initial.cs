@@ -11,8 +11,8 @@
 // SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
 // SPDX-FileCopyrightText: 2020 Memory <58238103+FL-OZ@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 // SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
 // SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
@@ -24,7 +24,7 @@
 // SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
 // SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Paul <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
@@ -91,7 +91,6 @@ namespace Content.Server.Construction
 {
     public sealed partial class ConstructionSystem
     {
-        [Dependency] private readonly IComponentFactory _factory = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -287,7 +286,7 @@ namespace Content.Server.Construction
                     case ArbitraryInsertConstructionGraphStep arbitraryStep:
                         foreach (var entity in new HashSet<EntityUid>(EnumerateNearby(user)))
                         {
-                            if (!arbitraryStep.EntityValid(entity, EntityManager, _factory))
+                            if (!arbitraryStep.EntityValid(entity, EntityManager, Factory))
                                 continue;
 
                             if (used.Contains(entity))
@@ -604,7 +603,7 @@ namespace Content.Server.Construction
                 return false;
             }
 
-            var mapPos = location.ToMap(EntityManager, _transformSystem);
+            var mapPos = _transformSystem.ToMapCoordinates(location);
             var predicate = GetPredicate(constructionPrototype.CanBuildInImpassable, mapPos);
 
             if (!_interactionSystem.InRangeUnobstructed(user, mapPos, predicate: predicate))
@@ -638,7 +637,7 @@ namespace Content.Server.Construction
                     switch (step)
                     {
                         case EntityInsertConstructionGraphStep entityInsert:
-                            if (entityInsert.EntityValid(holding, EntityManager, _factory))
+                            if (entityInsert.EntityValid(holding, EntityManager, Factory))
                                 valid = true;
                             break;
                         case ToolConstructionGraphStep _:

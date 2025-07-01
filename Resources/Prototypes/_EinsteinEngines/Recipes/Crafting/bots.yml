@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: construction
+  id: weldbot
+  graph: WeldBot
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item
+
+- type: construction
+  id: plantbot
+  graph: PlantBot
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item
+
+- type: construction
+  id: fillbot
+  graph: FillBot
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item
+
+- type: construction
+  id: minebot
+  graph: MineBot
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item

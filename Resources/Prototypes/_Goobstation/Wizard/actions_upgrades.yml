@@ -691,12 +691,13 @@
     checkCanInteract: false
     useDelay: 21.25
     event: !type:PolymorphSpellEvent
-      speech: action-speech-spell-rod-form
       protoId: WizardRodII
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: immrod
+  - type: SpeakOnAction
+    sentence: action-speech-spell-rod-form
 
 - type: entity
   parent: ActionPolymorphWizardRod
@@ -708,12 +709,13 @@
     checkCanInteract: false
     useDelay: 17.5
     event: !type:PolymorphSpellEvent
-      speech: action-speech-spell-rod-form
       protoId: WizardRodIII
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: immrod
+  - type: SpeakOnAction
+    sentence: action-speech-spell-rod-form
 
 - type: entity
   parent: ActionPolymorphWizardRod
@@ -725,12 +727,13 @@
     checkCanInteract: false
     useDelay: 13.75
     event: !type:PolymorphSpellEvent
-      speech: action-speech-spell-rod-form
       protoId: WizardRodIV
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: immrod
+  - type: SpeakOnAction
+    sentence: action-speech-spell-rod-form
 
 - type: entity
   parent: ActionPolymorphWizardRod
@@ -742,12 +745,13 @@
     checkCanInteract: false
     useDelay: 10
     event: !type:PolymorphSpellEvent
-      speech: action-speech-spell-rod-form
       protoId: WizardRodV
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: immrod
+  - type: SpeakOnAction
+    sentence: action-speech-spell-rod-form
 
 # Summon Simians
 - type: entity
@@ -766,9 +770,10 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
-      speech: action-speech-spell-simians
       mobs: SummonSimiansMobTableII
       weapons: SummonSimiansWeaponTableII
+  - type: SpeakOnAction
+    sentence: action-speech-spell-simians
 
 - type: entity
   parent: ActionSummonSimians
@@ -786,12 +791,13 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
-      speech: action-speech-spell-simians
       mobs: SummonSimiansMobTableIII
       weapons: SummonSimiansWeaponTableIII
       amount: 5
       range: 1.25
       spawnAngle: 50
+  - type: SpeakOnAction
+    sentence: action-speech-spell-simians
 
 - type: entity
   parent: ActionSummonSimians
@@ -809,12 +815,13 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
-      speech: action-speech-spell-simians
       mobs: SummonSimiansMobTableIV
       weapons: SummonSimiansWeaponTableIV
       amount: 5
       range: 1.25
       spawnAngle: 50
+  - type: SpeakOnAction
+    sentence: action-speech-spell-simians
 
 - type: entity
   parent: ActionSummonSimians
@@ -832,12 +839,13 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
-      speech: action-speech-spell-simians
       mobs: SummonSimiansMobTableV
       weapons: SummonSimiansWeaponTableV
       amount: 6
       range: 1.5
       spawnAngle: 60
+  - type: SpeakOnAction
+    sentence: action-speech-spell-simians
   - type: Magic
     requiresClothes: false
   - type: Tag

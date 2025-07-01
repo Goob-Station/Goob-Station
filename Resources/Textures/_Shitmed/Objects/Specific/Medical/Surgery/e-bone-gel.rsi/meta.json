@@ -14,19 +14,20 @@
             "name": "e-bone-gel-on"
         },
         {
-            "name": "inhand-left",
+            "name": "bonegel-inhand-left",
             "directions": 4
         },
         {
-            "name": "on-inhand-left",
+            "name": "bonegel-inhand-right",
             "directions": 4
         },
         {
-            "name": "inhand-right",
+            "name": "bonesetter-inhand-left",
             "directions": 4
         },
+
         {
-            "name": "on-inhand-right",
+            "name": "bonesetter-inhand-right",
             "directions": 4
         }
     ]
