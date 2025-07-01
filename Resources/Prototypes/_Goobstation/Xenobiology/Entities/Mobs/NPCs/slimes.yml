@@ -22,10 +22,10 @@
     starvingSlowdownModifier: 0
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: baby
+      state: base
   - type: DamageStateVisuals
     states:
       Dead:
@@ -149,17 +149,17 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Xenobiology/Mobs/slimes.rsi
+    sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: baby
+      state: base
       color: "#828282"
   - type: MobGrowth
     hungerRequired: 100
-    currentStage: baby
+    currentStage: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
     stages:
-    - baby
-    - adult
+    - _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+    - _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
   - type: Slime
     breed: GreyMutation
     slimeColor: "#828282"
