@@ -22,6 +22,6 @@
   source: "https://github.com/Piras314"
 
 - files: ["gulp.ogg"]
-  license: "CC0"
-  copyright: "Freesound_community"
+  license: "CC0-1.0"
+  copyright: "Stock sounds from Pixabay"
   source: "https://pixabay.com/sound-effects/gulp-male-88413/"
