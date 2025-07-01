@@ -792,9 +792,9 @@
     - type: GhostRole
       name: ghost-role-information-syndie-disaster-victim-name
       description: ghost-role-information-syndie-disaster-victim-description
-      rules: ghost-role-information-freeagent-rules
+      rules: ghost-role-information-nonantagonist-rules
       mindRoles:
-      - MindRoleGhostRoleFreeAgent
+      - MindRoleGhostRoleFreeAgentHarmless
       raffle:
         settings: short
     - type: Loadout
