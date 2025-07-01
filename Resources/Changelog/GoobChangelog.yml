@@ -11813,3 +11813,19 @@ Entries:
         a new set of wizard clothing for chuuni enthusiasts.
   id: 1295
   time: '2025-07-01T19:22:05.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: CE now gets their own RPD.
+    - type: Add
+      message: Engineering now has diagnostic huds in their Engi-Vend.
+    - type: Tweak
+      message: Engineering suits now have welding protection.
+    - type: Tweak
+      message: Engineers now have access to air alarms.
+    - type: Tweak
+      message: The singularity buster is more reliable.
+    - type: Fix
+      message: Box of nails in engi fab. now exists.
+  id: 1296
+  time: '2025-07-01T19:28:08.0000000+00:00'
