@@ -4,8 +4,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -31,7 +33,7 @@
     - HeadSide
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetHEV
   name: H.E.V helmet
   description: Not included in a set with crowbar, long jump module and gravity manipulation device.
@@ -103,6 +105,6 @@
         Blunt: 0.55
         Slash: 0.55
         Piercing: 0.55
-        Heat: 0.7
+        Heat: 0.75
   - type: PressureProtection
     lowPressureMultiplier: 1000
