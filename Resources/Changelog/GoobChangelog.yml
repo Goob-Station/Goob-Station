@@ -11863,3 +11863,9 @@ Entries:
         every single time
   id: 1300
   time: '2025-07-01T19:49:19.0000000+00:00'
+- author: ThunderBear2006
+  changes:
+    - type: Add
+      message: The Station AI can now jump/warp to on-station cameras
+  id: 1301
+  time: '2025-07-01T19:53:54.0000000+00:00'
