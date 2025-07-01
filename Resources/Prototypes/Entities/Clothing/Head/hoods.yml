@@ -122,11 +122,11 @@
     tags:
     - WhitelistChameleon
   - type: HideLayerClothing
-    slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    layers:
+      Hair: HEAD
+      Snout: HEAD
+      HeadTop: HEAD
+      HeadSide: HEAD
   - type: Armor # Goob
     coverage:
     - Head
