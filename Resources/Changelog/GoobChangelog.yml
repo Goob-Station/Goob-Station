@@ -11843,3 +11843,9 @@ Entries:
         anymore
   id: 1297
   time: '2025-07-01T19:40:37.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Fix
+      message: Fixed hardgrab grammar
+  id: 1298
+  time: '2025-07-01T19:42:09.0000000+00:00'
