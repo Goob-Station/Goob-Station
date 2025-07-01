@@ -11773,3 +11773,13 @@ Entries:
       message: Enabled the shelter capsule + webbing mining voucher kit.
   id: 1290
   time: '2025-07-01T18:57:33.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: His Grace now properly heals it's host as intended.
+    - type: Fix
+      message: His Grace now properly applies its movement speed bonuses.
+    - type: Tweak
+      message: His Grace is no longer disarm-able.
+  id: 1291
+  time: '2025-07-01T18:58:01.0000000+00:00'
