@@ -251,6 +251,7 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SomethingUnbearable <mewatcher102@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
@@ -422,6 +423,7 @@
     - MedicalVehiclesStatic
     - GrenadeTriggersStatic
     - TapeRecorderStatic
+    - MiscSignallersStatic
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityWeaponsStatic
