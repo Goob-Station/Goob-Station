@@ -18,8 +18,6 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -71,7 +69,7 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 300  # Considering we need a lot of thrusters didn't want to make an individual one too tanky # Goobstation - 100->300
+          damage: 300  # Changed 100->300 because impact damage is real
         behaviors:
           - !type:DoActsBehavior
             acts: ["Destruction"]
@@ -97,13 +95,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600 # Goobstation
+        damage: 600
       behaviors:
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 300 # Goobstation
+        damage: 300
       behaviors:
         - !type:DoActsBehavior
           acts: ["Destruction"]
