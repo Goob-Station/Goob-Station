@@ -10,7 +10,7 @@
   description: Anything said into this device can and will be used against you in a court of space law.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/tape_recorder.rsi
+    sprite: _DV/Objects/Devices/tape_recorder.rsi
     layers:
     - state: empty
     - state: idle
@@ -73,7 +73,7 @@
   description: A magnetic tape that can hold up to two minutes of content on either side.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/cassette_tapes.rsi
+    sprite: _DV/Objects/Devices/cassette_tapes.rsi
     layers:
     - state: tape_greyscale
       map: [ "enum.DamageStateVisualLayers.Base" ]
