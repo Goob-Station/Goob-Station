@@ -12,12 +12,9 @@ public sealed partial class ShadowlingNoxImperiiComponent : Component
     [DataField]
     public EntProtoId ActionNoxImperii = "ActionNoxImperii";
 
+    /// <summary>
+    /// The seconds it takes for the ability to activate.
+    /// </summary>
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(15);
-
-    [DataField]
-    public float Radius = 1.5f;
-
-    [DataField]
-    public float LightEnergy = 5f;
 }

@@ -14,18 +14,33 @@ public sealed partial class ShadowlingBlindnessSmokeComponent : Component
     [DataField]
     public EntProtoId ActionBlindnessSmoke = "ActionBlindnessSmoke";
 
+    /// <summary>
+    /// The reagent used inside the smoke.
+    /// </summary>
     [DataField]
     public string Reagent = "ShadowlingToxin"; // innovative name
 
+    /// <summary>
+    /// The duration of the smoke itself.
+    /// </summary>
     [DataField]
     public float Duration = 5f;
 
+    /// <summary>
+    /// Indicates how much the smoke should spread in an area
+    /// </summary>
     [DataField]
     public int SpreadAmount = 18;
 
+    /// <summary>
+    /// The quantity of the reagent contained inside the smoke
+    /// </summary>
     [DataField]
     public FixedPoint2 ReagentQuantity = 10f;
 
+    /// <summary>
+    /// The sound used once the ability activates.
+    /// </summary>
     [DataField]
     public SoundSpecifier? BlindnessSound = new SoundPathSpecifier("/Audio/Effects/bamf.ogg");
 }

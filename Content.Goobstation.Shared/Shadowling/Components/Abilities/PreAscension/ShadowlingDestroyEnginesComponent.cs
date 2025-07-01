@@ -12,9 +12,15 @@ public sealed partial class ShadowlingDestroyEnginesComponent : Component
     [DataField]
     public EntProtoId ActionDestroyEngines = "ActionDestroyEngines";
 
+    /// <summary>
+    /// Indicates how long the shuttle wil be delayed for.
+    /// </summary>
     [DataField]
     public TimeSpan DelayTime = TimeSpan.FromMinutes(10);
 
+    /// <summary>
+    /// Indicates whether the ability has already been used before.
+    /// </summary>
     [DataField]
     public bool HasBeenUsed;
 }

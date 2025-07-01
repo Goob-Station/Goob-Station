@@ -35,3 +35,10 @@ admin-verb-text-make-shadowling = Make Shadowling
 
 species-name-shadowling = Shadowling
 species-name-shadow = Shadow
+
+# Examine Texts
+shadowling-examine-self = [color=#D22B2B]You take {$damage} burn damage from light[/color]
+
+# UI
+asc-broadcast-title = Ascendant Broadcast
+asc-broadcast-prompt = Message

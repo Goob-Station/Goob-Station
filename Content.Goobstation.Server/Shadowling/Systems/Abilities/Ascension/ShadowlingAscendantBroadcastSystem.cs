@@ -34,7 +34,7 @@ public sealed class ShadowlingAscendantBroadcastSystem : EntitySystem
         if (!TryComp<ActorComponent>(args.Performer, out var actor))
             return;
 
-        _dialogSystem.OpenDialog(actor.PlayerSession, component.Title, "Message", (string message) =>
+        _dialogSystem.OpenDialog(actor.PlayerSession, Loc.GetString("asc-broadcast-title"), Loc.GetString("asc-broadcast-prompt"), (string message) =>
         {
             if (actor.PlayerSession.AttachedEntity == null)
                 return;

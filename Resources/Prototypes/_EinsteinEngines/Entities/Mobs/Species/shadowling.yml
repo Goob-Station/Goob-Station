@@ -53,6 +53,7 @@
   - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
+  - type: Insulated
 
 - type: entity
   parent: BaseSpeciesDummy

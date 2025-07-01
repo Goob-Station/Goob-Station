@@ -14,6 +14,9 @@ namespace Content.Goobstation.Server.Shadowling;
 [RegisterComponent]
 public sealed partial class ShadowlingRoleComponent : BaseMindRoleComponent
 {
+    /// <summary>
+    /// Used for round-end text. Indicates how many thralls the Shadowling converted during the round.
+    /// </summary>
     [DataField]
     public int ThrallsConverted;
 }
