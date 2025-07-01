@@ -165,6 +165,7 @@
   - type: MovementSpeedModifier
     weightlessAcceleration: 2.5
     weightlessModifier: 1.12
+    baseWeightlessModifier: 1.25
   - type: Inventory
     speciesId: harpy
     templateId: digitigrade # Einstein Engines
