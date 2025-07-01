@@ -11869,3 +11869,9 @@ Entries:
       message: The Station AI can now jump/warp to on-station cameras
   id: 1301
   time: '2025-07-01T19:53:54.0000000+00:00'
+- author: Sleeper Agent 110920
+  changes:
+    - type: Add
+      message: Added a new outfit to the hacked autodrobe.
+  id: 1302
+  time: '2025-07-01T20:17:04.0000000+00:00'
