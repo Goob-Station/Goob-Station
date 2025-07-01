@@ -501,7 +501,7 @@
 
 - type: entity
   parent: ClothingShoesBase
-  id: ClothingUnderShoessCrimson
+  id: ClothingUnderShoesCrimson
   name: crimson boots
   description: Comes with a pair of mismatched thigh-high socks to bring out their full power!
   components:
