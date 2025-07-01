@@ -11799,3 +11799,9 @@ Entries:
         exactly what its name implies. 
   id: 1293
   time: '2025-07-01T19:04:38.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Syndicate Disaster victims are now Crew Aligned
+  id: 1294
+  time: '2025-07-01T19:09:14.0000000+00:00'
