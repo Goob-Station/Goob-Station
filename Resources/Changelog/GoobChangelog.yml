@@ -11829,3 +11829,17 @@ Entries:
       message: Box of nails in engi fab. now exists.
   id: 1296
   time: '2025-07-01T19:28:08.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Regular crew can no longer see reality fractures
+    - type: Add
+      message: >-
+        The chaplain is now the only regular member of the crew that can see the
+        fractures, but be warned... he might just be crazy!
+    - type: Fix
+      message: >-
+        The metashield nobody likes on fractures... shouldn't be a problem
+        anymore
+  id: 1297
+  time: '2025-07-01T19:40:37.0000000+00:00'
