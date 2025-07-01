@@ -10,7 +10,7 @@
   id: SuitStorageHEV
   name: H.E.V suit storage unit
   description: A fancy hi-tech storage unit made for storing a H.E.V suit.
-  parent: [ BaseItemCabinetGlass, BaseMachine, ConstructibleMachine ]
+  parent: [ BaseMachine, ConstructibleItemCabinet ]
   suffix: Empty
   components:
   - type: InteractionOutline
@@ -91,6 +91,16 @@
     access: [["Engineering"]]
   - type: Machine
     board: SuitStorageHEVCircuitboard
+  - type: GenericVisualizer
+    visuals:
+      enum.ItemCabinetVisuals.ContainsItem:
+        enum.ItemCabinetVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: { state: glass-up }
+          False: { state: glass }
 
 - type: entity
   id: SuitStorageHEVFilled
