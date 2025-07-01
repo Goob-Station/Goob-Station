@@ -518,6 +518,13 @@
         identifier: Suffocation
         amount: 5 # Does not let the entity suffocate while the pain is suppressed
         time: 10
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Histamine
+          min: 45
+        reagent: Histamine
+        amount: -5
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
@@ -1093,13 +1100,12 @@
       - !type:SuppressPain
         amount: 2
         time: 14
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -3
-            Toxin: -3
-            Airloss: -3
-            Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+          Burn: -3
+          Toxin: -3
+          Airloss: -3
+          Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
 
 - type: reagent
   id: Ultravasculine
@@ -1375,6 +1381,7 @@
   name: reagent-name-holywater
   group: Medicine
   desc: reagent-desc-holywater
+  evaporationSpeed: 0.3
   physicalDesc: reagent-physical-desc-holy
   flavor: holy
   color: "#91C3F7"
@@ -1513,7 +1520,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 12
-          
+
 - type: reagent
   id: Opporozidone #Name based of an altered version of the startreck chem "Opporozine"
   name: reagent-name-opporozidone
