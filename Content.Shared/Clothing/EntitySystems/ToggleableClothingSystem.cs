@@ -353,41 +353,27 @@ public sealed class ToggleableClothingSystem : EntitySystem
     }
 
     /// <summary>
-    ///     With modsuits when equip/unequipping the suitstorage item drops, If suitstorageitem exists, equip it.
+    ///     Attempts to equip a suit storage item to a user, showing a popup if the equip fails.
     /// </summary>
-
     private void ForceSuitStorage(EntityUid user, EntityUid? suitStorageItem)
     {
-        if (suitStorageItem == null)
-            return;
-
-        if (!_inventorySystem.TryEquip(user, suitStorageItem.Value, "suitstorage", silent: true)) // silent cause it makes more sense to say you dropped something than you suddenly 'not equipping it'
-        {
-            _popupSystem.PopupClient(Loc.GetString("inventory-component-dropped-from-unequip", ("items", 1)), user, user); // was it worth it? no.
-        }
+        if (suitStorageItem != null && !_inventorySystem.TryEquip(user, suitStorageItem.Value, "suitstorage", silent: true))
+            _popupSystem.PopupClient(Loc.GetString("inventory-component-dropped-from-unequip", ("items", 1)), user, user);
     }
 
     /// <summary>
-    ///     Finds the suitstorage at the time, runs TryUnequip, and returns it. Null if it doesn't exist.
+    ///    Finds and unequips the suit storage item from the user, returning it if found.
     /// </summary>
-
-    private EntityUid? FindSuitStorage(EntityUid user)
-    {
-        if (_inventorySystem.TryGetSlotEntity(user, "suitstorage", out var foundSuitStorageItem))  // find suit storage if any
-        {
-            _inventorySystem.TryUnequip(user, "suitstorage", silent: true); // we remove it cause we later add it back
-            return foundSuitStorageItem;
-        }
-        return null;
-
-    }
+    private EntityUid? FindSuitStorage(EntityUid user) =>
+        _inventorySystem.TryGetSlotEntity(user, "suitstorage", out var item) && 
+        _inventorySystem.TryUnequip(user, "suitstorage", silent: true) ? item : null;
 
     /// <summary>
     ///     Toggle function for single clothing
     /// </summary>
     private void ToggleClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid attachedUid)
     {
-        var suitStorageItem = FindSuitStorage(user); // for single clothing we check once
+        var suitStorageItem = FindSuitStorage(user);
         var comp = toggleable.Comp;
         var attachedClothings = comp.ClothingUids;
         var container = comp.Container;
@@ -427,7 +413,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         {
             foreach (var clothing in attachedClothings)
             {
-                var suitStorageItem = FindSuitStorage(user); // multiple clothing multiple check.
+                var suitStorageItem = FindSuitStorage(user);
                 EquipClothing(user, toggleable, clothing.Key, clothing.Value);
                 ForceSuitStorage(user, suitStorageItem);
             }
@@ -440,7 +426,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
                 {
                     var suitStorageItem = FindSuitStorage(user);
                     UnequipClothing(user, toggleable, clothing.Key, clothing.Value);
-                    ForceSuitStorage(user, suitStorageItem); // we equip on unequip because there could be valid suitstorage underneath modsuit.
+                    ForceSuitStorage(user, suitStorageItem);
                 }
             }
         }
