@@ -36,34 +36,32 @@ public sealed class ThrallGuiseSystem : EntitySystem
         var query = EntityQueryEnumerator<ThrallGuiseComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.Active)
+            if (!comp.Active)
+                continue;
+
+            if (TryComp<LightDetectionComponent>(uid, out var lightDetection))
             {
-                if (TryComp<LightDetectionComponent>(uid, out var lightDetection))
+                if (TryComp<StealthComponent>(uid, out var stealth))
                 {
-                    if (TryComp<StealthComponent>(uid, out var stealth))
+                    if (lightDetection.IsOnLight)
                     {
-                        if (lightDetection.IsOnLight)
-                        {
-                            _stealth.SetVisibility(uid, 0.5f, stealth);
-                        }
-                        else
-                        {
-                            _stealth.SetVisibility(uid, -1f, stealth);
-                        }
+                        _stealth.SetVisibility(uid, 0.5f, stealth);
+                    }
+                    else
+                    {
+                        _stealth.SetVisibility(uid, -1f, stealth);
                     }
                 }
-                // Start timer
-                comp.Timer -= frameTime;
+            }
 
-                if (comp.Timer <= 0)
+            if (_timing.CurTime >= comp.NextUpdate)
+            {
+                comp.Active = false;
+                if (TryComp<StealthComponent>(uid, out var stealth))
                 {
-                    comp.Active = false;
-                    if (TryComp<StealthComponent>(uid, out var stealth))
-                    {
-                        _stealth.SetVisibility(uid, 1f, stealth);
-                        RemComp<LightDetectionComponent>(uid);
-                        RemComp<StealthComponent>(uid);
-                    }
+                    _stealth.SetVisibility(uid, 1f, stealth);
+                    RemComp<LightDetectionComponent>(uid);
+                    RemComp<StealthComponent>(uid);
                 }
             }
         }
@@ -72,7 +70,7 @@ public sealed class ThrallGuiseSystem : EntitySystem
     private void OnGuise(EntityUid uid, ThrallGuiseComponent component, GuiseEvent args)
     {
         EnsureComp<LightDetectionComponent>(uid);
-        component.Timer = component.GuiseDuration;
+        component.NextUpdate = component.GuiseDuration + _timing.CurTime;
         component.Active = true;
 
         var stealth = EnsureComp<StealthComponent>(uid);

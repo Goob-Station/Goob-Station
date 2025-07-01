@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.Shadowling.Components;
 public sealed partial class LightDetectionComponent : Component
 {
     /// <summary>
-    ///  Is user standing on a lighted area?
+    ///  Indicates whether the used is standing on light, or not.
     /// </summary>
     [DataField]
     public bool IsOnLight;
@@ -21,11 +21,14 @@ public sealed partial class LightDetectionComponent : Component
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.25);
 
     /// <summary>
-    ///  Has the user moved since the last check?
+    ///  Indicates if the user has moved since the last time.
     /// </summary>
     [DataField]
     public bool IsUserActive;
 
+    /// <summary>
+    ///  The last known position of the user of this component
+    /// </summary>
     [DataField]
     public Vector2 LastKnownPosition;
 }

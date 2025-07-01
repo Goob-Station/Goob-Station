@@ -15,6 +15,12 @@ public sealed partial class ShadowlingRuleComponent : Component
     public readonly List<EntityUid> ShadowlingMinds = new();
 }
 
+/// <summary>
+/// The winning conditions of the shadowling.
+/// Draw happens when both sides are alive. The default option.
+/// Win happens when a Shadowling ascends.
+/// Failure happens when all Shadowlings die.
+/// </summary>
 public enum ShadowlingWinCondition : byte
 {
     Draw,

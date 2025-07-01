@@ -11,15 +11,27 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveM
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShadowlingSonicScreechComponent : Component
 {
+    /// <summary>
+    /// The search radius of the ability.
+    /// </summary>
     [DataField]
     public float Range = 5f;
 
+    /// <summary>
+    /// The amount of time silicons get stunned for (IPCs currently)
+    /// </summary>
     [DataField]
     public TimeSpan SiliconStunTime = TimeSpan.FromSeconds(5);
 
+    /// <summary>
+    /// The tag that indicates that the obstacle hit by the ability is a window.
+    /// </summary>
     [DataField]
     public string WindowTag = "Window";
 
+    /// <summary>
+    /// How much damage the window structures take from this ability.
+    /// </summary>
     [DataField]
     public DamageSpecifier WindowDamage = new()
     {
@@ -29,15 +41,21 @@ public sealed partial class ShadowlingSonicScreechComponent : Component
         }
     };
 
-    [DataField]
-    public float ScreechKick = 80f;
-
+    /// <summary>
+    /// The prototype of the flash that gets thrown on the targets of this ability.
+    /// </summary>
     [DataField]
     public EntProtoId ProtoFlash = "EffectScreech";
 
+    /// <summary>
+    /// The sound that plays once the ability is used.
+    /// </summary>
     [DataField]
     public SoundSpecifier? ScreechSound = new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/screech.ogg");
 
+    /// <summary>
+    /// The effect that is used once the ability activates.
+    /// </summary>
     [DataField]
     public EntProtoId SonicScreechEffect = "ShadowlingSonicScreechEffect";
 }

@@ -10,8 +10,6 @@ namespace Content.Goobstation.Shared.Shadowling.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LesserShadowlingComponent : Component
 {
-    // todo: add new status icon for them? will consider it after everything's done
-
     [DataField]
     public EntProtoId ShadowWalkActionId = "ActionShadowWalk";
 

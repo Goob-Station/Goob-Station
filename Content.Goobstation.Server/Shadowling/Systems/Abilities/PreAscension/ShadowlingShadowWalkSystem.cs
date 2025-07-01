@@ -40,27 +40,27 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
         var shadowWalkQuery = EntityQueryEnumerator<ShadowlingShadowWalkComponent>();
         while (shadowWalkQuery.MoveNext(out var uid, out var shadowWalk))
         {
-            if (shadowWalk.IsActive)
+            if (!shadowWalk.IsActive)
+                continue;
+
+            if (_timing.CurTime >= shadowWalk.NextUpdate - shadowWalk.EffectOutTimer && !shadowWalk.EffectActivated)
             {
-                shadowWalk.Timer -= frameTime;
+                var effectEnt = Spawn(shadowWalk.ShadowWalkEffectOut, _transform.GetMapCoordinates(uid));
+                _transform.SetParent(effectEnt, uid);
+                shadowWalk.EffectActivated = true;
+            }
 
-                if (shadowWalk.Timer <= shadowWalk.EffectOutTimer)
+            if (_timing.CurTime >= shadowWalk.NextUpdate)
+            {
+                if (TryComp<StealthComponent>(uid, out var stealth))
                 {
-                    var effectEnt = Spawn(shadowWalk.ShadowWalkEffectOut, _transform.GetMapCoordinates(uid));
-                    _transform.SetParent(effectEnt, uid);
+                    _stealth.SetVisibility(uid, 1f, stealth);
+                    RemComp<StealthComponent>(uid);
+                    _audio.PlayPvs(shadowWalk.ShadowWalkSound, uid, AudioParams.Default.WithVolume(-2f).WithPitchScale(2f));
                 }
-
-                if (shadowWalk.Timer <= 0)
-                {
-                    if (TryComp<StealthComponent>(uid, out var stealth))
-                    {
-                        _stealth.SetVisibility(uid, 1f, stealth);
-                        RemComp<StealthComponent>(uid);
-                        _audio.PlayPvs(shadowWalk.ShadowWalkSound, uid, AudioParams.Default.WithVolume(-2f).WithPitchScale(2f));
-                    }
-                    shadowWalk.IsActive = false;
-                    _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
-                }
+                shadowWalk.IsActive = false;
+                shadowWalk.EffectActivated = false;
+                _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
             }
         }
     }
@@ -80,7 +80,7 @@ public sealed class ShadowlingShadowWalkSystem : EntitySystem
     private void OnShadowWalk(EntityUid uid, ShadowlingShadowWalkComponent comp, ShadowWalkEvent args)
     {
         comp.IsActive = true;
-        comp.Timer = comp.TimeUntilDeactivation;
+        comp.NextUpdate = comp.TimeUntilDeactivation + _timing.CurTime;
 
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
 

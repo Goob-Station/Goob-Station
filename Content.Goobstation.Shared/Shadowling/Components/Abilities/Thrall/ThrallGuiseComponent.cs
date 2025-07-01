@@ -9,10 +9,16 @@ namespace Content.Goobstation.Shared.Shadowling.Components.Abilities.Thrall;
 public sealed partial class ThrallGuiseComponent : Component
 {
     [DataField]
-    public float Timer = 10f;
+    public TimeSpan NextUpdate = TimeSpan.Zero;
 
+    /// <summary>
+    /// How long the effect lasts.
+    /// </summary>
     [DataField]
-    public float GuiseDuration = 10f;
+    public TimeSpan GuiseDuration = TimeSpan.FromSeconds(10);
 
+    /// <summary>
+    /// Indicates whether the ability is active, or not.
+    /// </summary>
     public bool Active;
 }

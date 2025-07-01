@@ -7,7 +7,10 @@ namespace Content.Goobstation.Shared.Shadowling.Components;
 public sealed partial class HatchingEggComponent : Component
 {
     [DataField]
-    public float CooldownTimer = 15.0f;
+    public TimeSpan NextUpdate = TimeSpan.Zero;
+
+    [DataField]
+    public TimeSpan CooldownTimer = TimeSpan.FromSeconds(15);
 
     [DataField]
     public EntityUid? ShadowlingInside;
