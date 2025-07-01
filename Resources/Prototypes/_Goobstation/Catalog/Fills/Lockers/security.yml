@@ -16,3 +16,6 @@
     - id: BoxGrenadesFlash
     - id: BoxGrenadesTeargas
     - id: GrenadeSlug # This is very lethal, but the bounty wanted this to be here, so it is.
+    - id: GrenadeBeanbagShotgun # Nonlethal, bounty wanted this as well
+    - id: GrenadeBeanbagShotgun
+    - id: GrenadeBeanbagShotgun

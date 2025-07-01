@@ -315,6 +315,10 @@
     - state: frag
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
+  - type: Tag
+    tags:
+     - Grenade # Goobstation
+     - NonLethalGrenade # Goobstation
   - type: SpentAmmoVisuals
     state: frag
 #    suffix: false - Goobstation
@@ -351,13 +355,15 @@
     - state: frag
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
-  - type: SpentAmmoVisuals
-    state: frag
   - type: Tag
     tags:
      - Grenade # Goobstation
      - NonLethalGrenade # Goobstation, This very much is lethal, but the bounty wanted this to also fire out of the riot launcher.
+  - type: SpentAmmoVisuals
+    state: frag
 #    suffix: false - Goobstation
+
+
 
 - type: entity
   id: Grenade00Buckshot
