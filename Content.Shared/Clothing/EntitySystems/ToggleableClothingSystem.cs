@@ -366,7 +366,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
     ///    Finds and unequips the suit storage item from the user, returning it if found.
     /// </summary>
     private EntityUid? FindSuitStorage(EntityUid user) =>
-        _inventorySystem.TryGetSlotEntity(user, "suitstorage", out var item) && 
+        _inventorySystem.TryGetSlotEntity(user, "suitstorage", out var item) &&
         _inventorySystem.TryUnequip(user, "suitstorage", silent: true) ? item : null;
 
     /// <summary>
