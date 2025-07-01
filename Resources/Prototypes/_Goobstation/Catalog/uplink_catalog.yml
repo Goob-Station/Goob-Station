@@ -32,6 +32,8 @@
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
@@ -799,6 +801,23 @@
   - UplinkChemicals
 
 - type: listing
+  id: UplinkMedicalBeamGunSyndicate
+  name: uplink-medical-beam-gun-name
+  description: uplink-medical-beam-gun-desc
+  productEntity: MedicalBeamGunSyndicateBattery
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsMedicUplink
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: UplinkCombatMedkitPills
   name: uplink-combat-medkit-pills-name
   description: uplink-combat-medkit-pills-desc
@@ -888,7 +907,7 @@
   name: uplink-binary-implant-name
   description: uplink-binary-implant-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
-  productEntity: BinaryImplant
+  productEntity: BinaryImplanter
   cost:
     Telecrystal: 5 # goob
   categories:
