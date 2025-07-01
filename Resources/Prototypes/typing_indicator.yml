@@ -24,6 +24,11 @@
   typingState: robot0
 
 - type: typingIndicator
+  id: xenoborg
+  typingState: xenoborg0
+  idleState: xenoborg3
+
+- type: typingIndicator
   id: alien
   typingState: alien0
 
@@ -74,4 +79,10 @@
 - type: typingIndicator
   id: diona
   typingState: diona0
+  offset: 0, 0.125
+
+- type: typingIndicator
+  id: regal
+  typingState: regal0
+  idleState: regal3
   offset: 0, 0.125

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 // SPDX-FileCopyrightText: 2025 SoundingExpert <204983230+SoundingExpert@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 john git <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
@@ -98,7 +99,7 @@ public sealed partial class PTLSystem : EntitySystem
 
         var charge = ent.Comp2.CurrentCharge / megajoule;
         // some random formula i found in bounty thread i popped it into desmos i think it looks good
-        var spesos = (int) (charge * 150 / (Math.Log(charge * 5) + 1));
+        var spesos = (int) (charge * 500 / (Math.Log(charge * 5) + 1));
 
         if (charge <= 0 || !double.IsFinite(spesos) || spesos < 0) return;
 

@@ -62,6 +62,7 @@ namespace Content.Client.Construction
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly SpriteSystem _sprite = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
 
         private readonly Dictionary<int, EntityUid> _ghosts = new();
@@ -249,7 +250,7 @@ namespace Content.Client.Construction
             EntityManager.GetComponent<TransformComponent>(ghost.Value).LocalRotation = dir.ToAngle();
             _ghosts.Add(comp.GhostId, ghost.Value);
             var sprite = EntityManager.GetComponent<SpriteComponent>(ghost.Value);
-            sprite.Color = new Color(48, 255, 48, 128);
+            _sprite.SetColor((ghost.Value, sprite), new Color(48, 255, 48, 128));
 
             for (int i = 0; i < prototype.Layers.Count; i++)
             {

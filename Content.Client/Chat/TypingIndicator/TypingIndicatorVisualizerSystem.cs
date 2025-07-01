@@ -19,7 +19,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, TypingIndicatorComponent component, ref AppearanceChangeEvent args)
     {
@@ -47,10 +47,10 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         AppearanceSystem.TryGetData<bool>(uid, TypingIndicatorVisuals.IsTyping, out var isTyping, args.Component);
         var layerExists = args.Sprite.LayerMapTryGet(TypingIndicatorLayers.Base, out var layer);
         if (!layerExists)
-            layer = args.Sprite.LayerMapReserveBlank(TypingIndicatorLayers.Base);
+            layer = _sprite.LayerMapReserve((uid, args.Sprite), TypingIndicatorLayers.Base);
 
-        args.Sprite.LayerSetRSI(layer, proto.SpritePath);
-        args.Sprite.LayerSetState(layer, proto.TypingState);
+        _sprite.LayerSetRsi((uid, args.Sprite), layer, proto.SpritePath);
+        _sprite.LayerSetRsiState((uid, args.Sprite), layer, proto.TypingState);
         args.Sprite.LayerSetShader(layer, proto.Shader);
         args.Sprite.LayerSetOffset(layer, proto.Offset);
         args.Sprite.LayerSetVisible(layer, isTyping);
