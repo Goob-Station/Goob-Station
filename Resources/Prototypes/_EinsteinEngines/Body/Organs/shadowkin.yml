@@ -27,6 +27,9 @@
       color: Gray
       activateSound: null
       deactivateSound: null
+    - type: Tag # goob edit
+      tags:
+      - FlashVulnerable
 
 - type: entity
   id: OrganShadowkinEars
