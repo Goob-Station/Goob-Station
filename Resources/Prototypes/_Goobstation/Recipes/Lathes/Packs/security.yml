@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
@@ -92,3 +93,9 @@
   parent: MedicalCybernetics
   recipes:
   - SecurityCyberneticEyes
+
+- type: latheRecipePack
+  id: RestraintTechnology
+  recipes:
+  - ClothingMaskMuzzleSecure
+  - ClothingMaskMuzzleShock
