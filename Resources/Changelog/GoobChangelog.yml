@@ -11721,3 +11721,49 @@ Entries:
       message: Updated base game to 25/05 release
   id: 1284
   time: '2025-06-30T17:41:57.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added two new muzzles to the secfab as a tier 1 research.
+  id: 1285
+  time: '2025-07-01T18:49:45.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Idle NPCs should no longer spin.
+    - type: Fix
+      message: >-
+        NPCs in nograv should no longer sometimes circle around their
+        destination.
+  id: 1286
+  time: '2025-07-01T18:50:08.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added several new cybernetic organs, including advanced lungs, livers,
+        and hearts with specialized effects.
+    - type: Add
+      message: Added new basic cybernetic limbs.
+    - type: Add
+      message: >-
+        Split cybernetics into two separate researchs: Basic Cybernetics and
+        Advanced Cybernetics.
+    - type: Tweak
+      message: >-
+        Rebalanced material costs for all existing and newly added cybernetic
+        organs and limbs.
+  id: 1287
+  time: '2025-07-01T18:50:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Vulpkanin can now track the scents of people.
+  id: 1288
+  time: '2025-07-01T18:53:51.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: Table smites are host-only
+  id: 1289
+  time: '2025-07-01T18:54:33.0000000+00:00'
