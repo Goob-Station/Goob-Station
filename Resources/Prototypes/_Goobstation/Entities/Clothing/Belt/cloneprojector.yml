@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -19,21 +20,18 @@
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
     size: Large
   - type: CloneProjector
+    damageOnDestroyed:
+      groups:
+        Brute: 10
     addedComponents:
-    - type: GhostRole
-      name: ghost-role-information-gemini-clone-name
-      description: ghost-role-information-gemini-clone-description
-      rules: ghost-role-information-familiar-rules
-      mindRoles:
-      - MindRoleGhostRoleFamiliar
-      raffle:
-        settings: default
     - type: GhostTakeoverAvailable
     - type: AntagImmune
     - type: MovementIgnoreGravity
+    - type: SpecialPressureImmunity
     - type: RequireProjectileTarget
     - type: NoSlip
     - type: ZombieImmune
+    - type: CrematoriumImmune
     - type: TypingIndicator
       proto: robot
     - type: Speech
@@ -42,13 +40,18 @@
     - type: Vocal
       sounds:
         Unsexed: UnisexSilicon
-    - type: DamagedSiliconAccent
     - type: UnblockableSpeech
     - type: ProtectedFromStepTriggers
+    - type: MobState
+      allowedStates:
+      - Alive
+      - Dead
     - type: MobThresholds
       thresholds:
         0: Alive
         42: Dead # The Answer to the Ultimate Question of Life, the Universe, and Everything
+    - type: Damageable
+      damageContainer: SiliconRadiation
     - type: StatusEffects
       allowed:
       - Stun
@@ -62,6 +65,7 @@
       - DoorBumpOpener
       - Unimplantable
     removedComponents:
+    - type: Destructible
     - type: Deathgasp
     - type: HealthExaminable
       examinableTypes:
@@ -98,6 +102,8 @@
     - type: Absorbable
     - type: Fingerprint
     - type: Perishable
+    - type: Hunger
+    - type: Thirst
     - type: FootprintOwner
 
 - type: entity
@@ -123,3 +129,31 @@
     tags:
       - HighRiskItem
       - ClothingBeltGeminiHoloProjector
+
+- type: entity
+  parent: [ ClothingBeltBaseCloneProjector, BaseCentcommContraband ]
+  id: ClothingBeltMonozygoticHoloProjector
+  name: ax-48 "monozygotic" holo-projector rig
+  description: An custom made, experimental variant of the ax-32, retrofitted for use by Central Command. The name "C. Ward" is small text on the front.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
+  - type: StealTarget
+    stealGroup: ClothingBeltGeminiHoloProjector
+  - type: CloneProjector
+    nameSuffix: monozygotic-projector-clone-name-suffix
+    stunOnDestroyed: false
+    restrictRangedWeapons: false
+    addedComponents:
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        350: Dead # This ain't your mothers clone projector.
+    clonedItemBlacklist:
+      components:
+      - CloneProjector
+    clonedItemWhitelist:
+      components:
+      - Clothing
