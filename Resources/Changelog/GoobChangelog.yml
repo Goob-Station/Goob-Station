@@ -11721,3 +11721,9 @@ Entries:
       message: Updated base game to 25/05 release
   id: 1284
   time: '2025-06-30T17:41:57.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added two new muzzles to the secfab as a tier 1 research.
+  id: 1285
+  time: '2025-07-01T18:49:45.0000000+00:00'
