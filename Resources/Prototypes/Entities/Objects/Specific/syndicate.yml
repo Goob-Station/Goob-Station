@@ -183,23 +183,6 @@
     - NukeOpsUplink
     - NukeOpsCommanderUplink
 
-
-# Goob only LoneOp personal uplink
-- type: entity
-  parent: BaseUplinkRadio
-  # Goobstation - Telecrystal rework
-  id: LoneOpsUplink350TC
-  suffix: 350 TC, LoneOps
-  components:
-  - type: Store
-    balance:
-      Telecrystal: 350
-  - type: Tag
-    tags:
-    - NukeOpsUplink
-    - LoneOpsUplink
-    - NukeOpsCommanderUplink
-
 - type: entity
   parent: BaseUplinkRadio
   id: BaseUplinkRadioDebug
