@@ -21,7 +21,7 @@
   components:
   - type: Magic
     requiresSpeech: true # Goobstation
-    school: Evocation # Goobstation
+    school: Explosion # Goobstation
   - type: Sprite # Goobstation - for apprentices
     sprite: _Goobstation/Wizard/actions.rsi
     state: fireball

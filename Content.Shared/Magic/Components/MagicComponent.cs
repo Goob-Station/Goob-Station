@@ -57,6 +57,7 @@ public enum MagicSchool : byte // Goobstation
     Mime,
     Restoration,
     Evocation,
+    Explosion,
     Transmutation,
     Translocation,
     Conjuration,

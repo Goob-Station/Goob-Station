@@ -45,6 +45,7 @@ public sealed partial class ChuuniEyepatchComponent : Component
         { MagicSchool.Mime, "chuuni-invocation-mime" },
         { MagicSchool.Restoration, "chuuni-invocation-restoration" },
         { MagicSchool.Evocation, "chuuni-invocation-evocation" },
+        { MagicSchool.Explosion, "chuuni-invocation-explosion" },
         { MagicSchool.Transmutation, "chuuni-invocation-transmutation" },
         { MagicSchool.Translocation, "chuuni-invocation-translocation" },
         { MagicSchool.Conjuration, "chuuni-invocation-conjuration" },
