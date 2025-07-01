@@ -1092,7 +1092,7 @@
 
 - type: entity
   id: BulletGrenadeSlug
-  name: baton grenade
+  name: slug grenade
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
