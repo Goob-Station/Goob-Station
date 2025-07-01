@@ -11805,3 +11805,11 @@ Entries:
       message: Syndicate Disaster victims are now Crew Aligned
   id: 1294
   time: '2025-07-01T19:09:14.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        O crimson garment, woven in the abyss of ancient flame... awaken! Added
+        a new set of wizard clothing for chuuni enthusiasts.
+  id: 1295
+  time: '2025-07-01T19:22:05.0000000+00:00'
