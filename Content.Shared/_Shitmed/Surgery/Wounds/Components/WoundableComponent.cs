@@ -112,7 +112,7 @@ public sealed partial class WoundableComponent : Component
     /// Can the woundable heal damage?
     /// </summary>
     [ViewVariables]
-    public bool CanHealDamage => WoundableIntegrity != IntegrityCap && WoundableIntegrity > DamageThreshold;
+    public bool CanHealDamage => WoundableIntegrity < DamageThreshold;
 
     /// <summary>
     /// Can the woundable heal bleeds?
