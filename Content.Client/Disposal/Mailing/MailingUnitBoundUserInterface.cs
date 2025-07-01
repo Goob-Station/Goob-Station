@@ -1,9 +1,16 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 eoineoineoin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Disposal.Unit;
 using Content.Client.Power.EntitySystems;
 using Content.Shared.Disposal;
 using Content.Shared.Disposal.Components;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using System.Linq;
 
 namespace Content.Client.Disposal.Mailing;
 
@@ -70,10 +77,10 @@ public sealed class MailingUnitBoundUserInterface : BoundUserInterface
         //UnitTag.Text = state.Tag;
         MailingUnitWindow.Target.Text = entity.Comp.Target;
 
-        MailingUnitWindow.TargetListContainer.Clear();
-        foreach (var target in entity.Comp.TargetList)
-        {
-            MailingUnitWindow.TargetListContainer.AddItem(target);
-        }
+        var entries = entity.Comp.TargetList.Select(target => new ItemList.Item(MailingUnitWindow.TargetListContainer) {
+            Text = target,
+            Selected = target == entity.Comp.Target
+        }).ToList();
+        MailingUnitWindow.TargetListContainer.SetItems(entries);
     }
 }

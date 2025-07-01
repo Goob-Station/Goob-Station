@@ -28,7 +28,8 @@
     event: !type:InstantSpawnSpellEvent
       prototype: WallForce
       posData: !type:TargetInFront
-      speech: action-speech-spell-forcewall
+  - type: SpeakOnAction
+    sentence: action-speech-spell-forcewall
   - type: Magic # Goobstation
     requiresSpeech: true
     school: Conjuration
