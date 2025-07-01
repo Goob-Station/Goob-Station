@@ -169,6 +169,8 @@
     stealGroup: ClothingBeltGeminiHoloProjector
   - type: CloneProjector
     nameSuffix: monozygotic-projector-clone-name-suffix
+    ghostRoleName: ghost-role-information-monozygotic-clone-name
+    ghostRoleDescription: ghost-role-information-monozygotic-clone-description
     stunOnDestroyed: false
     restrictRangedWeapons: false
     addedComponents:
