@@ -11737,3 +11737,21 @@ Entries:
         destination.
   id: 1286
   time: '2025-07-01T18:50:08.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added several new cybernetic organs, including advanced lungs, livers,
+        and hearts with specialized effects.
+    - type: Add
+      message: Added new basic cybernetic limbs.
+    - type: Add
+      message: >-
+        Split cybernetics into two separate researchs: Basic Cybernetics and
+        Advanced Cybernetics.
+    - type: Tweak
+      message: >-
+        Rebalanced material costs for all existing and newly added cybernetic
+        organs and limbs.
+  id: 1287
+  time: '2025-07-01T18:50:41.0000000+00:00'
