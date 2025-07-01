@@ -796,8 +796,9 @@ namespace Content.Server.GameTicking
             // Round restart cleanup event, so entity systems can reset.
             var ev = new RoundRestartCleanupEvent();
             RaiseLocalEvent(ev);
+#if !DEBUG
             RaiseLocalEvent(new LobbyReadyUpEvent()); // Pirate
-
+#endif
             // So clients' entity systems can clean up too...
             RaiseNetworkEvent(ev);
 
