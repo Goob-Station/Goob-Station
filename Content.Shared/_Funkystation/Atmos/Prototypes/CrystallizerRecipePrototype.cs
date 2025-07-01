@@ -9,25 +9,25 @@ namespace Content.Shared._Funkystation.Atmos.Prototypes
         [IdDataField]
         public string ID { get; private set; } = default!;
 
-        [DataField("name")]
+        [DataField]
         public string Name { get; private set; } = default!;
 
-        [DataField("minimumTemperature")]
+        [DataField]
         public float MinimumTemperature { get; private set; }
 
-        [DataField("maximumTemperature")]
+        [DataField]
         public float MaximumTemperature { get; private set; }
 
-        [DataField("minimumRequirements")]
+        [DataField]
         public float[] MinimumRequirements { get; private set; } = default!;
 
-        [DataField("energyRelease")]
+        [DataField]
         public float EnergyRelease { get; private set; }
 
-        [DataField("products")]
+        [DataField]
         public Dictionary<string, int> Products { get; private set; } = new();
 
-        [DataField("dangerous")]
+        [DataField]
         public bool Dangerous { get; private set; }
     }
 }

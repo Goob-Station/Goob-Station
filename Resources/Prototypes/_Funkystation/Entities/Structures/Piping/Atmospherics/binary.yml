@@ -2,7 +2,7 @@
   parent: GasBinaryBase
   id: HeatPump
   name: heat pump
-  description: A pump that moves heat from one side to the other.
+  description: A pump that moves heat from one side to the other. It's about 1% totally efficient at maximum rate.
   placement:
     mode: SnapgridCenter
   components:
@@ -20,8 +20,15 @@
         - state: pumpHeat
           map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
     - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.HeatPumpVisuals.Enabled:
+          enabled:
+            True: { state: tpumpOn }
+            False: { state: tpump }
     - type: PipeColorVisuals
     - type: HeatPump
+      transferCoefficient: 0.01
     - type: NodeContainer
       nodes:
         inlet:
@@ -52,3 +59,9 @@
     - type: GuideHelp
       guides:
       - ManualValve
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit # Goobstation - ventcrawl
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawlerTube: !type:Container

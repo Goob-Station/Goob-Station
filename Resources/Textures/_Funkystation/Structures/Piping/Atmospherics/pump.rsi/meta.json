@@ -8,7 +8,11 @@
    },
    "states":[
       {
-         "name":"pumpHeat",
+         "name":"tpump",
+         "directions":4
+      },
+      {
+         "name":"tpumpOn",
          "directions":4
       }
    ]

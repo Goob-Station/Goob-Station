@@ -35,47 +35,35 @@ public sealed class ElectrolyzerSystem : EntitySystem
         SubscribeLocalEvent<ElectrolyzerComponent, ActivateInWorldEvent>(OnActivate);
     }
 
-    private void OnPowerChanged(EntityUid uid, ElectrolyzerComponent electrolyzer, ref PowerChangedEvent args)
-    {
-        UpdateAppearance(uid);
-    }
+    private void OnPowerChanged(Entity<ElectrolyzerComponent> electrolyzer, ref PowerChangedEvent args)
+        => UpdateAppearance(electrolyzer);
 
-    private void OnActivate(EntityUid uid, ElectrolyzerComponent electrolyzer, ActivateInWorldEvent args)
+    private void OnActivate(Entity<ElectrolyzerComponent> electrolyzer, ref ActivateInWorldEvent args)
     {
         if (args.Handled)
             return;
 
         ApcPowerReceiverComponent? powerReceiver = null;
-        if (!Resolve(uid, ref powerReceiver))
+        if (!Resolve(electrolyzer, ref powerReceiver))
             return;
 
         _lastPowerLoad = 100f;
-        _power.TogglePower(uid);
+        _power.TogglePower(electrolyzer);
 
-        UpdateAppearance(uid);
+        UpdateAppearance(electrolyzer);
     }
 
     private void UpdateAppearance(EntityUid uid)
-    {
-        if (!_power.IsPowered(uid))
-        {
-            _appearance.SetData(uid, ElectrolyzerVisuals.State, ElectrolyzerState.Off);
-            return;
-        }
-        else
-        {
-            _appearance.SetData(uid, ElectrolyzerVisuals.State, ElectrolyzerState.On);
-        }
-    }
+        => _appearance.SetData(uid, ElectrolyzerVisuals.State, _power.IsPowered(uid) ? ElectrolyzerState.On : ElectrolyzerState.Off);
 
-    private void OnDeviceUpdated(EntityUid uid, ElectrolyzerComponent electrolyzer, ref AtmosDeviceUpdateEvent args)
+    private void OnDeviceUpdated(Entity<ElectrolyzerComponent> electrolyzer, ref AtmosDeviceUpdateEvent args)
     {
-        if (!(_power.IsPowered(uid) && TryComp<ApcPowerReceiverComponent>(uid, out var receiver)))
+        if (!(_power.IsPowered(electrolyzer) && TryComp<ApcPowerReceiverComponent>(electrolyzer, out var receiver)))
             return;
 
-        UpdateAppearance(uid);
+        UpdateAppearance(electrolyzer);
 
-        var mixture = _atmosphereSystem.GetContainingMixture(uid, args.Grid, args.Map);
+        var mixture = _atmosphereSystem.GetContainingMixture(electrolyzer.Owner, args.Grid, args.Map);
         if (mixture is null) return;
 
         var initH2O = mixture.GetMoles(Gas.WaterVapor);

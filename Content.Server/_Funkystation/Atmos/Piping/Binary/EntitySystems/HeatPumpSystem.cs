@@ -21,7 +21,6 @@ using Content.Shared.Popups;
 using Content.Shared.Power;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Server.Atmos.Piping.Binary.EntitySystems
@@ -36,7 +35,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
         [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
         [Dependency] private readonly AtmosphereSystem _atmos = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
-        private const float MaxHeatTransferRate = 100f;
+        [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
 
         public override void Initialize()
         {
@@ -52,6 +51,9 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             SubscribeLocalEvent<HeatPumpComponent, GasHeatPumpToggleStatusMessage>(OnToggleStatusMessage);
         }
 
+        private void UpdateAppearance(Entity<HeatPumpComponent> pump)
+            => _appearanceSystem.SetData(pump, HeatPumpVisuals.Enabled, pump.Comp.Active && _powerReceiverSystem.IsPowered(pump.Owner));
+
         private void OnExamined(Entity<HeatPumpComponent> ent, ref ExaminedEvent args)
         {
             var pump = ent.Comp;
@@ -66,13 +68,14 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             }
         }
 
-        private void OnAtmosUpdate(EntityUid uid, HeatPumpComponent pump, AtmosDeviceUpdateEvent args)
+        private void OnAtmosUpdate(Entity<HeatPumpComponent> pump, ref AtmosDeviceUpdateEvent args)
         {
-            if (!pump.Active ||
-                !_powerReceiverSystem.IsPowered(uid) ||
-                !_nodeContainer.TryGetNodes(uid, pump.InletName, pump.OutletName, out PipeNode? inlet, out PipeNode? outlet))
+            var pumpComponent = pump.Comp;
+            if (!pumpComponent.Active ||
+                !_powerReceiverSystem.IsPowered(pump) ||
+                !_nodeContainer.TryGetNodes(pump.Owner, pumpComponent.InletName, pumpComponent.OutletName, out PipeNode? inlet, out PipeNode? outlet))
             {
-                _ambientSoundSystem.SetAmbience(uid, false);
+                _ambientSoundSystem.SetAmbience(pump, false);
                 return;
             }
 
@@ -85,7 +88,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             var removeInput = airInput.RemoveRatio(0.9f);
             var removeOutput = airOutput.RemoveRatio(0.9f);
 
-            _ambientSoundSystem.SetAmbience(uid, removeInput.Temperature > removeOutput.Temperature && pump.TransferRate > 0);
+            _ambientSoundSystem.SetAmbience(pump, removeInput.Temperature > removeOutput.Temperature && pumpComponent.TransferRate > 0);
 
             var coolantTemperatureDelta = removeInput.Temperature - removeOutput.Temperature;
 
@@ -94,7 +97,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
                 var inputCapacity = _atmos.GetHeatCapacity(removeInput, true);
                 var outputCapacity = _atmos.GetHeatCapacity(removeOutput, true);
 
-                var coolingHeatAmount = (pump.TransferRate * 0.01f) * CalculateConductionEnergy(coolantTemperatureDelta, outputCapacity, inputCapacity);
+                var coolingHeatAmount = (pumpComponent.TransferRate * pumpComponent.TransferCoefficient) * CalculateConductionEnergy(coolantTemperatureDelta, outputCapacity, inputCapacity);
                 removeOutput.Temperature = MathF.Max(removeOutput.Temperature + (coolingHeatAmount / outputCapacity), Atmospherics.TCMB);
                 removeInput.Temperature = MathF.Max(removeInput.Temperature - (coolingHeatAmount / inputCapacity), Atmospherics.TCMB);
             }
@@ -109,18 +112,18 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
                 _ambientSoundSystem.SetAmbience(pump.Owner, false);
         }
 
-        private void OnActivate(EntityUid uid, HeatPumpComponent pump, ActivateInWorldEvent args)
+        private void OnActivate(Entity<HeatPumpComponent> pump, ref ActivateInWorldEvent args)
         {
             if (args.Handled || !args.Complex)
                 return;
 
-            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            if (!TryComp(args.User, out ActorComponent? actor))
                 return;
 
-            if (Transform(uid).Anchored)
+            if (Transform(pump).Anchored)
             {
-                _userInterfaceSystem.OpenUi(uid, GasHeatPumpUiKey.Key, actor.PlayerSession);
-                DirtyUI(uid, pump);
+                _userInterfaceSystem.OpenUi(pump.Owner, GasHeatPumpUiKey.Key, actor.PlayerSession);
+                DirtyUI(pump);
             }
             else
                 _popup.PopupCursor(Loc.GetString("comp-gas-pump-ui-needs-anchor"), args.User);
@@ -128,42 +131,45 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             args.Handled = true;
         }
 
-        private void OnHeatPumpLeaveAtmosphere(EntityUid uid, HeatPumpComponent pump, ref AtmosDeviceDisabledEvent args)
+        private void OnHeatPumpLeaveAtmosphere(Entity<HeatPumpComponent> pump, ref AtmosDeviceDisabledEvent args)
         {
-            pump.Active = false;
+            pump.Comp.Active = false;
+            UpdateAppearance(pump);
 
-            DirtyUI(uid, pump);
-            _userInterfaceSystem.CloseUi(uid, GasHeatPumpUiKey.Key);
+            DirtyUI(pump);
+            _userInterfaceSystem.CloseUi(pump.Owner, GasHeatPumpUiKey.Key);
         }
 
-        private void OnToggleStatusMessage(EntityUid uid, HeatPumpComponent pump, GasHeatPumpToggleStatusMessage args)
+        private void OnToggleStatusMessage(Entity<HeatPumpComponent> pump, ref GasHeatPumpToggleStatusMessage args)
         {
-            pump.Active = args.Enabled;
+            pump.Comp.Active = args.Enabled;
             _adminLogger.Add(LogType.AtmosPowerChanged, LogImpact.Medium,
-                $"{ToPrettyString(args.Actor):player} set the power on {ToPrettyString(uid):device} to {args.Enabled}");
-            DirtyUI(uid, pump);
+                $"{ToPrettyString(args.Actor):player} set the power on {ToPrettyString(pump.Owner):device} to {args.Enabled}");
+
+            UpdateAppearance(pump);
+            DirtyUI(pump);
         }
 
-        private void OnTransferRateChangeMessage(EntityUid uid, HeatPumpComponent pump, GasHeatPumpChangeTransferRateMessage args)
+        private void OnTransferRateChangeMessage(Entity<HeatPumpComponent> pump, ref GasHeatPumpChangeTransferRateMessage args)
         {
-            pump.TransferRate = Math.Clamp(args.TransferRate, 0f, pump.MaxTransferRate);
+            var pumpComponent = pump.Comp;
+
+            pumpComponent.TransferRate = Math.Clamp(args.TransferRate, 0f, pumpComponent.MaxTransferRate);
             _adminLogger.Add(LogType.AtmosVolumeChanged, LogImpact.Medium,
-                $"{ToPrettyString(args.Actor):player} set the transfer rate on {ToPrettyString(uid):device} to {args.TransferRate}");
-            DirtyUI(uid, pump);
+                $"{ToPrettyString(args.Actor):player} set the transfer rate on {ToPrettyString(pump.Owner):device} to {args.TransferRate}");
+
+            UpdateAppearance(pump);
+            DirtyUI(pump);
         }
 
-        private void DirtyUI(EntityUid uid, HeatPumpComponent? pump)
+        private void DirtyUI(Entity<HeatPumpComponent> pump)
         {
-            if (!Resolve(uid, ref pump))
-                return;
-
-            _userInterfaceSystem.SetUiState(uid, GasHeatPumpUiKey.Key,
-                new GasHeatPumpBoundUserInterfaceState(Name(uid), pump.TransferRate, pump.Active));
+            var pumpComponent = pump.Comp;
+            _userInterfaceSystem.SetUiState(pump.Owner, GasHeatPumpUiKey.Key,
+                new GasHeatPumpBoundUserInterfaceState(Name(pump.Owner), pumpComponent.TransferRate, pumpComponent.Active));
         }
 
         private float CalculateConductionEnergy(float temperatureDelta, float heatCapacityOne, float heatCapacityTwo)
-        {
-            return temperatureDelta * (heatCapacityOne * (heatCapacityTwo / (heatCapacityOne + heatCapacityTwo)));
-        }
+            => temperatureDelta * (heatCapacityOne * (heatCapacityTwo / (heatCapacityOne + heatCapacityTwo)));
     }
 }

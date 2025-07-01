@@ -10,22 +10,25 @@ namespace Content.Server.Atmos.Piping.Binary.Components
     [RegisterComponent]
     public sealed partial class HeatPumpComponent : Component
     {
-        [DataField("active")]
-        public bool Active { get; set; } = false;
+        [DataField, ViewVariables(VVAccess.ReadOnly)]
+        public bool Active = false;
 
-        [DataField("transferRate")]
-        public float TransferRate { get; set; } = 100f;
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public float TransferRate = 100f;
 
-        [DataField("maxTransferRate")]
-        public float MaxTransferRate { get; set; } = 100f;
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public float MaxTransferRate = 100f;
 
-        [DataField("inlet")]
-        public string InletName { get; set; } = "inlet";
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public float TransferCoefficient = 0.01f;
 
-        [DataField("outlet")]
-        public string OutletName { get; set; } = "outlet";
+        [DataField]
+        public string InletName = "inlet";
 
-        [DataField("valveSound")]
+        [DataField]
+        public string OutletName = "outlet";
+
+        [DataField]
         public SoundSpecifier ValveSound { get; private set; } = new SoundCollectionSpecifier("valveSqueak");
     }
 }

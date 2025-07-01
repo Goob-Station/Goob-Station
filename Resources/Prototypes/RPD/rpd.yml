@@ -106,7 +106,7 @@
   mode: ConstructObject
   prototype: HeatPump
   cost: 1
-  delay: 0 
+  delay: 0
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0

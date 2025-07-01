@@ -9,15 +9,15 @@ namespace Content.Shared._Funkystation.Atmos.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AdjustAirOnTriggerComponent : Component
 {
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Dictionary<Gas, float> GasAdjustments = new();
 
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float? Temperature = null;
 
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float Range = 1.0f;
 
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float Probability = 1.0f;
 }
