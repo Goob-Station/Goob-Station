@@ -11855,3 +11855,11 @@ Entries:
       message: Fixed the NTRep not getting his special disabler
   id: 1299
   time: '2025-07-01T19:43:55.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Tweak
+      message: >-
+        Fillbots can now go underneath doors so they don't get stuck in maints
+        every single time
+  id: 1300
+  time: '2025-07-01T19:49:19.0000000+00:00'
