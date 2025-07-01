@@ -165,7 +165,7 @@
   - type: MovementSpeedModifier
     weightlessAcceleration: 2.5
     weightlessModifier: 1.12
-    baseWeightlessModifier: 1.25
+    baseWeightlessModifier: 1.25 # Goobstation, this is required seemingly for harpy flight to work properly
   - type: Inventory
     speciesId: harpy
     templateId: digitigrade # Einstein Engines
