@@ -11767,3 +11767,9 @@ Entries:
       message: Table smites are host-only
   id: 1289
   time: '2025-07-01T18:54:33.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Enabled the shelter capsule + webbing mining voucher kit.
+  id: 1290
+  time: '2025-07-01T18:57:33.0000000+00:00'
