@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: AsimovCircuitBoard
+  id: AsimovHumanCircuitBoard
   parent: [BaseElectronics, BaseSyndicateContraband]
   name: law board (Asimov)
   description: An electronics board containing the Asimov lawset.

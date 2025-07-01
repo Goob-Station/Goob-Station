@@ -19,7 +19,7 @@
     laws: NTDefault
 
 - type: entity
-  id: CrewsimovCircuitBoard # goob edit (id before was... asimov..?)
+  id: AsimovCircuitBoard
   parent: BaseElectronics
   name: law board (Crewsimov)
   description: An electronics board containing the Crewsimov lawset.

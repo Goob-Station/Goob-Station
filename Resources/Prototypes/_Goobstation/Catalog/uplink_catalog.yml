@@ -105,10 +105,10 @@
       - NukeOpsUplink
 
 - type: listing
-  id: UplinkAsimovCircuitBoard
+  id: UplinkAsimovHumanCircuitBoard
   name: uplink-asimov-law-name
   description: uplink-asimov-law-desc
-  productEntity: AsimovCircuitBoard
+  productEntity: AsimovHumanCircuitBoard
   cost:
     Telecrystal: 25
   categories:
