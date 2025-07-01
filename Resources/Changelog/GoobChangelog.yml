@@ -11727,3 +11727,13 @@ Entries:
       message: Added two new muzzles to the secfab as a tier 1 research.
   id: 1285
   time: '2025-07-01T18:49:45.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Idle NPCs should no longer spin.
+    - type: Fix
+      message: >-
+        NPCs in nograv should no longer sometimes circle around their
+        destination.
+  id: 1286
+  time: '2025-07-01T18:50:08.0000000+00:00'
