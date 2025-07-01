@@ -297,26 +297,19 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 
     public bool CanGlare(EntityUid target)
     {
-        if (!HasComp<MobStateComponent>(target))
-            return false;
-
-        if (HasComp<ShadowlingComponent>(target))
-            return false;
-
-        if (HasComp<ThrallComponent>(target))
-            return false;
-
-        return true;
+        return HasComp<MobStateComponent>(target)
+               && !HasComp<ShadowlingComponent>(target)
+               && !HasComp<ThrallComponent>(target);
     }
 
     public void DoEnthrall(EntityUid uid, SimpleDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
-        if (args.Args.Target is null)
+        if (args.Target is null)
             return;
 
-        var target = args.Args.Target.Value;
+        var target = args.Target.Value;
 
         var thrall = EnsureComp<ThrallComponent>(target);
 

@@ -64,8 +64,7 @@ public sealed class ShadowlingDestroyEnginesSystem : EntitySystem
 
         _chat.DispatchGlobalAnnouncement(message,
             Loc.GetString("shadowling-destroy-engines-sender"),
-            colorOverride: Color.MediumPurple
-            );
+            colorOverride: Color.MediumPurple);
 
         // add sound
         comp.HasBeenUsed = true;

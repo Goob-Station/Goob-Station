@@ -11,27 +11,24 @@ namespace Content.Goobstation.Shared.Shadowling.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ThrallComponent : Component
 {
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [ViewVariables]
+    public EntityUid? Converter;
+
+    [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "ThrallFaction";
 
-    public readonly List<ProtoId<EntityPrototype>> BaseThrallActions = new()
-    {
-        "ActionThrallDarksight",
-        "ActionGuise"
-    };
-
+    [DataField]
     public EntProtoId ActionThrallDarksight = "ActionThrallDarksight";
+
+    [ViewVariables]
+    public EntityUid? ActionThrallDarksightEntity;
+
+    [DataField]
     public EntProtoId ActionGuise = "ActionGuise";
 
-    public EntityUid? ActionThrallDarksightEntity;
+    [ViewVariables]
     public EntityUid? ActionGuiseEntity;
 
     [DataField]
     public SoundSpecifier? ThrallConverted = new SoundPathSpecifier("/Audio/_EinsteinEngines/Shadowling/thrall.ogg");
-
-    /// <summary>
-    /// The shadowling that converted the Thrall
-    /// </summary>
-    [DataField]
-    public EntityUid? Converter;
 }

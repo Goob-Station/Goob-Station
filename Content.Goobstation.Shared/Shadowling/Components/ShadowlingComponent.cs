@@ -58,9 +58,8 @@ public sealed partial class ShadowlingComponent : Component
     /// <summary>
     /// The status icon for Shadowlings
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "ShadowlingFaction";
-
 
     /// <summary>
     /// Phase Indicator. The Shadowlings have 4 phases currently, as seen at the bottom of this component.
@@ -69,7 +68,7 @@ public sealed partial class ShadowlingComponent : Component
     /// The third phase, "ascension", where Shadowlings transform into the ascendant with new abilities, while having their previous removed.
     /// A failed phase, "failed ascension", where Shadowlings turn are slowed down and lose all their abilities. Only used for Ascension Egg.
     /// </summary>
-    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public ShadowlingPhases CurrentPhase = ShadowlingPhases.PreHatch;
 
     /// <summary>

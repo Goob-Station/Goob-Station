@@ -19,8 +19,8 @@ namespace Content.Goobstation.Client.Shadowling;
 /// </summary>
 public sealed class ShadowlingSystem : SharedShadowlingSystem
 {
-    private const int StateNormalizerSling = 9;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -29,6 +29,8 @@ public sealed class ShadowlingSystem : SharedShadowlingSystem
         SubscribeLocalEvent<LightDetectionDamageModifierComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
         SubscribeLocalEvent<ShadowlingComponent, GetStatusIconsEvent>(GetShadowlingIcon);
     }
+
+    private const int StateNormalizerSling = 9;
 
     private void OnUpdateAlert(Entity<LightDetectionDamageModifierComponent> ent, ref UpdateAlertSpriteEvent args)
     {
@@ -47,8 +49,8 @@ public sealed class ShadowlingSystem : SharedShadowlingSystem
         if (HasComp<ShadowlingComponent>(ent))
             return;
 
-        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
-            args.StatusIcons.Add(iconPrototype);
+        var iconProto = _prototype.Index(ent.Comp.StatusIcon);
+        args.StatusIcons.Add(iconProto);
     }
 
     private void GetShadowlingIcon(Entity<ShadowlingComponent> ent, ref GetStatusIconsEvent args)

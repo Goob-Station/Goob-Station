@@ -18,6 +18,8 @@ public sealed class LightDetectionSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
+    protected override string SawmillName { get; } = "light_damage";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -29,6 +31,7 @@ public sealed class LightDetectionSystem : EntitySystem
     {
         component.NextUpdate = _timing.CurTime;
     }
+
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<LightDetectionComponent>();
@@ -42,7 +45,10 @@ public sealed class LightDetectionSystem : EntitySystem
                 continue;
 
             comp.NextUpdate += comp.UpdateInterval;
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             DetectLight(uid, comp);
+            Log.Info($"Updated in {stopwatch.Elapsed.ToString()}");
         }
     }
 
