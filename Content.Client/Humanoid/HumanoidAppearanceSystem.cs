@@ -362,7 +362,6 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
       
             _sprite.LayerSetVisible((entity.Owner, sprite), layerId, visible);
 
-
             if (!visible || setting == null) // this is kinda implied
             {
                 continue;
