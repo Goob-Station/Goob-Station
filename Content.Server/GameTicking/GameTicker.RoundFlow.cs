@@ -88,6 +88,7 @@ using Content.Server.Roles;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Content.Pirate.Common.Voting;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
@@ -795,7 +796,9 @@ namespace Content.Server.GameTicking
             // Round restart cleanup event, so entity systems can reset.
             var ev = new RoundRestartCleanupEvent();
             RaiseLocalEvent(ev);
-
+#if !DEBUG
+            RaiseLocalEvent(new LobbyReadyUpEvent()); // Pirate
+#endif
             // So clients' entity systems can clean up too...
             RaiseNetworkEvent(ev);
 
