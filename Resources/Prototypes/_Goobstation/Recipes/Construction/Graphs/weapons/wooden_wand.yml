@@ -12,7 +12,7 @@
     - to: woodenWand
       steps:
       - component: AnomalyCore
-        name: anomaly core
+        name: recipe-anomaly-core-name
         icon:
           sprite: Structures/Specific/Anomalies/Cores/gravity_core.rsi
           state: core
