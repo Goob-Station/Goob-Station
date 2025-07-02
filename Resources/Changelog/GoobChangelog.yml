@@ -11386,24 +11386,24 @@ Entries:
 - author: Durk
   changes:
     - type: Fix
-      message: Fixed cybernetic eyes.
+      message: Виправлено кібернетичні очі.
   id: 1308
   time: '2025-07-02T02:30:35.0000000+00:00'
 - author: Durk
   changes:
     - type: Fix
-      message: Fixed Slimes and Voxes not being able to breathe.
+      message: Виправлено помилку, через яку Слайми та Вокси не могли дихати.
   id: 1309
   time: '2025-07-02T02:42:29.0000000+00:00'
 - author: Durk
   changes:
     - type: Tweak
-      message: Actually fix eyes this time
+      message: Цього разу очі справді виправлено.
   id: 1310
   time: '2025-07-02T04:34:30.0000000+00:00'
 - author: Ilya246
   changes:
     - type: Fix
-      message: IPCs can now pilot, bump open doors, and host anomalies.
+      message: IPC тепер можуть пілотувати, відчиняти двері поштовхом та бути носіями аномалій.
   id: 1311
   time: '2025-07-02T10:31:40.0000000+00:00'
