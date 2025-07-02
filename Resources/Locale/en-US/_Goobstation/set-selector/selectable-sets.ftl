@@ -54,29 +54,30 @@ selectable-set-syndicate-spy-name = Spy Bundle
 selectable-set-syndicate-spy-description =
     Complete your objectives quietly with this compilation of stealthy items.
     Contains: chameleon thieving gloves, chameleon kit, voice mask,
-    agent ID card, an empty hypopen, radio jammer, stealth box,
-    syndicate jaws of life, and a syndicate encryption key.
+    agent ID card, a hypopen with a nocturine bottle, camera bug,
+    stealth box, syndicate jaws of life, and a syndicate encryption key.
 
 selectable-set-syndicate-hitman-name = Hitman Bundle
 selectable-set-syndicate-hitman-description =
     Find and eliminate your targets quietly and effectively with this bundle.
     Contains: Cobra pistol with 3 extra mags, CQC manual,
-    special armor vest, no-slip shoes, Interdyne herbals packet,
+    a special invisible armor vest, Interdyne herbals packet,
     combat medkit, a stylish look and a syndicate encryption key.
 
 selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
-    Contains: EMP, scram, freedom, smoke, krav maga and syndicate radio implanters,
-    Sandevistan and paired mantis blades autosurgeons, and a cool jacket.
+    Contains: nutriment pump, scram, freedom, smoke,
+    krav maga and syndicate radio implanters, Sandevistan
+    and paired mantis blades autosurgeons, and a cool jacket.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
     A bundle with everything you need to hack into and disrupt the Station itself,
     the station AI, its cyborgs and the Security team. HACK THE PLANET!
-    Contains: Antimov law circuit, authentication disruptor, EMAG,
-    camera bug, filled toolbox, contortionist suit, cool glasses,
-    binary decoder implanter and a syndicate encryption key.
+    Contains: Antimov law board, authentication disruptor, EMAG,
+    radio jammer, filled toolbox, experimental syndicate teleporter,
+    cool glasses, binary decoder implanter and a syndicate encryption key.
 
 selectable-set-syndicate-desword-name = Dark Lord Bundle
 selectable-set-syndicate-desword-description =
@@ -94,7 +95,7 @@ selectable-set-syndicate-fluclear-name = Fluclear Operative Bundle
 selectable-set-syndicate-fluclear-description =
     Declare your allegiance to the Syndicate with this bundle, get dat fuckin' disk!
     Contains: C-20R SMG, 3 extra mags, energy shield, jetpack,
-    and some basic nuclear operative gear (including the hardsuit).
+    a blood-red voidsuit and some basic nuclear operative gear.
 
 selectable-set-syndicate-friendship-name = Friendship Bundle
 selectable-set-syndicate-friendship-description =
@@ -105,7 +106,20 @@ selectable-set-syndicate-friendship-description =
 selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =
     Grr! Rrrr! Grr... Grrow?! KOWABUNGA!
-    Contains: Sleeping Carp, 10 dehydrated carp and a syndicate encryption key.
+    Contains: a scroll of the Way of The Sleeping Carp, 10 dehydrated carp
+    (half of which are holo), a carp voidsuit and a syndicate encryption key.
+
+selectable-set-syndicate-sus-name = Suspicion Bundle
+selectable-set-syndicate-sus-description =
+    When the traitor is sus. The traitor is you, of course.
+    Contains: an advanced contortionist jumpsuit, betrayal knife, miniature
+    energy crossbow, stealth suit, and a syndicate encryption key.
+
+selectable-set-syndicate-builder-name = Builder Bundle
+selectable-set-syndicate-builder-description =
+    It is funnier to pull down than to build. But it is not as effective.
+    Contains: 2 disposable ballistic turrets, a telecrystal miner flatpack,
+    some tools and materials to get you started, and a syndicate encryption key.
 
 # Blueshield
 

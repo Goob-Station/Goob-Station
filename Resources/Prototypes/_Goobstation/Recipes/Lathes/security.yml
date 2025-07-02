@@ -712,3 +712,21 @@
   id: ContrabandDetectorCircuitboard
   result: ContrabandDetectorCircuitboard
   completetime: 4
+
+- type: latheRecipe
+  id: ClothingMaskMuzzleSecure
+  result: ClothingMaskMuzzleSecure
+  completetime: 4
+  materials:
+    Steel: 200
+    Plastic: 150
+    Cloth: 100
+
+- type: latheRecipe
+  id: ClothingMaskMuzzleShock
+  result: ClothingMaskMuzzleShock
+  completetime: 4
+  materials:
+    Steel: 500
+    Plastic: 250
+    Cloth: 200
