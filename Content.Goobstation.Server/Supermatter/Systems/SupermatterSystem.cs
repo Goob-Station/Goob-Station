@@ -45,6 +45,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Tag;
+using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -585,9 +586,15 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
     {
         if (!sm.Activated)
         {
+            LogStringHandler message;
+            if (TryComp<ThrownItemComponent>(args.OtherEntity, out var thrownItem))
+                message = $"{ToPrettyString(thrownItem.Thrower):actor} threw {ToPrettyString(args.OtherEntity):subject} activating SM {ToPrettyString(uid):target}";
+            else
+                message = $"{ToPrettyString(args.OtherEntity):actor} activated Supermatter {ToPrettyString(uid):subject}";
+
             _adminLog.Add(LogType.Supermatter,
-                          HasComp<MobStateComponent>(args.OtherEntity) ? LogImpact.Extreme : LogImpact.High, // for mice activating it
-                          $"{ToPrettyString(args.OtherEntity):actor} activated Supermatter {ToPrettyString(uid):subject}");
+                          HasComp<MobStateComponent>(args.OtherEntity) ? LogImpact.Extreme : LogImpact.High, // for mice activating it/people ghosting others
+                          ref message);
             sm.Activated = true;
         }
 
@@ -608,7 +615,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (!HasComp<ProjectileComponent>(target))
         {
-            _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} has consumed {ToPrettyString(target)}");
+            _adminLog.Add(LogType.Supermatter, LogImpact.Medium, $"Supermatter {ToPrettyString(uid)} consumed {ToPrettyString(target)}");
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
         }
