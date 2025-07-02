@@ -179,10 +179,8 @@
     lightAttackEnergyMultiplier: 2 # Goob edit
   - type: Sharp
   - type: ItemToggle
-    predictable: false
-    toggleOnActivate: true
-    toggleOnUse: false
-    wieldToggle: false
+    toggleOnUse: true
+    wieldToggle: true
     soundActivate:
       collection: sparks
       params:
