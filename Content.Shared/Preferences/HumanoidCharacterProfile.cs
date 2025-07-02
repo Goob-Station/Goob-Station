@@ -76,7 +76,7 @@ namespace Content.Shared.Preferences
 
         public const int MaxNameLength = 32;
         public const int MaxLoadoutNameLength = 32;
-        public const int MaxDescLength = 512;
+        public const int MaxDescLength = 1024; // Goobstation - Double that shit.
 
         /// <summary>
         /// Job preferences for initial spawn.
