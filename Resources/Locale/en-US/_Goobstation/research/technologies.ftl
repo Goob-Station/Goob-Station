@@ -33,4 +33,5 @@ research-technology-mag-fed-pistol = Energy Cell Handguns
 research-technology-mag-fed-smg = Energy Cell Sub Machine Guns
 research-technology-mag-fed-sniper = Energy Cell Snipers
 research-technology-mag-fed-lmg = Energy Cell Light Machine Guns
+research-technology-restraint = Restraint Technologies
 research-technology-xenobiology = Xenobiological Equipment
