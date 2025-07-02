@@ -180,8 +180,8 @@
   - type: Sharp
   - type: ItemToggle
     predictable: false
-    onActivate: false
     wieldToggle: false
+    toggleOnActivate: true
     soundActivate:
       collection: sparks
       params:
