@@ -191,6 +191,7 @@
     - IonStormScheduler
     - SpaceTrafficControlEventScheduler
 
+# intended for MRP servers or similar
 - type: gamePreset
   id: SecretPlusLow
   alias:
@@ -242,4 +243,18 @@
   showInVote: true
   rules:
     - SecretPlusRampingMid
+    - LavalandStormScheduler
+
+# essentially not 100% calm alternative to greenshift gamemode
+- type: gamePreset
+  id: SecretPlusCalm
+  alias:
+    - secretpluschud
+    - secretpluschudshift
+    - secretpluscalm
+  name: secretplus-calm-title
+  description: secretplus-calm-description
+  showInVote: false # nobody will vote this ever anyway
+  rules:
+    - SecretPlusCalm
     - LavalandStormScheduler
