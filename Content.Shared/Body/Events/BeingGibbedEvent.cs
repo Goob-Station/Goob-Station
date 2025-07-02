@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-namespace Content.Server.Body.Components;
+namespace Content.Shared.Body.Events;
 
 /// <summary>
 /// Raised when a body gets gibbed, before it is deleted.

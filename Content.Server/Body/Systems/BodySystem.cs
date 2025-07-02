@@ -75,6 +75,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Components;
+using System.Numerics;
 using Content.Server.Ghost;
 using Content.Server.Humanoid;
 using Content.Shared._Shitmed.Body.Part;

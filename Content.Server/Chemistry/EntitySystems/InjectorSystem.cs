@@ -23,7 +23,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-
 using Content.Shared._DV.Chemistry.Components; // DeltaV
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -31,6 +30,7 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Body.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
@@ -269,7 +269,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
         // Move units from attackSolution to targetSolution
         var removedSolution = SolutionContainers.SplitSolution(target.Comp.ChemicalSolution.Value, realTransferAmount);
 
-        _blood.TryAddToChemicals(target, removedSolution, target.Comp);
+        _blood.TryAddToChemicals(target.AsNullable(), removedSolution);
 
         _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection);
 
