@@ -57,7 +57,7 @@
   name: gases-hyper-noblium
   specificHeat: 2000
   heatCapacityRatio: 1.4
-  gasOverlaySprite: /Textures/_Funkystation/Effects/atmospherics.rsi
+  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: frezon_old
   molarMass: 8
   color: 33cccc

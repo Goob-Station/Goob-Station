@@ -1,4 +1,3 @@
-
 # Assmos - /tg/ gases
 - type: reagent
   id: BZ
@@ -492,8 +491,7 @@
         ignoreResistances: true
         damage:
           types:
-            Poison:
-              10
+            Poison: 10
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
