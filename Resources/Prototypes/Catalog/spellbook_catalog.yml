@@ -287,10 +287,12 @@
   id: SpellbookFireballUpgrade
   productUpgradeId: SpellbookFireballUpgrade
   name: spellbook-upgrade-fireball-name
-  description: spellbook-upgrade-fireball-description
+  description: spellbook-upgrade-fireball-desc
+  productEvent: !type:FireballMaxedOutEvent
+  raiseProductEventOnUser: true
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-    state: fireball # Goob edit
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: fireball
   cost:
     WizCoin: 2
   categories:
@@ -298,13 +300,12 @@
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
-      - SpellbookFireball
-    blacklist: # Goobstation
+    - SpellbookFireball
+    blacklist:
     - SpellbookFullRandom
     - SpellbookSemiRandom
-  # manual for now
   - !type:ListingLimitedStockCondition
-    stock: 2
+    stock: 4
 
 - type: listing
   id: SpellbookJauntUpgrade

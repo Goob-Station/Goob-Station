@@ -165,6 +165,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
         SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
+        SubscribeLocalEvent<ExplosionEvent>(OnExplosion);
         SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
         SubscribeLocalEvent<ScreamForMeEvent>(OnScreamForMe);
@@ -676,6 +677,14 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         ev.Handled = true;
+    }
+
+    private void OnExplosion(ExplosionEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+
     }
 
     private void OnLesserSummonGuns(LesserSummonGunsEvent ev)

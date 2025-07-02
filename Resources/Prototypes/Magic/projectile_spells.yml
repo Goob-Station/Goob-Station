@@ -96,3 +96,32 @@
         prototype: ProjectileFireball
     - type: SpeakOnAction
       sentence: action-speech-spell-fireball
+    - type: Tag
+      tags:
+        - FireballMaxLevelAction
+
+- type: entity
+  id: ActionExplosion
+  parent: ActionFireball
+  name: Explosion
+  description: The ultimate manifestation of destructive will. Using this will begin a lenghty casting which will result in a massive burst of arcane force obliterating everything in its wake. Will put you to sleep afterwards.
+  components:
+  - type: EntityWorldTargetAction # Goob edit
+    useDelay: 60 # Goob edit
+    checkCanInteract: false # Goobstation
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    raiseOnUser: true
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: explosion # Goob edit
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileFireball
+  - type: SpeakOnAction
+    sentence: action-speech-spell-explosion
+  - type: Tag
+    tags:
+      - ExplosionAction

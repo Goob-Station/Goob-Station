@@ -236,6 +236,9 @@
   id: GorillaFormAction
 
 - type: Tag
+  id: ExplosionAction
+
+- type: Tag
   id: Gygax
 
 - type: Tag
@@ -511,6 +514,9 @@
 
 - type: Tag
   id: SummonSimiansMaxLevelAction
+
+- type: Tag
+  id: FireballMaxLevelAction
 
 - type: Tag
   id: SyndicateBreathMask

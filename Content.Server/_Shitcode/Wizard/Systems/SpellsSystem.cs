@@ -100,6 +100,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         base.Initialize();
 
         SubscribeLocalEvent<MindContainerComponent, SummonSimiansMaxedOutEvent>(OnMonkeyAscension);
+        SubscribeLocalEvent<MindContainerComponent, FireballMaxedOutEvent>(OnExplosionAscension);
         SubscribeLocalEvent<BloodlossDamageMultiplierComponent, StoppedTakingBloodlossDamageEvent>(OnBloodlossStopped);
         SubscribeLocalEvent<BloodlossDamageMultiplierComponent, GetBloodlossDamageMultiplierEvent>(OnGetBloodlossMultiplier);
     }
@@ -153,6 +154,48 @@ public sealed class SpellsSystem : SharedSpellsSystem
             return;
 
         var message = Loc.GetString("spell-summon-simians-maxed-out-message");
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+        _chatManager.ChatMessageToOne(ChatChannel.Server,
+            message,
+            wrappedMessage,
+            default,
+            false,
+            session.Channel,
+            args.MessageColor);
+    }
+
+    private void OnExplosionAscension(Entity<MindContainerComponent> ent, ref FireballMaxedOutEvent args)
+    {
+        var (uid, comp) = ent;
+        if (!TryComp(comp.Mind, out MindComponent? mindComp) ||
+            !TryComp(comp.Mind.Value, out ActionsContainerComponent? container))
+            return;
+
+        var hasMaxLevelFireball = false;
+        var hasExplosion = false;
+        foreach (var (action, _) in Actions.GetActions(uid))
+        {
+            if (!hasExplosion && Tag.HasTag(action, args.ExplosionTag))
+                hasExplosion = true;
+
+            if (!Tag.HasTag(action, args.MaxLevelTag))
+                continue;
+
+            if (TryComp(action, out StoreRefundComponent? refund))
+                StoreSystem.DisableListingRefund(refund.Data);
+
+            hasMaxLevelFireball = true;
+        }
+
+        if (hasExplosion || !hasMaxLevelFireball)
+            return;
+
+        ActionContainer.AddAction(comp.Mind.Value, args.Action, container);
+
+        if (!_player.TryGetSessionById(mindComp.UserId, out var session))
+            return;
+
+        var message = Loc.GetString("spell-fireball-maxed-out-message");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
         _chatManager.ChatMessageToOne(ChatChannel.Server,
             message,

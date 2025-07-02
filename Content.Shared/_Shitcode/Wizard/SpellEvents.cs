@@ -289,6 +289,11 @@ public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent
     public Vector2 MinMaxLinearDamping = new(3f, 7f);
 }
 
+public sealed partial class ExplosionEvent : InstantActionEvent
+{
+   
+}
+
 public sealed partial class ArcaneBarrageEvent : InstantActionEvent
 {
     [DataField]
@@ -494,6 +499,21 @@ public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
 
     [DataField]
     public ProtoId<TagPrototype> GorillaFormTag = "GorillaFormAction";
+
+    [DataField]
+    public Color MessageColor = Color.FromHex("#EDC349");
+}
+
+public sealed partial class FireballMaxedOutEvent : EntityEventArgs
+{
+    [DataField]
+    public EntProtoId Action = "ActionExplosion";
+
+    [DataField]
+    public ProtoId<TagPrototype> MaxLevelTag = "FireballMaxLevelAction";
+
+    [DataField]
+    public ProtoId<TagPrototype> ExplosionTag = "ExplosionAction";
 
     [DataField]
     public Color MessageColor = Color.FromHex("#EDC349");
