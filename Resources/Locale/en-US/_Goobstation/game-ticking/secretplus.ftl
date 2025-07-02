@@ -9,3 +9,6 @@ secretplus-admeme-description = If it can happen, it will.
 
 survivalplus-title = Survival+
 survivalplus-description = Starts pretty calm. Ends up not quite.
+
+secretplus-calm-title = Secret+ Calm
+secretplus-calm-description = Very calm, even if not entirely.

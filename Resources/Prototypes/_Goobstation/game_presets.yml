@@ -254,7 +254,7 @@
     - secretpluscalm
   name: secretplus-calm-title
   description: secretplus-calm-description
-  showInVote: false # nobody will vote this ever anyway
+  showInVote: true # if people for some reason want greenshift
   rules:
     - SecretPlusCalm
     - LavalandStormScheduler
