@@ -1,5 +1,5 @@
 
- # Assmos - /tg/ gases
+# Assmos - /tg/ gases
 - type: reagent
   id: BZ
   name: reagent-name-bz
@@ -29,6 +29,9 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -55,7 +58,6 @@
           min: 0.2
         - !type:OrganType
           type: Slime
-          shouldHave: true
         emote: Laugh
         showInChat: true
         probability: 0.1
@@ -66,7 +68,6 @@
           min: 0.2
         - !type:OrganType
           type: Slime
-          shouldHave: true
         emote: Scream
         showInChat: true
         probability: 0.01
@@ -77,7 +78,6 @@
           min: 0.5
         - !type:OrganType
           type: Slime
-          shouldHave: true
         - !type:BloodReagentThreshold
           reagent: NitrosylPlasmide
           max: 0.1
@@ -92,7 +92,6 @@
           min: 1
         - !type:OrganType
           type: Slime
-          shouldHave: true
         - !type:BloodReagentThreshold
           reagent: NitrosylPlasmide
           max: 0.1
@@ -105,7 +104,6 @@
           min: 1
         - !type:OrganType
           type: Slime
-          shouldHave: true
         - !type:BloodReagentThreshold
           reagent: NitrosylPlasmide
           max: 0.1
@@ -122,7 +120,6 @@
           min: 0.2
         - !type:OrganType
           type: Slime
-          shouldHave: false
         emote: Cough
         showInChat: true
         probability: 0.1
@@ -133,6 +130,9 @@
           min: 0.5
         - !type:OrganType
           type: Slime
+          shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
@@ -160,7 +160,6 @@
           min: 0.2
         - !type:OrganType
           type: Slime
-          shouldHave: true
         emote: Laugh
         showInChat: true
         probability: 0.1
@@ -171,7 +170,6 @@
           min: 0.2
         - !type:OrganType
           type: Slime
-          shouldHave: true
         emote: Scream
         showInChat: true
         probability: 0.01
@@ -182,7 +180,6 @@
           min: 0.5
         - !type:OrganType
           type: Slime
-          shouldHave: true
         - !type:BloodReagentThreshold
           reagent: NitrosylPlasmide
           max: 0.1
@@ -197,7 +194,6 @@
           min: 1
         - !type:OrganType
           type: Slime
-          shouldHave: true
         - !type:BloodReagentThreshold
           reagent: NitrosylPlasmide
           max: 0.1
@@ -210,7 +206,6 @@
           min: 1
         - !type:OrganType
           type: Slime
-          shouldHave: true
         - !type:BloodReagentThreshold
           reagent: NitrosylPlasmide
           max: 0.1
@@ -475,6 +470,11 @@
         conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Cybernetic # Woundmed - Cybernetic Organs
       # Convert Pluox into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -525,11 +525,28 @@
         conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Cybernetic
       # Convert Pluoxium into CO2.
       - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Cybernetic
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Pluoxium: -1.0
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Cybernetic
+          shouldHave: true
+        ratios:
+          CarbonDioxide: 0.5
+          Pluoxium: -0.5
 
 - type: reagent
   id: Hyper-Noblium
