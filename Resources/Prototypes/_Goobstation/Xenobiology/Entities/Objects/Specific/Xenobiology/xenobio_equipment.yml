@@ -24,6 +24,10 @@
         showEnts: False
         occludes: True
         ent: null
+      StorageTank: !type:Container
+        showEnts: False
+        occludes: True
+        ents: [ ]
   - type: ItemSlots
     slots:
       item:
