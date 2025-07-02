@@ -1,5 +1,6 @@
 using Content.Shared.Alert;
 using Content.Shared.Damage;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -10,7 +11,7 @@ namespace Content.Goobstation.Shared.Shadowling.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
-public sealed partial class LightDetectionDamageModifierComponent : Component
+public sealed partial class LightDetectionDamageComponent : Component
 {
     /// <summary>
     /// Max Detection Value
@@ -25,6 +26,9 @@ public sealed partial class LightDetectionDamageModifierComponent : Component
     [DataField, AutoNetworkedField]
     public float DetectionValue;
 
+    [DataField]
+    public float DetectionValueFactor = 0.5f;
+
     /// <summary>
     /// Indicates whether the user should take damage on light
     /// </summary>
@@ -36,40 +40,6 @@ public sealed partial class LightDetectionDamageModifierComponent : Component
     /// </summary>
     [DataField]
     public bool HealOnShadows = true;
-
-    [DataField]
-    public TimeSpan NextUpdate = TimeSpan.Zero;
-
-    /// <summary>
-    /// How often to decrease the DetectionValue.
-    ///
-    /// Example:
-    /// If a shadowling is standing on light, and this is 1f, and DetectionTimerDecreaseFactor is 1f then
-    /// it will take 5 seconds (considering DetectionValue is 5f) for the entity to start taking damage.
-    /// </summary>
-    [DataField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.5f);
-
-    [DataField]
-    public float DetectionValueFactor = 0.5f;
-
-    /// <summary>
-    /// How often the entity will take damage
-    /// </summary>
-    [DataField]
-    public TimeSpan DamageInterval = TimeSpan.FromSeconds(5f);
-
-    [DataField]
-    public TimeSpan NextUpdateDamage = TimeSpan.Zero;
-
-    /// <summary>
-    /// How often the entity will heal damage
-    /// </summary>
-    [DataField]
-    public TimeSpan HealInterval = TimeSpan.FromSeconds(3f);
-
-    [DataField]
-    public TimeSpan NextUpdateHeal = TimeSpan.Zero;
 
     /// <summary>
     ///  For shadowlings (Light Resistance)
@@ -113,9 +83,30 @@ public sealed partial class LightDetectionDamageModifierComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> AlertProto = "ShadowlingLight";
 
+    [DataField]
+    public SoundSpecifier? SoundOnDamage = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/energy_meat1.ogg");
+
     /// <summary>
     /// If an alert prototype does not exist, this should be false. Otherwise, it is defaulted to the Shadowling's one.
     /// </summary>
     [DataField]
     public bool ShowAlert = true;
+
+    [DataField]
+    public float Accumulator;
+
+    [DataField]
+    public float UpdateInterval = 0.5f;
+
+    [DataField]
+    public float DamageInterval = 5f;
+
+    [DataField]
+    public float DamageAccumulator;
+
+    [DataField]
+    public float HealInterval = 3f;
+
+    [DataField]
+    public float HealAccumulator;
 }

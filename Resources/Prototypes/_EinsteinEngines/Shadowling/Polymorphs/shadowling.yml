@@ -1,7 +1,7 @@
 - type: polymorph
   id: ShadowlingPolymorph
   configuration:
-    entity: MobShadowlingBase
+    entity: MobShadowling
     forced: true
     transferName: true
     transferHumanoidAppearance: false

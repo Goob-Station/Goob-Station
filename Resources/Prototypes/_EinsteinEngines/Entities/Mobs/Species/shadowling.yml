@@ -4,14 +4,6 @@
   parent: BaseMobSpeciesOrganic
   id: MobShadowlingBase
   components:
-  - type: NightVision
-    color: "#BF40BF"
-    activateSound: null
-    deactivateSound: null
-  - type: ThermalVision
-    color: "#BF40BF"
-    activateSound: null
-    deactivateSound: null
   - type: Absorbable # idk why
   - type: HumanoidAppearance
     species: Shadowling
@@ -54,6 +46,15 @@
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
   - type: Insulated
+  - type: ShadowlingCannotWearClothes
+  - type: NightVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
+  - type: ThermalVision
+    color: "#BF40BF"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   parent: BaseSpeciesDummy

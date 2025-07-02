@@ -117,7 +117,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
     }
     public void OnThrallAdded(EntityUid uid, EntityUid thrall, ShadowlingComponent comp)
     {
-        if (!TryComp<LightDetectionDamageModifierComponent>(uid, out var lightDet))
+        if (!TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
             return;
 
         lightDet.ResistanceModifier += comp.LightResistanceModifier;
@@ -125,7 +125,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 
     public void OnThrallRemoved(EntityUid uid, EntityUid thrall, ShadowlingComponent comp)
     {
-        if (!TryComp<LightDetectionDamageModifierComponent>(uid, out var lightDet))
+        if (!TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
             return;
 
         lightDet.ResistanceModifier -= comp.LightResistanceModifier;
@@ -159,7 +159,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
             AddPostHatchActions(uid, component);
 
             EnsureComp<LightDetectionComponent>(uid);
-            var lightMod = EnsureComp<LightDetectionDamageModifierComponent>(uid);
+            var lightMod = EnsureComp<LightDetectionDamageComponent>(uid);
             lightMod.ResistanceModifier = 0.5f; // Let them start with 50% resistance, and decrease it per Thrall
         }
         else if (phase == ShadowlingPhases.Ascension)
@@ -230,7 +230,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         if (args.Examiner != uid)
             return;
 
-        if (!TryComp<LightDetectionDamageModifierComponent>(uid, out var lightDet))
+        if (!TryComp<LightDetectionDamageComponent>(uid, out var lightDet))
             return;
 
         args.PushMarkup(Loc.GetString("shadowling-examine-self", ("damage", lightDet.ResistanceModifier * lightDet.DamageToDeal.GetTotal())));

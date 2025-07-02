@@ -81,7 +81,7 @@ public sealed class NightmareSystem : EntitySystem
         // Shadowling Checks - END
 
         EnsureComp<LightDetectionComponent>(uid);
-        EnsureComp<LightDetectionDamageModifierComponent>(uid);
+        EnsureComp<LightDetectionDamageComponent>(uid);
 
         EnsureComp<LightEaterUserComponent>(uid);
         EnsureComp<ShadowlingPlaneShiftComponent>(uid);

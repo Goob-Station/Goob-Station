@@ -15,8 +15,6 @@ public sealed partial class ShadowlingSystem
         SubscribeLocalEvent<ShadowlingComponent, HatchEvent>(OnHatch);
     }
 
-    # region Hatch
-
     private void OnHatch(EntityUid uid, ShadowlingComponent comp, HatchEvent args)
     {
         _actions.RemoveAction(uid, args.Action);
@@ -35,8 +33,8 @@ public sealed partial class ShadowlingSystem
         }
 
         var egg = SpawnAtPosition(comp.Egg, Transform(uid).Coordinates);
-        if (TryComp<HatchingEggComponent>(egg, out var eggComp) &&
-            TryComp<EntityStorageComponent>(egg, out var eggStorage))
+        if (TryComp<HatchingEggComponent>(egg, out var eggComp)
+            && TryComp<EntityStorageComponent>(egg, out var eggStorage))
         {
             eggComp.ShadowlingInside = uid;
             _entityStorage.Insert(uid, egg, eggStorage);
@@ -44,6 +42,4 @@ public sealed partial class ShadowlingSystem
 
         // It should be noted that Shadowling shouldn't be able to take damage during this process.
     }
-
-    #endregion
 }

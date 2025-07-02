@@ -15,16 +15,10 @@ public sealed partial class LightDetectionComponent : Component
     public bool IsOnLight;
 
     [DataField]
-    public TimeSpan NextUpdate = TimeSpan.Zero;
+    public float Accumulator;
 
     [DataField]
-    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
-
-    /// <summary>
-    ///  Indicates if the user has moved since the last time.
-    /// </summary>
-    [DataField]
-    public bool IsUserActive;
+    public float UpdateInterval = 1f;
 
     /// <summary>
     ///  The last known position of the user of this component

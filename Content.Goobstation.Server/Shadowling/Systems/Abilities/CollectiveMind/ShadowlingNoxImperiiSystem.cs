@@ -63,7 +63,7 @@ public sealed class ShadowlingNoxImperiiSystem : EntitySystem
 
         RemComp<ShadowlingNoxImperiiComponent>(uid);
         RemComp<LightDetectionComponent>(uid);
-        RemComp<LightDetectionDamageModifierComponent>(uid);
+        RemComp<LightDetectionDamageComponent>(uid);
 
         _actions.RemoveAction(uid, args.Args.Used);
         // Reduce heat damage from other sources

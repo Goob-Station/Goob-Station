@@ -41,7 +41,7 @@ public sealed class LesserShadowlingSystem : EntitySystem
         EnsureComp<ShadowlingShadowWalkComponent>(uid);
 
         EnsureComp<LightDetectionComponent>(uid);
-        var lightMod = EnsureComp<LightDetectionDamageModifierComponent>(uid);
+        var lightMod = EnsureComp<LightDetectionDamageComponent>(uid);
 
         lightMod.DetectionValueMax = 10;
     }
@@ -54,7 +54,7 @@ public sealed class LesserShadowlingSystem : EntitySystem
         _actions.RemoveAction(uid, component.ShadowWalkAction, comp);
         RemComp<ShadowlingShadowWalkComponent>(uid);
         RemComp<LightDetectionComponent>(uid);
-        RemComp<LightDetectionDamageModifierComponent>(uid);
+        RemComp<LightDetectionDamageComponent>(uid);
 
         _alerts.ClearAlert(uid, component.AlertProto);
     }

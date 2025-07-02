@@ -8,7 +8,6 @@ using Content.Goobstation.Shared.Shadowling;
 using Content.Goobstation.Shared.Shadowling.Components;
 using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
 using Content.Server.Administration.Systems;
-using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.EUI;
 using Content.Server.Ghost;
@@ -16,7 +15,6 @@ using Content.Server.Humanoid;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
@@ -35,20 +33,18 @@ namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind
 /// </summary>
 public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private  readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly LightDetectionDamageModifierSystem _modifierLight = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private readonly LightDetectionDamageSystem _light = default!;
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
-    /// <inheritdoc/>
+
     public override void Initialize()
     {
         base.Initialize();
@@ -83,23 +79,20 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
 
     private void OnBlackRecDoAfter(EntityUid uid, ShadowlingBlackRecuperationComponent component, BlackRecuperationDoAfterEvent args)
     {
-        if (args.Cancelled)
-            return;
-        if (args.Args.Target is null)
+        if (args.Cancelled
+            || args.Target == null)
             return;
 
-        var target = args.Args.Target.Value;
+        var target = args.Target.Value;
 
         if (!_mobStateSystem.IsAlive(target))
         {
-            if (_mind.TryGetMind(target, out _, out var mind) &&
-                _playerMan.TryGetSessionById(mind.UserId, out var session))
+            if (_mind.TryGetMind(target, out _, out var mind)
+                && _playerMan.TryGetSessionById(mind.UserId, out var session)
+                && mind.CurrentEntity != target)
             {
                 // notify them they're being revived.
-                if (mind.CurrentEntity != target)
-                {
-                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _playerMan), session);
-                }
+                _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _playerMan), session);
             }
             else
             {
@@ -110,15 +103,11 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             _rejuvenate.PerformRejuvenate(target);
             _popup.PopupEntity(Loc.GetString("shadowling-black-rec-revive-done"), uid, target, PopupType.MediumCaution);
 
-            var effectEnt = Spawn(component.BlackRecuperationEffect, _transformSystem.GetMapCoordinates(target));
-            _transformSystem.SetParent(effectEnt, target);
-
+            Spawn(component.BlackRecuperationEffect, Transform(target).Coordinates);
             _audio.PlayPvs(component.BlackRecSound, target, AudioParams.Default.WithVolume(-1f));
 
-            if (!TryComp<LightDetectionDamageModifierComponent>(uid, out var lightDetectionDamageModifier))
-                return;
-
-            _modifierLight.AddResistance(component.ResistanceRemoveFromThralls, uid, lightDetectionDamageModifier);
+            if (TryComp<LightDetectionDamageComponent>(uid, out var lightDetectionDamageModifier))
+                _light.AddResistance(lightDetectionDamageModifier, component.ResistanceRemoveFromThralls);
         }
         else
         {
@@ -137,19 +126,19 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
             if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human))
                 _humanoidAppearance.AddMarking(newUid.Value, component.MarkingId, Color.Red, true, true, human);
 
-
-            var effectEnt = Spawn(component.BlackRecuperationEffect, _transformSystem.GetMapCoordinates(newUid.Value));
-            _transformSystem.SetParent(effectEnt, newUid.Value);
+            Spawn(component.BlackRecuperationEffect, Transform(newUid.Value).Coordinates);
 
             component.LesserShadowlingAmount++;
-            _popup.PopupEntity(Loc.GetString("shadowling-black-rec-lesser-done"), uid, newUid.Value, PopupType.MediumCaution);
 
+            _popup.PopupEntity(
+                Loc.GetString("shadowling-black-rec-lesser-done"),
+                uid,
+                newUid.Value,
+                PopupType.MediumCaution);
             _audio.PlayPvs(component.BlackRecSound, newUid.Value, AudioParams.Default.WithVolume(-1f));
 
-            if (!TryComp<LightDetectionDamageModifierComponent>(uid, out var lightDetectionDamageModifier))
-                return;
-
-            _modifierLight.AddResistance(component.ResistanceRemoveFromLesser, uid, lightDetectionDamageModifier);
+            if (TryComp<LightDetectionDamageComponent>(uid, out var lightDetectionDamageModifier))
+                _light.AddResistance(lightDetectionDamageModifier, component.ResistanceRemoveFromLesser);
         }
     }
 }

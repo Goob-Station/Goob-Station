@@ -3,7 +3,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Shadowling.Systems;
 
@@ -14,38 +13,28 @@ namespace Content.Goobstation.Server.Shadowling.Systems;
 public sealed class LightDetectionSystem : EntitySystem
 {
     [Dependency] private readonly PhysicsSystem _physicsSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
-    protected override string SawmillName { get; } = "light_damage";
+    protected override string SawmillName => "light_damage";
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<LightDetectionComponent, ComponentStartup>(OnComponentStartup);
-    }
-
-    private void OnComponentStartup(EntityUid uid, LightDetectionComponent component, ComponentStartup args)
-    {
-        component.NextUpdate = _timing.CurTime;
-    }
-
-    [DataField]
-    public float LookupRange = 10f;
+    [DataField] public float LookupRange = 10f;
 
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<LightDetectionComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
-            if (_timing.CurTime < comp.NextUpdate
-                || _mobStateSystem.IsDead(uid))
+            comp.Accumulator -= frameTime;
+            if (comp.Accumulator > 0)
                 continue;
 
-            comp.NextUpdate += comp.UpdateInterval;
+            comp.Accumulator = comp.UpdateInterval;
+
+            if (_mobStateSystem.IsDead(uid))
+                continue;
+
             DetectLight(uid, comp, xform);
         }
     }
@@ -72,10 +61,8 @@ public sealed class LightDetectionSystem : EntitySystem
             var lightPos = _transformSystem.GetWorldPosition(pointXform);
             var distance = (lightPos - worldPos).Length();
 
-            if (distance <= 0.01f) // So the debug stops crashing
-                continue;
-
-            if (distance > pointLight.Radius)
+            if (distance <= 0.01f
+                || distance > pointLight.Radius)
                 continue;
 
             var direction = (worldPos - lightPos).Normalized();
@@ -85,7 +72,7 @@ public sealed class LightDetectionSystem : EntitySystem
                 xform.MapID,
                 ray,
                 distance,
-                point); // todo: remove this once slings get night vision action
+                point);
 
             var hasBeenBlocked = false;
             foreach (var result in rayResults)

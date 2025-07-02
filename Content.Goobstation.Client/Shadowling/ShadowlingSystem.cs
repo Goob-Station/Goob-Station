@@ -26,13 +26,13 @@ public sealed class ShadowlingSystem : SharedShadowlingSystem
         base.Initialize();
 
         SubscribeLocalEvent<ThrallComponent, GetStatusIconsEvent>(GetThrallIcon);
-        SubscribeLocalEvent<LightDetectionDamageModifierComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
+        SubscribeLocalEvent<LightDetectionDamageComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
         SubscribeLocalEvent<ShadowlingComponent, GetStatusIconsEvent>(GetShadowlingIcon);
     }
 
     private const int StateNormalizerSling = 9;
 
-    private void OnUpdateAlert(Entity<LightDetectionDamageModifierComponent> ent, ref UpdateAlertSpriteEvent args)
+    private void OnUpdateAlert(Entity<LightDetectionDamageComponent> ent, ref UpdateAlertSpriteEvent args)
     {
         if (args.Alert.ID != ent.Comp.AlertProto)
             return;

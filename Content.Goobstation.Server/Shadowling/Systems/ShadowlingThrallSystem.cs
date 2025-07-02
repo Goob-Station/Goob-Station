@@ -27,7 +27,6 @@ public sealed class ShadowlingThrallSystem : EntitySystem
 
         SubscribeLocalEvent<ThrallComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ThrallComponent, ComponentShutdown>(OnRemove);
-
         SubscribeLocalEvent<ThrallComponent, ExaminedEvent>(OnExamined);
     }
 
@@ -79,28 +78,23 @@ public sealed class ShadowlingThrallSystem : EntitySystem
 
         RemComp<NightVisionComponent>(uid);
         RemComp<ThrallGuiseComponent>(uid);
-        RemCompDeferred<LesserShadowlingComponent>(uid);
+        RemComp<LesserShadowlingComponent>(uid);
 
         if (component.Converter == null)
             return;
 
         // Adjust lightning resistance for shadowling
         var shadowling = component.Converter.Value;
-        if (!TryComp<ShadowlingComponent>(shadowling, out var shadowlingComp))
-            return;
-
-        _shadowling.OnThrallRemoved(shadowling, uid, shadowlingComp);
+        if (TryComp<ShadowlingComponent>(shadowling, out var shadowlingComp))
+            _shadowling.OnThrallRemoved(shadowling, uid, shadowlingComp);
     }
 
     private void OnExamined(EntityUid uid, ThrallComponent component, ExaminedEvent args)
     {
-        if (!HasComp<ShadowlingComponent>(args.Examiner))
+        if (!HasComp<ShadowlingComponent>(args.Examiner)
+            || component.Converter != args.Examiner)
             return;
 
-        if (component.Converter == null)
-            return;
-
-        if (component.Converter == args.Examiner)
-            args.PushMarkup($"[color=red]{Loc.GetString("shadowling-thrall-examined")}[/color]"); // Indicates that it is your Thrall
+        args.PushMarkup($"[color=red]{Loc.GetString("shadowling-thrall-examined")}[/color]"); // Indicates that it is your Thrall
     }
 }
