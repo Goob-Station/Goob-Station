@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantFireAspect
-  name: "Аспект вогню"
+  name: Fire Aspect
   components:
   - type: Enchant
     maxLevel: 2

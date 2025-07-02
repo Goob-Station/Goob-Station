@@ -18,7 +18,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialBSCrystal
-  name: "кристал блюспейс"
+  name: bluespace crystal
   suffix: Full
   components:
   - type: Stack
@@ -61,7 +61,7 @@
 - type: entity
   parent: MaterialBSCrystal
   id: MaterialBSCrystalUnprocessed
-  name: "необроблений кристал блюспейс"
+  name: unprocessed bluespace crystal
   suffix: Full
   components:
   - type: Stack
@@ -72,7 +72,7 @@
 - type: entity
   parent: MaterialBSCrystalUnprocessed
   id: MaterialBSCrystal1Unprocessed
-  name: "необроблений кристал блюспейс"
+  name: unprocessed bluespace crystal
   suffix: Single
   components:
   - type: Stack
