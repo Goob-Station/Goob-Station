@@ -27,7 +27,7 @@ public partial class XenobiologySystem
 {
     private void InitializeVacuum()
     {
-        SubscribeLocalEvent<XenoVacuumTankComponent, MapInitEvent>(OnTankInit);
+        SubscribeLocalEvent<XenoVacuumTankComponent, ComponentInit>(OnTankInit);
         SubscribeLocalEvent<XenoVacuumTankComponent, ExaminedEvent>(OnTankExamined);
 
         SubscribeLocalEvent<XenoVacuumComponent, GotEmaggedEvent>(OnVacEmagged);
@@ -38,7 +38,7 @@ public partial class XenobiologySystem
         SubscribeLocalEvent<XenoVacuumComponent, AfterInteractEvent>(OnXenoVacuum);
     }
 
-    private void OnTankInit(Entity<XenoVacuumTankComponent> tank, ref MapInitEvent args) =>
+    private void OnTankInit(Entity<XenoVacuumTankComponent> tank, ref ComponentInit args) =>
         tank.Comp.StorageTank = _containerSystem.EnsureContainer<Container>(tank, "StorageTank");
 
     private void OnTankExamined(Entity<XenoVacuumTankComponent> tank, ref ExaminedEvent args)

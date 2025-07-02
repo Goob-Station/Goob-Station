@@ -39,15 +39,13 @@ public sealed partial class IgniteNearby : EntityEffect
             return;
 
         var entityManager = args.EntityManager;
-        var lookupSys = args.EntityManager.System<EntityLookupSystem>();
-        var flamSys = args.EntityManager.System<FlammableSystem>();
+        var lookupSys = entityManager.System<EntityLookupSystem>();
+        var flamSys = entityManager.System<FlammableSystem>();
 
         foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
         {
             if (entityManager.TryGetComponent(entity, out FlammableComponent? flammable))
-            {
                 flamSys.AdjustFireStacks(entity, FireStacks, flammable, true);
-            }
         }
     }
 }

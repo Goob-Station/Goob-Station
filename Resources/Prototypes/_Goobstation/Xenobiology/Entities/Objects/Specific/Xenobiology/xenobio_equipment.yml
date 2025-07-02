@@ -17,7 +17,13 @@
   - type: ContainerContainer
     containers:
       tankbase: !type:Container
-        ents: []
+        showEnts: False
+        occludes: True
+        ents: [ ]
+      item: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
   - type: ItemSlots
     slots:
       item:

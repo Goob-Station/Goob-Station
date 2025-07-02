@@ -41,15 +41,13 @@ public sealed partial class OxygenateNearby : EntityEffect
             return;
 
         var entityManager = args.EntityManager;
-        var lookupSys = args.EntityManager.System<EntityLookupSystem>();
-        var respSys = args.EntityManager.System<RespiratorSystem>();
+        var lookupSys = entityManager.System<EntityLookupSystem>();
+        var respSys = entityManager.System<RespiratorSystem>();
 
         foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
         {
             if (entityManager.TryGetComponent(entity, out RespiratorComponent? resp))
-            {
                 respSys.UpdateSaturation(entity, Factor, resp);
-            }
         }
     }
 }
