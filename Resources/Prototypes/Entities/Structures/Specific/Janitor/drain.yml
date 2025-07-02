@@ -6,8 +6,8 @@
 
 - type: entity
   id: FloorDrain
-  name: drain
-  description: Drains puddles around it. Useful for dumping mop buckets or keeping certain rooms clean.
+  name: "злив"
+  description: "Зливає калюжі навколо себе. Корисний для викидання відер зі швабрами або для підтримання чистоти в певних приміщеннях."
   placement:
     mode: SnapgridCenter
   components:

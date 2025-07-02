@@ -11,7 +11,7 @@
   id: WardrobeBase
   parent: ClosetSteelBase
   abstract: true
-  description: It's a storage unit for standard-issue Nanotrasen attire.
+  description: "Це стандартизоване НаноТрейзен сховище для зберігання одягу."
 
 # Colored
 
@@ -19,8 +19,8 @@
 - type: entity
   id: WardrobeBlue
   parent: WardrobeBase
-  name: blue wardrobe
-  description: "A wardrobe packed with stylish blue clothing."
+  name: "синій гардероб"
+  description: "Гардероб, наповнений стильним синім одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -32,8 +32,8 @@
 - type: entity
   id: WardrobePink
   parent: WardrobeBase
-  name: pink wardrobe
-  description: "A wardrobe packed with fabulous pink clothing."
+  name: "рожевий гардероб"
+  description: "Шафа, наповнена казковим рожевим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -45,8 +45,8 @@
 - type: entity
   id: WardrobeBlack
   parent: WardrobeBase
-  name: black wardrobe
-  description: "A wardrobe packed with stylish black clothing."
+  name: "чорний гардероб"
+  description: "Шафа, наповнена стильним чорним одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -58,8 +58,8 @@
 - type: entity
   id: WardrobeGreen
   parent: WardrobeBase
-  name: green wardrobe
-  description: "A wardrobe packed with stylish green clothing."
+  name: "зелений гардероб"
+  description: "Гардероб, наповнений стильним зеленим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -71,7 +71,7 @@
 - type: entity
   id: WardrobePrison
   parent: WardrobeBase
-  name: prison wardrobe
+  name: "гардероб ув'язнених"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -83,8 +83,8 @@
 - type: entity
   id: WardrobeYellow
   parent: WardrobeBase
-  name: yellow wardrobe
-  description: "A wardrobe packed with stylish yellow clothing."
+  name: "жовтий гардероб"
+  description: "Гардероб, наповнений стильним жовтим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -96,8 +96,8 @@
 - type: entity
   id: WardrobeWhite
   parent: WardrobeBase
-  name: white wardrobe
-  description: "A wardrobe packed with stylish white clothing."
+  name: "біла шафа"
+  description: "Шафа, наповнена стильним білим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -109,8 +109,8 @@
 - type: entity
   id: WardrobeGrey
   parent: WardrobeBase
-  name: grey wardrobe
-  description: "A wardrobe packed with a tide of grey clothing."
+  name: "сірий гардероб"
+  description: "Шафа, переповнена сірим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -122,8 +122,8 @@
 - type: entity
   id: WardrobeMixed
   parent: WardrobeBase
-  name: mixed wardrobe
-  description: "A wardrobe packed with a mix of colorful clothing."
+  name: "змішаний гардероб"
+  description: "Гардероб, наповнений різнобарвним одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -136,7 +136,7 @@
 - type: entity
   id: WardrobeSecurity
   parent: WardrobeBase
-  name: security wardrobe
+  name: "гардероб служби безпеки"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -147,7 +147,7 @@
 - type: entity
   id: WardrobeAtmospherics
   parent: WardrobeBase
-  name: atmospherics wardrobe
+  name: "атмосферний гардероб"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -158,80 +158,80 @@
 - type: entity
   id: ClosetJanitor
   parent: WardrobeMixed
-  name: custodial closet
-  description: It's a storage unit for janitorial clothes and gear.
+  name: "шафа для зберігання цінностей"
+  description: "Це приміщення для зберігання одягу та інвентарю двірників."
 
 - type: entity
   id: WardrobeFormal
   parent: WardrobeBlack
-  name: formal closet
-  description: It's a storage unit for formal clothing.
+  name: "урочистий гардероб"
+  description: "Це приміщення для зберігання урочистого одягу."
 
 - type: entity
   id: ClosetChef
   parent: WardrobeBlack
-  name: chef's closet
-  description: It's a storage unit for foodservice garments and mouse traps.
+  name: "шафа шеф-кухаря"
+  description: "Це склад для зберігання одягу для харчової промисловості та мишоловок."
 
 - type: entity
   id: WardrobeChapel
   parent: WardrobeBlack
-  name: chaplain's wardrobe
-  description: It's a storage unit for Nanotrasen-approved religious attire.
+  name: "гардероб капелана"
+  description: "Це сховище для релігійного вбрання, схваленого НаноТреайзен."
 
 - type: entity
   id: ClosetLegal
   parent: WardrobeBlue
-  name: legal closet
-  description: It's a storage unit for courtroom apparel and items.
+  name: "юридичний гардероб"
+  description: "Це сховище для зберігання одягу та предметів, необхідних для роботи в суді."
 
 - type: entity
   id: WardrobeCargo
   parent: WardrobePrison
-  name: cargo wardrobe
+  name: "вантажна шафа"
 
 - type: entity
   id: WardrobeSalvage
   parent: WardrobeMixed
-  name: salvage wardrobe
-  description: Notably not salvaged.
+  name: "шахтарський гардероб"
+  description: "Це сховище для зберігання одягу та предметів, необхідних для роботи шахтерам."
 
 - type: entity
   id: WardrobeEngineering
   parent: WardrobeYellow
-  name: engineering wardrobe
+  name: "інженерний гардероб"
 
 - type: entity
   id: WardrobeMedicalDoctor
   parent: WardrobeWhite
-  name: medical doctor's wardrobe
+  name: "гардероб лікаря"
 
 - type: entity
   id: WardrobeRobotics
   parent: WardrobeBlack
-  name: robotics wardrobe
+  name: "робототехнічний гардероб"
 
 - type: entity
   id: WardrobeChemistry
   parent: WardrobeWhite
-  name: chemistry wardrobe
+  name: "хімічна шафа"
 
 - type: entity
   id: WardrobeGenetics
   parent: WardrobeWhite
-  name: genetics wardrobe
+  name: "генетичний гардероб"
 
 - type: entity
   id: WardrobeVirology
   parent: WardrobeWhite
-  name: virology wardrobe
+  name: "вірусологічний гардероб"
 
 - type: entity
   id: WardrobeScience
   parent: WardrobeWhite
-  name: science wardrobe
+  name: "наукова шафа"
 
 - type: entity
   id: WardrobeBotanist
   parent: WardrobeGreen
-  name: botanist wardrobe
+  name: "гардероб гідропоніки"

@@ -5,7 +5,7 @@
 
 - type: entity
   id: RandomHumanoidVisitorAlien
-  name: visiting alien ghost role
+  name: "роль привида прибульця-гостя"
   components:
     - type: Sprite
       sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi

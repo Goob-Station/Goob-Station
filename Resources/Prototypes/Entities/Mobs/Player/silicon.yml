@@ -113,7 +113,7 @@
 # Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
-  description: Components added / removed from an entity that gets inserted into an AI core.
+  description: "Компоненти, що додаються/видаляються з сутності, яка вставляється в ядро ШІ."
   categories: [ HideSpawnMenu ]
   components:
   - type: IntrinsicRadioReceiver
@@ -204,7 +204,7 @@
 
 - type: entity
   id: AiHeldIntellicard
-  description: Components added / removed from an entity that gets inserted into an Intellicard.
+  description: "Компоненти, додані/вилучені з сутності, яка вставляється в Intellicard."
   categories: [ HideSpawnMenu ]
   components:
   - type: IntrinsicRadioReceiver
@@ -233,7 +233,7 @@
 - type: entity
   id: AiHolder
   abstract: true
-  description: Handles AI interactions across holocards + AI cores
+  description: "Керує взаємодією ШІ між голографічними картками + ядрами ШІ"
   components:
   - type: ItemSlots
   - type: StationAiHolder
@@ -256,8 +256,8 @@
 # Items
 - type: entity
   id: Intellicard
-  name: intellicard
-  description: A storage device for AIs.
+  name: "інтелекткарт"
+  description: "Пристрій для зберігання даних для ШІ."
   parent:
   - BaseItem
   - AiHolder
@@ -295,8 +295,8 @@
 
 - type: entity
   id: PlayerStationAiEmpty
-  name: AI Core
-  description: The latest in Artificial Intelligences.
+  name: "Ядро штучного інтелекту"
+  description: "Останнє в галузі штучного інтелекту."
   parent:
   - BaseStructure
   - AiHolder
@@ -430,8 +430,8 @@
   - Incorporeal
   - BaseMob
   id: StationAiHolo
-  name: AI eye
-  description: The AI's viewer.
+  name: "Око штучного інтелекту"
+  description: "Глядач ШІ."
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: MovementSpeedModifier # Goobstation
@@ -454,8 +454,8 @@
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity
   id: StationAiHoloLocal
-  name: AI hologram
-  description: A holographic representation of an AI.
+  name: "Голограма зі штучним інтелектом"
+  description: "Голографічне зображення штучного інтелекту."
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Transform
@@ -558,7 +558,7 @@
     - type: GhostTakeoverAvailable
 
 - type: entity
-  name: syndicate invasion borg spawner
+  name: "спавнер боргів для вторгнення синдикату"
   id: PlayerBorgSyndicateInvasionGhostRoleSpawner
   parent: MarkerBase
   components:

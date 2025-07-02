@@ -9,9 +9,9 @@
 #shuttle walls
 - type: entity
   id: WallAbductorDiagonal
-  name: shuttle wall
+  name: "стіна шатла"
   suffix: Diagonal
-  description: Keeps the air in and the bloodthirsty salvagers out.
+  description: "Не пропускає повітря і не дає кровожерливим рятівникам проникнути всередину."
   placement:
     mode: SnapgridCenter
     snap:
@@ -70,9 +70,9 @@
 - type: entity
   parent: BaseWall
   id: WallAbductor
-  name: shuttle wall
+  name: "стіна шатла"
   suffix: Reinforced, Exterior
-  description: Keeps the air in and the bloodthirsty salvagers out.
+  description: "Не пропускає повітря і не дає кровожерливим рятівникам проникнути всередину."
   components:
   - type: Damageable
     damageContainer: StructuralInorganic

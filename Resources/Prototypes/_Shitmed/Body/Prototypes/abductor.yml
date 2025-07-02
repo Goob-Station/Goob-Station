@@ -6,7 +6,7 @@
 
 - type: body
   id: Abductor
-  name: Abductor
+  name: "Викрадач"
   root: chest
   slots:
     head:

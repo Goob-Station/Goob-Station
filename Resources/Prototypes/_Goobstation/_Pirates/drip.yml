@@ -9,8 +9,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: GoobClothingOuterHardsuitSpirate
-  name: modified EVA suit
-  description: A modified suit to allow space pirates to board shuttles and stations while avoiding the maw of the void. Comes with additional protection and is lighter to move in.
+  name: "модифікований скафандр EVA"
+  description: "Модифікований костюм, що дозволяє космічним піратам здійснювати абордаж шатлів і станцій, уникаючи пащі порожнечі. Поставляється з додатковим захистом і легший для пересування."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: ClothingHeadHelmetBase
   id: GoobClothingHeadHelmetHardsuitSpirate
-  name: modified EVA helmet
-  description: A modified helmet to allow space pirates to intimidate their customers whilst staying safe from the void. Comes with some additional protection.
+  name: "модифікований шолом EVA"
+  description: "Модифікований шолом, що дозволяє космічним піратам залякувати своїх клієнтів, залишаючись у безпеці від порожнечі. Поставляється з додатковим захистом."
   components:
   - type: Sprite
     sprite: _Goobstation/_Pirates/spirate_suit.rsi

@@ -2,7 +2,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantInsulated
-  name: Insulated
+  name: "Ізольований"
   components:
   - type: Enchant
     whitelist:
@@ -21,7 +21,7 @@
 - type: entity
   parent: EnchantInsulated
   id: EnchantBudgetInsulated
-  name: Insulated?
+  name: "Ізольований?"
   components:
   - type: Enchant
     incompatible:
