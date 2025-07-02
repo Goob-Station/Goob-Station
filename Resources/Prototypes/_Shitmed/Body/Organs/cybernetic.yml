@@ -7,7 +7,7 @@
 
 - type: entity
   id: BaseCyberneticOrgan
-  parent: OrganHumanEyes
+  parent: BaseItem
   abstract: true
   components:
   - type: Cybernetics
@@ -17,12 +17,14 @@
 # Eyes
 
 - type: entity
-  parent: BaseCyberneticOrgan
+  parent: OrganHumanEyes
   id: BasicCyberneticEyes
   name: cybernetic eyes
   description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
   components:
+  - type: Cybernetics
   - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi
     state: eyes
   - type: Organ
     intCap: 21
