@@ -215,16 +215,15 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
                     // Goob (even tho the entire file got massacred by John already)
                     // Logging objective status for admins
-                    EntityUid? attachedEnt = null;
-                    if (userid.HasValue)
-                        attachedEnt = _player.GetSessionById(userid.Value).AttachedEntity;
-
-                    if (!attachedEnt.HasValue)
-                        attachedEnt = mindId; // So at least *something* is stored in the logs
+                    IFormattable? username = ToPrettyString(mind.CurrentEntity);
+                    if (username is null &&
+                        userid.HasValue &&
+                        _player.TryGetPlayerData(userid.Value, out var data))
+                        username = System.Runtime.CompilerServices.FormattableStringFactory.Create(data.UserName);
 
                     _adminLog.Add(Shared.Database.LogType.AntagObjective,
-                                  Shared.Database.LogImpact.Medium,
-                                  $"{ToPrettyString(attachedEnt):subject} achieved {progress}% of objective {objectiveTitle}");
+                                    Shared.Database.LogImpact.Medium,
+                                    $"{username:subject} achieved {progress}% of objective {objectiveTitle}");
 
                     agentSummary.Append("- ");
                     if (!_showGreentext)
