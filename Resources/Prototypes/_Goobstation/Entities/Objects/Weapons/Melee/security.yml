@@ -279,12 +279,8 @@
     layers:
     - state: stunbaton_off
       map: [ "enum.ToggleVisuals.Layer" ]
-  - type: Stunbaton
-    energyPerUse: 50
-    lightAttackEnergyMultiplier: 2 # Goob edit
   - type: Sharp
   - type: ItemToggle
-    toggleOnUse: true
     onActivate: false
     wieldToggle: false
     soundActivate:
@@ -308,6 +304,9 @@
         Blunt: 0
   - type: ComponentToggler
     components:
+      - type: Stunbaton
+        energyPerUse: 50
+        lightAttackEnergyMultiplier: 2
       - type: StaminaDamageOnHit
         damage: 15
         overtime: 40
@@ -364,6 +363,7 @@
     - Back
     - suitStorage
   - type: Wieldable
+    unwieldOnUse: false
   - type: IncreaseDamageOnWield
     damage:
       types:
