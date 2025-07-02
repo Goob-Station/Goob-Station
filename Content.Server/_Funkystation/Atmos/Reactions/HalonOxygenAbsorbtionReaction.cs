@@ -15,9 +15,6 @@ public sealed partial class HalonOxygenAbsorptionReaction : IGasReactionEffect
 {
     public ReactionResult React(GasMixture mixture, IGasMixtureHolder? holder, AtmosphereSystem atmosphereSystem, float heatScale)
     {
-        if (mixture.Temperature > 20f && mixture.GetMoles(Gas.HyperNoblium) >= 5.0f)
-            return ReactionResult.NoReaction;
-
         var initHalon = mixture.GetMoles(Gas.Halon);
         var initOxy = mixture.GetMoles(Gas.Oxygen);
 

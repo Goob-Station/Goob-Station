@@ -7,6 +7,4 @@
 namespace Content.Server._Funkystation.Atmos.Portable;
 
 [RegisterComponent]
-public sealed partial class ElectrolyzerComponent : Component
-{
-}
+public sealed partial class ElectrolyzerComponent : Component;
