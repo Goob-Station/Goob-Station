@@ -146,7 +146,6 @@
     layers:
     - state: stunbaton_off
       map: [ "enum.ToggleVisuals.Layer" ]
-  - type: EmbeddableProjectile
   - type: Stunbaton
     energyPerUse: 50
     lightAttackEnergyMultiplier: 2 # Goob edit
