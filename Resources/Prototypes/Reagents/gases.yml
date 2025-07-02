@@ -418,9 +418,13 @@
         conditions:
         - !type:OrganType
           type: Vox
+      - !type:Oxygenate
+        conditions:
         - !type:OrganType
           type: Slime
-        - !type:OrganType # Shitmed - Cybernetic Organs
+      - !type:Oxygenate # Shitmed - Cybernetic Organs
+        conditions:
+        - !type:OrganType
           type: Cybernetic
       # Converts Nitrogen into CO2
       - !type:ModifyLungGas
@@ -1131,12 +1135,24 @@
         conditions:
         - !type:OrganType
           type: Human
+      - !type:Oxygenate
+        factor: 8
+        conditions:
         - !type:OrganType
           type: Animal
+      - !type:Oxygenate
+        factor: 8
+        conditions:
         - !type:OrganType
           type: Rat
+      - !type:Oxygenate
+        factor: 8
+        conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate
+        factor: 8
+        conditions:
         - !type:OrganType
           type: Cybernetic # Woundmed - Cybernetic Organs
       # Convert Pluox into CO2.
@@ -1170,16 +1186,30 @@
     Gas:
       effects:
       - !type:Oxygenate
+        factor: 8
         conditions:
         - !type:OrganType
           type: Human
+      - !type:Oxygenate
+        factor: 8
+        conditions:
         - !type:OrganType
           type: Animal
+      - !type:Oxygenate
+        factor: 8
+        conditions:
         - !type:OrganType
           type: Rat
+      - !type:Oxygenate
+        factor: 8
+        conditions:
         - !type:OrganType
           type: Plant
+      - !type:Oxygenate
         factor: 8
+        conditions:
+        - !type:OrganType
+          type: Cybernetic
       # Convert Pluoxium into CO2.
       - !type:ModifyLungGas
         conditions:
