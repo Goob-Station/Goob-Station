@@ -48,3 +48,4 @@ command-description-xenoartifact-printMatrix = Виводить матрицю, 
 command-description-xenoartifact-totalResearch = Отримує всі очки дослідження, які можна вилучити з артефакту на даний момент.
 command-description-xenoartifact-averageResearch = Обчислює середню кількість очок дослідження, яку згенерований ксеноартефакт видасть при повній активації.
 command-description-xenoartifact-unlockAllNodes = Розблоковує всі вузли артефакту.
+command-description-jobboard-completeJob = Завершує вказане завдання з дошки завдань з утилізації для станції.

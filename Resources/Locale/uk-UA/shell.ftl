@@ -49,3 +49,5 @@ shell-argument-number-invalid = Аргумент {$index} повинен бут�
 shell-argument-username-hint = <ім'я користувача>
 
 shell-argument-username-optional-hint = [ім'я користувача]
+
+shell-entity-target-lacks-component = Цільова сутність не має компонента {$componentName}

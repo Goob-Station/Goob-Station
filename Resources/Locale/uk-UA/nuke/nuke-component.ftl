@@ -46,3 +46,7 @@ nuke-examine-armed = Ей, а чому це [color=red]червоне світл
 nuke-examine-exploding = Та... Думаю, вже запізно, друже.
 
 nuke-component-cant-anchor-toggle = Для перемикання підлогових болтів потрібен диск ядерної автентифікації!
+
+nuke-disk-component-microwave = Диск трохи іскрить і шипить, але, здається, майже не пошкоджений?
+
+# UI Ядерної бомби

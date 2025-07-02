@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise @ fdcf4899a241a68400407a49cd3fdef52ca3ed9d",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "heart-off"
+    },
+    {
+      "name": "heart-on",
+      "delays": [
+        [
+          0.4,
+          0.2,
+          0.4,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "heart-u-off"
+    },
+    {
+      "name": "heart-u-on",
+      "delays": [
+        [
+          0.4,
+          0.2,
+          0.4,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "kidneys"
+    },
+    {
+      "name": "liver"
+    },
+    {
+      "name": "liver-u"
+    },
+    {
+      "name": "lungs"
+    },
+    {
+      "name": "lung-l"
+    },
+    {
+      "name": "lung-r"
+    },
+    {
+      "name": "lungs-u"
+    },
+    {
+      "name": "lung-u-l"
+    },
+    {
+      "name": "lung-u-r"
+    },
+    {
+      "name": "eyes"
+    },
+    {
+      "name": "eyes-diagnostic"
+    },
+    {
+      "name": "eyes-sechud"
+    },
+    {
+      "name": "eyes-medhud"
+    },
+    {
+      "name": "eyes-idk"
+    }
+  ]
+}
