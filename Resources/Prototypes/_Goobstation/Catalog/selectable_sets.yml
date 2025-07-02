@@ -312,24 +312,24 @@
   - ClothingUniformJumpsuitAtmosSyndieAdvanced
   - ClothingBackpackDuffelSyndicateStealthHardsuitBundle
 
-- type: selectableSet
-  id: SyndicateBuilderSet
-  name: selectable-set-syndicate-builder-name
-  description: selectable-set-syndicate-builder-description
-  sprite:
-    sprite: _Goobstation/Structures/Machines/tc_printer.rsi
-    state: display
-  content:
-  - EncryptionKeySyndie
-  - TCminerFlatpack
-  - Multitool
-  - ToolboxElectricalTurretFilled
-  - ToolboxElectricalTurret
-  - SheetSteel # 30
-  - SheetSteel # 60
-  - SheetPlasteel # 30
-  - SheetPlasteel # 60
-  - PowerCellSmall
+#- type: selectableSet
+#  id: SyndicateBuilderSet
+#  name: selectable-set-syndicate-builder-name
+#  description: selectable-set-syndicate-builder-description
+#  sprite:
+#    sprite: _Goobstation/Structures/Machines/tc_printer.rsi
+#    state: display
+#  content:
+#  - EncryptionKeySyndie
+#  - TCminerFlatpack
+#  - Multitool
+#  - ToolboxElectricalTurretFilled
+#  - ToolboxElectricalTurret
+#  - SheetSteel # 30
+#  - SheetSteel # 60
+#  - SheetPlasteel # 30
+#  - SheetPlasteel # 60
+#  - PowerCellSmall
 
 # Blueshield officer
 

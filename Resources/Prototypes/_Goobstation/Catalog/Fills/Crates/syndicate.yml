@@ -129,7 +129,7 @@
     - SyndicateFriendshipSet
     - SyndicateCarpSet
     - SyndicateSusSet
-    - SyndicateBuilderSet
+#    - SyndicateBuilderSet - Requires Rework pending Miner Removal
     setsToSelect: 3
     spawnedStoragePrototype: CrateSyndicate
     spawnedStorageContainer: entity_storage
