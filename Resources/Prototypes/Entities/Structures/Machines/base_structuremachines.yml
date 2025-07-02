@@ -115,12 +115,14 @@
   components:
     - type: RequireProjectileTarget
 
-# Copy-paste of BaseItemCabinet, but it uses ConstructibleMachine as a parent
+# Amalgam of BaseItemCabinet and ConstructibleMachine
+# Can't just use both abstracts as shared parents, otherwise ContainerContainer throws a tantrum
 - type: entity
   abstract: true
-  parent: ConstructibleMachine
   id: ConstructibleItemCabinet
   components:
+  - type: Animateable
+  - type: Machine
   - type: Openable
     openOnActivate: true
     closeable: true
@@ -133,6 +135,16 @@
   - type: ContainerContainer
     containers:
       ItemCabinet: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+  - type: LightningTarget
+    priority: 1
   - type: Appearance
   # perfect for most things but you can always replace it
   - type: GenericVisualizer
