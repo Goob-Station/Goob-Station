@@ -145,4 +145,4 @@
   - type: ShockOnTrigger
   - type: TriggerOnSpeak
   - type: ActiveListener
-    range: 0
+#    range: 0 PIRATE, TEST FIX? TODO: UNCOMMENT WHEN GOOB FIX ERROR WITH THIS MASK
