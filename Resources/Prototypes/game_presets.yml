@@ -175,7 +175,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: false # Goob - Game Director
+  showInVote: true
   description: secret-description
   rules:
     - Secret
