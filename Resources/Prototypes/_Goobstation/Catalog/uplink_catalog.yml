@@ -285,19 +285,6 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkTelecrystalMiner
-  name: uplink-tcminer-name
-  description: uplink-tcminer-desc
-  productEntity: TCminerFlatpack
-  cost:
-    Telecrystal: 100
-  categories:
-    - UplinkDisruption
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
 # Weaponry
 
 # - type: listing
