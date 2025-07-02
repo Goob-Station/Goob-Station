@@ -45,7 +45,7 @@ public sealed partial class MakeSentient : EntityEffect
         entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
 
         // Einstein Engines - Language begin
-        // Make sure the entity knows at least fallback (Galactic Common)
+        // Make sure the entity knows at least fallback (Tau-Ceti Basic)
         var speaker = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
         var knowledge = entityManager.EnsureComponent<LanguageKnowledgeComponent>(uid);
         var fallback = SharedLanguageSystem.FallbackLanguagePrototype;

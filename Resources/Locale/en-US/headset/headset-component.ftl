@@ -23,8 +23,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Chat window radio wrap (prefix and postfix)
-chat-radio-message-wrap = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}, [font={$fontType} size={$fontSize}]"{$message}"[/font][/color]
-chat-radio-message-wrap-bold = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}, [font={$fontType} size={$fontSize}][bold]"{$message}"[/bold][/font][/color]
+# Einstein Engines - Language begin (adds message color per language)
+chat-radio-message-wrap = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}[/color], [font={$fontType} size={$fontSize}][color={$messageColor}]"{$message}"[/color][/font]
+chat-radio-message-wrap-bold = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}[/color], [font={$fontType} size={$fontSize}][color={$messageColor}][bold]"{$message}"[/bold][/color][/font]
+# Einstein Engines - Language end
 
 examine-headset-default-channel = Use {$prefix} for the default channel ([color={$color}]{$channel}[/color]).
 
