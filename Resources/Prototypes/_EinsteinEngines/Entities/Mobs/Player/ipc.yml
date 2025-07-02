@@ -154,6 +154,10 @@
   - type: Tag
     tags:
     - SiliconMob
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
 
 - type: entity
   save: false
