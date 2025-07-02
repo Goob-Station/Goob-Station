@@ -21,7 +21,4 @@
   startNode: start
   targetNode: woodenWand
   category: construction-category-weapons
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/wooden_wand.rsi
-    state: icon
   objectType: Item
