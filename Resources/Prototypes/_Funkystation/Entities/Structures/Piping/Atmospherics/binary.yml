@@ -12,12 +12,12 @@
     - type: ApcPowerReceiver
       powerLoad: 200
     - type: Sprite
-      sprite: _Funkystation/Structures/Piping/Atmospherics/pump.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/tpump.rsi
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
-        - state: pumpHeat
+        - state: tpump
           map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
     - type: Appearance
     - type: GenericVisualizer
