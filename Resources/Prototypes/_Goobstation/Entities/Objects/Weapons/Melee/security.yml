@@ -285,6 +285,7 @@
   - type: Sharp
   - type: ItemToggle
     toggleOnUse: true
+    onActivate: false
     wieldToggle: false
     soundActivate:
       collection: sparks
@@ -332,6 +333,7 @@
             Piercing: 0
             Shock: 25
   - type: MeleeWeapon
+    canWideSwing: false
     wideAnimationRotation: -135
     damage:
       types:
@@ -371,7 +373,7 @@
       types:
         Piercing: 24
   - type: DisarmMalus
-    malus: 0.225
+    malus: 0.6
   - type: Appearance
   - type: GenericVisualizer
     visuals:
