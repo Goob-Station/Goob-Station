@@ -586,7 +586,7 @@ public enum LogType
     /// Damaging grid collision has occurred.
     /// </summary>
     ShuttleImpact = 102,
-    
+
     /// <summary>
     /// SecretPlus related game interactions.
     /// </summary>
@@ -596,4 +596,9 @@ public enum LogType
     /// GameDirector related game interactions.
     /// </summary>
     GameDirector = 10002, // Goobstation
+
+    /// <summary>
+    /// Supermatter events, mostly activations.
+    /// </summary>
+    Supermatter = 10003, // Goobstation
 }
