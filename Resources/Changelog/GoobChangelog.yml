@@ -11383,3 +11383,27 @@ Entries:
         Генерація Спезо за допомогою PTL зменшена вдвічі. Інженерний відділ більше не буде найбагатшим.
   id: 1307
   time: '2025-07-01T20:25:45.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Fixed cybernetic eyes.
+  id: 1308
+  time: '2025-07-02T02:30:35.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Fixed Slimes and Voxes not being able to breathe.
+  id: 1309
+  time: '2025-07-02T02:42:29.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Actually fix eyes this time
+  id: 1310
+  time: '2025-07-02T04:34:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: IPCs can now pilot, bump open doors, and host anomalies.
+  id: 1311
+  time: '2025-07-02T10:31:40.0000000+00:00'
