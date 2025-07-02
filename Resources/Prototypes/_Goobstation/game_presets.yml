@@ -218,6 +218,19 @@
     - LavalandStormScheduler
 
 - type: gamePreset
+  id: SecretPlusClassic
+  alias:
+    - classicplus
+    - secretplusclassic
+    - secret2
+  name: classicplus-title
+  description: classicplus-description
+  showInVote: true
+  rules:
+    - SecretPlusClassic
+    - LavalandStormScheduler
+
+- type: gamePreset
   id: SecretPlusAdmeme
   alias:
     - secretplusadmeme
