@@ -115,9 +115,9 @@
   description: A gym bra paired with yoga pants, perfect for working out and looking good at the same time.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/yoga_gym_bra.rsi
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/yoga_gym_bra.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/yoga_gym_bra.rsi
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/yoga_gym_bra.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -126,6 +126,6 @@
   description: Black ripped jeans and a fishnet top. How punk.  
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/rippedpunk.rsi
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/rippedpunk.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/rippedpunk.rsi
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/rippedpunk.rsi
