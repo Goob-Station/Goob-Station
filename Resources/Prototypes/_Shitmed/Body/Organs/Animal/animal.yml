@@ -8,8 +8,8 @@
 - type: entity
   id: OrganAnimalBrain
   parent: BaseAnimalOrganUnGibbable
-  name: animal brain
-  description: "Not so intelligence, not so honk."
+  name: "мозок тварини"
+  description: "Не такий вже й розумний, не такий вже й гудок."
   components:
   - type: Sprite
     state: brain
@@ -64,8 +64,8 @@
 - type: entity
   id: OrganAnimalEyes
   parent: BaseAnimalOrgan
-  name: animal eyes
-  description: "I see you!"
+  name: "очі тварин"
+  description: "Я тебе бачу!"
   components:
   # start-backmen: surgery
   - type: Organ

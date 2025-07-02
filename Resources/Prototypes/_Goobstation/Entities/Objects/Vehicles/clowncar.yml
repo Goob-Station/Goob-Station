@@ -7,7 +7,7 @@
 - type: entity
   parent: BaseVehicle
   id: VehicleClowncarBase
-  name: clown car
+  name: "машина клоуна"
   abstract: true
   components:
   - type: Sprite
@@ -126,7 +126,7 @@
 - type: entity
   parent: VehicleClowncarBase
   id: VehicleClowncarAntag
-  description: How someone could even fit in there is byond me.
+  description: "Як хтось взагалі може туди поміститися - незрозуміло."
   components:
   - type: InsertToContainerOnCollide
     container: clowncar_container
@@ -149,8 +149,8 @@
 - type: entity
   parent: VehicleClowncarBase
   id: VehicleClowncarTrainee
-  name: trainee clown car
-  description: Carry mostly willing passengers around! Be careful with collisions!.
+  name: "машина клоуна-стажера"
+  description: "Перевозьте переважно охочих пасажирів! Будьте обережні при зіткненнях!."
   components:
   - type: ExtendedContainer
     containerName: clowncar_container

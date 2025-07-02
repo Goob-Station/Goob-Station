@@ -8,9 +8,9 @@
 
 - type: entity
   id: TCminer
-  name: telecrystal miner
+  name: "майнер телекристалів"
   parent: [BaseMachinePowered, BaseSyndicateContraband]
-  description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 30 seconds when powered.
+  description: "Дуже гучна машина, яка використовує технологію блюспейс-блокчейну для генерації телекристалів кожні 30 секунд при живленні."
   components:
   - type: ApcPowerReceiver
     powerLoad: 20000
@@ -86,8 +86,8 @@
 - type: entity
   parent: [ BaseFlatpack, BaseSyndicateContraband ]
   id: TCminerFlatpack
-  name: telecrystal miner flatpack
-  description: A flatpack used for constructing a telecrystal miner machine.
+  name: "плоский пакет майнера телекристалів"
+  description: "Плоский пакет для конструювання машини для майнінгу телекристалів."
   components:
   - type: Flatpack
     entity: TCminer

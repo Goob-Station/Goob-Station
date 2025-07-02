@@ -81,10 +81,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: BaseWeaponRifle
+  name: "BaseWeaponRifle"
   parent: [BaseItem, BaseGunWieldable]
   id: BaseWeaponRifle
-  description: A rooty tooty point and shooty.
+  description: "Корінцевий зубастий і пагонистий."
   abstract: true
   components:
   - type: Sprite
@@ -149,10 +149,10 @@
   - type: CanTakeAim # PIRATE
 
 - type: entity
-  name: AKM
+  name: "АКМ"
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleAk
-  description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
+  description: "Дещо побита бойова гвинтівка, розроблена на старій Землі. Улюблена злочинцями, ополченцями та терористами завдяки своїй знаменитій надійності та простоті виготовлення. Живиться магазинами калібру .30."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
@@ -199,10 +199,10 @@
   - type: Appearance
 
 - type: entity
-  name: M-90gl
+  name: "М-90г"
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleM90GrenadeLauncher
-  description: An older bullpup carbine model, with an attached underbarrel grenade launcher. Uses .20 rifle ammo.
+  description: "Стара модель карабіна буллпап, з підствольним гранатометом. Використовує гвинтівкові набої калібру .20."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
@@ -245,10 +245,10 @@
     fireRate: 6
 
 - type: entity
-  name: Lecter
+  name: "Лектер"
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleLecter
-  description: A high end military grade assault rifle. Uses .20 rifle ammo.
+  description: "Штурмова гвинтівка високого військового класу. Використовує набої 20-го калібру."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
@@ -293,10 +293,10 @@
   - type: Appearance
 
 - type: entity
-  name: Foam Force Astro Ace
+  name: "Піна Foam Force Astro Ace"
   parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponRifleFoam
-  description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
+  description: "Преміальна пістолетна гвинтівка найвищої якості. Її пластик здається міцним, а механізми - надійними."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi

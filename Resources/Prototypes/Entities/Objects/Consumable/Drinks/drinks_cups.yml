@@ -120,7 +120,7 @@
 - type: entity
   parent: BaseItem
   id: DrinkBaseCup
-  name: base cup
+  name: "основна чашка"
   abstract: true
   components:
   - type: SolutionContainerManager
@@ -166,8 +166,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkGoldenCup
-  name: golden cup
-  description: A golden cup.
+  name: "золотий кубок"
+  description: "Золотий кубок."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/golden_cup.rsi
@@ -181,8 +181,8 @@
   parent: DrinkBaseCup
   id: DrinkBaseMug
   abstract: true
-  name: mug
-  description: A mug.
+  name: "кружка"
+  description: "Кухоль."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug.rsi
@@ -202,8 +202,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMug
-  name: mug
-  description: A plain white mug.
+  name: "кружка"
+  description: "Звичайна біла кружка."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug.rsi
@@ -211,8 +211,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMugBlack
-  name: black mug
-  description: A sleek black mug.
+  name: "чорна кружка"
+  description: "Гладка чорна кружка."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_black.rsi
@@ -220,8 +220,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMugBlue
-  name: blue mug
-  description: A blue and black mug.
+  name: "синя кружка"
+  description: "Синьо-чорний кухоль."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_blue.rsi
@@ -229,8 +229,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMugGreen
-  name: green mug
-  description: A pale green and pink mug.
+  name: "зелена кружка"
+  description: "Блідо-зелена та рожева кружка."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_green.rsi
@@ -238,8 +238,8 @@
 - type: entity
   parent: DrinkBaseCup #this one doesn't have the proper layers in the rsi
   id: DrinkMugDog
-  name: funny dog mug
-  description: It looks like a cartoon beagle.
+  name: "кумедна кружка з собакою"
+  description: "Він схожий на мультяшного бігля."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_dog.rsi
@@ -248,8 +248,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMugHeart
-  name: heart mug
-  description: A white mug, it prominently features a red heart.
+  name: "кружка з сердечком"
+  description: "На білому горнятку помітно червоне серце."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_heart.rsi
@@ -257,8 +257,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMugMetal
-  name: metal mug
-  description: A metal mug. You're not sure which metal.
+  name: "металевий кухоль"
+  description: "Металевий кухоль. Ти не знаєш, з якого металу."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_metal.rsi
@@ -269,8 +269,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMugMoebius
-  name: moebius mug
-  description: A mug with a Moebius Laboratories logo on it. Not even your morning coffee is safe from corporate advertising.
+  name: "кружка мебіуса"
+  description: "Горнятко з логотипом Moebius Laboratories. Навіть ваша ранкова кава не застрахована від корпоративної реклами."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_moebius.rsi
@@ -278,8 +278,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMugOne
-  name: "#1 mug"
-  description: "A white mug, it prominently features a #1."
+  name: "#кружка № 1"
+  description: "На білому горнятку помітно видніється цифра \"1\"."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_one.rsi
@@ -287,8 +287,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMugRainbow
-  name: rainbow mug
-  description: A rainbow mug. The colors are almost as blinding as a welder.
+  name: "райдужна кружка"
+  description: "Райдужна кружка. Кольори засліплюють майже так само, як зварювальник."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_rainbow.rsi
@@ -296,8 +296,8 @@
 - type: entity
   parent: DrinkBaseMug
   id: DrinkMugRed
-  name: red mug
-  description: A red and black mug.
+  name: "червона кружка"
+  description: "Червоно-чорний кухоль."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_red.rsi
@@ -305,8 +305,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkHotCoco
-  name: hot chocolate
-  description: A heated drink consisting melted chocolate and heated milk.
+  name: "гарячий шоколад"
+  description: "Підігрітий напій, що складається з розтопленого шоколаду та підігрітого молока."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -333,8 +333,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkHotCoffee
-  name: coffee
-  description: Coffee is a brewed drink prepared from roasted seeds, commonly called coffee beans, of the coffee plant.
+  name: "кава"
+  description: "Кава - це заварений напій, приготований зі смаженого насіння кавової рослини, яке зазвичай називають кавовими зернами."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -361,8 +361,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkCafeLatte
-  name: cafe latte
-  description: A nice, strong and tasty beverage while you are reading.
+  name: "кафе латте"
+  description: "Приємний, міцний і смачний напій, поки ви читаєте."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -387,8 +387,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkTeacup
-  name: teacup
-  description: A plain white porcelain teacup.
+  name: "чашка"
+  description: "Звичайна біла порцелянова чашка."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -415,8 +415,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkGreenTea
-  name: green tea
-  description: A plain white porcelain teacup.
+  name: "зелений чай"
+  description: "Звичайна біла порцелянова чашка."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -443,8 +443,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkLean
-  name: grape juice
-  description: Damn, no fun allowed.
+  name: "виноградний сік"
+  description: "Блін, ніяких веселощів."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -463,8 +463,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkWaterCup
-  name: water cup
-  description: A paper water cup.
+  name: "чашка для води"
+  description: "Паперовий стаканчик для води."
   components:
   - type: Drink
   - type: Sprite

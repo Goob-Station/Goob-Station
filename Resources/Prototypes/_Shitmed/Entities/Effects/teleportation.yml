@@ -7,7 +7,7 @@
 - type: entity
   id: EffectTeleportation
   categories: [ HideSpawnMenu ]
-  name: teleportation
+  name: "телепортація"
   components:
   - type: Transform
     anchored: True
@@ -25,7 +25,7 @@
 - type: entity
   id: EffectTeleportationEntity
   categories: [ HideSpawnMenu ]
-  name: teleportation
+  name: "телепортація"
   components:
   - type: Physics
     bodyType: Static
