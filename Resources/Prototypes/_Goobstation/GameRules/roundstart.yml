@@ -34,7 +34,7 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
-    chaosScore: 800
+    chaosScore: 1000
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
@@ -50,7 +50,7 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 4
+      max: 6 
       playerRatio: 12
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       lateJoinAdditional: true
@@ -71,7 +71,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 3
+      max: 5
       playerRatio: 15
       blacklist:
         components:
@@ -96,11 +96,11 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 2
-      playerRatio: 15
+      max: 3
+      playerRatio: 25
       lateJoinAdditional: true
       mindRoles:
-      - MindRoleTraitor
+      - MindRoleChangeling
   - type: Tag
     tags:
       - CalmAntag
