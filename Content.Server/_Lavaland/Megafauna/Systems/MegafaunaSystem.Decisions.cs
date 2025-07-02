@@ -34,12 +34,12 @@ public sealed partial class MegafaunaSystem
         return true;
     }
 
-    private bool TryPickMegafaunaAttack(Entity<MegafaunaAiComponent, AggressiveMegafaunaAiComponent> ent, [NotNullWhen(true)] out MegafaunaAction? action)
+    private bool TryPickAggressionAttack(Entity<MegafaunaAiComponent, AggressiveMegafaunaAiComponent> ent, [NotNullWhen(true)] out MegafaunaAction? action)
     {
         return TryPickMegafaunaAttack(ent.Comp2.ActionsData, ent.Comp1.PreviousAttack, out action);
     }
 
-    private bool TryPickMegafaunaAttack(Entity<MegafaunaAiComponent, PhasesMegafaunaAiComponent> ent, [NotNullWhen(true)] out MegafaunaAction? action)
+    private bool TryPickPhasesAttack(Entity<MegafaunaAiComponent, PhasesMegafaunaAiComponent> ent, [NotNullWhen(true)] out MegafaunaAction? action)
     {
         action = null;
         if (!ent.Comp2.PhasedActionsData.TryGetValue(ent.Comp2.CurrentPhase, out var actionData))
@@ -48,31 +48,19 @@ public sealed partial class MegafaunaSystem
         return TryPickMegafaunaAttack(actionData, ent.Comp1.PreviousAttack, out action);
     }
 
-    private void PickMissingAttacks(Entity<MegafaunaAiComponent, AggressiveMegafaunaAiComponent> ent)
+    private bool TryPickMegafaunaAttack(Entity<MegafaunaAiComponent> ent, [NotNullWhen(true)] out MegafaunaAction? action)
     {
-        if (ent.Comp1.BossAttackQueue.Count > ent.Comp1.AttacksBufferSize)
-            return;
+        action = null;
 
-        for (int i = 0; i < ent.Comp1.AttacksBufferSize - ent.Comp1.BossAttackQueue.Count; i++)
-        {
-            if (!TryPickMegafaunaAttack(ent, out var picked))
-                continue;
+        // While in decision-making, Phases > Aggressive
+        if (_phasesQuery.TryComp(ent.Owner, out var phasesAiComp)
+            && TryPickPhasesAttack((ent.Owner, ent.Comp, phasesAiComp), out action))
+            return true;
 
-            ent.Comp1.BossAttackQueue.Enqueue(picked);
-        }
-    }
+        if (_agressiveQuery.TryComp(ent.Owner, out var aggressiveAiComp)
+            && TryPickAggressionAttack((ent.Owner, ent.Comp, aggressiveAiComp), out action))
+            return true;
 
-    private void PickMissingAttacks(Entity<MegafaunaAiComponent, PhasesMegafaunaAiComponent> ent)
-    {
-        if (ent.Comp1.BossAttackQueue.Count > ent.Comp1.AttacksBufferSize)
-            return;
-
-        for (int i = 0; i < ent.Comp1.AttacksBufferSize - ent.Comp1.BossAttackQueue.Count; i++)
-        {
-            if (!TryPickMegafaunaAttack(ent, out var picked))
-                continue;
-
-            ent.Comp1.BossAttackQueue.Enqueue(picked);
-        }
+        return false;
     }
 }

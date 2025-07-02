@@ -21,7 +21,6 @@
 
 using System.Linq;
 using System.Threading.Tasks;
-using Content.Server._Lavaland.Hierophant;
 using Content.Server._Lavaland.Megafauna.Components;
 using Robust.Shared.Map.Components;
 
@@ -39,14 +38,14 @@ public sealed class MegafaunaFieldSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MegafaunaFieldGeneratorComponent, MegafaunaStartupEvent>(OnStartup);
-        SubscribeLocalEvent<MegafaunaFieldGeneratorComponent, MegafaunaKilledEvent>(OnKilled);
+        SubscribeLocalEvent<MegafaunaFieldGeneratorComponent, MegafaunaShutdownEvent>(OnShutdown);
         SubscribeLocalEvent<MegafaunaFieldGeneratorComponent, EntityTerminatingEvent>(OnTerminating);
     }
 
     private void OnStartup(Entity<MegafaunaFieldGeneratorComponent> ent, ref MegafaunaStartupEvent args)
         => ActivateField(ent);
 
-    private void OnKilled(Entity<MegafaunaFieldGeneratorComponent> ent, ref MegafaunaKilledEvent args)
+    private void OnShutdown(Entity<MegafaunaFieldGeneratorComponent> ent, ref MegafaunaShutdownEvent args)
         => DeactivateField(ent);
 
     private void OnTerminating(Entity<MegafaunaFieldGeneratorComponent> ent, ref EntityTerminatingEvent args)
@@ -72,7 +71,7 @@ public sealed class MegafaunaFieldSystem : EntitySystem
         if (!_transform.TryGetGridTilePosition((ent, xform), out var tilePos))
             return;
 
-        var tiles = TileHelperMethods.MakeBox(tilePos, ent.Comp.Radius, true, ent.Comp.FieldThickness);
+        var tiles = TileHelperMethods.MakeBoxHollow(tilePos, ent.Comp.Radius);
 
         // fill the box
         foreach (var tile in tiles)

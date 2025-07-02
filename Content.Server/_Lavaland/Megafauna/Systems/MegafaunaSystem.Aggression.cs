@@ -28,8 +28,17 @@ public sealed partial class MegafaunaSystem
                 continue;
             aggroAi.UpdateAccumulator = aggroAi.UpdatePeriod;
 
-            var angerMultiplier = aggressive.Aggressors.Count * aggroAi.AngerScalingFactor;
-            var healthMultiplier = aggressive.Aggressors.Count * aggroAi.HealthScalingFactor;
+            if (!ai.Active)
+                continue;
+
+            var angerMultiplier = 1f;
+            var healthMultiplier = 1f;
+            if (aggressive.Aggressors.Count > 1)
+            {
+                angerMultiplier = (aggressive.Aggressors.Count - 1) * aggroAi.AngerScalingFactor;
+                healthMultiplier = (aggressive.Aggressors.Count - 1) * aggroAi.HealthScalingFactor;
+            }
+
             var maxUnscaledHp = aggroAi.HpAgressionLimit ?? ai.BaseTotalHp;
             var newMinAnger = Math.Max((float) (damageable.TotalDamage / (maxUnscaledHp * healthMultiplier)) * aggroAi.MaxAnger - 1f, 0f) + 1f;
             aggroAi.MinAnger = newMinAnger * angerMultiplier;

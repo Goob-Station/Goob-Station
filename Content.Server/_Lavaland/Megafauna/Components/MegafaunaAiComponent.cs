@@ -17,9 +17,6 @@ namespace Content.Server._Lavaland.Megafauna.Components;
 public sealed partial class MegafaunaAiComponent : Component
 {
     [ViewVariables]
-    public Queue<MegafaunaAction> BossAttackQueue = new();
-
-    [ViewVariables]
     public bool Active;
 
     /// <summary>
@@ -27,12 +24,6 @@ public sealed partial class MegafaunaAiComponent : Component
     /// </summary>
     [DataField]
     public string? PreviousAttack;
-
-    /// <summary>
-    /// How many attacks should we keep in BossAttackSchedule.
-    /// </summary>
-    [ViewVariables]
-    public int AttacksBufferSize = 2;
 
     /// <summary>
     /// When the boss doesn't die ut for any reason stops attacking,
@@ -54,5 +45,5 @@ public sealed partial class MegafaunaAiComponent : Component
     public float MaxAttackCooldown = 5f;
 
     [ViewVariables]
-    public float NextAttack;
+    public float NextAttackAccumulator;
 }

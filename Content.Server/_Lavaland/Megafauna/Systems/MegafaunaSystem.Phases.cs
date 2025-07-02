@@ -23,15 +23,18 @@ public sealed partial class MegafaunaSystem
 
     private void UpdatePhases(float frameTime)
     {
-        var query = EntityQueryEnumerator<PhasesMegafaunaAiComponent, DamageableComponent>();
-        while (query.MoveNext(out var uid, out var ai, out var damage))
+        var query = EntityQueryEnumerator<PhasesMegafaunaAiComponent, MegafaunaAiComponent, DamageableComponent>();
+        while (query.MoveNext(out var uid, out var phasesAi, out var ai, out var damage))
         {
-            ai.UpdateAccumulator -= frameTime;
-            if (ai.UpdateAccumulator > 0f)
+            phasesAi.UpdateAccumulator -= frameTime;
+            if (phasesAi.UpdateAccumulator > 0f)
+                continue;
+            phasesAi.UpdateAccumulator = phasesAi.UpdatePeriod;
+
+            if (!ai.Active)
                 continue;
 
-            UpdatePhases((uid, ai, damage));
-            ai.UpdateAccumulator = ai.UpdatePeriod;
+            UpdatePhases((uid, phasesAi, damage));
         }
     }
 

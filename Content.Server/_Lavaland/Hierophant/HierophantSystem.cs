@@ -151,7 +151,7 @@ public sealed class HierophantSystem : EntitySystem
         originComp.TileId = tileId;
         originComp.AttackDelay = speed;
         originComp.AttacksOrder = new HierophantRepeatAttackType[1];
-        originComp.AttacksOrder[0] = HierophantRepeatAttackType.BoxHollow;
+        originComp.AttacksOrder[0] = HierophantRepeatAttackType.BoxFilled;
     }
 
     private readonly List<HierophantRepeatAttackType> _crossAttacks = new()
@@ -208,7 +208,7 @@ public sealed class HierophantSystem : EntitySystem
             || !_xform.TryGetGridTilePosition(target, out var tilePos))
             return;
 
-        var box = TileHelperMethods.MakeBox(tilePos, range, hollow, borderRange);
+        var box = hollow ? TileHelperMethods.MakeBoxHollow(tilePos, range) : TileHelperMethods.MakeBox(tilePos, range);
 
         SpawnPatternAsync(damageBoxId, (xform.GridUid.Value, grid), box);
     }

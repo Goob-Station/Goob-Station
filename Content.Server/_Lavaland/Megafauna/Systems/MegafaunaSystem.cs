@@ -63,37 +63,23 @@ public sealed partial class MegafaunaSystem : EntitySystem
         var query = EntityQueryEnumerator<MegafaunaAiComponent>();
         while (query.MoveNext(out var uid, out var ai))
         {
-            ai.NextAttack -= frameTime;
-            if (ai.NextAttack > 0f)
+            if (!ai.Active)
                 continue;
 
-            if (ai.BossAttackQueue.Count == 0)
-                RefillAttackQueue((uid, ai));
+            ai.NextAttackAccumulator -= frameTime;
+            if (ai.NextAttackAccumulator > 0f
+                || !TryPickMegafaunaAttack((uid, ai), out var attack))
+                continue;
 
-            var attack = ai.BossAttackQueue.Dequeue();
             var args = new MegafaunaAttackBaseArgs(uid, EntityManager);
             var delayTime = attack.Invoke(args);
 
-            // Pick new attacks if not enough
-            if (ai.BossAttackQueue.Count > ai.AttacksBufferSize)
-                continue;
-
             delayTime = Math.Clamp(delayTime, ai.MinAttackCooldown, ai.MaxAttackCooldown);
-            ai.NextAttack = delayTime;
-            RefillAttackQueue((uid, ai));
+            ai.NextAttackAccumulator = delayTime;
         }
 
         UpdatePhases(frameTime);
         UpdateAggression(frameTime);
-    }
-
-    private void RefillAttackQueue(Entity<MegafaunaAiComponent> ent)
-    {
-        // While in decision-making, Phases > Aggressive
-        if (_phasesQuery.TryComp(ent.Owner, out var phasesAiComp))
-            PickMissingAttacks((ent.Owner, ent.Comp, phasesAiComp));
-        else if (_agressiveQuery.TryComp(ent.Owner, out var aggressiveAiComp))
-            PickMissingAttacks((ent.Owner, ent.Comp, aggressiveAiComp));
     }
 
     #region Event Handling

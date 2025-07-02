@@ -1,37 +1,51 @@
 ﻿using Robust.Shared.Random;
+// ReSharper disable EnforceForStatementBraces
 
-namespace Content.Server._Lavaland.Hierophant;
+namespace Content.Server._Lavaland.Megafauna;
 
 /// <summary>
 /// Some static helper methods that help to create some tile patterns with ease.
 /// </summary>
 public static class TileHelperMethods
 {
-    public static List<Vector2i> MakeBox(Vector2i center, int range, bool hollow = false, int borderRange = 1)
+    public static List<Vector2i> MakeBox(Vector2i center, int range)
     {
         var refs = new List<Vector2i>();
         var bottomLeft = center + new Vector2i(-range, -range);
-        for (int y = 0; y < range; y++)
+        var diameter = range * 2;
+
+        for (int y = 0; y < diameter; y++)
         {
-            for (int x = 0; x < range; x++)
+            for (int x = 0; x < diameter; x++)
             {
                 refs.Add(bottomLeft + new Vector2i(x, y));
             }
         }
 
-        if (!hollow)
+        return refs;
+    }
+
+    public static List<Vector2i> MakeBoxHollow(Vector2i center, int range)
+    {
+        var refs = new List<Vector2i>();
+        var bottomLeft = center + new Vector2i(-range, -range);
+        var diameter = range * 2;
+
+        if (range < 1)
             return refs;
 
-        borderRange = Math.Clamp(borderRange, 1, range);
-        var borderOrigin = bottomLeft +  new Vector2i(borderRange, borderRange);
-        var borderSize = new Vector2i(range - borderRange, range - borderRange);
-        var box = Box2i.FromDimensions(borderOrigin, borderSize);
-        var tiles = new List<Vector2i>(refs);
-        foreach (var tile in tiles)
-        {
-            if (box.Contains(tile))
-                refs.Remove(tile);
-        }
+        // Make left wall
+        for (int y = 0; y < diameter; y++)
+            refs.Add(bottomLeft + new Vector2i(0, y));
+        // Make top wall
+        for (int x = 0; x < diameter; x++)
+            refs.Add(bottomLeft + new Vector2i(x, 0));
+        // Make right wall
+        for (int y = diameter; y < 0; y--)
+            refs.Add(bottomLeft + new Vector2i(0, y));
+        // Make bottom wall
+        for (int x = diameter; x < 0; x--)
+            refs.Add(bottomLeft + new Vector2i(x, 0));
 
         return refs;
     }

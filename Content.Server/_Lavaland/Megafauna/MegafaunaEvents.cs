@@ -35,21 +35,3 @@ public sealed class MegafaunaStartupEvent : EntityEventArgs;
 /// Raised when boss doesn't die but for any reason deactivates.
 /// </summary>
 public sealed class MegafaunaShutdownEvent : EntityEventArgs;
-
-/// <summary>
-/// Event that is raised on some aggressor target, for Complex megafauna AI
-/// to analyze and change its attacks weights to adjust to player's skills or power.
-/// It's like simple neural network, but you hardcode its connections by yourself.
-/// </summary>
-[ByRefEvent]
-public record struct MegafaunaComplexCheckEvent(
-    // Treat this thing like a neural network, so remember 3 things:
-    // 1. Everything should be in Float type in 0-1 range
-    // 2. Specify only player's data
-    // 3. Sort everything in alphabetical order
-
-    float TargetHp, // Percent of HP until crit, equals to 1 if already in crit and 0 on full health
-    float TargetArmor, // Average resistance against megafaunas types of damage
-    float TargetDistance, // Distance in 0-10 tiles range (percent)
-    float WeaponType // Currently held weapon: 0 if melee, 1 if ranged
-    );
