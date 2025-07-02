@@ -9,3 +9,6 @@ secretplus-admeme-description = If it can happen, it will.
 
 survivalplus-title = Survival+
 survivalplus-description = Starts pretty calm. Ends up not quite.
+
+classicplus-title = Classic+
+classicplus-description = A classic, balanced ruleset with one main game type and one side game type similar to secret but brought up to modern standards.
