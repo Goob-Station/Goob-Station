@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2024 plyush <121322002+toasterpm87@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -113,3 +114,35 @@
     graph: GasMaskHalf
     node: end
     deconstructionTarget: null
+
+- type: entity # TODO: Whenever vampirism is ported, make this block it.
+  parent: ClothingMaskBase
+  id: ClothingMaskMuzzleSecure
+  name: secure muzzle
+  description: Can prevent vampires from biting people, or prevent annoying people from talking.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Mask/securemuzzle.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Mask/securemuzzle.rsi
+    equipDelay: 3
+    unequipDelay: 10
+  - type: IngestionBlocker
+  - type: AddAccentClothing
+    accent: MumbleAccent
+  - type: Tag
+    tags:
+    - Muzzle
+
+- type: entity # TODO: Whenever vampirism is ported, make this block it, and shock.
+  parent: ClothingMaskMuzzleSecure
+  id: ClothingMaskMuzzleShock
+  name: shock muzzle
+  description: A muzzle designed to prevent biting. This one is fitted with a behaviour correction system.
+  components:
+  - type: ShockOnTrigger
+  - type: TriggerOnSpeak
+  - type: ActiveListener
+    range: 0
