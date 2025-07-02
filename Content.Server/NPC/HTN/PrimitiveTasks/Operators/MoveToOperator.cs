@@ -3,6 +3,11 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -68,6 +73,14 @@ public sealed partial class MoveToOperator : HTNOperator, IHtnConditionalShutdow
     /// </summary>
     [DataField("stopOnLineOfSight")]
     public bool StopOnLineOfSight;
+
+    // Goobstation
+    /// <summary>
+    /// Velocity below which we count as successfully braked.
+    /// Don't try to brake if null (upstream behavior).
+    /// </summary>
+    [DataField]
+    public float? BrakeMaxVelocity = 0.03f;
 
     private const string MovementCancelToken = "MovementCancelToken";
 
@@ -169,6 +182,7 @@ public sealed partial class MoveToOperator : HTNOperator, IHtnConditionalShutdow
 
             comp.CurrentPath = new Queue<PathPoly>(result.Path);
         }
+        comp.InRangeMaxSpeed = BrakeMaxVelocity; // Goobstation
     }
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
@@ -184,9 +198,18 @@ public sealed partial class MoveToOperator : HTNOperator, IHtnConditionalShutdow
             return HTNOperatorStatus.Finished;
         }
 
+        // Goobstation
+        var inRangeStatus = HTNOperatorStatus.Continuing;
+        if (BrakeMaxVelocity == null ||
+            !_entManager.TryGetComponent<PhysicsComponent>(owner, out var physics) ||
+            physics.LinearVelocity.Length() < BrakeMaxVelocity.Value)
+        {
+            inRangeStatus = HTNOperatorStatus.Finished;
+        }
+
         return steering.Status switch
         {
-            SteeringStatus.InRange => HTNOperatorStatus.Finished,
+            SteeringStatus.InRange => inRangeStatus, // Goobstation
             SteeringStatus.NoPath => HTNOperatorStatus.Failed,
             SteeringStatus.Moving => HTNOperatorStatus.Continuing,
             _ => throw new ArgumentOutOfRangeException()
