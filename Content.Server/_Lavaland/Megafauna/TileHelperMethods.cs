@@ -27,27 +27,27 @@ public static class TileHelperMethods
 
     public static List<Vector2i> MakeBoxHollow(Vector2i center, int range)
     {
-        var refs = new List<Vector2i>();
-        var bottomLeft = center + new Vector2i(-range, -range);
-        var diameter = range * 2;
+        var boxTiles = new List<Vector2i>();
+        var length = range * 2;
 
-        if (range < 1)
-            return refs;
+        // Calculate the starting position (top-left corner) of the box
+        var startX = (int) Math.Round(center.X - (length - 1) / 2.0);
+        var startY = (int) Math.Round(center.Y - (length - 1) / 2.0);
 
-        // Make left wall
-        for (int y = 0; y < diameter; y++)
-            refs.Add(bottomLeft + new Vector2i(0, y));
-        // Make top wall
-        for (int x = 0; x < diameter; x++)
-            refs.Add(bottomLeft + new Vector2i(x, 0));
-        // Make right wall
-        for (int y = diameter; y < 0; y--)
-            refs.Add(bottomLeft + new Vector2i(0, y));
-        // Make bottom wall
-        for (int x = diameter; x < 0; x--)
-            refs.Add(bottomLeft + new Vector2i(x, 0));
+        // Top side
+        for (var x = 0; x < length; x++)
+            boxTiles.Add(new Vector2i(startX + x, startY));
+        // Right side
+        for (var y = 1; y < length - 1; y++)
+            boxTiles.Add(new Vector2i(startX + length - 1, startY + y));
+        // Bottom side
+        for (var x = length - 1; x >= 0; x--)
+            boxTiles.Add(new Vector2i(startX + x, startY + length - 1));
+        // Left side
+        for (var y = length - 2; y > 0; y--)
+            boxTiles.Add(new Vector2i(startX, startY + y));
 
-        return refs;
+        return boxTiles;
     }
 
     public static List<Vector2i> MakeBoxRandom(Vector2i center, int range, IRobustRandom random, float filledSquareChance = 0.3f)

@@ -87,7 +87,7 @@
   - type: DamageSquareImmunity
     isImmune: true
   - type: HierophantBoss
-  - type: MegafaunaDrop
+  - type: SpawnLootOnDeath
     loot: LavalandHierophantClub
   - type: MegafaunaAi
   - type: MegafaunaFieldGenerator
