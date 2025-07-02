@@ -23,8 +23,8 @@
   parent: BaseItem
   id: BaseAnomalyCore
   abstract: true
-  name: "ядро аномалії"
-  description: "Ядро зруйнованого незрозумілого об'єкта."
+  name: anomaly core
+  description: The core of a destroyed incomprehensible object.
   components:
   - type: Sprite
     sprite: Structures/Specific/Anomalies/Cores/gravity_core.rsi
@@ -60,7 +60,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCorePyroclastic
-  name: "ядро пірокластичної аномалії" # Goobstation - anomaly core names
+  name: pyroclastic anomaly core # Goobstation - anomaly core names
   suffix: Pyroclastic
   components:
   - type: Sprite
@@ -82,7 +82,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreGravity
-  name: "ядро гравітаційної аномалії" # Goobstation - anomaly core names
+  name: gravity anomaly core # Goobstation - anomaly core names
   suffix: Gravity
   components:
   - type: Sprite
@@ -100,7 +100,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreIce
-  name: "ядро льодяної аномалії" # Goobstation - anomaly core names
+  name: ice anomaly core # Goobstation - anomaly core names
   suffix: Ice
   components:
   - type: Sprite
@@ -118,8 +118,8 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreFlesh
-  name: "ядро аномалії плоті" # Goobstation - anomaly core names
-  description: "Ядро знищеної аномалії плоті. Пульсує хворобливо, але може стати ситною їжею, якщо приготувати."
+  name: flesh anomaly core # Goobstation - anomaly core names
+  description: The core of a destroyed flesh anomaly. Pulsates sickeningly, but might be a hearty meal if cooked.
   suffix: Flesh
   components:
   - type: Sprite
@@ -137,7 +137,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreRock
-  name: "ядро кам'яної аномалії" # Goobstation - anomaly core names
+  name: rock anomaly core # Goobstation - anomaly core names
   suffix: Rock
   components:
   - type: Sprite
@@ -156,7 +156,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreLiquid
-  name: "ядро рідкої аномалії" # Goobstation - anomaly core names
+  name: liquid anomaly core # Goobstation - anomaly core names
   suffix: Liquid
   components:
   - type: Sprite
@@ -175,7 +175,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreBluespace
-  name: "ядро блюспейс аномалії" # Goobstation - anomaly core names
+  name: bluespace anomaly core # Goobstation - anomaly core names
   suffix: Bluespace
   components:
   - type: Sprite
@@ -189,7 +189,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreElectricity
-  name: "ядро електричної аномалії" # Goobstation - anomaly core names
+  name: electricity anomaly core # Goobstation - anomaly core names
   suffix: Electricity
   components:
   - type: Sprite
@@ -207,7 +207,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreFlora
-  name: "ядро флора-аномалії" # Goobstation - anomaly core names
+  name: flora anomaly core # Goobstation - anomaly core names
   suffix: Flora
   components:
   - type: Seed
@@ -227,7 +227,7 @@
 - type: entity
   parent: [ BaseAnomalyCore, BaseShadow ]
   id: AnomalyCoreShadow
-  name: "ядро тіньової аномалії" # Goobstation - anomaly core names
+  name: shadow anomaly core # Goobstation - anomaly core names
   suffix: Shadow
   components:
   - type: Sprite
@@ -241,7 +241,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreTech
-  name: "ядро тех-аномалії" # Goobstation - anomaly core names
+  name: tech anomaly core # Goobstation - anomaly core names
   suffix: Tech
   components:
   - type: Sprite
@@ -255,7 +255,7 @@
 - type: entity
   parent: BaseAnomalyCore
   id: AnomalyCoreSanta
-  name: "ядро аномалії санти" # Goobstation - anomaly core names
+  name: santa anomaly core # Goobstation - anomaly core names
   suffix: Santa
   components:
   - type: Sprite
@@ -291,7 +291,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCorePyroclasticInert
-  name: "ядро пірокластичної аномалії" # Goobstation - anomaly core names
+  name: pyroclastic anomaly core # Goobstation - anomaly core names
   suffix: Pyroclastic, Inert
   components:
   - type: Sprite
@@ -310,7 +310,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreGravityInert
-  name: "ядро гравітаційної аномалії" # Goobstation - anomaly core names
+  name: gravity anomaly core # Goobstation - anomaly core names
   suffix: Gravity, Inert
   components:
   - type: Sprite
@@ -328,7 +328,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreIceInert
-  name: "ядро льодяної аномалії" # Goobstation - anomaly core names
+  name: ice anomaly core # Goobstation - anomaly core names
   suffix: Ice, Inert
   components:
   - type: Sprite
@@ -346,8 +346,8 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreFleshInert # Can be microwaved to turn it into a massive piece of meat
-  name: "ядро аномалії плоті" # Goobstation - anomaly core names
-  description: "Інертне ядро знищеної аномалії плоті. Пульсує хворобливо, але може стати хорошою їжею в правильних руках?"
+  name: flesh anomaly core # Goobstation - anomaly core names
+  description: The inert core of a destroyed flesh anomaly. Pulsates sickeningly, but might be good food in the right hands?
   suffix: Flesh, Inert
   components:
   - type: Sprite
@@ -365,7 +365,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreRockInert
-  name: "ядро кам'яної аномалії" # Goobstation - anomaly core names
+  name: rock anomaly core # Goobstation - anomaly core names
   suffix: Rock, Inert
   components:
   - type: Sprite
@@ -384,7 +384,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreLiquidInert
-  name: "ядро рідкої аномалії" # Goobstation - anomaly core names
+  name: liquid anomaly core # Goobstation - anomaly core names
   suffix: Liquid, Inert
   components:
   - type: Sprite
@@ -403,7 +403,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreBluespaceInert
-  name: "ядро блюспейс аномалії" # Goobstation - anomaly core names
+  name: bluespace anomaly core # Goobstation - anomaly core names
   suffix: Bluespace, Inert
   components:
   - type: Sprite
@@ -417,7 +417,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreElectricityInert
-  name: "ядро електричної аномалії" # Goobstation - anomaly core names
+  name: electricity anomaly core # Goobstation - anomaly core names
   suffix: Electricity, Inert
   components:
   - type: Sprite
@@ -435,7 +435,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreFloraInert #Turns into a seed that grows into artifexium
-  name: "ядро флора-аномалії" # Goobstation - anomaly core names
+  name: flora anomaly core # Goobstation - anomaly core names
   suffix: Flora, Inert
   components:
   - type: Seed
@@ -455,7 +455,7 @@
 - type: entity
   parent: [ BaseAnomalyInertCore, BaseShadow ]
   id: AnomalyCoreShadowInert
-  name: "ядро тіньової аномалії" # Goobstation - anomaly core names
+  name: shadow anomaly core # Goobstation - anomaly core names
   suffix: Shadow, Inert
   components:
   - type: Sprite
@@ -469,7 +469,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreTechInert
-  name: "ядро тех-аномалії" # Goobstation - anomaly core names
+  name: tech anomaly core # Goobstation - anomaly core names
   suffix: Tech, Inert
   components:
   - type: Sprite
@@ -483,7 +483,7 @@
 - type: entity
   parent: BaseAnomalyInertCore
   id: AnomalyCoreSantaInert
-  name: "ядро аномалії санти" # Goobstation - anomaly core names
+  name: santa anomaly core # Goobstation - anomaly core names
   suffix: Santa, Inert
   components:
   - type: Sprite

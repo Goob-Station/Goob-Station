@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobBee
-  name: "Спавнер Бджоли"
+  name: Bee Spawner
   components:
   - type: Sprite
     layers:
@@ -15,7 +15,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobButterfly
-  name: "Спавнер Метелика"
+  name: Butterfly Spawner
   components:
   - type: Sprite
     layers:
@@ -29,7 +29,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCatGeneric
-  name: "Спавнер Звичайного Кота"
+  name: Generic Cat Spawner
   components:
   - type: Sprite
     layers:
@@ -48,7 +48,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCatKitten
-  name: "Спавнер Кошеняти"
+  name: Kitten Spawner
   components:
   - type: Sprite
     layers:
@@ -61,7 +61,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCatSpace
-  name: "Спавнер Космічного Кота"
+  name: Space Cat Spawner
   components:
   - type: Sprite
     layers:
@@ -74,7 +74,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCockroach
-  name: "Спавнер Таргана"
+  name: Cockroach Spawner
   components:
   - type: Sprite
     layers:
@@ -89,7 +89,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCow
-  name: "Спавнер Корови"
+  name: Cow Spawner
   components:
   - type: Sprite
     layers:
@@ -103,7 +103,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCrab
-  name: "Спавнер Краба"
+  name: Crab Spawner
   components:
   - type: Sprite
     layers:
@@ -117,7 +117,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobFrog
-  name: "Спавнер Жаби"
+  name: Frog Spawner
   components:
   - type: Sprite
     layers:
@@ -131,7 +131,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobGoat
-  name: "Спавнер Кози"
+  name: Goat Spawner
   components:
   - type: Sprite
     layers:
@@ -145,7 +145,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobGorilla
-  name: "Спавнер Горили"
+  name: Gorilla Spawner
   components:
   - type: Sprite
     layers:
@@ -159,7 +159,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobLizard
-  name: "Спавнер Ящірки"
+  name: Lizard Spawner
   components:
   - type: Sprite
     layers:
@@ -173,7 +173,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobMonkey
-  name: "Спавнер Мавпи"
+  name: Monkey Spawner
   components:
   - type: Sprite
     layers:
@@ -187,7 +187,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobMouse
-  name: "Спавнер Миші"
+  name: Mouse Spawner
   components:
   - type: Sprite
     layers:
@@ -204,7 +204,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobParrot
-  name: "Спавнер Папуги"
+  name: Parrot Spawner
   components:
   - type: Sprite
     layers:
@@ -218,7 +218,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobPenguin
-  name: "Спавнер Пінгвіна"
+  name: Penguin Spawner
   components:
   - type: Sprite
     layers:
@@ -232,7 +232,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobReindeerBuck
-  name: "Спавнер північного оленя-самця"
+  name: Reindeer Buck Spawner
   components:
   - type: Sprite
     layers:
@@ -246,7 +246,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobReindeerDoe
-  name: "Спавнер північного оленя-самки"
+  name: Reindeer Doe Spawner
   components:
   - type: Sprite
     layers:
@@ -260,7 +260,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobSlug
-  name: "Спавнер Слимака"
+  name: Slug Spawner
   components:
   - type: Sprite
     layers:

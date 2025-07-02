@@ -14,56 +14,56 @@
 
 - type: guideEntry
   id: RuleU0Base
-  name: "guide-entry-rules-u0"
+  name: guide-entry-rules-u0
   ruleEntry: true
   priority: 0
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU0Base.xml"
 
 - type: guideEntry
   id: RuleU1Etiquette
-  name: "guide-entry-rules-u1"
+  name: guide-entry-rules-u1
   ruleEntry: true
   priority: 1
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU1Etiquette.xml"
 
 - type: guideEntry
   id: RuleU2MetaNrp
-  name: "guide-entry-rules-u2"
+  name: guide-entry-rules-u2
   ruleEntry: true
   priority: 2
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU2MetaNrp.xml"
 
 - type: guideEntry
   id: RuleU3Griefing
-  name: "guide-entry-rules-u3"
+  name: guide-entry-rules-u3
   ruleEntry: true
   priority: 3
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU3Griefing.xml"
 
 - type: guideEntry
   id: RuleU4CmdSec
-  name: "guide-entry-rules-u4"
+  name: guide-entry-rules-u4
   ruleEntry: true
   priority: 4
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU4CmdSec.xml"
 
 - type: guideEntry
   id: RuleU5CrewAntag
-  name: "guide-entry-rules-u5"
+  name: guide-entry-rules-u5
   ruleEntry: true
   priority: 5
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU5CrewAntag.xml"
 
 - type: guideEntry
   id: RuleU6Sandbox
-  name: "guide-entry-rules-u6"
+  name: guide-entry-rules-u6
   ruleEntry: true
   priority: 6
   text: "/ServerInfo/Guidebook/ServerRules/UA/RuleU6Sandbox.xml"
 
 - type: guideEntry
   id: SpaceLaw
-  name: "guide-entry-rules-sl"
+  name: guide-entry-rules-sl
   priority: 7
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SpaceLaw.xml"
   children:
@@ -81,37 +81,37 @@
 
 - type: guideEntry
   id: SpaceLawScope
-  name: "guide-entry-rules-sl-scope"
+  name: guide-entry-rules-sl-scope
   priority: 1
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLScope.xml"
 
 - type: guideEntry
   id: SpaceLawPrinciples
-  name: "guide-entry-rules-sl-principles"
+  name: guide-entry-rules-sl-principles
   priority: 2
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLPrinciples.xml"
 
 - type: guideEntry
   id: SpaceLawApplication
-  name: "guide-entry-rules-sl-application"
+  name: guide-entry-rules-sl-application
   priority: 3
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLApplication.xml"
 
 - type: guideEntry
   id: SpaceLawEnemies
-  name: "guide-entry-rules-sl-enemies"
+  name: guide-entry-rules-sl-enemies
   priority: 4
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLEnemies.xml"
 
 - type: guideEntry
   id: SpaceLawForce
-  name: "guide-entry-rules-sl-force"
+  name: guide-entry-rules-sl-force
   priority: 5
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLForce.xml"
 
 - type: guideEntry
   id: SpaceLawCases
-  name: "guide-entry-rules-sl-cases"
+  name: guide-entry-rules-sl-cases
   priority: 6
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLCases.xml"
 
@@ -141,6 +141,6 @@
 
 - type: guideEntry
   id: SpaceLawPermissions
-  name: "guide-entry-rules-sl-permissions"
+  name: guide-entry-rules-sl-permissions
   priority: 11
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLPermissions.xml"

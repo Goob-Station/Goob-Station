@@ -9,10 +9,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "молоток"
+  name: hammer
   parent: BaseItem
   id: MeleeHammer
-  description: "3 сталі 2 дерева"
+  description: 3 steel 2 wood
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi

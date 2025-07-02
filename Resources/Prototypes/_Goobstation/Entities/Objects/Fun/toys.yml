@@ -30,8 +30,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieLouie
-  name: "плюшевий луї"
-  description: "Мила м'яка іграшка, що нагадує щура. Ви відчуваєте дивний примус привітатися з щуром."
+  name: louie plushie
+  description: A cute stuffed toy that resembles a rat. You feel a strange compulsion to say hi to the rat.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -58,10 +58,10 @@
       path: /Audio/Items/Toys/mousesqueek.ogg
 
 - type: entity
-  name: "Пінотронглер"
+  name: Foam Throngler
   parent: BaseSword
   id: FoamThrongler
-  description: "Не той Тронглер, якого ви хотіли, а той Тронглер, на якого ви заслуговуєте."
+  description: Not the Throngler you wanted, But the Throngler you deserve.
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Fun/Throngler-Foam.rsi
@@ -85,8 +85,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieDurk
-  name: "Плюшевий Дурк"
-  description: "Мила м'яка іграшка, що нагадує певного атмосферного техніка. Тримаючи її, ви відчуваєте наближення великого руйнування всесвіту"
+  name: Durk plushie
+  description: A cute stuffed toy that resembles a certain atmospheric technician. You feel like a great breaking of the universe approaches while holding this
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -112,10 +112,10 @@
       path: /Audio/Effects/adminhelp.ogg
 
 - type: entity
-  name: "Іграшковий Вандерпрод"
+  name: Toy Wonderprod
   parent: BaseSword
   id: FoamWonderprod
-  description: "Використання цього змусить службу безпеки вбити вас."
+  description: Using this will make sec kill you.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/foamwonderprod.rsi
@@ -171,8 +171,8 @@
 - type: entity
   parent: BaseBinglePlushie
   id: PlushieBingle
-  name: "повнорозмірний плюшевий бінгл"
-  description: "Мила м'яка іграшка, що нагадує синього інопланетянина. Ви відчуваєте дивне бажання сказати бінгл"
+  name: full size bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     norot: true
@@ -184,8 +184,8 @@
 - type: entity
   parent: BaseBinglePlushie
   id: PlushieBingleSmall
-  name: "плюшевий бінгл"
-  description: "Мила м'яка іграшка, що нагадує синього інопланетянина. Ви відчуваєте дивне бажання сказати бінгл"
+  name: bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     norot: true
@@ -196,8 +196,8 @@
 - type: entity
   parent: BaseBinglePlushie
   id: PlushieBingleYakub
-  name: "плюшевий бінгл Якуба"
-  description: "Мила м'яка іграшка, що нагадує синього інопланетянина. Ви відчуваєте дивне бажання сказати бінгл"
+  name: yakub bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     norot: true
@@ -208,8 +208,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieBongle
-  name: "плюшевий бонгл"
-  description: "Мила м'яка іграшка, що нагадує червоного інопланетянина. Ви відчуваєте дивне бажання сказати бонгл"
+  name: bongle plushie
+  description: A cute stuffed toy that resembles a red alien. You feel a strange compulsion to say bongle
   components:
   - type: Sprite
     norot: true
@@ -219,8 +219,8 @@
 - type: entity
   parent: BaseBinglePlushie
   id: PlushieBinglePony
-  name: "плюшевий поні-бінгл"
-  description: "Мила м'яка іграшка, що нагадує синього інопланетянина. Ви відчуваєте дивне бажання сказати бінгл"
+  name: bingle pony plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     norot: true
@@ -230,8 +230,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieAbductor
-  name: "плюшевий інопланетянин"
-  description: "Глорп Зап Зібл Гларп \"Плюш\" Блібл"
+  name: alien plush
+  description: Glorp Zap Zeeble Glarp "Plush" Bleeble
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -264,7 +264,7 @@
 
 - type: entity
   id: GrenadeToy
-  name: "граната-жарт"
+  name: prank grenade
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -288,7 +288,7 @@
 
 - type: entity
   id: BulletGrenadeToy
-  name: "граната-жарт"
+  name: prank grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -308,10 +308,10 @@
       collection: Explosion
 
 - type: entity
-  name: "тайванський ставок" # we ball
+  name: taiwan pond # we ball
   parent: [BaseWeaponLauncher, BaseGunWieldable]
   id: WeaponLauncherTaiwanPond
-  description: "ПЛЮХ."
+  description: PLOOP.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
@@ -345,8 +345,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieSamantha
-  name: "плюшева джейн блюшилд"
-  description: "Мила м'яка іграшка, що нагадує ветерана-офіцера блюшилд. Тримаючи її, ви відчуваєте раптове бажання з'їсти льодяник."
+  name: jane blueshield plushie
+  description: A cute stuffed toy that resembles a veteran blueshield officer. You feel a sudden urge for lollypops while holding it.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -412,8 +412,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieJvne
-  name: "плюшева джун"
-  description: "Важкий був день..."
+  name: jvne plushie
+  description: It's been a rough day...
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -445,8 +445,8 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieFern
-  name: "плюшевий містичний ящір"
-  description: "Ви відчуваєте, ніби за вами спостерігає щось інше... просто поза полем зору, в тіні."
+  name: mystical lizard plushie
+  description: You feel as if something else is watching you... just out of sight, in the shadows.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -467,8 +467,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieNigel
-  name: "красива плюшева іграшка"
-  description: "Пахне величчю та виразним запахом парфумів марки \"Адаламін\"?"
+  name: handsome plushie
+  description: Smells like greatness, and a distinct smell of adalamin brand perfume?
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi

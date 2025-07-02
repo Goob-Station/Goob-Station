@@ -29,7 +29,7 @@
 - type: entity
   parent: GoldOre
   id: GoldOreUnprocessed
-  name: "необроблена золота руда"
+  name: unprocessed gold ore
   suffix: Full
   components:
   - type: Stack
@@ -40,7 +40,7 @@
 - type: entity
   parent: GoldOreUnprocessed
   id: GoldOre1Unprocessed
-  name: "необроблена золота руда"
+  name: unprocessed gold ore
   suffix: Single
   components:
   - type: Stack
@@ -49,7 +49,7 @@
 - type: entity
   parent: DiamondOre
   id: DiamondOreUnprocessed
-  name: "необроблена алмазна руда"
+  name: unprocessed diamond ore
   suffix: Full
   components:
   - type: Stack
@@ -60,7 +60,7 @@
 - type: entity
   parent: DiamondOreUnprocessed
   id: DiamondOre1Unprocessed
-  name: "необроблена алмазна руда"
+  name: unprocessed diamond ore
   suffix: Single
   components:
   - type: Stack
@@ -69,7 +69,7 @@
 - type: entity
   parent: SteelOre
   id: SteelOreUnprocessed
-  name: "необроблена залізна руда"
+  name: unprocessed iron ore
   suffix: Full
   components:
   - type: Stack
@@ -80,7 +80,7 @@
 - type: entity
   id: SteelOre1Unprocessed
   parent: SteelOreUnprocessed
-  name: "необроблена залізна руда"
+  name: unprocessed iron ore
   suffix: Single
   components:
   - type: Stack
@@ -89,7 +89,7 @@
 - type: entity
   parent: PlasmaOre
   id: PlasmaOreUnprocessed
-  name: "необроблена плазмова руда"
+  name: unprocessed plasma ore
   suffix: Full
   components:
   - type: Stack
@@ -100,7 +100,7 @@
 - type: entity
   parent: PlasmaOreUnprocessed
   id: PlasmaOre1Unprocessed
-  name: "необроблена плазмова руда"
+  name: unprocessed plasma ore
   suffix: Single
   components:
   - type: Stack
@@ -109,7 +109,7 @@
 - type: entity
   parent: SilverOre
   id: SilverOreUnprocessed
-  name: "необроблена срібна руда"
+  name: unprocessed silver ore
   suffix: Full
   components:
   - type: Stack
@@ -120,7 +120,7 @@
 - type: entity
   parent: SilverOreUnprocessed
   id: SilverOre1Unprocessed
-  name: "необроблена срібна руда"
+  name: unprocessed silver ore
   suffix: Single
   components:
   - type: Stack
@@ -129,7 +129,7 @@
 - type: entity
   parent: SpaceQuartz
   id: SpaceQuartzUnprocessed
-  name: "необроблений космічний кварц"
+  name: unprocessed space quartz
   suffix: Full
   components:
   - type: Stack
@@ -140,7 +140,7 @@
 - type: entity
   parent: SpaceQuartzUnprocessed
   id: SpaceQuartz1Unprocessed
-  name: "необроблений космічний кварц"
+  name: unprocessed space quartz
   suffix: Single
   components:
   - type: Stack
@@ -149,7 +149,7 @@
 - type: entity
   parent: UraniumOre
   id: UraniumOreUnprocessed
-  name: "необроблена уранова руда"
+  name: unprocessed uranium ore
   suffix: Full
   components:
   - type: Stack
@@ -160,7 +160,7 @@
 - type: entity
   parent: UraniumOreUnprocessed
   id: UraniumOre1Unprocessed
-  name: "необроблена уранова руда"
+  name: unprocessed uranium ore
   suffix: Single
   components:
   - type: Stack
@@ -169,7 +169,7 @@
 - type: entity
   parent: BananiumOre
   id: BananiumOreUnprocessed
-  name: "необроблена бананієва руда"
+  name: unprocessed bananium ore
   suffix: Full
   components:
   - type: Stack
@@ -180,7 +180,7 @@
 - type: entity
   parent: BananiumOreUnprocessed
   id: BananiumOre1Unprocessed
-  name: "необроблена бананієва руда"
+  name: unprocessed bananium ore
   suffix: Single
   components:
   - type: Stack
@@ -189,7 +189,7 @@
 - type: entity
   parent: Coal
   id: CoalUnprocessed
-  name: "необроблене вугілля"
+  name: unprocessed coal
   suffix: Full
   components:
   - type: Stack
@@ -200,7 +200,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal1Unprocessed
-  name: "необроблене вугілля"
+  name: unprocessed coal
   suffix: Single
   components:
   - type: Stack
@@ -209,7 +209,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal5Unprocessed
-  name: "необроблене вугілля"
+  name: unprocessed coal
   suffix: Five
   components:
   - type: Stack
@@ -218,7 +218,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal10Unprocessed
-  name: "необроблене вугілля"
+  name: unprocessed coal
   suffix: Ten
   components:
   - type: Stack
@@ -227,7 +227,7 @@
 - type: entity
   parent: CoalUnprocessed
   id: Coal15Unprocessed
-  name: "необроблене вугілля"
+  name: unprocessed coal
   suffix: Fifteen
   components:
   - type: Stack
