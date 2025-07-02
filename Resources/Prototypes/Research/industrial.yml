@@ -382,5 +382,5 @@
   # Goobstation R&D Console rework start
   position: 3,-6
   technologyPrerequisites:
-    - PortableFission
+    - OptimizedMicrogalvanism
   # Goobstation R&D Console rework end
