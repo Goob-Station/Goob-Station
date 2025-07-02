@@ -7,12 +7,16 @@
 
 - type: entity
   id: BaseCyberneticOrgan
-  parent: OrganHumanEyes
+  parent: BaseHumanOrgan
   abstract: true
   components:
   - type: Cybernetics
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi
+  - type: Tag
+    tags:
+    - Organ
+    # not meat
 
 # Eyes
 
