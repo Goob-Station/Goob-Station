@@ -180,6 +180,8 @@
   - type: Sharp
   - type: ItemToggle
     predictable: false
+    onActivate: false
+    wieldToggle: false
     soundActivate:
       collection: sparks
       params:
@@ -225,6 +227,9 @@
     delays:
     - stunbaton
   - type: EmbeddableProjectile
+    offset: -0.15,0.0
+  - type: ThrowingAngle
+    angle: 225
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
     maxCharge: 1000
@@ -247,6 +252,10 @@
     damage:
       types:
         Piercing: 6
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 24
   - type: DisarmMalus
     malus: 0.225
   - type: Appearance
