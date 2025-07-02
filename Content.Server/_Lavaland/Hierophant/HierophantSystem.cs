@@ -275,8 +275,8 @@ public sealed class HierophantSystem : EntitySystem
             return;
 
         var dummy = Spawn(null, worldPos);
-        SpawnDamageBox(ent, damageBoxId, 1, false);
-        SpawnDamageBox(dummy, damageBoxId, 1, false);
+        SpawnDamageBox(ent, damageBoxId, 3, false);
+        SpawnDamageBox(dummy, damageBoxId, 3, false);
 
         var blinkComp = EnsureComp<HierophantActiveBlinkComponent>(ent);
         blinkComp.DefaultBlinkTime = _timing.CurTime + duration ?? blinkComp.DefaultBlinkTime;

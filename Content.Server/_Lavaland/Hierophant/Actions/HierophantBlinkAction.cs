@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Lavaland.Aggression;
 using Content.Server._Lavaland.Megafauna;
 using Content.Server._Lavaland.Megafauna.Components;
 
@@ -23,15 +22,14 @@ public sealed partial class HierophantBlinkAction : BaseHierophantAction
     [DataField("delayMultiplier")]
     public float AfterDelayAgressionMultiplier = 1.5f;
 
-    public override float Invoke(MegafaunaAttackBaseArgs args)
+    public override float Invoke(MegafaunaThinkBaseArgs args)
     {
         var entMan = args.EntityManager;
         var uid = args.BossEntity;
-        var aggroSystem = entMan.System<AggressorsSystem>();
         var hieroSystem = entMan.System<HierophantSystem>();
 
-        if (aggroSystem.TryPickTarget(uid, out var target))
-            hieroSystem.BlinkToTarget(uid, DamageTile, target.Value);
+        if (args.AiComponent.CurrentTarget != null)
+            hieroSystem.BlinkToTarget(uid, DamageTile, args.AiComponent.CurrentTarget.Value);
         else
             hieroSystem.BlinkRandom(uid, DamageTile);
 

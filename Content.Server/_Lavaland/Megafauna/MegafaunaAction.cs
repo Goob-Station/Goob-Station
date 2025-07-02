@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Lavaland.Megafauna.Components;
 using JetBrains.Annotations;
 
 namespace Content.Server._Lavaland.Megafauna;
@@ -34,18 +35,13 @@ public abstract partial class MegafaunaAction
     /// <returns>
     /// Duration of this attack in seconds
     /// </returns>
-    public abstract float Invoke(MegafaunaAttackBaseArgs args);
+    public abstract float Invoke(MegafaunaThinkBaseArgs args);
 }
 
-public record MegafaunaAttackBaseArgs
-{
-    public EntityUid BossEntity;
-
-    public IEntityManager EntityManager = default!;
-
-    public MegafaunaAttackBaseArgs(EntityUid targetEntity, IEntityManager entityManager)
-    {
-        BossEntity = targetEntity;
-        EntityManager = entityManager;
-    }
-}
+/// <summary>
+/// Arguments that are used for Megafauna Actions and Conditions.
+/// </summary>
+public record struct MegafaunaThinkBaseArgs(
+    EntityUid BossEntity,
+    MegafaunaAiComponent AiComponent,
+    IEntityManager EntityManager);

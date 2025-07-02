@@ -8,21 +8,12 @@ using Content.Goobstation.Maths.FixedPoint;
 namespace Content.Server._Lavaland.Megafauna.Components;
 
 /// <summary>
-/// Makes megafauna stronger when it takes more damage,
-/// modifying cooldowns or attacks themselves.
-/// This is the simplest way to add behavior to megafauna.
+/// Makes megafauna stronger when it takes more damage.
+/// Aggression value can be used in MegafaunaActions to control their power.
 /// </summary>
 [RegisterComponent]
 public sealed partial class AggressiveMegafaunaAiComponent : Component
 {
-    /// <summary>
-    /// List of all available megafauna attacks to execute.
-    /// Filled on component startup from the other component.
-    /// If there's <see cref="PhasesMegafaunaAiComponent"/>, this value is ignored.
-    /// </summary>
-    [DataField]
-    public List<MegafaunaAction> ActionsData = new();
-
     [ViewVariables]
     public float CurrentAnger = 1f;
 

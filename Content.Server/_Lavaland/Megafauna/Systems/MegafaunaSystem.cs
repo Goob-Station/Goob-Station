@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Lavaland.Aggression;
 using Content.Server._Lavaland.Megafauna.Components;
 using Content.Server.Administration.Systems;
 using Content.Shared._Lavaland.Aggression;
@@ -34,6 +35,7 @@ namespace Content.Server._Lavaland.Megafauna.Systems;
 public sealed partial class MegafaunaSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AggressorsSystem _aggressors = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
 
@@ -60,19 +62,32 @@ public sealed partial class MegafaunaSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<MegafaunaAiComponent>();
-        while (query.MoveNext(out var uid, out var ai))
+        var query = EntityQueryEnumerator<MegafaunaAiComponent, AggressiveComponent>();
+        while (query.MoveNext(out var uid, out var ai, out var aggressive))
         {
             if (!ai.Active)
                 continue;
 
             ai.NextAttackAccumulator -= frameTime;
-            if (ai.NextAttackAccumulator > 0f
-                || !TryPickMegafaunaAttack((uid, ai), out var attack))
+
+            if (ai.NextAttackAccumulator > 0f)
                 continue;
 
-            var args = new MegafaunaAttackBaseArgs(uid, EntityManager);
+            // Pick the attack
+            var args = new MegafaunaThinkBaseArgs(uid, ai, EntityManager);
+            if (!TryPickMegafaunaAttack(args, out var attack))
+                continue;
+
+            // Pick the target
+            ai.PreviousTarget = ai.CurrentTarget;
+            _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
+
+            // Make action, write that we used it and go on to delay
             var delayTime = attack.Invoke(args);
+
+            ai.PreviousAttack = null;
+            if (!ai.CanRepeatAttacks)
+                ai.PreviousAttack = attack.Name;
 
             delayTime = Math.Clamp(delayTime, ai.MinAttackCooldown, ai.MaxAttackCooldown);
             ai.NextAttackAccumulator = delayTime;

@@ -5,15 +5,17 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server._Lavaland.Megafauna.Components;
 using Content.Shared.Random.Helpers;
 
 namespace Content.Server._Lavaland.Megafauna.Systems;
 
 public sealed partial class MegafaunaSystem
 {
-    private bool TryPickMegafaunaAttack(
-        IReadOnlyList<MegafaunaAction> actionsData,
+    /// <summary>
+    /// Picks an attack from the list at random, accounting for their weights.
+    /// </summary>
+    private bool PickRandomMegafaunaAttack(
+        List<MegafaunaAction> actionsData,
         string? previousAttack,
         [NotNullWhen(true)] out MegafaunaAction? attack)
     {
@@ -34,33 +36,59 @@ public sealed partial class MegafaunaSystem
         return true;
     }
 
-    private bool TryPickAggressionAttack(Entity<MegafaunaAiComponent, AggressiveMegafaunaAiComponent> ent, [NotNullWhen(true)] out MegafaunaAction? action)
-    {
-        return TryPickMegafaunaAttack(ent.Comp2.ActionsData, ent.Comp1.PreviousAttack, out action);
-    }
-
-    private bool TryPickPhasesAttack(Entity<MegafaunaAiComponent, PhasesMegafaunaAiComponent> ent, [NotNullWhen(true)] out MegafaunaAction? action)
+    /// <summary>
+    /// Picks megafauna attack for the megafauna AI, running conditions for each attack
+    /// </summary>
+    private bool TryPickMegafaunaAttack(MegafaunaThinkBaseArgs args, [NotNullWhen(true)] out MegafaunaAction? action)
     {
         action = null;
-        if (!ent.Comp2.PhasedActionsData.TryGetValue(ent.Comp2.CurrentPhase, out var actionData))
-            return false;
+        var comp = args.AiComponent;
 
-        return TryPickMegafaunaAttack(actionData, ent.Comp1.PreviousAttack, out action);
-    }
+        // Stores amount of condition fails for each attack
+        var conditionChecks = new List<(MegafaunaAction Action, int FailAmout)>();
 
-    private bool TryPickMegafaunaAttack(Entity<MegafaunaAiComponent> ent, [NotNullWhen(true)] out MegafaunaAction? action)
-    {
-        action = null;
+        // Some attacks are using same conditions, so to prevent running same code twice we hash the results
+        // TODO check if this dictionary actually works for all conditions
+        var conditionHash = new Dictionary<MegafaunaCondition, bool>();
 
-        // While in decision-making, Phases > Aggressive
-        if (_phasesQuery.TryComp(ent.Owner, out var phasesAiComp)
-            && TryPickPhasesAttack((ent.Owner, ent.Comp, phasesAiComp), out action))
-            return true;
+        // behold, THE NEST of LOOPS for OPTIMIZATION glory!!!!
+        foreach (var data in comp.ActionsData)
+        {
+            var failCount = 0;
+            foreach (var condition in data.Conditions)
+            {
+                if (conditionHash.TryGetValue(condition, out var check)
+                    && !check)
+                    failCount++;
+                else
+                {
+                    var condPassed = condition.Check(args);
+                    if (!condPassed)
+                        failCount++;
 
-        if (_agressiveQuery.TryComp(ent.Owner, out var aggressiveAiComp)
-            && TryPickAggressionAttack((ent.Owner, ent.Comp, aggressiveAiComp), out action))
-            return true;
+                    conditionHash.Add(condition, condPassed);
+                }
+            }
 
-        return false;
+            conditionChecks.Add((data.Action, failCount));
+        }
+
+        // Simple math to get a list containing only more appropriate actions
+        var leastFails = int.MaxValue;
+        foreach (var (_, amount) in conditionChecks)
+        {
+            if (leastFails > amount)
+                leastFails = amount;
+        }
+
+        // Add only best actions
+        var passed = new List<MegafaunaAction>();
+        foreach (var (pass, amount) in conditionChecks)
+        {
+            if (amount == leastFails)
+                passed.Add(pass);
+        }
+
+        return PickRandomMegafaunaAttack(passed, comp.PreviousAttack, out action);
     }
 }

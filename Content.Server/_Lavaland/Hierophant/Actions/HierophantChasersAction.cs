@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Lavaland.Aggression;
 using Content.Server._Lavaland.Megafauna;
 using Content.Server._Lavaland.Megafauna.Components;
 using Robust.Shared.Prototypes;
@@ -48,16 +47,14 @@ public sealed partial class HierophantChasersAction : BaseHierophantAction
     [DataField("amountMultiplier")]
     public float AmountAggressionMultiplier = 0.6f;
 
-    public override float Invoke(MegafaunaAttackBaseArgs args)
+    public override float Invoke(MegafaunaThinkBaseArgs args)
     {
         var entMan = args.EntityManager;
         var uid = args.BossEntity;
-        var aggroSystem = entMan.System<AggressorsSystem>();
         var hieroSystem = entMan.System<HierophantSystem>();
 
         var anger = entMan.GetComponentOrNull<AggressiveMegafaunaAiComponent>(uid)?.CurrentAnger;
-        aggroSystem.TryPickTarget(uid, out var target);
-        target ??= uid;
+        var target = args.AiComponent.CurrentTarget ?? uid;
 
         var speed = Math.Min(anger != null ? Math.Max(anger.Value * SpeedAggressionMultiplier, MinSpeed) : BaseSpeed, MaxSpeed);
         var steps = Math.Min((anger != null ? (int) MathF.Round(anger.Value * StepsAggressionMultiplier) : BaseAdditionalSteps) + MinSteps, MaxSteps);
