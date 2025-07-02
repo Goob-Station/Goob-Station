@@ -294,9 +294,6 @@
     Telecrystal: 100
   categories:
     - UplinkDisruption
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
 
 # Weaponry
 
