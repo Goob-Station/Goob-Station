@@ -145,4 +145,4 @@
   - type: ShockOnTrigger
   - type: TriggerOnSpeak
   - type: ActiveListener
-    range: 0
+    range: 4
