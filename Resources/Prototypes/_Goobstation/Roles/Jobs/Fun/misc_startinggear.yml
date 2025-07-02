@@ -1,0 +1,16 @@
+- type: startingGear
+  id: SyndicateFootsoldierGearVent
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAtmosSyndie
+    head: ClothingHeadHelmetSwatSyndicate
+    mask: ClothingMaskGasSyndicate
+    outerClothing: ClothingOuterArmorBasic
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpack
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+  storage:
+    back:
+    - BoxSurvivalSlots
+  inhand:
+    - CombatKnife
