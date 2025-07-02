@@ -7,7 +7,7 @@
 
 - type: entity
   id: BaseCyberneticOrgan
-  parent: BaseItem
+  parent: OrganHumanEyes
   abstract: true
   components:
   - type: Cybernetics
