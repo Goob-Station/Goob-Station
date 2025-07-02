@@ -6,4 +6,5 @@
 
 research-technology-advanced-treatment = Просунуте лікування
 research-technology-high-end-surgery = Висококласні хірургічні інструменти
-research-technology-cybernetic-enhancements = Кібернетичні вдосконалення
+research-technology-basic-cybernetics = Базові кібернетичні покращення
+research-technology-advanced-cybernetics = Просунуті кібернетичні покращення

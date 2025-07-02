@@ -142,3 +142,7 @@ construction-graph-tag-fire-helmet = пожежний шолом
 
 # утилізація
 construction-graph-tag-spationaut-hardsuit = скафандр спаціонавта
+
+soil-construction-graph-any-mushroom = будь-який гриб
+
+# іграшки

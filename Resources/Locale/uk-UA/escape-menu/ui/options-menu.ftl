@@ -391,3 +391,15 @@ ui-options-admin-enable-overlay-starting-job = Показувати початк
 ui-options-admin-overlay-merge-distance = Відстань об'єднання стопок
 ui-options-admin-overlay-ghost-fade-distance = Відстань згасання оверлею привида від миші
 ui-options-admin-overlay-ghost-hide-distance = Відстань приховування оверлею привида від миші
+
+ui-options-function-swap-hands-reverse = Поміняти руки (інший напрямок)
+ui-options-function-hotbar-shift1 = Слот швидкого доступу Shift+1
+ui-options-function-hotbar-shift2 = Слот швидкого доступу Shift+2
+ui-options-function-hotbar-shift3 = Слот швидкого доступу Shift+3
+ui-options-function-hotbar-shift4 = Слот швидкого доступу Shift+4
+ui-options-function-hotbar-shift5 = Слот швидкого доступу Shift+5
+ui-options-function-hotbar-shift6 = Слот швидкого доступу Shift+6
+ui-options-function-hotbar-shift7 = Слот швидкого доступу Shift+7
+ui-options-function-hotbar-shift8 = Слот швидкого доступу Shift+8
+ui-options-function-hotbar-shift9 = Слот швидкого доступу Shift+9
+ui-options-function-hotbar-shift0 = Слот швидкого доступу Shift+0

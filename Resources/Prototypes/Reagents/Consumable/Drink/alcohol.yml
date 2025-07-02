@@ -56,9 +56,16 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BWTCK <193008538+BWTCK@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 uhbg <uhbg@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Base Alcohol
@@ -213,6 +220,9 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -254,6 +264,9 @@
         # dwarves immune to vomiting from alcohol
         - !type:OrganType
           type: Dwarf
+          shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
           shouldHave: false
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
@@ -2593,6 +2606,9 @@
         - !type:OrganType # Goobstation
           type: Yowie
           shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
+          shouldHave: false
         damage:
           types:
             Poison: 2 # TODO: Figure out poison amount. Ethanol does 1, this does 2 but also metabolises almost 3 to 4 times as fast as ethanol. This would be more Liver damage when that time arrives.
@@ -2613,4 +2629,7 @@
           min: 8
         - !type:OrganType
           type: Dwarf
+          shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
           shouldHave: false

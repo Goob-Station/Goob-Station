@@ -18,9 +18,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <Document>
 
-# Рецепти для мікрохвильової печі
+# Рецепти для мікрохвильовки
 
-Це остання опублікована версія збірки рецептів від NanoTrasen Central Command Kitchen de Cuisine для приготування шеф-кухарями на суднах NanoTrasen.
+Це остання опублікована версія збірки рецептів від кухні Центрального командування NanoTrasen, призначена для приготування шеф-кухарями на суднах NanoTrasen.
 
 ## Піца
 <GuideMicrowaveGroupEmbed Group="Pizza"/>
@@ -34,7 +34,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 ## Сніданки
 <GuideMicrowaveGroupEmbed Group="Breakfast"/>
 
-## Їжа для молі
+## Страви для молі
 <GuideMicrowaveGroupEmbed Group="Moth"/>
 
 ## Паста та локшина
