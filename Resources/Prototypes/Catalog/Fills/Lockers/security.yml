@@ -218,7 +218,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesGlassesNoir
+      - id: ClothingEyesGlassesSecurity
+        prob: 0.3
       - id: ClothingHeadHatDetGadget
       - id: ClothingNeckTieDet
       - id: ClothingOuterVestDetective

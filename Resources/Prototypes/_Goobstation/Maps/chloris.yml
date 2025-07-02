@@ -21,7 +21,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'LPK'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_wode.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_raven.yml
         - type: StationJobs
           availableJobs:
             # command

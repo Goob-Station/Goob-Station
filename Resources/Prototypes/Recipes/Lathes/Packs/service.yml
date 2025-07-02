@@ -28,6 +28,7 @@
   - FoodKebabSkewer
   - LightReplacer
   - SprayBottle
+  - TrashBag
   - LightReplacer
   - MopItem
   - Holoprojector
@@ -58,7 +59,6 @@
   id: Instruments
   recipes:
   - SynthesizerInstrument
-  - PushHorn
 
 - type: latheRecipePack
   id: ServiceBoards

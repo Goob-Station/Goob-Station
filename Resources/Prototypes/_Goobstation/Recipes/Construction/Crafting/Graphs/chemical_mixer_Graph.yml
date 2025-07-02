@@ -8,6 +8,7 @@
   id: portableChemicalMixerGraph
   start: start
   graph:
+
   - node: start
     edges:
     - to: end
@@ -16,23 +17,23 @@
         icon:
           sprite: Objects/Tools/bucket.rsi
           state: icon
-        name: construction-graph-tag-bucket
+        name: a bucket
       - tag: Multitool  # for the screen
         icon:
           sprite: Objects/Tools/multitool.rsi
           state: icon
-        name: construction-graph-tag-multitool
+        name: a multitool
       - tag: GlassBeaker
         icon:
           sprite: Objects/Specific/Chemistry/beaker.rsi
           state: beaker
-        name: construction-graph-tag-beaker
+        name: a beaker
       - material: Cable
         amount: 15
       - anyTags:        # Powers the contraption
         - PowerCell
         - PowerCellSmall
-        name: construction-graph-tag-power-cell
+        name: a powercell
         icon:
           sprite: "Objects/Power/power_cells.rsi"
           state: "medium"

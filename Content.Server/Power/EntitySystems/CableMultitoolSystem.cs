@@ -53,7 +53,6 @@ using Content.Server.Power.NodeGroups;
 using Content.Server.Tools;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Shared.NodeContainer;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;

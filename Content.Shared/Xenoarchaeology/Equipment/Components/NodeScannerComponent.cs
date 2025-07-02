@@ -1,54 +1,38 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Xenoarchaeology.Equipment.Components;
 
 /// <summary>
-/// Component for NodeScanner hand-held device settings.
+/// Component for managing data stored on NodeScanner hand-held device.
+/// Can store snapshot list of currently triggered artifact nodes.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
-[Access(typeof(NodeScannerSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), Access(typeof(SharedNodeScannerSystem))]
 public sealed partial class NodeScannerComponent : Component
 {
     /// <summary>
-    /// Maximum range for keeping connection to artifact.
-    /// </summary>
-    [DataField]
-    public int MaxLinkedRange = 5;
-
-    /// <summary>
-    /// Update interval for link info.
-    /// </summary>
-    [DataField]
-    public TimeSpan DisplayDataUpdateInterval = TimeSpan.FromSeconds(1);
-}
-
-/// <summary>
-/// Component-marker that node scanner device (<see cref="NodeScannerComponent"/>) is connected to artifact.
-/// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
-public sealed partial class NodeScannerConnectedComponent : Component
-{
-    /// <summary>
-    /// Xeno artifact entity, to which scanner is attached currently.
-    /// Upon detaching this component should be removed.
+    /// Identity-names (3-digit codes) of nodes that are triggered on scanned artifact.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid AttachedTo;
+    public HashSet<string> TriggeredNodesSnapshot = new();
 
     /// <summary>
-    /// Next update tick gametime.
+    /// State of artifact on the moment of scanning.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField]
-    public TimeSpan NextUpdate = TimeSpan.Zero;
+    [DataField, AutoNetworkedField]
+    public ArtifactState ArtifactState;
 
     /// <summary>
-    /// Update interval for link info.
+    /// Time until next unlocking of scanned artifact can be started.
     /// </summary>
-    [DataField]
-    public TimeSpan LinkUpdateInterval = TimeSpan.FromSeconds(1);
+    [DataField, AutoNetworkedField]
+    public TimeSpan? WaitTime;
+
+    /// <summary>
+    /// Moment of gametime, at which last artifact scanning was done.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan? ScannedAt;
 }
 
 /// <summary>

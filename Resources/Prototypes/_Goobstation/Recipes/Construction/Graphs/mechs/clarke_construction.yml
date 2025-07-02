@@ -41,7 +41,7 @@
           data: 4
 
       - tag: ClarkeCentralControlModule
-        name: construction-graph-tag-clarke-central-control-module
+        name: clarke central control module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -58,7 +58,7 @@
           data: 6
 
       - tag: ClarkePeripheralsControlModule
-        name: construction-graph-tag-clarke-peripherals-control-module
+        name: clarke peripherals control module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -75,7 +75,7 @@
           data: 8
 
       - tag: CapacitorStockPart
-        name: construction-graph-tag-capacitor
+        name: capacitor
         icon:
           sprite: Objects/Misc/stock_parts.rsi
           state: capacitor
@@ -92,7 +92,7 @@
           data: 10
 
       - component: PowerCell
-        name: construction-graph-component-power-cell
+        name: power cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi
@@ -137,7 +137,7 @@
         doAfter: 1
 
       - tag: MechAirTank
-        name: construction-graph-tag-exosuit-air-tank
+        name: exosuit air tank
         icon:
           sprite: Objects/Specific/Mech/mecha_equipment.rsi
           state: mecha_air_tank
@@ -146,7 +146,7 @@
         doAfter: 1
 
       - tag: MechThruster
-        name: construction-graph-tag-exosuit-thruster
+        name: exosuit thruster
         icon:
           sprite: Objects/Specific/Mech/mecha_equipment.rsi
           state: mecha_bin

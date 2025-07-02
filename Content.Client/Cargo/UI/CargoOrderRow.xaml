@@ -18,10 +18,11 @@ SPDX-License-Identifier: MIT
         <BoxContainer Orientation="Vertical"
                       HorizontalExpand="True"
                       VerticalExpand="True">
-            <RichTextLabel Name="ProductName"
+            <Label Name="ProductName"
                    Access="Public"
                    HorizontalExpand="True"
-                   StyleClasses="LabelSubText" />
+                   StyleClasses="LabelSubText"
+                   ClipText="True" />
             <Label Name="Description"
                    Access="Public"
                    HorizontalExpand="True"

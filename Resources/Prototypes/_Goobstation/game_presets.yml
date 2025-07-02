@@ -218,28 +218,14 @@
     - LavalandStormScheduler
 
 - type: gamePreset
-  id: SecretPlusAdmeme
+  id: SecretPlusHigh
   alias:
-    - secretplusadmeme
-    - secretplusevil
     - secretplushigh
+    - secretplusevil
     - chaos
-  name: secretplus-admeme-title
-  description: secretplus-admeme-description
+  name: secretplus-high-title
+  description: secretplus-high-description
   showInVote: false # 1984
   rules:
-    - SecretPlusAdmeme
-    - LavalandStormScheduler
-
-- type: gamePreset
-  id: SurvivalPlusMid
-  alias:
-    - survivalplus
-    - newsurvival
-    - survivalnew
-  name: survivalplus-title
-  description: survivalplus-description
-  showInVote: true
-  rules:
-    - SecretPlusRampingMid
+    - SecretPlusHigh
     - LavalandStormScheduler

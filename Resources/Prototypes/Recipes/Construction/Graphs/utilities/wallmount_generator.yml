@@ -49,7 +49,7 @@
         steps:
         - tag: WallmountGeneratorElectronics
           store: board
-          name: construction-graph-tag-wallmount-generator-circuit-board
+          name: "wallmount generator circuit board"
           icon:
             sprite: "Objects/Misc/module.rsi"
             state: "charger_APC"
@@ -58,7 +58,7 @@
         steps:
         - tag: WallmountGeneratorAPUElectronics
           store: board
-          name: construction-graph-tag-wallmount-apu-circuit-board
+          name: "wallmount APU circuit board"
           icon:
             sprite: "Objects/Misc/module.rsi"
             state: "charger_APC"

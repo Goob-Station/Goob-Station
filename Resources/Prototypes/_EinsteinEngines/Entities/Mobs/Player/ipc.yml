@@ -151,9 +151,6 @@
   - type: WeldingHealable
   - type: DamagedSiliconAccent
   - type: Uncloneable
-  - type: Tag
-    tags:
-    - SiliconMob
 
 - type: entity
   save: false

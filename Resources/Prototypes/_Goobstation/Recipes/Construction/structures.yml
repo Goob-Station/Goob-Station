@@ -7,21 +7,31 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: construction
+  name: directional wall
   id: WallDirectional
   graph: WallDirectional
   startNode: start
   targetNode: wallDirectional
   category: construction-category-structures
+  description: Cheap and cheerful metal plating.
+  icon:
+    sprite: _Goobstation/Structures/Walls/directional.rsi
+    state: directionalwall
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
 
 - type: construction
+  name: solar panel assembly
   id: SolarPanel
   graph: SolarPanel
   startNode: start
   targetNode: solarassembly
   category: construction-category-structures
+  description: A solar panel, for your solar paneling needs.
+  icon:
+    sprite: Structures/Power/Generation/solar_panel.rsi
+    state: solar_panel_glass
   objectType: Structure
   placementMode: SnapgridCenter

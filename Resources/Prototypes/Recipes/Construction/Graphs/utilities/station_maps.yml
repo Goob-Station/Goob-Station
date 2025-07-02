@@ -46,7 +46,7 @@
       steps:
       - tag: StationMapElectronics
         store: board
-        name: construction-graph-tag-station-map-electronics
+        name: "station map electronics"
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "door_electronics" # /tg/ uses the same sprite, right?

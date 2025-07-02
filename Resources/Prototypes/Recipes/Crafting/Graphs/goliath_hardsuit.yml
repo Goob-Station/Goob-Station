@@ -20,7 +20,7 @@
         icon:
           sprite: _Lavaland/Equipment/explorer_suit.rsi
           state: icon
-        name: construction-graph-tag-explorer-suit
+        name: explorer suit # Goobstation edit
         doAfter: 10
       - material: Durathread
         amount: 5

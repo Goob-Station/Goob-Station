@@ -42,7 +42,7 @@ namespace Content.Shared.Construction
         [DataField("transform")]
         public IGraphTransform[] TransformLogic = Array.Empty<IGraphTransform>();
 
-        [DataField("entity", customTypeSerializer: typeof(GraphNodeEntitySerializer))]
+        [DataField("entity", customTypeSerializer: typeof(GraphNodeEntitySerializer), serverOnly:true)]
         public IGraphNodeEntity Entity { get; private set; } = new NullNodeEntity();
 
         /// <summary>

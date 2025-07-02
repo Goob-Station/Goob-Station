@@ -1,7 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -20,6 +18,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -53,7 +52,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
         if (!HasComp<HolopadUserComponent>(uid))
             return;
 
-        var netEv = new HolopadUserTypingChangedEvent(GetNetEntity(uid.Value), ev.State);
+        var netEv = new HolopadUserTypingChangedEvent(GetNetEntity(uid.Value), ev.IsTyping);
         RaiseNetworkEvent(netEv);
     }
 
@@ -65,8 +64,8 @@ public sealed class HolopadSystem : SharedHolopadSystem
             return;
 
         // Remove all sprite layers
-        for (int i = hologramSprite.AllLayers.Count() - 1; i >= 0; i--)
-            hologramSprite.RemoveLayer(i);
+        for (var i = hologramSprite.AllLayers.Count() - 1; i >= 0; i--)
+            _sprite.RemoveLayer((hologram, hologramSprite), i);
 
         if (TryComp<SpriteComponent>(target, out var targetSprite))
         {
@@ -74,17 +73,16 @@ public sealed class HolopadSystem : SharedHolopadSystem
             if (TryComp<HolographicAvatarComponent>(target, out var targetAvatar) &&
                 targetAvatar.LayerData != null)
             {
-                for (int i = 0; i < targetAvatar.LayerData.Length; i++)
+                for (var i = 0; i < targetAvatar.LayerData.Length; i++)
                 {
-                    var layer = targetAvatar.LayerData[i];
-                    hologramSprite.AddLayer(targetAvatar.LayerData[i], i);
+                    _sprite.AddLayer((hologram, hologramSprite), targetAvatar.LayerData[i], i);
                 }
             }
 
             // Otherwise copy the target's current physical appearance
             else
             {
-                hologramSprite.CopyFrom(targetSprite);
+                _sprite.CopySprite((target.Value, targetSprite), (hologram, hologramSprite));
             }
         }
 
@@ -94,25 +92,27 @@ public sealed class HolopadSystem : SharedHolopadSystem
             if (string.IsNullOrEmpty(holopadhologram.RsiPath) || string.IsNullOrEmpty(holopadhologram.RsiState))
                 return;
 
-            var layer = new PrototypeLayerData();
-            layer.RsiPath = holopadhologram.RsiPath;
-            layer.State = holopadhologram.RsiState;
+            var layer = new PrototypeLayerData
+            {
+                RsiPath = holopadhologram.RsiPath,
+                State = holopadhologram.RsiState
+            };
 
-            hologramSprite.AddLayer(layer);
+            _sprite.AddLayer((hologram, hologramSprite), layer, null);
         }
 
         // Override specific values
-        hologramSprite.Color = Color.White;
-        hologramSprite.Offset = holopadhologram.Offset;
-        hologramSprite.DrawDepth = (int)DrawDepth.Mobs;
+        _sprite.SetColor((hologram, hologramSprite), Color.White);
+        _sprite.SetOffset((hologram, hologramSprite), holopadhologram.Offset);
+        _sprite.SetDrawDepth((hologram, hologramSprite), (int)DrawDepth.Mobs);
         hologramSprite.NoRotation = true;
         hologramSprite.DirectionOverride = Direction.South;
         hologramSprite.EnableDirectionOverride = true;
 
         // Remove shading from all layers (except displacement maps)
-        for (int i = 0; i < hologramSprite.AllLayers.Count(); i++)
+        for (var i = 0; i < hologramSprite.AllLayers.Count(); i++)
         {
-            if (hologramSprite.TryGetLayer(i, out var layer) && layer.ShaderPrototype != "DisplacedStencilDraw")
+            if (_sprite.TryGetLayer((hologram, hologramSprite), i, out var layer, false) && layer.ShaderPrototype != "DisplacedStencilDraw")
                 hologramSprite.LayerSetShader(i, "unshaded");
         }
 

@@ -42,11 +42,11 @@
       points: 2
       required: false
     Chest:
-      points: 3
+      points: 8
       required: false
     Legs:
-      points: 6
+      points: 10
       required: false
     Arms:
-      points: 6
+      points: 10
       required: false

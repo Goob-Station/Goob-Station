@@ -27,12 +27,6 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
-  - !type:OreDunGen
-    replacement: AsteroidRock
-    entity: AsteroidRockGibtonite
-    count: 8
-    minGroupSize: 0
-    maxGroupSize: 1
 
 # Multiple smaller asteroids
 # This is a pain so we generate fewer tiles
@@ -56,12 +50,6 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
-  - !type:OreDunGen
-    replacement: AsteroidRock
-    entity: AsteroidRockGibtonite
-    count: 8
-    minGroupSize: 0
-    maxGroupSize: 1
 
 # Long and spindly, less smooth than blob
 - type: dungeonConfig
@@ -85,12 +73,6 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
-  - !type:OreDunGen
-    replacement: AsteroidRock
-    entity: AsteroidRockGibtonite
-    count: 8
-    minGroupSize: 0
-    maxGroupSize: 1
 
 # Lots of holes in it
 - type: dungeonConfig
@@ -113,9 +95,3 @@
   # Generate biome
   - !type:BiomeDunGen
     biomeTemplate: Asteroid
-  - !type:OreDunGen
-    replacement: AsteroidRock
-    entity: AsteroidRockGibtonite
-    count: 8
-    minGroupSize: 0
-    maxGroupSize: 1

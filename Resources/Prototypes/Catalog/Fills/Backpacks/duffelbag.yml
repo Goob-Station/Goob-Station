@@ -156,27 +156,29 @@
   - type: StorageFill
     contents: # goob edited
       - id: DefibrillatorSyndicate
-      - id: ScalpelAdvanced
       - id: SawAdvanced
-      - id: Drill
-      - id: AdvancedRetractor
       - id: EnergyCautery
+      - id: AdvancedRetractor
+      - id: ScalpelAdvanced
+      - id: Drill
       - id: AdvancedBoneGel
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
-      - id: ClothingMaskSterile
+      - id: ClothingMaskSterile # Goobstation
+      - id: BoneGel # Shitmed Change
+      - id: MedicalStitches # Shitmed Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledShotgun
   name: Bulldog bundle
-  description: "Lean and mean: Contains the popular Bulldog Shotgun, a 12g slug drum, and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
+  description: "Lean and mean: Contains the popular Bulldog Shotgun and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
   components:
   - type: StorageFill
     contents:
       - id: WeaponShotgunBulldog
       - id: MagazineShotgun
-        amount: 3
+      - id: MagazineShotgun
       - id: MagazineShotgunSlug
 #     - id: ThermalImagingGoggles
 
@@ -252,7 +254,7 @@
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
-  description: "Reloading! Contains 4 magazines for the C-20r, 5 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
+  description: "Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
   components:
   - type: StorageFill
     contents:
@@ -262,8 +264,6 @@
         amount: 3
       - id: MagazineShotgun
         amount: 4
-      - id: MagazineShotgunSlug
-        amount: 1
       - id: MagazineLightRifleBox
         amount: 2
       - id: MagazineHighCaliber # Goobstation - Burner Heavy Assault Rifle
@@ -366,7 +366,7 @@
   - type: StorageFill
     contents:
       - id: ClothingHeadHelmetSyndicate
-      - id: ClothingOuterEVASuitSyndicate
+      - id: ClothingOuterHardsuitSyndicateDurathread
       - id: ClothingMaskGasSyndicate
       - id: ClothingHandsGlovesColorYellowBudget
       - id: DoubleEmergencyOxygenTankFilled
@@ -468,3 +468,23 @@
         amount: 2
       - id: SyndieTrickyBomb
         amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledStarterKit
+  name: basic operative bundle
+  description: "Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunC20r
+      - id: MagazinePistolSubMachineGun
+        amount: 3
+      - id: MagazinePistol
+      - id: SyndicateJawsOfLife
+      - id: C4
+        amount: 2
+      - id: MedkitCombatFilled
+      - id: EmpImplanter
+      - id: ClothingShoesBootsMagSyndie
+      - id: AgentIDCard

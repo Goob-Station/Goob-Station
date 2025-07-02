@@ -256,37 +256,9 @@ public sealed class PartStatusSystem : EntitySystem
         var sb = new StringBuilder();
         var hasStatus = false;
 
-        // Get overall wound severity
-        var overallSeverity = GetOverallWoundSeverity(partStatus.DamageSeverities);
-        if (overallSeverity != WoundSeverity.Healed)
-        {
-            var localeText = $"inspect-wound-{overallSeverity.ToString().ToLower()}";
-            sb.Append(Loc.GetString(localeText));
-            hasStatus = true;
-        }
-
-        // Add damage group descriptions
-        var damageDescriptions = GetDamageGroupDescriptions(partStatus.DamageSeverities, inspectingSelf);
-        if (damageDescriptions.Count > 0)
-        {
-            if (hasStatus)
-                sb.Append(Loc.GetString("inspect-part-status-comma"));
-            sb.Append(Loc.GetString("inspect-part-status-conjunction"));
-            sb.Append(string.Join(" ", damageDescriptions));
-            hasStatus = true;
-        }
-
-        // Add trauma descriptions
-        var traumaDescriptions = GetTraumaDescriptions(partStatus, inspectingSelf);
-        if (traumaDescriptions.Count > 0)
-        {
-            if (hasStatus)
-                sb.Append(Loc.GetString("inspect-part-status-conjunction2"));
-            else
-                sb.Append(Loc.GetString("inspect-part-status-conjunction3"));
-            sb.Append(string.Join(Loc.GetString("inspect-part-status-comma"), traumaDescriptions));
-            hasStatus = true;
-        }
+        AppendBleedingStatus(sb, partStatus.Bleeding, inspectingSelf, ref hasStatus);
+        AppendBoneStatus(sb, partStatus.BoneSeverity, inspectingSelf, ref hasStatus);
+        AppendDamageStatuses(sb, partStatus.DamageSeverities, inspectingSelf, ref hasStatus);
 
         if (!hasStatus)
             sb.Append(Loc.GetString("inspect-part-status-fine"));
@@ -294,73 +266,47 @@ public sealed class PartStatusSystem : EntitySystem
         return sb.ToString();
     }
 
-    private WoundSeverity GetOverallWoundSeverity(Dictionary<string, WoundSeverity> damageSeverities)
+    private void AppendBleedingStatus(StringBuilder sb, bool isBleeding, bool inspectingSelf, ref bool hasStatus)
     {
-        if (damageSeverities.Count == 0)
-            return WoundSeverity.Healed;
+        if (!isBleeding)
+            return;
 
-        var maxSeverity = WoundSeverity.Healed;
-        foreach (var (type, severity) in damageSeverities)
-        {
-            if (type is not ("Brute" or "Burn") // At some point we gonna de-hardcode this, but i doubt that day is soon.
-                || severity <= maxSeverity)
-                continue;
-
-            maxSeverity = severity;
-        }
-        return maxSeverity;
+        sb.Append(Loc.GetString(inspectingSelf ? $"self-{BleedLocaleStr}" : BleedLocaleStr));
+        hasStatus = true;
     }
 
-    private List<string> GetDamageGroupDescriptions(Dictionary<string, WoundSeverity> damageSeverities, bool inspectingSelf)
+    private void AppendBoneStatus(StringBuilder sb, BoneSeverity boneSeverity, bool inspectingSelf, ref bool hasStatus)
     {
-        var descriptions = new List<string>();
+        if (boneSeverity <= BoneSeverity.Normal)
+            return;
+
+        if (hasStatus)
+            sb.Append($"{Loc.GetString("inspect-part-status-comma")} ");
+
+
+        sb.Append(Loc.GetString(inspectingSelf ? $"self-{BoneLocaleStr}" : BoneLocaleStr));
+        hasStatus = true;
+    }
+
+    private void AppendDamageStatuses(
+        StringBuilder sb,
+        Dictionary<string, WoundSeverity> damageSeverities,
+        bool inspectingSelf,
+        ref bool hasStatus)
+    {
         foreach (var (type, severity) in damageSeverities)
         {
             if (type is not ("Brute" or "Burn"))
                 continue;
 
+            if (hasStatus)
+                sb.Append(!type.Contains(Loc.GetString("inspect-part-status-conjunction"), StringComparison.CurrentCultureIgnoreCase) ? $" {Loc.GetString("inspect-part-status-conjunction")} " : $"{Loc.GetString("inspect-part-status-comma")} ");
+
             var cappedSeverity = severity > WoundSeverity.Severe ? WoundSeverity.Severe : severity;
             var localeText = $"inspect-wound-{type}-{cappedSeverity.ToString().ToLower()}";
-            descriptions.Add(Loc.GetString(localeText));
+            sb.Append(Loc.GetString(inspectingSelf ? $"self-{localeText}" : localeText));
+            hasStatus = true;
         }
-
-        if (descriptions.Count > 1)
-        {
-            var lastDescription = descriptions[^1];
-            descriptions[^1] = Loc.GetString("inspect-part-status-and") + lastDescription;
-        }
-
-        return descriptions;
-    }
-
-    private List<string> GetTraumaDescriptions(PartStatus partStatus, bool inspectingSelf)
-    {
-        var descriptions = new List<string>();
-
-        // TODO: Dehardcode this guscode from bone traumas when we actually have more organ traumas.
-
-        // Add bone trauma
-        if (partStatus.BoneSeverity > BoneSeverity.Normal)
-        {
-            var localeText = inspectingSelf ? "self-inspect-trauma-BoneDamage" : "inspect-trauma-BoneDamage";
-            descriptions.Add(Loc.GetString(localeText));
-        }
-
-        // Add bleeding status
-        if (partStatus.Bleeding)
-        {
-            var localeText = "inspect-wound-Bleeding-moderate";
-            descriptions.Add(Loc.GetString(localeText));
-        }
-
-        // If we have multiple traumas, add "and it" before the last one
-        if (descriptions.Count > 1)
-        {
-            var lastDescription = descriptions[^1];
-            descriptions[^1] = Loc.GetString("inspect-part-status-and") + lastDescription;
-        }
-
-        return descriptions;
     }
 
     private void AddLine(FormattedMessage message)

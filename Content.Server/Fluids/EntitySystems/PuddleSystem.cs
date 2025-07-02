@@ -502,9 +502,6 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         if (!TryComp<StepTriggerComponent>(entity, out var comp))
             return;
 
-        // Ensure we actually have the component
-        EnsureComp<TileFrictionModifierComponent>(entity);
-
         // This is the base amount of reagent needed before a puddle can be considered slippery. Is defined based on
         // the sprite threshold for a puddle larger than 5 pixels.
         var smallPuddleThreshold = FixedPoint2.New(entity.Comp.OverflowVolume.Float() * LowThreshold);
@@ -528,7 +525,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         if (solution.Volume <= smallPuddleThreshold)
         {
             _stepTrigger.SetActive(entity, false, comp);
-            _tile.SetModifier(entity, 1f);
+            _tile.SetModifier(entity, TileFrictionController.DefaultFriction);
             return;
         }
 
@@ -580,7 +577,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         // Lower tile friction based on how slippery it is, lets items slide across a puddle of lube
         slipComp.SlipData.SlipFriction = (float)(puddleFriction/solution.Volume);
-        _tile.SetModifier(entity, slipComp.SlipData.SlipFriction);
+        _tile.SetModifier(entity, TileFrictionController.DefaultFriction * slipComp.SlipData.SlipFriction);
 
         Dirty(entity, slipComp);
     }
@@ -603,7 +600,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         {
             var comp = EnsureComp<SpeedModifierContactsComponent>(uid);
             var speed = 1 - maxViscosity;
-            _speedModContacts.ChangeSpeedModifiers(uid, speed, comp);
+            _speedModContacts.ChangeModifiers(uid, speed, comp);
         }
         else
         {

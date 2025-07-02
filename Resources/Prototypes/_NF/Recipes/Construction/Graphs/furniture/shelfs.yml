@@ -26,7 +26,7 @@
         amount: 2
         doAfter: 5
       - tag: FreezerElectronics
-        name: construction-graph-tag-freezer-electronics
+        name: freezer electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: door_electronics
@@ -75,7 +75,7 @@
         amount: 2
         doAfter: 5
       - tag: FreezerElectronics
-        name: construction-graph-tag-freezer-electronics
+        name: freezer electronics
         icon:
           sprite: Objects/Misc/module.rsi
           state: door_electronics

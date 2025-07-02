@@ -236,7 +236,7 @@
 - type: loadout
   id: SecurityWinterBoots
   equipment:
-    shoes: ClothingShoesWinterCombatBoots # Goobstation
+    shoes: ClothingShoesBootsWinterSec # Goobstation
 
 # PDA
 - type: loadout

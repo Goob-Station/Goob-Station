@@ -75,13 +75,3 @@
           False: { state: orebag_off }
   # WHITE EDIT END
   - type: OreBag # Lavaland Change
-
-- type: entity
-  parent: OreBag
-  id: BorgOreBag
-  name: integrated ore bag
-  description: A large ore bag built into the frame of a mining cyborg.
-  components:
-    - type: Storage
-      grid:
-      - 0,0,9,5

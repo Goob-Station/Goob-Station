@@ -14,13 +14,13 @@
         - to: glassesMed
           steps:
             - tag: Sunglasses
-              name: construction-graph-tag-sun-glasses
+              name: sun glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
               doAfter: 5
             - tag: HudMedical
-              name: construction-graph-tag-medical-hud
+              name: medical hud
               icon:
                 sprite: Clothing/Eyes/Hud/med.rsi
                 state: icon

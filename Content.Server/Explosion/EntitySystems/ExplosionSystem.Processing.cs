@@ -263,7 +263,7 @@ public sealed partial class ExplosionSystem
             }
 #if EXCEPTION_TOLERANCE
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // Ensure the system does not get stuck in an error-loop.
                 if (_activeExplosion != null)

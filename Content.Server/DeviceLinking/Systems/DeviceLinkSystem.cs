@@ -33,6 +33,23 @@ public sealed class DeviceLinkSystem : SharedDeviceLinkSystem
         SubscribeLocalEvent<DeviceLinkSourceComponent, NewLinkEvent>(OnNewLink);
     }
 
+    public override void Update(float frameTime)
+    {
+        var query = EntityQueryEnumerator<DeviceLinkSinkComponent>();
+
+        while (query.MoveNext(out var component))
+        {
+            if (component.InvokeLimit < 1)
+            {
+                component.InvokeCounter = 0;
+                continue;
+            }
+
+            if(component.InvokeCounter > 0)
+                component.InvokeCounter--;
+        }
+    }
+
     #region Sending & Receiving
     public override void InvokePort(EntityUid uid, string port, NetworkPayload? data = null, DeviceLinkSourceComponent? sourceComponent = null)
     {
@@ -63,17 +80,16 @@ public sealed class DeviceLinkSystem : SharedDeviceLinkSystem
         if (!Resolve(sink, ref sink.Comp))
             return;
 
-        var invokeCounter = GetEffectiveInvokeCounter(sink.Comp);
-        if (invokeCounter > sink.Comp.InvokeLimit)
+        if (sink.Comp.InvokeCounter > sink.Comp.InvokeLimit)
         {
-            SetInvokeCounter(sink.Comp, 0);
+            sink.Comp.InvokeCounter = 0;
             var args = new DeviceLinkOverloadedEvent();
             RaiseLocalEvent(sink, ref args);
             RemoveAllFromSink(sink, sink.Comp);
             return;
         }
 
-        SetInvokeCounter(sink.Comp, invokeCounter + 1);
+        sink.Comp.InvokeCounter++;
 
         //Just skip using device networking if the source or the sink doesn't support it
         if (!HasComp<DeviceNetworkComponent>(source) || !TryComp<DeviceNetworkComponent>(sink, out var sinkNetwork))
