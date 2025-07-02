@@ -46,7 +46,7 @@ using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Robust.Shared.Configuration;
+using Content.Shared.Administration.Logs;
 
 namespace Content.Server.Objectives;
 
@@ -62,6 +62,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     private IEnumerable<string>? _objectives;
 
@@ -212,6 +213,11 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                     var progress = info.Value.Progress;
                     totalObjectives++;
 
+                    // Logging objective status for admins
+                    _adminLog.Add(Shared.Database.LogType.AntagObjective,
+                                  Shared.Database.LogImpact.Medium,
+                                  $"{ToPrettyString(mindId):subject} achieved {progress} of objective {objectiveTitle}");
+
                     agentSummary.Append("- ");
                     if (!_showGreentext)
                     {
@@ -226,7 +232,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                         ));
                         completedObjectives++;
 
-                         // Easiest place to give people points for completing objectives lol
+                        // Easiest place to give people points for completing objectives lol
                         if(userid.HasValue)
                             _currencyMan.AddCurrency(userid.Value, _goobcoinsPerGreentext * _goobcoinsServerMultiplier);
                     }

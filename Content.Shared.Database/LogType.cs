@@ -601,4 +601,9 @@ public enum LogType
     /// Supermatter events, mostly activations.
     /// </summary>
     Supermatter = 10003, // Goobstation
+
+    /// <summary>
+    /// Antag objective info.
+    /// </summary>
+    AntagObjective = 10004, // Goobstation
 }
