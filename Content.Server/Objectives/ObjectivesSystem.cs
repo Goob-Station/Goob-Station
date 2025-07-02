@@ -226,7 +226,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                         username = System.Runtime.CompilerServices.FormattableStringFactory.Create(data.UserName);
 
                     _adminLog.Add(Shared.Database.LogType.AntagObjective,
-                                    Shared.Database.LogImpact.Medium,
+                                    Shared.Database.LogImpact.Low,
                                     $"{username:subject} achieved {progress}% of objective {objectiveTitle}");
 
                     agentSummary.Append("- ");
