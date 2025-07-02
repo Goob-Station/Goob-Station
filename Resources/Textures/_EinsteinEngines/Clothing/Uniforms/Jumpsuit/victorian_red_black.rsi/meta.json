@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from World Server at commit https://github.com/GeneriedJenelle/The-World-Server-Redux/commit/53179e9bfdd2fbd028849aa9eddd2a2fbbf332e7",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    }
+  ]
+}

@@ -381,6 +381,7 @@
   - AncientJumpsuit
   - RainbowJumpsuit
   # Goobstation Loadout Rework Start
+  # All of this is EE
   - AssymetricDress
   - EveningDress
   - MidiDress
@@ -422,12 +423,16 @@
   - YellowSwoopDress
   - NekoArcCurse
   - GeishaOutfit
-  - ClothingCostumeBunnySuitOutfit # I'm not at fault if some players take this as a ticket to be weird. # Yes it is. Its absolutely your fault. - Solstice
+  - JumpsuitTShirtJeans
+  - JumpsuitTShirtJeansGray
+  - JumpsuitTShirtJeansKhaki
+  - JumpsuitTShirtJeansPeach
+  # EE stuff end
+  # Nyano stuff start
   - ClothingCostumeMioSkirtOutfit
   - ClothingCostumeNaotaOutfit
   - ClothingUniformRatOutfit
   - ClothingUniformDressRedOutfit
-  - ClothingUniformSwimsuitBlueOutfit
   - ClothingUniformKendoHakamaOutfit
   - ClothingUniformMartialGiOutfit
   - ClothingKimonoBlueOutfit
@@ -445,10 +450,7 @@
   - ClothingUniformMNKBlackOverallsOutfit
   - ClothingUniformMNKBlackShoulderOutfit
   - ClothingUniformMNKTracksuitBlackOutfit
-  - JumpsuitTShirtJeans
-  - JumpsuitTShirtJeansGray
-  - JumpsuitTShirtJeansKhaki
-  - JumpsuitTShirtJeansPeach
+  
  # Goobstation Loadout Rework End
   - RainbowJumpskirt
  # goob changes start
@@ -500,7 +502,7 @@
   - CommonDuffel
   - CommonMessenger # Frontier
   # Goobstation Loadout Rework Start
-  - ClothingPurse
+  - ClothingPurse # EE Stuff
   - LeatherSatchel
   # Goobstation Loadout Rework End
 
@@ -511,7 +513,7 @@
   loadouts:
   - Mantle
   # Goobstation Loadout Rework Start
-  - FurWrap
+  - FurWrap # EE stuff...
   # Goobstation Loadout Rework Start
 
 - type: loadoutGroup
@@ -521,10 +523,10 @@
   loadouts:
   - PassengerWintercoat
   # Goobstation Loadout Rework Start
-  - PassengerRedVictorianCoat
-  - PassengerBlackVictorianCoat
-  - LettermanJacketBlue
-  - LettermanJacketRed
+  - PassengerRedVictorianCoat # EE
+  - PassengerBlackVictorianCoat # EE
+  - LettermanJacketBlue # Nyanotrasen
+  - LettermanJacketRed # Nyanotrasen
   # Goobstation Loadout Rework End
 
 - type: loadoutGroup
@@ -560,7 +562,7 @@
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
   - ServiceMJ # goob
-  - WaitressUniform # Goobstation Loadout Rework Addition
+  - WaitressUniform # EE
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -704,7 +706,7 @@
   - JanitorJumpsuit
   - JanitorJumpskirt
   - ServiceMJ # goob
-  - MaidOutfitJanitor # Goobstation Loadout Rework Addition
+  - MaidOutfitJanitor
 
 - type: loadoutGroup
   id: JanitorGloves

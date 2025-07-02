@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Yoga pants bottom from World Server at commit https://github.com/GeneriedJenelle/The-World-Server-Redux/commit/af40bc8515d560aeff3d397a5f33f556accbb890, sports bra top taken from Aurorastation at commit https://github.com/Aurorastation/Aurora.3/commit/dcc7a7923de9b9f58832f0f73bc20d9b1fdd84b7, modified by Skubman",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

@@ -212,11 +212,6 @@
     jumpsuit: UniformGeisha
 
 - type: loadout
-  id: ClothingCostumeBunnySuitOutfit
-  equipment:
-    jumpsuit: ClothingCostumeBunnySuit
-
-- type: loadout
   id: ClothingCostumeMioSkirtOutfit
   equipment:
     jumpsuit: ClothingCostumeMioSkirt
@@ -235,12 +230,7 @@
   id: ClothingUniformDressRedOutfit
   equipment:
     jumpsuit: ClothingUniformDressRed
-
-- type: loadout
-  id: ClothingUniformSwimsuitBlueOutfit
-  equipment:
-    jumpsuit: ClothingUniformSwimsuitBlue
-
+    
 - type: loadout
   id: ClothingUniformKendoHakamaOutfit
   equipment:
@@ -345,6 +335,66 @@
   id: JumpsuitTShirtJeansKhaki
   equipment:
     jumpsuit: ClothingUniformTShirtKhakiPants
+
+- type: loadout
+  id: FlannelJeansJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelJeans
+
+- type: loadout
+  id: BlackFlannelJeansJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelBlackJeans
+
+- type: loadout
+  id: KhakiFlannelJeansJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelKhakis
+
+- type: loadout
+  id: BlackKhakiFlannelJeansJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelBlackKhakis
+
+- type: loadout
+  id: BlueBlazerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitBlueBlazer
+
+- type: loadout
+  id: CheckeredSuitOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelKhakis
+
+- type: loadout
+  id: OliveSweaterOutfit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOliveSweater
+
+- type: loadout
+  id: VictorianBlackRedVest
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVictorianRedBlack
+  
+- type: loadout
+  id: VictorianRedVest
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVictorianRedVest
+
+- type: loadout
+  id: VictorianVest
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitVictorianVest
+
+- type: loadout
+  id: GymBra
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitYogaGymBra
+
+- type: loadout
+  id: RippedPunk
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRippedPunk
 
 # Neck
 
