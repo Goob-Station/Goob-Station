@@ -22,6 +22,7 @@
               key: NearbyFillableItem
           operator: !type:MoveToOperator
             pathfindInPlanning: false
+            brakeMaxVelocity: null # don't need to brake
         # Pick it up
         - !type:HTNPrimitiveTask
           preconditions:
@@ -44,6 +45,7 @@
               key: LinkedFillableMachine
           operator: !type:MoveToOperator
             pathfindInPlanning: false
+            brakeMaxVelocity: null
         # Insert the item
         - !type:HTNPrimitiveTask
           operator: !type:FillLinkedMachineOperator
