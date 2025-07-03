@@ -2,6 +2,7 @@
 - type: reagent
   id: BZ
   name: reagent-name-bz
+  group: AtmosGases
   desc: reagent-desc-bz
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
@@ -216,6 +217,7 @@
 - type: reagent
   id: Healium
   name: reagent-name-healium
+  group: AtmosGases
   desc: reagent-desc-healium
   physicalDesc: reagent-physical-desc-gaseous
   flavor: strange
@@ -335,6 +337,7 @@
 - type: reagent
   id: Nitrium
   name: reagent-name-nitrium
+  group: AtmosGases
   desc: reagent-desc-nitrium
   physicalDesc: reagent-physical-desc-gaseous
   flavor: sour
@@ -442,6 +445,7 @@
 - type: reagent
   id: Pluoxium
   name: reagent-name-pluoxium
+  group: AtmosGases
   desc: reagent-desc-pluoxium
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
@@ -549,6 +553,7 @@
 - type: reagent
   id: Hyper-Noblium
   name: reagent-name-hyper-noblium
+  group: AtmosGases
   desc: reagent-desc-hyper-noblium
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
@@ -557,6 +562,7 @@
 - type: reagent
   id: Proto-Nitrate
   name: reagent-name-proto-nitrate
+  group: AtmosGases
   desc: reagent-desc-proto-nitrate
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
@@ -565,6 +571,7 @@
 - type: reagent
   id: Zauker
   name: reagent-name-zauker
+  group: AtmosGases
   desc: reagent-desc-zauker
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
@@ -590,6 +597,7 @@
 - type: reagent
   id: Halon
   name: reagent-name-halon
+  group: AtmosGases
   desc: reagent-desc-halon
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
@@ -598,6 +606,7 @@
 - type: reagent
   id: Helium
   name: reagent-name-helium
+  group: AtmosGases
   desc: reagent-desc-helium
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
@@ -606,6 +615,7 @@
 - type: reagent
   id: Anti-Noblium
   name: reagent-name-anti-noblium
+  group: AtmosGases
   desc: reagent-desc-anti-noblium
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter

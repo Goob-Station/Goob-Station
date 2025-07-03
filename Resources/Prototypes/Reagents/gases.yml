@@ -250,6 +250,7 @@
 - type: reagent
   id: Tritium
   name: reagent-name-tritium
+  group: AtmosGases # Goobstation/Assmos - gas reagents in separate group
   desc: reagent-desc-tritium
   physicalDesc: reagent-physical-desc-ionizing
   flavor: bitter
@@ -316,6 +317,7 @@
 - type: reagent
   id: CarbonDioxide
   name: reagent-name-carbon-dioxide
+  group: AtmosGases # Goobstation/Assmos - gas reagents in separate group
   desc: reagent-desc-carbon-dioxide
   physicalDesc: reagent-physical-desc-odorless
   flavor: bitter
@@ -452,6 +454,7 @@
 - type: reagent
   id: NitrousOxide
   name: reagent-name-nitrous-oxide
+  group: AtmosGases # Goobstation/Assmos - gas reagents in separate group
   desc: reagent-desc-nitrous-oxide
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
@@ -562,6 +565,7 @@
 - type: reagent
   id: Frezon
   name: reagent-name-frezon
+  group: AtmosGases # Goobstation/Assmos - gas reagents in separate group
   desc: reagent-desc-frezon
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter

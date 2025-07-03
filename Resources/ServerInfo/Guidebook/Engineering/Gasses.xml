@@ -135,6 +135,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
   Healium is a red gas, formed by BZ and Frezon in cold environments, which acts as a strong sleeping agent, while healing burns, bruises, and toxin damage. Excessive use will lead to inebriation.
 
+  <Box>
+    <GuideEntityEmbed Entity="BZCanister"/>
+    <GuideEntityEmbed Entity="FrezonCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="HealiumCanister"/>
+  </Box>
+
   ## Ammonia
   <Box>
     <GuideEntityEmbed Entity="AmmoniaCanister" Caption=""/>
@@ -147,17 +154,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
   Made from Tritium, Nitrogen and BZ, Nitrium is a gaseous stimulant that when inhaled can enhance speed and endurance. At lower concentrations Nitrium will increase your top running speed while healthy and unimpaired. Additionally, at slightly higher concentrations, breathing Nitrium will prevent drowsiness. At high concentrations breathing it will begin to shut down a person's lungs, causing asphyxiation.
   Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak.
-
-  ##Healium
-  Healium is a red gas, formed in cold environments, which acts as a strong sleeping agent, while healing burns, bruises, and toxin damage. Excessive use will lead to inebriation.
-  It can be made by combining 91% Frezon and 9% BZ in an exothermic reaction.
-
-  <Box>
-    <GuideEntityEmbed Entity="BZCanister"/>
-    <GuideEntityEmbed Entity="FrezonCanister"/>
-    <GuideEntityEmbed Entity="GasVentScrubber"/>
-    <GuideEntityEmbed Entity="HealiumCanister"/>
-  </Box>
 
   ##Nitrium
   Nitrium is a gaseous stimulant that when inhaled can enhance speed and endurance. At lower concentrations Nitrium will increase your top running speed while healthy and unimpaired. Additionally, at slightly higher concentrations, breathing Nitrium will prevent drowsiness. At high concentrations breathing it will begin to shut down a person's lungs, causing asphyxiation.

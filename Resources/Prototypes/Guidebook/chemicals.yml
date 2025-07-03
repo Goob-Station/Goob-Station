@@ -23,6 +23,7 @@
   - Biological
   - Special
   - Others
+  - AtmosGases # Goobstation/Assmos change - separating condensed gas chems into separate group
   filterEnabled: True
 
 - type: guideEntry

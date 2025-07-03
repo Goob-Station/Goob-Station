@@ -1,4 +1,4 @@
-reagent-name-bz = bz
+reagent-name-bz = BZ
 reagent-desc-bz = A potent hallucinogenic that also puts slimes into stasis.
 
 reagent-name-healium = healium
