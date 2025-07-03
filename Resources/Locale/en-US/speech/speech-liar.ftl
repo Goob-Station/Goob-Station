@@ -26,114 +26,95 @@ liar-word-replacement-6 = yep
 liar-word-7 = sure
 liar-word-replacement-7 = nah
 
-liar-word-8 = was
-liar-word-replacement-8 = wasnt
+# goob start
 
-liar-word-9 = wasnt
-liar-word-replacement-9 = was
+liar-word-8 = ye
+liar-word-8-2 = ya
+liar-word-replacement-8 = na
 
-liar-word-10 = was
-liar-word-replacement-10 = wasnt
+liar-word-9 = na
+liar-word-replacement-9 = ye
 
-liar-word-11 = is
-liar-word-replacement-11 = isnt
+liar-word-10 = yuh
+liar-word-replacement-10 = nuh
 
-liar-word-12 = will
-liar-word-replacement-12 = wont
+liar-word-11 = nuh
+liar-word-replacement-11 = yuh
 
-liar-word-13 = dont
-liar-word-replacement-13 = ""
+liar-word-12 = was
+liar-word-replacement-12 = wasn't
 
-liar-word-14 = can
-liar-word-replacement-14 = cant
+liar-word-13 = wasn't
+liar-word-replacement-13 = was
 
-liar-word-15 = cant
-liar-word-replacement-15 = can
+liar-word-14 = is
+liar-word-replacement-14 = isn't
 
-liar-word-16 = should
-liar-word-replacement-16 = shouldnt
+liar-word-15 = isn't
+liar-word-replacement-15 = is
 
-liar-word-17 = dead
-liar-word-replacement-17 = alive
+liar-word-16 = will
+liar-word-replacement-16 = won't
 
-liar-word-18 = alive
-liar-word-replacement-18 = dead
+liar-word-17 = won't
+liar-word-replacement-17 = will
 
-liar-word-19 = does
-liar-word-replacement-19 = doesnt
+liar-word-18 = did
+liar-word-replacement-18 = didn't
 
-liar-word-20 = did
-liar-word-replacement-20 = didnt
+liar-word-19 = didn't
+liar-word-replacement-19 = did
 
-liar-word-21 = didnt
-liar-word-replacement-21 = ""
+# liar-word-20 = can
+# liar-word-replacement-20 = "can't"
+# something with can't being can directly followed by a ' means that it's being recognised as "can" matter how you format this??? incredibly fucked, leaving it like this until I find a better way to fix it (never)
 
-liar-word-22 = nothing
-liar-word-replacement-22 = something
+liar-word-21 = can't
+liar-word-replacement-21 = can
 
-liar-word-23 = something
-liar-word-replacement-23 = nothing
+liar-word-22 = should
+liar-word-replacement-22 = shouldn't
 
-liar-word-24 = somebody
-liar-word-replacement-24 = nobody
+liar-word-23 = shouldn't
+liar-word-replacement-23 = should
 
-liar-word-25 = nobody
-liar-word-replacement-25 = somebody
+liar-word-24 = does
+liar-word-replacement-24 = doesn't
 
-liar-word-26 = can
-liar-word-replacement-26 = "can't"
+liar-word-25 = doesn't
+liar-word-replacement-25 = does
 
-liar-word-27 = "can't"
-liar-word-replacement-27 = can
+liar-word-26 = do
+liar-word-replacement-26 = don't
 
-liar-word-28 = should
-liar-word-replacement-28 = "shouldn't"
+liar-word-27 = don't
+liar-word-replacement-27 = do
 
-liar-word-29 = do
-liar-word-replacement-29 = "don't"
+liar-word-28 = love
+liar-word-replacement-28 = hate
 
-liar-word-30 = "don't"
-liar-word-replacement-30 = ""
+liar-word-29 = hate
+liar-word-replacement-29 = love
 
-liar-word-31 = does
-liar-word-replacement-31 = "doesn't"
+liar-word-30 = good
+liar-word-replacement-30 = bad
 
-liar-word-32 = did
-liar-word-replacement-32 = "didn't"
+liar-word-31 = bad
+liar-word-replacement-31 = good
 
-liar-word-33 = "didn't"
-liar-word-replacement-33 = did
+liar-word-32 = wasnt
+liar-word-replacement-32 = was
 
-liar-word-34 = ye
-liar-word-34-2 = ya
-liar-word-replacement-34 = na
+liar-word-33 = cant
+liar-word-replacement-33 = can
 
-liar-word-35 = na
-liar-word-replacement-35 = ye
+liar-word-34 = dont
+liar-word-replacement-34 = do
 
-liar-word-36 = yuh
-liar-word-replacement-36 = nuh
+liar-word-35 = wont
+liar-word-replacement-35 = will
 
-liar-word-37 = nuh
-liar-word-replacement-37 = yuh
+liar-word-36 = isnt
+liar-word-replacement-36 = is
 
-liar-word-38 = love
-liar-word-replacement-38 = hate
-
-liar-word-39 = hate
-liar-word-replacement-39 = love
-
-liar-word-40 = like
-liar-word-replacement-40 = don't like
-
-liar-word-41 = good
-liar-word-replacement-41 = bad
-
-liar-word-42 = bad
-liar-word-replacement-42 = good
-
-liar-word-43 = want
-liar-word-replacement-43 = "don't want"
-
-liar-word-44 = not
-liar-word-replacement-44 = ""
+# goob end

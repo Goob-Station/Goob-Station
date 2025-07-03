@@ -88,9 +88,11 @@
 # SPDX-FileCopyrightText: 2024 tosatur <63034378+tosatur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 EulogisticLullaby <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Weax <59857479+ImWeax@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Accents that work off of word replacements.
@@ -562,6 +564,8 @@
     liar-word-6: liar-word-replacement-6
     liar-word-7: liar-word-replacement-7
     liar-word-8: liar-word-replacement-8
+    # goob start
+    liar-word-8-2: liar-word-replacement-8
     liar-word-9: liar-word-replacement-9
     liar-word-10: liar-word-replacement-10
     liar-word-11: liar-word-replacement-11
@@ -588,15 +592,9 @@
     liar-word-32: liar-word-replacement-32
     liar-word-33: liar-word-replacement-33
     liar-word-34: liar-word-replacement-34
-    liar-word-34-2: liar-word-replacement-34
     liar-word-35: liar-word-replacement-35
     liar-word-36: liar-word-replacement-36
-    liar-word-37: liar-word-replacement-37
-    liar-word-38: liar-word-replacement-38
-    liar-word-39: liar-word-replacement-39
-    liar-word-40: liar-word-replacement-40
-    liar-word-41: liar-word-replacement-41
-    liar-word-42: liar-word-replacement-42
+    # goob end
 
 - type: accent
   id: german
