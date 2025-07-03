@@ -8,7 +8,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
-    - state: frag
+    - state: beanbag
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: Tag
@@ -48,7 +48,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
-    - state: frag
+    - state: slug
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: Tag
