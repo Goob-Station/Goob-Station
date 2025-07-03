@@ -108,7 +108,6 @@
   - PassengerFace
   - PassengerGloves
   - PassengerOuterClothing
-  - PassengerShoes
   - PassengerBelt
 
 - type: roleLoadout
@@ -131,7 +130,6 @@
   - PassengerFace
   - PassengerGloves
   - PassengerOuterClothing
-  - PassengerShoes
 
 - type: roleLoadout
   id: JobNanotrasenCareerTrainer
