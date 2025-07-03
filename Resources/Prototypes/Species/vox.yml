@@ -63,7 +63,7 @@
       points: 1
       required: false
     Head:
-      points: 1
+      points: 2
       required: false
     RightLeg:
       points: 2

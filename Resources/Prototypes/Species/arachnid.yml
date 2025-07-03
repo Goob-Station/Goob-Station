@@ -69,7 +69,7 @@
       required: true
       defaultMarkings: [ ArachnidAppendagesDefault ]
     HeadTop:
-      points: 1
+      points: 2
       required: false
     HeadSide:
       points: 3
