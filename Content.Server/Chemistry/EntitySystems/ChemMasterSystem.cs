@@ -11,7 +11,6 @@
 // SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
 // SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
@@ -26,6 +25,10 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Dora <27211909+catdotjs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -154,7 +157,7 @@ namespace Content.Server.Chemistry.EntitySystems
             switch (chemMaster.Comp.Mode)
             {
                 case ChemMasterMode.Transfer:
-                    TransferReagents(chemMaster, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer);
+                    TransferReagents(chemMaster, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer, message.Actor); // goob - logging
                     break;
                 case ChemMasterMode.Discard:
                     DiscardReagents(chemMaster, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer);
@@ -167,7 +170,7 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
-        private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer)
+        private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer, EntityUid? actor = null) // goob - logging
         {
             var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName);
             if (container is null ||
@@ -192,6 +195,12 @@ namespace Content.Server.Chemistry.EntitySystems
                 _solutionContainerSystem.RemoveReagent(containerSoln.Value, id, amount);
                 bufferSolution.AddReagent(id, amount);
             }
+
+            if (actor.HasValue) // Goob - logging
+                _adminLogger.Add(LogType.Storage,
+                                 LogImpact.Low,
+                                 $"{ToPrettyString(actor)} transferred {amount}u of {id} {(!fromBuffer ? "from" : "to")}" +
+                                 $" {ToPrettyString(containerSoln)} {(fromBuffer ? "from" : "to")} {ToPrettyString(chemMaster)}");
 
             UpdateUiState(chemMaster, updateLabel: true);
         }
