@@ -94,6 +94,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Content.Shared.Coordinates.Helpers;
+
 
 namespace Content.Shared._Goobstation.Wizard;
 
@@ -140,6 +142,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
     [Dependency] private   readonly PullingSystem _pulling = default!;
     [Dependency] private   readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private   readonly IEntitySystemManager _entitySystemManager = default!;
 
     #endregion
 
@@ -165,7 +168,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
         SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
-        SubscribeLocalEvent<ExplosionEvent>(OnExplosion);
+        SubscribeLocalEvent<ExplosionSpellEvent>(OnExplosionSpell);
         SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
         SubscribeLocalEvent<ScreamForMeEvent>(OnScreamForMe);
@@ -679,12 +682,35 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
-    private void OnExplosion(ExplosionEvent ev)
+    private void OnExplosionSpell(ExplosionSpellEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        var coords = ev.Coords?.SnapToGrid(EntityManager, MapManager);
+        if (coords == null)
+            return;
+        var dummy = Spawn(null, coords.Value);
 
+
+        Spawn("MagicCircle", coords.Value);
+
+        Timer.Spawn(TimeSpan.FromSeconds(5), () =>
+        {
+            if (!Deleted(dummy))
+            {
+                TriggerExplosion(dummy);
+                QueueDel(dummy);
+            }
+        });
+
+        ev.Handled = true;
+    }
+
+    private void TriggerExplosion(EntityUid origin)
+    {
+        //Explosion here later
+        return;
     }
 
     private void OnLesserSummonGuns(LesserSummonGunsEvent ev)

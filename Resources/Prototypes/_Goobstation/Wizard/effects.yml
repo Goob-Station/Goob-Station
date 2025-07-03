@@ -79,6 +79,29 @@
         - BlobImpassable
 
 - type: entity
+  id: MagicCircle
+  name: magic circle
+  description: A blazing arcane sigil hums with unstable power, its runes seething with the promise of apocalyptic detonation. You should run. Now.
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Sprite
+    drawdepth: FloorEffects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects400x400.rsi
+        state: magiccircle
+  - type: PointLight
+    color: orange
+    radius: 5.0
+    energy: 2.0
+  - type: AmbientSound
+    range: 15
+    sound:
+      path: /Audio/_Goobstation/Wizard/magicfocus.ogg
+
+- type: entity
   id: ActionTargetMark
   categories: [ HideSpawnMenu ]
   components:

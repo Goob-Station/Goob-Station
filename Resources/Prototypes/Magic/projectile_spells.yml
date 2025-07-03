@@ -102,12 +102,17 @@
 
 - type: entity
   id: ActionExplosion
-  parent: ActionFireball
   name: Explosion
   description: The ultimate manifestation of destructive will. Using this will begin a lenghty casting which will result in a massive burst of arcane force obliterating everything in its wake. Will put you to sleep afterwards.
   components:
+  - type: Magic
+    requiresSpeech: true # Goobstation
+    school: Explosion # Goobstation
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: explosion
   - type: EntityWorldTargetAction # Goob edit
-    useDelay: 60 # Goob edit
+    useDelay: 6 # Goob edit
     checkCanInteract: false # Goobstation
     itemIconStyle: BigAction
     checkCanAccess: false
@@ -118,8 +123,7 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: explosion # Goob edit
-    event: !type:ProjectileSpellEvent
-      prototype: ProjectileFireball
+    event: !type:ExplosionSpellEvent
   - type: SpeakOnAction
     sentence: action-speech-spell-explosion
   - type: Tag

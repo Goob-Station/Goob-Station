@@ -289,9 +289,10 @@ public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent
     public Vector2 MinMaxLinearDamping = new(3f, 7f);
 }
 
-public sealed partial class ExplosionEvent : InstantActionEvent
+public sealed partial class ExplosionSpellEvent : EntityWorldTargetActionEvent
 {
-   
+    [DataField]
+    public EntProtoId Proto = "MagicCircle";
 }
 
 public sealed partial class ArcaneBarrageEvent : InstantActionEvent
