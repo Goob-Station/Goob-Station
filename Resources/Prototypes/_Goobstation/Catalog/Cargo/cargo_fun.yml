@@ -3,8 +3,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess14 <87253287+Arraydeess14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Stomf <5dorkydorks@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -45,8 +48,8 @@
   product: CrateFunRedCaviar
   cost: 1000
   group: market
-  
-  
+
+
 - type: cargoProduct
   id: FunBalloonPack
   icon:
@@ -54,5 +57,15 @@
     state: red
   product: CrateBalloonPackage
   cost: 1700
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: FunCrayonMagic
+  icon:
+    sprite: Objects/Fun/crayons.rsi
+    state: box
+  product: CrayonMagic
+  cost: 5000
   category: cargoproduct-category-name-fun
   group: market
