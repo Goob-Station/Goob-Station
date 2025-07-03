@@ -51,6 +51,7 @@
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
@@ -948,6 +949,22 @@
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: NukieUplinkAutosurgeonSandevistan
+  name: uplink-autosurgeon-sandevistan-name
+  description: uplink-autosurgeon-sandevistan-desc
+  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+  productEntity: AutosurgeonSandevistan
+  cost:
+    Telecrystal: 124
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
       tags:
       - NukeOpsUplink
 
