@@ -285,11 +285,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box>
     [color=#999999][italic] 5 Evolution Points / 35 Chems [italic][/color]
   </Box>
-  - Changeling produces 5 units of changeling fleshmenders.
-  - Reduces bleed by 8 every unit.
-  - Restores 20 blood level per unit.
-  - Heals 70 of each brute damage.
-  - Heals 30 of each burn damage.
+  - User is given the "Fleshmend" status effect, lasting for 10 seconds.
+  - Fleshmend's effects will temporarily cease while on fire.
+  - Heals 10 overall brute damage per tick (100 in total).
+  - Heals 5 overall burn damage per tick (50 in total).
+  - Heals 2 asphyxiation damage per tick (20 in total).
+  - Reduces bleeding severity by 2.5 per tick (25 in total).
+  - Restores roughly 3.5% blood level per tick (35% in total).
   - Usable while in critical condition.
   - Can be used while cuffed or in lesser form.
 </Document>
