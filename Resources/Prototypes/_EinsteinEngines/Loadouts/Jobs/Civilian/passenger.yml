@@ -455,11 +455,6 @@
     outerClothing: ClothingOuterCoatJacketLettermanMagenta
 
 - type: loadout
-  id: Bomber
-  equipment:
-    outerClothing: ClothingOuterCoatBomber
-
-- type: loadout
   id: HoodieBlack
   equipment:
     outerClothing: ClothingOuterHoodieBlack
@@ -488,21 +483,6 @@
   id: VestThick
   equipment:
     outerClothing: ClothingOuterVestThick
-
-- type: loadout
-  id: MNKWhiteHoodie
-  equipment:
-    outerClothing: ClothingOuterCoatMNKWhiteHoodie
-
-- type: loadout
-  id: MNKBlackTopCoat
-  equipment:
-    outerClothing: ClothingOuterCoatMNKBlackTopCoat
-
-- type: loadout
-  id: MNKBlackJacket
-  equipment:
-    outerClothing: ClothingOuterCoatMNKBlackJacket
 
 - type: loadout
   id: DenimJacket
@@ -548,11 +528,6 @@
   id: Overcoat
   equipment:
     outerClothing: ClothingOuterCoatOvercoat
-
-- type: loadout
-  id: JacketJamrock
-  equipment:
-    outerClothing: ClothingOuterCoatJacketJamrock
 
 - type: loadout
   id: SuitJacket
