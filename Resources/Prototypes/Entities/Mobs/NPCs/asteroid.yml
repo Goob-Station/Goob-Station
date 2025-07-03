@@ -417,7 +417,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Dead
+      45: Dead
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
