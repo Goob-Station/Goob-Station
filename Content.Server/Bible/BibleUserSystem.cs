@@ -21,11 +21,13 @@
 // SPDX-FileCopyrightText: 2024 double_b <40827162+benjamin-burges@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -53,6 +55,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Content.Shared.Eye;
 
 namespace Content.Server.Bible
 {
@@ -68,17 +71,20 @@ namespace Content.Server.Bible
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly SharedEyeSystem _eye = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
             SubscribeLocalEvent<BibleComponent, AfterInteractEvent>(OnAfterInteract);
+            SubscribeLocalEvent<BibleUserComponent, ComponentInit>(ViewFracture);
             SubscribeLocalEvent<SummonableComponent, GetVerbsEvent<AlternativeVerb>>(AddSummonVerb);
             SubscribeLocalEvent<SummonableComponent, GetItemActionsEvent>(GetSummonAction);
             SubscribeLocalEvent<SummonableComponent, SummonActionEvent>(OnSummon);
             SubscribeLocalEvent<FamiliarComponent, MobStateChangedEvent>(OnFamiliarDeath);
             SubscribeLocalEvent<FamiliarComponent, GhostRoleSpawnerUsedEvent>(OnSpawned);
+            
         }
 
         private readonly Queue<EntityUid> _addQueue = new();
@@ -287,6 +293,10 @@ namespace Content.Server.Bible
             _actionsSystem.RemoveAction(user, component.SummonActionEntity);
         }
 
-
+        private void ViewFracture(Entity<BibleUserComponent> ent, ref ComponentInit args)
+        {
+            if (TryComp<EyeComponent>(ent, out var eye))
+            _eye.SetVisibilityMask(ent, eye.VisibilityMask | (int) VisibilityFlags.EldritchInfluenceSpent);
+        }
     }
 }

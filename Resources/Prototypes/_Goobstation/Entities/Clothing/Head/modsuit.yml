@@ -469,6 +469,7 @@
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.01
+  - type: EyeProtection # goob
   - type: ComponentToggler
     components:
     - type: BreathMask
@@ -558,6 +559,7 @@
         Piercing: 0.85
         Heat: 0.2
         Radiation: 0.05
+  - type: EyeProtection # goob
   - type: ComponentToggler
     components:
     - type: BreathMask
