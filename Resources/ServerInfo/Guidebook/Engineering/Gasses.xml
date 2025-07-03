@@ -159,9 +159,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="HealiumCanister"/>
   </Box>
 
-  ##Nitrium
+  ## Nitrium
   Nitrium is a gaseous stimulant that when inhaled can enhance speed and endurance. At lower concentrations Nitrium will increase your top running speed while healthy and unimpaired. Additionally, at slightly higher concentrations, breathing Nitrium will prevent drowsiness. At high concentrations breathing it will begin to shut down a person's lungs, causing asphyxiation.
-  It can be made by combining 47.5% Nitrogen, 47.5% Tritium, and 5% BZ at or above 1500k degrees. With higher tempature giving greater efficiency.
+  It can be made by combining 47.5% Nitrogen, 47.5% Tritium, and 5% BZ at or above 1500 K, with higher temperature giving greater efficiency.
 
   <Box>
     <GuideEntityEmbed Entity="BZCanister"/>
