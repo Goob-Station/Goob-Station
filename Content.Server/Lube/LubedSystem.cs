@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Lube; // Goobstation
 using Content.Shared.IdentityManagement;
 using Content.Shared.Lube;
 using Content.Shared.NameModifier.EntitySystems;
@@ -40,6 +41,14 @@ public sealed class LubedSystem : EntitySystem
 
     private void OnHandPickUp(EntityUid uid, LubedComponent component, ContainerGettingInsertedAttemptEvent args)
     {
+        // <Goobstation>
+        var ev = new CanLubedInsertEvent(args.Container);
+        RaiseLocalEvent(uid, ref ev);
+
+        if (ev.CanInsert)
+            return;
+        // </Goobstation>
+
         if (component.SlipsLeft <= 0)
         {
             RemComp<LubedComponent>(uid);

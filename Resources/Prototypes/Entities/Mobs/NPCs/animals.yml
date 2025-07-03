@@ -783,6 +783,9 @@
     allowedEmotes: ['Chitter', 'Squeak', 'Flap'] #flap is from goob
   - type: FaxableObject
     insertingState: inserting_mothroach
+  # Goobstation
+  - type: FaxSlip
+    slipChance: 0.3
   - type: MothAccent
   - type: Sprite
     sprite: Mobs/Animals/mothroach/mothroach.rsi
@@ -2205,6 +2208,8 @@
     defaultChannel: Mousemind
     channels:
     - Mousemind
+  - type: FaxSlip
+    slipChance: 0.3
   # </Goobstation>
   - type: Destructible # Shitmed Change
     thresholds:
@@ -3718,6 +3723,9 @@
   - type: Physics
   - type: FaxableObject
     insertingState: inserting_hamster
+  # Goobstation
+  - type: FaxSlip
+    slipChance: 0.3
   - type: Fixtures
     fixtures:
       fix1:

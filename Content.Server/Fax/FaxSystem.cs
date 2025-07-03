@@ -108,6 +108,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Fax; // Goobstation
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -417,6 +418,14 @@ public sealed class FaxSystem : EntitySystem
                     Receive(uid, printout, args.SenderAddress);
 
                     break;
+                // Goobstation
+                case FaxConstants.FaxSendEntityCommand:
+                    if (!args.Data.TryGetValue(FaxConstants.FaxEntitySentData, out EntityUid? received))
+                        return;
+
+                    _transform.SetCoordinates(received.Value, Transform(uid).Coordinates);
+
+                    break;
             }
         }
     }
@@ -443,6 +452,16 @@ public sealed class FaxSystem : EntitySystem
 
     private void OnSendButtonPressed(EntityUid uid, FaxMachineComponent component, FaxSendMessage args)
     {
+        // Goobstation
+        if (component.PaperSlot.Item != null)
+        {
+            var sentEv = new GettingFaxedSentEvent((uid, component), args);
+            RaiseLocalEvent(component.PaperSlot.Item.Value, ref sentEv);
+
+            if (sentEv.Handled)
+                return;
+        }
+
         if (HasComp<MobStateComponent>(component.PaperSlot.Item))
             _faxecute.Faxecute(uid, component); // when button pressed it will hurt the mob.
         else
@@ -638,6 +657,7 @@ public sealed class FaxSystem : EntitySystem
 
         var payload = new NetworkPayload()
         {
+            // Goobstation merge conflict landmine: if how faxes work is changed FaxSlipSystem.cs might become broken
             { DeviceNetworkConstants.Command, FaxConstants.FaxPrintCommand },
             { FaxConstants.FaxPaperNameData, nameMod?.BaseName ?? metadata.EntityName },
             { FaxConstants.FaxPaperLabelData, labelComponent?.CurrentLabel },

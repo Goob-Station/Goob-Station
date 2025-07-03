@@ -29,6 +29,12 @@ public static class FaxConstants
      */
     public const string FaxPrintCommand = "fax_print";
 
+    // Goobstation
+    /**
+     * Used when fax sending entity to destination fax
+     */
+    public const string FaxSendEntityCommand = "fax_send_entity";
+
     // Data
 
     public const string FaxNameData = "fax_data_name";
@@ -40,4 +46,7 @@ public static class FaxConstants
     public const string FaxPaperStampedByData = "fax_data_stamped_by";
     public const string FaxSyndicateData = "fax_data_i_am_syndicate";
     public const string FaxPaperLockedData = "fax_data_locked";
+
+    // Goobstation
+    public const string FaxEntitySentData = "fax_entity_sent";
 }

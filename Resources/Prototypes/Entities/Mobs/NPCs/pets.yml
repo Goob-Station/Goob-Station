@@ -751,6 +751,9 @@
     flavors:
     - meaty
     - sadness
+  # Goobstation - hamlet is unique so higher chance to actually get faxed
+  - type: FaxSlip
+    slipChance: 0.5
 
 - type: entity
   name: Shiva
