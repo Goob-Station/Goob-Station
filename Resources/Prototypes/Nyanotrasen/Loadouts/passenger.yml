@@ -1,0 +1,14 @@
+- type: loadout
+  id: MNKWhiteHoodie
+  equipment:
+    outerClothing: ClothingOuterCoatMNKWhiteHoodie
+
+- type: loadout
+  id: MNKBlackTopCoat
+  equipment:
+    outerClothing: ClothingOuterCoatMNKBlackTopCoat
+
+- type: loadout
+  id: MNKBlackJacket
+  equipment:
+    outerClothing: ClothingOuterCoatMNKBlackJacket

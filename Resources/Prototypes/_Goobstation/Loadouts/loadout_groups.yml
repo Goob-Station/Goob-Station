@@ -98,7 +98,6 @@
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
   name: loadout-group-bso-jumpsuit
-  minLimit: 0
   exclusiveWith: INNERCLOTHING
   loadouts:
   - BlueshieldOfficerInnerBlueshieldSkirt

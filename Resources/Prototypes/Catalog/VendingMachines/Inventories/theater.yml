@@ -114,6 +114,8 @@
     ClothingShoesBootsCowboyWhite: 1
     ClothingCostumeAbductorHead: 1
     ClothingCostumeAbductor: 1
+    ClothingHeadHatBunny: 1 # Goobstation
+    ClothingCostumeBunnySuit: 1 # Goobstation - If you want it, you'll have to take it
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1
@@ -130,3 +132,4 @@
     ClothingMaskSexyClown: 1
     ClothingMaskSexyMime: 1
     ClothingHeadHatCowboyBountyHunter: 1
+    ClothingUniformSwimsuitBlue: 1 # Goobstation - It came in the trash

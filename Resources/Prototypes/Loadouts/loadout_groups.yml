@@ -373,7 +373,7 @@
 - type: loadoutGroup
   id: PassengerJumpsuit
   name: loadout-group-passenger-jumpsuit
-  minLimit: 1
+  minLimit: 0
   exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - GreyJumpsuit
@@ -382,76 +382,83 @@
   - RainbowJumpsuit
   - RainbowJumpskirt
   # Goobstation Loadout Rework Start
-  # All of this is EE
-  - AssymetricDress
-  - EveningDress
-  - MidiDress
-  - TeaDress
-  - SlevelessDress
-  - LongSleeveDress
-  - BlackNGoldDress
-  - TangoDress
-  - CheonsamGreenDress
-  - CheonsamPurpleDress
-  - CheonsamRedDress
-  - CheonsamWhiteDress
-  - BlueSundress
-  - ClubDress
-  - CovetDress
-  - FlamencoDress
-  - FireDress
-  - OrangeDress
-  - YellowDress
-  - FlowergirlDress
-  - FluffyDress
-  - FormalRedDress
-  - GothicDress
-  - OutfitKimono
-  - LacyGownDress
-  - LongLongDress
-  - FlaredDressOutfit
-  - QipaoOutfit
-  - QipaoOutfitSlim
-  - RedSweptDressOutfit
-  - GymBraOutfit
-  - PuffyDressOutfit
-  - SailorDress
-  - StripedDress
-  - SundressOutfit
-  - SundressOutfitWhite
-  - VictorianBlackDress
-  - VictorianRedDress
-  - YellowSwoopDress
-  - NekoArcCurse
-  - GeishaOutfit
-  - JumpsuitTShirtJeans
-  - JumpsuitTShirtJeansGray
-  - JumpsuitTShirtJeansKhaki
-  - JumpsuitTShirtJeansPeach
-  # EE stuff end
-  # Nyano stuff start
-  - ClothingCostumeMioSkirtOutfit
-  - ClothingCostumeNaotaOutfit
-  - ClothingUniformRatOutfit
-  - ClothingUniformDressRedOutfit
-  - ClothingUniformKendoHakamaOutfit
-  - ClothingUniformMartialGiOutfit
-  - ClothingKimonoBlueOutfit
-  - ClothingKimonoPinkOutfit
-  - ClothingKimonoPurpleOutfit
-  - ClothingKimonoSkyOutfit
-  - ClothingKimonoGreenOutfit
-  - UniformSchoolgirlDuskOutfit
-  - UniformSchoolgirlBlazerTanOutfit
-  - ClothingUniformSchoolGakuranBlackOutfit
-  - ClothingUniformMNKOfficeSkirtOutfit
-  - ClothingUniformMNKUnderGarmentOutfit
-  - ClothingUniformMNKGymBraOutfit
-  - ClothingUniformMNKDressBlackOutfit
-  - ClothingUniformMNKBlackOverallsOutfit
-  - ClothingUniformMNKBlackShoulderOutfit
-  - ClothingUniformMNKTracksuitBlackOutfit
-  
+  - AssymetricDress #EE
+  - EveningDress #EE
+  - MidiDress #EE
+  - TeaDress #EE
+  - SlevelessDress #EE
+  - LongSleeveDress #EE
+  - BlackNGoldDress #EE
+  - TangoDress #EE
+  - CheonsamGreenDress #EE 
+  - CheonsamPurpleDress #EE
+  - CheonsamRedDress #EE
+  - CheonsamWhiteDress #EE
+  - BlueSundress #EE
+  - ClubDress #EE
+  - CovetDress #EE
+  - FlamencoDress #EE
+  - FireDress #EE
+  - OrangeDress #EE
+  - YellowDress #EE
+  - FlowergirlDress #EE
+  - FluffyDress #EE
+  - FormalRedDress #EE
+  - GothicDress #EE
+  - OutfitKimono #EE
+  - LacyGownDress #EE
+  - LongLongDress #EE
+  - FlaredDressOutfit #EE
+  - QipaoOutfit #EE
+  - QipaoOutfitSlim #EE
+  - RedSweptDressOutfit #EE
+  - GymBraOutfit #EE
+  - PuffyDressOutfit #EE
+  - SailorDress #EE
+  - StripedDress #EE
+  - SundressOutfit #EE 
+  - SundressOutfitWhite #EE
+  - VictorianBlackDress #EE
+  - VictorianRedDress #EE
+  - YellowSwoopDress #EE
+  - NekoArcCurse #Nyanotrasen
+  - GeishaOutfit #Nyanotrasen
+  - JumpsuitTShirtJeans #Nyanotrasen
+  - JumpsuitTShirtJeansGray #Nyanotrasen
+  - JumpsuitTShirtJeansKhaki #Nyanotrasen
+  - JumpsuitTShirtJeansPeach #Nyanotrasen
+  - FlannelJeansJumpsuit #EE
+  - BlackFlannelJeansJumpsuit #EE
+  - BlackKhakiFlannelJeansJumpsuit #EE
+  - BlueBlazerJumpsuit #EE
+  - CheckeredSuitOutfit #EE
+  - OliveSweaterOutfit #EE
+  - VictorianBlackRedVest #EE
+  - VictorianRedVest #EE
+  - VictorianVest #EE
+  - GymBra #EE
+  - RippedPunk #EE
+  - ClothingCostumeMioSkirtOutfit #Nyanotrasen
+  - ClothingCostumeNaotaOutfit #Nyanotrasen
+  - ClothingUniformRatOutfit #Nyanotrasen
+  - ClothingUniformDressRedOutfit #Nyanotrasen
+  - ClothingUniformKendoHakamaOutfit #Nyanotrasen
+  - ClothingUniformMartialGiOutfit #Nyanotrasen
+  - ClothingKimonoBlueOutfit #Nyanotrasen
+  - ClothingKimonoPinkOutfit #Nyanotrasen
+  - ClothingKimonoPurpleOutfit #Nyanotrasen
+  - ClothingKimonoSkyOutfit #Nyanotrasen
+  - ClothingKimonoGreenOutfit #Nyanotrasen
+  - UniformSchoolgirlDuskOutfit #Nyanotrasen
+  - UniformSchoolgirlBlazerTanOutfit #Nyanotrasen
+  - ClothingUniformSchoolGakuranBlackOutfit #Nyanotrasen
+  - ClothingUniformMNKOfficeSkirtOutfit #Nyanotrasen
+  - ClothingUniformMNKUnderGarmentOutfit #Nyanotrasen
+  - ClothingUniformMNKGymBraOutfit #Nyanotrasen
+  - ClothingUniformMNKDressBlackOutfit #Nyanotrasen
+  - ClothingUniformMNKBlackOverallsOutfit #Nyanotrasen
+  - ClothingUniformMNKBlackShoulderOutfit #Nyanotrasen
+  - ClothingUniformMNKTracksuitBlackOutfit #Nyanotrasen
  # Goobstation Loadout Rework End
  # goob changes start
   - GreyMJ
@@ -513,7 +520,12 @@
   loadouts:
   - Mantle
   # Goobstation Loadout Rework Start
-  - FurWrap # EE stuff...
+  - FurWrap # EE
+  - NeckScarfBlack
+  - NeckScarfBlue
+  - NeckScarfGreen
+  - NeckScarfOrange
+  - NeckScarfRed
   # Goobstation Loadout Rework Start
 
 - type: loadoutGroup
@@ -527,55 +539,55 @@
   - PassengerBlackVictorianCoat # EE
   - LettermanJacketBlue # Nyanotrasen
   - LettermanJacketRed # Nyanotrasen
-  - PassengerWinterCoatLong # DV
-  - PassengerWinterCoatPlaid
+  - PassengerWinterCoatLong # Nyanotrasen
+  - PassengerWinterCoatPlaid # Nyanotrasen
   - LettermanJacketBrown
   - LettermanJacketMagenta
   - Bomber
-  - BomberAerostatic
-  - BomberPunkRed
-  - BomberPinkSleeves
+  - BomberAerostatic # Frontier
+  - BomberPunkRed # Frontier
+  - BomberPinkSleeves # Frontier
   - HoodieBlack
   - HoodieGrey
-  - HyenhSweater
+  - HyenhSweater # Nyanotrasen
   - Vest
-  - VestThick
-  - MNKWhiteHoodie
-  - MNKBlackTopCoat
-  - MNKBlackJacket
-  - DenimJacket
+  - VestThick # EE
+  - MNKWhiteHoodie # Nyanotrasen
+  - MNKBlackTopCoat # Nyanotrasen
+  - MNKBlackJacket # Nyanotrasen
+  - DenimJacket # DV
   - FlannelRed
   - FlannelGreen
   - FlannelBlue
   - Trench
   - Jensen
   - Gentle
-  - Inspector
-  - Overcoat
-  - JacketLeather
-  - JacketBiker
-  - JacketJamrock
-  - AcidRaincoat
-  - AcidRaincoatBlue
-  - AcidRaincoatGreen
-  - AcidRaincoatMagenta
-  - AcidRaincoatYellow
-  - SuitJacket
-  - Modern
-  - Tailcoat 
-  - Cardigan
-  - CardiganArgyle
-  - CardiganSweater
+  - Inspector # EE
+  - Overcoat # DV
+  - JacketLeather # Frontier
+  - JacketBiker # Frontier
+  - JacketJamrock # Frontier
+  - AcidRaincoat # Frontier
+  - AcidRaincoatBlue # Frontier
+  - AcidRaincoatGreen # Frontier
+  - AcidRaincoatMagenta # Frontier
+  - AcidRaincoatYellow # Frontier
+  - SuitJacket # EE
+  - Modern # EE
+  - Tailcoat # EE 
+  - Cardigan # EE
+  - CardiganArgyle # EE
+  - CardiganSweater # EE
   - CowboyDuster
-  - Blazer
-  - BlazerLong
-  - BlazerFormal
-  - BlazerLooseSleeve
-  - BlazerFlatCollar
+  - Blazer # EE
+  - BlazerLong # EE
+  - BlazerFormal # EE
+  - BlazerLooseSleeve # EE
+  - BlazerFlatCollar # EE
   - BlazerPosh
-  - CoatPeacoat
-  - CoatAsymmetric
-  - CoatSubmariner
+  - CoatPeacoat # EE
+  - CoatAsymmetric # EE
+  - CoatSubmariner # EE
   - CoatExpensive
   - SuitWitchRobes
   # Goobstation Loadout Rework End
@@ -594,6 +606,11 @@
   loadouts:
   - BlackShoes
   - WinterBoots
+  #Goob Loadouts Rework Start
+  - LoadoutWorkBoots
+  - LoadoutSalvageBoots
+  - LaceupShoes
+  #Goob Loadouts Rework End
 
 - type: loadoutGroup
   id: BartenderHead
@@ -1492,7 +1509,7 @@
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - TrooperUniform
-  - SecuritySummerJumpsuit # Goobstation Loadout Rework Addition - DV
+  - SecuritySummerJumpsuit # Nyanotrasen
 
 - type: loadoutGroup
   id: SecurityBackpack

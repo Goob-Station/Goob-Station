@@ -1,0 +1,44 @@
+# Shoes
+
+- type: loadout
+  id: LoadoutWorkBoots
+  equipment:
+    shoes: ClothingShoesBootsWork
+
+- type: loadout
+  id: LoadoutSalvageBoots
+  equipment:
+    shoes: ClothingShoesBootsSalvage
+
+- type: loadout
+  id: LaceupShoes
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+# Neck
+
+- type: loadout
+  id: NeckScarfRed
+  equipment:
+    neck: ClothingNeckScarfStripedRed
+
+- type: loadout
+  id: NeckScarfBlue
+  equipment:
+    neck: ClothingNeckScarfStripedBlue
+
+- type: loadout
+  id: NeckScarfGreen
+  equipment:
+    neck: ClothingNeckScarfStripedGreen
+  
+- type: loadout
+  id: NeckScarfBlack
+  equipment:
+    neck: ClothingNeckScarfStripedBlack
+
+- type: loadout
+  id: NeckScarfOrange
+  equipment:
+    neck: ClothingNeckScarfStripedOrange
+
