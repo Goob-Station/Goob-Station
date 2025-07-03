@@ -1,0 +1,17 @@
+﻿- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatOvercoat
+  name: overcoat
+  description: A warm, dark overcoat, suitable for formal occasions.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Coats/overcoat.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Coats/overcoat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.75

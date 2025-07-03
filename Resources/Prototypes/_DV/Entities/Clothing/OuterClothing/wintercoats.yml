@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterDenimJacket
+  name: Denim jacket
+  description: A jean jacket with a warm inner lining.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/denim_jacket.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/WinterCoats/denim_jacket.rsi

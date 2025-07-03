@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingOuterFoldableBase
+  id: ClothingOuterVestThick
+  name: thick vest
+  description: A vest made of synthetic leather.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Vests/vest_thick.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Vests/vest_thick.rsi

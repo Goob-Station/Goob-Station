@@ -203,6 +203,11 @@
   equipment:
     outerClothing: ClothingOuterWinterCoat
 
+- type: loadout
+  id: SuitWitchRobes
+  equipment:
+    outerClothing: ClothingOuterSuitWitchRobes
+
 # Shoes
 - type: loadout
   id: BlackShoes

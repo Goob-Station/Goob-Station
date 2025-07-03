@@ -415,6 +415,16 @@
 # Outerclothing
 
 - type: loadout
+  id: PassengerWinterCoatLong
+  equipment:
+    outerClothing: ClothingOuterWinterCoatLong
+
+- type: loadout
+  id: PassengerWinterCoatPlaid
+  equipment:
+    outerClothing: ClothingOuterWinterCoatPlaid
+
+- type: loadout
   id: PassengerRedVictorianCoat
   equipment:
     outerClothing: ClothingOuterCoatVictorianRed
@@ -433,6 +443,251 @@
   id: LettermanJacketRed
   equipment:
     outerClothing: ClothingOuterCoatLettermanRed
+
+- type: loadout
+  id: LettermanJacketBrown
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLettermanBrown
+
+- type: loadout
+  id: LettermanJacketMagenta
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLettermanMagenta
+
+- type: loadout
+  id: Bomber
+  equipment:
+    outerClothing: ClothingOuterCoatBomber
+
+- type: loadout
+  id: BomberAerostatic
+  equipment:
+    outerClothing: ClothingOuterCoatBomberAerostatic
+
+- type: loadout
+  id: BomberPunkRed
+  equipment:
+    outerClothing: ClothingOuterCoatBomberPunkRed
+
+- type: loadout
+  id: BomberPinkSleeves
+  equipment:
+    outerClothing: ClothingOuterCoatBomberPinkSleeves
+
+- type: loadout
+  id: HoodieBlack
+  equipment:
+    outerClothing: ClothingOuterHoodieBlack
+
+- type: loadout
+  id: HoodieGrey
+  equipment:
+    outerClothing: ClothingOuterHoodieGrey
+
+- type: loadout
+  id: HyenhSweater
+  equipment:
+    outerClothing: ClothingOuterCoatHyenhSweater
+
+- type: loadout
+  id: Valet
+  equipment:
+    outerClothing: ClothingOuterVestValet
+
+- type: loadout
+  id: Vest
+  equipment:
+    outerClothing: ClothingOuterVest
+
+- type: loadout
+  id: VestThick
+  equipment:
+    outerClothing: ClothingOuterVestThick
+
+- type: loadout
+  id: MNKWhiteHoodie
+  equipment:
+    outerClothing: ClothingOuterCoatMNKWhiteHoodie
+
+- type: loadout
+  id: MNKBlackTopCoat
+  equipment:
+    outerClothing: ClothingOuterCoatMNKBlackTopCoat
+
+- type: loadout
+  id: MNKBlackJacket
+  equipment:
+    outerClothing: ClothingOuterCoatMNKBlackJacket
+
+- type: loadout
+  id: DenimJacket
+  equipment:
+    outerClothing: ClothingOuterDenimJacket
+
+- type: loadout
+  id: FlannelRed
+  equipment:
+    outerClothing: ClothingOuterFlannelRed
+
+- type: loadout
+  id: FlannelGreen
+  equipment:
+    outerClothing: ClothingOuterFlannelGreen
+
+- type: loadout
+  id: FlannelBlue
+  equipment:
+    outerClothing: ClothingOuterFlannelBlue
+
+- type: loadout
+  id: Trench
+  equipment:
+    outerClothing: ClothingOuterCoatTrench
+
+- type: loadout
+  id: Jensen
+  equipment:
+    outerClothing: ClothingOuterCoatJensen
+
+- type: loadout
+  id: Gentle
+  equipment:
+    outerClothing: ClothingOuterCoatGentle
+
+- type: loadout
+  id: Inspector
+  equipment:
+    outerClothing: ClothingOuterCoatInspector
+
+- type: loadout
+  id: Overcoat
+  equipment:
+    outerClothing: ClothingOuterCoatOvercoat
+
+- type: loadout
+  id: JacketLeather
+  equipment:
+    outerClothing: ClothingOuterCoatJacketLeather
+
+- type: loadout
+  id: JacketBiker
+  equipment:
+    outerClothing: ClothingOuterCoatJacketBiker
+
+- type: loadout
+  id: JacketJamrock
+  equipment:
+    outerClothing: ClothingOuterCoatJacketJamrock
+
+- type: loadout
+  id: AcidRaincoat
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoat
+
+- type: loadout
+  id: AcidRaincoatBlue
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatBlue
+
+- type: loadout
+  id: AcidRaincoatGreen
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatGreen
+
+- type: loadout
+  id: AcidRaincoatMagenta
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatMagenta
+
+- type: loadout
+  id: AcidRaincoatYellow
+  equipment:
+    outerClothing: ClothingOuterCoatAcidRaincoatYellow
+
+- type: loadout
+  id: SuitJacket
+  equipment:
+    outerClothing: ClothingOuterSuitJacket
+
+- type: loadout
+  id: Modern
+  equipment:
+    outerClothing: ClothingOuterCoatModern
+
+- type: loadout
+  id: Tailcoat
+  equipment:
+    outerClothing: ClothingOuterTailcoat
+
+- type: loadout
+  id: Cardigan
+  equipment:
+    outerClothing: ClothingOuterCardigan
+
+- type: loadout
+  id: CardiganArgyle
+  equipment:
+    outerClothing: ClothingOuterCardiganArgyle
+
+- type: loadout
+  id: CardiganSweater
+  equipment:
+    outerClothing: ClothingOuterCardiganSweater
+
+- type: loadout
+  id: CowboyDuster
+  equipment:
+    outerClothing: ClothingOuterCowboyDuster
+
+- type: loadout
+  id: Blazer
+  equipment:
+    outerClothing: ClothingOuterBlazer
+
+- type: loadout
+  id: BlazerLong
+  equipment:
+    outerClothing: ClothingOuterBlazerLong
+
+- type: loadout
+  id: BlazerFormal
+  equipment:
+    outerClothing: ClothingOuterBlazerFormal
+
+- type: loadout
+  id: BlazerLooseSleeve
+  equipment:
+    outerClothing: ClothingOuterBlazerLooseSleeve
+
+- type: loadout
+  id: BlazerFlatCollar
+  equipment:
+    outerClothing: ClothingOuterBlazerFlatCollar
+
+- type: loadout
+  id: BlazerPosh
+  equipment:
+    outerClothing: ClothingOuterBlazerPosh
+
+- type: loadout
+  id: CoatPeacoat
+  equipment:
+    outerClothing: ClothingOuterCoatPeacoat
+
+- type: loadout
+  id: CoatAsymmetric
+  equipment:
+    outerClothing: ClothingOuterCoatAsymmetric
+
+- type: loadout
+  id: CoatSubmariner
+  equipment:
+    outerClothing: ClothingOuterCoatSubmariner
+
+- type: loadout
+  id: CoatExpensive
+  equipment:
+    outerClothing: ClothingOuterCoatExpensive
 
 # Belt
 - type: loadout

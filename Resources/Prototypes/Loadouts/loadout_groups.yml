@@ -527,6 +527,57 @@
   - PassengerBlackVictorianCoat # EE
   - LettermanJacketBlue # Nyanotrasen
   - LettermanJacketRed # Nyanotrasen
+  - PassengerWinterCoatLong # DV
+  - PassengerWinterCoatPlaid
+  - LettermanJacketBrown
+  - LettermanJacketMagenta
+  - Bomber
+  - BomberAerostatic
+  - BomberPunkRed
+  - BomberPinkSleeves
+  - HoodieBlack
+  - HoodieGrey
+  - HyenhSweater
+  - Vest
+  - VestThick
+  - MNKWhiteHoodie
+  - MNKBlackTopCoat
+  - MNKBlackJacket
+  - DenimJacket
+  - FlannelRed
+  - FlannelGreen
+  - FlannelBlue
+  - Trench
+  - Jensen
+  - Gentle
+  - Inspector
+  - Overcoat
+  - JacketLeather
+  - JacketBiker
+  - JacketJamrock
+  - AcidRaincoat
+  - AcidRaincoatBlue
+  - AcidRaincoatGreen
+  - AcidRaincoatMagenta
+  - AcidRaincoatYellow
+  - SuitJacket
+  - Modern
+  - Tailcoat 
+  - Cardigan
+  - CardiganArgyle
+  - CardiganSweater
+  - CowboyDuster
+  - Blazer
+  - BlazerLong
+  - BlazerFormal
+  - BlazerLooseSleeve
+  - BlazerFlatCollar
+  - BlazerPosh
+  - CoatPeacoat
+  - CoatAsymmetric
+  - CoatSubmariner
+  - CoatExpensive
+  - SuitWitchRobes
   # Goobstation Loadout Rework End
 
 - type: loadoutGroup
