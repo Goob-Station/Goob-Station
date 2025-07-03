@@ -7,7 +7,6 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -20,27 +19,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.Prototypes;
-using System.Threading;
+namespace Content.Server._Lavaland.Megafauna;
 
-namespace Content.Server._Lavaland.Mobs;
+/// <summary>
+/// Raised when boss is fully defeated.
+/// </summary>
+public sealed class MegafaunaKilledEvent : EntityEventArgs;
 
-[RegisterComponent]
-public sealed partial class MegafaunaComponent : Component
-{
-    /// <summary>
-    ///     Should it drop guaranteed loot when dead? If so what exactly?
-    /// </summary>
-    [DataField] public EntProtoId? Loot = null;
+/// <summary>
+/// Raised when boss starts proceeding it's logic.
+/// </summary>
+public sealed class MegafaunaStartupEvent : EntityEventArgs;
 
-    /// <summary>
-    ///     Should it drop something besides the main loot as a crusher only reward?
-    /// </summary>
-    [DataField] public EntProtoId? CrusherLoot = null;
-
-    /// <summary>
-    ///     Check if the boss got damaged by crusher only.
-    ///     True by default. Will immediately switch to false if anything else hit it. Even the environmental stuff.
-    /// </summary>
-    [DataField] public bool CrusherOnly = true;
-}
+/// <summary>
+/// Raised when boss doesn't die but for any reason deactivates.
+/// </summary>
+public sealed class MegafaunaShutdownEvent : EntityEventArgs;

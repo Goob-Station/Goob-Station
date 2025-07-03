@@ -35,7 +35,7 @@ using Content.Shared.Chat;
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
-namespace Content.Server._Lavaland.Mobs.Hierophant;
+namespace Content.Server._Lavaland.Hierophant;
 
 public sealed class HierophandClubItemSystem : EntitySystem
 {
@@ -117,7 +117,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
         _popup.PopupEntity("Teleportation point set.", user);
 
         AddImmunity(user);
-        _hierophant.SpawnDamageBox(user, 1, false);
+        _hierophant.SpawnDamageBox(user, ent.Comp.HierophantDamageTileId,1, false);
 
         args.Handled = true;
     }
@@ -134,10 +134,11 @@ public sealed class HierophandClubItemSystem : EntitySystem
         }
 
         var user = args.Performer;
-
         AddImmunity(user);
-        _xform.SetCoordinates(user, Transform(ent.Comp.TeleportMarker.Value).Coordinates); // CROSS MAP TP!!!
-        _hierophant.Blink(user, ent.Comp.TeleportMarker);
+
+        var position = _xform.GetMapCoordinates(ent.Comp.TeleportMarker.Value);
+        _hierophant.Blink(user, ent.Comp.HierophantDamageTileId, position);
+
         args.Handled = true;
     }
 
@@ -161,7 +162,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
 
         // shitcode because i dont want to rewrite and break the code again
         var dummy = Spawn(null, coords);
-        _hierophant.SpawnCross(dummy, club.CrossRange, 0f);
+        _hierophant.SpawnCrossRook(dummy, club.HierophantDamageTileId, club.CrossRange);
         _audio.PlayPvs(club.DamageSound, coords, AudioParams.Default.WithMaxDistance(10f));
         QueueDel(dummy);
     }

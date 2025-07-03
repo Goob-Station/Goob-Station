@@ -24,6 +24,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Lavaland.Biome;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
@@ -36,11 +37,10 @@ using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
-using Robust.Server.GameObjects;
+using Robust.Server.Physics;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
@@ -48,7 +48,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
@@ -68,25 +67,22 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetConfigurationManager _config = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly BiomeSystem _biome = default!;
+    [Dependency] private readonly GridFixtureSystem _gridFixtures = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly ISerializationManager _serManager = default!;
 
-    private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<FixturesComponent> _fixtureQuery;
+
+    protected override string SawmillName => "lavaland";
 
     public override void Initialize()
     {
@@ -95,7 +91,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeLocalEvent<MobStateComponent, EntParentChangedMessage>(OnPlayerParentChange);
 
-        _gridQuery = GetEntityQuery<MapGridComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
         _fixtureQuery = GetEntityQuery<FixturesComponent>();
 
@@ -158,16 +153,13 @@ public sealed class LavalandPlanetSystem : EntitySystem
         return null;
     }
 
-    public List<Entity<LavalandMapComponent>> GetLavalands()
+    public IEnumerable<Entity<LavalandMapComponent>> GetLavalands()
     {
         var lavalandsQuery = EntityQueryEnumerator<LavalandMapComponent>();
-        var lavalands = new List<Entity<LavalandMapComponent>>();
         while (lavalandsQuery.MoveNext(out var uid, out var comp))
         {
-            lavalands.Add((uid, comp));
+            yield return (uid, comp);
         }
-
-        return lavalands;
     }
 
     /// <summary>
@@ -221,12 +213,13 @@ public sealed class LavalandPlanetSystem : EntitySystem
         if (!SetupOutpost(lavalandMap, lavalandMapId, prototype.OutpostPath, out var outpost))
             return false;
 
-        var loadBox = Box2.CentredAroundZero(new Vector2(prototype.RestrictedRange, prototype.RestrictedRange));
+        var loadBox = Box2.CentredAroundZero(new Vector2(prototype.RestrictedRange * 2, prototype.RestrictedRange * 2));
 
         mapComp.Outpost = outpost;
         mapComp.Seed = seed.Value;
         mapComp.PrototypeId = lavalandPrototypeId;
-        mapComp.LoadArea = loadBox;
+
+        EnsureComp<BiomeOptimizeComponent>(lavalandMap).LoadArea = loadBox;
 
         // Setup Ruins.
         var pool = _proto.Index(prototype.RuinPool);
@@ -294,6 +287,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         };
         AddComp(lavalandMap, restricted);
 
+        // TODO: Make Restricted Range a square, because lavaland is... Well, a square.
     }
 
     private bool SetupOutpost(EntityUid lavaland, MapId lavalandMapId, ResPath path, out EntityUid outpost)
@@ -337,7 +331,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         var usedSpace = new List<Box2> { boundary.Value };
 
         // Load grid ruins
-        SetupHugeRuins(pool.GridRuins, lavaland, preloader, random, pool.RuinDistance, ref coords, ref usedSpace);
+        SetupHugeRuins(pool.GridRuins, lavaland, preloader, random, ref coords, ref usedSpace);
 
         // Create a new list that excludes all already used spaces that intersect with big ruins.
         // Sweet optimization (another lag machine).
@@ -352,7 +346,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // Load dungeon ruins
         // TODO: make it actual dungeons instead of spawning markers
-        SetupDungeonRuins(pool.DungeonRuins, lavaland, random, pool.RuinDistance, ref coords, ref usedSpace);
+        SetupDungeonRuins(pool.DungeonRuins, lavaland, random, ref coords, ref usedSpace);
     }
 
     /// <summary>
@@ -365,7 +359,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
         Entity<LavalandMapComponent> lavaland,
         Entity<LavalandPreloaderComponent> preloader,
         Random random,
-        float ruinDistance,
         ref List<Vector2> coords,
         ref List<Box2> usedSpace)
     {
@@ -390,7 +383,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
         Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> ruins,
         Entity<LavalandMapComponent> lavaland,
         Random random,
-        float ruinDistance,
         ref List<Vector2> coords,
         ref List<Box2> usedSpace)
     {
@@ -549,15 +541,10 @@ public sealed class LavalandPlanetSystem : EntitySystem
             return false;
 
         var coord = random.Pick(coords);
-        var box = Box2.CentredAroundZero(ruin.Boundary);
-
-        // Why there's no method to move the Box2 around???
-        var v1 = box.BottomLeft + coord;
-        var v2 = box.TopRight + coord;
-        var ruinBox = new Box2(v1, v2); // This is ruin box, but moved to it's correct coords on the map
+        var box = Box2.CentredAroundZero(ruin.Boundary).Translated(coord);
 
         // If any used boundary intersects with current boundary, return
-        if (usedSpace.Any(used => used.Intersects(ruinBox)))
+        if (usedSpace.Any(used => used.Intersects(box)))
         {
             Log.Debug("Ruin can't be placed on it's coordinates, skipping spawn");
             return false;
@@ -565,8 +552,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // Spawn the marker
         Spawn(ruin.SpawnedMarker, new EntityCoordinates(lavaland, coord));
-
-        usedSpace.Add(ruinBox);
+        usedSpace.Add(box);
         coords.Remove(coord);
         return true;
     }
