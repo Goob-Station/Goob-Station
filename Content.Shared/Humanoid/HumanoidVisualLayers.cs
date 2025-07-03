@@ -32,8 +32,6 @@ namespace Content.Shared.Humanoid
         Hair,
         FacialHair,
         Chest,
-        Underwear,
-        Undershirt,
         Groin,
         Head,
         Snout,
