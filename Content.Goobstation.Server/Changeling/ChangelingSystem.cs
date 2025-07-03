@@ -613,7 +613,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
         else
         {
-            comp.AbsorbedHistory.Add(data); // so we can't just come back and sting them again 
+            comp.AbsorbedHistory.Add(data); // so we can't just come back and sting them again
 
             comp.AbsorbedDNA.Add(data);
             comp.TotalStolenDNA++;
@@ -624,6 +624,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private ChangelingIdentityComponent? CopyChangelingComponent(EntityUid target, ChangelingIdentityComponent comp)
     {
+        EnsureComp<ChangelingComponent>(target);
+
         var newComp = EnsureComp<ChangelingIdentityComponent>(target);
         newComp.AbsorbedHistory = comp.AbsorbedHistory;
         newComp.AbsorbedDNA = comp.AbsorbedDNA;
