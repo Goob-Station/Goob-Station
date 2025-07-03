@@ -269,6 +269,10 @@ namespace Content.Server.Communications
             if (stationUid != null)
             {
                 _alertLevelSystem.SetLevel(stationUid.Value, message.Level, true, true);
+                // Goob
+                _adminLogger.Add(LogType.Chat,
+                                 LogImpact.Medium,
+                                 $"{ToPrettyString(message.Actor):actor} set alert level to {message.Level:level} with {ToPrettyString(uid):subject}");
             }
         }
 
