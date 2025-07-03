@@ -1,0 +1,28 @@
+- type: constructionGraph
+  id: magic_crayon
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: magicCrayon
+          steps:
+            - material: BSCrystal
+              amount: 1
+            - tag: CrayonRed
+              name: red crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: red
+            - tag: CrayonGreen
+              name: green crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: green
+            - tag: CrayonBlue
+              name: blue crayon
+              icon:
+                sprite: Objects/Fun/crayons.rsi
+                state: blue
+              doAfter: 5
+    - node: magicCrayon
+      entity: CrayonMagic

@@ -1,0 +1,10 @@
+- type: construction
+  name: Magic Crayon
+  id: CrayonMagic
+  graph: magic_crayon
+  startNode: start
+  targetNode: magicCrayon
+  category: construction-category-misc
+  description: A crayon that lasts forever! Pretty too
+  icon: { sprite: _NF/Objects/Fun/magic_crayon.rsi, state: icon }
+  objectType: Item

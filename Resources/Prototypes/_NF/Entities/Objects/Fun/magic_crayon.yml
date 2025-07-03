@@ -1,0 +1,31 @@
+- type: entity
+  parent: CrayonRainbow
+  id: CrayonMagic
+  name: magic crayon
+  description: Specially blended with bluespace crystals and certified non-toxic.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Fun/magic_crayon.rsi
+    state: icon
+  - type: Item
+    sprite: _NF/Objects/Fun/magic_crayon.rsi
+    heldPrefix: icon
+  - type: Tag # Removing trash & recyclable
+    tags:
+    - Write
+    - Crayon
+  - type: Crayon
+    capacity: 2147483647 # int.MaxValue, infinite charges
+  - type: FlavorProfile
+    flavors:
+    - chewy
+    - magical
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nothing
+          Quantity: 100
+  - type: Construction
+    graph: magic_crayon
+    node: magicCrayon
