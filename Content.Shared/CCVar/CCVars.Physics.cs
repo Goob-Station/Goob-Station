@@ -1,5 +1,9 @@
 // SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -22,7 +26,7 @@ public sealed partial class CCVars
         CVarDef.Create("physics.air_friction", 0.2f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
     public static readonly CVarDef<float> OffgridFriction =
-        CVarDef.Create("physics.offgrid_friction", 0.05f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("physics.offgrid_friction", 0.0f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER); // Goobstation
 
     public static readonly CVarDef<float> TileFrictionModifier =
         CVarDef.Create("physics.tile_friction", 8.0f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
