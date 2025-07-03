@@ -197,10 +197,10 @@
     - 0,0,2,1
 
 - type: entity
-  name: Drozd
+  name: M-5U Drozd
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunDrozd
-  description: A modern SMG manufactured by Nanotrasen’s Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
+  description: A modern SMG platform manufactured by Nanotransen's Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
@@ -324,5 +324,51 @@
   - type: Multishot
     missChance: 0.3
   - type: Item
+    shape:
+    - 0,0,2,1
+
+- type: entity
+  name: M-84 submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  id: WeaponSubMachineGunM84
+  description: A cheap and mass produced submachine gun, famous for its light weight frame & low cost. Feeds from .35 SMG magazines.
+  components:
+  - type: Sprite
+    sprite: _RA\Objects\Weapons\Guns\SMGs\M84.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _RA\Objects\Weapons\Guns\SMGs\M84.rsi
+  - type: Wieldable
+#    unwieldOnUse: false
+#  - type: GunWieldBonus
+#    minAngle: -19
+ #   maxAngle: -16
+  - type: Gun
+    minAngle: 5
+    maxAngle: 30
+    fireRate: 10
+    burstFireRate: 8
+    angleIncrease: 5
+    angleDecay: 16
+#    minAngle: 21 # Base SMG already has minAngle: 2 maxAngle: 16
+#    maxAngle: 32 # Goob - one-handed C20R - end
+    shotsPerBurst: 5
+    availableModes:
+    - Burst
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item # Goobstation
     shape:
     - 0,0,2,1

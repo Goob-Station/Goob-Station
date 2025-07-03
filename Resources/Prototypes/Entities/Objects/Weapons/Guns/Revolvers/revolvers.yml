@@ -193,10 +193,10 @@
     proto: CartridgeMagnumAP
 
 - type: entity
-  name: Python
+  name: Spearhead
   parent: [BaseWeaponRevolver, BaseSyndicateContraband]
   id: WeaponRevolverPython
-  description: A powerful double-action revolver manufactured by the Syndicate. Loud and flashy, perfect for any agent looking to make a statement. Loads 6 rounds of .45 magnum.
+  description: A powerful double-action revolver manufactured by the Syndicate. Loud and flashy, perfect for any Merc looking to make a statement. Loads 6 rounds of .45 magnum.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi

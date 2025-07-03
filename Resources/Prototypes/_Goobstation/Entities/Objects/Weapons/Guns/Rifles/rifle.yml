@@ -67,10 +67,10 @@
     - 0,0,5,2
 
 - type: entity
-  name: M-90
+  name: M-95
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleM90
-  description: A revision of the M-90gl that removes the inbuilt grenade launcher. Uses .20 rifle ammo.
+  description: A balanced rifle platform that is of decent quality, excellent for its price & ease of use.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi
