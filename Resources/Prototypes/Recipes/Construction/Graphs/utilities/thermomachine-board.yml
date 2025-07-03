@@ -37,3 +37,33 @@
       steps:
       - tool: Screwing
         doAfter: 2
+
+  # Assmos changes below
+  - node: upgradedfreezer
+    entity: ThermomachineUpgradedFreezerMachineCircuitBoard
+    edges:
+    - to: upgradedheater
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: upgradedheater
+    entity: ThermomachineUpgradedHeaterMachineCircuitBoard
+    edges:
+    - to: upgradedfreezer
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: advancedfreezer
+    entity: ThermomachineAdvancedFreezerMachineCircuitBoard
+    edges:
+    - to: advancedheater
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: advancedheater
+    entity: ThermomachineAdvancedHeaterMachineCircuitBoard
+    edges:
+    - to: advancedfreezer
+      steps:
+      - tool: Screwing
+        doAfter: 2

@@ -5,6 +5,9 @@
 // SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 //
@@ -30,6 +33,11 @@ public sealed partial class GasLeakRuleComponent : Component
         Gas.Healium, // Assmos - /tg/ gases
         Gas.Nitrium, // Assmos - /tg/ gases
         Gas.Pluoxium, // Assmos - /tg/ gases
+        Gas.HyperNoblium, // Assmos - /tg/ gases
+        Gas.ProtoNitrate, // Assmos - /tg/ gases
+        Gas.Halon, // Assmos - /tg/ gases
+        Gas.Helium, // Assmos - /tg/ gases
+        Gas.AntiNoblium, // Assmos - /tg/ gases
     };
 
     /// <summary>
