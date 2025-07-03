@@ -223,6 +223,10 @@
   - WhiteCane
   - TapeRecorder
   # End DeltaV Additions
+  - Squackroach
+  - Mouse
+  - Mothroach
+  - Goldfish
 
 - type: loadoutGroup
   id: Glasses
