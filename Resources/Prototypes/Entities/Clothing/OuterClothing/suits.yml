@@ -323,17 +323,11 @@
   - type: ComponentToggler
     parent: true
     components:
-    # Goobstation - Proper invisibility
     - type: Stealth
-      maxVisibility: 0.1
+      maxVisibility: 0.2 # Goob edit
       hadOutline: true
-    - type: StealthOnMove
-      invisibilityPenalty: 3
-      maxInvisibilityPenalty: 1.6
-      passiveVisibilityRate: -1 # cloak very fast
-      movementVisibilityRate: 0.15 # only some cloak if moving
   - type: PowerCellDraw
-    drawRate: 1.8 # 200 seconds on the default cell
+    drawRate: 3.6 # 100 seconds on the default cell # Goob edit
   - type: ToggleCellDraw
   # throwing star ability
   - type: ItemCreator
