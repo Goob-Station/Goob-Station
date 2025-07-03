@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -168,6 +169,18 @@
   - type: Inventory
     speciesId: harpy
     templateId: digitigrade # Einstein Engines
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
   - type: HarpyVisuals
   - type: Tag
     tags:
@@ -195,7 +208,19 @@
     species: Harpy
   - type: Inventory
     speciesId: harpy
-    templateId: digitigrade
+    templateId: digitigrade # Einstein Engines
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
   - type: Sprite
     scale: 0.9, 0.9
     layers:
