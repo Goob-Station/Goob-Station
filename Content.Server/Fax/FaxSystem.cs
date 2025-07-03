@@ -161,6 +161,7 @@ public sealed class FaxSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FaxecuteSystem _faxecute = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // Goobstation
     [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
 
     private const string PaperSlotId = "Paper";
@@ -424,7 +425,14 @@ public sealed class FaxSystem : EntitySystem
                     if (!args.Data.TryGetValue(FaxConstants.FaxEntitySentData, out EntityUid? received))
                         return;
 
-                    _transform.SetCoordinates(received.Value, Transform(uid).Coordinates);
+                    args.Data.TryGetValue(FaxConstants.FaxWorkCrossGridData, out bool? canCrossGrid);
+                    if (!(canCrossGrid ?? true) && _transform.GetGrid(uid) != _transform.GetGrid(received.Value))
+                        return;
+
+                    var faxXform = Transform(uid);
+                    _transform.SetCoordinates(received.Value, faxXform.Coordinates);
+                    _container.AttachParentToContainerOrGrid((received.Value, Transform(received.Value)));
+                    Receive(uid, null, args.SenderAddress);
 
                     break;
             }
@@ -702,7 +710,8 @@ public sealed class FaxSystem : EntitySystem
     ///     Accepts a new message and adds it to the queue to print
     ///     If has parameter "notifyAdmins" also output a special message to admin chat.
     /// </summary>
-    public void Receive(EntityUid uid, FaxPrintout printout, string? fromAddress = null, FaxMachineComponent? component = null)
+    // Goobstation - make printout nullable
+    public void Receive(EntityUid uid, FaxPrintout? printout, string? fromAddress = null, FaxMachineComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -712,12 +721,14 @@ public sealed class FaxSystem : EntitySystem
             faxName = fax;
 
         _popupSystem.PopupEntity(Loc.GetString("fax-machine-popup-received", ("from", faxName)), uid);
-        _appearanceSystem.SetData(uid, FaxMachineVisuals.VisualState, FaxMachineVisualState.Printing);
+        if (printout != null) // Goobstation
+            _appearanceSystem.SetData(uid, FaxMachineVisuals.VisualState, FaxMachineVisualState.Printing);
 
         if (component.NotifyAdmins)
             NotifyAdmins(faxName);
 
-        component.PrintingQueue.Enqueue(printout);
+        if (printout != null) // Goobstation
+            component.PrintingQueue.Enqueue(printout);
     }
 
     private void SpawnPaperFromQueue(EntityUid uid, FaxMachineComponent? component = null)

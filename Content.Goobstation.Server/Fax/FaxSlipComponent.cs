@@ -24,4 +24,10 @@ public sealed partial class FaxSlipComponent : Component
     /// </summary>
     [DataField]
     public float? LubedChance = 1f;
+
+    /// <summary>
+    /// Whether to work if the destination and source faxes are on different grids.
+    /// </summary>
+    [DataField]
+    public bool CrossGrid = true;
 }

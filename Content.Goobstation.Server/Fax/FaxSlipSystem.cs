@@ -63,18 +63,19 @@ public sealed class FaxSlipSystem : EntitySystem
             var payload = new NetworkPayload()
             {
                 { DeviceNetworkConstants.Command, FaxConstants.FaxSendEntityCommand },
-                { FaxConstants.FaxEntitySentData, args.Fax.Comp.PaperSlot.Item }
+                { FaxConstants.FaxEntitySentData, args.Fax.Comp.PaperSlot.Item },
+                { FaxConstants.FaxWorkCrossGridData, ent.Comp.CrossGrid }
             };
 
             _deviceNetwork.QueuePacket(args.Fax, args.Fax.Comp.DestinationFaxAddress, payload);
 
             var actor = args.Args.Actor;
             if (actor.IsValid())
-            _adminLogger.Add(LogType.Action,
-                LogImpact.Low,
-                $"{ToPrettyString(actor):actor} " +
-                $"sent entity {ToPrettyString(sendEntity)} from \"{args.Fax.Comp.FaxName}\" {ToPrettyString(args.Fax):tool} " +
-                $"to \"{faxName}\" ({args.Fax.Comp.DestinationFaxAddress}) ");
+                _adminLogger.Add(LogType.Action,
+                    LogImpact.Low,
+                    $"{ToPrettyString(actor):actor} " +
+                    $"sent entity {ToPrettyString(sendEntity)} from \"{args.Fax.Comp.FaxName}\" {ToPrettyString(args.Fax):tool} " +
+                    $"to \"{faxName}\" ({args.Fax.Comp.DestinationFaxAddress}) ");
 
             args.Fax.Comp.SendTimeoutRemaining += args.Fax.Comp.SendTimeout;
 

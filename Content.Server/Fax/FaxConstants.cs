@@ -51,5 +51,6 @@ public static class FaxConstants
     public const string FaxPaperLockedData = "fax_data_locked";
 
     // Goobstation
-    public const string FaxEntitySentData = "fax_entity_sent";
+    public const string FaxEntitySentData = "fax_data_entity_sent";
+    public const string FaxWorkCrossGridData = "fax_data_work_crossgrid"; // used for sending entities
 }
