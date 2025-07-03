@@ -1,0 +1,334 @@
+# All Abilities
+
+# Pre-Hatch
+
+- type: entity
+  id: ActionHatch
+  name: Hatch
+  description: Engages the hatching progress.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: engage_hatch
+    event: !type:HatchEvent {}
+  - type: ConfirmableAction
+    popup: sling-hatch-engage-popup
+  - type: ShadowlingAction
+
+# Post-Hatch
+- type: entity
+  id: ActionEnthrall
+  name: Enthrall
+  description: Shatters their will, forging a thrall.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    range: 0.5
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: enthrall
+    event: !type:EnthrallEvent { }
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionGlare
+  name: Glare
+  description: A dark glare that stuns, silences, and slows your target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    useDelay: 30
+    range: 10
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: glare
+    event: !type:GlareEvent { }
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionVeil
+  name: Veil
+  description: A pulse of darkness that silences every light.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 60
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: veil
+    event: !type:VeilEvent { }
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionRapidRehatch
+  name: Rapid Re-Hatch
+  description: Shed your broken flesh, and rise whole once more.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 60
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: rehatch
+    event: !type:RapidRehatchEvent { }
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionShadowWalk
+  name: Shadow Walk
+  description: Step into the void, moving unseen and unhindered.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 45
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: shadow_walk
+    event: !type:ShadowWalkEvent { }
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionIcyVeins
+  name: Icy Veins
+  description: Send frost through their veins.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 50
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: icy_veins
+    event: !type:IcyVeinsEvent { }
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionDestroyEngines
+  name: Destroy Engines
+  description: Destroy the engines of the evacuation shuttle. Delays the shuttle by 10 minutes.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: destroy_engines
+    event: !type:DestroyEnginesEvent { }
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionCollectiveMind
+  name: Collective Mind
+  description: Harvest the minds of your Thralls, and gain various abilities.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: collective_mind
+    event: !type:CollectiveMindEvent { }
+  - type: ShadowlingAction
+
+# Thrall Required Actions
+
+- type: entity
+  id: ActionBlindnessSmoke
+  name: Blindness Smoke
+  description: Heal your kind, and blind anyone who dares enter your mist.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 60
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: blindness_smoke
+    event: !type:BlindnessSmokeEvent { }
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionNullCharge
+  name: Null Charge
+  description: Stand near an APC and overload it with a surge of nullifying force.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 60
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: null_charge
+    event: !type:NullChargeEvent
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionSonicScreech
+  name: Sonic Screech
+  description: Release a violent scream that disorients all who hear it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 30
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: sonic_screech
+    event: !type:SonicScreechEvent
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionBlackRecuperation
+  name: Black Recuperation
+  description: Bring back a dead Thrall to life, or empower a living one. You'll reduce your resistance to light by using it.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    range: 1
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: black_recuperation
+    event: !type:BlackRecuperationEvent
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionEmpoweredEnthrall
+  name: Empowered Enthrall
+  description: Shatters their will, forging a Thrall. Faster and stronger.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    range: 1
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: emp_enthrall
+    event: !type:EmpoweredEnthrallEvent
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionNoxImperii
+  name: Nox Imperii
+  description: Become immune to that which you fear the most. Light.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: nox_imperii
+    event: !type:NoxImperiiEvent
+  - type: ShadowlingAction
+
+# Ascension Abilities
+
+- type: entity
+  id: ActionAscendance
+  name: Ascendance
+  description: Forge your ascension egg and walk the path of a god.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: ascendance
+    event: !type:AscendanceEvent
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionAnnihilate
+  name: Annihilate
+  description: Blow them to bits of flesh.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    useDelay: 45
+    range: 12
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: annihilate
+    event: !type:AnnihilateEvent
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionHypnosis
+  name: Hypnosis
+  description: Make anyone a Thrall, at a moment's notice.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    useDelay: 30
+    range: 12
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: enthrall
+    event: !type:HypnosisEvent
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionPlaneShift
+  name: Plane Shift
+  description: Phase through anything, whenever you desire.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 2
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: shadow_walk
+    event: !type:TogglePlaneShiftEvent
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionLightningStorm
+  name: Lightning Storm
+  description: Spawn a ball of wrath, electrocuting everyone near you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 30
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: lightning_storm
+    event: !type:LightningStormEvent
+  - type: ShadowlingAction
+
+- type: entity
+  id: ActionAscendantBroadcast
+  name: Ascendant Broadcast
+  description: Send a very hard to miss message to everyone.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: broadcast
+    event: !type:AscendantBroadcastEvent
+  - type: ShadowlingAction
