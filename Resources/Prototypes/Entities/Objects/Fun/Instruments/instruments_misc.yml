@@ -66,6 +66,14 @@
   - type: Sprite
     sprite: Objects/Fun/Instruments/otherinstruments.rsi
     state: red_phone
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/phone_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/phone_drop.ogg
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
        path: /Audio/Items/ring.ogg
