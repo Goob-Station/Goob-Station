@@ -69,6 +69,8 @@
       amount: 42
     WeldingFuel:
       ammount: 21
+  products:
+    AmmoniumNitrateFuelOil: 63
   effects:
     - !type:AdjustSolutionThermalEnergyEffect #explodes everything in the beaker
       delta: 500
