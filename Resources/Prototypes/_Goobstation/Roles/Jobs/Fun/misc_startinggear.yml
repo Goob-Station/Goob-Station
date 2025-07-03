@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: startingGear
+  id: SyndicateFootsoldierGearVent
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAtmosSyndie
+    head: ClothingHeadHelmetSwatSyndicate
+    mask: ClothingMaskGasSyndicate
+    outerClothing: ClothingOuterArmorBasic
+    gloves: ClothingHandsGlovesCombat
+    back: ClothingBackpack
+    shoes: ClothingShoesBootsCombat
+    id: SyndiPDA
+  storage:
+    back:
+    - BoxSurvivalSlots
+  inhand:
+    - CombatKnife
