@@ -68,7 +68,7 @@
 - type: loadoutGroup
   id: NanotrasenRepresentativeShoes
   name: loadout-group-ntr-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - NanotrasenRepresentativeBoots
   - NanotrasenRepresentativeShoes
@@ -129,7 +129,7 @@
 - type: loadoutGroup
   id: BlueshieldOfficerShoes
   name: loadout-group-bso-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - JackBoots
   - BlackCowboyBoots

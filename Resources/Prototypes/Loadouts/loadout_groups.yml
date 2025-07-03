@@ -605,7 +605,7 @@
 - type: loadoutGroup
   id: PassengerShoes
   name: loadout-group-passenger-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - BlackShoes
   - WinterBoots
@@ -881,7 +881,7 @@
 - type: loadoutGroup
   id: ClownShoes
   name: loadout-group-clown-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - ClownShoes
   - JesterShoes
@@ -1051,7 +1051,7 @@
 - type: loadoutGroup
   id: QuartermasterShoes
   name: loadout-group-quartermaster-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - BrownShoes
   - CargoWinterBoots
@@ -1097,7 +1097,7 @@
 - type: loadoutGroup
   id: CargoTechnicianShoes
   name: loadout-group-cargo-technician-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - BlackShoes
   - CargoWinterBoots
@@ -1122,7 +1122,7 @@
 - type: loadoutGroup
   id: SalvageSpecialistShoes
   name: loadout-group-salvage-specialist-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - SalvageBoots
   - CargoWinterBoots
@@ -1166,7 +1166,7 @@
 - type: loadoutGroup
   id: ChiefEngineerShoes
   name: loadout-group-chief-engineer-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - BrownShoes
   - EngineeringWinterBoots
@@ -1225,7 +1225,7 @@
 - type: loadoutGroup
   id: StationEngineerShoes
   name: loadout-group-station-engineer-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - WorkBoots
   - EngineeringWinterBoots
@@ -1277,7 +1277,7 @@
 - type: loadoutGroup
   id: AtmosphericTechnicianShoes
   name: loadout-group-atmospheric-technician-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - WhiteShoes
   - EngineeringWinterBoots
@@ -1329,7 +1329,7 @@
 - type: loadoutGroup
   id: ResearchDirectorShoes
   name: loadout-group-research-director-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - BrownShoes
   - ScienceWinterBoots
@@ -1389,7 +1389,7 @@
 - type: loadoutGroup
   id: ScientistShoes
   name: loadout-group-scientist-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - WhiteShoes
   - BlackShoes
@@ -1546,7 +1546,7 @@
 - type: loadoutGroup
   id: SecurityShoes
   name: loadout-group-security-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - JackBoots
   - CombatBoots # Goobstation
@@ -1662,7 +1662,7 @@
 - type: loadoutGroup
   id: ChiefMedicalOfficerShoes
   name: loadout-group-chief-medical-officer-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - BrownShoes
   - MedicalWinterBoots
@@ -1718,7 +1718,7 @@
 - type: loadoutGroup
   id: MedicalShoes
   name: loadout-group-medical-doctor-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - WhiteShoes
   - MedicalWinterBoots
@@ -1820,7 +1820,7 @@
 - type: loadoutGroup
   id: ParamedicShoes
   name: loadout-group-paramedic-shoes
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - BlueShoes
   - WhiteShoes
