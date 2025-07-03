@@ -96,10 +96,6 @@
     color: orange
     radius: 5.0
     energy: 2.0
-  - type: AmbientSound
-    range: 15
-    sound:
-      path: /Audio/_Goobstation/Wizard/magicfocus.ogg
 
 - type: entity
   id: ActionTargetMark

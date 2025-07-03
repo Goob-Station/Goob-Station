@@ -97,12 +97,17 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Content.Shared.Coordinates.Helpers;
-
+using Content.Shared.Explosion;
+using Content.Shared.Explosion.EntitySystems;
+using Content.Shared.Bed.Sleep;
 
 namespace Content.Shared._Goobstation.Wizard;
 
 public abstract class SharedSpellsSystem : EntitySystem
 {
+
+    private const string StatusEffectKey = "ForcedSleep";
+
     #region Dependencies
 
     [Dependency] protected readonly IGameTiming Timing = default!;
@@ -145,6 +150,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly PullingSystem _pulling = default!;
     [Dependency] private   readonly MobThresholdSystem _threshold = default!;
     [Dependency] private   readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private   readonly SharedExplosionSystem _explosion = default!;
 
     #endregion
 
@@ -701,7 +707,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             if (!Deleted(dummy))
             {
+                //Explodes and makes the caster fall asleep
                 TriggerExplosion(dummy);
+                _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(ev.Performer, StatusEffectKey, TimeSpan.FromSeconds(10), false);
                 QueueDel(dummy);
             }
         });
@@ -709,10 +717,8 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
-    private void TriggerExplosion(EntityUid origin)
+    protected virtual void TriggerExplosion(EntityUid origin)
     {
-        //Explosion here later
-        return;
     }
 
     private void OnLesserSummonGuns(LesserSummonGunsEvent ev)

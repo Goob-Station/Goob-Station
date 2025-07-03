@@ -75,6 +75,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Explosion.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -207,6 +208,16 @@ public sealed class SpellsSystem : SharedSpellsSystem
             false,
             session.Channel,
             args.MessageColor);
+    }
+
+    protected override void TriggerExplosion(EntityUid origin)
+    {
+        _explosion.TriggerExplosive(
+            origin,
+            delete: true,
+            totalIntensity: 50f,
+            radius: 4f
+        );
     }
 
     protected override void MakeMime(EntityUid uid)
