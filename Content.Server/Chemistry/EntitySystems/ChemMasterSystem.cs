@@ -154,7 +154,7 @@ namespace Content.Server.Chemistry.EntitySystems
             switch (chemMaster.Comp.Mode)
             {
                 case ChemMasterMode.Transfer:
-                    TransferReagents(chemMaster, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer);
+                    TransferReagents(chemMaster, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer, message.Actor); // goob - logging
                     break;
                 case ChemMasterMode.Discard:
                     DiscardReagents(chemMaster, message.ReagentId, message.Amount.GetFixedPoint(), message.FromBuffer);
@@ -167,7 +167,7 @@ namespace Content.Server.Chemistry.EntitySystems
             ClickSound(chemMaster);
         }
 
-        private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer)
+        private void TransferReagents(Entity<ChemMasterComponent> chemMaster, ReagentId id, FixedPoint2 amount, bool fromBuffer, EntityUid? actor = null) // goob - logging
         {
             var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.InputSlotName);
             if (container is null ||
@@ -192,6 +192,12 @@ namespace Content.Server.Chemistry.EntitySystems
                 _solutionContainerSystem.RemoveReagent(containerSoln.Value, id, amount);
                 bufferSolution.AddReagent(id, amount);
             }
+
+            if (actor.HasValue) // Goob - logging
+                _adminLogger.Add(LogType.Storage,
+                                 LogImpact.Low,
+                                 $"{ToPrettyString(actor)} transferred {amount}u of {id} {(!fromBuffer ? "from" : "to")}" +
+                                 $" {ToPrettyString(containerSoln)} {(fromBuffer ? "from" : "to")} {ToPrettyString(chemMaster)}");
 
             UpdateUiState(chemMaster, updateLabel: true);
         }
