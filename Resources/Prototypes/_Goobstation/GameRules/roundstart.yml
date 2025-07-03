@@ -17,6 +17,7 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -34,7 +35,7 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
-    chaosScore: 800
+    chaosScore: 1000
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
@@ -50,7 +51,7 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 4
+      max: 6 
       playerRatio: 12
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       lateJoinAdditional: true
@@ -71,7 +72,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 3
+      max: 5
       playerRatio: 15
       blacklist:
         components:
@@ -96,11 +97,11 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 2
-      playerRatio: 15
+      max: 3
+      playerRatio: 25
       lateJoinAdditional: true
       mindRoles:
-      - MindRoleTraitor
+      - MindRoleChangeling
   - type: Tag
     tags:
       - CalmAntag
