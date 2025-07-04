@@ -20,7 +20,6 @@ namespace Content.Goobstation.Client.Xenobiology;
 /// </summary>
 public sealed class XenoSlimeVisualizerSystem : VisualizerSystem<SlimeComponent>
 {
-
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, SlimeComponent component, ref AppearanceChangeEvent args)

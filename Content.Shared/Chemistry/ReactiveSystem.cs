@@ -153,14 +153,15 @@ public sealed class ReactiveSystem : EntitySystem
 
                     effect.Effect(args);
 
-                    // Goobstation - Start
-                    var afterReact = new SolutionReactedEvent();
-                    RaiseLocalEvent(uid, ref afterReact);
-
-                    if (!reactive.IsReactionsUnlimited)
-                        reactive.RemainingReactions -= 1;
-                    // Goobstation - End
                 }
+
+                // Goobstation - Start
+                var afterReact = new SolutionReactedEvent();
+                RaiseLocalEvent(uid, ref afterReact);
+
+                if (!reactive.IsReactionsUnlimited)
+                    reactive.RemainingReactions -= 1;
+                // Goobstation - End
             }
         }
     }

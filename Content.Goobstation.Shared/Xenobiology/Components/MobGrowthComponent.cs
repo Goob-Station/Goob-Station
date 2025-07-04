@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Xenobiology.Components;
 
@@ -30,12 +31,19 @@ public sealed partial class MobGrowthComponent : Component
     /// What is the mob's current growth stage?
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
-    public string CurrentStage;
+    public GrowthStage CurrentStage;
 
     /// <summary>
     /// A list of available stages, make sure to include the base stage.
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
-    public List<string> Stages = [];
+    public List<GrowthStage> Stages;
 
+}
+
+[Serializable, NetSerializable]
+public enum GrowthStage
+{
+    Baby,
+    Adult,
 }
