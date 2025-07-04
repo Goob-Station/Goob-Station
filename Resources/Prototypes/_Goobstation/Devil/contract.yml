@@ -6,7 +6,7 @@
 
 - type: entity
   id: BaseDevilContract
-  parent: [BaseItem, BaseMagicContraband]
+  parent: [BaseItem, BaseMagicalContraband]
   abstract: true
   name: contract from below
   description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.

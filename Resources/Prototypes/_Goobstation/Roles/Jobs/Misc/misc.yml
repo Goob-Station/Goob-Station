@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -86,3 +89,115 @@
   storage:
     back:
     - DeterrentCaseFilled
+
+# High Commander
+
+- type: job
+  id: SyndicateHighCommander
+  name: job-name-highcommander
+  description: job-description-highcommander
+  playTimeTracker: JobHighCommander
+  setPreference: false
+  startingGear: SyndicateHighCommanderGearFull
+  icon: "JobIconSyndicate"
+  supervisors: job-supervisors-syndicate
+  canBeAntag: true
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - NuclearOperative
+  - SyndicateAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ FreedomImplant, ScramImplant, NutrimentPumpImplant, SpaceProofImplant, StypticStimulatorImplant, DeathAcidifierImplant, UplinkImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: GrantCqc
+      startingStage: Hard
+      isBlocked: false
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+
+- type: startingGear
+  id: SyndicateHighCommanderGearFull
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndieFormal
+    back: ClothingBackpackDuffelSyndicate
+    mask: ClothingMaskGasSyndicate
+    head: ClothingHeadHatBeret
+    eyes: ClothingEyesHudSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterCoatSyndieCapArmored
+    shoes: ClothingShoesBootsSyndieFilled
+    id: HighCommandPDA
+    pocket2: BaseUplinkRadio225TC
+    belt: ClothingBeltSyndieHolster
+  storage:
+    back:
+    - WeaponPistolAnaconda
+    - PinpointerSyndicateNuclear
+
+# Mercenary Captain
+
+- type: job
+  id: MercenaryCaptain
+  name: job-name-mercenarycaptain
+  description: job-description-mercenarycaptain
+  playTimeTracker: JobMercenaryCaptain
+  setPreference: false
+  startingGear: MercenaryCaptainGear
+  icon: "JobIconSyndicate"
+  supervisors: job-supervisors-credits
+  canBeAntag: true
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  - NuclearOperative
+  - SyndicateAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ FreedomImplant, ScramImplant, NutrimentPumpImplant, StypticStimulatorImplant, UplinkImplant, MindShieldImplant, BluespaceLifelineImplant, KravMagaImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - AllHostile
+
+- type: startingGear
+  id: MercenaryCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenaryCaptain
+    back: ClothingBackpackMerc
+    mask: HoloCigar
+    head: ClothingHeadHatBeretMerc
+    eyes: ClothingEyesGlassesCentComm
+    ears: ClothingHeadsetAltFreelancer
+    gloves: ClothingHandsMercGlovesCombat
+    outerClothing: ClothingOuterVestWebMerc
+    shoes: ClothingShoesBootsJackAdvancedFilled
+    id: CentcomPDA
+    neck: ClothingNeckScarfStripedGreen
+    pocket1: KukriKnife
+    pocket2: ContractorBaton
+    belt: ClothingBeltMercWebbingHelldiverFilled
+    suitstorage: WeaponRifleM90
+  storage:
+    back:
+    - DrinkMREFlask
+    - ClothingMaskBandMerc
+    - ExecutiveIDCard
+    - EncryptionKeyFreelance
+    - EncryptionKeyStationMaster # Depends on who yer working for.
+    - EncryptionKeyCentCom
+    - EncryptionKeySyndie

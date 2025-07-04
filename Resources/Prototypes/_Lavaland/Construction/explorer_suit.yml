@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -25,7 +26,7 @@
       - to: reinforced2
         steps:
           - material: GoliathHide
-            amount: 1
+            amount: 2
             doAfter: 2
     - node: reinforced2
       entity: LavalandEquipmentExplorerSuitReinforced2
@@ -33,7 +34,7 @@
       - to: reinforced3
         steps:
           - material: GoliathHide
-            amount: 1
+            amount: 3
             doAfter: 2
     - node: reinforced3
       entity: LavalandEquipmentExplorerSuitReinforced3

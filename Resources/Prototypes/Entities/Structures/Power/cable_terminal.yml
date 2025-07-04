@@ -52,6 +52,7 @@
               acts: ["Destruction"]
     - type: Visibility
       layer: 1
+    - type: Appearance
     - type: SubFloorHide
       blockAmbience: false
       blockInteractions: false

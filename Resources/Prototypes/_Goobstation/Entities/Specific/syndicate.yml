@@ -22,6 +22,7 @@
   - type: StaticPrice
     price: 3000
   - type: GrantCqc
+    startingStage: Hard
 
 - type: entity
   parent: [ BaseItem, BaseSyndicateContraband ]

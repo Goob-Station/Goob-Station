@@ -40,6 +40,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         base.Initialize();
 
         SubscribeLocalEvent<WoundableVisualsComponent, ComponentInit>(InitializeEntity, after: [typeof(WoundSystem)]);
+        SubscribeLocalEvent<WoundableVisualsComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
         SubscribeLocalEvent<WoundableVisualsComponent, BodyPartRemovedEvent>(WoundableRemoved);
         SubscribeLocalEvent<WoundableVisualsComponent, BodyPartAddedEvent>(WoundableConnected);
         SubscribeLocalEvent<WoundableVisualsComponent, WoundableIntegrityChangedEvent>(OnWoundableIntegrityChanged);
@@ -66,6 +67,14 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
                 $"{component.OccupiedLayer}_Minor",
                 $"{component.OccupiedLayer}Bleeding");
         }
+    }
+
+    private void OnAfterAutoHandleState(EntityUid uid, WoundableVisualsComponent component, ref AfterAutoHandleStateEvent args)
+    {
+        if (!TryComp(uid, out SpriteComponent? partSprite))
+            return;
+
+        UpdateWoundableVisuals(uid, component, partSprite);
     }
 
     private void WoundableConnected(EntityUid uid, WoundableVisualsComponent component, ref BodyPartAddedEvent args)
@@ -114,13 +123,13 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
                     continue;
 
                 bodySprite.LayerSetVisible(layer, false);
-                bodySprite.LayerMapRemove(layer);
+                bodySprite.LayerMapRemove($"{woundableVisuals.OccupiedLayer}{group}");
             }
 
             if (bodySprite.LayerMapTryGet($"{woundableVisuals.OccupiedLayer}Bleeding", out var childBleeds))
             {
                 bodySprite.LayerSetVisible(childBleeds, false);
-                bodySprite.LayerMapRemove(childBleeds);
+                bodySprite.LayerMapRemove($"{woundableVisuals.OccupiedLayer}Bleeding");
             }
 
             if (TryComp(uid, out SpriteComponent? pieceSprite))

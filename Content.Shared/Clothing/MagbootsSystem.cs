@@ -91,12 +91,10 @@ namespace Content.Shared.Clothing;
 public sealed class SharedMagbootsSystem : EntitySystem
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly ClothingSystem _clothing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
 
     public override void Initialize()
     {
@@ -119,10 +117,6 @@ public sealed class SharedMagbootsSystem : EntitySystem
         {
             UpdateMagbootEffects(container.Owner, ent, args.Activated);
         }
-
-        var prefix = args.Activated ? ent.Comp.EnabledPrefix : null; // Goob edit
-        _item.SetHeldPrefix(ent, prefix);
-        _clothing.SetEquippedPrefix(ent, prefix);
     }
 
     private void OnGotUnequipped(Entity<MagbootsComponent> ent, ref ClothingGotUnequippedEvent args)

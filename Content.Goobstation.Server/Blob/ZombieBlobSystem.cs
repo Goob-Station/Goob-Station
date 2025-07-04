@@ -35,6 +35,7 @@ using Content.Shared.Physics;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
 using Content.Shared.Zombies;
+using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
@@ -55,6 +56,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     private const int ClimbingCollisionGroup = (int) (CollisionGroup.BlobImpassable);
 
@@ -161,7 +163,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
                 });
             }*/
 
-            if (_mind.TryGetSession(mindComp.Mind, out var session))
+            if (_player.TryGetSessionByEntity(mindComp.Mind.Value, out var session))
             {
                 _chatMan.DispatchServerMessage(session, Loc.GetString("blob-zombie-greeting"));
                 _audio.PlayGlobal(component.GreetSoundNotification, session);

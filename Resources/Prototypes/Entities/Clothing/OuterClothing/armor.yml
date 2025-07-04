@@ -138,6 +138,7 @@
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Michael <107807667+doc-michael@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
@@ -185,8 +186,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.7
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.7
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
@@ -242,8 +243,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
 
 - type: entity
   parent: ClothingOuterArmorBase
@@ -296,7 +297,7 @@
         Piercing: 0.7
         Heat: 0.25
   - type: Reflect
-    reflectProb: 1
+    reflectProb: 0.8
     reflects:
     - Energy
     reflectingInHands: false
@@ -395,8 +396,10 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.4
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.4
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
@@ -431,8 +434,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -472,8 +475,8 @@
     slots: WITHOUT_POCKET
   - type: ModifyDelayedKnockdown # Goobstation
     cancel: true
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.2
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.2
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -498,7 +501,7 @@
     sprite: Clothing/OuterClothing/Armor/heavyred.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorHeavy, ClothingOuterWizardBaseArmor, BaseMagicContraband] # Goob edit
+  parent: [ClothingOuterArmorHeavy, ClothingOuterWizardBaseArmor, BaseMagicalContraband] # Goob edit
   id: ClothingOuterArmorMagusblue
   name: blue magus armor
   description: An blue armored suit that provides good protection. Doesn't count as wizard robes. # Goob edit
@@ -571,8 +574,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
   - type: StaticPrice # Goob
     price: 1000
 
@@ -631,8 +634,8 @@
     slots: WITHOUT_POCKET
   - type: ModifyDelayedKnockdown
     cancel: true
-  - type: StaminaDamageResistance
-    coefficient: 0.4
+  - type: StaminaResistance
+    damageCoefficient: 0.4
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
@@ -679,8 +682,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
@@ -720,8 +723,8 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
