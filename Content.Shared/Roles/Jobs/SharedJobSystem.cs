@@ -197,6 +197,17 @@ public abstract class SharedJobSystem : EntitySystem
         return prototype.CanBeAntag;
     }
 
+    // Goobstation Change: Returns the roll weight for this job when rolling for an antag.
+    public float GetAntagRollWeight(ICommonSession player, float antagPity)
+    {
+        var weight = 1f;
+
+        // Multiply by job's AntagRollWeight if the job exists
+        if (_playerSystem.ContentData(player) is { Mind: { } mindId } && MindTryGetJob(mindId, out var prototype))
+            weight *= prototype.AntagRollWeight;
+        return weight;
+    }
+
     // Goobstation Change: Returns the amount of Goobcoins a player will receive when they finish a round as this job.
     public int GetJobGoobcoins(ICommonSession player)
     {

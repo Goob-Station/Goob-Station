@@ -106,7 +106,8 @@
   requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
-  canBeAntag: false
+  #canBeAntag: false
+  antagRollWeight: 0.10
   goobcoins: 40
   access:
   - Security

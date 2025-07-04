@@ -183,6 +183,12 @@ namespace Content.Shared.Roles
         public bool CanBeAntag { get; private set; } = true;
 
         /// <summary>
+        ///     Goobstation Change: Roll weight vs other jobs. The lower the number the lower the chances of this job being selected as an antagonist vs other ones.
+        /// </summary>
+        [DataField("antagRollWeight")]
+        public float AntagRollWeight { get; private set; } = 1.0f; // Default to 1.0 (no change)
+
+        /// <summary>
         ///     The "weight" or importance of this job. If this number is large, the job system will assign this job
         ///     before assigning other jobs.
         /// </summary>
