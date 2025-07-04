@@ -9,8 +9,24 @@
   id: MobSquackroach
   description: This is just a horrific genetic stew of a specimen.
   components:
-  - type: Singer
-    proto: HarpySinger
+  - type: HarpySinger
+    ShutUpDamageThreshold: 5 # Punch does 5 damage
+  - type: Instrument
+    allowPercussion: false
+    program: 52
+  - type: SwappableInstrument
+    instrumentList:
+      "Voice": {52: 0}
+      "Trumpet": {56: 0}
+      "Electric": {27: 0}
+      "Bass": {33: 0}
+      "Rock": {29: 0}
+      "Acoustic": {24: 0}
+      "Flute": {73: 0}
+      "Sax": {66: 0}
+      "Piano": {1: 0}
+      "Church Organ": {19: 0}
+      "Violin": {41: 0}
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -139,9 +155,6 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: FootPrints
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard"
   - type: SurgeryTarget
   - type: UserInterface
     interfaces:
