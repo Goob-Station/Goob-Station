@@ -17,13 +17,11 @@
   # traits
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
-  - Muted
   - Narcolepsy
   - Pacified
   - PainNumbness
   - Paracusia
   - PermanentBlindness
-  - Snoring
   - Unrevivable
   # job specific
   - BibleUser
@@ -39,7 +37,6 @@
   - BleatingAccent
   - DamagedSiliconAccent
   - FrenchAccent
-  - FrontalLisp
   - GermanAccent
   - LizardAccent
   - MobsterAccent
@@ -75,7 +72,6 @@
   - HeadRevolutionary
   - Revolutionary
   - NukeOperative
-  forceCloning: true # Goob - IPC/Vox cloning for paradox ghostrole
 
 # for cloning pods
 - type: cloningSettings

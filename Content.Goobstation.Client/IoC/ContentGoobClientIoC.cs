@@ -9,7 +9,6 @@
 using Content.Goobstation.Client.JoinQueue;
 using Content.Goobstation.Client.MisandryBox;
 using Content.Goobstation.Client.Redial;
-using Content.Goobstation.Client.Voice;
 using Content.Goobstation.Shared.MisandryBox.JumpScare;
 using Robust.Shared.IoC;
 
@@ -22,7 +21,6 @@ internal static class ContentGoobClientIoC
         var collection = IoCManager.Instance!;
 
         collection.Register<RedialManager>();
-        collection.Register<IVoiceChatManager, VoiceChatClientManager>();
         collection.Register<JoinQueueManager>();
         collection.Register<IFullScreenImageJumpscare, ClientFullScreenImageJumpscare>();
     }

@@ -18,8 +18,6 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -28,7 +26,6 @@
 
 using System.Linq;
 using Content.Goobstation.Common.CCVar; // Goob Edit
-using Content.Goobstation.Common.Mech; // Goobstation
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -423,12 +420,7 @@ public abstract class SharedMechSystem : EntitySystem
         SetupUser(uid, toInsert.Value);
         _container.Insert(toInsert.Value, component.PilotSlot);
         UpdateAppearance(uid, component);
-        // <Goobstation>
-        UpdateHands(toInsert.Value, uid, true);
-
-        var ev = new MechInsertedEvent(uid);
-        RaiseLocalEvent(toInsert.Value, ev);
-        // </Goobstation>
+        UpdateHands(toInsert.Value, uid, true); // Goobstation
         return true;
     }
 
@@ -453,12 +445,7 @@ public abstract class SharedMechSystem : EntitySystem
         RemoveUser(uid, pilot.Value);
         _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
-        // <Goobstation>
-        UpdateHands(pilot.Value, uid, false);
-
-        var ev = new MechEjectedEvent(uid);
-        RaiseLocalEvent(pilot.Value, ev);
-        // </Goobstation>
+        UpdateHands(pilot.Value, uid, false); // Goobstation
         return true;
     }
 

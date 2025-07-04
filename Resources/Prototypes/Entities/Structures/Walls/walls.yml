@@ -11,7 +11,6 @@
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
 # SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
 # SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
@@ -72,7 +71,6 @@
 # SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
 # SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
@@ -103,6 +101,7 @@
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
 # SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
 # SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
@@ -163,10 +162,15 @@
 # SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -174,7 +178,7 @@
 - type: entity
   abstract: true
   parent: BaseStructure
-  id: BaseStructureWall
+  id: BaseWall
   name: basewall
   description: Keeps the air in and the greytide out.
   placement:
@@ -217,57 +221,15 @@
         layer:
         - WallLayer
         density: 1000
+  - type: Occluder
   - type: Airtight
   - type: StaticPrice
     price: 75
   - type: BlockWeather
-  - type: SunShadowCast
-  # Goobstation
-  - type: Penetratable
+  - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 50
     damagePenalty: 0.1
-  - type: ExaminableDamage
-    messages: WindowMessages
-
-- type: entity
-  abstract: true
-  parent: BaseStructureWall
-  id: BaseWall
-  components:
-  - type: Occluder # Breaks on diagonal walls
-
-- type: entity
-  abstract: true
-  parent: BaseStructureWall
-  id: WallDiagonalBase
-  suffix: Diagonal
-  components:
-  - type: Tag
-    tags:
-    - Wall
-    - Diagonal
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
-  - type: Airtight
-    noAirWhenFullyAirBlocked: false
-    airBlockedDirection:
-    - South
-    - East
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
+  - type: SunShadowCast
 
 - type: entity
   parent: BaseWall
@@ -295,6 +257,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
   - type: IconSmooth
     key: walls
     base: brick
@@ -308,6 +271,9 @@
   id: WallClock
   name: clock wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/clock.rsi
   - type: Icon
@@ -341,6 +307,9 @@
   id: WallClown
   name: bananium wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/clown.rsi
   - type: Icon
@@ -370,6 +339,7 @@
   - type: IconSmooth
     key: walls
     base: clown
+  # Goobstation
   - type: Fixtures
     fixtures:
       fix1:
@@ -425,6 +395,9 @@
   id: WallCult
   name: cult wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/cult.rsi
   - type: Icon
@@ -486,6 +459,9 @@
   id: WallDiamond
   name: diamond wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/diamond.rsi
   - type: Icon
@@ -520,6 +496,9 @@
   id: WallGold
   name: gold wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/gold.rsi
   - type: Icon
@@ -555,6 +534,7 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Goobstation
   - type: Fixtures
     fixtures:
       fix1:
@@ -577,6 +557,9 @@
   id: WallIce
   name: ice wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/ice.rsi
   - type: Icon
@@ -607,6 +590,9 @@
   id: WallPlasma
   name: plasma wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/plasma.rsi
   - type: Icon
@@ -653,6 +639,9 @@
   id: WallPlastic
   name: plastic wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/plastic.rsi
   - type: Icon
@@ -698,6 +687,9 @@
   name: plastitanium wall
   suffix: indestructible
   components:
+    - type: Tag
+      tags:
+        - Wall
     - type: Sprite
       sprite: Structures/Walls/plastitanium.rsi
     - type: Icon
@@ -705,6 +697,12 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
+    # <Goobstation>
+    - type: RustRequiresPathStage
+      pathStage: 11 # Can't rust
+    - type: Penetratable
+      penetrateDamage: 1000
+      damagePenalty: 0.8
     - type: Fixtures
       fixtures:
         fix1:
@@ -715,17 +713,8 @@
           - FullTileMask
           layer:
           - WallLayer
-          density: 4000
-    - type: RustRequiresPathStage # Goobstation
-      pathStage: 11 # Can't rust
-    - type: Penetratable # Goobstation - Better snipers
-      penetrateDamage: 1000
-      damagePenalty: 0.8
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: RadiationBlocker
-      resistance: 10
+          density: 4000 # ramming nukies is a bad idea
+    # </Goobstation>
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -733,6 +722,9 @@
   name: plastitanium wall
   suffix: ""
   components:
+    - type: Tag
+      tags:
+        - Wall
     - type: Destructible
       thresholds:
         - trigger:
@@ -753,34 +745,23 @@
       damagePenalty: 0.5
 
 - type: entity
-  parent: WallDiagonalBase
-  id: WallPlastitaniumDiagonalIndestructible
-  name: plastitanium wall
-  suffix: diagonal, indestructible
-  components:
-  - type: Sprite
-    drawdepth: Walls
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
-    state: state0
-  - type: Icon
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
-    state: state0
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
-  - type: RadiationBlocker
-    resistance: 10
-
-- type: entity
-  parent: WallPlastitaniumDiagonalIndestructible
+  parent: WallShuttleDiagonal
   id: WallPlastitaniumDiagonal
   name: plastitanium wall
   suffix: diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
   components:
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
   - type: Icon
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
@@ -788,18 +769,83 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 2000
       behaviors:
-        - !type:SpawnEntitiesBehavior
-          spawn:
-            Girder:
-              min: 1
-              max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
         - !type:PlaySoundBehavior
           sound:
             collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 10 # Ascension
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 200
+    damagePenalty: 0.5
+
+- type: entity
+  id: WallPlastitaniumDiagonalIndestructible
+  name: plastitanium wall
+  suffix: diagonal, indestructible
+  description: Keeps the air in and the greytide out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Tag
+    tags:
+    - Wall
+    - Diagonal
+  - type: Sprite
+    drawdepth: Walls
+    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Icon
+    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    state: state0
+  - type: Physics
+    bodyType: Static
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 11 # Can't rust
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 1000
+    damagePenalty: 0.8
 
 - type: entity
   parent: BaseWall
@@ -859,6 +905,7 @@
     price: 250
   - type: RadiationBlocker
     resistance: 5
+  # <Goobstation>
   - type: Fixtures
     fixtures:
       fix1:
@@ -869,7 +916,7 @@
         - FullTileMask
         layer:
         - WallLayer
-        density: 2000
+        density: 2000 # double normal density
   - type: RustRequiresPathStage # Goobstation
     pathStage: 7 # Toxic blade
   - type: Penetratable # Goobstation - Better snipers
@@ -877,6 +924,7 @@
     damagePenalty: 0.25
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  # </Goobstation>
 
 - type: entity
   parent: WallReinforced
@@ -921,9 +969,14 @@
     convertTo: WallCosmicCult
 
 - type: entity
-  parent: WallDiagonalBase
+  parent: WallShuttleDiagonal
   id: WallReinforcedDiagonal
   name: reinforced wall
+  suffix: diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
   components:
   - type: Tag
     tags:
@@ -933,36 +986,13 @@
     drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: RadiationBlocker
-    resistance: 5
   - type: RustRequiresPathStage # Goobstation
     pathStage: 7 # Toxic blade
 
@@ -972,6 +1002,9 @@
   id: WallRiveted
   name: riveted wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/riveted.rsi
   - type: Icon
@@ -1008,6 +1041,9 @@
   id: WallSandstone
   name: sandstone wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/sandstone.rsi
   - type: Icon
@@ -1038,6 +1074,9 @@
   id: WallSilver
   name: silver wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/silver.rsi
   - type: Icon
@@ -1079,19 +1118,38 @@
 
 #shuttle walls
 - type: entity
-  parent: WallDiagonalBase
   id: WallShuttleDiagonal
   name: shuttle wall
+  suffix: Diagonal
+  description: Keeps the air in and the greytide out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
   components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Tag
+    tags:
+    - Wall
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
   - type: Icon
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
-  - type: Reflect
-    reflectProb: 1
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Physics
+    bodyType: Static
   - type: Pullable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -1111,12 +1169,7 @@
         - FullTileMask
         layer:
         - WallLayer
-        density: 2000
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
-  - type: Physics
-    bodyType: Static
+        density: 2000 # Goobstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -1147,15 +1200,12 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 90
     damagePenalty: 0.3
-  - type: RadiationBlocker
-    resistance: 5
-  - type: StaticPrice
-    price: 200
 
 - type: entity
   parent: BaseWall
   id: WallShuttle
   name: shuttle wall
+  suffix: Reinforced, Exterior
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -1209,8 +1259,12 @@
           3: { state: shuttle_construct-3, visible: true}
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
-  - type: Reflect
-    reflectProb: 1
+  # <Goobstation>
+  - type: RustRequiresPathStage
+    pathStage: 7 # Toxic blade
+  - type: Penetratable
+    penetrateDamage: 90
+    damagePenalty: 0.3
   - type: Fixtures
     fixtures:
       fix1:
@@ -1221,12 +1275,53 @@
         - FullTileMask
         layer:
         - WallLayer
-        density: 2000
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 7 # Toxic blade
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 90
-    damagePenalty: 0.3
+        density: 2000 # double normal density
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WallCosmicCult
+  # </Goobstation>
+
+- type: entity
+  parent: BaseWall
+  id: WallShuttleInterior
+  name: shuttle wall
+  suffix: Interior
+  components:
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Sprite
+    sprite: Structures/Walls/shuttleinterior.rsi
+  - type: Icon
+    sprite: Structures/Walls/shuttleinterior.rsi
+  - type: Construction
+    graph: Girder
+    node: shuttleInteriorWall
+  - type: IconSmooth
+    key: walls
+    base: state
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
 
@@ -1235,6 +1330,9 @@
   id: WallSolid
   name: solid wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
   - type: WallReplacementMarker
@@ -1276,39 +1374,26 @@
     convertTo: WallCosmicCult
 
 - type: entity
-  parent: WallDiagonalBase
+  parent: WallShuttleDiagonal
   id: WallSolidDiagonal
   name: solid wall
+  suffix: diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
   components:
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/solid_diagonal.rsi
     state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
   - type: Icon
     sprite: Structures/Walls/solid_diagonal.rsi
     state: state0
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
 
 - type: entity
   parent: WallSolid
@@ -1386,6 +1471,7 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Goobstation
   - type: Fixtures
     fixtures:
       fix1:
@@ -1452,6 +1538,7 @@
   name: web wall
   description: Keeps the spiders in and the greytide out.
   components:
+  - type: Clickable
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -1459,6 +1546,9 @@
           "/Audio/Weapons/slash.ogg"
   - type: Damageable
     damageModifierSet: Web
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/web.rsi
   - type: Icon
@@ -1494,6 +1584,9 @@
   id: WallNecropolis
   name: stone wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/necropolis.rsi
   - type: Icon
@@ -1519,6 +1612,9 @@
   id: WallMining
   name: mining wall
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/mining.rsi
   - type: Icon
@@ -1545,45 +1641,26 @@
     convertTo: WallCosmicCult
 
 - type: entity
-  parent: WallDiagonalBase
+  parent: WallShuttleDiagonal
   id: WallMiningDiagonal
   name: mining wall
+  suffix: diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
   components:
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/mining_diagonal.rsi
     state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
   - type: Icon
     sprite: Structures/Walls/mining_diagonal.rsi
     state: state0
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          Girder:
-            min: 1
-            max: 1
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
 
 
 # Vault Walls
@@ -1683,9 +1760,13 @@
             !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
           mask:
-            - SpecialWallLayer
-          layer:
-            - SpecialWallLayer
+            - FullTileMask
+          layer: # Goob edit
+            - Opaque
+            - HighImpassable
+            - MidImpassable
+            - LowImpassable
+            - BulletImpassable
     - type: Airtight
     - type: Sprite
       sprite: Structures/Magic/forcewall.rsi
@@ -1734,6 +1815,9 @@
   name: cobblestone brick wall
   description: Stone by stone, perfectly fitted together to form a wall.
   components:
+  - type: Tag
+    tags:
+      - Wall
   - type: Sprite
     sprite: Structures/Walls/cobblebrick.rsi
   - type: Icon

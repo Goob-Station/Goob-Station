@@ -24,10 +24,4 @@ public sealed partial class EntityTableDunGen : IDunGenLayer
 
     [DataField(required: true)]
     public EntityTableSelector Table;
-
-    /// <summary>
-    /// Should the count be per dungeon or across all dungeons.
-    /// </summary>
-    [DataField]
-    public bool PerDungeon;
 }

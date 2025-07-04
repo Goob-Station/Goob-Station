@@ -293,13 +293,10 @@ public sealed partial class AnchorableSystem : EntitySystem
         return !attempt.Cancelled;
     }
 
-    /// <summary>
-    /// Returns true if no hard anchored entities exist on the coordinate tile that would collide with the provided physics body.
-    /// </summary>
-    public bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody)
+    private bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody)
     {
         // Probably ignore CanCollide on the anchoring body?
-        var gridUid = _transformSystem.GetGrid(coordinates);
+        var gridUid = coordinates.GetGridUid(EntityManager);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
             return false;
@@ -348,7 +345,7 @@ public sealed partial class AnchorableSystem : EntitySystem
 
     public bool AnyUnstackablesAnchoredAt(EntityCoordinates location)
     {
-        var gridUid = _transformSystem.GetGrid(location);
+        var gridUid = location.GetGridUid(EntityManager);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
             return false;

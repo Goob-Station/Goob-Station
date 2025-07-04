@@ -4,8 +4,6 @@
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -20,7 +18,6 @@ public sealed partial class TriggerSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _player = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     /*
      * Currently all of the appearance stuff is hardcoded for portable flashers
@@ -91,7 +88,7 @@ public sealed partial class TriggerSystem
         if (!_appearance.TryGetData<ProximityTriggerVisuals>(uid, ProximityTriggerVisualState.State, out var state, appearance))
             return;
 
-        if (!_sprite.LayerMapTryGet((uid, spriteComponent), ProximityTriggerVisualLayers.Base, out var layer, false))
+        if (!spriteComponent.LayerMapTryGet(ProximityTriggerVisualLayers.Base, out var layer))
             // Don't do anything if the sprite doesn't have the layer.
             return;
 
@@ -101,16 +98,16 @@ public sealed partial class TriggerSystem
                 // Don't interrupt the flash animation
                 if (_player.HasRunningAnimation(uid, player, AnimKey)) return;
                 _player.Stop(uid, player, AnimKey);
-                _sprite.LayerSetRsiState((uid, spriteComponent), layer, "on");
+                spriteComponent.LayerSetState(layer, "on");
                 break;
             case ProximityTriggerVisuals.Active:
                 if (_player.HasRunningAnimation(uid, player, AnimKey)) return;
-                _player.Play((uid, player), _flasherAnimation, AnimKey);
+                _player.Play(uid, player, _flasherAnimation, AnimKey);
                 break;
             case ProximityTriggerVisuals.Off:
             default:
                 _player.Stop(uid, player, AnimKey);
-                _sprite.LayerSetRsiState((uid, spriteComponent), layer, "off");
+                spriteComponent.LayerSetState(layer, "off");
                 break;
         }
     }

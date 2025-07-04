@@ -28,6 +28,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
     public sealed partial class PlayerActionsWindow : DefaultWindow
     {
         private PlayerInfo? _selectedPlayer;
+        private readonly Dictionary<Button, ConfirmationData> _confirmations = new();
 
         public PlayerActionsWindow()
         {
@@ -41,6 +42,9 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
 
         private void OnListOnOnSelectionChanged(PlayerInfo? obj)
         {
+            if (_selectedPlayer != obj)
+                AdminUIHelpers.RemoveAllConfirms(_confirmations);
+
             _selectedPlayer = obj;
             var disableButtons = _selectedPlayer == null;
             SubmitKickButton.Disabled = disableButtons;
@@ -51,6 +55,9 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
         private void SubmitKickButtonOnPressed(BaseButton.ButtonEventArgs obj)
         {
             if (_selectedPlayer == null)
+                return;
+
+            if (!AdminUIHelpers.TryConfirm(SubmitKickButton, _confirmations))
                 return;
 
             IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(
@@ -69,6 +76,9 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
         private void SubmitRespawnButtonOnPressed(BaseButton.ButtonEventArgs obj)
         {
             if (_selectedPlayer == null)
+                return;
+
+            if (!AdminUIHelpers.TryConfirm(SubmitRespawnButton, _confirmations))
                 return;
 
             IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(

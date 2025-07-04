@@ -13,21 +13,21 @@
 
 - type: stack
   id: Steel
-  name: stack-steel
+  name: steel
   icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: steel }
   spawn: SheetSteel1
   maxCount: 30
 
 - type: stack
   id: Plasteel
-  name: stack-plasteel
+  name: plasteel
   icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: plasteel }
   spawn: SheetPlasteel1
   maxCount: 30
 
 - type: stack
   id: Brass
-  name: stack-brass
+  name: brass
   icon: { sprite: /Textures/Objects/Materials/Sheets/metal.rsi, state: brass }
   spawn: SheetBrass1
   maxCount: 30

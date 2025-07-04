@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "https://github.com/discordia-space/CEV-Eris/blob/bbe32606902c90f5290b57d905a3f31b84dc6d7d/icons/obj/pipes/disposal.dmi and modified by DrSmugleaf. Signal router sprites based on normal router modified by deltanedas (github). disposal bins by EmoGarbage404 (github). pipe-x pipe-xf, conpipe-x by K-Dynamic (github). Signaler sprites based on tagger modified by Wolfkey",
+    "copyright": "https://github.com/discordia-space/CEV-Eris/blob/bbe32606902c90f5290b57d905a3f31b84dc6d7d/icons/obj/pipes/disposal.dmi and modified by DrSmugleaf. Signal router sprites based on normal router modified by deltanedas (github). disposal bins by EmoGarbage404 (github)",
     "states": [
         {
             "name": "condisposal",
@@ -36,10 +36,6 @@
             "directions": 4
         },
         {
-            "name": "conpipe-x",
-            "directions": 4
-        },
-        {
             "name": "conpipe-s",
             "directions": 4
         },
@@ -49,10 +45,6 @@
         },
         {
             "name": "conpipe-tagger",
-            "directions": 4
-        },
-        {
-            "name": "conpipe-signaller",
             "directions": 4
         },
         {
@@ -300,14 +292,6 @@
             "directions": 4
         },
         {
-            "name": "pipe-x",
-            "directions": 4
-        },
-        {
-            "name": "pipe-xf",
-            "directions": 4
-        },
-        {
             "name": "pipe-s",
             "directions": 4
         },
@@ -328,53 +312,11 @@
             "directions": 4
         },
         {
-            "name": "pipe-signaller",
-            "directions": 4,
-            "delays": [
-                [
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141
-                ],
-                [
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141
-                ],
-                [
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141
-                ],
-                [
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141,
-                    0.1,
-                    0.141
-                ]
-            ]
+            "name": "pipe-tf",
+            "directions": 4
         },
         {
-            "name": "pipe-tf",
+            "name": "pipe-u",
             "directions": 4
         },
         {

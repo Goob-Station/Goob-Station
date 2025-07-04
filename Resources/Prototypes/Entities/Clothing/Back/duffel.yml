@@ -233,6 +233,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateAmmo
+  name: syndicate duffel bag
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/syndicate.rsi
@@ -253,6 +254,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateMedical
+  name: syndicate duffel bag
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/syndicate.rsi

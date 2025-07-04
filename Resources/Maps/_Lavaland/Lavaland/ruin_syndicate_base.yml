@@ -6776,7 +6776,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterEVASuitSyndicate
+- proto: ClothingOuterHardsuitSyndicateDurathread
   entities:
   - uid: 2267
     components:

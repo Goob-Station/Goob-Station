@@ -14,13 +14,13 @@
         - to: glassesSec
           steps:
             - tag: Sunglasses
-              name: construction-graph-tag-sun-glasses
+              name: sun glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
               doAfter: 5
             - tag: HudSecurity
-              name: construction-graph-tag-security-hud
+              name: security hud
               icon:
                 sprite: Clothing/Eyes/Hud/sec.rsi
                 state: icon

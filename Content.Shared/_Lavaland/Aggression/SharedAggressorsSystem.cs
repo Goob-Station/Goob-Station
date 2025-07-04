@@ -7,7 +7,6 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -25,14 +24,16 @@ using Content.Shared._Lavaland.Components;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Mobs;
-using Robust.Shared.GameStates;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 
 namespace Content.Shared._Lavaland.Aggression;
 
 public abstract class SharedAggressorsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBossMusicSystem _bossMusic = default!;
+    [Dependency] private readonly INetManager _net = default!;
+
+    // TODO: make cooldowns for all individual aggressors that fall out of vision range
 
     public override void Initialize()
     {
@@ -41,18 +42,10 @@ public abstract class SharedAggressorsSystem : EntitySystem
         SubscribeLocalEvent<AggressiveComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
         SubscribeLocalEvent<AggressiveComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<AggressiveComponent, EntityTerminatingEvent>(OnDeleted);
-        SubscribeLocalEvent<AggressiveComponent, MobStateChangedEvent>(OnStateChange);
-        SubscribeLocalEvent<AggressiveComponent, ComponentGetState>(OnAgressiveGetState);
+        SubscribeLocalEvent<AggressiveComponent, DestructionEventArgs>(OnDestroyed);
 
-        SubscribeLocalEvent<AggressorComponent, MobStateChangedEvent>(OnAggressorStateChange);
-        SubscribeLocalEvent<AggressorComponent, EntityTerminatingEvent>(OnAggressorDeleted);
-        SubscribeLocalEvent<AggressorComponent, ComponentRemove>(OnAggressorRemoved);
+        SubscribeLocalEvent<AggressorComponent, MobStateChangedEvent>(OnMobStateChange);
     }
-
-    #region Event Handling
-
-    private void OnAgressiveGetState(EntityUid uid, AggressiveComponent component, ref ComponentGetState args) =>
-        args.State = new AggressiveComponentState(GetNetEntitySet(component.Aggressors));
 
     private void OnBeforeDamageChanged(Entity<AggressiveComponent> ent, ref BeforeDamageChangedEvent args)
     {
@@ -71,20 +64,10 @@ public abstract class SharedAggressorsSystem : EntitySystem
         AddAggressor(ent, aggro.Value);
     }
 
-    private void OnAggressorRemoved(Entity<AggressorComponent> ent, ref ComponentRemove args)
-    {
-        _bossMusic.EndAllMusic(); // Stop the music if we no longer get attacked by anyone.
-    }
-
-    private void OnAggressorStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
+    private void OnMobStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
-            CleanAggressions((ent.Owner, ent.Comp));
-    }
-
-    private void OnAggressorDeleted(Entity<AggressorComponent> ent, ref EntityTerminatingEvent args)
-    {
-        CleanAggressions((ent.Owner, ent.Comp));
+            CleanAggressions(ent);
     }
 
     private void OnDeleted(Entity<AggressiveComponent> ent, ref EntityTerminatingEvent args)
@@ -92,14 +75,34 @@ public abstract class SharedAggressorsSystem : EntitySystem
         RemoveAllAggressors(ent);
     }
 
-    private void OnStateChange(Entity<AggressiveComponent> ent, ref MobStateChangedEvent args)
+    private void OnDestroyed(Entity<AggressiveComponent> ent, ref DestructionEventArgs args)
     {
         RemoveAllAggressors(ent);
     }
 
-    #endregion
+    #region api
 
-    #region Aggressive API
+    public HashSet<EntityUid>? GetAggressors(EntityUid uid)
+    {
+        TryComp<AggressiveComponent>(uid, out var aggro);
+        return aggro?.Aggressors ?? null;
+    }
+
+    public void RemoveAggressor(Entity<AggressiveComponent> ent, EntityUid aggressor)
+    {
+        ent.Comp.Aggressors.Remove(aggressor);
+        RaiseLocalEvent(ent, new AggressorRemovedEvent(GetNetEntity(aggressor)));
+    }
+
+    public void RemoveAllAggressors(Entity<AggressiveComponent> ent)
+    {
+        var aggressors = ent.Comp.Aggressors;
+        ent.Comp.Aggressors.Clear();
+        foreach (var aggressor in aggressors)
+        {
+            RaiseLocalEvent(ent, new AggressorRemovedEvent(GetNetEntity(aggressor)));
+        }
+    }
 
     public void AddAggressor(Entity<AggressiveComponent> ent, EntityUid aggressor)
     {
@@ -110,53 +113,33 @@ public abstract class SharedAggressorsSystem : EntitySystem
 
         aggcomp.Aggressives.Add(ent);
 
-        _bossMusic.StartBossMusic(ent.Owner);
-        Dirty(ent.Owner, ent.Comp); // freaky but works.
-    }
-
-    public void RemoveAggressor(Entity<AggressiveComponent> ent, Entity<AggressorComponent?> aggressor)
-    {
-        if (!Resolve(aggressor, ref aggressor.Comp))
+        if (!_net.IsServer ||
+            !TryComp<BossMusicComponent>(ent, out var boss) ||
+            !TryComp<AggressiveComponent>(ent, out var aggresive))
             return;
 
-        ent.Comp.Aggressors.Remove(aggressor);
-        aggressor.Comp.Aggressives.Remove(ent);
-
-        if (aggressor.Comp.Aggressives.Count == 0)
-            RemComp(aggressor, aggressor.Comp);
-    }
-
-    public void RemoveAllAggressors(Entity<AggressiveComponent> ent)
-    {
-        foreach (var aggressor in ent.Comp.Aggressors)
+        var msg = new BossMusicStartupEvent(boss.SoundId);
+        foreach (var aggress in aggresive.Aggressors)
         {
-            if (!TryComp<AggressorComponent>(aggressor, out var aggressorComp))
+            if (!TryComp<ActorComponent>(aggress, out var actor))
                 continue;
 
-            aggressorComp.Aggressives.Remove(ent);
-            if (aggressorComp.Aggressives.Count == 0)
-                RemComp(aggressor, aggressorComp);
+            RaiseNetworkEvent(msg, actor.PlayerSession.Channel);
         }
-
-        ent.Comp.Aggressors.Clear();
     }
 
-    #endregion
-
-    #region Aggressor API
-
-    public void CleanAggressions(Entity<AggressorComponent?> aggressor)
+    public void CleanAggressions(EntityUid aggressor)
     {
-        if (!Resolve(aggressor, ref aggressor.Comp))
+        if (!TryComp<AggressorComponent>(aggressor, out var aggcomp))
             return;
 
-        foreach (var aggressive in aggressor.Comp.Aggressives)
+        foreach (var aggrod in aggcomp.Aggressives)
         {
-            if (TryComp<AggressiveComponent>(aggressive, out var aggressors))
-                RemoveAggressor((aggressive, aggressors), aggressor);
+            if (TryComp<AggressiveComponent>(aggrod, out var aggressors))
+                RemoveAggressor((aggrod, aggressors), aggressor);
         }
 
-        RemComp(aggressor, aggressor.Comp);
+        RemComp(aggressor, aggcomp);
     }
 
     #endregion

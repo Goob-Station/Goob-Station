@@ -130,12 +130,14 @@ public sealed partial class SurveillanceCameraMonitorWindow : DefaultWindow
 
     private void PopulateCameraList(Dictionary<string, string> cameras)
     {
-        var entries = cameras.Select(i => new ItemList.Item(SubnetList) {
-            Text = $"{i.Value}: {i.Key}",
-            Metadata = i.Key
-        }).ToList();
-        entries.Sort((a, b) => string.Compare(a.Text, b.Text, StringComparison.Ordinal));
-        SubnetList.SetItems(entries, (a,b) => string.Compare(a.Text, b.Text));
+        SubnetList.Clear();
+
+        foreach (var (address, name) in cameras)
+        {
+            AddCameraToList(name, address);
+        }
+
+        SubnetList.SortItemsByText();
     }
 
     private void SetCameraView(IEye? eye)
@@ -188,6 +190,12 @@ public sealed partial class SurveillanceCameraMonitorWindow : DefaultWindow
         SubnetSelector.SetItemMetadata(SubnetSelector.ItemCount - 1, subnet);
 
         return SubnetSelector.ItemCount - 1;
+    }
+
+    private void AddCameraToList(string name, string address)
+    {
+        var item = SubnetList.AddItem($"{name}: {address}");
+        item.Metadata = address;
     }
 
     private void OnSubnetListSelect(ItemList.ItemListSelectedEventArgs args)

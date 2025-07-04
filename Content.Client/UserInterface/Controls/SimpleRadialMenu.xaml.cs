@@ -11,7 +11,7 @@ using Robust.Client.Input;
 namespace Content.Client.UserInterface.Controls;
 
 [GenerateTypedNameReferences]
-public sealed partial class SimpleRadialMenu : RadialMenu
+public partial class SimpleRadialMenu : RadialMenu
 {
     private EntityUid? _attachMenuToEntity;
 
@@ -147,7 +147,7 @@ public sealed partial class SimpleRadialMenu : RadialMenu
                     Close();
             };
         }
-
+        
         return button;
     }
 
@@ -232,21 +232,21 @@ public sealed partial class SimpleRadialMenu : RadialMenu
 public abstract class RadialMenuOption
 {
     public string? ToolTip { get; init; }
-
+    
     public SpriteSpecifier? Sprite { get; init; }
     public Color? BackgroundColor { get; set; }
     public Color? HoverBackgroundColor { get; set; }
 }
 
-public abstract class RadialMenuActionOption(Action onPressed) : RadialMenuOption
+public class RadialMenuActionOption(Action onPressed) : RadialMenuOption
 {
     public Action OnPressed { get; } = onPressed;
 }
 
-public sealed class RadialMenuActionOption<T>(Action<T> onPressed, T data)
+public class RadialMenuActionOption<T>(Action<T> onPressed, T data)
     : RadialMenuActionOption(onPressed: () => onPressed(data));
 
-public sealed class RadialMenuNestedLayerOption(IReadOnlyCollection<RadialMenuOption> nested, float containerRadius = 100)
+public class RadialMenuNestedLayerOption(IReadOnlyCollection<RadialMenuOption> nested, float containerRadius = 100)
     : RadialMenuOption
 {
     public float? ContainerRadius { get; } = containerRadius;
@@ -254,7 +254,7 @@ public sealed class RadialMenuNestedLayerOption(IReadOnlyCollection<RadialMenuOp
     public IReadOnlyCollection<RadialMenuOption> Nested { get; } = nested;
 }
 
-public sealed class SimpleRadialMenuSettings
+public class SimpleRadialMenuSettings
 {
     /// <summary>
     /// Default container draw radius. Is going to be further affected by per sector increment.

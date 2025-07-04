@@ -12,8 +12,6 @@ namespace Content.Client.Power.SMES;
 
 public sealed class SmesVisualizerSystem : VisualizerSystem<SmesComponent>
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-
     protected override void OnAppearanceChange(EntityUid uid, SmesComponent comp, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
@@ -21,12 +19,12 @@ public sealed class SmesVisualizerSystem : VisualizerSystem<SmesComponent>
 
         if (!AppearanceSystem.TryGetData<int>(uid, SmesVisuals.LastChargeLevel, out var level, args.Component) || level == 0)
         {
-            _sprite.LayerSetVisible((uid, args.Sprite), SmesVisualLayers.Charge, false);
+            args.Sprite.LayerSetVisible(SmesVisualLayers.Charge, false);
         }
         else
         {
-            _sprite.LayerSetVisible((uid, args.Sprite), SmesVisualLayers.Charge, true);
-            _sprite.LayerSetRsiState((uid, args.Sprite), SmesVisualLayers.Charge, $"{comp.ChargeOverlayPrefix}{level}");
+            args.Sprite.LayerSetVisible(SmesVisualLayers.Charge, true);
+            args.Sprite.LayerSetState(SmesVisualLayers.Charge, $"{comp.ChargeOverlayPrefix}{level}");
         }
 
         if (!AppearanceSystem.TryGetData<ChargeState>(uid, SmesVisuals.LastChargeState, out var state, args.Component))
@@ -35,22 +33,22 @@ public sealed class SmesVisualizerSystem : VisualizerSystem<SmesComponent>
         switch (state)
         {
             case ChargeState.Still:
-                _sprite.LayerSetRsiState((uid, args.Sprite), SmesVisualLayers.Input, $"{comp.InputOverlayPrefix}0");
-                _sprite.LayerSetRsiState((uid, args.Sprite), SmesVisualLayers.Output, $"{comp.OutputOverlayPrefix}1");
+                args.Sprite.LayerSetState(SmesVisualLayers.Input, $"{comp.InputOverlayPrefix}0");
+                args.Sprite.LayerSetState(SmesVisualLayers.Output, $"{comp.OutputOverlayPrefix}1");
                 break;
             case ChargeState.Charging:
-                _sprite.LayerSetRsiState((uid, args.Sprite), SmesVisualLayers.Input, $"{comp.InputOverlayPrefix}1");
-                _sprite.LayerSetRsiState((uid, args.Sprite), SmesVisualLayers.Output, $"{comp.OutputOverlayPrefix}1");
+                args.Sprite.LayerSetState(SmesVisualLayers.Input, $"{comp.InputOverlayPrefix}1");
+                args.Sprite.LayerSetState(SmesVisualLayers.Output, $"{comp.OutputOverlayPrefix}1");
                 break;
             case ChargeState.Discharging:
-                _sprite.LayerSetRsiState((uid, args.Sprite), SmesVisualLayers.Input, $"{comp.InputOverlayPrefix}0");
-                _sprite.LayerSetRsiState((uid, args.Sprite), SmesVisualLayers.Output, $"{comp.OutputOverlayPrefix}2");
+                args.Sprite.LayerSetState(SmesVisualLayers.Input, $"{comp.InputOverlayPrefix}0");
+                args.Sprite.LayerSetState(SmesVisualLayers.Output, $"{comp.OutputOverlayPrefix}2");
                 break;
         }
     }
 }
 
-public enum SmesVisualLayers : byte
+enum SmesVisualLayers : byte
 {
     Input,
     Charge,

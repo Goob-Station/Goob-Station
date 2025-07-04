@@ -1,0 +1,111 @@
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Alexander Evgrashin <evgrashin.adl@gmail.com>
+# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Profane McBane <profanedbane+github@gmail.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Colin-Tel <113523727+Colin-Tel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: BaseXenoArtifact
+  name: alien artifact
+  description: A strange alien device.
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
+    noRot: true
+    layers:
+    - state: ano30
+      map: [ "enum.ArtifactsVisualLayers.Base" ]
+    - state: ano30_on
+      map: [ "enum.ArtifactsVisualLayers.Effect" ]
+      visible: false
+  - type: Damageable
+  - type: Physics
+    bodyType: Dynamic
+  - type: Transform
+    noRot: true
+  - type: UserInterface #needs to be here for certain effects
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.IntercomUiKey.Key:
+        type: IntercomBoundUserInterface
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 75
+        layer: # doesn't collide with artifact storage
+        - Opaque
+        mask:
+        - MachineMask
+  - type: InteractionOutline
+  - type: Artifact
+  - type: RandomArtifactSprite
+    maxSprite: 36
+  - type: RandomSprite
+    available:
+    - enum.ArtifactsVisualLayers.Effect:
+        ano01_on: Rainbow
+  - type: Appearance
+  - type: Actions
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
+  - type: StealTarget
+    stealGroup: XenoArtifact
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container # needed for the EffectStorage artifactEffect
+        ents: [ ]
+      revolver-ammo: !type:Container # needed for the EffectBigIron artifactEffect
+
+- type: entity
+  parent: BaseXenoArtifact
+  id: SimpleXenoArtifact
+  suffix: Simple
+  components:
+  - type: Artifact
+    nodesMin: 2
+    nodesMax: 5
+
+- type: entity
+  parent: BaseXenoArtifact
+  id: MediumXenoArtifact
+  suffix: Medium
+  components:
+  - type: Artifact
+    nodesMin: 5
+    nodesMax: 9
+
+- type: entity
+  parent: BaseXenoArtifact
+  id: ComplexXenoArtifact
+  suffix: Complex
+  components:
+  - type: Artifact
+    nodesMin: 9
+    nodesMax: 13

@@ -16,7 +16,6 @@ namespace Content.Client.Projectiles;
 public sealed class ProjectileSystem : SharedProjectileSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _player = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -36,8 +35,8 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (TryComp<SpriteComponent>(ent, out var sprite))
         {
             sprite[EffectLayers.Unshaded].AutoAnimated = false;
-            _sprite.LayerMapTryGet((ent, sprite), EffectLayers.Unshaded, out var layer, false);
-            var state = _sprite.LayerGetRsiState((ent, sprite), layer);
+            sprite.LayerMapTryGet(EffectLayers.Unshaded, out var layer);
+            var state = sprite.LayerGetState(layer);
             var lifetime = 0.5f;
 
             if (TryComp<TimedDespawnComponent>(ent, out var despawn))

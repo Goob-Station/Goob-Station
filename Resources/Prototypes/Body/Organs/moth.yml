@@ -25,7 +25,6 @@
       tags:
       - ClothMade
       - Paper
-      - Pill
   - type: SolutionContainerManager
     solutions:
       stomach:

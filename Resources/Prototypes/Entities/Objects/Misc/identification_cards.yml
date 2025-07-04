@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
 # SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 # SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
 # SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
@@ -128,9 +128,7 @@
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
@@ -142,7 +140,6 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
@@ -617,8 +614,6 @@
     layers:
     - state: default
     - state: idbrigmedic
-  - type: PresetIdCard # goob
-    job: Brigmedic
 
 - type: entity
   parent: IDCardStandard
@@ -815,7 +810,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: [ IDCardStandard, BaseSyndicateContraband ]
+  parent: IDCardStandard
   id: SyndicateIDCard
   name: syndicate ID card
   components:
@@ -830,7 +825,7 @@
     listNumber: false
 
 - type: entity
-  parent: [ IDCardStandard, BaseMajorContraband ]
+  parent: IDCardStandard
   id: PirateIDCard
   name: pirate ID card
   components:
@@ -903,40 +898,6 @@
     - state: iddetective
   - type: PresetIdCard
     job: Detective
-
-- type: entity
-  parent: IDCardStandard
-  id: PrisonerIDCard
-  name: prisoner ID card
-  description: A generically printed ID card for scummy prisoners.
-  components:
-  - type: Sprite
-    layers:
-    - state: orange
-  - type: Item
-    heldPrefix: orange
-  - type: Access
-    tags:
-    - GenpopEnter
-  - type: GenpopIdCard
-  - type: IdCard
-    jobTitle: job-name-prisoner
-    jobIcon: JobIconPrisoner
-    canMicrowave: false
-  - type: ExpireIdCard
-    expireMessage: genpop-prisoner-id-expire
-    expiredAccess:
-    - GenpopLeave
-  - type: Speech
-    speechVerb: Robotic
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - WhitelistChameleon
-    - WhitelistChameleonIdCard
-    - Recyclable
-  - type: StaticPrice # these are infinitely producible.
-    price: 0
 
 - type: entity
   parent: CentcomIDCard
@@ -1038,7 +999,6 @@
     - NuclearOperative
     - SyndicateAgent
     - Wizard
-    - Xenoborg
     # Goobstation
     - NanotrasenRepresentative
     - BlueshieldOfficer

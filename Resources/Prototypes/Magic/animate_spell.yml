@@ -13,10 +13,11 @@
   components:
   - type: EntityTargetAction
     useDelay: 0
+    charges: 5
     itemIconStyle: BigAction
     whitelist:
       components:
-      - Animateable # Currently on: SeatBase, TableBase, ClosetBase, BaseMachine, ConstructibleMachine, BaseComputer, BaseItem, CrateGeneric, StorageTank, GasCanister
+      - Animateable # Currently on: SeatBase, TableBase, ClosetBase, BaseMachine, ConstructibleMachine, BaseComputer, BaseItem, CrateGeneric, StorageTank, GasCanister, BaseTarget
     blacklist:
       components:
       - MindContainer
@@ -25,7 +26,7 @@
       - AnomalyGenerator
       - TegGenerator
       - TegCirculator
-      - XenoArtifact
+      - Artifact
     canTargetSelf: false
     interactOnMiss: false
     sound: !type:SoundPathSpecifier
@@ -76,9 +77,9 @@
               collection: MetalBreak
       - type: Hands
       - type: CanEscapeInventory
-      - type: MobCollision
       toRemove:
       - RequireProjectileTarget
       - BlockMovement
       - Item
-      - MeleeRequiresWield
+      speech: action-speech-spell-animate
+      doSpeech: false

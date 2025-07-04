@@ -220,7 +220,7 @@ namespace Content.Server.Cloning
             if (!_mindSystem.TryGetMind(body.Value, out var mindId, out var mind))
                 return;
 
-            if (mind.UserId.HasValue == false || !_playerManager.ValidSessionId(mind.UserId.Value))
+            if (mind.UserId.HasValue == false || mind.Session == null)
                 return;
 
             if (_cloningPodSystem.TryCloning(cloningPodUid, body.Value, (mindId, mind), cloningPod, scannerComp.CloningFailChanceMultiplier))

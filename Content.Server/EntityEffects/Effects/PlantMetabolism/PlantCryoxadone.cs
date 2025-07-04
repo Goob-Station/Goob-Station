@@ -29,7 +29,6 @@ public sealed partial class PlantCryoxadone : EntityEffect
         else
             deviation = (int) (seed.Maturation / seed.GrowthStages);
         plantHolderComp.Age -= deviation;
-        plantHolderComp.LastProduce = plantHolderComp.Age;
         plantHolderComp.SkipAging++;
         plantHolderComp.ForceUpdate = true;
     }

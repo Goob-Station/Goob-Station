@@ -175,7 +175,6 @@
       collection: lighterOnSounds
     endSound:
       collection: lighterOffSounds
-  - type: PhysicalComposition
   - type: Tool #Goob
     qualities:
     - Ignition

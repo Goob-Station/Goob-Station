@@ -158,14 +158,13 @@
   - type: HealNearOnPray # These numbers look high but WoundMed...
     healing:
       groups:
-        Brute: -22.5
-      types:
-        Heat: -7.5
-        Cold: -7.5
-        Shock: -7.5
+        Brute: -25.0
+        Burn: -25.0
+        Toxin: -10.0
+        Airloss: -15.0
     damage:
       types:
-        Holy: 20
+        Holy: 25
   - type: Tag
     tags:
     - Rosary
@@ -259,7 +258,7 @@
   parent: BaseNullrod
   id: MonkStaff
   name: monk's staff
-  description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #this should be able to parry eventually.
+  description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #Can parry blows - cqc update
   components:
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -280,6 +279,19 @@
         Blunt: 2.5
     soundHit:
       collection: BoxingHit
+  - type: Blocking
+    passiveBlockFraction: 0.3
+    activeBlockFraction: 0.5
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+    activeBlockModifier:
+      coefficients:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
   - type: StaminaDamageOnHit
     damage: 10
   - type: Wieldable

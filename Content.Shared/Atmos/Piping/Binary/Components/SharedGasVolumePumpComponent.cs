@@ -14,9 +14,24 @@ namespace Content.Shared.Atmos.Piping.Binary.Components
     public sealed record GasVolumePumpData(float LastMolesTransferred);
 
     [Serializable, NetSerializable]
-    public enum GasVolumePumpUiKey : byte
+    public enum GasVolumePumpUiKey
     {
         Key,
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class GasVolumePumpBoundUserInterfaceState : BoundUserInterfaceState
+    {
+        public string PumpLabel { get; }
+        public float TransferRate { get; }
+        public bool Enabled { get; }
+
+        public GasVolumePumpBoundUserInterfaceState(string pumpLabel, float transferRate, bool enabled)
+        {
+            PumpLabel = pumpLabel;
+            TransferRate = transferRate;
+            Enabled = enabled;
+        }
     }
 
     [Serializable, NetSerializable]

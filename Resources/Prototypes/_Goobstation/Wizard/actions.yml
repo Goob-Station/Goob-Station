@@ -60,8 +60,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: cluwne
     event: !type:CluwneCurseEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-cluwne
+      speech: action-speech-spell-cluwne
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
@@ -92,8 +91,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: clown
     event: !type:BananaTouchEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-clown
+      speech: action-speech-spell-clown
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
@@ -121,8 +119,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: missile
     event: !type:MagicMissileEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-magic-missile
+      speech: action-speech-spell-magic-missile
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
@@ -148,8 +145,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: emp
     event: !type:DisableTechEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-emp
+      speech: action-speech-spell-emp
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
@@ -200,8 +196,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: repulse
     event: !type:RepulseEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-repulse
+      speech: action-speech-spell-repulse
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
@@ -229,8 +224,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: time
     event: !type:StopTimeEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-stop-time
+      speech: action-speech-spell-stop-time
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
@@ -265,11 +259,10 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: corpse_explosion
     event: !type:CorpseExplosionEvent
+      speech: action-speech-spell-corpse-explosion
       damage:
         groups:
           Brute: 100
-  - type: SpeakOnAction
-    sentence: action-speech-spell-corpse-explosion
   - type: Magic
     requiresSpeech: true
     school: Evocation
@@ -297,8 +290,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: blind
     event: !type:BlindSpellEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-blind
+      speech: action-speech-spell-blind
   - type: Magic
     requiresSpeech: true
     school: Transmutation
@@ -325,6 +317,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: skeleton
     event: !type:BindSoulEvent
+      speech: action-speech-spell-bind-soul
       sound: !type:SoundPathSpecifier
         path: /Audio/_Goobstation/Wizard/pope_entry.ogg
       blacklist:
@@ -341,8 +334,6 @@
         - DeleteOnDropAttempt
         - EnchantedBoltActionRifle
         - Phylactery
-  - type: SpeakOnAction
-    sentence: action-speech-spell-bind-soul
   - type: Magic
     requiresSpeech: true
     school: Necromancy
@@ -366,8 +357,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: mutate
     event: !type:MutateSpellEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-mutate
+      speech: action-speech-spell-mutate
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
@@ -390,10 +380,9 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: tesla
     event: !type:TeslaBlastEvent
+      speech: action-speech-spell-tesla-blast
       sound: !type:SoundPathSpecifier
         path: /Audio/_Goobstation/Wizard/lightning_chargeup.ogg
-  - type: SpeakOnAction
-    sentence: action-speech-spell-tesla-blast
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
@@ -425,8 +414,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: lightning
     event: !type:LightningBoltEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-lightning-bolt
+      speech: action-speech-spell-lightning-bolt
   - type: Magic
     requiresSpeech: true
     school: Evocation
@@ -459,8 +447,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: toolbox
     event: !type:HomingToolboxEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-homing-toolbox
+      speech: action-speech-spell-homing-toolbox
   - type: Magic
     requiresSpeech: true
     school: Evocation
@@ -495,8 +482,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: spellcard
     event: !type:SpellCardsEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-spell-cards
+      speech: action-speech-spell-spell-cards
   - type: Magic
     requiresSpeech: true
     school: Evocation
@@ -575,6 +561,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: barn
     event: !type:BarnyardCurseEvent
+      speech: action-speech-spell-barnyard
       masks:
         ClothingMaskPig:
           path: /Audio/_Goobstation/Wizard/PigCurse.ogg
@@ -598,8 +585,6 @@
           path: /Audio/_Goobstation/Wizard/JackalCurse.ogg
         ClothingMaskBat:
           path: /Audio/_Goobstation/Wizard/BatCurse.ogg
-  - type: SpeakOnAction
-    sentence: action-speech-spell-barnyard
   - type: Magic
     requiresSpeech: true
     school: Transmutation
@@ -631,8 +616,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: scream_for_me
     event: !type:ScreamForMeEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-scream-for-me
+      speech: action-speech-spell-scream-for-me
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
@@ -657,10 +641,9 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: summons
     event: !type:InstantSummonsEvent
+      speech: action-speech-spell-instant-summons
       summonSound:
         path: /Audio/_Goobstation/Wizard/summonitems_generic.ogg
-  - type: SpeakOnAction
-    sentence: action-speech-spell-instant-summons
   - type: Magic
     requiresSpeech: true
     school: Transmutation
@@ -708,8 +691,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: the_traps
     event: !type:TrapsSpellEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-the-traps
+      speech: action-speech-spell-the-traps
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
@@ -740,6 +722,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: bee
     event: !type:SummonMobsEvent
+      speech: action-speech-spell-bees
       collisionMask:
       - FlyingMobMask
       mobs:
@@ -758,8 +741,6 @@
       - BeeBuzzochloricBees
       - BeeLaughter
       - BeeToxin
-  - type: SpeakOnAction
-    sentence: action-speech-spell-bees
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
@@ -785,10 +766,9 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
       mobs: SummonSimiansMobTable
       weapons: SummonSimiansWeaponTable
-  - type: SpeakOnAction
-    sentence: action-speech-spell-simians
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
@@ -814,12 +794,11 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: return_to_monkey
     event: !type:PolymorphSpellEvent
+      speech: action-speech-spell-gorilla-form
       protoId: WizardGorilla
       loadActions: true
       sound: !type:SoundPathSpecifier
         path: /Audio/_Goobstation/Wizard/gorilla.ogg
-  - type: SpeakOnAction
-    sentence: action-speech-spell-gorilla-form
   - type: Magic
     requiresSpeech: true
     school: Transmutation
@@ -840,8 +819,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: exsanguinating_strike
     event: !type:ExsanguinatingStrikeEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-sanguine-strike
+      speech: action-speech-spell-sanguine-strike
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
@@ -867,8 +845,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: chuuni
     event: !type:ChuuniInvocationsEvent
-  - type: SpeakOnAction
-    sentence: chuuni-invocation-chuuni
+      speech: chuuni-invocation-chuuni
   - type: Magic
     requiresSpeech: true
     school: Chuuni
@@ -922,8 +899,7 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: soultap
     event: !type:SoulTapEvent
-  - type: SpeakOnAction
-    sentence: action-speech-spell-soul-tap
+      speech: action-speech-spell-soul-tap
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
@@ -987,13 +963,12 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: art_summon
     event: !type:SummonMobsEvent
+      speech: action-speech-spell-summon-stick-minions
       factionIgnoreSummoner: true
       amount: 3
       spawnAngle: 40
       mobs:
       - MobStickmanTemp
-  - type: SpeakOnAction
-    sentence: action-speech-spell-summon-stick-minions
   - type: Magic
     requiresSpeech: true
     school: Conjuration
@@ -1020,10 +995,9 @@
       sprite: _Goobstation/Wizard/actions.rsi
       state: tile
     event: !type:TileToggleSpellEvent
+      speech: action-speech-spell-tile-toggle
       sound:
         path: /Audio/_Goobstation/Wizard/phasein.ogg
-  - type: SpeakOnAction
-    sentence: action-speech-spell-tile-toggle
   - type: Magic
     requiresSpeech: true
     school: Conjuration

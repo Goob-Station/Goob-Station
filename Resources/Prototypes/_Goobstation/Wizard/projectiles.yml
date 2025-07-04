@@ -750,10 +750,9 @@
     - state: icon
   - type: SlipOnCollide
   - type: Slippery
-    slipData:
-      slipOnStep: false
-      paralyzeTime: 10
-      launchForwardsMultiplier: 1
+    slipOnStep: false
+    paralyzeTime: 10
+    launchForwardsMultiplier: 1
   - type: ProjectileHitShooterAfterDelay
     delay: 0.5
   - type: TileFrictionModifier

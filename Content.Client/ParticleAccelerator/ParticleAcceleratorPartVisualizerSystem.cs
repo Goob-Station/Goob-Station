@@ -12,14 +12,12 @@ namespace Content.Client.ParticleAccelerator;
 
 public sealed class ParticleAcceleratorPartVisualizerSystem : VisualizerSystem<ParticleAcceleratorPartVisualsComponent>
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-
     protected override void OnAppearanceChange(EntityUid uid, ParticleAcceleratorPartVisualsComponent comp, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
             return;
 
-        if (!_sprite.LayerMapTryGet((uid, args.Sprite), ParticleAcceleratorVisualLayers.Unlit, out var index, false))
+        if (!args.Sprite.LayerMapTryGet(ParticleAcceleratorVisualLayers.Unlit, out var index))
             return;
 
         if (!AppearanceSystem.TryGetData<ParticleAcceleratorVisualState>(uid, ParticleAcceleratorVisuals.VisualState, out var state, args.Component))
@@ -29,12 +27,12 @@ public sealed class ParticleAcceleratorPartVisualizerSystem : VisualizerSystem<P
 
         if (state != ParticleAcceleratorVisualState.Unpowered)
         {
-            _sprite.LayerSetVisible((uid, args.Sprite), index, true);
-            _sprite.LayerSetRsiState((uid, args.Sprite), index, comp.StateBase + comp.StatesSuffixes[state]);
+            args.Sprite.LayerSetVisible(index, true);
+            args.Sprite.LayerSetState(index, comp.StateBase + comp.StatesSuffixes[state]);
         }
         else
         {
-            _sprite.LayerSetVisible((uid, args.Sprite), index, false);
+            args.Sprite.LayerSetVisible(index, false);
         }
     }
 }

@@ -16,7 +16,7 @@
         icon:
           sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight
-        name: construction-graph-tag-pipe
+        name: pipe
       - material: Steel
         amount: 1
         doAfter: 3

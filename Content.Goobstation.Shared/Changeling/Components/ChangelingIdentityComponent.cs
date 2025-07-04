@@ -16,7 +16,6 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
@@ -49,11 +48,6 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     [DataField("shriekPower")]
     public float ShriekPower = 2.5f;
-
-    [DataField("armorTransform")]
-    public SoundSpecifier ArmourSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/armour_transform.ogg");
-    [DataField("armorStrip")]
-    public SoundSpecifier ArmourStripSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/armour_strip.ogg");
 
     public readonly List<EntProtoId> BaseChangelingActions = new()
     {
@@ -148,18 +142,8 @@ public sealed partial class ChangelingIdentityComponent : Component
     public TimeSpan UpdateTimer = TimeSpan.Zero;
     public float UpdateCooldown = 1f;
 
-    /// <summary>
-    ///     All of the DNA that the changeling had extracted in their lifetime.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public List<TransformData> AbsorbedHistory = new();
-
-    /// <summary>
-    ///     The DNA that the changeling has stored up.
-    /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
-
     /// <summary>
     ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
     /// </summary>

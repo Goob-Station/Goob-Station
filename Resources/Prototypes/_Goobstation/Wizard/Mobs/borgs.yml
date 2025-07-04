@@ -83,9 +83,8 @@
       borg_module:
         - BorgModuleOperative
         - BorgModuleAdvancedSurgery
-        - BorgModuleChemical
-        - BorgModuleRescue
-        - BorgModuleTopicals
+        - BorgModuleAdvancedTreatment
+        - BorgModuleDefibrillator
   - type: ItemSlots
     slots:
       cell_slot:

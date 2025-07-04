@@ -26,8 +26,6 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CaasGit <87243814+CaasGit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -92,7 +90,7 @@
   id: SolarPanelPlasma
   parent: SolarPanelBasePhysSprite
   name: solar panel plasma
-  description: A few sheets of plasma glass that generate electricity when hit by photons.
+  description: A plasma solar panel that generates power.
   components:
   - type: PowerSupplier
     supplyRampTolerance: 500
@@ -126,7 +124,7 @@
   id: SolarPanelUranium
   parent: SolarPanelBasePhysSprite
   name: solar panel uranium
-  description: A few sheets of uranium glass that generate electricity when hit by photons.
+  description: A uranium solar panel that generates power.
   components:
   - type: PowerSupplier
     supplyRampTolerance: 500
@@ -160,7 +158,7 @@
   id: SolarPanel
   parent: SolarPanelBasePhysSprite
   name: solar panel
-  description: A few sheets of glass that generate electricity when hit by photons.
+  description: A solar panel that generates power.
   components:
   - type: PowerSupplier
     supplyRampTolerance: 500
@@ -188,7 +186,6 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
-  - type: SolarPanelReplacementMarker
 
 - type: entity
   id: SolarPanelBroken
@@ -289,7 +286,7 @@
 - type: entity
   id: SolarAssembly
   name: solar assembly
-  description: A solar assembly. Insert glass to build a solar panel. # Goobstation
+  description: A solar assembly. Anchor to a wire to start building a solar panel.
   placement:
     mode: SnapgridCenter
   components:

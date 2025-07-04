@@ -106,6 +106,9 @@
   - type: Item
     heldPrefix: steel
   - type: Appearance
+  - type: FloorTile
+    outputs:
+    - Plating
   - type: Extractable
     grindableSolutionName: steel
   - type: SolutionContainerManager
@@ -269,6 +272,15 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
+# GoobStation
+- type: entity
+  parent: SheetPlasteel
+  id: SheetPlasteelLingering0
+  suffix: Lingering, 0
+  components:
+  - type: Stack
+    lingering: true
+    count: 0
 
 - type: entity
   parent: SheetPlasteel
@@ -293,12 +305,3 @@
   - type: Stack
     stackType: Plasteel
     count: 1
-
-- type: entity
-  parent: SheetPlasteel
-  id: SheetPlasteelLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0

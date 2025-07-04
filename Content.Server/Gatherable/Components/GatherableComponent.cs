@@ -12,8 +12,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.EntityList;
-using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Gatherable.Components;
 
@@ -38,13 +38,11 @@ public sealed partial class GatherableComponent : Component
     ///        - Tag1
     ///        - Tag2
     ///     loot:
-    ///       Tag1: !type:NestedSelector
-    ///         tableId: LootTableID1
-    ///       Tag2: !type:NestedSelector
-    ///         tableId: LootTableID2
+    ///       Tag1: LootTableID1
+    ///       Tag2: LootTableID2
     /// </summary>
     [DataField]
-    public Dictionary<string, EntityTableSelector>? Loot = new();
+    public Dictionary<string, ProtoId<EntityLootTablePrototype>>? Loot = new();
 
     /// <summary>
     /// Random shift of the appearing entity during gathering

@@ -19,7 +19,6 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -33,20 +32,28 @@ using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Configuration;
 using System.Linq;
 using Content.Shared._Goobstation.Weapons.Ranged;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 
-public abstract class SharedGunUpgradeSystem : EntitySystem
+public abstract partial class SharedGunUpgradeSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
@@ -106,7 +113,7 @@ public abstract class SharedGunUpgradeSystem : EntitySystem
 
     private void OnExamine(Entity<UpgradeableGunComponent> ent, ref ExaminedEvent args)
     {
-        var usedCapacity = 0;
+        int usedCapacity = 0;
         using (args.PushGroup(nameof(UpgradeableGunComponent)))
         {
             foreach (var upgrade in GetCurrentUpgrades(ent))
@@ -161,17 +168,18 @@ public abstract class SharedGunUpgradeSystem : EntitySystem
             return;
         }
 
-        var allowDupes = _config.GetCVar(CCVars.AllowDuplicatePkaModules) && !upgradeComp.Unique;
+        var allowDupes = _config.GetCVar(CCVars.AllowDuplicatePkaModules);
         var itemProto = MetaData(args.Item).EntityPrototype?.ID;
         foreach (var itemSlot in itemSlots.Slots.Values)
         {
-            if (itemSlot is not { HasItem: true, Item: { } existingItem }
-                || MetaData(existingItem).EntityPrototype?.ID != itemProto
-                || allowDupes)
-                continue;
-
-            args.Cancelled = true;
-            break;
+            if (itemSlot.HasItem
+                && itemSlot.Item is { } existingItem
+                && MetaData(existingItem).EntityPrototype?.ID == itemProto
+                && !allowDupes)
+            {
+                args.Cancelled = true;
+                break;
+            }
         }
     }
 
@@ -228,17 +236,29 @@ public abstract class SharedGunUpgradeSystem : EntitySystem
     public HashSet<Entity<GunUpgradeComponent>> GetCurrentUpgrades(Entity<UpgradeableGunComponent> ent, ItemSlotsComponent? itemSlots = null)
     {
         if (!Resolve(ent, ref itemSlots))
-            return [];
+            return new HashSet<Entity<GunUpgradeComponent>>();
 
         var upgrades = new HashSet<Entity<GunUpgradeComponent>>();
 
         foreach (var itemSlot in itemSlots.Slots.Values)
         {
-            if (itemSlot is { HasItem: true, Item: { } item }
+            if (itemSlot.HasItem
+                && itemSlot.Item is { } item
                 && TryComp<GunUpgradeComponent>(item, out var upgradeComp))
                 upgrades.Add((item, upgradeComp));
         }
 
         return upgrades;
+    }
+
+    public IEnumerable<ProtoId<TagPrototype>> GetCurrentUpgradeTags(Entity<UpgradeableGunComponent> ent)
+    {
+        foreach (var upgrade in GetCurrentUpgrades(ent))
+        {
+            foreach (var tag in upgrade.Comp.Tags)
+            {
+                yield return tag;
+            }
+        }
     }
 }

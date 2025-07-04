@@ -165,11 +165,11 @@ public sealed partial class SalvageSystem
         if (data.Comp.ActiveEntities != null)
         {
             // Handle mobrestrictions getting deleted
-            var query = AllEntityQuery<SalvageMobRestrictionsComponent, MobStateComponent>();
+            var query = AllEntityQuery<SalvageMobRestrictionsComponent>();
 
-            while (query.MoveNext(out var salvUid, out var salvMob, out var salvMobState))
+            while (query.MoveNext(out var salvUid, out var salvMob))
             {
-                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity) && _mobState.IsAlive(salvUid, salvMobState))
+                if (data.Comp.ActiveEntities.Contains(salvMob.LinkedEntity))
                 {
                     QueueDel(salvUid);
                 }
@@ -194,7 +194,8 @@ public sealed partial class SalvageSystem
                         uid = _transform.GetParentUid(uid);
                         if (_mobStateQuery.HasComp(uid))
                             return true;
-                    } while (uid != xform.GridUid && uid != EntityUid.Invalid);
+                    }
+                    while (uid != xform.GridUid && uid != EntityUid.Invalid);
                     return false;
                 }
 

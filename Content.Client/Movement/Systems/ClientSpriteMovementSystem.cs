@@ -14,8 +14,6 @@ namespace Content.Client.Movement.Systems;
 /// </summary>
 public sealed class ClientSpriteMovementSystem : SharedSpriteMovementSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-
     private EntityQuery<SpriteComponent> _spriteQuery;
 
     public override void Initialize()
@@ -36,14 +34,14 @@ public sealed class ClientSpriteMovementSystem : SharedSpriteMovementSystem
         {
             foreach (var (layer, state) in ent.Comp.MovementLayers)
             {
-                _sprite.LayerSetData((ent.Owner, sprite), layer, state);
+                sprite.LayerSetData(layer, state);
             }
         }
         else
         {
             foreach (var (layer, state) in ent.Comp.NoMovementLayers)
             {
-                _sprite.LayerSetData((ent.Owner, sprite), layer, state);
+                sprite.LayerSetData(layer, state);
             }
         }
     }

@@ -15,7 +15,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/contractor_baton.rsi
     layers:
     - state: icon
-      map: [ "enum.ItemToggleVisuals.Layer" ]
+      map: [ "enum.TelescopicBatonVisuals.Layer" ]
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/contractor_baton.rsi
   - type: Clothing

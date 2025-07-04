@@ -260,8 +260,6 @@
     - id: SignalTimerElectronics
     - id: SMESMachineCircuitboard
     - id: SubstationMachineCircuitboard
-    - id: BorgChargerCircuitboard
-    - id: CellRechargerCircuitboard
     - id: SpaceVillainArcadeComputerCircuitboard
     - id: BlockGameArcadeComputerCircuitboard
 
@@ -276,7 +274,7 @@
       entity_storage: !type:NestedSelector
         tableId: RandomTechBoardTable
         rolls: !type:RangeNumberSelector
-          range: 6, 8
+          range: 3, 7
 
 # RPD
 - type: entity

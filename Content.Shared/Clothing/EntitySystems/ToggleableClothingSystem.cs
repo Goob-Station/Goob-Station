@@ -229,7 +229,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
             if (part.Value == null)
                 continue;
 
-            _inventorySystem.TryUnequip(args.Equipee, part.Value, force: true, triggerHandContact: true);
+            _inventorySystem.TryUnequip(args.Equipee, part.Value, force: true);
         }
     }
 
@@ -429,7 +429,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         var storedClothing = attachedComp.ClothingContainer.ContainedEntity;
 
         if (storedClothing != null)
-            _inventorySystem.TryEquip(parent, storedClothing.Value, slot, force: true, triggerHandContact: true);
+            _inventorySystem.TryEquip(parent, storedClothing.Value, slot, force: true);
     }
     private void EquipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot)
     {

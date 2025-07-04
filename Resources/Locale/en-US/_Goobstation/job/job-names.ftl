@@ -24,19 +24,14 @@ job-name-diplomat = Diplomat
 job-name-inspector = Central Command Auditor
 job-name-nct = Nanotrasen Career Trainer
 
-# Syndicate
-
-job-name-highcommander = High Commander
-
 # Half Life
 
 job-name-hecu = HECU Operative
-job-name-governmentman = The G-Man
+job-name-gman = The G-Man
 
 # Misc
 
 job-name-conquest = Conquest
-job-name-mercenarycaptain = Mercenary Captain
 
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
@@ -51,4 +46,3 @@ JobDiplomat = Diplomat
 JobGovernmentMan = The G-Man
 JobConquest = Conquest
 JobInspector = Central Command Auditor
-JobMercenaryCaptain = Mercenary Captain

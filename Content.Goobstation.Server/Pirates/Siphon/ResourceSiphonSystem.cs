@@ -1,9 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
@@ -14,6 +12,7 @@ using System.Numerics;
 using Content.Goobstation.Common.Pirates;
 using Content.Goobstation.Server.Pirates.GameTicking.Rules;
 using Content.Goobstation.Server.Pirates.Objectives;
+using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Mind;
@@ -21,7 +20,6 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
-using Content.Shared.Chat;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -95,11 +93,10 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 
         // Uncomment this if you don't want cargo to go into space debt
         // :trollface:
-        ;
-        var funds = _cargo.GetBalanceFromAccount(bank.AsNullable(), bank.Comp.PrimaryAccount) - ent.Comp.DrainRate;
+        var funds = bank.Comp.Balance - ent.Comp.DrainRate;
         if (funds > 0)
         {
-            _cargo.UpdateBankAccount(bank.AsNullable(), (int) -ent.Comp.DrainRate, bank.Comp.PrimaryAccount);
+            _cargo.DeductFunds(bank.Comp, (int) ent.Comp.DrainRate);
             UpdateCredits(ent, ent.Comp.DrainRate);
         }
     }

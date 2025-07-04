@@ -160,5 +160,6 @@
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
   - type: StorageFill
     contents:
-    - id: CigPackMixed
-      amount: 3
+      - id: CigPackMixedMedical
+      - id: CigPackMixed
+      - id: CigPackMixedNasty

@@ -213,14 +213,8 @@
     bloodlossModifier: -4
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
-      params:
-        volume: 1.0
-        variation: 0.125
   - type: Stack
     stackType: Cloth
     baseLayer: base
@@ -537,10 +531,6 @@
   - type: PhysicalComposition
     materialComposition:
       Diamond: 100
-  - type: Tag
-    tags:
-    - RawMaterial
-    - Diamond
 
 - type: entity
   parent: MaterialDiamond
@@ -596,14 +586,8 @@
       - ClothMade
       - RawMaterial
       - DroneUsable # Goobstation
-      - Boll
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Cotton: 100
   - type: Item
     heldPrefix: cotton
-
 
 - type: entity
   parent: MaterialCotton
@@ -856,10 +840,6 @@
   description: Looks sharp. Sharp enough to poke someone's eye out. Holy fuck it's big.
   suffix: Full
   components:
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 15
   - type: Sprite
     sprite: Objects/Materials/Mob/sharktooth.rsi
     layers:
@@ -1000,9 +980,6 @@
     sprite: Objects/Materials/hide.rsi
     shape:
     - 0,0,2,2
-  - type: Tag
-    tags:
-    - GoliathPlate
 
 - type: entity
   parent: MaterialGoliathHide

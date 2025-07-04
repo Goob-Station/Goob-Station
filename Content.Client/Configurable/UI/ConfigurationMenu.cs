@@ -27,10 +27,10 @@ namespace Content.Client.Configurable.UI
 {
     public sealed class ConfigurationMenu : DefaultWindow
     {
-        public readonly BoxContainer Column;
-        public readonly BoxContainer Row;
+        private readonly BoxContainer _column;
+        private readonly BoxContainer _row;
 
-        public readonly List<(string name, LineEdit input)> Inputs;
+        private readonly List<(string  name, LineEdit input)> _inputs;
 
         [ViewVariables]
         public Regex? Validation { get; internal set; }
@@ -41,7 +41,7 @@ namespace Content.Client.Configurable.UI
         {
             MinSize = SetSize = new Vector2(300, 250);
 
-            Inputs = new List<(string name, LineEdit input)>();
+            _inputs = new List<(string name, LineEdit input)>();
 
             Title = Loc.GetString("configuration-menu-device-title");
 
@@ -52,14 +52,14 @@ namespace Content.Client.Configurable.UI
                 HorizontalExpand = true
             };
 
-            Column = new BoxContainer
+            _column = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
                 Margin = new Thickness(8),
                 SeparationOverride = 16,
             };
 
-            Row = new BoxContainer
+            _row = new BoxContainer
             {
                 Orientation = LayoutOrientation.Horizontal,
                 SeparationOverride = 16,
@@ -82,20 +82,61 @@ namespace Content.Client.Configurable.UI
                 ModulateSelfOverride = Color.FromHex("#202025")
             };
 
-            outerColumn.AddChild(Column);
+            outerColumn.AddChild(_column);
             baseContainer.AddChild(outerColumn);
             baseContainer.AddChild(confirmButton);
             Contents.AddChild(baseContainer);
         }
 
+        public void Populate(ConfigurationBoundUserInterfaceState state)
+        {
+            _column.Children.Clear();
+            _inputs.Clear();
+
+            foreach (var field in state.Config)
+            {
+                var label = new Label
+                {
+                    Margin = new Thickness(0, 0, 8, 0),
+                    Name = field.Key,
+                    Text = field.Key + ":",
+                    VerticalAlignment = VAlignment.Center,
+                    HorizontalExpand = true,
+                    SizeFlagsStretchRatio = .2f,
+                    MinSize = new Vector2(60, 0)
+                };
+
+                var input = new LineEdit
+                {
+                    Name = field.Key + "-input",
+                    Text = field.Value ?? "",
+                    IsValid = Validate,
+                    HorizontalExpand = true,
+                    SizeFlagsStretchRatio = .8f
+                };
+
+                _inputs.Add((field.Key, input));
+
+                var row = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal
+                };
+                CopyProperties(_row, row);
+
+                row.AddChild(label);
+                row.AddChild(input);
+                _column.AddChild(row);
+            }
+        }
+
         private void OnConfirm(ButtonEventArgs args)
         {
-            var config = GenerateDictionary(Inputs, "Text");
+            var config = GenerateDictionary(_inputs, "Text");
             OnConfiguration?.Invoke(config);
             Close();
         }
 
-        public bool Validate(string value)
+        private bool Validate(string value)
         {
             return Validation?.IsMatch(value) != false;
         }
@@ -112,7 +153,7 @@ namespace Content.Client.Configurable.UI
             return dictionary;
         }
 
-        public static void CopyProperties<T>(T from, T to) where T : Control
+        private static void CopyProperties<T>(T from, T to) where T : Control
         {
             foreach (var property in from.AllAttachedProperties)
             {

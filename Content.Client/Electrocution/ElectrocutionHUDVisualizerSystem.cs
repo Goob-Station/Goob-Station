@@ -16,7 +16,6 @@ namespace Content.Client.Electrocution;
 public sealed class ElectrocutionHUDVisualizerSystem : VisualizerSystem<ElectrocutionHUDVisualsComponent>
 {
     [Dependency] private readonly IPlayerManager _playerMan = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -59,12 +58,15 @@ public sealed class ElectrocutionHUDVisualizerSystem : VisualizerSystem<Electroc
     private void ShowHUD()
     {
         var electrifiedQuery = AllEntityQuery<ElectrocutionHUDVisualsComponent, AppearanceComponent, SpriteComponent>();
-        while (electrifiedQuery.MoveNext(out var uid, out _, out var appearanceComp, out var spriteComp))
+        while (electrifiedQuery.MoveNext(out var uid, out var _, out var appearanceComp, out var spriteComp))
         {
             if (!AppearanceSystem.TryGetData<bool>(uid, ElectrifiedVisuals.IsElectrified, out var electrified, appearanceComp))
                 continue;
 
-            _sprite.LayerSetVisible((uid, spriteComp), ElectrifiedLayers.HUD, electrified);
+            if (electrified)
+                spriteComp.LayerSetVisible(ElectrifiedLayers.HUD, true);
+            else
+                spriteComp.LayerSetVisible(ElectrifiedLayers.HUD, false);
         }
     }
 
@@ -73,9 +75,10 @@ public sealed class ElectrocutionHUDVisualizerSystem : VisualizerSystem<Electroc
     private void RemoveHUD()
     {
         var electrifiedQuery = AllEntityQuery<ElectrocutionHUDVisualsComponent, AppearanceComponent, SpriteComponent>();
-        while (electrifiedQuery.MoveNext(out var uid, out _, out _, out var spriteComp))
+        while (electrifiedQuery.MoveNext(out var uid, out var _, out var appearanceComp, out var spriteComp))
         {
-            _sprite.LayerSetVisible((uid, spriteComp), ElectrifiedLayers.HUD, false);
+
+            spriteComp.LayerSetVisible(ElectrifiedLayers.HUD, false);
         }
     }
 
@@ -89,6 +92,9 @@ public sealed class ElectrocutionHUDVisualizerSystem : VisualizerSystem<Electroc
             return;
 
         var player = _playerMan.LocalEntity;
-        _sprite.LayerSetVisible((uid, args.Sprite), ElectrifiedLayers.HUD, electrified && HasComp<ShowElectrocutionHUDComponent>(player));
+        if (electrified && HasComp<ShowElectrocutionHUDComponent>(player))
+            args.Sprite.LayerSetVisible(ElectrifiedLayers.HUD, true);
+        else
+            args.Sprite.LayerSetVisible(ElectrifiedLayers.HUD, false);
     }
 }

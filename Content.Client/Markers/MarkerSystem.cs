@@ -19,8 +19,6 @@ namespace Content.Client.Markers;
 
 public sealed class MarkerSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-
     private bool _markersVisible;
 
     public bool MarkersVisible
@@ -49,7 +47,7 @@ public sealed class MarkerSystem : EntitySystem
     {
         if (EntityManager.TryGetComponent(uid, out SpriteComponent? sprite))
         {
-            _sprite.SetVisible((uid, sprite), MarkersVisible);
+            sprite.Visible = MarkersVisible;
         }
     }
 

@@ -48,14 +48,12 @@ namespace Content.Server.Containers
 
         private void OnDeconstruct(EntityUid uid, EmptyOnMachineDeconstructComponent component, MachineDeconstructedEvent ev)
         {
-            if (!TryComp<ContainerManagerComponent>(uid, out var mComp))
+            if (!EntityManager.TryGetComponent<ContainerManagerComponent>(uid, out var mComp))
                 return;
-
-            var baseCoords = Transform(uid).Coordinates;
-
+            var baseCoords = EntityManager.GetComponent<TransformComponent>(uid).Coordinates;
             foreach (var v in component.Containers)
             {
-                if (_container.TryGetContainer(uid, v, out var container, mComp))
+                if (mComp.TryGetContainer(v, out var container))
                 {
                     _container.EmptyContainer(container, true, baseCoords);
                 }

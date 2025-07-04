@@ -7,14 +7,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -99,7 +97,7 @@
 
 - type: entity
   id: BluespaceLifelineImplanter
-  name: bluespace lifeline implanter
+  suffix: bluespace lifeline
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -115,7 +113,7 @@
 
 - type: entity
   id: CentcommFreedomImplanter
-  name: freedom implant implanter
+  suffix: freedom implant
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -123,7 +121,7 @@
 
 - type: entity
   id: CentcommStorageImplanter
-  name: storage implant implanter
+  suffix: storage implant
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -131,7 +129,7 @@
 
 - type: entity
   id: CentcommMindShieldImplanter
-  name: mindshield implanter
+  suffix: mindshield
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -139,7 +137,7 @@
 
 - type: entity
   id: CentcommNutrimentImplanter
-  name: nutriment pump implanter
+  suffix: nutriment pump
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -147,7 +145,7 @@
 
 - type: entity
   id: CentcommSpaceproofImplanter
-  name: space proofing implanter
+  suffix: space proofing
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -155,7 +153,7 @@
 
 - type: entity
   id: CentcommStypticStimulatorImplanter
-  name: styptic stimulator implanter
+  suffix: styptic stimulator
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -164,7 +162,7 @@
 - type: entity
   parent: BaseImplantOnlyImplanter
   id: PacifismImplanter
-  name: pacifism implant implanter
+  suffix: pacifism
   components:
   - type: Implanter
     implant: PacifismImplant
@@ -172,14 +170,14 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: SmokeImplanter
-  name: smoke implant implanter
+  suffix: smoke
   components:
   - type: Implanter
     implant: SmokeImplant
 
 - type: entity
   id: NutrimentImplanter
-  name: nutriment pump implanter
+  suffix: nutriment pump
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -187,7 +185,7 @@
 
 - type: entity
   id: StypticStimulatorImplanter
-  name: styptic stimulator implanter
+  suffix: styptic stimulator
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -196,25 +194,16 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: KravMagaImplanter
-  name: krav maga nanochip implanter
+  suffix: krav maga
   components:
   - type: Implanter
     implant: KravMagaImplant
-
-- type: entity
-  id: BinaryImplanter
-  name: binary decoder implanter
-  parent: BaseImplantOnlyImplanterSyndi
-  components:
-  - type: Implanter
-    implant: BinaryImplant
 
 # Admeme
 
 - type: entity
   id: VaporizeImplanter
-  name: vaporize implant implanter
-  suffix: DO NOT MAP
+  suffix: vaporize, DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -222,8 +211,7 @@
 
 - type: entity
   id: ShiftImplanter
-  name: shift implant implanter
-  suffix: DO NOT MAP
+  suffix: shift, DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -231,8 +219,7 @@
 
 - type: entity
   id: BlinkImplanter
-  name: blink implant implanter
-  suffix: DO NOT MAP
+  suffix: blink, DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -240,8 +227,7 @@
 
 - type: entity
   id: StopTimeImplanter
-  name: stop time implant implanter
-  suffix: DO NOT MAP
+  suffix: stop time, DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -259,7 +245,7 @@
 
 - type: entity
   id: AntagImplanterChangeling
-  name: changeling nanochip implanter
+  suffix: antag, changeling
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -267,7 +253,7 @@
 
 - type: entity
   id: AntagImplanterHeretic
-  name: heretic nanochip implanter
+  suffix: antag, heretic
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -275,7 +261,7 @@
 
 - type: entity
   id: AntagImplanterSpaceNinja
-  name: space ninja nanochip implanter
+  suffix: antag, space ninja
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter

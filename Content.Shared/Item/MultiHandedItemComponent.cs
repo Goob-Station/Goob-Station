@@ -15,6 +15,6 @@ namespace Content.Shared.Item;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MultiHandedItemComponent : Component
 {
-    [DataField]
+    [DataField("handsNeeded"), ViewVariables(VVAccess.ReadWrite)]
     public int HandsNeeded = 2;
 }

@@ -211,9 +211,6 @@ namespace Content.Shared.Atmos
         public const float OxygenMolesFreezer = MolesCellFreezer * OxygenStandard;
         public const float NitrogenMolesFreezer = MolesCellFreezer * NitrogenStandard;
 
-        public const float OxygenMolesGasMiner = MolesCellGasMiner * OxygenStandard;
-        public const float NitrogenMolesGasMiner = MolesCellGasMiner * NitrogenStandard;
-
         #endregion
 
         /// <summary>

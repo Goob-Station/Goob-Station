@@ -26,5 +26,4 @@
       - id: MobCarpMagic
         amount: 3
       offset: 0, 1
-  - type: SpeakOnAction
-    sentence: action-speech-spell-summon-magicarp
+      speech: action-speech-spell-summon-magicarp

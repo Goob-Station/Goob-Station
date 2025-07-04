@@ -23,13 +23,13 @@
         icon:
           sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight
-        name: construction-graph-tag-pipe
+        name: pipe
       - tag: Handcuffs
         icon:
           sprite: Objects/Misc/cablecuffs.rsi
           state: cuff
           color: red
-        name: construction-graph-tag-cuffs
+        name: cuffs
       - material: Steel
         amount: 6
         doAfter: 10

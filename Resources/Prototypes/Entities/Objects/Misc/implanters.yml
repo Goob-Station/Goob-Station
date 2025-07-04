@@ -23,19 +23,15 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -43,6 +39,7 @@
 
 - type: entity
   name: implanter
+  description: A syringe exclusively designed for the injection and extraction of subdermal implants. Use care when extracting implants, as incorrect draw settings may injure the user.
   id: BaseImplanter
   parent: BaseItem
   abstract: true
@@ -91,9 +88,7 @@
       - MindcontrolImplant
       - KravMagaImplant
       - NutrimentPumpImplant
-      - SmokeImplant
-      # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
-      - BinaryImplant
+      - StypticStimulatorImplant
       deimplantFailureDamage:
         types:
           Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
@@ -176,7 +171,7 @@
   id: BaseImplantOnlyImplanterSyndi
   parent: [BaseImplantOnlyImplanter, BaseSyndicateContraband]
   name: syndicate implanter
-  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap or a rag to remove residual DNA after use!
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants.
   abstract: true
   components:
     - type: Item
@@ -208,7 +203,7 @@
 
 - type: entity
   id: SadTromboneImplanter
-  name: sad trombone implanter
+  suffix: sad trombone
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -216,7 +211,7 @@
 
 - type: entity
   id: LightImplanter
-  name: light implanter
+  suffix: light
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -224,7 +219,7 @@
 
 - type: entity
   id: BikeHornImplanter
-  name: bike horn implanter
+  suffix: bike horn
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -234,7 +229,7 @@
 
 - type: entity
   id: TrackingImplanter
-  name: tracking implanter
+  suffix: tracking
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -244,7 +239,7 @@
 
 - type: entity
   id: StorageImplanter
-  name: storage implanter
+  suffix: storage
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -252,7 +247,7 @@
 
 - type: entity
   id: FreedomImplanter
-  name: freedom implanter
+  suffix: freedom
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -260,7 +255,7 @@
 
 - type: entity
   id: RadioImplanter
-  name: syndicate radio implanter
+  suffix: radio Syndicate
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -268,7 +263,7 @@
 
 - type: entity
   id: UplinkImplanter
-  name: uplink implanter
+  suffix: uplink
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -276,7 +271,7 @@
 
 - type: entity
   id: EmpImplanter
-  name: EMP implanter
+  suffix: EMP
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -284,7 +279,7 @@
 
 - type: entity
   id: ScramImplanter
-  name: scram implanter
+  suffix: scram
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -292,7 +287,7 @@
 
 - type: entity
   id: DnaScramblerImplanter
-  name: DNA scrambler implanter
+  suffix: DNA scrambler
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -302,7 +297,7 @@
 
 - type: entity
   id: MicroBombImplanter
-  name: micro-bomb implanter
+  suffix: micro-bomb
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -310,7 +305,7 @@
 
 - type: entity
   id: MacroBombImplanter
-  name: macro-bomb implanter
+  suffix: macro-bomb
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -318,7 +313,7 @@
 
 - type: entity
   id: DeathRattleImplanter
-  name: death rattle implanter
+  suffix: death rattle
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -326,7 +321,7 @@
 
 - type: entity
   id: DeathAcidifierImplanter
-  name: death acidifier implanter
+  suffix: death acidifier
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -334,7 +329,7 @@
 
 - type: entity
   id: FakeMindShieldImplanter
-  name: fake mindshield implanter
+  suffix: fake mindshield
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -344,7 +339,7 @@
 
 - type: entity
   id: MindShieldImplanter
-  name: mindshield implanter
+  suffix: mindshield
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -354,7 +349,7 @@
 
 - type: entity
   id: RadioImplanterCentcomm
-  name: centcomm radio implanter
+  suffix: radio Centcomm
   parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter
@@ -362,7 +357,7 @@
 
 - type: entity
   id: DeathRattleImplanterCentcomm
-  name: centcomm death rattle implanter
+  suffix: centcomm death rattle
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter

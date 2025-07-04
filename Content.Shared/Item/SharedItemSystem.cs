@@ -98,7 +98,6 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using JetBrains.Annotations;
-using Robust.Shared.Collections;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -135,37 +134,19 @@ public abstract class SharedItemSystem : EntitySystem
 
     public void SetSize(EntityUid uid, ProtoId<ItemSizePrototype> size, ItemComponent? component = null)
     {
-        if (!Resolve(uid, ref component, false) || component.Size == size)
+        if (!Resolve(uid, ref component, false))
             return;
 
         component.Size = size;
         Dirty(uid, component);
-        var ev = new ItemSizeChangedEvent(uid);
-        RaiseLocalEvent(uid, ref ev, broadcast: true);
     }
 
     public void SetShape(EntityUid uid, List<Box2i>? shape, ItemComponent? component = null)
     {
-        if (!Resolve(uid, ref component, false) || component.Shape == shape)
-            return;
-
-        component.Shape = shape;
-        Dirty(uid, component);
-        var ev = new ItemSizeChangedEvent(uid);
-        RaiseLocalEvent(uid, ref ev, broadcast: true);
-    }
-
-    /// <summary>
-    /// Sets the offset used for the item's sprite inside the storage UI.
-    /// Dirties.
-    /// </summary>
-    [PublicAPI]
-    public void SetStoredOffset(EntityUid uid, Vector2i newOffset, ItemComponent? component = null)
-    {
         if (!Resolve(uid, ref component, false))
             return;
 
-        component.StoredOffset = newOffset;
+        component.Shape = shape;
         Dirty(uid, component);
     }
 
@@ -301,21 +282,15 @@ public abstract class SharedItemSystem : EntitySystem
     public IReadOnlyList<Box2i> GetAdjustedItemShape(Entity<ItemComponent?> entity, Angle rotation, Vector2i position)
     {
         if (!Resolve(entity, ref entity.Comp))
-            return [];
+            return new Box2i[] { };
 
-        var adjustedShapes = new List<Box2i>();
-        GetAdjustedItemShape(adjustedShapes, entity, rotation, position);
-        return adjustedShapes;
-    }
-
-    public void GetAdjustedItemShape(List<Box2i> adjustedShapes, Entity<ItemComponent?> entity, Angle rotation, Vector2i position)
-    {
         var shapes = GetItemShape(entity);
         var boundingShape = shapes.GetBoundingBox();
         var boundingCenter = ((Box2) boundingShape).Center;
         var matty = Matrix3Helpers.CreateTransform(boundingCenter, rotation);
         var drift = boundingShape.BottomLeft - matty.TransformBox(boundingShape).BottomLeft;
 
+        var adjustedShapes = new List<Box2i>();
         foreach (var shape in shapes)
         {
             var transformed = matty.TransformBox(shape).Translated(drift);
@@ -324,6 +299,8 @@ public abstract class SharedItemSystem : EntitySystem
 
             adjustedShapes.Add(translated);
         }
+
+        return adjustedShapes;
     }
 
     /// <summary>
@@ -340,7 +317,6 @@ public abstract class SharedItemSystem : EntitySystem
             {
                 // Set the deactivated shape to the default item's shape before it gets changed.
                 itemToggleSize.DeactivatedShape ??= new List<Box2i>(GetItemShape(item));
-                Dirty(uid, itemToggleSize);
                 SetShape(uid, itemToggleSize.ActivatedShape, item);
             }
 
@@ -348,7 +324,6 @@ public abstract class SharedItemSystem : EntitySystem
             {
                 // Set the deactivated size to the default item's size before it gets changed.
                 itemToggleSize.DeactivatedSize ??= item.Size;
-                Dirty(uid, itemToggleSize);
                 SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.ActivatedSize, item);
             }
         }
@@ -391,5 +366,7 @@ public abstract class SharedItemSystem : EntitySystem
                 }
             }
         }
+
+        Dirty(uid, item);
     }
 }

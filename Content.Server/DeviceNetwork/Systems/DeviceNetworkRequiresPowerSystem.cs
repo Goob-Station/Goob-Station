@@ -47,7 +47,6 @@
 
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Shared.DeviceNetwork.Events;
 
 namespace Content.Server.DeviceNetwork.Systems;
 

@@ -11,23 +11,22 @@
 			"name": "adv-retractor"
 		},
 		{
-            "name": "adv-retractor-on"
+      "name": "adv-retractor-on"
 		},
 		{
-			"name": "retractor-inhand-left",
+			"name": "off-inhand-left",
 			"directions": 4
 		},
-        {
-            "name": "retractor-inhand-right",
-            "directions": 4
-        },
 		{
-			"name": "hemostat-inhand-left",
+			"name": "on-inhand-left",
 			"directions": 4
 		},
-
 		{
-			"name": "hemostat-inhand-right",
+			"name": "off-inhand-right",
+			"directions": 4
+		},
+		{
+			"name": "on-inhand-right",
 			"directions": 4
 		}
 	]

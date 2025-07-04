@@ -30,7 +30,6 @@ public sealed class DoorSystem : SharedDoorSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animationSystem = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -105,7 +104,7 @@ public sealed class DoorSystem : SharedDoorSystem
             state = DoorState.Closed;
 
         if (AppearanceSystem.TryGetData<string>(entity, DoorVisuals.BaseRSI, out var baseRsi, args.Component))
-            UpdateSpriteLayers((entity.Owner, args.Sprite), baseRsi);
+            UpdateSpriteLayers(args.Sprite, baseRsi);
 
         if (_animationSystem.HasRunningAnimation(entity, DoorComponent.AnimationKey))
             _animationSystem.Stop(entity.Owner, DoorComponent.AnimationKey);
@@ -115,21 +114,21 @@ public sealed class DoorSystem : SharedDoorSystem
 
     private void UpdateAppearanceForDoorState(Entity<DoorComponent> entity, SpriteComponent sprite, DoorState state)
     {
-        _sprite.SetDrawDepth((entity.Owner, sprite), state is DoorState.Open ? entity.Comp.OpenDrawDepth : entity.Comp.ClosedDrawDepth);
+        sprite.DrawDepth = state is DoorState.Open ? entity.Comp.OpenDrawDepth : entity.Comp.ClosedDrawDepth;
 
         switch (state)
         {
             case DoorState.Open:
                 foreach (var (layer, layerState) in entity.Comp.OpenSpriteStates)
                 {
-                    _sprite.LayerSetRsiState((entity.Owner, sprite), layer, layerState);
+                    sprite.LayerSetState(layer, layerState);
                 }
 
                 return;
             case DoorState.Closed:
                 foreach (var (layer, layerState) in entity.Comp.ClosedSpriteStates)
                 {
-                    _sprite.LayerSetRsiState((entity.Owner, sprite), layer, layerState);
+                    sprite.LayerSetState(layer, layerState);
                 }
 
                 return;
@@ -158,7 +157,7 @@ public sealed class DoorSystem : SharedDoorSystem
         }
     }
 
-    private void UpdateSpriteLayers(Entity<SpriteComponent> sprite, string baseRsi)
+    private void UpdateSpriteLayers(SpriteComponent sprite, string baseRsi)
     {
         if (!_resourceCache.TryGetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / baseRsi, out var res))
         {
@@ -166,6 +165,6 @@ public sealed class DoorSystem : SharedDoorSystem
             return;
         }
 
-        _sprite.SetBaseRsi(sprite.AsNullable(), res.RSI);
+        sprite.BaseRSI = res.RSI;
     }
 }

@@ -19,10 +19,14 @@ using Robust.Shared.Timing;
 namespace Content.Client.PDA.Ringer
 {
     [UsedImplicitly]
-    public sealed class RingerBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+    public sealed class RingerBoundUserInterface : BoundUserInterface
     {
         [ViewVariables]
         private RingtoneMenu? _menu;
+
+        public RingerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+        {
+        }
 
         protected override void Open()
         {
@@ -30,10 +34,25 @@ namespace Content.Client.PDA.Ringer
             _menu = this.CreateWindow<RingtoneMenu>();
             _menu.OpenToLeft();
 
-            _menu.TestRingtoneButtonPressed += OnTestRingtoneButtonPressed;
-            _menu.SetRingtoneButtonPressed += OnSetRingtoneButtonPressed;
+            _menu.TestRingerButton.OnPressed += _ =>
+            {
+                SendMessage(new RingerPlayRingtoneMessage());
+            };
 
-            Update();
+            _menu.SetRingerButton.OnPressed += _ =>
+            {
+                if (!TryGetRingtone(out var ringtone))
+                    return;
+
+                SendMessage(new RingerSetRingtoneMessage(ringtone));
+                _menu.SetRingerButton.Disabled = true;
+
+                Timer.Spawn(333, () =>
+                {
+                    if (_menu is { Disposed: false, SetRingerButton: { Disposed: false } ringer})
+                        ringer.Disabled = false;
+                });
+            };
         }
 
         private bool TryGetRingtone(out Note[] ringtone)
@@ -56,59 +75,36 @@ namespace Content.Client.PDA.Ringer
             return true;
         }
 
-        public override void Update()
+        protected override void UpdateState(BoundUserInterfaceState state)
         {
-            base.Update();
+            base.UpdateState(state);
 
-            if (_menu == null)
+            if (_menu == null || state is not RingerUpdateState msg)
                 return;
 
-            if (!EntMan.TryGetComponent(Owner, out RingerComponent? ringer))
-                return;
-
-            for (var i = 0; i < _menu.RingerNoteInputs.Length; i++)
+            for (int i = 0; i < _menu.RingerNoteInputs.Length; i++)
             {
-                var note = ringer.Ringtone[i].ToString();
 
-                if (!RingtoneMenu.IsNote(note))
-                    continue;
+                var note = msg.Ringtone[i].ToString();
+                if (RingtoneMenu.IsNote(note))
+                {
+                    _menu.PreviousNoteInputs[i] = note.Replace("sharp", "#");
+                    _menu.RingerNoteInputs[i].Text = _menu.PreviousNoteInputs[i];
+                }
 
-                _menu.PreviousNoteInputs[i] = note.Replace("sharp", "#");
-                _menu.RingerNoteInputs[i].Text = _menu.PreviousNoteInputs[i];
             }
 
-            _menu.TestRingerButton.Disabled = ringer.Active;
+            _menu.TestRingerButton.Disabled = msg.IsPlaying;
         }
 
-        private void OnTestRingtoneButtonPressed()
+
+        protected override void Dispose(bool disposing)
         {
-            if (_menu is null)
+            base.Dispose(disposing);
+            if (!disposing)
                 return;
 
-            SendPredictedMessage(new RingerPlayRingtoneMessage());
-
-            // We disable it instantly to remove the delay before the client receives the next compstate
-            // Makes the UI feel responsive, will be re-enabled by ringer.Active once it gets an update.
-            _menu.TestRingerButton.Disabled = true;
-        }
-
-        private void OnSetRingtoneButtonPressed()
-        {
-            if (_menu is null)
-                return;
-
-            if (!TryGetRingtone(out var ringtone))
-                return;
-
-            SendPredictedMessage(new RingerSetRingtoneMessage(ringtone));
-            _menu.SetRingerButton.Disabled = true;
-
-            Timer.Spawn(333,
-                () =>
-                {
-                    if (_menu is { Disposed: false, SetRingerButton: { Disposed: false } ringer} )
-                        ringer.Disabled = false;
-                });
+            _menu?.Dispose();
         }
     }
 }

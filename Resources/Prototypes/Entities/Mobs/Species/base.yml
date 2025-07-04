@@ -417,7 +417,6 @@
   - type: SSDIndicator
   - type: StandingState
   - type: Dna
-  - type: Scent # Einstein Engines
   - type: MindContainer
     showExamineInfo: true
   - type: CanEnterCryostorage

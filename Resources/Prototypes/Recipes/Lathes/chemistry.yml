@@ -31,14 +31,14 @@
   result: Beaker
   completetime: 2
   materials:
-    Glass: 200
+    Glass: 100
 
 - type: latheRecipe
   id: LargeBeaker
   result: LargeBeaker
   completetime: 2
   materials:
-    Glass: 400
+    Glass: 200
 
 - type: latheRecipe
   id: CryostasisBeaker

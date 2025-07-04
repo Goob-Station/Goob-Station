@@ -60,10 +60,6 @@
   - type: ComponentToggler
     components:
     - type: NoSlip
-  - type: ItemTogglePrefix
-    prefixOn: on
-  - type: ToggleClothingPrefix
-    prefixOn: on
   - type: Magboots
   - type: ClothingSpeedModifier
     walkModifier: 0.85

@@ -54,7 +54,8 @@ namespace Content.Server.Nuke
         /// <summary>
         ///     Default bomb timer value in seconds.
         /// </summary>
-        [DataField]
+        [DataField("timer")]
+        [ViewVariables(VVAccess.ReadWrite)]
         public int Timer = 300;
 
         /// <summary>
@@ -68,7 +69,7 @@ namespace Content.Server.Nuke
         ///     How long until the bomb can arm again after deactivation.
         ///     Used to prevent announcements spam.
         /// </summary>
-        [DataField]
+        [DataField("cooldown")]
         public int Cooldown = 30;
 
         /// <summary>
@@ -176,32 +177,32 @@ namespace Content.Server.Nuke
         /// </summary>
         public (MapId, EntityUid?)? OriginMapGrid;
 
-        [DataField] public int CodeLength = 6;
-        [DataField] public string Code = string.Empty;
+        [DataField("codeLength")] public int CodeLength = 6;
+        [ViewVariables] public string Code = string.Empty;
 
         /// <summary>
         ///     Time until explosion in seconds.
         /// </summary>
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
         public float RemainingTime;
 
         /// <summary>
         ///     Time until bomb cooldown will expire in seconds.
         /// </summary>
-        [DataField]
+        [ViewVariables]
         public float CooldownTime;
 
         /// <summary>
         ///     Current nuclear code buffer. Entered manually by players.
         ///     If valid it will allow arm/disarm bomb.
         /// </summary>
-        [DataField]
+        [ViewVariables]
         public string EnteredCode = "";
 
         /// <summary>
         ///     Current status of a nuclear bomb.
         /// </summary>
-        [DataField]
+        [ViewVariables]
         public NukeStatus Status = NukeStatus.AWAIT_DISK;
 
         /// <summary>

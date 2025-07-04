@@ -75,7 +75,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.DoAfter;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Wires;
@@ -92,11 +91,14 @@ public abstract partial class SharedVendingMachineSystem
     {
         if (!TryComp<WiresPanelComponent>(target, out var panel) || !panel.Open)
         {
-            Popup.PopupPredictedCursor(Loc.GetString("vending-machine-restock-needs-panel-open",
-                    ("this", uid),
-                    ("user", user),
-                    ("target", target)),
-                user);
+            if (_net.IsServer)
+            {
+                Popup.PopupCursor(Loc.GetString("vending-machine-restock-needs-panel-open",
+                        ("this", uid),
+                        ("user", user),
+                        ("target", target)),
+                    user);
+            }
 
             return false;
         }
@@ -112,8 +114,11 @@ public abstract partial class SharedVendingMachineSystem
     {
         if (!component.CanRestock.Contains(machineComponent.PackPrototypeId))
         {
-            Popup.PopupPredictedCursor(Loc.GetString("vending-machine-restock-invalid-inventory", ("this", uid), ("user", user),
-                ("target", target)), user);
+            if (_net.IsServer)
+            {
+                Popup.PopupCursor(Loc.GetString("vending-machine-restock-invalid-inventory", ("this", uid), ("user", user),
+                        ("target", target)), user);
+            }
 
             return false;
         }
@@ -148,13 +153,13 @@ public abstract partial class SharedVendingMachineSystem
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
             return;
 
-        var selfMessage = Loc.GetString("vending-machine-restock-start-self", ("target", target));
-        var othersMessage = Loc.GetString("vending-machine-restock-start-others", ("user", Identity.Entity(args.User, EntityManager)), ("target", target));
-        Popup.PopupPredicted(selfMessage,
-            othersMessage,
-            uid,
-            args.User,
-            PopupType.Medium);
+        if (_net.IsServer)
+        {
+            Popup.PopupEntity(Loc.GetString("vending-machine-restock-start", ("this", uid), ("user", args.User),
+                    ("target", target)),
+                args.User,
+                PopupType.Medium);
+        }
 
         Audio.PlayPredicted(component.SoundRestockStart, uid, args.User);
     }

@@ -18,7 +18,6 @@ public sealed class CommandLineArguments
     public bool ExportViewerJson { get; set; } = false;
     public string OutputPath { get; set; } = DirectoryExtensions.MapImages().FullName;
     public bool ArgumentsAreFileNames { get; set; } = false;
-    public bool ShowMarkers { get; set; } = false;
 
     public static bool TryParse(IReadOnlyList<string> args, [NotNullWhen(true)] out CommandLineArguments? parsed)
     {
@@ -66,11 +65,6 @@ public sealed class CommandLineArguments
                     parsed.ArgumentsAreFileNames = true;
                     break;
 
-                case "-m":
-                case "--markers":
-                    parsed.ShowMarkers = true;
-                    break;
-
                 case "-h":
                 case "--help":
                     PrintHelp();
@@ -107,9 +101,7 @@ Options:
         Defaults to Resources/MapImages
     -f / --files
         This option tells the map renderer that you supplied a list of map file names instead of their ids.
-        Example: Content.MapRenderer -f /Maps/box.yml /Maps/bagel.yml
-    -m / --markers
-        Show hidden markers on map render. Defaults to false.
+        Example: Content.MapRenderer -f box.yml bagel.yml
     -h / --help
         Displays this help text");
     }

@@ -17,8 +17,7 @@
   id: BaseDrink
   group: Drinks
   abstract: true
-  slipData:
-    requiredSlipSpeed: 3.5
+  slippery: true
   metabolisms:
     Drink:
       effects:
@@ -53,16 +52,15 @@
   - !type:PlantAdjustHealth
     amount: -0.1
   footstepSound:
-    collection: FootstepSlime
+    collection: FootstepSticky
+    params:
+      volume: 6
   fizziness: 0.5
 
 - type: reagent
   id: BaseAlcohol
   group: Drinks
   abstract: true
-  slipData:
-    requiredSlipSpeed: 3.5
-  friction: 0.4
   metabolisms:
     Drink:
       effects:
@@ -91,4 +89,6 @@
   abstract: true
   flavor: sweet
   footstepSound:
-    collection: FootstepSlime
+    collection: FootstepSticky
+    params:
+      volume: 6

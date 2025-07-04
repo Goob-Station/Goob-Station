@@ -4,14 +4,9 @@
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -21,7 +16,7 @@
   table: !type:AllSelector
     children:
     - id: BoxFolderCentCom
-    - id: WeaponDisablerAdvanced
+    - id: WeaponDisabler
     - id: BriefcaseBrownFilled
     - id: BedsheetCentcom
     - id: CaneSheathFilledNanotrasen
@@ -46,7 +41,7 @@
   table: !type:AllSelector
     children:
     - id: DefibrillatorCompact
-    - id: ParamedHypo
+    - id: SecHypo
     - id: MedkitBSOFilled
     - id: MedkitBSOIPCFilled
     - id: FlippoLighterBlueshield
@@ -54,9 +49,12 @@
     - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
+    - id: BlueshieldUndeterminedHardsuit
     - id: OmnimedTool
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
+    - id: PlushieSamantha
+      prob: 0.20
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

@@ -37,7 +37,7 @@
           data: 3
 
       - tag: GygaxCentralControlModule
-        name: construction-graph-tag-gygax-central-control-module
+        name: gygax central control module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -54,7 +54,7 @@
           data: 5
 
       - tag: GygaxPeripheralsControlModule
-        name: construction-graph-tag-gygax-peripherals-control-module
+        name: gygax peripherals control module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -71,7 +71,7 @@
           data: 7
 
       - tag: GygaxTargetingControlModule
-        name: construction-graph-tag-gygax-targeting-control-module
+        name: gygax weapon control and targeting module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: mcontroller
@@ -88,7 +88,7 @@
           data: 9
 
       - tag: CapacitorStockPart
-        name: construction-graph-tag-capacitor
+        name: capacitor
         icon:
           sprite: Objects/Misc/stock_parts.rsi
           state: capacitor
@@ -105,7 +105,7 @@
           data: 11
 
       - component: PowerCell
-        name: construction-graph-component-power-cell
+        name: power cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi
@@ -144,7 +144,7 @@
           data: 18
 
       - tag: MechAirTank
-        name: construction-graph-tag-exosuit-air-tank
+        name: exosuit air tank
         icon:
           sprite: Objects/Specific/Mech/mecha_equipment.rsi
           state: mecha_air_tank
@@ -153,7 +153,7 @@
         doAfter: 1
 
       - tag: MechThruster
-        name: construction-graph-tag-exosuit-thruster
+        name: exosuit thruster
         icon:
           sprite: Objects/Specific/Mech/mecha_equipment.rsi
           state: mecha_bin
@@ -162,7 +162,7 @@
         doAfter: 1
 
       - tag: GygaxArmor
-        name: construction-graph-tag-gygax-armor
+        name: gygax armor plates
         icon:
           sprite: "_Goobstation/Objects/Specific/Mech/gygax_construction.rsi"
           state: gygax_armor

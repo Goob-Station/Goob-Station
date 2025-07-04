@@ -17,6 +17,7 @@
 
 using Content.Server.Administration;
 using Content.Server.Disposal.Tube;
+using Content.Server.Disposal.Tube.Components;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 

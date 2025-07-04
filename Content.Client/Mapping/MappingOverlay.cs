@@ -89,8 +89,6 @@ public sealed class MappingOverlay : Overlay
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
-    private readonly SpriteSystem _sprite;
-
     // 1 off in case something else uses these colors since we use them to compare
     private static readonly Color PickColor = new(1, 255, 0);
     private static readonly Color DeleteColor = new(255, 1, 0);
@@ -106,8 +104,6 @@ public sealed class MappingOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
 
-        _sprite = _entities.System<SpriteSystem>();
-
         _state = state;
         _shader = _prototypes.Index<ShaderPrototype>("unshaded").Instance();
     }
@@ -120,7 +116,7 @@ public sealed class MappingOverlay : Overlay
                 continue;
 
             if (sprite.Color == DeleteColor || sprite.Color == PickColor)
-                _sprite.SetColor((id, sprite), color);
+                sprite.Color = color;
         }
 
         _oldColors.Clear();
@@ -139,7 +135,7 @@ public sealed class MappingOverlay : Overlay
                     _entities.TryGetComponent(entity, out SpriteComponent? sprite))
                 {
                     _oldColors[entity] = sprite.Color;
-                    _sprite.SetColor((entity, sprite), PickColor);
+                    sprite.Color = PickColor;
                 }
 
                 break;
@@ -150,7 +146,7 @@ public sealed class MappingOverlay : Overlay
                     _entities.TryGetComponent(entity, out SpriteComponent? sprite))
                 {
                     _oldColors[entity] = sprite.Color;
-                    _sprite.SetColor((entity, sprite), DeleteColor);
+                    sprite.Color = DeleteColor;
                 }
 
                 break;

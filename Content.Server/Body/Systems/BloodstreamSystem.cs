@@ -150,7 +150,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
@@ -298,8 +297,6 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                             woundable.Bleeds = totalPartBleeds;
                             Dirty(bodyPart, woundable);
                         }
-
-                        totalBleedAmount += totalPartBleeds;
                     }
                 }
 
@@ -353,11 +350,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 _damageableSystem.TryChangeDamage(
                     uid,
                     bloodstream.BloodlossHealDamage * bloodPercentage,
-                    ignoreResistances: true,
-                    interruptsDoAfters: false,
-                    ignoreBlockers: true,
-                    targetPart: TargetBodyPart.All,
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
+                    ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.All, splitDamage: false); // Shitmed Change
 
                 // Remove the drunk effect when healthy. Should only remove the amount of drunk and stutter added by low blood level
                 _drunkSystem.TryRemoveDrunkenessTime(uid, bloodstream.StatusTime.TotalSeconds);

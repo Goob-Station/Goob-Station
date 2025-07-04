@@ -85,8 +85,8 @@
 - type: entity
   parent: BaseDecoy
   id: BalloonAgent
-  name: corpsman balloon
-  description: Upon closer inspection, this Syndicate corpsman is actually a balloon.
+  name: agent balloon
+  description: Upon closer inspection, this Syndicate agent is actually a balloon.
   components:
   - type: Sprite
     sprite: Objects/Tools/Decoys/agent_decoy.rsi

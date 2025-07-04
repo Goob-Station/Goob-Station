@@ -130,14 +130,8 @@ using Robust.Shared.Utility;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 // Shitmed Change
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Shitmed.Body;
-using Content.Shared._Shitmed.Damage;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared.Body.Components;
-using Content.Server.Destructible;
-using Content.Server.Destructible.Thresholds.Triggers;
 using System.Linq;
 
 namespace Content.Server.Explosion.EntitySystems;
@@ -184,10 +178,13 @@ public sealed partial class ExplosionSystem
 
     private List<EntityUid> _anchored = new();
 
-    private void OnMapRemoved(MapRemovedEvent ev)
+    private void OnMapChanged(MapChangedEvent ev)
     {
         // If a map was deleted, check the explosion currently being processed belongs to that map.
-        if (_activeExplosion?.Epicenter.MapId != ev.MapId)
+        if (ev.Created)
+            return;
+
+        if (_activeExplosion?.Epicenter.MapId != ev.Map)
             return;
 
         QueueDel(_activeExplosion.VisualEnt);
@@ -263,7 +260,7 @@ public sealed partial class ExplosionSystem
             }
 #if EXCEPTION_TOLERANCE
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // Ensure the system does not get stuck in an error-loop.
                 if (_activeExplosion != null)
@@ -578,8 +575,49 @@ public sealed partial class ExplosionSystem
                 }
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                if (!WouldTriggerDestructibleThreshold(entity, damage, cause))
-                    _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.Split); // Shitmed Change
+                // Shitmed Change Start
+                if (TryComp<BodyComponent>(entity, out var body)
+                    && HasComp<ConsciousnessComponent>(entity))
+                {
+                    var bodyParts = _body.GetBodyChildren(entity, body).ToList();
+                                        _robustRandom.Shuffle(bodyParts);
+
+                    var prioritisedParts = new List<EntityUid>();
+                    var chosenPart = bodyParts.First();
+
+                    prioritisedParts.Add(chosenPart.Id);
+                    bodyParts.Remove(chosenPart);
+
+                    if (_body.TryGetParentBodyPart(chosenPart.Id, out var parent, out var parentComponent))
+                    {
+                        prioritisedParts.Add(parent.Value);
+                        bodyParts.Remove((parent.Value, parentComponent));
+                    }
+
+                    var children = _body.GetBodyPartChildren(chosenPart.Id, chosenPart.Component).ToList();
+                    _robustRandom.Shuffle(children);
+
+                    prioritisedParts.Add(children.First().Id);
+                    bodyParts.Remove(children.First());
+
+                    foreach (var part in prioritisedParts)
+                    {
+                        var targetPart = _body.GetTargetBodyPart(part);
+                        _damageableSystem.TryChangeDamage(uid, damage / prioritisedParts.Count, ignoreResistances: true, targetPart: targetPart);
+                    }
+
+                    foreach (var bodyPart in bodyParts)
+                    {
+                        // Distribute the last damage on the other parts... for the cinematic effect :3
+                        var targetPart = _body.GetTargetBodyPart(bodyPart.Id);
+                        _damageableSystem.TryChangeDamage(uid, damage / bodyParts.Count, ignoreResistances: true, targetPart: targetPart);
+                    }
+                }
+                else
+                {
+                    _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true);
+                }
+                // Shitmed Change End
             }
         }
 
@@ -599,7 +637,7 @@ public sealed partial class ExplosionSystem
             && throwForce > 0
             && !EntityManager.IsQueuedForDeletion(uid)
             && _physicsQuery.TryGetComponent(uid, out var physics)
-            && physics.BodyType == Robust.Shared.Physics.BodyType.Dynamic) // Shitmed Change
+            && physics.BodyType == BodyType.Dynamic)
         {
             var pos = _transformSystem.GetWorldPosition(xform);
             var dir = pos - epicenter.Position;
@@ -658,48 +696,6 @@ public sealed partial class ExplosionSystem
             return;
 
         damagedTiles.Add((tileRef.GridIndices, new Tile(tileDef.TileId)));
-    }
-
-    // Shitmed Change: This is basically a private implementation handling a "prediction" of
-    // whether or not the explosion would trigger damage thresholds on a Woundmed entity.
-    // TODO: If it works well over time, move to an event.
-    private bool WouldTriggerDestructibleThreshold(EntityUid uid, DamageSpecifier incomingDamage, EntityUid? cause)
-    {
-        if (!TryComp<DestructibleComponent>(uid, out var destructible)
-            || !TryComp<DamageableComponent>(uid, out var damageable)
-            || !TryComp<BodyComponent>(uid, out var body)
-            || body.BodyType == Shared._Shitmed.Body.BodyType.Simple)
-            return false;
-
-        foreach (var threshold in destructible.Thresholds)
-        {
-            // Skip if already triggered and triggers only once
-            if (threshold.Triggered && threshold.TriggersOnce)
-                continue;
-
-            // Check if this threshold uses a damage type trigger
-            if (threshold.Trigger is not DamageTypeTrigger damageTypeTrigger)
-                continue;
-
-            // Get current damage for this damage type
-            var currentDamage = damageable.Damage.DamageDict.TryGetValue(damageTypeTrigger.DamageType, out var current)
-                ? current
-                : FixedPoint2.Zero;
-
-            // Get incoming damage for this damage type
-            var additionalDamage = incomingDamage.DamageDict.TryGetValue(damageTypeTrigger.DamageType, out var incoming)
-                ? incoming
-                : FixedPoint2.Zero;
-
-            // Check if combined damage would exceed threshold
-            if (currentDamage + additionalDamage >= damageTypeTrigger.Damage)
-            {
-                threshold.Execute(uid, _destructibleSystem, EntityManager, cause);
-                return true;
-            }
-        }
-
-        return false;
     }
 }
 
@@ -874,7 +870,7 @@ sealed class Explosion
 
         if (spaceData != null)
         {
-            var mapUid = mapSystem.GetMap(epicenter.MapId);
+            var mapUid = mapMan.GetMapEntityId(epicenter.MapId);
 
             _explosionData.Add(new()
             {

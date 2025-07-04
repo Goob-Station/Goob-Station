@@ -4,17 +4,14 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
-# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsStandard
-  name: standard hardsuit gauntlets
+  name: standard modsuit gauntlets
   description: Special modular suit gloves that protect wearer from electric shock.
   categories: [ HideSpawnMenu ]
   components:
@@ -34,6 +31,7 @@
     damageProtection:
       flatReductions:
         Heat: 10
+  - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
@@ -42,15 +40,15 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
+    visualLayers:
       gloves:
       - state: equipped-HAND-sealed
+        shader: unshaded
 
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsSecurity
-  name: soldat hardsuit gauntlets
+  name: soldat modsuit gauntlets
   description: Robust modular suit gloves for gripping perps and guns tight.
   categories: [ HideSpawnMenu ]
   components:
@@ -78,15 +76,14 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
+    visualLayers:
       gloves:
       - state: equipped-HAND-sealed
 
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsParamedic
-  name: sanitater hardsuit gauntlets
+  name: sanitater modsuit gauntlets
   description: Black and white modular suit gloves for gripping percs and patients tight.
   categories: [ HideSpawnMenu ]
   components:
@@ -114,8 +111,7 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
+    visualLayers:
       gloves:
       - state: equipped-HAND-sealed
   - type: Armor
@@ -128,7 +124,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsHeadOfSecurity
-  name: bulwark hardsuit gauntlets
+  name: bulwark modsuit gauntlets
   description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
   categories: [ HideSpawnMenu ]
   components:
@@ -157,8 +153,7 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
+    visualLayers:
       gloves:
       - state: equipped-HAND-sealed
   - type: Armor
@@ -172,7 +167,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsEngineer
-  name: sapper hardsuit gauntlets
+  name: sapper modsuit gauntlets
   description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
   categories: [ HideSpawnMenu ]
   components:
@@ -201,12 +196,9 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
+    visualLayers:
       gloves:
       - state: equipped-HAND-sealed
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -218,7 +210,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsAtmostech
-  name: aeolus hardsuit gauntlets
+  name: aeolus modsuit gauntlets
   description: Asbestos-lined modular suit gloves for easily pushing buttons on an RPD.
   categories: [ HideSpawnMenu ]
   components:
@@ -247,12 +239,9 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
+    visualLayers:
       gloves:
       - state: equipped-HAND-sealed
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -265,7 +254,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsResearchDirector
-  name: minerva hardsuit gauntlets
+  name: minerva modsuit gauntlets
   description: For keeping your digits at 10 after the artifact goes thermonuclear on you.
   categories: [ HideSpawnMenu ]
   components:
@@ -294,8 +283,7 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
+    visualLayers:
       gloves:
       - state: equipped-HAND-sealed
   - type: Armor
@@ -309,7 +297,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsCaptain
-  name: magnate hardsuit gauntlets
+  name: magnate modsuit gauntlets
   description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.
   categories: [ HideSpawnMenu ]
   components:
@@ -325,11 +313,6 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ gloves ]
-    clothingVisuals:
-        hands:
-        - state: equipped-HAND
-        hands-resomi:
-        - state: equipped-HAND-resomi
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
@@ -343,12 +326,9 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
+    visualLayers:
       gloves:
       - state: equipped-HAND-sealed
-      gloves-resomi:
-      - state: equipped-HAND-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:

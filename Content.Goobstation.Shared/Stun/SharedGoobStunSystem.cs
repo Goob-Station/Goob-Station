@@ -23,6 +23,7 @@ public sealed class SharedGoobStunSystem : EntitySystem
 
     private void HandleGetClothingStunModifier(GetClothingStunModifierEvent ev)
     {
+        Log.Info("Handling Get Clothing Stun Modify");
         ev.Modifier = _modifySystem.GetModifier(ev.Target);
     }
 }

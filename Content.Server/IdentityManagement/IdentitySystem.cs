@@ -55,7 +55,6 @@ public sealed class IdentitySystem : SharedIdentitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly CriminalRecordsConsoleSystem _criminalRecordsConsole = default!;
-    [Dependency] private readonly GrammarSystem _grammarSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goobstation - Update component state on component toggle
 
     private HashSet<EntityUid> _queuedIdentityUpdates = new();
@@ -104,7 +103,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
     /// <summary>
     ///     Queues an identity update to the start of the next tick.
     /// </summary>
-    public override void QueueIdentityUpdate(EntityUid uid)
+    public void QueueIdentityUpdate(EntityUid uid)
     {
         _queuedIdentityUpdates.Add(uid);
     }
@@ -145,7 +144,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
 
             // If presumed name is null and we're using that, we set proper noun to be false ("the old woman")
             if (name != representation.TrueName && representation.PresumedName == null)
-                _grammarSystem.SetProperNoun((ident, identityGrammar), false);
+                identityGrammar.ProperNoun = false;
 
             Dirty(ident, identityGrammar);
         }

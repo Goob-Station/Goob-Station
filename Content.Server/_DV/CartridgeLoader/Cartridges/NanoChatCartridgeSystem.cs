@@ -26,8 +26,6 @@ using Content.Shared.PDA;
 using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.CCVar;
-using Robust.Shared.Configuration;
 
 namespace Content.Server._DV.CartridgeLoader.Cartridges;
 
@@ -40,14 +38,10 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
 
     // Messages in notifications get cut off after this point
     // no point in storing it on the comp
     private const int NotificationMaxLength = 64;
-
-    private int _maxNameLength;
-    private int _maxIdJobLength;
 
     public override void Initialize()
     {
@@ -55,9 +49,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
-
-        Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
-        Subs.CVar(_cfgManager, CCVars.MaxIdJobLength, value => _maxIdJobLength = value, true);
     }
 
     private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
@@ -177,16 +168,16 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > _maxNameLength)
-                name = name[.._maxNameLength];
+            if (name.Length > IdCardConsoleComponent.MaxFullNameLength)
+                name = name[..IdCardConsoleComponent.MaxFullNameLength];
         }
 
         var jobTitle = msg.RecipientJob;
         if (!string.IsNullOrWhiteSpace(jobTitle))
         {
             jobTitle = jobTitle.Trim();
-            if (jobTitle.Length > _maxIdJobLength)
-                jobTitle = jobTitle[.._maxIdJobLength];
+            if (jobTitle.Length > IdCardConsoleComponent.MaxJobTitleLength)
+                jobTitle = jobTitle[..IdCardConsoleComponent.MaxJobTitleLength];
         }
 
         // Add new recipient

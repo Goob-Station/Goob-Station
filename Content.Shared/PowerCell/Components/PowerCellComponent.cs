@@ -7,8 +7,6 @@
 // SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
 // SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: MIT
 
@@ -25,10 +23,7 @@ namespace Content.Shared.PowerCell;
 [RegisterComponent]
 public sealed partial class PowerCellComponent : Component
 {
-    // Goob edit start
-    [DataField]
-    public int PowerCellVisualsLevels = 2;
-    // Goob edit end
+    public const int PowerCellVisualsLevels = 2;
 }
 
 [Serializable, NetSerializable]

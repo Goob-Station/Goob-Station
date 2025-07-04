@@ -283,20 +283,6 @@ public sealed class RespiratorSystem : EntitySystem
     }
 
     /// <summary>
-    /// Returns true if the entity is above their SuffocationThreshold and alive.
-    /// </summary>
-    public bool IsBreathing(Entity<RespiratorComponent?> ent)
-    {
-        if (_mobState.IsIncapacitated(ent))
-            return false;
-
-        if (!Resolve(ent, ref ent.Comp))
-            return false;
-
-        return (ent.Comp.Saturation > ent.Comp.SuffocationThreshold);
-    }
-
-    /// <summary>
     /// Check whether or not an entity can metabolize inhaled air without suffocating or taking damage (i.e., no toxic
     /// gasses).
     /// </summary>
@@ -475,7 +461,8 @@ public sealed class RespiratorSystem : EntitySystem
             }
         }
 
-        _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery, targetPart: TargetBodyPart.All, ignoreBlockers: true);
+        _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery, targetPart: TargetBodyPart.All, ignoreBlockers: true, splitDamage: false);
+        // The 8f multiplier is an arbitrary number chosen to make the damage not absolute shit when considering that its split across usually 11 body parts.
         // Shitmed Change End
     }
 

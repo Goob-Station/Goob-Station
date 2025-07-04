@@ -128,7 +128,6 @@ using Content.Shared._Goobstation.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
-using Content.Shared.Charges.Systems;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Components;
 using Robust.Client.GameObjects;
@@ -160,6 +159,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IOverlayManager _overlays = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IEyeManager _eye = default!; // Goobstation
 
@@ -308,6 +308,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         // Is the action currently valid?
         if (!action.Enabled
+            || action is { Charges: 0, RenewCharges: false }
             || action.Cooldown.HasValue && action.Cooldown.Value.End > _timing.CurTime)
         {
             // The user is targeting with this action, but it is not valid. Maybe mark this click as
@@ -412,8 +413,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var coords = args.Coordinates;
 
         // Goobstation start
-        if (EntityManager.HasComponent<LockOnMarkActionComponent>(actionId) && _mark != null && _mark.Target != null &&
-            EntityManager.EntityExists(_mark.Target))
+        if (_entMan.HasComponent<LockOnMarkActionComponent>(actionId) && _mark != null &&
+            _entMan.EntityExists(_mark.Target))
             entity = _mark.Target.Value;
         // Goobstation end
 
@@ -532,6 +533,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         // Is the action currently valid?
         if (!action.Enabled
+            || action is { Charges: 0, RenewCharges: false }
             || action.Cooldown.HasValue && action.Cooldown.Value.End > _timing.CurTime)
         {
             // The user is targeting with this action, but it is not valid. Maybe mark this click as
@@ -542,7 +544,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (action is not EntityTargetActionComponent entityTarget)
             return false;
 
-        if (!EntityManager.TryGetComponent(actionId, out SwapSpellComponent? swap))
+        if (!_entMan.TryGetComponent(actionId, out SwapSpellComponent? swap))
             return false;
 
         if (!swap.AllowSecondaryTarget)
@@ -595,11 +597,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
         if (savedActions.Count == 0 || _actions.Count == 0 || _actions.SequenceEqual(savedActions))
             return;
-        var metaQuery = EntityManager.GetEntityQuery<MetaDataComponent>();
-        var instantActionQuery = EntityManager.GetEntityQuery<InstantActionComponent>();
-        var entityTargetActionQuery = EntityManager.GetEntityQuery<EntityTargetActionComponent>();
-        var worldTargetActionQuery = EntityManager.GetEntityQuery<WorldTargetActionComponent>();
-        var entityWorldTargetActionQuery = EntityManager.GetEntityQuery<EntityWorldTargetActionComponent>();
+        var metaQuery = _entMan.GetEntityQuery<MetaDataComponent>();
+        var instantActionQuery = _entMan.GetEntityQuery<InstantActionComponent>();
+        var entityTargetActionQuery = _entMan.GetEntityQuery<EntityTargetActionComponent>();
+        var worldTargetActionQuery = _entMan.GetEntityQuery<WorldTargetActionComponent>();
+        var entityWorldTargetActionQuery = _entMan.GetEntityQuery<EntityWorldTargetActionComponent>();
 
         (EntityUid?, Type)? GetActionContainerAndType(EntityUid action)
         {
@@ -781,7 +783,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 continue;
             }
 
-            var button = new ActionButton(EntityManager, _spriteSystem, this) {Locked = true};
+            var button = new ActionButton(_entMan, _spriteSystem, this) {Locked = true};
             button.ActionPressed += OnWindowActionPressed;
             button.ActionUnpressed += OnWindowActionUnPressed;
             button.ActionFocusExited += OnWindowActionFocusExisted;
@@ -930,7 +932,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick && args.Function != EngineKeyFunctions.Use)
             return;
 
-        HandleActionPressed(args, action);
+        _menuDragHelper.MouseDown(action);
+        args.Handle();
     }
 
     private void OnWindowActionUnPressed(GUIBoundKeyEventArgs args, ActionButton dragged)
@@ -938,7 +941,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick && args.Function != EngineKeyFunctions.Use)
             return;
 
-        HandleActionUnpressed(args, dragged);
+        DragAction();
+        args.Handle();
     }
 
     private void OnWindowActionFocusExisted(ActionButton button)
@@ -958,11 +962,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
-        HandleActionPressed(args, button);
-    }
-
-    private void HandleActionPressed(GUIBoundKeyEventArgs args, ActionButton button)
-    {
         args.Handle();
         if (button.ActionId != null)
         {
@@ -978,15 +977,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnActionUnpressed(GUIBoundKeyEventArgs args, ActionButton button)
     {
-        if (args.Function != EngineKeyFunctions.UIClick)
-            return;
-
-        HandleActionUnpressed(args, button);
-    }
-
-    private void HandleActionUnpressed(GUIBoundKeyEventArgs args, ActionButton button)
-    {
-        if (_actionsSystem == null)
+        if (args.Function != EngineKeyFunctions.UIClick || _actionsSystem == null)
             return;
 
         args.Handle();
@@ -1159,13 +1150,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SearchAndDisplay();
 
         // Goobstation start
-        if (SelectingTargetFor.HasValue || _mark == null)
+        if (_entMan.HasComponent<SwapSpellComponent>(SelectingTargetFor))
             return;
 
-        if (EntityManager.HasComponent<SwapSpellComponent>(SelectingTargetFor))
+        if (_mark == null)
             return;
 
-        if (!EntityManager.TryGetComponent(SelectingTargetFor, out LockOnMarkActionComponent? lockOnMark))
+        if (!_entMan.TryGetComponent(SelectingTargetFor, out LockOnMarkActionComponent? lockOnMark))
         {
             _mark.SetMark(null);
             return;
@@ -1175,8 +1166,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         var targets =
             _lookup.GetEntitiesInRange<MobStateComponent>(coords, lockOnMark.LockOnRadius, LookupFlags.Dynamic);
-        var xformQuery = EntityManager.GetEntityQuery<TransformComponent>();
-        var damageableQuery = EntityManager.GetEntityQuery<DamageableComponent>();
+        var xformQuery = _entMan.GetEntityQuery<TransformComponent>();
+        var damageableQuery = _entMan.GetEntityQuery<DamageableComponent>();
         List<(float range, EntityUid target)> selectedTargets = new();
         foreach (var (target, _) in targets)
         {
@@ -1296,7 +1287,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (action is not EntityTargetActionComponent entityAction)
             return;
 
-        if (EntityManager.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
+        if (_entMan.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
             _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId);
 
         Func<EntityUid, bool>? predicate = null;
@@ -1329,7 +1320,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         }
 
         // Goobstation
-        if (EntityManager.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
+        if (_entMan.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
             _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value);
 
         SelectingTargetFor = null;

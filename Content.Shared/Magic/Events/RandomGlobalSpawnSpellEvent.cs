@@ -9,7 +9,7 @@ using Robust.Shared.Audio;
 
 namespace Content.Shared.Magic.Events;
 
-public sealed partial class RandomGlobalSpawnSpellEvent : InstantActionEvent
+public sealed partial class RandomGlobalSpawnSpellEvent : InstantActionEvent, ISpeakSpell
 {
     /// <summary>
     /// The list of prototypes this spell can spawn, will select one randomly
@@ -22,4 +22,7 @@ public sealed partial class RandomGlobalSpawnSpellEvent : InstantActionEvent
     /// </summary>
     [DataField]
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Magic/staff_animation.ogg");
+
+    [DataField]
+    public string? Speech { get; private set; }
 }

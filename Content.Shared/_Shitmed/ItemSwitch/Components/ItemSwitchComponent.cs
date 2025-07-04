@@ -1,9 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -52,13 +49,13 @@ public sealed partial class ItemSwitchComponent : Component
     ///     Whether the item's currently toggled state should be shown in the UI.
     /// </summary>
     [DataField]
-    public bool ShowLabel;
+    public bool ShowLabel = false;
 
     /// <summary>
     ///     Whether the item requires power to sustain a state.
     /// </summary>
     [DataField]
-    public bool NeedsPower;
+    public bool NeedsPower = false;
 
     /// <summary>
     ///     Whether the item currently has enough power to sustain a state.
@@ -70,7 +67,7 @@ public sealed partial class ItemSwitchComponent : Component
     ///     The default state of an item, which is also the state it reverts to when out of power.
     /// </summary>
     [DataField]
-    public string? DefaultState;
+    public string? DefaultState = default!;
 
     public ItemSwitchComponent(string state)
     {
@@ -81,7 +78,7 @@ public sealed partial class ItemSwitchComponent : Component
 public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 {
     [DataField]
-    public string? Verb;
+    public string Verb;
 
     [DataField]
     public SoundSpecifier? SoundStateActivate;
@@ -132,7 +129,7 @@ public record struct ItemSwitchAttemptEvent()
 /// Raised directed on an entity any sort of toggle is complete.
 /// </summary>
 [ByRefEvent]
-public readonly record struct ItemSwitchedEvent
+public readonly record struct ItemSwitchedEvent()
 {
     public required bool Predicted { get; init; }
     public required string State { get; init; }

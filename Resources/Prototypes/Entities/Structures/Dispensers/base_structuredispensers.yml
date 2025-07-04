@@ -78,8 +78,6 @@
     interfaces:
       enum.ReagentDispenserUiKey.Key:
         type: ReagentDispenserBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
   - type: Anchorable
   - type: Pullable
   - type: Damageable
@@ -102,11 +100,10 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,19,5
   - type: ReagentDispenser
+    storageWhitelist:
+      tags:
+      - Bottle
     beakerSlot:
       whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
       whitelist:
@@ -119,7 +116,6 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
-      storagebase: !type:Container
   - type: StaticPrice
     price: 1000
   - type: WiresPanel

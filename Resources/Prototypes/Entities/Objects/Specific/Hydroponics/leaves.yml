@@ -179,18 +179,14 @@
   description: "Is it supposed to be glowing like that...?"
   components:
   - type: Sprite
-    layers:
-    - sprite: Objects/Specific/Hydroponics/rainbow_cannabis.rsi
-      state: produce
-      shader: unshaded
+    sprite: Objects/Specific/Hydroponics/rainbow_cannabis.rsi
   - type: Produce
     seedId: rainbowCannabis
-  # disabled because 50 morbillion point lights still break the lighting engine
-  #- type: PointLight
-  #  radius: 1.5
-  #  energy: 2
-  #- type: RgbLightController
-  #  cycleRate: 0.6
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+  - type: RgbLightController
+    cycleRate: 0.6
   - type: SolutionContainerManager
     solutions:
       food:

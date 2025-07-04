@@ -12,7 +12,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using System.Numerics;
 using Content.Client.Examine;
 using Content.Client.Hands.Systems;
@@ -63,7 +62,6 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
     public Angle DraggingRotation = Angle.Zero;
     public bool StaticStorageUIEnabled;
     public bool OpaqueStorageWindow;
-    private int _openStorageLimit = -1;
 
     public bool IsDragging => _menuDragHelper.IsDragging;
     public ItemGridPiece? CurrentlyDragging => _menuDragHelper.Dragged;
@@ -82,12 +80,6 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
         _configuration.OnValueChanged(CCVars.StaticStorageUI, OnStaticStorageChanged, true);
         _configuration.OnValueChanged(CCVars.OpaqueStorageWindow, OnOpaqueWindowChanged, true);
         _configuration.OnValueChanged(CCVars.StorageWindowTitle, OnStorageWindowTitle, true);
-        _configuration.OnValueChanged(CCVars.StorageLimit, OnStorageLimitChanged, true);
-    }
-
-    private void OnStorageLimitChanged(int obj)
-    {
-        _openStorageLimit = obj;
     }
 
     private void OnStorageWindowTitle(bool obj)
@@ -121,49 +113,7 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
 
         if (StaticStorageUIEnabled)
         {
-            var hotbar = UIManager.GetActiveUIWidgetOrNull<HotbarGui>();
-            // this lambda handles the nested storage case
-            // during nested storage, a parent window hides and a child window is
-            // immediately inserted to the end of the list
-            // we can reorder the newly inserted to the same index as the invisible
-            // window in order to prevent an invisible window from being replaced
-            // with a visible one in a different position
-            Action<Control?, Control> reorder = (parent, child) =>
-            {
-                if (parent is null)
-                    return;
-
-                var parentChildren = parent.Children.ToList();
-                var invisibleIndex = parentChildren.FindIndex(c => c.Visible == false);
-                if (invisibleIndex == -1)
-                    return;
-                child.SetPositionInParent(invisibleIndex);
-            };
-
-            if (hotbar != null)
-            {
-                hotbar.DoubleStorageContainer.Visible = _openStorageLimit == 2;
-                hotbar.SingleStorageContainer.Visible = _openStorageLimit != 2;
-            }
-
-            if (_openStorageLimit == 2)
-            {
-                if (hotbar?.LeftStorageContainer.Children.Any(c => c.Visible) == false) // we're comparing booleans because it's bool? and not bool from the optional chaining
-                {
-                    hotbar?.LeftStorageContainer.AddChild(window);
-                    reorder(hotbar?.LeftStorageContainer, window);
-                }
-                else
-                {
-                    hotbar?.RightStorageContainer.AddChild(window);
-                    reorder(hotbar?.RightStorageContainer, window);
-                }
-            }
-            else
-            {
-                hotbar?.SingleStorageContainer.AddChild(window);
-                reorder(hotbar?.SingleStorageContainer, window);
-            }
+            UIManager.GetActiveUIWidgetOrNull<HotbarGui>()?.StorageContainer.AddChild(window);
             _closeRecentWindowUIController.SetMostRecentlyInteractedWindow(window);
         }
         else
@@ -333,19 +283,12 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
                 var position = targetStorage.GetMouseGridPieceLocation(dragEnt, dragLoc);
                 var newLocation = new ItemStorageLocation(DraggingRotation, position);
 
-                if (!_storage.ItemFitsInGridLocation(dragEnt, sourceStorage, newLocation))
-                {
-                    window.Reclaim(control.Location, control);
-                }
-                else
-                {
-                    EntityManager.RaisePredictiveEvent(new StorageSetItemLocationEvent(
-                        EntityManager.GetNetEntity(draggingGhost.Entity),
-                        EntityManager.GetNetEntity(sourceStorage),
-                        newLocation));
+                EntityManager.RaisePredictiveEvent(new StorageSetItemLocationEvent(
+                    EntityManager.GetNetEntity(draggingGhost.Entity),
+                    EntityManager.GetNetEntity(sourceStorage),
+                    newLocation));
 
-                    window.Reclaim(newLocation, control);
-                }
+                window.Reclaim(newLocation, control);
             }
             // Dragging to new storage
             else if (targetStorage?.StorageEntity != null && targetStorage != window)
@@ -406,17 +349,6 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
     {
         if (DraggingGhost == null)
             return false;
-
-        var player = _player.LocalEntity;
-
-        // If the attached storage is closed then stop dragging
-        if (player == null ||
-            !_storage.TryGetStorageLocation(DraggingGhost.Entity, out var container, out _, out _) ||
-            !_ui.IsUiOpen(container.Owner, StorageComponent.StorageUiKey.Key, player.Value))
-        {
-            DraggingGhost.Orphan();
-            return false;
-        }
 
         SetDraggingRotation();
         return true;

@@ -27,6 +27,7 @@
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: mindswap # Goob edit
     event: !type:MindSwapSpellEvent
+      speech: action-speech-spell-mind-swap
       sound: # Goobstation
         path: /Audio/_Goobstation/Wizard/mandswap.ogg
       performerStunDuration: 5 # Goobstation
@@ -41,5 +42,3 @@
     effectedLevels:
       2: ActionMindSwapII
       3: ActionMindSwapIII
-  - type: SpeakOnAction
-    sentence: action-speech-spell-mind-swap

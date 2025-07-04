@@ -4,9 +4,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Disposal.Tube;
+using Content.Server.Disposal.Tube.Components;
 
-namespace Content.Goobstation.Server.Disposals.Tube;
+namespace Content.Goobstation.Server.Disposals.Tube.Components;
 
 [RegisterComponent]
 public sealed partial class DisposalBlockerComponent : DisposalTransitComponent;

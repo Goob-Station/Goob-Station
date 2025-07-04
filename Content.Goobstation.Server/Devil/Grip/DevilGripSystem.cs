@@ -2,8 +2,6 @@
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -12,7 +10,6 @@ using Content.Goobstation.Shared.Religion;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Actions;
-using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.StatusEffect;
@@ -24,7 +21,7 @@ namespace Content.Goobstation.Server.Devil.Grip;
 
 public sealed class DevilGripSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;

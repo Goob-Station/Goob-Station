@@ -1,7 +1,6 @@
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions.Events;
-using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Slippery;
 using Content.Shared.StatusEffect;

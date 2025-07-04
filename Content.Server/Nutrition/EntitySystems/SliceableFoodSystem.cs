@@ -106,7 +106,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Content.Shared.Destructible;
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -133,9 +132,6 @@ public sealed class SliceableFoodSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!TryComp<UtensilComponent>(args.Used, out var utensil) || (utensil.Types & UtensilType.Knife) == 0)
-            return;
-
         var doAfterArgs = new DoAfterArgs(EntityManager,
             args.User,
             entity.Comp.SliceTime,
@@ -148,7 +144,7 @@ public sealed class SliceableFoodSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = true,
         };
-        args.Handled = _doAfter.TryStartDoAfter(doAfterArgs);
+        _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
     private void OnSlicedoAfter(Entity<SliceableFoodComponent> entity, ref SliceFoodDoAfterEvent args)
@@ -235,9 +231,6 @@ public sealed class SliceableFoodSystem : EntitySystem
         RaiseLocalEvent(uid, ev);
         if (ev.Cancelled)
             return;
-
-        var dev = new DestructionEventArgs();
-        RaiseLocalEvent(uid, dev);
 
         // Locate the sliced food and spawn its trash
         foreach (var trash in foodComp.Trash)

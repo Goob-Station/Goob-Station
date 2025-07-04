@@ -76,6 +76,7 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockChefvend
+  name: ChefVend restock crate
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
@@ -90,7 +91,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockClothesFilled
-  cost: 3400 # Goob - NoCargoOrderArbitrage test
+  cost: 3500 #Goob
   category: cargoproduct-category-name-service
   group: market
 
@@ -116,6 +117,7 @@
 
 - type: cargoProduct
   id: CrateVendingMachineRestockCondimentStation
+  name: condiment station restock crate
   icon:
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base

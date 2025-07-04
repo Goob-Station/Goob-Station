@@ -30,8 +30,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Goobstation.Wizard;
 
-public sealed partial class CluwneCurseEvent : EntityTargetActionEvent
+public sealed partial class CluwneCurseEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
 
@@ -39,8 +42,11 @@ public sealed partial class CluwneCurseEvent : EntityTargetActionEvent
     public TimeSpan StutterDuration = TimeSpan.FromSeconds(30);
 }
 
-public sealed partial class BananaTouchEvent : EntityTargetActionEvent
+public sealed partial class BananaTouchEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public Dictionary<string, EntProtoId> Gear = new()
     {
@@ -57,8 +63,11 @@ public sealed partial class BananaTouchEvent : EntityTargetActionEvent
     public TimeSpan JitterStutterDuration = TimeSpan.FromSeconds(30);
 }
 
-public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent
+public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public Dictionary<string, EntProtoId> Gear = new()
     {
@@ -75,8 +84,11 @@ public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
 }
 
-public sealed partial class MagicMissileEvent : InstantActionEvent
+public sealed partial class MagicMissileEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntProtoId Proto = "ProjectileMagicMissile";
 
@@ -87,8 +99,11 @@ public sealed partial class MagicMissileEvent : InstantActionEvent
     public float ProjectileSpeed = 4.5f;
 }
 
-public sealed partial class DisableTechEvent : InstantActionEvent
+public sealed partial class DisableTechEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public float Range = 10f;
 
@@ -102,8 +117,11 @@ public sealed partial class DisableTechEvent : InstantActionEvent
     public EntProtoId Effect = "EmpFlashEffect";
 }
 
-public sealed partial class SmokeSpellEvent : InstantActionEvent
+public sealed partial class SmokeSpellEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntProtoId Proto = "Smoke";
 
@@ -114,8 +132,11 @@ public sealed partial class SmokeSpellEvent : InstantActionEvent
     public int SpreadAmount = 30;
 }
 
-public sealed partial class RepulseEvent : InstantActionEvent
+public sealed partial class RepulseEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public float Force = 180f;
 
@@ -132,14 +153,20 @@ public sealed partial class RepulseEvent : InstantActionEvent
     public EntProtoId EffectProto = "EffectRepulse";
 }
 
-public sealed partial class StopTimeEvent : InstantActionEvent
+public sealed partial class StopTimeEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntProtoId Proto = "Chronofield";
 }
 
-public sealed partial class CorpseExplosionEvent : EntityTargetActionEvent
+public sealed partial class CorpseExplosionEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public float TotalIntensity = 200f;
 
@@ -165,8 +192,11 @@ public sealed partial class CorpseExplosionEvent : EntityTargetActionEvent
     public DamageSpecifier Damage;
 }
 
-public sealed partial class BlindSpellEvent : EntityTargetActionEvent
+public sealed partial class BlindSpellEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public TimeSpan BlindDuration = TimeSpan.FromSeconds(30f);
 
@@ -177,8 +207,11 @@ public sealed partial class BlindSpellEvent : EntityTargetActionEvent
     public EntProtoId? Effect = "GrenadeFlashEffect";
 }
 
-public sealed partial class BindSoulEvent : InstantActionEvent
+public sealed partial class BindSoulEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntityWhitelist Blacklist;
 
@@ -196,8 +229,11 @@ public sealed partial class BindSoulEvent : InstantActionEvent
     };
 }
 
-public sealed partial class PolymorphSpellEvent : InstantActionEvent
+public sealed partial class PolymorphSpellEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public ProtoId<PolymorphPrototype>? ProtoId;
 
@@ -211,14 +247,20 @@ public sealed partial class PolymorphSpellEvent : InstantActionEvent
     public bool LoadActions;
 }
 
-public sealed partial class MutateSpellEvent : InstantActionEvent
+public sealed partial class MutateSpellEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public float Duration = 30f;
 }
 
-public sealed partial class TeslaBlastEvent : InstantActionEvent
+public sealed partial class TeslaBlastEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public TimeSpan Delay = TimeSpan.FromSeconds(10);
 
@@ -247,8 +289,11 @@ public sealed partial class TeslaBlastEvent : InstantActionEvent
     public SoundSpecifier? Sound;
 }
 
-public sealed partial class LightningBoltEvent : EntityTargetActionEvent
+public sealed partial class LightningBoltEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public float Damage = 40f;
 
@@ -256,8 +301,11 @@ public sealed partial class LightningBoltEvent : EntityTargetActionEvent
     public EntProtoId Proto = "ChargedLightning";
 }
 
-public sealed partial class HomingToolboxEvent : EntityWorldTargetActionEvent
+public sealed partial class HomingToolboxEvent : EntityWorldTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntProtoId Proto = "ProjectileToolboxHoming";
 
@@ -265,8 +313,11 @@ public sealed partial class HomingToolboxEvent : EntityWorldTargetActionEvent
     public float ProjectileSpeed = 20f;
 }
 
-public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent
+public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntProtoId RedProto = "ProjectileSpellCardRed";
 
@@ -289,20 +340,29 @@ public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent
     public Vector2 MinMaxLinearDamping = new(3f, 7f);
 }
 
-public sealed partial class ArcaneBarrageEvent : InstantActionEvent
+public sealed partial class ArcaneBarrageEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntProtoId Proto = "ArcaneBarrage";
 }
 
-public sealed partial class LesserSummonGunsEvent : InstantActionEvent
+public sealed partial class LesserSummonGunsEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntProtoId Proto = "WeaponBoltActionEnchanted";
 }
 
-public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent
+public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField(required: true)]
     public Dictionary<EntProtoId, SoundSpecifier?> Masks = new();
 
@@ -310,24 +370,35 @@ public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent
     public ProtoId<TagPrototype> CursedMaskTag = "CursedAnimalMask";
 }
 
-public sealed partial class ScreamForMeEvent : EntityTargetActionEvent
+public sealed partial class ScreamForMeEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntProtoId Effect = "SanguineFlashEffect";
 }
 
-public sealed partial class InstantSummonsEvent : InstantActionEvent
+public sealed partial class InstantSummonsEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public SoundSpecifier? SummonSound;
 }
 
-public sealed partial class WizardTeleportEvent : InstantActionEvent
+public sealed partial class WizardTeleportEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
 }
 
-public sealed partial class TrapsSpellEvent : InstantActionEvent
+public sealed partial class TrapsSpellEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public List<EntProtoId> Traps = new()
     {
@@ -345,8 +416,11 @@ public sealed partial class TrapsSpellEvent : InstantActionEvent
     public int Amount = 5;
 }
 
-public sealed partial class SummonMobsEvent : InstantActionEvent
+public sealed partial class SummonMobsEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public List<EntProtoId> Mobs = new();
 
@@ -366,8 +440,11 @@ public sealed partial class SummonMobsEvent : InstantActionEvent
     public bool FactionIgnoreSummoner;
 }
 
-public sealed partial class SummonSimiansEvent : InstantActionEvent
+public sealed partial class SummonSimiansEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField(required: true)]
     public ProtoId<WeightedRandomEntityPrototype> Mobs;
 
@@ -384,12 +461,17 @@ public sealed partial class SummonSimiansEvent : InstantActionEvent
     public Angle SpawnAngle = Angle.FromDegrees(40);
 }
 
-public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent
+public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
 }
 
-public sealed partial class ChuuniInvocationsEvent : InstantActionEvent
+public sealed partial class ChuuniInvocationsEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public Dictionary<string, EntProtoId> Gear = new()
     {
@@ -400,8 +482,11 @@ public sealed partial class ChuuniInvocationsEvent : InstantActionEvent
     public ProtoId<TagPrototype> WizardHatTag = "WizardHat";
 }
 
-public sealed partial class SwapSpellEvent : EntityTargetActionEvent
+public sealed partial class SwapSpellEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public SoundSpecifier? Sound;
 
@@ -415,8 +500,11 @@ public sealed partial class SwapSpellEvent : EntityTargetActionEvent
     public bool ThroughWalls = true;
 }
 
-public sealed partial class SoulTapEvent : InstantActionEvent
+public sealed partial class SoulTapEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public FixedPoint2 MaxHealthReduction = 20;
 
@@ -427,8 +515,11 @@ public sealed partial class SoulTapEvent : InstantActionEvent
     public ProtoId<TagPrototype> DeadTag = "SoulTapped";
 }
 
-public sealed partial class ThrownLightningEvent : InstantActionEvent
+public sealed partial class ThrownLightningEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public EntProtoId Proto = "ThrownLightning";
 
@@ -436,8 +527,11 @@ public sealed partial class ThrownLightningEvent : InstantActionEvent
     public SoundSpecifier? Sound;
 }
 
-public sealed partial class ChargeMagicEvent : InstantActionEvent
+public sealed partial class ChargeMagicEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public ProtoId<TagPrototype> WandTag = "WizardWand";
 
@@ -458,14 +552,20 @@ public sealed partial class ChargeMagicEvent : InstantActionEvent
     };
 }
 
-public sealed partial class BlinkSpellEvent : InstantActionEvent
+public sealed partial class BlinkSpellEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public MinMax Radius = new(0, 6);
 }
 
-public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent
+public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public SoundSpecifier? Sound;
 }
@@ -477,8 +577,11 @@ public sealed partial class GlobalTileToggleEvent : EntityEventArgs
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost.ogg");
 }
 
-public sealed partial class PredictionToggleSpellEvent : EntityTargetActionEvent
+public sealed partial class PredictionToggleSpellEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField]
+    public string? Speech { get; private set; }
+
     [DataField]
     public SoundSpecifier? Sound;
 }

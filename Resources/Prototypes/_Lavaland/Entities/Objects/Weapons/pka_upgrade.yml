@@ -14,7 +14,6 @@
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
@@ -23,7 +22,7 @@
 
 - type: entity
   id: BasePKAUpgrade
-  parent: [BaseItem, BaseSecurityCargoContraband]
+  parent: BaseItem
   name: PKA modkit
   description: A modkit for a proto-kinetic accelerator.
   abstract: true
@@ -122,7 +121,6 @@
     tags: [ GunUpgradeReloadSpeed ]
     examineText: gun-upgrade-examine-text-light
     capacityCost: 10
-    unique: true
   - type: GunComponentUpgrade
     components:
     - type: UnpoweredFlashlight
@@ -130,23 +128,3 @@
       color: "#ffeead"
       enabled: false
       radius: 4
-
-- type: entity
-  id: PKAUpgradePressure
-  parent: [BaseSyndicateContraband, BasePKAUpgrade]
-  name: PKA modkit (pressure)
-  components:
-  - type: Sprite
-    layers:
-    - state: base
-    - state: overlay-1
-      color: "#ff4500"
-    - state: overlay-2
-      color: "#9b0000"
-    - state: overlay-3
-      color: "#ff4500"
-  - type: GunUpgrade
-    tags: [ GunUpgradePressure ]
-    examineText: gun-upgrade-examine-text-pressure
-    unique: true
-  - type: GunUpgradePressure

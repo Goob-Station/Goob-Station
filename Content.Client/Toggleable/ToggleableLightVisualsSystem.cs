@@ -27,7 +27,6 @@ public sealed class ToggleableLightVisualsSystem : VisualizerSystem<ToggleableLi
 {
     [Dependency] private readonly SharedItemSystem _itemSys = default!;
     [Dependency] private readonly SharedPointLightSystem _lights = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -44,11 +43,11 @@ public sealed class ToggleableLightVisualsSystem : VisualizerSystem<ToggleableLi
         var modulate = AppearanceSystem.TryGetData<Color>(uid, ToggleableLightVisuals.Color, out var color, args.Component);
 
         // Update the item's sprite
-        if (args.Sprite != null && component.SpriteLayer != null && _sprite.LayerMapTryGet((uid, args.Sprite), component.SpriteLayer, out var layer, false))
+        if (args.Sprite != null && component.SpriteLayer != null && args.Sprite.LayerMapTryGet(component.SpriteLayer, out var layer))
         {
-            _sprite.LayerSetVisible((uid, args.Sprite), layer, enabled);
+            args.Sprite.LayerSetVisible(layer, enabled);
             if (modulate)
-                _sprite.LayerSetColor((uid, args.Sprite), layer, color);
+                args.Sprite.LayerSetColor(layer, color);
         }
 
         // Update any point-lights

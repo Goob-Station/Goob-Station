@@ -5,7 +5,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Lock;
@@ -22,10 +21,4 @@ public sealed partial class ActivatableUIRequiresLockComponent : Component
     /// </summary>
     [DataField]
     public bool RequireLocked;
-
-    /// <summary>
-    /// Sound to be played if an attempt is blocked.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier? AccessDeniedSound = new SoundPathSpecifier("/Audio/Machines/custom_deny.ogg");
 }

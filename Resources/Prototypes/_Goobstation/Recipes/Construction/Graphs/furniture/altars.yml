@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 #
@@ -73,7 +72,6 @@
         southRotation: true
       steps:
       - tag: Meat
-        name: construction-graph-tag-meat
         doAfter: 3
     - to: HeavenAltarNode
       completed:
@@ -81,7 +79,6 @@
         southRotation: true
       steps:
       - tag: TemplarHelmet
-        name: construction-graph-tag-templar-helmet
         doAfter: 3
     - to: MaintsAltarNode
       completed:
@@ -89,7 +86,6 @@
         southRotation: true
       steps:
       - tag: BudgetInsuls
-        name: construction-graph-tag-budget-insuls
         doAfter: 3
     - to: NanotrasenAltarNode
       completed:
@@ -105,7 +101,6 @@
         southRotation: true
       steps:
       - tag: NunHood
-        name: construction-graph-tag-nun-hood
         doAfter: 3
     - to: TechnologyAltarNode
       completed:
@@ -113,7 +108,6 @@
         southRotation: true
       steps:
       - tag: CapacitorStockPart
-        name: construction-graph-tag-capacitor
         doAfter: 3
     - to: ToolAltarNode
       completed:
@@ -121,7 +115,6 @@
         southRotation: true
       steps:
       - tag: Toolbox
-        name: construction-graph-tag-toolbox
         doAfter: 3
   #Nullrod Altars
   - node: BananiumAltarNode
@@ -238,7 +231,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: ToolboxEmergency
+        prototype: ToolboxEmergencyFilled
         amount: 1
       steps:
       - tool: Prying

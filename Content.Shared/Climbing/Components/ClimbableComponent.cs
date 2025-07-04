@@ -22,13 +22,7 @@ namespace Content.Shared.Climbing.Components
         /// <summary>
         ///     The range from which this entity can be climbed.
         /// </summary>
-        [DataField] public float Range = SharedInteractionSystem.InteractionRange;
-
-        /// <summary>
-        /// Can drag-drop / verb vaulting be done? Set to false if climbing is being handled manually.
-        /// </summary>
-        [DataField]
-        public bool Vaultable = true;
+        [DataField("range")] public float Range = SharedInteractionSystem.InteractionRange / 1.4f;
 
         /// <summary>
         ///     The time it takes to climb onto the entity.
