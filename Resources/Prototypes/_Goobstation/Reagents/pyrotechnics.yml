@@ -33,16 +33,11 @@
 - type: reagent
   id: Methanol
   name: reagent-name-methanol
-  group: Pyrotechnic
+  parent: BasePyrotechnic
   desc: reagent-desc-methanol
   flavor: flavor-complex-alcohol
   physicalDesc: reagent-physical-desc-pungent
   color: "#c4f5ff"
-  reactiveEffects:
-  Flammable:
-    methods: [ Touch ]
-    effects:
-      - !type:FlammableReaction
   metabolisms:
     Poison:
       metabolismRate: 0.5
