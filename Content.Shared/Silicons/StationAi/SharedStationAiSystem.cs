@@ -26,6 +26,8 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -62,8 +64,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
-using Robust.Shared.Utility;
 using Content.Shared._CorvaxNext.Silicons.Borgs;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -92,7 +94,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly   SharedTransformSystem _xforms = default!;
     [Dependency] private readonly   SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly   StationAiVisionSystem _vision = default!;
-    [Dependency] private readonly   IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!; // Corvax-Next-AiRemoteControl
 
@@ -181,18 +183,15 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     private void OnAiAccessible(Entity<StationAiOverlayComponent> ent, ref AccessibleOverrideEvent args)
     {
         args.Handled = true;
-
         // Hopefully AI never needs storage
         if (_containers.TryGetContainingContainer(args.Target, out var targetContainer))
         {
             return;
         }
-
         if (!_containers.IsInSameOrTransparentContainer(args.User, args.Target, otherContainer: targetContainer))
         {
             return;
         }
-
         args.Accessible = true;
     }
 
@@ -627,6 +626,7 @@ public sealed partial class JumpToCoreEvent : InstantActionEvent
 
 [Serializable, NetSerializable]
 public sealed partial class IntellicardDoAfterEvent : SimpleDoAfterEvent;
+
 
 [Serializable, NetSerializable]
 public enum StationAiVisualState : byte
