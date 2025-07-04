@@ -1,0 +1,5 @@
+- type: alternativeJob
+  id: AlternativeJobResearchAssistant
+  jobName: Anomalist
+  jobDescription: job-description-research-assistant
+  parentJobId: ResearchAssistant
