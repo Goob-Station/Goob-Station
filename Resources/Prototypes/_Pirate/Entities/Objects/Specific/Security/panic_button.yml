@@ -1,0 +1,13 @@
+- type: entity
+  id: PanicButtonInterdyne
+  name: Сигналер Інтердайну
+  description: Пристрій для виклику підкріплення.
+  parent: [BaseItem, BaseInterdyneContraband]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/panicbutton.rsi
+    state: icon
+  - type: PanicButton
+    radioChannel: "Interdyne"
+  - type: UseDelay
+    delay: 45

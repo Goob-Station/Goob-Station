@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Interdyne and CaptainInterdyne icon made by Nazar_m | Other Interdyne icon made by kraftorset (discord)",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "Interdyne"
+        },
+        {
+            "name": "CaptainInterdyne"
+        },
+		{
+            "name": "InterdyneEngineer"
+        },
+		{
+            "name": "InterdyneMed"
+        },
+		{
+            "name": "InterdyneSecure"
+        },
+		{
+            "name": "InterdyneService"
+        },
+		{
+            "name": "InterdyneShaftMiners"
+        },
+		{
+            "name": "InterdyneDeputy"
+        },
+		{
+            "name": "InterdynePilot"
+        }
+    ]
+}

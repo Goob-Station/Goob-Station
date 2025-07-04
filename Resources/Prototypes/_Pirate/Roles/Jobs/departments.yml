@@ -1,0 +1,15 @@
+- type: department
+  id: Interdyne
+  name: Департамент Інтердайн
+  description: Корпорація медично-наукової направленості
+  color: "#2d650e"
+  roles:
+  - InterdyneOfficer
+  - InterdyneSecure
+  - InterdyneEngineer
+  - InterdyneDeputy
+  - InterdyneService
+  - Interdyne
+  - InterdyneMed
+  - InterdynePilot
+  - InterdyneShaftMiners

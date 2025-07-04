@@ -1,0 +1,12 @@
+- type: job
+  id: InterdyneSecure
+  name: job-name-interdyne-secure
+  description: job-description-interdyne-secure
+  icon: "JobIconInterdyneSecure"
+  canBeAntag: false
+  playTimeTracker: JobInterdyneSecure
+  access:
+    - Maintenance
+    - External
+    - Interdyne
+    - InterdyneCommand

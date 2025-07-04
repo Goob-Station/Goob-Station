@@ -1,0 +1,29 @@
+- type: entity
+  id: LockerInterdyne
+  name: Шафка персоналу Інтердайна
+  parent: LockerBaseSecure
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Pirate/Structures/Storage/closet.rsi
+  - type: AccessReader
+    access: [["Interdyne"]]
+  - type: EntityStorageVisuals
+    stateBaseClosed: interdyne
+    stateDoorOpen: interdyne_open
+    stateDoorClosed: interdyne_door
+
+- type: entity
+  id: LockerInterdyneCommand
+  name: Шафка просунутого персоналу Інтердайна
+  parent: LockerBaseSecure
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Pirate/Structures/Storage/closet.rsi
+  - type: AccessReader
+    access: [["InterdyneCommand"]]
+  - type: EntityStorageVisuals
+    stateBaseClosed: interdyne_command
+    stateDoorOpen: interdyne_command_open
+    stateDoorClosed: interdyne_command_door

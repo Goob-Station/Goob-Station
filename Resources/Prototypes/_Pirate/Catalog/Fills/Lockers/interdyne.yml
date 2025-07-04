@@ -1,0 +1,169 @@
+# Med Interdyne
+- type: entity
+  parent: LockerInterdyneCommand
+  id: LockerMedPersonalInterdyneFilled
+  name: Шафа з медичним обладнанням Інтердайна
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedicatedSuture
+        amount: 2
+      - id: RegenerativeMesh
+        amount: 2
+      - id: Bloodpack
+        amount: 4
+      - id: ParamedHypo
+      - id: HandheldHealthAnalyzerUnpowered
+      - id: ClothingUniformJumpskirtOfLife
+      - id: ClothingUniformJumpskirtBrigmedic
+      - id: ClothingUniformJumpsuitBrigmedic
+      - id: ClothingHandsGlovesNitrile
+      - id: BoxSyringe
+      - id: InterdyneMedUndeterminedWeapon
+      - id: ClothingHeadsetInterdyneCommand
+      - id: MedkitOxygenFilled
+      - id: MedkitBruteFilled
+      - id: MedkitBurnFilled
+      - id: MedkitToxinFilled
+      - id: MedkitRadiationFilled
+
+- type: entity
+  parent: LockerInterdyneCommand
+  id: LockerMedCheamPersonalInterdyneFilled
+  name: Шафа хіміка Інтердайна
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxPillCanister
+        amount: 3
+      - id: BoxBottle
+        amount: 3
+      - id: ClothingUniformJumpskirtOfLife
+      - id: ClothingUniformJumpskirtBrigmedic
+      - id: ClothingUniformJumpsuitBrigmedic
+      - id: ClothingHandsGlovesNitrile
+      - id: BoxSyringe
+      - id: HandLabeler
+      - id: ClothingHeadsetInterdyneCommand
+      - id: ChemBag
+      - id: PlasmaChemistryVial
+      - id: InterdyneMedUndeterminedWeapon
+      - id: BluespaceBeaker
+      - id: BoxBeaker
+        amount: 2
+
+# Sec Interdyne
+- type: entity
+  parent: LockerInterdyneCommand
+  id: LockerSecureInterdyneFilled
+  name: Шафа охоронця Інтердайна
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingBeltSecurityFilled
+      - id: HoloprojectorSecurity
+      - id: FlashlightSeclite
+      - id: PepperSpray
+      - id: ClothingEyesGlassesSecurity
+      - id: ClothingOuterArmorBasic
+      - id: ClothingHandsGlovesColorBlack
+      - id: ClothingBeltCorporateJudoFilled
+      - id: PanicButtonInterdyne
+      - id: ClothingHeadsetInterdyneCommand
+      - id: InterdyneSecureUndeterminedWeapon
+
+- type: entity
+  parent: LockerInterdyneCommand
+  id: LockerPilotInterdyneFilled
+  name: Шафа пілота Інтердайна
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingBeltSecurityFilled
+      - id: HoloprojectorSecurity
+      - id: FlashlightSeclite
+      - id: PepperSpray
+      - id: ClothingEyesGlassesSecurity
+      - id: ClothingOuterArmorBasic
+      - id: ClothingHandsGlovesColorBlack
+      - id: ClothingBeltCorporateJudoFilled
+      - id: PanicButtonInterdyne
+      - id: ClothingHeadsetInterdyneCommand
+      - id: InterdynePilotUndeterminedWeapon
+
+# ENG Interdyne
+- type: entity
+  parent: LockerInterdyneCommand
+  id: LockerEngInterdyneFilled
+  name: Шафа інженера Інтердайна
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadsetInterdyneCommand
+      - id: InterdyneEngUndeterminedWeapon
+      - id: RCD
+      - id: RCDAmmo
+        amount: 5
+      - id: ClothingHandsGlovesColorYellow
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
+      - id: UndeterminedVoidsuitEngineer
+      - id: ClothingHandsGlovesColorYellow
+      - id: ClothingMaskGas
+      - id: ClothingShoesBootsMag
+      - id: WeaponNailgun
+
+- type: entity
+  parent: LockerInterdyneCommand
+  id: LockerAtmosInterdyneFilled
+  name: Шафа атмоса Інтердайна
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskGasAtmos
+      - id: ClothingOuterSuitAtmosFire
+      - id: ClothingHeadHelmetAtmosFire
+      - id: GasAnalyzer
+      - id: MedkitOxygenFilled
+      - id: HolofanProjector
+      - id: RPD
+      - id: DoorRemoteFirefight 
+      - id: RCD
+      - id: RCDAmmo
+      - id: ClothingHandsGlovesAtmosInsulated
+      - id: ClothingBackpackFirefighterTan
+      - id: InterdyneEngUndeterminedWeapon
+      - id: ClothingHeadsetInterdyneCommand
+
+# Miners Interdyne
+- type: entity
+  parent: LockerInterdyne
+  id: LockerShaftMinersInterdyneFilled
+  name: Шафа шахтаря Інтердайна
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingEyesGlassesMeson
+      - id: ClothingBeltUtilityFilled
+      - id: SurvivalKnife
+      - id: HandheldGPSBasic
+      - id: RadioHandheld
+      - id: SeismicCharge
+        amount: 2
+      - id: Flare
+        prob: 0.3
+      - id: Flare
+        prob: 0.3
+      - id: Flare
+        prob: 0.3
+      - id: WeaponProtoKineticAccelerator
+      - id: OreBag
+      - id: Pickaxe
+      - id: LavalandJaunter
+      - id: LavalandEquipmentExplorerSuit
+      - id: ShelterCapsule
+      - id: ClothingMaskGasExplorer
+      - id: MineralScanner
+      - id: FlashlightSeclite
+      - id: InterdyneShaftMinersUndeterminedWeapon
+      - id: ClothingHeadsetInterdyne

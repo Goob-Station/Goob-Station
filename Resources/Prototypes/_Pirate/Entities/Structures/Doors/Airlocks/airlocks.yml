@@ -1,0 +1,17 @@
+- type: entity
+  parent: Airlock
+  id: AirlockInterdyne
+  suffix: Interdyne
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Doors/Airlocks/Standard/interdyne.rsi
+    layoutId: AirlockInterdyne
+    
+- type: entity
+  parent: AirlockGlass
+  id: AirlockInterdyneGlass
+  suffix: Interdyne
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Doors/Airlocks/Glass/interdyne.rsi
+    layoutId: AirlockInterdyne

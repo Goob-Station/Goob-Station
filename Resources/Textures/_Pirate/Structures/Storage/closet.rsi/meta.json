@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "copyright": "Made by kraftorset",
+  "license": "CC-BY-SA-3.0",
+  "states": [
+    {
+      "name": "interdyne"
+    },
+    {
+      "name": "interdyne_door"
+    },
+    {
+      "name": "interdyne_open"
+    },
+	{
+      "name": "interdyne_command"
+    },
+    {
+      "name": "interdyne_command_door"
+    },
+    {
+      "name": "interdyne_command_open"
+    },
+	{
+      "name": "generic"
+    },
+    {
+      "name": "generic_door"
+    },
+    {
+      "name": "generic_open"
+    },
+	{
+      "name": "generic_icon"
+    },
+	{
+      "name": "welded"
+    },
+	{
+      "name": "unlocked"
+    },
+	{
+      "name": "locked"
+    }
+  ]
+}

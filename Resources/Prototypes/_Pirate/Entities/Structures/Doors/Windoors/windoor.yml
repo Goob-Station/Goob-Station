@@ -1,0 +1,26 @@
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureInterdyneLocked
+  suffix: Interdyne, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIP ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureInterdyneCommandLocked
+  suffix: InterdyneCommand, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPCommand ]
+      
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureInterdyneOfficerLocked
+  suffix: InterdyneOfficer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPOfficer ]
