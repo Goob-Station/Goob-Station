@@ -1,3 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: soundCollection
+  id: SlimeMaleLaughs
+  files:
+    - /Audio/Voice/Slime/slime_laugh_m1.ogg
+    - /Audio/Voice/Slime/slime_laugh_m2.ogg
+
+- type: soundCollection
+  id: SlimeFemaleLaughs
+  files:
+    - /Audio/Voice/Slime/slime_laugh_f1.ogg
+
 - type: soundCollection
   id: SlimeMaleScreams
   files:
