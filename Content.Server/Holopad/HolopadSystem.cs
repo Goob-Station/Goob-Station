@@ -460,6 +460,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
 
         _updateTimer += frameTime;
 
+        // <Goobstation> - update timer fix ported from EE at e1d701bee25e124ee0e7a9390b46300fc044761f (https://github.com/Simple-Station/Einstein-Engines/pull/2470)
         if (_updateTimer < UpdateTime)
             return;
 
@@ -477,6 +478,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
                 UnlinkHolopadFromUser((uid, holopad), holopad.User.Value);
             }
         }
+        // </Goobstation>
     }
 
     public void UpdateUIState(Entity<HolopadComponent> entity, TelephoneComponent? telephone = null)
