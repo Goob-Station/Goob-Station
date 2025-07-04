@@ -1,0 +1,28 @@
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltInterdyne
+  name: "Наушник персоналу Інтердайну"
+  description: Гарнітура Інтердайну.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyInterdyne
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _Pirate/Clothing/Ears/Headsets/interdyne.rsi
+  - type: Clothing
+    sprite: _Pirate/Clothing/Ears/Headsets/interdyne.rsi
+
+- type: entity
+  parent: ClothingHeadsetAltInterdyne
+  id: ClothingHeadsetInterdyneCommandAlt
+  name: "Наушник керівництва Інтердайну"
+  description: Гарнітура Інтердайну.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyInterdynePrivat
+      - EncryptionKeySyndie
+      - EncryptionKeyCommon

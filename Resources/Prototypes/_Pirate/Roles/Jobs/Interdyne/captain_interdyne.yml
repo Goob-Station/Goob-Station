@@ -1,0 +1,15 @@
+- type: job
+  id: CaptainInterdyne
+  name: job-name-captain-interdyne
+  description: job-description-captain-interdyne
+  icon: "JobIconCaptainInterdyne"
+  canBeAntag: false
+  playTimeTracker: JobCaptainInterdyne
+  access:
+    - Maintenance
+    - External
+    - SyndicateAgent
+    - NuclearOperative
+    - Interdyne
+    - InterdyneCommand
+    - InterdyneOfficer

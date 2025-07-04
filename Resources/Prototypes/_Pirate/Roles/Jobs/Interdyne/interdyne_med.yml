@@ -1,0 +1,12 @@
+- type: job
+  id: InterdyneMed
+  name: job-name-interdyne-med
+  description: job-description-interdyne-med
+  icon: "JobIconInterdyneMed"
+  canBeAntag: false
+  playTimeTracker: JobInterdyneMed
+  access:
+    - Maintenance
+    - External
+    - Interdyne
+    - InterdyneCommand

@@ -1,0 +1,12 @@
+- type: job
+  id: InterdyneEngineer
+  name: job-name-interdyne-engineer
+  description: job-description-interdyne-engineer
+  icon: "JobIconInterdyneEngineer"
+  canBeAntag: false
+  playTimeTracker: JobInterdyneEngineer
+  access:
+    - Maintenance
+    - External
+    - Interdyne
+    - InterdyneCommand

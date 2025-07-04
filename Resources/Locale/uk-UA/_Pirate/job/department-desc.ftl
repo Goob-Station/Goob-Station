@@ -1,0 +1,1 @@
+department-Interdyne-description = Корпорація медично-наукової направленості.
