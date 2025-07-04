@@ -131,7 +131,6 @@
       - id: RCD
       - id: RCDAmmo
       - id: ClothingHandsGlovesAtmosInsulated
-      - id: ClothingBackpackFirefighterTan
       - id: InterdyneEngUndeterminedWeapon
       - id: ClothingHeadsetInterdyneCommand
 

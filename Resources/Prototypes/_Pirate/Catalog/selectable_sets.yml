@@ -215,7 +215,7 @@
   name: Набір прибиральника
   description: Якщо хочете допомагати по мілочі
   sprite:
-    sprite: /Clothing/Belt/janitor.rsi
+    sprite: Clothing/Belt/janitor.rsi
     state: icon
   content:
   - ClothingBeltJanitorFilled

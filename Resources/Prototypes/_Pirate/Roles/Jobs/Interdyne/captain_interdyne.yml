@@ -8,7 +8,8 @@
   access:
     - Maintenance
     - External
-    - Syndicate
+    - SyndicateAgent
+    - NuclearOperative
     - Interdyne
     - InterdyneCommand
     - InterdyneOfficer
