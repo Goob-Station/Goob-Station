@@ -18,10 +18,7 @@ using System;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
-using Content.Server.GameTicking;
-using Content.Server.Pinpointer;
-using Content.Goobstation.Common.Bingle;
-using Content.Goobstation.Shared.Bingle;
+using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Stunnable;
@@ -45,6 +42,7 @@ using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
@@ -63,11 +61,13 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly BingleSystem _bingle = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -193,12 +193,19 @@ public sealed class BinglePitSystem : EntitySystem
         OnSpawnTile(uid,component.Level*2);
 
         component.MinionsMade++;
-        if (component.MinionsMade >= component.UpgradeMinionsAfter)
-        {
-            component.MinionsMade = 0;
-            component.Level++;
-            UpgradeBingles(uid, component);
-        }
+        if (component.MinionsMade < component.UpgradeMinionsAfter)
+            return;
+
+        component.MinionsMade = 0;
+        component.Level++;
+        UpgradeBingles(uid, component);
+
+        // fake ascension at level 5 (insanely hard to get)
+        if (component.Level != 5)
+            return;
+
+        var ascendSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_flesh.ogg");
+        _chat.DispatchGlobalAnnouncement(Loc.GetString("heretic-ascension-bingle"), Name(uid), true, ascendSound, Color.Pink);
     }
 
     public void UpgradeBingles(EntityUid uid, BinglePitComponent component)

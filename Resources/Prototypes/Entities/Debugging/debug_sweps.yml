@@ -41,6 +41,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/debug.rsi
   - type: Gun
+    soundGunshot: null
     fireRate: 100
     selectedMode: FullAuto
     availableModes:
