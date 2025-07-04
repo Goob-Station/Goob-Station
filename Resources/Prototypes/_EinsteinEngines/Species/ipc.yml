@@ -203,8 +203,6 @@
   bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [ IPC ]
-  markingCategory: RightLeg
-  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: l_leg
@@ -219,8 +217,6 @@
   bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [ IPC ]
-  markingCategory: RightArm
-  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: l_arm
@@ -235,8 +231,6 @@
   bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [ IPC ]
-  markingCategory: RightArm
-  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: l_hand
@@ -251,8 +245,6 @@
   bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [ IPC ]
-  markingCategory: RightLeg
-  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: l_foot
@@ -295,8 +287,6 @@
   bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [ IPC ]
-  markingCategory: RightArm
-  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: r_hand
@@ -311,8 +301,6 @@
   bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [ IPC ]
-  markingCategory: RightLeg
-  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: r_foot
