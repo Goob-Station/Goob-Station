@@ -658,13 +658,6 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
-  - PassengerJumpsuit
-  - CommonBackpack
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
 
 - type: roleLoadout
   id: JobWarden
@@ -681,13 +674,6 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
-  - PassengerJumpsuit
-  - CommonBackpack
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -705,13 +691,6 @@
   - Trinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
-  - PassengerJumpsuit
-  - CommonBackpack
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
 
 - type: roleLoadout
   id: JobDetective
@@ -746,13 +725,7 @@
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity
-  - PassengerJumpsuit
-  - CommonBackpack
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
+
 
 # Medical
 - type: roleLoadout

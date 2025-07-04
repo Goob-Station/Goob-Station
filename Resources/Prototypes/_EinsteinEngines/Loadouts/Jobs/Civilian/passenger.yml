@@ -475,11 +475,6 @@
     outerClothing: ClothingOuterCoatHyenhSweater
 
 - type: loadout
-  id: Valet
-  equipment:
-    outerClothing: ClothingOuterVestValet
-
-- type: loadout
   id: Vest
   equipment:
     outerClothing: ClothingOuterVest
