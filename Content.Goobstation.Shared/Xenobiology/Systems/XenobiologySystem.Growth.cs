@@ -15,10 +15,8 @@ namespace Content.Goobstation.Shared.Xenobiology.Systems;
 /// </summary>
 public partial class XenobiologySystem
 {
-    private void InitializeGrowth()
-    {
+    private void InitializeGrowth() =>
         SubscribeLocalEvent<MobGrowthComponent, ComponentInit>(OnMobGrowthInit);
-    }
 
     private void OnMobGrowthInit(Entity<MobGrowthComponent> ent, ref ComponentInit args)
     {

@@ -19,17 +19,13 @@ namespace Content.Goobstation.Shared.Xenobiology.Systems;
 /// </summary>
 public partial class XenobiologySystem
 {
-    private void InitializeBreeding()
-    {
-        base.Initialize();
-
+    private void InitializeBreeding() =>
         SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeInit);
-    }
 
     private void OnSlimeInit(Entity<SlimeComponent> slime, ref MapInitEvent args)
     {
         Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => slime.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
-        slime.Comp.NextUpdateTime = _gameTiming.CurTime + slime.Comp.NextUpdateTime;
+        slime.Comp.NextUpdateTime = _gameTiming.CurTime + slime.Comp.UpdateInterval;
     }
 
     // Checks slime entity hunger threshholds, if the threshhold required by SlimeComponent is met -> DoMitosis.
