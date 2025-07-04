@@ -70,7 +70,7 @@
   id: TattooSilverburghLeftLeg
   bodyPart: LLeg
   markingCategory: LeftLeg
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -84,7 +84,7 @@
   id: TattooSilverburghRightLeg
   bodyPart: RLeg
   markingCategory: RightLeg
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -98,7 +98,7 @@
   id: TattooCampbellLeftArm
   bodyPart: LArm
   markingCategory: LeftArm
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -112,7 +112,7 @@
   id: TattooCampbellRightArm
   bodyPart: RArm
   markingCategory: RightArm
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -126,7 +126,7 @@
   id: TattooCampbellLeftLeg
   bodyPart: LLeg
   markingCategory: LeftLeg
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
@@ -140,7 +140,7 @@
   id: TattooCampbellRightLeg
   bodyPart: RLeg
   markingCategory: RightLeg
-  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid, Oni
+  speciesRestriction: [Human, Dwarf, Felinid, Oni] # Delta V - Felinid; EE - Oni
   coloring:
     default:
       type:
