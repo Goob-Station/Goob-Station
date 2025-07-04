@@ -4,6 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Pirate.Common.AlternativeJobs;
+using Content.Pirate.Server.AlternativeJobs;
 using Content.Pirate.Server.IoC;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
@@ -19,5 +21,10 @@ public sealed class EntryPoint : GameServer
         ServerPirateContentIoC.Register();
 
         IoCManager.BuildGraph();
+    }
+    public override void PreInit()
+    {
+        base.PreInit();
+        IoCManager.Register<IAlternativeJob, AlternativeJobSystem>(true);
     }
 }
