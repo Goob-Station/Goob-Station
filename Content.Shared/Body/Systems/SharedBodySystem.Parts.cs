@@ -95,6 +95,7 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 // Shitmed Change Start
@@ -110,7 +111,8 @@ namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
 {
-
+    private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
+    
     private void InitializeParts()
     {
         // TODO: This doesn't handle comp removal on child ents.
