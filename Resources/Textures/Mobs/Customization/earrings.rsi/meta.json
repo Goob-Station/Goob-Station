@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Aurorastation at commit https://github.com/Aurorastation/Aurora.3/commit/7bc5666e9e12ef31dcfdc9bd4b68831b34811bc6, Edited and expanded by Skubman (github: angelofallars)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bangle_l",
+      "directions": 4
+    },
+    {
+      "name": "bangle_r",
+      "directions": 4
+    },
+    {
+      "name": "crescent_l",
+      "directions": 4
+    },
+    {
+      "name": "crescent_r",
+      "directions": 4
+    },
+    {
+      "name": "cross_l",
+      "directions": 4
+    },
+    {
+      "name": "cross_r",
+      "directions": 4
+    },
+    {
+      "name": "cross_saint_peter_l",
+      "directions": 4
+    },
+    {
+      "name": "cross_saint_peter_r",
+      "directions": 4
+    },
+    {
+      "name": "crystal_tone_1_l",
+      "directions": 4
+    },
+    {
+      "name": "crystal_tone_2_l",
+      "directions": 4
+    },
+    {
+      "name": "crystal_tone_1_r",
+      "directions": 4
+    },
+    {
+      "name": "crystal_tone_2_r",
+      "directions": 4
+    },
+    {
+      "name": "crystal_long_tone_1_l",
+      "directions": 4
+    },
+    {
+      "name": "crystal_long_tone_2_l",
+      "directions": 4
+    },
+    {
+      "name": "crystal_long_tone_1_r",
+      "directions": 4
+    },
+    {
+      "name": "crystal_long_tone_2_r",
+      "directions": 4
+    },
+    {
+      "name": "dangle_tone_1_l",
+      "directions": 4
+    },
+    {
+      "name": "dangle_tone_2_l",
+      "directions": 4
+    },
+    {
+      "name": "dangle_tone_1_r",
+      "directions": 4
+    },
+    {
+      "name": "dangle_tone_2_r",
+      "directions": 4
+    },
+    {
+      "name": "dangle_long_tone_1_l",
+      "directions": 4
+    },
+    {
+      "name": "dangle_long_tone_2_l",
+      "directions": 4
+    },
+    {
+      "name": "dangle_long_tone_1_r",
+      "directions": 4
+    },
+    {
+      "name": "dangle_long_tone_2_r",
+      "directions": 4
+    },
+    {
+      "name": "drop_l",
+      "directions": 4
+    },
+    {
+      "name": "drop_r",
+      "directions": 4
+    },
+    {
+      "name": "drop_colored_tone_1_l",
+      "directions": 4
+    },
+    {
+      "name": "drop_colored_tone_2_l",
+      "directions": 4
+    },
+    {
+      "name": "drop_colored_tone_1_r",
+      "directions": 4
+    },
+    {
+      "name": "drop_colored_tone_2_r",
+      "directions": 4
+    },
+    {
+      "name": "drop_long_tone_1_l",
+      "directions": 4
+    },
+    {
+      "name": "drop_long_tone_2_l",
+      "directions": 4
+    },
+    {
+      "name": "drop_long_tone_1_r",
+      "directions": 4
+    },
+    {
+      "name": "drop_long_tone_2_r",
+      "directions": 4
+    },
+    {
+      "name": "eight_l",
+      "directions": 4
+    },
+    {
+      "name": "eight_r",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_tone_1_l",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_tone_2_l",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_tone_1_r",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_tone_2_r",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_long_tone_1_l",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_long_tone_2_l",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_long_tone_1_r",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_long_tone_2_r",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_tone_1_l",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_tone_2_l",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_tone_3_l",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_tone_1_r",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_tone_2_r",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_tone_3_r",
+      "directions": 4
+    },
+    {
+      "name": "heavy_l",
+      "directions": 4
+    },
+    {
+      "name": "heavy_r",
+      "directions": 4
+    },
+    {
+      "name": "hoop_l",
+      "directions": 4
+    },
+    {
+      "name": "hoop_r",
+      "directions": 4
+    },
+    {
+      "name": "hoop_mini_l",
+      "directions": 4
+    },
+    {
+      "name": "hoop_mini_r",
+      "directions": 4
+    },
+    {
+      "name": "stud_l",
+      "directions": 4
+    },
+    {
+      "name": "stud_r",
+      "directions": 4
+    }
+  ]
+}

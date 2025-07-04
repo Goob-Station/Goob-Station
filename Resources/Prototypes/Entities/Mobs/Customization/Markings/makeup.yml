@@ -1,0 +1,91 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Sapphire <98045970+sapphirescript@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: marking
+  id: MakeupLips
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne] # Delta V - Felinid, Oni, Harpy
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#7e2727"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: lips
+
+- type: marking
+  id: MakeupBlush
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Felinid, Oni, Vulpkanin, Harpy, Arachne] # Delta V - Felinid, Oni, Vulpkanin, Harpy
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#d39394"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: blush
+
+- type: marking
+  id: MakeupNailPolishRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Arachne] # Delta V - Felinid, Oni, Vulpkanin
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#702020"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: nail_polish_r
+
+- type: marking
+  id: MakeupNailPolishLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Arachne] # Delta V - Felinid, Oni, Vulpkanin
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#702020"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: nail_polish_l
+
+# Moth-specific
+
+- type: marking
+  id: MakeupMothLips
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#7e2727"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: moth_lips
+
+- type: marking
+  id: MakeupMothBlush
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#d39394"
+  sprites:
+  - sprite: Mobs/Customization/makeup.rsi
+    state: moth_blush
