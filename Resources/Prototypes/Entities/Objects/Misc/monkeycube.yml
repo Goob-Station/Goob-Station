@@ -61,28 +61,20 @@
 
 - type: entity
   parent: BaseItem
-  abstract: true
+  name: monkey cube
   suffix: Wrapped
-  id: BaseWrappedCube
+  id: MonkeyCubeWrapped
+  description: Unwrap this to get a monkey cube.
   components:
   - type: Item
     size: Tiny
   - type: SpawnItemsOnUse
+    items:
+      - id: MonkeyCube
     sound:
       path: /Audio/Effects/unwrap.ogg
   - type: Sprite
     sprite: Objects/Misc/monkeycube.rsi
-
-- type: entity
-  parent: BaseWrappedCube
-  name: monkey cube
-  id: MonkeyCubeWrapped
-  description: Unwrap this to get a monkey cube.
-  components:
-  - type: SpawnItemsOnUse
-    items:
-    - id: MonkeyCube
-  - type: Sprite
     state: wrapper
   - type: Tag
     tags:
@@ -119,15 +111,19 @@
     state: box_variant
 
 - type: entity
-  parent: BaseWrappedCube
+  parent: MonkeyCubeWrapped
   name: kobold cube
+  suffix: Wrapped
   id: KoboldCubeWrapped
   description: Unwrap this to get a kobold cube.
   components:
   - type: SpawnItemsOnUse
     items:
       - id: KoboldCube
+    sound:
+      path: /Audio/Effects/unwrap.ogg
   - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
     state: wrapper_kobold
 
 - type: entity
@@ -150,7 +146,18 @@
   name: monkey cube
   suffix: Wrapped, Syndicate
   id: SyndicateSpongeWrapped
+  description: Unwrap this to get a monkey cube.
   components:
   - type: SpawnItemsOnUse
     items:
       - id: SyndicateSponge
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: wrapper
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - MonkeyCube

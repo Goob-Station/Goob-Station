@@ -70,11 +70,6 @@ public sealed class CustomOutputPanel : Control
     public void Clear()
     {
         _firstLine = true;
-        foreach (var entry in _entries)
-        {
-            entry.RemoveControls();
-        }
-
         _entries.Clear();
         _totalContentHeight = 0;
         _scrollBar.MaxValue = Math.Max(_scrollBar.Page, _totalContentHeight);

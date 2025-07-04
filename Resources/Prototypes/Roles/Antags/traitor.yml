@@ -91,6 +91,10 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -145,27 +149,55 @@
   parent: SyndicateOperativeClothing
   equipment:
     pocket1: WeaponPistolViper
+    pocket2: MagazinePistol
+    eyes: ClothingEyesEyepatchHudMedical
+    ears: ClothingHeadsetAltSyndicate
   inhand:
+    - ClothingBackpackDuffelSyndicateFilledMedical
+  storage:
+    back:
+    - EncryptionKeySyndie
     - MedkitCombatFilled
+    - Hypopen
+    - ChemistryBottleOmnizine
+    - ChemistryBottleOmnizine
+    - HandheldHealthAnalyzer
 
 - type: startingGear
-  id: SyndicateReinforcementSpy
+  id: SyndicateReinforcementSoldier
   parent: SyndicateOperativeClothing
   equipment:
-    id: AgentIDCard
-    mask: ClothingMaskGasVoiceChameleon
+    mask: ClothingMaskGasSyndicate
     pocket1: WeaponPistolViper
+    pocket2: MagazinePistol
+    outerClothing: ClothingOuterVestWeb
+    eyes: ClothingEyesNightVisionGogglesSyndie
+    head: ClothingHeadHelmetSwatSyndicate
+    ears: ClothingHeadsetAltSyndicate
+  inhand:
+    - WeaponSubMachineGunC20r
+  storage:
+    back:
+    - EncryptionKeySyndie
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
 
 - type: startingGear
   id: SyndicateReinforcementThief
   parent: SyndicateOperativeClothing
   equipment:
     pocket1: WeaponPistolViper
+    ears: ClothingHeadsetAltSyndicate
   inhand:
     - ToolboxSyndicateFilled
+    - ClothingBackpackChameleonFill
   storage:
     back:
-    - SyndicateJawsOfLife
+    - EncryptionKeySyndie
+    - ClothingMaskGasVoiceChameleon
+    - AccessBreaker
+    - AgentIDCard
+    - ClothingHandsChameleonThief
 
 #Syndicate Operative Outfit - Basic
 - type: startingGear

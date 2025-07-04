@@ -21,8 +21,7 @@ public sealed class RadiationCollectorSystem : VisualizerSystem<RadiationCollect
 
     private void OnComponentInit(EntityUid uid, RadiationCollectorComponent comp, ComponentInit args)
     {
-        comp.ActivateAnimation = new Animation
-        {
+        comp.ActivateAnimation = new Animation {
             Length = TimeSpan.FromSeconds(0.8f),
             AnimationTracks = {
                 new AnimationTrackSpriteFlick() {
@@ -32,8 +31,7 @@ public sealed class RadiationCollectorSystem : VisualizerSystem<RadiationCollect
             }
         };
 
-        comp.DeactiveAnimation = new Animation
-        {
+        comp.DeactiveAnimation = new Animation {
             Length = TimeSpan.FromSeconds(0.8f),
             AnimationTracks = {
                 new AnimationTrackSpriteFlick() {
@@ -53,10 +51,10 @@ public sealed class RadiationCollectorSystem : VisualizerSystem<RadiationCollect
         if (AnimationSystem.HasRunningAnimation(uid, animPlayer, RadiationCollectorComponent.AnimationKey))
             return;
 
-        var targetState = state & RadiationCollectorVisualState.Active;
-        var destinationState = comp.CurrentState & RadiationCollectorVisualState.Active;
+        var targetState = (RadiationCollectorVisualState) (state & RadiationCollectorVisualState.Active);
+        var destinationState = (RadiationCollectorVisualState) (comp.CurrentState & RadiationCollectorVisualState.Active);
         if (targetState != destinationState) // If where we're going is not where we want to be then we must go there next.
-            targetState |= RadiationCollectorVisualState.Deactivating; // Convert to transition state.
+            targetState = (RadiationCollectorVisualState) (targetState | RadiationCollectorVisualState.Deactivating); // Convert to transition state.
 
         comp.CurrentState = state;
 
@@ -70,10 +68,10 @@ public sealed class RadiationCollectorSystem : VisualizerSystem<RadiationCollect
                 break;
 
             case RadiationCollectorVisualState.Active:
-                SpriteSystem.LayerSetRsiState((uid, sprite), RadiationCollectorVisualLayers.Main, comp.ActiveState);
+                sprite.LayerSetState(RadiationCollectorVisualLayers.Main, comp.ActiveState);
                 break;
             case RadiationCollectorVisualState.Deactive:
-                SpriteSystem.LayerSetRsiState((uid, sprite), RadiationCollectorVisualLayers.Main, comp.InactiveState);
+                sprite.LayerSetState(RadiationCollectorVisualLayers.Main, comp.InactiveState);
                 break;
         }
     }
@@ -91,7 +89,7 @@ public sealed class RadiationCollectorSystem : VisualizerSystem<RadiationCollect
             state = comp.CurrentState;
 
         // Convert to terminal state.
-        var targetState = state & RadiationCollectorVisualState.Active;
+        var targetState = (RadiationCollectorVisualState) (state & RadiationCollectorVisualState.Active);
 
         UpdateVisuals(uid, targetState, comp, sprite, animPlayer);
     }

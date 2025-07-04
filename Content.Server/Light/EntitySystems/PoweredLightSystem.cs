@@ -139,8 +139,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
-using Content.Shared.DeviceNetwork;
-using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power;
 
 namespace Content.Server.Light.EntitySystems

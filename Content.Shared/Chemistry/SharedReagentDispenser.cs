@@ -13,8 +13,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Storage;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry
@@ -81,25 +79,11 @@ namespace Content.Shared.Chemistry
     [Serializable, NetSerializable]
     public sealed class ReagentDispenserDispenseReagentMessage : BoundUserInterfaceMessage
     {
-        public readonly ItemStorageLocation StorageLocation;
+        public readonly string SlotId;
 
-        public ReagentDispenserDispenseReagentMessage(ItemStorageLocation storageLocation)
+        public ReagentDispenserDispenseReagentMessage(string slotId)
         {
-            StorageLocation = storageLocation;
-        }
-    }
-
-    /// <summary>
-    ///     Message sent by the user interface to ask the reagent dispenser to eject a container
-    /// </summary>
-    [Serializable, NetSerializable]
-    public sealed class ReagentDispenserEjectContainerMessage : BoundUserInterfaceMessage
-    {
-        public readonly ItemStorageLocation StorageLocation;
-
-        public ReagentDispenserEjectContainerMessage(ItemStorageLocation storageLocation)
-        {
-            StorageLocation = storageLocation;
+            SlotId = slotId;
         }
     }
 
@@ -123,9 +107,9 @@ namespace Content.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
-    public sealed class ReagentInventoryItem(ItemStorageLocation storageLocation, string reagentLabel, FixedPoint2 quantity, Color reagentColor)
+    public sealed class ReagentInventoryItem(string storageSlotId, string reagentLabel, FixedPoint2 quantity, Color reagentColor)
     {
-        public ItemStorageLocation StorageLocation = storageLocation;
+        public string StorageSlotId = storageSlotId;
         public string ReagentLabel = reagentLabel;
         public FixedPoint2 Quantity = quantity;
         public Color ReagentColor = reagentColor;

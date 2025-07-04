@@ -26,7 +26,7 @@
   description: A token to redeem a piece of equipment. Insert into your salvage vendor to redeem it.
   components:
   - type: Sprite
-    sprite: _DV/Objects/Specific/Salvage/voucher.rsi
+    sprite: DeltaV/Objects/Specific/Salvage/voucher.rsi
     state: icon
   - type: Item
     size: Tiny

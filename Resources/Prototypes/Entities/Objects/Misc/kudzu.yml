@@ -42,8 +42,6 @@
     - type: ActiveEdgeSpreader
     - type: EdgeSpreader
       id: Kudzu
-    - type: SpeedModifierContacts
-      affectAirborne: true
 
 - type: entity
   id: Kudzu

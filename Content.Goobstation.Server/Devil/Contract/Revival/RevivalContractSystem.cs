@@ -14,7 +14,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
-using Robust.Server.Player;
 
 namespace Content.Goobstation.Server.Devil.Contract.Revival;
 public sealed partial class PendingRevivalContractSystem : EntitySystem
@@ -24,7 +23,6 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly DevilContractSystem _contract = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -85,10 +83,8 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         if (!_userInterface.HasUi(target, RevivalContractUiKey.Key))
             return false;
 
-        if (_mind.TryGetMind(target, out _, out var mindComp) &&
-            _player.TryGetSessionById(mindComp.UserId, out var session) &&
-            session is { } insession)
-            _userInterface.OpenUi(target, RevivalContractUiKey.Key, insession);
+        if (_mind.TryGetMind(target, out _, out var mindComp) && mindComp.Session is { } session)
+            _userInterface.OpenUi(target, RevivalContractUiKey.Key, session);
 
         return true;
     }

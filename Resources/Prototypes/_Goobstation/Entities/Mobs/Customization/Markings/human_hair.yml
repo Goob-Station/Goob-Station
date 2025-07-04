@@ -4,7 +4,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
-# SPDX-FileCopyrightText: 2025 Sylvain REMY <sremy2012@hotmail.fr>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Goobstation TODO: this should be in a goobstation folder
@@ -87,14 +86,6 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: hairnet
-
-- type: marking
-  id: HumanHairJinx
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
-      state: jinx
 
 - type: marking
   id: HumanHairJellyfish

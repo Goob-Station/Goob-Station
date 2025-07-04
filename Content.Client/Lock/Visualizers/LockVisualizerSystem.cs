@@ -11,8 +11,6 @@ namespace Content.Client.Lock.Visualizers;
 
 public sealed class LockVisualizerSystem : VisualizerSystem<LockVisualsComponent>
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-
     protected override void OnAppearanceChange(EntityUid uid, LockVisualsComponent comp, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null
@@ -27,14 +25,14 @@ public sealed class LockVisualizerSystem : VisualizerSystem<LockVisualsComponent
 
         if (AppearanceSystem.TryGetData<bool>(uid, StorageVisuals.Open, out var open, args.Component))
         {
-            _sprite.LayerSetVisible((uid, args.Sprite), LockVisualLayers.Lock, !open);
+            args.Sprite.LayerSetVisible(LockVisualLayers.Lock, !open);
         }
-        else if (!(bool)unlockedStateExist!)
-            _sprite.LayerSetVisible((uid, args.Sprite), LockVisualLayers.Lock, locked);
+        else if (!(bool) unlockedStateExist!)
+            args.Sprite.LayerSetVisible(LockVisualLayers.Lock, locked);
 
-        if (!open && (bool)unlockedStateExist!)
+        if (!open && (bool) unlockedStateExist!)
         {
-            _sprite.LayerSetRsiState((uid, args.Sprite), LockVisualLayers.Lock, locked ? comp.StateLocked : comp.StateUnlocked);
+            args.Sprite.LayerSetState(LockVisualLayers.Lock, locked ? comp.StateLocked : comp.StateUnlocked);
         }
     }
 }

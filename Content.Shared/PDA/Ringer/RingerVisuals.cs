@@ -16,10 +16,12 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.PDA.Ringer;
-
-[Serializable, NetSerializable]
-public enum RingerUiKey : byte
+namespace Content.Shared.PDA.Ringer
 {
-    Key,
+    [Serializable, NetSerializable]
+    public enum RingerUiKey
+    {
+        Key
+    }
+
 }

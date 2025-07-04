@@ -13,22 +13,22 @@
         - to: strawhat
           steps:
             - tag: Wheat
-              name: construction-graph-tag-wheat-bushel
+              name: wheat bushel
               icon:
                 sprite: Objects/Specific/Hydroponics/wheat.rsi
                 state: produce
             - tag: Wheat
-              name: construction-graph-tag-wheat-bushel
+              name: wheat bushel
               icon:
                 sprite: Objects/Specific/Hydroponics/wheat.rsi
                 state: produce
             - tag: Wheat
-              name: construction-graph-tag-wheat-bushel
+              name: wheat bushel
               icon:
                 sprite: Objects/Specific/Hydroponics/wheat.rsi
                 state: produce
             - tag: Wheat
-              name: construction-graph-tag-wheat-bushel
+              name: wheat bushel
               icon:
                 sprite: Objects/Specific/Hydroponics/wheat.rsi
                 state: produce

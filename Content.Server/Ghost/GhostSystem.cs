@@ -79,7 +79,6 @@
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
 // SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
@@ -131,13 +130,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 // Shitmed Change
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
-using Content.Shared._Shitmed.Body;
-using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Ghost
 {
@@ -153,7 +147,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly MindSystem _minds = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-        [Dependency] private readonly ISharedPlayerManager _player = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -169,7 +163,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly NameModifierSystem _nameMod = default!;
         [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
-        [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -465,7 +459,7 @@ namespace Content.Server.Ghost
 
         private IEnumerable<GhostWarp> GetPlayerWarps(EntityUid except)
         {
-            foreach (var player in _player.Sessions)
+            foreach (var player in _playerManager.Sessions)
             {
                 if (player.AttachedEntity is not {Valid: true} attached)
                     continue;
@@ -543,7 +537,7 @@ namespace Content.Server.Ghost
             if (spawnPosition?.IsValid(EntityManager) != true)
                 return false;
 
-            var mapUid = _transformSystem.GetMap(spawnPosition.Value);
+            var mapUid = spawnPosition?.GetMapUid(EntityManager);
             var gridUid = spawnPosition?.EntityId;
             // Test if the map is being deleted
             if (mapUid == null || TerminatingOrDeleted(mapUid.Value))
@@ -585,15 +579,15 @@ namespace Content.Server.Ghost
             // However, that should rarely happen.
             if (!string.IsNullOrWhiteSpace(mind.Comp.CharacterName))
                 _metaData.SetEntityName(ghost, mind.Comp.CharacterName);
-            else if (mind.Comp.UserId is { } userId && _player.TryGetSessionById(userId, out var session))
-                _metaData.SetEntityName(ghost, session.Name);
+            else if (!string.IsNullOrWhiteSpace(mind.Comp.Session?.Name))
+                _metaData.SetEntityName(ghost, mind.Comp.Session.Name);
 
             if (mind.Comp.TimeOfDeath.HasValue)
             {
-                SetTimeOfDeath((ghost, ghostComponent), mind.Comp.TimeOfDeath!.Value);
+                SetTimeOfDeath(ghost, mind.Comp.TimeOfDeath!.Value, ghostComponent);
             }
 
-            SetCanReturnToBody((ghost, ghostComponent), canReturn);
+            SetCanReturnToBody(ghostComponent, canReturn);
 
             if (canReturn)
                 _minds.Visit(mind.Owner, ghost, mind.Comp);
@@ -631,9 +625,9 @@ namespace Content.Server.Ghost
 
             if (mind.PreventGhosting && !forced)
             {
-                if (_player.TryGetSessionById(mind.UserId, out var session)) // Logging is suppressed to prevent spam from ghost attempts caused by movement attempts
+                if (mind.Session != null) // Logging is suppressed to prevent spam from ghost attempts caused by movement attempts
                 {
-                    _chatManager.DispatchServerMessage(session, Loc.GetString("comp-mind-ghosting-prevented"),
+                    _chatManager.DispatchServerMessage(mind.Session, Loc.GetString("comp-mind-ghosting-prevented"),
                         true);
                 }
 
@@ -688,15 +682,7 @@ namespace Content.Server.Ghost
                         : "Asphyxiation";
                     DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>(damageType), dealtDamage);
 
-                    if (TryComp<BodyComponent>(playerEntity, out var body)
-                        && body.BodyType == BodyType.Complex
-                        && body.RootContainer.ContainedEntities.FirstOrNull() is { } root)
-                        _damageable.TryChangeDamage(playerEntity,
-                            damage,
-                            true,
-                            targetPart: _bodySystem.GetTargetBodyPart(root));
-                    else
-                        _damageable.TryChangeDamage(playerEntity, damage, true);
+                    _damageable.TryChangeDamage(playerEntity, damage, true, targetPart: TargetBodyPart.All, splitDamage: false);
                     // Shitmed Change End
                 }
             }

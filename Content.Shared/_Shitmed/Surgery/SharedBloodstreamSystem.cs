@@ -272,9 +272,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
     private void OnWoundAdded(EntityUid uid, BleedInflicterComponent component, ref WoundAddedEvent args)
     {
-        if (!CanWoundBleed(uid, component)
-            || args.Component.WoundSeverityPoint < component.SeverityThreshold
-            || !args.Woundable.CanBleed)
+        if (!CanWoundBleed(uid, component) || args.Component.WoundSeverityPoint < component.SeverityThreshold)
             return;
 
         // wounds that BLEED will not HEAL.
@@ -304,8 +302,6 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         ref WoundSeverityPointChangedEvent args)
     {
         if (!CanWoundBleed(uid, component)
-            || !TryComp<WoundableComponent>(args.Component.HoldingWoundable, out var woundable)
-            || !woundable.CanBleed
             || args.NewSeverity < component.SeverityThreshold
             || args.NewSeverity < args.OldSeverity)
             return;

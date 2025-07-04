@@ -14,7 +14,9 @@
 // SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
@@ -72,17 +74,12 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.CCVar; // Goobstation
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
 using Content.Server.StationEvents.Components;
@@ -109,16 +106,11 @@ public sealed class EventManagerSystem : EntitySystem
     public bool EventsEnabled { get; private set; }
     private void SetEnabled(bool value) => EventsEnabled = value;
 
-    public float EventSpeedup = 1f; // Goobstation
-    public int PlayerCountBias = 0; // Goobstation
-
     public override void Initialize()
     {
         base.Initialize();
 
         Subs.CVar(_configurationManager, CCVars.EventsEnabled, SetEnabled, true);
-        Subs.CVar(_configurationManager, GoobCVars.StationEventSpeedup, (value) => EventSpeedup = value, true); // Goobstation
-        Subs.CVar(_configurationManager, GoobCVars.StationEventPlayerBias, (value) => PlayerCountBias = value, true); // Goobstation
     }
 
     /// <summary>
@@ -155,10 +147,7 @@ public sealed class EventManagerSystem : EntitySystem
     /// </summary>
     public void RunRandomEvent(EntityTableSelector limitedEventsTable)
     {
-        var availableEvents = AvailableEvents(); // handles the player counts and individual event restrictions.
-                                                 // Putting this here only makes any sense in the context of the toolshed commands in BasicStationEventScheduler. Kill me.
-
-        if (!TryBuildLimitedEvents(limitedEventsTable, availableEvents, out var limitedEvents))
+        if (!TryBuildLimitedEvents(limitedEventsTable, out var limitedEvents))
         {
             Log.Warning("Provided event table could not build dict!");
             return;
@@ -183,13 +172,11 @@ public sealed class EventManagerSystem : EntitySystem
     /// <summary>
     /// Returns true if the provided EntityTableSelector gives at least one prototype with a StationEvent comp.
     /// </summary>
-    public bool TryBuildLimitedEvents(
-        EntityTableSelector limitedEventsTable,
-        Dictionary<EntityPrototype, StationEventComponent> availableEvents,
-        out Dictionary<EntityPrototype, StationEventComponent> limitedEvents
-        )
+    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents)
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
+
+        var availableEvents = AvailableEvents(); // handles the player counts and individual event restrictions
 
         if (availableEvents.Count == 0)
         {
@@ -285,10 +272,9 @@ public sealed class EventManagerSystem : EntitySystem
     public Dictionary<EntityPrototype, StationEventComponent> AvailableEvents(
         bool ignoreEarliestStart = false,
         int? playerCountOverride = null,
-        TimeSpan? currentTimeOverride = null,
-        float reoccurrenceMult = 1f) // Goobstation
+        TimeSpan? currentTimeOverride = null)
     {
-        var playerCount = playerCountOverride ?? (_playerManager.PlayerCount + PlayerCountBias); // Goobstation
+        var playerCount = playerCountOverride ?? _playerManager.PlayerCount;
 
         // playerCount does a lock so we'll just keep the variable here
         var currentTime = currentTimeOverride ?? (!ignoreEarliestStart
@@ -299,7 +285,7 @@ public sealed class EventManagerSystem : EntitySystem
 
         foreach (var (proto, stationEvent) in AllEvents())
         {
-            if (CanRun(proto, stationEvent, playerCount, currentTime, reoccurrenceMult)) // Goobstation
+            if (CanRun(proto, stationEvent, playerCount, currentTime))
             {
                 result.Add(proto, stationEvent);
             }
@@ -346,8 +332,7 @@ public sealed class EventManagerSystem : EntitySystem
         return TimeSpan.Zero;
     }
 
-    public bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime,
-                       float reoccurrenceMult = 1f) // Goobstation
+    public bool CanRun(EntityPrototype prototype, StationEventComponent stationEvent, int playerCount, TimeSpan currentTime)
     {
         if (GameTicker.IsGameRuleActive(prototype.ID))
             return false;
@@ -362,14 +347,14 @@ public sealed class EventManagerSystem : EntitySystem
             return false;
         }
 
-        if (currentTime != TimeSpan.Zero && currentTime.TotalMinutes < stationEvent.EarliestStart / EventSpeedup)
+        if (currentTime != TimeSpan.Zero && currentTime.TotalMinutes < stationEvent.EarliestStart)
         {
             return false;
         }
 
         var lastRun = TimeSinceLastEvent(prototype);
         if (lastRun != TimeSpan.Zero && currentTime.TotalMinutes <
-            stationEvent.ReoccurrenceDelay * reoccurrenceMult / EventSpeedup + lastRun.TotalMinutes) // Goobstation
+            stationEvent.ReoccurrenceDelay + lastRun.TotalMinutes)
         {
             return false;
         }

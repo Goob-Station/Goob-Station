@@ -7,6 +7,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using Robust.Server.GameObjects;
 using Robust.Shared.ContentPack;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Events;
@@ -23,9 +24,7 @@ namespace Content.Server.Maps;
 /// </summary>
 public sealed class MapMigrationSystem : EntitySystem
 {
-#pragma warning disable CS0414
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-#pragma warning restore CS0414
     [Dependency] private readonly IResourceManager _resMan = default!;
 
     private const string MigrationFile = "/migration.yml";
@@ -40,7 +39,7 @@ public sealed class MapMigrationSystem : EntitySystem
             return;
 
         // Verify that all of the entries map to valid entity prototypes.
-        foreach (var node in mappings.Children.Values)
+        foreach (var node in mappings.Values)
         {
             var newId = ((ValueDataNode) node).Value;
             if (!string.IsNullOrEmpty(newId) && newId != "null")
@@ -73,13 +72,13 @@ public sealed class MapMigrationSystem : EntitySystem
 
         foreach (var (key, value) in mappings)
         {
-            if (value is not ValueDataNode valueNode)
+            if (key is not ValueDataNode keyNode || value is not ValueDataNode valueNode)
                 continue;
 
             if (string.IsNullOrWhiteSpace(valueNode.Value) || valueNode.Value == "null")
-                ev.DeletedPrototypes.Add(key);
+                ev.DeletedPrototypes.Add(keyNode.Value);
             else
-                ev.RenamedPrototypes.Add(key, valueNode.Value);
+                ev.RenamedPrototypes.Add(keyNode.Value, valueNode.Value);
         }
     }
 }

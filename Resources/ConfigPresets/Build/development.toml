@@ -55,8 +55,3 @@ see_own_notes = true
 
 [lavaland] # Lavaland Change
 enabled = false
-
-[ic]
-random_characters = true
-random_species_weights = ""
-ssd_sleep_time = 3600

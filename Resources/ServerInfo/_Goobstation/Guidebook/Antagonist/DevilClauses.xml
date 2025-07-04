@@ -1,25 +1,11 @@
 <Document>
-  ## Mortality
+  ## Soul Ownership
   <Box>
-    [color=#999999][italic]-135 Weight[/italic][/color]
+    [color=#999999][italic]25 Weight[/italic][/color]
   </Box>
 
-  - Grants the target an unlimited amount of self revives.
-
-  ## Weakness
-  <Box>
-    [color=#999999][italic]-35 Weight[/italic][/color]
-  </Box>
-
-  - Cuts all damage the contractee takes in half.
-  - Increases holy damage taken.
-
-  ## Fear of Death
-  <Box>
-    [color=#999999][italic]-25 Weight[/italic][/color]
-  </Box>
-
-  - Makes the contractee have no critical state. You stand, or you die.
+  - Transfers ownership of a soul to the contractor.
+  - Default on every contract.
 
   ## Death
   <Box>
@@ -29,6 +15,22 @@
   - Allows the contractee to revive themselves exactly once on death.
   - Default on every contract.
 
+  ## Weakness
+  <Box>
+    [color=#999999][italic]-35 Weight[/italic][/color]
+  </Box>
+
+  - Cuts all damage the contractee takes in half.
+  - Increases holy damage taken.
+
+  ## Fear of Space
+  <Box>
+    [color=#999999][italic]-30 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee immune to pressure and low temperatures.
+  - Disables the contractees need to breathe.
+
   ## Shadows
   <Box>
     [color=#999999][italic]-25 Weight[/italic][/color]
@@ -36,19 +38,12 @@
 
   - Makes the contractee invisible.
 
-  ## Brokeness
+  ## Fear of Death
   <Box>
-    [color=#999999][italic]-20 Weight[/italic][/color]
+    [color=#999999][italic]-25 Weight[/italic][/color]
   </Box>
 
-  - Grants the contractee a pair of sick fucking jays, signed by Micheal Jordan himself.
-
-  ## Chance
-  <Box>
-    [color=#999999][italic]-20 Weight[/italic][/color]
-  </Box>
-
-  - Grants the contractee a completely random clause. Want to try your luck?
+  - Makes the contractee have no critical state. You stand, or you die.
 
   ## Fear of Fire
   <Box>
@@ -57,6 +52,20 @@
 
   - Makes the contractee immune to fire, and immune to being lit on fire.
 
+  ## Chance
+  <Box>
+    [color=#999999][italic]-20 Weight[/italic][/color]
+  </Box>
+
+  - Grants the contractee a completely random clause. Want to try your luck?
+
+  ## Brokeness
+  <Box>
+    [color=#999999][italic]-20 Weight[/italic][/color]
+  </Box>
+
+  - Grants the contractee a pair of sick fucking jays, signed by Micheal Jordan himself.
+
   ## Fear of Light
   <Box>
     [color=#999999][italic]-15 Weight[/italic][/color]
@@ -64,6 +73,12 @@
 
   - Makes the contractee immune to flashes.
 
+  ## Gluttony
+  <Box>
+    [color=#999999][italic]-15 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee not need food or water.
 
   ## Fear of Electricity
   <Box>
@@ -71,34 +86,6 @@
   </Box>
 
   - Makes the contractee immune to electrical shocks.
-
-  ## Gluttony
-  <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
-  </Box>
-
-  - Makes the contractee not need food or water.
-
-  ## Fear of Drowning
-  <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
-  </Box>
-
-  - Disables the contractees need to breathe.
-
-  ## Fear of Crushing
-  <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
-  </Box>
-
-  - Makes the contractee immune to pressure damage.
-
-  ## Fear of Freezing
-  <Box>
-    [color=#999999][italic]-10 Weight[/italic][/color]
-  </Box>
-
-  - Makes the contractee immune to low temperatures.
 
   ## Greed
   <Box>
@@ -121,20 +108,12 @@
 
   - Grants the target peace. Everlasting.
 
-  ## Voice
+  ## Strength
   <Box>
-    [color=#999999][italic]20 Weight[/italic][/color]
+    [color=#999999][italic]30 Weight[/italic][/color]
   </Box>
 
-  - Permanently mutes the contractee.
-
-  ## Soul Ownership
-  <Box>
-    [color=#999999][italic]25 Weight[/italic][/color]
-  </Box>
-
-  - Transfers ownership of a soul to the contractor.
-  - Default on every contract.
+  - Makes the contractee take double damage.
 
   ## Humanity
   <Box>
@@ -143,19 +122,19 @@
 
   - Turns the contractee into a frog.
 
-  ## Strength
-  <Box>
-    [color=#999999][italic]30 Weight[/italic][/color]
-  </Box>
-
-  - Makes the contractee take double damage.
-
   ## Coherence
   <Box>
     [color=#999999][italic]30 Weight[/italic][/color]
   </Box>
 
   - Makes the contractee clumsy and messes up their speech.
+
+  ## Voice
+  <Box>
+    [color=#999999][italic]25 Weight[/italic][/color]
+  </Box>
+
+  - Permanently mutes the contractee.
 
   ## A hand
   <Box>
@@ -202,7 +181,7 @@
 
   ## Will to fight
   <Box>
-    [color=#999999][italic]60 Weight[/italic][/color]
+    [color=#999999][italic]80 Weight[/italic][/color]
   </Box>
 
   - Permanently pacifies the contractee.
@@ -213,4 +192,11 @@
   </Box>
 
   - Kills the contractee after five minutes.
+
+  ## Mortality
+  <Box>
+    [color=#999999][italic]-135 Weight[/italic][/color]
+  </Box>
+
+  - Grants the target an unlimited amount of self revives.
 </Document>

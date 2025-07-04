@@ -33,14 +33,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Server.Chemistry.Components;
 using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Dispenser;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Storage.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -48,8 +47,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Labels.Components;
-using Content.Shared.Storage;
-using Content.Server.Hands.Systems;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -67,7 +64,6 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
-        [Dependency] private readonly HandsSystem _handsSystem = default!;
 
         public override void Initialize()
         {
@@ -75,16 +71,15 @@ namespace Content.Server.Chemistry.EntitySystems
 
             SubscribeLocalEvent<ReagentDispenserComponent, ComponentStartup>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentDispenserComponent, SolutionContainerChangedEvent>(SubscribeUpdateUiState);
-            SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]);
-            SubscribeLocalEvent<ReagentDispenserComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState, after: [typeof(SharedStorageSystem)]);
+            SubscribeLocalEvent<ReagentDispenserComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState);
+            SubscribeLocalEvent<ReagentDispenserComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ReagentDispenserComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
 
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserSetDispenseAmountMessage>(OnSetDispenseAmountMessage);
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserDispenseReagentMessage>(OnDispenseReagentMessage);
-            SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserEjectContainerMessage>(OnEjectReagentMessage);
             SubscribeLocalEvent<ReagentDispenserComponent, ReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
 
-            SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new[] { typeof(ItemSlotsSystem) });
+            SubscribeLocalEvent<ReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new []{typeof(ItemSlotsSystem)});
         }
 
         private void SubscribeUpdateUiState<T>(Entity<ReagentDispenserComponent> ent, ref T ev)
@@ -121,31 +116,32 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private List<ReagentInventoryItem> GetInventory(Entity<ReagentDispenserComponent> reagentDispenser)
         {
-            if (!TryComp<StorageComponent>(reagentDispenser.Owner, out var storage))
-            {
-                return [];
-            }
-
             var inventory = new List<ReagentInventoryItem>();
 
-            foreach (var (storedContainer, storageLocation) in storage.StoredItems)
+            for (var i = 0; i < reagentDispenser.Comp.NumSlots; i++)
             {
+                var storageSlotId = ReagentDispenserComponent.BaseStorageSlotId + i;
+                var storedContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser.Owner, storageSlotId);
+
+                // Set label from manually-applied label, or metadata if unavailable
                 string reagentLabel;
                 if (TryComp<LabelComponent>(storedContainer, out var label) && !string.IsNullOrEmpty(label.CurrentLabel))
                     reagentLabel = label.CurrentLabel;
+                else if (storedContainer != null)
+                    reagentLabel = Name(storedContainer.Value);
                 else
-                    reagentLabel = Name(storedContainer);
+                    continue;
 
                 // Get volume remaining and color of solution
                 FixedPoint2 quantity = 0f;
                 var reagentColor = Color.White;
-                if (_solutionContainerSystem.TryGetDrainableSolution(storedContainer, out _, out var sol))
+                if (storedContainer != null && _solutionContainerSystem.TryGetDrainableSolution(storedContainer.Value, out _, out var sol))
                 {
                     quantity = sol.Volume;
                     reagentColor = sol.GetColor(_prototypeManager);
                 }
 
-                inventory.Add(new ReagentInventoryItem(storageLocation, reagentLabel, quantity, reagentColor));
+                inventory.Add(new ReagentInventoryItem(storageSlotId, reagentLabel, quantity, reagentColor));
             }
 
             return inventory;
@@ -160,49 +156,28 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void OnDispenseReagentMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserDispenseReagentMessage message)
         {
-            if (!TryComp<StorageComponent>(reagentDispenser.Owner, out var storage))
-            {
-                return;
-            }
-
             // Ensure that the reagent is something this reagent dispenser can dispense.
-            var storageLocation = message.StorageLocation;
-            var storedContainer = storage.StoredItems.FirstOrDefault(kvp => kvp.Value == storageLocation).Key;
-            if (storedContainer == EntityUid.Invalid)
+            var storedContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, message.SlotId);
+            if (storedContainer == null)
                 return;
 
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedReagentDispenser.OutputSlotName);
             if (outputContainer is not { Valid: true } || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var solution, out _))
                 return;
 
-            if (_solutionContainerSystem.TryGetDrainableSolution(storedContainer, out var src, out _) &&
+            if (_solutionContainerSystem.TryGetDrainableSolution(storedContainer.Value, out var src, out _) &&
                 _solutionContainerSystem.TryGetRefillableSolution(outputContainer.Value, out var dst, out _))
             {
                 // force open container, if applicable, to avoid confusing people on why it doesn't dispense
-                _openable.SetOpen(storedContainer, true);
+                _openable.SetOpen(storedContainer.Value, true);
                 _solutionTransferSystem.Transfer(reagentDispenser,
-                        storedContainer, src.Value,
+                        storedContainer.Value, src.Value,
                         outputContainer.Value, dst.Value,
                         (int)reagentDispenser.Comp.DispenseAmount);
             }
 
             UpdateUiState(reagentDispenser);
             ClickSound(reagentDispenser);
-        }
-
-        private void OnEjectReagentMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserEjectContainerMessage message)
-        {
-            if (!TryComp<StorageComponent>(reagentDispenser.Owner, out var storage))
-            {
-                return;
-            }
-
-            var storageLocation = message.StorageLocation;
-            var storedContainer = storage.StoredItems.FirstOrDefault(kvp => kvp.Value == storageLocation).Key;
-            if (storedContainer == EntityUid.Invalid)
-                return;
-
-            _handsSystem.TryPickupAnyHand(message.Actor, storedContainer);
         }
 
         private void OnClearContainerSolutionMessage(Entity<ReagentDispenserComponent> reagentDispenser, ref ReagentDispenserClearContainerSolutionMessage message)
@@ -222,11 +197,39 @@ namespace Content.Server.Chemistry.EntitySystems
         }
 
         /// <summary>
-        /// Initializes the beaker slot
+        /// Automatically generate storage slots for all NumSlots, and fill them with their initial chemicals.
+        /// The actual spawning of entities happens in ItemSlotsSystem's MapInit.
         /// </summary>
-        private void OnMapInit(Entity<ReagentDispenserComponent> ent, ref MapInitEvent args)
+        private void OnMapInit(EntityUid uid, ReagentDispenserComponent component, MapInitEvent args)
         {
-            _itemSlotsSystem.AddItemSlot(ent.Owner, SharedReagentDispenser.OutputSlotName, ent.Comp.BeakerSlot);
+            // Get list of pre-loaded containers
+            List<string> preLoad = new List<string>();
+            if (component.PackPrototypeId is not null
+                && _prototypeManager.TryIndex(component.PackPrototypeId, out ReagentDispenserInventoryPrototype? packPrototype))
+            {
+                preLoad.AddRange(packPrototype.Inventory);
+            }
+
+            // Populate storage slots with base storage slot whitelist
+            for (var i = 0; i < component.NumSlots; i++)
+            {
+                var storageSlotId = ReagentDispenserComponent.BaseStorageSlotId + i;
+                ItemSlot storageComponent = new();
+                storageComponent.Whitelist = component.StorageWhitelist;
+                storageComponent.Swap = false;
+                storageComponent.EjectOnBreak = true;
+
+                // Check corresponding index in pre-loaded container (if exists) and set starting item
+                if (i < preLoad.Count)
+                    storageComponent.StartingItem = preLoad[i];
+
+                component.StorageSlotIds.Add(storageSlotId);
+                component.StorageSlots.Add(storageComponent);
+                component.StorageSlots[i].Name = "Storage Slot " + (i+1);
+                _itemSlotsSystem.AddItemSlot(uid, component.StorageSlotIds[i], component.StorageSlots[i]);
+            }
+
+            _itemSlotsSystem.AddItemSlot(uid, SharedReagentDispenser.OutputSlotName, component.BeakerSlot);
         }
     }
 }

@@ -7,7 +7,6 @@
     antagPrototype: CosmicAntagCultist
     exclusiveAntag: true
     roleType: TeamAntagonist
-    subtype: role-subtype-cosmic-cultist
   - type: CosmicCultRole
 
 # Ascendant Event
@@ -20,5 +19,4 @@
     antagPrototype: RogueAscended
     roleType: TeamAntagonist
     exclusiveAntag: true
-    subtype: role-subtype-rogue-ascended
   - type: RogueAscendedRole

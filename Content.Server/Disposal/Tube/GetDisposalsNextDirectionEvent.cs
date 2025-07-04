@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Server.Disposal.Unit;
+using Content.Server.Disposal.Unit.Components;
 
 namespace Content.Server.Disposal.Tube;
 

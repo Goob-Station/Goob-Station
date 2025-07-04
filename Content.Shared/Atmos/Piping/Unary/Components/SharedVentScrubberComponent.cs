@@ -30,7 +30,6 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
         public ScrubberPumpDirection PumpDirection { get; set; } = ScrubberPumpDirection.Scrubbing;
         public float VolumeRate { get; set; } = 200f;
         public bool WideNet { get; set; } = false;
-        public bool AirAlarmPanicWireCut { get; set; }
 
         public static HashSet<Gas> DefaultFilterGases = new()
         {
@@ -83,7 +82,7 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             FilterGases = new(GasVentScrubberData.DefaultFilterGases),
             PumpDirection = ScrubberPumpDirection.Siphoning,
             VolumeRate = 200f,
-            WideNet = true
+            WideNet = false
         };
 
         public static GasVentScrubberData ReplaceModePreset = new GasVentScrubberData

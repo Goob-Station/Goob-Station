@@ -124,16 +124,9 @@ public sealed partial class TestPair
         HashSet<string>? ignored = null,
         bool ignoreAbstract = true,
         bool ignoreTestPrototypes = true)
-        where T : IComponent, new()
+        where T : IComponent
     {
-        if (!Server.ResolveDependency<IComponentFactory>().TryGetRegistration<T>(out var reg)
-            && !Client.ResolveDependency<IComponentFactory>().TryGetRegistration<T>(out reg))
-        {
-            Assert.Fail($"Unknown component: {typeof(T).Name}");
-            return new();
-        }
-
-        var id = reg.Name;
+        var id = Server.ResolveDependency<IComponentFactory>().GetComponentName(typeof(T));
         var list = new List<(EntityPrototype, T)>();
         foreach (var proto in Server.ProtoMan.EnumeratePrototypes<EntityPrototype>())
         {

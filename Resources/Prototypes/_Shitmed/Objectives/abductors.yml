@@ -186,7 +186,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Objects/Misc/folders.rsi
+      sprite: Objects/Misc/bureaucracy.rsi
       state: folder-colormap
 
 - type: entity

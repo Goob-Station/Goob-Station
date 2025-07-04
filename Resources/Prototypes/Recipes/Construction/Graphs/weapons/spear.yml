@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
@@ -33,7 +33,7 @@
               amount: 3
               doAfter: 1
             - tag: GlassShard
-              name: construction-graph-tag-glass-shard
+              name: glass shard
               icon:
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard1
@@ -60,7 +60,7 @@
               amount: 3
               doAfter: 1
             - tag: ReinforcedGlassShard
-              name: construction-graph-tag-reinforced-glass-shard
+              name: reinforced glass shard
               icon:
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard1
@@ -87,7 +87,7 @@
               amount: 3
               doAfter: 1
             - tag: PlasmaGlassShard
-              name: construction-graph-tag-plasma-glass-shard
+              name: plasma glass shard
               icon:
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard1
@@ -114,7 +114,7 @@
               amount: 3
               doAfter: 1
             - tag: UraniumGlassShard
-              name: construction-graph-tag-uranium-glass-shard
+              name: uranium glass shard
               icon:
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard1
@@ -142,23 +142,3 @@
               doAfter: 1
     - node: spear
       entity: SpearBone
-
-- type: constructionGraph
-  id: SpearSharkMinnow
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: spear
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 2
-      - material: Cable
-        amount: 3
-        doAfter: 1
-      - material: SharkMinnowTooth
-        amount: 1
-        doAfter: 1
-  - node: spear
-    entity: SpearSharkMinnow

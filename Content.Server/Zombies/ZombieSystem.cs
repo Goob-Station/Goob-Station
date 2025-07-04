@@ -27,12 +27,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
@@ -47,7 +41,6 @@ using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Roles;
 using Content.Shared.Anomaly.Components;
-using Content.Shared.Armor;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Damage;
@@ -65,11 +58,6 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-
-// Shitmed Change
-using Content.Shared._Shitmed.Damage;
-using Content.Shared._Shitmed.Targeting;
-
 
 namespace Content.Server.Zombies
 {
@@ -111,7 +99,6 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ZombieComponent, CloningEvent>(OnZombieCloning);
             SubscribeLocalEvent<ZombieComponent, TryingToSleepEvent>(OnSleepAttempt);
             SubscribeLocalEvent<ZombieComponent, GetCharactedDeadIcEvent>(OnGetCharacterDeadIC);
-            SubscribeLocalEvent<ZombieComponent, GetCharacterUnrevivableIcEvent>(OnGetCharacterUnrevivableIC);
             SubscribeLocalEvent<ZombieComponent, MindAddedMessage>(OnMindAdded);
             SubscribeLocalEvent<ZombieComponent, MindRemovedMessage>(OnMindRemoved);
 
@@ -121,6 +108,7 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<IncurableZombieComponent, MapInitEvent>(OnPendingMapInit);
 
             SubscribeLocalEvent<ZombifyOnDeathComponent, MobStateChangedEvent>(OnDamageChanged);
+
         }
 
         private void OnBeforeRemoveAnomalyOnDeath(Entity<PendingZombieComponent> ent, ref BeforeRemoveAnomalyOnDeathEvent args)
@@ -133,13 +121,6 @@ namespace Content.Server.Zombies
         private void OnPendingMapInit(EntityUid uid, IncurableZombieComponent component, MapInitEvent args)
         {
             _actions.AddAction(uid, ref component.Action, component.ZombifySelfActionPrototype);
-
-            if (HasComp<ZombieComponent>(uid) || HasComp<ZombieImmuneComponent>(uid))
-                return;
-
-            EnsureComp<PendingZombieComponent>(uid, out PendingZombieComponent pendingComp);
-
-            pendingComp.GracePeriod = _random.Next(pendingComp.MinInitialInfectedGrace, pendingComp.MaxInitialInfectedGrace);
         }
 
         private void OnPendingMapInit(EntityUid uid, PendingZombieComponent component, MapInitEvent args)
@@ -151,6 +132,7 @@ namespace Content.Server.Zombies
             }
 
             component.NextTick = _timing.CurTime + TimeSpan.FromSeconds(1f);
+            component.GracePeriod = _random.Next(component.MinInitialInfectedGrace, component.MaxInitialInfectedGrace);
         }
 
         public override void Update(float frameTime)
@@ -179,13 +161,7 @@ namespace Content.Server.Zombies
                     ? comp.CritDamageMultiplier
                     : 1f;
 
-                _damageable.TryChangeDamage(uid,
-                    comp.Damage * multiplier,
-                    true,
-                    false,
-                    damage,
-                    targetPart: TargetBodyPart.All, // Shitmed Change
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
+                _damageable.TryChangeDamage(uid, comp.Damage * multiplier, true, false, damage);
             }
 
             // Heal the zombified
@@ -206,14 +182,7 @@ namespace Content.Server.Zombies
                     : 1f;
 
                 // Gradual healing for living zombies.
-                _damageable.TryChangeDamage(uid,
-                    comp.PassiveHealing * multiplier,
-                    true,
-                    false,
-                    damage,
-                    ignoreBlockers: true, // Shitmed Change
-                    targetPart: TargetBodyPart.All, // Shitmed Change
-                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
+                _damageable.TryChangeDamage(uid, comp.PassiveHealing * multiplier, true, false, damage);
             }
         }
 
@@ -225,11 +194,6 @@ namespace Content.Server.Zombies
         private void OnGetCharacterDeadIC(EntityUid uid, ZombieComponent component, ref GetCharactedDeadIcEvent args)
         {
             args.Dead = true;
-        }
-
-        private void OnGetCharacterUnrevivableIC(EntityUid uid, ZombieComponent component, ref GetCharacterUnrevivableIcEvent args)
-        {
-            args.Unrevivable = true;
         }
 
         private void OnStartup(EntityUid uid, ZombieComponent component, ComponentStartup args)
@@ -269,29 +233,33 @@ namespace Content.Server.Zombies
             }
         }
 
-        private float GetZombieInfectionChance(EntityUid uid, ZombieComponent zombieComponent)
+        private float GetZombieInfectionChance(EntityUid uid, ZombieComponent component)
         {
-            var chance = zombieComponent.BaseZombieInfectionChance;
+            var max = component.MaxZombieInfectionChance;
 
-            var armorEv = new CoefficientQueryEvent(ProtectiveSlots);
-            RaiseLocalEvent(uid, armorEv);
-            foreach (var resistanceEffectiveness in zombieComponent.ResistanceEffectiveness.DamageDict)
+            if (!_inventory.TryGetContainerSlotEnumerator(uid, out var enumerator, ProtectiveSlots))
+                return max;
+
+            var items = 0f;
+            var total = 0f;
+            while (enumerator.MoveNext(out var con))
             {
-                if (armorEv.DamageModifiers.Coefficients.TryGetValue(resistanceEffectiveness.Key, out var coefficient))
-                {
-                    // Scale the coefficient by the resistance effectiveness, very descriptive I know
-                    // For example. With 30% slash resist (0.7 coeff), but only a 60% resistance effectiveness for slash,
-                    // you'll end up with 1 - (0.3 * 0.6) = 0.82 coefficient, or a 18% resistance
-                    var adjustedCoefficient = 1 - ((1 - coefficient) * resistanceEffectiveness.Value.Float());
-                    chance *= adjustedCoefficient;
-                }
+                total++;
+                if (con.ContainedEntity != null)
+                    items++;
             }
 
-            var zombificationResistanceEv = new ZombificationResistanceQueryEvent(ProtectiveSlots);
-            RaiseLocalEvent(uid, zombificationResistanceEv);
-            chance *= zombificationResistanceEv.TotalCoefficient;
+            if (total == 0)
+                return max;
 
-            return MathF.Max(chance, zombieComponent.MinZombieInfectionChance);
+            // Everyone knows that when it comes to zombies, socks & sandals provide just as much protection as an
+            // armored vest. Maybe these should be weighted per-item. I.e. some kind of coverage/protection component.
+            // Or at the very least different weights per slot.
+
+            var min = component.MinZombieInfectionChance;
+            //gets a value between the max and min based on how many items the entity is wearing
+            var chance = (max - min) * ((total - items) / total) + min;
+            return chance;
         }
 
         private void OnMeleeHit(EntityUid uid, ZombieComponent component, MeleeHitEvent args)
@@ -380,7 +348,7 @@ namespace Content.Server.Zombies
         // Remove the role when getting cloned, getting gibbed and borged, or leaving the body via any other method.
         private void OnMindRemoved(Entity<ZombieComponent> ent, ref MindRemovedMessage args)
         {
-            _role.MindRemoveRole<ZombieRoleComponent>((args.Mind.Owner,  args.Mind.Comp));
+            _role.MindTryRemoveRole<ZombieRoleComponent>(args.Mind);
         }
     }
 }

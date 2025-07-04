@@ -16,7 +16,6 @@ namespace Content.Client.Fluids;
 public sealed class PuddleSystem : SharedPuddleSystem
 {
     [Dependency] private readonly IconSmoothSystem _smooth = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -34,7 +33,7 @@ public sealed class PuddleSystem : SharedPuddleSystem
 
         if (args.AppearanceData.TryGetValue(PuddleVisuals.CurrentVolume, out var volumeObj))
         {
-            volume = (float)volumeObj;
+            volume = (float) volumeObj;
         }
 
         // Update smoothing and sprite based on volume.
@@ -42,19 +41,19 @@ public sealed class PuddleSystem : SharedPuddleSystem
         {
             if (volume < LowThreshold)
             {
-                _sprite.LayerSetRsiState((uid, args.Sprite), 0, $"{smooth.StateBase}a");
+                args.Sprite.LayerSetState(0, $"{smooth.StateBase}a");
                 _smooth.SetEnabled(uid, false, smooth);
             }
             else if (volume < MediumThreshold)
             {
-                _sprite.LayerSetRsiState((uid, args.Sprite), 0, $"{smooth.StateBase}b");
+                args.Sprite.LayerSetState(0, $"{smooth.StateBase}b");
                 _smooth.SetEnabled(uid, false, smooth);
             }
             else
             {
                 if (!smooth.Enabled)
                 {
-                    _sprite.LayerSetRsiState((uid, args.Sprite), 0, $"{smooth.StateBase}0");
+                    args.Sprite.LayerSetState(0, $"{smooth.StateBase}0");
                     _smooth.SetEnabled(uid, true, smooth);
                     _smooth.DirtyNeighbours(uid);
                 }
@@ -65,12 +64,12 @@ public sealed class PuddleSystem : SharedPuddleSystem
 
         if (args.AppearanceData.TryGetValue(PuddleVisuals.SolutionColor, out var colorObj))
         {
-            var color = (Color)colorObj;
-            _sprite.SetColor((uid, args.Sprite), color * baseColor);
+            var color = (Color) colorObj;
+            args.Sprite.Color = color * baseColor;
         }
         else
         {
-            _sprite.SetColor((uid, args.Sprite), args.Sprite.Color * baseColor);
+            args.Sprite.Color *= baseColor;
         }
     }
 

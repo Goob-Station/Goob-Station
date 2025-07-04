@@ -46,16 +46,6 @@ public sealed class TipsSystem : EntitySystem
     private string _tipsDataset = "";
     private float _tipTippyChance;
 
-    /// <summary>
-    /// Always adds this time to a speech message. This is so really short message stay around for a bit.
-    /// </summary>
-    private const float SpeechBuffer = 3f;
-
-    /// <summary>
-    /// Expected reading speed.
-    /// </summary>
-    private const float Wpm = 180f;
-
     [ViewVariables(VVAccess.ReadWrite)]
     private TimeSpan _nextTipTime = TimeSpan.Zero;
 
@@ -148,8 +138,6 @@ public sealed class TipsSystem : EntitySystem
 
         if (args.Length > 3)
             ev.SpeakTime = float.Parse(args[3]);
-        else
-            ev.SpeakTime = GetSpeechTime(ev.Msg);
 
         if (args.Length > 4)
             ev.SlideTime = float.Parse(args[4]);
@@ -206,12 +194,6 @@ public sealed class TipsSystem : EntitySystem
         _tipTippyChance = value;
     }
 
-    public static float GetSpeechTime(string text)
-    {
-        var wordCount = (float)text.Split().Length;
-        return SpeechBuffer + wordCount * (60f / Wpm);
-    }
-
     private void AnnounceRandomTip()
     {
         if (!_prototype.TryIndex<LocalizedDatasetPrototype>(_tipsDataset, out var tips))
@@ -223,7 +205,7 @@ public sealed class TipsSystem : EntitySystem
         if (_random.Prob(_tipTippyChance))
         {
             var ev = new TippyEvent(msg);
-            ev.SpeakTime = GetSpeechTime(msg);
+            ev.SpeakTime = 1 + tip.Length * 0.05f;
             RaiseNetworkEvent(ev);
         } else
         {

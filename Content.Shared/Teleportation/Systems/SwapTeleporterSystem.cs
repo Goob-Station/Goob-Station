@@ -19,7 +19,6 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
@@ -32,7 +31,6 @@ namespace Content.Shared.Teleportation.Systems;
 public sealed class SwapTeleporterSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -158,24 +156,12 @@ public sealed class SwapTeleporterSystem : EntitySystem
         comp.TeleportTime = null;
 
         Dirty(uid, comp);
-        // We can't run the teleport logic on the client due to PVS range issues.
-        if (_net.IsClient || comp.LinkedEnt is not { } linkedEnt)
-            return;
-
-        var teleEnt = GetTeleportingEntity((uid, xform));
-        var otherTeleEnt = GetTeleportingEntity((linkedEnt, Transform(linkedEnt)));
-        var teleXform = Transform(teleEnt);
-        var otherTeleXform = Transform(otherTeleEnt);
-
-        if (!CanSwapTeleport((teleEnt, teleXform), (otherTeleEnt, otherTeleXform)))
+        if (comp.LinkedEnt is not { } linkedEnt)
         {
-            _popup.PopupEntity(Loc.GetString("swap-teleporter-popup-teleport-fail",
-                ("entity", Identity.Entity(linkedEnt, EntityManager))),
-                teleEnt,
-                teleEnt,
-                PopupType.MediumCaution);
             return;
         }
+        var teleEnt = GetTeleportingEntity((uid, xform));
+        var otherTeleEnt = GetTeleportingEntity((linkedEnt, Transform(linkedEnt)));
 
         _popup.PopupClient(Loc.GetString("swap-teleporter-popup-teleport-other",
             ("entity", Identity.Entity(linkedEnt, EntityManager))),
@@ -183,26 +169,6 @@ public sealed class SwapTeleporterSystem : EntitySystem
             otherTeleEnt,
             PopupType.MediumCaution);
         _transform.SwapPositions(teleEnt, otherTeleEnt);
-    }
-
-    /// <summary>
-    /// Checks if two entities are able to swap positions via the teleporter.
-    /// </summary>
-    private bool CanSwapTeleport(
-        Entity<TransformComponent> entity1,
-        Entity<TransformComponent> entity2)
-    {
-        _container.TryGetOuterContainer(entity1, entity1, out var container1);
-        _container.TryGetOuterContainer(entity2, entity2, out var container2);
-
-        if (container2 != null && !_container.CanInsert(entity1, container2) ||
-            container1 != null && !_container.CanInsert(entity2, container1))
-            return false;
-
-        if (IsPaused(entity1) || IsPaused(entity2))
-            return false;
-
-        return true;
     }
 
     /// <remarks>

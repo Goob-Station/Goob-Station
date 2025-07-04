@@ -1,5 +1,7 @@
-using Content.Shared.Maps;
-using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace Content.Shared.Procedural.PostGeneration;
 
@@ -16,15 +18,6 @@ public sealed partial class BoundaryWallDunGen : IDunGenLayer
 {
     [DataField]
     public BoundaryWallFlags Flags = BoundaryWallFlags.Corridors | BoundaryWallFlags.Rooms;
-
-    [DataField(required: true)]
-    public EntProtoId Wall;
-
-    [DataField]
-    public EntProtoId? CornerWall;
-
-    [DataField(required: true)]
-    public ProtoId<ContentTileDefinition> Tile;
 }
 
 [Flags]

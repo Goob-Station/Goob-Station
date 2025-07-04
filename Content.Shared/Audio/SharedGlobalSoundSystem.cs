@@ -2,9 +2,6 @@
 // SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -56,7 +53,6 @@ public enum StationEventMusicType : byte
 {
     Nuke,
     CosmicCult, // DeltaV - Cosmic Cult
-    VoidAscended, // GoobStation - Heretics
 }
 
 /// <summary>

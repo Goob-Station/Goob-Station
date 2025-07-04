@@ -1,0 +1,42 @@
+<!--
+SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+  # Core Rule 10 - Do not abuse or ignore admin messages
+  - Admin help, or "ahelp"(f1), is the system used by admins to communicate with specific players in the game.
+  - Anything that is ahelped, then becomes an admin involved issue.
+  - When being ahelped, you're expected to respond to the admin. Leaving after you have been ahelped may result in a ban.
+  - Admins like you are also human, we can't be everywhere at once, we are not omniscient, and we are not perfect. We are here to help you, so please be respectful.
+  - Bwoink.
+
+  ## Should I ahelp X?
+  All ahelps are welcome. Even if you believe it's for something silly, a false-positive is better than not reporting it. If you are unsure if something is ahelpable, you can always ask in the ahelp or Discord.
+
+  # What should I include in an ahelp?
+  - Names of the characters involved if possible.
+  - A clear description of the issue.
+  - Any additional information that may help the admin identify the issue faster.
+  - Bwoink.
+
+  Don't worry about knowing everything, admins are able to check the logs to verify what has happened even if we don't have all the details.
+
+  # Examples
+  Appropriate uses of ahelp:
+  - reporting people who you think are violating rules,
+  - asking questions about rules,
+  - asking for a temporary exemption from a rule, and
+  - request a minor gimmick, like a TC trade or item spawn.
+  - Bwoink.
+
+  Inappropriate uses of ahelp:
+  - checking if an admin is online, including sending messages without any information about the issue like "hello" or incomprehensible messages,
+  - being hostile or aggressive,
+  - lying
+  - requesting events, and
+  - spamming messages about the same issue.
+  - Bwoinked.
+</Document>

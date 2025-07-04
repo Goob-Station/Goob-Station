@@ -11,23 +11,18 @@
 
 using System.Linq;
 using Content.Shared.UserInterface;
-using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.NameIdentifier;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
-using Robust.Shared.Configuration;
 
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
 public sealed partial class BorgSystem
 {
-    // CCvar.
-    private int _maxNameLength;
-
     public void InitializeUI()
     {
         SubscribeLocalEvent<BorgChassisComponent, BeforeActivatableUIOpenEvent>(OnBeforeBorgUiOpen);
@@ -35,8 +30,6 @@ public sealed partial class BorgSystem
         SubscribeLocalEvent<BorgChassisComponent, BorgEjectBatteryBuiMessage>(OnEjectBatteryBuiMessage);
         SubscribeLocalEvent<BorgChassisComponent, BorgSetNameBuiMessage>(OnSetNameBuiMessage);
         SubscribeLocalEvent<BorgChassisComponent, BorgRemoveModuleBuiMessage>(OnRemoveModuleBuiMessage);
-
-        Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
     }
 
     private void OnBeforeBorgUiOpen(EntityUid uid, BorgChassisComponent component, BeforeActivatableUIOpenEvent args)
@@ -58,13 +51,20 @@ public sealed partial class BorgSystem
 
     private void OnEjectBatteryBuiMessage(EntityUid uid, BorgChassisComponent component, BorgEjectBatteryBuiMessage args)
     {
-        if (TryEjectPowerCell(uid, component, out var ents))
-            _hands.TryPickupAnyHand(args.Actor, ents.First());
+        if (!TryComp<PowerCellSlotComponent>(uid, out var slotComp) ||
+            !Container.TryGetContainer(uid, slotComp.CellSlotId, out var container) ||
+            !container.ContainedEntities.Any())
+        {
+            return;
+        }
+
+        var ents = Container.EmptyContainer(container);
+        _hands.TryPickupAnyHand(args.Actor, ents.First());
     }
 
     private void OnSetNameBuiMessage(EntityUid uid, BorgChassisComponent component, BorgSetNameBuiMessage args)
     {
-        if (args.Name.Length > _maxNameLength ||
+        if (args.Name.Length > HumanoidCharacterProfile.MaxNameLength ||
             args.Name.Length == 0 ||
             string.IsNullOrWhiteSpace(args.Name) ||
             string.IsNullOrEmpty(args.Name))
@@ -73,6 +73,8 @@ public sealed partial class BorgSystem
         }
 
         var name = args.Name.Trim();
+        if (TryComp<NameIdentifierComponent>(uid, out var identifier))
+            name = $"{name} {identifier.FullIdentifier}";
 
         var metaData = MetaData(uid);
 

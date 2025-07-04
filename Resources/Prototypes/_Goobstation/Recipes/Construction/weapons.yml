@@ -4,9 +4,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: construction
+  name: Molotov
   id: Molotov
   graph: MolotovConstruction
   startNode: start
   targetNode: LitMolotov
   category: construction-category-weapons
+  description: A throwable flaming bomb.
+  icon: { sprite: _Goobstation/Objects/Weapons/Bombs/Molotov.rsi, state: lit }
   objectType: Item

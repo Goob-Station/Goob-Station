@@ -13,7 +13,7 @@
   - type: MindRole
     antagPrototype: Wizard
     exclusiveAntag: true
-    subtype: role-subtype-wizard
+    roleType: FreeAgent
   - type: WizardRole
 
 - type: entity

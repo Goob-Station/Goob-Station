@@ -122,6 +122,7 @@
     - type: Flash
     - type: LimitedCharges
       maxCharges: 15
+      charges: 15
     - type: MeleeWeapon
       damage:
         types:

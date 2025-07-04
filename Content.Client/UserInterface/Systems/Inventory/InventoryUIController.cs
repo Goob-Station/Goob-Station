@@ -55,7 +55,6 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
     [UISystemDependency] private readonly ClientInventorySystem _inventorySystem = default!;
     [UISystemDependency] private readonly HandsSystem _handsSystem = default!;
     [UISystemDependency] private readonly ContainerSystem _container = default!;
-    [UISystemDependency] private readonly SpriteSystem _sprite = default!;
 
     private EntityUid? _playerUid;
     private InventorySlotsComponent? _playerInventory;
@@ -385,8 +384,8 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
             }
         }
 
-        _sprite.CopySprite((held, sprite), (hoverEntity, hoverSprite));
-        _sprite.SetColor((hoverEntity, hoverSprite), fits ? new Color(0, 255, 0, 127) : new Color(255, 0, 0, 127));
+        hoverSprite.CopyFrom(sprite);
+        hoverSprite.Color = fits ? new Color(0, 255, 0, 127) : new Color(255, 0, 0, 127);
 
         control.HoverSpriteView.SetEntity(hoverEntity);
     }

@@ -7,7 +7,6 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -22,34 +21,29 @@
 
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Damage;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class DamageSquareComponent : Component
 {
-    [DataField(required: true), AutoNetworkedField]
+    /// <summary>
+    /// Entity that caused this damaging square to spawn.
+    /// It will be ignored by this square.
+    /// </summary>
+    [DataField]
+    public EntityUid OwnerEntity;
+
+    [DataField(required: true)]
     public DamageSpecifier Damage = new();
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public SoundPathSpecifier? Sound;
 
     /// <summary>
     /// After how many seconds we should deal the damage to all entities above.
+    /// 0.1 by default because ping will make it unfair
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float DamageDelay = 0.2f;
-
-    /// <summary>
-    /// Time when this square is going to deal damage. Used for prediction to work.
-    /// </summary>
-    [ViewVariables, AutoNetworkedField]
-    public TimeSpan DamageTime = TimeSpan.MaxValue;
-
-    /// <summary>
-    /// For how many seconds we add immunity to the entity we hit.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float ImmunityTime = 0.3f;
 }

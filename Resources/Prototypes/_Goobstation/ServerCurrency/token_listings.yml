@@ -3,10 +3,17 @@
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: tokenListing
+  id: TrialAdminToken
+  name: gs-balanceui-shop-buy-token-admin
+  label: gs-balanceui-shop-token-admin
+  description: gs-balanceui-shop-buy-token-admin-desc
+  price: 50000
+  adminNote: gs-balanceui-remark-admin
 
 - type: tokenListing
   id: HighTierAntagToken

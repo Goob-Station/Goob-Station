@@ -247,11 +247,18 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         if (!_ent.TryGetComponent<MindComponent>(container.Mind.Value, out var mind))
             return;
 
-        if (!_prototypeManager.TryIndex(mind.RoleType, out var proto))
-            _sawmill.Error($"Player '{_player.LocalSession}' has invalid Role Type '{mind.RoleType}'. Displaying default instead");
+        var roleText = Loc.GetString("role-type-crew-aligned-name");
+        var color = Color.White;
+        if (_prototypeManager.TryIndex(mind.RoleType, out var proto))
+        {
+            roleText = Loc.GetString(proto.Name);
+            color = proto.Color;
+        }
+        else
+            _sawmill.Error($"{_player.LocalEntity} has invalid Role Type '{mind.RoleType}'. Displaying '{roleText}' instead");
 
-        _window.RoleType.Text = Loc.GetString(proto?.Name ?? "role-type-crew-aligned-name");
-        _window.RoleType.FontColorOverride = proto?.Color ?? Color.White;
+        _window.RoleType.Text = roleText;
+        _window.RoleType.FontColorOverride = color;
     }
 
     private void CharacterDetached(EntityUid uid)

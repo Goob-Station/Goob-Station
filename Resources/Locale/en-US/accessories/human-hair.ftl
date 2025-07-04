@@ -184,7 +184,7 @@ marking-HumanHairShorthairg = Short Hair 7
 marking-HumanHair80s = Short Hair 80s
 marking-HumanHairRosa = Short Hair Rosa
 marking-HumanHairB = Shoulder-length Hair
-marking-HumanHairBAlt = Shoulder-length Hair (Over eye)
+marking-HumanHairShoulderLengthOverEye = Shoulder-length Over Eye
 marking-HumanHairSidecut = Sidecut
 marking-HumanHairSkinhead = Skinhead
 marking-HumanHairProtagonist = Slightly Long Hair
@@ -213,8 +213,9 @@ marking-HumanHairUpdo = Updo
 marking-HumanHairVlong = Very Long Hair
 marking-HumanHairLongest = Very Long Hair 2
 marking-HumanHairLongest2 = Very Long Over Eye
-marking-HumanHairVeryshortovereyealternate = Very Short (Over Eye)
+marking-HumanHairVeryshortovereyealternate = Very Short Over Eye
 marking-HumanHairVlongfringe = Very Long with Fringe
 marking-HumanHairVolaju = Volaju
 marking-HumanHairWisp = Wisp
-marking-HumanHairLongWithBangs = Long With Bangs
+
+

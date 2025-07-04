@@ -125,8 +125,7 @@
   - type: Slippery
     slipSound:
       path: /Audio/Effects/glass_step.ogg
-    slipData:
-      launchForwardsMultiplier: 0
+    launchForwardsMultiplier: 0
   - type: TriggerOnStepTrigger
   - type: DamageUserOnTrigger
     damage:

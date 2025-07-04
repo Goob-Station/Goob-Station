@@ -72,11 +72,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared.CCVar;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Random;
 using Robust.Shared.Collections;
-using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -133,7 +129,6 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
     {
         var groupRemove = new ValueList<string>();
         var protoManager = collection.Resolve<IPrototypeManager>();
-        var configManager = collection.Resolve<IConfigurationManager>();
 
         if (!protoManager.TryIndex(Role, out var roleProto))
         {
@@ -153,11 +148,10 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         if (EntityName != null)
         {
             var name = EntityName.Trim();
-            var maxNameLength = configManager.GetCVar(CCVars.MaxNameLength);
 
-            if (name.Length > maxNameLength)
+            if (name.Length > HumanoidCharacterProfile.MaxNameLength)
             {
-                EntityName = name[..maxNameLength];
+                EntityName = name[..HumanoidCharacterProfile.MaxNameLength];
             }
 
             if (name.Length == 0)

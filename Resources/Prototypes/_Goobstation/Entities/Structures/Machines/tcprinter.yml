@@ -1,7 +1,5 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
-# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -10,16 +8,15 @@
   id: TCminer
   name: telecrystal miner
   parent: [BaseMachinePowered, BaseSyndicateContraband]
-  description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 30 seconds when powered.
+  description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered.
   components:
   - type: ApcPowerReceiver
-    powerLoad: 20000
+    powerLoad: 10000
   - type: TelecrystalMiner
-    announceAt: 40
-    locationAt: 100 # breakeven
+    required: 60 # breakeven
   - type: ItemMiner
-    interval: 30
-    amount: 5
+    interval: 10
+    amount: 1
     proto: Telecrystal1
     itemSlotId: tc_slot
   - type: Sprite
@@ -84,7 +81,7 @@
     color: "#ff0000"
 
 - type: entity
-  parent: [ BaseFlatpack, BaseSyndicateContraband ]
+  parent: BaseFlatpack
   id: TCminerFlatpack
   name: telecrystal miner flatpack
   description: A flatpack used for constructing a telecrystal miner machine.

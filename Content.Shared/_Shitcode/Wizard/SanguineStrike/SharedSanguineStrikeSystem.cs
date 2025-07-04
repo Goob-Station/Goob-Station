@@ -15,7 +15,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Content.Shared._Shitmed.Damage; // Shitmed Change
 
 namespace Content.Shared._Goobstation.Wizard.SanguineStrike;
 
@@ -107,14 +106,6 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
         else
             toHeal = damageable.Damage;
 
-        _damageable.TryChangeDamage(uid,
-            -toHeal,
-            true,
-            false,
-            damageable,
-            null,
-            false,
-            targetPart: TargetBodyPart.All,
-            splitDamage: SplitDamageBehavior.SplitEnsureAll);
+        _damageable.TryChangeDamage(uid, -toHeal, true, false, damageable, null, false, targetPart: TargetBodyPart.All);
     }
 }

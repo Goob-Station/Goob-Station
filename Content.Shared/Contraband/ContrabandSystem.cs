@@ -13,6 +13,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
@@ -22,7 +23,6 @@ using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Linq;
 
 namespace Content.Shared.Contraband;
 
@@ -37,7 +37,6 @@ public sealed class ContrabandSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     private bool _contrabandExamineEnabled;
-    private bool _contrabandExamineOnlyInHudEnabled;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -45,7 +44,6 @@ public sealed class ContrabandSystem : EntitySystem
         SubscribeLocalEvent<ContrabandComponent, GetVerbsEvent<ExamineVerb>>(OnDetailedExamine);
 
         Subs.CVar(_configuration, CCVars.ContrabandExamine, SetContrabandExamine, true);
-        Subs.CVar(_configuration, CCVars.ContrabandExamineOnlyInHUD, SetContrabandExamineOnlyInHUD, true);
     }
 
     public void CopyDetails(EntityUid uid, ContrabandComponent other, ContrabandComponent? contraband = null)
@@ -64,15 +62,6 @@ public sealed class ContrabandSystem : EntitySystem
 
         if (!_contrabandExamineEnabled)
             return;
-
-        // Checking if contraband is only shown in the HUD
-        if (_contrabandExamineOnlyInHudEnabled)
-        {
-            var ev = new GetContrabandDetailsEvent();
-            RaiseLocalEvent(args.User, ref ev);
-            if (!ev.CanShowContraband)
-                return;
-        }
 
         // CanAccess is not used here, because we want people to be able to examine legality in strip menu.
         if (!args.CanInteract)
@@ -110,21 +99,26 @@ public sealed class ContrabandSystem : EntitySystem
             }
         }
 
-        // if it is fully restricted, you're department-less, or your department isn't in the allowed list, you cannot carry it. Otherwise, you can.
-        var carryingMessage = Loc.GetString("contraband-examine-text-avoid-carrying-around");
-        var iconTexture = "/Textures/Interface/VerbIcons/lock-red.svg.192dpi.png";
+        String carryingMessage;
+        // either its fully restricted, you have no departments, or your departments dont intersect with the restricted departments
         if (departments.Intersect(ent.Comp.AllowedDepartments).Any()
             || jobs.Contains(jobId))
         {
             carryingMessage = Loc.GetString("contraband-examine-text-in-the-clear");
-            iconTexture = "/Textures/Interface/VerbIcons/unlock-green.svg.192dpi.png";
         }
+        else
+        {
+            // otherwise fine to use :tm:
+            carryingMessage = Loc.GetString("contraband-examine-text-avoid-carrying-around");
+        }
+
         var examineMarkup = GetContrabandExamine(departmentExamineMessage, carryingMessage);
-        _examine.AddHoverExamineVerb(args,
+        _examine.AddDetailedExamineVerb(args,
             ent.Comp,
+            examineMarkup,
             Loc.GetString("contraband-examinable-verb-text"),
-            examineMarkup.ToMarkup(),
-            iconTexture);
+            "/Textures/Interface/VerbIcons/lock.svg.192dpi.png",
+            Loc.GetString("contraband-examinable-verb-message"));
     }
 
     private FormattedMessage GetContrabandExamine(String deptMessage, String carryMessage)
@@ -139,10 +133,5 @@ public sealed class ContrabandSystem : EntitySystem
     private void SetContrabandExamine(bool val)
     {
         _contrabandExamineEnabled = val;
-    }
-
-    private void SetContrabandExamineOnlyInHUD(bool val)
-    {
-        _contrabandExamineOnlyInHudEnabled = val;
     }
 }

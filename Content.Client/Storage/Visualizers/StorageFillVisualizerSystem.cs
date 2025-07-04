@@ -18,10 +18,13 @@ public sealed class StorageFillVisualizerSystem : VisualizerSystem<StorageFillVi
         if (args.Sprite == null)
             return;
 
+        if (!TryComp(uid, out SpriteComponent? sprite))
+            return;
+
         if (!AppearanceSystem.TryGetData<int>(uid, StorageFillVisuals.FillLevel, out var level, args.Component))
             return;
 
         var state = $"{component.FillBaseName}-{level}";
-        SpriteSystem.LayerSetRsiState((uid, args.Sprite), StorageFillLayers.Fill, state);
+        args.Sprite.LayerSetState(StorageFillLayers.Fill, state);
     }
 }

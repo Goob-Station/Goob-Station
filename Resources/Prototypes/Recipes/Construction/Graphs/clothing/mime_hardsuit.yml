@@ -35,31 +35,31 @@
               amount: 5
               doAfter: 1
             - tag: SuitEVA
-              name: construction-graph-tag-eva-suit
+              name: an EVA suit
               icon:
                 sprite: Clothing/OuterClothing/Suits/eva.rsi
                 state: icon
               doAfter: 1
             - tag: HelmetEVA
-              name: construction-graph-tag-eva-helmet
+              name: an EVA helmet
               icon:
                 sprite: Clothing/Head/Helmets/eva.rsi
                 state: icon
               doAfter: 1
             - tag: CrayonRed
-              name: construction-graph-tag-red-crayon
+              name: red crayon
               icon:
                 sprite: Objects/Fun/crayons.rsi
                 state: red
               doAfter: 1
             - tag: CrayonBlack
-              name: construction-graph-tag-black-crayon
+              name: black crayon
               icon:
                 sprite: Objects/Fun/crayons.rsi
                 state: black
               doAfter: 1
             - tag: MimeBelt
-              name: construction-graph-tag-suspenders
+              name: suspenders
               icon:
                 sprite: Clothing/Belt/suspenders_red.rsi
                 state: icon

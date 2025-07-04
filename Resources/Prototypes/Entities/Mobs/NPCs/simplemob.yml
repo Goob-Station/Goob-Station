@@ -78,6 +78,7 @@
   - BaseMob
   - MobDamageable
   - MobPolymorphable
+  - MobAtmosExposed
   id: BaseSimpleMob
   suffix: AI
   abstract: true
@@ -115,7 +116,6 @@
   abstract: true
   parent:
   - BaseSimpleMob
-  - MobAtmosExposed
   - MobCombat
   - MobBloodstream
   - MobFlammable

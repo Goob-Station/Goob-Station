@@ -66,19 +66,18 @@ public sealed partial class MovespeedModifier : EntityEffect
             statusLifetime *= reagentArgs.Scale.Float();
         }
 
-        IncreaseTimer(status, statusLifetime, args.EntityManager, args.TargetEntity);
+        IncreaseTimer(status, statusLifetime);
 
         if (modified)
             args.EntityManager.System<MovementSpeedModifierSystem>().RefreshMovementSpeedModifiers(args.TargetEntity);
     }
-    private void IncreaseTimer(MovespeedModifierMetabolismComponent status, float time, IEntityManager entityManager, EntityUid uid)
+    public void IncreaseTimer(MovespeedModifierMetabolismComponent status, float time)
     {
         var gameTiming = IoCManager.Resolve<IGameTiming>();
 
         var offsetTime = Math.Max(status.ModifierTimer.TotalSeconds, gameTiming.CurTime.TotalSeconds);
 
         status.ModifierTimer = TimeSpan.FromSeconds(offsetTime + time);
-
-        entityManager.Dirty(uid, status);
+        status.Dirty();
     }
 }

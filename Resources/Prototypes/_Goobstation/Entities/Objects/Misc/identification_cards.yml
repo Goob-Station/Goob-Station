@@ -4,9 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -195,8 +193,16 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
-  - type: PresetIdCard
-    job: NavyCaptain
+  - type: IdCard
+    jobTitle: job-name-navycaptain
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 # Navy Officer
 
@@ -209,8 +215,16 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
-  - type: PresetIdCard
-    job: NavyOfficer
+  - type: IdCard
+    jobTitle: job-name-navycaptain
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 # Special Operations Officer
 
@@ -223,8 +237,16 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
-  - type: PresetIdCard
-    job: SpecialOperationsOfficer
+  - type: IdCard
+    jobTitle: job-name-navycaptain
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 # Inspector
 
@@ -237,8 +259,16 @@
     sprite: Objects/Misc/id_cards.rsi
     layers:
     - state: ert_security
-  - type: PresetIdCard
-    job: Inspector
+  - type: IdCard
+    jobTitle: job-name-inspector
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 # Inspector
 
@@ -254,8 +284,13 @@
   - type: IdCard
     jobTitle: job-name-diplomat
     jobIcon: JobIconNanotrasen
-  - type: PresetIdCard
-    job: Diplomat
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 # Halflife Stuff
 
@@ -272,22 +307,16 @@
     - state: idchrono
   - type: Item
     heldPrefix: blue
-  - type: PresetIdCard
-    job: GovernmentMan
-
-# Syndicate!
-
-- type: entity
-  parent: SyndicateIDCard
-  id: HighCommandIDCard
-  name: high command ID card
-  description: A particularly extravagent Syndicate identification card. This one has an in-built access breaker to open nearly any door.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi
-    layers:
-    - state: idhighcommand
-  - type: PresetIdCard
-    job: SyndicateHighCommander
-  - type: Emag
-    emagType: Access
+  - type: IdCard
+    jobTitle: job-name-gman
+    jobIcon: JobIconLambda
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+    - Wizard
+    - NuclearOperative
+    - SyndicateAgent

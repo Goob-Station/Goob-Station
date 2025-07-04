@@ -4,33 +4,39 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration.Systems;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Content.Shared.Climbing.Components;
 
 namespace Content.Server.Administration.Components;
 
 /// <summary>
 /// Component to track the timer for the SuperBonk smite.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause, Access(typeof(SuperBonkSystem))]
-public sealed partial class SuperBonkComponent : Component
+[RegisterComponent, Access(typeof(SuperBonkSystem))]
+public sealed partial class SuperBonkComponent: Component
 {
+    /// <summary>
+    /// Entity being Super Bonked.
+    /// </summary>
+    [DataField]
+    public EntityUid Target;
+
     /// <summary>
     /// All of the tables the target will be bonked on.
     /// </summary>
     [DataField]
-    public List<EntityUid>.Enumerator Tables;
+    public Dictionary<EntityUid, BonkableComponent>.Enumerator Tables;
 
     /// <summary>
-    /// How often should we bonk.
+    /// Value used to reset the timer once it expires.
     /// </summary>
     [DataField]
-    public TimeSpan BonkCooldown = TimeSpan.FromMilliseconds(100);
+    public float InitialTime = 0.10f;
 
     /// <summary>
-    /// Next time when we will bonk.
+    /// Timer till the next bonk.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
-    public TimeSpan NextBonk = TimeSpan.Zero;
+    [DataField]
+    public float TimeRemaining = 0.10f;
 
     /// <summary>
     /// Whether to remove the clumsy component from the target after SuperBonk is done.

@@ -22,11 +22,9 @@
 using Content.Server.Power.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using Content.Shared.PowerCell.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Weapons.Ranged.Systems;
@@ -41,36 +39,29 @@ public sealed partial class GunSystem
         SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, ComponentStartup>(OnBatteryStartup);
         SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, ChargeChangedEvent>(OnBatteryChargeChange);
         SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, DamageExamineEvent>(OnBatteryDamageExamine);
-        SubscribeLocalEvent<HitscanBatteryAmmoProviderComponent, PowerCellChangedEvent>(OnPowerCellChanged);
 
         // Projectile
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, ComponentStartup>(OnBatteryStartup);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, ChargeChangedEvent>(OnBatteryChargeChange);
         SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, DamageExamineEvent>(OnBatteryDamageExamine);
-        SubscribeLocalEvent<ProjectileBatteryAmmoProviderComponent, PowerCellChangedEvent>(OnPowerCellChanged);
     }
 
-    private void OnBatteryStartup<T>(Entity<T> entity, ref ComponentStartup args) where T : BatteryAmmoProviderComponent
+    private void OnBatteryStartup(EntityUid uid, BatteryAmmoProviderComponent component, ComponentStartup args)
     {
-        UpdateShots(entity, entity.Comp);
+        UpdateShots(uid, component);
     }
 
-    private void OnBatteryChargeChange<T>(Entity<T> entity, ref ChargeChangedEvent args) where T : BatteryAmmoProviderComponent
+    private void OnBatteryChargeChange(EntityUid uid, BatteryAmmoProviderComponent component, ref ChargeChangedEvent args)
     {
-        UpdateShots(entity, entity.Comp, args.Charge, args.MaxCharge);
-    }
-
-    private void OnPowerCellChanged<T>(Entity<T> entity, ref PowerCellChangedEvent args) where T : BatteryAmmoProviderComponent
-    {
-        UpdateShots(entity, entity.Comp);
+        UpdateShots(uid, component, args.Charge, args.MaxCharge);
     }
 
     private void UpdateShots(EntityUid uid, BatteryAmmoProviderComponent component)
     {
-        var ev = new GetChargeEvent();
-        RaiseLocalEvent(uid, ref ev);
+        if (!TryComp<BatteryComponent>(uid, out var battery))
+            return;
 
-        UpdateShots(uid, component, ev.CurrentCharge, ev.MaxCharge);
+        UpdateShots(uid, component, battery.CurrentCharge, battery.MaxCharge);
     }
 
     private void UpdateShots(EntityUid uid, BatteryAmmoProviderComponent component, float charge, float maxCharge)
@@ -84,24 +75,18 @@ public sealed partial class GunSystem
         }
 
         component.Shots = shots;
-
-        if (maxShots > 0)
-            component.Capacity = maxShots;
-
+        component.Capacity = maxShots;
         UpdateBatteryAppearance(uid, component);
-
-        var updateAmmoEv = new UpdateClientAmmoEvent();
-        RaiseLocalEvent(uid, ref updateAmmoEv);
     }
 
-    private void OnBatteryDamageExamine<T>(Entity<T> entity, ref DamageExamineEvent args) where T : BatteryAmmoProviderComponent
+    private void OnBatteryDamageExamine(EntityUid uid, BatteryAmmoProviderComponent component, ref DamageExamineEvent args)
     {
-        var damageSpec = GetDamage(entity.Comp);
+        var damageSpec = GetDamage(component);
 
         if (damageSpec == null)
             return;
 
-        var damageType = entity.Comp switch
+        var damageType = component switch
         {
             HitscanBatteryAmmoProviderComponent => Loc.GetString("damage-hitscan"),
             ProjectileBatteryAmmoProviderComponent => Loc.GetString("damage-projectile"),
@@ -111,7 +96,7 @@ public sealed partial class GunSystem
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), damageType);
 
         // Goobstation - partial armor penetration TODO: hitscan armor penetration
-        if (entity.Comp is not ProjectileBatteryAmmoProviderComponent p)
+        if (component is not ProjectileBatteryAmmoProviderComponent p)
             return;
 
         var ap = GetProjectilePenetration(p.Prototype);
@@ -127,7 +112,7 @@ public sealed partial class GunSystem
         if (component is ProjectileBatteryAmmoProviderComponent battery)
         {
             if (ProtoManager.Index<EntityPrototype>(battery.Prototype).Components
-                .TryGetValue(Factory.GetComponentName<ProjectileComponent>(), out var projectile))
+                .TryGetValue(_factory.GetComponentName(typeof(ProjectileComponent)), out var projectile))
             {
                 var p = (ProjectileComponent) projectile.Component;
 
@@ -149,9 +134,9 @@ public sealed partial class GunSystem
         return null;
     }
 
-    protected override void TakeCharge(Entity<BatteryAmmoProviderComponent> entity)
+    protected override void TakeCharge(EntityUid uid, BatteryAmmoProviderComponent component)
     {
-        var ev = new ChangeChargeEvent(-entity.Comp.FireCost);
-        RaiseLocalEvent(entity, ref ev);
+        // Will raise ChargeChangedEvent
+        _battery.UseCharge(uid, component.FireCost);
     }
 }

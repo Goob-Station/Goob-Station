@@ -36,13 +36,8 @@ namespace Content.Client.Screenshot
         [Dependency] private readonly IResourceManager _resourceManager = default!;
         [Dependency] private readonly IStateManager _stateManager = default!;
 
-        private ISawmill _sawmill = default!;
-
         public void Initialize()
         {
-            _sawmill = Logger.GetSawmill("screenshot");
-            _sawmill.Level = LogLevel.Info;
-
             _inputManager.SetInputCommand(ContentKeyFunctions.TakeScreenshot, InputCmdHandler.FromDelegate(_ =>
             {
                 _clyde.Screenshot(ScreenshotType.Final, Take);
@@ -56,7 +51,7 @@ namespace Content.Client.Screenshot
                 }
                 else
                 {
-                    _sawmill.Info("Can't take no-UI screenshot: current state is not GameScreen");
+                    Logger.InfoS("screenshot", "Can't take no-UI screenshot: current state is not GameScreen");
                 }
             }));
         }
@@ -90,16 +85,16 @@ namespace Content.Client.Screenshot
                         screenshot.SaveAsPng(file);
                     });
 
-                    _sawmill.Info("Screenshot taken as {0}.png", filename);
+                    Logger.InfoS("screenshot", "Screenshot taken as {0}.png", filename);
                     return;
                 }
                 catch (IOException e)
                 {
-                    _sawmill.Warning("Failed to save screenshot, retrying?:\n{0}", e);
+                    Logger.WarningS("screenshot", "Failed to save screenshot, retrying?:\n{0}", e);
                 }
             }
 
-            _sawmill.Error("Unable to save screenshot.");
+            Logger.ErrorS("screenshot", "Unable to save screenshot.");
         }
     }
 

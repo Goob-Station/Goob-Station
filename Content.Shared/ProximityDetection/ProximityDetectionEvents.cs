@@ -9,26 +9,13 @@ using Content.Shared.ProximityDetection.Components;
 
 namespace Content.Shared.ProximityDetection;
 
-/// <summary>
-/// Raised to determine if proximity sensor can detect an entity.
-/// </summary>
 [ByRefEvent]
-public struct ProximityDetectionAttemptEvent(float distance, Entity<ProximityDetectorComponent> detector, EntityUid target)
-{
-    public bool Cancelled;
-    public readonly float Distance = distance;
-    public readonly Entity<ProximityDetectorComponent> Detector = detector;
-    public readonly EntityUid Target = target;
-}
+public record struct ProximityDetectionAttemptEvent(bool Cancel, FixedPoint2 Distance, Entity<ProximityDetectorComponent> Detector);
 
-/// <summary>
-/// Raised when distance from proximity sensor to the target was updated.
-/// </summary>
 [ByRefEvent]
-public readonly record struct ProximityTargetUpdatedEvent(float Distance, Entity<ProximityDetectorComponent> Detector, EntityUid? Target = null);
+public record struct ProximityTargetUpdatedEvent(ProximityDetectorComponent Detector, EntityUid? Target, FixedPoint2 Distance);
 
-/// <summary>
-/// Raised when proximity sensor got new target.
-/// </summary>
 [ByRefEvent]
-public readonly record struct NewProximityTargetEvent(float Distance, Entity<ProximityDetectorComponent> Detector, EntityUid? Target = null);
+public record struct NewProximityTargetEvent(ProximityDetectorComponent Detector, EntityUid? Target);
+
+

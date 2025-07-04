@@ -214,7 +214,7 @@ namespace Content.Server.Spawners.EntitySystems
                 var yOffset = _robustRandom.NextFloat(-ent.Comp.Offset, ent.Comp.Offset);
                 var trueCoords = coords.Offset(new Vector2(xOffset, yOffset));
 
-                SpawnAtPosition(proto, trueCoords);
+                Spawn(proto, trueCoords);
             }
         }
     }

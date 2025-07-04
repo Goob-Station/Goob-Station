@@ -41,6 +41,5 @@ public sealed class GetFireProtectionEvent : EntityEventArgs, IInventoryRelayEve
     public void Reduce(float by)
     {
         Multiplier -= by;
-        Multiplier = MathF.Max(Multiplier, 0f);
     }
 }

@@ -38,7 +38,7 @@
         impact: High
       steps:
       - tag: GlassShard
-        name: construction-graph-tag-glass-shard
+        name: glass shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -81,7 +81,7 @@
         impact: High
       steps:
       - tag: ReinforcedGlassShard
-        name: construction-graph-tag-reinforced-glass-shard
+        name: reinforced glass shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -124,7 +124,7 @@
         impact: High
       steps:
       - tag: PlasmaGlassShard
-        name: construction-graph-tag-plasma-glass-shard
+        name: plasma glass shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -167,7 +167,7 @@
         impact: High
       steps:
       - tag: UraniumGlassShard
-        name: construction-graph-tag-uranium-glass-shard
+        name: uranium glass shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1

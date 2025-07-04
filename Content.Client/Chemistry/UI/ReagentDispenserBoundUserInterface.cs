@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 // SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
 // SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
 // SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
@@ -22,13 +23,10 @@
 // SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Guidebook.Components;
-using Content.Client.UserInterface.Controls;
 using Content.Shared.Chemistry;
 using Content.Shared.Containers.ItemSlots;
 using JetBrains.Annotations;
@@ -60,7 +58,8 @@ namespace Content.Client.Chemistry.UI
 
             // Setup window layout/elements
             _window = this.CreateWindow<ReagentDispenserWindow>();
-            _window.SetInfoFromEntity(EntMan, Owner);
+            _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
+            _window.HelpGuidebookIds = EntMan.GetComponent<GuideHelpComponent>(Owner).Guides;
 
             // Setup static button actions.
             _window.EjectButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent(SharedReagentDispenser.OutputSlotName));
@@ -68,8 +67,8 @@ namespace Content.Client.Chemistry.UI
 
             _window.AmountGrid.OnButtonPressed += s => SendMessage(new ReagentDispenserSetDispenseAmountMessage(s));
 
-            _window.OnDispenseReagentButtonPressed += (location) => SendMessage(new ReagentDispenserDispenseReagentMessage(location));
-            _window.OnEjectJugButtonPressed += (location) => SendMessage(new ReagentDispenserEjectContainerMessage(location));
+            _window.OnDispenseReagentButtonPressed += (id) => SendMessage(new ReagentDispenserDispenseReagentMessage(id));
+            _window.OnEjectJugButtonPressed += (id) => SendMessage(new ItemSlotButtonPressedEvent(id));
         }
 
         /// <summary>

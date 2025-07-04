@@ -202,6 +202,7 @@
   color: "#fb7125"
   recognizable: true
   physicalDesc: reagent-physical-desc-sticky
+  slippery: false
   viscosity: 0.55 #Start using syrup to attach your remote recievers to your microwaves!
   tileReactions:
     - !type:SpillTileReaction
@@ -212,6 +213,6 @@
       - !type:SatiateHunger
         factor: 6.0 #Stronger than cookedramen
   footstepSound:
-    collection: FootstepSlime
+    collection: FootstepBlood
     params:
       volume: 6

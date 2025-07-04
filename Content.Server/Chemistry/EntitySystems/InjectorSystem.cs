@@ -388,7 +388,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
         var removedSolution = SolutionContainers.Draw(target.Owner, targetSolution, realTransferAmount);
 
         // Add back non-whitelisted reagents to the target solution
-        SolutionContainers.TryAddSolution(targetSolution, temporarilyRemovedSolution);
+        applicableTargetSolution.AddSolution(temporarilyRemovedSolution, null);
 
         if (!SolutionContainers.TryAddSolution(soln.Value, removedSolution))
         {

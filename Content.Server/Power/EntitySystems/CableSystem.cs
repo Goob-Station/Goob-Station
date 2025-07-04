@@ -88,7 +88,7 @@ public sealed partial class CableSystem : EntitySystem
 
         // anchor state can change as a result of deletion (detach to null).
         // We don't want to spawn an entity when deleted.
-        if (TerminatingOrDeleted(uid))
+        if (!TryLifeStage(uid, out var life) || life >= EntityLifeStage.Terminating)
             return;
 
         // This entity should not be un-anchorable. But this can happen if the grid-tile is deleted (RCD, explosion,

@@ -11,9 +11,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Numerics;
 using Content.Shared.Decals;
-using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.Utility;
 using Robust.Shared.ContentPack;
@@ -41,7 +39,7 @@ public sealed class DecalPainter
         _sPrototypeManager = server.ResolveDependency<IPrototypeManager>();
     }
 
-    public void Run(Image canvas, Span<DecalData> decals, Vector2 customOffset = default)
+    public void Run(Image canvas, Span<DecalData> decals)
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
@@ -58,13 +56,13 @@ public sealed class DecalPainter
 
         foreach (var decal in decals)
         {
-            Run(canvas, decal, customOffset);
+            Run(canvas, decal);
         }
 
         Console.WriteLine($"{nameof(DecalPainter)} painted {decals.Length} decals in {(int) stopwatch.Elapsed.TotalMilliseconds} ms");
     }
 
-    private void Run(Image canvas, DecalData data, Vector2 customOffset = default)
+    private void Run(Image canvas, DecalData data)
     {
         var decal = data.Decal;
         if (!_decalTextures.TryGetValue(decal.Id, out var sprite))
@@ -106,10 +104,8 @@ public sealed class DecalPainter
             .DrawImage(coloredImage, PixelColorBlendingMode.Multiply, PixelAlphaCompositionMode.SrcAtop, 1.0f)
             .Flip(FlipMode.Vertical));
 
-        var pointX = (int) data.X + (int) (customOffset.X * EyeManager.PixelsPerMeter);
-        var pointY = (int) data.Y + (int) (customOffset.Y * EyeManager.PixelsPerMeter);
-
+        // Very unsure why the - 1 is needed in the first place but all decals are off by exactly one pixel otherwise
         // Woohoo!
-        canvas.Mutate(o => o.DrawImage(image, new Point(pointX, pointY), alpha));
+        canvas.Mutate(o => o.DrawImage(image, new Point((int) data.X, (int) data.Y - 1), alpha));
     }
 }

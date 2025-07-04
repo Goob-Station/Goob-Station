@@ -20,7 +20,7 @@
         amount: 1
         doAfter: 0.5
       - tag: GlassShard
-        name: construction-graph-tag-glass-shard
+        name: glass shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -44,7 +44,7 @@
         amount: 1
         doAfter: 0.5
       - tag: PlasmaGlassShard
-        name: construction-graph-tag-plasma-glass-shard
+        name: plasma glass shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -68,7 +68,7 @@
         amount: 1
         doAfter: 0.5
       - tag: UraniumGlassShard
-        name: construction-graph-tag-uranium-glass-shard
+        name: uranium glass shard
         icon:
           sprite: Objects/Materials/Shards/shard.rsi
           state: shard1
@@ -76,24 +76,3 @@
 
   - node: ImprovisedArrowUranium
     entity: ArrowImprovisedUranium
-
-- type: constructionGraph
-  id: ImprovisedArrowCarp
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: ImprovisedArrowCarp
-      steps:
-      - material: MetalRod
-        amount: 1
-        doAfter: 0.5
-      - material: Cloth
-        amount: 1
-        doAfter: 0.5
-      - material: SpaceCarpTooth
-        amount: 1
-        doAfter: 0.5
-
-  - node: ImprovisedArrowCarp
-    entity: ArrowImprovisedCarp

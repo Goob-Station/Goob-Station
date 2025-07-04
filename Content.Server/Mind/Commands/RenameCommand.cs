@@ -23,9 +23,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration;
-using Content.Shared.CCVar;
 using Robust.Server.Player;
-using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 
 namespace Content.Server.Mind.Commands;
@@ -33,7 +31,6 @@ namespace Content.Server.Mind.Commands;
 [AdminCommand(AdminFlags.VarEdit)]
 public sealed class RenameCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
@@ -49,7 +46,7 @@ public sealed class RenameCommand : LocalizedEntityCommands
         }
 
         var name = args[1];
-        if (name.Length > _cfgManager.GetCVar(CCVars.MaxNameLength))
+        if (name.Length > IdCardConsoleComponent.MaxFullNameLength)
         {
             shell.WriteLine(Loc.GetString("cmd-rename-too-long"));
             return;

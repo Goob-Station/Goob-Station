@@ -291,14 +291,6 @@
     {
         "name": "welded_open",
         "directions": 4
-    },
-    {
-      "name": "pressure_unlit",
-      "directions": 4
-    },
-    {
-      "name": "temperature_unlit",
-      "directions": 4
     }
   ]
 }

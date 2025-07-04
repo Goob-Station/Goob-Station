@@ -141,19 +141,16 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 14400 # 4 hours
+      time: 27000 # 7.5 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 14400 # 4 hours
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 14400 # 4 hours
+      time: 27000 # 7.5 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 14400 # 4 hours
+      time: 27000 # 7.5 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 14400 # 4 hours
+      time: 54000 # 15 hours
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30

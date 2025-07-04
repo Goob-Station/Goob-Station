@@ -24,26 +24,24 @@ namespace Content.Shared.Construction.Steps
 {
     public abstract partial class ArbitraryInsertConstructionGraphStep : EntityInsertConstructionGraphStep
     {
-        [DataField] public LocId Name { get; private set; } = string.Empty;
+        [DataField("name")] public string Name { get; private set; } = string.Empty;
 
-        [DataField] public SpriteSpecifier? Icon { get; private set; }
+        [DataField("icon")] public SpriteSpecifier? Icon { get; private set; }
 
         public override void DoExamine(ExaminedEvent examinedEvent)
         {
             if (string.IsNullOrEmpty(Name))
                 return;
 
-            var stepName = Loc.GetString(Name);
-            examinedEvent.PushMarkup(Loc.GetString("construction-insert-arbitrary-entity", ("stepName", stepName)));
+            examinedEvent.PushMarkup(Loc.GetString("construction-insert-arbitrary-entity", ("stepName", Name)));
         }
 
         public override ConstructionGuideEntry GenerateGuideEntry()
         {
-            var stepName = Loc.GetString(Name);
             return new ConstructionGuideEntry
             {
                 Localization = "construction-presenter-arbitrary-step",
-                Arguments = new (string, object)[]{("name", stepName)},
+                Arguments = new (string, object)[]{("name", Name)},
                 Icon = Icon,
             };
         }

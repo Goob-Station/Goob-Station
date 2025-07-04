@@ -10,11 +10,10 @@ SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 SPDX-License-Identifier: MIT
 -->
 
-<controls:FancyWindow xmlns="https://spacestation14.io"
-                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                      Title="{Loc 'comp-ringer-ui-menu-title'}"
-            MinSize="320 100"
-            SetSize="320 100">
+<DefaultWindow xmlns="https://spacestation14.io"
+            Title="{Loc 'comp-ringer-ui-menu-title'}"
+            MinSize="320 128"
+            SetSize="320 128">
         <BoxContainer Orientation="Vertical"
                     VerticalExpand="True"
                     HorizontalExpand="True"
@@ -103,4 +102,4 @@ SPDX-License-Identifier: MIT
                 </BoxContainer>
             </PanelContainer>
         </BoxContainer>
-</controls:FancyWindow>
+</DefaultWindow>

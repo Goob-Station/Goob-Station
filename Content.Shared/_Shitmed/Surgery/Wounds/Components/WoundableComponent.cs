@@ -112,7 +112,7 @@ public sealed partial class WoundableComponent : Component
     /// Can the woundable heal damage?
     /// </summary>
     [ViewVariables]
-    public bool CanHealDamage => WoundableIntegrity < DamageThreshold;
+    public bool CanHealDamage => WoundableIntegrity != IntegrityCap && WoundableIntegrity > DamageThreshold;
 
     /// <summary>
     /// Can the woundable heal bleeds?
@@ -157,19 +157,13 @@ public sealed partial class WoundableComponent : Component
     /// <summary>
     /// Whether this woundable can be removed from a body..
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool CanRemove = true;
-
-    /// <summary>
-    /// Whether this woundable can bleed or not..
-    /// </summary>
-    [DataField]
-    public bool CanBleed = true;
 
     /// <summary>
     /// Whether this woundable's bone is exposed
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool IsBoneExposed = false;
 
     /// <summary>

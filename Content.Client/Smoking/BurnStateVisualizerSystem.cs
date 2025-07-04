@@ -24,6 +24,6 @@ public sealed class BurnStateVisualizerSystem : VisualizerSystem<BurnStateVisual
             _ => component.UnlitIcon
         };
 
-        SpriteSystem.LayerSetRsiState((uid, args.Sprite), 0, state);
+        args.Sprite.LayerSetState(0, state);
     }
 }

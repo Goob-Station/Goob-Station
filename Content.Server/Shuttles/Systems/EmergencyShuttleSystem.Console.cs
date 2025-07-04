@@ -62,6 +62,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Threading;
+using Content.Server.DeviceNetwork.Components;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
@@ -76,11 +77,9 @@ using Content.Shared.Shuttles.Systems;
 using Content.Shared.UserInterface;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Content.Shared.DeviceNetwork.Components;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Chat.Systems;
-using Content.Shared.Chat;
 
 namespace Content.Server.Shuttles.Systems;
 

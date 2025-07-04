@@ -15,8 +15,6 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -31,8 +29,6 @@ using Content.Shared.Pointing;
 // Shitmed Change
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
-using Content.Goobstation.Common.Changeling;
-
 
 namespace Content.Server.Body.Systems
 {
@@ -52,9 +48,7 @@ namespace Content.Server.Body.Systems
 
         private void HandleRemoval(EntityUid uid, BrainComponent brain, ref OrganRemovedFromBodyEvent args)
         {
-            if (TerminatingOrDeleted(uid)
-                || TerminatingOrDeleted(args.OldBody)
-                || HasComp<ChangelingComponent>(args.OldBody))
+            if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.OldBody))
                 return;
 
             brain.Active = false;
@@ -68,9 +62,7 @@ namespace Content.Server.Body.Systems
 
         private void HandleAddition(EntityUid uid, BrainComponent brain, ref OrganAddedToBodyEvent args)
         {
-            if (TerminatingOrDeleted(uid)
-                || TerminatingOrDeleted(args.Body)
-                || HasComp<ChangelingComponent>(args.Body))
+            if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.Body))
                 return;
 
             if (!CheckOtherBrains(args.Body))

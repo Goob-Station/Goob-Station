@@ -166,7 +166,7 @@
     - type: MovementSpeedModifier
       baseWalkSpeed: 3
       baseSprintSpeed: 5
-      baseWeightlessModifier: 1.5
+      weightlessModifier: 1.5
     - type: Sprite
       sprite: Mobs/Demons/behonker.rsi
       layers:

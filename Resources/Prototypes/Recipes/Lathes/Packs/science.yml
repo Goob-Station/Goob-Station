@@ -47,7 +47,6 @@
   - HoloprojectorField
   #- SignallerAdvanced - Goobstation - Removed from there. Still in Equipment.
   - DeviceQuantumSpinInverter
-  - DeviceDesynchronizer
 
 - type: latheRecipePack
   id: ScienceClothing
@@ -65,7 +64,6 @@
   recipes:
   - PowerCellMicroreactor
   - PowerCellHigh
-  - PowerCellHyper
 
 - type: latheRecipePack
   id: ScienceWeapons

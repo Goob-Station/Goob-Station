@@ -8,7 +8,6 @@
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -159,13 +158,9 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
-    equippedPrefix: gauntlet
   - type: Fiber
     fiberMaterial: fibers-classified
     fiberColor: fibers-pitch-black
-  - type: Item
-    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
-    heldPrefix: gauntlet
   - type: ClothingGrantComponent
     component:
     - type: Prying
@@ -173,20 +168,19 @@
       force: true
       speedModifier: 4.5
   - type: MeleeWeapon
-    attackRate: 1.2
+    attackRate: 2
+    autoAttack: true
     damage:
       types:
-        Blunt: 32
-        Structural: 80
-    mustBeEquippedToUse: true
+        Slash: 25
+        Structural: 60
     soundHit:
       path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
+    mustBeEquippedToUse: true
     canWideSwing: false
-  - type: StaminaDamageOnHit
-    damage: 45
-    overtime: 80
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+
   - type: ItemSwitch
     showLabel: true
     state: gauntlet
@@ -247,7 +241,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: [ClothingHandsGlovesColorYellow, BaseEngineeringContraband]
+  parent: ClothingHandsGlovesColorYellow
   id: ClothingHandsGlovesAtmosInsulated
   name: insulated atmos gloves
   description: Like normal insulated gloves, but simply better by virtue of being from the Atmospherics department.

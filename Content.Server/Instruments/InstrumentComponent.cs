@@ -53,3 +53,8 @@ public sealed partial class InstrumentComponent : SharedInstrumentComponent
         _entMan.GetComponentOrNull<ActivatableUIComponent>(Owner)?.CurrentSingleUser
         ?? _entMan.GetComponentOrNull<ActorComponent>(Owner)?.PlayerSession.AttachedEntity;
 }
+
+[RegisterComponent]
+public sealed partial class ActiveInstrumentComponent : Component
+{
+}

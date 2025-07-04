@@ -15,7 +15,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
-public abstract class BaseTextureTag : IMarkupTagHandler
+public abstract class BaseTextureTag : IMarkupTag
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;

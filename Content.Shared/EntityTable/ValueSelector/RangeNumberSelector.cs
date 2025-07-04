@@ -85,17 +85,10 @@ namespace Content.Shared.EntityTable.ValueSelector;
 public sealed partial class RangeNumberSelector : NumberSelector
 {
     [DataField]
-    public Vector2i Range = new(1, 1);
+    public Vector2 Range = new(1, 1);
 
-    public RangeNumberSelector(Vector2i range)
+    public override float Get(System.Random rand, IEntityManager entMan, IPrototypeManager proto)
     {
-        Range = range;
-    }
-
-    public override int Get(System.Random rand)
-    {
-        // rand.Next() is inclusive on the first number and exclusive on the second number,
-        // so we add 1 to the second number.
-        return rand.Next(Range.X, Range.Y + 1);
+        return rand.NextFloat(Range.X, Range.Y + 1);
     }
 }

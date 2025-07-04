@@ -60,15 +60,12 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceNetwork;
-using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Examine;
-using Content.Shared.NodeContainer;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Power.Generation.Teg;
 using Content.Shared.Rounding;
 using Robust.Server.GameObjects;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -314,16 +311,13 @@ public sealed class TegSystem : EntitySystem
         // Otherwise, make sure circulator is set to nothing.
         if (!group.IsFullyBuilt)
         {
-            UpdateCirculatorAppearance((uid, component), false);
+            UpdateCirculatorAppearance(uid, false);
         }
     }
 
-    private void UpdateCirculatorAppearance(Entity<TegCirculatorComponent?> ent, bool powered)
+    private void UpdateCirculatorAppearance(EntityUid uid, bool powered)
     {
-        if (!Resolve(ent, ref ent.Comp))
-            return;
-
-        var circ = ent.Comp;
+        var circ = Comp<TegCirculatorComponent>(uid);
 
         TegCirculatorSpeed speed;
         if (powered && circ.LastPressureDelta > 0 && circ.LastMolesTransferred > 0)
@@ -338,13 +332,13 @@ public sealed class TegSystem : EntitySystem
             speed = TegCirculatorSpeed.SpeedStill;
         }
 
-        _appearance.SetData(ent, TegVisuals.CirculatorSpeed, speed);
-        _appearance.SetData(ent, TegVisuals.CirculatorPower, powered);
+        _appearance.SetData(uid, TegVisuals.CirculatorSpeed, speed);
+        _appearance.SetData(uid, TegVisuals.CirculatorPower, powered);
 
-        if (_pointLight.TryGetLight(ent, out var pointLight))
+        if (_pointLight.TryGetLight(uid, out var pointLight))
         {
-            _pointLight.SetEnabled(ent, powered, pointLight);
-            _pointLight.SetColor(ent, speed == TegCirculatorSpeed.SpeedFast ? circ.LightColorFast : circ.LightColorSlow, pointLight);
+            _pointLight.SetEnabled(uid, powered, pointLight);
+            _pointLight.SetColor(uid, speed == TegCirculatorSpeed.SpeedFast ? circ.LightColorFast : circ.LightColorSlow, pointLight);
         }
     }
 

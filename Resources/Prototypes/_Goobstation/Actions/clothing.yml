@@ -3,8 +3,6 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -28,20 +26,3 @@
       sprite: _Goobstation/Actions/modsuit.rsi
       state: activate-ready
     event: !type:SealClothingEvent {}
-
-
-- type: entity
-  id: ActionActivateProjector
-  name: Toggle Clone
-  description: Generates or dissipates your connected gemini.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    useDelay: 1
-    checkCanInteract: false
-    checkConsciousness: true
-    itemIconStyle: NoItem
-    icon:
-      sprite: Mobs/Silicon/station_ai.rsi
-      state: default
-    event: !type:CloneProjectorActivatedEvent {}

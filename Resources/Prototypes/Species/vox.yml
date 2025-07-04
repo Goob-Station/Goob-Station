@@ -69,7 +69,7 @@
       required: true
       defaultMarkings: [ VoxLLegScales, VoxRLegScales, VoxRFootScales, VoxLFootScales ]
     Chest:
-      points: 2
+      points: 1
       required: false
     Tail:
       points: 1

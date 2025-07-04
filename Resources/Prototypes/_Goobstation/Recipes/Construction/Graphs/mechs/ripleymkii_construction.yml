@@ -41,7 +41,7 @@
           data: 4
 
       - tag: RipleyCentralControlModule
-        name: construction-graph-tag-ripley-central-control-module
+        name: ripley central control module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: "mainboard"
@@ -58,7 +58,7 @@
           data: 6
 
       - tag: RipleyPeripheralsControlModule
-        name: construction-graph-tag-ripley-peripherals-control-module
+        name: ripley peripherals control module
         icon:
           sprite: "Objects/Misc/module.rsi"
           state: id_mod
@@ -75,7 +75,7 @@
           data: 8
 
       - component: PowerCell
-        name: construction-graph-component-power-cell
+        name: power cell
         store: battery-container
         icon:
           sprite: Objects/Power/power_cells.rsi
@@ -114,7 +114,7 @@
           data: 17
 
       - tag: MechAirTank
-        name: construction-graph-tag-exosuit-air-tank
+        name: exosuit air tank
         icon:
           sprite: Objects/Specific/Mech/mecha_equipment.rsi
           state: mecha_air_tank

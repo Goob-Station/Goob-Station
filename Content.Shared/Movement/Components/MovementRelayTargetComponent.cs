@@ -16,6 +16,6 @@ public sealed partial class MovementRelayTargetComponent : Component
     /// <summary>
     /// The entity that is relaying to this entity.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid Source;
 }

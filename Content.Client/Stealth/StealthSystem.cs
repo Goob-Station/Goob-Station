@@ -93,7 +93,6 @@ public sealed class StealthSystem : SharedStealthSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private ShaderInstance _shader = default!;
 
@@ -122,7 +121,7 @@ public sealed class StealthSystem : SharedStealthSystem
         if (!Resolve(uid, ref component, ref sprite, false))
             return;
 
-        _sprite.SetColor((uid, sprite), Color.White);
+        sprite.Color = Color.White;
         sprite.PostShader = enabled ? _shader : null;
         sprite.GetScreenTexture = enabled;
         sprite.RaiseShaderEvent = enabled;
@@ -176,6 +175,6 @@ public sealed class StealthSystem : SharedStealthSystem
         _shader.SetParameter("visibility", visibility);
 
         visibility = MathF.Max(0, visibility);
-        _sprite.SetColor((uid, args.Sprite), new Color(visibility, visibility, 1, 1));
+        args.Sprite.Color = new Color(visibility, visibility, 1, 1);
     }
 }

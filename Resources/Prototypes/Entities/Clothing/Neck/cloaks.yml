@@ -43,7 +43,6 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -179,9 +178,9 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckCloakSalvagerSupreme
-  name: supereme salvager's cloak
-  description: Worn by the most skilled salvagers, for one who has mastered space and made the mining asteroid his domain. They don't just hand these things out, y'know?
+  id: ClothingNeckCloakMiner
+  name: miner's cloak
+  description: Worn by the most skilled miners, for one who has moved mountains and filled valleys.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/miner.rsi
@@ -204,10 +203,20 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    requiredSlot:
-    - neck
     clothingPrototypes:
-      head: ClothingHeadHatHoodGoliathCloak
+      neck: ClothingHeadHatHoodGoliathCloak
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
+    - Arm
+    - Leg
+    modifiers:
+     coefficients:
+      Blunt: 0.8
+      Slash: 0.8
+      Piercing: 0.8
   - type: Construction
     graph: GoliathCloak
     node: cloak

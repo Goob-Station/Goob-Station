@@ -35,7 +35,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Shared.NodeContainer;
 
 namespace Content.Server.Power.EntitySystems;
 

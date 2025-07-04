@@ -8,9 +8,9 @@ SPDX-License-Identifier: MIT
 -->
 
 <DefaultWindow xmlns="https://spacestation14.io"
-               Title="{Loc 'credits-window-title'}"
-               SetSize="650 650">
-    <TabContainer Name="MasterTabContainer">
+            Title="{Loc 'credits-window-title'}"
+            SetSize="650 650" >
+    <TabContainer>
         <ScrollContainer Name="Ss14ContributorsTab"
                          HScrollEnabled="False">
             <BoxContainer Name="Ss14ContributorsContainer"
@@ -34,12 +34,6 @@ SPDX-License-Identifier: MIT
                           Margin="2 2 0 0">
                 <!-- Licenses get added here by code -->
             </BoxContainer>
-        </ScrollContainer>
-        <ScrollContainer Name="AttributionsTab"
-                         HScrollEnabled="False">
-            <BoxContainer Name="AttributionsContainer"
-                          Orientation="Vertical"
-                          Margin="2 2 0 0" />
         </ScrollContainer>
     </TabContainer>
 </DefaultWindow>

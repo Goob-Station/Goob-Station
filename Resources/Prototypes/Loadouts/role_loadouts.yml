@@ -85,6 +85,7 @@
 # SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
@@ -103,12 +104,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Phooooooooooooooooooooooooooooooosphate <184853112+Phooooooooooooooooooooooooooooooosphate@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -143,10 +142,10 @@
   - GroupSpeciesBreathTool
 
 # Silicons
-- type: roleLoadout
-  id: JobBorg
-  nameDataset: NamesBorg
-  canCustomizeName: true
+#- type: roleLoadout
+#  id: JobBorg
+#  nameDataset: roleloadout doesn't support both so need to update that first.
+#  canCustomizeName: true
 
 - type: roleLoadout
   id: JobStationAi
@@ -276,7 +275,6 @@
 
 - type: roleLoadout
   id: JobClown
-  canCustomizeName: true
   groups:
   - GroupTankHarness
   - ClownHead
@@ -290,7 +288,6 @@
 
 - type: roleLoadout
   id: JobMime
-  canCustomizeName: true
   groups:
   - GroupTankHarness
   - MimeHead
@@ -464,7 +461,6 @@
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
-  - SecurityMelee # Goobstation
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - HeadofSecurityShoes # Goobstation edit
@@ -479,7 +475,6 @@
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
-  - SecurityMelee # Goobstation
   - SecurityNeck
   - SecurityBelt
   - WardenOuterClothing
@@ -495,7 +490,6 @@
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
-  - SecurityMelee # Goobstation
   - SecurityOuterClothing
   - SecurityShoes
   - SecurityNeck
@@ -525,7 +519,6 @@
   groups:
   - SecurityCadetJumpsuit
   - SecurityBackpack
-  - SecurityMelee # Goobstation
   - SurvivalSecurity
   - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.
@@ -545,7 +538,7 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - MedicalEyewear
+  - Glasses
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -562,7 +555,7 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - MedicalEyewear
+  - Glasses
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -573,7 +566,7 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
-  - MedicalEyewear
+  - Glasses
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
@@ -604,7 +597,7 @@
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
-  - MedicalEyewear
+  - Glasses
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical

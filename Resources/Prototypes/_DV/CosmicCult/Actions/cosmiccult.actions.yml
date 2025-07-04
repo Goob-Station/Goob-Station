@@ -1,6 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SaffronFennec <firefoxwolf2020@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -14,7 +13,7 @@
   components:
   - type: EntityTargetAction
     deselectOnMiss: true
-    useDelay: 15
+    useDelay: 10
     whitelist:
       components:
         - HumanoidAppearance
@@ -127,7 +126,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi

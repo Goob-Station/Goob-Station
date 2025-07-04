@@ -50,11 +50,8 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -92,7 +89,7 @@ namespace Content.Server.Flash
     {
         [Dependency] private readonly AppearanceSystem _appearance = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
-        [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
+        [Dependency] private readonly SharedChargesSystem _charges = default!;
         [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
@@ -151,15 +148,15 @@ namespace Content.Server.Flash
                 return false;
 
             TryComp<LimitedChargesComponent>(uid, out var charges);
-            if (_sharedCharges.IsEmpty((uid, charges)))
+            if (_charges.IsEmpty(uid, charges))
                 return false;
 
-            _sharedCharges.TryUseCharge((uid, charges));
+            _charges.UseCharge(uid, charges);
             _audio.PlayPvs(comp.Sound, uid);
             comp.Flashing = true;
             _appearance.SetData(uid, FlashVisuals.Flashing, true);
 
-            if (_sharedCharges.IsEmpty((uid, charges)))
+            if (_charges.IsEmpty(uid, charges))
             {
                 _appearance.SetData(uid, FlashVisuals.Burnt, true);
                 _tag.AddTag(uid, TrashTag);
@@ -220,6 +217,15 @@ namespace Content.Server.Flash
             {
                 _popup.PopupEntity(Loc.GetString("flash-component-user-blinds-you",
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
+            }
+
+            if (melee)
+            {
+                var ev = new AfterFlashedEvent(target, user, used);
+                if (user != null)
+                    RaiseLocalEvent(user.Value, ref ev);
+                if (used != null)
+                    RaiseLocalEvent(used.Value, ref ev);
             }
         }
 
@@ -295,6 +301,24 @@ namespace Content.Server.Flash
         public readonly EntityUid? Used;
 
         public FlashAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used)
+        {
+            Target = target;
+            User = user;
+            Used = used;
+        }
+    }
+    /// <summary>
+    ///     Called after a flash is used via melee on another person to check for rev conversion.
+    ///     Raised on the target hit by the flash, the user of the flash and the flash used.
+    /// </summary>
+    [ByRefEvent]
+    public readonly struct AfterFlashedEvent
+    {
+        public readonly EntityUid Target;
+        public readonly EntityUid? User;
+        public readonly EntityUid? Used;
+
+        public AfterFlashedEvent(EntityUid target, EntityUid? user, EntityUid? used)
         {
             Target = target;
             User = user;

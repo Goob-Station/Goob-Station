@@ -84,7 +84,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Construction.EntitySystems;
-using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -92,7 +91,6 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Materials;
-using Content.Shared.Nutrition;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tools.EntitySystems;
@@ -117,7 +115,6 @@ public sealed class SecretStashSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ToolOpenableSystem _toolOpenableSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {
@@ -126,7 +123,6 @@ public sealed class SecretStashSystem : EntitySystem
         SubscribeLocalEvent<SecretStashComponent, DestructionEventArgs>(OnDestroyed);
         SubscribeLocalEvent<SecretStashComponent, GotReclaimedEvent>(OnReclaimed);
         SubscribeLocalEvent<SecretStashComponent, InteractUsingEvent>(OnInteractUsing, after: new[] { typeof(ToolOpenableSystem), typeof(AnchorableSystem) });
-        SubscribeLocalEvent<SecretStashComponent, AfterFullyEatenEvent>(OnEaten);
         SubscribeLocalEvent<SecretStashComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<SecretStashComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerb);
     }
@@ -144,14 +140,6 @@ public sealed class SecretStashSystem : EntitySystem
     private void OnReclaimed(Entity<SecretStashComponent> entity, ref GotReclaimedEvent args)
     {
         DropContentsAndAlert(entity, args.ReclaimerCoordinates);
-    }
-
-    private void OnEaten(Entity<SecretStashComponent> entity, ref AfterFullyEatenEvent args)
-    {
-        // TODO: When newmed is finished should do damage to teeth (Or something like that!)
-        var damage = entity.Comp.DamageEatenItemInside;
-        if (HasItemInside(entity) && damage != null)
-            _damageableSystem.TryChangeDamage(args.User, damage, true);
     }
 
     private void OnInteractUsing(Entity<SecretStashComponent> entity, ref InteractUsingEvent args)

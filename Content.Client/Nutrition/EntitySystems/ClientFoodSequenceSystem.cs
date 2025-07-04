@@ -86,7 +86,6 @@ namespace Content.Client.Nutrition.EntitySystems;
 public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -109,7 +108,7 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         //Remove old layers
         foreach (var key in start.Comp.RevealedLayers)
         {
-            _sprite.RemoveLayer((start.Owner, sprite), key);
+            sprite.RemoveLayer(key);
         }
         start.Comp.RevealedLayers.Clear();
 
@@ -163,19 +162,19 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
             var keyCode = $"food-layer-{counter}";
             start.Comp.RevealedLayers.Add(keyCode);
 
-            _sprite.LayerMapTryGet((start.Owner, sprite), start.Comp.TargetLayerMap, out var index, false);
+            sprite.LayerMapTryGet(start.Comp.TargetLayerMap, out var index);
 
             if (start.Comp.InverseLayers)
                 index++;
 
-            _sprite.AddBlankLayer((start.Owner, sprite), index);
-            _sprite.LayerMapSet((start.Owner, sprite), keyCode, index);
-            _sprite.LayerSetSprite((start.Owner, sprite), index, state.Sprite);
+            sprite.AddBlankLayer(index);
+            sprite.LayerMapSet(keyCode, index);
+            sprite.LayerSetSprite(index, state.Sprite);
 
             //Offset the layer
             var layerPos = start.Comp.StartPosition;
             layerPos += (start.Comp.Offset * counter) + state.LocalOffset;
-            _sprite.LayerSetOffset((start.Owner, sprite), index, layerPos);
+            sprite.LayerSetOffset(index, layerPos);
 
             counter++;
         }

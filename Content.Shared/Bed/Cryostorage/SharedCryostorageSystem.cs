@@ -83,7 +83,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
+using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Bed.Cryostorage;
@@ -93,14 +93,13 @@ namespace Content.Shared.Bed.Cryostorage;
 /// </summary>
 public abstract class SharedCryostorageSystem : EntitySystem
 {
-    [Dependency] private   readonly IConfigurationManager _configuration = default!;
-    [Dependency] private   readonly ISharedPlayerManager _player = default!;
-    [Dependency] private   readonly SharedMapSystem _map = default!;
-    [Dependency] private   readonly MobStateSystem _mobState = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLog = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedMindSystem Mind = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     protected EntityUid? PausedMap { get; private set; }
 
@@ -200,8 +199,7 @@ public abstract class SharedCryostorageSystem : EntitySystem
         if (args.Dragged == args.User)
             return;
 
-        if (!_player.TryGetSessionByEntity(args.Dragged, out var session) ||
-            session.AttachedEntity != args.Dragged)
+        if (!Mind.TryGetMind(args.Dragged, out _, out var mindComp) || mindComp.Session?.AttachedEntity != args.Dragged)
             return;
 
         args.CanDrop = false;
@@ -243,8 +241,9 @@ public abstract class SharedCryostorageSystem : EntitySystem
         if (PausedMap != null && Exists(PausedMap))
             return;
 
-        PausedMap = _map.CreateMap();
-        _map.SetPaused(PausedMap.Value, true);
+        var map = _mapManager.CreateMap();
+        _mapManager.SetMapPaused(map, true);
+        PausedMap = _mapManager.GetMapEntityId(map);
     }
 
     public bool IsInPausedMap(Entity<TransformComponent?> entity)

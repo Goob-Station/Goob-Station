@@ -243,7 +243,6 @@
     softness: 5
     autoRot: true
   - type: Ringer
-  - type: RingerUplink
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: PDA
@@ -1258,7 +1257,7 @@
     - DoorBumpOpener
 
 - type: entity
-  parent: [ BasePDA, BaseSyndicateContraband ]
+  parent: BasePDA
   id: SyndiPDA
   name: syndicate PDA
   description: Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
@@ -1619,7 +1618,7 @@
     state: pda-seniorofficer
 
 - type: entity
-  parent: [ BaseMajorContraband, SyndiPDA ]
+  parent: SyndiPDA
   id: PiratePDA
   name: pirate PDA
   description: Yargh!
@@ -1635,9 +1634,9 @@
     state: pda-pirate
 
 - type: entity
-  parent: [ BaseMedicalPDA, BaseSyndicateContraband ]
+  parent: BaseMedicalPDA
   id: SyndiAgentPDA
-  name: syndicate corpsman PDA
+  name: syndicate agent PDA
   description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
   components:
   - type: Pda

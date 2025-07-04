@@ -28,7 +28,7 @@
       - groin
       - head # Shitmed
       organs:
-        heart: OrganVoxHeart
+        heart: OrganHumanHeart
         lungs: OrganVoxLungs
     groin:
       part: GroinVox
@@ -36,7 +36,7 @@
       - right leg
       - left leg
       organs:
-        stomach: OrganVoxStomach
+        stomach: OrganHumanStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
     right arm:

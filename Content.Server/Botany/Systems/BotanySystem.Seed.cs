@@ -60,7 +60,6 @@ public sealed partial class BotanySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SeedComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<ProduceComponent, ExaminedEvent>(OnProduceExamined);
     }
 
     public bool TryGetSeed(SeedComponent comp, [NotNullWhen(true)] out SeedData? seed)

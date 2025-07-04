@@ -15,7 +15,6 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -27,7 +26,6 @@ using Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 using Content.Shared._Lavaland.Weapons.Ranged.Upgrades.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Containers;
 
 namespace Content.Server._Lavaland.Weapons.Ranged.Upgrades;
 
@@ -40,8 +38,6 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
 
         SubscribeLocalEvent<GunUpgradeDamageComponent, GunShotEvent>(OnDamageGunShot);
         SubscribeLocalEvent<GunUpgradeDamageComponent, ProjectileShotEvent>(OnProjectileShot);
-        SubscribeLocalEvent<GunUpgradePressureComponent, EntGotInsertedIntoContainerMessage>(OnPressureUpgradeInserted);
-        SubscribeLocalEvent<GunUpgradePressureComponent, EntGotRemovedFromContainerMessage>(OnPressureUpgradeRemoved);
     }
 
     private void OnDamageGunShot(Entity<GunUpgradeDamageComponent> ent, ref GunShotEvent args)
@@ -71,17 +67,5 @@ public sealed class GunUpgradeSystem : SharedGunUpgradeSystem
             multiplier = pressure.AppliedModifier;
 
         projectile.Damage += ent.Comp.Damage * multiplier * ent.Comp.PelletModifier;
-    }
-
-    private void OnPressureUpgradeInserted(Entity<GunUpgradePressureComponent> ent, ref EntGotInsertedIntoContainerMessage args)
-    {
-        if (TryComp<PressureDamageChangeComponent>(args.Container.Owner, out var pdc))
-            pdc.Enabled = false;
-    }
-
-    private void OnPressureUpgradeRemoved(Entity<GunUpgradePressureComponent> ent, ref EntGotRemovedFromContainerMessage args)
-    {
-        if (TryComp<PressureDamageChangeComponent>(args.Container.Owner, out var pdc))
-            pdc.Enabled = true;
     }
 }

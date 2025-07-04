@@ -1,23 +1,22 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  abstract: true
   id: SurgeryBase
-  components:
-  - type: Surgery
+  categories: [ HideSpawnMenu ]
 
 - type: entity
   parent: SurgeryBase
   id: SurgeryOpenIncision
   name: Open Incision
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     steps:
@@ -29,6 +28,7 @@
   parent: SurgeryBase
   id: SurgeryStopBloodOutput
   name: Stop Constant Blood Output
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -42,6 +42,7 @@
   parent: SurgeryBase
   id: SurgeryFixDismemberment
   name: Fix Dismemberment Leftovers
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -59,6 +60,7 @@
   parent: SurgeryBase
   id: SurgeryCloseIncision
   name: Close Incision
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     priority: 1
@@ -72,6 +74,7 @@
   parent: SurgeryBase
   id: SurgeryOpenRibcage
   name: Open Ribcage
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -85,6 +88,7 @@
   parent: SurgeryBase
   id: SurgeryRemovePart
   name: Remove Part
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -101,6 +105,7 @@
   parent: SurgeryBase
   id: SurgeryMendBones
   name: Mend Bones
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -118,6 +123,7 @@
   parent: SurgeryBase
   id: SurgeryHealOrgans
   name: Heal Organs
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -137,6 +143,7 @@
   parent: SurgeryBase
   id: SurgeryAttachHead
   name: Attach Head
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -156,6 +163,7 @@
   parent: SurgeryBase
   id: SurgeryAttachGroin
   name: Attach Groin
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -175,6 +183,7 @@
   parent: SurgeryBase
   id: SurgeryAttachLeftArm
   name: Attach Left Arm
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -195,6 +204,7 @@
   parent: SurgeryBase
   id: SurgeryAttachRightArm
   name: Attach Right Arm
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -215,6 +225,7 @@
   parent: SurgeryBase
   id: SurgeryAttachLeftLeg
   name: Attach Left Leg
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -235,6 +246,7 @@
   parent: SurgeryBase
   id: SurgeryAttachRightLeg
   name: Attach Right Leg
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -256,6 +268,7 @@
   parent: SurgeryBase
   id: SurgeryAttachLeftHand
   name: Attach Left Hand
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -277,6 +290,7 @@
   parent: SurgeryBase
   id: SurgeryAttachRightHand
   name: Attach Right Hand
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -298,6 +312,7 @@
   parent: SurgeryBase
   id: SurgeryAttachLeftFoot
   name: Attach Left Foot
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -319,6 +334,7 @@
   parent: SurgeryBase
   id: SurgeryAttachRightFoot
   name: Attach Right Foot
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -342,6 +358,7 @@
   parent: SurgeryBase
   id: SurgeryAttachLegs
   name: Attach Legs
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -359,6 +376,7 @@
   parent: SurgeryBase
   id: SurgeryAttachHands
   name: Attach Hands
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -376,6 +394,7 @@
   parent: SurgeryBase
   id: SurgeryAttachFeet
   name: Attach Feet
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -392,6 +411,7 @@
   parent: SurgeryBase
   id: SurgeryAttachTail
   name: Attach Tail
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -410,6 +430,7 @@
 #  id: SurgeryAlienEmbryoRemoval
 #  name: Alien Embryo Removal
 #  description: Removal of an alien embryo from the body.
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: Surgery
 #    priority: -1
@@ -425,6 +446,7 @@
   parent: SurgeryBase
   id: SurgeryTendWoundsBrute
   name: Tend Bruise Wounds
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     steps:
@@ -438,6 +460,7 @@
   parent: SurgeryBase
   id: SurgeryTendWoundsBurn
   name: Tend Burn Wounds
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     steps:
@@ -451,6 +474,7 @@
   parent: SurgeryBase
   id: SurgeryInsertItem
   name: Cavity Implant
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -468,6 +492,7 @@
   parent: SurgeryBase
   id: SurgeryRemoveBrain
   name: Remove Brain
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -485,6 +510,7 @@
   parent: SurgeryBase
   id: SurgeryRemoveBorgBrain
   name: Remove Positronic Brain
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -503,6 +529,7 @@
   parent: SurgeryBase
   id: SurgeryInsertBrain
   name: Insert Brain
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -522,6 +549,7 @@
   parent: SurgeryInsertBrain
   id: SurgeryInsertBorgBrain
   name: Insert Positronic Brain
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryOrganSlotCondition
     organSlot: posbrain
@@ -533,6 +561,7 @@
   parent: SurgeryBase
   id: SurgeryRemoveHeart
   name: Remove Heart
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -550,6 +579,7 @@
   parent: SurgeryBase
   id: SurgeryInsertHeart
   name: Insert Heart
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -571,6 +601,7 @@
   parent: SurgeryBase
   id: SurgeryRemoveLiver
   name: Remove Liver
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -588,6 +619,7 @@
   parent: SurgeryBase
   id: SurgeryInsertLiver
   name: Insert Liver
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -608,6 +640,7 @@
   parent: SurgeryBase
   id: SurgeryRemoveLungs
   name: Remove Lungs
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -625,6 +658,7 @@
   parent: SurgeryBase
   id: SurgeryInsertLungs
   name: Insert Lungs
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -646,6 +680,7 @@
   parent: SurgeryBase
   id: SurgeryRemoveStomach
   name: Remove Stomach
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -663,6 +698,7 @@
   parent: SurgeryBase
   id: SurgeryInsertStomach
   name: Insert Stomach
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -683,6 +719,7 @@
   parent: SurgeryBase
   id: SurgeryRemoveEyes
   name: Remove Eyes
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -700,6 +737,7 @@
   parent: SurgeryBase
   id: SurgeryInsertEyes
   name: Insert Eyes
+  categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -723,6 +761,7 @@
 #  parent: SurgeryBase
 #  id: SurgeryAddFelinidEars
 #  name: Add cat ears
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: Surgery
 #    #requirement: SurgeryOpenIncision
@@ -739,6 +778,7 @@
 #  parent: SurgeryBase
 #  id: SurgeryRemoveFelinidEars
 #  name: Remove cat ears
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: Surgery
 #    requirement: SurgeryOpenIncision
@@ -754,6 +794,7 @@
 #  parent: SurgeryBase
 #  id: SurgeryAddFelinidTail
 #  name: Add cat tail
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: Surgery
 #    requirement: SurgeryOpenIncision
@@ -770,6 +811,7 @@
 #  parent: SurgeryBase
 #  id: SurgeryRemoveFelinidTail
 #  name: Remove cat tail
+#  categories: [ HideSpawnMenu ]
 #  components:
 #  - type: Surgery
 #    requirement: SurgeryOpenIncision

@@ -57,7 +57,6 @@ using Content.Shared.Ame.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
-using Content.Shared.NodeContainer;
 using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;

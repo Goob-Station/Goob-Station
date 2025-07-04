@@ -1,11 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
-# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -128,8 +126,8 @@
   name: selectable-set-syndicate-spy-name
   description: selectable-set-syndicate-spy-description
   sprite:
-    sprite: Clothing/Mask/gas.rsi
-    state: icon
+    sprite: Objects/Devices/jammer.rsi
+    state: jammer
   content:
   - EncryptionKeySyndie
   - ClothingHandsChameleonThief
@@ -137,8 +135,7 @@
   - ClothingMaskGasVoiceChameleon
   - AgentIDCard
   - HypopenBox
-  - ChemistryBottleNocturine
-  - CameraBug
+  - RadioJammer
   - StealthBox
   - SyndicateJawsOfLife
 
@@ -157,7 +154,7 @@
   - MagazinePistolCaselessRifle
   - CQCManual
   - ClothingOuterArmourInvisibleSyndie
-  - ClothingShoesBootsJack
+  - ClothingShoesChameleonNoSlips
   - CigPackSyndicate
   - MedkitCombatFilled
   - ClothingEyesGlassesSunglasses
@@ -169,19 +166,16 @@
   name: selectable-set-syndicate-implants-name
   description: selectable-set-syndicate-implants-description
   sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
-    state: icon
+    sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    state: implanter0
   content:
   - RadioImplanter
-  - NutrimentImplanter
+  - BoxHoloparasite
+  - EmpImplanter
   - ScramImplanter
   - FreedomImplanter
   - SmokeImplanter
   - KravMagaImplanter
-  - ClothingOuterDavidsJacketValid
-  - AutosurgeonRightMantisBlade
-  - AutosurgeonLeftMantisBlade
-  - AutosurgeonSandevistan
 
 - type: selectableSet
   id: SyndicateHackerSet
@@ -195,11 +189,11 @@
   - AntimovCircuitBoard
   - AccessBreaker
   - Emag
-  - RadioJammer
+  - CameraBug
   - ToolboxSyndicateFilled
-  - ExperimentalSyndicateTeleporter
+  - ClothingUniformJumpsuitAtmosSyndie
   - ClothingEyesGlassesOutlawGlasses
-  - BinaryImplanter
+  - EncryptionKeyBinarySyndicate
 
 - type: selectableSet
   id: SyndicateDeswordSet
@@ -212,7 +206,8 @@
   - EncryptionKeySyndie
   - EnergySwordDouble
   - StimkitFilled
-  - ClothingShoesChameleonNoSlips
+  - DrinkSpaceGlue
+  - ClothingShoesBootsJack
   - ClothingOuterArmorCloakSith # this is armor
 
 - type: selectableSet
@@ -262,15 +257,12 @@
     - EncryptionKeySyndie
     - EncryptionKeySyndie
     - EncryptionKeySyndie
-    - EncryptionKeySyndie
-    - EncryptionKeySyndie
     - ContractorBaton
     - Handcuffs
     - MindcontrolImplanter
     - MindcontrolImplanter
     - MindcontrolImplanter
     - MindcontrolImplanter
-    - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
     - WeaponSniperMosin
@@ -290,46 +282,12 @@
     - DehydratedSpaceCarp # 3
     - DehydratedSpaceCarp # 4
     - DehydratedSpaceCarp # 5
-    - DehydratedHolocarp # 1
-    - DehydratedHolocarp # 2
-    - DehydratedHolocarp # 3
-    - DehydratedHolocarp # 4
-    - DehydratedHolocarp # 5
-    - ClothingOuterHardsuitCarp
+    - DehydratedSpaceCarp # 6
+    - DehydratedSpaceCarp # 7
+    - DehydratedSpaceCarp # 8
+    - DehydratedSpaceCarp # 9
+    - DehydratedSpaceCarp # 10
     - FireExtinguisher
-
-- type: selectableSet
-  id: SyndicateSusSet
-  name: selectable-set-syndicate-sus-name
-  description: selectable-set-syndicate-sus-description
-  sprite:
-    sprite: _White/Objects/Weapons/Melee/Daggers/betrayal_knife.rsi
-    state: icon
-  content:
-  - EncryptionKeySyndie
-  - BetrayalKnife
-  - MiniatureEnergyCrossbow
-  - ClothingUniformJumpsuitAtmosSyndieAdvanced
-  - ClothingBackpackDuffelSyndicateStealthHardsuitBundle
-
-- type: selectableSet
-  id: SyndicateBuilderSet
-  name: selectable-set-syndicate-builder-name
-  description: selectable-set-syndicate-builder-description
-  sprite:
-    sprite: _Goobstation/Structures/Machines/tc_printer.rsi
-    state: display
-  content:
-  - EncryptionKeySyndie
-  - TCminerFlatpack
-  - Multitool
-  - ToolboxElectricalTurretFilled
-  - ToolboxElectricalTurret
-  - SheetSteel # 30
-  - SheetSteel # 60
-  - SheetPlasteel # 30
-  - SheetPlasteel # 60
-  - PowerCellSmall
 
 # Blueshield officer
 
@@ -351,7 +309,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     state: icon
   content:
-    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 1 disabler speedloader
+    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 2 disabler speedloaders
 
 - type: selectableSet
   id: BSOCQCSet
@@ -371,14 +329,13 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
     state: base
   content:
-  # Guaranteed items
-  - WeaponLeverChester
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineBoxShotgunHighCaliberEMP
-  - MagazineBoxShotgunHighCaliberEnsnaring
-#  tables:
-#  - ChesterRandomAmmoTable
+    - MagazineShotgunLeverRifleEmpty
+    - MagazineShotgunLeverRifleEmpty
+    - MagazineBoxShotgunHighCaliber
+    - MagazineBoxShotgunHighCaliberFlash
+    - MagazineBoxShotgunHighCaliberEnsnaring
+    - MagazineBoxShotgunHighCaliberEMP
+    - WeaponLeverChester
 
 - type: selectableSet
   id: BSOSyringeSet
@@ -594,25 +551,3 @@
     state: control
   content:
   - ClothingModsuitCaptainPowerCell
-
-# Research Director RD
-
-- type: selectableSet
-  id: VoidsuitSelectorRDVoidsuit
-  name: selectable-set-research-director-voidsuit-name
-  description: selectable-set-research-director-voidsuit-desc
-  sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
-    state: icon
-  content:
-  - ClothingOuterHardsuitRd
-
-- type: selectableSet
-  id: VoidsuitSelectorRDHardsuit
-  name: selectable-set-research-director-modsuit-name
-  description: selectable-set-research-director-modsuit-desc
-  sprite:
-    sprite: _Goobstation/Clothing/Back/Modsuits/researchdirector.rsi
-    state: control
-  content:
-  - ClothingModsuitResearchDirectorPowerCell

@@ -22,11 +22,11 @@
       "name": "teleriot-on"
     },
     {
-      "name": "shield-inhand-right",
+      "name": "inhand-right-shield",
       "directions": 4
     },
     {
-      "name": "shield-inhand-left",
+      "name": "inhand-left-shield",
       "directions": 4
     }
   ]

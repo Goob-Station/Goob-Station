@@ -307,12 +307,17 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
+  name: makeshift patch
   id: MedicalPatchMakeshift
   graph: MedicalPatchMakeshift
   startNode: start
   targetNode: medicalPatchMakeshift
   category: construction-category-tools
   objectType: Item
+  description: A little better then nothing. Apply a chemical to it and wear it for treatment over time.
+  icon:
+    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    state: MakeshiftPatch
 
 - type: constructionGraph
   id: SilkPatchMakeshift
@@ -329,12 +334,17 @@
     entity: MedicalPatchMakeshift
 
 - type: construction
+  name: silk makeshift patch
   id: SilkPatchMakeshift
   graph: SilkPatchMakeshift
   startNode: start
   targetNode: silkPatchMakeshift
   category: construction-category-tools
   objectType: Item
+  description: A little better then nothing. Apply a chemical to it and wear it for treatment over time.
+  icon:
+    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    state: MakeshiftPatch
   entityWhitelist:
     tags:
     - SpiderCraft
