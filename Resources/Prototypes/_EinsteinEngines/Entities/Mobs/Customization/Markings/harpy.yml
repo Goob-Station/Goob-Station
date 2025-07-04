@@ -349,7 +349,7 @@
 - type: marking
   id: HarpyLegsDefault
   bodyPart: LLeg
-  markingCategory: RightLeg
+  markingCategory: LeftLeg
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -362,7 +362,6 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_legs.rsi
       state: thighs
-
 - type: marking
   id: HarpyFeetDefault
   bodyPart: RFoot
