@@ -5,7 +5,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Nutrition.Components;
 
@@ -16,52 +15,43 @@ namespace Content.Goobstation.Shared.Xenobiology.Systems;
 /// </summary>
 public partial class XenobiologySystem
 {
-    private readonly TimeSpan _growthInterval = TimeSpan.FromSeconds(1);
-    private TimeSpan _nextGrowthTime; // fix this shit dawg
-
     private void InitializeGrowth()
     {
-        base.Initialize();
-
         SubscribeLocalEvent<MobGrowthComponent, ComponentInit>(OnMobGrowthInit);
-        _nextGrowthTime = _gameTiming.CurTime + _growthInterval;
     }
 
-    private void OnMobGrowthInit(Entity<MobGrowthComponent> ent, ref ComponentInit args) =>
-        UpdateName(ent);
-
-    //Mob growth doesn't need to be checked for every frame.
-    private void UpdateGrowth()
+    private void OnMobGrowthInit(Entity<MobGrowthComponent> ent, ref ComponentInit args)
     {
-        if (_nextGrowthTime > _gameTiming.CurTime)
-            return;
+        ent.Comp.NextGrowthTime = _gameTiming.CurTime + ent.Comp.GrowthInterval;
+        ent.Comp.BaseEntityName = Name(ent);
 
-        _nextGrowthTime = _gameTiming.CurTime + _growthInterval;
-        UpdateMobGrowth();
+        if (!ent.Comp.Stages.ContainsKey(ent.Comp.CurrentStage))
+        {
+            Log.Error($"Invalid initial stage {ent.Comp.CurrentStage} for entity {ToPrettyString(ent)}");
+            ent.Comp.CurrentStage = ent.Comp.FirstStage;
+        }
+
+        UpdateAppearance(ent);
     }
-
     // Checks entity hunger thresholds, if the threshold required by MobGrowth is met -> grow.
     private void UpdateMobGrowth()
     {
-        var eligibleMobs = new HashSet<Entity<MobGrowthComponent, HungerComponent>>();
-
         var query = EntityQueryEnumerator<MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var growth, out var hungerComp))
         {
-            if (_mobState.IsDead(uid))
+            if (_gameTiming.CurTime < growth.NextGrowthTime)
                 continue;
 
-            eligibleMobs.Add((uid, growth, hungerComp));
-        }
+            growth.NextGrowthTime = _gameTiming.CurTime + growth.GrowthInterval;
 
-        foreach (var ent in eligibleMobs)
-        {
-            if (_hunger.GetHunger(ent) < ent.Comp1.HungerRequired
-                || ent.Comp1.CurrentStage == ent.Comp1.Stages.LastOrDefault()
-                || ent.Comp1.CurrentStage == ent.Comp1.Stages[^1])
+            if (_mobState.IsDead(uid)
+                || _hunger.GetHunger(hungerComp) < growth.HungerRequired
+                || !growth.Stages.TryGetValue(growth.CurrentStage, out var currentData)
+                || string.IsNullOrEmpty(currentData.NextStage))
                 continue;
 
-            DoGrowth(ent);
+            DoGrowth((uid, growth, hungerComp));
+
         }
     }
 
@@ -70,31 +60,42 @@ public partial class XenobiologySystem
     // Fairly barebones at the moment, this could be expanded to increase HP etc...
     private void DoGrowth(Entity<MobGrowthComponent, HungerComponent> ent)
     {
+        var (uid, growth, hunger) = ent;
+
         if (TerminatingOrDeleted(ent))
             return;
 
-        var currentStage = ent.Comp1.CurrentStage;
-        var stages = ent.Comp1.Stages;
-        var currentIndex = stages.IndexOf(currentStage);
-        var nextIndex = (currentIndex + 1) % stages.Count;
-        var nextStage = stages[nextIndex];
+        if (!growth.Stages.TryGetValue(growth.CurrentStage, out var currentStageData))
+        {
+            Log.Error($"Missing stage data for {growth.CurrentStage} on entity {ToPrettyString(uid)}");
+            return;
+        }
 
-        ent.Comp1.CurrentStage = nextStage;
+        if (currentStageData.NextStage is not { } nextStage ||
+            !growth.Stages.ContainsKey(nextStage))
+        {
+            Log.Error($"Invalid next stage {currentStageData.NextStage} for entity {ToPrettyString(uid)}");
+            return;
+        }
 
-        _hunger.ModifyHunger(ent, ent.Comp1.GrowthCost, ent.Comp2);
-        _appearance.SetData(ent, GrowthStateVisuals.Stage, ent.Comp1.CurrentStage);
+        _hunger.ModifyHunger(uid, growth.GrowthCost, hunger);
+        growth.CurrentStage = nextStage;
+        Dirty(uid, growth);
 
-        UpdateName(ent);
-
-        Dirty(ent);
+        UpdateAppearance((uid, growth));
     }
 
-    private void UpdateName(EntityUid uid, MobGrowthComponent? comp = null)
+    private void UpdateAppearance(Entity<MobGrowthComponent> ent)
     {
-        if (!Resolve(uid, ref comp))
+        if (!ent.Comp.Stages.TryGetValue(ent.Comp.CurrentStage, out var stageData)
+            || !TryComp<AppearanceComponent>(ent, out var appearance)
+            || stageData.Sprite is not { } sprite)
             return;
 
-        // _metaData.SetEntityName(uid, comp.CurrentStage + " " + Name(uid)); disabled temporarily
+        _appearance.SetData(ent, GrowthStateVisuals.Sprite, sprite, appearance);
+
+        if (_net.IsServer)
+            _metaData.SetEntityName(ent, $"{stageData.DisplayName} {ent.Comp.BaseEntityName}");
     }
 
     #endregion

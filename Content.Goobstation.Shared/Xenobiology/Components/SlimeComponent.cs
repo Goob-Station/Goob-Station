@@ -106,6 +106,25 @@ public sealed partial class SlimeComponent : Component
     public float MitosisHunger = 200f;
 
     /// <summary>
+    /// How long in between each mitosis/breeding check?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// When is the next mitosis/breeding check?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan NextUpdateTime;
+
+    /// <summary>
+    /// What should the minimum difference be between the current hunger and the mitosis hunger
+    /// before the entity starts to shake?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float JitterDifference = 25f;
+
+    /// <summary>
     /// Should this slime have a shader?
     /// </summary>
     [DataField, AutoNetworkedField]

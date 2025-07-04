@@ -14,12 +14,13 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -53,8 +54,12 @@ public sealed partial class XenobiologySystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
 
     private ISawmill _sawmill = default!;
+
+    private EntityQuery<SlimeComponent> _slimeQuery;
+    private EntityQuery<HungerComponent> _hungerQuery;
 
     public override void Initialize()
     {
@@ -66,13 +71,16 @@ public sealed partial class XenobiologySystem : EntitySystem
         InitializeExtracts();
 
         _sawmill = Logger.GetSawmill("Xenobiology");
+
+        _slimeQuery = GetEntityQuery<SlimeComponent>();
+        _hungerQuery = GetEntityQuery<HungerComponent>();
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        UpdateBreeding();
-        UpdateGrowth();
+        UpdateMitosis();
+        UpdateMobGrowth();
         UpdateHunger();
     }
 

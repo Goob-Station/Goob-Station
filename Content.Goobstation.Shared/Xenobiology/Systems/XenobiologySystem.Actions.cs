@@ -53,7 +53,7 @@ public partial class XenobiologySystem
                 ignoreResistances: true,
                 targetPart: TargetBodyPart.All);
 
-            if (!TryComp<HungerComponent>(dotComp.SourceEntityUid, out var hunger)
+            if (!_hungerQuery.TryComp(dotComp.SourceEntityUid, out var hunger)
                 || dotComp.SourceEntityUid is not { } sourceEntity)
                 continue;
 
@@ -86,7 +86,7 @@ public partial class XenobiologySystem
 
         if (TerminatingOrDeleted(target)
             || TerminatingOrDeleted(slime)
-            || !TryComp<SlimeComponent>(slime, out var slimeComp))
+            || !_slimeQuery.TryComp(slime, out var slimeComp))
             return;
 
         TryDoSlimeLatch(slime, target, slimeComp);
@@ -129,12 +129,12 @@ public partial class XenobiologySystem
     public bool NpcTryLatch(EntityUid uid, EntityUid target, SlimeComponent? slimeComp)
     {
         if (!Resolve(uid, ref slimeComp)
+            || _net.IsClient
             || slimeComp.LatchedTarget.HasValue
             || _mobState.IsDead(target)
             || !_actionBlocker.CanInteract(uid, target)
             || !HasComp<HumanoidAppearanceComponent>(target)
-            || HasComp<BeingConsumedComponent>(target)
-            || _net.IsClient)
+            || HasComp<BeingConsumedComponent>(target))
             return false;
 
         TryDoSlimeLatch(uid, target, slimeComp);

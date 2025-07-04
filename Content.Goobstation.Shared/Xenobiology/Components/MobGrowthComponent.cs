@@ -4,8 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Xenobiology.Components;
 
@@ -31,19 +33,42 @@ public sealed partial class MobGrowthComponent : Component
     /// What is the mob's current growth stage?
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
-    public GrowthStage CurrentStage;
+    public string CurrentStage;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public string FirstStage => Stages.Keys.FirstOrDefault() ?? string.Empty;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool IsFirstStage => FirstStage == CurrentStage;
 
     /// <summary>
-    /// A list of available stages, make sure to include the base stage.
+    /// A list of available stages.
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
-    public List<GrowthStage> Stages;
+    public Dictionary<string, GrowthStageData> Stages = [];
+
+    [ViewVariables, AutoNetworkedField]
+    public TimeSpan NextGrowthTime;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan GrowthInterval = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// The base name of the entity, to be modified.
+    /// </summary>
+    [ViewVariables]
+    public string BaseEntityName;
 
 }
-
-[Serializable, NetSerializable]
-public enum GrowthStage
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class GrowthStageData
 {
-    Baby,
-    Adult,
+    [DataField]
+    public string? NextStage { get; set; }
+
+    [DataField]
+    public string? Sprite { get; set; }
+
+    [DataField]
+    public string? DisplayName { get; set; } = string.Empty;
 }

@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
@@ -18,20 +19,17 @@ namespace Content.Goobstation.Shared.Xenobiology.Systems;
 /// </summary>
 public partial class XenobiologySystem
 {
-    private readonly TimeSpan _updateInterval = TimeSpan.FromSeconds(1);
-    private TimeSpan _nextUpdateTime;
-
-    private void InitializeBreeding() =>
-        _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
-
-    // Mitosis doesn't need to be checked every frame.
-    private void UpdateBreeding()
+    private void InitializeBreeding()
     {
-        if (_nextUpdateTime > _gameTiming.CurTime)
-            return;
+        base.Initialize();
 
-        _nextUpdateTime = _gameTiming.CurTime + _updateInterval;
-        UpdateMitosis();
+        SubscribeLocalEvent<SlimeComponent, MapInitEvent>(OnSlimeInit);
+    }
+
+    private void OnSlimeInit(Entity<SlimeComponent> slime, ref MapInitEvent args)
+    {
+        Subs.CVar(_configuration, GoobCVars.BreedingInterval, val => slime.Comp.UpdateInterval = TimeSpan.FromSeconds(val), true);
+        slime.Comp.NextUpdateTime = _gameTiming.CurTime + slime.Comp.NextUpdateTime;
     }
 
     // Checks slime entity hunger threshholds, if the threshhold required by SlimeComponent is met -> DoMitosis.
@@ -42,16 +40,18 @@ public partial class XenobiologySystem
         var query = EntityQueryEnumerator<SlimeComponent, MobGrowthComponent, HungerComponent>();
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
-            if (_mobState.IsDead(uid)
-                || growthComp.CurrentStage == growthComp.Stages[0])
+            if (_gameTiming.CurTime < slime.NextUpdateTime
+            || _mobState.IsDead(uid)
+            || growthComp.IsFirstStage)
                 continue;
 
             eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
+            slime.NextUpdateTime = _gameTiming.CurTime + slime.UpdateInterval;
         }
 
         foreach (var ent in eligibleSlimes)
         {
-            if (_hunger.GetHunger(ent) > ent.Comp1.MitosisHunger - 25)
+            if (_hunger.GetHunger(ent) > ent.Comp1.MitosisHunger - ent.Comp1.JitterDifference)
                 _jitter.DoJitter(ent, TimeSpan.FromSeconds(1), true);
 
             if (_hunger.GetHunger(ent) < ent.Comp1.MitosisHunger)
@@ -76,7 +76,7 @@ public partial class XenobiologySystem
             return;
 
         var newEntityUid = SpawnNextToOrDrop(newEntityProto, parent, null, newBreed.Components);
-        if (!TryComp<SlimeComponent>(newEntityUid, out var slime))
+        if (!_slimeQuery.TryComp(newEntityUid, out var slime))
             return;
 
         if (slime is { ShouldHaveShader: true, Shader: not null })

@@ -109,7 +109,7 @@ public partial class XenobiologySystem
 
         foreach (var removedEnt in _containerSystem.EmptyContainer(tankComp.StorageTank))
         {
-            var popup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-clear-popup", ("ent", removedEnt));
+            var popup = Loc.GetString("xeno-vacuum-clear-popup", ("ent", removedEnt));
             _popup.PopupEntity(popup, ent, args.User);
 
             if (args.Target is { } thrown)
@@ -131,15 +131,16 @@ public partial class XenobiologySystem
             || !TryComp<XenoVacuumTankComponent>(tank, out var tankComp)
             || _net.IsClient)
         {
-            var noTankPopup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
+            var noTankPopup = Loc.GetString("xeno-vacuum-suction-fail-no-tank-popup");
             _popup.PopupEntity(noTankPopup, vacuum, user);
+
             return false;
         }
 
-        if (!HasComp<SlimeComponent>(target)
+        if (_slimeQuery.HasComp(target)
             && !HasComp<EmaggedComponent>(vacuum))
         {
-            var invalidEntityPopup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
+            var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
             _popup.PopupEntity(invalidEntityPopup, vacuum, user);
 
             return false;
@@ -147,7 +148,7 @@ public partial class XenobiologySystem
 
         if (tankComp.StorageTank.ContainedEntities.Count > tankComp.MaxEntities)
         {
-            var tankFullPopup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-suction-fail-tank-full-popup");
+            var tankFullPopup = Loc.GetString("xeno-vacuum-suction-fail-tank-full-popup");
             _popup.PopupEntity(tankFullPopup, vacuum, user);
 
             return false;
@@ -161,7 +162,7 @@ public partial class XenobiologySystem
 
         _audio.PlayEntity(vacuum.Comp.Sound, user, user);
 
-        var successPopup = Robust.Shared.Localization.Loc.GetString("xeno-vacuum-suction-succeed-popup", ("ent", target));
+        var successPopup = Loc.GetString("xeno-vacuum-suction-succeed-popup", ("ent", target));
         _popup.PopupEntity(successPopup, vacuum, user);
 
         return true;

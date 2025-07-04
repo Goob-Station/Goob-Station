@@ -5,6 +5,7 @@
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
+  - type: Appearance
   - type: Hunger
     startingHunger: 50
     thresholds:
@@ -156,10 +157,15 @@
       color: "#828282"
   - type: MobGrowth
     hungerRequired: 100
-    currentStage: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+    currentStage: baby
     stages:
-    - _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
-    - _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
+      baby:
+        nextStage: adult
+        sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+        displayName: baby
+      adult:
+        sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
+        displayName: adult
   - type: Slime
     breed: GreyMutation
     slimeColor: "#828282"

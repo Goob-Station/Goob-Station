@@ -267,6 +267,13 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Xenobiology
+
+    public static readonly CVarDef<float> BreedingInterval =
+        CVarDef.Create("xenobiology.breeding.interval", 1f, CVar.REPLICATED | CVar.SERVER);
+
+    #endregion
+
     #region Goobcoins
 
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
@@ -472,7 +479,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Whether to hear audio from your own entity.");
 
     #endregion
-    
+
     #region Queue
 
     /// <summary>

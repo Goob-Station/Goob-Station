@@ -21,7 +21,7 @@ public sealed class MobGrowthVisualizerSystem : VisualizerSystem<MobGrowthCompon
     protected override void OnAppearanceChange(EntityUid uid, MobGrowthComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null
-            || !AppearanceSystem.TryGetData<string>(uid, GrowthStateVisuals.Stage, out var rsi, args.Component))
+            || !AppearanceSystem.TryGetData<string>(uid, GrowthStateVisuals.Sprite, out var rsi, args.Component))
             return;
 
         args.Sprite.LayerSetRSI(DamageStateVisualLayers.Base, rsi);

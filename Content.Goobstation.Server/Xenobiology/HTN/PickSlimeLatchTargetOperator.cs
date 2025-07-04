@@ -65,24 +65,25 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var huAppQuery = _entManager.GetEntityQuery<HumanoidAppearanceComponent>();
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
+        var beingConsumedQuery = _entManager.GetEntityQuery<BeingConsumedComponent>();
         var targets = new List<EntityUid>();
 
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _entManager)
             || !_entManager.TryGetComponent<SlimeComponent>(owner, out var slimeComp)
             || !_entManager.TryGetComponent<MobGrowthComponent>(owner, out var growthComp) // Baby slimes only target when BELOW Peckish
-            || growthComp.CurrentStage == growthComp.Stages[0]
+            || growthComp.IsFirstStage
             && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
             return (false, null);
 
         foreach (var entity in _factions.GetNearbyHostiles(owner, range))
         {
-            if (!huAppQuery.TryGetComponent(entity, out _)
+            if (!huAppQuery.HasComp(entity)
+                || beingConsumedQuery.HasComp(entity)
                 || _mobSystem.IsDead(entity)
                 || slimeComp.LatchedTarget.HasValue
-                || growthComp.CurrentStage == growthComp.Stages[0]
+                || growthComp.IsFirstStage
                 && entity == slimeComp.Tamer
                 || entity == slimeComp.Tamer
-                || _entManager.HasComponent<BeingConsumedComponent>(entity)
                 && _hunger.IsHungerAboveState(owner, HungerThreshold.Peckish))
                 continue;
 

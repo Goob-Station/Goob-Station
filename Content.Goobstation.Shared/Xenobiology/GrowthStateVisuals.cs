@@ -12,6 +12,6 @@ namespace Content.Goobstation.Shared.Xenobiology
     [Serializable, NetSerializable]
     public enum GrowthStateVisuals
     {
-        Stage,
+        Sprite,
     }
 }
