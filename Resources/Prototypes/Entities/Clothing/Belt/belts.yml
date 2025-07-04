@@ -390,6 +390,7 @@
         - HolosignProjector
         - Plunger
         - Keyring # Goobstation
+        - WireBrush
       components:
         - LightReplacer
         - SmokeOnTrigger
