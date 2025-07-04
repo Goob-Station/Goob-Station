@@ -45,6 +45,7 @@
     layers:
     - sprite: _Goobstation/Mobs/Bingle/bingle.rsi
       state: pit
+  - type: Appearance
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
