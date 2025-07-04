@@ -386,7 +386,7 @@
         probability: 0.2
 
 - type: reagent
-  id: formaldehyde
+  id: Formaldehyde
   name: reagent-name-formaldehyde
   group: Toxins
   desc: reagent-desc-formaldehyde

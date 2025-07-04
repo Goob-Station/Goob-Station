@@ -115,5 +115,5 @@
       amount: 1
       catalyst: true
   products:
-    NitricAcid: 2
-    PotassiumSulfate: 1
+    Formaldehyde: 1
+    Water: 1

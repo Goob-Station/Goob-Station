@@ -81,20 +81,6 @@
     SodiumBicarbondate: 2
 
 - type: reaction
-  id: SodiumBicarbonate
-  reactants:
-    SodiumCarbonate:
-      amount: 1
-    Water:
-      amount: 1
-    Carbon:
-      amount: 1
-    Oxygen:
-      amount: 2
-  products:
-    SodiumBicarbondate: 2
-
-- type: reaction
   id: SodiumAcetate
   reactants:
     SodiumBicarbonate:
