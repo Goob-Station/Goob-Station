@@ -99,6 +99,7 @@
   - NanotrasenRepresentativeBelt
   - Glasses
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - Survival
 
@@ -113,6 +114,7 @@
   - BlueshieldOfficerMask
   - BlueshieldOfficerShoes
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - SurvivalSecurity
 
@@ -128,6 +130,7 @@
   - NanotrasenTrainerGloves
   - NanotrasenTrainerBelt
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - Survival
 
@@ -152,5 +155,6 @@
   - SecurityNeck
   - SurvivalSecurity
   - Trinkets
+  - Animals
   - SecurityStar
   - GroupSpeciesBreathToolSecurity

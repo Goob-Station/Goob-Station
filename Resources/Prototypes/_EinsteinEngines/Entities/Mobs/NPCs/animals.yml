@@ -9,6 +9,8 @@
   id: MobSquackroach
   description: This is just a horrific genetic stew of a specimen.
   components:
+  - type: Singer
+    proto: HarpySinger
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -33,11 +35,17 @@
   - type: Speech
     speechVerb: Harpy
     speechSounds: Harpy
+  - type: FaxableObject
+    insertingState: inserting_squackroach
   - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Animals/squackroach.rsi
+    sprite: Mobs/Animals/squackroach.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: squackroach
+    - map: [ "singingLayer" ]
+      sprite: Effects/harpysinger.rsi
+      state: singing_music_notes
+      visible: false
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -49,7 +57,7 @@
     size: Normal
   - type: Clothing
     quickEquip: false
-    sprite: _EinsteinEngines/Mobs/Animals/squackroach.rsi
+    sprite: Mobs/Animals/squackroach.rsi
     equippedPrefix: sq
     slots:
     - HEAD
@@ -89,9 +97,9 @@
     grindableSolutionName: food
   - type: Vocal
     sounds:
-      Male: SoundsHarpyMale
-      Female: SoundsHarpyFemale
-      Unsexed: SoundsHarpyFemale
+      Male: SoundsHarpy
+      Female: SoundsHarpy
+      Unsexed: SoundsHarpy
   - type: GenericVisualizer
     visuals:
       enum.HarpyVisualLayers.Singing:
@@ -105,6 +113,7 @@
     tags:
     - Trash
     - CannotSuicide
+    - DoorBumpOpener
     - HarpyEmotes
     - VimPilot
   - type: CanEscapeInventory
@@ -113,6 +122,12 @@
     - Mouse
   - type: Body
     prototype: Squackroach
+  - type: StepTriggerImmune
+    whitelist:
+      types:
+      - Shard
+      - Landmine
+      - Mousetrap
   - type: Destructible
     thresholds:
     - trigger:
@@ -124,6 +139,9 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
+  - type: FootPrints
+    leftBarePrint: "footprint-left-bare-lizard"
+    rightBarePrint: "footprint-right-bare-lizard"
   - type: SurgeryTarget
   - type: UserInterface
     interfaces:

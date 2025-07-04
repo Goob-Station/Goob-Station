@@ -4,6 +4,16 @@
   id: MobCarpGoldfish
   description: A domesticated variety of space carp, much smaller but no less aggressive.
   components:
+    - type: HTN
+      rootTask:
+        task: FollowCompound
+      blackboard:
+        IdleRange: !type:Single
+          1.5
+        FollowCloseRange: !type:Single
+          1.0
+        FollowRange: !type:Single
+          2.0
     - type: GhostRole
       allowMovement: true
       allowSpeech: true
