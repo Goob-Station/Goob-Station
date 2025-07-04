@@ -75,7 +75,7 @@
   - sprite: _DV/Mobs/Customization/Harpy/harpy_tails36x32.rsi
     state: finch_tail
 
- - type: marking
+- type: marking
   id: HarpyChestDefault
   bodyPart: Chest
   markingCategory: Chest
@@ -93,7 +93,7 @@
   - sprite: _DV/Mobs/Customization/Harpy/harpy_chest.rsi
     state: lower
 
- - type: marking
+- type: marking
   id: HarpyLegsDefault
   bodyPart: LLeg
   markingCategory: Legs
