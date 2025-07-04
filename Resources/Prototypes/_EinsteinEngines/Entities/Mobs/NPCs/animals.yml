@@ -54,7 +54,7 @@
   - type: FaxableObject
     insertingState: inserting_squackroach
   - type: Sprite
-    sprite: Mobs/Animals/squackroach.rsi
+    sprite: _EinsteinEngines/Mobs/Animals/squackroach.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: squackroach
@@ -73,7 +73,7 @@
     size: Normal
   - type: Clothing
     quickEquip: false
-    sprite: Mobs/Animals/squackroach.rsi
+    sprite: _EinsteinEngines/Mobs/Animals/squackroach.rsi
     equippedPrefix: sq
     slots:
     - HEAD
@@ -113,9 +113,9 @@
     grindableSolutionName: food
   - type: Vocal
     sounds:
-      Male: SoundsHarpy
-      Female: SoundsHarpy
-      Unsexed: SoundsHarpy
+      Male: SoundsHarpyMale
+      Female: SoundsHarpyFemale
+      Unsexed: SoundsHarpyFemale
   - type: GenericVisualizer
     visuals:
       enum.HarpyVisualLayers.Singing:
@@ -129,7 +129,6 @@
     tags:
     - Trash
     - CannotSuicide
-    - DoorBumpOpener
     - HarpyEmotes
     - VimPilot
   - type: CanEscapeInventory
@@ -138,12 +137,6 @@
     - Mouse
   - type: Body
     prototype: Squackroach
-  - type: StepTriggerImmune
-    whitelist:
-      types:
-      - Shard
-      - Landmine
-      - Mousetrap
   - type: Destructible
     thresholds:
     - trigger:
