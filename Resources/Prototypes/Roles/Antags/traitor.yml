@@ -151,11 +151,11 @@
     pocket1: WeaponPistolViper
     pocket2: MagazinePistol
     eyes: ClothingEyesEyepatchHudMedical
+    ears: ClothingHeadsetAltSyndicate
   inhand:
     - ClothingBackpackDuffelSyndicateFilledMedical
   storage:
     back:
-    - EncryptionKeySyndie
     - EncryptionKeySyndie
     - MedkitCombatFilled
     - Hypopen
@@ -173,11 +173,11 @@
     outerClothing: ClothingOuterVestWeb
     eyes: ClothingEyesNightVisionGogglesSyndie
     head: ClothingHeadHelmetSwatSyndicate
+    ears: ClothingHeadsetAltSyndicate
   inhand:
     - WeaponSubMachineGunC20r
   storage:
     back:
-    - EncryptionKeySyndie
     - EncryptionKeySyndie
     - MagazinePistolSubMachineGun
     - MagazinePistolSubMachineGun
@@ -187,12 +187,12 @@
   parent: SyndicateOperativeClothing
   equipment:
     pocket1: WeaponPistolViper
+    ears: ClothingHeadsetAltSyndicate
   inhand:
     - ToolboxSyndicateFilled
     - ClothingBackpackChameleonFill
   storage:
     back:
-    - EncryptionKeySyndie
     - EncryptionKeySyndie
     - ClothingMaskGasVoiceChameleon
     - AccessBreaker
