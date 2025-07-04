@@ -94,6 +94,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers; // Goobstation
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -269,7 +270,7 @@ public sealed class DumpableSystem : EntitySystem
             }
         }
         // Begin DeltaV - ough why do you not use events for this
-        else if (TryComp<SmartFridgeComponent>(args.Args.Target, out var fridge)) // EE
+        else if (TryComp<SmartFridgeComponent>(target, out var fridge)) // EE & Goobstation
         {
             dumped = true;
             // Frontier:
@@ -282,7 +283,7 @@ public sealed class DumpableSystem : EntitySystem
             // }
             foreach (var entity in dumpQueue)
             {
-                _smartFridge.TryInsertObject((args.Args.Target.Value, fridge), entity, args.Args.User); // Frontier & EE
+                _smartFridge.TryInsertObject((target.Value, fridge), entity, user); // Frontier & EE & Goobstation
             }
             // End Frontier
         }
