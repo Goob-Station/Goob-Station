@@ -40,7 +40,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _RA/Objects/Weapons/Guns/Ammunition/Magazines/Smartgun Magazine
+    sprite: _RA/Objects/Weapons/Guns/Ammunition/Magazines/SmartgunMagazine
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
