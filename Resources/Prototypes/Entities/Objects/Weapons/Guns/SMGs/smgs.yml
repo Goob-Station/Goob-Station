@@ -349,11 +349,11 @@
  #   maxAngle: -16
   - type: Gun
     minAngle: 5
-    maxAngle: 30
-    fireRate: 10
-    burstFireRate: 8
+    maxAngle: 90
+    fireRate: 13
+    burstFireRate: 18
     angleIncrease: 5
-    angleDecay: 16
+    angleDecay: 35
 #    minAngle: 21 # Base SMG already has minAngle: 2 maxAngle: 16
 #    maxAngle: 32 # Goob - one-handed C20R - end
     shotsPerBurst: 5
@@ -361,9 +361,9 @@
     - Burst
     - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
   - type: ChamberMagazineAmmoProvider
-    autoEject: true
+    autoEject: false
   - type: MagazineVisuals
     magState: mag
     steps: 1
