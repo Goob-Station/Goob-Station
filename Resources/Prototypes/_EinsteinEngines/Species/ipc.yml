@@ -66,7 +66,7 @@
     Chest:
       points: 1
       required: true
-      defaultMarkings: [ MobIPCTorsoDefault ]
+      defaultMarkings: [ MobIPCChestDefault ]
     HeadSide:
       points: 1
       required: false
