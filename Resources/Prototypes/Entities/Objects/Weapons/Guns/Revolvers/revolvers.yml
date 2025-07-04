@@ -255,4 +255,3 @@
     capacity: 5
     chambers: [ null, null, null, null, null ]
     ammoSlots: [ null, null, null, null, null ]
-    
