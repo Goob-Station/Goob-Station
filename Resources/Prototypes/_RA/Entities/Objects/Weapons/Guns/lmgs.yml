@@ -3,7 +3,7 @@
   name: MG-37
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleRAMG37
-  description: A high end military grade assault rifle. Uses .20 rifle ammo.
+  description: A high end robust light machine gun that utilizes a target designator from a weapon deemed too expensive for mass scale manufacturing. Takes .160 Drum Magazines
   components:
   - type: Sprite
     sprite: _RA/Objects/Weapons/Guns/LMG/MG37.rsi
