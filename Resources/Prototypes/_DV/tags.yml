@@ -1,21 +1,52 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 ## This is for Nyano and Delta V tags
+
+- type: Tag
+  id: BeltSlotNotBelt #not a 'belt'
+
+- type: Tag
+  id: BulletBB
+
+- type: Tag
+  id: CartridgeSpecial # For the .38 special ammo and revolver
+
+- type: Tag
+  id: Directional
+
+- type: Tag
+  id: DockShipyard
+
+- type: Tag
+  id: ForensicBeltEquip
+
+- type: Tag
+  id: Gavel
+
+- type: Tag
+  id: GasPipeHalf #Craftable Musket
+
+- type: Tag
+  id: HandLabeler
 
 - type: Tag
   id: HidesHarpyWings
 
 - type: Tag
-  id: BionicSyrinxImplant
+  id: MagazinePistolSpecial # For the .38 special ammo and pistol
 
 - type: Tag
-  id: Skirt
+  id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
+
+- type: Tag
+  id: SpeedLoaderSpecial
 
 - type: Tag
   id: PreventLabel
+
+- type: Tag
+  id: BionicSyrinxImplant
+
+- type: Tag
+  id: PaperSlip
+
+- type: Tag
+  id: Skirt
