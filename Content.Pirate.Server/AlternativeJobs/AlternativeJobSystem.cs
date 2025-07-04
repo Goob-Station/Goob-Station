@@ -5,11 +5,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Pirate.Server.AlternativeJobs;
 
-public sealed class AlternativeJobSystem : EntitySystem, IAlternativeJob
+public sealed class AlternativeJobSystem : IAlternativeJob
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IdCardSystem _idCardSystem = default!;
-
     public bool TryGetAlternativeJob(string parentJobId, out AlternativeJobPrototype alternativeJobPrototype)
     {
         foreach (var prototype in _prototypeManager.EnumeratePrototypes<AlternativeJobPrototype>())
@@ -22,10 +20,5 @@ public sealed class AlternativeJobSystem : EntitySystem, IAlternativeJob
         }
         alternativeJobPrototype = default!;
         return false;
-    }
-    public bool TrySetJobTitle(EntityUid cardUid, string newJobTitie)
-    {
-        if (!TryComp<IdCardComponent>(cardUid, out var idCardComp)) return false;
-        return _idCardSystem.TryChangeJobTitle(cardUid, newJobTitie, idCardComp);
     }
 }
