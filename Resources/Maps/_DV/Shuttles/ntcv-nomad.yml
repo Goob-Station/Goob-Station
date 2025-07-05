@@ -830,7 +830,7 @@ entities:
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 0
-- proto: PoweredLightBlueInterior
+- proto: PoweredlightBlue
   entities:
   - uid: 96
     components:
