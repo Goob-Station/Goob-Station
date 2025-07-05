@@ -225,10 +225,6 @@
   - WhiteCane
   - TapeRecorder
   # End DeltaV Additions
-  - Squackroach
-  - Mouse
-  - Mothroach
-  - Goldfish
 
 - type: loadoutGroup
   id: Glasses
@@ -240,7 +236,7 @@
   - GlassesJensen
   - CheapSunglasses # Goobstation
 
-- type: loadoutGroup 
+- type: loadoutGroup
   id: Animals  # Goobstation
   name: loadout-group-animals
   minLimit: 0

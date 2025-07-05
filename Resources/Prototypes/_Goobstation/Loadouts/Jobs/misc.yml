@@ -65,7 +65,7 @@
 # Cheap Sunglasses
 - type: loadout
   id: CheapSunglasses
-  equipment: 
+  equipment:
     eyes: ClothingEyesGlassesCheapSunglasses
 
 # Animals
