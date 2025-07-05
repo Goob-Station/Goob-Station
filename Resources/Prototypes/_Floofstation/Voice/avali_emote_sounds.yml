@@ -25,7 +25,7 @@
     Scream:
       collection: AvaliScreams
     Laugh:
-      collection: AvaliLaugh 
+      collection: AvaliLaugh
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -60,6 +60,10 @@
       collection: Wurble
     Chirp:
       collection: ResomiChirp
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
 
 - type: emoteSounds
   id: FemaleAvaliEmote
@@ -69,7 +73,7 @@
     Scream:
       collection: AvaliScreams
     Laugh:
-      collection: AvaliLaugh 
+      collection: AvaliLaugh
     Sneeze:
       collection: FemaleSneezes
     Cough:
@@ -104,3 +108,7 @@
       collection: Wurble
     Chirp:
       collection: ResomiChirp
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
