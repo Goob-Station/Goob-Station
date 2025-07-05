@@ -81,7 +81,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (!_ui.IsUiOpen(uid, ShipyardConsoleUiKey.Key))
-                return;
+                continue;
 
             if (GetBankAccount(uid) is {} bank)
                 UpdateUI(uid, args.Balance[bank.Comp.PrimaryAccount]);
