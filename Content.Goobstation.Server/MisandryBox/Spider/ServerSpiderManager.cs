@@ -1,4 +1,8 @@
-﻿using System.Threading.Tasks;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MPL-2.0
+
+using System.Threading.Tasks;
 using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Shared.MisandryBox.Spider;
 using Content.Server.Database;

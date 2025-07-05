@@ -1,4 +1,8 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MPL-2.0
+
+using System.Numerics;
 using Content.Client.Lobby;
 using Content.Goobstation.Common.CCVar;
 using Robust.Client;

@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Player;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MPL-2.0
+
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Common.MisandryBox;
 
