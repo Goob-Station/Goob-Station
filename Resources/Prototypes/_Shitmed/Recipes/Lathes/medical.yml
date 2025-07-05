@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -37,13 +38,13 @@
   result: MedicalCyberneticEyes
   categories:
   - Robotics
-  completetime: 5
+  completetime: 10
   materials:
-    Steel: 1000
-    Glass: 500
-    Plastic: 500
-    Gold: 300
-    Silver: 300
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
 
 - type: latheRecipe
   id: EnergyScalpel
@@ -101,3 +102,68 @@
     Durathread: 300
     Cloth: 300
     BSCrystal: 100
+
+- type: latheRecipe
+  id: BasicCyberneticHeart
+  result: BasicCyberneticHeart
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
+
+- type: latheRecipe
+  id: UpgradedCyberneticHeart
+  result: UpgradedCyberneticHeart
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 3000
+    Glass: 1500
+    Plastic: 1000
+    Gold: 1500
+    Silver: 900
+
+- type: latheRecipe
+  id: BasicCyberneticLiver
+  result: BasicCyberneticLiver
+  categories:
+  - Robotics
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 5000
+    Plastic: 500
+    Gold: 500
+    Silver: 300
+
+- type: latheRecipe
+  id: BasicCyberneticLungs
+  result: BasicCyberneticLungs
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 2000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 1000
+    Silver: 600
+
+- type: latheRecipe
+  id: UpgradedCyberneticLungs
+  result: UpgradedCyberneticLungs
+  categories:
+  - Robotics
+  completetime: 10
+  materials:
+    Steel: 3000
+    Glass: 1500
+    Plastic: 1000
+    Gold: 1500
+    Silver: 900
