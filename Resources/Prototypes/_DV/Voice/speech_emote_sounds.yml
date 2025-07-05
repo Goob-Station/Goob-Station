@@ -151,6 +151,8 @@
       collection: Weh
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
+    Coo: #Floofstation
+      collection: HarpyCoos
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:

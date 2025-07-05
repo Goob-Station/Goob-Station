@@ -33,8 +33,6 @@
     tags:
       - HarpyEmotes
   blacklist:
-    tags:
-      - SiliconEmotes
     components:
       - BorgChassis
   chatTriggers:
