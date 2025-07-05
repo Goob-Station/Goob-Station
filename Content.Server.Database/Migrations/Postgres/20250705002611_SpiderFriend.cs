@@ -1,4 +1,8 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MPL-2.0
+
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
