@@ -68,7 +68,7 @@ public sealed class ItemSlotRendererSystem : EntitySystem
     {
         if(!TryComp<SpriteComponent>(uid, out var sprite))
         {
-            Log.Error($"ItemSlotRendererCompontn requires SpriteComponent to work, but {ToPrettyString(uid)} did not have one. Removing ItemSlotRenderer.");
+            Log.Error($"ItemSlotRendererComponent requires SpriteComponent to work, but {ToPrettyString(uid)} did not have one. Removing ItemSlotRenderer.");
             RemComp<ItemSlotRendererComponent>(uid);
             return;
         }
