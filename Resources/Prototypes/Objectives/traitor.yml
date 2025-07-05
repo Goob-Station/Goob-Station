@@ -146,7 +146,10 @@
   description: Die.
   components:
   - type: NotJobRequirement
-    job: [ResearchDirector, ChiefEngineer, Quartermaster]
+    job:
+      - ResearchDirector
+      - ChiefEngineer
+      - Quartermaster
   - type: Objective
     difficulty: 0.5
     icon:
@@ -215,7 +218,10 @@
   description: Identify yourself at your own risk. We just need them alive.
   components:
   - type: NotJobRequirement
-    job: [ResearchDirector, ChiefEngineer, Quartermaster]
+    job:
+      - ResearchDirector
+      - ChiefEngineer
+      - Quartermaster
   - type: Objective
     difficulty: 1.75
   - type: TargetObjective
@@ -228,7 +234,10 @@
   description: Identify yourself at your own risk. We just need them to succeed.
   components:
   - type: NotJobRequirement
-    job: [ResearchDirector, ChiefEngineer, Quartermaster]
+    job:
+      - ResearchDirector
+      - ChiefEngineer
+      - Quartermaster
   - type: Objective
     difficulty: 2.5
   - type: TargetObjective
