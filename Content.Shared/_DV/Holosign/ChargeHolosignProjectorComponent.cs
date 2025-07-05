@@ -9,7 +9,7 @@ namespace Content.Shared._DV.Holosign;
 /// If there is already a sign on the clicked tile it reclaims it for a charge instead of stacking it.
 /// Currently there is no spawning prediction so signs are spawned once in a container and moved out to allow prediction.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(ChargeHolosignSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), Access(typeof(ChargeHolosignSystem))]
 public sealed partial class ChargeHolosignProjectorComponent : Component
 {
     /// <summary>
@@ -31,6 +31,12 @@ public sealed partial class ChargeHolosignProjectorComponent : Component
     /// </summary>
     [DataField]
     public string ContainerId = "signs";
+
+    /// <summary>
+    /// Holosigns we "own".
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public List<EntityUid> Signs = new();
 
     [ViewVariables]
     public Container Container = default!;
