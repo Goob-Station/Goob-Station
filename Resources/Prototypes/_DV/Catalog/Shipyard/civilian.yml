@@ -18,7 +18,7 @@
   id: Barge
   name: The Barge
   description: A large shipping vessel repurposed into a salvage bar.
-  price: 45000
+  price: 80000
   path: /Maps/_DV/Shuttles/barge.yml
   categories:
   - Civilian
@@ -30,7 +30,7 @@
   id: Helix
   name: NTMC Helix
   description: A large mobile health clinic for servicing distant outposts.
-  price: 46000
+  price: 80000
   path: /Maps/_DV/Shuttles/helix.yml
   categories:
   - Civilian
@@ -41,7 +41,7 @@
   id: Prospector
   name: NT-7 Prospector
   description: A small mining vessel designed to assist salvage operations.
-  price: 20800
+  price: 45000
   path: /Maps/_DV/Shuttles/prospector.yml
   categories:
   - Civilian
@@ -52,7 +52,7 @@
   id: Nomad
   name: NTCV Nomad
   description: A small shuttle for transporting up to 3 passengers with relative comfort.
-  price: 21000
+  price: 30000
   path: /Maps/_DV/Shuttles/ntcv-nomad.yml
   categories:
   - Civilian
@@ -63,7 +63,7 @@
   id: Tote
   name: NTSV Tote
   description: A small shipping vessel, adapted from the Nomad line of shuttles with room for 2 passengers.
-  price: 20000
+  price: 30000
   path: /Maps/_DV/Shuttles/ntsv-tote.yml
   categories:
   - Civilian
@@ -74,7 +74,7 @@
   id: Pulse
   name: NTV Pulse
   description: A moderately sized shuttle intended for all-purpose use. It can comfortably accomodate a crew of up to ten people.
-  price: 50000
+  price: 90000
   path: /Maps/_DV/Shuttles/ntv-pulse.yml
   categories:
   - Civilian
