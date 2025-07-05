@@ -17,7 +17,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Pirate.Common.AlternativeJobs; // Pirate
 using Content.Server.Access.Components;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
@@ -34,7 +33,6 @@ public sealed class PresetIdCardSystem : EntitySystem
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly IAlternativeJob _alternativeJob = default!; // Pirate
 
     public override void Initialize()
     {
@@ -51,11 +49,6 @@ public sealed class PresetIdCardSystem : EntitySystem
         while (query.MoveNext(out var uid, out var card))
         {
             var station = _stationSystem.GetOwningStation(uid);
-            if (card.JobName is not null && _alternativeJob.TryGetAlternativeJob(card.JobName.Value, out var alternativeJobPrototype)) // Pirate start
-            {
-                _cardSystem.TryChangeJobTitle(uid, alternativeJobPrototype.LocalizedJobName);
-                card.JobName = alternativeJobPrototype.LocalizedJobName;
-            } // Pirate end
 
             // If we're not on an extended access station, the ID is already configured correctly from MapInit.
             if (station == null || !TryComp<StationJobsComponent>(station.Value, out var jobsComp) || !jobsComp.ExtendedAccess)

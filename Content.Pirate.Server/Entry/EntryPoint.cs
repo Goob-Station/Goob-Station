@@ -25,6 +25,5 @@ public sealed class EntryPoint : GameServer
     public override void PreInit()
     {
         base.PreInit();
-        IoCManager.Register<IAlternativeJob, AlternativeJobSystem>(true);
     }
 }
