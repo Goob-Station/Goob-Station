@@ -212,6 +212,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
     protected override void TriggerExplosion(EntityUid origin)
     {
+        base.TriggerExplosion(origin);
+
         _explosion.TriggerExplosive(
             origin,
             delete: true,

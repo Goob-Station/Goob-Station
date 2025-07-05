@@ -176,7 +176,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
         SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
-        SubscribeLocalEvent<ExplosionSpellEvent>(OnExplosionSpell);
         SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
         SubscribeLocalEvent<ScreamForMeEvent>(OnScreamForMe);
@@ -195,6 +194,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
+        SubscribeLocalEvent<ExplosionSpellEvent>(OnExplosionSpell);
     }
 
     private void OnSwapSecondaryTarget(SetSwapSecondaryTarget ev)
