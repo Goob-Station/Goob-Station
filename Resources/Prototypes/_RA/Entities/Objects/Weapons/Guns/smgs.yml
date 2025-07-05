@@ -7,7 +7,7 @@
 
 - type: entity
   name: M7S "bullet hose" submachine gun
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSecurityContraband] # RA the space law compliant version 
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSecurityContraband] # RA the space law compliant version
   id: WeaponSubMachineGunM7SRA
   description: Feet first into hell. A nobler variant of the Syndicate's M7S meant for use by security operators onboard Red Astra facilites. Takes proprietary side-loading 5x23mm rifle magazines.
   components:
