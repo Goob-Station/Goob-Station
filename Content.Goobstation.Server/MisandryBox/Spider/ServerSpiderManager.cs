@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
+using System.Threading;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Shared.MisandryBox.Spider;
@@ -18,51 +19,95 @@ public sealed class ServerSpiderManager : ISpiderManager, IPostInjectInit, IEnti
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 
-    private List<Guid> _friends = [];
+    private readonly HashSet<Guid> _friends = new();
+    private readonly SemaphoreSlim _initLock = new(1, 1);
+    private bool _initialized = false;
 
     public void PostInject()
     {
-        _net.RegisterNetMessage<SpiderConsentMsg>(RequestSpider);
+        _net.RegisterNetMessage<SpiderConsentMsg>(RequestSpiderAsync);
         _net.RegisterNetMessage<SpiderClearMsg>();
         _net.RegisterNetMessage<SpiderMsg>();
 
-        _net.Connected += OnConnected;
+        _net.Connected += OnConnectedAsync;
     }
 
-    private void OnConnected(object? sender, NetChannelArgs e)
+    private async void OnConnectedAsync(object? sender, NetChannelArgs e)
     {
-        if (_friends.Contains(e.Channel.UserId.UserId))
-            AddPermanentSpider(e.Channel);
+        await EnsureInitializedAsync();
+
+        lock (_friends)
+        {
+            if (_friends.Contains(e.Channel.UserId.UserId))
+                AddPermanentSpider(e.Channel);
+        }
     }
 
-    private async void RequestSpider(SpiderConsentMsg message)
+    private async void RequestSpiderAsync(SpiderConsentMsg message)
     {
-        if (_friends.Contains(message.MsgChannel.UserId.UserId))
-            return;
+        await EnsureInitializedAsync();
+
+        lock (_friends)
+        {
+            if (_friends.Contains(message.MsgChannel.UserId.UserId))
+                return;
+        }
 
         try
         {
-            // USER HAS REQUESTED A SPIDER, WE HAVE TO GIVE HIM A SPIDER!
             await _db.AddPermanentSpiderFriend(message.MsgChannel.UserId);
-
             AddPermanentSpider(message.MsgChannel);
         }
         catch (Exception ex)
         {
             IoCManager.Resolve<ILogManager>()
                 .GetSawmill("Spider")
-                .Error($"{message.MsgChannel.UserName} attempted to consent to spider but somehow the database just died lmao?");
+                .Error($"{message.MsgChannel.UserName} attempted to consent to spider but database operation failed: {ex}");
         }
     }
 
-    public void Initialize()
+    public async void Initialize()
     {
-        Task.Run(async () => _friends = await _db.GetAllSpiderUserIds());
+        await EnsureInitializedAsync();
+    }
+
+    private async Task EnsureInitializedAsync()
+    {
+        if (_initialized)
+            return;
+
+        await _initLock.WaitAsync();
+        try
+        {
+            if (_initialized)
+                return;
+
+            var friends = await _db.GetAllSpiderUserIds();
+            lock (_friends)
+            {
+                _friends.Clear();
+                foreach (var friend in friends)
+                {
+                    _friends.Add(friend);
+                }
+            }
+            _initialized = true;
+        }
+        catch (Exception ex)
+        {
+            IoCManager.Resolve<ILogManager>()
+                .GetSawmill("Spider")
+                .Error($"Failed to initialize spider friends: {ex}");
+        }
+        finally
+        {
+            _initLock.Release();
+        }
     }
 
     public void RequestSpider()
     {
-        // None, client method
+        // Client method
     }
 
     public void AddTemporarySpider(ICommonSession? victim = null)
@@ -85,11 +130,15 @@ public sealed class ServerSpiderManager : ISpiderManager, IPostInjectInit, IEnti
             return;
 
         _net.ServerSendMessage(new SpiderMsg { Permanent = true }, victim.Channel);
-        _friends.Add(victim.UserId.UserId);
+
+        lock (_friends)
+        {
+            _friends.Add(victim.UserId.UserId);
+        }
     }
 
     public void ClearTemporarySpiders()
     {
-        // Client method, as usual
+        // Client method
     }
 }
