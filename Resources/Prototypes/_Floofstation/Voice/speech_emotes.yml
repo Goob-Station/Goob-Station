@@ -28,7 +28,7 @@
   id: Coo
   name: chat-emote-name-coo
   category: Vocal
-  chatMessages: [ coos ]
+  chatMessages: [ "chat-emote-msg-coo" ]
   whitelist:
     tags:
       - HarpyEmotes

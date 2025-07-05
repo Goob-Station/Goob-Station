@@ -17,8 +17,8 @@
 - type: soundCollection
   id: HarpyCoos
   files:
-  - /Audio/_Floof/Voice/Harpy/harpy_coo1.ogg
-  - /Audio/_Floof/Voice/Harpy/harpy_coo2.ogg
-  - /Audio/_Floof/Voice/Harpy/harpy_coo3.ogg
-  - /Audio/_Floof/Voice/Harpy/harpy_coo4.ogg
-  - /Audio/_Floof/Voice/Harpy/harpy_coo5.ogg
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo1.ogg
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo2.ogg
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo3.ogg
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo4.ogg
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo5.ogg
