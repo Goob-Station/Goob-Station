@@ -31,7 +31,7 @@ id-card-access-level-detective = Detective
 id-card-access-level-genpop-enter = Enter Genpop
 id-card-access-level-genpop-leave = Leave Genpop
 
-id-card-access-level-chief-engineer = Chief Engineer
+id-card-access-level-chief-engineer = Lead Engineering Officer
 id-card-access-level-engineering = Engineering
 id-card-access-level-atmospherics = Atmospherics
 
@@ -75,12 +75,20 @@ id-card-access-level-basic-xenoborg = Xenoborg
 
 id-card-access-level-1A = Dorm 1A
 id-card-access-level-1B = Dorm 1B
+id-card-access-level-1C = Dorm 1C
+id-card-access-level-1D = Dorm 1D
 id-card-access-level-2A = Dorm 2A
 id-card-access-level-2B = Dorm 2B
+id-card-access-level-2C = Dorm 2C
+id-card-access-level-2D = Dorm 2D
 id-card-access-level-3A = Dorm 3A
 id-card-access-level-3B = Dorm 3B
+id-card-access-level-3C = Dorm 3C
+id-card-access-level-3D = Dorm 3D
 id-card-access-level-4A = Dorm 4A
 id-card-access-level-4B = Dorm 4B
+id-card-access-level-4C = Dorm 4C
+id-card-access-level-4D = Dorm 4D
 id-card-access-level-5A = Dorm 5A
 id-card-access-level-5B = Dorm 5B
 id-card-access-level-6A = Dorm 6A

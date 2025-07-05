@@ -454,7 +454,7 @@
 - type: entity
   parent: DefaultStationBeaconEngineering
   id: DefaultStationBeaconCERoom
-  suffix: CE's Room
+  suffix: LEO's Room
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-ce

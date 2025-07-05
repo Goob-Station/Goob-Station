@@ -44,7 +44,7 @@
     angle: 60
     animation: WeaponArcThrust
   - type: StaminaDamageOnHit
-    damage: 50
+    damage: 35
     sound: /Audio/Weapons/Guns/Hits/taser_hit.ogg
 #  - type: RestrictMeleeByUserTag
 #    contains:
@@ -74,7 +74,7 @@
           angle: 60
           animation: WeaponArcThrust
         - type: StaminaDamageOnHit
-          damage: 50
+          damage: 35
           sound: /Audio/Weapons/Guns/Hits/taser_hit.ogg
         soundStateActivate:
           collection: sparks

@@ -126,11 +126,11 @@ loadout-group-salvage-specialist-outerclothing = Salvage Specialist outer clothi
 loadout-group-salvage-specialist-shoes = Salvage Specialist shoes
 
 # Engineering
-loadout-group-chief-engineer-head = Chief Engineer head
-loadout-group-chief-engineer-jumpsuit = Chief Engineer jumpsuit
-loadout-group-chief-engineer-outerclothing = Chief Engineer outer clothing
-loadout-group-chief-engineer-neck = Chief Engineer neck
-loadout-group-chief-engineer-shoes = Chief Engineer shoes
+loadout-group-chief-engineer-head = Lead Engineering Officer head
+loadout-group-chief-engineer-jumpsuit = Lead Engineering Officer jumpsuit
+loadout-group-chief-engineer-outerclothing = Lead Engineering Officer outer clothing
+loadout-group-chief-engineer-neck = Lead Engineering Officer neck
+loadout-group-chief-engineer-shoes = CLead Engineering Officer shoes
 
 loadout-group-technical-assistant-jumpsuit = Technical Assistant jumpsuit
 

@@ -236,8 +236,8 @@
 - type: entity
   parent: [ClothingHeadsetEngineering, BaseCommandContraband]
   id: ClothingHeadsetCE
-  name: ce headset
-  description: A headset for the chief engineer to ignore all emergency calls on.
+  name: leo headset
+  description: A headset for the lead engineering officer to ignore all emergency calls on.
   components:
   - type: ContainerFill
     containers:

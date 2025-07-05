@@ -1,0 +1,14 @@
+
+- type: entity
+  parent: BaseItem
+  id: BaseFakeUplink
+  name: strange radio
+  description: Suspicious looking radio. Typically considered contraband but any syndicate-based technology has been removed.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: radio
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: radio

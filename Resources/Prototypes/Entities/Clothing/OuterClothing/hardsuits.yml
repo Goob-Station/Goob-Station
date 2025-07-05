@@ -634,8 +634,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitEngineeringWhite
-  name: chief engineer's voidsuit # Goob edit
-  description: A special voidsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station. # Goob edit
+  name: lead engineering officer's voidsuit # Goob edit
+  description: A special voidsuit that protects against hazardous, low pressure environments, made for the lead engineering officer of the station. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
