@@ -27,24 +27,19 @@ public sealed class SpiderUIController : UIController
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _conf = default!;
 
-    private SpiderWidget? _spider;
-    private Vector2 _position;
-    private Vector2 _direction;
-    private float _timeUntilActionChange;
-    private float _currentSpeed;
+    private readonly List<SpiderInstance> _temporarySpiders = new();
+    private SpiderInstance? _permanentSpider;
     private bool _enabled;
-    private bool _isMoving;
-    private Vector2 _lastScreenSize;
 
     private ResPath _path = new ResPath("/Textures/_Goobstation/MisandryBox/spider.rsi");
     private string _state = "alive";
-
-    public bool Permanent;
 
     private const float MinSpeed = 120f;
     private const float MaxSpeed = 360f;
     private const float MinActionInterval = 2f;
     private const float MaxActionInterval = 6f;
+
+    private bool HasPermanentSpider => _permanentSpider != null;
 
     public void Toggle()
     {
@@ -55,123 +50,179 @@ public sealed class SpiderUIController : UIController
     {
         _enabled = enabled;
 
-        if (!ShouldShowSpider() && _spider != null)
+        if (!ShouldShowSpiders())
         {
-            _spider.Parent?.RemoveChild(_spider);
-            _spider = null;
+            ClearTemporarySpiders();
         }
-        else if (ShouldShowSpider() && _spider == null)
+        else if (ShouldShowSpiders() && !HasAnySpiders())
         {
             var root = UIManager.RootControl;
-            InitializeSpider(root);
+            InitializeSpiders(root);
         }
     }
 
-    private bool ShouldShowSpider()
+    public void AddTemporarySpider()
+    {
+        var root = UIManager.RootControl;
+        var spider = CreateSpiderInstance(root, false);
+        _temporarySpiders.Add(spider);
+    }
+
+    public void AddPermanentSpider()
+    {
+        // You could opt in for a single spider
+        ClearTemporarySpiders();
+
+        var root = UIManager.RootControl;
+        _permanentSpider = CreateSpiderInstance(root, true);
+        _enabled = true;
+    }
+
+    public void ClearTemporarySpiders()
+    {
+        foreach (var spider in _temporarySpiders)
+        {
+            spider.Widget.Parent?.RemoveChild(spider.Widget);
+        }
+        _temporarySpiders.Clear();
+    }
+
+    private bool ShouldShowSpiders()
     {
         if (!_conf.GetCVar(GoobCVars.SpiderFriend))
-            return _enabled || Permanent;
+            return _enabled || HasPermanentSpider;
 
         _enabled = true;
-        Permanent = true;
 
-        return _enabled || Permanent;
+        return _enabled || HasPermanentSpider;
+    }
+
+    private bool HasAnySpiders()
+    {
+        return _permanentSpider != null || _temporarySpiders.Count > 0;
+    }
+
+    private void InitializeSpiders(UIRoot root)
+    {
+        if (_permanentSpider != null)
+        {
+            _permanentSpider = CreateSpiderInstance(root, true);
+        }
+        else if (_temporarySpiders.Count == 0)
+        {
+            AddTemporarySpider();
+        }
+    }
+
+    private SpiderInstance CreateSpiderInstance(UIRoot root, bool isPermanent)
+    {
+        var widget = new SpiderWidget(_path, _state);
+        root.AddChild(widget);
+
+        widget.Measure(new Vector2(float.PositiveInfinity));
+        widget.InvalidateArrange();
+        LayoutContainer.SetAnchorPreset(widget, LayoutContainer.LayoutPreset.Center);
+
+        var position = new Vector2(
+            _random.NextFloat() * root.Size.X,
+            _random.NextFloat() * root.Size.Y
+        );
+
+        var instance = new SpiderInstance
+        {
+            Widget = widget,
+            Position = position,
+            Direction = GetRandomDirection(),
+            TimeUntilActionChange = _random.NextFloat(MinActionInterval, MaxActionInterval),
+            CurrentSpeed = _random.NextFloat(MinSpeed, MaxSpeed),
+            IsMoving = _random.Next(2) == 0,
+            LastScreenSize = root.Size,
+            IsPermanent = isPermanent
+        };
+
+        LayoutContainer.SetPosition(widget, position);
+        return instance;
     }
 
     public override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
 
-        if (!ShouldShowSpider())
+        if (!ShouldShowSpiders())
             return;
 
         var screen = UIManager.RootControl;
 
-        if (_spider == null)
+        if (!HasAnySpiders())
         {
-            InitializeSpider(screen);
+            InitializeSpiders(screen);
             return;
         }
 
-        UpdateSpider(screen, args.DeltaSeconds);
+        if (_permanentSpider != null)
+        {
+            UpdateSpider(_permanentSpider, screen, args.DeltaSeconds);
+        }
+
+        foreach (var spider in _temporarySpiders)
+        {
+            UpdateSpider(spider, screen, args.DeltaSeconds);
+        }
     }
 
-    private void InitializeSpider(UIRoot root, ResPath? path = null, string? state = null)
+    private void UpdateSpider(SpiderInstance spider, UIRoot root, float deltaTime)
     {
-        path ??= _path;
-        state ??= _state;
-        _spider = new SpiderWidget(path.Value, state);
-
-        root.AddChild(_spider);
-
-        _spider.Measure(new Vector2(float.PositiveInfinity));
-        _spider.InvalidateArrange();
-        LayoutContainer.SetAnchorPreset(_spider, LayoutContainer.LayoutPreset.Center);
-        LayoutContainer.SetPosition(_spider, _position);
-
-        _lastScreenSize = root.Size;
-        _position = new Vector2(
-            _random.NextFloat() * root.Size.X,
-            _random.NextFloat() * root.Size.Y
-        );
-
-        StartNewAction();
-    }
-
-    private void UpdateSpider(UIRoot root, float deltaTime)
-    {
-        if (_spider == null)
-            return;
-
         var currentScreenSize = root.Size;
 
-        if (_lastScreenSize != currentScreenSize)
+        if (spider.LastScreenSize != currentScreenSize)
         {
-            _position.X = Math.Clamp(_position.X, 0, currentScreenSize.X);
-            _position.Y = Math.Clamp(_position.Y, 0, currentScreenSize.Y);
-            _lastScreenSize = currentScreenSize;
+            spider.Position = new Vector2(
+                Math.Clamp(spider.Position.X, 0, currentScreenSize.X),
+                Math.Clamp(spider.Position.Y, 0, currentScreenSize.Y)
+            );
+            spider.LastScreenSize = currentScreenSize;
         }
 
-        _timeUntilActionChange -= deltaTime;
-        if (_timeUntilActionChange <= 0)
+        spider.TimeUntilActionChange -= deltaTime;
+        if (spider.TimeUntilActionChange <= 0)
         {
-            StartNewAction();
+            StartNewAction(spider);
         }
 
-        if (_isMoving)
+        if (spider.IsMoving)
         {
-            _position += _direction * _currentSpeed * deltaTime;
+            spider.Position += spider.Direction * spider.CurrentSpeed * deltaTime;
         }
 
-        var size = _spider.DesiredSize;
+        var size = spider.Widget.DesiredSize;
 
-        if (_position.X < -size.X)
-            _position.X = currentScreenSize.X;
-        if (_position.X > currentScreenSize.X)
-            _position.X = -size.X;
-        if (_position.Y < -size.Y)
-            _position.Y = currentScreenSize.Y;
-        if (_position.Y > currentScreenSize.Y)
-            _position.Y = -size.Y;
+        if (spider.Position.X < -size.X)
+            spider.Position = spider.Position with { X = currentScreenSize.X };
+        if (spider.Position.X > currentScreenSize.X)
+            spider.Position = spider.Position with { X = -size.X };
+        if (spider.Position.Y < -size.Y)
+            spider.Position = spider.Position with { Y = currentScreenSize.Y };
+        if (spider.Position.Y > currentScreenSize.Y)
+            spider.Position = spider.Position with { Y = -size.Y };
 
-        var rotation = MathF.Atan2(_direction.X, -_direction.Y);
-        _spider.Rotation = rotation;
-        _spider.UpdateAnimation(deltaTime);
+        var rotation = MathF.Atan2(spider.Direction.X, -spider.Direction.Y);
+        spider.Widget.Rotation = rotation;
+        spider.Widget.UpdateAnimation(deltaTime);
 
-        LayoutContainer.SetPosition(_spider, _position);
+        LayoutContainer.SetPosition(spider.Widget, spider.Position);
     }
 
-    private void StartNewAction()
+    private void StartNewAction(SpiderInstance spider)
     {
-        _isMoving = !_isMoving;
+        spider.IsMoving = !spider.IsMoving;
 
-        if (_isMoving)
+        if (spider.IsMoving)
         {
-            _direction = GetRandomDirection();
-            _currentSpeed = _random.NextFloat(MinSpeed, MaxSpeed);
+            spider.Direction = GetRandomDirection();
+            spider.CurrentSpeed = _random.NextFloat(MinSpeed, MaxSpeed);
         }
 
-        _timeUntilActionChange = _random.NextFloat(MinActionInterval, MaxActionInterval);
+        spider.TimeUntilActionChange = _random.NextFloat(MinActionInterval, MaxActionInterval);
     }
 
     private Vector2 GetRandomDirection()
@@ -179,6 +230,18 @@ public sealed class SpiderUIController : UIController
         var angle = _random.NextFloat() * MathF.Tau;
         return new Vector2(MathF.Cos(angle), MathF.Sin(angle));
     }
+}
+
+public sealed class SpiderInstance
+{
+    public SpiderWidget Widget { get; set; } = default!;
+    public Vector2 Position { get; set; }
+    public Vector2 Direction { get; set; }
+    public float TimeUntilActionChange { get; set; }
+    public float CurrentSpeed { get; set; }
+    public bool IsMoving { get; set; }
+    public Vector2 LastScreenSize { get; set; }
+    public bool IsPermanent { get; set; }
 }
 
 public sealed class SpiderWidget : Control

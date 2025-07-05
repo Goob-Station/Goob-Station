@@ -1,13 +1,7 @@
-// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-//
-// SPDX-License-Identifier: MPL-2.0
-
 using Content.Client.Lobby;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Shared.MisandryBox.Spider;
-using Robust.Client.Player;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
@@ -24,7 +18,6 @@ public sealed class ClientSpiderManager : ISpiderManager, IPostInjectInit
     [Dependency] private readonly IConfigurationManager _conf = default!;
 
     private SpiderUIController _spider = default!;
-    private bool _permanent = false;
 
     void IPostInjectInit.PostInject()
     {
@@ -73,14 +66,12 @@ public sealed class ClientSpiderManager : ISpiderManager, IPostInjectInit
 
     public void AddTemporarySpider(ICommonSession? victim = null)
     {
-        _spider.SetEnabled(true);
+        _spider.AddTemporarySpider();
     }
 
     public void AddPermanentSpider(ICommonSession? victim = null)
     {
-        _permanent = true;
-        _spider.Permanent = _permanent;
-        _spider.SetEnabled(true);
+        _spider.AddPermanentSpider();
 
         _conf.SetCVar(GoobCVars.SpiderFriend, true);
         _conf.SaveToFile();
@@ -88,9 +79,6 @@ public sealed class ClientSpiderManager : ISpiderManager, IPostInjectInit
 
     public void ClearTemporarySpiders()
     {
-        if (_permanent)
-            return;
-
-        _spider.SetEnabled(false);
+        _spider.ClearTemporarySpiders();
     }
 }
