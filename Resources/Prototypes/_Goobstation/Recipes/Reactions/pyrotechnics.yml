@@ -46,7 +46,7 @@
   reactants:
     Hexamine:
       amount: 1
-    Nitric Acid:
+    NitricAcid:
       amount: 1
   products:
     Cyclonite: 1
@@ -69,7 +69,7 @@
     AmmoniumNitrate:
       amount: 42
     WeldingFuel:
-      ammount: 21
+      amount: 21
   products:
     AmmoniumNitrateFuelOil: 63
   effects:

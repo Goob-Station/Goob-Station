@@ -80,8 +80,8 @@
       amount: 6 # similar to potash but has sulfur, hard to make anyways
   metabolisms:
     Food:
-      effects:
-      - !type:SatiateHunger
+        effects:
+        - !type:SatiateHunger
         conditions:
         - !type:OrganType
           type: Plant

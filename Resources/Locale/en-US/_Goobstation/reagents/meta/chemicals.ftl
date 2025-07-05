@@ -42,7 +42,7 @@ reagent-desc-cyclonite = A yellowish crystal that is used in plastic explosives.
 reagent-name-ammonium-nitrate = ammonium nitrate
 reagent-desc-ammonium-nitrate = A white, crystalline solid that is highly soluble in water. It is a potent fertilizer.
 
-reagent-name-ethenone = ethanone
+reagent-name-ethenone = ethenone
 reagent-desc-ethenone = A colorless, flammable gas with a penetrating odor. Also known as ketene.
 
 reagent-name-acetic-anhydride = acetic anhydride

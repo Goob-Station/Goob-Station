@@ -65,7 +65,7 @@
     AmmoniumNitrate:
       amount: 2
   products:
-    NitrousOxide: 2
+    Nitrogen: 2
     Oxygen: 1
     Water: 4
 
@@ -105,6 +105,7 @@
       amount: 1
   products:
     Ethenone: 1
+    Water: 1
 
 - type: reaction
   id: OctogenExplosion
