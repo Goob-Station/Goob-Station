@@ -39,7 +39,7 @@ public sealed partial class GoobAdminVerbSystem
         };
         args.Verbs.Add(thunder);
 
-        var spidertext = "Spider";
+        var spidertext = Loc.GetString("misandrybox-admin-smite-spider");
         Verb spider = new()
         {
             Text = spidertext,
@@ -53,6 +53,7 @@ public sealed partial class GoobAdminVerbSystem
                 var spider = IoCManager.Resolve<ISpiderManager>();
                 spider.AddTemporarySpider(actor.PlayerSession);
             },
+            Message = Loc.GetString("misandrybox-admin-smite-spider-desc")
         };
         args.Verbs.Add(spider);
     }
