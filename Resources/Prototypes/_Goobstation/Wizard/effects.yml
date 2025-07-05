@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -77,6 +80,25 @@
         - LowImpassable
         - BulletImpassable
         - BlobImpassable
+
+- type: entity
+  id: MagicCircle
+  name: magic circle
+  description: A blazing arcane sigil hums with unstable power, its runes seething with the promise of apocalyptic detonation. You should run. Now.
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Sprite
+    drawdepth: FloorEffects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects400x400.rsi
+        state: magiccircle
+  - type: PointLight
+    color: orange
+    radius: 5.0
+    energy: 2.0
 
 - type: entity
   id: ActionTargetMark

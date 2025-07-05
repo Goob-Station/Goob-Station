@@ -55,6 +55,8 @@ spell-charge-spells-charged-entity = {CAPITALIZE($entity)} suddenly feels very w
 
 spell-summon-simians-maxed-out-message = Your simian power has reached maximum capacity! You can now cast this spell naked, and have additionally been granted a gorilla transformation spell!
 
+spell-fireball-maxed-out-message = Your right eye begins to glow with power as your fireball reaches maximum capacity! The darkness inside you, darker than black, brings forth a new terrifying explosive spell!
+
 ghosts-summoned-message = Ghosts have been summoned!
 dimension-shift-message = Dimensions shift!
 global-tile-movement-message = An ominous beat starts playing!
