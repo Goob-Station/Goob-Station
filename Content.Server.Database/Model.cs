@@ -189,6 +189,8 @@ namespace Content.Server.Database
         public DbSet<RMCPatronLobbyMessage> RMCPatronLobbyMessages { get; set; } = default!;
         public DbSet<RMCPatronRoundEndNTShoutout> RMCPatronRoundEndNTShoutouts { get; set; } = default!;
 
+        public DbSet<SpiderFriend> GoobMisandrySpiderFriends { get; set; } = default!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Preference>()
@@ -567,6 +569,10 @@ namespace Content.Server.Database
                 .HasForeignKey(l => l.DiscordId)
                 .HasPrincipalKey(p => p.Id)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<SpiderFriend>()
+                .HasIndex(s => s.Guid)
+                .IsUnique();
         }
 
         public virtual IQueryable<AdminLog> SearchLogs(IQueryable<AdminLog> query, string searchText)

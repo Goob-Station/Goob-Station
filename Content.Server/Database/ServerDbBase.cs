@@ -2145,6 +2145,25 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #endregion
 
+        #region Comedy
+
+        public async Task<List<Guid>> GetAllSpiderFriends()
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.GoobMisandrySpiderFriends
+                .Select(p => p.Guid)
+                .ToListAsync();
+        }
+
+        public async Task AddSpiderFriend(SpiderFriend friend)
+        {
+            await using var db = await GetDb();
+            db.DbContext.GoobMisandrySpiderFriends.Add(friend);
+
+            await db.DbContext.SaveChangesAsync();
+        }
+        #endregion
+
         public abstract Task SendNotification(DatabaseNotification notification);
 
         // SQLite returns DateTime as Kind=Unspecified, Npgsql actually knows for sure it's Kind=Utc.

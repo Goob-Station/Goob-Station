@@ -474,6 +474,14 @@ namespace Content.Server.Database
         Task SendNotification(DatabaseNotification notification);
 
         #endregion
+
+        #region Comedy
+
+        Task<List<Guid>> GetAllSpiderUserIds();
+
+        Task AddPermanentSpiderFriend(NetUserId player);
+
+        #endregion
     }
 
     /// <summary>
@@ -1254,6 +1262,21 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.CleanIPIntelCache(range));
+        }
+
+        public Task<List<Guid>> GetAllSpiderUserIds()
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllSpiderFriends());
+        }
+
+        public Task AddPermanentSpiderFriend(NetUserId player)
+        {
+            DbWriteOpsMetric.Inc();
+            SpiderFriend friend = new SpiderFriend();
+            friend.Guid = player.UserId;
+
+            return RunDbCommand(() => _db.AddSpiderFriend(friend));
         }
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)

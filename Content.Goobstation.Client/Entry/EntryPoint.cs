@@ -9,6 +9,7 @@
 using Content.Goobstation.Client.IoC;
 using Content.Goobstation.Client.Voice;
 using Content.Goobstation.Client.JoinQueue;
+using Content.Goobstation.Common.MisandryBox;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
 using Robust.Shared.Timing;
@@ -19,6 +20,7 @@ public sealed class EntryPoint : GameClient
 {
     [Dependency] private readonly IVoiceChatManager _voiceManager = default!;
     [Dependency] private readonly JoinQueueManager _joinQueue = default!;
+    [Dependency] private readonly ISpiderManager _spider = default!;
 
     public override void PreInit()
     {
@@ -39,6 +41,7 @@ public sealed class EntryPoint : GameClient
 
         _voiceManager.Initalize();
         _joinQueue.Initialize();
+        _spider.Initialize();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)

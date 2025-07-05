@@ -49,6 +49,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <!-- Misc -->
                 <Label Text="{Loc 'ui-options-misc-label'}" StyleClasses="LabelKeyText"/>
                 <CheckBox Name="FpsCounterCheckBox" Text="{Loc 'ui-options-fps-counter'}" />
+
+                <!-- MisandryBox - Spider! -->
+                <Button Name="Arachnofriend" Text="Permanently add a spider friend!" ToolTip="Permanently add a spider friend! Permanently add a spider friend! Permanently add a spider friend! Permanently add a spider friend! Permanently add a spider friend!" Modulate="#ffbcbc"/>
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />
