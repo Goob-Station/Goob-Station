@@ -148,6 +148,7 @@
     - outerClothing
   - type: Sprite
     state: icon
+  - type: AllowSuitStorage
 
 - type: entity
   abstract: true
