@@ -13,6 +13,7 @@ using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.MisandryBox.Spider;
 
@@ -24,13 +25,18 @@ public sealed class SpiderUIController : UIController
     private SpiderWidget? _spider;
     private Vector2 _position;
     private Vector2 _direction;
-    private float _timeUntilDirectionChange;
+    private float _timeUntilActionChange;
+    private float _currentSpeed;
     private bool _enabled;
+    private bool _isMoving;
     private Vector2 _lastScreenSize;
+    private ResPath _path = new ResPath("/Textures/_Goobstation/MisandryBox/spider.rsi");
     public bool Permanent;
 
-    private const float Speed = 120f;
-    private const float DirectionChangeInterval = 4f;
+    private const float MinSpeed = 120f;
+    private const float MaxSpeed = 540f;
+    private const float MinActionInterval = 2f;
+    private const float MaxActionInterval = 10f;
 
     public void Toggle()
     {
@@ -82,9 +88,10 @@ public sealed class SpiderUIController : UIController
         UpdateSpider(screen, args.DeltaSeconds);
     }
 
-    private void InitializeSpider(UIRoot root)
+    private void InitializeSpider(UIRoot root, ResPath? path = null)
     {
-        _spider = new SpiderWidget();
+        path ??= _path;
+        _spider = new SpiderWidget(path.Value);
 
         root.AddChild(_spider);
 
@@ -99,8 +106,7 @@ public sealed class SpiderUIController : UIController
             _random.NextFloat() * root.Size.Y
         );
 
-        _direction = GetRandomDirection();
-        _timeUntilDirectionChange = DirectionChangeInterval;
+        StartNewAction();
     }
 
     private void UpdateSpider(UIRoot root, float deltaTime)
@@ -117,14 +123,16 @@ public sealed class SpiderUIController : UIController
             _lastScreenSize = currentScreenSize;
         }
 
-        _timeUntilDirectionChange -= deltaTime;
-        if (_timeUntilDirectionChange <= 0)
+        _timeUntilActionChange -= deltaTime;
+        if (_timeUntilActionChange <= 0)
         {
-            _direction = GetRandomDirection();
-            _timeUntilDirectionChange = DirectionChangeInterval;
+            StartNewAction();
         }
 
-        _position += _direction * Speed * deltaTime;
+        if (_isMoving)
+        {
+            _position += _direction * _currentSpeed * deltaTime;
+        }
 
         var size = _spider.DesiredSize;
 
@@ -144,6 +152,19 @@ public sealed class SpiderUIController : UIController
         LayoutContainer.SetPosition(_spider, _position);
     }
 
+    private void StartNewAction()
+    {
+        _isMoving = !_isMoving;
+
+        if (_isMoving)
+        {
+            _direction = GetRandomDirection();
+            _currentSpeed = _random.NextFloat(MinSpeed, MaxSpeed);
+        }
+
+        _timeUntilActionChange = _random.NextFloat(MinActionInterval, MaxActionInterval);
+    }
+
     private Vector2 GetRandomDirection()
     {
         var angle = _random.NextFloat() * MathF.Tau;
@@ -157,18 +178,22 @@ public sealed class SpiderWidget : Control
     private int _currentFrame;
     private float _frameTime;
 
-    private const float FrameDuration = 0.2f;
-    private const int FrameCount = 7;
+    private float _frameDuration;
+    private int _frameCount;
     private readonly Vector2 _textureScale = new(1.5f, 1.5f);
 
     public float Rotation { get; set; }
 
-    public SpiderWidget()
+    public SpiderWidget(ResPath path)
     {
         var resourceCache = IoCManager.Resolve<IResourceCache>();
-        var rsi = resourceCache.GetResource<RSIResource>("/Textures/_Goobstation/MisandryBox/spider.rsi");
+        var rsi = resourceCache.GetResource<RSIResource>(path);
 
-        rsi.RSI.TryGetState("alive", out _aliveState);
+        if (!rsi.RSI.TryGetState("alive", out _aliveState))
+            return;
+
+        _frameDuration = _aliveState.GetDelay(0);
+        _frameCount = _aliveState.DelayCount;
 
         MouseFilter = MouseFilterMode.Ignore;
 
@@ -180,10 +205,10 @@ public sealed class SpiderWidget : Control
     {
         _frameTime += deltaTime;
 
-        if (_frameTime >= FrameDuration)
+        if (_frameTime >= _frameDuration)
         {
-            _frameTime -= FrameDuration;
-            _currentFrame = (_currentFrame + 1) % FrameCount;
+            _frameTime -= _frameDuration;
+            _currentFrame = (_currentFrame + 1) % _frameCount;
         }
     }
 
