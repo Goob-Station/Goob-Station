@@ -30,7 +30,10 @@ public sealed class SpiderUIController : UIController
     private bool _enabled;
     private bool _isMoving;
     private Vector2 _lastScreenSize;
+
     private ResPath _path = new ResPath("/Textures/_Goobstation/MisandryBox/spider.rsi");
+    private string _state = "alive";
+
     public bool Permanent;
 
     private const float MinSpeed = 120f;
@@ -88,10 +91,11 @@ public sealed class SpiderUIController : UIController
         UpdateSpider(screen, args.DeltaSeconds);
     }
 
-    private void InitializeSpider(UIRoot root, ResPath? path = null)
+    private void InitializeSpider(UIRoot root, ResPath? path = null, string? state = null)
     {
         path ??= _path;
-        _spider = new SpiderWidget(path.Value);
+        state ??= _state;
+        _spider = new SpiderWidget(path.Value, state);
 
         root.AddChild(_spider);
 
@@ -174,7 +178,7 @@ public sealed class SpiderUIController : UIController
 
 public sealed class SpiderWidget : Control
 {
-    private RSI.State? _aliveState;
+    private RSI.State? _state;
     private int _currentFrame;
     private float _frameTime;
 
@@ -184,16 +188,16 @@ public sealed class SpiderWidget : Control
 
     public float Rotation { get; set; }
 
-    public SpiderWidget(ResPath path)
+    public SpiderWidget(ResPath path, string state)
     {
         var resourceCache = IoCManager.Resolve<IResourceCache>();
         var rsi = resourceCache.GetResource<RSIResource>(path);
 
-        if (!rsi.RSI.TryGetState("alive", out _aliveState))
+        if (!rsi.RSI.TryGetState(state, out _state))
             return;
 
-        _frameDuration = _aliveState.GetDelay(0);
-        _frameCount = _aliveState.DelayCount;
+        _frameDuration = _state.GetDelay(0);
+        _frameCount = _state.DelayCount;
 
         MouseFilter = MouseFilterMode.Ignore;
 
@@ -214,10 +218,10 @@ public sealed class SpiderWidget : Control
 
     protected override Vector2 MeasureOverride(Vector2 availableSize)
     {
-        if (_aliveState == null)
+        if (_state == null)
             return Vector2.Zero;
 
-        var texture = _aliveState.GetFrame(RsiDirection.South, 0);
+        var texture = _state.GetFrame(RsiDirection.South, 0);
         return texture.Size * _textureScale;
     }
 
@@ -228,10 +232,10 @@ public sealed class SpiderWidget : Control
 
     protected override void Draw(DrawingHandleScreen handle)
     {
-        if (_aliveState == null)
+        if (_state == null)
             return;
 
-        var texture = _aliveState.GetFrame(RsiDirection.South, _currentFrame);
+        var texture = _state.GetFrame(RsiDirection.South, _currentFrame);
         var textureSize = texture.Size * _textureScale;
         var center = Size / 2f;
         var topLeft = center - textureSize / 2f;
