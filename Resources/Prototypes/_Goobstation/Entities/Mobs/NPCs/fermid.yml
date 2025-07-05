@@ -1,0 +1,272 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: fermid
+  id: MobFermidBase
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  abstract: true
+  description: Extremely hostile asteroid-dwelling bugs. Best to avoid them wherever possible.
+  components:
+  - type: VentCrawler # goobstation - Ventcrawl
+  - type: Body # Shitmed Change
+    prototype: SpaceSpider
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: fermid_small
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: fermid_small
+      Dead:
+        Base: fermid_small_dead
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSpider
+      amount: 2
+  - type: Bloodstream
+    bloodMaxVolume: 50
+    bloodReagent: InsectBlood
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 4
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 3
+        Poison: 3
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: SulfuricAcid
+          Quantity: 80
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 2
+  - type: NoSlip
+  - type: Speech
+    speechVerb: Arachnid
+    speechSounds: Arachnid
+    allowedEmotes: ['Click', 'Chitter']
+  - type: TypingIndicator
+    proto: spider
+  - type: NightVision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
+  - type: Fauna # Lavaland Change
+  - type: CombatPower # Goobstation
+    factor: 0.5 # times more dangerous than a crew-member
+
+- type: entity
+  name: fermid
+  id: MobFermidSmall
+  parent: MobFermidBase
+
+- type: entity
+  name: fermid
+  id: MobFermidLarge
+  parent: MobFermidBase
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: fermid_large
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: fermid_large
+      Dead:
+        Base: fermid_large_dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 6
+        Poison: 4
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
+
+- type: entity
+  name: warrior fermid
+  id: MobFermidWarrior
+  parent: MobFermidBase
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid64x64.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: fermid_hulk
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: fermid_hulk
+      Dead:
+        Base: fermid_hulk_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 3
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 10
+        Poison: 5
+  - type: CombatPower # Goobstation
+    factor: 1.5 # times more dangerous than a crew-member
+
+- type: entity
+  name: fermid queen
+  id: MobFermidQueen
+  parent: MobFermidBase
+  description: Did anyone bring insect repellent?
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid64x64.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: fermid_queen
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: fermid_queen
+      Dead:
+        Base: fermid_queen_dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1
+    baseSprintSpeed : 2
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Poison: 12
+  - type: CombatPower # Goobstation
+    factor: 1.2 # times more dangerous than a crew-member
+
+# Waiting on mob growth component from xenobio. Also needs sprites for moving north and south.
+#- type: entity
+#  name: fermid larva
+#  id: MobFermidLarva
+#  parent: MobFermidBase
+#  description: Don't be fooled by its size. It will eat you all the same.
+#  components:
+#  - type: Sprite
+#    drawdepth: Mobs
+#    sprite: /Textures/_Goobstation/Mobs/Animals/Fermids/fermid.rsi
+#   layers:
+#    - map: ["enum.DamageStateVisualLayers.Base"]
+#      state: fermid_larva_idle
+#  - type: MobThresholds
+#    thresholds:
+#      0: Alive
+#      10: Dead
+#  - type: SpriteMovement
+#    movementLayers:
+#      movement:
+#        state: fermid_larva
+#    noMovementLayers:
+#      movement:
+#        state: fermid_larva_idle
+#  - type: DamageStateVisuals
+#    states:
+#      Alive:
+#        Base: fermid_larva
+#      Dead:
+#        Base: fermid_larva_dead
+#  - type: MovementSpeedModifier
+#    baseWalkSpeed : 3
+#    baseSprintSpeed : 4
+#  - type: MeleeWeapon
+#    soundHit:
+#      path: /Audio/Effects/bite.ogg
+#    angle: 0
+#    animation: WeaponArcBite
+#    damage:
+#      types:
+#        Piercing: 1
+#        Poison: 1
+#  - type: CombatPower
+#    factor: 0.1
+#  - type: Hunger
+#    startingHunger: 300
+#    thresholds:
+#      Overfed: 300
+#      Okay: 200
+#      Peckish: 100
+#      Starving: 25
+#     Dead: 0
+#    baseDecayRate: 0.04
+#  - type: Food
+#  - type: HTN
+#    rootTask:
+#      task: MouseCompound
+#  - type: Thirst
+#    startingThirst: 25
+#    thresholds:
+#      OverHydrated: 35
+#      Okay: 25
+#      Thirsty: 15
+#      Parched: 10
+#      Dead: 0
+#    baseDecayRate: 0.04
