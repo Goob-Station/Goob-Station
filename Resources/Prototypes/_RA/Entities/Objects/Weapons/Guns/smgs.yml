@@ -7,7 +7,7 @@
 
 - type: entity
   name: M7S "bullet hose" submachine gun
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSecurityContraband] # RA the space law compliant version 
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSecurityContraband] # RA the space law compliant version
   id: WeaponSubMachineGunM7SRA
   description: Feet first into hell. A nobler variant of the Syndicate's M7S meant for use by security operators onboard Red Astra facilites. Takes proprietary side-loading 5x23mm rifle magazines.
   components:
@@ -67,3 +67,49 @@
     - oni-cannot-shoot-guns-1
     - oni-cannot-shoot-guns-2
     - oni-cannot-shoot-guns-3
+
+- type: entity
+  name: M-84 submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  id: WeaponSubMachineGunM84
+  description: A cheap and mass produced submachine gun, famous for its light weight frame & low cost. Feeds from .35 SMG magazines.
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Weapons/Guns/SMGs/M84.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _RA/Objects/Weapons/Guns/SMGs/M84.rsi
+  - type: Wieldable
+#    unwieldOnUse: false
+#  - type: GunWieldBonus
+#    minAngle: -19
+ #   maxAngle: -16
+  - type: Gun
+    minAngle: 5
+    maxAngle: 90
+    fireRate: 13
+    burstFireRate: 18
+    angleIncrease: 5
+    angleDecay: 35
+#    minAngle: 21 # Base SMG already has minAngle: 2 maxAngle: 16
+#    maxAngle: 32 # Goob - one-handed C20R - end
+    shotsPerBurst: 5
+    availableModes:
+    - Burst
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+  - type: ChamberMagazineAmmoProvider
+    autoEject: false
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Item # Goobstation
+    shape:
+    - 0,0,2,1

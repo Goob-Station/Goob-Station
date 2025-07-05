@@ -1100,6 +1100,9 @@
 - type: Tag
   id: MagazineGrenade
 
+- type: Tag
+  id: MagazineSmart2
+
 # Magazines end
 
 - type: Tag

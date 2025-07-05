@@ -342,8 +342,8 @@
 
 - type: listing
   id: UplinkM90
-  name: uplink-m90-name
-  description: uplink-m90-desc
+  name: M-95 Battle Rifle
+  description: A decent & easy to use rifle at your hands only for 50 TC.
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
   productEntity: WeaponRifleM90
   cost:

@@ -197,10 +197,10 @@
     - 0,0,2,1
 
 - type: entity
-  name: Drozd
+  name: M-5U Drozd
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunDrozd
-  description: A modern SMG manufactured by Nanotrasen’s Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
+  description: A modern SMG platform manufactured by Nanotransen's Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
