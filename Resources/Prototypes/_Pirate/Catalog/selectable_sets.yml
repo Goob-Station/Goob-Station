@@ -1,0 +1,329 @@
+# Interdyne Secure
+
+- type: selectableSet
+  id: IPSpecialForces
+  name: Набір щитовика
+  description: selectable-set-thief-anatomy-description
+  sprite:
+    sprite: Objects/Weapons/Melee/shields.rsi
+    state: riot-icon
+  content:
+  - TelescopicShield
+  - WeaponPistolN1984
+  - MagazineMagnumUranium
+  - MagazineMagnumUranium
+  - MagazineMagnumAP
+  - MagazineMagnumAP
+
+- type: selectableSet
+  id: IPAdvancedDetentionTools
+  name: Розширені інструменти для затримання
+  description: Набір для швидкого затримання порушників
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/contractor_baton.rsi
+    state: uplink
+  content:
+  - WeaponDisablerSyndicate
+  - ContractorBaton
+
+- type: selectableSet
+  id: IPESword
+  name: Енергитичний меч
+  description: Смертельне та стильне знешкодження порушників
+  sprite:
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    state: icon
+  content:
+  - EnergySword
+
+- type: selectableSet
+  id: IPAdvancedProtect
+  name: Покращений захист
+  description: Непоганий броньований жилет, з ним ви проживете трішки більше часу
+  sprite:
+    sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
+    state: icon
+  content:
+  - ClothingBlueshieldArmourVest
+  
+- type: selectableSet
+  id: IPCQCManual
+  name: CQC
+  description: Книга по CQC
+  sprite:
+    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    state: icon
+  content:
+  - CQCManual
+
+# Interdyne MED
+- type: selectableSet
+  id: IPFullMedicalKit
+  name: Набір з трьох аптечок, розрахованих на усі можливі пошкодження
+  description: Краще чим нічого
+  sprite:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: blackkit
+  content:
+  - MedkitCombatFilled
+  - MedkitCombatPurpleFilled
+  - MedkitCombatBlueFilled
+  
+- type: selectableSet
+  id: IPSuperKit
+  name: Набір бойових аптечок та медіпенів різних типів
+  description: Носить портативний деібрилятор Інтердайну, досить корисний набір, має всі найкращі ліки
+  sprite:
+    sprite: Objects/Specific/Medical/defibsyndi.rsi
+    state: icon
+  content:
+  - ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  
+- type: selectableSet
+  id: IPStimKit
+  name: Набір з інжекторами Гіперзіну
+  description: При дуже тяжких умовах, щоб втікти від загрози
+  sprite:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: microstimpen
+  content:
+  - StimkitFilled
+  
+- type: selectableSet
+  id: IPSurgeon
+  name: Набір хірургічних інструментів
+  description: В комплект також йде компактний дефібрилятор інтердайну!
+  sprite:
+    sprite: Clothing/Back/Duffels/syndicate.rsi
+    state: icon-med
+  content:
+  - ClothingBackpackDuffelSyndicateFilledMedical
+  
+- type: selectableSet
+  id: IPMedicalGlasses
+  name: Універсальні очки з інтерфейсом
+  description: Показують професію та медичний стан, і захищають ваш зір від спалахів
+  sprite:
+    sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
+    state: icon
+  content:
+  - ClothingEyesGlassesBSO
+  
+- type: selectableSet
+  id: IPMedicalBeamGunSyndicate
+  name: Гармата для пасивного лікування
+  description: НЕ СХРЕЩУВАТИ ЛУЧІ!
+  sprite:
+    sprite: _Goobstation/Objects/Specific/Medical/syndicate_medigun.rsi
+    state: icon
+  content:
+  - MedicalBeamGunSyndicateBattery
+  
+# Interdyne ENG
+- type: selectableSet
+  id: IPClothingBeltCE
+  name: Пояс з просунутими інструмментами
+  description: Пояс СЕ
+  sprite:
+    sprite: Clothing/Belt/ce.rsi
+    state: icon
+  content:
+  - ClothingBeltChiefEngineerFilled
+  
+# Interdyne Pilot
+- type: selectableSet
+  id: IPHitman
+  name: Набір Хітмана 
+  description: Улюблений набір усього Інтердайну
+  sprite:
+    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    state: base
+  content:
+  - BriefcaseSyndieSniperBundleFilled
+  
+- type: selectableSet
+  id: IPNutrimentImplanter
+  name: Споживна помпа
+  description: Насищає ваш організм не даючи вам бути голодними
+  sprite:
+    sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    state: implanter0
+  content:
+  - NutrimentImplanter
+  
+- type: selectableSet
+  id: IPPilot
+  name: Набір пілота
+  description: Має в собі EVA скафандр, набір медицини, та щелепи життя. А для самозахисту наданий револьвер Декард
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
+    state: control
+  content:
+  - WeaponRevolverDeckard
+  - SpeedLoaderMagnumUranium
+  - SpeedLoaderMagnumUranium
+  - ClothingModsuitSecurityPowerCell
+  
+# Interdyne
+- type: selectableSet
+  id: IPAdmin
+  name: Набір адміністратора
+  description: Візор показуючий тільки професію, не показує присутність МЩ, також сюди входить ручка Кіберсану.
+  sprite:
+    sprite: Clothing/Eyes/Hud/command.rsi
+    state: icon
+  content:
+  - ClothingEyesHudCommand
+  - BoxFolderWhite
+  - CyberPen
+  - PaperOffice
+  - PaperOffice
+  - PaperOffice
+  - PaperOffice
+  
+- type: selectableSet
+  id: IPBeltUtility
+  name: Пояс інструментів
+  description: Якщо хочете допомагати по мілочі
+  sprite:
+    sprite: Clothing/Belt/utility.rsi
+    state: icon
+  content:
+  - ClothingBeltUtilityFilled
+  
+# Interdyne Service
+- type: selectableSet
+  id: IPChef
+  name: Набір повара
+  description: Якщо хочете допомагати по мілочі
+  sprite:
+    sprite: Clothing/Belt/chef.rsi
+    state: icon
+  content:
+  - ClothingBeltChefFilled
+  - ClothingUniformJumpsuitChef
+  - ClothingUniformJumpskirtChef
+  - ClothingShoesChef
+  - ClothingShoesColorBlack
+  - ClothingOuterJacketChef
+  - ClothingOuterWinterChef
+  - KitchenKnife
+  - RollingPin
+  
+- type: selectableSet
+  id: IPJanitor
+  name: Набір прибиральника
+  description: Якщо хочете допомагати по мілочі
+  sprite:
+    sprite: Clothing/Belt/janitor.rsi
+    state: icon
+  content:
+  - ClothingBeltJanitorFilled
+  - CrateServiceJanitorialSupplies
+  - ClothingUniformJumpskirtJanitor
+  - ClothingUniformJumpsuitJanitor
+  - ClothingHandsGlovesJanitor
+  - ClothingShoesGaloshes
+  - AdvMopItem
+
+# Interdyne Shaft Miners
+- type: selectableSet
+  id: IPMiner
+  name: Базовий набір шахтаря
+  description: Містить захисний костюм "Лавріон", та ваунчер з різаком
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cutter.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitSalvage
+  - MiningVoucher
+  - WeaponPlasmaCutter
+  - OreBag
+  
+- type: selectableSet
+  id: IPMinerAdvenced
+  name: Просунутий набір для добування руди
+  description: Містить блюспейс сумку для руди, та просунутий мінеральний сканер
+  sprite:
+    sprite: Objects/Specific/Mining/ore_bag_holding.rsi
+    state: orebag_off
+  content:
+  - OreBagOfHolding
+  - AdvancedMineralScanner
+  
+- type: selectableSet
+  id: IPLuxuryMedipen
+  name: Набір люксових медіпенів 
+  description: Врятують з самих тяжких ситуацій
+  sprite:
+    sprite: _Lavaland/Objects/Specific/Medical/luxmedipen.rsi
+    state: luxpen
+  content:
+  - LuxuryMedipen
+  - LuxuryMedipen
+  - LuxuryMedipen
+  - LuxuryMedipen
+  - LuxuryMedipen
+  
+- type: selectableSet
+  id: IPPickaxe
+  name: Компактна світова кірка
+  description: Усі шахтарі мріють про ню
+  sprite:
+    sprite: _NF/Objects/Weapons/Melee/energy_pickaxe.rsi
+    state: icon
+  content:
+  - NFEnergyPickaxe
+  
+#  Interdyne Deputy
+- type: selectableSet
+  id: IPDeputy
+  name: Набір заступника Інтердайну 
+  description: Основний набір щоб виглядати крутим
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+    state: icon
+  content:
+  - WeaponSubMachineGunWt550
+  - ClothingBeltSheathFilledNavyOfficer
+  - ClothingEyesGlassesBSO
+  - WeaponPistolN1984
+  - MagazinePistolNeurotoxin
+  - MagazinePistolNeurotoxin
+  - MagazinePistolNeurotoxin
+  - TelescopicBaton
+  - ClothingBeltChemBagSyndiFilled
+  - CQCManual
+  - ClothingOuterArmourInvisibleSyndie
+  
+- type: selectableSet
+  id: IPCyberpunk
+  name: Набір кіберпанку 
+  description: Набір імплантів
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
+    state: icon
+  content:
+  - AutosurgeonSandevistan
+  - AutosurgeonRightMantisBlade
+  - AutosurgeonLeftMantisBlade
+  - NutrimentImplanter
+  - ClothingOuterDavidsJacketValid
+  
+#  Interdyne Officer
+- type: selectableSet
+  id: IPOfficer
+  name: Набір офіцера Інтердайну
+  description: Набір головного керівника інтердайну
+  sprite:
+    sprite: Clothing/Belt/sheath.rsi
+    state: sheath-sabre
+  content:
+  - ClothingBackpackDuffelSyndicateFilledWSPR
+  - TelescopicBaton
+  - ClothingEyesGlassesBSO
+  - ClothingBeltSheathFilledNavyOfficer
+  - TelescopicShield
+  - ClothingBeltChemBagSyndiFilled
+  - CQCManual
+  - ClothingOuterArmourInvisibleSyndie

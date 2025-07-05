@@ -1,0 +1,11 @@
+- type: accessLevel
+  id: Interdyne
+  name: id-card-access-level-interdyne
+  
+- type: accessLevel
+  id: InterdyneCommand
+  name: id-card-access-level-interdyne-command
+  
+- type: accessLevel
+  id: InterdyneOfficer
+  name: id-card-access-level-interdyne-officer

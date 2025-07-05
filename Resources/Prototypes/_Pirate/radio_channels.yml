@@ -1,0 +1,14 @@
+- type: radioChannel
+  id: Interdyne
+  name: chat-radio-interdyne
+  keycode: "е"
+  frequency: 1444
+  color: "#90da4b"
+
+- type: radioChannel
+  id: InterdynePrivat
+  name: chat-radio-interdyne-privat
+  keycode: "д"
+  frequency: 1777
+  color: "#5e8e31"
+  longRange: true

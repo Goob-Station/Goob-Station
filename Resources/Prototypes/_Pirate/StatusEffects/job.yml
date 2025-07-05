@@ -1,0 +1,62 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconInterdyne
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: Interdyne
+    
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCaptainInterdyne
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: CaptainInterdyne
+    
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconInterdyneDeputy
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: InterdyneDeputy
+    
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconInterdyneEngineer
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: InterdyneEngineer
+ 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconInterdyneMed
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: InterdyneMed
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconInterdynePilot
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: InterdynePilot
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconInterdyneSecure
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: InterdyneSecure
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconInterdyneService
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: InterdyneService
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconInterdyneShaftMiners
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: InterdyneShaftMiners

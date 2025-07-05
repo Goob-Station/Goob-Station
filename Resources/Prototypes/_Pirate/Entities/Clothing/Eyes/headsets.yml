@@ -1,0 +1,31 @@
+# Наслідування компонента ClothingHeadset, та створення нових
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetInterdyne
+  name: "Наушник персоналу Інтердайну"
+  description: Гарнітура Інтердайну.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyInterdyne
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _Pirate/Clothing/Ears/Headsets/interdyne.rsi
+  - type: Clothing
+    sprite: _Pirate/Clothing/Ears/Headsets/interdyne.rsi
+    
+# Усі інші гарнітури які використовують нові компоненти 
+- type: entity
+  parent: ClothingHeadsetInterdyne
+  id: ClothingHeadsetInterdyneCommand
+  name: "Наушник керівництва Інтердайну"
+  description: Гарнітура Інтердайну.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyInterdynePrivat
+      - EncryptionKeySyndie
+      - EncryptionKeyCommon

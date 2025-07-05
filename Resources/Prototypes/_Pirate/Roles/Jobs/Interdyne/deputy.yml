@@ -1,0 +1,13 @@
+- type: job
+  id: InterdyneDeputy
+  name: job-name-interdyne-deputy
+  description: job-description-interdyne-deputy
+  icon: "JobIconInterdyneDeputy"
+  canBeAntag: false
+  playTimeTracker: JobInterdyneDeputy
+  access:
+    - Maintenance
+    - External
+    - Interdyne
+    - InterdyneCommand
+    - InterdyneOfficer

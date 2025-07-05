@@ -1,0 +1,160 @@
+- type: entity
+  id: InterdyneSecureUndeterminedWeapon
+  name: Планшет підтримки служби безпеки Інтердайну
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPSpecialForces
+    - IPAdvancedDetentionTools
+    - IPESword
+    - IPAdvancedProtect
+    - IPHitman
+    - IPCQCManual
+    maxSelectedSets: 2
+
+
+- type: entity
+  id: InterdyneMedUndeterminedWeapon
+  name: Планшет підтримки медичного персоналу Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPFullMedicalKit
+    - IPSuperKit
+    - IPStimKit
+    - IPSurgeon
+    - IPMedicalGlasses
+    - IPMedicalBeamGunSyndicate
+    maxSelectedSets: 2
+
+- type: entity
+  id: InterdyneEngUndeterminedWeapon
+  name: Планшет підтримки інженерного персонала Інтердайну
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPClothingBeltCE
+    - IPNutrimentImplanter
+    maxSelectedSets: 1
+
+- type: entity
+  id: InterdynePilotUndeterminedWeapon
+  name: Планшет підтримки пілота Інтердайну
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPHitman
+    - IPNutrimentImplanter
+    - IPPilot
+    - IPESword
+    maxSelectedSets: 2
+    
+- type: entity
+  id: InterdynePersonalUndeterminedWeapon
+  name: Планшет підтримки персонала Інтердайну
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPNutrimentImplanter
+    - IPAdmin
+    - IPBeltUtility
+    maxSelectedSets: 2
+    
+- type: entity
+  id: InterdyneServiceUndeterminedWeapon
+  name: Планшет підтримки сервісного персонала Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPNutrimentImplanter
+    - IPAdmin
+    - IPChef
+    - IPJanitor
+    maxSelectedSets: 2
+    
+- type: entity
+  id: InterdyneShaftMinersUndeterminedWeapon
+  name: Планшет підтримки шахтарського персонала Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPNutrimentImplanter
+    - IPMinerAdvenced
+    - IPLuxuryMedipen
+    - IPPickaxe
+    maxSelectedSets: 2
+    
+- type: entity
+  id: InterdyneDeputyUndeterminedWeapon
+  name: Планшет підтримки замістника офіцера Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPDeputy
+    - IPCyberpunk
+    - IPSuperKit
+    - IPAdvancedProtect
+    - IPAdvancedDetentionTools
+    - IPSpecialForces
+    - IPMedicalBeamGunSyndicate
+    maxSelectedSets: 3
+    
+- type: entity
+  id: InterdyneOfficerUndeterminedWeapon
+  name: Планшет підтримки офіцера Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPOfficer
+    - IPCyberpunk
+    - IPSuperKit
+    - IPAdvancedProtect
+    - IPAdvancedDetentionTools
+    - IPSpecialForces
+    - IPMedicalBeamGunSyndicate
+    maxSelectedSets: 3

@@ -1,0 +1,153 @@
+- type: entity
+  parent: IDCardStandard
+  id: InterdyneIDCard
+  name: Interdyne ID card
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Objects/Misc/id_cards.rsi
+          state: default
+        - sprite: _Pirate/Interface/Misc/job_icons.rsi
+          offset: "-0.17,0.02"
+          state: Interdyne
+    - type: Item
+      heldPrefix: default
+    - type: PresetIdCard
+      job: Interdyne
+
+- type: entity
+  parent: IDCardStandard
+  id: CaptainInterdyneIDCard
+  name: Interdyne Officer ID card
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _Pirate/Objects/Misc/id_cards.rsi
+          state: ipofficer
+        - sprite: _Pirate/Interface/Misc/job_icons.rsi
+          offset: "-0.17,0.02"
+          state: CaptainInterdyne
+    - type: Item
+      heldPrefix: silver
+    - type: PresetIdCard
+      job: CaptainInterdyne
+      
+- type: entity
+  parent: IDCardStandard
+  id: InterdyneDeputyIDCard
+  name: Interdyne Deputy ID card
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _Pirate/Objects/Misc/id_cards.rsi
+          state: ipdeputy
+        - sprite: _Pirate/Interface/Misc/job_icons.rsi
+          offset: "-0.17,0.02"
+          state: InterdyneDeputy
+    - type: Item
+      heldPrefix: silver
+    - type: PresetIdCard
+      job: InterdyneDeputy
+
+
+- type: entity
+  parent: IDCardStandard
+  id: InterdyneEngineerIDCard
+  name: InterdyneEngineer ID card
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _Pirate/Objects/Misc/id_cards.rsi
+          state: blacksecure
+        - sprite: _Pirate/Interface/Misc/job_icons.rsi
+          offset: "-0.17,0.02"
+          state: InterdyneEngineer
+    - type: Item
+      heldPrefix: default
+    - type: PresetIdCard
+      job: InterdyneEngineer
+      
+- type: entity
+  parent: IDCardStandard
+  id: InterdyneMedIDCard
+  name: Interdyne Medical ID card
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _Pirate/Objects/Misc/id_cards.rsi
+          state: blacksecure
+        - sprite: _Pirate/Interface/Misc/job_icons.rsi
+          offset: "-0.17,0.02"
+          state: InterdyneMed
+    - type: Item
+      heldPrefix: default
+    - type: PresetIdCard
+      job: InterdyneMed
+      
+- type: entity
+  parent: IDCardStandard
+  id: InterdynePilotIDCard
+  name: Interdyne Pilot ID card
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _Pirate/Objects/Misc/id_cards.rsi
+          state: blacksecure
+        - sprite: _Pirate/Interface/Misc/job_icons.rsi
+          offset: "-0.17,0.02"
+          state: InterdynePilot
+    - type: Item
+      heldPrefix: default
+    - type: PresetIdCard
+      job: InterdynePilot
+
+- type: entity
+  parent: IDCardStandard
+  id: InterdyneSecureIDCard
+  name: Interdyne Secure ID card
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _Pirate/Objects/Misc/id_cards.rsi
+          state: blacksecure
+        - sprite: _Pirate/Interface/Misc/job_icons.rsi
+          offset: "-0.17,0.02"
+          state: InterdyneSecure
+    - type: Item
+      heldPrefix: default
+    - type: PresetIdCard
+      job: InterdyneSecure
+      
+- type: entity
+  parent: IDCardStandard
+  id: InterdyneServiceIDCard
+  name: Interdyne Service ID card
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Objects/Misc/id_cards.rsi
+          state: default
+        - sprite: _Pirate/Interface/Misc/job_icons.rsi
+          offset: "-0.17,0.02"
+          state: InterdyneService
+    - type: Item
+      heldPrefix: default
+    - type: PresetIdCard
+      job: InterdyneService
+      
+- type: entity
+  parent: IDCardStandard
+  id: InterdyneShaftMinersIDCard
+  name: Interdyne Shaft Miners ID card
+  components:
+    - type: Sprite
+      layers:
+        - sprite: Objects/Misc/id_cards.rsi
+          state: default
+        - sprite: _Pirate/Interface/Misc/job_icons.rsi
+          offset: "-0.17,0.02"
+          state: InterdyneShaftMiners
+    - type: Item
+      heldPrefix: default
+    - type: PresetIdCard
+      job: InterdyneShaftMiners
