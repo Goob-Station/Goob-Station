@@ -11869,3 +11869,67 @@ Entries:
       message: The Station AI can now jump/warp to on-station cameras
   id: 1301
   time: '2025-07-01T19:53:54.0000000+00:00'
+- author: Sleeper Agent 110920
+  changes:
+    - type: Add
+      message: Added a new outfit to the hacked autodrobe.
+  id: 1302
+  time: '2025-07-01T20:17:04.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Changed the heretic ascension announcements.
+  id: 1303
+  time: '2025-07-01T20:18:07.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: Traitors and nukies are once again able to buy antimov!
+  id: 1304
+  time: '2025-07-01T20:19:41.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Three new dangerous creatures have been added, the brullbar, the white
+        wolf, and the living curse.
+  id: 1305
+  time: '2025-07-01T20:20:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Microreactors now get temporarily disabled when EMPed.
+  id: 1306
+  time: '2025-07-01T20:23:44.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        PTL current Speso creation is halved. No more Engineering being the
+        richest department.
+  id: 1307
+  time: '2025-07-01T20:25:45.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Fixed cybernetic eyes.
+  id: 1308
+  time: '2025-07-02T02:30:35.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Fixed Slimes and Voxes not being able to breathe.
+  id: 1309
+  time: '2025-07-02T02:42:29.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Actually fix eyes this time
+  id: 1310
+  time: '2025-07-02T04:34:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: IPCs can now pilot, bump open doors, and host anomalies.
+  id: 1311
+  time: '2025-07-02T10:31:40.0000000+00:00'
