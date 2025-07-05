@@ -37,9 +37,9 @@ public sealed class SpiderUIController : UIController
     public bool Permanent;
 
     private const float MinSpeed = 120f;
-    private const float MaxSpeed = 540f;
+    private const float MaxSpeed = 360f;
     private const float MinActionInterval = 2f;
-    private const float MaxActionInterval = 10f;
+    private const float MaxActionInterval = 6f;
 
     public void Toggle()
     {
