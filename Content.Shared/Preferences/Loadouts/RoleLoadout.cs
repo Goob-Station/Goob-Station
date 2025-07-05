@@ -65,13 +65,18 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Inventory;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Random;
@@ -286,6 +291,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
 
         var collection = IoCManager.Instance!;
         var roleProto = protoManager.Index(Role);
+        var exclusiveWith = new List<SlotFlags>();
 
         for (var i = roleProto.Groups.Count - 1; i >= 0; i--)
         {
@@ -298,6 +304,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 continue;
 
             var loadouts = new List<Loadout>();
+
             SelectedLoadouts[group] = loadouts;
 
             if (groupProto.MinLimit > 0)
@@ -308,6 +315,14 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                     // Reached the limit, time to stop
                     if (loadouts.Count >= groupProto.MinLimit)
                         break;
+
+                    if (groupProto.ExclusiveWith is { } exclusive)
+                    {
+                        if (exclusiveWith.Contains(exclusive))
+                            break;
+
+                        exclusiveWith.Add(exclusive);
+                    }
 
                     if (!protoManager.TryIndex(protoId, out var loadoutProto))
                         continue;
