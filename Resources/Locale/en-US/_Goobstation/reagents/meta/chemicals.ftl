@@ -37,7 +37,7 @@ reagent-name-hexamine = hexamine
 reagent-desc-hexamine = A white crystalline solid that smells fishy. Used in making explosives.
 
 reagent-name-cyclonite = cyclonite
-reagent-desc-cyclonite = A yellowish crystal that is used in plastic explosives. Also known as RDX. Explodes at 576K. 
+reagent-desc-cyclonite = A yellowish crystal that is used in plastic explosives. Also known as RDX. This reaction is exothermic. Explodes at 576K. 
 
 reagent-name-ammonium-nitrate = ammonium nitrate
 reagent-desc-ammonium-nitrate = A white, crystalline solid that is highly soluble in water. It is a potent fertilizer.
@@ -49,7 +49,7 @@ reagent-name-acetic-anhydride = acetic anhydride
 reagent-desc-acetic-anhydride = A colorless liquid that smells like vinegar. Used in manufacturing explosives.
 
 reagent-name-ammonium-nitrate-fuel-oil = ammonium nitrate fuel oil
-reagent-desc-ammonium-nitrate-fuel-oil = An off white, crystalline solid mixed with fuel often used as a blasting agent. Explodes at 576K, and mixing more than 60 units at a time will cause a runaway reaction!
+reagent-desc-ammonium-nitrate-fuel-oil = An off white, crystalline solid mixed with fuel often used as a blasting agent. This reaction is exothermic. Explodes at 576K, and mixing more than 60 units at a time will cause a runaway reaction!
 
 reagent-name-octogen = octogen
-reagent-desc-octogen = A white, opaque powder that has detonation velocity similar to re-entry speeds. Also known ass HMX. Explodes at 553K.
+reagent-desc-octogen = A white, opaque powder that has detonation velocity similar to re-entry speeds. Also known as HMX. This reaction is exothermic. Explodes at 553K.
