@@ -75,7 +75,7 @@
           Piercing: 2
     - type: NightVision
       toggleAction: ToggleNightVision # let ghost roles turn it off
-    - type: Destructible # Shitmed Change
+    - type: Destructible #shitmed
       thresholds:
       - trigger:
           !type:DamageTypeTrigger
@@ -85,3 +85,5 @@
         - !type:GibBehavior
           gibContents: Skip
           recursive: false   
+    - type: Body #shitmed
+      prototype: Mouse
