@@ -80,10 +80,15 @@
 - type: reaction
   id: Octogen
   reactants:
-    AmmoniumNitrate: 1
-    NitricAcid: 1
-    Vinegar: 1
-    AceticAnhydride: 1
-    Hexamine: 1
+    AmmoniumNitrate:
+      amount: 1
+    NitricAcid:
+      amount: 1
+    Vinegar:
+      amount: 1
+    AceticAnhydride:
+      amount: 1
+    Hexamine:
+      amount: 1
   products:
     Octogen: 2

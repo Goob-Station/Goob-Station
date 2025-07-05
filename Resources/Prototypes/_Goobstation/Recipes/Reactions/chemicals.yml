@@ -116,8 +116,7 @@
     Oxygen:
       amount: 1
   products:
-    CarbonDioxide:
-      amount: 1
+    CarbonDioxide: 1
 
 - type: reaction
   id: AceticAnhydride
