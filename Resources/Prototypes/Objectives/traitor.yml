@@ -285,7 +285,8 @@
   id: BaseRDStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    job:
+      - ResearchDirector
   - type: StealCondition
     owner: job-name-rd
 
@@ -294,7 +295,8 @@
   id: RDHardsuitStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector # Goobstation
+    job:
+      - ResearchDirector # Goobstation
   - type: StealCondition
     stealGroup: ClothingOuterHardsuitRd
   - type: Objective
@@ -306,7 +308,8 @@
   id: HandTeleporterStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector # Goobstation
+    job:
+      - ResearchDirector # Goobstation
   - type: StealCondition
     stealGroup: HandTeleporter
 
@@ -320,7 +323,8 @@
     # Warden will have this on them a lot of the time so..
     difficulty: 3
   - type: NotJobRequirement
-    job: Warden # Goob edit
+    job:
+      - Warden # Goob edit
   - type: StealCondition
     stealGroup: WeaponEnergyShotgun
     owner: job-name-warden # Goob edit
@@ -333,7 +337,8 @@
   id: BaseCEStealObjective
   components:
   - type: NotJobRequirement
-    job: ChiefEngineer
+    job:
+      - ChiefEngineer # Goobstation
   - type: StealCondition
     owner: job-name-ce
 
@@ -353,7 +358,8 @@
   id: ClipboardStealObjective
   components:
   - type: NotJobRequirement
-    job: Quartermaster
+    job:
+      - Quartermaster # Goobstation
   - type: StealCondition
     stealGroup: BoxFolderQmClipboard
     owner: job-name-qm
@@ -363,7 +369,8 @@
   id: KnuckleDustersStealObjective
   components:
   - type: NotJobRequirement
-    job: Quartermaster
+    job:
+      - Quartermaster # Goobstation
   - type: StealCondition
     stealGroup: ClothingHandsKnuckleDustersQM
     owner: job-name-qm
@@ -375,7 +382,8 @@
   id: CorgiMeatStealObjective
   components:
   - type: NotJobRequirement
-    job: HeadOfPersonnel
+    job:
+      - HeadOfPersonnel # Goobstation
   - type: ObjectiveLimit
     limit: 3 # ian only has 2 slices, 3 obj for drama
   - type: StealCondition
@@ -393,7 +401,8 @@
     # sorry ce but your jordans are not as high security as the caps gear
     difficulty: 3.5
   - type: NotJobRequirement
-    job: Captain
+    job:
+      - Captain # Goobstation
 
 - type: entity
   parent: BaseCaptainObjective
