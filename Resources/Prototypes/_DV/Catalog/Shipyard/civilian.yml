@@ -3,7 +3,7 @@
   name: Private Transport Shuttle
   description: A private transport vessel for up to 6 passengers.
   price: 23000
-  path: /Maps/Shuttles/DeltaV/pts.yml
+  path: /Maps/_DV/Shuttles/pts.yml
   categories:
   - Civilian
   - Small
@@ -14,7 +14,7 @@
   name: The Barge
   description: A large shipping vessel repurposed into a salvage bar.
   price: 45000
-  path: /Maps/Shuttles/DeltaV/barge.yml
+  path: /Maps/_DV/Shuttles/barge.yml
   categories:
   - Civilian
   - Large
@@ -26,7 +26,7 @@
   name: NTMC Helix
   description: A large mobile health clinic for servicing distant outposts.
   price: 46000
-  path: /Maps/Shuttles/DeltaV/helix.yml
+  path: /Maps/_DV/Shuttles/helix.yml
   categories:
   - Civilian
   - Medium
@@ -37,7 +37,7 @@
   name: NT-7 Prospector
   description: A small mining vessel designed to assist salvage operations.
   price: 20800
-  path: /Maps/Shuttles/DeltaV/prospector.yml
+  path: /Maps/_DV/Shuttles/prospector.yml
   categories:
   - Civilian
   - Small
@@ -48,7 +48,7 @@
   name: NTCV Nomad
   description: A small shuttle for transporting up to 3 passengers with relative comfort.
   price: 21000
-  path: /Maps/Shuttles/DeltaV/ntcv-nomad.yml
+  path: /Maps/_DV/Shuttles/ntcv-nomad.yml
   categories:
   - Civilian
   - Small
@@ -59,7 +59,7 @@
   name: NTSV Tote
   description: A small shipping vessel, adapted from the Nomad line of shuttles with room for 2 passengers.
   price: 20000
-  path: /Maps/Shuttles/DeltaV/ntsv-tote.yml
+  path: /Maps/_DV/Shuttles/ntsv-tote.yml
   categories:
   - Civilian
   - Small
@@ -70,7 +70,7 @@
   name: NTV Pulse
   description: A moderately sized shuttle intended for all-purpose use. It can comfortably accomodate a crew of up to ten people.
   price: 50000
-  path: /Maps/Shuttles/DeltaV/ntv-pulse.yml
+  path: /Maps/_DV/Shuttles/ntv-pulse.yml
   categories:
   - Civilian
   - Medium
