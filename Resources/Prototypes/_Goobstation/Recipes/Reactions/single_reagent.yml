@@ -56,7 +56,6 @@
       intensityPerUnit: 7 # RDX's RE factor is 1.6 of tnt
       intensitySlope: 20 # more controlled explosion
       maxTotalIntensity: 700
-      canCreateVacuum: false #c4 doesn't space
 
 - type: reaction
   id: AmmoniumNitrateDecomposition
@@ -95,7 +94,6 @@
       intensityPerUnit: 1 # you need a lot of it for a large explosion
       intensitySlope: 2
       maxTotalIntensity: 5000 # max explosion requires 5000 units which is A LOT
-      canCreateVacuum: false #less pain for engi
 
 - type: reaction
   id: VinegarDecomposition
