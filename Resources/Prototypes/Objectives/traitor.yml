@@ -111,11 +111,6 @@
       sprite: Objects/Misc/folders.rsi
       state: folder-white
   - type: MultipleTraitorsRequirement
-  - type: NotJobRequirement
-    job:
-      - ResearchDirector
-      - ChiefEngineer
-      - Quartermaster
 
 - type: entity
   abstract: true
@@ -151,10 +146,7 @@
   description: Die.
   components:
   - type: NotJobRequirement
-    job:
-      - ResearchDirector
-      - ChiefEngineer
-      - Quartermaster
+    job: ChiefEngineer # Goob
   - type: Objective
     difficulty: 0.5
     icon:
