@@ -4,8 +4,10 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CCVars;
 using Content.Shared.Tag;
-using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server._DV.Shipyard;
 
@@ -16,13 +18,12 @@ public sealed class ShipyardSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly MapDeleterShuttleSystem _mapDeleterShuttle = default!;
-    [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
-    [ValidatePrototypeId<TagPrototype>]
-    public string DockTag = "DockShipyard";
+    public ProtoId<TagPrototype> DockTag = "DockShipyard";
 
     public bool Enabled;
 
@@ -41,24 +42,15 @@ public sealed class ShipyardSystem : EntitySystem
         if (!Enabled)
             return null;
 
-        if (!_mapLoader.TryLoad(mapId, path, out var map, out var grids))
+        var map = _map.CreateMap(out var mapId);
+        if (!_mapLoader.TryLoadGrid(mapId, path, out var grid))
         {
             Log.Error($"Failed to load shuttle {path}");
             Del(map);
             return null;
         }
 
-        // only 1 grid is supported, no tramshuttle
-        if (grids.Count != 1)
-        {
-            var error = grids.Count < 1 ? "less" : "more";
-            Log.Error($"Shuttle {path} had {error} than 1 grid, which is not supported.");
-            Del(map);
-            return null;
-        }
-
-        var uid = grids[0];
-        if (!TryComp<ShuttleComponent>(uid, out var comp))
+        if (!TryComp<ShuttleComponent>(grid, out var comp))
         {
             Log.Error($"Shuttle {path}'s grid was missing ShuttleComponent");
             Del(map);
@@ -66,8 +58,8 @@ public sealed class ShipyardSystem : EntitySystem
         }
 
         _map.SetPaused(map, false);
-        _mapDeleterShuttle.Enable(uid);
-        return (uid, comp);
+        _mapDeleterShuttle.Enable(grid.Value);
+        return (grid.Value, comp);
     }
 
     /// <summary>
