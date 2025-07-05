@@ -483,7 +483,7 @@
     - prefRoles: [ InitialInfected ]
       max: 4
       playerRatio: 15
-      jobBlacklist: [ Chaplain, Quartermaster, ResearchDirector, ChiefMedicalOfficer, ChiefEngineer, HeadOfPersonnel, NanotrasenRepresentative ] # Goobstation
+      jobBlacklist: [ Chaplain, Quartermaster, ResearchDirector, ChiefEngineer, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
         - ZombieImmune
