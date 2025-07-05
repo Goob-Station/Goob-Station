@@ -75,3 +75,13 @@
           Piercing: 2
     - type: NightVision
       toggleAction: ToggleNightVision # let ghost roles turn it off
+    - type: Destructible # Shitmed Change
+      thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 100
+        behaviors:
+        - !type:GibBehavior
+          gibContents: Skip
+          recursive: false   
