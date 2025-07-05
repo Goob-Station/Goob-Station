@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
@@ -11,20 +12,18 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Server.EntityEffects;
 
 /// <summary>
-///     Changes the temperature of the entity's local atmos mixture.
+///     Extinguishes nearby entities.
 /// </summary>
-public sealed partial class ChangeTempNearby : EntityEffect
+public sealed partial class ExtinguishNearby : EntityEffect
 {
-    /// <summary>
-    ///     Room temperature.
-    /// </summary>
+
     [DataField]
-    public float NewKelvin = 293.15f;
+    public float Range = 12;
 
     public override bool ShouldLog => true;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-ignite", ("chance", Probability)); // why the fuck are these required, remind me to do these for all my new entity effects.
+        => Loc.GetString("reagent-effect-guidebook-ignite", ("chance", Probability));
 
     public override LogImpact LogImpact => LogImpact.Medium;
 
@@ -33,11 +32,14 @@ public sealed partial class ChangeTempNearby : EntityEffect
         if (args is not EntityEffectReagentArgs reagentArgs)
             return;
 
-        var atmosSys = args.EntityManager.System<AtmosphereSystem>();
+        var entityManager = args.EntityManager;
+        var lookupSys = entityManager.System<EntityLookupSystem>();
+        var flamSys = entityManager.System<FlammableSystem>();
 
-        var localAtmos = atmosSys.GetContainingMixture(args.TargetEntity);
-
-        if (localAtmos != null)
-            localAtmos.Temperature = NewKelvin;
+        foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
+        {
+            if (entityManager.TryGetComponent(entity, out FlammableComponent? flammable))
+                flamSys.Extinguish(entity, flammable);
+        }
     }
 }

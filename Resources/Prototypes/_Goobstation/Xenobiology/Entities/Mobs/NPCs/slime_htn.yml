@@ -8,13 +8,39 @@
   branches:
   - tasks:
     - !type:HTNCompoundTask
-      task: FoodCompound
+      task: XenoSlimeFoodCompound
   - tasks:
     - !type:HTNCompoundTask
       task: LatchCompound
   - tasks:
     - !type:HTNCompoundTask
       task: IdleCompound
+
+- type: htnCompound
+  id: XenoSlimeFoodCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyFood
+    - !type:HTNPrimitiveTask
+      operator: !type:MoveToOperator
+        pathfindInPlanning: true
+        removeKeyOnFinish: false
+        targetKey: TargetCoordinates
+        pathfindKey: TargetPathfind
+        rangeKey: MeleeRange
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+      operator: !type:AltInteractOperator
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+      operator: !type:WaitOperator
+        key: IdleTime
 
 - type: htnCompound
   id: LatchCompound
@@ -29,6 +55,13 @@
       operator: !type:MoveToOperator
         pathfindInPlanning: false
         targetKey: MovementTarget
+        rangeKey: MeleeRange
     - !type:HTNPrimitiveTask
       operator: !type:SlimeLatchOperator
         latchKey: LatchTarget
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: IdleTime
+      operator: !type:WaitOperator
+        key: IdleTime

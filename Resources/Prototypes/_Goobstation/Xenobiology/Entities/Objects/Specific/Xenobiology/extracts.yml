@@ -454,7 +454,7 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:ChangeTempNearby #this needs work
+      - !type:ExtinguishNearby
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:

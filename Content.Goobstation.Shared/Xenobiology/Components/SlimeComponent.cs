@@ -59,7 +59,7 @@ public sealed partial class SlimeComponent : Component
     /// How many entities the slime can digest at once.
     /// </summary>
     [DataField]
-    public int MaxContainedEntities = 3;
+    public int MaxContainedEntities = 1;
 
     /// <summary>
     /// How long each entity is stunned for when removed from the stomach (Fuck you gus.)
@@ -92,6 +92,12 @@ public sealed partial class SlimeComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int MaxOffspring = 4;
+
+    /// <summary>
+    /// How many extracts will be produced by this slime?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int ExtractsProduced = 1;
 
     /// <summary>
     /// What is the chance of offspring mutating? (this is per/offspring)

@@ -75,7 +75,10 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
                 continue;
 
             var extractProto = _xenobio.GetProducedExtract((grinder.EntityGrinded.Value, slime));
-            SpawnNextToOrDrop(extractProto, uid);
+            var extractQuantity = slime.ExtractsProduced;
+
+            for (var i = 0; i < extractQuantity; i++)
+                SpawnNextToOrDrop(extractProto, uid);
 
             QueueDel(grinder.EntityGrinded);
             grinder.EntityGrinded = null;
