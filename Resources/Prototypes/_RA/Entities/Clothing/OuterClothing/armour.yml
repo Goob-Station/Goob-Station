@@ -1,0 +1,58 @@
+- type: entity
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband]
+  id: ClothingOuterArmourInvisibleRA # CC armor edited for RA
+  name: RA protective veil
+  description: An armored vest that utilizes bluespace technology, bending light and becoming invisible to the naked eye when worn. 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/covert_armor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/covert_armor.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.40
+        Heat: 0.40
+        Caustic: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.60
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaResistance
+    damageCoefficient: 0.3
+  - type: StripMenuInvisible # No peeking!
+
+- type: entity
+  parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterStorageBase ]
+  id: ClothingOuterCapJacketRA
+  name: captain's armored coat
+  description: An extremely expensive jacket with extra durathread protection at the chest.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/captain_jacket.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/captain_jacket.rsi
+  - type: Item
+    size: Normal
+  - type: Armor
+    coverage:
+    - Chest
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.40
+        Heat: 0.40
+        Caustic: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.60
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaResistance
+    damageCoefficient: 0.3
