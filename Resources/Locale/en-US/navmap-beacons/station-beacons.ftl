@@ -58,7 +58,7 @@ station-beacon-qm = QM
 station-beacon-salvage = Salvage
 
 station-beacon-engineering = Engineering
-station-beacon-ce = CE
+station-beacon-ce = LEO
 station-beacon-ame = AME
 station-beacon-solars = Solars
 station-beacon-gravgen = Grav

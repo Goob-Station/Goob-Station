@@ -34,9 +34,9 @@
   description: An extremely expensive jacket with extra durathread protection at the chest.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Armor/captain_jacket.rsi
+    sprite: _RA/Clothing/OuterClothing/Armor/captainformalcoat.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Armor/captain_jacket.rsi
+    sprite: _RA/Clothing/OuterClothing/Armor/captainformalcoat.rsi
   - type: Item
     size: Normal
   - type: Armor

@@ -866,7 +866,7 @@
 - type: entity
   parent: BasePDA
   id: CEPDA
-  name: chief engineer PDA
+  name: lead engineering officer PDA
   description: Looks like it's barely been used.
   components:
   - type: Pda

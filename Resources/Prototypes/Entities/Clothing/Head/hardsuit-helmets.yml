@@ -498,8 +498,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitEngineeringWhite
-  name: chief engineer's voidsuit helmet # Goob edit
-  description: Special voidsuit helmet, made for the chief engineer of the station. # Goob edit
+  name: lead engineering officer's voidsuit helmet # Goob edit
+  description: Special voidsuit helmet, made for the lead engineering officer of the station. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/engineering-white.rsi

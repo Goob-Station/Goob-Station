@@ -161,7 +161,7 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCommandContraband]
   id: ClothingHeadsetAltEngineering
-  name: chief engineer's over-ear headset
+  name: lead engineering officer's over-ear headset
   components:
   - type: ContainerFill
     containers:

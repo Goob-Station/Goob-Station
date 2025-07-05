@@ -133,7 +133,7 @@
 - type: entity
   id: LockerChiefEngineer
   parent: LockerBaseSecure
-  name: chief engineer's locker
+  name: lead engineering officer's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals

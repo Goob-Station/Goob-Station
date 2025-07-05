@@ -552,7 +552,7 @@
 - type: entity
   parent: IDCardStandard
   id: CEIDCard
-  name: chief engineer ID card
+  name: lead engineering officer ID card
   components:
   - type: Sprite
     layers:
