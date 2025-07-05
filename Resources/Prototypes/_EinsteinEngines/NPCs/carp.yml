@@ -89,6 +89,6 @@
         behaviors:
         - !type:GibBehavior
           gibContents: Skip
-          recursive: false   
+          recursive: false
     - type: Body #shitmed
       prototype: Mouse
