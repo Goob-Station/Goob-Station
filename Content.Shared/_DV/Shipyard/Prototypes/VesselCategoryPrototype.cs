@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Shipyard.Prototypes;
+namespace Content.Shared._DV.Shipyard.Prototypes;
 
 /// <summary>
 /// Like <c>TagPrototype</c> but for vessel categories.

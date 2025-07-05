@@ -2,12 +2,12 @@ using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
-using Content.Shared.Shipyard;
-using Content.Shared.Shipyard.Prototypes;
+using Content.Shared._DV.Shipyard;
+using Content.Shared._DV.Shipyard.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
-namespace Content.Server.Shipyard;
+namespace Content.Server._DV.Shipyard;
 
 public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 {

@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Shipyard;
+namespace Content.Shared._DV.Shipyard;
 
 /// <summary>
 /// Component for the shipyard console.

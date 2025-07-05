@@ -1,4 +1,4 @@
-namespace Content.Server.Shipyard;
+namespace Content.Server._DV.Shipyard;
 
 /// <summary>
 /// When added to a shuttle, once it FTLs the previous map is deleted.

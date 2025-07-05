@@ -1,6 +1,6 @@
 using Content.Server.Shuttles.Events;
 
-namespace Content.Server.Shipyard;
+namespace Content.Server._DV.Shipyard;
 
 public sealed class MapDeleterShuttleSystem : EntitySystem
 {

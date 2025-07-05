@@ -2,7 +2,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.Shipyard.Prototypes;
+namespace Content.Shared._DV.Shipyard.Prototypes;
 
 [Prototype("vessel")]
 public sealed class VesselPrototype : IPrototype

@@ -1,7 +1,7 @@
 using Content.Server.Cargo.Systems;
-using Content.Server.Shipyard;
+using Content.Server._DV.Shipyard;
 using Content.Server.Shuttles.Components;
-using Content.Shared.Shipyard.Prototypes;
+using Content.Shared._DV.Shipyard.Prototypes;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 

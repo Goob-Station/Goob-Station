@@ -1,8 +1,8 @@
-using Content.Shared.Shipyard.Prototypes;
+using Content.Shared._DV.Shipyard.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Shipyard;
+namespace Content.Shared._DV.Shipyard;
 
 [Serializable, NetSerializable]
 public enum ShipyardConsoleUiKey : byte
