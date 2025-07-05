@@ -122,8 +122,8 @@
     visuals:
       enum.HarpyVisualLayers.Singing:
         singingLayer:
-          False:  {visible: false}
-          True:  {visible: true}
+          False: {visible: false}
+          True: {visible: true}
     wilhelmProbability: 0.001
   - type: MobPrice
     price: 150
