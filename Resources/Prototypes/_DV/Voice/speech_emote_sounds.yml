@@ -79,6 +79,8 @@
       collection: Weh
     CatMeow:
       collection: CatMeows # Goobstation - effect standardization
+    Coo: #Floof
+      collection: HarpyCoos
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:

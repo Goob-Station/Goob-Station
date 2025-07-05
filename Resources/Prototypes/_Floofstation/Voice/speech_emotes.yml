@@ -23,3 +23,20 @@
   chatTriggers:
   - yip
   - yips
+
+- type: emote
+  id: Coo
+  name: chat-emote-name-coo
+  category: Vocal
+  chatMessages: [ coos ]
+  whitelist:
+    tags:
+      - HarpyEmotes
+  blacklist:
+    tags:
+      - SiliconEmotes
+    components:
+      - BorgChassis
+  chatTriggers:
+  - coo
+  - coos
