@@ -1,0 +1,45 @@
+- type: reagent
+  id: PurpleXenoJelly
+  parent: Slime
+  name: reagent-name-purple-xeno-jelly
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifySlimeComponent
+        extractBonus: 1
+
+- type: reagent
+  id: BlueXenoJelly
+  parent: Slime
+  name: reagent-name-blue-xeno-jelly
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifySlimeComponent
+        chanceModifier: 0.25
+        shouldSubtract: true
+
+- type: reagent
+  id: CeruleanXenoJelly
+  parent: Slime
+  name: reagent-name-cerulean-xeno-jelly
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifySlimeComponent
+        offspringBonus: 2
+
+- type: reagent
+  id: RedXenoJelly
+  parent: Slime
+  name: reagent-name-red-xeno-jelly
+  metabolisms:
+    Food:
+      metabolismRate: 1
+      effects:
+      - !type:ModifySlimeComponent
+        chanceModifier: 0.25
+        shouldSubtract: false

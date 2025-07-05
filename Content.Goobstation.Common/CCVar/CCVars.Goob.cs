@@ -23,6 +23,7 @@
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
@@ -267,6 +268,13 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Xenobiology
+
+    public static readonly CVarDef<float> BreedingInterval =
+        CVarDef.Create("xenobiology.breeding.interval", 1f, CVar.REPLICATED | CVar.SERVER);
+
+    #endregion
+
     #region Goobcoins
 
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
@@ -472,7 +480,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Whether to hear audio from your own entity.");
 
     #endregion
-    
+
     #region Queue
 
     /// <summary>
