@@ -157,8 +157,7 @@
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   supervisors: job-supervisors-captain
-  #canBeAntag: false
-  antagRollWeight: 0.10 # Goobstation
+  canBeAntag: false
   access:
   - Command
   - HeadOfPersonnel

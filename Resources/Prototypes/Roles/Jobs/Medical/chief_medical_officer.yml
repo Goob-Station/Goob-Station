@@ -148,8 +148,7 @@
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
-  #canBeAntag: false
-  antagRollWeight: 0.10 # Goobstation
+  canBeAntag: false
   goobcoins: 40 #Goob content
   access:
   - Medical

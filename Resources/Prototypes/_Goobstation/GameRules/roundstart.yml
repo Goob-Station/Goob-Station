@@ -52,7 +52,7 @@
     - prefRoles: [ Changeling ]
       max: 4
       playerRatio: 12
-      jobBlacklist: [ Chaplain, Quartermaster, ResearchDirector, ChiefMedicalOfficer, ChiefEngineer, HeadOfPersonnel, NanotrasenRepresentative ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, Quartermaster, ResearchDirector, ChiefEngineer, NanotrasenRepresentative ] # GOOBSTATION
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -226,7 +226,7 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain, Quartermaster, ResearchDirector, ChiefMedicalOfficer, ChiefEngineer, HeadOfPersonnel, NanotrasenRepresentative ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, Quartermaster, ResearchDirector, ChiefEngineer, NanotrasenRepresentative ] # GOOBSTATION
       blacklist:
         components:
         - AntagImmune
@@ -354,7 +354,7 @@
     - prefRoles: [ Devil ]
       max: 1
       playerRatio: 20
-      jobBlacklist: [ Chaplain, Mime, Quartermaster, ResearchDirector, ChiefMedicalOfficer, ChiefEngineer, HeadOfPersonnel ] # Chaplain is obvious. Mime can't write.
+      jobBlacklist: [ Chaplain, Mime, Quartermaster, ResearchDirector, ChiefEngineer ] # Chaplain is obvious. Mime can't write.
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear
