@@ -387,7 +387,7 @@
     - prefRoles: [ HeadRev ]
       max: 3
       playerRatio: 15
-      jobBlacklist: [ Quartermaster, ResearchDirector, ChiefEngineer, NanotrasenRepresentative ]
+      jobBlacklist: [ Quartermaster, ResearchDirector, ChiefEngineer, NanotrasenRepresentative ] # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue

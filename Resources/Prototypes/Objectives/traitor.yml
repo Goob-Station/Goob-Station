@@ -276,7 +276,7 @@
   id: RDHardsuitStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    job: ResearchDirector # Goobstation
   - type: StealCondition
     stealGroup: ClothingOuterHardsuitRd
   - type: Objective
@@ -288,7 +288,7 @@
   id: HandTeleporterStealObjective
   components:
   - type: NotJobRequirement
-    job: ResearchDirector
+    job: ResearchDirector # Goobstation
   - type: StealCondition
     stealGroup: HandTeleporter
 
@@ -324,7 +324,7 @@
   id: MagbootsStealObjective
   components:
   - type: NotJobRequirement
-    job: ChiefEngineer
+    job: ChiefEngineer # Goobstation
   - type: StealCondition
     stealGroup: ClothingShoesBootsMagAdv
 

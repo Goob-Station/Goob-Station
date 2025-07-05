@@ -54,7 +54,7 @@
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, Quartermaster, ResearchDirector, ChiefEngineer, NanotrasenRepresentative ] # GOOBSTATION ] # GOOBSTATION
       components:
       - type: Pacified
       mindRoles:
