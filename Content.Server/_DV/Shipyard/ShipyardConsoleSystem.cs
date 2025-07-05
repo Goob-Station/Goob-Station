@@ -60,7 +60,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 
         _meta.SetEntityName(shuttle, $"{vessel.Name} {_random.Next(1000):000}");
 
-        _cargo.UpdateBankAccount((bank, bank), -vessel.Price, _cargo.CreateAccountDistribution(bank.Comp.PrimaryAccount, bank.Comp));
+        _cargo.UpdateBankAccount((bank, bank), -vessel.Price, _cargo.CreateAccountDistribution(bank));
 
         var message = Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name));
         _radio.SendRadioMessage(ent, message, ent.Comp.Channel, ent);
