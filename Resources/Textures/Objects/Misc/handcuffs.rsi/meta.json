@@ -29,6 +29,10 @@
     {
       "name": "inhand-right",
       "directions": 4
+    },
+    {
+      "name": "body-overlay-2-resomi",
+      "directions": 4
     }
   ]
 }
