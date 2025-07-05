@@ -26,8 +26,8 @@ public sealed class SpiderUIController : UIController
     private Vector2 _lastScreenSize;
     public bool Permanent;
 
-    private const float Speed = 80f;
-    private const float DirectionChangeInterval = 3f;
+    private const float Speed = 120f;
+    private const float DirectionChangeInterval = 4f;
 
     public void Toggle()
     {
@@ -42,6 +42,14 @@ public sealed class SpiderUIController : UIController
         {
             _spider.Parent?.RemoveChild(_spider);
             _spider = null;
+        }
+        else if (ShouldShowSpider() && _spider == null)
+        {
+            var screen = UIManager.ActiveScreen;
+            if (screen != null)
+            {
+                InitializeSpider(screen);
+            }
         }
     }
 
@@ -70,12 +78,13 @@ public sealed class SpiderUIController : UIController
     private void InitializeSpider(UIScreen screen)
     {
         _spider = new SpiderWidget();
-        screen.AddChild(_spider);
+
+        UIManager.WindowRoot.Root?.AddChild(_spider);
+
         _spider.Measure(new Vector2(float.PositiveInfinity));
         _spider.InvalidateArrange();
         LayoutContainer.SetAnchorPreset(_spider, LayoutContainer.LayoutPreset.Center);
         LayoutContainer.SetPosition(_spider, _position);
-
 
         _lastScreenSize = screen.Size;
         _position = new Vector2(
@@ -182,10 +191,8 @@ public sealed class SpiderWidget : Control
 
     protected override Vector2 ArrangeOverride(Vector2 finalSize)
     {
-        // Use the size we already measured
         return DesiredSize;
     }
-
 
     protected override void Draw(DrawingHandleScreen handle)
     {
@@ -193,19 +200,14 @@ public sealed class SpiderWidget : Control
             return;
 
         var texture = _aliveState.GetFrame(RsiDirection.South, _currentFrame);
-
         var textureSize = texture.Size * _textureScale;
-        var halfTextureSize = textureSize / 2f;
         var center = Size / 2f;
+        var topLeft = center - textureSize / 2f;
+        var textureRect = UIBox2.FromDimensions(topLeft, textureSize);
 
         var oldTransform = handle.GetTransform();
-        // FUCK THIS. I AM ON GOOBTV WITH MY FUCKING HANDS UP, I'M NOT UI'ING MY-FUCKING-SELF
-        // YOU FUCKING STUPID BITCH
-        // THIS STUPID FUCKING TRANSFORM
-        // ALL THIS RIGHTEOUS FUCKING UI, Robust.Client.UserInterface, IS DOING THIS SHIT
-        // YOU FUCKING WIDGET
         handle.SetTransform(Matrix3x2.CreateRotation(Rotation, center) * oldTransform);
-        handle.DrawTexture(texture, center - halfTextureSize);
+        handle.DrawTextureRect(texture, textureRect);
         handle.SetTransform(oldTransform);
     }
 }

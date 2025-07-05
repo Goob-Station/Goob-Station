@@ -32,10 +32,22 @@ public sealed class ServerSpiderManager : ISpiderManager, IPostInjectInit, IEnti
 
     private async void RequestSpider(SpiderConsentMsg message)
     {
-        // USER HAS REQUESTED A SPIDER, WE HAVE TO GIVE HIM A SPIDER!
-        await _db.AddPermanentSpiderFriend(message.MsgChannel.UserId);
+        if (_friends.Contains(message.MsgChannel.UserId.UserId))
+            return;
 
-        AddPermanentSpider(message.MsgChannel);
+        try
+        {
+            // USER HAS REQUESTED A SPIDER, WE HAVE TO GIVE HIM A SPIDER!
+            await _db.AddPermanentSpiderFriend(message.MsgChannel.UserId);
+
+            AddPermanentSpider(message.MsgChannel);
+        }
+        catch (Exception ex)
+        {
+            IoCManager.Resolve<ILogManager>()
+                .GetSawmill("Spider")
+                .Error($"{message.MsgChannel.UserName} attempted to consent to spider but somehow the database just died lmao?");
+        }
     }
 
     public void Initialize()
@@ -56,7 +68,7 @@ public sealed class ServerSpiderManager : ISpiderManager, IPostInjectInit, IEnti
         _net.ServerSendMessage(new SpiderMsg { Permanent = false }, victim.Channel);
     }
 
-    public void AddPermanentSpider(INetChannel channel)
+    private void AddPermanentSpider(INetChannel channel)
     {
         var sess = _player.GetSessionByChannel(channel);
         AddPermanentSpider(sess);
@@ -68,6 +80,7 @@ public sealed class ServerSpiderManager : ISpiderManager, IPostInjectInit, IEnti
             return;
 
         _net.ServerSendMessage(new SpiderMsg { Permanent = true }, victim.Channel);
+        _friends.Add(victim.UserId.UserId);
     }
 
     public void ClearTemporarySpiders()
