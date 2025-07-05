@@ -86,6 +86,11 @@
   id: BaseKeepAliveObjective
   components:
   - type: KeepAliveCondition
+  - type: NotJobRequirement
+    job:
+      - ResearchDirector
+      - ChiefEngineer
+      - Quartermaster
 
 # requires that the target completes at least 50% of their objectives
 - type: entity
