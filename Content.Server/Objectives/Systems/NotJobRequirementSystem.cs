@@ -10,6 +10,7 @@
 
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
+using System.Linq;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -39,7 +40,7 @@ public sealed class NotJobRequirementSystem : EntitySystem
 
 
         // MisandryBox - JobObjectives
-        var hasJob = proto.ID == comp.Job;
+        var hasJob = comp.Job.Contains(proto.ID);
 
         if (comp.Inverted ? !hasJob : hasJob)
             args.Cancelled = true;

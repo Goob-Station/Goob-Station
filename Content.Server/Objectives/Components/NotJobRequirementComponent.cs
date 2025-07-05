@@ -19,7 +19,7 @@ public sealed partial class NotJobRequirementComponent : Component
     /// ID of the job to ban from having this objective.
     /// </summary>
     [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<JobPrototype>))]
-    public string Job = string.Empty;
+    public List<string> Job = new();
 
     // MisandryBox/JobObjectives - Double negative to not break compatibility
     [DataField]
