@@ -748,7 +748,7 @@
     - BorgFireExtinguisher
     - BorgHandheldGPSBasic
     - GasAnalyzer
-    - HolofanProjectorBorg
+    - HolofanProjector
     - GeigerCounter
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
