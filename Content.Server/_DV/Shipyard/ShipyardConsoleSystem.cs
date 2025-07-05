@@ -25,7 +25,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ShipyardConsoleComponent, BankBalanceUpdatedEvent>(OnBalanceUpdated);
+        SubscribeLocalEvent<BankBalanceUpdatedEvent>(OnBalanceUpdated);
         Subs.BuiEvents<ShipyardConsoleComponent>(ShipyardConsoleUiKey.Key,
             subs =>
         {
@@ -42,7 +42,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
         if (GetBankAccount(ent) is not {} bank)
             return;
 
-        if (bank.Comp.Balance < vessel.Price)
+        if (bank.Comp.Accounts[bank.Comp.PrimaryAccount] < vessel.Price)
         {
             var popup = Loc.GetString("cargo-console-insufficient-funds", ("cost", vessel.Price));
             Popup.PopupEntity(popup, ent, user);
@@ -60,19 +60,25 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
 
         _meta.SetEntityName(shuttle, $"{vessel.Name} {_random.Next(1000):000}");
 
-        _cargo.UpdateBankAccount((bank, bank), -vessel.Price);
+        _cargo.UpdateBankAccount((bank, bank), -vessel.Price, _cargo.CreateAccountDistribution(bank.Comp.PrimaryAccount, bank.Comp));
 
         var message = Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name));
         _radio.SendRadioMessage(ent, message, ent.Comp.Channel, ent);
         Audio.PlayPvs(ent.Comp.ConfirmSound, ent);
     }
 
-    private void OnBalanceUpdated(Entity<ShipyardConsoleComponent> ent, ref BankBalanceUpdatedEvent args)
+    private void OnBalanceUpdated(ref BankBalanceUpdatedEvent args)
     {
-        if (!_ui.IsUiOpen(ent.Owner, ShipyardConsoleUiKey.Key))
-            return;
+        var query = EntityQueryEnumerator<ShipyardConsoleComponent>();
 
-        UpdateUI(ent, args.Balance);
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!_ui.IsUiOpen(uid, ShipyardConsoleUiKey.Key))
+                return;
+
+            if (GetBankAccount(uid) is {} bank)
+                UpdateUI(uid, args.Balance[bank.Comp.PrimaryAccount]);
+        }
     }
 
     private void OnOpened(Entity<ShipyardConsoleComponent> ent, ref BoundUIOpenedEvent args)
@@ -83,7 +89,7 @@ public sealed class ShipyardConsoleSystem : SharedShipyardConsoleSystem
     private void UpdateUI(EntityUid uid)
     {
         if (GetBankAccount(uid) is {} bank)
-            UpdateUI(uid, bank.Comp.Balance);
+            UpdateUI(uid, bank.Comp.Accounts[bank.Comp.PrimaryAccount]);
     }
 
     private void UpdateUI(EntityUid uid, int balance)

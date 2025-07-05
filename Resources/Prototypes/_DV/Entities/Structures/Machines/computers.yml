@@ -5,7 +5,6 @@
   description: Used to purchase and sell shuttles
   components:
   - type: ShipyardConsole
-  - type: BankClient
   - type: AccessReader
     access: [[ Captain ]]
   - type: ActivatableUI
