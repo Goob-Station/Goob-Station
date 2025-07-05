@@ -269,6 +269,8 @@
   parent: BaseRDStealObjective
   id: RDHardsuitStealObjective
   components:
+  - type: NotJobRequirement
+    job: ResearchDirector
   - type: StealCondition
     stealGroup: ClothingOuterHardsuitRd
   - type: Objective
@@ -279,6 +281,8 @@
   parent: BaseRDStealObjective
   id: HandTeleporterStealObjective
   components:
+  - type: NotJobRequirement
+    job: ResearchDirector
   - type: StealCondition
     stealGroup: HandTeleporter
 
@@ -313,6 +317,8 @@
   parent: BaseCEStealObjective
   id: MagbootsStealObjective
   components:
+  - type: NotJobRequirement
+    job: ChiefEngineer
   - type: StealCondition
     stealGroup: ClothingShoesBootsMagAdv
 

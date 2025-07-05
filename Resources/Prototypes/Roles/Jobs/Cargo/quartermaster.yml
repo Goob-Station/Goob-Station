@@ -145,7 +145,7 @@
   supervisors: job-supervisors-captain
   #canBeAntag: false
   antagRollWeight: 0.10 # Goobstation
-  antagAdvantage: 100 # Goobstation
+  antagAdvantage: 75 # Goobstation
   goobcoins: 40 #Goob content
   access:
   - Cargo
