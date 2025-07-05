@@ -1,0 +1,61 @@
+# A mess of broken Japanese, spoken by Felinds and Oni
+# TODO: Replace this with a much better language.
+- type: language
+  id: Nekomimetic
+  isVisibleLanguage: true
+  speech:
+    color: "#df57aaee"
+    fontId: Manga
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3 # May be too long even, we'll see.
+    replacement:
+    - neko
+    - nyan
+    - mimi
+    - moe
+    - mofu
+    - fuwa
+    - kyaa
+    - kawaii
+    - poka
+    - munya
+    - puni
+    - munyu
+    - ufufu
+    - icha
+    - doki
+    - kyun
+    - kusu
+    - nya
+    - nyaa
+    - desu
+    - kis
+    - ama
+    - chuu
+    - baka
+    - hewo
+    - boop
+    - gato
+    - kit
+    - sune
+    - yori
+    - sou
+    - baka
+    - chan
+    - san
+    - kun
+    - mahou
+    - yatta
+    - suki
+    - usagi
+    - domo
+    - ori
+    - uwa
+    - zaazaa
+    - shiku
+    - puru
+    - ira
+    - heto
+    - etto
