@@ -44,7 +44,7 @@
     Water: 1
 
 - type: reaction
-  id: Ammonium Nitrate
+  id: AmmoniumNitrate
   reactants:
     Ammonia:
       amount: 1

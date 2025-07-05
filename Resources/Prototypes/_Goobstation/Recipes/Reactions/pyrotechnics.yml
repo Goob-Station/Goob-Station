@@ -74,7 +74,7 @@
     AmmoniumNitrateFuelOil: 63
   effects:
     - !type:AdjustSolutionThermalEnergyEffect #explodes everything in the beaker
-      delta: 500
+      delta: 5000
       scaled: true
 
 - type: reaction
