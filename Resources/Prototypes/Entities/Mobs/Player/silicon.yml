@@ -95,12 +95,15 @@
 # SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
 # SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
@@ -535,9 +538,12 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModuleAdvancedTool # goob edit
+        - BorgModuleOperative # goob edit
         - BorgModuleSyndicateWeapon
-        - BorgModuleTool
-        - BorgModuleOperative
+        - BorgModuleConstruction # goob edit
+        - BorgModuleRCD # goob edit
+        - BorgModuleCable # goob edit
   - type: ItemSlots
     slots:
       cell_slot:
