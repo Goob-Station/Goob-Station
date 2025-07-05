@@ -1,4 +1,8 @@
-﻿using Robust.Client;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MPL-2.0
+
+using Robust.Client;
 
 namespace Content.Goobstation.Client;
 
