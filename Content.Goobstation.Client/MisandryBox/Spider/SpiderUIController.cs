@@ -1,11 +1,13 @@
 ﻿using System.Numerics;
 using Content.Client.Lobby;
+using Content.Goobstation.Common.CCVar;
 using Robust.Client;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Network;
@@ -17,6 +19,7 @@ namespace Content.Goobstation.Client.MisandryBox.Spider;
 public sealed class SpiderUIController : UIController
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IConfigurationManager _conf = default!;
 
     private SpiderWidget? _spider;
     private Vector2 _position;
@@ -45,15 +48,21 @@ public sealed class SpiderUIController : UIController
         }
         else if (ShouldShowSpider() && _spider == null)
         {
-            var screen = UIManager.ActiveScreen;
-            if (screen != null)
-            {
-                InitializeSpider(screen);
-            }
+            var root = UIManager.RootControl;
+            InitializeSpider(root);
         }
     }
 
-    private bool ShouldShowSpider() => _enabled || Permanent;
+    private bool ShouldShowSpider()
+    {
+        if (!_conf.GetCVar(GoobCVars.SpiderFriend))
+            return _enabled || Permanent;
+
+        _enabled = true;
+        Permanent = true;
+
+        return _enabled || Permanent;
+    }
 
     public override void FrameUpdate(FrameEventArgs args)
     {
@@ -62,9 +71,7 @@ public sealed class SpiderUIController : UIController
         if (!ShouldShowSpider())
             return;
 
-        var screen = UIManager.ActiveScreen;
-        if (screen == null)
-            return;
+        var screen = UIManager.RootControl;
 
         if (_spider == null)
         {
@@ -75,33 +82,33 @@ public sealed class SpiderUIController : UIController
         UpdateSpider(screen, args.DeltaSeconds);
     }
 
-    private void InitializeSpider(UIScreen screen)
+    private void InitializeSpider(UIRoot root)
     {
         _spider = new SpiderWidget();
 
-        UIManager.WindowRoot.Root?.AddChild(_spider);
+        root.AddChild(_spider);
 
         _spider.Measure(new Vector2(float.PositiveInfinity));
         _spider.InvalidateArrange();
         LayoutContainer.SetAnchorPreset(_spider, LayoutContainer.LayoutPreset.Center);
         LayoutContainer.SetPosition(_spider, _position);
 
-        _lastScreenSize = screen.Size;
+        _lastScreenSize = root.Size;
         _position = new Vector2(
-            _random.NextFloat() * screen.Size.X,
-            _random.NextFloat() * screen.Size.Y
+            _random.NextFloat() * root.Size.X,
+            _random.NextFloat() * root.Size.Y
         );
 
         _direction = GetRandomDirection();
         _timeUntilDirectionChange = DirectionChangeInterval;
     }
 
-    private void UpdateSpider(UIScreen screen, float deltaTime)
+    private void UpdateSpider(UIRoot root, float deltaTime)
     {
         if (_spider == null)
             return;
 
-        var currentScreenSize = screen.Size;
+        var currentScreenSize = root.Size;
 
         if (_lastScreenSize != currentScreenSize)
         {

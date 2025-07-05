@@ -1,9 +1,11 @@
 ﻿using Content.Client.Lobby;
+using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Shared.MisandryBox.Spider;
 using Robust.Client.Player;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
+using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 
@@ -14,6 +16,7 @@ public sealed class ClientSpiderManager : ISpiderManager, IPostInjectInit
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
     [Dependency] private readonly IStateManager _state = default!;
+    [Dependency] private readonly IConfigurationManager _conf = default!;
 
     private SpiderUIController _spider = default!;
     private bool _permanent = false;
@@ -24,7 +27,14 @@ public sealed class ClientSpiderManager : ISpiderManager, IPostInjectInit
         _netMan.RegisterNetMessage<SpiderClearMsg>(ClearSpider);
         _netMan.RegisterNetMessage<SpiderMsg>(ProcessSpider);
 
+        _netMan.Connected += OnConnected;
         _state.OnStateChanged += OnStateChanged;
+    }
+
+    private void OnConnected(object? sender, NetChannelArgs e)
+    {
+        if (_conf.GetCVar(GoobCVars.SpiderFriend))
+            _netMan.ClientSendMessage(new SpiderConsentMsg());
     }
 
     private void OnStateChanged(StateChangedEventArgs args)
@@ -66,6 +76,9 @@ public sealed class ClientSpiderManager : ISpiderManager, IPostInjectInit
         _permanent = true;
         _spider.Permanent = _permanent;
         _spider.SetEnabled(true);
+
+        _conf.SetCVar(GoobCVars.SpiderFriend, true);
+        _conf.SaveToFile();
     }
 
     public void ClearTemporarySpiders()
