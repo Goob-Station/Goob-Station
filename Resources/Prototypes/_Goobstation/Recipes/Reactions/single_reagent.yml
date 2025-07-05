@@ -52,10 +52,10 @@
   effects:
     - !type:ExplosionReactionEffect
       explosionType: DemolitionCharge #Better at breaking walls and stuff
-      maxIntensity: 200
+      maxIntensity: 20
       intensityPerUnit: 7 # RDX's RE factor is 1.6 of tnt
       intensitySlope: 20 # more controlled explosion
-      maxTotalIntensity: 800
+      maxTotalIntensity: 700
       canCreateVacuum: false #c4 doesn't space
 
 - type: reaction
