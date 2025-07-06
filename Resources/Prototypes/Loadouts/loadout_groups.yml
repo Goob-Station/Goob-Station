@@ -446,7 +446,6 @@
   - ClothingUniformRatOutfit #Nyanotrasen
   - ClothingUniformDressRedOutfit #Nyanotrasen
   - ClothingUniformKendoHakamaOutfit #Nyanotrasen
-  - ClothingUniformMartialGiOutfit #Nyanotrasen
   - ClothingKimonoBlueOutfit #Nyanotrasen
   - ClothingKimonoPinkOutfit #Nyanotrasen
   - ClothingKimonoPurpleOutfit #Nyanotrasen
@@ -454,7 +453,6 @@
   - ClothingKimonoGreenOutfit #Nyanotrasen
   - UniformSchoolgirlDuskOutfit #Nyanotrasen
   - UniformSchoolgirlBlazerTanOutfit #Nyanotrasen
-  - ClothingUniformSchoolGakuranBlackOutfit #Nyanotrasen
   - ClothingUniformMNKOfficeSkirtOutfit #Nyanotrasen
   - ClothingUniformMNKUnderGarmentOutfit #Nyanotrasen
   - ClothingUniformMNKGymBraOutfit #Nyanotrasen
@@ -1694,7 +1692,7 @@
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
   - MedicMJ # goob
-  - NurseOutfit # Goobstation Loadout Rework Addition 
+  - NurseOutfit # Nyanotrasen
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1875,6 +1873,7 @@
   loadouts:
   - BoxerShorts
   - BoxerShortsWithTop
+  - ClothingUniformMartialGiOutfit #Nyanotrasen
 
 - type: loadoutGroup
   id: BoxerGloves

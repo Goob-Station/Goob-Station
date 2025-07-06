@@ -39,6 +39,14 @@
     ClothingOuterWinterColorBlack: 2
     ClothingOuterWinterColorGray: 2
     ClothingOuterWinterColorWhite: 2 #goob end
+    #Loadouts Rework Stuff Start
+    ClothingOuterDenimJacket: 2  #Loadouts Rework addition - DeltaV
+    ClothingOuterCoatLettermanBlue: 1 #Loadouts Rework addition - Nyanotrasen
+    ClothingOuterCoatLettermanRed: 1 #Loadouts Rework addition - Nyanotrasen
+    ClothingOuterCoatHyenhSweater: 1 #Loadouts Rework addition - Nyanotrasen
+    ClothingOuterWinterCoatLong: 1 #Loadouts Rework addition - Nyanotrasen
+    ClothingOuterWinterCoatPlaid: 1 #Loadouts Rework addition - Nyanotrasen
+    #Loadouts Rework Stuff End 
     ClothingShoesBootsWinter: 6
     ClothingOuterFlannelRed: 2
     ClothingOuterFlannelBlue: 2
@@ -47,10 +55,8 @@
     ClothingHeadHatCanadaBeanie: 4
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
-
   contrabandInventory: # Goobstation
     ClothingOuterDavidsJacket: 1
-
   emaggedInventory:
     ClothingNeckScarfStripedSyndieGreen: 3
     ClothingNeckScarfStripedSyndieRed: 3

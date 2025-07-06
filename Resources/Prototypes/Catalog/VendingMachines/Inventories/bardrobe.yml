@@ -40,5 +40,6 @@
     ClothingOuterVest: 2
     ClothingBeltBandolier: 2
     ClothingEyesGlassesSunglasses: 2
+    ClothingUniformJumpskirtWaitress: 2 # Loadouts Rework Addition - Einstein Engines
   contrabandInventory:
     ToyFigurineBartender: 1

@@ -55,7 +55,7 @@
   parent: ClothingOuterFoldableBase
   id: ClothingOuterCardiganArgyle
   name: argyle cardigan
-  description: You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again.
+  description: You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again because of how horrible it is.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cardigan_argyle.rsi

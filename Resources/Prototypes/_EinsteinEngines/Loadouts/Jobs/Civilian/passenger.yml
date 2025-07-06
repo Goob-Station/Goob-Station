@@ -242,11 +242,6 @@
     jumpsuit: ClothingUniformKendoHakama
 
 - type: loadout
-  id: ClothingUniformMartialGiOutfit
-  equipment:
-    jumpsuit: ClothingUniformMartialGi
-
-- type: loadout
   id: ClothingKimonoBlueOutfit
   equipment:
     jumpsuit: ClothingKimonoBlue
@@ -280,11 +275,6 @@
   id: UniformSchoolgirlBlazerTanOutfit
   equipment:
     jumpsuit: UniformSchoolgirlBlazerTan
-
-- type: loadout
-  id: ClothingUniformSchoolGakuranBlackOutfit
-  equipment:
-    jumpsuit: ClothingUniformSchoolGakuranBlack
 
 - type: loadout
   id: ClothingUniformMNKOfficeSkirtOutfit

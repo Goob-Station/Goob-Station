@@ -28,6 +28,7 @@
     ClothingHeadsetService: 2
     ClothingOuterWinterJani: 2
     ClothingNeckScarfStripedPurple: 3
+    UniformMaid: 1 #Loadouts Rework addition - Nyanotrasen
   contrabandInventory:
     ToyFigurineJanitor: 1
   emaggedInventory:

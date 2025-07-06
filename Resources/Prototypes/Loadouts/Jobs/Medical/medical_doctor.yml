@@ -201,7 +201,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryMedicalDoctor
 
-- type: loadout # Diggy's Loadout PR 
+- type: loadout # Loadout Reworks
   id: NurseOutfit
   equipment:
     jumpsuit: ClothingUniformJumpskirtNurse

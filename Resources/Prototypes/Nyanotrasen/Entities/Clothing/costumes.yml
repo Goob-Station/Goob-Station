@@ -194,7 +194,7 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/kimono-green.rsi
 
-## new school uniforms, idk, these were in EE.
+## Two at
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -217,19 +217,6 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/SchoolgirlModern/blazer-tan.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/SchoolgirlModern/blazer-tan.rsi
-
-# gakuran
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformSchoolGakuranBlack
-  name: gakuran uniform
-  description: A sleek school uniform.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Costume/gakuran.rsi
-  - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Costume/gakuran.rsi
 
 ## mnk
 
