@@ -73,7 +73,7 @@ public sealed class AlternativeJobSelector : OptionButton
         }
 
         // Disable the selector if there are no alternatives
-        Disabled = _alternatives.Count <= 1;
+        Visible = _alternatives.Count >= 2;
     }
 
     public void SelectAlternative(string alternativeId)

@@ -22,9 +22,6 @@ public sealed partial class AlternativeJobPrototype : IPrototype
     [DataField(required: true)]
     public string JobDescription { get; set; } = default!;
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    public string LocalizedJob => Loc.GetString(JobName);
-
     [DataField(required: true)]
     public string ParentJobId = default!;
 }
