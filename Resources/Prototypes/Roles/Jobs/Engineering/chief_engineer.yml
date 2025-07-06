@@ -144,7 +144,8 @@
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  #canBeAntag: false
+  antagAdvantage: 75
   goobcoins: 40 #Goob content
   access:
   - Maintenance

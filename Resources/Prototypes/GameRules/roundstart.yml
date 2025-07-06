@@ -334,7 +334,7 @@
     maxDifficulty: 5
 
 # Goobstation - order swapped since admin verbs use .Last() for some reason
-# TODO: Fix that 
+# TODO: Fix that
 - type: entity
   id: TraitorReinforcement
   parent: BaseTraitorRuleNoObjectives # Goobstation
@@ -362,6 +362,7 @@
     - prefRoles: [ Traitor ]
       max: 8
       playerRatio: 10
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
       blacklist:
         components:
         - AntagImmune
@@ -384,6 +385,7 @@
     - prefRoles: [ HeadRev ]
       max: 3
       playerRatio: 15
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -479,7 +481,7 @@
     - prefRoles: [ InitialInfected ]
       max: 4
       playerRatio: 15
-      jobBlacklist: [ Chaplain ]
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
       blacklist:
         components:
         - ZombieImmune

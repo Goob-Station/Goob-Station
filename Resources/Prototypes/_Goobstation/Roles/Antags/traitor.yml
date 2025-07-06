@@ -1,0 +1,8 @@
+
+- type: antag
+  id: CommandTraitor
+  name: roles-antag-corporate-agent-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-corporate-agent-description
+  guides: [ Traitors ]

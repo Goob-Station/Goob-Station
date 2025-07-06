@@ -52,13 +52,38 @@
     - prefRoles: [ Changeling ]
       max: 4
       playerRatio: 12
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # GOOBSTATION
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
   - type: Tag
     tags:
       - RoundstartAntag
+
+- type: entity
+  parent: BaseTraitorRule
+  id: CommandTraitor
+  components:
+  - type: GameRule
+    minPlayers: 0 # change later
+    #delay:
+    #  min: 600
+    #  max: 900
+    chaosScore: 700
+  - type: AntagSelection
+    #rolebeforejobs: False
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 2
+      playerRatio: 20
+      jobBlacklist: [ NanotrasenRepresentative ] 
+      whitelist:
+        components:
+        - CommandStaff
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
 
 - type: entity
   parent: BaseTraitorRule
@@ -73,6 +98,7 @@
     - prefRoles: [ Traitor ]
       max: 3
       playerRatio: 15
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
       blacklist:
         components:
         - AntagImmune
@@ -189,6 +215,7 @@
     - prefRoles: [ HeadRev ]
       max: 1
       playerRatio: 20
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -226,7 +253,7 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
       blacklist:
         components:
         - AntagImmune
@@ -354,7 +381,7 @@
     - prefRoles: [ Devil ]
       max: 1
       playerRatio: 20
-      jobBlacklist: [ Chaplain, Mime ] # Chaplain is obvious. Mime can't write.
+      jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear
