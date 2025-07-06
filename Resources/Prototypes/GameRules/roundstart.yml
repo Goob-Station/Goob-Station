@@ -362,7 +362,7 @@
     - prefRoles: [ Traitor ]
       max: 8
       playerRatio: 10
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
         - AntagImmune
@@ -385,7 +385,7 @@
     - prefRoles: [ HeadRev ]
       max: 3
       playerRatio: 15
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -481,7 +481,7 @@
     - prefRoles: [ InitialInfected ]
       max: 4
       playerRatio: 15
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
         - ZombieImmune

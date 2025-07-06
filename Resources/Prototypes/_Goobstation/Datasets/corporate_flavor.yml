@@ -1,0 +1,6 @@
+
+- type: dataset
+  id: CorporateFlavor
+  values:
+  - "NanotrasenAgent"
+  - "CentcommAgent"

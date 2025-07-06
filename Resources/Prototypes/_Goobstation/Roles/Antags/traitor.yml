@@ -1,6 +1,6 @@
 
 - type: antag
-  id: CommandTraitor
+  id: CorporateAgent
   name: roles-antag-corporate-agent-name
   antagonist: true
   setPreference: true

@@ -52,7 +52,7 @@
     - prefRoles: [ Changeling ]
       max: 4
       playerRatio: 12
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -62,7 +62,7 @@
 
 - type: entity
   parent: BaseTraitorRule
-  id: CommandTraitor
+  id: CorporateAgent
   components:
   - type: GameRule
     minPlayers: 0 # change later
@@ -77,13 +77,14 @@
     - prefRoles: [ Traitor ]
       max: 2
       playerRatio: 20
-      jobBlacklist: [ NanotrasenRepresentative ] 
+      jobBlacklist: [ NanotrasenRepresentative ]
       whitelist:
         components:
         - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
+      flavor: CorporateFlavor
 
 - type: entity
   parent: BaseTraitorRule
@@ -98,7 +99,7 @@
     - prefRoles: [ Traitor ]
       max: 3
       playerRatio: 15
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
         - AntagImmune
@@ -215,7 +216,7 @@
     - prefRoles: [ HeadRev ]
       max: 1
       playerRatio: 20
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -253,7 +254,7 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # Goobstation
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
         - AntagImmune

@@ -148,7 +148,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         // Death to sec powergame
-        if (HasComp<MindShieldComponent>(args.Signer))
+        if (HasComp<MindShieldComponent>(args.Signer) && !HasComp<DevilComponent>(args.Signer))
         {
             var mindshieldedPopup = Loc.GetString("devil-contract-mind-shielded-failed");
             _popupSystem.PopupEntity(mindshieldedPopup, args.Signer, args.Signer, PopupType.MediumCaution);
