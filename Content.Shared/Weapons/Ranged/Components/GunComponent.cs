@@ -173,6 +173,14 @@ public sealed partial class GunComponent : Component
     [ViewVariables]
     public EntityUid? Target = null;
 
+    // Begin DeltaV additions
+    /// <summary>
+    /// Who the gun is being held by
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? Holder = null;
+    // End DeltaV additions
+
     /// <summary>
     ///     The base value for how many shots to fire per burst.
     /// </summary>

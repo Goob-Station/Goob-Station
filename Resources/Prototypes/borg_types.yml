@@ -193,9 +193,11 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - For Oni
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - For Oni
   - type: Sanitized # Shitmed
   - type: SurgeryTarget # Shitmed
   - type: SurgeryIgnoreClothing

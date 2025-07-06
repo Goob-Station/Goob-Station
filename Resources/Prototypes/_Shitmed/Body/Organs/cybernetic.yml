@@ -66,9 +66,10 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
+    - BiologicalMetaphysical # DeltaV - For Oni
   - type: ShowHealthIcons
     damageContainers:
-    - Biological
+    - Biological # DeltaV - For Oni
 
 - type: entity
   parent: BasicCyberneticEyes

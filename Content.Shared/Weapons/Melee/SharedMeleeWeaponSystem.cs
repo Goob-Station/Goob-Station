@@ -394,7 +394,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var ev = new GetMeleeDamageEvent(uid, new(component.Damage * Damageable.UniversalMeleeDamageModifier), new(), user, component.ResistanceBypass);
         RaiseLocalEvent(uid, ref ev);
 
+        // Begin DeltaV additions
+        // Allow users of melee weapons to have bonuses applied
+        if (user != uid)
+        {
+            RaiseLocalEvent(user, ref ev);
+        }
+
         return DamageSpecifier.ApplyModifierSets(ev.Damage, ev.Modifiers);
+        // End DeltaV additions
     }
 
     public float GetAttackRate(EntityUid uid, EntityUid user, MeleeWeaponComponent? component = null)

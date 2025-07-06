@@ -21,28 +21,39 @@
     speechVerb: Oni
   - type: HumanoidAppearance
     species: Oni
-  - type: Sprite
+  - type: Sprite  
     scale: 1.2, 1.2
   - type: ScaleData # Goobstation
     scale: 1.2, 1.2
-  - type: Oni
-    modifiers:
-      coefficients:
-        Blunt: 1.35
-        Slash: 1.2
-        Piercing: 1.2
-        Asphyxiation: 1.35
+  - type: PlayerToolModifier
+    pryTimeMultiplier: 0.6
+  - type: PlayerAccuracyModifier
+    spreadMultiplier: 15
+    maxSpreadAngle: 180
+  - type: BonusStaminaDamage
+    multiplier: 1.25
+  - type: BonusMeleeDamage
+    damageModifierSet:
+      coefficents:
+        Blunt: 1.25
+        Slash: 1.25
+        Piercing: 1.25
+        Asphyxiation: 1.25
+        Structural: 1.25
   - type: Damageable
     damageModifierSet: Oni
+    damageContainer: BiologicalMetaphysical
   - type: Body
     prototype: Oni
+  - type: LightweightDrunk
+    boozeStregnthMultiplier: .5 # REAL hard to get drunk
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
         shape:
           !type:PhysShapeCircle
           radius: 0.42
-        density: 220
+        density: 275 #Goob - HEAVY Bastards
         restitution: 0.0
         mask:
         - MobMask

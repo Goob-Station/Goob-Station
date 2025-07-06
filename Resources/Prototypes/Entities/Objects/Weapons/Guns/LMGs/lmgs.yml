@@ -115,13 +115,6 @@
     delay: 1
   - type: Multishot # Goobstation
     missChance: 0.4
-  - type: RestrictGunshotsByUserTag # Goobstation
-    doesntContain:
-    - Oni
-    messages:
-    - oni-cannot-shoot-guns-1
-    - oni-cannot-shoot-guns-2
-    - oni-cannot-shoot-guns-3
 
 - type: entity
   name: L6 SAW

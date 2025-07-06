@@ -218,6 +218,12 @@ public sealed class PryingSystem : EntitySystem
         var modEv = new GetPryTimeModifierEvent(user, instaPry); // Goob edit
 
         RaiseLocalEvent(target, ref modEv);
+
+        // Begin DeltaV additions
+        // Also raise an event for users to modifiy the time to pry
+        RaiseLocalEvent(user, ref modEv);
+        // End DeltaV additions
+
         var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(modEv.BaseTime * modEv.PryTimeModifier / toolModifier), new DoorPryDoAfterEvent(), target, target, tool)
         {
             BreakOnDamage = true,
