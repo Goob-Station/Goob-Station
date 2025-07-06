@@ -174,10 +174,10 @@
       Female: FemaleMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
-    weightlessAcceleration: 3 # Goobstation value
-    weightlessFriction: 1
+    baseWeightlessAcceleration: 3 # Goobstation value
+    baseWeightlessFriction: 1
     baseWeightlessModifier: 1
-    weightlessModifier: 0.8 # up from 0.7 base
+    weightlessModifier: 0.8 # Goobstation: 0.7 from base -> 0.8
   - type: Flammable
     damage:
       types:
