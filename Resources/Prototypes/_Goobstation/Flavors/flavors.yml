@@ -110,3 +110,18 @@
   id: robust
   flavorType: Base
   description: flavor-base-robust
+
+- type: flavor
+  id: stupid
+  flavorType: Base
+  description: flavor-stupid
+
+- type: flavor
+  id: mothsweetnsour
+  flavorType: Complex
+  description: flavor-complex-mothsweetnsour
+
+- type: flavor
+  id: inkyvoid
+  flavorType: Complex
+  description: flavor-complex-inkyvoid

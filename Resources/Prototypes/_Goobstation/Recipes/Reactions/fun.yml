@@ -110,3 +110,71 @@
       amount: 4
   products:
     Tilenol: 1
+
+- type: reaction
+  id: BirdFlu
+  reactants:
+    Egg:
+      amount: 6
+    Impedrezene:
+      amount: 6
+    Ephedrine:
+      amount: 6
+  products:
+    BirdFlu: 20
+  
+- type: reaction
+  id: Moffaine
+  reactants:
+    Fiber: 
+      amount: 6
+    Sugar:
+      amount: 2
+    InsectBlood:
+      amount: 3
+    Phlogiston:
+      amount: 1
+  products:
+    Moffaine: 12
+
+- type: reaction
+  id: Cacaphonium
+  reactants:
+    BirdFlu: 
+      amount: 6 
+    SpaceDrugs:
+      amount: 1
+    Sugar:
+      amount: 1
+    InsectBlood:
+      amount: 2
+  products:
+    Cacaphonium: 10
+
+- type: reaction
+  id: Chitterzine
+  reactants:
+    Moffaine:
+      amount: 6
+    SpaceDrugs:
+      amount: 1
+    Ash: 
+      amount: 1
+    EnergyDrink:
+      amount: 2
+  products:
+    Chitterzine: 10
+
+- type: reaction
+  id: Marotine
+  reactants:
+    BlackBlood:
+      amount: 3
+    NorepinephricAcid:
+      amount: 5
+    MindbreakerToxin:
+      amount: 3
+    JuiceCarrot:
+      amount: 1
+  products:
+    Marotine: 12

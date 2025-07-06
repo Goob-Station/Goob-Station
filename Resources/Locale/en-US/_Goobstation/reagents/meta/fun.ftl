@@ -52,3 +52,18 @@ reagent-desc-nostalgia = Why is this here?
 
 reagent-name-tilenol = tilenol
 reagent-desc-tilenol = You can feel yourself becoming more robust just by holding this.
+
+reagent-name-birdflu = bird flu 
+reagent-desc-birdflu = The bird flu? Yeah...they tend to do that.
+
+reagent-name-moffaine = moffaine
+reagent-desc-moffaine = This reagent chitters at you... odd. CRACK MOFFA-
+
+reagent-name-cacaphonium = cacaphonium
+reagent-desc-cacaphonium = By mimicking the process used by an infamous researcher, this compound can temporarily and agressively emulate the process that was used to create squackroaches.
+
+reagent-name-chitterzine = chitterzine
+reagent-desc-chitterzine = A half-succesful experiment done by a deranged mothperson cult. The created concotion is capable of forcefully, agressively, although temporarily, morph someone or something into a mothroach.
+
+reagent-name-marotine = marotine
+reagent-desc-marotine = The purified form of species struggles.

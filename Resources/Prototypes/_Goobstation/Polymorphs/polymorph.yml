@@ -113,3 +113,58 @@
     forced: true
     duration: 180
     attachToGridOrMap: true
+
+- type: polymorph 
+  id: PolymorphHarpy
+  configuration:
+    entity: MobHarpyRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+
+- type: polymorph 
+  id: PolymorphMoth
+  configuration:
+    entity: MobMothRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+
+- type: polymorph
+  id: PolymorphSquackroach
+  configuration:
+    entity: MobSquackroach
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+
+- type: polymorph
+  id: PolymorphMothroach
+  configuration:
+    entity: MobMothroach
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true
+
+- type: polymorph
+  id: PolymorphShadowkin
+  configuration:
+    entity: MobShadowkinRandom
+    forced: true
+    inventory: Transfer
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    revertOnCrit: true

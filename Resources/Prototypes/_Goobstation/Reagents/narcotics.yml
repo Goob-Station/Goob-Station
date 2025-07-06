@@ -378,7 +378,12 @@
         visualType: Medium
         messages: [ "mousebites-effects-vexes", "mousebites-effects-stupid", "mousebites-effects-metoo" ]
         probability: 0.10
-
+      - !type:AdjustReagent
+        reagent: MouseBites
+        amount: -20 # # added because of the bug that keeps demorphing and morphing a person keeping them in place when injected with way over the threshold for morphing, once demorphed by knocking into crit.
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
 
 - type: reagent
   id: OleoresinCapsaicin
