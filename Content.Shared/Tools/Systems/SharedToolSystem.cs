@@ -91,11 +91,14 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Whitelist; // PIRATE imp
+using Content.Shared.Tools.Systems;
 
 namespace Content.Shared.Tools.Systems;
 
 public abstract partial class SharedToolSystem : EntitySystem
 {
+    [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!; // PIRATE imp
     [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly IPrototypeManager _protoMan = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
@@ -120,6 +123,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         InitializeMultipleTool();
         InitializeTile();
         InitializeWelder();
+        InitializeSolutionRefuel(); // PIRATE imp
         SubscribeLocalEvent<ToolComponent, ToolDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<ToolComponent, ExaminedEvent>(OnExamine);
     }

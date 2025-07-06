@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "by DVD Player for Impstation",
+    "states": [
+        {
+            "name": "canister"
+        },
+        {
+            "name": "icon"
+        },
+        {
+            "name": "canister-1"
+        },
+        {
+            "name": "canister-2"
+        },
+        {
+            "name": "canister-3"
+        },
+        {
+            "name": "canister-4"
+        }
+    ]
+}

@@ -1,0 +1,118 @@
+- type: entity
+  name: Adder
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: WeaponPlasmaAdder
+  description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Special/adder.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Pirate/Objects/Weapons/Guns/Special/adder.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: Appearance
+  - type: AmmoCounter
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Item
+    sprite: _Pirate/Objects/Weapons/Guns/Special/adder.rsi
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: Gun
+    clumsyProof: false
+    cameraRecoilScalar: 1
+    fireRate: 3.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/akurra.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 75
+        maxVol: 75 #12 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletPlasmaAdder
+    fireCost: 6.25
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: SolutionRefuel
+    fuelSolutionName: chamber
+    fuelReagent: Echion
+  - type: ExaminableSolution
+    solution: chamber
+  - type: Tag
+    tags:
+    - EchionGun
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  name: Akurra
+  parent: [WeaponPlasmaAdder, BaseGunWieldable]
+  id: WeaponPlasmaAkurra
+  description: A beautiful marriage of technology and malice in a single package. Uses Echion, produced from advanced synthesizers.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Special/akurra.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Pirate/Objects/Weapons/Guns/Special/akurra.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: Appearance
+  - type: Item
+    sprite: _Pirate/Objects/Weapons/Guns/Special/akurra.rsi
+    size: Huge
+  - type: Gun
+    clumsyProof: false
+    cameraRecoilScalar: 1
+    fireRate: 5.3
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    minAngle: 21
+    maxAngle: 39
+    angleIncrease: 2
+    angleDecay: 18
+    soundGunshot:
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/adder.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 150
+        maxVol: 150 #30 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletPlasmaAkurra
+    fireCost: 5
+  - type: Tag
+    tags:
+    - EchionGun
+  - type: StaticPrice
+    price: 100

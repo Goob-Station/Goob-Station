@@ -315,6 +315,11 @@
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
+  - type: DamageOnShootProtection #imp # Pirate V
+    slots: OUTERCLOTHING
+    damageProtection:
+      flatReductions:
+        Blunt: 2 # Pirate ^
 
 - type: entity
   abstract: true

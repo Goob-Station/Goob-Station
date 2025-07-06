@@ -1,0 +1,32 @@
+- type: entity
+  id: SpeedLoaderPanther
+  name: "speed loader (.60 anti-materiel)"
+  description: It's amazing that anyone thought this would be a good idea.
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  components:
+  - type: Tag
+    tags:
+      - SpeedLoaderAM
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    proto: CartridgeAntiMateriel
+    whitelist:
+      tags:
+        - CartridgeAntiMateriel
+    capacity: 3
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/sniper.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-3
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []

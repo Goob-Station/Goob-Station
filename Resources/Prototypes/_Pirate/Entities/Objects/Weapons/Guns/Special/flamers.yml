@@ -1,0 +1,63 @@
+- type: entity
+  name: FG13 Xiuhcoatl
+  parent: [WeaponPlasmaAdder, BaseGunWieldable]
+  id: WeaponFlamerXiuhcoatl
+  description: Simple as it is deadly, the Xiuhcoatl fulfills a long-standing craving of the Gorlex Marauders for Nanotrasen Barbeque. Uses welding fuel.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Pirate/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Item
+    sprite: _Pirate/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
+    size: Ginormous
+  - type: GunRequiresWield
+  - type: Gun
+    projectileSpeed: 5
+    clumsyProof: false
+    cameraRecoilScalar: 0
+    fireRate: 8
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/flamethrower.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 600
+        maxVol: 600 #25 seconds of flaming
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletFlamethrower
+    fireCost: 3
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: SolutionRefuel
+    fuelSolutionName: chamber
+    fuelReagent: WeldingFuel
+  - type: Tag
+    tags:
+    - WeldingTool
+  - type: StaticPrice
+    price: 100
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+      Steel: 400
+  - type: IgnitionSource
+    temperature: 700

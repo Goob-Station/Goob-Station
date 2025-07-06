@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "sprites based on https://github.com/vgstation-coders/vgstation13/commit/1dbcf389b0ec6b2c51b002df5fef8dd1519f8068. edited by DVD Player",
+    "states": [
+        {
+            "name": "medium"
+        },
+        {
+            "name": "icon"
+        },
+        {
+            "name": "o1"
+        },
+        {
+            "name": "o2"
+        }
+    ]
+}

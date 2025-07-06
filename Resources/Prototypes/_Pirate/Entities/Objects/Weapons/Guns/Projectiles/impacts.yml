@@ -1,0 +1,17 @@
+- type: entity
+  id: BulletImpactEffectFlamer
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: TimedDespawn
+      lifetime: 0.2
+    - type: Sprite
+      drawdepth: Effects
+      layers:
+        - shader: unshaded
+          map: ["enum.EffectLayers.Unshaded"]
+          sprite: _Pirate/Objects/Weapons/Guns/Projectiles/flamer.rsi
+          state: impact
+    - type: EffectVisuals
+    - type: Tag
+      tags:
+        - HideContextMenu

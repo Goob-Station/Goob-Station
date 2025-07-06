@@ -1,0 +1,156 @@
+- type: listing
+  id: UplinkAdderBundle
+  name: uplink-adder-name
+  description: uplink-adder-desc
+  icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Special/adder.rsi, state: icon }
+  productEntity: AdderBox
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: UplinkAkurraBundle
+  name: uplink-akurra-name
+  description: uplink-akurra-desc
+  icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Special/akurra.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledAkurra
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+  cost:
+    Telecrystal: 12
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: uplinkFlamethrower
+  name: uplink-flamethrower-name
+  description: uplink-flamethrower-desc
+  productEntity: WeaponFlamerXiuhcoatl
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 14
+  cost:
+    Telecrystal: 16
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: uplinkOuroboros
+  name: uplink-ouroboros-name
+  description: uplink-ouroboros-desc
+  productEntity: WeaponSpecialOuroboros
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 12
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: uplinkAnaconda
+  name: uplink-panther-name
+  description: uplink-panther-desc
+  icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Revolvers/anaconda.rsi, state: icon }
+  productEntity: BriefcaseSyndiePantherBundleFilled
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 8
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: uplinkLeviathan
+  name: uplink-leviathan-name
+  description: uplink-leviathan-desc
+  productEntity: WeaponLauncherBazooka
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 17
+  cost:
+    Telecrystal: 20
+  categories:
+    - UplinkWeaponry
+
+- type: listing
+  id: UplinkMagazineEchion
+  name: uplink-magazine-echion-name
+  description: uplink-magazine-echion-desc
+  icon: { sprite: _Pirate/Objects/Weapons/Guns/Ammunition/Magazine/Special/echioncanister.rsi, state: icon }
+  productEntity: EchionCanister
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkEchionSynth
+  name: uplink-echion-synth-name
+  description: uplink-echion-synth-desc
+  icon: { sprite: _Pirate/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
+  productEntity: EchionSynth
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkSpeedLoaderPanther
+  name: uplink-speedloader-sniper-name
+  description: uplink-speedloader-sniper-desc
+  icon: { sprite: _Pirate/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/sniper.rsi, state: icon }
+  productEntity: SpeedLoaderPanther
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkExplosiveRocketBundle
+  name: uplink-rocketexp-name
+  description: uplink-rocketexp-desc
+  icon: { sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: explosive }
+  productEntity: LeviathanExplosiveRocketBox
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkAmmo
+
+- type: listing
+  id: UplinkIncendiaryRocketBundle
+  name: uplink-rocketinc-name
+  description: uplink-rocketinc-desc
+  icon: { sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: incendiary }
+  productEntity: LeviathanIncendiaryRocketBox
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkAmmo
+
+- type: listing
+  id: UplinkConcussiveRocketBundle
+  name: uplink-rocketcon-name
+  description: uplink-rocketcon-desc
+  icon: { sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: concussion }
+  productEntity: LeviathanConcussionRocketBox
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkAmmo
+
+- type: listing
+  id: uplinkEchionCell
+  name: uplink-echioncell-name
+  description: uplink-echioncell-desc
+  productEntity: PowerCellEchion
+  cost:
+    Telecrystal: 2
+  categories:
+    - UplinkAmmo

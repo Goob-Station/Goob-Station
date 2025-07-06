@@ -1,0 +1,18 @@
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectEnergySmall
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    color: "#d63b28"
+    radius: 1.4
+    energy: 3.0
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Pirate/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: energysmall

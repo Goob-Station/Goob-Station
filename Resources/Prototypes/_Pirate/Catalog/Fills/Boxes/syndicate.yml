@@ -1,0 +1,66 @@
+- type: entity
+  parent: [BoxCardboard, BaseSyndicateContraband]
+  id: LeviathanExplosiveRocketBox
+  name: Leviathan rocket box (explosive)
+  description: 4 highly destructive rockets stored in a concerningly fragile container.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+      - id: CartridgeBazookaExp
+        amount: 4
+  - type: Sprite
+    sprite: _Pirate/Objects/Storage/boxes.rsi
+    layers:
+      - state: syndicaterocketbox
+
+- type: entity
+  parent: LeviathanExplosiveRocketBox
+  id: LeviathanIncendiaryRocketBox
+  name: Leviathan rocket box (incendiary)
+  description: 4 rockets filled with highly flammable fuel stored in a concerningly fragile container.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CartridgeBazookaInc
+        amount: 4
+  - type: Sprite
+    sprite: _Pirate/Objects/Storage/boxes.rsi
+    layers:
+      - state: syndicaterocketbox
+
+- type: entity
+  parent: LeviathanExplosiveRocketBox
+  id: LeviathanConcussionRocketBox
+  name: Leviathan rocket box (concussive)
+  description: 4 tungsten projectiles stored in a flimsy container. It feels as if they'll tear out through the bottom.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CartridgeBazookaCon
+        amount: 4
+  - type: Sprite
+    sprite: _Pirate/Objects/Storage/boxes.rsi
+    layers:
+      - state: syndicaterocketbox
+
+- type: entity
+  parent: [BoxCardboard, BaseSyndicateContraband]
+  id: AdderBox
+  name: Adder bundle box
+  description: A state-of-the-art plasma pistol, bundled with 2 canisters of its proprietary fuel.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+      - id: WeaponPlasmaAdder
+      - id: EchionCanister
+        amount: 2
+  - type: Sprite
+    sprite: _Pirate/Objects/Storage/boxes.rsi
+    layers:
+      - state: syndicategunbox

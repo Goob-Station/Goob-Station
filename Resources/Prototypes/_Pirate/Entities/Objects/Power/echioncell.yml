@@ -1,0 +1,26 @@
+- type: entity
+  name: Echion power cell
+  description: A rechargeable power cell made with an exotic reagent. Extremely potent when used with weapons, but not the most efficient power source.
+  id: PowerCellEchion
+  suffix: Full
+  parent: [ BasePowerCell, BaseSyndicateContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Power/echion_cell.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: medium
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 540
+    startingCharge: 540
+  - type: HitscanBatteryAmmoProvider
+    proto: EchionLaser
+    fireCost: 45
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Echion
+          Quantity: 5

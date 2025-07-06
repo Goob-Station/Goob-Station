@@ -1,0 +1,77 @@
+- type: entity
+  name: Ouroboros
+  parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
+  id: WeaponSpecialOuroboros
+  description: You can feel a murderous hunger buzzing from deep within the weapon's frame. Its contained creatures demands food for its services.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Special/ouroboros.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Pirate/Objects/Weapons/Guns/Special/ouroboros.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: Item
+    sprite: _Pirate/Objects/Weapons/Guns/Special/ouroboros.rsi
+    size: Huge
+  - type: GunRequiresWield
+  - type: Gun
+    projectileSpeed: 19
+    fireRate: 4
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/beecannon2.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        maxVol: 5 #5 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletOuroboros
+    fireCost: 1
+  # - type: FoodReagentExtractor // We don't have that...
+  #   solutionId: chamber
+  #   extractSound: /Audio/_Pirate/Weapons/Guns/Cock/beecharge.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: true
+  - type: Appearance
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 9
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/Weapons/punchmiss.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 15 #heavy
+    damage:
+      types:
+        Blunt: 12
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5

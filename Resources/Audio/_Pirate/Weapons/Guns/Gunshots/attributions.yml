@@ -1,0 +1,34 @@
+- files: ["adder"]
+  license: "Custom"
+  copyright: "made by Artninja on Freesound-- CC-BY-4.0"
+  source: "https://freesound.org/people/Artninja/sounds/786134/"
+
+- files: ["akurra"]
+  license: "Custom"
+  copyright: "made by Artninja on Freesound and edited by DVD Player-- CC-BY-4.0"
+  source: "https://freesound.org/people/Artninja/sounds/786134/"
+
+- files: ["anaconda"]
+  license: "CC0-1.0"
+  copyright: "Made by SuperPhat on Freesound"
+  source: "https://freesound.org/people/SuperPhat/sounds/514228/"
+
+- files: ["beecannon"]
+  license: "CC-BY-3.0"
+  copyright: "made by Lee Barkovich on opengameart"
+  source: "https://opengameart.org/content/robotic-mechanic-step-sounds"
+
+- files: ["beecannon2"]
+  license: "CC-BY-3.0"
+  copyright: "made by Red Eclipse on opengameart"
+  source: "https://opengameart.org/content/red-eclipse-sounds"
+
+- files: ["flamethrower"]
+  license: "CC-BY-3.0"
+  copyright: "made by Red Eclipse on opengameart"
+  source: "https://opengameart.org/content/red-eclipse-sounds"
+
+- files: ["leviathan"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Two sounds made by Q009 on opengameart layered together"
+  source: "https://opengameart.org/content/q009s-weapon-sounds"

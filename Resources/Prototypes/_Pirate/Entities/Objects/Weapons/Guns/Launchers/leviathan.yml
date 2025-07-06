@@ -1,0 +1,69 @@
+- type: entity
+  name: Leviathan
+  parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband ]
+  id: WeaponLauncherBazooka
+  description: A symbol of hubris, arrogance, and an overwhelming lust for destruction. Not intended for use without a hardsuit. Uses rockets.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Launchers/leviathan.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Pirate/Objects/Weapons/Guns/Launchers/leviathan.rsi
+  - type: HeldSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.6
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/leviathan.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeBazooka
+    proto: CartridgeBazookaExp
+    capacity: 1
+    soundInsert:
+      path: /Audio/_Pirate/Weapons/Guns/Cock/beecharge.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: DamageOnShoot
+    damage:
+      types:
+        Blunt: 8
+    stunChance: 1
+    stunSeconds: 5
+    popupText: damage-on-shoot-leviathan
+    damageSound: /Audio/Weapons/boxingpunch3.ogg
+  - type: Appearance
+  - type: MeleeWeapon
+    range: 1
+    attackRate: 0.2
+    damage:
+      types:
+        Blunt: 16
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/Weapons/punchmiss.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 50
+    damage:
+      types:
+        Blunt: 20
+  - type: StaminaDamageOnHit
+    damage: 50
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.5
+    speed: 5

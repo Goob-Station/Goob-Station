@@ -1,0 +1,14 @@
+- type: hitscan
+  id: EchionLaser
+  damage:
+    types:
+      Heat: 18
+  muzzleFlash:
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+    state: muzzle_synd
+  travelFlash:
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+    state: beam_synd
+  impactFlash:
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+    state: impact_synd

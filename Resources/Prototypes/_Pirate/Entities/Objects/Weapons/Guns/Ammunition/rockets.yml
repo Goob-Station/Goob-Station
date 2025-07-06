@@ -1,0 +1,65 @@
+- type: entity
+  id: CartridgeBazookaExp
+  name: Leviathan explosive rocket
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: Guaranteed to ruin someone's day.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeBazooka
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: BulletBazookaExp
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi
+    layers:
+    - state: explosive
+  - type: StaticPrice
+    price: 20
+  # - type: Engraveable
+
+- type: entity
+  id: CartridgeBazookaCon
+  name: Leviathan concussion rocket
+  parent: CartridgeBazookaExp
+  description: Guaranteed to ruin someone's day.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeBazooka
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: BulletBazookaCon
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi
+    layers:
+    - state: concussion
+  - type: StaticPrice
+    price: 20
+  # - type: Engraveable
+
+- type: entity
+  id: CartridgeBazookaInc
+  name: Leviathan incendiary rocket
+  parent: CartridgeBazookaExp
+  description: Guaranteed to ruin someone's day.
+  components:
+  - type: Tag
+    tags:
+      - CartridgeBazooka
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: BulletBazookaInc
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi
+    layers:
+    - state: incendiary
+  - type: StaticPrice
+    price: 20
+  # - type: Engraveable

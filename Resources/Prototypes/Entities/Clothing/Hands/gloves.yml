@@ -414,6 +414,10 @@
         Slash: 0.9
         Piercing: 0.9
         Shock: 0.75
+  - type: DamageOnShootProtection #imp # Pirate V
+    damageProtection:
+      flatReductions:
+        Blunt: 4 # Pirate ^
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -454,6 +458,10 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
+  - type: DamageOnShootProtection #imp # Pirate V
+    damageProtection:
+      flatReductions:
+        Blunt: 3 # Pirate ^
 
 - type: entity
   parent: ClothingHandsButcherable
