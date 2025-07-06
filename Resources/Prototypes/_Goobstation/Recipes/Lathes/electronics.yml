@@ -86,7 +86,7 @@
   result: InteractorCircuitboard
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
   icon: { sprite: Structures/Machines/Medical/biomass_reclaimer.rsi, state: icon } # Todo - Change this sprite.
   id: SlimeGrinderMachineCircuitboard
   result: SlimeGrinderMachineCircuitboard

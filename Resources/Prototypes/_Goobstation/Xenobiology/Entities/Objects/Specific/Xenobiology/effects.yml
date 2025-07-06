@@ -5,3 +5,156 @@
   components:
   - type: TimedDespawn
     lifetime: 15
+
+- type: entity
+  name: random hostile mob spawner
+  id: RHostileMobSpawner
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - MobAngryBee
+    - MobHomunculus
+    - MobBrullbar
+    - MobBrullbarKing
+    - MobBearGoon
+    - MobWhiteWolf
+    - MobBoxingKangaroo
+    - MobGrenadePenguin
+    - MobClownSpider
+    - MobCorgiNarsi
+    - MobBearSpace
+    - MobKangarooSpace
+    - MobSpiderSpace
+    - MobCobraSpace
+    - MobArgocyteSlurva
+    - MobArgocyteBarrier
+    - MobArgocyteSkitter
+    - MobArgocyteSwiper
+    - MobArgocyteMolder
+    - MobArgocytePouncer
+    - MobArgocyteGlider
+    - MobArgocyteHarvester
+    - MobArgocyteCrawler
+    - MobArgocyteEnforcer
+    - MobArgocyteLeviathing
+    - MobGoliath
+    - MobHivelord
+    - MobBasilisk
+    - MobBehonkerElectrical
+    - MobBehonkerPyro
+    - MobBehonkerGrav
+    - MobBehonkerIce
+    - MobCarp
+    - MobCarpMagic
+    - MobCarpHolo
+    - MobCarpRainbow
+    - MobShark
+    - MobIronCrab
+    - MobQuartzCrab
+    - MobCoalCrab
+    - MobUraniumCrab
+    - MobSilverCrab
+    - MobGoldCrab
+    - ReagentSlimeSpawner
+    - MobFleshJared
+    - MobFleshGolem
+    - MobFleshClamp
+    - MobFleshLover
+    - MobAbomination
+    - MobHellspawn
+    - MobHivebot
+    - MobHivebotRanged
+    - MobHivebotStrong
+    - MobWatcherLavaland
+    - MobWatcherIcewing
+    - MobWatcherMagmawing
+    - MobLivingLight
+    - MobLuminousPerson
+    - MobLuminousObject
+    - MobLuminousEntity
+    - MobMimic
+    - MobLaserRaptor
+    - MobTomatoKiller
+    - MobRatKing
+    - MobRatKingBuff
+    - MobTick
+    - MobXeno
+    - MobXenoPraetorian
+    - MobXenoDrone
+    - MobXenoQueen
+    - MobXenoRavager
+    - MobXenoRunner
+    - MobXenoRouny
+    - MobXenoSpitter
+    - MobPurpleSnake
+    - MobSmallPurpleSnake
+    offset: 0.0
+
+- type: entity
+  name: random neutral mob spawner
+  id: RNeutralMobSpawner
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - MobBee
+    - MobGorilla
+    - MobKangaroo
+    - MobMonkey
+    - MobKobold
+    - MobMouse
+    - MobMouseCancer
+    - MobGiantSpider
+    - MobGiantSpiderWizard
+    - MobFox
+    - MobReindeerBuck
+    - MobReindeerDoe
+    - MobCockroach
+    - MobSquackroach
+    - MobXenoSlime
+    - MobSnail
+    - MobSnailSpeed
+    - MobSnailMoth
+    offset: 0.0
+
+- type: entity
+  name: random passive mob spawner
+  id: RPassiveMobSpawner
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - MobGondola
+    - MobLootbug
+    - MobChicken
+    - MobDuckMallard
+    - MobDuckWhite
+    - MobDuckBrown
+    - MobButterfly
+    - MobCow
+    - MobCrab
+    - MobGoat
+    - MobGoose
+    - MobLizard
+    - MobSlug
+    - MobFrog
+    - MobParrot
+    - MobPenguin
+    - MobSnake
+    - MobPossum
+    - MobPossumOld
+    - MobRaccoon
+    - MobCorgi
+    - MobCorgiPuppy
+    - MobCat
+    - MobCatCalico
+    - MobCatCaracal
+    - MobCatKitten
+    - MobSloth
+    - MobFerret
+    - MobHamster
+    - MobPig
+    - MobDionaNymph
+    - MobCatShadow
+    offset: 0.0

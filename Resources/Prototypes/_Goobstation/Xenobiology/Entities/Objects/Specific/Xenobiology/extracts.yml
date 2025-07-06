@@ -48,18 +48,26 @@
       - !type:AdjustReagent
         reagent: Epinephrine
         amount: 100
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+      - !type:PopupMessage
+        messages: [ "xeno-extract-epinephrine-created" ]
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: MobXenoSlime
         number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: MonkeyCube
         number: 3
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 ## Tier 1
@@ -86,17 +94,25 @@
         prototypeId: Smoke
         sound:
           path: /Audio/Effects/smoke.ogg
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:IgniteNearby
       - !type:FlashReactionEffect
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: CapsaicinOil
         amount: 100
+      - !type:PopupMessage
+        messages: [ "xeno-extract-capsaicin-created" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -117,21 +133,29 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateEntityReactionEffect
+      - !type:CreateRQuantityEntityReactionEffect
         entity: ArtifactFragment1
-        number: 3 #Ideally this should be a random number between 0 & 5?
+        maxEntities: 4
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: PurpleExtractJelly
         number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: Omnizine
         amount: 100
+      - !type:PopupMessage
+        messages: [ "xeno-extract-omnizine-created" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -157,18 +181,26 @@
         prototypeId: Foam
         sound:
           path: /Audio/Effects/extinguish.ogg
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: FrostOil
         amount: 100
+      - !type:PopupMessage
+        messages: [ "xeno-extract-frost-created" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: BlueExtractJelly
         number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -196,6 +228,8 @@
       - !type:CreateEntityReactionEffect
         entity: SheetRGlass1
         number: 5
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
@@ -205,12 +239,18 @@
       - !type:CreateEntityReactionEffect
         entity: SheetPlasteel1
         number: 5
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: WeldingFuel
         amount: 100
+      - !type:PopupMessage
+        messages: [ "xeno-extract-fuel-created" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 ## Tier 2
@@ -238,16 +278,22 @@
         maxIntensity: 1050
         intensitySlope: 4
         intensityPerUnit: 70
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: PowerCellHyper #This should be it's own item, EMP Resistant 5000 capacity or equivelant.
         number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:EmpReactionEffect
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -271,18 +317,24 @@
       - !type:CreateEntityReactionEffect
         entity: SheetPlastic10
         number: 2
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: SheetPlasma1
         number: 3
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateGas
         gas: Plasma
         multiplier: 35
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -306,18 +358,26 @@
       - !type:CreateEntityReactionEffect
         entity: DarkBlueExtractJelly
         number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateGas #Should be 5 seconds after?
         gas: Frezon
         multiplier: 25
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:AdjustReagent
         reagent: Leporazine
         amount: 100
+      - !type:PopupMessage
+        messages: [ "xeno-extract-leporazine-created" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -344,18 +404,24 @@
         prototypeId: AluminiumMetalFoam
         sound:
           path: /Audio/Effects/extinguish.ogg
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: IngotSilver1
         number: 2
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: TreasureCoinSilver #This should be "Goop Balls" but I havent made the proto yet, see github project.
         number: 3
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 # Tier 2.5
@@ -382,18 +448,24 @@
       - !type:CreateEntityReactionEffect
         entity: BluespaceExtractJelly
         number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: MaterialBSCrystal1
         number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: FloorTileItemArcadeBlue #This should be "Bluespace Floor Tiles" These speed up individuals whilst walking on them
         number: 25
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -418,18 +490,26 @@
       - !type:AdjustReagent
         reagent: Tilenol
         amount: 100
+      - !type:PopupMessage
+        messages: [ "xeno-extract-leporazine-created" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: XenoExtractChronofield #This should happen after 5 seconds...
         number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: FloorTileItemArcadeRed #This should be "Sepia Floor Tiles" These slow down individuals whilst walking on them
         number: 25
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -451,16 +531,22 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:OxygenateNearby
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
       - !type:ExtinguishNearby
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
         entity: CeruleanExtractJelly
         number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -530,6 +616,34 @@
       state: core
       color: "#e8b923"
       shader: XenoMetallic
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: RPassiveMobSpawner
+        number: 5
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: RHostileMobSpawner
+        number: 5
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: RNeutralMobSpawner
+        number: 5
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 # Tier 4
