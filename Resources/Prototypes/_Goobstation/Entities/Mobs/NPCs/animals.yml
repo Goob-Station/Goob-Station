@@ -521,6 +521,15 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      path: /Audio/_Goobstation/Animals/Meatzone_Howl.ogg
+      params:
+          volume: -5
+          maxDistance: 20
+          variation: 0.05
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -536,14 +545,6 @@
         Base: brullbar
       Dead:
         Base: dead
-  - type: Vocal
-    sounds:
-      Male: Brullbar
-      Female: Brullbar
-      Unsexed: Brullbar
-  - type: AutoEmote
-    emotes:
-    - BrullbarHowl
   - type: MobThresholds
     thresholds:
       0: Alive
