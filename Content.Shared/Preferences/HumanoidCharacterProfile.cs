@@ -382,6 +382,27 @@ namespace Content.Shared.Preferences
             };
         }
 
+        public HumanoidCharacterProfile WithJobAlternative(KeyValuePair<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> jobAlternative)
+        {
+            var dictionary = new Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>>(_jobAlternatives);
+
+            if (dictionary.Keys.Where(x => x == jobAlternative.Key).Count() > 1)
+                throw new Exception("More than 1 alternative for job error");
+
+            // If no alternative is selected for this job, add it.
+            if (!dictionary.ContainsKey(jobAlternative.Key))
+                dictionary.Add(jobAlternative.Key, jobAlternative.Value);
+
+            // If there is an alternative selected, but it's not the one we want, change it.
+            else if (dictionary[jobAlternative.Key] != jobAlternative.Value)
+                dictionary[jobAlternative.Key] = jobAlternative.Value;
+
+            return new(this)
+            {
+                _jobAlternatives = dictionary,
+            };
+        }
+
         public HumanoidCharacterProfile WithJobPriority(ProtoId<JobPrototype> jobId, JobPriority priority)
         {
             var dictionary = new Dictionary<ProtoId<JobPrototype>, JobPriority>(_jobPriorities);

@@ -157,6 +157,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Pirate.UIKit.UserInterface.Lobby;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -181,6 +182,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Serilog;
 using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.Lobby.UI
@@ -242,6 +244,8 @@ namespace Content.Client.Lobby.UI
         private List<SpeciesPrototype> _species = new();
 
         private List<(string, RequirementsSelector)> _jobPriorities = new();
+
+        private Dictionary<string, AlternativeJobSelector> _jobAlternatives = new();
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
 
@@ -918,6 +922,7 @@ namespace Content.Client.Lobby.UI
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
+            UpdateAlternativeJobs();
 
             RefreshAntags();
             RefreshJobs();
@@ -977,6 +982,7 @@ namespace Content.Client.Lobby.UI
             JobList.DisposeAllChildren();
             _jobCategories.Clear();
             _jobPriorities.Clear();
+            _jobAlternatives.Clear();
             var firstCategory = true;
 
             // Get all displayed departments
@@ -1109,6 +1115,26 @@ namespace Content.Client.Lobby.UI
                         SetDirty();
                     };
 
+                    // Add alternative job selector
+                    var altJobSelector = new AlternativeJobSelector(job.ID)
+                    {
+                        HorizontalAlignment = HAlignment.Left,
+                        VerticalAlignment = VAlignment.Center,
+                        MinWidth = 120,
+                        Margin = new Thickness(3f, 3f, 3f, 0f),
+                    };
+
+                    altJobSelector.OnAlternativeSelected += alternativeId =>
+                    {
+                        // Add alternative job to profile
+                        Profile = Profile?.WithJobAlternative(new(job.ID, alternativeId));
+                        Logger.Debug($"Adding alternative job {alternativeId} for {job.ID} to profile");
+                        // SetDirty();
+                        IsDirty = true;
+                    };
+
+                    _jobAlternatives[job.ID] = altJobSelector;
+
                     var loadoutWindowBtn = new Button()
                     {
                         Text = Loc.GetString("loadout-window"),
@@ -1148,12 +1174,14 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
+                    jobContainer.AddChild(altJobSelector);
                     jobContainer.AddChild(loadoutWindowBtn);
                     category.AddChild(jobContainer);
                 }
             }
 
             UpdateJobPriorities();
+            UpdateAlternativeJobs();
         }
 
         private void OpenLoadout(JobPrototype? jobProto, RoleLoadout roleLoadout, RoleLoadoutPrototype roleLoadoutProto)
@@ -1324,7 +1352,7 @@ namespace Content.Client.Lobby.UI
                         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                         break;
                     }
-                // Goobstation Section End - Tajaran
+                    // Goobstation Section End - Tajaran
             }
 
             ReloadProfilePreview();
@@ -1576,7 +1604,7 @@ namespace Content.Client.Lobby.UI
                         _rgbSkinColorSelector.Color = SkinColor.ClosestAnimalFurColor(Profile.Appearance.SkinColor);
                         break;
                     }
-                // Goobstation Section End - Tajaran
+                    // Goobstation Section End - Tajaran
             }
 
         }
@@ -1854,6 +1882,27 @@ namespace Content.Client.Lobby.UI
             _exporting = false;
             ImportButton.Disabled = false;
             ExportButton.Disabled = false;
+        }
+
+        private void UpdateAlternativeJobs()
+        {
+            if (Profile == null)
+                return;
+
+            // Assuming Profile has a Dictionary<string, string> AlternativeJobs property
+            // that maps job IDs to their selected alternative (or the original job ID if no alternative is selected)
+            foreach (var (jobId, selector) in _jobAlternatives)
+            {
+                if (Profile.JobAlternatives.TryGetValue(jobId, out var alternativeId))
+                {
+                    selector.SelectAlternative(alternativeId);
+                }
+                else
+                {
+                    // Default to the original job
+                    selector.SelectAlternative(jobId);
+                }
+            }
         }
     }
 }
