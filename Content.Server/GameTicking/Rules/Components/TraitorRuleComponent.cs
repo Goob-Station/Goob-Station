@@ -54,7 +54,7 @@ public sealed partial class TraitorRuleComponent : Component
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> CodewordVerbs = "Verbs";
 
-    [DataField]
+    [DataField("objectiveIssuers")]
     public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor"; // Goobstation
 
     /// <summary>

@@ -64,13 +64,16 @@
 - type: entity
   parent: BaseTraitorRule
   id: CorporateAgent
+  rules:
   components:
+  - type: TraitorRule
+    objectiveIssuers: CorporateFlavor
   - type: GameRule
     minPlayers: 0 # change later
     #delay:
     #  min: 600
     #  max: 900
-    chaosScore: 700
+    chaosScore: 500 # It's just one to two people with less tc even if they may be command
   - type: AntagSelection
     #rolebeforejobs: False
     selectionTime: IntraPlayerSpawn
@@ -85,7 +88,6 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-      flavor: CorporateFlavor
 
 - type: entity
   parent: BaseTraitorRule

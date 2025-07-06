@@ -2,5 +2,5 @@
 - type: dataset
   id: CorporateFlavor
   values:
-  - "NanotrasenAgent"
-  - "CentcommAgent"
+  - "nanotrasenagent"
+  - "centralcommand"
