@@ -1,5 +1,83 @@
+#region Cargo
+
+#endregion
+
+#region Cent Com
+
+#endregion
+
+#region Civilian
+
+- type: alternativeJob
+  id: AlternativeJobFloraEngineer
+  jobName: Флоро-Інженер
+  jobDescription: job-description-botanist
+  parentJobId: Botanist
+
+- type: alternativeJob
+  id: AlternativeJobPrankster
+  jobName: Пранкер
+  jobDescription: job-description-clown
+  parentJobId: Clown
+
+- type: alternativeJob
+  id: AlternativeJobWaiter
+  jobName: Офіціант
+  jobDescription: job-description-service-worker
+  parentJobId: ServiceWorker
+
+#endregion
+
+#region Command
+
+- type: alternativeJob
+  id: AlternativeJobFurryFemboy
+  jobName: Фуррі-Фембой
+  jobDescription: job-description-captain
+  parentJobId: Captain
+
+- type: alternativeJob
+  id: AlternativeJobNotarius
+  jobName: Нотаріус
+  jobDescription: job-description-hop
+  parentJobId: HeadOfPersonnel
+
+#endregion
+
+#region Engineering
+
+- type: alternativeJob
+  id: AlternativeJobAtmosphericTEGSpecialist
+  jobName: Спеціаліст з ТЕГ-двигунів
+  jobDescription: job-description-atmospheric-technician
+  parentJobId: AtmosphericTechnician
+
+- type: alternativeJob
+  id: AlternativeJobEngineSpecialist
+  jobName: Спеціаліст з станційних двигунів
+  jobDescription: job-description-engineer
+  parentJobId: StationEngineer
+
+#endregion
+
+#region Medical
+
+- type: alternativeJob
+  id: AlternativeJobSurgeon
+  jobName: Хірург
+  jobDescription: job-description-medical-doctor
+  parentJobId: MedicalDoctor
+
+- type: alternativeJob
+  id: AlternativeJobPharmacist
+  jobName: Фармацеут
+  jobDescription: job-description-chemist
+  parentJobId: Chemist
+
+#endregion
+
 - type: alternativeJob
   id: AlternativeJobResearchAssistant
-  jobName: Anomalist
+  jobName: Аномаліст
   jobDescription: job-description-research-assistant
   parentJobId: ResearchAssistant
