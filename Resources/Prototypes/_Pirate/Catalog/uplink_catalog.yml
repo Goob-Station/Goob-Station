@@ -105,7 +105,7 @@
   id: UplinkSpeedLoaderPanther
   name: uplink-speedloader-sniper-name
   description: uplink-speedloader-sniper-desc
-  icon: { sprite: _Pirate/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/sniper.rsi, state: icon }
+  icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/sniper.rsi, state: icon }
   productEntity: SpeedLoaderPanther
   cost:
     Telecrystal: 1
