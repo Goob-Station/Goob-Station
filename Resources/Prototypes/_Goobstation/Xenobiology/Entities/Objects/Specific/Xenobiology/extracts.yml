@@ -363,9 +363,9 @@
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateGas #Should be 5 seconds after?
+      - !type:CreateGas
         gas: Frezon
-        multiplier: 25
+        multiplier: 35
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
