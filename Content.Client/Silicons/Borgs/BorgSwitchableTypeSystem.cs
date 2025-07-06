@@ -56,16 +56,16 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
     {
         if (TryComp(entity, out SpriteComponent? sprite))
         {
-            sprite.LayerSetState(BorgVisualLayers.Body, prototype.SpriteBodyState);
-            sprite.LayerSetState(BorgVisualLayers.Light, prototype.SpriteHasMindState);
-            sprite.LayerSetState(BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);
+            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
+            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Light, prototype.SpriteBodyState);
+            _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.LightStatus, prototype.SpriteBodyState);
 
             var rsiPath = SpriteSpecifierSerializer.TextureRoot / subtypePrototype.SpritePath;
             if (_resourceCache.TryGetResource<RSIResource>(rsiPath, out var resource))
             {
-                sprite.LayerSetRSI(BorgVisualLayers.Body, resource.RSI);
-                sprite.LayerSetRSI(BorgVisualLayers.Light, resource.RSI);
-                sprite.LayerSetRSI(BorgVisualLayers.LightStatus, resource.RSI);
+                _sprite.LayerSetRsi((entity, sprite), BorgVisualLayers.Body, resource.RSI);
+                _sprite.LayerSetRsi((entity, sprite), BorgVisualLayers.Light, resource.RSI);
+                _sprite.LayerSetRsi((entity, sprite), BorgVisualLayers.LightStatus, resource.RSI);
             }
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.Body, prototype.SpriteBodyState);
             _sprite.LayerSetRsiState((entity, sprite), BorgVisualLayers.LightStatus, prototype.SpriteToggleLightState);

@@ -107,6 +107,8 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         _userInterface.CloseUi(ent.Owner, BorgSwitchableTypeUiKey.SelectBorgType);
         ent.Comp.SelectTypeAction = null;
         Dirty(ent);
+        if (subtype != null)
+            Dirty(ent.Owner, subtype);
 
         UpdateEntityAppearance(ent);
     }
