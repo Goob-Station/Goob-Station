@@ -26,7 +26,7 @@
   - type: GunRequiresWield
   - type: Gun
     projectileSpeed: 19
-    fireRate: 4
+    fireRate: 5
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -37,8 +37,8 @@
       chamber:
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
-        maxVol: 5 #5 shots
+          Quantity: 8
+        maxVol: 8 #8 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletOuroboros

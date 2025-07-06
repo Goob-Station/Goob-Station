@@ -37,7 +37,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/_Pirate/Weapons/Guns/Gunshots/akurra.ogg
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/adder.ogg
   - type: SolutionContainerManager
     solutions:
       chamber:
@@ -99,7 +99,7 @@
     angleIncrease: 2
     angleDecay: 18
     soundGunshot:
-      path: /Audio/_Pirate/Weapons/Guns/Gunshots/adder.ogg
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/akurra.ogg
   - type: SolutionContainerManager
     solutions:
       chamber:

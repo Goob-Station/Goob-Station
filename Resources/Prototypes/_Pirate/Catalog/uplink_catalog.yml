@@ -53,10 +53,10 @@
     - UplinkWeaponry
 
 - type: listing
-  id: uplinkAnaconda
+  id: uplinkPanther
   name: uplink-panther-name
   description: uplink-panther-desc
-  icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Revolvers/anaconda.rsi, state: icon }
+  icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Revolvers/panther.rsi, state: icon }
   productEntity: BriefcaseSyndiePantherBundleFilled
   discountCategory: rareDiscounts
   discountDownTo:

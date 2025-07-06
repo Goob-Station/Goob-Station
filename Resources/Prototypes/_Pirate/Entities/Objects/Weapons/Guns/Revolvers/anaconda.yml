@@ -1,16 +1,16 @@
 - type: entity
-  name: Anaconda
+  name: Panther
   parent: [BaseWeaponRevolver, BaseSyndicateContraband]
   id: WeaponPanther
   description: A junior designer at Waffle Corp. swears they submitted this as a joke. Kicks like a blood-red horse if used without a hardsuit. Uses .60 anti-materiel ammo.
   components:
   - type: Sprite
-    sprite: _Pirate/Objects/Weapons/Guns/Revolvers/anaconda.rsi
+    sprite: _Pirate/Objects/Weapons/Guns/Revolvers/panther.rsi
     layers:
       - state: icon
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: _Pirate/Objects/Weapons/Guns/Revolvers/anaconda.rsi
+    sprite: _Pirate/Objects/Weapons/Guns/Revolvers/panther.rsi
     slots:
     - suitStorage
     - Belt
@@ -18,11 +18,11 @@
     size: Normal
     storedSprite:
       state: storage
-      sprite: _Pirate/Objects/Weapons/Guns/Revolvers/anacondax64.rsi
+      sprite: _Pirate/Objects/Weapons/Guns/Revolvers/pantherx64.rsi
     shape:
     - 0,0,3,0
     - 0,1,0,1
-    sprite: _Pirate/Objects/Weapons/Guns/Revolvers/anaconda.rsi
+    sprite: _Pirate/Objects/Weapons/Guns/Revolvers/panther.rsi
   - type: Gun
     fireRate: 1.0
     minAngle: 1
@@ -30,7 +30,7 @@
     angleIncrease: 20
     angleDecay: 4
     soundGunshot:
-      path: /Audio/_Pirate/Weapons/Guns/Gunshots/anaconda.ogg
+      path: /Audio/_Pirate/Weapons/Guns/Gunshots/panther.ogg
   - type: RevolverAmmoProvider
     whitelist:
       tags:
