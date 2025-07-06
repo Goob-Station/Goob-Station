@@ -27,7 +27,7 @@ knowledge-path-flesh-s1-desc =
     Hundreds of us starved, but not me... I found strength in my greed.
 
     Opens up the Path of Flesh to you.
-    Allows you to transmute a knife and a pool of blood into a Bloody Blade.
+    Allows you to transmute a knife and a pool of blood into a Bloody Blade. Limit of two at a time.
 
 knowledge-path-flesh-s2-name = Grasp of Flesh
 knowledge-path-flesh-s2-desc =
@@ -35,6 +35,7 @@ knowledge-path-flesh-s2-desc =
 
     Your Mansus Grasp gains the ability to create a ghoul out of corpse with a soul.
     Ghouls have only 50 health and look like husks to the heathens' eyes, but can use Bloody Blades effectively.
+    All ghouls get their own bloody blade that cannot be shattered and disappears on ghoul death.
 
 knowledge-path-flesh-s3-name = Imperfect Ritual
 knowledge-path-flesh-s3-desc =

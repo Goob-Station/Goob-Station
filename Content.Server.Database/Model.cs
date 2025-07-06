@@ -104,6 +104,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
@@ -587,6 +588,7 @@ namespace Content.Server.Database
         public Guid UserId { get; set; }
         public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
+        public List<string> ConstructionFavorites { get; set; } = new();
         public List<Profile> Profiles { get; } = new();
     }
 
@@ -596,8 +598,6 @@ namespace Content.Server.Database
         public int Slot { get; set; }
         [Column("char_name")] public string CharacterName { get; set; } = null!;
         public string FlavorText { get; set; } = null!;
-        // #Goobstation - Borg Preferred Name
-        public string BorgName { get; set; } = null!;
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
         public string Gender { get; set; } = null!;
@@ -773,6 +773,8 @@ namespace Content.Server.Database
         public List<AdminLogPlayer> AdminLogs { get; set; } = null!;
 
         public int ServerCurrency { get; set; } // Goobstation - Goob coin
+
+        public TimeSpan? LastRolledAntag { get; set; } // Goobstation
 
         public DateTime? LastReadRules { get; set; }
 

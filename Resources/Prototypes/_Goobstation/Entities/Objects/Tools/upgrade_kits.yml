@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: UpgradeKitAutomation
+  name: automation upgrade kit
+  description: An upgrade kit with all the parts needed to upgrade a machine. This one allows extra automation options by linking robotic arms.
+  components:
+  - type: Sprite
+    sprite: _DV/Objects/Tools/lathe_upgrade_kit.rsi
+    state: icon
+  - type: UpgradeKit
+    whitelist:
+      components:
+      - AutomationSlots # automation needs code to support it, can't work on literally any machine
+    blacklist:
+      components:
+      - Automated
+      - UpgradedMachine
+    components:
+    - type: UpgradedMachine
+      upgrade: upgrade-kit-automation
+    - type: Automated
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: BasicDevice
+
+# for entities that come pre-automated
+- type: entity
+  abstract: true
+  id: BaseAutomatedMachine
+  components:
+  - type: AutomationSlots
+  - type: Automated
+  - type: UpgradedMachine
+    upgrade: upgrade-kit-automation
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: GuideHelp
+    guides:
+    - Automation

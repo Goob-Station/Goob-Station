@@ -114,7 +114,7 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
-        private const string TestMap = "Maps/bagel.yml";
+        private const string TestMap = "Maps/_Goobstation/bagel.yml"; // Goob edit - what point is there in testing a map without any goob features??
 
         /// <summary>
         ///     Loads the default map, runs it for 5 ticks, then assert that it did not change.

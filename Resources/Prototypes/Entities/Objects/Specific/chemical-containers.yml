@@ -91,6 +91,9 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Johnly <Jonhlybr@gmail.com>
+# SPDX-FileCopyrightText: 2025 Super7522 <Jonhlybr@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -538,4 +541,18 @@
       beaker:
         reagents:
         - ReagentId: WeldingFuel
+          Quantity: 200
+- type: entity
+  parent: Jug
+  suffix: holy water
+  id: JugHolyWater
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-holywater
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Holywater
           Quantity: 200

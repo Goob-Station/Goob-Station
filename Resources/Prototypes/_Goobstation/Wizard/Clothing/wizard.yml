@@ -2,8 +2,15 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -44,14 +51,22 @@
   suffix: Wizard Clothes
   components:
   - type: Armor
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
+    coverage:
+    - Head
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
-        Caustic: 0.9
-        Radiation: 0.9
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.1
+        Radiation: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: GroupExamine
@@ -62,12 +77,27 @@
   suffix: Wizard Clothes
   components:
   - type: Armor
+    coverage: # full coverage, idk, magic
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
+    - Tail
+    - Other
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.65
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
         Radiation: 0.1
         Caustic: 0.1
   - type: ExplosionResistance
@@ -81,8 +111,8 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
-    coefficient: 0.5
+  - type: StaminaResistance
+    damageCoefficient: 0.5
 
 # Black
 - type: entity
@@ -298,12 +328,19 @@
     - type: SupermatterImmune
   - type: SupermatterImmune
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.65
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.45
         Radiation: 0
         Caustic: 0.1
   - type: ToggleableClothing
@@ -311,7 +348,7 @@
       head: ClothingHeadHatOblivionEnforcer
 
 - type: entity
-  parent: [ClothingMaskGas, BaseMagicContraband]
+  parent: [ClothingMaskGas, BaseMagicalContraband]
   id: ClothingMaskGasOblivionEnforcer
   suffix: Voice Mask, Wizard Clothes
   name: oblivion enforcer's mask
@@ -429,3 +466,46 @@
   - type: FingerprintMask
   - type: StaticPrice
     price: 1000
+
+# Crimsom
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatCrimsonReal
+  name: crimson wizard hat
+  description: A wide-brimmed, pointy wizard hat adorned with a crimson band and a touch of theatrical flair. Feels... explosive.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/crimsonwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/crimsonwizard.rsi
+
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  id: ClothingOuterWizardCrimsonReal
+  name: crimson wizard robes
+  description: A flowing set of red and gold-trimmed robes, made for dramatic spellcasting. You can feel the power flowing through you...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/crimsonwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/crimsonwizard.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakCrimson
+  name: Crimson Cape
+  description: A black cape with a high collar and gold trim. Billows dramatically even when there's no wind.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Neck/crimsonwizard.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingUnderShoesCrimson
+  name: crimson boots
+  description: Comes with a pair of mismatched thigh-high socks to bring out their full power!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Shoes/crimson.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Shoes/crimson.rsi

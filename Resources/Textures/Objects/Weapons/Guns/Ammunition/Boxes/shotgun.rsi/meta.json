@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprites by SpaceRox1244",
+    "copyright": "Sprites by SpaceRox1244, sarin by JoeHammad",
     "size": {
         "x": 32,
         "y": 32
@@ -38,13 +38,22 @@
             "name": "lethal"
         },
         {
+            "name": "icon-lethal"
+        },
+        {
             "name": "beanbag"
         },
         {
             "name": "slug"
         },
         {
+            "name": "icon-slug"
+        },
+        {
             "name": "incendiary"
+        },
+        {
+            "name": "icon-incendiary"
         },
         {
             "name": "practice"
@@ -57,6 +66,12 @@
         },
         {
             "name": "tranquilizer"
+        },
+        {
+            "name": "sarin"
+        },
+        {
+            "name": "icon-sarin"
         }
     ]
 }

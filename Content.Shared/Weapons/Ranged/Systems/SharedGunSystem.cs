@@ -48,6 +48,7 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TGRCDev <tgrc@tgrc.dev>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -61,6 +62,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._Shitmed.Weapons.Ranged.Events; // Shitmed Change
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -89,6 +91,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
@@ -510,6 +513,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
         var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gunUid, ref shotEv);
+        var shotBodyEv = new GunShotBodyEvent(gunUid, gun); // Shitmed Change
+        RaiseLocalEvent(user, shotBodyEv); // Shitmed Change
 
         if (userImpulse && TryComp<PhysicsComponent>(user, out var userPhysics))
         {
@@ -545,7 +550,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityUid? user = null,
         bool throwItems = false);
 
-    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid gunUid, EntityUid? user = null, float speed = 40f) // Goobstation - Fast Bullets
+    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = 40f) // Goobstation - Fast Bullets
     {
         var physics = EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
@@ -556,8 +561,10 @@ public abstract partial class SharedGunSystem : EntitySystem
         Physics.SetLinearVelocity(uid, finalLinear, body: physics);
 
         var projectile = EnsureComp<ProjectileComponent>(uid);
-        Projectiles.SetShooter(uid, projectile, user ?? gunUid);
         projectile.Weapon = gunUid;
+        var shooter = user ?? gunUid;
+        if (shooter != null)
+            Projectiles.SetShooter(uid, projectile, shooter.Value);
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
     }
@@ -593,7 +600,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         var coordinates = xform.Coordinates;
         coordinates = coordinates.Offset(offsetPos);
 
-        TransformSystem.SetLocalRotation(xform, Random.NextAngle());
+        TransformSystem.SetLocalRotation(entity, Random.NextAngle(), xform);
         TransformSystem.SetCoordinates(entity, xform, coordinates);
 
         // decides direction the casing ejects and only when not cycling
@@ -641,8 +648,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)
     {
-        var fromMap = fromCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
+        var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates).Position;
+        var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var shotDirection = (toMap - fromMap).Normalized();
 
         const float impulseStrength = 25.0f;

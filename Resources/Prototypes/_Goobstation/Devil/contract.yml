@@ -1,0 +1,65 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseDevilContract
+  parent: [BaseItem, BaseMagicalContraband]
+  abstract: true
+  name: contract from below
+  description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
+  components:
+  - type: PaperLabelType
+  - type: Paper
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/_Goobstation/Interface/Paper/paper_background_grey.svg.96dpi.png"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Item
+    sprite: _Goobstation/Objects/Misc/devil_contract.rsi
+    size: Small
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: contract-written
+  - type: FaxableObject
+  - type: Tag
+    tags:
+    - Document
+    - Paper
+
+- type: entity
+  id: PaperDevilContractBlank
+  suffix: Blank
+  parent: BaseDevilContract
+  components:
+  - type: DevilContract
+
+- type: entity
+  id: PaperDevilContract
+  suffix: "Devil Contract"
+  parent: BaseDevilContract
+  components:
+  - type: DevilContract
+  - type: Paper
+    content: default-contract-content
+
+- type: entity
+  id: PaperDevilContractRevival
+  suffix: "Devil Contract, Revival"
+  parent: BaseDevilContract
+  name: contract from the depths
+  description: A devilish piece of black parchment detailing a contract of revival. All ink that touches the page seems to turn to blood.
+  components:
+  - type: RevivalContract
+  - type: Paper
+    editingDisabled: true
+    content: default-contract-content

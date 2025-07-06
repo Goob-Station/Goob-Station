@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace Content.Server.Cargo.Components;
+
 /// <summary>
 /// Any entities intersecting when a shuttle is recalled will be sold.
 /// </summary>

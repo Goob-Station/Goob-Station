@@ -5,7 +5,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
@@ -46,7 +48,7 @@
     sprite: _Goobstation/Heretic/items.rsi
     state: living_heart
   requiredTags:
-    Document: 1
+    Paper: 1
     Heart: 1
     Pen: 1
   outputEvent: !type:EventHereticRerollTargets
@@ -65,6 +67,30 @@
   output:
     CodexCicatrix: 1
 
+- type: hereticRitual
+  id: Reminiscence
+  locName: heretic-ritual-basic-remeniscence
+  locDesc: heretic-ritual-basic-remeniscence-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/eldritch_blade.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualRecallBladeBehavior
+  requiredTags:
+    Chair: 1
+
+- type: hereticRitual
+  id: FeastOfOwls
+  locName: heretic-ritual-basic-owls
+  locDesc: heretic-ritual-basic-owls-desc
+  runeSuccessAnimation: false
+  icon:
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: god_transmit
+  customBehaviors:
+  - !type:RitualCanAscend
+  - !type:RitualFeastOfOwlsBehavior
+
 ### ash path
 - type: hereticRitual
   id: BladeAsh
@@ -73,11 +99,12 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
     state: icon
+  customBehaviors:
+  - !type:RitualCreateBladeBehavior
+    bladeProto: HereticBladeAsh
   requiredTags:
     Knife: 1
     Matchstick: 1
-  output:
-    HereticBladeAsh: 1
 
 - type: hereticRitual
   id: MaskOfMadness
@@ -101,6 +128,7 @@
     sprite: _Goobstation/Heretic/abilities_heretic.rsi
     state: ashlord_rite2
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualAshAscendBehavior
     min: 3
     max: 3
@@ -115,10 +143,11 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
     state: icon
+  customBehaviors:
+  - !type:RitualCreateBladeBehavior
+    bladeProto: HereticBladeBlade
   requiredTags:
     Knife: 2
-  output:
-    HereticBladeBlade: 1
 
 - type: hereticRitual
   id: AscensionBlade
@@ -128,6 +157,7 @@
     sprite: _Goobstation/Heretic/items.rsi
     state: protective_blade
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualBladeAscendBehavior
     min: 3
     max: 3
@@ -145,10 +175,10 @@
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
+  - !type:RitualCreateBladeBehavior
+    bladeProto: HereticBladeFlesh
   requiredTags:
     Knife: 1
-  output:
-    HereticBladeFlesh: 1
 
 - type: hereticRitual
   id: ImperfectRitual
@@ -204,6 +234,7 @@
     sprite: _Goobstation/Heretic/abilities_heretic.rsi
     state: final_hymn
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
     min: 4
     max: 4
@@ -223,10 +254,10 @@
   customBehaviors:
   - !type:RitualTemperatureBehavior
     minThreshold: 0 # ~= -1 celcius. or sub zero temperatures
+  - !type:RitualCreateBladeBehavior
+    bladeProto: HereticBladeVoid
   requiredTags:
     Knife: 1
-  output:
-    HereticBladeVoid: 1
 
 - type: hereticRitual
   id: AscensionVoid
@@ -236,6 +267,7 @@
     sprite: Interface/Alerts/temperature.rsi
     state: cold3
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
     min: 3
     max: 3
@@ -252,11 +284,12 @@
   icon:
     sprite: _Goobstation/Heretic/Blades/blade_rust.rsi
     state: icon
+  customBehaviors:
+  - !type:RitualCreateBladeBehavior
+    bladeProto: HereticBladeRust
   requiredTags:
     Knife: 1
     Trash: 1
-  output:
-    HereticBladeRust: 1
 
 - type: hereticRitual
   id: AscensionRust
@@ -266,6 +299,7 @@
     sprite: _Goobstation/Heretic/abilities_heretic.rsi
     state: ascension_rust
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualRustAscendBehavior
     min: 3
     max: 3
@@ -289,13 +323,20 @@
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
   icon:
-    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
   requiredTags:
     Table: 1
     GasMask: 1
-  output:
-    ClothingOuterArmorHeretic: 1
+  customBehaviors:
+  - !type:RitualPathBasedSpawnBehavior
+    fallbackEntity: ClothingOuterArmorHeretic
+    spawnedEntities:
+      Ash: ClothingOuterArmorHereticAsh
+      Void: ClothingOuterArmorHereticVoid
+      Flesh: ClothingOuterArmorHereticFlesh
+      Blade: ClothingOuterArmorHereticBlade
+      Rust: ClothingOuterArmorHeretic
 
 - type: hereticRitual
   id: PriestRitual
@@ -329,7 +370,7 @@
   locName: knowledge-path-side-s3-void-cloak-name
   locDesc: knowledge-path-side-s3-void-cloak-desc
   icon:
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     state: icon
   requiredTags:
     GlassShard: 1
@@ -365,7 +406,7 @@
     state: rune_carver
   requiredTags:
     GlassShard: 1
-    Document: 1
+    Paper: 1
     Knife: 1
   output:
     CarvingKnife: 1

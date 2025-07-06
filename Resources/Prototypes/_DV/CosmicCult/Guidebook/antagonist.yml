@@ -1,0 +1,23 @@
+- type: guideEntry
+  id: CosmicCult
+  name: guide-entry-cosmiccult
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCult.xml"
+  children:
+  - CosmicCultMonument
+  - CosmicCultInfluences
+  - CosmicCultDeconversion
+
+- type: guideEntry
+  id: CosmicCultMonument
+  name: guide-entry-cosmiccult-monument
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCultMonument.xml"
+
+- type: guideEntry
+  id: CosmicCultInfluences
+  name: guide-entry-cosmiccult-influences
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCultInfluences.xml"
+
+- type: guideEntry
+  id: CosmicCultDeconversion
+  name: guide-entry-cosmiccult-deconversion
+  text: "/ServerInfo/_DV/Guidebook/Antagonist/CosmicCultDeconversion.xml"

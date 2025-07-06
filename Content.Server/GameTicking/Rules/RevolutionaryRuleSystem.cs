@@ -7,7 +7,6 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
 // SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
@@ -24,7 +23,16 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+// SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -32,7 +40,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.EUI;
-using Content.Server.Flash;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -56,6 +63,8 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
+using Content.Shared.Heretic;
+using Content.Goobstation.Common.Changeling;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
@@ -64,6 +73,9 @@ using Content.Server.Communications;
 using System.Linq;
 using Content.Goobstation.Shared.Revolutionary;
 using Content.Server.Chat.Systems;
+using Content.Shared._EinsteinEngines.Revolutionary;
+using Robust.Shared.Player;
+
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -73,21 +85,22 @@ namespace Content.Server.GameTicking.Rules;
 // Heavily edited by goobstation. If you want to upstream something think twice
 public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
 {
-    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly SharedRevolutionarySystem _revolutionarySystem = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -98,7 +111,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         base.Initialize();
         SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
 
-        SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
+        SubscribeLocalEvent<HeadRevolutionaryComponent, AfterRevolutionaryConvertedEvent>(OnPostConvert); // Einstein Engines - Revolutionary Manifesto
         SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnTryCallEvac); // goob edit
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
 
@@ -195,10 +208,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     }
 
     /// <summary>
-    /// Called when a Head Rev uses a flash in melee to convert somebody else.
+    /// Called when a Head Rev uses a Revolutionary Manifesto to convert somebody else.
     /// </summary>
-    private void OnPostFlash(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterFlashedEvent ev)
+    private void OnPostConvert(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterRevolutionaryConvertedEvent ev)
     {
+        // Einstein Engines - Revolutionary Manifesto - Use RevolutionaryConverterSystem instead of hardcoding flashes
         // GoobStation - check if headRev's ability enabled
         if (!comp.ConvertAbilityEnabled)
             return;
@@ -213,9 +227,13 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
-            HasComp<ZombieComponent>(ev.Target)
-            || HasComp<CommandStaffComponent>(ev.Target)) // goob edit - rev no command flashing
+            HasComp<ZombieComponent>(ev.Target) ||
+            HasComp<HereticComponent>(ev.Target) ||
+            HasComp<ChangelingComponent>(ev.Target)) // goob edit - no more ling or heretic revs
         {
+            if(ev.User != null)
+                _popup.PopupEntity("The conversion failed!", ev.User.Value, ev.User.Value);
+
             return;
         }
 
@@ -243,8 +261,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             _role.MindAddRole(mindId, "MindRoleRevolutionary");
         }
 
-        if (mind?.Session != null)
-            _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+        if (mind is { UserId: not null } && _player.TryGetSessionById(mind.UserId, out var session))
+            _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
 
         // Goobstation - Check lose if command was converted
         if (!TryComp<CommandStaffComponent>(ev.Target, out var commandComp))
@@ -322,15 +340,15 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 if (TryComp<CommandStaffComponent>(uid, out var commandComp))
                     commandComp.Enabled = true;
 
-                if (!_mind.TryGetMind(uid, out var mindId, out _, mc))
+                if (!_mind.TryGetMind(uid, out var mindId, out var mind, mc))
                     continue;
 
                 // remove their antag role
-                _role.MindTryRemoveRole<RevolutionaryRoleComponent>(mindId);
+                _role.MindRemoveRole<RevolutionaryRoleComponent>(mindId);
 
                 // make it very obvious to the rev they've been deconverted since
                 // they may not see the popup due to antag and/or new player tunnel vision
-                if (_mind.TryGetSession(mindId, out var session))
+                if (_player.TryGetSessionById(mind.UserId, out var session))
                     _euiMan.OpenEui(new DeconvertedEui(), session);
             }
             return true;

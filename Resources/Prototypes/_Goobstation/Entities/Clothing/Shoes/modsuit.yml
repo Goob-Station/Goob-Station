@@ -4,14 +4,17 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
-  name: standard modsuit boots
+  name: standard hardsuit boots
   description: A special modular suit boots designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
@@ -32,19 +35,16 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
-        shader: unshaded
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity
-  name: dragoon modsuit boots
+  name: soldat hardsuit boots
   description: THE IRON BOOTS OF THE LAW.
   categories: [ HideSpawnMenu ]
   components:
@@ -65,24 +65,32 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  - type: ClothingModifyStunTime # Goobstation
-    modifier: 0.8
-  - type: ModifyStandingUpTime # Goobstation
+  - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsHeadOfSecurity
-  name: bulwark modsuit boots
+  name: bulwark hardsuit boots
   description: I call these my commie stompers.
   categories: [ HideSpawnMenu ]
   components:
@@ -103,24 +111,32 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  - type: ClothingModifyStunTime # Goobstation
-    modifier: 0.8
-  - type: ModifyStandingUpTime # Goobstation
+  - type: ModifyStandingUpTime
     multiplier: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsParamedic
-  name: sanitater modsuit boots
+  name: sanitater hardsuit boots
   description: Made to get bloody.
   categories: [ HideSpawnMenu ]
   components:
@@ -141,18 +157,16 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsEngineer
-  name: sapper modsuit boots
+  name: sapper hardsuit boots
   description: Made to get oily.
   categories: [ HideSpawnMenu ]
   components:
@@ -173,18 +187,27 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
-  - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+  - type: ItemToggle
+  - type: ToggleClothing
+    action: ActionToggleMagboots
+  - type: ComponentToggler
+    components:
+    - type: NoSlip
+  - type: Magboots
+    enabledPrefix: null
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsAtmostech
-  name: aeolus modsuit boots
+  name: aeolus hardsuit boots
   description: Made to get burnt.
   categories: [ HideSpawnMenu ]
   components:
@@ -205,18 +228,18 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
-  - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
+  - type: FireProtection # lmao
+    reduction: 0.25
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
-  name: minerva modsuit boots
+  name: minerva hardsuit boots
   description: Wont stop you slipping on your own blood when the holocarp gets to you.
   categories: [ HideSpawnMenu ]
   components:
@@ -237,18 +260,16 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
-  - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsCaptain
-  name: magnate modsuit boots
+  name: magnate hardsuit boots
   description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
   categories: [ HideSpawnMenu ]
   components:
@@ -269,10 +290,8 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
-  - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed

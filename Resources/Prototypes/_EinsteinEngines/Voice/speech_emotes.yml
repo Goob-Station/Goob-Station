@@ -3,6 +3,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -41,3 +44,20 @@
     components:
     - Silicon
     - BorgChassis
+
+- type: emote
+  id: Mars
+  name: chat-emote-name-mars
+  category: Vocal
+  whitelist:
+    tags:
+    - ShadowkinEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-mars"]
+  chatTriggers:
+    - mars
+    - marsing
+    - marsed

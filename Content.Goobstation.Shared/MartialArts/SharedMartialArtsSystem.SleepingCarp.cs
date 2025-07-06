@@ -1,15 +1,22 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.IdentityManagement;
@@ -47,6 +54,12 @@ public partial class SharedMartialArtsSystem
             return;
         }
 
+        if (HasComp<ChangelingIdentityComponent>(args.User))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), args.User, args.User);
+            return;
+        }
+
         var studentComp = EnsureComp<SleepingCarpStudentComponent>(args.User);
 
         if (studentComp.UseAgainTime == TimeSpan.Zero)
@@ -73,10 +86,10 @@ public partial class SharedMartialArtsSystem
             case >= 3:
                 if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
+                _faction.AddFaction(args.User, "Dragon");
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
-                userReflect.OtherTypeReflectProb = 0.25f;
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,

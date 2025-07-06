@@ -33,7 +33,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -45,6 +45,11 @@ namespace Content.Shared.Chemistry.Reaction
 {
     public sealed class ChemicalReactionSystem : EntitySystem
     {
+        /// <summary>
+        /// Foam reaction protoId.
+        /// </summary>
+        public static readonly ProtoId<ReactionPrototype> FoamReaction = "Foam";
+
         /// <summary>
         ///     The maximum number of reactions that may occur when a solution is changed.
         /// </summary>

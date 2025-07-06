@@ -1,5 +1,9 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
@@ -22,7 +26,7 @@ public sealed partial class HoloCigarComponent : Component
 
     [ViewVariables]
     public SoundSpecifier Music = new SoundPathSpecifier(
-        "/Audio/_Goobstation/Items/TheManWhoSoldTheWorld/invisible.ogg",
+        "/Audio/_Goobstation/Items/TheManWhoSoldTheWorld/invisibingle.ogg",
         new AudioParams().WithLoop(true).WithVolume(3f));
 
     [ViewVariables]

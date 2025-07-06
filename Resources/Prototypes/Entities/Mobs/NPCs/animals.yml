@@ -223,7 +223,10 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess14 <87253287+Arraydeess14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Booblesnoot42 <108703193+Booblesnoot42@users.noreply.github.com>
@@ -232,6 +235,7 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -240,20 +244,28 @@
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zokkie <6126135+Zokkie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <152602630+cheetah1984@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 dootythefrooty <137359445+dootythefrooty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 hyperDelegate <zachary1064@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ss14-Starlight <ss14-Starlight@outlook.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
@@ -325,6 +337,20 @@
     damage:
       types:
         Piercing: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      30: Critical
+      60: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 120
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
   - type: Tag
     tags:
     - VimPilot
@@ -406,6 +432,15 @@
     rootTask:
       task: SimpleHostileCompound
   - type: ZombieImmune
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 20
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   name: bee
@@ -600,6 +635,7 @@
   - type: Item
     size: Tiny
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -666,8 +702,9 @@
         damageType: Blunt
         damage: 10
       behaviors:
-      - !type:GibBehavior # Shitmed Change
+      - !type:GibBehavior
         gibContents: Skip # Shitmed Change
+        recursive: false
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
@@ -727,7 +764,7 @@
     description: ghost-role-information-mothroach-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: Fixtures
     fixtures:
       fix1:
@@ -786,7 +823,7 @@
     baseSprintSpeed : 4
     weightlessAcceleration: 1.5
     weightlessFriction: 1
-    weightlessModifier: 1
+    baseWeightlessModifier: 1
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moth
@@ -838,7 +875,9 @@
         damageType: Blunt
         damage: 60
       behaviors:
-      - !type:GibBehavior { }
+      - !type:GibBehavior
+        gibContents: Skip
+        recursive: false
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
@@ -877,7 +916,6 @@
           32:
             sprite: Mobs/Animals/mothroach/displacement.rsi
             state: neck
-
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
@@ -1074,6 +1112,15 @@
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 20
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   name: cow
@@ -1505,9 +1552,6 @@
   - type: Vocal
     sounds:
       Unsexed: Kangaroo
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepBounce
   - type: Puller
     needsHands: false
   - type: StaminaDamageOnHit
@@ -1584,6 +1628,7 @@
     layers:
   # Shitmed Change Start
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -1591,6 +1636,10 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - state: monkey_skinned # Goobstation - Fuck pun-pun
+      sprite: /Textures/Mobs/Animals/monkey.rsi
+      visible: false
+      map: [ "enum.ToggleVisuals.Layer" ]
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -1611,11 +1660,12 @@
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "maskalt" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "mask" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
@@ -1628,7 +1678,13 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
+      enum.ToggleVisuals.Toggled: # Goobstation - Skinnable monkey
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+
   - type: Body # Shitmed Change
+    bodyType: Complex
     prototype: Monkey
     requiredLegs: 2
   - type: CreamPied
@@ -1670,6 +1726,7 @@
   - type: NpcFactionMember
     factions:
       - Passive
+      - Monkey  # Goob Balloons Edit
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -1695,7 +1752,10 @@
       Female: MonkeyMode
       Unsexed: MonkeyMode
     wilhelmProbability: 0.001
-
+  - type: Consciousness
+    hasPainScreams: false
+    threshold: 70
+    cap: 140
 
 
 - type: entity
@@ -1722,6 +1782,7 @@
     mindRoles:
     - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
+  - type: Skinnable # Goobstation - Fuck pun-pun
   - type: Clumsy
     gunShootFailDamage:
       types:
@@ -1936,7 +1997,7 @@
     description: ghost-role-information-mouse-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -1968,6 +2029,7 @@
     factions:
       - Mouse
   - type: HTN
+    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -2055,7 +2117,6 @@
     - ChefPilot
     - Mouse
     - Meat
-    - MouseMind # Goobstation
   - type: Respirator
     damage:
       types:
@@ -2076,6 +2137,7 @@
   # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
   - type: MeleeWeapon
+    altDisarm: false # Sorry mouse shove lovers.
     soundHit:
       path: /Audio/Effects/bite.ogg
     angle: 0
@@ -2139,7 +2201,21 @@
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
   - type: GroupRetaliation
     range: 5 # slightly lower for mice
+  - type: CollectiveMind
+    defaultChannel: Mousemind
+    channels:
+    - Mousemind
   # </Goobstation>
+  - type: Destructible # Shitmed Change
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 100
+      behaviors:
+      - !type:GibBehavior
+        gibContents: Skip
+        recursive: false
 
 - type: entity
   parent: MobMouse
@@ -2437,6 +2513,15 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 60
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2605,6 +2690,7 @@
         Brute: 5
   - type: Item
     size: Normal
+    sprite: Mobs/Animals/grenadepenguin.rsi
   - type: OnUseTimerTrigger
     delay: 10
     beepSound:
@@ -3322,6 +3408,9 @@
     tags:
     - VimPilot
   - type: VentCrawler # goobstation - Ventcrawl
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
 
 - type: entity
   name: calico cat
@@ -3744,6 +3833,15 @@
         name: food-sequence-burger-content-hamster
       taco:
         name: food-sequence-content-hamster
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 120
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
 
 - type: entity
   name: pig

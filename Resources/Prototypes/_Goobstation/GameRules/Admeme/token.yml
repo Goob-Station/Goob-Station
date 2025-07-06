@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -35,8 +36,9 @@
         - DeathAcidifierImplant
       - type: RandomMetadata
         nameSegments:
-        - names_ninja_title
-        - names_ninja
+        - NamesNinjaTitle
+        - NamesNinja
+        nameFormat: name-format-ninja
       mindRoles:
       - MindRoleNinja
 
@@ -83,8 +85,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesNormal
+        - NamesSyndicateNormal
+        nameFormat: name-format-nukie-agent
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -168,12 +170,11 @@
         - AbductorNames
       - type: Tag
         tags:
-         - Abductor
-         - AbductorScientist
-         - CanPilot
-         - FootstepSound
-         - DoorBumpOpener
-         - AbductorMind
+        - Abductor
+        - AbductorScientist
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: Sanitized
@@ -205,8 +206,9 @@
       - type: Wizard
       - type: RandomMetadata
         nameSegments:
-        - wizard_first
-        - wizard_last
+        - WizardFirst
+        - WizardLast
+        nameFormat: name-format-standard
       - type: NpcFactionMember
         factions:
         - Wizard

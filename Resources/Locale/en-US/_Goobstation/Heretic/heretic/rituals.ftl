@@ -31,6 +31,15 @@ heretic-ritual-basic-codex-desc =
     Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix.
     The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes easier, and as a spell focus in a pinch.
 
+heretic-ritual-basic-reminiscence = Reminiscence
+heretic-ritual-basic-reminiscence-desc = Transmute a chair to instantly return one of your lost blades.
+
+heretic-ritual-basic-owls = Feast of Owls
+heretic-ritual-basic-owls-desc =
+    Under the soft glow of unreason there is a beast that stalks the night. I shall bring it forth and let it enter my presence. It will feast upon my amibitions and leave knowledge in its wake.
+
+    Allows you to undergo a ritual that gives you 5 knowledge points but locks you out of ascension. This can only be done once and cannot be reverted.
+
 heretic-ritual-fail-sacrifice = There is no corpse to sacrifice.
 heretic-ritual-fail-sacrifice-ineligible = The rune refuses to accept this sacrifice.
 heretic-ritual-fail-reagentpuddle = There is no {$reagentname} present.
@@ -39,6 +48,10 @@ heretic-ritual-fail-temperature-cold = It is not cold enough here.
 heretic-ritual-fail-sacrifice-ash = There's either not enough of them dead, or burning.
 heretic-ritual-fail-sacrifice-blade = Some of them are still having a head on their shoulders.
 heretic-ritual-fail-sacrifice-rust = Not enough rotting or silicon corpses.
+heretic-ritual-fail-limit = You have reached a limit of items that this ritual provides.
+heretic-ritual-fail-no-lost-blades = No lost blades can be found.
+heretic-ritual-fail-already-ascended = You are already ascended.
+heretic-ritual-fail-cannot-ascend = You cannot ascend.
 
 ## side quests
 heretic-ritual-side-knowledge = Ritual of Knowledge

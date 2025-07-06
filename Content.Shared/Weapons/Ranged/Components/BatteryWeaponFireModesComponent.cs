@@ -51,3 +51,9 @@ public sealed partial class BatteryWeaponFireMode
     [DataField]
     public float FireCost = 100;
 }
+
+[Serializable, NetSerializable]
+public enum BatteryWeaponFireModeVisuals : byte
+{
+    State
+}

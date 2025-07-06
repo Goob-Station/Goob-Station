@@ -1,0 +1,88 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: VaseBase
+  parent: DrinkGlassBase
+  name: vase
+  description: It's a vase. It holds flowers.
+  abstract: true
+  components:
+  - type: Anchorable
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Water
+          Quantity: 30
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Structures/Decoration/vase.rsi
+    state: vase-0
+
+- type: entity
+  id: VasePlant0 
+  parent: VaseBase
+  name: empty vase
+  description: It's a vase. It holds flowers. This one is empty.
+  components:
+  - type: Sprite
+    state: vase-0
+
+- type: entity
+  id: VasePlant1 
+  parent: VaseBase
+  components:
+  - type: Sprite
+    state: vase-1
+
+- type: entity
+  id: VasePlant2 
+  parent: VaseBase
+  components:
+  - type: Sprite
+    state: vase-2
+
+- type: entity
+  id: VasePlant3 
+  parent: VaseBase
+  components:
+  - type: Sprite
+    state: vase-3
+
+- type: entity
+  id: VasePlant4 
+  parent: VaseBase
+  components:
+  - type: Sprite
+    state: vase-4
+
+- type: entity
+  id: VasePlant5 
+  parent: VaseBase
+  components:
+  - type: Sprite
+    state: vase-5
+
+- type: entity
+  id: VasePlant6 
+  parent: VaseBase
+  components:
+  - type: Sprite
+    state: vase-6
+
+- type: entity
+  id: VasePlant7 
+  parent: VaseBase
+  components:
+  - type: Sprite
+    state: vase-7
+
+- type: entity
+  id: VasePlant8 
+  parent: VaseBase
+  components:
+  - type: Sprite
+    state: vase-8

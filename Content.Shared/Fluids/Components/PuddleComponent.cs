@@ -11,7 +11,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Chemistry.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -30,6 +30,12 @@ namespace Content.Shared.Fluids.Components
         public FixedPoint2 OverflowVolume = FixedPoint2.New(20);
 
         [DataField("solution")] public string SolutionName = "puddle";
+
+        /// <summary>
+        /// Default minimum speed someone must be moving to slip for all reagents.
+        /// </summary>
+        [DataField]
+        public float DefaultSlippery = 5.5f;
 
         [ViewVariables]
         public Entity<SolutionComponent>? Solution;

@@ -7,6 +7,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
+using Content.Shared.Destructible;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Slippery;
 using Content.Shared.StatusEffect;
@@ -28,6 +30,7 @@ public abstract class SharedGodmodeSystem : EntitySystem
         SubscribeLocalEvent<GodmodeComponent, BeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
         SubscribeLocalEvent<GodmodeComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<GodmodeComponent, SlipAttemptEvent>(OnSlipAttempt);
+        SubscribeLocalEvent<GodmodeComponent, DestructionAttemptEvent>(OnDestruction);
     }
 
     private void OnSlipAttempt(EntityUid uid, GodmodeComponent component, SlipAttemptEvent args)
@@ -50,6 +53,11 @@ public abstract class SharedGodmodeSystem : EntitySystem
         args.Cancelled = true;
     }
 
+    private void OnDestruction(Entity<GodmodeComponent> ent, ref DestructionAttemptEvent args)
+    {
+        args.Cancel();
+    }
+
     public virtual void EnableGodmode(EntityUid uid, GodmodeComponent? godmode = null)
     {
         godmode ??= EnsureComp<GodmodeComponent>(uid);
@@ -61,9 +69,6 @@ public abstract class SharedGodmodeSystem : EntitySystem
 
         // Rejuv to cover other stuff
         RaiseLocalEvent(uid, new RejuvenateEvent());
-
-        foreach (var (id, _) in _bodySystem.GetBodyChildren(uid)) // Shitmed Change
-            EnableGodmode(id);
     }
 
     public virtual void DisableGodmode(EntityUid uid, GodmodeComponent? godmode = null)

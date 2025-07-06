@@ -18,13 +18,15 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
 // SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -48,6 +50,8 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Hands.Systems
 {
@@ -59,6 +63,7 @@ namespace Content.Client.Hands.Systems
 
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly StrippableSystem _stripSys = default!;
+        [Dependency] private readonly SpriteSystem _sprite = default!;
         [Dependency] private readonly ExamineSystem _examine = default!;
         [Dependency] private readonly DisplacementMapSystem _displacement = default!;
 
@@ -276,7 +281,9 @@ namespace Content.Client.Hands.Systems
         // Shitmed Change Start
         private void HideLayers(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, SpriteComponent? sprite = null)
         {
-            if (part.Comp.PartType != BodyPartType.Hand || !Resolve(uid, ref sprite, logMissing: false))
+            if (!Resolve(uid, ref sprite, logMissing: false)
+                || part.Comp.PartType != BodyPartType.Arm
+                && part.Comp.PartType != BodyPartType.Hand)
                 return;
 
             var location = part.Comp.Symmetry switch
@@ -359,7 +366,7 @@ namespace Content.Client.Hands.Systems
             {
                 foreach (var key in revealedLayers)
                 {
-                    sprite.RemoveLayer(key);
+                    _sprite.RemoveLayer((uid, sprite), key);
                 }
 
                 revealedLayers.Clear();
@@ -395,7 +402,7 @@ namespace Content.Client.Hands.Systems
                     continue;
                 }
 
-                var index = sprite.LayerMapReserveBlank(key);
+                var index = _sprite.LayerMapReserve((uid, sprite), key);
 
                 // In case no RSI is given, use the item's base RSI as a default. This cuts down on a lot of unnecessary yaml entries.
                 if (layerData.RsiPath == null
@@ -403,16 +410,23 @@ namespace Content.Client.Hands.Systems
                     && sprite[index].Rsi == null)
                 {
                     if (TryComp<ItemComponent>(held, out var itemComponent) && itemComponent.RsiPath != null)
-                        sprite.LayerSetRSI(index, itemComponent.RsiPath);
+                        _sprite.LayerSetRsi((uid, sprite), index, new ResPath(itemComponent.RsiPath));
                     else if (TryComp(held, out SpriteComponent? clothingSprite))
-                        sprite.LayerSetRSI(index, clothingSprite.BaseRSI);
+                        _sprite.LayerSetRsi((uid, sprite), index, clothingSprite.BaseRSI);
                 }
 
-                sprite.LayerSetData(index, layerData);
+                _sprite.LayerSetData((uid, sprite), index, layerData);
 
-                //Add displacement maps
-                if (handComp.HandDisplacement is not null)
-                    _displacement.TryAddDisplacement(handComp.HandDisplacement, sprite, index, key, revealedLayers);
+                // Add displacement maps
+                var displacement = hand.Location switch
+                {
+                    HandLocation.Left => handComp.LeftHandDisplacement,
+                    HandLocation.Right => handComp.RightHandDisplacement,
+                    _ => handComp.HandDisplacement
+                };
+
+                if (displacement is not null && _displacement.TryAddDisplacement(displacement, (uid, sprite), index, key, out var displacementKey))
+                    revealedLayers.Add(displacementKey);
             }
 
             RaiseLocalEvent(held, new HeldVisualsUpdatedEvent(uid, revealedLayers), true);

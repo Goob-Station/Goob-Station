@@ -63,3 +63,4 @@
   - type: CollideOnAnchor
   - type: NameIdentifier
     group: CargoTelepads
+  - type: AnimationPlayer

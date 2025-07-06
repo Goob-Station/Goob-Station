@@ -13,9 +13,11 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -42,6 +44,7 @@ public sealed class DoAfterOverlay : Overlay
     private readonly MetaDataSystem _meta;
     private readonly ProgressColorSystem _progressColor;
     private readonly SharedContainerSystem _container;
+    private readonly SpriteSystem _sprite;
 
     private readonly Texture _barTexture;
     private readonly ShaderInstance _unshadedShader;
@@ -66,6 +69,7 @@ public sealed class DoAfterOverlay : Overlay
         _meta = _entManager.EntitySysManager.GetEntitySystem<MetaDataSystem>();
         _container = _entManager.EntitySysManager.GetEntitySystem<SharedContainerSystem>();
         _progressColor = _entManager.System<ProgressColorSystem>();
+        _sprite = _entManager.System<SpriteSystem>();
         var sprite = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/progress_bar.rsi"), "icon");
         _barTexture = _entManager.EntitySysManager.GetEntitySystem<SpriteSystem>().Frame0(sprite);
 
@@ -140,7 +144,7 @@ public sealed class DoAfterOverlay : Overlay
 
                 // Use the sprite itself if we know its bounds. This means short or tall sprites don't get overlapped
                 // by the bar.
-                float yOffset = sprite.Bounds.Height / 2f + 0.05f;
+                var yOffset = _sprite.GetLocalBounds((uid, sprite)).Height / 2f + 0.05f;
 
                 // Position above the entity (we've already applied the matrix transform to the entity itself)
                 // Offset by the texture size for every do_after we have.
@@ -157,7 +161,7 @@ public sealed class DoAfterOverlay : Overlay
                 if (doAfter.CancelledTime != null)
                 {
                     var elapsed = doAfter.CancelledTime.Value - doAfter.StartTime;
-                    elapsedRatio = (float) Math.Min(1, elapsed.TotalSeconds / doAfter.Args.Delay.TotalSeconds);
+                    elapsedRatio = (float)Math.Min(1, elapsed.TotalSeconds / doAfter.Args.Delay.TotalSeconds);
                     var cancelElapsed = (time - doAfter.CancelledTime.Value).TotalSeconds;
                     var flash = Math.Floor(cancelElapsed / FlashTime) % 2 == 0;
                     color = GetProgressColor(0, flash ? alpha : 0);
@@ -165,14 +169,14 @@ public sealed class DoAfterOverlay : Overlay
                 else
                 {
                     var elapsed = time - doAfter.StartTime;
-                    elapsedRatio = (float) Math.Min(1, elapsed.TotalSeconds / doAfter.Args.Delay.TotalSeconds);
+                    elapsedRatio = (float)Math.Min(1, elapsed.TotalSeconds / doAfter.Args.Delay.TotalSeconds);
                     color = GetProgressColor(elapsedRatio, alpha);
                 }
 
                 var xProgress = (EndX - StartX) * elapsedRatio + StartX;
                 var box = new Box2(new Vector2(StartX, 3f) / EyeManager.PixelsPerMeter, new Vector2(xProgress, 4f) / EyeManager.PixelsPerMeter);
                 box = box.Translated(position);
-                handle.DrawRect(box, color);
+                handle.DrawRect(box, doAfter.Args.ColorOverride ?? color); // Goob edit
                 offset += _barTexture.Height / scale;
             }
         }

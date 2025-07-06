@@ -12,7 +12,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Tools.Components;
@@ -38,7 +38,7 @@ public abstract partial class SharedToolSystem
         SubscribeLocalEvent<WelderComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
     }
 
-    public virtual void TurnOn(Entity<WelderComponent> entity, EntityUid? user)
+    public void TurnOn(Entity<WelderComponent> entity, EntityUid? user)
     {
         if (!SolutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.FuelSolutionName, out var solutionComp, out _))
             return;

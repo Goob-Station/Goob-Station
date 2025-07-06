@@ -25,6 +25,8 @@
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -67,6 +69,10 @@ public sealed class ReactiveSystem : EntitySystem
     {
         if (!TryComp(uid, out ReactiveComponent? reactive))
             return;
+
+        // custom event for bypassing reactivecomponent stuff
+        var ev = new ReactionEntityEvent(method, proto, reagentQuantity, source);
+        RaiseLocalEvent(uid, ref ev);
 
         // If we have a source solution, use the reagent quantity we have left. Otherwise, use the reaction volume specified.
         var args = new EntityEffectReagentArgs(uid, EntityManager, null, source, source?.GetReagentQuantity(reagentQuantity.Reagent) ?? reagentQuantity.Quantity, proto, method, 1f);
@@ -136,4 +142,13 @@ public enum ReactionMethod
 Touch,
 Injection,
 Ingestion,
+Eyes,
 }
+
+[ByRefEvent]
+public readonly record struct ReactionEntityEvent(
+    ReactionMethod Method,
+    ReagentPrototype Reagent,
+    ReagentQuantity ReagentQuantity,
+    Solution? Source
+);

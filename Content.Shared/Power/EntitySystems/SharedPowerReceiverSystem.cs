@@ -30,16 +30,17 @@
 // SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -49,15 +50,25 @@ using Content.Shared.Database;
 using Content.Shared.Power.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Power.EntitySystems;
 
 public abstract class SharedPowerReceiverSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPowerNetSystem _net = default!;
 
     public abstract bool ResolveApc(EntityUid entity, [NotNullWhen(true)] ref SharedApcPowerReceiverComponent? component);
+
+    /// <summary>
+    /// Goobstation - Lets shared code set power load.
+    /// </summary>
+    public virtual void SetLoad(SharedApcPowerReceiverComponent comp, float load)
+    {
+    }
 
     public void SetNeedsPower(EntityUid uid, bool value, SharedApcPowerReceiverComponent? receiver = null)
     {
@@ -89,6 +100,15 @@ public abstract class SharedPowerReceiverSystem : EntitySystem
         // it'll save a lot of confusion if 'always powered' means 'always powered'
         if (!receiver.NeedsPower)
         {
+            var powered = _net.IsPoweredCalculate(receiver);
+
+            // Server won't raise it here as it can raise the load event later with NeedsPower?
+            // This is mostly here for clientside predictions.
+            if (receiver.Powered != powered)
+            {
+                RaisePower((uid, receiver));
+            }
+
             SetPowerDisabled(uid, false, receiver);
             return true;
         }
@@ -104,11 +124,29 @@ public abstract class SharedPowerReceiverSystem : EntitySystem
                 AudioParams.Default.WithVolume(-2f));
         }
 
+        if (_netMan.IsClient && receiver.PowerDisabled)
+        {
+            var powered = _net.IsPoweredCalculate(receiver);
+
+            // Server won't raise it here as it can raise the load event later with NeedsPower?
+            // This is mostly here for clientside predictions.
+            if (receiver.Powered != powered)
+            {
+                receiver.Powered = powered;
+                RaisePower((uid, receiver));
+            }
+        }
+
         return !receiver.PowerDisabled; // i.e. PowerEnabled
     }
 
-    /// <summary>
-    /// Checks if entity is APC-powered device, and if it have power.
+    protected virtual void RaisePower(Entity<SharedApcPowerReceiverComponent> entity)
+    {
+        // NOOP on server because client has 0 idea of load so we can't raise it properly in shared.
+    }
+
+	/// <summary>
+	/// Checks if entity is APC-powered device, and if it have power.
     /// </summary>
     public bool IsPowered(Entity<SharedApcPowerReceiverComponent?> entity)
     {

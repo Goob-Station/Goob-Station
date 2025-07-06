@@ -16,5 +16,10 @@ namespace Content.Server.Power.Pow3r
         {
             // Literally nothing.
         }
+
+        public void Validate(PowerState state)
+        {
+            // Literally nothing.
+        }
     }
 }

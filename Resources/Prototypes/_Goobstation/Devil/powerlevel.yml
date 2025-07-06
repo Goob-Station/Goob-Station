@@ -1,0 +1,7 @@
+- type: devilBranchPrototype
+  id: BaseDevilBranch
+  powerActions:
+    Weak:
+    - "ActionCreateRevivalContract"
+    Moderate:
+    - "ActionDevilPossess"

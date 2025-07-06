@@ -28,7 +28,7 @@ knowledge-path-void-s1-desc =
     I start to realize the emptiness of existence. Something's watching me.
 
     Opens up the Path of Void to you.
-    Allows you to transmute a knife in sub-zero temperatures into a Void Blade.
+    Allows you to transmute a knife in sub-zero temperatures into a Void Blade. Limit of two at a time.
 
 knowledge-path-void-s2-name = Grasp of Void
 knowledge-path-void-s2-desc =
@@ -86,5 +86,6 @@ knowledge-path-void-s9-desc =
     The ascension ritual of the Path of Void.
     Bring 3 corpses to a transmutation rune in sub-zero temperatures to complete the ritual.
     When completed, grants you Aristocrat's Blessing.
-    Everything around you will be turned into snow and the air will constantly be frozen. Those nearby will be silenced and frozen even quicker.
-    You will also become immune to flames, space, and similar environmental hazards.
+    A snowstorm is summoned, everything around you will be turned into snow and the air will constantly be frozen. Those nearby will be silenced and frozen even quicker.
+    Windows and lights will shatter when nearby.
+    You will also become immune to flames, space, and similar environmental hazards. You gain total freedom of movement in zero-gravity.

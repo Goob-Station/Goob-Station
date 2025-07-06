@@ -9,7 +9,7 @@ using Content.Goobstation.Server.StationEvents.Metric.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Prometheus;
 

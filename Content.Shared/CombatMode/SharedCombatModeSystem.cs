@@ -20,9 +20,12 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.DoAfter;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.MouseRotator;
@@ -36,7 +39,6 @@ namespace Content.Shared.CombatMode;
 public abstract class SharedCombatModeSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private   readonly INetManager _netMan = default!;
     [Dependency] private   readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     [Dependency] private   readonly SharedMindSystem  _mind = default!;
@@ -71,14 +73,8 @@ public abstract class SharedCombatModeSystem : EntitySystem
         args.Handled = true;
         SetInCombatMode(uid, !component.IsInCombatMode, component);
 
-        // TODO better handling of predicted pop-ups.
-        // This probably breaks if the client has prediction disabled.
-
-        if (!_netMan.IsClient || !Timing.IsFirstTimePredicted)
-            return;
-
         var msg = component.IsInCombatMode ? "action-popup-combat-enabled" : "action-popup-combat-disabled";
-        _popup.PopupEntity(Loc.GetString(msg), args.Performer, args.Performer);
+        _popup.PopupClient(Loc.GetString(msg), args.Performer, args.Performer);
     }
 
     public void SetCanDisarm(EntityUid entity, bool canDisarm, CombatModeComponent? component = null)
@@ -107,6 +103,11 @@ public abstract class SharedCombatModeSystem : EntitySystem
 
         if (component.CombatToggleActionEntity != null)
             _actionsSystem.SetToggled(component.CombatToggleActionEntity, component.IsInCombatMode);
+
+        // Goobstation start
+        var ev = new CombatModeToggledEvent(entity, value);
+        RaiseLocalEvent(entity, ref ev, true);
+        // Goobstation end
 
         // Change mouse rotator comps if flag is set
         if (!component.ToggleMouseRotator || IsNpc(entity) && !_mind.TryGetMind(entity, out _, out _))

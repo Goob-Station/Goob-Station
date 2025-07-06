@@ -8,7 +8,7 @@
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Magic.Components;
 using Content.Shared.Verbs;

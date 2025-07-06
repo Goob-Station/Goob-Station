@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Enchanting.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
@@ -20,13 +21,13 @@ public sealed class EnchantSacrificeSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private EntityQuery<SoullessComponent> _soullessQuery;
+    private EntityQuery<CondemnedComponent> _condemnedQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _soullessQuery = GetEntityQuery<SoullessComponent>();
+        _condemnedQuery = GetEntityQuery<CondemnedComponent>();
 
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
     }
@@ -43,7 +44,7 @@ public sealed class EnchantSacrificeSystem : EntitySystem
             return;
 
         // don't double dip by killing and reviving someone
-        if (_soullessQuery.HasComp(mob) || _soullessQuery.HasComp(mind))
+        if (_condemnedQuery.HasComp(mob) || _condemnedQuery.HasComp(mind))
             return;
 
         // only care if the mob dies on an enchanting table
@@ -67,8 +68,8 @@ public sealed class EnchantSacrificeSystem : EntitySystem
             return;
 
         // no double dipping
-        EnsureComp<SoullessComponent>(mob);
-        EnsureComp<SoullessComponent>(mind);
+        EnsureComp<CondemnedComponent>(mob);
+        EnsureComp<CondemnedComponent>(mind);
 
         var identity = Identity.Name(mob, EntityManager);
         var msg = upgraded == 1

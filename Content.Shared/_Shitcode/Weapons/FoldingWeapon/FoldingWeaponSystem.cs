@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -39,6 +41,9 @@ public sealed class FoldingWeaponSystem : EntitySystem
     {
         if (args.User != null && TryComp(ent, out WieldableComponent? wieldable))
             _wieldable.TryUnwield(ent, wieldable, args.User.Value, true);
+
+        if (!ent.Comp.SetPrefix)
+            return;
 
         var prefix = args.Activated ? "unfolded" : "folded";
 

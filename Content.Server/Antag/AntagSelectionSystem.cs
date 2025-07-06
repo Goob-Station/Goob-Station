@@ -51,7 +51,6 @@
 // SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
@@ -76,7 +75,6 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
@@ -87,18 +85,27 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server._Goobstation.Antag;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Events;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
+using Content.Server.Players.PlayTimeTracking; // Goobstation
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
@@ -143,6 +150,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
+    [Dependency] private readonly LastRolledAntagManager _lastRolled = default!; // Goobstation
+    [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     // arbitrary random number to give late joining some mild interest.
@@ -159,6 +168,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         SubscribeLocalEvent<AntagSelectionComponent, ObjectivesTextGetInfoEvent>(OnObjectivesTextGetInfo);
 
+        SubscribeLocalEvent<NoJobsAvailableSpawningEvent>(OnJobNotAssigned);
         SubscribeLocalEvent<RulePlayerSpawningEvent>(OnPlayerSpawning);
         SubscribeLocalEvent<RulePlayerJobsAssignedEvent>(OnJobsAssigned);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete);
@@ -230,6 +240,28 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
     }
 
+    private void OnJobNotAssigned(NoJobsAvailableSpawningEvent args)
+    {
+        // If someone fails to spawn in due to there being no jobs, they should be removed from any preselected antags.
+        // We only care about delayed rules, since if they're active the player should have already been removed via MakeAntag.
+        var query = QueryDelayedRules();
+        while (query.MoveNext(out var uid, out _, out var comp, out _))
+        {
+            if (comp.SelectionTime != AntagSelectionTime.IntraPlayerSpawn)
+                continue;
+
+            if (!comp.RemoveUponFailedSpawn)
+                continue;
+
+            foreach (var def in comp.Definitions)
+            {
+                if (!comp.PreSelectedSessions.TryGetValue(def, out var session))
+                    break;
+                session.Remove(args.Player);
+            }
+        }
+    }
+
     private void OnSpawnComplete(PlayerSpawnCompleteEvent args)
     {
         if (!args.LateJoin)
@@ -243,8 +275,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var rules = new List<(EntityUid, AntagSelectionComponent)>();
         while (query.MoveNext(out var uid, out var antag, out _))
         {
-            if (HasComp<ActiveGameRuleComponent>(uid) ||
-                (HasComp<DelayedStartRuleComponent>(uid) && antag.SelectionTime == AntagSelectionTime.IntraPlayerSpawn)) //IntraPlayerSpawn selects antags before spawning, but doesn't activate until after.
+            if (HasComp<ActiveGameRuleComponent>(uid))
                 rules.Add((uid, antag));
         }
         RobustRandom.Shuffle(rules);
@@ -272,9 +303,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                     : Math.Clamp(1f / def.Value.PlayerRatio, 0f, 1f)))
                 continue;
 
-            var onlyPreSelect = (antag.SelectionTime == AntagSelectionTime.IntraPlayerSpawn && !antag.AssignmentComplete); // Don't wanna give them antag status if the rule hasn't assigned its existing ones yet
-
-            if (TryMakeAntag((uid, antag), args.Player, def.Value, onlyPreSelect: onlyPreSelect))
+            if (TryMakeAntag((uid, antag), args.Player, def.Value))
                 break;
         }
     }
@@ -310,17 +339,25 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (component.AssignmentComplete)
             return;
 
-        if (!component.PreSelectionsComplete)
-        {
-            var players = _playerManager.Sessions
-                .Where(x => GameTicker.PlayerGameStatuses.TryGetValue(x.UserId, out var status) &&
-                            status == PlayerGameStatus.JoinedGame)
-                .ToList();
+        var players = _playerManager.Sessions
+            .Where(x => GameTicker.PlayerGameStatuses.TryGetValue(x.UserId, out var status) &&
+                        status == PlayerGameStatus.JoinedGame)
+            .ToList();
 
-            ChooseAntags((uid, component), players, midround: true);
-        }
-
+        ChooseAntags((uid, component), players, midround: true);
         AssignPreSelectedSessions((uid, component));
+    }
+
+    // Goobstation
+    public Dictionary<ICommonSession, float> ToWeightsDict(IList<ICommonSession> pool)
+    {
+        Dictionary<ICommonSession, float> weights = new();
+
+        // weight by playtime since last rolled
+        foreach (var se in pool)
+            weights[se] = (float)(_playTime.GetOverallPlaytime(se) - _lastRolled.GetLastRolled(se.UserId)).TotalSeconds;
+
+        return weights;
     }
 
     /// <summary>
@@ -331,9 +368,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     /// <param name="midround">Disable picking players for pre-spawn antags in the middle of a round</param>
     public void ChooseAntags(Entity<AntagSelectionComponent> ent, IList<ICommonSession> pool, bool midround = false)
     {
-        if (ent.Comp.PreSelectionsComplete)
-            return;
-
         foreach (var def in ent.Comp.Definitions)
         {
             ChooseAntags(ent, pool, def, midround: midround);
@@ -355,7 +389,8 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         bool midround = false)
     {
         var playerPool = GetPlayerPool(ent, pool, def);
-        var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def);
+        var existingAntagCount = ent.Comp.PreSelectedSessions.TryGetValue(def, out var existingAntags) ?  existingAntags.Count : 0;
+        var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def) - existingAntagCount;
 
         // if there is both a spawner and players getting picked, let it fall back to a spawner.
         var noSpawner = def.SpawnerPrototype == null;
@@ -428,11 +463,23 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     /// </summary>
     public bool TryMakeAntag(Entity<AntagSelectionComponent> ent, ICommonSession? session, AntagSelectionDefinition def, bool ignoreSpawner = false, bool checkPref = true, bool onlyPreSelect = false)
     {
+        _adminLogger.Add(LogType.AntagSelection, $"Start trying to make {session} become the antagonist: {ToPrettyString(ent)}");
+
         if (checkPref && !HasPrimaryAntagPreference(session, def))
             return false;
 
         if (!IsSessionValid(ent, session, def) || !IsEntityValid(session?.AttachedEntity, def))
             return false;
+
+        // Goobstation
+        if (session != null)
+        {
+            try // tests die without this
+            {
+                _lastRolled.SetLastRolled(session.UserId, _playTime.GetOverallPlaytime(session));
+            }
+            catch { }
+        }
 
         if (onlyPreSelect && session != null)
         {
@@ -485,13 +532,13 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (antagEnt is not { } player)
         {
             // Goob edit start
-            if (session == null)
-                return;
+            if (session != null && ent.Comp.RemoveUponFailedSpawn)
+            {
+                ent.Comp.AssignedSessions.Remove(session);
+                ent.Comp.PreSelectedSessions[def].Remove(session);
 
-            ent.Comp.AssignedSessions.Remove(session);
-            ent.Comp.PreSelectedSessions[def].Remove(session);
-
-            Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
+                _adminLogger.Add(LogType.AntagSelection, $"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
+            }
             // goob edit end
 
             return;
@@ -527,6 +574,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (!TryComp<GhostRoleAntagSpawnerComponent>(player, out var spawnerComp))
             {
                 Log.Error($"Antag spawner {player} does not have a GhostRoleAntagSpawnerComponent.");
+                _adminLogger.Add(LogType.AntagSelection,$"Antag spawner {player} in gamerule {ToPrettyString(ent)} failed due to not having GhostRoleAntagSpawnerComponent.");
                 if (session != null)
                 {
                     ent.Comp.AssignedSessions.Remove(session);
@@ -592,6 +640,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (!IsSessionValid(ent, session, def) || !IsEntityValid(session.AttachedEntity, def))
                 continue;
 
+            if (ent.Comp.PreSelectedSessions.TryGetValue(def, out var preSelected) && preSelected.Contains(session))
+                continue;
+
             if (HasPrimaryAntagPreference(session, def))
             {
                 preferredList.Add(session);
@@ -602,7 +653,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             }
         }
 
-        return new AntagSelectionPlayerPool(new() { preferredList, fallbackList });
+        return new AntagSelectionPlayerPool(new() { ToWeightsDict(preferredList), ToWeightsDict(fallbackList) }); // Goobstation
     }
 
     /// <summary>

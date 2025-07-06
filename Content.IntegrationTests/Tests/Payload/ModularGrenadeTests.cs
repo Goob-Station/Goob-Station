@@ -5,6 +5,8 @@
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -72,6 +74,7 @@ public sealed class ModularGrenadeTests : InteractionTest
 
         // Wait until grenade explodes
         var timer = Comp<ActiveTimerTriggerComponent>();
+        Target = SEntMan.GetNetEntity(await FindEntity(Payload)); // Goobstation - shrapnel payload
         while (timer.TimeRemaining >= 0)
         {
             await RunTicks(10);

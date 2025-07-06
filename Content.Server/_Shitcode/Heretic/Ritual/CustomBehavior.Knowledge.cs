@@ -13,13 +13,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Heretic.EntitySystems;
-using Content.Shared.Dataset;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using System.Text;
 using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Ritual;
@@ -29,8 +26,6 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     private HashSet<ProtoId<TagPrototype>> _missingTags = new();
     private List<EntityUid> _toDelete = new();
 
-    private IPrototypeManager _prot = default!;
-    private IRobustRandom _rand = default!;
     private EntityLookupSystem _lookup = default!;
     private HereticSystem _heretic = default!;
     private TagSystem _tag = default!;
@@ -39,8 +34,6 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     // this is basically a ripoff from hereticritualsystem
     public override bool Execute(RitualData args, out string? outstr)
     {
-        _prot = IoCManager.Resolve<IPrototypeManager>();
-        _rand = IoCManager.Resolve<IRobustRandom>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
         _tag = args.EntityManager.System<TagSystem>();
@@ -93,15 +86,19 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        // delete all and reset
         foreach (var ent in _toDelete)
+        {
             args.EntityManager.QueueDeleteEntity(ent);
+        }
         _toDelete.Clear();
 
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
             return;
 
-        _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
-        _heretic.GenerateRequiredKnowledgeTags((args.Performer, hereticComp));
+        _heretic.UpdateKnowledge(args.Performer, hereticComp, 5);
+        hereticComp.ChosenRitual = null;
+        hereticComp.KnowledgeRequiredTags.Clear();
+        hereticComp.KnownRituals.Remove(args.RitualId);
+        args.EntityManager.Dirty(args.Performer, hereticComp);
     }
 }

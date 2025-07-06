@@ -69,7 +69,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Collections;

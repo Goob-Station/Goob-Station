@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -72,13 +75,18 @@
   - type: Body
     prototype: Drone
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #  - Binary # Goobstation - replaced with collective mind
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: DoAfter
   - type: Pullable
   - type: Examiner
@@ -87,7 +95,11 @@
   - type: Alerts
   - type: ProtectedFromStepTriggers
   - type: Targeting # Shitmed Change
-  - type: CollectiveMind # Goobstation
+  - type: TypingIndicator # Goob
+    proto: robot
+  - type: Speech # Goob
+    speechVerb: Robotic
+    speechSounds: Borg
 
 - type: entity
   name: drone
@@ -108,9 +120,6 @@
       components:
       - Gun
       - EnergySword
-  - type: PAI # imp; this is added specifically for the internal station map feature but the other aspects are not especially against the identity of drones. and i dont want to put the work into ECS-ifying PAIComponent
-    mapActionId: ActionDroneOpenMap # redefining these to reflavor their descriptions.
-    midiActionId: ActionDronePlayMidi
   - type: Instrument # imp
     allowPercussion: false
     handheld: false
@@ -137,6 +146,12 @@
       enum.StationMapUiKey.Key: #imp
         type: StationMapBoundUserInterface
         requireInputValidation: false
+  - type: IntrinsicUI # Goob edit
+    uis:
+      enum.StationMapUiKey.Key:
+        toggleAction: ActionDroneOpenMap
+      enum.InstrumentUiKey.Key:
+        toggleAction: ActionDronePlayMidi
   - type: StationMap #imp
   - type: GhostRole
     requirements:
@@ -242,13 +257,15 @@
     - EmagImmune
     - CanPilot
     - VimPilot
-    - DroneMind # Goobstation
   - type: CollectiveMind # Goobstation
     defaultChannel: Dronemind
+    channels:
+    - Dronemind
   - type: Access
     tags:
     - Engineering
     - Maintenance
+    - Atmospherics # Goobstation
   - type: RandomMetadata
     nameSegments:
-    - names_drone # maintainer drones get named after maintainers get it? its funny
+    - NamesDrone # maintainer drones get named after maintainers get it? its funny

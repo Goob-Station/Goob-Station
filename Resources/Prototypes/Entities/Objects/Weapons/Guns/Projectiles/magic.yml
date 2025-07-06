@@ -91,7 +91,7 @@
   id: ProjectileFireball
   name: fireball
   description: You better GITTAH WEIGH.
-  parent: BulletRocket
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -107,6 +107,8 @@
     layers:
     - state: fireball
       shader: unshaded
+  - type: TriggerOnProjectileHit
+    explosiveProjectile: true
   - type: Explosive
     explosionType: Default
     maxIntensity: 3.5 # Goob edit
@@ -126,6 +128,8 @@
   - type: Flashbang # Goobstation
     stunTime: 1
     knockdownTime: 6
+  - type: Reflective
+    reflective: Magic
   - type: Tag # Goobstation
     tags:
       - FlashIgnoreResistances
@@ -146,6 +150,8 @@
     layers:
     - state: fireball
       shader: unshaded
+  - type: Reflective
+    reflective: Magic
   - type: IgnitionSource
     temperature: 1000
     ignited: true
@@ -170,6 +176,8 @@
   parent: ProjectileFireball
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective: Magic
   - type: TimedDespawn
     lifetime: 30
   - type: Explosive
@@ -279,10 +287,9 @@
     damage:
       types:
         Poison: 0 # Goob edit
-  - type: TriggerOnCollide
-    fixtureID: projectile
+  - type: TriggerOnProjectileHit # Goob edit
   - type: Reflective # Goobstation
-    reflective: None
+    reflective: Magic
   - type: Ammo # Goobstation
     muzzleFlash: null
   - type: Trail # Goobstation
@@ -302,6 +309,8 @@
   description: Nooo, I don't wanna be fish!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective: Magic
   - type: PolymorphOnTrigger
     polymorph: WizardForcedCarp
   - type: TriggerWhitelist
@@ -316,6 +325,8 @@
   description: Nooo, I don't wanna be monkey!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective: Magic
   - type: PolymorphOnTrigger
     polymorph: WizardForcedMonkey
   - type: TriggerWhitelist
@@ -335,6 +346,8 @@
     layers:
     - state: spell
       color: brown
+  - type: Reflective
+    reflective: Magic
   - type: PolymorphOnTrigger
     polymorph: WizardWallDoor
   - type: TriggerWhitelist
@@ -371,7 +384,7 @@
       types:
         Heat: 600
   - type: Reflective # Goobstation
-    reflective: None
+    reflective: Magic
   - type: Ammo # Goobstation
     muzzleFlash: null
   - type: Trail # Goobstation
@@ -396,6 +409,8 @@
       types:
         Piercing: 300
     ignoreResistances: true
+  - type: Reflective
+    reflective: Magic
 
 - type: entity
   id: ProjectilePolyboltCluwne
@@ -404,6 +419,8 @@
   description: KnoH KnoH!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective: Magic
   - type: PolymorphOnTrigger
     polymorph: WizardForcedCluwne
   - type: TriggerWhitelist
@@ -418,6 +435,8 @@
   description: Brrrrr.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective: Magic
   - type: Sprite
     sprite: Structures/Specific/Anomalies/ice_anom.rsi
   - type: Projectile
@@ -434,6 +453,8 @@
   description: Nooo, I don't wanna be bread!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective: Magic
   - type: PolymorphOnTrigger
     polymorph: BreadMorph
   - type: TriggerWhitelist

@@ -1,5 +1,9 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
@@ -99,7 +103,7 @@ public sealed class HoloCigarSystem : EntitySystem
         if (!TryComp<HoloCigarComponent>(ent.Comp.HoloCigarEntity, out var holoCigarComponent))
             return;
 
-        _audio.Stop(holoCigarComponent.MusicEntity); // no music out of mouth duh
+        _audio.Stop(holoCigarComponent.MusicEntity);
         ShutDownEnumerateRemoval(ent);
 
         if (!ent.Comp.AddedNoWieldNeeded)
@@ -112,8 +116,7 @@ public sealed class HoloCigarSystem : EntitySystem
     private void ShutDownEnumerateRemoval(Entity<TheManWhoSoldTheWorldComponent> ent)
     {
         var query = EntityQueryEnumerator<HoloCigarAffectedGunComponent>();
-        while
-            (query.MoveNext(out var gun, out var comp))
+        while (query.MoveNext(out var gun, out var comp))
         {
             if (comp.GunOwner != ent.Owner)
                 continue;

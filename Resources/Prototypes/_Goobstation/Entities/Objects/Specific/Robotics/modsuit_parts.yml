@@ -195,7 +195,7 @@
 - type: entity
   id: ModsuitPlatingSecurity
   parent: PartModsuit
-  name: MOD standard security 'dragoon' plating
+  name: MOD standard security 'soldat' plating
   description: A part used in MOD construction.
   components:
   - type: Sprite

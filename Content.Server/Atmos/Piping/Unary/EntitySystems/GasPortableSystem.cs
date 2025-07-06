@@ -68,7 +68,6 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
     public sealed class GasPortableSystem : EntitySystem
     {
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
 
         public override void Initialize()

@@ -214,7 +214,8 @@
   id: Razorium
   name: reagent-name-razorium
   group: Toxins
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 3.5
   desc: reagent-desc-razorium
   physicalDesc: reagent-physical-desc-reflective
   flavor: sharp
@@ -253,7 +254,8 @@
   id: Fresium
   name: reagent-name-fresium
   group: Toxins
-  slippery: true
+  slipData:
+    requiredSlipSpeed: 3.5
   desc: reagent-desc-fresium
   physicalDesc: reagent-physical-desc-frosty
   flavor: cold
@@ -349,12 +351,14 @@
   physicalDesc: reagent-physical-desc-funny
   flavor: funny
   color: "#FF4DD2"
-  slippery: true #clown juice gotta slip
+  slipData:
+    requiredSlipSpeed: 3.5 #clown juice gotta slip
   metabolisms:
     Medicine:
       effects:
       - !type:Emote
         emote: Laugh
+        showInGuidebook: true
         probability: 0.3
       - !type:PopupMessage
         type: Local
@@ -377,6 +381,7 @@
       - !type:Emote
         emote: Weh
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.5
       - !type:Polymorph
@@ -409,6 +414,7 @@
       - !type:Emote
         emote: Hew
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.5
       - !type:Polymorph

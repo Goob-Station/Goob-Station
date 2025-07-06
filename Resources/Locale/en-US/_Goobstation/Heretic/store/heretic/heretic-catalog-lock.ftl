@@ -27,7 +27,7 @@ knowledge-path-lock-s1-desc =
     The Locked Labyrinth leads to freedom. But only the trapped Stewards know the correct path.
 
     Opens up the Path of Lock to you.
-    Allows you to transmute a knife and a crowbar into a Key Blade.
+    Allows you to transmute a knife and a crowbar into a Key Blade. Limit of two at a time.
     Aside from being deadly they function as jaws of life can fit into utility belts.
 
 knowledge-path-lock-s2-name = Grasp of Lock

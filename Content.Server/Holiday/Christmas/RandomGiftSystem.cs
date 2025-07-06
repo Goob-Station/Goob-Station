@@ -16,6 +16,8 @@
 // SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -44,7 +46,6 @@ public sealed class RandomGiftSystem : EntitySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
@@ -87,15 +88,6 @@ public sealed class RandomGiftSystem : EntitySystem
         if (component.Wrapper is not null)
             Spawn(component.Wrapper, coords);
 
-        if (component.SelectedEntity == "WeaponPistolDebug" // Goobstation
-            || component.SelectedEntity == "MeleeDebugGib"
-            || component.SelectedEntity == "MeleeDebug100"
-            || component.SelectedEntity == "MeleeDebug200"
-            || component.SelectedEntity == "MeleeDebugSever"
-            || component.SelectedEntity == "MeleeDebugSever100"
-            || component.SelectedEntity == "MeleeDebugSever200")
-            _audio.PlayGlobal("/Audio/StationEvents/mariah.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
-
         _audio.PlayPvs(component.Sound, args.User);
 
         // Don't delete the entity in the event bus, so we queue it for deletion.
@@ -126,9 +118,9 @@ public sealed class RandomGiftSystem : EntitySystem
     {
         _possibleGiftsSafe.Clear();
         _possibleGiftsUnsafe.Clear();
-        var itemCompName = _componentFactory.GetComponentName(typeof(ItemComponent));
-        var mapGridCompName = _componentFactory.GetComponentName(typeof(MapGridComponent));
-        var physicsCompName = _componentFactory.GetComponentName(typeof(PhysicsComponent));
+        var itemCompName = Factory.GetComponentName<ItemComponent>();
+        var mapGridCompName = Factory.GetComponentName<MapGridComponent>();
+        var physicsCompName = Factory.GetComponentName<PhysicsComponent>();
 
         foreach (var proto in _prototype.EnumeratePrototypes<EntityPrototype>())
         {

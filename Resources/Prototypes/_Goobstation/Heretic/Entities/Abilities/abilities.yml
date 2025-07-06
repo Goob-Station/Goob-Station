@@ -72,3 +72,32 @@
   - type: Tag
     tags:
       - HideContextMenu
+
+- type: entity
+  id: ShadowCloakEntity
+  save: false
+  name: a shadow?
+  description: Something is there! Against all reason, this shadow lurks at the corners of your vision. You close your eyes, but still, it is there. No matter how far you run, it is there. In pitchest black, it is there.
+  components:
+  - type: TimedDespawn
+    lifetime: 185 # Time of the cloak to wear off + time of particles to disappear
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: curse
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Damageable
+  - type: Trail
+    lifetime: 3.2
+    frequency: 0.1
+    alphaLerpAmount: 0.05
+    renderedEntityRotationStrategy: Particle
+    sprite:
+      sprite: /Textures/_Goobstation/Heretic/Effects/effects.rsi
+      state: curse
+  - type: EntityTrail
+  - type: RotationVisuals
+  - type: Appearance

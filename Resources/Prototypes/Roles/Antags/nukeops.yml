@@ -86,6 +86,7 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
@@ -100,7 +101,10 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+    time: 36000 # 10 hours - Goobstation
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10h Goobstation
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -111,10 +115,13 @@
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+    time: 90000 # 25 hours - Goobstation
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10h Goobstation
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 10800 # 3h
+    time: 18000 # 5h Goobstation
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -125,10 +132,13 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+    time: 90000 # 25 hours - Goobstation
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 18000 # 5h
+    time: 36000 # 10h Goobstation
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 18000 # 5h Goobstation
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
 
@@ -138,12 +148,12 @@
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicate
     mask: ClothingMaskGasSyndicate
-    eyes: ClothingEyesHudSyndicate
+    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
     #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
     shoes: ClothingShoesBootsCombatFilled
-    id: SyndiPDA
+    id: SyndiPDANukie # Goobstation
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing
   storage:
@@ -176,7 +186,7 @@
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
     back: ClothingBackpackDuffelSyndicateMedical # Goobstation
-    eyes: ClothingEyesHudSyndicateAgent
+    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
     #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
