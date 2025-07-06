@@ -14,3 +14,27 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
+
+- type: rcd
+  id: RadiatorInline
+  category: AtmosphericUtility
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/inlineRadiator.png
+  mode: ConstructObject
+  prototype: HeatExchangerInline
+  cost: 2
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: RadiatorInlineBend
+  category: AtmosphericUtility
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/inlineRadiatorBend.png
+  mode: ConstructObject
+  prototype: HeatExchangerInlineBend
+  cost: 2
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0

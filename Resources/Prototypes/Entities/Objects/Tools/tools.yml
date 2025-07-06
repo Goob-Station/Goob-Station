@@ -570,7 +570,11 @@
     - SignalValve
     - CanisterPort
     - FilterGas
-    - FilterInline # Goobstation
+    # <Goobstation>
+    - FilterInline
+    - RadiatorInline
+    - RadiatorInlineBend
+    # </Goobstation>
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 90
