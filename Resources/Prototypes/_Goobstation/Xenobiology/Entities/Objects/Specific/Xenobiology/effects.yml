@@ -7,6 +7,66 @@
     lifetime: 15
 
 - type: entity
+  id: XenoGooWall
+  name: gelatinous growth
+  description: It's pulsating... is it alive? it's grown to fill the entire space.
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/goo_ball.rsi
+      state: goo-wall
+    drawdepth: WallMountedItems
+  - type: Clickable
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: desecration
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: SpamEmitSound
+    minInterval: 8
+    maxInterval: 18
+    sound:
+      collection: SlimeMaleScreams
+      params:
+        variation: 0.125
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: teal
+
+- type: entity
   name: random hostile mob spawner
   id: RHostileMobSpawner
   parent: MarkerBase
@@ -116,6 +176,7 @@
     - MobSnail
     - MobSnailSpeed
     - MobSnailMoth
+    - MobBingle
     offset: 0.0
 
 - type: entity

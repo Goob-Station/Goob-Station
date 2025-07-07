@@ -1,0 +1,129 @@
+#Tier 2 -
+
+- type: entity
+  id: XenoSlimeBattery
+  parent: [ BaseHumanOrgan, BasePowerCell ]
+  name: volatile organ
+  description: A pulsating mass of slime, it seems to react to nearby devices...
+  suffix: Full
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/volatile_organ.rsi
+        state: icon
+  - type: Item
+    size: Normal
+  - type: Battery
+    pricePerJoule: 0.15
+    maxCharge: 5200
+    startingCharge: 5200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: EmpImmune
+  - type: LightningArcShooter
+    arcDepth: 1
+    maxLightningArc: 3
+    shootMinInterval: 90
+    shootMaxInterval: 300
+    shootRange: 5
+    lightningPrototype: Lightning
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 15
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 15
+  - type: Organ
+    onAdd:
+    - type: LightningArcShooter
+      arcDepth: 1
+      maxLightningArc: 3
+      shootMinInterval: 90
+      shootMaxInterval: 300
+      shootRange: 5
+      lightningPrototype: Lightning
+    intCap: 32
+    integrity: 32
+    integrityThresholds:
+      Normal: 32
+      Damaged: 9
+      Destroyed: 0
+    slotId: heart
+  - type: Metabolizer
+    maxPoisonsProcessable: 2
+    metabolizerTypes: [ Cybernetic ]
+    groups:
+    - id: Medicine
+      rateModifier: 2.50
+    - id: Poison
+      rateModifier: 0.25
+    - id: Narcotic
+      rateModifier: 1.75
+  - type: Tag
+    tags:
+    - PowerCell
+    - DroneUsable
+    - Organ
+
+- type: entity
+  name: goop ball
+  parent: [ BaseItem, ItemHeftyBase ]
+  id: XenoGoopBall
+  description: It's pulsating... is it alive?
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/goo_ball.rsi
+        state: icon
+  - type: Item
+    size: Normal
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+    soundHit:
+      collection: desecration
+  - type: UseDelay
+    delay: 0.5
+  - type: EmitSoundOnUse
+    sound:
+      collection: desecration
+      params:
+        variation: 0.125
+  - type: EmitSoundOnLand
+    sound:
+      collection: desecration
+      params:
+        variation: 0.125
+  - type: EmitSoundOnCollide
+    sound:
+      collection: desecration
+      params:
+        variation: 0.125
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          XenoGooWall:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
