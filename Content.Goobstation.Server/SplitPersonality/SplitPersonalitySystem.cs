@@ -90,11 +90,12 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
     private void OnRemove(Entity<SplitPersonalityComponent> ent, ref ComponentRemove args)
     {
-        if (ent.Comp.OriginalMind is { } originalMind
-            && !TerminatingOrDeleted(ent.Comp.OriginalMind)
-            && !TerminatingOrDeleted(ent))
-            _mind.TransferTo(originalMind, ent);
+        if (ent.Comp.OriginalMind is not { } originalMind
+            || TerminatingOrDeleted(ent.Comp.OriginalMind)
+            || TerminatingOrDeleted(ent))
+            return;
 
+        _mind.TransferTo(originalMind, ent);
         _container.CleanContainer(ent.Comp.MindsContainer);
 
         if (ent.Comp.GhostRoleDummies.Count > 0)
