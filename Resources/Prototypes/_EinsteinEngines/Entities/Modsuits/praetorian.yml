@@ -137,12 +137,11 @@
         NerveDamage: 0
       modifiers:
         coefficients:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.45
-          Radiation: 0.5
-          Heat: 0.45
-          Caustic: 0.5
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.75
+          Radiation: 0.7
+          Heat: 0.75
     - type: SealableClothingVisuals
       spriteLayer: sealed
       clothingVisuals:
@@ -151,13 +150,15 @@
         outerClothing-resomi:
         - state: equipped-OUTERCLOTHING-sealed-resomi
     - type: ModifyDelayedKnockdown
-      delayDelta: 2
-      knockdownTimeDelta: -2
+      delayDelta: 2.5
+      knockdownTimeDelta: -2.5
     - type: PressureProtection
       highPressureMultiplier: 0.05
       lowPressureMultiplier: 1000
     - type: ExplosionResistance
-      damageCoefficient: 0.45
+      damageCoefficient: 0.25
+    - type: StaminaResistance
+      damageCoefficient: 0.25
 
 - type: entity
   parent: ClothingModsuitBootsStandard

@@ -58,11 +58,8 @@
     - Chest
     - Groin
     - Arm
-    - Hand
     - Leg
-    - Foot
     - Tail
-    - Other
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -84,8 +81,6 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.01
       heatingCoefficient: 0.01
-  - type: FireProtection
-    reduction: 0.5
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit
@@ -613,19 +608,15 @@
     - Chest
     - Groin
     - Arm
-    - Hand
     - Leg
-    - Foot
     - Tail
-    - Other
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.55
-        Heat: 0.5
-        Radiation: 0.1
-        Caustic: 0.5
+        Blunt: 0.8 #Goob - Modsuit Rebalance start
+        Slash: 0.8
+        Piercing: 0.7
+        Heat: 0.7 #Goob - Modsuit Rebalance end
+        Radiation: 0.15
   - type: ComponentToggler
     components:
     - type: PressureProtection
@@ -638,9 +629,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance
-    damageCoefficient: 0.6
-  - type: FireProtection
-    reduction: 0.5
+    damageCoefficient: 0.25
   - type: HideClothingLayerClothing
     hiddenSlots:
     - jumpsuit

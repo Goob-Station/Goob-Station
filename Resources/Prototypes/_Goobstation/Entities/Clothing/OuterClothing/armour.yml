@@ -133,13 +133,15 @@
   - type: Item
     size: Normal
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.35
-        Piercing: 0.45
-        Heat: 0.35
-        Caustic: 0.6
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.7
 
 - type: entity
   parent: [ ClothingOuterArmorCaptainCarapace, ClothingOuterWinterCoatToggleable ]
@@ -154,13 +156,15 @@
   - type: Item
     size: Normal
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.5
-        Heat: 0.4
-        Caustic: 0.65
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.7
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCapFancy

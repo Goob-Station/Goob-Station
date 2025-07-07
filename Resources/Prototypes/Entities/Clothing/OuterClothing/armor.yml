@@ -573,6 +573,7 @@
   - type: Armor
     coverage:
     - Chest
+    - Groin
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -581,11 +582,10 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.4
-        Heat: 0.3
-        Caustic: 0.75
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -597,7 +597,7 @@
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
   - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.6
+    damageCoefficient: 0.25
   - type: StaticPrice # Goob
     price: 1000
 
