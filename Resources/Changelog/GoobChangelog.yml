@@ -11941,3 +11941,9 @@ Entries:
         identities (the 'immunity' was removed upon transforming)
   id: 1312
   time: '2025-07-07T14:38:03.0000000+00:00'
+- author: Rubin
+  changes:
+    - type: Fix
+      message: Compatibility mode crashing due to Holographic shader.
+  id: 1313
+  time: '2025-07-07T14:39:43.0000000+00:00'
