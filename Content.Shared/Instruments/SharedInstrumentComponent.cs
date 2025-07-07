@@ -18,6 +18,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Collections;
+using System.Text;
 using Robust.Shared.Audio.Midi;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -226,6 +227,18 @@ public sealed class MidiTrack
             ProgramName = Truncate(ProgramName, limit);
     }
 
+    public void SanitizeFields()
+    {
+        if (InstrumentName != null)
+            InstrumentName = Sanitize(InstrumentName);
+
+        if (TrackName != null)
+            TrackName = Sanitize(TrackName);
+
+        if (ProgramName != null)
+            ProgramName = Sanitize(ProgramName);
+    }
+
     private const string Postfix = "…";
     // TODO: Make a general method to use in RT? idk if we have that.
     private string Truncate(string input, int limit)
@@ -236,5 +249,18 @@ public sealed class MidiTrack
         var truncatedLength = limit - Postfix.Length;
 
         return input.Substring(0, truncatedLength) + Postfix;
+    }
+
+    private static string Sanitize(string input)
+    {
+        var sanitized = new StringBuilder(input.Length);
+
+        foreach (char c in input)
+        {
+            if (!char.IsControl(c) && c <= 127) // no control characters, only ASCII
+                sanitized.Append(c);
+        }
+
+        return sanitized.ToString();
     }
 }

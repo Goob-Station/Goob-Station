@@ -189,6 +189,15 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
             return;
         }
 
+
+        foreach (var t in msg.Tracks)
+        {
+            // Remove any control characters that may be part of the midi file so they don't end up in the admin logs.
+            t?.SanitizeFields();
+            // Truncate any track names too long.
+            t?.TruncateFields(_cfg.GetCVar(CCVars.MidiMaxChannelNameLength));
+        }
+
         var tracksString = string.Join("\n",
             msg.Tracks
             .Where(t => t != null)
@@ -198,12 +207,6 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
             LogType.Instrument,
             LogImpact.Low,
             $"{ToPrettyString(args.SenderSession.AttachedEntity)} set the midi channels for {ToPrettyString(uid)} to {tracksString}");
-
-        // Truncate any track names too long.
-        foreach (var t in msg.Tracks)
-        {
-            t?.TruncateFields(_cfg.GetCVar(CCVars.MidiMaxChannelNameLength));
-        }
 
         activeInstrument.Tracks = msg.Tracks;
 
