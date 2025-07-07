@@ -12,6 +12,7 @@
     Uranium: 1000
     Gold: 500
     Silver: 500
+    MaterialBSCrystal1: 500
     Diamond: 100
 
 - type: latheRecipe

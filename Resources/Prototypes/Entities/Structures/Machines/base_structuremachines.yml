@@ -122,6 +122,7 @@
 # Can't just use both abstracts as shared parents, otherwise ContainerContainer throws a tantrum
 - type: entity
   abstract: true
+  parent: BaseStructure
   id: ConstructibleItemCabinet
   components:
   - type: Animateable
