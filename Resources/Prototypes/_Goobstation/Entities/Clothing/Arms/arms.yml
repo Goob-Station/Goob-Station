@@ -44,7 +44,7 @@
           Blunt: 0.9
           Slash: 0.9
           Piercing: 0.9
-          Burn: 0.9
+          Heat: 0.9
   - type: ClothingSpeedModifier
     walkModifier: 0.98
     sprintModifier: 0.98
