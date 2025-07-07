@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -10,16 +11,19 @@
 
 - type: entity
   name: DT-8 "Terminus"
-  parent: BaseItem
+  parent: [BaseItem, BaseSecurityContraband]
   id: Terminus
-  description: An advanced weapon crafted specifically for an oni. Capable of firing a spread of disabler shots from its tip.
+  description: An advanced melee weapon crafted specifically for an oni. It is also capable of firing a spread of disabler shots from its tip.
   components:
   - type: Sprite
-    sprite: /Textures/_EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
+    sprite: _EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
     state: icon
+  - type: Clothing
+    sprite: _EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
+    slots:
+    - Back
+    - suitStorage
   - type: AmmoCounter
-  - type: UseDelay
-    delay: 1
   - type: Gun
     soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
     fireRate: 1.5
@@ -31,7 +35,7 @@
     proto: BulletDisablerSmgSpread
     fireCost: 100
   - type: MeleeWeapon
-    attackRate: 0.75
+    attackRate: 0.8
     damage:
       types:
         Blunt: 15
@@ -39,7 +43,7 @@
     soundHit:
       collection: MetalThud
   - type: StaminaDamageOnHit
-    damage: 20
+    damage: 30
   - type: Wieldable
   - type: GunRequiresWield
   - type: MeleeRequiresWield
@@ -49,3 +53,4 @@
     shape:
     - 0,0,4,2
   - type: DisarmMalus
+    malus: 0.75

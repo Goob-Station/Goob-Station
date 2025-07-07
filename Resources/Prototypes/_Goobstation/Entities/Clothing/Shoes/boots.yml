@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -111,7 +112,7 @@
     tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase, BaseMagicContraband]
+  parent: [ClothingShoesBootsMagBase, BaseMagicalContraband]
   id: ClothingShoesRealJordans
   name: air jordans
   description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
@@ -232,7 +233,7 @@
 - type: entity
   parent: [ClothingShoesMilitaryBase, ClothingShoesBaseWinterBoots, BaseCentcommContraband]
   id: ClothingShoesBootsWinterSnowjackBso
-  name: blueshield's snowjackboots
+  name: blueshield's snowjacks
   description: For when you need to save a head from a changeling on a research station in Antarctica.
   components:
   - type: Sprite

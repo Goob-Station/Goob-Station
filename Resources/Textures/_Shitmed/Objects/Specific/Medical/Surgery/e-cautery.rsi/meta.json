@@ -14,19 +14,19 @@
             "name": "e-cautery-on"
 		},
 		{
-			"name": "inhand-left",
+			"name": "cautery-inhand-left",
+			"directions": 4
+		},
+        {
+            "name": "cautery-inhand-right",
+            "directions": 4
+        },
+		{
+			"name": "stitches-inhand-left",
 			"directions": 4
 		},
 		{
-			"name": "on-inhand-left",
-			"directions": 4
-		},
-		{
-			"name": "inhand-right",
-			"directions": 4
-		},
-		{
-			"name": "on-inhand-right",
+			"name": "stitches-inhand-right",
 			"directions": 4
 		}
 	]

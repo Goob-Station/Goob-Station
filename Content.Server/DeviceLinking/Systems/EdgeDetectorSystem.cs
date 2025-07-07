@@ -8,8 +8,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.DeviceLinking.Components;
-using Content.Server.DeviceNetwork;
 using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceLinking.Events;
 
 namespace Content.Server.DeviceLinking.Systems;
