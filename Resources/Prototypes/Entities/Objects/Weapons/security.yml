@@ -180,21 +180,16 @@
     animation: WeaponArcThrust
   # it was ~35 now it's 55 so it's a buff ig
   - type: StaminaDamageOnHit # goob edited
-    damage: 15
-    overtime: 40
-    lightAttackDamageMultiplier: 5
-    lightAttackOvertimeDamageMultiplier: 0
-    sound: /Audio/Weapons/egloves.ogg
-  - type: StaminaDamageOnCollide # goob edited
-    damage: 15
-    overtime: 40
+    damage: 5
+    overtime: 1
+    lightAttackOvertimeDamageMultiplier: 50
     sound: /Audio/Weapons/egloves.ogg
   - type: DelayedKnockdownOnHit # Goobstation
     useDelay: stunbaton
   - type: UseDelayBlockMelee # Goobstation
     delays:
     - stunbaton
-  - type: LandAtCursor # it deals stamina damage when thrown
+  - type: LandAtCursor
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
