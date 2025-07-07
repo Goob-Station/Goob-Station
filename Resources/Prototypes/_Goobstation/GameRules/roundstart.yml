@@ -64,7 +64,6 @@
 - type: entity
   parent: BaseTraitorRule
   id: CorporateAgent
-  rules:
   components:
   - type: TraitorRule
     objectiveIssuers: CorporateFlavor

@@ -37,7 +37,7 @@
       max: 3
       playerRatio: 15
       lateJoinAdditional: true
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
       mindRoles:
       - MindRoleHeretic
       components:
