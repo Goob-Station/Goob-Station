@@ -11947,3 +11947,9 @@ Entries:
       message: Compatibility mode crashing due to Holographic shader.
   id: 1313
   time: '2025-07-07T14:39:43.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Syndicate Disaster victims are returned to being Free Agents.
+  id: 1314
+  time: '2025-07-07T16:04:04.0000000+00:00'
