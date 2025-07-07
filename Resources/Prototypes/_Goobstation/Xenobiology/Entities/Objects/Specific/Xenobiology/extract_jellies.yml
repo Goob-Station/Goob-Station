@@ -18,7 +18,7 @@
       food:
         maxVol: 1
         reagents:
-        - ReagentId: Omnizine
+        - ReagentId: Slime
           Quantity: 1
 
 #Tier 1 -

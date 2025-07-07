@@ -213,6 +213,7 @@
     - ExperimentalScienceGoob
     - MechBoardsScience
     - Pinpointers
+    - XenobioPack # Goobstation - Xenobiology
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - MechBoardsSecurity

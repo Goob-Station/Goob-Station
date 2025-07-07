@@ -11,8 +11,10 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -59,6 +61,7 @@ public sealed partial class XenobiologySystem : EntitySystem
     private ISawmill _sawmill = default!;
 
     private EntityQuery<SlimeComponent> _slimeQuery;
+    private EntityQuery<HumanoidAppearanceComponent> _humanoidQuery;
     private EntityQuery<HungerComponent> _hungerQuery;
 
     public override void Initialize()
@@ -73,6 +76,7 @@ public sealed partial class XenobiologySystem : EntitySystem
         _sawmill = Logger.GetSawmill("Xenobiology");
 
         _slimeQuery = GetEntityQuery<SlimeComponent>();
+        _humanoidQuery = GetEntityQuery<HumanoidAppearanceComponent>();
         _hungerQuery = GetEntityQuery<HungerComponent>();
     }
 
