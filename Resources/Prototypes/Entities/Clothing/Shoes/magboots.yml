@@ -164,6 +164,15 @@
   - type: Item
     sprite: null
     size: Normal
+  - type: Armor
+    coverage:
+    - Foot
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
 
 - type: entity
   id: ActionToggleMagboots
