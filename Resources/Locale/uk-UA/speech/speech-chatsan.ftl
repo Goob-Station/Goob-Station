@@ -30,7 +30,7 @@ chatsan-word-13 = даун
 chatsan-replacement-13 = пришелепкуватий
 
 chatsan-word-14 = жах
-chatsan-replacement-14 = жахливо
+chatsan-replacement-14 = жахіття
 
 chatsan-word-15 = пр
 chatsan-replacement-15 = привіт
