@@ -39,8 +39,6 @@ public sealed class AlternativeJobSelector : OptionButton
     {
         if (index == 0) return _parentJobId;
 
-        // ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, _alternatives.Count, nameof(index));
-
         return _alternatives.ElementAt(index).Key;
     }
 

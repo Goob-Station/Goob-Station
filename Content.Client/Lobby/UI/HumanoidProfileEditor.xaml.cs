@@ -1126,8 +1126,7 @@ namespace Content.Client.Lobby.UI
                     {
                         // Add alternative job to profile
                         Profile = Profile?.WithJobAlternative(new(job.ID, alternativeId));
-                        Logger.Debug($"Adding alternative job {alternativeId} for {job.ID} to profile");
-                        // SetDirty();
+                        // SetDirty(); //TODO: Use SetDirty() instead of manual save btn toggling
                         IsDirty = true;
                     };
 

@@ -1,6 +1,3 @@
-using Robust.Shared.Prototypes;
-
-
 namespace Content.Pirate.Common.AlternativeJobs;
 
 [Prototype]
@@ -23,5 +20,5 @@ public sealed partial class AlternativeJobPrototype : IPrototype
     public string JobDescription { get; set; } = default!;
 
     [DataField(required: true)]
-    public string ParentJobId = default!;
+    public string ParentJobId { get; set; } = default!;
 }

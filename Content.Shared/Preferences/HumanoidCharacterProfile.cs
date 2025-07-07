@@ -385,9 +385,6 @@ namespace Content.Shared.Preferences
         {
             var dictionary = new Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>>(_jobAlternatives);
 
-            if (dictionary.Keys.Where(x => x == jobAlternative.Key).Count() > 1)
-                throw new Exception("More than 1 alternative for job error");
-
             // If no alternative is selected for this job, add it.
             if (!dictionary.ContainsKey(jobAlternative.Key))
                 dictionary.Add(jobAlternative.Key, jobAlternative.Value);
