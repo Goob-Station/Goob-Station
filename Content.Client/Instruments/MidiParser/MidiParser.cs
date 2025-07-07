@@ -88,6 +88,24 @@ public static class MidiParser
                 {
                     // Meta events
                     case 0xFF:
+                    {
+                        var metaType = stream.ReadByte();
+                        var metaLength = stream.ReadVariableLengthQuantity();
+                        var metaData = stream.ReadBytes((int)metaLength);
+                        if (metaType == 0x00) // SequenceNumber event
+                            continue;
+
+                        // Meta event types 01 through 0F are reserved for text and all follow the basic FF 01 len text format
+                        if (metaType is < 0x01 or > 0x0F)
+                            break;
+
+                        // 0x03 is TrackName,
+                        // 0x04 is InstrumentName
+
+                        // This string can potentially contain control characters, including 0x00 which can cause problems if it ends up in database entries via admin logs
+                        // we sanitize TrackName and InstrumentName after they have been send to the server
+                        var text = Encoding.ASCII.GetString(metaData, 0, (int)metaLength);
+                        switch (metaType)
                         {
                             var metaType = stream.ReadByte();
                             var metaLength = stream.ReadVariableLengthQuantity();
