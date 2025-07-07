@@ -108,7 +108,7 @@
         Piercing: 0.80
         Heat: 0.30
   - type: ExplosionResistance
-    damageCoefficient: 0.1
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.85
   - type: ModifyDelayedKnockdown # Goobstation

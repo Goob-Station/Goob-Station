@@ -150,12 +150,12 @@
       slotFlags: ARMS
       stripTime: 3
       uiWindowPos: 2,3
-      strippingWindowPos: 3,3
+      strippingWindowPos: 2,-1
       displayName: Arms
     - name: legs
       slotTexture: legs
       slotFlags: LEGS
       stripTime: 3
       uiWindowPos: 2,0
-      strippingWindowPos: 4,4
+      strippingWindowPos: 2,1
       displayName: Legs
