@@ -29,7 +29,7 @@
       min: 2
       max: 6
       playerRatio: 10
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenOfficial ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
       blacklist:
         components:
         - AntagImmune
