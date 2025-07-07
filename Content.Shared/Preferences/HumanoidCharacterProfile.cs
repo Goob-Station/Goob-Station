@@ -44,6 +44,7 @@
 
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Pirate.Common.AlternativeJobs; // Pirate - Alternative Jobs
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
@@ -84,6 +85,7 @@ namespace Content.Shared.Preferences
                 SharedGameTicker.FallbackOverflowJob, JobPriority.High
             }
         };
+        [DataField] private Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> _jobAlternatives = new(); // Pirate - Alternative Jobs
 
         /// <summary>
         /// Antags we have opted in to.
@@ -151,6 +153,11 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities => _jobPriorities;
 
+        /// <summary> 
+        /// <see cref="_jobAlternatives"/>
+        /// </summary>
+        public IReadOnlyDictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> JobAlternatives => _jobAlternatives; // Pirate - Alternative Jobs
+
         /// <summary>
         /// <see cref="_antagPreferences"/>
         /// </summary>
@@ -177,6 +184,7 @@ namespace Content.Shared.Preferences
             HumanoidCharacterAppearance appearance,
             SpawnPriorityPreference spawnPriority,
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
+            Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> jobAlternatives, // Pirate - Alternative Jobs
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
@@ -192,6 +200,7 @@ namespace Content.Shared.Preferences
             Appearance = appearance;
             SpawnPriority = spawnPriority;
             _jobPriorities = jobPriorities;
+            _jobAlternatives = jobAlternatives; // Pirate - Alternative Jobs
             PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
@@ -223,6 +232,7 @@ namespace Content.Shared.Preferences
                 other.Appearance.Clone(),
                 other.SpawnPriority,
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
+                new Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>>(other.JobAlternatives), // Pirate - Alternative Jobs
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
@@ -370,6 +380,24 @@ namespace Content.Shared.Preferences
                 _jobPriorities = dictionary
             };
         }
+
+        public HumanoidCharacterProfile WithJobAlternative(KeyValuePair<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> jobAlternative) // Pirate start - Alternative Jobs
+        {
+            var dictionary = new Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>>(_jobAlternatives);
+
+            // If no alternative is selected for this job, add it.
+            if (!dictionary.ContainsKey(jobAlternative.Key))
+                dictionary.Add(jobAlternative.Key, jobAlternative.Value);
+
+            // If there is an alternative selected, but it's not the one we want, change it.
+            else if (dictionary[jobAlternative.Key] != jobAlternative.Value)
+                dictionary[jobAlternative.Key] = jobAlternative.Value;
+
+            return new(this)
+            {
+                _jobAlternatives = dictionary,
+            };
+        } // Pirate end - Alternative Jobs
 
         public HumanoidCharacterProfile WithJobPriority(ProtoId<JobPrototype> jobId, JobPriority priority)
         {
