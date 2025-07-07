@@ -24,8 +24,8 @@
 
 # Chat window radio wrap (prefix and postfix)
 # Einstein Engines - Language begin (adds message color per language)
-chat-radio-message-wrap = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}[/color], [font={$fontType} size={$fontSize}][color={$messageColor}]"{$message}"[/color][/font]
-chat-radio-message-wrap-bold = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb}[/color], [font={$fontType} size={$fontSize}][color={$messageColor}][bold]"{$message}"[/bold][/color][/font]
+chat-radio-message-wrap = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb},[/color] [font={$fontType} size={$fontSize}][color={$messageColor}]"{$message}"[/color][/font]
+chat-radio-message-wrap-bold = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb},[/color] [font={$fontType} size={$fontSize}][color={$messageColor}][bold]"{$message}"[/bold][/color][/font]
 # Einstein Engines - Language end
 
 examine-headset-default-channel = Use {$prefix} for the default channel ([color={$color}]{$channel}[/color]).
