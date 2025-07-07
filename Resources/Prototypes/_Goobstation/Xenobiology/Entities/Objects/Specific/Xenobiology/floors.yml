@@ -1,0 +1,103 @@
+- type: construction
+  id: FloorBluespace
+  graph: FloorBluespace
+  startNode: start
+  targetNode: BluespaceFloor
+  category: construction-category-structures
+  conditions:
+  - !type:TileNotBlocked
+    failIfSpace: false
+  - !type:TileType
+    targets:
+    - Plating
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  id: FloorSepia
+  graph: FloorSepia
+  startNode: start
+  targetNode: SepiaFloor
+  category: construction-category-structures
+  conditions:
+  - !type:TileNotBlocked
+    failIfSpace: false
+  - !type:TileType
+    targets:
+    - Plating
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: constructionGraph
+  id: FloorBluespace
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: BluespaceFloor
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: BSCrystal
+        amount: 2
+        doAfter: 5
+
+  - node: BluespaceFloor
+    entity: FloorBluespaceEntity
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialBSCrystal1
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      - tool: Welding
+        doAfter: 5
+
+- type: constructionGraph
+  id: FloorSepia
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: SepiaFloor
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+      - material: WoodPlank
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 1
+        doAfter: 1
+
+  - node: SepiaFloor
+    entity: FloorSepiaEntity
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 1
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      - tool: Welding
+        doAfter: 5

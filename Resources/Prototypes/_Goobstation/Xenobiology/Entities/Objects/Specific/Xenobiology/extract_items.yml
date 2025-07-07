@@ -127,3 +127,37 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+# Tier 2.5
+
+- type: entity
+  name: bluespace floor tile
+  parent: FloorTileItemBase
+  id: FloorTileItemBluespace
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/floors.rsi
+    state: icon-bluespace
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorBluespaceTile #This is shit, it needs to change - why can't i just make it use the FloorBluespaceEntity
+  - type: Stack
+    stackType: FloorTileItemBluespace
+
+- type: entity
+  name: sepia floor tile
+  parent: FloorTileItemBase
+  id: FloorTileItemSepia
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Xenobiology/Specific/Xenobiology/floors.rsi
+    state: icon-sepia
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorSepiaTile #This is shit, it needs to change - why can't i just make it use the FloorSepiaEntity
+  - type: Stack
+    stackType: FloorTileItemSepia
+
+
