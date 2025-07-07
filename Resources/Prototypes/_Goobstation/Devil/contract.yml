@@ -30,6 +30,7 @@
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     state: contract-written
+  - type: CrematoriumImmune # Dude. You're burning the paper from *hell*? Really?
   - type: FaxableObject
   - type: Tag
     tags:

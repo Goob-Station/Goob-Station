@@ -27,6 +27,7 @@ using Content.Shared.Examine;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -110,7 +111,6 @@ public sealed partial class DevilContractSystem : EntitySystem
         {
             Spawn(devil.Comp.FireEffectProto, coordinates);
             _audio.PlayPvs(devil.Comp.FwooshPath, coordinates, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
-            _popupSystem.PopupCoordinates(Loc.GetString("burn-contract-popup-success"), coordinates, PopupType.MediumCaution);
             QueueDel(contract);
         }
         else
@@ -147,24 +147,9 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (contract.Comp.IsVictimSigned || contract.Comp.IsDevilSigned)
             return;
 
-        // Death to sec powergame
-        if (HasComp<MindShieldComponent>(args.Signer))
+        if (!IsUserValid(args.Signer, out var failReason))
         {
-            var mindshieldedPopup = Loc.GetString("devil-contract-mind-shielded-failed");
-            _popupSystem.PopupEntity(mindshieldedPopup, args.Signer, args.Signer, PopupType.MediumCaution);
-
-            args.Cancelled = true;
-            return;
-        }
-
-        // You can't sell your soul if you already sold it. (also no robits)
-        if (HasComp<CondemnedComponent>(args.Signer)
-            || HasComp<SiliconComponent>(args.Signer)
-            || HasComp<DroneComponent>(args.Signer)
-            || HasComp<ChangelingComponent>(args.Signer))
-        {
-            var noSoulPopup = Loc.GetString("devil-contract-no-soul-sign-failed");
-            _popupSystem.PopupEntity(noSoulPopup, args.Signer, args.Signer, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(failReason, contract, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;
             return;
@@ -183,13 +168,14 @@ public sealed partial class DevilContractSystem : EntitySystem
         }
 
         // Check if devil is trying to sign first
-        if (args.Signer == contract.Comp.ContractOwner || HasComp<PossessedComponent>(args.Signer))
+        if (args.Signer == contract.Comp.ContractOwner)
         {
             var tooEarlyPopup = Loc.GetString("devil-contract-early-sign-failed");
             _popupSystem.PopupEntity(tooEarlyPopup, args.Signer, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;
         }
+
     }
 
     private void OnSignStep(Entity<DevilContractComponent> contract, ref SignSuccessfulEvent args)
@@ -229,6 +215,34 @@ public sealed partial class DevilContractSystem : EntitySystem
 
     #region Helper Events
 
+    public bool IsUserValid(EntityUid user, out string failReason)
+    {
+        if (HasComp<CondemnedComponent>(user)
+            || HasComp<SiliconComponent>(user)
+            || HasComp<DroneComponent>(user)
+            || HasComp<ChangelingComponent>(user)
+            || HasComp<BorgChassisComponent>(user))
+        {
+            failReason = Loc.GetString("devil-contract-no-soul-sign-failed");
+            return false;
+        }
+
+        if (HasComp<MindShieldComponent>(user)
+            && !HasComp<DevilComponent>(user))
+        {
+            failReason = Loc.GetString("devil-contract-mind-shielded-failed");
+            return false;
+        }
+
+        if (HasComp<PossessedComponent>(user))
+        {
+            failReason = Loc.GetString("devil-contract-early-sign-failed");
+            return false;
+        }
+
+        failReason = string.Empty;
+        return true;
+    }
     public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
     {
         // Can't sell what doesn't exist.
@@ -326,17 +340,17 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         //_sawmill.Debug($"Applying {clause.ID} effect to {ToPrettyString(target)}");
 
-        AddComponents(target, clause);
+        DoPolymorphs(target, clause);
 
         RemoveComponents(target, clause);
+
+        AddComponents(target, clause);
 
         ChangeDamageModifier(target, clause);
 
         AddImplants(target, clause);
 
         SpawnItems(target, clause);
-
-        DoPolymorphs(target, clause);
 
         DoSpecialActions(target, contract, clause);
     }

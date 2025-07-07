@@ -29,6 +29,7 @@
   - type: Item
     sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
     heldPrefix: pen_devil
+  - type: CrematoriumImmune
   - type: MeleeWeapon
     wideAnimationRotation: -45
     damage:

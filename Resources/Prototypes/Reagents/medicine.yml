@@ -1419,7 +1419,7 @@
         ignoreResistances: false
         damage:
           types:
-            Holy: 2
+            Holy: 0.7 # Goobstation - Down from two. You can't just inta-kill people with super-soakers, as funny as that is.
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1

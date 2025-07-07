@@ -19,9 +19,11 @@ using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
+using Content.Server.Antag.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.Cuffs;
 using Content.Server.Destructible;
 using Content.Server.Hands.Systems;
 using Content.Server.Jittering;
@@ -49,6 +51,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Temperature.Components;
+using Robust.Server.Containers;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -78,6 +81,7 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _state = default!;
     [Dependency] private readonly JitteringSystem _jittering = default!;
     [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
 
     private static readonly Regex WhitespaceAndNonWordRegex = new(@"[\s\W]+", RegexOptions.Compiled);
 
@@ -117,6 +121,7 @@ public sealed partial class DevilSystem : EntitySystem
         EnsureComp<ActiveListenerComponent>(devil);
         EnsureComp<WeakToHolyComponent>(devil).AlwaysTakeHoly = true;
         EnsureComp<CrematoriumImmuneComponent>(devil);
+        EnsureComp<AntagImmuneComponent>(devil);
 
         // Allow infinite revival
         var revival = EnsureComp<CheatDeathComponent>(devil);
@@ -255,7 +260,7 @@ public sealed partial class DevilSystem : EntitySystem
             || args.Handled)
             return;
 
-        _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", devil.Comp.TrueName)), devil, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", Name(devil))), devil, PopupType.LargeCaution);
         _condemned.StartCondemnation(target, behavior: CondemnedBehavior.Banish, doFlavor: false);
     }
 
