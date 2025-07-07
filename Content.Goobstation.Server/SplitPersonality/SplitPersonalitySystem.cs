@@ -168,14 +168,15 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         _container.Insert(dummy, host.Comp.MindsContainer);
         host.Comp.GhostRoleDummies.Add(dummy);
 
+        var name = Loc.GetString("split-personality-dummy-name", ("host", Name(host)), ("count", host.Comp.GhostRoleDummies.Count));
+        _meta.SetEntityName(dummy, name);
+
         var ghostRole = EnsureComp<GhostRoleComponent>(dummy);
 
-        var name = Loc.GetString("split-personality-dummy-name", ("host", Name(host)), ("count", host.Comp.GhostRoleDummies.Count));
-        var desc = Loc.GetString("split-personality-dummy-description");
-
         ghostRole.RoleName = name;
-        ghostRole.RoleDescription = desc;
-        _meta.SetEntityName(dummy, name);
+        ghostRole.RoleDescription = Loc.GetString("split-personality-dummy-description");
+        ghostRole.RoleRules = Loc.GetString("ghost-role-information-freeagent-rules");
+
 
         EnsureComp<SplitPersonalityDummyComponent>(dummy).Host = host;
 
