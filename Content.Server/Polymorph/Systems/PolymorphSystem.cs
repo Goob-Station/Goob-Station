@@ -398,6 +398,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             _damageable.SetDamage(child, damageChild, damage);
         }
 
+        // DeltaV - Drop MindContainer entities on polymorph
+        var beforePolymorphedEv = new BeforePolymorphedEvent();
+        RaiseLocalEvent(uid, ref beforePolymorphedEv);
+
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
             // Goob edit start

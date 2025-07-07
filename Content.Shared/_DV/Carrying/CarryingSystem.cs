@@ -34,6 +34,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
+using Content.Shared.Mind.Components;
 
 namespace Content.Shared._DV.Carrying;
 
@@ -65,6 +66,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
         SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<CarryingComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<CarryingComponent, BeforePolymorphedEvent>(OnBeforePolymorphed);
         SubscribeLocalEvent<BeingCarriedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
@@ -164,6 +166,12 @@ public sealed class CarryingSystem : EntitySystem
     private void OnMobStateChanged(Entity<CarryingComponent> ent, ref MobStateChangedEvent args)
     {
         DropCarried(ent, ent.Comp.Carried);
+    }
+
+    private void OnBeforePolymorphed(Entity<CarryingComponent> ent, ref BeforePolymorphedEvent args)
+    {
+        if (HasComp<MindContainerComponent>(ent.Comp.Carried))
+            DropCarried(ent, ent.Comp.Carried);
     }
 
     /// <summary>
