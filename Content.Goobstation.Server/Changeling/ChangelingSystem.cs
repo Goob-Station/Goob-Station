@@ -801,7 +801,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         PlayMeatySound(target, comp);
     }
 
-    public void MetabolizerType(Entity<ChangelingIdentityComponent> changeling)
+    public void ChangeMetabolizerType(Entity<ChangelingIdentityComponent> changeling)
     {
         if (!TryComp<BodyComponent>(changeling, out var body))
             return;
@@ -849,7 +849,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
         // change metabolizer type
-        MetabolizerType((uid, comp));
+        ChangeMetabolizerType((uid, comp));
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingIdentityComponent comp, ref MobStateChangedEvent args)

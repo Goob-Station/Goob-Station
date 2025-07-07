@@ -27,15 +27,11 @@ public sealed class ChangelingOrganDigestionSystem : EntitySystem
 
     private void OnBeforeFullyEaten(EntityUid uid, FoodComponent component, BeforeFullyEatenEvent args)
     {
-        if (!TryComp<ChangelingOrganDigestionComponent>(args.User, out var digestion))
-            return;
-
-        if (!_tag.HasTag(uid, digestion.DigestibleTag))
+        if (!TryComp<ChangelingOrganDigestionComponent>(args.User, out var digestion)
+            || !_tag.HasTag(uid, digestion.DigestibleTag))
             return;
 
         if (TryComp<ChangelingIdentityComponent>(args.User, out var lingComp))
-        {
             _changeling.UpdateChemicals(args.User, lingComp, digestion.ChemicalsPerItem);
-        }
     }
 }

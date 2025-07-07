@@ -248,7 +248,7 @@ namespace Content.Server.Body.Systems
                     // Remove $rate, as long as there's enough reagent there to actually remove that much
                     mostToRemove = FixedPoint2.Clamp(rate, 0, quantity);
 
-                    float scale = (float)mostToRemove / (float)rate;
+                    float scale = (float) mostToRemove / (float) rate;
 
                     // if it's possible for them to be dead, and they are,
                     // then we shouldn't process any effects, but should probably
