@@ -6,34 +6,68 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Starlight.CollectiveMind;
-using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
-using Robust.Shared.GameObjects;
 
 namespace Content.Shared._Starlight.CollectiveMind;
 
 public sealed class CollectiveMindUpdateSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    private static Dictionary<string, int> _currentId = new();
+    private readonly Dictionary<string, int> _nextWebId = new(); // Goobstation
+    private readonly Dictionary<(string PrototypeId, int WebId), int> _nextMemberId = new(); // Goobstation
+
+    // Goobstation - Start
 
     public void UpdateCollectiveMind(EntityUid uid, CollectiveMindComponent collective)
     {
-        foreach (var prototype in _prototypeManager.EnumeratePrototypes<CollectiveMindPrototype>())
+        foreach (var prototype in _proto.EnumeratePrototypes<CollectiveMindPrototype>())
         {
-            if (!_currentId.ContainsKey(prototype.ID))
-                _currentId[prototype.ID] = 0;
+            var hasChannel = collective.Channels.Contains(prototype.ID);
+            var hasMembership = collective.WebMemberships.ContainsKey(prototype.ID);
 
-            bool hasChannel = collective.Channels.Contains(prototype.ID);
-            bool alreadyAdded = collective.Minds.ContainsKey(prototype.ID);
-            if (hasChannel && !alreadyAdded)
-                collective.Minds.Add(prototype.ID, ++_currentId[prototype.ID]);
-            else if (!hasChannel && alreadyAdded)
-                collective.Minds.Remove(prototype.ID);
+            switch (hasChannel)
+            {
+                // Create new web if no web is specified.
+                case true when !hasMembership:
+                    CreateOrJoinWeb(uid, prototype.ID);
+                    break;
+                // Remove from web if channel is lost.
+                case false when hasMembership:
+                    collective.WebMemberships.Remove(prototype.ID);
+                    break;
+            }
         }
     }
+    public void CreateOrJoinWeb(
+        EntityUid uid,
+        string prototypeId,
+        int? specificWebId = null)
+    {
+        var collective = EnsureComp<CollectiveMindComponent>(uid);
+
+        // If joining a new one, leave the previous web.
+        collective.WebMemberships.Remove(prototypeId);
+
+        var webId = specificWebId ?? GetNextWebId(prototypeId);
+        var memberKey = (prototypeId, webId);
+
+        var memberId = _nextMemberId.GetValueOrDefault(memberKey, 0);
+        memberId++;
+        _nextMemberId[memberKey] = memberId;
+
+        collective.WebMemberships[prototypeId] = new CollectiveMindMembership
+        {
+            WebId = webId,
+            MemberId = memberId,
+        };
+
+    }
+
+    private int GetNextWebId(string prototypeId)
+    {
+        _nextWebId.TryAdd(prototypeId, 0);
+        return ++_nextWebId[prototypeId];
+    }
+    // Goobstation - End
 }

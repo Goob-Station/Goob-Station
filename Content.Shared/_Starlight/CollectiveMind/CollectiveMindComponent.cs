@@ -15,8 +15,14 @@ namespace Content.Shared._Starlight.CollectiveMind
     [RegisterComponent, NetworkedComponent]
     public sealed partial class CollectiveMindComponent : Component
     {
+        /*
         [DataField("minds")]
         public Dictionary<string, int> Minds = new();
+        */
+
+        // Goobstation - Collectivemind Webs
+        [DataField]
+        public Dictionary<string, CollectiveMindMembership> WebMemberships = new();
 
         [DataField]
         public ProtoId<CollectiveMindPrototype>? DefaultChannel = null;
@@ -33,4 +39,13 @@ namespace Content.Shared._Starlight.CollectiveMind
         [DataField]
         public bool RespectAccents = false;
     }
+
+    // Goobstation - Collectivemind Webs
+    public sealed partial class CollectiveMindMembership
+    {
+        public int WebId;
+
+        public int MemberId;
+    }
+
 }

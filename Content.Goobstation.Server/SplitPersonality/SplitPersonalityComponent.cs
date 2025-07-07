@@ -3,7 +3,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Starlight.CollectiveMind;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.SplitPersonality;
 
@@ -76,7 +78,8 @@ public sealed partial class SplitPersonalityComponent : Component
     [DataField]
     public TimeSpan SwapAttemptDelay = TimeSpan.FromSeconds(25);
 
-
+    [DataField]
+    public ProtoId<CollectiveMindPrototype> CollectiveMind = "SplitPersonality";
 }
 
 [RegisterComponent]

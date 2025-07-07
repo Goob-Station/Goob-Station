@@ -75,3 +75,9 @@
   name: collective-mind-bingle
   keycode: 'w'
   color: "#386a9b"
+
+- type: collectiveMind
+  id: SplitPersonality
+  name: collective-mind-fracturemind
+  keycode: 'q'
+  color: "#a832a8"
