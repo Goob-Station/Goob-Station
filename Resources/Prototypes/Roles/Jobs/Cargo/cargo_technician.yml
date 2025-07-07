@@ -79,7 +79,7 @@
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
-  goobcoins: 20 #Goob content
+  #goobcoins: 20 #Goob content Corvax-Goob-coins
   access:
   - Cargo
   - Maintenance

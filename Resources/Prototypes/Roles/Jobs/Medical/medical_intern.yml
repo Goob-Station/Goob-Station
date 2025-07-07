@@ -71,7 +71,7 @@
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
-  goobcoins: 20 #Goob content
+  #goobcoins: 20 #Goob content Corvax-Goob-coins
   access:
   - Medical
   - Maintenance

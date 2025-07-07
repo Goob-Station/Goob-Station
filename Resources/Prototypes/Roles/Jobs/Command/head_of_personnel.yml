@@ -152,7 +152,7 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 9000 # 2.5 hours
-  goobcoins: 40 #Goob content
+  #goobcoins: 40 #Goob content Corvax-Goob-coins
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"

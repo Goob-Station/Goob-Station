@@ -80,7 +80,7 @@
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
-  goobcoins: 20 #Goob content
+  #goobcoins: 20 #Goob content Corvax-Goob-coins
   access:
   - Research
   - Maintenance

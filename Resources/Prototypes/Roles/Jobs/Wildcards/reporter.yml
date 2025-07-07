@@ -60,7 +60,7 @@
   playTimeTracker: JobReporter
   startingGear: ReporterGear
   icon: "JobIconReporter"
-  goobcoins: 15 #Goob content
+  #goobcoins: 15 #Goob content Corvax-Goob-coins
   supervisors: job-supervisors-hop
   access:
   - Service

@@ -19,7 +19,7 @@
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  goobcoins: 35
+  #goobcoins: 35 Corvax-Goob-coins
   access: # intentionally no medical access, not even hos has it, ask chemists instead of silently stealing meds
   - Security
   - Brig

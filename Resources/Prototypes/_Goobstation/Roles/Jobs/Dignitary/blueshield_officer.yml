@@ -43,7 +43,7 @@
       time: 90000 # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
-  goobcoins: 45
+  #goobcoins: 45 Corvax-Goob-coins
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"

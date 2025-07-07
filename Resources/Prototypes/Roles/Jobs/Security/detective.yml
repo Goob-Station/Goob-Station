@@ -76,7 +76,7 @@
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  goobcoins: 30 #Goob content
+  #goobcoins: 30 #Goob content Corvax-Goob-coins
   access:
   - Security
   - Brig
