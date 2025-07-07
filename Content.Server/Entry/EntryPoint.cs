@@ -255,8 +255,8 @@ namespace Content.Server.Entry
                 _watchlistWebhookManager.Initialize();
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
-                //_currencyManager = IoCManager.Resolve<ServerCurrencyManager>(); // Goobstation
-                //_currencyManager.Initialize(); // Goobstation
+                // _currencyManager = IoCManager.Resolve<ServerCurrencyManager>(); // Goobstation; Deleted by CorvaxGoob
+                // _currencyManager.Initialize(); // Goobstation; Deleted by CorvaxGoob
                 _lastAntagManager = IoCManager.Resolve<LastRolledAntagManager>(); // Goobstation
                 _lastAntagManager.Initialize(); // Goobstation
             }
@@ -323,7 +323,7 @@ namespace Content.Server.Entry
 
         protected override void Dispose(bool disposing)
         {
-            // _currencyManager?.Shutdown(); // Goobstation
+            // _currencyManager?.Shutdown(); // Goobstation; Deleted by CorvaxGoob
             _playTimeTracking?.Shutdown();
             _dbManager?.Shutdown();
             IoCManager.Resolve<ServerApi>().Shutdown();

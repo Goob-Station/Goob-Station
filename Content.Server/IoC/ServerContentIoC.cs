@@ -245,9 +245,9 @@ namespace Content.Server.IoC
             IoCManager.Register<ConnectionManager>();
             IoCManager.Register<MultiServerKickManager>();
             IoCManager.Register<CVarControlManager>();
-            // IoCManager.Register<ServerCurrencyManager>(); // Goobstation - Server Currency
+            // IoCManager.Register<ServerCurrencyManager>(); // Goobstation - Server Currency; Deleted by CorvaxGoob
             IoCManager.Register<LastRolledAntagManager>(); // Goobstation - antag pity
-            // IoCManager.Register<LinkAccountManager>(); // RMC - Patreon
+            // IoCManager.Register<LinkAccountManager>(); // RMC - Patreon; Deleted by CorvaxGoob
             IoCManager.Register<TTSManager>(); // CorvaxGoob-TTS
         }
     }
