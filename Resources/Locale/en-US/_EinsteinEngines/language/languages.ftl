@@ -97,6 +97,9 @@ language-Xeeplian-description =
 language-Cat-name = Cat
 language-Cat-description = Meow
 
+language-Deer-name = Deer
+language-Deer-description = Ni!
+
 language-Dog-name = Dog
 language-Dog-description = Bark!
 
