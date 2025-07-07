@@ -158,11 +158,14 @@ namespace Content.Server.Atmos.EntitySystems
             var hydrogen = tile.Air.GetMoles(Gas.Hydrogen); // Assmos - /tg/ gases
             var hypernob = tile.Air.GetMoles(Gas.HyperNoblium); // Assmos - /tg/ gases
 
+            if (hypernob >= 5f) // Assmos - /tg/ gases
+                return;
+
             if (tile.Hotspot.Valid)
             {
                 if (soh)
                 {
-                    if (plasma > 0.5f && hypernob < 5f || tritium > 0.5f && hypernob < 5f || hydrogen > 0.5f && hypernob < 5f) // Assmos - /tg/ gases
+                    if (plasma > 0.5f || tritium > 0.5f || hydrogen > 0.5f) // Assmos - /tg/ gases - added hydrogen
                     {
                         if (tile.Hotspot.Temperature < exposedTemperature)
                             tile.Hotspot.Temperature = exposedTemperature;
