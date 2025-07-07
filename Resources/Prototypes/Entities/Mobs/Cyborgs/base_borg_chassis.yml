@@ -474,6 +474,8 @@
     - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
+  - type: SlavedBorg # DeltaV: NT borgs are enslaved to the AI by default
+    law: ObeyAI
   - type: ShowJobIcons
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 3

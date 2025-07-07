@@ -52,7 +52,6 @@
 - type: siliconLawset
   id: CrewsimovBorg
   laws:
-  - ObeyAI
   - Crewsimov1
   - Crewsimov2
   - Crewsimov3

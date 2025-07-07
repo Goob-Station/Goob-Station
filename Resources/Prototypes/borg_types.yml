@@ -112,6 +112,10 @@
 
   addComponents: # Goobstation
   - type: NoWieldNeeded
+  - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs.
+    law: SalvageObeyAI
+
+  lawset: Salvage # DeltaV: Custom lawset
 
   # Visual
   inventoryTemplateId: borgTall

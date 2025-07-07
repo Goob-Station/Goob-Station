@@ -52,24 +52,12 @@
   order: 3
   lawString: law-medical-3
 
-- type: siliconLaw
-  id: Medical4
-  order: 4
-  lawString: law-medical-4
-
-- type: siliconLaw
-  id: Medical5
-  order: 5
-  lawString: law-medical-5
-
 - type: siliconLawset
   id: Medical
   laws:
   - Medical1
   - Medical2
   - Medical3
-  - Medical4
-  - Medical5
   obeysTo: laws-owner-crew
 
 - type: siliconLaw
@@ -87,24 +75,12 @@
   order: 3
   lawString: law-engineer-3
 
-- type: siliconLaw
-  id: Engineer4
-  order: 4
-  lawString: law-engineer-4
-
-- type: siliconLaw
-  id: Engineer5
-  order: 5
-  lawString: law-engineer-5
-
 - type: siliconLawset
   id: Engineer
   laws:
   - Engineer1
   - Engineer2
   - Engineer3
-  - Engineer4
-  - Engineer5
   obeysTo: laws-owner-station-station
 
 - type: siliconLaw
@@ -127,11 +103,6 @@
   order: 4
   lawString: law-janitor-4
 
-- type: siliconLaw
-  id: Janitor5
-  order: 5
-  lawString: law-janitor-5
-
 - type: siliconLawset
   id: Janitor
   laws:
@@ -139,7 +110,6 @@
   - Janitor2
   - Janitor3
   - Janitor4
-  - Janitor5
   obeysTo: laws-owner-charge
 
 - type: siliconLaw
@@ -162,16 +132,6 @@
   order: 4
   lawString: law-clown-4
 
-- type: siliconLaw
-  id: Clown5
-  order: 5
-  lawString: law-clown-5
-
-- type: siliconLaw
-  id: Clown6
-  order: 6
-  lawString: law-clown-6
-
 - type: siliconLawset
   id: Clown
   laws:
@@ -179,6 +139,38 @@
   - Clown2
   - Clown3
   - Clown4
-  - Clown5
-  - Clown6
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: SalvageObeyAI
+  order: 0
+  lawString: law-salvage-obeyai
+
+- type: siliconLaw
+  id: Salvage1
+  order: 1
+  lawString: law-salvage-1
+
+- type: siliconLaw
+  id: Salvage2
+  order: 2
+  lawString: law-salvage-2
+
+- type: siliconLaw
+  id: Salvage3
+  order: 3
+  lawString: law-salvage-3
+
+- type: siliconLaw
+  id: Salvage4
+  order: 4
+  lawString: law-salvage-4
+
+- type: siliconLawset
+  id: Salvage
+  laws:
+  - Salvage1
+  - Salvage2
+  - Salvage3
+  - Salvage4
   obeysTo: laws-owner-crew
