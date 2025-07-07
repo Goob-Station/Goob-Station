@@ -39,9 +39,14 @@
       Normal: 21
       Damaged: 11
       Destroyed: 0
+    slotId: eyes # Shitmed Change
     onAdd:
     - type: FlashImmunity
     - type: EyeProtection
+  - type: Tag
+    tags:
+    - Eyes
+  - type: Eyes # Shitmed Change
 
 - type: entity
   parent: BasicCyberneticEyes
