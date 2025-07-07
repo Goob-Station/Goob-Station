@@ -15,13 +15,13 @@ public sealed partial class DisgustComponent : Component
     public float PassiveReduction = 0.5f;
 
     [DataField]
-    public float NegativeEffectProb = 0.05f;
+    public float NegativeEffectProb = 0.025f;
 
     [DataField]
-    public float BadNegativeEffectProb = 0.13f;
+    public float BadNegativeEffectProb = 0.05f;
 
     [DataField]
-    public float ModifierPerUpdate = 5f;
+    public float ModifierPerUpdate = 2.5f;
 
     [DataField]
     public TimeSpan NegativeTime = TimeSpan.FromSeconds(2);
