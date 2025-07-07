@@ -157,6 +157,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         RaiseLocalEvent(ev);
         DebugTools.Assert(ev.SpawnResult is { Valid: true } or null);
+
         return ev.SpawnResult;
     }
 

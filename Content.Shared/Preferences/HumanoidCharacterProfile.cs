@@ -44,7 +44,7 @@
 
 using System.Linq;
 using System.Text.RegularExpressions;
-using Content.Pirate.Common.AlternativeJobs;
+using Content.Pirate.Common.AlternativeJobs; // Pirate - Alternative Jobs
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
@@ -85,8 +85,7 @@ namespace Content.Shared.Preferences
                 SharedGameTicker.FallbackOverflowJob, JobPriority.High
             }
         };
-        [DataField]
-        private Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> _jobAlternatives = new();
+        [DataField] private Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> _jobAlternatives = new(); // Pirate - Alternative Jobs
 
         /// <summary>
         /// Antags we have opted in to.
@@ -154,10 +153,10 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities => _jobPriorities;
 
-        /// <summary>
+        /// <summary> 
         /// <see cref="_jobAlternatives"/>
         /// </summary>
-        public IReadOnlyDictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> JobAlternatives => _jobAlternatives;
+        public IReadOnlyDictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> JobAlternatives => _jobAlternatives; // Pirate - Alternative Jobs
 
         /// <summary>
         /// <see cref="_antagPreferences"/>
@@ -185,7 +184,7 @@ namespace Content.Shared.Preferences
             HumanoidCharacterAppearance appearance,
             SpawnPriorityPreference spawnPriority,
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
-            Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> jobAlternatives,
+            Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> jobAlternatives, // Pirate - Alternative Jobs
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
@@ -201,7 +200,7 @@ namespace Content.Shared.Preferences
             Appearance = appearance;
             SpawnPriority = spawnPriority;
             _jobPriorities = jobPriorities;
-            _jobAlternatives = jobAlternatives;
+            _jobAlternatives = jobAlternatives; // Pirate - Alternative Jobs
             PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
@@ -233,7 +232,7 @@ namespace Content.Shared.Preferences
                 other.Appearance.Clone(),
                 other.SpawnPriority,
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
-                new Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>>(other.JobAlternatives),
+                new Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>>(other.JobAlternatives), // Pirate - Alternative Jobs
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
@@ -382,7 +381,7 @@ namespace Content.Shared.Preferences
             };
         }
 
-        public HumanoidCharacterProfile WithJobAlternative(KeyValuePair<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> jobAlternative)
+        public HumanoidCharacterProfile WithJobAlternative(KeyValuePair<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> jobAlternative) // Pirate start - Alternative Jobs
         {
             var dictionary = new Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>>(_jobAlternatives);
 
@@ -401,7 +400,7 @@ namespace Content.Shared.Preferences
             {
                 _jobAlternatives = dictionary,
             };
-        }
+        } // Pirate end - Alternative Jobs
 
         public HumanoidCharacterProfile WithJobPriority(ProtoId<JobPrototype> jobId, JobPriority priority)
         {

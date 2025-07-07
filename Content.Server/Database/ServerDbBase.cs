@@ -133,12 +133,11 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Pirate.Common.AlternativeJobs;
+using Content.Pirate.Common.AlternativeJobs; // Pirate - Alternative Jobs
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared._RMC14.LinkAccount;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Alert;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -336,7 +335,7 @@ namespace Content.Server.Database
         private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
         {
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
-            var jobAlternatives = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => new ProtoId<AlternativeJobPrototype>(j.ActiveAlternativeJobId ?? string.Empty));
+            var jobAlternatives = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => new ProtoId<AlternativeJobPrototype>(j.ActiveAlternativeJobId ?? string.Empty)); // Pirate - Alternative Jobs
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
             var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
 
@@ -409,7 +408,7 @@ namespace Content.Server.Database
                 ),
                 spawnPriority,
                 jobs,
-                jobAlternatives,
+                jobAlternatives, // Pirate - Alternative Jobs
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
@@ -449,7 +448,7 @@ namespace Content.Server.Database
             profile.Jobs.AddRange(
                 humanoid.JobPriorities
                     .Where(j => j.Value != JobPriority.Never)
-                    .Select(j => new Job { JobName = j.Key, Priority = (DbJobPriority) j.Value, ActiveAlternativeJobId = humanoid.JobAlternatives.TryGetValue(j.Key, out var altJob) ? altJob : string.Empty })
+                    .Select(j => new Job { JobName = j.Key, Priority = (DbJobPriority) j.Value, ActiveAlternativeJobId = humanoid.JobAlternatives.TryGetValue(j.Key, out var altJob) ? altJob : string.Empty }) // Pirate - Alternative Jobs
             );
 
             profile.Antags.Clear();
@@ -684,7 +683,7 @@ namespace Content.Server.Database
                 .ExecuteUpdateAsync(setters => setters
                     .SetProperty(b => b.Severity, severity)
                     .SetProperty(b => b.Reason, reason)
-                    .SetProperty(b => b.ExpirationTime, expiration.HasValue ? expiration.Value.UtcDateTime : (DateTime?) null)
+                    .SetProperty(b => b.ExpirationTime, expiration.HasValue ? expiration.Value.UtcDateTime : (DateTime?)null)
                     .SetProperty(b => b.LastEditedById, editedBy)
                     .SetProperty(b => b.LastEditedAt, editedAt.UtcDateTime)
                 );

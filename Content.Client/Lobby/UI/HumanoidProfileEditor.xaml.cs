@@ -157,7 +157,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
-using Content.Pirate.UIKit.UserInterface.Lobby;
+using Content.Pirate.UIKit.UserInterface.Lobby; // Pirate - Alternative Jobs
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -182,7 +182,6 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Serilog;
 using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.Lobby.UI
@@ -245,7 +244,7 @@ namespace Content.Client.Lobby.UI
 
         private List<(string, RequirementsSelector)> _jobPriorities = new();
 
-        private Dictionary<string, AlternativeJobSelector> _jobAlternatives = new();
+        private Dictionary<string, AlternativeJobSelector> _jobAlternatives = new(); // Pirate - Alternative Jobs
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
 
@@ -922,7 +921,7 @@ namespace Content.Client.Lobby.UI
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
-            UpdateAlternativeJobs();
+            UpdateAlternativeJobs(); // Pirate - Alternative Jobs
 
             RefreshAntags();
             RefreshJobs();
@@ -982,7 +981,7 @@ namespace Content.Client.Lobby.UI
             JobList.DisposeAllChildren();
             _jobCategories.Clear();
             _jobPriorities.Clear();
-            _jobAlternatives.Clear();
+            _jobAlternatives.Clear(); // Pirate - Alternative Jobs
             var firstCategory = true;
 
             // Get all displayed departments
@@ -1115,8 +1114,7 @@ namespace Content.Client.Lobby.UI
                         SetDirty();
                     };
 
-                    // Add alternative job selector
-                    var altJobSelector = new AlternativeJobSelector(job.ID)
+                    var altJobSelector = new AlternativeJobSelector(job.ID) // Pirate start - Alternative Jobs
                     {
                         HorizontalAlignment = HAlignment.Left,
                         VerticalAlignment = VAlignment.Center,
@@ -1133,7 +1131,7 @@ namespace Content.Client.Lobby.UI
                         IsDirty = true;
                     };
 
-                    _jobAlternatives[job.ID] = altJobSelector;
+                    _jobAlternatives[job.ID] = altJobSelector; // Pirate end - Alternative Jobs
 
                     var loadoutWindowBtn = new Button()
                     {
@@ -1174,14 +1172,14 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
-                    jobContainer.AddChild(altJobSelector);
+                    jobContainer.AddChild(altJobSelector); // Pirate - Alternative Jobs
                     jobContainer.AddChild(loadoutWindowBtn);
                     category.AddChild(jobContainer);
                 }
             }
 
             UpdateJobPriorities();
-            UpdateAlternativeJobs();
+            UpdateAlternativeJobs(); // Pirate - Alternative Jobs
         }
 
         private void OpenLoadout(JobPrototype? jobProto, RoleLoadout roleLoadout, RoleLoadoutPrototype roleLoadoutProto)
@@ -1884,7 +1882,7 @@ namespace Content.Client.Lobby.UI
             ExportButton.Disabled = false;
         }
 
-        private void UpdateAlternativeJobs()
+        private void UpdateAlternativeJobs() // Pirate start - Alternative Jobs
         {
             if (Profile == null)
                 return;
@@ -1903,6 +1901,6 @@ namespace Content.Client.Lobby.UI
                     selector.SelectAlternative(jobId);
                 }
             }
-        }
+        } // Pirate end - Alternative Jobs
     }
 }

@@ -630,7 +630,7 @@ namespace Content.Server.Database
 
         public string JobName { get; set; } = null!;
         public DbJobPriority Priority { get; set; }
-        public string? ActiveAlternativeJobId { get; set; }
+        public string? ActiveAlternativeJobId { get; set; } // Pirate - Alternative Jobs
     }
 
     public enum DbJobPriority
