@@ -1495,6 +1495,9 @@
   id: SilentStorageUser # used in SharedStorageSystem, so the entity will do all silently
 
 - type: Tag
+  id: SiliconEmotes
+
+- type: Tag
   id: SkeletonMotorcycleKeys
 
 - type: Tag
@@ -1511,8 +1514,6 @@
 
 - type: Tag
   id: Smokable
-
-
 
 - type: Tag
   id: SnowyLabs

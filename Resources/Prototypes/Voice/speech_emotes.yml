@@ -134,7 +134,7 @@
     requireAll: true
     components:
     - Vocal
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
     - honk
@@ -152,7 +152,7 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-sigh"]
   chatTriggers:
     - sigh
@@ -169,7 +169,7 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-whistle"]
   chatTriggers:
     - whistle
@@ -186,7 +186,7 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-crying"]
   chatTriggers:
     - cry
@@ -207,7 +207,7 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-squish"]
   chatTriggers:
     - squish
@@ -225,7 +225,7 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-chitter"]
   chatTriggers:
    - chitter
@@ -243,7 +243,7 @@
       - Vocal
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-squeak"]
   chatTriggers:
    - squeak
@@ -261,7 +261,7 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-click"]
   chatTriggers:
    - click
@@ -278,7 +278,7 @@
     - Hands
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-clap"]
   chatTriggers:
     - claps
@@ -295,7 +295,7 @@
     - Hands
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-snap"] # snaps <{THEIR($ent)}> fingers?
   chatTriggers:
     - snap
@@ -319,7 +319,7 @@
     - Hands
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-thump"]
   chatTriggers:
     - thump
@@ -343,7 +343,7 @@
     - Hands
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-salute"]
   chatTriggers:
     - salute
@@ -371,7 +371,7 @@
   blacklist: #Goobstation - Replace deathgasp for IPCs and cyborgs
     components:
     - Silicon
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
   - deathgasp
@@ -397,7 +397,7 @@
   whitelist: #Goobstation - IPCs
     components:
     - Silicon
-    - BorgChassis
+    - SiliconEmotes
   chatTriggers:
     - buzzing
     - buzz
@@ -415,7 +415,7 @@
       - ReptilianEmotes # Goob - restrict wehs to the OG lizz
   blacklist:
     components:
-      - BorgChassis
+      - SiliconEmotes
   chatTriggers: # Floof - you can weh now
     - weh
     - wehs
@@ -439,7 +439,7 @@
     - Vocal
   blacklist:
     components:
-    - BorgChassis
+    - SiliconEmotes
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
     - chirp
@@ -457,7 +457,7 @@
   whitelist: #Goobstation - IPCs, C4 sentience
     components:
     - Silicon
-    - BorgChassis
+    - SiliconEmotes
     - Explosive
   chatTriggers:
     - beep
@@ -474,7 +474,7 @@
   whitelist: #Goobstation - IPCs
     components:
     - Silicon
-    - BorgChassis
+    - SiliconEmotes
   chatTriggers:
     - chime
     - chimes
@@ -490,7 +490,7 @@
   whitelist: #Goobstation - IPCs
     components:
     - Silicon
-    - BorgChassis
+    - SiliconEmotes
   chatTriggers:
     - buzztwice
     - buzzstwice
@@ -512,7 +512,7 @@
   whitelist: #Goobstation - IPCs
     components:
     - Silicon
-    - BorgChassis
+    - SiliconEmotes
   chatTriggers:
     - ping
     - pings

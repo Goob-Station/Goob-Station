@@ -1161,7 +1161,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BoltTempgunCold
+    proto: BulletTemperatureCold # Goobstation
     fireCost: 100
   - type: BatteryWeaponFireModes
     fireModes:

@@ -325,13 +325,13 @@
   - type: AnimationPlayer
   - type: LightBehaviour
     behaviours:
-    - !type:PulseBehaviour
-      id: pulse
-      property: Energy
-      maxDuration: 2
-      minValue: 0
-      maxValue: 16
-      enabled: true
+      - !type:PulseBehaviour
+        id: pulse
+        property: Energy
+        maxDuration: 2
+        startValue: 0
+        endValue: 16
+        enabled: true
 
 - type: entity
   parent: EffectRay
@@ -340,13 +340,13 @@
   components:
   - type: LightBehaviour
     behaviours:
-    - !type:PulseBehaviour
-      id: pulse
-      property: Energy
-      maxDuration: 1
-      minValue: 0
-      maxValue: 16
-      enabled: true
+      - !type:PulseBehaviour
+        id: pulse
+        property: Energy
+        maxDuration: 1
+        startValue: 0
+        endValue: 16
+        enabled: true
 
 - type: entity
   id: SanguineBloodEffect
