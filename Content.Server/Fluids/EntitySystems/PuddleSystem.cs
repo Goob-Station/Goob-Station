@@ -162,19 +162,12 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Blood = "Blood";
+    private static readonly ProtoId<ReagentPrototype> Blood = "Blood";
+    private static readonly ProtoId<ReagentPrototype> Slime = "Slime";
+    private static readonly ProtoId<ReagentPrototype> CopperBlood = "CopperBlood";
+    private static readonly ProtoId<ReagentPrototype> BloodChangeling = "BloodChangeling"; // Goobstation
 
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Slime = "Slime";
-
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string CopperBlood = "CopperBlood";
-
-    [ValidatePrototypeId<ReagentPrototype>] // goobstation
-    private const string BloodChangeling = "BloodChangeling"; // goobstation
-
-    private static string[] _standoutReagents = [Blood, Slime, CopperBlood, BloodChangeling]; // goobstation - added BloodChangeling
+    private static readonly string[] StandoutReagents = [Blood, Slime, CopperBlood, BloodChangeling]; // Goobstation - added BloodChangeling
 
     // Using local deletion queue instead of the standard queue so that we can easily "undelete" if a puddle
     // loses & then gains reagents in a single tick.
@@ -478,10 +471,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             // Kinda EH
             // Could potentially do alpha per-solution but future problem.
 
-            color = solution.GetColorWithout(_prototypeManager, _standoutReagents);
+            color = solution.GetColorWithout(_prototypeManager, StandoutReagents);
             color = color.WithAlpha(0.7f);
 
-            foreach (var standout in _standoutReagents)
+            foreach (var standout in StandoutReagents)
             {
                 var quantity = solution.GetTotalPrototypeQuantity(standout);
                 if (quantity <= FixedPoint2.Zero)

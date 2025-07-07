@@ -32,8 +32,8 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
     private BorgTypePrototype? _selectedBorgType;
 
-    public event Action<ProtoId<BorgTypePrototype>, ProtoId<BorgSubtypePrototype>>? ConfirmedBorgType;
-    [ValidatePrototypeId<GuideEntryPrototype>]
+    public event Action<ProtoId<BorgTypePrototype>>? ConfirmedBorgType;
+
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
 
     public BorgSelectTypeMenu()

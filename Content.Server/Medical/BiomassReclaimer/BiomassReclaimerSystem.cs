@@ -119,9 +119,9 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
+using Content.Shared.Materials;
 using Content.Shared.Medical;
 using Content.Shared.Mind;
-using Content.Shared.Materials;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
@@ -132,6 +132,7 @@ using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.DragDrop; // # GoobStation
 
@@ -156,8 +157,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private readonly SharedMindSystem _minds = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
 
-        [ValidatePrototypeId<MaterialPrototype>]
-        public const string BiomassPrototype = "Biomass";
+        public static readonly ProtoId<MaterialPrototype> BiomassPrototype = "Biomass";
 
         public override void Update(float frameTime)
         {

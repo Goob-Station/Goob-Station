@@ -21,8 +21,7 @@ namespace Content.Client.Power.Generation.Teg;
 /// <seealso cref="TegCirculatorComponent"/>
 public sealed class TegSystem : EntitySystem
 {
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string ArrowPrototype = "TegCirculatorArrow";
+    private static readonly EntProtoId ArrowPrototype = "TegCirculatorArrow";
 
     public override void Initialize()
     {

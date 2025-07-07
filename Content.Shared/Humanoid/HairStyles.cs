@@ -5,16 +5,15 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Humanoid.Markings;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Humanoid
 {
     public static class HairStyles
     {
-        [ValidatePrototypeId<MarkingPrototype>]
-        public const string DefaultHairStyle = "HairBald";
+        public static readonly ProtoId<MarkingPrototype> DefaultHairStyle = "HairBald";
 
-        [ValidatePrototypeId<MarkingPrototype>]
-        public const string DefaultFacialHairStyle = "FacialHairShaved";
+        public static readonly ProtoId<MarkingPrototype> DefaultFacialHairStyle = "FacialHairShaved";
 
         public static readonly IReadOnlyList<Color> RealisticHairColors = new List<Color>
         {
