@@ -16,7 +16,7 @@
       - !type:HealthChange
         damage:
           types:
-            Cold: 2
+            Cold: 3
 
 - type: reagent
   id: UnholyWater # going to be renamed later alongside holy water
