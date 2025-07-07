@@ -53,20 +53,6 @@
     - UplinkWeaponry
 
 - type: listing
-  id: uplinkPanther
-  name: uplink-panther-name
-  description: uplink-panther-desc
-  icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Revolvers/panther.rsi, state: icon }
-  productEntity: BriefcaseSyndiePantherBundleFilled
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 6
-  cost:
-    Telecrystal: 8
-  categories:
-    - UplinkWeaponry
-
-- type: listing
   id: uplinkLeviathan
   name: uplink-leviathan-name
   description: uplink-leviathan-desc
@@ -98,17 +84,6 @@
   productEntity: EchionSynth
   cost:
     Telecrystal: 5
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkSpeedLoaderPanther
-  name: uplink-speedloader-sniper-name
-  description: uplink-speedloader-sniper-desc
-  icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/sniper.rsi, state: icon }
-  productEntity: SpeedLoaderPanther
-  cost:
-    Telecrystal: 1
   categories:
   - UplinkAmmo
 
