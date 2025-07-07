@@ -4,25 +4,21 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server.Chat.Managers;
-using Content.Server.Chat.Systems;
-using Content.Server.Ghost;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Starlight.CollectiveMind;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-// todo
-// speaking only to host
 namespace Content.Goobstation.Server.SplitPersonality;
 public sealed partial class SplitPersonalitySystem : EntitySystem
 {
@@ -34,6 +30,7 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly CollectiveMindUpdateSystem _collective = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
     public override void Initialize()
     {
@@ -107,7 +104,7 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         if (!_random.Prob(comp.SwapProbability))
             return false;
 
-        var eligibleDummies = comp.GhostRoleDummies // evil linq
+        var eligibleDummies = comp.GhostRoleDummies
             .Where(dummy => dummy != null && _mind.TryGetMind(dummy.Value, out _, out _))
             .Select(dummy => dummy!.Value)
             .ToList();
@@ -129,17 +126,19 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
     #region Helper Methods
 
-    private bool TrySwapMinds(EntityUid host, EntityUid dummy)
+    private bool TrySwapMinds(EntityUid controlled, EntityUid controlling)
     {
-        if (!_mind.TryGetMind(host, out var hostMindId, out _)
-            || !_mind.TryGetMind(dummy, out var dummyMindId, out _))
+        if (!_mind.TryGetMind(controlled, out var controlledMindId, out _)
+            || !_mind.TryGetMind(controlling, out var controllingMindId, out _))
             return false;
 
         var popup = Loc.GetString("split-personality-swap-popup");
-        _popup.PopupEntity(popup, host, host, PopupType.LargeCaution);
+        _popup.PopupEntity(popup, controlled, controlled, PopupType.LargeCaution);
 
-        _mind.TransferTo(hostMindId, dummy);
-        _mind.TransferTo(dummyMindId, host);
+        _admin.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(controlling)} has taken control of: {ToPrettyString(controlled)}");
+
+        _mind.TransferTo(controlledMindId, controlling);
+        _mind.TransferTo(controllingMindId, controlled);
         return true;
     }
 
@@ -179,13 +178,13 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
         EnsureComp<SplitPersonalityDummyComponent>(dummy).Host = host;
 
-        if (TryComp<CollectiveMindComponent>(host, out var hostCollective))
-        {
-            var collectiveMind = EnsureComp<CollectiveMindComponent>(dummy);
-            collectiveMind.Channels.Add(host.Comp.CollectiveMind);
-            collectiveMind.DefaultChannel = host.Comp.CollectiveMind;
-            _collective.CreateOrJoinWeb(dummy, host.Comp.CollectiveMind, hostCollective.WebMemberships[host.Comp.CollectiveMind.Id].WebId);
-        }
+        if (!TryComp<CollectiveMindComponent>(host, out var hostCollective))
+            return;
+
+        var collectiveMind = EnsureComp<CollectiveMindComponent>(dummy);
+        collectiveMind.Channels.Add(host.Comp.CollectiveMind);
+        collectiveMind.DefaultChannel = host.Comp.CollectiveMind;
+        _collective.CreateOrJoinWeb(dummy, host.Comp.CollectiveMind, hostCollective.WebMemberships[host.Comp.CollectiveMind.Id].WebId);
 
     }
 
@@ -197,14 +196,11 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         var query = EntityQueryEnumerator<SplitPersonalityComponent>();
         while (query.MoveNext(out var comp))
         {
-            if (_timing.CurTime < comp.NextSwapAttempt)
-                continue;
-
-            if (TryReturnMind(comp))
+            if (_timing.CurTime < comp.NextSwapAttempt
+                || TryReturnMind(comp))
                 continue;
 
             TryAlternateMind(comp);
-
             comp.NextSwapAttempt = _timing.CurTime + comp.SwapAttemptDelay;
         }
     }

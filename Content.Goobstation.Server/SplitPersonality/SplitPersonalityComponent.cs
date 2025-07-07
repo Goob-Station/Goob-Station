@@ -76,7 +76,7 @@ public sealed partial class SplitPersonalityComponent : Component
     /// The amount of seconds between every swap attempt
     /// </summary>
     [DataField]
-    public TimeSpan SwapAttemptDelay = TimeSpan.FromSeconds(25);
+    public TimeSpan SwapAttemptDelay = TimeSpan.FromSeconds(45);
 
     [DataField]
     public ProtoId<CollectiveMindPrototype> CollectiveMind = "SplitPersonality";
