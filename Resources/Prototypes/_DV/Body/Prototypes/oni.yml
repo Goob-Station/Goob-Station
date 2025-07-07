@@ -11,16 +11,21 @@
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoHuman
+      part: ChestHuman
       connections:
       - right arm
       - left arm
-      - right leg
-      - left leg
       - head
+      - groin
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinHuman
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganOniStomach
         liver: OrganOniLiver
         kidneys: OrganHumanKidneys

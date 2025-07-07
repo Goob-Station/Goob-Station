@@ -109,13 +109,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ShowHealthBars
-    damageContainers: # DeltaV
-    - Biological
-    - BiologicalMetaphysical
   - type: ShowHealthIcons
-    damageContainers: # DeltaV
-    - Biological
-    - BiologicalMetaphysical
 
 - type: entity
   parent: ClothingEyesBase
