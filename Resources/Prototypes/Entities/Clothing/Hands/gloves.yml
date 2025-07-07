@@ -236,17 +236,17 @@
   - type: FingerprintMask
   - type: Armor # Goob
     modifiers:
-      traumaDeductions:
-        Dismemberment: 0.5
-        OrganDamage: 0.5
-        BoneDamage: 0.5
-        VeinsDamage: 0
-        NerveDamage: 0
       coefficients:
         Blunt: 0.5
         Slash: 0.5
         Piercing: 0.5
         Heat: 0.5
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
 
 - type: entity
   parent: ClothingHandsBase
@@ -416,17 +416,17 @@
     fiberMaterial: fibers-insulative
   - type: Armor # Goob
     modifiers:
-      traumaDeductions:
-        Dismemberment: 0.5
-        OrganDamage: 0.5
-        BoneDamage: 0.5
-        VeinsDamage: 0
-        NerveDamage: 0
       coefficients:
         Blunt: 0.5
         Slash: 0.5
         Piercing: 0.5
         Heat: 0.5
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
 
 # can't parent combat gloves since they are butcherable
 - type: entity
