@@ -577,14 +577,23 @@ public enum LogType
     /// Logs related to botany, such as planting and harvesting crops
     /// </summary>
     Botany = 100,
+    /// <summary>
+    /// Artifact node got activated.
+    /// </summary>
+    ArtifactNode = 101,
+
+    /// <summary>
+    /// Damaging grid collision has occurred.
+    /// </summary>
+    ShuttleImpact = 102,
+    
+    /// <summary>
+    /// SecretPlus related game interactions.
+    /// </summary>
+    SecretPlus = 10001, // Goobstation
 
     /// <summary>
     /// GameDirector related game interactions.
     /// </summary>
-    GameDirector = 101, // Goobstation
-
-    /// <summary>
-    /// SecretPlus related game interactions.
-    /// </summary>
-    SecretPlus = 102, // Goobstation
+    GameDirector = 10002, // Goobstation
 }

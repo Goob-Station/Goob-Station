@@ -201,6 +201,10 @@ namespace Content.Client.Lobby.UI
 
         private readonly SpriteSystem _sprite;
 
+        // CCvar.
+        private int _maxNameLength;
+        private bool _allowFlavorText;
+
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
 
@@ -279,6 +283,10 @@ namespace Content.Client.Lobby.UI
             _requirements = requirements;
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
             _sprite = _entManager.System<SpriteSystem>();
+
+            _maxNameLength = _cfgManager.GetCVar(CCVars.MaxNameLength);
+            _allowFlavorText = _cfgManager.GetCVar(CCVars.FlavorText);
+
             ImportButton.OnPressed += args =>
             {
                 ImportProfile();
@@ -314,6 +322,7 @@ namespace Content.Client.Lobby.UI
             #region Name
 
             NameEdit.OnTextChanged += args => { SetName(args.Text); };
+            NameEdit.IsValid = args => args.Length <= _maxNameLength;
             NameRandomize.OnPressed += args => RandomizeName();
             RandomizeEverythingButton.OnPressed += args => { RandomizeEverything(); };
             WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]");
@@ -345,19 +354,6 @@ namespace Content.Client.Lobby.UI
             };
 
             #endregion Age
-
-            // # Goobstation - Preferred Cyborg Name Thing
-
-            #region BorgName
-
-            BorgNameRandomize.OnPressed += args => RandomizeBorgName();
-            BorgNameEdit.OnTextChanged += args =>
-            {
-                if (!string.IsNullOrEmpty(args.Text))
-                    SetBorgName(args.Text);
-            };
-
-            #endregion BorgName
 
             #region Gender
 
@@ -612,7 +608,7 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void RefreshFlavorText()
         {
-            if (_cfgManager.GetCVar(CCVars.FlavorText))
+            if (_allowFlavorText)
             {
                 if (_flavorText != null)
                     return;
@@ -911,8 +907,6 @@ namespace Content.Client.Lobby.UI
 
             UpdateNameEdit();
             UpdateFlavorTextEdit();
-            // #Goobstation - Borg Preferred Name
-            UpdateBorgNameEdit();
             UpdateSexControls();
             UpdateGenderControls();
             UpdateSkinColor();
@@ -1365,16 +1359,6 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
         }
 
-        // #Goobstation - Prefered Cyborg Name Stuff
-        private void SetBorgName(string newBName)
-        {
-            Profile = Profile?.WithBorgName(newBName);
-            SetDirty();
-
-            if (!IsDirty)
-                return;
-        }
-
         private void SetSex(Sex newSex)
         {
             Profile = Profile?.WithSex(newSex);
@@ -1463,12 +1447,6 @@ namespace Content.Client.Lobby.UI
         private void UpdateAgeEdit()
         {
             AgeEdit.Text = Profile?.Age.ToString() ?? "";
-        }
-
-        // #Goobstation - More Borg Name Stuff
-        private void UpdateBorgNameEdit()
-        {
-            BorgNameEdit.Text = Profile?.BorgName.ToString() ?? "";
         }
 
         /// <summary>
@@ -1786,14 +1764,6 @@ namespace Content.Client.Lobby.UI
             var name = HumanoidCharacterProfile.GetName(Profile.Species, Profile.Gender);
             SetName(name);
             UpdateNameEdit();
-        }
-        // #Goobstation - Borg Preferred Name
-        private void RandomizeBorgName()
-        {
-            if (Profile == null) return;
-            var name = HumanoidCharacterProfile.GetBorgName();
-            SetBorgName(name);
-            UpdateBorgNameEdit();
         }
 
         private async void ExportImage()

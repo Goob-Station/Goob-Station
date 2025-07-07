@@ -28,6 +28,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # No idea why it's in sci but we ball.
+# Why is this one file?
 - type: job
   id: StationAi
   name: job-name-station-ai
@@ -52,7 +53,7 @@
   playTimeTracker: JobBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 144000 # 40 hrs
+      time: 36000 # 10 hrs
   canBeAntag: false
   goobcoins: 20 #Goob content
   icon: JobIconBorg

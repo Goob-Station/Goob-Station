@@ -106,6 +106,7 @@ using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
@@ -146,7 +147,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!; // Goobstation
     [Dependency] private readonly ISerializationManager _serialization = default!; // Goobstation
     [Dependency] private readonly IComponentFactory _compFact = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
@@ -351,7 +352,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
         // Goob edit end
 
-        var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
+        var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
         polymorphedComp.Configuration = configuration;
         AddComp(child, polymorphedComp);
@@ -512,6 +513,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
         RaiseLocalEvent(child, ref ev);
 
+        // visual effect spawn
+        if (configuration.EffectProto != null)
+            SpawnAttachedTo(configuration.EffectProto, child.ToCoordinates());
+
         return child;
     }
 
@@ -615,13 +620,21 @@ public sealed partial class PolymorphSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
         RaiseLocalEvent(parent, ref ev);
 
-        if (component.Configuration.ShowPopup) // Goob edit
-        {
-            _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
+        // visual effect spawn
+        if (component.Configuration.EffectProto != null)
+            SpawnAttachedTo(component.Configuration.EffectProto, parent.ToCoordinates());
+
+        var popup = Loc.GetString("polymorph-revert-popup-generic",
                     ("parent", Identity.Entity(uid, EntityManager)),
-                    ("child", Identity.Entity(parent, EntityManager))),
-                parent);
-        }
+                    ("child", Identity.Entity(parent, EntityManager)));
+
+        if (component.Configuration.ExitPolymorphPopup != null)
+            popup = Loc.GetString(component.Configuration.ExitPolymorphPopup,
+                ("parent", Identity.Entity(uid, EntityManager)),
+                ("child", Identity.Entity(parent, EntityManager)));
+
+        if (component.Configuration.ShowPopup)
+            _popup.PopupEntity(popup, parent);
         QueueDel(uid);
 
         return parent;

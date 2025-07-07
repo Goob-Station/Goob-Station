@@ -56,9 +56,16 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BWTCK <193008538+BWTCK@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 uhbg <uhbg@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Base Alcohol
@@ -195,7 +202,6 @@
   name: reagent-name-ethanol
   parent: BaseAlcohol
   desc: reagent-desc-ethanol
-  slippery: true
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: alcohol
   color: "#b05b3c"
@@ -213,6 +219,9 @@
           shouldHave: false
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
+          shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
           shouldHave: false
         damage:
           types:
@@ -255,6 +264,9 @@
         # dwarves immune to vomiting from alcohol
         - !type:OrganType
           type: Dwarf
+          shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
           shouldHave: false
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
@@ -556,6 +568,21 @@
   metamorphicChangeColor: false
 
 - type: reagent
+  id: AlienBrainHemorrhage
+  name: reagent-name-alien-brain-hemorrhage
+  parent: BaseAlcohol
+  desc: reagent-desc-alien-brain-hemorrhage
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: alienbrainhemorrhage
+  color: "#FFFDD0"
+  metamorphicSprite:
+      sprite: Objects/Consumable/Drinks/alienbrainhemorrhage.rsi
+      state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
   id: AlliesCocktail
   name: reagent-name-allies-cocktail
   parent: BaseAlcohol
@@ -836,6 +863,21 @@
         amount: 0.2
 
 - type: reagent
+  id: Bronx
+  name: reagent-name-bronx
+  parent: BaseAlcohol
+  desc: reagent-desc-bronx
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: bronx
+  color: "#d68829"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/bronx.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
   id: CoconutRum
   name: reagent-name-coconut-rum
   parent: BaseAlcohol
@@ -882,6 +924,21 @@
         amount: 0.15
 
 - type: reagent
+  id: CrushDepth
+  name: reagent-name-crush-depth
+  parent: BaseAlcohol
+  desc: reagent-desc-crush-depth
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: crushdepth
+  color: "#0a0a33"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/crushdepth.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
   id: CubaLibre
   name: reagent-name-cuba-libre
   parent: BaseAlcohol
@@ -904,6 +961,21 @@
         reagent: Ethanol
         amount: 0.07
   fizziness: 0.2
+
+- type: reagent
+  id: DarkandStormy
+  name: reagent-name-dark-and-stormy
+  parent: BaseAlcohol
+  desc: reagent-desc-dark-and-stormy
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: darkandstormy
+  color: "#cf7f17"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/dark&stormy.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: DemonsBlood
@@ -990,6 +1062,36 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+
+- type: reagent
+  id: Eggnog
+  name: reagent-name-eggnog
+  parent: BaseAlcohol
+  desc: reagent-desc-eggnog
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: eggnog
+  color: "#e6d6bc"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/eggnogglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: ElectricShark
+  name: reagent-name-electric-shark
+  parent: BaseAlcohol
+  desc: reagent-desc-electric-shark
+  physicalDesc: reagent-physical-desc-tropical
+  flavor: electricshark
+  color: "#3097cf"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/electricshark.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: ErikaSurprise
@@ -1226,6 +1328,51 @@
         amount: 0.15
 
 - type: reagent
+  id: JackRose
+  name: reagent-name-jack-rose
+  parent: BaseAlcohol
+  desc: reagent-desc-jack-rose
+  physicalDesc: reagent-physical-desc-tart
+  flavor: jackrose
+  color: "#f53b3b"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/jackrose.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: JungleBird
+  name: reagent-name-jungle-bird
+  parent: BaseAlcohol
+  desc: reagent-desc-jungle-bird
+  physicalDesc: reagent-physical-desc-tropical
+  flavor: junglebird
+  color: "#f27c3d"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/junglebird.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: Kalimotxo
+  name: reagent-name-kalimotxo
+  parent: BaseAlcohol
+  desc: reagent-desc-kalimotxo
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: kalimotxo
+  color: "#360606"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/kalimotxo.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
   id: LongIslandIcedTea
   name: reagent-name-long-island-iced-tea
   parent: BaseAlcohol
@@ -1363,6 +1510,21 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   fizziness: 0.3
+
+- type: reagent
+  id: MonkeyBusiness
+  name: reagent-name-monkey-business
+  parent: BaseAlcohol
+  desc: reagent-desc-monkey-business
+  physicalDesc: reagent-physical-desc-tart
+  flavor: monkeybusiness
+  color: "#d6b929"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/monkeybusiness.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: Moonshine
@@ -1511,6 +1673,21 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+
+- type: reagent
+  id: Radler
+  name: reagent-name-radler
+  parent: BaseAlcohol
+  desc: reagent-desc-radler
+  physicalDesc: reagent-physical-desc-citric
+  flavor: radler
+  color: "#edff2b"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/radler.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
 
 - type: reagent
   id: Sbiten
@@ -1737,6 +1914,21 @@
   color: "#665c00"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/toxinsspecialglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: Vampiro
+  name: reagent-name-vampiro
+  parent: BaseAlcohol
+  desc: reagent-desc-vampiro
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: vampiro
+  color: "#b51b1b"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/vampiro.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -2414,6 +2606,9 @@
         - !type:OrganType # Goobstation
           type: Yowie
           shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
+          shouldHave: false
         damage:
           types:
             Poison: 2 # TODO: Figure out poison amount. Ethanol does 1, this does 2 but also metabolises almost 3 to 4 times as fast as ethanol. This would be more Liver damage when that time arrives.
@@ -2434,4 +2629,7 @@
           min: 8
         - !type:OrganType
           type: Dwarf
+          shouldHave: false
+        - !type:OrganType # Shitmed - Cybernetic Organs
+          type: Cybernetic
           shouldHave: false

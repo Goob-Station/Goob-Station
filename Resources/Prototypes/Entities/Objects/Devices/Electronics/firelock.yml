@@ -38,3 +38,8 @@
       - FirelockElectronics
     - type: StaticPrice
       price: 61
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 0
+      chemicalComposition:
+        Silicon: 20

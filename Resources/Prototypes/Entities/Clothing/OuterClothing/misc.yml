@@ -220,7 +220,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterBase, BaseMagicContraband, AllowSuitStorageClothing] # Goob edit
+  parent: [ClothingOuterBase, BaseMagicalContraband, AllowSuitStorageClothing] # Goob edit
   id: ClothingOuterWizardBase
   suffix: Wizard Clothes # Goobstation
   components:

@@ -35,7 +35,9 @@ public sealed class FrictionRemoverSystem : EntitySystem
             angular = dampening.AngularDampening;
         }
 
-        _physics.SetAngularDamping(uid, component, angular, false);
-        _physics.SetLinearDamping(uid, component, linear);
+        // TODO: fix it
+        // PhysicsSleepEvent runs on map load or something which bricks tests
+        //_physics.SetAngularDamping(uid, component, angular, false);
+        //_physics.SetLinearDamping(uid, component, linear);
     }
 }

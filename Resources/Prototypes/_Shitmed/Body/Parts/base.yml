@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 seven <160598851+Seven2280@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # body part with regular organic destruction
@@ -33,7 +34,7 @@
     tags:
     - Trash
     - Meat
-    - LingEdible 
+    - LingEdible
   - type: SolutionContainerManager
     solutions:
       food:
@@ -57,18 +58,6 @@
     damageContainer: Biological
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
