@@ -988,3 +988,4 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Blindfold
