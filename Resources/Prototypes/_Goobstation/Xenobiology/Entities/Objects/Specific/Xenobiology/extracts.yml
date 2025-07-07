@@ -91,6 +91,7 @@
       effects:
       - !type:AreaReactionEffect
         duration: 10
+        overflowThreshold: 0.5
         prototypeId: Smoke
         sound:
           path: /Audio/Effects/smoke.ogg
@@ -673,6 +674,35 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ffb3ec"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:AreaReactionEffect
+        duration: 10
+        overflowThreshold: 0.5
+        prototypeId: PAXSmoke
+        sound:
+          path: /Audio/Effects/extinguish.ogg
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: LightPinkExtractJelly
+        number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:ScrambleNearby
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity

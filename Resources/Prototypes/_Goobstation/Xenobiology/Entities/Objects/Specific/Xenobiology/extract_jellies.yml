@@ -5,14 +5,28 @@
   description:
   abstract: true
   components:
-  - type: FlavorProfile
-    flavors:
-    - tingly
   - type: Sprite
     layers:
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#828282"
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: FlavorProfile
+    flavors:
+    - tingly
+  - type: Extractable
+    grindableSolutionName: food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -180,5 +194,12 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
       state: jelly
       color: "#ffb3ec"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Cognizine
+          Quantity: 5
 
 #Tier 5
