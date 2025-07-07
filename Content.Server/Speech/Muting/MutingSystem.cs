@@ -9,6 +9,7 @@
 
 using Content.Server.Abilities.Mime;
 using Content.Server.Chat.Systems;
+using Content.Server._EinsteinEngines.Language;
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Chat.Prototypes;
@@ -20,7 +21,9 @@ namespace Content.Server.Speech.Muting
 {
     public sealed class MutingSystem : EntitySystem
     {
+        [Dependency] private readonly LanguageSystem _languages = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -41,6 +44,10 @@ namespace Content.Server.Speech.Muting
 
         private void OnScreamAction(EntityUid uid, MutedComponent component, ScreamActionEvent args)
         {
+            var language = _languages.GetLanguage(uid);
+            if (!language.SpeechOverride.RequireSpeech)
+                return; // Cannot mute if there's no speech involved
+
             if (args.Handled)
                 return;
 

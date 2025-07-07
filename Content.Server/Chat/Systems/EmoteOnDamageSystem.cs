@@ -8,6 +8,7 @@
 
 namespace Content.Server.Chat.Systems;
 
+using Content.Shared.Chat; // Einstein Engines - Language
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
