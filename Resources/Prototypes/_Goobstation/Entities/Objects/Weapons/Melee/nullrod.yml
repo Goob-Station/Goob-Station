@@ -201,6 +201,8 @@
   - type: Tool
     qualities:
     - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: Unremoveable
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -212,6 +214,11 @@
   - type: Tag
     tags:
     - GodHand
+    - Crowbar
+  - type: ToolTileCompatible
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
+  - type: Prying
 
 - type: entity
   parent: BaseNullrod
