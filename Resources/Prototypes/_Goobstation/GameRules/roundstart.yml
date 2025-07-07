@@ -74,9 +74,9 @@
     maxDifficulty: 8 # Very rare antag so they should get a lot of objectives
   - type: GameRule
     minPlayers: 30
-    delay:
-      min: 465
-      max: 665 # Delay is so the heads help their department get set up.
+    #delay:
+    #  min: 465
+    #  max: 665 # Delay is so the heads help their department get set up.
     chaosScore: 500 # It's just one to two people with less tc even if they may be command
   - type: AntagSelection
     definitions:

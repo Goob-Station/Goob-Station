@@ -11,6 +11,7 @@
     CorporateObjectiveGroupSteal: 1
     CorporateObjectiveGroupKill: 1
     CorporateObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
+    CorporateObjectiveGroupSocial: 0.5
 
 - type: weightedRandom
   id: CorporateObjectiveGroupSteal
@@ -40,8 +41,15 @@
     CorporatePermaKillRandomPersonObjective: 0.3 # Goobstation specific straight up kill someone with no maroons
     CorporatePermaKillRandomTraitorObjective: 0.8 # Goobstation Specific target traitor
     CorporateKillRandomHeadObjective: 0.8
+    CorporateHijackShuttleObjective: 0.1 # Basically their DAGD (Goodluck rolling it lmao)
 
 - type: weightedRandom
   id: CorporateObjectiveGroupState
   weights:
     CorporateEscapeShuttleObjective: 1
+
+- type: weightedRandom
+  id: CorporateObjectiveGroupSocial
+  weights:
+    RandomCorporateAliveObjective: 1
+    RandomCorporateProgressObjective: 1
