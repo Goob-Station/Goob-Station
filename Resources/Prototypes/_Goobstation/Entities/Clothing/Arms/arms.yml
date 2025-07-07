@@ -3,6 +3,7 @@
   parent: Clothing
   id: ClothingArmsBase
   name: ClothingArmsBase
+  description: Protectors for your arms, slightly reduces melee damage and move speed.
   components:
   - type: Sprite
     state: icon
@@ -30,12 +31,23 @@
       BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
+  - type: ClothingGrantComponent
+    component:
+    - type: Oni
+      modifiers:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 0.9
+          Burn: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.98
+    sprintModifier: 0.98
 
 - type: entity
   parent: [ClothingArmsBase,BaseSecurityContraband]
   id: ClothingArmsGuard
   name: Arm Guards
-  description: Protectors for your arms.
   components:
   - type: Armor
     coverage:
@@ -59,3 +71,58 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Arms/arm_guards.rsi
+
+- type: entity
+  parent: [ClothingArmsBase, BaseSecurityContraband]
+  id: ClothingArmsRiot
+  name: riot suit arms
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Arms/riot.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Arms/riot.rsi
+  - type: Armor
+    coverage:
+    - Arm
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingArmsBase, BaseSecurityContraband]
+  id: ClothingArmsBulletproof
+  name: bulletproof suit arms
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Arms/bulletproof.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Arms/bulletproof.rsi
+  - type: Armor
+    coverage:
+    - Arm
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.35
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

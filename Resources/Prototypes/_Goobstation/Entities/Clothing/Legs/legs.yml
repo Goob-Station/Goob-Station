@@ -3,6 +3,7 @@
   parent: Clothing
   id: ClothingLegsBase
   name: ClothingLegsBase
+  description: Protectors for your legs, slightly reduces movespeed.
   components:
   - type: Sprite
     state: icon
@@ -30,12 +31,14 @@
       BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
+  - type: ClothingSpeedModifier
+    walkModifier: 0.97
+    sprintModifier: 0.97
 
 - type: entity
   parent: [ClothingLegsBase,BaseSecurityContraband]
   id: ClothingLegGuard
   name: Leg Guards
-  description: Protectors for your arms.
   components:
   - type: Armor
     coverage:
@@ -59,3 +62,58 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Legs/leg_guards.rsi
+
+- type: entity
+  parent: [ClothingLegsBase, BaseSecurityContraband]
+  id: ClothingLegsRiot
+  name: riot suit legs
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/riot.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/riot.rsi
+  - type: Armor
+    coverage:
+    - Leg
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingLegsBase, BaseSecurityContraband]
+  id: ClothingLegsBulletproof
+  name: bulletproof suit legs
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/bulletproof.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/bulletproof.rsi
+  - type: Armor
+    coverage:
+    - Leg
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.35
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
