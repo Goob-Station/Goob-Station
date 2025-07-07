@@ -198,7 +198,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
-using Content.Server._RMC14.LinkAccount; // RMC - Patreon
+//using Content.Server._RMC14.LinkAccount; // RMC - Patreon // CorvaxGoob-Coins
 
 namespace Content.Server.Chat.Managers;
 
@@ -226,7 +226,7 @@ internal sealed partial class ChatManager : IChatManager
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
+    //[Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon // CorvaxGoob-Coins
 
     /// <summary>
     /// The maximum length a player-sent message can be sent
@@ -440,9 +440,11 @@ internal sealed partial class ChatManager : IChatManager
             colorOverride = prefs.AdminOOCColor;
         }
         if (  _netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) &&
-            _linkAccount.GetPatron(player)?.Tier != null) // RMC - Patreon
+              player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor)) // CorvaxGoob-Coins
+            //_linkAccount.GetPatron(player)?.Tier != null) // RMC - Patreon
         {
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", "#aa00ff"),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message))); // RMC - Patreon
+            //wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", "#aa00ff"),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message))); // RMC - Patreon // CorvaxGoob-Coins
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
         }
 
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage

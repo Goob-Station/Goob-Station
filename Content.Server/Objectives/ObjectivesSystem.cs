@@ -60,7 +60,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
+    // [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private IEnumerable<string>? _objectives;
@@ -227,8 +227,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                         completedObjectives++;
 
                          // Easiest place to give people points for completing objectives lol
-                        if(userid.HasValue)
-                            _currencyMan.AddCurrency(userid.Value, _goobcoinsPerGreentext * _goobcoinsServerMultiplier);
+                        // if(userid.HasValue)
+                            //_currencyMan.AddCurrency(userid.Value, _goobcoinsPerGreentext * _goobcoinsServerMultiplier);
                     }
                     else
                     {

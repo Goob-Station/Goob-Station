@@ -26,6 +26,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+/* CorvaxGoob-Coins-start
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._RMC14.LinkAccount;
@@ -35,3 +36,4 @@ public sealed class SharedRMCShowLobbyMessageEvent(string text) : EntityEventArg
 {
     public readonly string Text = text;
 }
+CorvaxGoob-Coins-end */

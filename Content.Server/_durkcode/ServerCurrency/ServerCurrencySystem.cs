@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+/*
 using Content.Goobstation.Common.CCVar;
 using Content.Server.GameTicking;
 using Content.Server.Popups;
@@ -131,3 +132,4 @@ namespace Content.Server._durkcode.ServerCurrency
         }
     }
 }
+*/

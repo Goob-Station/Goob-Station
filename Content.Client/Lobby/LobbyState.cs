@@ -80,8 +80,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Client._durkcode.ServerCurrency;
+/* CorvaxGoob-Coins-start
+using Content.Client._durkcode.ServerCurrency; CorvaxGoob-Coins
 using Content.Client._RMC14.LinkAccount;
+CorvaxGoob-Coins-end */
 using Content.Client.Audio;
 using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
@@ -110,8 +112,10 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
+        /* CorvaxGoob-Coins-start
         [Dependency] private readonly ServerCurrencySystem _serverCur = default!; // Goobstation - server currency
         [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
+        CorvaxGoob-Coins-end */
 
         private ISawmill _sawmill = default!; // Goobstation
         private ClientGameTicker _gameTicker = default!;
@@ -153,7 +157,7 @@ namespace Content.Client.Lobby
             UpdateLobbyUi();
 
             Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
-            Lobby.CharacterPreview.PatronPerks.OnPressed += OnPatronPerksPressed;
+            //Lobby.CharacterPreview.PatronPerks.OnPressed += OnPatronPerksPressed; CorvaxGoob-Coins
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
 
@@ -161,7 +165,7 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
 
-            _serverCur.BalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
+            // _serverCur.BalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
         }
 
         protected override void Shutdown()
@@ -172,12 +176,12 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated -= LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated -= LobbyLateJoinStatusUpdated;
             _contentAudioSystem.LobbySoundtrackChanged -= UpdateLobbySoundtrackInfo;
-            _serverCur.BalanceChange -= UpdatePlayerBalance; // Goobstation - Goob Coin
+            // _serverCur.BalanceChange -= UpdatePlayerBalance; // Goobstation - Goob Coin
 
             _voteManager.ClearPopupContainer();
 
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
-            Lobby.CharacterPreview.PatronPerks.OnPressed -= OnPatronPerksPressed;
+            //Lobby.CharacterPreview.PatronPerks.OnPressed -= OnPatronPerksPressed; CorvaxGoob-Coins
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
 
@@ -196,10 +200,12 @@ namespace Content.Client.Lobby
             Lobby?.SwitchState(LobbyGui.LobbyGuiState.CharacterSetup);
         }
 
+        /* CorvaxGoob-Coins-start
         private void OnPatronPerksPressed(BaseButton.ButtonEventArgs obj)
         {
             _userInterfaceManager.GetUIController<LinkAccountUIController>().TogglePatronPerksWindow();
         }
+        CorvaxGoob-Coins-end */
 
         private void OnReadyPressed(BaseButton.ButtonEventArgs args)
         {
@@ -272,7 +278,7 @@ namespace Content.Client.Lobby
 
         private void UpdateLobbyUi()
         {
-            Lobby!.CharacterPreview.PatronPerks.Visible = _linkAccount.CanViewPatronPerks();
+            //Lobby!.CharacterPreview.PatronPerks.Visible = _linkAccount.CanViewPatronPerks(); CorvaxGoob-Coins
 
             if (_gameTicker.IsGameStarted)
             {
@@ -296,7 +302,7 @@ namespace Content.Client.Lobby
                 Lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             }
 
-            UpdatePlayerBalance(); // Goobstation - Goob Coin
+            // UpdatePlayerBalance(); // Goobstation - Goob Coin
         }
 
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
@@ -368,10 +374,10 @@ namespace Content.Client.Lobby
 
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
         }
-
-        private void UpdatePlayerBalance() // Goobstation - Goob Coin
-        {
-            Lobby!.Balance.Text = _serverCur.Stringify(_serverCur.GetBalance());
-        }
+        
+        //private void UpdatePlayerBalance() // Goobstation - Goob Coin
+        //{
+        //    Lobby!.Balance.Text = _serverCur.Stringify(_serverCur.GetBalance());
+        //}
     }
 }

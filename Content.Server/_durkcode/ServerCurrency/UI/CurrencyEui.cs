@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+/*
 using Content.Server.Administration.Notes;
 using Content.Server.EUI;
 using Content.Shared._durkcode.ServerCurrency;
@@ -65,3 +66,4 @@ namespace Content.Server._durkcode.ServerCurrency.UI
         }
     }
 }
+*/

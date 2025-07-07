@@ -26,6 +26,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+/*
+
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
@@ -220,16 +222,19 @@ public sealed class LinkAccountManager : IPostInjectInit
 
     void IPostInjectInit.PostInject()
     {
-        _net.RegisterNetMessage<LinkAccountRequestMsg>(OnRequest);
-        _net.RegisterNetMessage<LinkAccountCodeMsg>();
-        _net.RegisterNetMessage<LinkAccountStatusMsg>();
-        _net.RegisterNetMessage<RMCPatronListMsg>();
-        _net.RegisterNetMessage<RMCClearGhostColorMsg>(OnClearGhostColor);
-        _net.RegisterNetMessage<RMCChangeGhostColorMsg>(OnChangeGhostColor);
-        _net.RegisterNetMessage<RMCChangeLobbyMessageMsg>(OnChangeLobbyMessage);
-        _net.RegisterNetMessage<RMCChangeNTShoutoutMsg>(OnChangeNTShoutout);
+        //_net.RegisterNetMessage<LinkAccountRequestMsg>(OnRequest);
+        //_net.RegisterNetMessage<LinkAccountCodeMsg>();
+        //_net.RegisterNetMessage<LinkAccountStatusMsg>();
+        //_net.RegisterNetMessage<RMCPatronListMsg>();
+        //_net.RegisterNetMessage<RMCClearGhostColorMsg>(OnClearGhostColor);
+        //_net.RegisterNetMessage<RMCChangeGhostColorMsg>(OnChangeGhostColor);
+        //_net.RegisterNetMessage<RMCChangeLobbyMessageMsg>(OnChangeLobbyMessage);
+        //_net.RegisterNetMessage<RMCChangeNTShoutoutMsg>(OnChangeNTShoutout);
         _userDb.AddOnLoadPlayer(LoadData);
         _userDb.AddOnFinishLoad(FinishLoad);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
     }
+
+    
 }
+*/

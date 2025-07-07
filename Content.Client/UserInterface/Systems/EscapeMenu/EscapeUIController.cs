@@ -55,8 +55,10 @@ using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BaseButton;
+/* CorvaxGoob-Coins-start
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;  // RMC - Patreon
 using Content.Client._RMC14.LinkAccount; // RMC - Patreon
+CorvaxGoob-Coins-end */
 
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
@@ -70,10 +72,11 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
     [Dependency] private readonly InfoUIController _info = default!;
     [Dependency] private readonly OptionsUIController _options = default!;
     [Dependency] private readonly GuidebookUIController _guidebook = default!;
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
+    //[Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon // CorvaxGoob-Coins
 
     private Options.UI.EscapeMenu? _escapeWindow;
 
+    /* CorvaxGoob-Coins-start
     private MenuButton? EscapeButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.EscapeButton; // RMC - Patreon
 
     public override void Initialize()  // RMC - Patreon
@@ -83,7 +86,9 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             if (_escapeWindow != null)
                 _escapeWindow.PatronPerksButton.Visible = _linkAccount.CanViewPatronPerks();
         };
-    }
+    } */
+    private MenuButton? EscapeButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.EscapeButton;
+    // CorvaxGoob-Coins-end
 
     public void UnloadButton()
     {
@@ -124,12 +129,14 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _changelog.ToggleWindow();
         };
 
+        /* CorvaxGoob-Coins-start
         _escapeWindow.PatronPerksButton.Visible = _linkAccount.CanViewPatronPerks(); // RMC - Patreon
         _escapeWindow.PatronPerksButton.OnPressed += _ => // RMC - Patreon
         {
             CloseEscapeWindow();
             UIManager.GetUIController<LinkAccountUIController>().TogglePatronPerksWindow();
         };
+        CorvaxGoob-Coins-end */
 
         _escapeWindow.RulesButton.OnPressed += _ =>
         {
