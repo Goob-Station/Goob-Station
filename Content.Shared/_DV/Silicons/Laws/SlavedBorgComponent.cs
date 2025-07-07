@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Silicons.Laws;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
