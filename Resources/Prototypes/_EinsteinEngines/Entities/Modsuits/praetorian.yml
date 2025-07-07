@@ -127,8 +127,8 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     - type: ClothingSpeedModifier
-      walkModifier: 0.75
-      sprintModifier: 0.75
+      walkModifier: 0.95
+      sprintModifier: 0.95
     - type: Armor
       traumaDeductions:
         Dismemberment: 0.3

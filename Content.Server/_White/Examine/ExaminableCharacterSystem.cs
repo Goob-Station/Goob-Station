@@ -73,8 +73,6 @@ public sealed class ExaminableCharacterSystem : EntitySystem
             { "belt", "belt-" },
             { "id", "id-" },
             { "shoes", "shoes-" },
-            { "shoes", "shoes-" },
-            { "shoes", "shoes-" },
             { "suitstorage", "suitstorage-" }
         };
 

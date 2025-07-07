@@ -121,7 +121,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.25
 
 # Cybersun Stealth
 
@@ -272,7 +272,6 @@
         Piercing: 0.7
         Heat: 0.8
         Radiation: 0.6
-        Caustic: 0.5
   - type: ClothingSpeedModifier
     sprintModifier: 0.85
     walkModifier: 0.85
@@ -284,7 +283,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.25
 
 # Head of Security's experimental voidsuit
 - type: entity
