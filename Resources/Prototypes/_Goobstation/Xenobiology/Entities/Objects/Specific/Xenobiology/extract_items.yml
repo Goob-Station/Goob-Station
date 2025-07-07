@@ -131,31 +131,45 @@
 # Tier 2.5
 
 - type: entity
-  name: bluespace floor tile
+  name: fitted bluespace carpet square
   parent: FloorTileItemBase
   id: FloorTileItemBluespace
   components:
   - type: Sprite
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/floors.rsi
     state: icon-bluespace
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: SpawnAfterInteract
+    prototype: FloorBluespaceEntity
+    doAfter: 0.5
+    removeOnInteract: true
   - type: FloorTile
     outputs:
     - Plating
-    - FloorBluespaceTile #This is shit, it needs to change - why can't i just make it use the FloorBluespaceEntity
   - type: Stack
     stackType: FloorTileItemBluespace
 
 - type: entity
-  name: sepia floor tile
+  name: fitted sepia carpet square
   parent: FloorTileItemBase
   id: FloorTileItemSepia
   components:
   - type: Sprite
     sprite: _Goobstation/Xenobiology/Specific/Xenobiology/floors.rsi
     state: icon-sepia
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+  - type: SpawnAfterInteract
+    prototype: FloorSepiaEntity
+    doAfter: 0.5
+    removeOnInteract: true
   - type: FloorTile
     outputs:
     - Plating
-    - FloorSepiaTile #This is shit, it needs to change - why can't i just make it use the FloorSepiaEntity
   - type: Stack
     stackType: FloorTileItemSepia

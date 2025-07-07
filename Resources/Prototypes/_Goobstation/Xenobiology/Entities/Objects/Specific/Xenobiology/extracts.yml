@@ -462,7 +462,7 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: FloorTileItemArcadeBlue #This should be "Bluespace Floor Tiles" These speed up individuals whilst walking on them
+        entity: FloorTileItemBluespace
         number: 25
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -506,7 +506,7 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: FloorTileItemArcadeRed #This should be "Sepia Floor Tiles" These slow down individuals whilst walking on them
+        entity: FloorTileItemSepia
         number: 25
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg

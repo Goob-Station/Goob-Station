@@ -1,7 +1,7 @@
 - type: entity
   id: FloorBluespaceEntity
-  name: bluespace floor
-  description: State of the art floors produced in the Nanotrasen Aperture Laboratory.
+  name: bluespace carpet
+  description: State of the art carpets produced in the Nanotrasen Aperture Laboratory.
   placement:
     mode: SnapgridCenter
   components:
@@ -17,47 +17,27 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHoverBorg
-  - type: Tag
-    tags:
-    - Catwalk
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
-  - type: Construction
-    graph: FloorBluespace
-    node: BluespaceFloor
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
+        damage: 10
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          MaterialBSCrystal1:
-            min: 0
+          FloorTileItemBluespace:
+            min: 1
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: SpeedModifierContacts
     walkSpeedModifier: 1.55
     sprintSpeedModifier: 1.55
-  - type: StepTrigger
-    requiredTriggeredSpeed: 0
-    intersectRatio: 0.1
-    triggerGroups:
-      types:
-      - Catwalk
   - type: Physics
     bodyType: Static
-  - type: CosmicCorruptible
-    convertTo: FloorCosmicDecay
   - type: Fixtures
     fixtures:
       fix1:
@@ -70,11 +50,14 @@
         - ItemMask
         density: 1000
         hard: false
+  - type: Tag
+    tags:
+    - Catwalk
 
 - type: entity
   id: FloorSepiaEntity
-  name: sepia floor
-  description: The floors feel somehow nostalgic.
+  name: sepia carpet
+  description: The carpet feel somehow nostalgic.
   placement:
     mode: SnapgridCenter
   components:
@@ -86,47 +69,30 @@
     - state: sepia
   - type: Transform
     anchored: true
-  - type: Tag
-    tags:
-    - Catwalk
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepFloor
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
-  - type: Construction
-    graph: FloorSepia
-    node: SepiaFloor
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
+        damage: 10
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetSteel1:
-            min: 0
+          FloorTileItemSepia:
+            min: 1
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.45
     sprintSpeedModifier: 0.45
-  - type: StepTrigger
-    requiredTriggeredSpeed: 0
-    intersectRatio: 0.1
-    triggerGroups:
-      types:
-      - Catwalk
   - type: Physics
     bodyType: Static
-  - type: CosmicCorruptible
-    convertTo: FloorCosmicDecay
   - type: Fixtures
     fixtures:
       fix1:
@@ -139,3 +105,10 @@
         - ItemMask
         density: 1000
         hard: false
+  - type: SpawnAfterInteract
+    prototype: FloorTileItemSepia
+    doAfter: 1
+    removeOnInteract: true
+  - type: Tag
+    tags:
+    - Catwalk
