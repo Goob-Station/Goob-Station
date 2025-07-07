@@ -5,7 +5,7 @@
   icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Special/adder.rsi, state: icon }
   productEntity: AdderBox
   cost:
-    Telecrystal: 5
+    Telecrystal: 30
   categories:
     - UplinkWeaponry
 
@@ -16,7 +16,7 @@
   icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Special/akurra.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledAkurra
   cost:
-    Telecrystal: 12
+    Telecrystal: 50
   categories:
     - UplinkWeaponry
 
@@ -26,7 +26,7 @@
   description: uplink-flamethrower-desc
   productEntity: WeaponFlamerXiuhcoatl
   cost:
-    Telecrystal: 16
+    Telecrystal: 80
   categories:
     - UplinkWeaponry
 
@@ -36,7 +36,7 @@
   description: uplink-ouroboros-desc
   productEntity: WeaponSpecialOuroboros
   cost:
-    Telecrystal: 12
+    Telecrystal: 40
   categories:
     - UplinkWeaponry
 
@@ -46,7 +46,7 @@
   description: uplink-leviathan-desc
   productEntity: WeaponLauncherBazooka
   cost:
-    Telecrystal: 20
+    Telecrystal: 120
   categories:
     - UplinkWeaponry
 
@@ -57,7 +57,7 @@
   icon: { sprite: _Pirate/Objects/Weapons/Guns/Ammunition/Magazine/Special/echioncanister.rsi, state: icon }
   productEntity: EchionCanister
   cost:
-    Telecrystal: 2
+    Telecrystal: 10
   categories:
   - UplinkAmmo
 
@@ -68,7 +68,7 @@
   icon: { sprite: _Pirate/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
   productEntity: EchionSynth
   cost:
-    Telecrystal: 5
+    Telecrystal: 40
   categories:
   - UplinkAmmo
 
@@ -79,7 +79,7 @@
   icon: { sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: explosive }
   productEntity: LeviathanExplosiveRocketBox
   cost:
-    Telecrystal: 5
+    Telecrystal: 20
   categories:
     - UplinkAmmo
 
@@ -90,7 +90,7 @@
   icon: { sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: incendiary }
   productEntity: LeviathanIncendiaryRocketBox
   cost:
-    Telecrystal: 5
+    Telecrystal: 20
   categories:
     - UplinkAmmo
 
@@ -101,7 +101,7 @@
   icon: { sprite: _Pirate/Objects/Weapons/Guns/Projectiles/bazooka.rsi, state: concussion }
   productEntity: LeviathanConcussionRocketBox
   cost:
-    Telecrystal: 5
+    Telecrystal: 10
   categories:
     - UplinkAmmo
 
@@ -111,6 +111,6 @@
   description: uplink-echioncell-desc
   productEntity: PowerCellEchion
   cost:
-    Telecrystal: 2
+    Telecrystal: 10
   categories:
     - UplinkAmmo
