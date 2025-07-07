@@ -3,13 +3,13 @@
   parent: Clothing
   id: ClothingLegsBase
   name: ClothingLegsBase
-  description: Protectors for your legs, slightly reduces movespeed.
+  description: Reduces damage and wounds to legs, slightly reduces movespeed.
   components:
   - type: Sprite
     state: icon
     sprite: _Goobstation/Clothing/Arms/arm_guards.rsi
   - type: Item
-    size: Normal
+    size: Small
   - type: Clothing
     sprite: _Goobstation/Clothing/Arms/arm_guards.rsi
     slots: [legs]
@@ -26,9 +26,9 @@
     coverage:
     - Leg
     traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
   - type: ClothingSpeedModifier
@@ -43,12 +43,6 @@
   - type: Armor
     coverage:
     - Leg
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.70
@@ -75,12 +69,6 @@
   - type: Armor
     coverage:
     - Leg
-    traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
-      VeinsDamage: 0
-      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.35
@@ -103,17 +91,32 @@
   - type: Armor
     coverage:
     - Leg
-    traumaDeductions:
-      Dismemberment: 0.1
-      OrganDamage: 0.1
-      BoneDamage: 0.1
-      VeinsDamage: 0
-      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.35
         Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingLegsBase, BaseSyndicateContraband]
+  id: ClothingLegsSyndicate
+  name: syndicate leg guards
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/syndicate.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/syndicate.rsi
+  - type: Armor
+    coverage:
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9

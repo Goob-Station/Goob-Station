@@ -3,13 +3,13 @@
   parent: Clothing
   id: ClothingArmsBase
   name: ClothingArmsBase
-  description: Protectors for your arms, slightly reduces melee damage and move speed.
+  description: Reduces damage and wounds to arms, slightly reduces melee damage and move speed.
   components:
   - type: Sprite
     state: icon
     sprite: _Goobstation/Clothing/Arms/arm_guards.rsi
   - type: Item
-    size: Normal
+    size: Small
   - type: Clothing
     sprite: _Goobstation/Clothing/Arms/arm_guards.rsi
     slots: [arms]
@@ -26,9 +26,9 @@
     coverage:
     - Arm
     traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
   - type: ClothingGrantComponent
@@ -52,12 +52,6 @@
   - type: Armor
     coverage:
     - Arm
-    traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
-      VeinsDamage: 0
-      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.70
@@ -84,12 +78,6 @@
   - type: Armor
     coverage:
     - Arm
-    traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
-      VeinsDamage: 0
-      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.35
@@ -112,17 +100,32 @@
   - type: Armor
     coverage:
     - Arm
-    traumaDeductions:
-      Dismemberment: 0.1
-      OrganDamage: 0.1
-      BoneDamage: 0.1
-      VeinsDamage: 0
-      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.35
         Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingArmsBase, BaseSyndicateContraband]
+  id: ClothingArmsSyndicate
+  name: syndicate arm guards
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Arms/syndicate.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Arms/syndicate.rsi
+  - type: Armor
+    coverage:
+    - Arm
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
