@@ -1,0 +1,61 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ClothingLegsBase
+  name: ClothingLegsBase
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _Goobstation/Clothing/Arms/arm_guards.rsi
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Arms/arm_guards.rsi
+    slots: [legs]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+      Steel: 25
+  - type: StaticPrice
+    price: 20
+  - type: Armor
+    coverage:
+    - Leg
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+
+- type: entity
+  parent: [ClothingLegsBase,BaseSecurityContraband]
+  id: ClothingLegGuard
+  name: Leg Guards
+  description: Protectors for your arms.
+  components:
+  - type: Armor
+    coverage:
+    - Leg
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/leg_guards.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/leg_guards.rsi
