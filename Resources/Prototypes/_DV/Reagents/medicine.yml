@@ -22,7 +22,7 @@
   id: UnholyWater # going to be renamed later alongside holy water
   name: reagent-name-unholy-water
   group: Toxins
-  desc: reagent-name-unholy-water
+  desc: reagent-desc-unholy-water
   physicalDesc: reagent-physical-desc-menacing
   flavor: UnholyWater
   color: "#1614143d"

@@ -37,6 +37,7 @@
         - ReagentId: BeastBlood
           Quantity: 50
   - type: SolutionRegeneration
+    solution: drink
     generated:
       reagents:
       - ReagentId: BeastBlood
