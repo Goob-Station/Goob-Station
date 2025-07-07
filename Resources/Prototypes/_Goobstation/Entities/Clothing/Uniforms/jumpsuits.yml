@@ -37,10 +37,11 @@
     - Arm
     - Hand
     - Leg
-    - Foot
     modifiers:
       coefficients:
         Blunt: 0.85
+        Slash: 0.85
+        Pierce: 0.85
         Heat: 0.85
 
 - type: entity

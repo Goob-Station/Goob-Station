@@ -134,3 +134,24 @@
         Heat: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+- type: entity
+  parent: ClothingArmsBase
+  id: ClothingArmsTemplar
+  name: templar arm guards
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Arms/templar.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Arms/templar.rsi
+  - type: Armor
+    coverage:
+    - Arm
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.1
+        Piercing: 0.65
+        Heat: 1.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

@@ -125,3 +125,24 @@
         Heat: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+- type: entity
+  parent: ClothingLegsBase
+  id: ClothingLegsTemplar
+  name: templar leg guards
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/templar.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/templar.rsi
+  - type: Armor
+    coverage:
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.1
+        Piercing: 0.65
+        Heat: 1.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

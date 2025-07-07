@@ -328,6 +328,34 @@
   - type: Insulated
   - type: Unremoveable
 
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesTemplar
+  name: templar gauntlets
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/templar.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/templar.rsi
+  - type: Armor
+    coverage:
+    - Hand
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.1
+        Piercing: 0.65
+        Heat: 1.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+    mustBeEquippedToUse: true
+    soundHit:
+      collection: MetalThud
 
 # Knuckle Dusters
 
@@ -433,3 +461,4 @@
         Blunt: 35
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+

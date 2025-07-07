@@ -11,15 +11,7 @@
       "name": "icon"
     },
     {
-      "name": "equipped-ARMS",
-      "directions": 4
-    },
-    {
-      "name": "inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "inhand-right",
+      "name": "equipped-LEGS",
       "directions": 4
     }
   ]

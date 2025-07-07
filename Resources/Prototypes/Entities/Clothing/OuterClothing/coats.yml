@@ -214,23 +214,19 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.55
-        Heat: 0.55
-        Caustic: 0.6
+        Piercing: 0.6
+        Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.7
+    damageCoefficient: 0.25
 
 - type: entity
   abstract: true
@@ -241,9 +237,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -278,9 +271,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -332,9 +322,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Slash: 0.95
@@ -362,9 +349,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -388,9 +372,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -414,9 +395,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -440,9 +418,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -466,9 +441,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Slash: 0.9
@@ -494,9 +466,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -520,9 +489,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -546,9 +512,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Caustic: 0.6
@@ -606,8 +569,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
     modifiers:
       coefficients:
         Slash: 0.6
@@ -694,19 +655,17 @@
     coverage:
     - Chest
     - Groin
-    - Tail
     modifiers:
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.4
-        Heat: 0.7
-        Caustic: 0.4
+        Piercing: 0.7
+        Heat: 0.8
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 1.5
     knockdownTimeDelta: -1.5
   - type: StaminaResistance # Goobstation
-    damageCoefficient: 0.7
+    damageCoefficient: 0.25
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -722,9 +681,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
@@ -748,9 +704,6 @@
     coverage:
     - Chest
     - Groin
-    - Tail
-    - Arm
-    - Leg
     modifiers:
       coefficients:
         Caustic: 0.65
