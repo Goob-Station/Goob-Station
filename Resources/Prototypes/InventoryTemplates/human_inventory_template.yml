@@ -142,3 +142,17 @@
       uiWindowPos: 3,0
       strippingWindowPos: 0,5
       displayName: Back
+    - name: arms
+      slotTexture: arms
+      slotFlags: ARMS
+      stripTime: 3
+      uiWindowPos: 2,3
+      strippingWindowPos: 3,3
+      displayName: Arms
+    - name: legs
+      slotTexture: legs
+      slotFlags: LEGS
+      stripTime: 3
+      uiWindowPos: 2,0
+      strippingWindowPos: 4,4
+      displayName: Legs

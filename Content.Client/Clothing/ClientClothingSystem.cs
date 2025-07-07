@@ -77,6 +77,8 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},
         {"suitstorage", "SUITSTORAGE"},
+        {"arms", "ARMS"}, //Goob
+        {"legs", "LEGS"}, //Goob
     };
 
     [Dependency] private readonly IResourceCache _cache = default!;
