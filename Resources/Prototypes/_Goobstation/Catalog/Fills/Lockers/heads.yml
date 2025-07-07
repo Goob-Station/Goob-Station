@@ -45,16 +45,13 @@
   id: LockerFillBlueshieldOfficer
   table: !type:AllSelector
     children:
-    - id: DefibrillatorCompact
     - id: ParamedHypo
     - id: MedkitBSOFilled
     - id: MedkitBSOIPCFilled
     - id: FlippoLighterBlueshield
     - id: CigPackBlueshield
-    - id: BoxZiptie
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
-    - id: OmnimedTool
     - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
 
