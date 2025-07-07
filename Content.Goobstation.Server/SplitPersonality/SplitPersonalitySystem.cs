@@ -90,8 +90,14 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
     private void OnRemove(Entity<SplitPersonalityComponent> ent, ref ComponentRemove args)
     {
+        if (!TerminatingOrDeleted(ent.Comp.OriginalMind)
+            && ent.Comp.OriginalMind is { } originalMind)
+            _mind.TransferTo(originalMind, ent);
+
         _container.CleanContainer(ent.Comp.MindsContainer);
-        ent.Comp.GhostRoleDummies.Clear();
+
+        if (ent.Comp.GhostRoleDummies.Count > 0)
+            ent.Comp.GhostRoleDummies.Clear();
 
         if (TryComp<CollectiveMindComponent>(ent, out var collective))
             collective.Channels.Remove(ent.Comp.CollectiveMind);
