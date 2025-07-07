@@ -200,6 +200,10 @@
   - type: Tool
     qualities:
     - Prying
+  - type: Prying
+    speedModifier: 3
+    pryPowered: true
+    useSound: /Audio/Items/jaws_pry.ogg
   - type: Unremoveable
   - type: Nullrod
     DamageOnUntrainedUse:
