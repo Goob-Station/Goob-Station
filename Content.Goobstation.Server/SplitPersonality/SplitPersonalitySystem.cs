@@ -90,8 +90,9 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
     private void OnRemove(Entity<SplitPersonalityComponent> ent, ref ComponentRemove args)
     {
-        if (!TerminatingOrDeleted(ent.Comp.OriginalMind)
-            && ent.Comp.OriginalMind is { } originalMind)
+        if (ent.Comp.OriginalMind is { } originalMind
+            && !TerminatingOrDeleted(ent.Comp.OriginalMind)
+            && !TerminatingOrDeleted(ent))
             _mind.TransferTo(originalMind, ent);
 
         _container.CleanContainer(ent.Comp.MindsContainer);
