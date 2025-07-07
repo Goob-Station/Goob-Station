@@ -37,10 +37,28 @@
   parentJobId: Captain
 
 - type: alternativeJob
+  id: AlternativeJobCommandOfficer
+  jobName: Офіцер командування
+  jobDescription: job-description-captain
+  parentJobId: Captain
+
+- type: alternativeJob
+  id: AlternativeJobStationDirector
+  jobName: Директор станції
+  jobDescription: job-description-captain
+  parentJobId: Captain
+
+- type: alternativeJob
   id: AlternativeJobNotarius
   jobName: Нотаріус
   jobDescription: job-description-hop
   parentJobId: HeadOfPersonnel
+
+- type: alternativeJob
+  id: AlternativeJobSherif
+  jobName: Шериф
+  jobDescription: job-description-hos
+  parentJobId: HeadOfSecurity
 
 #endregion
 
@@ -58,6 +76,12 @@
   jobDescription: job-description-engineer
   parentJobId: StationEngineer
 
+- type: alternativeJob
+  id: AlternativeJobElectrician
+  jobName: Електрик
+  jobDescription: job-description-engineer
+  parentJobId: StationEngineer
+
 #endregion
 
 #region Medical
@@ -69,15 +93,96 @@
   parentJobId: MedicalDoctor
 
 - type: alternativeJob
+  id: AlternativeJobCryoSpecialist
+  jobName: Спеціаліст з кріогеніки
+  jobDescription: job-description-medical-doctor
+  parentJobId: MedicalDoctor
+
+- type: alternativeJob
   id: AlternativeJobPharmacist
   jobName: Фармацеут
   jobDescription: job-description-chemist
   parentJobId: Chemist
 
+- type: alternativeJob
+  id: AlternativeJobCMO
+  jobName: Старший медичний офіцер
+  jobDescription: job-description-cmo
+  parentJobId: ChiefMedicalOfficer
+
 #endregion
 
+#region Science
+
 - type: alternativeJob
-  id: AlternativeJobResearchAssistant
+  id: AlternativeJobAnomalist
   jobName: Аномаліст
+  jobDescription: job-description-scientist
+  parentJobId: Scientist
+
+- type: alternativeJob
+  id: AlternativeJobXenoarcheologist
+  jobName: Ксеноархеолог
+  jobDescription: job-description-scientist
+  parentJobId: Scientist
+
+- type: alternativeJob
+  id: AlternativeJobPhoronResearcher
+  jobName: Дослідник форону
+  jobDescription: job-description-scientist
+  parentJobId: Scientist
+
+- type: alternativeJob
+  id: AlternativeJobAspirant
+  jobName: Аспірант
   jobDescription: job-description-research-assistant
   parentJobId: ResearchAssistant
+
+- type: alternativeJob
+  id: AlternativeJobLaborant
+  jobName: Лаборант
+  jobDescription: job-description-research-assistant
+  parentJobId: ResearchAssistant
+#endregion
+
+#region Security
+
+- type: alternativeJob
+  id: AlternativeJobSecurityOfficer
+  jobName: Миротворець
+  jobDescription: job-description-security-officer
+  parentJobId: SecurityOfficer
+
+- type: alternativeJob
+  id: AlternativeJobInspector
+  jobName: Інспектор
+  jobDescription: job-description-detective
+  parentJobId: Detective
+
+- type: alternativeJob
+  id: AlternativeJobForensist
+  jobName: Слідчий
+  jobDescription: job-description-detective
+  parentJobId: Detective
+
+- type: alternativeJob
+  id: AlternativeJobCorpsman
+  jobName: Санітар
+  jobDescription: job-description-brigmedic
+  parentJobId: Brigmedic
+#endregion
+
+#region Other
+
+- type: alternativeJob
+  id: AlternativeJobPsychotherapist
+  jobName: Психотерапевт
+  jobDescription: job-description-psychologist
+  parentJobId: Psychologist
+
+- type: alternativeJob
+  id: AlternativeJobCorispondent
+  jobName: Кориспондент
+  jobDescription: job-description-reporter
+  parentJobId: Reporter
+#endregion

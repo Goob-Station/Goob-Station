@@ -34,6 +34,8 @@ public sealed class AlternativeJobSystem : EntitySystem
         // Get alternative job proto based on player preferences and job
         if (!TryGetAlternativeJob(args.JobId, args.Profile, out var alternativeJobPrototype)) return;
         if (TryComp<PresetIdCardComponent>(idCard, out var presetIdCardComp)) { presetIdCardComp.JobName = alternativeJobPrototype.LocalizedJobName; }
+        _idCardSystem.TryChangeJobTitle(idCard, alternativeJobPrototype.LocalizedJobName, idCardComp);
+        idCardComp.LocalizedJobTitle = alternativeJobPrototype.LocalizedJobName;
         // Change job title on id card
 
         Dirty(idCard, idCardComp);
