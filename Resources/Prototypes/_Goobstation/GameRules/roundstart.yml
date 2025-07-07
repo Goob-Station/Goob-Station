@@ -68,6 +68,10 @@
   components:
   - type: TraitorRule
     objectiveIssuers: CorporateFlavor
+  - type: AntagRandomObjectives
+    sets:
+    - groups: CorporateObjectiveGroups
+    maxDifficulty: 7 # Very rare antag so they should get a lot of objectives
   - type: GameRule
     minPlayers: 0 # change later
     #delay:
@@ -80,7 +84,7 @@
     definitions:
     - prefRoles: [ Traitor ]
       max: 2
-      playerRatio: 20
+      playerRatio: 25
       jobBlacklist: [ NanotrasenRepresentative ]
       whitelist:
         components:
