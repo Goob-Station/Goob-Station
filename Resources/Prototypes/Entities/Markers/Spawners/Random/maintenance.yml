@@ -313,6 +313,8 @@
       - id: RubberStampGreytide
       - id: ClothingShoesWizardSkates #GoobStation - Wizard Skates
       - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation - Lollypops!
+      - id: MysteryLighterBox
+      - id: GoldenPersonalAI
 
 - type: entity
   name: Maint Loot Spawner
