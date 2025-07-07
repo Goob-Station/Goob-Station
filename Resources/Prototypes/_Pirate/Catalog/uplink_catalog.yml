@@ -4,9 +4,6 @@
   description: uplink-adder-desc
   icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Special/adder.rsi, state: icon }
   productEntity: AdderBox
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
     Telecrystal: 5
   categories:
@@ -18,9 +15,6 @@
   description: uplink-akurra-desc
   icon: { sprite: /Textures/_Pirate/Objects/Weapons/Guns/Special/akurra.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledAkurra
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 8
   cost:
     Telecrystal: 12
   categories:
@@ -31,9 +25,6 @@
   name: uplink-flamethrower-name
   description: uplink-flamethrower-desc
   productEntity: WeaponFlamerXiuhcoatl
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 14
   cost:
     Telecrystal: 16
   categories:
@@ -44,9 +35,6 @@
   name: uplink-ouroboros-name
   description: uplink-ouroboros-desc
   productEntity: WeaponSpecialOuroboros
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
   cost:
     Telecrystal: 12
   categories:
@@ -57,9 +45,6 @@
   name: uplink-leviathan-name
   description: uplink-leviathan-desc
   productEntity: WeaponLauncherBazooka
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 17
   cost:
     Telecrystal: 20
   categories:

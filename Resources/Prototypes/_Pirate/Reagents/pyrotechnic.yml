@@ -6,10 +6,9 @@
   physicalDesc: reagent-physical-desc-ionizing
   slipData:
     requiredSlipSpeed: 3.5
-  flavor: radiation
+  flavor: terrible
   flavorMinimum: 0.01
   color: "#83db2b"
-  contraband: Major
   recognizable: true
   boilingPoint: -127.3
   meltingPoint: -186.4
