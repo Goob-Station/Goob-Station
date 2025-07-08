@@ -31,7 +31,7 @@
           Quantity: 1000
 
 - type: entity
-  id: PuddleCrimsonrot
+  id: PuddleCrimsonRot
   parent: PuddleTemporary
   suffix: CrimsonRot
   components:
