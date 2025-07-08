@@ -122,6 +122,23 @@
             - tool: Prying
               doAfter: 2
 
+    - node: machineLocked
+      entity: !type:BoardNodeEntity { container: machine_board }
+      edges:
+        - to: machineFrame
+          completed:
+            - !type:RaiseEvent
+              event: !type:MachineDeconstructedEvent
+              broadcast: false
+          conditions:
+            - !type:EntityAnchored
+            - !type:WirePanel
+            - !type:Locked
+              locked: false
+          steps:
+            - tool: Prying
+              doAfter: 2 
+
     - node: destroyedMachineFrame
       entity: MachineFrameDestroyed
       edges:

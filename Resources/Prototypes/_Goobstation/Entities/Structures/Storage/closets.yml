@@ -102,6 +102,12 @@
         enum.OpenableVisuals.Layer:
           True: { state: glass-up }
           False: { state: glass }
+  - type: Construction
+    graph: Machine
+    node: machineLocked
+    containers:
+    - machine_parts
+    - machine_board
 
 - type: entity
   id: SuitStorageHEVFilled
