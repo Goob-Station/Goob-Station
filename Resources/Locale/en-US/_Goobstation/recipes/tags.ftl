@@ -14,6 +14,7 @@ construction-graph-tag-templar-helmet = templar helmet
 construction-graph-tag-budget-insuls = budget insuls
 construction-graph-tag-nun-hood = nun hood
 construction-graph-tag-toolbox = toolbox
+construction-graph-tag-ianhide = corgi hide
 construction-graph-tag-contraband-detector-circuitboard = contraband detector circuitboard
 construction-graph-tag-clarke-central-control-module = clarke central control module
 construction-graph-tag-clarke-peripherals-control-module = clarke peripherals control module

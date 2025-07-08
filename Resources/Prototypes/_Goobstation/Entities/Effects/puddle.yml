@@ -17,3 +17,28 @@
         - ReagentId: SpaceLube
           Quantity: 30
 
+- type: entity
+  id: PuddleBlood
+  parent: PuddleTemporary
+  suffix: Blood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 1000
+
+- type: entity
+  id: PuddleCrimsonrot
+  parent: PuddleTemporary
+  suffix: CrimsonRot
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: TheCrimsonRot
+          Quantity: 30

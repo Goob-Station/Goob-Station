@@ -1,0 +1,132 @@
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: TheMarkOfTheDamned
+  name: Mark of the Damned
+  description: Your eyes begin to rot as you behold the forsaken amulet. The souls of the lives it has reaped flicker in and out of your vision and they whisper. You listen. They tell you of the beginnings of mankind, the early days, the struggle. They tell you of the great hunts to fell beasts gargantuan for a slim shot at food for tomorrow. They tell you of the struggle of generation. You see giant monuments, the collessium, the pyramids. Thousands of works of art and thousands of structures flash before you. You see great wars, fought between greater nation. The blood of thousands spilled upon the green grass and the flowing riven. You see mankind's climb into the future, beginning with the printing press, and ending with rockets. Somewhere along this journey you see it. The amulet. Humanity brought this curse upon themself long ago. They caused this when they left their caves and dared to hope for something more. When they began to kill their gods. It was in doing this that humanity unleashed the beast. They created the condistions that allowed the creation of the one who forged this. They did this to you. To us all. A terrible feeling befalls you. The weight of one hundred worlds and one hundred gods. They watch you, their heavy gaze nearly crumbling you. But deep down you know the truth. You know that your choices have brought you here to withness the amulet. You brought this upon yourself. The hundred gods now stare with ire, but also pity. They know what you need to do, and so do you. It is now your turn to bear the curse.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/The_Mark_of_the_Beast/ContainmentChamber.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/The_Mark_of_the_Beast/ContainmentChamber.rsi
+  - type: SelfUnremovableClothing
+  - type: MadnessMask
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: Tag
+    tags:
+    - Mask
+    - WhitelistChameleon
+  - type: IdentityBlocker
+  - type: UnholyItem
+  - type: ClothingAutoInject
+    reagents:
+      Debughealium: 1
+      Amatoxin: 10
+      Licoxide: 10
+    autoInjectInterval: 1
+  - type: ClothingGrantComponent
+    component:
+    - type: DamageOverTime
+      damage:
+        types:
+          Slash: -50
+          Blunt: -50
+          Piercing: -50
+          Heat: -50
+          Cold: -50
+          Genetic: -50
+          Poison: -1
+          Asphyxiation: -5
+      interval: 1.0
+      ignoreResistances: true
+    - type: Tendril
+      maxSpawns: 3
+      mobsToDefeat: 999999
+      spawnDelay: 1
+      spawns:
+      - MobLivingCurse
+    - type: SupermatterImmune
+    - type: EventHorizonIgnore
+      horizonWhitelist:
+        tags:
+        - Tesla
+    - type: SpawnSolutionOnDamage
+      solution: PuddleCrimsonRot
+      threshold: 0.1
+    - type: AmbientSound
+      volume: -10
+      range: 5
+      sound:
+        path: /Audio/_Goobstation/Misc/damned.ogg
+    - type: GasMiner
+      spawnGas: Ammonia
+      maxExternalPressure: 2000
+      spawnAmount: 2000
+    - type: Anchorable
+    - type: EggLayer
+      eggSpawn:
+      - id: MobCockroach
+      hungerUsage: 1
+      eggLayAction: MouseMultiply
+      hungerRequired: false
+    - type: DodgeWideswing
+      staminaRatio: 1
+    - type: Skinnable # Goobstation - Fuck pun-pun
+    - type: Clumsy
+      gunShootFailDamage:
+        types:
+          Blunt: 5
+          Piercing: 4
+        groups:
+          Burn: 3
+      clumsySound:
+        path: /Audio/Animals/monkey_scream.ogg
+    - type: VendingMachine
+      pack: BoozeOMatInventory
+      offState: off
+      brokenState: broken
+      normalState: normal-unshaded
+      denyState: deny-unshaded
+      loopDeny: false
+    - type: Advertise
+      pack: BoozeOMatAds
+    - type: SpeakOnUIClosed
+      pack: BoozeOMatGoodbyes
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+      hair: HairBald
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        10: 1.2
+        20: 1.5
+        30: 0.2
+        40: 3
+        50: 17
+        60: 2
+        70: 0.2
+        80: 0.117
+        90: 1
+    - type: SolutionRegeneration
+      solution: chemicals
+      generated:
+        reagents:
+        - ReagentId: Ipecac
+          Quantity: 0.5
+        - ReagentId: ChloralHydrate
+          Quantity: 0.5
+        - ReagentId: Fentanyl
+          Quantity: 0.05
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 1
+      OrganDamage: 0
+      BoneDamage: 0
+      VeinsDamage: 0
+      NerveDamage: 0
+    coverage:
+    - Chest
+    - Head
+  - type: AddAccentClothing
+    accent: DementiaAccent
+

@@ -45,6 +45,21 @@
           min: 25
 
 - type: reagent
+  id: TheCrimsonRot
+  name: reagent-name-carbon
+  group: Toxins
+  desc: reagent-desc-carbon
+  physicalDesc: reagent-physical-desc-buzzy
+  flavor: bee
+  color: "#ff0000"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: MobCockroach
+    usage: 10
+    maxOnTile: 2
+    randomOffsetMax: 0.3
+
+- type: reagent
   id: BingleJuice
   name: reagent-name-binglejuice
   group: Toxins

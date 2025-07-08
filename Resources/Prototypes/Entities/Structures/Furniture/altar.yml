@@ -427,3 +427,37 @@
     rodProto: HonkmotherMaw # Shitchap
     effectProto: EffectSpark
     soundPath: /Audio/Items/bikehorn.ogg
+
+- type: entity #goob
+  id: CrackedAltar
+  parent: AltarBase
+  name: broken altar of the bleeding god
+  description: You should turn back.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
+    state: crackedbleeding
+  - type: Construction
+    graph: AltarsGraph
+    node: CrackedAltarNode
+  - type: AltarSource
+    rodProto: TheMarkOfTheDamned
+    effectProto: EffectSpark
+    soundPath: /Audio/_Goobstation/Heretic/hiss/lowHiss3.ogg
+  - type: AmbientSound
+    volume: -15
+    range: 15
+    sound:
+      path: /Audio/_Goobstation/Misc/DramaticHeartbeatSoundEffect.ogg
+  - type: SpawnSolutionOnDamage
+    solution: PuddleBlood
+    threshold: 0.1
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Tendril
+    maxSpawns: 5
+    mobsToDefeat: 999999
+    spawnDelay: 1
+    spawns:
+    - MobLivingCurse
