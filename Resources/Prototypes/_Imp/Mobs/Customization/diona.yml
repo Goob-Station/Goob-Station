@@ -87,15 +87,6 @@
   shader: unshaded
 
 - type: marking
-  id: DionaPollenDust
-  bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [ Diona ]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Diona/head.rsi
-    state: pollendust
-
-- type: marking
   id: JackHead
   bodyPart: Head
   markingCategory: HeadSide
