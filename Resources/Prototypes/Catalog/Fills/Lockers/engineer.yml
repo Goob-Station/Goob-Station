@@ -201,7 +201,6 @@
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RCDAmmo
-      - id: WeaponNailgun # Goobstation
       - id: MetalFoamGrenade
 
 - type: entity
@@ -216,7 +215,6 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
-      - id: WeaponNailgun # Goobstation
       - id: MetalFoamGrenade
 
 - type: entity
