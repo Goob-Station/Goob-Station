@@ -30,6 +30,7 @@
 
 - type: entity
   id: RadiationCollector
+  parent: ConstructibleMachine # Goobstation
   name: radiation collector
   suffix: Empty tank
   description: A machine that collects radiation and turns it into power. Requires plasma gas to function.
@@ -104,6 +105,8 @@
   - type: ContainerContainer
     containers:
       gas_tank: !type:ContainerSlot {}
+      machine_board: !type:Container # Goobstation
+      machine_parts: !type:Container # Goobstation
   - type: ItemSlots
     slots:
       gas_tank:
@@ -125,6 +128,10 @@
       - RadFull
   - type: UseDelay
     delay: 1
+  - type: LightningTarget # Goobstation
+    lightningExplode: false # Goobstation
+  - type: Machine # Goobstation
+    board: RadiationCollectorCircuitboard # Goobstation
 
 - type: entity
   id: RadiationCollectorNoTank

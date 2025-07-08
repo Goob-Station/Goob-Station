@@ -11,6 +11,7 @@
 
 - type: entity
   id: TeslaCoil
+  parent: ConstructibleMachine # Goobstation
   name: tesla coil
   description: A machine that converts lightning strikes into an electric current.
   placement:
@@ -112,6 +113,8 @@
               SheetSteel1:
                 min: 2
                 max: 4
+  - type: Machine # Goobstation
+    board: TeslaCoilCircuitboard # Goobstation
   - type: GuideHelp
     guides:
     - TeslaEngine
