@@ -152,3 +152,27 @@
         - MachineLayer
   - type: StaticPrice
     price: 5000
+
+- type: entity
+  parent: CrateSyndicate
+  id: CrateSyndicateStarterKit
+  suffix: Filled
+  name: basic operative bundle
+  description: "Contains everything an operative needs to wreak havoc."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponSubMachineGunC20r
+      - id: MagazinePistolSubMachineGun
+        amount: 5
+      - id: SyndicateJawsOfLife
+      - id: C4
+        amount: 2
+      - id: MedkitCombatFilled
+      - id: EmpImplanter
+      - id: ClothingShoesChameleonNoSlips
+      - id: ClothingOuterHardsuitSyndie
+      - id: ScramImplanter
+      - id: EnergySword
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled

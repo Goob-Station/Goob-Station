@@ -1440,3 +1440,22 @@
     Telecrystal: 3
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkStarterKit
+  name: uplink-starter-kit-name
+  description: uplink-starter-kit-desc
+  productEntity: CrateSyndicateStarterKit
+  cost:
+    Telecrystal: 225
+  categories:
+  - UplinkWeaponry # Usually the first tab new players look at
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+        - NukeOpsUplink
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+        - SurplusBundle
