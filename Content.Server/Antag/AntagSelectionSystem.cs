@@ -155,7 +155,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     // arbitrary random number to give late joining some mild interest.
-    public const float LateJoinRandomChance = 0.5f;
+    public const float LateJoinRandomChance = 0.65f; // Johnstation edit
 
     /// <inheritdoc/>
     public override void Initialize()
