@@ -84,3 +84,19 @@
     sprite: _Goobstation/Structures/Machines/interactor.rsi
     state: icon
   result: InteractorCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon:
+    sprite:  Structures/Power/Generation/Tesla/coil.rsi,
+    state: coil
+  id: TeslaCoilCircuitboard
+  result: TeslaCoilCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon:
+    sprite:  Structures/Power/Generation/Singularity/collector.rsi
+    state: ca_on
+  id: RadiationCollectorCircuitboard
+  result: RadiationCollectorCircuitboard

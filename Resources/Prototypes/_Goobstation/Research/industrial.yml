@@ -45,3 +45,19 @@
   technologyPrerequisites:
   - Ripley2
   position: -1,-7
+
+- type: technology
+  id: AdvancedPowerGeneration
+  name: research-technology-advanced-power-generation
+  icon:
+    sprite: Structures/Power/Generation/Tesla/coil.rsi
+    state: coil
+  discipline: Industrial
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - TeslaCoilCircuitboard
+  - RadiationCollectorCircuitboard
+  position: 1,-2
+  technologyPrerequisites:
+  - PowerGeneration
