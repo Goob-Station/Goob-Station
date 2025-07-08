@@ -189,3 +189,17 @@
       dependsOnComponents:
       - type: AllowSuitStorage
       displayName: Suit Storage
+    - name: arms #GOOB
+      slotTexture: arms
+      slotFlags: ARMS
+      stripTime: 3
+      uiWindowPos: 2,3
+      strippingWindowPos: 2,-1
+      displayName: Arms
+    - name: legs #GOOB
+      slotTexture: legs
+      slotFlags: LEGS
+      stripTime: 3
+      uiWindowPos: 2,0
+      strippingWindowPos: 2,1
+      displayName: Legs
