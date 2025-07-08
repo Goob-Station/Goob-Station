@@ -28,6 +28,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Access.Systems;
 using Content.Server.Forensics;
+using Content.Shared._Shitcode._Pirate.AlternativeJobs; // Pirate - Alternative Jobs
 using Content.Shared.Access.Components;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
@@ -68,7 +69,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IdCardSystem _idCard = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly 
+    [Dependency] private readonly IAlternativeJobSystem _altJobSystem = default!; // Pirate - Alternative Jobs
 
     public override void Initialize()
     {
@@ -178,13 +179,14 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             SetIdKey(idUid, new StationRecordKey(id, station));
             return;
         }
+        _altJobSystem.TryGetAlternativeJob(jobId, profile, out var alternativeJobPrototype); // Pirate - Alternative Jobs
 
         var record = new GeneralStationRecord()
         {
             Name = name,
             Age = age,
-            JobTitle = jobPrototype.LocalizedName,
-            JobIcon = jobPrototype.Icon,
+            JobTitle = alternativeJobPrototype?.LocalizedJobName ?? jobPrototype.LocalizedName, // Pirate - Alternative Jobs
+            JobIcon = alternativeJobPrototype?.JobIconProtoId ?? jobPrototype.Icon, // Pirate - Alternative Jobs
             JobPrototype = jobId,
             Species = species,
             Gender = gender,

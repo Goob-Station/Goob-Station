@@ -1,6 +1,7 @@
 using Content.Pirate.Common.AlternativeJobs;
 using Content.Server.Access.Components;
 using Content.Server.CrewManifest;
+using Content.Shared._Shitcode._Pirate.AlternativeJobs;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.GameTicking;
@@ -10,7 +11,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Pirate.Server.AlternativeJobs;
 
-public sealed class AlternativeJobSystem : EntitySystem
+public sealed class AlternativeJobSystem : EntitySystem, IAlternativeJobSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
