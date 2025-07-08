@@ -798,8 +798,8 @@
       Glass: 62
       Plasma: 25
       Silver: 12
-  - type: CombatDoAfter # Goobstation
-    delay: 3 # Longer than a regular syringe
+  #- type: CombatDoAfter # Goobstation
+  #  delay: 3 # Longer than a regular syringe
 
 - type: entity
   id: SyringeCryostasis
