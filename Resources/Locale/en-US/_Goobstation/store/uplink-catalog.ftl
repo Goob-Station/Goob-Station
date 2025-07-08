@@ -98,7 +98,7 @@ uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
 uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
 
 uplink-WSPR-name = WSPR
-uplink-WSPR-desc = This rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets, which do more damage to flesh but are fair worse against armor.
+uplink-WSPR-desc = This rifle operates silently and uses 9.5mm caseless magnum hollow-point bullets, which are more effective against flesh but less effective against armor.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
