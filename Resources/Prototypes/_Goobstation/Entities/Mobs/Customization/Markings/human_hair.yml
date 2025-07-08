@@ -97,6 +97,14 @@
       state: jinx
 
 - type: marking
+  id: HumanHairPoofed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+    state: poofed
+
+- type: marking
   id: HumanHairJellyfish
   bodyPart: Hair
   markingCategory: Hair
