@@ -50,7 +50,7 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 4
+      max: 6 # more changeling
       playerRatio: 12
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       lateJoinAdditional: true
@@ -71,7 +71,7 @@
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
-      max: 3
+      max: 5 # more traitors
       playerRatio: 15
       blacklist:
         components:
@@ -96,7 +96,7 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 2
+      max: 4 # more lings
       playerRatio: 15
       lateJoinAdditional: true
       mindRoles:
@@ -259,7 +259,7 @@
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
-    maxCarrierBlob: 1
+    maxCarrierBlob: 2 # more blobs = more chances that blob win
 
 - type: entity
   parent: BaseNukeopsRule
@@ -352,7 +352,7 @@
     agentName: devil-roundend-name
     definitions:
     - prefRoles: [ Devil ]
-      max: 1
+      max: 3 # one devil? what? why? more!
       playerRatio: 20
       jobBlacklist: [ Chaplain, Mime ] # Chaplain is obvious. Mime can't write.
       mindRoles:
