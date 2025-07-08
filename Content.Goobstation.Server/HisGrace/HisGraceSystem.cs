@@ -158,8 +158,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         if (!TryComp<MeleeWeaponComponent>(hisGrace, out var melee))
             return;
 
-        // 5 blunt per entity consumed
-        hisGrace.Comp.CurrentDamageIncrease.DamageDict["Blunt"] = hisGrace.Comp.EntitiesAbsorbed * 5;
+        // 5 blunt per entity consumed > now 1.4, it was scaling too fast and trivialized ascending
+        hisGrace.Comp.CurrentDamageIncrease.DamageDict["Blunt"] = hisGrace.Comp.EntitiesAbsorbed * 1.4;
         melee.Damage = hisGrace.Comp.BaseDamage + hisGrace.Comp.CurrentDamageIncrease;
 
         Dirty(hisGrace, melee);

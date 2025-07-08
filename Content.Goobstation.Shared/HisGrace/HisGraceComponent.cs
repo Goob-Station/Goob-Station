@@ -79,7 +79,7 @@ public sealed partial class HisGraceComponent : Component
     /// The hungrier, the faster.
     /// </summary>
     [DataField]
-    public float SpeedAddition = 0.2f;
+    public float SpeedAddition = 0.05f;
 
     /// <summary>
     /// How much the speed addition will be multiplied for each subsequent level?

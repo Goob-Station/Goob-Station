@@ -14,8 +14,8 @@
     tickDelay: 3
     healing:
       groups:
-        Brute: -16
-        Burn: -16
+        Brute: -10
+        Burn: -10
         Airloss: -10
         Toxin: -10
     damageOnFail:
