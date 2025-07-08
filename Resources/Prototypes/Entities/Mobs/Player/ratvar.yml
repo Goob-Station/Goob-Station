@@ -105,8 +105,8 @@
 - type: entity
   abstract: true
   id: MobRatvarBase #can't have the clockwork justiciar be associated with his (im)mortal enemy
-  name: "Ратваре"
-  description: "Ваш розум болить, бо не може зрозуміти складну механіку того, що перед вами."
+  name: Ratvar
+  description: Your mind aches as it fails to understand the complex mechanics of what is before you.
   components:
   - type: Sprite
     sprite: Mobs/Demons/ratvar.rsi

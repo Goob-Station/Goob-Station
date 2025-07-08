@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "гранатомет GL-06"
+  name: GL-06 riot grenade launcher
   parent: [WeaponFlareGun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLauncherNonLethal
-  description: "По суті, збільшений сигнальний пістолет, що приймає 40-мм снаряди; механічні запобіжники запобігають завантаженню та стрільбі летальними гранатами."
+  description: Essentially a scaled up flare gun that takes 40mm shells; mechanical safety features prevent the loading and firing of lethal grenades.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/riotlauncher.rsi
@@ -35,10 +35,10 @@
             - NonLethalGrenade
 
 - type: entity
-  name: "M172 LAW"
+  name: M172 LAW
   parent: [ BaseWeaponLauncher, BaseMajorContraband, BaseGunWieldable] # Major contra because it isn't manufactured by the syndicate; NT would use this
   id: WeaponLauncherRocketDisposable
-  description: "Однозарядна 84-мм одноразова легка протиструктурна зброя для точного знищення конструкцій з незначними побічними збитками. може бути складена для зручного зберігання. НЕ НАМАГАЙТЕСЯ ВИЙНЯТИ РАКЕТУ З ТРУБИ."
+  description: A single shot 84mm disposable Light Anti-structure Weapon for precisely taking out structures with little collateral damage. can be folded in order to be conveniantly stored. DO NOT ATTEMPT TO REMOVE ROCKET FROM TUBE.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi
@@ -76,10 +76,10 @@
     delay: 1.5
 
 - type: entity
-  name: "РПО-А 'Шмєль'"
+  name: RPO-A 'Shmel'
   parent: [ BaseWeaponLauncher, BaseMajorContraband, BaseGunWieldable] # Same as above
   id: WeaponLauncherRocketDisposableThermobaric
-  description: "Однозарядна 93-мм одноразова протипіхотна термобарична ракетна установка, що виробником вважається вогнеметом. може бути складена для зручного зберігання."
+  description: A single shot 93mm disposable anti-personnel thermobaric rocket launcher, considered a flamethrower by the manufacturer. can be folded in order to be conveniantly stored.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi

@@ -22,8 +22,8 @@
 - type: entity
   id: MachineArtifactAnalyzer
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
-  name: "аналізатор артефактів"
-  description: "Платформа, здатна виконувати аналіз різних типів артефактів."
+  name: artifact analyzer
+  description: A platform capable of performing analysis on various types of artifacts.
   components:
   - type: Sprite
     noRot: true
@@ -104,8 +104,8 @@
 - type: entity
   id: MachineArtifactCrusher
   parent: [ ConstructibleMachine, BaseMachinePowered ]
-  name: "дробарка для артефактів"
-  description: "Краще не дозволяти пальцям застрявати..."
+  name: artifact crusher
+  description: Best not to let your fingers get stuck...
   components:
   - type: ArtifactCrusher
     crushingWhitelist:

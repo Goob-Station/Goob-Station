@@ -10,8 +10,8 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterArmorHoSExperimental
-  name: "експериментальний броньований тренч голови служби безпеки"
-  description: "Пальто, посилене експериментальним сплавом за допомогою синьопросторових технологій для додаткового захисту та стилю для тих, хто має владну присутність."
+  name: head of security's experimental armored trenchcoat
+  description: A greatcoat enhanced with an experimental bluespace assisted alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/hos_experimental_jacket.rsi
@@ -21,8 +21,8 @@
 - type: entity
   parent: ClothingOuterBaseToggleable
   id: ClothingOuterCoatZeusJacket
-  name: "куртка Зевса"
-  description: "Викликає бажання кинути найближчого пішохода в летячий вертоліт."
+  name: zeus jacket
+  description: Gives you an urge to hurl the nearest pedestrian at a flying helicopter.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Misc/mercer_jacket.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterDavidsJacket
-  name: "куртка фельдшера"
-  description: "Яскраво-жовта сигнальна куртка, улюблена парамедиками кінця 21 століття."
+  name: EMT jacket
+  description: A bright yellow signal jacket, beloved by paramedics of the end of the 21st century.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
@@ -48,8 +48,8 @@
 - type: entity
   parent: [ClothingOuterDavidsJacket, BaseMajorContraband]
   id: ClothingOuterDavidsJacketValid
-  name: "куртка бігуна по лезу"
-  description: "Ти на межі. Покажи їм, що ти впораєшся."
+  name: edgerunner jacket
+  description: You're right on the edge. Show 'em you got this.
   components:
   - type: Clothing
     clothingVisuals:

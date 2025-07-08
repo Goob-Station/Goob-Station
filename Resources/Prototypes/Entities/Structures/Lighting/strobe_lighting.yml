@@ -76,8 +76,8 @@
 
 - type: entity
   id: AlwaysPoweredStrobeLight
-  name: "стробоскоп"
-  description: "А?! Вибач, все що я чую, це УУУУУУУУУУУУУУУ!"
+  name: strobe
+  description: "UH?! Sorry, all I can hear is WEE-OOO-WEE-OOO!"
   suffix: Always powered
   components:
   - type: AmbientSound
@@ -156,8 +156,8 @@
     - Wallmount
 
 - type: entity
-  name: "стробоскоп"
-  description: "А?! Вибач, все що я чую, це УУУУУУУУУУУУУУУ!"
+  name: strobe
+  description: "UH?! Sorry, all I can hear is WEE-OOO-WEE-OOO!"
   id: PoweredStrobeLightEmpty
   suffix: Empty
   parent: AlwaysPoweredStrobeLight

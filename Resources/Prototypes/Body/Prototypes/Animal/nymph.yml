@@ -10,7 +10,7 @@
 
 - type: body
   id: AnimalNymphBrain
-  name: "німфа"
+  name: "nymph"
   root: chest
   slots:
     chest:
@@ -38,7 +38,7 @@
 
 - type: body
   id: AnimalNymphLungs
-  name: "німфа"
+  name: "nymph"
   root: chest
   slots:
     chest:
@@ -65,7 +65,7 @@
 
 - type: body
   id: AnimalNymphStomach
-  name: "німфа"
+  name: "nymph"
   root: chest
   slots:
     chest:

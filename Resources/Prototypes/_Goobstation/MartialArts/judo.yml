@@ -23,7 +23,7 @@
 
 - type: combo
   id: JudoThrow
-  name: "Кидок дзюдо"
+  name: Judo Throw
   martialArtsForm: CorporateJudo
   attacks:
   - Grab
@@ -34,7 +34,7 @@
 
 - type: combo
   id: JudoArmbar
-  name: "Залом руки"
+  name: Armbar
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm
@@ -45,7 +45,7 @@
 
 - type: combo
   id: JudoEyepoke
-  name: "Виколювання очей"
+  name: Eyepoke
   martialArtsForm: CorporateJudo
   attacks:
   - Disarm

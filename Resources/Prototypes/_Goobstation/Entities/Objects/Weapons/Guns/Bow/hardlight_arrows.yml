@@ -63,8 +63,8 @@
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
   id: ArrowEnergy
-  name: "енергетична стріла"
-  description: "Стріла, зроблена з жорсткого світла."
+  name: energy arrow
+  description: An arrow made from hardlight.
   components:
   - type: Sprite
     color: "#FFB200"
@@ -74,8 +74,8 @@
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
   id: ArrowDisabler
-  name: "стрілка вимикача"
-  description: "Стріла, зроблена з твердого світла. Ця стріла не смертельно оглушує жертву."
+  name: disabler arrow
+  description: An arrow made from hardlight. This one stuns the victim in a non-lethal way.
   components:
   - type: Sprite
     color: "#00B2FF"
@@ -91,8 +91,8 @@
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
   id: ArrowFiery
-  name: "вогняна стріла"
-  description: "Стріла, зроблена з твердого світла. Ця обпікає жертву."
+  name: fiery arrow
+  description: An arrow made from hardlight. This one burns the victim.
   components:
   - type: Sprite
     color: red
@@ -108,8 +108,8 @@
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
   id: ArrowFreeze
-  name: "стрілка заморожування"
-  description: "Стріла, зроблена з твердого світла. Вона заморожує жертву."
+  name: freezing arrow
+  description: An arrow made from hardlight. This one freezes the victim.
   components:
   - type: Sprite
     color: blue
@@ -125,8 +125,8 @@
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
   id: ArrowExplosive
-  name: "вибухова стріла"
-  description: "Стріла, зроблена з твердого світла. Ця вибухає при влучанні, але енергія швидко розсіюється, вона не полетить дуже далеко."
+  name: explosive arrow
+  description: An arrow made from hardlight. This one explodes on hit, but the energy dissapates quickly, it wont fly very far.
   components:
   - type: Sprite
     color: "#7300FF"
@@ -151,8 +151,8 @@
 - type: entity
   parent: BaseHardlightArrow
   id: ArrowXray
-  name: "рентгенівська стрілка"
-  description: "Стріла, зроблена з твердого світла. А ця пронизує все наскрізь."
+  name: x-ray arrow
+  description: An arrow made from hardlight. This one pierces through everything.
   components:
   - type: Sprite
     color: "#1AE51A"
@@ -180,8 +180,8 @@
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
   id: ArrowBee
-  name: "бджолина стріла"
-  description: "Стріла, зроблена з твердого світла. Ця викликає злих бджіл."
+  name: bee arrow
+  description: An arrow made from hardlight. This one summons angry bees.
   components:
   - type: Sprite
     color: yellow
