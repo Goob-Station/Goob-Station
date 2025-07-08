@@ -183,6 +183,8 @@
     solution: hypospray
   - type: Hypospray
     onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 0.25
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 4
