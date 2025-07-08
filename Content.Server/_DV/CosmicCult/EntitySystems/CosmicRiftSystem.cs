@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Atmos.Components;
 using Content.Goobstation.Shared.Bible; // Goobstation - Bible

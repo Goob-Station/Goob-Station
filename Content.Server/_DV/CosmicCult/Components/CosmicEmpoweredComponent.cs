@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 namespace Content.Server._DV.CosmicCult.Components;
 
 /// <summary>
