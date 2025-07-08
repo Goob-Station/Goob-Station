@@ -168,7 +168,7 @@
   description: A grinding, clanking construct which leaches life from its surroundings with every armoured step.
   components:
   - type: Ghoul
-    totalHealth: 150
+    totalHealth: 100
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
     layers:
@@ -229,7 +229,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Dead
+      100: Dead
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
