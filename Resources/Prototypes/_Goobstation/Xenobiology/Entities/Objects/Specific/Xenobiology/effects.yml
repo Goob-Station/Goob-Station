@@ -230,12 +230,7 @@
   - type: Sprite
     sprite: Effects/chemsmoke.rsi
     state: chemsmoke
-    color: "#ffb3ec"
-  - type: Smoke
-    solution:
-      reagents:
-      - ReagentId: Pax
-        Quantity: 50
+  - type: Smoke #I needa figure out how to make this actually pax smoke.
   - type: TimedDespawn
     lifetime: 10
   - type: Tag
