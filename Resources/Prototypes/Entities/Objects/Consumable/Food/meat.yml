@@ -191,10 +191,10 @@
 # Raw
 
 - type: entity
-  name: raw meat
+  name: "сире м'ясо"
   parent: FoodMeatRawBase
   id: FoodMeat
-  description: A slab of raw meat.
+  description: "Шматок сирого м'яса."
   components:
   - type: Sprite
     state: plain
@@ -229,10 +229,10 @@
         name: food-sequence-content-raw-meat
 
 - type: entity
-  name: raw human meat
+  name: "сире людське м'ясо"
   parent: FoodMeatRawBase
   id: FoodMeatHuman
-  description: Gross.
+  description: "Гидота."
   components:
   - type: Sprite
     state: plain
@@ -247,11 +247,11 @@
     slice: FoodMeatCutlet
 
 - type: entity
-  name: raw carp fillet
+  name: "сире філе коропа"
   parent: FoodMeatBase
   # MeatFish?...
   id: FoodMeatFish
-  description: Your last words being "Wow, exotic!" are not worth it. The taste itself though? Maybe.
+  description: "Ваші останні слова \"Ого, екзотика!\" не варті того. А сам смак? Можливо."
   components:
   - type: FlavorProfile
     flavors:
@@ -284,11 +284,11 @@
         Quantity: 5
 
 - type: entity
-  name: raw bacon
+  name: "сирий бекон"
   # bacon is cured so not raw = cant rot
   parent: FoodMeatBase
   id: FoodMeatBacon
-  description: A raw piece of bacon.
+  description: "Сирий шматок бекону."
   components:
   - type: Tag
     tags:
@@ -323,10 +323,10 @@
         name: food-sequence-content-meat
 
 - type: entity
-  name: raw bear meat
+  name: "сире ведмеже м'ясо"
   parent: FoodMeatRawBase
   id: FoodMeatBear
-  description: A very manly slab of raw bear meat.
+  description: "Дуже мужній шматок сирого ведмежого м'яса."
   components:
   - type: Sprite
     state: bear
@@ -356,10 +356,10 @@
         name: food-sequence-content-bear
 
 - type: entity
-  name: raw penguin meat
+  name: "сире м'ясо пінгвіна"
   parent: FoodMeatRawBase
   id: FoodMeatPenguin
-  description: A slab of raw penguin meat. Can be used as a substitute for fish in recipes.
+  description: "Шматок сирого м'яса пінгвіна. Можна використовувати як замінник риби в рецептах."
   components:
   - type: Sprite
     state: bird
@@ -388,10 +388,10 @@
       taco:
         name: food-sequence-content-penguin
 - type: entity
-  name: raw chicken meat
+  name: "сире куряче м'ясо"
   parent: FoodMeatRawBase
   id: FoodMeatChicken
-  description: A slab of raw chicken. Remember to wash your hands!
+  description: "Шматок сирої курки. Не забудьте вимити руки!"
   components:
   - type: Sprite
     state: bird
@@ -428,10 +428,10 @@
           state: skewer-meat
 
 - type: entity
-  name: raw duck meat
+  name: "сире качине м'ясо"
   parent: FoodMeatRawBase
   id: FoodMeatDuck
-  description: A slab of raw duck. Remember to wash your hands!
+  description: "Шматок сирої качки. Не забудьте вимити руки!"
   components:
   - type: Sprite
     state: bird
@@ -461,11 +461,11 @@
         name: food-sequence-content-duck
 
 - type: entity
-  name: prime-cut corgi meat
+  name: "м'ясо коргі вищого ґатунку"
   # can't rot since that would be very bad for syndies
   parent: [FoodMeatBase, BaseGrandTheftContraband]
   id: FoodMeatCorgi
-  description: The tainted gift of an evil crime. The meat may be delicious, but at what cost?
+  description: "Заплямований дар злого злочину. М'ясо може бути смачним, але якою ціною?"
   components:
   - type: Tag
     tags:
@@ -495,10 +495,10 @@
         name: food-sequence-content-corgi
 
 - type: entity
-  name: raw crab meat
+  name: "сире крабове м'ясо"
   parent: FoodMeatRawBase
   id: FoodMeatCrab
-  description: A pile of raw crab meat.
+  description: "Купа сирого крабового м'яса."
   components:
   - type: FlavorProfile
     flavors:
@@ -528,10 +528,10 @@
         name: food-sequence-content-crab
 
 - type: entity
-  name: raw goliath meat
+  name: "сире м'ясо голіафа"
   parent: FoodMeatRawBase
   id: FoodMeatGoliath
-  description: A slab of goliath meat. It's not very edible now, but it cooks great in lava.
+  description: "Шматок м'яса Голіафа. Зараз воно не дуже їстівне, але чудово готується в лаві."
   components:
   - type: Sprite
     state: goliath
@@ -560,10 +560,10 @@
         name: food-sequence-content-goliath
 
 - type: entity
-  name: dragon flesh
+  name: "м'ясо дракона"
   parent: FoodMeatBase
   id: FoodMeatDragon
-  description: The dense meat of the space-era apex predator is oozing with its mythical ichor. Ironically, best eaten raw.
+  description: "Щільне м'ясо космічного хижака просочене його міфічним іхором. За іронією долі, найкраще їсти сирим."
   components:
   - type: Tag
     tags:
@@ -603,10 +603,10 @@
     defaultTarget: dragon steak
 
 - type: entity
-  name: raw rat meat
+  name: "сире щуряче м'ясо"
   parent: FoodMeatRawBase
   id: FoodMeatRat
-  description: Prime meat from maintenance!
+  description: "Першокласне м'ясо з технічного обслуговування!"
   components:
   - type: Sprite
     state: plain
@@ -632,10 +632,10 @@
         name: food-sequence-content-rat
 
 - type: entity
-  name: raw lizard meat
+  name: "сире м'ясо ящірок"
   parent: FoodMeatRawBase
   id: FoodMeatLizard
-  description: Delicious dino damage.
+  description: "Смачна шкода від динозаврів."
   components:
   - type: Sprite
     state: lizard
@@ -670,10 +670,10 @@
           state: skewer-tail
 
 - type: entity
-  name: raw plant meat
+  name: "сире рослинне м'ясо"
   parent: FoodMeatBase
   id: FoodMeatPlant
-  description: All the joys of healthy eating with all the fun of cannibalism.
+  description: "Всі радощі здорового харчування з усіма принадами канібалізму."
   components:
   - type: Sprite
     state: plant
@@ -688,10 +688,10 @@
         name: food-sequence-content-plant
 
 - type: entity
-  name: rotten meat
+  name: "гниле м'ясо"
   parent: FoodMeatBase
   id: FoodMeatRotten
-  description: Halfway to becoming fertilizer for your garden.
+  description: "На півдорозі до того, щоб стати добривом для вашого саду."
   components:
   - type: Tag
     tags:
@@ -722,10 +722,10 @@
         name: food-sequence-content-rotten
 
 - type: entity
-  name: raw spider meat
+  name: "сире м'ясо павуків"
   parent: FoodMeatRawBase
   id: FoodMeatSpider
-  description: A slab of spider meat. That's so Kafkaesque.
+  description: "Шматок павукового м'яса. Це так по-кафкіанськи."
   components:
   - type: Sprite
     state: spider
@@ -751,10 +751,10 @@
         name: food-sequence-content-spider
 
 - type: entity
-  name: raw spider leg
+  name: "сира павукова ніжка"
   parent: FoodMeatBase
   id: FoodMeatSpiderLeg
-  description: A still twitching leg of a giant spider... you don't really want to eat this, do you?
+  description: "Ніжка гігантського павука, що все ще смикається... ви ж не хочете це їсти, чи не так?"
   components:
   - type: Sprite
     state: spiderleg
@@ -777,10 +777,10 @@
         name: food-sequence-content-spider
 
 - type: entity
-  name: meatwheat clump
+  name: "грудочка м'ясної пшениці"
   parent: FoodMeatBase
   id: FoodMeatWheat
-  description: This doesn't look like meat, but your standards aren't that high to begin with.
+  description: "Це не схоже на м'ясо, але ваші стандарти не такі вже й високі."
   components:
   - type: FlavorProfile
     flavors:
@@ -804,10 +804,10 @@
         name: food-sequence-content-clump
 
 - type: entity
-  name: raw snake meat
+  name: "сире зміїне м'ясо"
   parent: FoodMeatBase
   id: FoodMeatSnake
-  description: A long piece of snake meat, hopefully not poisonous.
+  description: "Довгий шматок зміїного м'яса, сподіваюся, не отруйного."
   components:
   - type: Tag
     tags:
@@ -839,11 +839,11 @@
           state: skewer-snake
 
 - type: entity
-  name: raw xeno meat
+  name: "сире м'ясо ксеносів"
   # not raw since acid kills bacteria or something, same as xeno
   parent: FoodMeatBase
   id: FoodMeatXeno
-  description: A slab of xeno meat, dripping with acid.
+  description: "Шматок м'яса ксеноса, з якого капає кислота."
   components:
   - type: FlavorProfile
     flavors:
@@ -875,11 +875,11 @@
         name: food-sequence-content-xeno
 
 - type: entity
-  name: raw rouny meat
+  name: "сире рум'яне м'ясо"
   # not raw since rouny best
   parent: FoodMeatBase
   id: FoodMeatRouny
-  description: A slab of meat from an innocent red friend.
+  description: "Шматок м'яса безневинного рудого друга."
   components:
   - type: FlavorProfile
     flavors:
@@ -913,10 +913,10 @@
         name: food-sequence-content-rouny
 
 - type: entity
-  name: killer tomato meat
+  name: "м'ясо з томатів-убивць"
   parent: FoodMeatBase
   id: FoodMeatTomato
-  description: A slice from a huge tomato.
+  description: "Шматочок від величезного помідора."
   components:
   - type: Sprite
     state: tomato
@@ -941,10 +941,10 @@
           state: skewer-tomato
 
 - type: entity
-  name: salami
+  name: "салямі"
   parent: FoodMeatBase
   id: FoodMeatSalami
-  description: A large tube of salami. Best not to ask what went into it.
+  description: "Великий шматок салямі. Краще не питати, що туди входило."
   components:
   - type: Tag
     tags:
@@ -976,10 +976,10 @@
         name: food-sequence-content-salami
 
 - type: entity
-  name: meat clown
+  name: "м'ясний клоун"
   parent: FoodMeatBase
   id: FoodMeatClown
-  description: A delicious, round piece of meat clown. How horrifying.
+  description: "Смачний, круглий шматок м'яса клоуна. Який жах."
   components:
   - type: FlavorProfile
     flavors:
@@ -1004,10 +1004,10 @@
         name: food-sequence-content-clown
 
 - type: entity
-  name: meatball
+  name: "фрикаделька"
   parent: FoodMeatBase
   id: FoodMeatMeatball
-  description: A raw ball of meat. Meat ball.
+  description: "Сирий шматок м'яса. М'ясна кулька."
   components:
   - type: Tag
     tags:
@@ -1031,10 +1031,10 @@
 # meat patty - grillin' time
 
 - type: entity
-  name: meat patty
+  name: "м'ясна котлета"
   parent: FoodMeatBase
   id: FoodMeatPatty
-  description: A flat slab of ground meat. Ready for grillin'.
+  description: "Плаский шматок фаршу. Готовий до смаження."
   components:
   - type: Tag
     tags:
@@ -1050,10 +1050,10 @@
     defaultTarget: cooked meat patty
 
 - type: entity
-  name: slimeball
+  name: "кулька зі слизу"
   parent: FoodMeatBase
   id: FoodMeatSlime
-  description: A gelatinous shaping of slime jelly.
+  description: "Желеподібна форма зі слизового желе."
   components:
   - type: FlavorProfile
     flavors:
@@ -1080,10 +1080,10 @@
         name: food-sequence-content-slime
 
 - type: entity
-  name: raw snail meat
+  name: "сире м'ясо равликів"
   parent: FoodMeatRawBase
   id: FoodMeatSnail
-  description: Improved with salt.
+  description: "Посолити."
   components:
   - type: Sprite
     state: snail
@@ -1109,10 +1109,10 @@
           Quantity: 4 #It makes saline if you add salt!
 
 - type: entity
-  name: anomalous meat mass
+  name: "аномальна м'ясна маса"
   parent: FoodMeatRawBase
   id: FoodMeatAnomaly
-  description: An impossibly dense slab of meat. Just looking at it makes you uncomfortable.
+  description: "Неймовірно щільний шматок м'яса. Один погляд на нього викликає дискомфорт."
   components:
   - type: Sprite
     state: anomalymeat
@@ -1143,8 +1143,8 @@
 - type: entity
   parent: FoodBase
   id: MaterialSmileExtract
-  name: smile extract
-  description: It's a real panacea. But at what cost?
+  name: "екстракт посміхунчика"
+  description: "Це справжня панацея. Але якою ціною?"
   components:
   - type: Extractable
     grindableSolutionName: food
@@ -1173,10 +1173,10 @@
     - Meat
 
 - type: entity
-  name: steak
+  name: "стейк"
   parent: FoodMeatBase
   id: FoodMeatCooked
-  description: A cooked slab of meat. Smells primal.
+  description: "Приготований шматок м'яса. Пахне первісним."
   components:
   - type: Tag
     tags:
@@ -1216,10 +1216,10 @@
           state: skewer-meat
 
 - type: entity
-  name: bacon
+  name: "бекон"
   parent: FoodMeatBase
   id: FoodMeatBaconCooked
-  description: A delicious piece of cooked bacon.
+  description: "Смачний шматочок смаженого бекону."
   components:
   - type: Tag
     tags:
@@ -1261,10 +1261,10 @@
           state: skewer-meat
 
 - type: entity
-  name: cooked bear
+  name: "вареного ведмедя"
   parent: FoodMeatBase
   id: FoodMeatBearCooked
-  description: A well-cooked slab of bear meat. Tough, but tasty with the right sides.
+  description: "Добре просмажений шматок ведмежого м'яса. Жорсткий, але смачний з правильними боками."
   components:
   - type: Tag
     tags:
@@ -1299,10 +1299,10 @@
         name: food-sequence-content-bear
 
 - type: entity
-  name: penguin filet
+  name: "філе пінгвіна"
   parent: FoodMeatBase
   id: FoodMeatPenguinCooked
-  description: A cooked filet of penguin. Can be used as a substitute for fish in recipes.
+  description: "Приготоване філе пінгвіна. Можна використовувати як замінник риби в рецептах."
   components:
   - type: Tag
     tags:
@@ -1336,10 +1336,10 @@
         name: food-sequence-content-penguin
 
 - type: entity
-  name: cooked chicken
+  name: "варена курка"
   parent: FoodMeatBase
   id: FoodMeatChickenCooked
-  description: A cooked piece of chicken. Best used in other recipes.
+  description: "Приготований шматок курки. Найкраще використовувати в інших рецептах."
   components:
   - type: Tag
     tags:
@@ -1378,10 +1378,10 @@
           state: skewer-meat
 
 - type: entity
-  name: fried chicken
+  name: "смажена курочка"
   parent: FoodMeatBase
   id: FoodMeatChickenFried
-  description: A juicy hunk of chicken meat, fried to perfection.
+  description: "Соковитий шматок курячого м'яса, просмажений до ідеалу."
   components:
   - type: Tag
     tags:
@@ -1420,10 +1420,10 @@
           state: skewer-meat
 
 - type: entity
-  name: cooked duck
+  name: "варена качка"
   parent: FoodMeatBase
   id: FoodMeatDuckCooked
-  description: A cooked piece of duck. Best used in other recipes.
+  description: "Приготований шматок качки. Найкраще використовувати в інших рецептах."
   components:
   - type: Tag
     tags:
@@ -1462,10 +1462,10 @@
           state: skewer-meat
 
 - type: entity
-  name: cooked crab
+  name: "варений краб"
   parent: FoodMeatBase
   id: FoodMeatCrabCooked
-  description: Some deliciously cooked crab meat.
+  description: "Смачно приготоване крабове м'ясо."
   components:
   - type: FlavorProfile
     flavors:
@@ -1499,10 +1499,10 @@
         name: food-sequence-content-crab
 
 - type: entity
-  name: goliath steak
+  name: "стейк голіафа"
   parent: FoodMeatBase
   id: FoodMeatGoliathCooked
-  description: A delicious, lava cooked steak.
+  description: "Смачний стейк, приготований на лаві."
   components:
   - type: Tag
     tags:
@@ -1534,10 +1534,10 @@
         name: food-sequence-content-goliath
 
 - type: entity
-  name: rouny steak
+  name: "рум'яний стейк"
   parent: FoodMeatBase
   id: FoodMeatRounyCooked
-  description: Some kill to survive. You on the other hand, kill for fun.
+  description: "Дехто вбиває, щоб вижити. Ти ж, навпаки, вбиваєш заради задоволення."
   components:
   - type: FlavorProfile
     flavors:
@@ -1573,10 +1573,10 @@
         name: food-sequence-content-rouny
 
 - type: entity
-  name: lizard steak
+  name: "стейк ящірки"
   parent: FoodMeatBase
   id: FoodMeatLizardCooked
-  description: Cooked, tough lizard meat.
+  description: "Приготоване, жорстке м'ясо ящірки."
   components:
   - type: Tag
     tags:
@@ -1616,10 +1616,10 @@
           state: skewer-tail-cooked
 
 - type: entity
-  name: boiled spider leg
+  name: "варена ніжка павука"
   parent: FoodMeatBase
   id: FoodMeatSpiderlegCooked
-  description: A giant spider's leg that's still twitching after being cooked. Gross!
+  description: "Гігантська павуча лапка, яка все ще смикається після варіння. Гидота!"
   components:
   - type: Tag
     tags:
@@ -1647,10 +1647,10 @@
         name: food-sequence-content-spider
 
 - type: entity
-  name: meatball
+  name: "фрикаделька"
   parent: FoodMeatBase
   id: FoodMeatMeatballCooked
-  description: A cooked meatball. Perfect to add to other dishes... except fruity ones.
+  description: "Варена фрикаделька. Ідеально підходить для додавання до інших страв... окрім фруктових."
   components:
   - type: Tag
     tags:
@@ -1685,10 +1685,10 @@
     node: meatball cooked
 
 - type: entity
-  name: cooked meat patty
+  name: "смажена м'ясна котлета"
   parent: FoodMeatBase
   id: FoodMeatPattyCooked
-  description: A cooked meat patty.
+  description: "Смажена м'ясна котлета."
   components:
   - type: Tag
     tags:
@@ -1724,10 +1724,10 @@
           state: skewer-meat
 
 - type: entity
-  name: boiled snail
+  name: "варений равлик"
   parent: FoodMeatBase
   id: FoodMeatSnailCooked
-  description: Improved with salt.
+  description: "Посолити."
   components:
   - type: Tag
     tags:
@@ -1758,10 +1758,10 @@
           Quantity: 4 # makes saline if you add salt!
 
 - type: entity
-  name: anomalous steak
+  name: "аномальний стейк"
   parent: FoodMeatBase
   id: FoodMeatAnomalyCooked
-  description: A gigantic mass of cooked meat. A meal for a dinner party, or someone REALLY hungry.
+  description: "Гігантська маса приготованого м'яса. Страва для вечірки або для когось ДУЖЕ голодного."
   components:
   - type: Tag
     tags:
@@ -1787,10 +1787,10 @@
     node: anomaly steak
 
 - type: entity
-  name: dragon steak
+  name: "стейк дракона"
   parent: FoodMeatBase
   id: FoodMeatDragonCooked
-  description: Pouring ketchup on this is considered a capital crime on most stations.
+  description: "Поливання цього кетчупом вважається смертним гріхом на більшості станцій."
   components:
   - type: Tag
     tags:
@@ -1831,10 +1831,10 @@
 # Raw
 
 - type: entity
-  name: raw cutlet
+  name: "сира котлета"
   parent: FoodMeatBase
   id: FoodMeatCutlet
-  description: A raw meat cutlet.
+  description: "Котлета з сирого м'яса."
   components:
   - type: Tag
     tags:
@@ -1871,10 +1871,10 @@
     defaultTarget: cutlet
 
 - type: entity
-  name: raw bear cutlet
+  name: "сира ведмежа котлета"
   parent: FoodMeatBase
   id: FoodMeatBearCutlet
-  description: A very manly cutlet of raw bear meat.
+  description: "Дуже мужня котлета з сирого ведмежого м'яса."
   components:
   - type: Tag
     tags:
@@ -1910,10 +1910,10 @@
     defaultTarget: bear cutlet
 
 - type: entity
-  name: raw penguin cutlet
+  name: "сира пінгвіняча котлета"
   parent: FoodMeatBase
   id: FoodMeatPenguinCutlet
-  description: A cutlet of raw penguin meat. Can be used as a substitute for fish in recipes.
+  description: "Котлета з сирого м'яса пінгвіна. Можна використовувати як замінник риби в рецептах."
   components:
   - type: Tag
     tags:
@@ -1947,10 +1947,10 @@
     defaultTarget: penguin cutlet
 
 - type: entity
-  name: raw chicken cutlet
+  name: "сира куряча котлета"
   parent: FoodMeatBase
   id: FoodMeatChickenCutlet
-  description: A cutlet of raw chicken. Remember to wash your hands!
+  description: "Котлета з сирого курячого м'яса. Не забудьте вимити руки!"
   components:
   - type: Tag
     tags:
@@ -1989,10 +1989,10 @@
     defaultTarget: chicken cutlet
 
 - type: entity
-  name: raw duck cutlet
+  name: "сира качина котлета"
   parent: FoodMeatBase
   id: FoodMeatDuckCutlet
-  description: A cutlet of raw duck. Remember to wash your hands!
+  description: "Котлета з сирої качки. Не забудьте вимити руки!"
   components:
   - type: Tag
     tags:
@@ -2031,10 +2031,10 @@
     defaultTarget: duck cutlet
 
 - type: entity
-  name: raw lizard cutlet
+  name: "сира котлета з ящірки"
   parent: FoodMeatBase
   id: FoodMeatLizardCutlet
-  description: Delicious dino cutlet.
+  description: "Смачна котлета з динозавра."
   components:
   - type: Tag
     tags:
@@ -2076,10 +2076,10 @@
     defaultTarget: lizard cutlet
 
 - type: entity
-  name: raw spider cutlet
+  name: "сира павукова котлета"
   parent: FoodMeatBase
   id: FoodMeatSpiderCutlet
-  description: A cutlet of raw spider meat. So Kafkaesque.
+  description: "Котлета з сирого павукового м'яса. Так по-кафкіанськи."
   components:
   - type: Tag
     tags:
@@ -2111,10 +2111,10 @@
     defaultTarget: spider cutlet
 
 - type: entity
-  name: raw xeno cutlet
+  name: "сира ксенокотлета"
   parent: FoodMeatBase
   id: FoodMeatXenoCutlet
-  description: A slab of raw xeno meat, dripping with acid.
+  description: "Шматок сирого м'яса ксеноса, з якого капає кислота."
   components:
   - type: FlavorProfile
     flavors:
@@ -2148,10 +2148,10 @@
     defaultTarget: xeno cutlet
 
 - type: entity
-  name: raw killer tomato cutlet
+  name: "сира котлета з помідорами-вбивцями"
   parent: FoodMeatBase
   id: FoodMeatTomatoCutlet
-  description: A cutlet from a slab of tomato.
+  description: "Котлету з пластинки помідора."
   components:
   - type: Tag
     tags:
@@ -2173,10 +2173,10 @@
         name: food-sequence-content-tomato
 
 - type: entity
-  name: salami slice
+  name: "скибочка салямі"
   parent: FoodMeatBase
   id: FoodMeatSalamiSlice
-  description: A slice of cured salami.
+  description: "Шматочок в'яленої салямі."
   components:
   - type: Tag
     tags:
@@ -2204,10 +2204,10 @@
         name: food-sequence-content-salami
 
 - type: entity
-  name: raw dragon cutlet
+  name: "сира котлета з дракона"
   parent: FoodMeatBase
   id: FoodMeatDragonCutlet
-  description: A raw dragon meat cutlet.
+  description: "Сира котлета з м'яса дракона."
   components:
   - type: Tag
     tags:
@@ -2233,10 +2233,10 @@
 # Cooked
 
 - type: entity
-  name: cutlet
+  name: "котлета"
   parent: FoodMeatBase
   id: FoodMeatCutletCooked
-  description: A cooked meat cutlet. Needs some seasoning.
+  description: "Приготована м'ясна котлета. Треба трохи приправити."
   components:
   - type: Tag
     tags:
@@ -2267,10 +2267,10 @@
     node: cutlet
 
 - type: entity
-  name: bear cutlet
+  name: "ведмежа котлета"
   parent: FoodMeatBase
   id: FoodMeatBearCutletCooked
-  description: A very manly cutlet of cooked bear meat.
+  description: "Дуже чоловіча котлета з вареного ведмежого м'яса."
   components:
   - type: Tag
     tags:
@@ -2304,10 +2304,10 @@
     node: bear cutlet
 
 - type: entity
-  name: penguin cutlet
+  name: "котлета з пінгвіна"
   parent: FoodMeatBase
   id: FoodMeatPenguinCutletCooked
-  description: A cutlet of cooked penguin meat.
+  description: "Котлета з вареного м'яса пінгвіна."
   components:
   - type: Tag
     tags:
@@ -2339,10 +2339,10 @@
     node: penguin cutlet
 
 - type: entity
-  name: chicken cutlet
+  name: "куряча котлета"
   parent: FoodMeatBase
   id: FoodMeatChickenCutletCooked
-  description: A cutlet of cooked chicken. Remember to wash your hands!
+  description: "Котлета з вареного курячого філе. Не забудьте вимити руки!"
   components:
   - type: Tag
     tags:
@@ -2379,10 +2379,10 @@
     node: chicken cutlet
 
 - type: entity
-  name: duck cutlet
+  name: "качина котлета"
   parent: FoodMeatBase
   id: FoodMeatDuckCutletCooked
-  description: A cutlet of cooked duck. Remember to wash your hands!
+  description: "Котлета з вареної качки. Не забудьте вимити руки!"
   components:
   - type: Tag
     tags:
@@ -2419,10 +2419,10 @@
     node: duck cutlet
 
 - type: entity
-  name: lizard cutlet
+  name: "котлета з ящірки"
   parent: FoodMeatBase
   id: FoodMeatLizardCutletCooked
-  description: Delicious cooked dino cutlet.
+  description: "Смачно приготована котлета \"Діно\"."
   components:
   - type: Tag
     tags:
@@ -2460,10 +2460,10 @@
     node: lizard cutlet
 
 - type: entity
-  name: spider cutlet
+  name: "павукова котлета"
   parent: FoodMeatBase
   id: FoodMeatSpiderCutletCooked
-  description: A cutlet of cooked spider meat. Finally edible.
+  description: "Котлета з вареного павукового м'яса. Нарешті їстівна."
   components:
   - type: Tag
     tags:
@@ -2492,10 +2492,10 @@
     node: spider cutlet
 
 - type: entity
-  name: xeno cutlet
+  name: "ксенокотлета"
   parent: FoodMeatBase
   id: FoodMeatXenoCutletCooked
-  description: A cutlet of cooked xeno, dripping with... tastiness?
+  description: "Котлета з вареного ксеноса, що стікає... смакотою?"
   components:
   - type: Tag
     tags:
@@ -2524,10 +2524,10 @@
     node: xeno cutlet
 
 - type: entity
-  name: dragon cutlet
+  name: "котлета з дракона"
   parent: FoodMeatBase
   id: FoodMeatDragonCutletCooked
-  description: It's a meal for kings!
+  description: "Це страва для королів!"
   components:
   - type: Tag
     tags:

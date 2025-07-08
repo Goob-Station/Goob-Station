@@ -10,7 +10,7 @@
 
 - type: entity
   id: RandomFoodBakedWhole
-  name: random baked food spawner
+  name: "спавнер хлібобулочних виробів"
   suffix: Whole
   parent: MarkerBase
   placement:

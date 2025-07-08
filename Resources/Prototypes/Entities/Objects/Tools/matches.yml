@@ -46,10 +46,10 @@
     size: Small
 
 - type: entity
-  name: match stick
+  name: "сірник"
   parent: BaseItem
   id: Matchstick
-  description: A simple match stick, used for lighting fine smokables.
+  description: "Простий сірниковий стрижень, що використовується для підпалювання тонких курильних сумішей."
   components:
   - type: Tag
     tags:
@@ -100,10 +100,10 @@
     state: Burnt
 
 - type: entity
-  name: match box
+  name: "сірникова коробка"
   parent: [ SmallboxItem, BaseBagOpenClose ]
   id: Matchbox
-  description: A small box of Almost But Not Quite Plasma Premium Matches.
+  description: "Невеличка коробочка сірників Almost But Not Quite Plasma Premium."
   components:
   - type: EmitSoundOnLand
     sound:

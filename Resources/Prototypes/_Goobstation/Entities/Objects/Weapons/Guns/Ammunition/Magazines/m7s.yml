@@ -5,7 +5,7 @@
 
 - type: entity
   id: MagazineLowCaliberM7S
-  name: M7S magazine (5x23mm)
+  name: "магазин M7S (5x23мм)"
   parent: [ BaseItem, BaseSyndicateContraband ]
   components:
   - type: Tag
@@ -39,7 +39,7 @@
 
 - type: entity
   id: MagazineLowCaliberM7SEmpty # There's not much point in making this printable as it's the only weapon to use this caliber anyway
-  name: M7S magazine (5x23mm any)
+  name: "магазин M7S (5x23мм будь-який)"
   parent: MagazineLowCaliberM7S
   components:
   - type: BallisticAmmoProvider

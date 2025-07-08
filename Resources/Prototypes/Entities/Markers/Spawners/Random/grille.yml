@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: Random Grille Spawner
+  name: "спавнер випадкової решітки"
   id: GrilleSpawner
   parent: MarkerBase
   components:

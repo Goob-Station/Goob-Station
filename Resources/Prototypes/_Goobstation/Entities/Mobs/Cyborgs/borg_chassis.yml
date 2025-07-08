@@ -7,8 +7,8 @@
 - type: entity
   id: BorgChassisDerelictSyndicateAssault
   parent: BaseBorgChassisDerelict
-  name: derelict syndicate assasult cyborg
-  description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair.
+  name: "покинутий штурмовий кіборг синдикату"
+  description: "Струнка, зла машина для вбивства з доступом до різноманітних смертоносних модулів. Цей знаходиться у стані сильного занепаду."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Silicon/chassis.rsi
@@ -49,8 +49,8 @@
 - type: entity
   id: BorgChassisUrist
   parent: BaseBorgChassisDerelict
-  name: Urist McBorg
-  description: An abomination that supposedly assists in station activity.
+  name: "Уріст МакБорг"
+  description: "Гидота, яка нібито допомагає в діяльності станції."
   components:
   - type: Sprite
     layers:

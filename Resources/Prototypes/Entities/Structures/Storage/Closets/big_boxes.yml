@@ -20,8 +20,8 @@
 
 - type: entity
   id: BaseBigBox
-  name: cardboard box #it's still just a box
-  description: Huh? Just a box...
+  name: "картонна коробка" #it's still just a box
+  description: "Що? А, лише коробка..."
   abstract: true
   components:
     - type: Transform
@@ -80,7 +80,7 @@
   id: StealthBox
   suffix: stealth
   parent: BaseBigBox
-  description: Kept ya waiting, huh?
+  description: "Змусив тебе чекати, так?"
   components:
     - type: Damageable
       damageModifierSet: FlimsyMetallic #Syndicate boxes should have a bit of protection
@@ -112,8 +112,8 @@
   id: GhostBox
   parent: StealthBox
   suffix: ""
-  name: ghost box
-  description: Beware!
+  name: "примарний ящик"
+  description: "Обережно!"
   components:
     - type: Fixtures
       fixtures:

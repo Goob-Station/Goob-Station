@@ -10,7 +10,7 @@
 
 - type: body
   id: SpaceBear
-  name: "space bear"
+  name: "космічний ведмідь"
   root: chest
   slots:
     chest:

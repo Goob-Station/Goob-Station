@@ -21,8 +21,8 @@
 - type: entity
   parent: ClothingShoesBootsMag
   id: ClothingShoesBootsChrono
-  name: futuristic boots
-  description: An advanced futuristic shoe that guarantees wearer comfort and full traction on any surface
+  name: "футуристичні черевики"
+  description: "Вдосконалене футуристичне взуття, яке гарантує комфорт та повне зчеплення з будь-якою поверхнею"
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/chronolegioneer.rsi
@@ -51,8 +51,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesResonant
-  name: resonant shoes
-  description: Is it not time yet… for the splendid curtain to rise?
+  name: "резонансні черевики"
+  description: "Чи не час... для підняття розкішної завіси?"
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/breverb.rsi
@@ -63,8 +63,8 @@
 - type: entity
   parent: [ClothingShoesBootsMagAdv, BaseJetpack, BaseCentcommContraband]
   id: ClothingShoesBootsMagEmergencyResponseTeam
-  name: tactical response magboots
-  description: Look! An emergency responder, we're saved!
+  name: "тактичні магнітні черевики реагування"
+  description: "Дивіться! Рятувальник, ми врятовані!"
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
@@ -95,8 +95,8 @@
 - type: entity
   parent: ClothingShoesBootsMagEmergencyResponseTeam
   id: ClothingShoesBootsMagDeathsquad
-  name: deathsquad magboots
-  description: The sound of these boots are iconic; the sound of terror.
+  name: "магнітні черевики загону смерті"
+  description: "Звук цих черевиків є культовим; звук терору."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
@@ -126,8 +126,8 @@
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseMagicalContraband]
   id: ClothingShoesRealJordans
-  name: air jordans
-  description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
+  name: "ейр джордани"
+  description: "Найсучасніші, офіційні, незім'яті Джордани, які захищають вас від ковзання, коли увімкнені."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
@@ -164,9 +164,9 @@
 - type: entity
   parent: [ClothingShoesBaseButcherable, BaseMajorContraband]
   id: ClothingShoesFakeJordans
-  name: air jordans
+  name: "ейр джордани"
   suffix: fake
-  description: Upon closer inspection, something feels off about these. Are they.. creased? No, it can't be that. Wait, the logo looks a little off...
+  description: "При ближчому розгляді щось не так з цими. Вони.. зім'яті? Ні, не може бути. Стривайте, логотип виглядає трохи дивно..."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
@@ -176,8 +176,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesCreasedJordans
-  name: creased air jordans
-  description: No wait... this can't be.... THEY'RE CREASED!
+  name: "зім'яті джордани"
+  description: "Ні, чекайте... цього не може бути.... ВОНИ ЗІМ'ЯТІ!"
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
@@ -193,8 +193,8 @@
 - type: entity
   parent: [BaseCommandContraband, ClothingShoesBootsJack]
   id: ClothingShoesBootsJackAdvanced
-  name: advanced jackboots
-  description: This pair of jackboots was designed for the Head of Security. No one knows why are they called advanced, but they are for sure advanced in drip.
+  name: "покращені офіцерські чоботи"
+  description: "Ця пара офіцерських чобіт була розроблена для голови служби безпеки. Ніхто не знає, чому їх називають покращеними, але вони точно покращені у стилі."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/advanced_jackboots.rsi
@@ -207,8 +207,8 @@
 - type: entity
   parent: ClothingShoesRealJordans
   id: ClothingShoesRealJordansAutographed
-  name: air jordans
-  description: These aren't just any Jordans, these were signed my Micheal Jordan himself. These must be worth a FORTUNE.
+  name: "ейр джордани"
+  description: "Це не просто Джордани, їх підписав сам Майкл Джордан. Вони, мабуть, коштують ЦІЛЕ СТАТТЯ."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
@@ -245,8 +245,8 @@
 - type: entity
   parent: [ClothingShoesMilitaryBase, ClothingShoesBaseWinterBoots, BaseCentcommContraband]
   id: ClothingShoesBootsWinterSnowjackBso
-  name: blueshield's snowjacks
-  description: For when you need to save a head from a changeling on a research station in Antarctica.
+  name: "сноуджеки синього щита"
+  description: "Коли вам потрібно врятувати голову від перевертня на дослідницькій станції в Антарктиді."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/bso_snowjacks.rsi
@@ -267,8 +267,8 @@
 - type: entity
   parent: [ClothingShoesMilitaryBase, ClothingShoesBaseWinterBoots, BaseSecurityContraband]
   id: ClothingShoesWinterCombatBoots
-  name: snowjacks boots
-  description: Nanotrasen-issue Security combat boots for combat scenarios or combat situations. Now in winter edition.
+  name: "зимові бойові чоботи"
+  description: "Бойові чоботи служби безпеки Nanotrasen для бойових сценаріїв або ситуацій. Тепер у зимовій версії."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/winterbootsjackboot.rsi

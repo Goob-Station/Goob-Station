@@ -90,7 +90,7 @@
 
 - type: entity
   id: RandomCloneSpawner
-  name: Random Clone
+  name: "Спавнер випадкового клона"
   suffix: Non-Antag
   components:
   - type: Sprite

@@ -5,7 +5,7 @@
 
 - type: body
   id: Slimes
-  name: "slimes"
+  name: "слизи"
   root: chest
   slots:
     chest:

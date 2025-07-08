@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseStructure
   id: WeaponTurretSyndicateBroken
-  name: ballistic turret (broken)
-  description: A ballistic machine gun auto-turret.
+  name: "балістична вежа (розбита)"
+  description: "Балістична кулеметна автобашта."
   components:
   - type: Clickable
   - type: InteractionOutline
