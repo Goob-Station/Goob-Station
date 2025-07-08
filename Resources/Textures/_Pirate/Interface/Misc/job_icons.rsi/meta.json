@@ -34,6 +34,27 @@
         },
 		{
             "name": "InterdynePilot"
+        },
+        {
+            "name": "anomalist"
+        },
+        {
+            "name": "xenoarcheologist"
+        },
+        {
+            "name": "furry"
+        },
+        {
+            "name": "cryo-specialist"
+        },
+        {
+            "name": "electrician"
+        },
+        {
+            "name": "flora-engineer"
+        },
+        {
+            "name": "surgeon"
         }
     ]
 }

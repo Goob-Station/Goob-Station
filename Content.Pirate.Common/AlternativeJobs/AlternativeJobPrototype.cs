@@ -21,6 +21,9 @@ public sealed partial class AlternativeJobPrototype : IPrototype
     [DataField(required: true)]
     public string JobDescription { get; set; } = default!;
 
+    [DataField(required: false)]
+    public string? JobIconProtoId { get; set; } = null;
+
     [DataField(required: true)]
     public string ParentJobId { get; set; } = default!;
 }

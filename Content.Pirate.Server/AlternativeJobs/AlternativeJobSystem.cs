@@ -1,17 +1,21 @@
 using Content.Pirate.Common.AlternativeJobs;
 using Content.Server.Access.Components;
+using Content.Server.CrewManifest;
+using Content.Shared._Shitcode._Pirate.AlternativeJobs;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
+using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 
 namespace Content.Pirate.Server.AlternativeJobs;
 
-public sealed class AlternativeJobSystem : EntitySystem
+public sealed class AlternativeJobSystem : EntitySystem, IAlternativeJobSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
+    [Dependency] private readonly CrewManifestSystem _crewManifestSystem = default!;
 
     public override void Initialize()
     {
@@ -34,10 +38,12 @@ public sealed class AlternativeJobSystem : EntitySystem
         // Get alternative job proto based on player preferences and job
         if (!TryGetAlternativeJob(args.JobId, args.Profile, out var alternativeJobPrototype)) return;
         if (TryComp<PresetIdCardComponent>(idCard, out var presetIdCardComp)) { presetIdCardComp.JobName = alternativeJobPrototype.LocalizedJobName; }
+        var newIcon = _prototypeManager.Index<JobIconPrototype>(alternativeJobPrototype.JobIconProtoId ?? idCardComp.JobIcon);
+        // _idCardSystem.TryChangeJobIcon(idCard, newIcon, idCardComp);
         _idCardSystem.TryChangeJobTitle(idCard, alternativeJobPrototype.LocalizedJobName, idCardComp);
+        idCardComp.JobIcon = newIcon.ID;
         idCardComp.LocalizedJobTitle = alternativeJobPrototype.LocalizedJobName;
         // Change job title on id card
-
         Dirty(idCard, idCardComp);
     }
 

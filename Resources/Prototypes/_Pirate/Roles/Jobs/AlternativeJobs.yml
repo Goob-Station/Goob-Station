@@ -10,19 +10,20 @@
 
 - type: alternativeJob
   id: AlternativeJobFloraEngineer
-  jobName: Флоро-Інженер
+  jobName: job-alternative-name-flora-engineer
   jobDescription: job-description-botanist
+  jobIconProtoId: JobIconFloraEngineer
   parentJobId: Botanist
 
 - type: alternativeJob
   id: AlternativeJobPrankster
-  jobName: Пранкер
+  jobName: job-alternative-name-prankster
   jobDescription: job-description-clown
   parentJobId: Clown
 
 - type: alternativeJob
   id: AlternativeJobWaiter
-  jobName: Офіціант
+  jobName: job-alternative-name-waiter
   jobDescription: job-description-service-worker
   parentJobId: ServiceWorker
 
@@ -32,31 +33,32 @@
 
 - type: alternativeJob
   id: AlternativeJobFurryFemboy
-  jobName: Фуррі-Фембой
+  jobName: job-alternative-name-furry-femboy
   jobDescription: job-description-captain
+  jobIconProtoId: JobIconFurryFemboy
   parentJobId: Captain
 
 - type: alternativeJob
   id: AlternativeJobCommandOfficer
-  jobName: Офіцер командування
+  jobName: job-alternative-name-command-officer
   jobDescription: job-description-captain
   parentJobId: Captain
 
 - type: alternativeJob
   id: AlternativeJobStationDirector
-  jobName: Директор станції
+  jobName: job-alternative-name-station-director
   jobDescription: job-description-captain
   parentJobId: Captain
 
 - type: alternativeJob
   id: AlternativeJobNotarius
-  jobName: Нотаріус
+  jobName: job-alternative-name-notarius
   jobDescription: job-description-hop
   parentJobId: HeadOfPersonnel
 
 - type: alternativeJob
   id: AlternativeJobSherif
-  jobName: Шериф
+  jobName: job-alternative-name-sherif
   jobDescription: job-description-hos
   parentJobId: HeadOfSecurity
 
@@ -66,20 +68,21 @@
 
 - type: alternativeJob
   id: AlternativeJobAtmosphericTEGSpecialist
-  jobName: Спеціаліст з ТЕГ-двигунів
+  jobName: job-alternative-name-teg-specialist
   jobDescription: job-description-atmospheric-technician
   parentJobId: AtmosphericTechnician
 
 - type: alternativeJob
   id: AlternativeJobEngineSpecialist
-  jobName: Спеціаліст з станційних двигунів
+  jobName: job-alternative-name-engine-specialist
   jobDescription: job-description-engineer
   parentJobId: StationEngineer
 
 - type: alternativeJob
   id: AlternativeJobElectrician
-  jobName: Електрик
+  jobName: job-alternative-name-electrician
   jobDescription: job-description-engineer
+  jobIconProtoId: JobIconElectrician
   parentJobId: StationEngineer
 
 #endregion
@@ -88,25 +91,27 @@
 
 - type: alternativeJob
   id: AlternativeJobSurgeon
-  jobName: Хірург
+  jobName: job-alternative-name-surgeon
+  jobIconProtoId: JobIconSurgeon
   jobDescription: job-description-medical-doctor
   parentJobId: MedicalDoctor
 
 - type: alternativeJob
   id: AlternativeJobCryoSpecialist
-  jobName: Спеціаліст з кріогеніки
+  jobName: job-alternative-name-cryo-specialist
+  jobIconProtoId: JobIconCryoSpecialist
   jobDescription: job-description-medical-doctor
   parentJobId: MedicalDoctor
 
 - type: alternativeJob
   id: AlternativeJobPharmacist
-  jobName: Фармацеут
+  jobName: job-alternative-name-pharmacist
   jobDescription: job-description-chemist
   parentJobId: Chemist
 
 - type: alternativeJob
-  id: AlternativeJobCMO
-  jobName: Старший медичний офіцер
+  id: AlternativeJobSMO # SMO - Senior Medical Officer
+  jobName: job-alternative-name-smo
   jobDescription: job-description-cmo
   parentJobId: ChiefMedicalOfficer
 
@@ -116,31 +121,33 @@
 
 - type: alternativeJob
   id: AlternativeJobAnomalist
-  jobName: Аномаліст
+  jobName: job-alternative-name-anomalist
   jobDescription: job-description-scientist
+  jobIconProtoId: JobIconAnomalist
   parentJobId: Scientist
 
 - type: alternativeJob
   id: AlternativeJobXenoarcheologist
-  jobName: Ксеноархеолог
+  jobName: job-alternative-name-xenoarcheologist
   jobDescription: job-description-scientist
+  jobIconProtoId: JobIconXenoarcheologist
   parentJobId: Scientist
 
 - type: alternativeJob
   id: AlternativeJobPhoronResearcher
-  jobName: Дослідник форону
+  jobName: job-alternative-name-phoron-researcher
   jobDescription: job-description-scientist
   parentJobId: Scientist
 
 - type: alternativeJob
   id: AlternativeJobAspirant
-  jobName: Аспірант
+  jobName: job-alternative-name-aspirant
   jobDescription: job-description-research-assistant
   parentJobId: ResearchAssistant
 
 - type: alternativeJob
   id: AlternativeJobLaborant
-  jobName: Лаборант
+  jobName: job-alternative-name-laborant
   jobDescription: job-description-research-assistant
   parentJobId: ResearchAssistant
 #endregion
@@ -148,26 +155,26 @@
 #region Security
 
 - type: alternativeJob
-  id: AlternativeJobSecurityOfficer
-  jobName: Миротворець
+  id: AlternativeJobPeacekeeper
+  jobName: job-alternative-name-peacekeeper
   jobDescription: job-description-security-officer
   parentJobId: SecurityOfficer
 
 - type: alternativeJob
   id: AlternativeJobInspector
-  jobName: Інспектор
+  jobName: job-alternative-name-inspector
   jobDescription: job-description-detective
   parentJobId: Detective
 
 - type: alternativeJob
   id: AlternativeJobForensist
-  jobName: Слідчий
+  jobName: job-alternative-name-forensist
   jobDescription: job-description-detective
   parentJobId: Detective
 
 - type: alternativeJob
   id: AlternativeJobCorpsman
-  jobName: Санітар
+  jobName: job-alternative-name-corpsman
   jobDescription: job-description-brigmedic
   parentJobId: Brigmedic
 #endregion
@@ -176,13 +183,72 @@
 
 - type: alternativeJob
   id: AlternativeJobPsychotherapist
-  jobName: Психотерапевт
+  jobName: job-alternative-name-psychotherapist
   jobDescription: job-description-psychologist
   parentJobId: Psychologist
 
 - type: alternativeJob
-  id: AlternativeJobCorispondent
-  jobName: Кориспондент
+  id: AlternativeJobCorrespondent
+  jobName: job-alternative-name-correspondent
   jobDescription: job-description-reporter
   parentJobId: Reporter
+#endregion
+
+#region Icons definitions
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconFloraEngineer
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: flora-engineer
+  jobName: job-alternative-name-flora-engineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconFurryFemboy
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: furry
+  jobName: job-alternative-name-furry-femboy
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconElectrician
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: electrician
+  jobName: job-alternative-name-electrician
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCryoSpecialist
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: cryo-specialist
+  jobName: job-alternative-name-cryo-specialist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconXenoarcheologist
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: xenoarcheologist
+  jobName: job-alternative-name-xenoarcheologist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAnomalist
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: anomalist
+  jobName: job-alternative-name-anomalist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSurgeon
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: surgeon
+  jobName: job-alternative-name-surgeon
 #endregion
