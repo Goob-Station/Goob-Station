@@ -82,6 +82,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 2
+    whitelist:
+    - Flesh
 
 - type: listing
   id: HereticFleshPath4
@@ -135,6 +137,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 5
+    whitelist:
+    - Flesh
 
 - type: listing
   id: HereticFleshPath7
@@ -170,6 +174,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
+    whitelist:
+    - Flesh
 
 - type: listing
   id: HereticFleshPath9

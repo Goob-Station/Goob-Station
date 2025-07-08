@@ -81,6 +81,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 2
+    whitelist:
+    - Void
 
 - type: listing
   id: HereticVoidPath4
@@ -133,6 +135,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 5
+    whitelist:
+    - Void
 
 - type: listing
   id: HereticVoidPath7
@@ -167,6 +171,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
+    whitelist:
+    - Void
 
 - type: listing
   id: HereticVoidPath9

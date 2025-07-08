@@ -66,6 +66,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 2
+    whitelist:
+    - Ash
 
 - type: listing
   id: HereticAshPath4
@@ -119,6 +121,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 5
+    whitelist:
+    - Ash
 
 - type: listing
   id: HereticAshPath7
@@ -154,6 +158,8 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
+    whitelist:
+    - Ash
 
 - type: listing
   id: HereticAshPath9
