@@ -29,7 +29,8 @@
     damage:
       types:
         Slash: 10
-        Asphyxiation: 5
+        Cold: 2.5
+        Asphyxiation: 2.5
         Structural: 15
         Ion: 25
     soundHit:
@@ -70,7 +71,8 @@
     damage:
       types:
         Slash: 5
-        Asphyxiation: 5
+        Cold: 2.5
+        Asphyxiation: 2.5
         Structural: 5
   - type: DisarmMalus
   - type: Item
@@ -90,9 +92,6 @@
   description: An unnerving spear, wrought of indescribable material. Being near it feels like a prickle of static spreading through your nerves.
   components:
   - type: CosmicEquipment
-  - type: EmbeddableProjectile
-    removalTime: 2
-    sound: /Audio/_DV/CosmicCult/cosmiclance_impact.ogg
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/cosmiclance.rsi
     layers:
@@ -107,7 +106,8 @@
     damage:
       types:
         Piercing: 15
-        Asphyxiation: 10
+        Cold: 5
+        Asphyxiation: 5
         Ion: 25
     soundHit:
       path: /Audio/_DV/CosmicCult/cosmiclance_hit.ogg
@@ -124,12 +124,14 @@
       params:
         variation: 0.2
         volume: -11
+  - type: Boomerang # Goob edit
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 35
-        Asphyxiation: 35
-        Ion: 35
+        Piercing: 17.5
+        Cold: 10
+        Asphyxiation: 7.5
+        Ion: 17.5
   - type: Wieldable
     wieldSound:
       path: /Audio/_DV/CosmicCult/cosmic_wield.ogg
@@ -145,7 +147,8 @@
     damage:
       types:
         Piercing: 10
-        Asphyxiation: 5
+        Cold: 2.5
+        Asphyxiation: 2.5
   - type: Item
     size: Large
     shape:
@@ -223,7 +226,8 @@
     damage:
       types:
         Slash: 6
-        Asphyxiation: 4
+        Cold: 2
+        Asphyxiation: 2
         Ion: 6
         Structural: 15
     soundHit:

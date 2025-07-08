@@ -763,6 +763,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         RemComp<CosmicCultLeadComponent>(uid);
         RemComp<InfluenceVitalityComponent>(uid);
         RemComp<InfluenceStrideComponent>(uid);
+        RemComp<CosmicEmpoweredSpeedComponent>(uid);
         RemComp<PressureImmunityComponent>(uid);
         RemComp<TemperatureImmunityComponent>(uid);
         RemComp<CosmicStarMarkComponent>(uid);

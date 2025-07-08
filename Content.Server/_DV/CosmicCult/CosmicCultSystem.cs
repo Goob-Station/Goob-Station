@@ -91,6 +91,9 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicImposingComponent, ComponentInit>(OnStartImposition);
         SubscribeLocalEvent<CosmicImposingComponent, ComponentRemove>(OnEndImposition);
         SubscribeLocalEvent<CosmicImposingComponent, RefreshMovementSpeedModifiersEvent>(OnImpositionMoveSpeed);
+        SubscribeLocalEvent<CosmicEmpoweredSpeedComponent, ComponentInit>(OnStartCosmicEmpowered);
+        SubscribeLocalEvent<CosmicEmpoweredSpeedComponent, ComponentRemove>(OnEndCosmicEmpowered);
+        SubscribeLocalEvent<CosmicEmpoweredSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnCosmicEmpoweredMove);
 
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
 
@@ -242,6 +245,15 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         args.ModifySpeed(1.1f, 1.1f);
     private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args) =>
         args.ModifySpeed(0.65f, 0.65f);
+
+    // Goob start
+    private void OnStartCosmicEmpowered(Entity<CosmicEmpoweredSpeedComponent> uid, ref ComponentInit args) =>
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+    private void OnEndCosmicEmpowered(Entity<CosmicEmpoweredSpeedComponent> uid, ref ComponentRemove args) =>
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+    private void OnCosmicEmpoweredMove(EntityUid uid, CosmicEmpoweredSpeedComponent comp, RefreshMovementSpeedModifiersEvent args) =>
+        args.ModifySpeed(comp.SpeedBoost, comp.SpeedBoost);
+    // Goob end
 
     #endregion
 
