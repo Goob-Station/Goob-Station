@@ -1929,8 +1929,7 @@
     description: ghost-role-information-kobold-description
     rules: ghost-role-information-freeagent-rules #Goob
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
-
+      - MindRoleGhostRoleFreeAgent
 - type: entity
   name: kobold
   id: MobKobold
