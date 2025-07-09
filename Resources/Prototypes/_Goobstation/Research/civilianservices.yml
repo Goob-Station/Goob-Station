@@ -57,7 +57,6 @@
   cost: 7500
   recipeUnlocks:
   - HandheldCrewMonitor
-  - DefibrillatorCompact
   position: 4,6
   technologyPrerequisites:
   - BiochemicalStasis
