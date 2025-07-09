@@ -32,6 +32,12 @@
     sprite: Objects/Misc/bureaucracy.rsi
     state: contract-written
   - type: CrematoriumImmune # Dude. You're burning the paper from *hell*? Really?
+  - type: SupermatterImmune # Nope.
+  - type: PreventChasmFalling # Nope.
+    deleteOnUse: false
+  - type: CargoSellBlacklist # Nope.
+  - type: ArrivalsBlacklist # Nope.
+  - type: FTLSmashImmune # Nope.
   - type: FaxableObject
   - type: Tag
     tags:

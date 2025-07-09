@@ -44,15 +44,11 @@ public sealed partial class CheatDeathSystem : EntitySystem
         SubscribeLocalEvent<CheatDeathComponent, DelayedDeathEvent>(OnDelayedDeath);
     }
 
-    private void OnInit(Entity<CheatDeathComponent> ent, ref MapInitEvent args)
-    {
+    private void OnInit(Entity<CheatDeathComponent> ent, ref MapInitEvent args) =>
         _actionsSystem.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.ActionCheatDeath);
-    }
 
-    private void OnRemoval(Entity<CheatDeathComponent> ent, ref ComponentRemove args)
-    {
+    private void OnRemoval(Entity<CheatDeathComponent> ent, ref ComponentRemove args) =>
         _actionsSystem.RemoveAction(ent, ent.Comp.ActionEntity);
-    }
 
     private void OnExamined(Entity<CheatDeathComponent> ent, ref ExaminedEvent args)
     {
@@ -74,14 +70,10 @@ public sealed partial class CheatDeathSystem : EntitySystem
 
     private void OnDelayedDeath(Entity<CheatDeathComponent> ent, ref DelayedDeathEvent args)
     {
-        if (ent.Comp.InfiniteRevives)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        RemComp(ent.Owner, ent.Comp);
+        if (args.PreventRevive)
+            RemComp(ent.Owner, ent.Comp);
     }
+
 
     private void OnDeathCheatAttempt(Entity<CheatDeathComponent> ent, ref CheatDeathEvent args)
     {

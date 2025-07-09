@@ -7,7 +7,9 @@
 
 using Content.Server.Forensics;
 using Content.Server.Humanoid;
+using Content.Server.IdentityManagement;
 using Content.Shared._Shitmed.StatusEffects;
+using Content.Shared.DetailExaminable;
 using Content.Shared.Forensics;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
@@ -22,31 +24,40 @@ public sealed class ScrambleDnaEffectSystem : EntitySystem
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<ScrambleDnaEffectComponent, ComponentInit>(OnInit);
     }
 
-    private void OnInit(EntityUid uid, ScrambleDnaEffectComponent component, ComponentInit args)
-    {
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-        {
-            var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
-            _humanoidAppearance.LoadProfile(uid, newProfile, humanoid);
-            _metaData.SetEntityName(uid, newProfile.Name);
-            if (TryComp<DnaComponent>(uid, out var dna))
-            {
-                dna.DNA = _forensicsSystem.GenerateDNA();
+    private void OnInit(EntityUid uid, ScrambleDnaEffectComponent component, ComponentInit args) =>
+        Scramble(uid);
 
-                var ev = new GenerateDnaEvent { Owner = uid, DNA = dna.DNA };
-                RaiseLocalEvent(uid, ref ev);
-            }
-            if (TryComp<FingerprintComponent>(uid, out var fingerprint))
-            {
-                fingerprint.Fingerprint = _forensicsSystem.GenerateFingerprint();
-            }
-            _popup.PopupEntity(Loc.GetString("scramble-implant-activated-popup"), uid, uid);
-        }
+    public void Scramble(EntityUid uid)
+    {
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            return;
+
+        var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
+        _humanoidAppearance.LoadProfile(uid, newProfile, humanoid);
+        _metaData.SetEntityName(uid, newProfile.Name);
+
+        if (!TryComp<DnaComponent>(uid, out var dna))
+            return;
+
+        dna.DNA = _forensicsSystem.GenerateDNA();
+
+        var ev = new GenerateDnaEvent { Owner = uid, DNA = dna.DNA };
+        RaiseLocalEvent(uid, ref ev);
+
+        if (!TryComp<FingerprintComponent>(uid, out var fingerprint))
+            return;
+
+        fingerprint.Fingerprint = _forensicsSystem.GenerateFingerprint();
+        RemComp<DetailExaminableComponent>(uid);
+        _identity.QueueIdentityUpdate(uid);
+
+        _popup.PopupEntity(Loc.GetString("scramble-implant-activated-popup"), uid, uid);
     }
 
 
