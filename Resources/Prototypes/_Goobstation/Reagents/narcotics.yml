@@ -274,7 +274,7 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:GenderSwapEffect
+      - !type:SexChange
         conditions:
         - !type:ReagentThreshold
           min: 15

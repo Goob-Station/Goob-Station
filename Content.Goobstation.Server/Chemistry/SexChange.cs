@@ -1,10 +1,11 @@
 using Content.Shared.Humanoid;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
+using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Chemistry;
 
+[UsedImplicitly]
 public sealed partial class SexChange : EntityEffect
 {
     /// <summary>
