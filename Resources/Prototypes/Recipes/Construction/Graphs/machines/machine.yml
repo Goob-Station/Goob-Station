@@ -82,6 +82,20 @@
             - tool: Screwing
               doAfter: 0.5
 
+        - to: machineLocked
+          conditions:
+            - !type:EntityAnchored
+            - !type:MachineFrameComplete
+              guideIconBoard:
+                sprite: Objects/Misc/module.rsi
+                state: id_mod
+              guideIconParts:
+                sprite: Objects/Misc/stock_parts.rsi
+                state: scan_module
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
         - to: machineFrame
           conditions:
             - !type:EntityAnchored
@@ -137,7 +151,7 @@
               locked: false
           steps:
             - tool: Prying
-              doAfter: 2 
+              doAfter: 2
 
     - node: destroyedMachineFrame
       entity: MachineFrameDestroyed
