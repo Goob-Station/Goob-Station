@@ -122,8 +122,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -460,7 +462,7 @@
     - type: PacifismAllowedGun
 
 - type: entity
-  parent: [BaseWeaponLauncher, BaseSecurityEngineeringContraband]
+  parent: [BaseWeaponLauncher, BaseSecurityEngineeringContraband, BaseGunWieldable]
   id: WeaponLauncherSingularityBuster
   name: singularity buster rocket launcher
   description: An experimental rocket launcher designed to fire rockets capable of decomposing a singularity or tesla.
@@ -470,20 +472,21 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
     slots:
     - Back
+    - suitStorage #note the speed malus
   - type: Item
     shape:
     - 0,0,5,2
-  - type: MultiHandedItem
   - type: Gun
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: BallisticAmmoProvider
-    autoCycle: false
     whitelist:
       tags:
       - CartridgeRocket
@@ -494,6 +497,14 @@
   - type: Appearance
   - type: StaticPrice
     price: 1000
+  - type: GunRequiresWield
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: ClothingSpeedModifier #Look at the size of this thing, absolute unit to carry on you
+    walkModifier: 0.7
+    sprintModifier: 0.7
 
 # Admeme
 - type: entity
