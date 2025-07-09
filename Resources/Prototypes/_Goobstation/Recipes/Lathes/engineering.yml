@@ -12,7 +12,7 @@
     Uranium: 1000
     Gold: 500
     Silver: 500
-    MaterialBSCrystal1: 500
+    BSCrystal: 500
     Diamond: 100
     # it's a craftable hardsuit with better speed and armor than an EVA suit, it should be expensive
 
