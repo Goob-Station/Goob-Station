@@ -14,14 +14,16 @@
 
 using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server.Chemistry.Components;
+namespace Content.Shared.Chemistry.Components;
 
 /// <summary>
 /// Passively increases a solution's quantity of a reagent.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent, AutoGenerateComponentPause, AutoGenerateComponentState, NetworkedComponent]
 [Access(typeof(SolutionRegenerationSystem))]
 public sealed partial class SolutionRegenerationComponent : Component
 {
