@@ -5,6 +5,7 @@
 
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Changeling.Components;
 
@@ -24,6 +25,14 @@ public sealed partial class FleshmendComponent : Component
 
     [DataField]
     public SoundSpecifier? PassiveSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/fleshmend_sfx.ogg");
+
+    /// <summary>
+    ///     Used in the case that someone wants to change the default effect (e.g if they are adding a fleshmend-esque passive to some random mob or ability)
+    /// </summary>
+    [DataField]
+    public string EffectState;
+    [DataField]
+    public ResPath ResPath;
 
     [DataField]
     public bool DoVisualEffect = true;

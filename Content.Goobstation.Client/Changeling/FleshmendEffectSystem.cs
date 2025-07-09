@@ -11,6 +11,8 @@ namespace Content.Goobstation.Client.Changeling;
 
 public sealed class FleshmendEffectSystem : EntitySystem
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -27,6 +29,14 @@ public sealed class FleshmendEffectSystem : EntitySystem
 
     private void OnStartup(Entity<FleshmendEffectComponent> ent, ref ComponentStartup args)
     {
+        if (TryComp<FleshmendComponent>(ent, out var fleshmend) // only done if new effects were yaml'd in (or just applied to the comp)
+            && fleshmend.EffectState != null
+            && fleshmend.ResPath != ResPath.Empty)
+        {
+            ent.Comp.EffectState = fleshmend.EffectState;
+            ent.Comp.ResPath = fleshmend.ResPath;
+        }
+
         AddLayer(ent);
     }
 
@@ -35,10 +45,10 @@ public sealed class FleshmendEffectSystem : EntitySystem
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        if (!sprite.LayerMapTryGet(FleshmendEffectKey.Key, out var layer))
+        if (!_sprite.LayerMapTryGet((ent, sprite), FleshmendEffectKey.Key, out var layer, false))
             return;
 
-        sprite.RemoveLayer(layer);
+        _sprite.RemoveLayer((ent, sprite), layer);
     }
 
     private void AddLayer(Entity<FleshmendEffectComponent> ent)
@@ -48,15 +58,15 @@ public sealed class FleshmendEffectSystem : EntitySystem
 
         var state = ent.Comp.EffectState;
 
-        if (sprite.LayerMapTryGet(FleshmendEffectKey.Key, out var layer))
+        if (_sprite.LayerMapTryGet((ent, sprite), FleshmendEffectKey.Key, out var layer, false))
         {
-            sprite.LayerSetState(layer, state);
+            _sprite.LayerSetRsiState((ent, sprite), layer, state);
             return;
         }
 
         var rsi = new SpriteSpecifier.Rsi(ent.Comp.ResPath, state);
 
-        layer = sprite.AddLayer(rsi);
-        sprite.LayerMapSet(FleshmendEffectKey.Key, layer);
+        layer = _sprite.AddLayer((ent, sprite), rsi);
+        _sprite.LayerMapSet((ent, sprite), FleshmendEffectKey.Key, layer);
     }
 }
