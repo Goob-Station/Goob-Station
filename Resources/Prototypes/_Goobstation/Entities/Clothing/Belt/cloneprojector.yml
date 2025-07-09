@@ -85,6 +85,7 @@
     removedComponents:
     - type: Destructible
     - type: Deathgasp
+    - type: Polymorphable
     - type: HealthExaminable
       examinableTypes:
       - Shock
@@ -165,8 +166,6 @@
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
-  - type: StealTarget
-    stealGroup: ClothingBeltGeminiHoloProjector
   - type: CloneProjector
     nameSuffix: monozygotic-projector-clone-name-suffix
     ghostRoleName: ghost-role-information-monozygotic-clone-name
@@ -177,7 +176,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        350: Dead # This ain't your mothers clone projector.
+        420: Dead
     clonedItemBlacklist:
       components:
       - CloneProjector
