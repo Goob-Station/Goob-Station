@@ -19,12 +19,14 @@ using Content.Shared.Devour.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Item; // Goobstation
 using Content.Server.Nutrition.Components; // Goobstation
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Devour;
 
 public sealed class DevourSystem : SharedDevourSystem
 {
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelistSystem = default!;
 
     public override void Initialize()
     {
@@ -41,40 +43,21 @@ public sealed class DevourSystem : SharedDevourSystem
 
         var ichorInjection = new Solution(component.Chemical, component.HealRate);
 
-        if (component.FoodPreference == FoodPreference.All ||
-            (component.FoodPreference == FoodPreference.Humanoid && HasComp<HumanoidAppearanceComponent>(args.Args.Target)))
+        // Grant ichor if the devoured thing meets the dragon's food preference
+        if (args.Args.Target != null && _entityWhitelistSystem.IsWhitelistPassOrNull(component.FoodPreferenceWhitelist, (EntityUid)args.Args.Target))
         {
-            if (component.ShouldStoreDevoured && args.Args.Target is not null)
-            {
-                ContainerSystem.Insert(args.Args.Target.Value, component.Stomach);
-            }
             _bloodstreamSystem.TryAddToChemicals(uid, ichorInjection);
         }
 
-        // Goobstation start - Food devouring
-        else if (args.Args.Target is { } target && HasComp<FoodComponent>(target))
+        // If the devoured thing meets the stomach whitelist criteria, add it to the stomach
+        if (args.Args.Target != null && _entityWhitelistSystem.IsWhitelistPass(component.StomachStorageWhitelist, (EntityUid)args.Args.Target))
         {
-            _bloodstreamSystem.TryAddToChemicals(uid, ichorInjection);
-
-            // Food is consumed unlike humanoids
-            QueueDel(target);
+            ContainerSystem.Insert(args.Args.Target.Value, component.Stomach);
         }
-        // Non-Food Items: follow original behaviour (store otherwise delete)
-        else if (args.Args.Target is { } item && HasComp<ItemComponent>(item))
-        {
-            if (component.ShouldStoreDevoured)
-            {
-                ContainerSystem.Insert(item, component.Stomach);
-            }
-            else
-            {
-                QueueDel(item);
-            }
-        }
-        // Goobstation end
 
         //TODO: Figure out a better way of removing structures via devour that still entails standing still and waiting for a DoAfter. Somehow.
-        //If it's not human, it must be a structure
+        // If it's not alive, it must be a structure.
+        // Delete if the thing isn't in the stomach storage whitelist (or the stomach whitelist is null/empty)
         else if (args.Args.Target != null)
         {
             QueueDel(args.Args.Target.Value);
@@ -85,7 +68,7 @@ public sealed class DevourSystem : SharedDevourSystem
 
     private void OnGibContents(EntityUid uid, DevourerComponent component, ref BeingGibbedEvent args)
     {
-        if (!component.ShouldStoreDevoured)
+        if (component.StomachStorageWhitelist == null)
             return;
 
         // For some reason we have two different systems that should handle gibbing,
