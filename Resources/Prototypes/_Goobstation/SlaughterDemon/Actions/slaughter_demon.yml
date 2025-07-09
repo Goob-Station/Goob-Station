@@ -1,0 +1,12 @@
+- type: entity
+  id: BloodCrawlAction
+  name: Blood Crawl
+  description: JAUNT ANYWHERE WHENEVER YOU ARE ON BLOOD 
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/SlaughterDemon/abilities.rsi
+      state: crawl
+    event: !type:BloodCrawlEvent
+    useDelay: 2

@@ -1,0 +1,217 @@
+- type: entity
+  parent:
+    - SimpleMobBase
+    - InventoryBase
+    - MobPolymorphable
+  id: BaseMobSlaughterDemon
+  name: slaughter demon
+  suffix: ""
+  description: A large, menacing creature covered in armored black scales. You should run.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/demon.rsi
+    state: daemon
+  - type: Damageable
+    damageContainer: Biological
+  - type: MobMover
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: InteractionOutline
+  - type: NoSlip
+  - type: Clickable
+  - type: Physics
+    bodyType: KinematicController
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      400: Dead
+  - type: Examiner
+  - type: CombatMode
+    prototype:
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 30
+        Structural: 30 # funny
+  - type: SlaughterDemon
+  - type: Puller
+  - type: ComplexInteraction
+  - type: Targeting
+  - type: Speech
+    speechVerb: Robotic
+  - type: TypingIndicator
+    proto: guardian
+  - type: Inventory
+  - type: InventorySlots
+  - type: Gibbable
+  - type: LayingDown
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Body
+    prototype: SlaughterDemon
+  - type: StandingState
+  - type: Hands
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+
+
+# Jaunt
+
+- type: entity
+  id: PolymorphBloodCrawlJaunt
+  name: Unknown
+  description: You can't figure out what that is.
+  parent: [ Incorporeal, BaseMob ]
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 12
+    baseWalkSpeed: 8
+  - type: Input
+    context: "ghost"
+  - type: NoSlip
+  - type: BloodCrawl
+    isCrawling: true
+  - type: Visibility
+    layer: 2
+  - type: Spectral
+  - type: Eye
+    drawFov: false
+    visMask:
+      - Normal
+      - Ghost
+  - type: MindContainer
+    showExamineInfo: true
+
+# polymorph
+
+- type: polymorph
+  id: BloodCrawlJaunt
+  configuration:
+    entity: PolymorphBloodCrawlJaunt
+    forced: true
+    attachToGridOrMap: true
+
+# body
+
+- type: body
+  id: SlaughterDemon
+  name: "slaughter demon"
+  root: chest
+  slots:
+    chest:
+      part: ChestSlaughter
+      connections:
+      - right arm
+      - left arm
+      - groin
+      organs:
+        lungs: OrganSpaceAnimalLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        heart: OrganSlaughterHeart # Blood Crawl
+        kidneys: OrganAnimalKidneys
+    groin:
+      part: GroinSlaughter
+      connections:
+      - legs
+    right arm:
+      part: RightArmMonkey # add proper
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmMonkey # add proper
+      connections:
+      - left hand
+    right hand:
+      part: RightHandMonkey # add proper
+    left hand:
+      part: LeftHandMonkey # add proper
+    legs:
+      part: LegsSlaughter
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal
+
+# body parts
+
+- type: entity
+  parent: [PartAnimalBase, ChestAnimal]
+  id: ChestSlaughter
+  name: slaughter chest
+  components:
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Mangled: 0
+
+- type: entity
+  parent: [PartAnimalBase, GroinAnimal]
+  id: GroinSlaughter
+  name: slaughter groin
+  components:
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Mangled: 0
+
+# organs
+
+- type: entity
+  parent: OrganAnimalHeart
+  id: OrganSlaughterHeart
+  name: slaughter heart
+  components:
+  - type: Organ
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 12
+      Destroyed: 0
+    onAdd:
+    - type: BloodCrawl
+
+- type: entity
+  parent: [PartAnimalBase, LegsAnimal]
+  id: LegsSlaughter
+  name: slaughter legs
+  components:
+  - type: Woundable
+    integrity: 350
+    integrityCap: 350
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Mangled: 0
+  - type: MovementBodyPart
+    sprintSpeed: 1.5
+    walkSpeed: 1.5
