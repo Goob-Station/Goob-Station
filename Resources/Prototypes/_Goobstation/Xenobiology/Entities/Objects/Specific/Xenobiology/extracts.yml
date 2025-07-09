@@ -89,12 +89,14 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:AreaReactionEffect
+      - !type:DoSmokeEntityEffect
         duration: 10
-        overflowThreshold: 0.5
-        prototypeId: Smoke
-        sound:
-          path: /Audio/Effects/smoke.ogg
+        spreadAmount: 75
+        smokePrototype: Smoke
+        solution:
+          reagents:
+          - ReagentId: TearGas
+            Quantity: 20
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
@@ -102,6 +104,9 @@
       effects:
       - !type:IgniteNearby
       - !type:FlashReactionEffect
+        maxRange: 7
+        rangePerUnit: 1
+        sound: /Audio/_Goobstation/Wizard/zapbang.ogg
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
@@ -447,8 +452,8 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: BluespaceExtractJelly
-        number: 1
+        entity: FloorTileItemBluespace
+        number: 25
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
@@ -462,9 +467,7 @@
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:CreateEntityReactionEffect
-        entity: FloorTileItemBluespace
-        number: 25
+      - !type:RandomTeleportNearby
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
@@ -681,12 +684,14 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:AreaReactionEffect
-        duration: 10
-        overflowThreshold: 0.5
-        prototypeId: PAXSmoke
-        sound:
-          path: /Audio/Effects/extinguish.ogg
+      - !type:DoSmokeEntityEffect
+        duration: 15
+        spreadAmount: 50
+        smokePrototype: Foam
+        solution:
+          reagents:
+          - ReagentId: Pax
+            Quantity: 30
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
