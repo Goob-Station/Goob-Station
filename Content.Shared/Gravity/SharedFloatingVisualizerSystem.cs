@@ -32,7 +32,7 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
         SubscribeLocalEvent<FloatingVisualsComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<GravityChangedEvent>(OnGravityChanged);
         SubscribeLocalEvent<FloatingVisualsComponent, EntParentChangedMessage>(OnEntParentChanged);
-        SubscribeNetworkEvent<FlightEvent>(OnFlight);
+        SubscribeLocalEvent<FloatingVisualsComponent, FlightEvent>(OnFlight);
     }
 
     /// <summary>
@@ -78,18 +78,15 @@ public abstract class SharedFloatingVisualizerSystem : EntitySystem
         }
     }
 
-    private void OnFlight(FlightEvent args)
+    private void OnFlight(EntityUid uid, FloatingVisualsComponent component, FlightEvent args)
     {
-        var uid = GetEntity(args.Uid);
-        if (!TryComp<FloatingVisualsComponent>(uid, out var floating))
-            return;
-        floating.CanFloat = args.IsFlying;
+        component.CanFloat = args.IsFlying;
 
         if (!args.IsFlying
             || !args.IsAnimated)
             return;
 
-        FloatAnimation(uid, floating.Offset, floating.AnimationKey, floating.AnimationTime);
+        FloatAnimation(uid, component.Offset, component.AnimationKey, component.AnimationTime);
     }
 
     private void OnEntParentChanged(EntityUid uid, FloatingVisualsComponent component, ref EntParentChangedMessage args)

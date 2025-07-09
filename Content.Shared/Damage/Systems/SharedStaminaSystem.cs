@@ -395,7 +395,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 component.NextUpdate = nextUpdate;
         }
 
-        AdjustSlowdown(uid);
+        AdjustSlowdown(uid, visual); // Goob edit
 
         SetStaminaAlert(uid, component);
 
@@ -445,7 +445,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         }
     }
 
-    public void ToggleStaminaDrain(EntityUid target, float drainRate, bool enabled, bool modifiesSpeed, EntityUid? source = null)
+    // Goob edit - stamina drains
+    public void ToggleStaminaDrain(EntityUid target, float drainRate, bool enabled, bool modifiesSpeed, string key, EntityUid? source = null)
     {
         if (!TryComp<StaminaComponent>(target, out var stamina))
             return;
@@ -455,11 +456,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
         if (enabled)
         {
-            stamina.ActiveDrains[actualSource] = (drainRate, modifiesSpeed);
+            stamina.ActiveDrains.TryAdd(key, (drainRate, modifiesSpeed, GetNetEntity(actualSource)));
             EnsureComp<ActiveStaminaComponent>(target);
         }
         else
-            stamina.ActiveDrains.Remove(actualSource);
+        {
+            if (stamina.ActiveDrains.ContainsKey(key))
+                stamina.ActiveDrains.Remove(key);
+        }
 
         Dirty(target, stamina);
     }
@@ -473,7 +477,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         var curTime = _timing.CurTime;
         while (query.MoveNext(out var uid, out _))
         {
-            // Just in case we have active but not stamina we'll check and account for it.
+            // Goob Edit: Just in case we have active but not stamina we'll check and account for it.
             if (!stamQuery.TryGetComponent(uid, out var comp) ||
                 comp.StaminaDamage <= 0f && !comp.Critical && comp.ActiveDrains.Count == 0)
             {
@@ -481,11 +485,11 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 continue;
             }
             if (comp.ActiveDrains.Count > 0)
-                foreach (var (source, (drainRate, modifiesSpeed)) in comp.ActiveDrains)
+                foreach (var (drainRate, _, source) in comp.ActiveDrains.Values)
                     TakeStaminaDamage(uid,
                     drainRate * frameTime,
                     comp,
-                    source: source,
+                    source: GetEntity(source),
                     visual: false);
             // Shouldn't need to consider paused time as we're only iterating non-paused stamina components.
             var nextUpdate = comp.NextUpdate;
@@ -574,7 +578,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     /// speed modifier using the stun system. If no threshold is met then the entity's speed is restored to normal.
     /// </summary>
     /// <param name="ent">Entity to update</param>
-    private void AdjustSlowdown(Entity<StaminaComponent?> ent)
+    private void AdjustSlowdown(Entity<StaminaComponent?> ent, bool visual = true) // Goob edit
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -590,6 +594,6 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 closest = thres.Key;
         }
 
-        _stunSystem.UpdateStunModifiers(ent, ent.Comp.StunModifierThresholds[closest]);
+        _stunSystem.UpdateStunModifiers(ent, ent.Comp.StunModifierThresholds[closest], visual: visual); // Goob edit
     }
 }

@@ -406,7 +406,8 @@ public abstract class SharedStunSystem : EntitySystem
     /// <param name="runSpeedModifier">New run (sprint) speed modifier. Default is 1f (normal speed).</param>
     public void UpdateStunModifiers(Entity<StaminaComponent?> ent,
         float walkSpeedModifier = 1f,
-        float runSpeedModifier = 1f)
+        float runSpeedModifier = 1f,
+        bool visual = true) // Goob edit
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -416,8 +417,11 @@ public abstract class SharedStunSystem : EntitySystem
         // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
         var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, runSpeedModifier), 0, 1);
         var cCTime = TimeSpan.FromSeconds(10f);
-        _jitter.DoJitter(ent, cCFactor * cCTime, true);
-        _stutter.DoStutter(ent, cCFactor * cCTime, true);
+        if (visual) // Goob edit
+        {
+            _jitter.DoJitter(ent, cCFactor * cCTime, true);
+            _stutter.DoStutter(ent, cCFactor * cCTime, true);
+        }
 
         /*
         if (
@@ -451,9 +455,9 @@ public abstract class SharedStunSystem : EntitySystem
     /// <param name="component">
     /// Optional <see cref="StaminaComponent"/> of the entity.
     /// </param>
-    public void UpdateStunModifiers(Entity<StaminaComponent?> ent, float speedModifier = 1f)
+    public void UpdateStunModifiers(Entity<StaminaComponent?> ent, float speedModifier = 1f, bool visual = true) // Goob edit
     {
-        UpdateStunModifiers(ent, speedModifier, speedModifier);
+        UpdateStunModifiers(ent, speedModifier, speedModifier, visual); // Goob edit
     }
 
     private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)

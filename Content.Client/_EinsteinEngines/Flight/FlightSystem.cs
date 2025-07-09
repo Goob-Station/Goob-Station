@@ -15,45 +15,60 @@ using Content.Client._EinsteinEngines.Flight.Components;
 namespace Content.Client._EinsteinEngines.Flight;
 public sealed class FlightSystem : SharedFlightSystem
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<FlightEvent>(OnFlight);
-
+        SubscribeLocalEvent<ToggleFlightVisualsEvent>(OnToggleFlightVisuals); // We need this crap because standingsys only raises shit on server lmao
+        SubscribeLocalEvent<FlightComponent, FlightEvent>(OnFlight);
     }
 
-    private void OnFlight(FlightEvent args)
+    private void OnToggleFlightVisuals(ToggleFlightVisualsEvent args)
     {
-        var uid = GetEntity(args.Uid);
-        if (!_entityManager.TryGetComponent(uid, out SpriteComponent? sprite)
-            || !args.IsAnimated
-            || !_entityManager.TryGetComponent(uid, out FlightComponent? flight))
+        if (!TryGetEntity(args.Uid, out var uid)
+            || !TryComp<FlightComponent>(uid, out var flight))
+            return;
+
+        HandleFlightToggle(uid.Value, flight, args.IsFlying, args.IsAnimated);
+    }
+
+    private void OnFlight(EntityUid uid, FlightComponent component, FlightEvent args) =>
+        HandleFlightToggle(uid, component, args.IsFlying, component.IsAnimated);
+
+    private void HandleFlightToggle(EntityUid uid,
+        FlightComponent component,
+        bool isFlying,
+        bool isAnimated)
+    {
+        if (!TryComp<SpriteComponent>(uid, out var sprite)
+            || !isAnimated)
             return;
 
         int? targetLayer = null;
-        if (flight.IsLayerAnimated && flight.Layer is not null)
+        if (component.IsLayerAnimated && component.Layer is not null)
         {
-            targetLayer = GetAnimatedLayer(uid, flight.Layer, sprite);
+            targetLayer = GetAnimatedLayer(uid, component.Layer, sprite);
             if (targetLayer == null)
                 return;
         }
 
-        if (args.IsFlying && args.IsAnimated && flight.AnimationKey != "default")
+        if (isFlying
+            && isAnimated
+            && component.AnimationKey != "default"
+            && !HasComp<FlightVisualsComponent>(uid))
         {
             var comp = new FlightVisualsComponent
             {
-                AnimateLayer = flight.IsLayerAnimated,
-                AnimationKey = flight.AnimationKey,
-                Multiplier = flight.ShaderMultiplier,
-                Offset = flight.ShaderOffset,
-                Speed = flight.ShaderSpeed,
+                AnimateLayer = component.IsLayerAnimated,
+                AnimationKey = component.AnimationKey,
+                Multiplier = component.ShaderMultiplier,
+                Offset = component.ShaderOffset,
+                Speed = component.ShaderSpeed,
                 TargetLayer = targetLayer,
             };
             AddComp(uid, comp);
         }
-        if (!args.IsFlying)
+        if (!isFlying)
             RemComp<FlightVisualsComponent>(uid);
     }
 

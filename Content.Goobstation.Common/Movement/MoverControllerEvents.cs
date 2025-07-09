@@ -12,3 +12,5 @@ public readonly record struct MoverControllerCantMoveEvent;
 
 [ByRefEvent]
 public readonly record struct MoverControllerGetTileEvent(ITileDefinition? Tile);
+
+public readonly record struct ToggleWalkEvent(bool Walking);

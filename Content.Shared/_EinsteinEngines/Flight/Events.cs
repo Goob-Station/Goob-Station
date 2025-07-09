@@ -18,13 +18,27 @@ public sealed partial class DashDoAfterEvent : SimpleDoAfterEvent { }
 [Serializable, NetSerializable]
 public sealed partial class FlightDoAfterEvent : SimpleDoAfterEvent { }
 
-[Serializable, NetSerializable]
 public sealed class FlightEvent : EntityEventArgs
+{
+    public EntityUid Uid { get; }
+    public bool IsFlying { get; }
+    public bool IsAnimated { get; }
+    public FlightEvent(EntityUid uid, bool isFlying, bool isAnimated)
+    {
+        Uid = uid;
+        IsFlying = isFlying;
+        IsAnimated = isAnimated;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class ToggleFlightVisualsEvent : EntityEventArgs
 {
     public NetEntity Uid { get; }
     public bool IsFlying { get; }
+
     public bool IsAnimated { get; }
-    public FlightEvent(NetEntity uid, bool isFlying, bool isAnimated)
+    public ToggleFlightVisualsEvent(NetEntity uid, bool isFlying, bool isAnimated)
     {
         Uid = uid;
         IsFlying = isFlying;

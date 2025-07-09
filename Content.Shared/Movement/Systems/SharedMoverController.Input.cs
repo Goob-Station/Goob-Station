@@ -48,6 +48,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Shared.Maths; // Shitmed Change
+using Content.Goobstation.Common.Movement; // Goob edit
 
 namespace Content.Shared.Movement.Systems
 {
@@ -531,6 +532,7 @@ namespace Content.Shared.Movement.Systems
             // Logger.Info($"[{_gameTiming.CurTick}/{subTick}] Sprint: {enabled}");
 
             SetMoveInput(entity, subTick, walking, MoveButtons.Walk);
+            RaiseLocalEvent(entity, new ToggleWalkEvent(walking)); // Goob edit
         }
 
         /// <summary>

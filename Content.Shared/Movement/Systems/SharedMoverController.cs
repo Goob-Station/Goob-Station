@@ -340,32 +340,31 @@ public abstract partial class SharedMoverController : VirtualController
 
         // Tile Movement Change
         // Try doing tile movement.
-        // Temporairly nuked.
-        //if (TileMovementQuery.TryComp(physicsUid, out var tileMovement))
-        //{
-        //    if (!weightless && !inAirHelpless)
-        //    {
-        //        var didTileMovement = HandleTileMovement(uid,
-        //            physicsUid,
-        //            tileMovement,
-        //            physicsComponent,
-        //            xform,
-        //            mover,
-        //            tileDef,
-        //            relayTarget,
-        //            frameTime);
-        //        tileMovement.WasWeightlessLastTick = weightless;
-        //        if(didTileMovement)
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        tileMovement.WasWeightlessLastTick = weightless;
-        //        tileMovement.SlideActive = false;
-        //    }
-        //}
+        if (TileMovementQuery.TryComp(uid, out var tileMovement))
+        {
+            if (!weightless && !inAirHelpless)
+            {
+                var didTileMovement = HandleTileMovement(uid,
+                    uid,
+                    tileMovement,
+                    physicsComponent,
+                    xform,
+                    mover,
+                    tileDef,
+                    relayTarget,
+                    frameTime);
+                tileMovement.WasWeightlessLastTick = weightless;
+                if(didTileMovement)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                tileMovement.WasWeightlessLastTick = weightless;
+                tileMovement.SlideActive = false;
+            }
+        }
 
         var touching = false;
         // Whether we use tilefriction or not
