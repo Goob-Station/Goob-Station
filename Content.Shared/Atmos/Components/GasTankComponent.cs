@@ -7,12 +7,14 @@ namespace Content.Shared.Atmos.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class GasTankComponent : Component, IGasMixtureHolder
 {
-    public const float MaxExplosionRange = 26f;
     private const float DefaultLowPressure = 0f;
     private const float DefaultOutputPressure = Atmospherics.OneAtmosphere;
 
     public int Integrity = 3;
     public bool IsLowPressure => Air.Pressure <= TankLowPressure;
+
+    [DataField]
+    public float? MaxExplosionRange; // Goobstation - If null, use the atmos explosion range cvar, otherwise, use this value
 
     [DataField]
     public SoundSpecifier RuptureSound = new SoundPathSpecifier("/Audio/Effects/spray.ogg");

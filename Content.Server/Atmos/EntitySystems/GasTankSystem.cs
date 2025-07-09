@@ -37,6 +37,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Atmos.Events;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -202,7 +203,13 @@ namespace Content.Server.Atmos.EntitySystems
 
             var pressure = component.Air.Pressure;
 
-            if (pressure > component.TankFragmentPressure && _maxExplosionRange > 0)
+            // <Goobstation>
+            var rangeEv = new GasTankGetRangeEvent(component.MaxExplosionRange ?? _maxExplosionRange);
+            RaiseLocalEvent(ent, ref rangeEv);
+            var maxRange = rangeEv.MaxRange;
+            // </Goobstation>
+                                                             // Goobstation
+            if (pressure > component.TankFragmentPressure && maxRange > 0)
             {
                 // Give the gas a chance to build up more pressure.
                 for (var i = 0; i < 3; i++)
@@ -215,7 +222,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 // Let's cap the explosion, yeah?
                 // !1984
-                range = Math.Min(Math.Min(range, GasTankComponent.MaxExplosionRange), _maxExplosionRange);
+                range = Math.Min(range, maxRange); // Goobstation
 
                 _explosions.TriggerExplosive(owner, radius: range);
 
