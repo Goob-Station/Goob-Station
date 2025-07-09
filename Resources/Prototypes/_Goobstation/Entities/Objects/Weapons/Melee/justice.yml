@@ -48,6 +48,21 @@
       path: /Audio/Weapons/bladeslice.ogg
     angle: 60
     animation: WeaponArcThrust
+  - type: GhostRole
+    name: justice-role-name
+    description: justice-role-description
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: GhostTakeoverAvailable
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: MobState # This shitcod allows the role to pop back up after whoever had it last ghosts out of it, same as PAI
+    allowedStates:
+      - Alive
   - type: ItemSwitch
     needsPower: true
     defaultState: off
