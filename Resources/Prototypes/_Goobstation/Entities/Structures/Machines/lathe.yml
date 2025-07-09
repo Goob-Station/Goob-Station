@@ -207,6 +207,9 @@
     - ExperimentalScienceGoob
     - MechBoardsScience
     - Pinpointers
+    # Einstein Engines Packs
+    - Translators
+    - TranslatorImplanters
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - MechBoardsSecurity
@@ -263,6 +266,8 @@
     - ServiceBoards
     - SharedBoards
     - CameraBoards
+    # Einstein Engines Packs
+    - Translators
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ServiceBoardsEvilStatic # Donk Co microwave circiutboard

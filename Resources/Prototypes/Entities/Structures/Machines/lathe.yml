@@ -508,6 +508,8 @@
     - MedicalMisc
     - MedicalVehiclesAdvanced
     - UpgradeKits
+    # Einstein Engines Packs
+    - Translators
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -856,6 +858,9 @@
     - MedicalVehiclesAdvanced
     - MedicalBoards
     - Janitor
+    # Einstein Engines Packs
+    - Translators
+    - TranslatorImplanters
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs

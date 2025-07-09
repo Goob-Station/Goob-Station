@@ -234,6 +234,7 @@
     - Crab
     - Kobold
     - Hissing
+    - Deer
     requires:
     - TauCetiBasic
     setLanguageOnInteract: false
