@@ -31,6 +31,13 @@
     state: icon
 
 - type: stealTargetGroup
+  id: WeaponSecHeadSword
+  name: steal-target-groups-weapon-justice
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+    state: icon
+
+- type: stealTargetGroup
   id: RapidSyringeGun
   name: steal-target-groups-rapid-syringe-gun
   sprite:

@@ -63,6 +63,8 @@
   - type: MobState # This shitcod allows the role to pop back up after whoever had it last ghosts out of it, same as PAI
     allowedStates:
       - Alive
+  - type: StealTarget
+    stealGroup: WeaponSecHeadSword
   - type: ItemSwitch
     needsPower: true
     defaultState: off

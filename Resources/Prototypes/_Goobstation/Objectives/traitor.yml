@@ -96,6 +96,18 @@
     owner: job-name-hos
 
 - type: entity
+  parent: BaseTraitorStealObjective
+  id: JusticeStealObjective
+  components:
+  - type: Objective
+    difficulty: 5 #Cannot be pocketed/bagged like Lawbringer or similar, requires your belt slot or hand to hold.
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: WeaponSecHeadSword
+    owner: job-name-hos
+
+- type: entity
   parent: BaseCMOStealObjective
   id: CMORapidSyringeGunStealObjective
   components:
