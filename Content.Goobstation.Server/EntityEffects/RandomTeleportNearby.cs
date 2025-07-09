@@ -18,11 +18,15 @@ using Content.Shared.EntityEffects;
 using Content.Shared.Examine;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.EntityEffects;
 
 public sealed partial class RandomTeleportNearby : EntityEffect
 {
+
+    [DataField]
+    public int Quantity = 3;
 
     [DataField]
     public float Range = 7;
@@ -47,20 +51,34 @@ public sealed partial class RandomTeleportNearby : EntityEffect
         if (args is not EntityEffectReagentArgs reagentArgs)
             return;
 
+        var randomSystem = IoCManager.Resolve<IRobustRandom>();
         var entityManager = args.EntityManager;
         var uid = args.TargetEntity;
+
+        var transformSystem = entityManager.System<SharedTransformSystem>();
         var lookupSys = entityManager.System<EntityLookupSystem>();
         var occlusionSys = entityManager.System<ExamineSystemShared>();
-        var teleportSystem = args.EntityManager.System<TeleportSystem>();
+        var teleportSystem = entityManager.System<TeleportSystem>();
 
-        var entities = lookupSys.GetEntitiesInRange(uid, Range);
-        var canTarget = new HashSet<EntityUid>(entities
-            .Where(entity => entity != null
-                             && occlusionSys.InRangeUnOccluded(uid, entity, Range)
-                             && entityManager.HasComponent<MobStateComponent>(entity))
-            .Select(entity => entity));
+        var xform = transformSystem.GetMapCoordinates(uid);
 
-        foreach (var entity in canTarget)
+        var entities = lookupSys.GetEntitiesInRange<MobStateComponent>(xform, Range);
+
+        var canTarget = entities
+            .Where(entity => entity != null && occlusionSys.InRangeUnOccluded(uid, entity, Range))
+            .ToHashSet();
+
+        if (canTarget.Count == 0)
+            return;
+
+        var takeCount = Math.Min(Quantity, canTarget.Count);
+
+        var selectedEntities = canTarget
+            .OrderBy(_ => randomSystem.Next())
+            .Take(takeCount)
+            .ToList();
+
+        foreach (var entity in selectedEntities)
         {
             teleportSystem.RandomTeleport(entity, Radius, TeleportAttempts);
         }
