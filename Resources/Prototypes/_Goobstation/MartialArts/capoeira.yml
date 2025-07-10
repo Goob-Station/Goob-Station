@@ -1,0 +1,98 @@
+- type: martialArt
+  id: Capoeira
+  martialArtsForm: Capoeira
+  roundstartCombos: CapoeiraMoves
+  startingStage: Hard
+
+- type: comboList
+  id: CapoeiraMoves
+  combos:
+  - PushKick
+  - SweepKick
+  - CircleKick
+  - SpinKick
+  - KickUp
+
+- type: combo
+  id: PushKick
+  name: Push Kick
+  martialArtsForm: Capoeira
+  attacks:
+  - Grab
+  - Harm
+  - Harm
+  event: !type:PushKickPerformedEvent
+    staminaToHeal: -30
+    sound:
+      path: /Audio/Weapons/genhit3.ogg
+  extraDamage: 5
+  paralyzeTime: 1
+  dropHeldItemsBehavior: NoDrop
+  canDoWhileProne: false
+
+- type: combo
+  id: CircleKick
+  name: Circle Kick
+  martialArtsForm: Capoeira
+  attacks:
+  - Disarm
+  - Disarm
+  - Harm
+  event: !type:CircleKickPerformedEvent
+    staminaToHeal: -40
+    sound:
+      path: /Audio/Weapons/genhit2.ogg
+  extraDamage: 15
+  canDoWhileProne: false
+
+- type: combo
+  id: SweepKick
+  name: Sweep Kick
+  martialArtsForm: Capoeira
+  attacks:
+  - Harm
+  - Harm
+  - Disarm
+  event: !type:SweepKickPerformedEvent
+    staminaToHeal: -60
+    attackSpeedMultiplier: 1.5
+    attackSpeedMultiplierTime: 5
+    minVelocity: 2
+    sound:
+      path: /Audio/Weapons/genhit1.ogg
+  extraDamage: 10
+  paralyzeTime: 1
+  staminaDamage: 10
+  canDoWhileProne: false
+
+- type: combo
+  id: SpinKick
+  name: Spin Kick
+  martialArtsForm: Capoeira
+  attacks:
+  - Grab
+  - Harm
+  - Disarm
+  - Harm
+  event: !type:SpinKickPerformedEvent
+    staminaToHeal: -100
+    attackSpeedMultiplier: 1.5
+    attackSpeedMultiplierTime: 5
+    minVelocity: 2
+    sound:
+      path: /Audio/Weapons/genhit1.ogg
+  paralyzeTime: 2
+  staminaDamage: 15
+  extraDamage: 25
+  canDoWhileProne: false
+
+- type: combo
+  id: KickUp
+  name: Kick Up
+  martialArtsForm: Capoeira
+  attacks:
+  - Disarm
+  - Disarm
+  event: !type:KickUpPerformedEvent
+    staminaToHeal: -20
+  performOnSelf: true

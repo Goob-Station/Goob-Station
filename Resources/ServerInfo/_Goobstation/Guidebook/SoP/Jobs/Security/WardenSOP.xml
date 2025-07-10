@@ -6,68 +6,68 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Warden SOP
-This is the list of procedures, responsibilities, and duties of the [color=#ba292c][bold]Warden[/bold][/color] of this station.
+# СОП Наглядача
+Це перелік процедур, обов'язків та повноважень [color=#ba292c][bold]Наглядача[/bold][/color] цієї станції.
 
 <ColorBox>
   <Box>
-    For the purposes of Alert Escalation: Treat higher alerts as if they are still on the previous alert level. (Yellow Alert is Blue Alert if it was Blue Alert prior.) Furthermore, treat Delta, Gamma, Epsilon, and Violet Alert as Red Alert.
+    Для цілей ескалації тривоги: розглядайте вищі рівні тривоги так, ніби вони все ще на попередньому рівні. (Жовта тривога - це синя тривога, якщо до цього була синя тривога.) Крім того, розглядайте тривоги Дельта, Гамма, Епсилон та Фіолетова як червону тривогу.
   </Box>
 </ColorBox>
 
-The [color=#ba292c][bold]Warden[/bold][/color] is permitted to carry their shift-start equipment, but should follow escalation procedures and refrain from using lethals.
+[color=#ba292c][bold]Наглядач[/bold][/color] має право носити своє спорядження, видане на початку зміни, але повинен дотримуватися процедур ескалації та утримуватися від використання летальної зброї.
 
-## Green Alert
-1. The Warden is obligated to remain in the Security Department at all times except to assist in transportation of prisoners.
-<Box>The Warden must maintain control over the Armory as well, with only exceptions being allowed for Captain and Head of Security.</Box>
+## Зелена тривога
+1. Наглядач зобов'язаний постійно перебувати у відділі безпеки, за винятком випадків надання допомоги в транспортуванні в'язнів.
+<Box>Наглядач також повинен контролювати збройову, винятки дозволяються лише для капітана та голови служби безпеки.</Box>
 
-2. The Warden may not perform arrests if there are Security Officers active.
+2. Наглядач не може проводити арешти, якщо є активні офіцери безпеки.
 
-3. The Warden must conduct a thorough search of every prisoner's belongings, including pockets, PDA slots, any coat pockets and suit storage slots.
-<Box>Following proper Space Law: PDA, clothes, and Headsets are to be returned when the search is finished; unless contraband/tampering is evident. Then replacements should be issued.</Box>
+3. Наглядач повинен проводити ретельний обшук речей кожного в'язня, включаючи кишені, слоти КПК, будь-які кишені пальто та слоти для зберігання в костюмі.
+<Box>Згідно з космічним законом: КПК, одяг та гарнітури повертаються після закінчення обшуку; якщо не виявлено контрабанди/втручання. Тоді слід видати замінники.</Box>
 
-4. The warden should ensure that all prisoners are equipped with their PDA, Headset, and clothes (provided they are not contraband/tampered with).
-<Box>In such cases where the PDA, Headset, and/or clothes are tampered with or harboring contraband, replacements should be issued.</Box>
+4. Наглядач повинен забезпечити, щоб усі в'язні були оснащені своїми КПК, гарнітурами та одягом (за умови, що вони не є контрабандою/втручанням).
+<Box>У випадках, коли КПК, гарнітура та/або одяг підроблені або містять контрабанду, слід видати замінники.</Box>
 
-5. The Warden is not obligated to provide a trial, but is encouraged to allow legal representation should the suspect request it. This only applies to Capital Crimes.
+5. Наглядач не зобов'язаний надавати судовий розгляд, але заохочується дозволити юридичне представництво, якщо підозрюваний цього вимагає. Це стосується лише тяжких злочинів.
 
-6. The Warden may not hand out any weapons or armour from the Armory, except for extra disablers.
+6. Наглядач не може видавати жодної зброї чи броні зі збройової, за винятком додаткових дестабілізаторів.
 
-7. The Warden is permitted to carry a standard disabler, a flash, a stunbaton, a flashbang and their provided energy shotgun.
+7. Наглядач має право носити стандартний дестабілізатор, світлошумову гранату, електрошокер, світлошумову гранату та наданий йому енергетичний дробовик.
 
-8. The Warden may not place the portable flashers nor deployable barriers within the Brig.
+8. Наглядач не може розміщувати портативні світлошумові пристрої та розгортати бар'єри в межах карцеру.
 
-9. The Warden must read to every prisoner the crimes they are sentenced to.
+9. Наглядач повинен зачитувати кожному в'язню злочини, за які його засуджено.
 
-10. The Warden is not permitted to leave prisoners buckled and cuffed to their beds.
-<Box>An exception is made if the prisoners are acting overly hostile or attempting to breach the cell in order to escape.</Box>
+10. Наглядачеві не дозволяється залишати в'язнів пристебнутими та в наручниках до ліжок.
+<Box>Виняток робиться, якщо в'язні поводяться надмірно вороже або намагаються прорватися з камери, щоб втекти.</Box>
 
-11. The Warden must follow the same guidelines as Security Officers for attire, with the exception that their own assigned attire is also acceptable for any of the attire mentioned for Security Officers.
+11. Наглядач повинен дотримуватися тих самих вказівок щодо одягу, що й офіцери безпеки, за винятком того, що його власний призначений одяг також є прийнятним для будь-якого згаданого одягу для офіцерів безпеки.
 
-12. The Warden is permitted to place the portable flashers inside the Brig if there is an influx of prisoner personnel and/or several attempts to escape.
+12. Наглядач має право розміщувати портативні світлошумові пристрої в карцері, якщо є наплив ув'язнених та/або кілька спроб втечі.
 
-## Blue Alert
-1. Guidelines 2, 3, 5, 7, 10, and 12 are carried over from [color=#388c34]Green Alert[/color].
+## Синя тривога
+1. Вказівки 2, 3, 5, 7, 10 та 12 переносяться з [color=#388c34]Зеленої тривоги[/color].
 
-2. The Warden is permitted to hand out all equipment from the Armory. Energy and Laser guns are only to be handed out with Captain and/or Head of Security's approval, as they present a lethal risk.
-<Box>Exceptions apply if there is a lethal threat and/or emergency, such as Nuclear Operatives, Blob, and/or Delta Alert.</Box>
+2. Наглядач має право видавати все спорядження зі збройової. Енергетична та лазерна зброя видається лише за згодою капітана та/або голови служби безпеки, оскільки вона становить летальну загрозу.
+<Box>Винятки застосовуються, якщо існує летальна загроза та/або надзвичайна ситуація, така як ядерні оперативники, крапля та/або тривога Дельта.</Box>
 
-3. The Warden is permitted to place the portable flashes and deployable barriers inside the Brig at all times.
+3. Наглядач має право постійно розміщувати портативні світлошумові пристрої та розгортати бар'єри в карцері.
 
-4. The Warden should still remain in the Security Department unless an emergency requires moving.
+4. Наглядач повинен залишатися у відділі безпеки, якщо надзвичайна ситуація не вимагає переміщення.
 
-## Red Alert
-1. Guidelines 3, 5, 7, 10, and 12 are carried over from [color=#388c34]Green Alert[/color].
+## Червона тривога
+1. Вказівки 3, 5, 7, 10 та 12 переносяться з [color=#388c34]Зеленої тривоги[/color].
 
-2. Guidelines 2 and 3 are carried over from [color=#1b67a5]Blue Alert[/color]. In addition, the Warden may also carry any weapon from the Armory, but never more than one at a time.
+2. Вказівки 2 та 3 переносяться з [color=#1b67a5]Синьої тривоги[/color]. Крім того, наглядач може також носити будь-яку зброю зі збройової, але не більше однієї одночасно.
 
-3.The Warden is permitted to distribute any weapon or piece of equipment in the Armory. This includes whatever Research has provided.
+3. Наглядач має право роздавати будь-яку зброю чи частину спорядження в збройовій. Це включає все, що надало дослідження.
 
-4. The Warden is permitted to carry out arrests freely.
+4. Наглядач має право вільно проводити арешти.
 
-5. The Warden, with approval from Captain and/or Head of Security, may give one (1) lethal weapon to a Head of Staff.
-<Box>The lethal weapon must be returned when the alert is reduced.</Box>
+5. Наглядач, за згодою капітана та/або голови служби безпеки, може видати одну (1) летальну зброю голові персоналу.
+<Box>Летальна зброя повинна бути повернута, коли рівень тривоги буде знижено.</Box>
 
-6. The Warden should still remain in the Security Department unless an emergency requires moving.
+6. Наглядач повинен залишатися у відділі безпеки, якщо надзвичайна ситуація не вимагає переміщення.
 
 </Document>
