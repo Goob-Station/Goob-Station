@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ducks <97200673+TwoDucksOnnaPlane@users.noreply.github.com>
@@ -378,7 +379,7 @@ public sealed partial class GoobCVars
     /// Shove range multiplier.
     /// </summary>
     public static readonly CVarDef<float> ShoveRange =
-        CVarDef.Create("game.shove_range", 3f, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("game.shove_range", 0.6f, CVar.SERVER | CVar.ARCHIVE);
 
     /// <summary>
     /// Shove speed multiplier, does not affect range.
