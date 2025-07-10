@@ -48,7 +48,7 @@ public sealed partial class RandomTeleportNearby : EntityEffect
     {
         if (args is not EntityEffectReagentArgs reagentArgs)
             return;
-            
+
         var entityManager = args.EntityManager;
         var uid = args.TargetEntity;
 
@@ -64,11 +64,16 @@ public sealed partial class RandomTeleportNearby : EntityEffect
         if (entities.Count == 0)
             return;
 
-        foreach (var entity in entities)
+        var canTarget = entities
+            .Where(entity => entity != null && occlusionSys.InRangeUnOccluded(uid, entity, Range))
+            .ToHashSet();
+
+        if (canTarget.Count == 0)
+            return;
+
+        foreach (var entity in canTarget)
         {
             teleportSystem.RandomTeleport(entity, Radius, TeleportAttempts);
         }
     }
 }
-
-//trailing whitespace
