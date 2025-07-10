@@ -342,7 +342,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
   productEntity: WeaponRifleEstoc # goob unbundle
   cost:
-    Telecrystal: 55 # goob
+    Telecrystal: 55 # goob unbundle
   categories:
   - UplinkWeaponry
 
