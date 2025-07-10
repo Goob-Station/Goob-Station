@@ -1,0 +1,88 @@
+<Document>
+
+  # Capoeira
+
+  <Box>
+    <GuideEntityEmbed Entity="CapoeiraManual" Caption=""/>
+  </Box>
+
+  Capoeira, the Syndicate's dance of war originating in Brazil, is a [textlink="martial art" link="MartialArts"] that disguises violence as beauty.
+  Swift attacks link into flowing combos, each move faster and harder than the last one, fueled by relentless momentum.
+
+  ## Special abilities
+
+  Capoeira users are better at Grab intent, as successfully grabbing an opponent grants them a brief speed boost.
+
+  ### Capoeira Stance
+
+  You never stop moving while performing the ginga. This makes you very mobile while fighting.
+
+  Through swift motion, Capoeira masters channel speed into energy, with combos being more deadly the faster they run.
+  Halt their flow, and their strength will vanish. Their combos, powered by movement, falter when they are prone.
+
+  ### Capoeira Momentum
+
+  Through the flowing, relentless motion of Capoeira, each successful combo restores the user's stamina.
+  Every connected strike fuels their endurance, allowing them to fight longer, faster, and harder without pause.
+
+  ### Capoeira Tempo
+
+  Hit or miss, it's just part of the dance! And the best part is about to start!
+
+  A missed attack sharpens the next, reducing its recovery and increasing the damage.
+
+  ## Combo attacks
+
+  ### Push Kick
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Knocks down and pushes opponent away from the user. Doesn't force to drop held items.
+
+  ### Circle Kick
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Deals Blunt damage and also slows down the opponent significantly.
+
+  ### Sweep Kick
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Knocks down and deals Blunt and Stamina damage. Temporarily increases user's attack speed by a bit.
+  Cannot be performed if the user is moving too slow.
+
+  ### Spin Kick
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Deals a lot of Blunt damage and knocks the opponent down. Also makes the user flip. Only works on standing opponents.
+  Cannot be performed if the user is moving too slow.
+
+  ### Kick Up
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Needs to be targeted at the user themselves. Can be performed while prone. Removes knock down status effect and forces the user to stand up instantly.
+
+</Document>
