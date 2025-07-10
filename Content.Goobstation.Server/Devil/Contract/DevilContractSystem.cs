@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Paper;
+using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
@@ -20,6 +21,7 @@ using Content.Server._Imp.Drone;
 using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Implants;
+using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
@@ -49,6 +51,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly SubdermalImplantSystem _implant = null!;
     [Dependency] private readonly PolymorphSystem _polymorph = null!;
+    [Dependency] private readonly MindSystem _mind = null!;
 
     private ISawmill _sawmill = null!;
 
@@ -203,6 +206,10 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         contract.Comp.IsDevilSigned = true;
         _popupSystem.PopupEntity(Loc.GetString("contract-devil-signed"), signed, signer);
+
+        if (_mind.TryGetMind(signer, out var mindId, out var mind) &&
+            _mind.TryGetObjectiveComp<MeetContractWeightConditionComponent>(mindId, out var objectiveComp, mind))
+            objectiveComp.ContractWeight += contract.Comp.ContractWeight;
     }
 
     private void HandleBothPartiesSigned(Entity<DevilContractComponent> contract)

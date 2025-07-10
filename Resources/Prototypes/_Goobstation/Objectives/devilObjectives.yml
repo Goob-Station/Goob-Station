@@ -21,3 +21,18 @@
     title: objective-condition-contract-title
     description: objective-condition-contract-description
   - type: SignContractCondition
+
+- type: entity
+  parent: BaseDevilObjective
+  id: DevilWeightObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Economy/cash.rsi
+      state: cash_5000
+  - type: NumberObjective
+    min: 150
+    max: 200
+    title: objective-condition-weight-title
+    description: objective-condition-weight-description
+  - type: MeetContractWeightCondition
