@@ -686,3 +686,8 @@
     accent-cheese-words-14: accent-cheese-words-replace-14
     accent-cheese-words-15: accent-cheese-words-replace-15
     accent-cheese-words-16: accent-cheese-words-replace-16
+
+- type: accent
+  id: valid
+  wordReplacements:
+    accent-human-words-1: accent-human-words-replace-1
