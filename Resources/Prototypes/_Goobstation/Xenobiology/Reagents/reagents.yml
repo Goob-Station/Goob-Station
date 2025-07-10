@@ -55,3 +55,16 @@
           max: 1
         chanceModifier: 0.25
         shouldSubtract: false
+
+- type: reagent
+  id: XenoGenderFluid
+  parent: Slime
+  name: reagent-name-xeno-gender-fluid
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:SexChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15

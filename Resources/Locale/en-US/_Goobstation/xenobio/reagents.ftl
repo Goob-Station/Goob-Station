@@ -2,6 +2,7 @@ reagent-name-purple-xeno-jelly = purple jelly
 reagent-name-blue-xeno-jelly = blue jelly
 reagent-name-cerulean-xeno-jelly = cerulean jelly
 reagent-name-red-xeno-jelly = red jelly
+reagent-name-xeno-gender-fluid = gender fluid
 
 reagent-comp-condition-xeno-slime = slime
 
@@ -11,3 +12,4 @@ xeno-extract-omnizine-created = The extract bubbles, and fills with a soothing p
 xeno-extract-frost-created = The extract bubbles, and fills with a cold blue oil!
 xeno-extract-fuel-created = The extract bubbles, and fills with a bitter brown fuel!
 xeno-extract-tilenol-created = The extract bubbles, and fills with a nostalgic substance!
+xeno-extract-gender-fluid-created = The extract bubbles, and fills with a milky substance!

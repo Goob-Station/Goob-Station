@@ -267,19 +267,6 @@
       - !type:FlammableReaction
         multiplier: 0.4
 
-- type: reagent
-  id: XenoGenderFluid
-  parent: Slime
-  name: reagent-name-xeno-gender-fluid
-  metabolisms:
-    Narcotic:
-      effects:
-      - !type:SexChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-          max: 15
-
 # Homemade hyperzine, should be worse than it and harder to make, but
 # doesn't require vestine. Should NOT be addictive when we get addictions
 - type: reagent

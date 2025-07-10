@@ -606,6 +606,33 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ff33cc"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects: #Mutate nearby plants effect required.
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: PinkExtractJelly
+        number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: XenoGenderFluid
+        amount: 100
+      - !type:PopupMessage
+        messages: [ "xeno-extract-gender-fluid-created" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity

@@ -8,7 +8,7 @@ using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Chemistry;
+namespace Content.Goobstation.Server.EntityEffects;
 
 [UsedImplicitly]
 public sealed partial class SexChange : EntityEffect
