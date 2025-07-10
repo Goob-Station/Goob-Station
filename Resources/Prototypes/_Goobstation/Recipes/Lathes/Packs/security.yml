@@ -93,3 +93,9 @@
   parent: MedicalCybernetics
   recipes:
   - SecurityCyberneticEyes
+
+- type: latheRecipePack
+  id: RestraintTechnology
+  recipes:
+  - ClothingMaskMuzzleSecure
+  - ClothingMaskMuzzleShock

@@ -1,74 +1,251 @@
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: OrganHumanEyes
+  id: BaseCyberneticOrgan
+  parent: BaseHumanOrgan
   abstract: true
-  id: BaseCyberneticEyes
   components:
   - type: Cybernetics
   - type: Sprite
-    sprite: _EinsteinEngines/Mobs/Species/IPC/organs.rsi
-    state: "eyes"
+    sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi
+  - type: Tag
+    tags:
+    - Organ
+    # not meat
+
+# Eyes
 
 - type: entity
-  parent: BaseCyberneticEyes
+  parent: BaseCyberneticOrgan
   id: BasicCyberneticEyes
   name: cybernetic eyes
   description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
   components:
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi
+    state: eyes
   - type: Organ
     intCap: 21
     integrity: 21
     integrityThresholds:
       Normal: 21
       Damaged: 11
-      Destroyed: 0  
+      Destroyed: 0
     onAdd:
     - type: FlashImmunity
     - type: EyeProtection
 
 - type: entity
-  parent: BaseCyberneticEyes
+  parent: BasicCyberneticEyes
   id: SecurityCyberneticEyes
   name: cybernetic security eyes
   description: A pair of cybernetic eyes that enhance your vision, featuring an integrated SecHUD.
   components:
-  - type: Organ
-    intCap: 21
-    integrity: 21
-    integrityThresholds:
-      Normal: 21
-      Damaged: 11
-      Destroyed: 0  
-    onAdd:
-    - type: FlashImmunity
-    - type: EyeProtection
-    - type: ShowJobIcons
-    - type: ShowMindShieldIcons
-    - type: ShowCriminalRecordIcons
+  - type: Sprite
+    state: eyes-sechud
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+  - type: ShowCriminalRecordIcons
 
 - type: entity
-  parent: BaseCyberneticEyes
+  parent: BasicCyberneticEyes
   id: MedicalCyberneticEyes
-  name: cybernetic diagnostic eyes
+  name: cybernetic medhud eyes
   description: A pair of cybernetic eyes that enhance your vision, featuring an integrated MedHUD.
   components:
+  - type: Sprite
+    state: eyes-medhud
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+
+- type: entity
+  parent: BasicCyberneticEyes
+  id: DiagnosticCyberneticEyes
+  name: cybernetic diagnostic eyes
+  description: A pair of cybernetic eyes that enhance your vision, featuring an integrated diagnostic hud.
+  components:
+  - type: Sprite
+    state: eyes-diagnostic
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
+  - type: ShowHealthIcons
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
+
+# Heart
+
+- type: entity
+  parent: BaseCyberneticOrgan
+  id: BasicCyberneticHeart
+  name: cybernetic heart
+  description: A precision-tuned heart that accelerates medicine absorption while slowing the effects of poisons and narcotics.
+  components:
+  - type: Sprite
+    state: heart-on
+  - type: Heart
   - type: Organ
-    intCap: 21
-    integrity: 21
+    intCap: 25
+    integrity: 25
     integrityThresholds:
-      Normal: 21
-      Damaged: 11
-      Destroyed: 0  
+      Normal: 25
+      Damaged: 9
+      Destroyed: 0
+    slotId: heart
+  - type: Metabolizer
+    maxPoisonsProcessable: 2
+    metabolizerTypes: [ Cybernetic ]
+    groups:
+    - id: Medicine
+      rateModifier: 1.3
+    - id: Poison
+      rateModifier: 0.7
+    - id: Narcotic
+      rateModifier: 0.8
+  - type: Tag
+    tags:
+    - Organ
+    - Heart
+  - type: Item
+    size: Small
+    heldPrefix: heart
+
+- type: entity
+  parent: BasicCyberneticHeart
+  id: UpgradedCyberneticHeart
+  name: upgraded cybernetic heart
+  description: A next-gen circulatory core that rapidly delivers medicine throughout the body while heavily delaying and weakening toxins and narcotics.
+  components:
+  - type: Sprite
+    state: heart-u-on
+  - type: Organ
+    intCap: 32
+    integrity: 32
+    integrityThresholds:
+      Normal: 32
+      Damaged: 9
+      Destroyed: 0
+    slotId: heart
+  - type: Metabolizer
+    maxPoisonsProcessable: 2
+    metabolizerTypes: [ Cybernetic ]
+    groups:
+    - id: Medicine
+      rateModifier: 2.25
+    - id: Poison
+      rateModifier: 0.35
+    - id: Narcotic
+      rateModifier: 0.6
+
+# Liver
+
+- type: entity
+  parent: BaseCyberneticOrgan
+  id: BasicCyberneticLiver
+  name: cybernetic liver
+  description: A high-efficiency synthetic liver that neutralizes all negative effects of alcohol while preserving the buzz.
+  components:
+  - type: Liver
+  - type: Organ
+    intCap: 29
+    integrity: 29
+    integrityThresholds:
+      Normal: 29
+      Damaged: 12
+      Destroyed: 0
+    slotId: liver
+  - type: Sprite
+    state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Metabolizer
+    maxPoisonsProcessable: 1
+    metabolizerTypes: [ Cybernetic ]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+  - type: Tag
+    tags:
+    - Organ
+    - Liver
+
+# Lungs
+
+- type: entity
+  parent: BaseCyberneticOrgan
+  id: BasicCyberneticLungs
+  name: cybernetic lungs
+  description: Advanced synthetic lungs that breathe oxygen and nitrogen, ignore CO2, and resist most other atmospheric hazards.
+  components:
+  - type: Sprite
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: Organ
+    intCap: 25
+    integrity: 25
+    integrityThresholds:
+      Normal: 25
+      Damaged: 9
+      Destroyed: 0
+    slotId: lungs
+  - type: Item
+    size: Small
+    heldPrefix: lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Cybernetic ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 100.0
+        canReact: false
+  - type: Tag
+    tags:
+    - Organ
+    - Lungs
+
+- type: entity
+  parent: BasicCyberneticLungs
+  id: UpgradedCyberneticLungs
+  name: upgraded cybernetic lungs
+  description: A self-contained respiratory system that eliminates the need to breathe entirely and grants full immunity to atmospheric pressure extremes.
+  components:
+  - type: Sprite
+    layers:
+      - state: lung-u-l
+      - state: lung-u-r
+  - type: Organ
+    intCap: 32
+    integrity: 32
+    integrityThresholds:
+      Normal: 32
+      Damaged: 9
+      Destroyed: 0
+    slotId: lungs
     onAdd:
-    - type: FlashImmunity
-    - type: EyeProtection
-    - type: ShowHealthBars
-      damageContainers:
-      - Biological
-    - type: ShowHealthIcons
-      damageContainers:
-      - Biological
+    - type: BreathingImmunity
+    - type: PressureImmunity
