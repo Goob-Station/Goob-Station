@@ -9,6 +9,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
@@ -19,6 +20,7 @@ public sealed class AddComponentRandomRule : StationEventSystem<AddComponentRand
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     protected override void Started(EntityUid uid, AddComponentRandomRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -28,7 +30,9 @@ public sealed class AddComponentRandomRule : StationEventSystem<AddComponentRand
         var query = EntityQueryEnumerator<MindContainerComponent>();
         while (query.MoveNext(out var target, out var mindContainer))
         {
-            if (mindContainer.Mind == null || _entityWhitelist.IsValid(component.Blacklist, target))
+            if (mindContainer.Mind == null
+                || _entityWhitelist.IsValid(component.Blacklist, target)
+                || !_mobState.IsAlive(target))
                 continue;
 
             eligibleEntities.Add(target);

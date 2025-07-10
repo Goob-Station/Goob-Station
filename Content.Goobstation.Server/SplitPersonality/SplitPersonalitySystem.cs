@@ -184,14 +184,16 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
         EnsureComp<SplitPersonalityDummyComponent>(dummy).Host = host;
 
-        if (!TryComp<CollectiveMindComponent>(host, out var hostCollective))
+        if (!TryComp<CollectiveMindComponent>(host, out var hostCollective)
+            || !hostCollective.WebMemberships.TryGetValue(host.Comp.CollectiveMind.Id, out var hostMembership))
             return;
 
         var collectiveMind = EnsureComp<CollectiveMindComponent>(dummy);
+
         collectiveMind.Channels.Add(host.Comp.CollectiveMind);
         collectiveMind.DefaultChannel = host.Comp.CollectiveMind;
-        _collective.CreateOrJoinWeb(dummy, host.Comp.CollectiveMind, hostCollective.WebMemberships[host.Comp.CollectiveMind.Id].WebId);
 
+        _collective.CreateOrJoinWeb(dummy, host.Comp.CollectiveMind, hostMembership.WebId);
     }
 
     #endregion

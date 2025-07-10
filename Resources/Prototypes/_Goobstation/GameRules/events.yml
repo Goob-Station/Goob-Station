@@ -63,4 +63,8 @@
     amount: 1
     components:
       - type: SplitPersonality
-
+    blacklist:
+      components:
+      - AntagImmune
+      - ChangelingComponent
+      - HereticComponent
