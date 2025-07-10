@@ -11953,3 +11953,11 @@ Entries:
       message: Syndicate Disaster victims are returned to being Free Agents.
   id: 1314
   time: '2025-07-07T16:04:04.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Add
+      message: >-
+        Added a new neck item to tiders who can't afford the tider mantle,
+        shrug.
+  id: 1315
+  time: '2025-07-10T04:18:39.0000000+00:00'
