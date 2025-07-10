@@ -11933,3 +11933,31 @@ Entries:
       message: IPCs can now pilot, bump open doors, and host anomalies.
   id: 1311
   time: '2025-07-02T10:31:40.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Fix
+      message: >-
+        Changelings will longer be affected by beheading if they changed
+        identities (the 'immunity' was removed upon transforming)
+  id: 1312
+  time: '2025-07-07T14:38:03.0000000+00:00'
+- author: Rubin
+  changes:
+    - type: Fix
+      message: Compatibility mode crashing due to Holographic shader.
+  id: 1313
+  time: '2025-07-07T14:39:43.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Syndicate Disaster victims are returned to being Free Agents.
+  id: 1314
+  time: '2025-07-07T16:04:04.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Add
+      message: >-
+        Added a new neck item to tiders who can't afford the tider mantle,
+        shrug.
+  id: 1315
+  time: '2025-07-10T04:18:39.0000000+00:00'

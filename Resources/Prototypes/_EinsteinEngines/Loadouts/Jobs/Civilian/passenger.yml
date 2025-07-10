@@ -3,6 +3,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+
 # Head
 
 # Face
@@ -397,6 +398,11 @@
   id: FurWrap
   equipment:
     neck: ClothingNeckFurWrap
+    
+- type: loadout
+  id: OldNeckWrap
+  equipment:
+    neck: ClothingNeckOldClothWrap
 
 # Back
 
@@ -611,5 +617,7 @@
     belt: ClothingBeltStorageWaistbag
 
 # Shoes
+
+
 
 

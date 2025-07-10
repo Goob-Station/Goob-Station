@@ -141,6 +141,7 @@
 # SPDX-FileCopyrightText: 2025 Phooooooooooooooooooooooooooooooosphate <184853112+Phooooooooooooooooooooooooooooooosphate@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Pumkin69 <judeb@DESKTOP-M4B8G5D>
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 T <theo75cg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -520,6 +521,7 @@
   minLimit: 0
   loadouts:
   - Mantle
+  - OldNeckWrap # EE
   # Goobstation Loadout Rework Start
   - FurWrap # EE
   - NeckScarfBlack
@@ -527,7 +529,7 @@
   - NeckScarfGreen
   - NeckScarfOrange
   - NeckScarfRed
-  # Goobstation Loadout Rework Start
+  # Goobstation Loadout Rework End
 
 - type: loadoutGroup
   id: PassengerOuterClothing
