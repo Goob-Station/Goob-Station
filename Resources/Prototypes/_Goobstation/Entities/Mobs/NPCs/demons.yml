@@ -80,6 +80,41 @@
     color: "#793a80"
   - type: Megafauna
     loot: AnomalyCoreShadow
+
+- type: entity
+  name: ???
+  id: MobSpookyGhost1
+  parent: MobLivingCurse
+  description: You have no idea what this is!
+  components:
+  - type: PointLight
+    radius: 1.5
+    energy: 5
+    color: White
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Demons/spookyghost/ghost1.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: spookyghost
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spookyghost
+      Dead:
+        Base: ghost_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 2
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: ManifestedSpirit
+  - type: Megafauna
+    loot: DiamondOre1Unprocessed
   
 - type: entity
   name: glutton
@@ -135,7 +170,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        700: Dead
+        500: Dead
     - type: PassiveDamage
       allowedStates:
         - Alive

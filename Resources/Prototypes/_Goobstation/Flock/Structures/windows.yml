@@ -1,0 +1,45 @@
+- type: entity
+  parent: BaseStructure
+  id: FlockZoneWindow
+  name: Fibrewoven window
+  description: It's clearly glass, but it looks as if it was finely woven.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Windows/flockzone.rsi
+    state: window0
+    drawdepth: BlastDoors
+    noRot: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Airtight
+  - type: AmbientSound
+    volume: -10
+    range: 2
+    sound:
+      path: /Audio/Ambience/Objects/gravity_gen_hum.ogg
+  - type: PointLight
+    radius: 4
+    energy: 1.6
+    color: "#0fb79a"
+    castShadows: true
+    netsync: false

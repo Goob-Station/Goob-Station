@@ -1,0 +1,42 @@
+- type: entity
+  name: flockdrone
+  id: MobFlockBase
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  description: Is it broccoli? A glass chicken? A peacock? A green roomba? A shiny discobot? A crystal turkey? A bugbird? A radio pigeon??
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Flock/Mobs/drone.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: flock_drone
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: flock_drone
+      Critical:
+        Base: flock_drone_crit
+      Dead:
+        Base: flock_drone_dead
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+      - SimpleNeutral
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - MobLayer

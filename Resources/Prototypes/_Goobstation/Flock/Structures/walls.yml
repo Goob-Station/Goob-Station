@@ -1,0 +1,561 @@
+- type: entity
+  parent: BaseStructure
+  id: WallFlockZoneBase
+  name: strange glass wall
+  abstract: true
+  description: You can hear faint humming coming from within.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall01
+    drawdepth: BlastDoors
+    noRot: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Airtight
+  - type: SunShadowCast
+  - type: Occluder
+  - type: AmbientSound
+    volume: -10
+    range: 2
+    sound:
+      path: /Audio/Ambience/Objects/gravity_gen_hum.ogg
+  - type: PointLight
+    radius: 4
+    energy: 1.6
+    color: "#0fb79a"
+    castShadows: true
+    netsync: false
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZoneCornerSW
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall00
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZoneCornerNW
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall01
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone02
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall02
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone03
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall03
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone04
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall04
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone05
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall05
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone06
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall06
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone07
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall07
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZoneSolo
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall08
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone09
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall09
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone10
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall10
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone11
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall11
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone12
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall12
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZoneCornerSE
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall13
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZoneCornerNE
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall14
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone15
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall15
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone16
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall16
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone17
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall17
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone18
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall18
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone19
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall19
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone20
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall20
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone21
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall21
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone22
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall22
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone23
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall23
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone24
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall24
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone25
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall25
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone26
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall26
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone27
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall27
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone28
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall28
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone29
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall29
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone30
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall30
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone31
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall31
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone32
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall32
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone33
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall33
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone34
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall34
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone35
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall35
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone36
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall36
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone37
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall37
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone38
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall38
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone39
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall39
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone40
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall40
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone41
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall41
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone42
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall42
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone43
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall43
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone44
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall44
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone45
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall45
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone46
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall46
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone47
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall47
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone48
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall48
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone49
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall49
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone50
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall50
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone51
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall51
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone52
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall52
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone53
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall53
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone54
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall54
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone55
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall55
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone56
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall56
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone57
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall57
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone58
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall58
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone59
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall59
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZone60
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: flock_wall60
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZoneShuttke
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
+    state: FZ1_Wall
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Physics
+    bodyType: Static
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+

@@ -1,20 +1,23 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from TG 13. dead sprite made by OnsenCapy through editing",
+    "copyright": "Taken from Goonstation 13.",
     "size": {
-        "x": 64,
-        "y": 64
+        "x": 32,
+        "y": 32
     },
     "states": [
         {
-            "name": "glutton",
+            "name": "flock_drone",
             "directions": 4,
             "delays": [
                 [
                     0.2,
                     0.2,
                     0.2,
+                    0.2
+                ],
+                [
                     0.2,
                     0.2,
                     0.2,
@@ -24,24 +27,9 @@
                     0.2,
                     0.2,
                     0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2
+                    0.1
                 ],
                 [
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2
-                ],
-                [
-                    0.2,
-                    0.2,
-                    0.2,
                     0.2,
                     0.2,
                     0.2,
@@ -50,7 +38,22 @@
             ]
         },
         {
-            "name": "glutton_dead"
+            "name": "flock_drone_crit",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "flock_drone_dead"
         }
     ]
 }

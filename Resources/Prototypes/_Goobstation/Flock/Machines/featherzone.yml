@@ -1,0 +1,99 @@
+- type: entity
+  id: FeatherzoneCockpit
+  parent: BaseStructure
+  name: shuttle cockpit
+  description: You have no clue how to operate this thing!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Flock/Structures/160x160/cockpit.rsi
+    state: cockpit
+    drawdepth: Walls
+    size: Ginormous
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.5, -1, 2.5, 2"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - MidImpassable, LowImpassable, BulletImpassable
+  - type: AmbientSound
+    volume: -10
+    range: 3
+    sound:
+      path: /Audio/Machines/genetics.ogg
+  - type: PointLight
+    radius: 4
+    energy: 1.6
+    color: "#0fb79a"
+    castShadows: true
+
+- type: entity
+  id: FeatherzoneReactorOff
+  parent: BaseStructure
+  name: flock reactor
+  description: You have no clue how to operate this thing!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Flock/Structures/160x160/reactor.rsi
+    state: reactor_off
+    drawdepth: Walls
+    size: Ginormous
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2, -2, 2, 2"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - MidImpassable, LowImpassable, BulletImpassable
+  - type: AmbientSound
+    volume: -1
+    range: 10
+    sound:
+      path: /Audio/_Goobstation/Flock/Flock_Reactor.ogg
+  - type: PointLight
+    radius: 5
+    energy: 1.6
+    color: "#0fb79a"
+    castShadows: true
+
+- type: entity
+  id: FeatherzoneReactorOn
+  parent: FeatherzoneReactorOff
+  name: flock reactor
+  description: You have no clue how to operate this thing!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Flock/Structures/160x160/reactor.rsi
+    state: reactor_on
+
+- type: entity
+  id: EffectFlockReactor
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Goobstation/Flock/Structures/160x160/reactor.rsi
+      state: reactor_effect
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer
