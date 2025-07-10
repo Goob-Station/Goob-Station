@@ -11,7 +11,7 @@
 - type: entity
   parent: FoodBase
   id: FoodSnackLollypopWrappedBase
-  description: A plain old lollypop. It's still in a wrapper.
+  description: "Звичайний льодяник. Він все ще в обгортці."
   abstract: true
   components:
   - type: Food
@@ -35,7 +35,7 @@
   parent: [FoodBase, FoodInjectableBase]
   id: FoodSnackLollypopBase
   abstract: true
-  description: A plain old lollypop. It's cherry flavoured.
+  description: "Звичайний льодяник. Він вишневий."
   components:
   - type: FlavorProfile
     flavors:
@@ -89,8 +89,8 @@
   parent: [FoodSnackLollypopWrappedBase, BaseSyndicateContraband]
   id: FoodSnackLollypopWrappedBaseSyndicate
   abstract: true
-  name: wrapped syndicate lollypop
-  description: A likely dangerous chem filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник синдикату"
+  description: "Ймовірно, небезпечний льодяник, наповнений хімікатами. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -109,8 +109,8 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopBaseSyndicate
   abstract: true
-  name: lollypop
-  description: A plain old lollypop. This one gives you a bad feeling. # Only way to tell them apart. Read your descriptions.
+  name: "льодяник"
+  description: "Звичайний льодяник. Цей викликає погане передчуття." # Only way to tell them apart. Read your descriptions.
   components:
   - type: FlavorProfile
     flavors:
@@ -143,8 +143,8 @@
   parent: [FoodSnackLollypopWrappedBase, BaseCommandContraband]
   id: FoodSnackLollypopWrappedBaseNanotrasen
   abstract: true
-  name: wrapped nanotrasen lollypop
-  description: A likely expensive lollypop. It's still in it's gold wrapper.
+  name: "загорнутий льодяник Nanotrasen"
+  description: "Ймовірно, дорогий льодяник. Він все ще в золотій обгортці."
   components:
   - type: Tag
     tags:
@@ -163,8 +163,8 @@
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopBaseNanotrasen
   abstract: true
-  name: nanotrasen lollypop
-  description: An expensive tasting lollypop.
+  name: "льодяник Nanotrasen"
+  description: "Льодяник з дорогим смаком."
   components:
   - type: FlavorProfile
     flavors:
@@ -195,8 +195,8 @@
 - type: entity
   parent: [FoodSnackLollypopWrappedBase, BaseCentcommContraband]
   id: FoodSnackLollypopWrappedBaseCentcomm
-  name: wrapped centcomm lollypop
-  description: A highly expensive lollypop. It's still in it's gold wrapper.
+  name: "загорнутий льодяник Центкому"
+  description: "Дуже дорогий льодяник. Він все ще в золотій обгортці."
   abstract: true
   components:
   - type: Tag
@@ -215,8 +215,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopBaseCentcomm
-  name: centcomm lollypop
-  description: An extremely expensive tasting lollypop. Can hold an ungodly amount of chemicals.
+  name: "льодяник Центкому"
+  description: "Надзвичайно дорогий на смак льодяник. Може містити нечестиву кількість хімікатів."
   abstract: true
   components:
   - type: FlavorProfile
@@ -248,8 +248,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrapped
-  name: wrapped lollypop
-  description: A plain old lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник"
+  description: "Звичайний льодяник. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -264,8 +264,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypop
-  name: lollypop
-  description: A plain old lollypop. It's cherry flavoured!
+  name: "льодяник"
+  description: "Звичайний льодяник. Він вишневий!"
   components:
   - type: Tag
     tags:
@@ -277,8 +277,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedRainbow
-  name: wrapped rainbow lollypop
-  description: A rainbow colored lollypop. How fancy!
+  name: "загорнутий райдужний льодяник"
+  description: "Райдужний льодяник. Як вишукано!"
   components:
   - type: Tag
     tags:
@@ -293,8 +293,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopRainbow
-  name: rainbow lollypop
-  description: A rainbow colored lollypop. Flavored with unicorn tears.
+  name: "райдужний льодяник"
+  description: "Райдужний льодяник. Зі смаком сліз єдинорога."
   components:
   - type: Tag
     tags:
@@ -316,8 +316,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedCarp
-  name: wrapped carp lollypop
-  description: A carp shaped lollypop. How silly!
+  name: "загорнутий льодяник-короп"
+  description: "Льодяник у формі коропа. Як безглуздо!"
   components:
   - type: Tag
     tags:
@@ -332,8 +332,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopCarp
-  name: carp lollypop
-  description: A carp shaped lollypop. Careful, it bites!
+  name: "льодяник-короп"
+  description: "Льодяник у формі коропа. Обережно, він кусається!"
   components:
   - type: FlavorProfile
     flavors:
@@ -355,8 +355,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase # Todo, give this to blueshield.
   id: FoodSnackLollypopWrappedBlueshield
-  name: wrapped blueshield lollypop
-  description: A deep blue lollypop. It's still in the wrapper
+  name: "загорнутий льодяник блюшилд"
+  description: "Темно-синій льодяник. Він все ще в обгортці"
   components:
   - type: Tag
     tags:
@@ -371,8 +371,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopBlueshield
-  name: blueshield lollypop
-  description: A deep blue lollypop, imbuing you with a sense of determination. Get out there soldier!
+  name: "льодяник блюшилд"
+  description: "Темно-синій льодяник, що наповнює вас почуттям рішучості. Вперед, солдате!"
   components:
   - type: Tag
     tags:
@@ -392,8 +392,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBaseNanotrasen
   id: FoodSnackLollypopWrappedCaptain
-  name: wrapped captains' lollypop
-  description: An extravagant lollypop. It's still in the wrapper
+  name: "загорнутий капітанський льодяник"
+  description: "Екстравагантний льодяник. Він все ще в обгортці"
   components:
   - type: Tag
     tags:
@@ -408,8 +408,8 @@
 - type: entity
   parent: FoodSnackLollypopBaseNanotrasen
   id: FoodSnackLollypopCaptain
-  name: captains' lollypop
-  description: A blueish lollypop containing a potentially unhealthy amount of gold leaf. Only for the goodest of captains.
+  name: "капітанський льодяник"
+  description: "Синюватий льодяник, що містить потенційно нездорову кількість сусального золота. Тільки для найслухняніших капітанів."
   components:
   - type: Tag
     tags:
@@ -428,8 +428,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBaseCentcomm
   id: FoodSnackLollypopWrappedCentComm
-  name: wrapped centcomm lollypop
-  description: An even more extravagant lollypop. It's still in the wrapper
+  name: "загорнутий льодяник Центкому"
+  description: "Ще більш екстравагантний льодяник. Він все ще в обгортці"
   components:
   - type: Tag
     tags:
@@ -444,8 +444,8 @@
 - type: entity
   parent: FoodSnackLollypopBaseCentcomm
   id: FoodSnackLollypopCentcomm
-  name: centcomm lollypop
-  description: A green lollypop containing an extremely unhealthy amount of gold leaf. Only for the best centcomm agents.
+  name: "льодяник Центкому"
+  description: "Зелений льодяник, що містить надзвичайно нездорову кількість сусального золота. Тільки для найкращих агентів Центкому."
   components:
   - type: Tag
     tags:
@@ -464,8 +464,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedBicaridine
-  name: wrapped bicaridine lollypop
-  description: A bicaridine filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з бікардином"
+  description: "Льодяник з бікардином. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -483,8 +483,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopBicaridine
-  name: bicaridine lollypop
-  description: A bicaridine filled lollypop. Flavoured like oranges.
+  name: "льодяник з бікардином"
+  description: "Льодяник з бікардином. Зі смаком апельсина."
   components:
   - type: Tag
     tags:
@@ -516,8 +516,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedProbital
-  name: wrapped probital lollypop
-  description: A probital filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з пробіталом"
+  description: "Льодяник з пробіталом. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -535,8 +535,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopProbital
-  name: solar lollypop
-  description: A bright yellow lollypop filled with probital. Sol's favorite!
+  name: "сонячний льодяник"
+  description: "Яскраво-жовтий льодяник, наповнений пробіталом. Улюблений Солом!"
   components:
   - type: Tag
     tags:
@@ -568,8 +568,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedKelotane
-  name: wrapped kelotane lollypop
-  description: A kelotane filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з келотаном"
+  description: "Льодяник з келотаном. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -587,8 +587,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopKelotane
-  name: kelotane lollypop
-  description: A kelotane filled lollypop. Eat with a dermaline one at the same time for maximal effects.
+  name: "льодяник з келотаном"
+  description: "Льодяник з келотаном. Їжте разом з дермаліновим для максимального ефекту."
   components:
   - type: Tag
     tags:
@@ -620,8 +620,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedDermaline
-  name: wrapped dermaline lollypop
-  description: A dermaline filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з дермаліном"
+  description: "Льодяник з дермаліном. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -639,8 +639,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopDermaline
-  name: dermaline lollypop
-  description: A dermaline filled lollypop. Flavored with... blue?
+  name: "льодяник з дермаліном"
+  description: "Льодяник з дермаліном. Зі смаком... синього?"
   components:
   - type: Tag
     tags:
@@ -672,8 +672,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedTricordrazine
-  name: wrapped tricordrazine lollypop
-  description: A Tricordrazine filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з трикордазином"
+  description: "Льодяник з трикордазином. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -691,8 +691,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopTricordrazine
-  name: Tricordrazine lollypop
-  description: A Tricordrazine filled lollypop. A doctors favorite!
+  name: "льодяник з трикордазином"
+  description: "Льодяник з трикордазином. Улюблений лікарями!"
   components:
   - type: Tag
     tags:
@@ -724,8 +724,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedDylovene
-  name: wrapped dylovene lollypop
-  description: A dylovene filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з диловеном"
+  description: "Льодяник з диловеном. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -743,8 +743,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopDylovene
-  name: dylovene lollypop
-  description: A dylovene filled lollypop. It's a dull purple.
+  name: "льодяник з диловеном"
+  description: "Льодяник з диловеном. Він тьмяно-фіолетовий."
   components:
   - type: Tag
     tags:
@@ -776,8 +776,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedOmnizine
-  name: wrapped omnizine lollypop
-  description: An omnizine filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з омнізином"
+  description: "Льодяник з омнізином. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -795,8 +795,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopOmnizine
-  name: omnizine lollypop
-  description: An omnizine filled lollypop. Reserved for the best of patients.
+  name: "льодяник з омнізином"
+  description: "Льодяник з омнізином. Зарезервовано для найкращих пацієнтів."
   components:
   - type: Tag
     tags:
@@ -828,8 +828,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedDexalinPlus
-  name: wrapped dexalin plus lollypop
-  description: A dexalin plus filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з дексаліном плюс"
+  description: "Льодяник з дексаліном плюс. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -847,8 +847,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopDexalinPlus
-  name: dexalin plus lollypop
-  description: A dexalin plus filled lollypop. Commonly forcefed to people who forgot their internals.
+  name: "льодяник з дексаліном плюс"
+  description: "Льодяник з дексаліном плюс. Зазвичай насильно згодовують людям, які забули свої внутрішні органи."
   components:
   - type: Tag
     tags:
@@ -880,8 +880,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedHyronalin
-  name: wrapped hyronalin lollypop
-  description: A hyronalin filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з гіроналіном"
+  description: "Льодяник з гіроналіном. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -899,8 +899,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopHyronalin
-  name: hyronalin lollypop
-  description: A hyronalin filled lollypop. Not quite as effective as you'd hope.
+  name: "льодяник з гіроналіном"
+  description: "Льодяник з гіроналіном. Не настільки ефективний, як ви б сподівалися."
   components:
   - type: Tag
     tags:
@@ -932,8 +932,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedIbuprofen
-  name: wrapped ibuprofen lollypop
-  description: An ibuprofen filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з ібупрофеном"
+  description: "Льодяник з ібупрофеном. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -951,8 +951,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopIbuprofen
-  name: ibuprofen lollypop
-  description: A ibuprofen filled lollypop. Leaves a bad aftertaste in your mouth.
+  name: "льодяник з ібупрофеном"
+  description: "Льодяник з ібупрофеном. Залишає поганий присмак у роті."
   components:
   - type: Tag
     tags:
@@ -984,8 +984,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedAntihol
-  name: wrapped antihol lollypop
-  description: An antihol filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з антиголом"
+  description: "Льодяник з антиголом. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -1003,8 +1003,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopAntihol
-  name: antihol lollypop
-  description: A calomel filled lollypop. A drunkards best friend.
+  name: "льодяник з антиголом"
+  description: "Льодяник з каломелем. Найкращий друг п'яниці."
   components:
   - type: Tag
     tags:
@@ -1036,8 +1036,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedMitotrophin
-  name: wrapped mitotrophin lollypop
-  description: An mitotrophin filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник з мітотрофіном"
+  description: "Льодяник з мітотрофіном. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -1055,8 +1055,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopMitotrophin
-  name: mitotrophin lollypop
-  description: A mitotrophin filled lollypop. Tastes awful, but will make you feel better in no time.
+  name: "льодяник з мітотрофіном"
+  description: "Льодяник з мітотрофіном. Смакує жахливо, але швидко покращить ваше самопочуття."
   components:
   - type: Tag
     tags:
@@ -1090,9 +1090,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedMystery
-  name: wrapped mystery lollypop
+  name: "загорнутий таємничий льодяник"
   suffix: good
-  description: A mysterious lollypop. Perfect for all your doctoring needs.
+  description: "Таємничий льодяник. Ідеально підходить для всіх ваших лікарських потреб."
   components:
   - type: Tag
     tags:
@@ -1134,9 +1134,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedMysteryNeutral
-  name: wrapped mystery lollypop
+  name: "загорнутий таємничий льодяник"
   suffix: neutral
-  description: A mysterious lollypop. It could be any one of them!
+  description: "Таємничий льодяник. Це може бути будь-який з них!"
   components:
   - type: Tag
     tags:
@@ -1198,9 +1198,9 @@
 - type: entity
   parent: [FoodSnackLollypopWrappedBase, BaseSyndicateContraband]
   id: FoodSnackLollypopWrappedMysteryEvil
-  name: wrapped mystery lollypop
+  name: "загорнутий таємничий льодяник"
   suffix: evil
-  description: A mysterious lollypop. This one gives you a bad feeling.
+  description: "Таємничий льодяник. Цей викликає погане передчуття."
   components:
   - type: Tag
     tags:
@@ -1276,8 +1276,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBaseSyndicate
   id: FoodSnackLollypopWrappedSyndicate
-  name: wrapped syndicate lollypop
-  description: Manufactured by Donk co, and perfect for storing chems discreetly.
+  name: "загорнутий льодяник синдикату"
+  description: "Виготовлено Donk co, ідеально підходить для непомітного зберігання хімікатів."
   components:
   - type: Tag
     tags:
@@ -1295,8 +1295,8 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopSyndicate
-  name: lollypop
-  description: A plain old lollypop. This one gives you a bad feeling. # Only way to tell them apart. Read your descriptions!
+  name: "льодяник"
+  description: "Звичайний льодяник. Цей викликає погане передчуття." # Only way to tell them apart. Read your descriptions!
   components:
   - type: Tag
     tags:
@@ -1326,9 +1326,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedLexorin
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: lexorin
-  description: A lollypop containing lexorin. Appears completely ordinary when unwrapped.
+  description: "Льодяник, що містить лексорин. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1343,7 +1343,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopLexorin
-  name: lollypop
+  name: "льодяник"
   suffix: lexorin
   components:
   - type: Tag
@@ -1365,9 +1365,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedRomerol
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: romerol
-  description: A lollypop containing romerol. Appears completely ordinary when unwrapped.
+  description: "Льодяник, що містить ромерол. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1382,7 +1382,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopRomerol
-  name: lollypop
+  name: "льодяник"
   suffix: romerol
   components:
   - type: Tag
@@ -1404,9 +1404,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedNocturine
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: nocturine
-  description: A nocturine filled lollypop. Appears completely ordinary when unwrapped.
+  description: "Льодяник з ноктурином. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1424,7 +1424,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopNocturine
-  name: lollypop
+  name: "льодяник"
   suffix: Nocturine
   components:
   - type: Tag
@@ -1449,9 +1449,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedHyperzine
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: hyperzine
-  description: A hyperzine filled lollypop. Appears completely ordinary when unwrapped.
+  description: "Льодяник з гіперзином. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1466,7 +1466,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopHyperzine
-  name: lollypop
+  name: "льодяник"
   suffix: hyperzine
   components:
   - type: Tag
@@ -1488,9 +1488,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedSynaptizine
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: synaptizine
-  description: A synaptizine lollypop. Appears completely ordinary when unwrapped.
+  description: "Льодяник з синаптизином. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1505,7 +1505,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopSynaptizine
-  name: lollypop
+  name: "льодяник"
   suffix: Synaptizine
   components:
   - type: Tag
@@ -1527,9 +1527,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedCarpoToxin
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: carpotoxin
-  description: Who the hell is Audrey White?
+  description: "Хто, в біса, така Одрі Вайт?"
   components:
   - type: Tag
     tags:
@@ -1551,9 +1551,9 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopCarpoToxin
-  name: lollypop
+  name: "льодяник"
   suffix: CarpoToxin
-  description: Who the hell is Audrey White?
+  description: "Хто, в біса, така Одрі Вайт?"
   components:
   - type: Tag
     tags:
@@ -1574,9 +1574,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedFentanyl
-  name: wrapped fentanyl lollypop
+  name: "загорнутий льодяник з фентанілом"
   suffix: fentanyl
-  description: This is why your parents warned you about taking candy from strangers. Appears ordinary when unwrapped.
+  description: "Ось чому ваші батьки попереджали вас не брати цукерки у незнайомців. При розгортанні виглядає звичайним."
   components:
   - type: Tag
     tags:
@@ -1594,7 +1594,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopFentanyl
-  name: lollypop
+  name: "льодяник"
   suffix: fentanyl
   components:
   - type: Tag
@@ -1616,9 +1616,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedPhlogiston
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: phlogiston
-  description: A lollypop containing phlogiston. Appears completely ordinary when unwrapped.
+  description: "Льодяник, що містить флогістон. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1633,7 +1633,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopPhlogiston
-  name: lollypop
+  name: "льодяник"
   suffix: phlogiston
   components:
   - type: Tag
@@ -1655,9 +1655,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedCyanide
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: cyanide
-  description: A lollypop containing cyanide. Appears completely ordinary when unwrapped.
+  description: "Льодяник, що містить ціанід. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1672,7 +1672,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopCyanide
-  name: lollypop
+  name: "льодяник"
   suffix: cyanide
   components:
   - type: Tag
@@ -1694,9 +1694,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedTirizene
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: tirizene
-  description: A lollypop containing tirizene. Appears completely ordinary when unwrapped.
+  description: "Льодяник, що містить тіризен. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1711,7 +1711,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopTirizene
-  name: lollypop
+  name: "льодяник"
   suffix: tirizene
   components:
   - type: Tag
@@ -1733,9 +1733,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedAnacea
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: anacea
-  description: A lollypop containing anacea. Appears completely ordinary when unwrapped.
+  description: "Льодяник, що містить анацею. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1750,7 +1750,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopAnacea
-  name: lollypop
+  name: "льодяник"
   suffix: anacea
   components:
   - type: Tag
@@ -1772,9 +1772,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedPotassiumBomb
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: potassium bomb
-  description: An explosive lollypop. Appears completely ordinary when unwrapped.
+  description: "Вибуховий льодяник. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1789,7 +1789,7 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopPotassiumBomb
-  name: lollypop
+  name: "льодяник"
   suffix: potassium bomb
   components:
   - type: Tag
@@ -1817,9 +1817,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedCognizine
-  name: wrapped cognizine lollypop
+  name: "загорнутий льодяник з когнізином"
   suffix: cognizine
-  description: A cognizine filled lollypop. It's still in a wrapper.
+  description: "Льодяник з когнізином. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -1837,8 +1837,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopCognizine
-  name: cognizine lollypop
-  description: A cognizine filled lollypop. It shimmers a mesmerizing purple.
+  name: "льодяник з когнізином"
+  description: "Льодяник з когнізином. Він мерехтить чарівним фіолетовим кольором."
   components:
   - type: Tag
     tags:
@@ -1870,8 +1870,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedWeh
-  name: wrapped weh lollypop
-  description: A Weh! filled lollypop. It's still in a wrapper.
+  name: "загорнутий льодяник \"вех"
+  description: "Льодяник з \"Вех!\". Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -1889,8 +1889,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopWeh
-  name: Weh! lollypop
-  description: A Weh! filled lollypop. Weh!
+  name: "льодяник \"Вех!"
+  description: "Льодяник з \"Вех!\". Вех!"
   components:
   - type: Tag
     tags:
@@ -1921,8 +1921,8 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedCarpEvil
-  name: wrapped carp lollypop
-  description: A carp shaped lollypop. How silly!
+  name: "загорнутий льодяник-короп"
+  description: "Льодяник у формі коропа. Як безглуздо!"
   components:
   - type: Tag
     tags:
@@ -1937,8 +1937,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopCarpEvil
-  name: carp lollypop
-  description: Who the hell is Aubrey White?
+  name: "льодяник-короп"
+  description: "Хто, в біса, така Обрі Вайт?"
   suffix: EVIL
   components:
   - type: Tag
@@ -1967,9 +1967,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedMouseBites
-  name: wrapped syndicate lollypop
+  name: "загорнутий льодяник синдикату"
   suffix: mouse bites
-  description: A lollypop containing mouse bites. Appears completely ordinary when unwrapped.
+  description: "Льодяник, що містить мишачі укуси. При розгортанні виглядає абсолютно звичайним."
   components:
   - type: Tag
     tags:
@@ -1984,9 +1984,9 @@
 - type: entity
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopMouseBites
-  name: mousebites lollypop
+  name: "льодяник з мишачими укусами"
   suffix: mouse bites
-  description: He needs mouse bites to live.
+  description: "Йому потрібні мишачі укуси, щоб жити."
   components:
   - type: Tag
     tags:
@@ -2015,9 +2015,9 @@
 - type: entity
   parent: FoodSnackLollypopWrappedBase
   id: FoodSnackLollypopWrappedMindbreakerToxin
-  name: wrapped mindbreaker lollypop
+  name: "загорнутий льодяник з токсином, що ламає розум"
   suffix: mindbreaker toxin
-  description: A mindbreaker-toxin filled lollypop. It's still in a wrapper.
+  description: "Льодяник з токсином, що ламає розум. Він все ще в обгортці."
   components:
   - type: Tag
     tags:
@@ -2035,8 +2035,8 @@
 - type: entity
   parent: FoodSnackLollypopBase
   id: FoodSnackLollypopMindbreakerToxin
-  name: mindbreaker toxin lollypop
-  description: A mindbreaker toxin filled lollypop. Should you... eat this?
+  name: "льодяник з токсином, що ламає розум"
+  description: "Льодяник з токсином, що ламає розум. Чи варто... це їсти?"
   components:
   - type: Tag
     tags:
@@ -2069,8 +2069,8 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketLollypopTrash
-  name: lollypop stick
-  description: It's lightly chewed on.
+  name: "паличка від льодяника"
+  description: "Вона злегка пожована."
   components:
   - type: Tag
     tags:
@@ -2106,7 +2106,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodSnackLollypopTrash
-  name: lollypop wrapper
+  name: "обгортка від льодяника"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
@@ -2121,8 +2121,8 @@
   categories: [ HideSpawnMenu ]
   parent: [FoodPacketTrash, BaseSyndicateContraband]
   id: FoodSnackLollypopTrashSyndicate
-  name: syndicate lollypop wrapper
-  description: Someone's been naughty...
+  name: "обгортка від льодяника синдикату"
+  description: "Хтось був неслухняним..."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
@@ -2137,8 +2137,8 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodSnackLollypopTrashNanotrasen
-  name: nanotrasen lollypop wrapper
-  description: You could probably sell this for a pretty penny.
+  name: "обгортка від льодяника Nanotrasen"
+  description: "Ви, мабуть, могли б продати це за кругленьку суму."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
@@ -2153,8 +2153,8 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodSnackLollypopTrashCentcomm
-  name: centcomm lollypop wrapper
-  description: So heavy the gold on it might just be real.
+  name: "обгортка від льодяника Центкому"
+  description: "Настільки важка, що золото на ній може бути справжнім."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi

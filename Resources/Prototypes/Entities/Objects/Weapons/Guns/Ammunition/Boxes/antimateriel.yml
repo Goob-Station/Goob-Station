@@ -32,7 +32,7 @@
   abstract: true
   parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineBoxAntiMateriel
-  name: ammunition box (.60 anti-materiel)
+  name: "коробочка з набоями (протипіхотний калібр .60)"
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -58,7 +58,7 @@
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
   id: MagazineBoxAntiMaterielBig
-  name: ammunition box (.60 anti-materiel)
+  name: "коробочка з набоями (протипіхотний калібр .60)"
   components:
   - type: BallisticAmmoProvider
     capacity: 30
@@ -78,7 +78,7 @@
 - type: entity
   parent: BaseMagazineBoxAntiMateriel
   id: MagazineBoxAntiMateriel
-  name: ammunition box (.60 anti-materiel)
+  name: "коробочка з набоями (протипіхотний калібр .60)"
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeAntiMateriel

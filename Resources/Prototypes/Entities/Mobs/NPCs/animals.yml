@@ -275,10 +275,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: bat
+  name: "летюча миша"
   parent: [ SimpleMobBase, FlyingMobBase, MobCombat ]
   id: MobBat
-  description: Some cultures find them terrifying, others crunchy on the teeth.
+  description: "Деякі культури вважають їх жахливими, інші - хрусткими на зубах."
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
@@ -360,10 +360,10 @@
     deactivateSound: null
 
 - type: entity
-  name: bee
+  name: "бджола"
   parent: [ SimpleMobBase, FlyingMobBase ]
   id: MobBee
-  description: Nice to have, but you can't build a civilization on a foundation of honey alone.
+  description: "Приємно мати, але на одному меді цивілізацію не побудуєш."
   components:
   - type: CombatMode
   - type: MovementSpeedModifier
@@ -443,11 +443,11 @@
         recursive: false
 
 - type: entity
-  name: bee
+  name: "бджола"
   suffix: Angry
   parent: [ MobBee, MobCombat ]
   id: MobAngryBee
-  description: How nice a bee. Oh no, it looks angry and wants my pizza.
+  description: "Яка гарна бджілка. О ні, вона виглядає сердитою і хоче мою піцу."
   components:
   - type: CombatMode
   - type: MeleeWeapon
@@ -471,10 +471,10 @@
 
 
 - type: entity
-  name: chicken
+  name: "курка"
   parent: SimpleMobBase
   id: MobChicken
-  description: Comes before an egg, and IS a dinosaur!
+  description: "З'явився раніше яйця і є динозавром!"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -621,10 +621,10 @@
     lifetime: 21
 
 - type: entity # TODO: figure out how to make these guys gib when stepped on
-  name: cockroach
+  name: "тарган"
   parent: SimpleMobBase
   id: MobCockroach
-  description: This station is just crawling with bugs.
+  description: "Ця станція просто кишить жуками."
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -718,11 +718,11 @@
         Piercing: 0
 
 - type: entity
-  name: glockroach
+  name: "тарган"
   parent: MobCockroach
   suffix: Admeme
   id: MobGlockroach
-  description: This station is just crawling with bu- OH GOD THAT COCKROACH HAS A GUN!!!
+  description: "Ця станція просто кишить жу- О ГОСПОДИ, У НЬОГО ЗБРОЯ!!!"
   components:
   - type: Sprite
     layers:
@@ -751,10 +751,10 @@
   - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
-  name: mothroach
+  name: "тарганоміль"
   parent: MobCockroach
   id: MobMothroach
-  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
+  description: "Це чарівний побічний продукт численних спроб генетичного змішування метеликів з тарганами."
   components:
   - type: GhostRole
     makeSentient: true
@@ -921,10 +921,10 @@
 # The white duck is more akin to a pekin or call duck.
 
 - type: entity
-  name: mallard duck #Quack
+  name: "качка крижень" #Quack
   parent: SimpleMobBase
   id: MobDuckMallard
-  description: An adorable mallard duck, it's fluffy and soft!
+  description: "Чарівна качка крижень, пухнаста і м'яка!"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -994,10 +994,10 @@
     - Passive
 
 - type: entity
-  name: white duck #Quack
+  name: "біла качка" #Quack
   parent: MobDuckMallard
   id: MobDuckWhite
-  description: An adorable white duck, it's fluffy and soft!
+  description: "Чарівна біла качка, пухнаста і м'яка!"
   components:
   - type: Sprite
     layers:
@@ -1013,10 +1013,10 @@
         Base: dead-1
 
 - type: entity
-  name: brown duck #Quack
+  name: "коричнева качка" #Quack
   parent: MobDuckMallard
   id: MobDuckBrown
-  description: An adorable brown duck, it's fluffy and soft!
+  description: "Чарівна коричнева качка, пухнаста і м'яка!"
   components:
   - type: Sprite
     layers:
@@ -1049,10 +1049,10 @@
       lifetime: 21
 
 - type: entity
-  name: butterfly
+  name: "метелик"
   parent: [ SimpleMobBase, FlyingMobBase ]
   id: MobButterfly
-  description: Despite popular misconceptions, it's not actually made of butter.
+  description: "Всупереч поширеному стереотипу, насправді в головах вони не бувають."
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
@@ -1123,10 +1123,10 @@
         recursive: false
 
 - type: entity
-  name: cow
+  name: "корова"
   parent: SimpleMobBase
   id: MobCow
-  description: Moo.
+  description: "Муу. Більше прав коровам..."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -1208,10 +1208,10 @@
     - FoodRecipes
 
 - type: entity
-  name: crab
+  name: "краб"
   parent: SimpleMobBase
   id: MobCrab
-  description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
+  description: "Існує народна легенда, що він вириває кігтями космонавтів за неприємні зауваження. Будьте ввічливі та толерантні заради власної безпеки."
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Sprite
@@ -1277,10 +1277,10 @@
     prototype: AnimalHemocyanin
 
 - type: entity
-  name: goat
+  name: "козел"
   parent: SimpleMobBase
   id: MobGoat
-  description: Her spine consists of long sharp segments, no wonder she is so grumpy.
+  description: "Її хребет складається з довгих гострих сегментів, не дивно, що вона така сварлива."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -1381,10 +1381,10 @@
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
-  name: goose
+  name: "гусак"
   parent: SimpleMobBase
   id: MobGoose
-  description: Its stomach and mind are an enigma beyond human comprehension.
+  description: "Чиї шлунок та розум - загадка, непідвладна людському розумінню."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -1429,10 +1429,10 @@
     - Passive
 
 - type: entity
-  name: gorilla
+  name: "горила"
   parent: [ SimpleMobBase, MobCombat ]
   id: MobGorilla
-  description: Smashes, roars, looks cool. Don't stand near one.
+  description: "Розбивається, реве, виглядає круто. Не підходьте до них близько."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -1493,13 +1493,13 @@
       100: 0.5
 
 - type: entity
-  name: kangaroo
+  name: "кенгуру"
   parent:
   - SimpleMobBase
   - MobCombat
   - StripableInventoryBase
   id: MobKangaroo
-  description: A large marsupial herbivore. It has powerful hind legs, with nails that resemble long claws.
+  description: "Великий сумчастий травоїдний ссавець. Має потужні задні ноги, з нігтями, що нагадують довгі кігті."
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
@@ -1577,7 +1577,7 @@
       task: SimpleHostileCompound
 
 - type: entity
-  name: boxing kangaroo
+  name: "кенгуру-боксер"
   parent: MobKangaroo
   id: MobBoxingKangaroo
   components:
@@ -1588,10 +1588,10 @@
     - SimpleHostile
 
 - type: entity
-  name: genetic ancestor
+  name: "генетичний предок"
   id: MobBaseAncestor
   parent: [SimpleMobBase, StripableInventoryBase]
-  description: The genetic bipedal ancestor of... Uh... Something. Yeah, there's definitely something on the station that descended from whatever this is.
+  description: "Генетичний двоногий предок... Е-е... чогось. Так, на станції точно є щось, що походить від того, що б це не було."
   abstract: true
   components:
   - type: VentCrawler # goobstation - Ventcrawl
@@ -1759,10 +1759,10 @@
 
 
 - type: entity
-  name: monkey
+  name: "мавпа"
   id: MobMonkey
   parent: MobBaseAncestor
-  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  description: "Нова церква неодарвіністів насправді вірить, що КОЖНА тварина походить від мавпи. На смак вони схожі на свинину, а вбивати їх одночасно весело і розслабляюче."
   components:
   - type: NameIdentifier
     group: Monkey
@@ -1794,10 +1794,10 @@
       path: /Audio/Animals/monkey_scream.ogg
 
 - type: entity
-  name: monkey
+  name: "мавпа"
   id: MobBaseSyndicateMonkey
   parent: MobBaseAncestor
-  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  description: "Нова церква неодарвіністів насправді вірить, що КОЖНА тварина походить від мавпи. На смак вони схожі на свинину, а вбивати їх одночасно весело і розслабляюче."
   suffix: syndicate base
   components:
   - type: NameIdentifier
@@ -1845,10 +1845,10 @@
   - type: NukeOperative
 
 - type: entity
-  name: kobold
+  name: "кобольд"
   id: MobBaseKobold
   parent: MobBaseAncestor
-  description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
+  description: "Кузени розумної раси людей-ящірок, кобольди зливаються зі своїм природним середовищем існування і є такими ж огидними, як і мавпи; вони готові вирвати вам волосся і зарізати."
   abstract: true
   components:
   - type: NameIdentifier
@@ -1924,10 +1924,10 @@
     rules: ghost-role-information-nonantagonist-rules
 
 - type: entity
-  name: kobold
+  name: "кобольд"
   id: MobKobold
   parent: MobBaseKobold
-  description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
+  description: "Кузени розумної раси людей-ящірок, кобольди зливаються зі своїм природним середовищем існування і є такими ж огидними, як і мавпи; вони готові вирвати вам волосся і зарізати."
   components:
   - type: Clumsy
     gunShootFailDamage:
@@ -1972,19 +1972,19 @@
   - type: NukeOperative
 
 - type: entity
-  name: guidebook monkey
+  name: "мавпа-провідник"
   parent: MobMonkey
   categories: [ HideSpawnMenu ]
   id: MobGuidebookMonkey
-  description: A hopefully helpful monkey whose only purpose in life is for you to click on. Does this count as having a monkey give you a tutorial?
+  description: "Сподіваємось, корисна мавпочка, єдина мета життя якої - щоб ви на неї клацали. Чи вважається, що мавпа дала вам урок?"
   components:
     - type: GuidebookControlsTest
 
 - type: entity
-  name: mouse
+  name: "миша"
   parent: SimpleMobBase
   id: MobMouse
-  description: Squeak!
+  description: "Писк!"
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Body
@@ -2222,8 +2222,8 @@
   suffix: Dead
   save: false
   id: MobMouseDead
-  name: mouse
-  description: Squeak!
+  name: "миша"
+  description: "Писк!"
   components:
   - type: Damageable
     damage:
@@ -2316,8 +2316,8 @@
       state: dead-2
 
 - type: entity
-  name: cancer mouse
-  description: Toxic. Squeak!
+  name: "ракова миша"
+  description: "Токсична. Писк!"
   parent: MobMouse
   id: MobMouseCancer
   components:
@@ -2351,10 +2351,10 @@
     damageModifierSet: Zombie
 
 - type: entity
-  name: lizard #Weh
+  name: "ящірка" #Weh
   parent: SimpleMobBase
   id: MobLizard
-  description: A harmless dragon.
+  description: "Нешкідливий дракон."
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
@@ -2407,10 +2407,10 @@
 
 
 - type: entity
-  name: slug
+  name: "слизняк"
   parent: SimpleMobBase
   id: MobSlug
-  description: And they called this a lizard?
+  description: "І вони назвали це ящіркою?"
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: MovementSpeedModifier
@@ -2455,10 +2455,10 @@
     bloodMaxVolume: 50
 
 - type: entity
-  name: frog
+  name: "жаба"
   parent: SimpleMobBase
   id: MobFrog
-  description: Hop hop hop. Lookin' moist.
+  description: "Хоп, хоп, хоп, хоп. Виглядає вологим."
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: MovementSpeedModifier
@@ -2525,10 +2525,10 @@
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
-  name: parrot
+  name: "папуга"
   parent: [ SimpleMobBase, FlyingMobBase ]
   id: MobParrot
-  description: Infiltrates your domain, spies on you, and somehow still a cool pet.
+  description: "Проникає у ваш домен, шпигує за вами і чомусь залишається крутим домашнім улюбленцем."
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
@@ -2580,10 +2580,10 @@
     bloodMaxVolume: 50
 
 - type: entity
-  name: penguin
+  name: "пінгвін"
   parent: SimpleMobBase
   id: MobPenguin
-  description: Their lives are constant pain due to their inner-body knees.
+  description: "Їхнє життя - це постійний біль через їхні внутрішні коліна."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -2641,10 +2641,10 @@
         Heat : 0.2 #per second, scales with temperature & other constants
 
 - type: entity
-  name: grenade penguin
+  name: "гранатовий пінгвін"
   parent: [ MobPenguin, MobCombat, BaseSyndicateContraband ]
   id: MobGrenadePenguin
-  description: A small penguin with a grenade strapped around its neck. Harvested by the Syndicate from icy shit-hole planets.
+  description: "Маленький пінгвін з гранатою на шиї. Виловлений Синдикатом з крижаних планет-гадючників. Ось так виглядає тепер біозброя?"
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
@@ -2714,10 +2714,10 @@
 
   # I have included a snake_hiss.ogg sound file so if you want to use that be my guest
 - type: entity
-  name: snake
+  name: "змія"
   parent: SimpleMobBase
   id: MobSnake
-  description: Hissss! Bites aren't poisonous.
+  description: "Шипіння! Укуси не отруйні."
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Sprite
@@ -2883,10 +2883,10 @@
   - type: GhostTakeoverAvailable
 
 - type: entity
-  name: tarantula
+  name: "тарантул"
   parent: MobSpiderBase
   id: MobGiantSpider
-  description: Widely recognized to be the literal worst thing in existence.
+  description: "Широко визнано, що це буквально найгірша річ у світі."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -2926,10 +2926,10 @@
   id: MobGiantSpiderAngry
 
 - type: entity
-  name: clown spider
+  name: "павук-клоун"
   parent: MobSpiderAngryBase
   id: MobClownSpider
-  description: Combines the two most terrifying things in existence, spiders and clowns.
+  description: "Поєднує в собі дві найстрашніші речі в світі - павуків і клоунів."
   components:
     - type: Sprite
       drawdepth: Mobs
@@ -2974,10 +2974,10 @@
       bloodReagent: Laughter
 
 - type: entity
-  name: wizard spider
+  name: "павук-чарівник"
   parent: MobGiantSpider
   id: MobGiantSpiderWizard
-  description: This spider looks a little magical
+  description: "Цей павук виглядає трохи магічно"
   suffix: Wizard
   components:
   - type: Accentless
@@ -2986,10 +2986,10 @@
       accent: xeno  #let this wizard speak
 
 - type: entity
-  name: possum
+  name: "опосум"
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobPossum
-  description: '"O Possum! My Possum!" -- Walt Whitman, 1865'
+  description: "\"О, Опосум! Мій Опосум!\" -- Уолт Уітмен, 1865"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -3038,7 +3038,7 @@
     - VimPilot
 
 - type: entity
-  name: possum
+  name: "опосум"
   parent: MobPossum
   suffix: Old sprite
   id: MobPossumOld
@@ -3059,10 +3059,10 @@
         Base: possum_dead_old
 
 - type: entity
-  name: raccoon
+  name: "єнот"
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobRaccoon
-  description: Trash panda!
+  description: "Сміттєва панда!"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -3112,10 +3112,10 @@
     - VimPilot
 
 - type: entity
-  name: fox
+  name: "лисиця"
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobFox
-  description: They're a fox.
+  description: "Це лисиця."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -3190,10 +3190,10 @@
     - VimPilot
 
 - type: entity
-  name: corgi
+  name: "коргі"
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobCorgi
-  description: Finally, a space corgi!
+  description: "Нарешті, космічний коргі!"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -3251,10 +3251,10 @@
     - VimPilot
 
 - type: entity
-  name: corrupted corgi
+  name: "зіпсований коргі"
   parent: [ MobCorgi, MobCombat ]
   id: MobCorgiNarsi
-  description: Ian! No!
+  description: "Іане! Ні!"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -3312,10 +3312,10 @@
         Heat : 1 #per second, scales with temperature & other constants
 
 - type: entity
-  name: corgi puppy
+  name: "цуценя коргі"
   parent: MobCorgi
   id: MobCorgiPuppy
-  description: A little corgi! Aww...
+  description: "Маленький коргі! Ох..."
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Sprite
@@ -3340,10 +3340,10 @@
       gender: epicene
 
 - type: entity
-  name: cat
+  name: "кішка"
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobCat
-  description: Feline pet, very funny.
+  description: "Котячий улюбленець, дуже кумедний."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -3413,10 +3413,10 @@
     baseSprintSpeed: 4
 
 - type: entity
-  name: calico cat
+  name: "кішка каліко"
   id: MobCatCalico
   parent: MobCat
-  description: Feline pet, very funny.
+  description: "Котячий улюбленець, дуже кумедний."
   components:
   - type: Sprite
     layers:
@@ -3432,10 +3432,10 @@
         Base: cat2_dead
 
 - type: entity
-  name: syndicat
+  name: "синдикіт"
   id: MobCatSyndy
   parent: MobCatSpace
-  description: Explosive kitten.
+  description: "Вибухове кошеня."
   components:
   - type: Sprite
     layers:
@@ -3481,10 +3481,10 @@
         Structural: 15
 
 - type: entity
-  name: space cat
+  name: "космічний кіт"
   id: MobCatSpace
   parent: MobCat
-  description: Feline pet, prepared for the worst.
+  description: "Котячий улюбленець, підготовлений до найгіршого."
   components:
   - type: Sprite
     layers:
@@ -3519,10 +3519,10 @@
     minSaturation: 5.0
 
 - type: entity
-  name: caracal cat
+  name: "каракал"
   id: MobCatCaracal
   parent: MobCat
-  description: Hilarious.
+  description: "Смішно."
   components:
   - type: Sprite
     sprite: Mobs/Pets/caracal.rsi
@@ -3539,10 +3539,10 @@
         Base: caracal_dead
 
 - type: entity
-  name: kitten
+  name: "кошеня"
   parent: MobCat
   id: MobCatKitten
-  description: Small and fluffy.
+  description: "Маленьке і пухнасте."
   components:
   - type: Sprite
     layers:
@@ -3572,10 +3572,10 @@
       25: Dead
 
 - type: entity
-  name: sloth
+  name: "лінивець"
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobSloth
-  description: Very slow animal. For people with low energy.
+  description: "Дуже повільна тварина. Для людей з низьким рівнем енергії."
   components:
   - type: MovementSpeedModifier
     baseWalkSpeed : 0.5
@@ -3628,10 +3628,10 @@
     - VimPilot
 
 - type: entity
-  name: ferret
+  name: "тхір"
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobFerret
-  description: Just a silly little guy!
+  description: "Просто дурник!"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -3682,10 +3682,10 @@
     - VimPilot
 
 - type: entity
-  name: hamster
+  name: "хом'як"
   parent: [ SimpleMobBase, MobCombat, StripableInventoryBase]
   id: MobHamster
-  description: A cute, fluffy, robust hamster.
+  description: "Симпатичний, пухнастий, міцний хом'як."
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: GhostRole
@@ -3844,10 +3844,10 @@
         recursive: false
 
 - type: entity
-  name: pig
+  name: "свиня"
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobPig
-  description: Oink.
+  description: "Хрюк."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -3915,10 +3915,10 @@
       task: RuminantCompound
 
 - type: entity
-  name: diona nymph
+  name: "німфа діони"
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobDionaNymph
-  description: It's like a cat, only.... branch-ier.
+  description: "Це як кіт, тільки.... гіллястий."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -4004,10 +4004,10 @@
     accent: nymph
 
 - type: entity
-  name: reindeer buck
+  name: "північний олень-самець"
   parent: [ SimpleMobBase, MobCombat ]
   id: MobReindeerBuck
-  description: You think it can pull a sleigh?
+  description: "Думаєш, він може тягнути сани?"
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -4066,7 +4066,7 @@
     needsHands: false
 
 - type: entity
-  name: reindeer doe
+  name: "північний олень-самка"
   parent: MobReindeerBuck
   id: MobReindeerDoe
   components:

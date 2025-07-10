@@ -86,8 +86,8 @@
 - type: entity
   id: AirAlarmElectronics
   parent: BaseElectronics
-  name: air alarm electronics
-  description: An electronics board used in air alarms.
+  name: "електроніка повітряної тривоги"
+  description: "Електронна плата, що використовується в повітряних тривогах."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -102,8 +102,8 @@
 - type: entity
   id: FireAlarmElectronics
   parent: BaseElectronics
-  name: fire alarm electronics
-  description: An electronics board used in fire alarms.
+  name: "електроніка пожежної тривоги"
+  description: "Електронна плата, що використовується в пожежних тривогах."
   components:
   - type: Item
     storedRotation: 0

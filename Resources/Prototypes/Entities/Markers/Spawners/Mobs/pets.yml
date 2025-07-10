@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobAlexander
-  name: Alexander Spawner
+  name: "Спавнер Александра"
   suffix: Chef Pet
   components:
   - type: Sprite
@@ -15,7 +15,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobBandito
-  name: Bandito Spawner
+  name: "Спавнер Бандіто"
   suffix: RD Pet
   components:
   - type: Sprite
@@ -29,7 +29,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCat
-  name: Random Cat Spawner
+  name: "Спавнер Випадкового Кота"
   suffix: CMO Pet
   components:
   - type: Sprite
@@ -46,7 +46,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCatBingus
-  name: Bingus Spawner
+  name: "Спавнер Бінгуса"
   suffix: CMO Pet
   components:
   - type: Sprite
@@ -60,7 +60,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCatException
-  name: Exception Spawner
+  name: "Спавнер Виняткуна"
   suffix: CMO Pet
   components:
   - type: Sprite
@@ -74,7 +74,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCatFloppa
-  name: Floppa Spawner
+  name: "Спавнер Флоппи"
   suffix: CMO Pet
   components:
   - type: Sprite
@@ -88,7 +88,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCatRuntime
-  name: Runtime Spawner
+  name: "Спавнер Рантайму"
   suffix: CMO Pet
   components:
   - type: Sprite
@@ -102,7 +102,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCorgi
-  name: Corgi Spawner
+  name: "Спавнер Коргі"
   suffix: HoP Pet
   components:
   - type: Sprite
@@ -119,7 +119,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCorgiMouse
-  name: Dev Mouse Spawner
+  name: "Спавнер миші-коргі розробника"
   suffix: Dev Map Pet, Admeme
   components:
   - type: Sprite
@@ -133,7 +133,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobCrabAtmos
-  name: Tropico Spawner
+  name: "Спавнер Тропіко"
   suffix: Atmos Pet
   components:
   - type: Sprite
@@ -147,7 +147,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobFoxRenault
-  name: Fox Renault Spawner
+  name: "Спавнер Лисиці Рено"
   suffix: Captain Pet
   components:
   - type: Sprite
@@ -161,7 +161,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobMcGriff
-  name:  McGriff Spawner
+  name: "Спавнер МакГріфф"
   suffix: Warden Pet
   components:
   - type: Sprite
@@ -175,7 +175,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobHamsterHamlet
-  name: Hamster Hamlet Spawner
+  name: "Спавнер Хом'яка Гамлета"
   suffix: Bridge Pet (crate)
   components:
   - type: Sprite
@@ -191,7 +191,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobKangarooWillow
-  name: Willow Spawner
+  name: "Спавнер Віллоу"
   suffix: Boxer Pet
   components:
   - type: Sprite
@@ -206,7 +206,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobMonkeyPunpun
-  name: Pun Pun Spawner
+  name: "Спавнер Пун Пуна"
   suffix: Bartender Pet
   components:
   - type: Sprite
@@ -221,7 +221,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobPossumMorty
-  name: Possum Morty Spawner
+  name: "Спавнер Опосума Морті"
   suffix: Morgue Pet
   components:
   - type: Sprite
@@ -235,7 +235,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobRaccoonMorticia
-  name: Raccoon Morticia Spawner
+  name: "Спавнер Єнота Мортіша"
   suffix: QM Pet
   components:
   - type: Sprite
@@ -249,7 +249,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobShiva
-  name: Shiva Spawner
+  name: "Спавнер Шиви"
   suffix: Security Pet
   components:
   - type: Sprite
@@ -264,7 +264,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobSlothPaperwork
-  name: Sloth Paperwork Spawner
+  name: "Спавнер Лінивого Бюрократа"
   suffix: Librarian Pet
   components:
   - type: Sprite
@@ -278,7 +278,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobSmile
-  name: Smile Spawner
+  name: "Спавнер Смайл"
   suffix: Science Pet
   components:
   - type: Sprite
@@ -292,7 +292,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobWalter
-  name: Walter Spawner
+  name: "Спавнер Вальтера"
   suffix: Chemistry Pet
   components:
   - type: Sprite
