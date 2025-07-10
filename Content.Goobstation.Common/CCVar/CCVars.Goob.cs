@@ -473,7 +473,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("voice.hear_self", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Whether to hear audio from your own entity.");
 
     #endregion
-    
+
     #region Queue
 
     /// <summary>

@@ -119,7 +119,7 @@ namespace Content.Client.Hands
                         var rsiActual = _resourceCache.GetResource<RSIResource>(ComboAttackRsi).RSI;
                         if (!rsiActual.TryGetState(comboEv.AttackTypes[i].ToString().ToLower(), out var state))
                             continue;
-                        
+
                         var texture = state.Frame0;
 
                         var size = texture.Size;
