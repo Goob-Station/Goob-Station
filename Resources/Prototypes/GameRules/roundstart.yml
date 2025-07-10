@@ -334,7 +334,7 @@
     maxDifficulty: 5
 
 # Goobstation - order swapped since admin verbs use .Last() for some reason
-# TODO: Fix that 
+# TODO: Fix that
 - type: entity
   id: TraitorReinforcement
   parent: BaseTraitorRuleNoObjectives # Goobstation
@@ -384,6 +384,7 @@
     - prefRoles: [ HeadRev ]
       max: 3
       playerRatio: 15
+      jobBlacklist: [ Mime ] # Goob, mute headrevs can no longer convert
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
