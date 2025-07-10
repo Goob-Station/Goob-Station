@@ -174,16 +174,6 @@
     - id: PlushieArachind
     - id: PlushieSamantha # Goobstation
     - id: PlushiePenguin
-    - !type:GroupSelector
-      children:
-      - id: PlushieBlackburn
-        weight: 0.35
-      - id: PlushieBlackburnKobliska
-        weight: 0.25
-      - id: PlushieBlackburnMatryoskya
-        weight: 0.25
-      - id: PlushieDesislavaBlackburn
-        weight: 0.15
     - !type:GroupSelector # Self insert crew :-)
       children:
       - id: PlushieBenny
