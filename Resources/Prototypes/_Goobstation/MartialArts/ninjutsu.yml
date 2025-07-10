@@ -1,0 +1,50 @@
+- type: martialArt
+  id: Ninjutsu
+  martialArtsForm: Ninjutsu
+  roundstartCombos: NinjutsuMoves
+  startingStage: Hard
+
+- type: comboList
+  id: NinjutsuMoves
+  combos:
+  - BiteTheDust
+  - DirtyKill
+
+# Removed from yaml as a combo move since Hug clutters combo counter
+#- type: combo
+#  id: NinjutsuTakedown
+#  name: Ninjutsu Takedown
+#  martialArtsForm: Ninjutsu
+#  attacks:
+#  - Hug
+#  event: !type:NinjutsuTakedownPerformedEvent
+#    sound:
+#      path: /Audio/Weapons/genhit3.ogg
+#  extraDamage: 10
+#  paralyzeTime: 2
+
+- type: combo
+  id: BiteTheDust
+  name: Bite The Dust
+  martialArtsForm: Ninjutsu
+  attacks:
+  - Harm
+  - Grab
+  event: !type:BiteTheDustPerformedEvent
+    sound:
+      path: /Audio/Weapons/genhit3.ogg
+  extraDamage: 10
+  paralyzeTime: 9
+
+- type: combo
+  id: DirtyKill
+  name: Dirty Kill
+  martialArtsForm: Ninjutsu
+  attacks:
+  - Disarm
+  - Disarm
+  event: !type:DirtyKillPerformedEvent
+    sound:
+      path: /Audio/Weapons/genhit2.ogg
+  extraDamage: 20
+  paralyzeTime: 7
