@@ -70,3 +70,5 @@ public sealed partial class RandomTeleportNearby : EntityEffect
         }
     }
 }
+
+//trailing whitespace
