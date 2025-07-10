@@ -6,8 +6,8 @@
 # Actions
 - type: entity
   id: ActionExitConsole
-  name: "Вийти "
-  description: "Вийти з консолі"
+  name: Exit console
+  description: Exit console.
   components:
   - type: InstantAction
     priority: -20
@@ -19,8 +19,8 @@
 
 - type: entity
   id: ActionSendYourself
-  name: "Надслати себе"
-  description: "Щоб скористатися цією здатністю, вам потрібно прискоритися до тієї самої мапи, що й станція!"
+  name: Send yourself
+  description: You need to FTL to the same map as the station to use this ability!
   components:
   - type: WorldTargetAction
     useDelay: 10
@@ -35,8 +35,8 @@
 
 - type: entity
   id: ActionReturnToShip
-  name: "повернутися"
-  description: "повернутися на корабель."
+  name: return
+  description: return to the ship.
   components:
   - type: InstantAction
     useDelay: 30

@@ -6,8 +6,8 @@
 
 - type: entity
   id: ActionThankDriver
-  name: "Подякувати водієві"
-  description: "покажіть водієві, що вам подобається бути пасажиром"
+  name: Thank Driver
+  description: show the driver you enjoy being a passenger
   components:
   - type: InstantAction
     itemIconStyle: NoItem
@@ -20,8 +20,8 @@
 
 - type: entity
   id: ActionQuietBackThere
-  name: "Тихо там"
-  description: "скажіть пасажирам, щоб вони були тихішими"
+  name: Quiet back there
+  description: tell the passengers to be quiet
   components:
   - type: InstantAction
     itemIconStyle: NoItem

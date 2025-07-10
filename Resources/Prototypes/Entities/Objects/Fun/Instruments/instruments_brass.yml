@@ -16,8 +16,8 @@
 - type: entity
   parent: BaseBrassInstrument
   id: TrumpetInstrument
-  name: "сурмити"
-  description: "Улюблений інструмент джазових музикантів та егоїстичних школярів."
+  name: trumpet
+  description: The favorite instrument of jazz musicians and egotistical middle schoolers.
   components:
   - type: Instrument
     program: 56
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseBrassInstrument
   id: TromboneInstrument
-  name: "тромбон"
-  description: "Всіма улюблений розсувний духовий інструмент."
+  name: trombone
+  description: Everyone's favorite sliding brass instrument.
   components:
   - type: Instrument
     program: 57
@@ -42,8 +42,8 @@
 - type: entity
   parent: BaseBrassInstrument
   id: FrenchHornInstrument
-  name: "валторна"
-  description: "Той факт, що ви тримаєте його, використовуючи руку, щоб приглушити звук, може дещо сказати про його звучання."
+  name: french horn
+  description: The fact that holding it involves using your hand to muffle it may suggest something about its sound.
   components:
   - type: Instrument
     program: 60
@@ -53,8 +53,8 @@
 - type: entity
   parent: BaseBrassInstrument
   id: EuphoniumInstrument
-  name: "евфоній"
-  description: "Маленька туба? Баритон? Що б це не було, це досить крутий набір труб."
+  name: euphonium
+  description: A baby tuba? A Baritone? Whatever it is, it's a pretty cool mess of pipes.
   components:
   - type: Instrument
     program: 3

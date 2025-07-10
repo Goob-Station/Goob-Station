@@ -10,10 +10,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ДТ-8 \"Термінус\""
+  name: DT-8 "Terminus"
   parent: [BaseItem, BaseSecurityContraband]
   id: Terminus
-  description: "Передова зброя ближнього бою, створена спеціально для оні. Також здатна вистрілювати з наконечника віялом пострілів-деактиваторів."
+  description: An advanced melee weapon crafted specifically for an oni. It is also capable of firing a spread of disabler shots from its tip.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Weapons/Melee/terminus.rsi

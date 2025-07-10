@@ -7,8 +7,8 @@
 - type: entity
   id: MaterialSilo
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: "силос для матеріалів"
-  description: "Сховище Bluespace підключено до більшості токарних верстатів на станції."
+  name: material silo
+  description: Bluespace storage connected to most lathes on the station.
   components:
   - type: Physics
     bodyType: Static

@@ -6,8 +6,8 @@
 
 - type: entity
   id: BaseCarving
-  name: "стародавнє різьблення"
-  description: "Колекція невідомих символів, вони нагадують вам про давно минулі дні..."
+  name: elder carving
+  description: Collection of unknown symbols, they remind you of days long gone...
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -57,8 +57,8 @@
 - type: entity
   parent: BaseCarving
   id: GraspingCarving
-  name: "хапаюче різьблення"
-  description: "При наступанні завдає важких ушкоджень нозі та оглушує жертву на 5 секунд. Має 1 заряд."
+  name: grasping carving
+  description: When stepped on, causes heavy damage leg damage and stuns the victim for 5 seconds. Has 1 charge.
   placement:
     mode: SnapgridCenter
   components:
@@ -77,8 +77,8 @@
 - type: entity
   parent: BaseCarving
   id: MadCarving
-  name: "божевільне різьблення"
-  description: "При наступанні завдає сильної шкоди витривалості, сліпоти та німоти жертві. Має 2 заряди."
+  name: mad carving
+  description: When stepped on, causes heavy stamina damage, blindness, and muteness the victim. Has 2 charges.
   placement:
     mode: SnapgridCenter
   components:
@@ -94,8 +94,8 @@
 - type: entity
   parent: BaseCarving
   id: AlertCarving
-  name: "сигнальне різьблення"
-  description: "Майже невидима руна, яка при наступанні сповіщає різьбяра про те, хто її активував і де."
+  name: alert carving
+  description: A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where.
   placement:
     mode: SnapgridCenter
   components:

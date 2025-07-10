@@ -85,11 +85,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "основний шлам"
+  name: basic slime
   id: BaseMobAdultSlimes
   parent: [ SimpleMobBase, MobCombat ]
   abstract: true
-  description: "Це так схоже на желе. Цікаво, який він на смак?"
+  description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Sprite
@@ -199,11 +199,11 @@
     proto: slime
 
 - type: entity
-  name: "основний шлам"
+  name: basic slime
   id: MobAdultSlimes
   parent: BaseMobAdultSlimes
   abstract: true
-  description: "Це так схоже на желе. Цікаво, який він на смак?"
+  description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: ReplacementAccent
     accent: slimes
@@ -229,7 +229,7 @@
       task: SimpleHostileCompound
 
 - type: entity
-  name: "синій слиз"
+  name: blue slime
   id: MobAdultSlimesBlue
   parent: MobAdultSlimes
   components:
@@ -241,7 +241,7 @@
         Base: blue_adult_slime_dead
 
 - type: entity
-  name: "синій слиз"
+  name: blue slime
   parent: MobAdultSlimesBlue
   id: MobAdultSlimesBlueAngry
   suffix: Angry
@@ -258,7 +258,7 @@
         settings: short
 
 - type: entity
-  name: "зелений слиз"
+  name: green slime
   parent: MobAdultSlimes
   id: MobAdultSlimesGreen
   components:
@@ -281,7 +281,7 @@
           Poison: 4
 
 - type: entity
-  name: "зелений слиз"
+  name: green slime
   parent: MobAdultSlimesGreen
   id: MobAdultSlimesGreenAngry
   suffix: Angry
@@ -298,7 +298,7 @@
         settings: short
 
 - type: entity
-  name: "жовтий слиз"
+  name: yellow slime
   parent: MobAdultSlimes
   id: MobAdultSlimesYellow
   components:
@@ -320,7 +320,7 @@
           Caustic: 4
 
 - type: entity
-  name: "жовтий слиз"
+  name: yellow slime
   parent: MobAdultSlimesYellow
   id: MobAdultSlimesYellowAngry
   suffix: Angry
