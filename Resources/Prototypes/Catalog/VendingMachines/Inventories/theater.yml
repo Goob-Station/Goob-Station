@@ -130,6 +130,11 @@
     ClothingUniformRat: 1 #Loadouts Rework addition - Nyanotrasen - The fucking rat that I hate
     ClothingUniformDressRed: 1 #Loadouts Rework addition - Nyanotrasen
     ClothingUniformKendoHakama: 1 #Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoBlue: 1 #Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoPink: 1 #Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoSky: 1 #Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoGreen: 1 #Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoPink: 1 #Loadouts Rework addition - Nyanotrasen
     #Loadouts Rework Stuff End  
   contrabandInventory:
     ClothingHeadHatRichard: 1

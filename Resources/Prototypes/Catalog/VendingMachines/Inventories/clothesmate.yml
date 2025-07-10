@@ -150,7 +150,32 @@
     ClothingShoesSandals: 1 # Goobstation
     # DO NOT ADD MORE, USE UNIFORM DYING
     #Loadouts Rework Stuff Start
-    ClothingOuterCoatAcidRaincoat: 3 #Loadouts Rework addition - NF
+    ClothingOuterCoatAcidRaincoat: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatAcidRaincoatBlue: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatAcidRaincoatGreen: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatAcidRaincoatMagenta: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatAcidRaincoatYellow: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatBomberPunkRed: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatJacketLeather: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatJacketBiker: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatJacketJamrock: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatBomberAerostatic: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatJacketLettermanBrown: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatJacketLettermanMagenta: 3 #Loadouts Rework addition - Frontier
+    ClothingOuterCoatBomberPinkSleeves: 3 #Loadouts Rework addition - Frontier
+    ClothingUniformJumpskirtDressAsymmetric: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpskirtDressEvening: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpskirtDressMidi: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpskirtDressTea: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpskirtDressSleeveless: 3 #Loadouts Rework addition - EE
+    JumpsuitTShirtJeans: 3 #Loadouts Rework addition - EE
+    JumpsuitTShirtJeansGray: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpsuitYogaGymBra: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpsuitSuitBlueBlazer: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpsuitOliveSweater: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpsuitVictorianRedBlack: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpsuitVictorianRedVest: 3 #Loadouts Rework addition - EE
+    ClothingUniformJumpsuitRippedPunk: 3 #Loadouts Rework addition - Nyanotrasen
     ClothingOuterCoatInspector: 3 #Loadouts Rework addition - EE
     ClothingOuterCoatModern: 3 #Loadouts Rework addition - EE
     ClothingOuterTailcoat: 3 #Loadouts Rework addition - EE
