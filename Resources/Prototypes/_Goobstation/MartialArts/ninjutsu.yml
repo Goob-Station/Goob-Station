@@ -2,7 +2,6 @@
   id: Ninjutsu
   martialArtsForm: Ninjutsu
   roundstartCombos: NinjutsuMoves
-  startingStage: Hard
 
 - type: comboList
   id: NinjutsuMoves

@@ -9,7 +9,6 @@
   id: CloseQuartersCombat
   martialArtsForm: CloseQuartersCombat
   roundstartCombos: CQCMoves
-  startingStage: Hard
 
 - type: comboList
   id: CQCMoves
