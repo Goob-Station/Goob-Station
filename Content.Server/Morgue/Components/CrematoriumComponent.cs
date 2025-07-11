@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Morgue.Components;
@@ -18,6 +19,15 @@ public sealed partial class CrematoriumComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public int CookTime = 5;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier Damage = new()
+    {
+        DamageDict = new()
+        {
+            { "Burn", 10000.0 },
+        }
+    };
 
     [DataField("cremateStartSound")]
     public SoundSpecifier CremateStartSound = new SoundPathSpecifier("/Audio/Items/Lighters/lighter1.ogg");

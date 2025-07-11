@@ -6,6 +6,7 @@ using Content.Server.Morgue;
 using Content.Server.Morgue.Components;
 using Content.Server.Popups;
 using Content.Shared.Access.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
@@ -32,6 +33,7 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
 
     private static readonly ProtoId<TagPrototype> HighRiskItemTag = "HighRiskItem";
 
@@ -100,7 +102,7 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
             return false;
         }
 
-        // The entity we're burning might no neccessarily be a mob, and we're checking for high risk items
+        // The entity we're burning might not neccessarily be a mob, and we're checking for high risk items
         // Can this be meta'd to find high risk items in storage implants? Absolutely.
         // Dealing with a deleted high risk item is worse than dealing with a metagaming player
         if (_storage.FindFirstStoredByTag(target, HighRiskItemTag).Length != 0)
@@ -112,10 +114,11 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
         return true;
     }
 
-    public override void TryDeleteItems(EntityUid ent, EntityUid crematorium)
+    public override void Execute(EntityUid uid, EntityUid target)
     {
-        // Todo inv checks, this should blow up if there are any high risk items
-        throw new NotImplementedException();
+        var comp = Comp<CrematoriumComponent>(uid);
+
+        _damage.TryChangeDamage(target, comp.Damage);
     }
 
     public override void LogPassedChecks(EntityUid user, EntityUid target)
@@ -150,6 +153,6 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
         // It's an important thing innit
         _adminLog.Add(LogType.Emag, LogImpact.Extreme, $"{Loc.GetString("crematorium-emagged", ("user", ToPrettyString(args.UserUid)))}");
 
-        // TODO handle item deletion
+        args.Handled = true;
     }
 }

@@ -60,6 +60,7 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Morgue;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
@@ -193,6 +194,8 @@ public sealed class CrematoriumSystem : EntitySystem
         if (!Resolve(uid, ref storage))
             return;
 
+        bool spawnAsh = false; // el goob
+
         _appearance.SetData(uid, CrematoriumVisuals.Burning, false);
         RemComp<ActiveCrematoriumComponent>(uid);
 
@@ -200,15 +203,28 @@ public sealed class CrematoriumSystem : EntitySystem
         {
             for (var i = storage.Contents.ContainedEntities.Count - 1; i >= 0; i--)
             {
-                var item = storage.Contents.ContainedEntities[i];
-                if (HasComp<CrematoriumImmuneComponent>(item)) // GOOBCODE ALERT //
+                // Goobstation - crematorium extensions
+                var target = storage.Contents.ContainedEntities[i];
+
+                if (HasComp<MobStateComponent>(target))
+                {
+                    _goobCrematorium.Execute(uid, target);
+                    continue;
+                }
+
+                if (HasComp<CrematoriumImmuneComponent>(target)) // GOOBCODE ALERT //
                     continue;
 
-                _containers.Remove(item, storage.Contents);
-                EntityManager.DeleteEntity(item);
+                spawnAsh = true;
+                _containers.Remove(target, storage.Contents);
+                EntityManager.DeleteEntity(target);
             }
-            var ash = Spawn("Ash", Transform(uid).Coordinates);
-            _containers.Insert(ash, storage.Contents);
+
+            if (spawnAsh) // This condition check is also el goob
+            {
+                var ash = Spawn("Ash", Transform(uid).Coordinates);
+                _containers.Insert(ash, storage.Contents);
+            }
         }
 
         _entityStorage.OpenStorage(uid, storage);
