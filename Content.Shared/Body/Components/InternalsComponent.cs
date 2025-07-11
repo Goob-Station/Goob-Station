@@ -1,5 +1,4 @@
 using Content.Shared.Alert;
-using Content.Goobstation.Shared.Disease;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -25,9 +24,4 @@ public sealed partial class InternalsComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> InternalsAlert = "Internals";
-
-    // <Goobstation>
-    [DataField]
-    public DiseaseSpreadModifier IncomingInfectionModifier = new() { PowerModifiers = new() { { "Aerial", -1f } } };
-    // </Goobstation>
 }
