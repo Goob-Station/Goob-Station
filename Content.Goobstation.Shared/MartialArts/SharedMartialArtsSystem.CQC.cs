@@ -124,12 +124,12 @@ public partial class SharedMartialArtsSystem
                     TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
                     TryComp(args.Target, out PullableComponent? pullable) &&
                     TryComp(args.Target, out BodyComponent? body) &&
+                    TryComp(args.Target, out StaminaComponent? stamina) && stamina.Critical &&
                     puller.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
                     targeting.Target == TargetBodyPart.Head)
                 {
                     _pulling.TryStopPull(args.Target, pullable);
                     _mobState.ChangeMobState(args.Target, MobState.Dead, null, ent);
-
                     var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
                     var targetedBodyPart = _body.GetBodyChildrenOfType(args.Target, partType, body, symmetry)
                         .ToList()

@@ -504,7 +504,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         }
 
         martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
-        martialArtsKnowledgeComponent.StartingStage = martialArtsPrototype.StartingStage;
+        //martialArtsKnowledgeComponent.StartingStage = martialArtsPrototype.StartingStage;
         LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
         martialArtsKnowledgeComponent.Blocked = false;
 
