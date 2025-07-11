@@ -22,7 +22,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
 
         SubscribeLocalEvent<DiseaseComponent, DiseaseCloneEvent>(OnClonedInto);
         SubscribeLocalEvent<GrantDiseaseComponent, MapInitEvent>(OnGrantDiseaseInit);
-        SubscribeLocalEvent<InternalsComponent, DiseaseIncomingSpreadAttemptEvent>(OnInternalsIncomingSpread);
+        // SubscribeLocalEvent<InternalsComponent, DiseaseIncomingSpreadAttemptEvent>(OnInternalsIncomingSpread); // TODO: fix
         SubscribeLocalEvent<DiseaseCarrierComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
@@ -67,6 +67,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         }
     }
 
+    /* TODO: fix
     private void OnInternalsIncomingSpread(EntityUid uid, InternalsComponent internals, DiseaseIncomingSpreadAttemptEvent args)
     {
         if (_proto.TryIndex<DiseaseSpreadPrototype>(args.Type, out var spreadProto) && _internals.AreInternalsWorking(uid, internals))
@@ -74,6 +75,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
             args.ApplyModifier(internals.IncomingInfectionModifier);
         }
     }
+    */
 
     private void OnRejuvenate(EntityUid uid, DiseaseCarrierComponent comp, RejuvenateEvent args)
     {
