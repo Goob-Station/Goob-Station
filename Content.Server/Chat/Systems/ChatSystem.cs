@@ -125,6 +125,7 @@ using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Prototypes;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
+using Content.Server.Speech.Prototypes;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard.Chuuni;
@@ -903,8 +904,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("entity", ent),
             ("message", FormattedMessage.RemoveMarkupOrThrow(action)));
 
-        if (checkEmote)
-            TryEmoteChatInput(source, action);
+        if (checkEmote &&
+            !TryEmoteChatInput(source, action))
+            return;
 
         SendInVoiceRange(
             ChatChannel.Emotes,
