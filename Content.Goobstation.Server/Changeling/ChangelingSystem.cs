@@ -854,17 +854,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             else
                 ent.Comp.StasisTime = catastrophicStasisTime;
         }
-
-        if (!TryComp<MobStateComponent>(ent, out var mobState))
-            return;
-
-        if (mobState.CurrentState != MobState.Dead)
-            return;
-
-        if (!args.DamageIncreased)
-            return;
-
-        target.Damage.ClampMax(200); // we never die. UNLESS??
     }
 
     private void OnComponentRemove(Entity<ChangelingIdentityComponent> ent, ref ComponentRemove args)

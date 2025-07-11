@@ -26,8 +26,14 @@ public sealed partial class CrematoriumComponent : Component
         DamageDict = new()
         {
             { "Burn", 10000.0 },
-        }
+        },
     };
+
+    /// <summary>
+    /// Do we need to strip the mob we are tryng to cremate
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool DemandStrip = false;
 
     [DataField("cremateStartSound")]
     public SoundSpecifier CremateStartSound = new SoundPathSpecifier("/Audio/Items/Lighters/lighter1.ogg");

@@ -83,6 +83,7 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
     public override bool CanCremate(EntityUid ent, EntityUid target, [NotNullWhen(false)] out string? reason)
     {
         reason = Loc.GetString("crematorium-cant-cremate");
+        var comp = Comp<CrematoriumComponent>(ent);
 
         if (HasComp<CrematoriumImmuneComponent>(target))
             return false;
@@ -96,13 +97,13 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
                 return false;
         }
 
-        if (HasComp<MobStateComponent>(target) && HasItems(target))
+        if (comp.DemandStrip && TryComp<InventoryComponent>(target, out var inv) && HasItems(target, inv))
         {
             reason = Loc.GetString("crematorium-has-items");
             return false;
         }
 
-        // The entity we're burning might not neccessarily be a mob, and we're checking for high risk items
+        // The entity we're burning might not neccessarily be a mob, and we want to be checking for high risk items
         // Can this be meta'd to find high risk items in storage implants? Absolutely.
         // Dealing with a deleted high risk item is worse than dealing with a metagaming player
         if (_storage.FindFirstStoredByTag(target, HighRiskItemTag).Length != 0)
