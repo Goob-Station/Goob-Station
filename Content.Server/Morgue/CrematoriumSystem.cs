@@ -53,6 +53,7 @@ using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -81,6 +82,7 @@ public sealed class CrematoriumSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     public override void Initialize()
     {
@@ -138,8 +140,7 @@ public sealed class CrematoriumSystem : EntitySystem
         {
             Text = Loc.GetString("cremate-verb-get-data-text"),
             // TODO VERB ICON add flame/burn symbol?
-            Act = () => TryCremate(uid, args.User, component, storage),
-            Impact = LogImpact.High // could be a body? or evidence? I dunno.
+            Act = () => TryCremate(uid, args.User, component, storage)
         };
         args.Verbs.Add(verb);
     }
@@ -198,6 +199,15 @@ public sealed class CrematoriumSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("news-write-no-access-popup"), uid);
             return false;
         }
+
+        var log = Loc.GetString("crematorium-passed-cremate-log",
+        [
+            ("user", ToPrettyString(user)),
+                    ("target", ToPrettyString(storage.Contents.ContainedEntities[0])),
+        ]);
+
+                                                // Can I kill everyone involved?                                    Pretty please
+        _adminLog.Add(LogType.Verb, LogImpact.High, $"{log}");
 
         return Cremate(uid, component, storage);
     }
