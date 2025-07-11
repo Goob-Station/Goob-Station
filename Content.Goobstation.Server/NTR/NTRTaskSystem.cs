@@ -462,7 +462,6 @@ public sealed class NtrTaskSystem : EntitySystem
         db.Tasks.Clear();
         db.History.Clear();
         db.NextTaskGenerationTime = _timing.CurTime;
-        db.NextPowerGridTime = _timing.CurTime;
 
         for (var i = 0; i < db.MaxTasks; i++)
         {
@@ -506,11 +505,11 @@ public sealed class NtrTaskSystem : EntitySystem
     private bool IsTaskAvailable(NtrTaskPrototype proto, NtrTaskDatabaseComponent db)
     {
         var currentTime = _timing.CurTime.TotalSeconds;
-        return (proto.ID != "PowerGridCheck" || _timing.CurTime >= db.NextPowerGridTime)
-               && !db.Tasks.Any(b => b.Task == proto.ID && b.IsActive)
+        return !db.Tasks.Any(b => b.Task == proto.ID && b.IsActive)
                && db.History.Where(h => h.Task == proto.ID)
                    .All(h => (currentTime - h.CompletionTime) >= proto.Cooldown);
     }
+
 
     private NtrTaskPrototype? PickWeightedTask(List<NtrTaskPrototype> tasks)
     {
