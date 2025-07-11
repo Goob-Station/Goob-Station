@@ -147,6 +147,12 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
 
     private void OnEmagged(Entity<CrematoriumComponent> ent, ref GotEmaggedEvent args)
     {
+        if (args.Type != EmagType.Interaction)
+            return;
+
+        if (HasComp<EmaggedComponent>(ent.Owner))
+            return;
+
         // It's an important thing innit
         _adminLog.Add(LogType.Emag, LogImpact.Extreme, $"{Loc.GetString("crematorium-emagged", ("user", ToPrettyString(args.UserUid)))}");
 
