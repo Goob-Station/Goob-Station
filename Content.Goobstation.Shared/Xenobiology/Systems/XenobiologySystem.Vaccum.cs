@@ -137,8 +137,8 @@ public partial class XenobiologySystem
             return false;
         }
 
-        if (_humanoidQuery.HasComp(target)
-            && !HasComp<EmaggedComponent>(vacuum))
+        if (!_mobQuery.HasComp(Target)
+            || _humanoidQuery.HasComp(target) && !HasComp<EmaggedComponent>(vacuum))
         {
             var invalidEntityPopup = Loc.GetString("xeno-vacuum-suction-fail-invalid-entity-popup", ("ent", target));
             _popup.PopupEntity(invalidEntityPopup, vacuum, user);
