@@ -37,17 +37,9 @@
     - 0,0,8,1
     whitelist:
       tags:
-        - Hemostat
-        - Scalpel
-        - EnergyScalpel
-        - ScalpelLaser
-        - Retractor
-        - AdvancedRetractor
-        - Cautery
-        - EnergyCautery
-        - Drill
-        - SawElectric
-        - BoneSetter
+        - SurgeryTool
+      components:
+        - SurgeryTool
   - type: ItemMapper
     mapLayers:
       hemostat:
