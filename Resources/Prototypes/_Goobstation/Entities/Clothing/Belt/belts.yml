@@ -126,6 +126,9 @@
       - Whistle
       - BalloonPopper
       - ScatteringGrenade
+  - type: GuideHelp
+    guides:
+    - CorporateJudo
 
 - type: entity
   parent: [ ChemBag, BaseSyndicateContraband ]
