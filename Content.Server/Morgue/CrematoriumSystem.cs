@@ -183,7 +183,7 @@ public sealed class CrematoriumSystem : EntitySystem
             return false;
         }
 
-        _goobCrematorium.LogPassedChecks(user, storage.Contents.ContainedEntities[0]);
+        _goobCrematorium.LogPassedChecks(user, target);
 
         return Cremate(uid, component, storage);
     }

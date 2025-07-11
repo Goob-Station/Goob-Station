@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 
 // :)
 namespace Moonyware.Miscellaneous.Systems;
