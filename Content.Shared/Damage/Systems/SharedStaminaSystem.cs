@@ -59,6 +59,7 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitcode.Weapons.Misc; // Goob
 using Content.Shared.Jittering;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
@@ -235,19 +236,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         // goobstation
         foreach (var (ent, comp) in toHit)
         {
-            var hitEvent = new TakeStaminaDamageEvent((ent, comp));
+            var hitEvent = new BeforeStaminaDamageEvent(1f);
             // raise event for each entity hit
-            RaiseLocalEvent(ent, hitEvent);
-
-            if (hitEvent.Handled)
-                return;
+            RaiseLocalEvent(ent, ref hitEvent);
 
             var damageImmediate = component.Damage;
             var damageOvertime = component.Overtime;
-            damageImmediate *= hitEvent.Multiplier;
-            damageImmediate += hitEvent.FlatModifier;
-            damageOvertime *= hitEvent.Multiplier;
-            damageOvertime += hitEvent.FlatModifier;
+            damageImmediate *= hitEvent.Value;
+            damageOvertime *= hitEvent.Value;
 
             if (args.Direction == null)
             {
@@ -291,19 +287,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             return;
 
         // goobstation
-        var hitEvent = new TakeStaminaDamageEvent((target, stamComp));
-        RaiseLocalEvent(target, hitEvent);
-
-        if (hitEvent.Handled)
-            return;
+        var hitEvent = new BeforeStaminaDamageEvent(1f);
+        RaiseLocalEvent(target, ref hitEvent);
 
         var damage = component.Damage;
         var overtime = component.Overtime;
 
-        damage *= hitEvent.Multiplier;
-        damage += hitEvent.FlatModifier;
-        overtime *= hitEvent.Multiplier;
-        overtime += hitEvent.FlatModifier;
+        damage *= hitEvent.Value;
+        overtime *= hitEvent.Value;
 
         TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
         TakeOvertimeStaminaDamage(target, overtime); // Goobstation
@@ -365,23 +356,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
+        if (applyResistances)
+            value = ev.Value;
+
         value = UniversalStaminaDamageModifier * value;
 
         // Have we already reached the point of max stamina damage?
         if (component.Critical)
             return;
-
-        if (applyResistances)
-        {
-            var hitEvent = new TakeStaminaDamageEvent((uid, component));
-            RaiseLocalEvent(uid, hitEvent);
-
-            if (hitEvent.Handled)
-                return;
-
-            value *= hitEvent.Multiplier;
-            value += hitEvent.FlatModifier;
-        }
 
         var oldDamage = component.StaminaDamage;
         component.StaminaDamage = MathF.Max(0f, component.StaminaDamage + value);

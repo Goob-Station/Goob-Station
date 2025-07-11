@@ -14,11 +14,9 @@ using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Stunnable;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._White.Standing;
-using Content.Shared.Damage.Events;
 using Content.Shared.Heretic;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Mobs;
 
 namespace Content.Goobstation.Shared.Inventory;
 
@@ -41,7 +39,6 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, ModifyStunTimeEvent>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, IsEyesCoveredCheckEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.NightVisionComponent>>(RefRelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, TakeStaminaDamageEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.ThermalVisionComponent>>(RefRelayInventoryEvent);
     }
 
