@@ -24,7 +24,7 @@ ui-options-general-accessibility = Доступність
 ## Audio menu
 
 ui-options-master-volume = Основна гучність:
-ui-options-midi-volume = MIDI (Інструменти) Гучність:
+ui-options-midi-volume = Гучність MIDI (Інструментів):
 ui-options-ambient-music-volume = Гучність атмосферної музики:
 ui-options-ambience-volume = Гучність оточення:
 ui-options-lobby-volume = Гучність лобі та закінчення раунду:
@@ -69,7 +69,7 @@ ui-options-hud-theme = Тема HUD:
 ui-options-hud-theme-default = За замовчуванням
 ui-options-hud-theme-plasmafire = Плазмовий Вогонь
 ui-options-hud-theme-slimecore = Слаймкор
-ui-options-hud-theme-clockwork = Заводний механізм
+ui-options-hud-theme-clockwork = Заводний Механізм
 ui-options-hud-theme-retro = Ретро
 ui-options-hud-theme-minimalist = Мінімалістичний
 ui-options-hud-theme-ashen = Попеляста
@@ -82,7 +82,7 @@ ui-options-vp-integer-scaling-tooltip = Якщо ця опція увімкне�
                                         що чорні полоси будуть у верхній/нижній частині екрана або
                                         що частина вікна не буде видна.
 ui-options-vp-low-res = Зображення з низькою роздільною здатністю
-ui-options-parallax-low-quality = Паралакс Низької Якості (фон)
+ui-options-parallax-low-quality = Низька Якість Паралаксу (фон)
 ui-options-fps-counter = Показати лічильник FPS
 ui-options-vp-width = Ширина вікна:
 ui-options-hud-layout = Схема HUD:
