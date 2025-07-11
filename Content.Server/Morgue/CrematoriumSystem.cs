@@ -216,9 +216,6 @@ public sealed class CrematoriumSystem : EntitySystem
                 }
                 */
 
-                if (HasComp<CrematoriumImmuneComponent>(target)) // GOOBCODE ALERT //
-                    continue;
-
                 spawnAsh = true;
                 _containers.Remove(target, storage.Contents);
                 EntityManager.DeleteEntity(target);

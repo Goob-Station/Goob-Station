@@ -12,8 +12,6 @@ using Content.Shared.Database;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Inventory;
-using Content.Shared.Mind.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Tag;
 using Moonyware.Miscellaneous.Systems;
@@ -89,13 +87,10 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
         if (HasComp<CrematoriumImmuneComponent>(target))
             return false;
 
-        if (!HasComp<EmaggedComponent>(ent))
+        if (!HasComp<EmaggedComponent>(ent) && !_mob.IsDead(target))
         {
-            if (!_mob.IsDead(target))
-                return false;
-
-            if (TryComp<MindContainerComponent>(target, out var mindCont) && mindCont.Mind != null)
-                return false;
+            reason = Loc.GetString("crematorium-not-dead");
+            return false;
         }
 
         if (comp.DemandStrip && TryComp<InventoryComponent>(target, out var inv) && HasItems(target, inv))
@@ -109,7 +104,7 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
         // Dealing with a deleted high risk item is worse than dealing with a metagaming player
         if (_storage.FindFirstStoredByTag(target, HighRiskItemTag).Length != 0)
         {
-            reason = Loc.GetString("crematorium-has-items");
+            reason = Loc.GetString("crematorium-unknown-obstruction");
             return false;
         }
 
