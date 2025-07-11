@@ -180,17 +180,17 @@
     animation: WeaponArcThrust
   - type: StaminaDamageOnHit 
     damage: 35
-    lightAttackDamageMultiplier: 5
-    lightAttackOvertimeDamageMultiplier: 0
+#    lightAttackDamageMultiplier: 5
+#    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide 
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
-  - type: DelayedKnockdownOnHit # Goobstation
-    useDelay: stunbaton
-  - type: UseDelayBlockMelee # Goobstation
-    delays:
-    - stunbaton
+#  - type: DelayedKnockdownOnHit # Goobstation
+#    useDelay: stunbaton
+#  - type: UseDelayBlockMelee # Goobstation
+#    delays:
+#    - stunbaton
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
     maxCharge: 1000

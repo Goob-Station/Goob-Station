@@ -1435,8 +1435,6 @@
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectHeavyLaser
   - type: KnockdownOnCollide
-  - type: StaminaDamageOnCollide
-    damage: 80
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:

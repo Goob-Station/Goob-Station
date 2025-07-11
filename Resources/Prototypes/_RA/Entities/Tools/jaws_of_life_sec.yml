@@ -32,7 +32,7 @@
       - Prying
     useSound: /Audio/Items/jaws_pry.ogg
   - type: Prying
-    speedModifier: 1.5
+    speedModifier: 1
     pryPowered: true
     useSound: /Audio/Items/jaws_pry.ogg
   - type: UseDelay # Goobstation - For insta prying
