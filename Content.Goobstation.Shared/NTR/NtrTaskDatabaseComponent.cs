@@ -70,18 +70,6 @@ public sealed partial class NtrTaskDatabaseComponent : Component
     [DataField]
     public HashSet<string> PrintedPrototypes = new();
 
-    /// <summary>
-    /// Cooldown for PowerGridCheck task
-    /// </summary>
-    [DataField]
-    public TimeSpan PowerGridCooldown = TimeSpan.FromMinutes(10);
-
-    /// <summary>
-    /// When next PowerGridCheck can appear
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan NextPowerGridTime = TimeSpan.Zero;
-
     [DataField("maxActiveTime")] // if u cant complete a task in 20 mins, skill issue.
     public TimeSpan MaxActiveTime = TimeSpan.FromMinutes(20); // 20 min to complete a task
 }

@@ -13,15 +13,6 @@
   - type: ActivatableUI
     key: enum.NtrTaskUiKey.Key
   - type: NtrTaskConsole
-  - type: ContainerContainer
-    board: !type:Container
-      showEnts: False
-      occludes: True
-      ents: [ ]
-      documentSlot: !type:ContainerSlot
-        showEnts: False
-        occludes: True
-        ent: null
   - type: ItemSlots
     slots:
       documentSlot:

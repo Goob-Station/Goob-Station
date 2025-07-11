@@ -88,21 +88,6 @@
       tags:
         - Document
 
-- type: ntrTask
-  id: TaskPowerCheck
-  proto: NTRgamerulePowergrid
-  reward: 5
-  weight: 0.3 # 3 times rarer than the stamps one
-  cooldown: 600
-  description: task-ntr-powergrid-desc
-  entries:
-  - name: task-ntr-powergrid-name
-    isEvent: true
-    stamps: []
-    whitelist:
-      tags: [ ]
-      components: [ ]
-
 # Reagent tasks
 - type: ntrTask
   id: TaskLingBlood
