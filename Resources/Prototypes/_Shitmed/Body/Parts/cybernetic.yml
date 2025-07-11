@@ -22,11 +22,15 @@
   - type: Damageable
     damageContainer: Silicon
   - type: Cybernetics
+  - type: Nerve
+    painMultiplier: 1.5
+  - type: Woundable
+    canBleed: false
 
 - type: entity
-  abstract: true
   parent: [ CyberneticPartBase, BaseLeftArm ]
-  id: LeftArmCyberneticBase
+  id: LeftArmCybernetic
+  name: cybernetic left arm
   components:
   - type: Sprite
     state: "l_arm-combined"
@@ -34,13 +38,21 @@
     state: "l_arm-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLArm
-  - type: GenerateChildPart
-    id: LeftHandCybernetic
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: LArm
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: null
 
 - type: entity
-  abstract: true
   parent: [ CyberneticPartBase, BaseRightArm ]
-  id: RightArmCyberneticBase
+  id: RightArmCybernetic
+  name: cybernetic right arm
   components:
   - type: Sprite
     state: "r_arm-combined"
@@ -48,13 +60,21 @@
     state: "r_arm-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRArm
-  - type: GenerateChildPart
-    id: RightHandCybernetic
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: RArm
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: null
 
 - type: entity
-  abstract: true
   parent: [ CyberneticPartBase, BaseLeftLeg ]
-  id: LeftLegCyberneticBase
+  id: LeftLegCybernetic
+  name: cybernetic left leg
   components:
   - type: Sprite
     state: "l_leg-combined"
@@ -62,13 +82,21 @@
     state: "l_leg-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLLeg
-  - type: GenerateChildPart
-    id: LeftFootCybernetic
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: LLeg
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: null
 
 - type: entity
-  abstract: true
   parent: [ CyberneticPartBase, BaseRightLeg ]
-  id: RightLegCyberneticBase
+  id: RightLegCybernetic
+  name: cybernetic right leg
   components:
   - type: Sprite
     state: "r_leg-combined"
@@ -76,15 +104,34 @@
     state: "r_leg-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRLeg
-  - type: GenerateChildPart
-    id: RightFootCybernetic
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: RLeg
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: null
 
 - type: entity
   parent: [ CyberneticPartBase, BaseLeftHand ]
   id: LeftHandCybernetic
+  name: cybernetic left hand
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLHand
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: LHand
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: null
 
 - type: entity
   parent: [ CyberneticPartBase, BaseRightHand ]
@@ -93,6 +140,16 @@
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRHand
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: RHand
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: null
 
 - type: entity
   parent: [ CyberneticPartBase, BaseLeftFoot ]
@@ -101,6 +158,16 @@
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLFoot
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: LFoot
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: null
 
 - type: entity
   parent: [ CyberneticPartBase, BaseRightFoot ]
@@ -109,9 +176,19 @@
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRFoot
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: RFoot
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#DD8822"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: null
 
 - type: entity
-  parent: LeftArmCyberneticBase
+  parent: LeftArmCybernetic
   id: JawsOfLifeLeftArm
   name: J.W.L left arm
   description: A cybernetic left arm with the ability to pry doors open.
@@ -125,7 +202,7 @@
       delay: 1
 
 - type: entity
-  parent: RightArmCyberneticBase
+  parent: RightArmCybernetic
   id: JawsOfLifeRightArm
   name: J.W.L right arm
   description: A cybernetic right arm with the ability to pry doors open.
@@ -139,7 +216,7 @@
       delay: 1
 
 - type: entity
-  parent: LeftLegCyberneticBase
+  parent: LeftLegCybernetic
   id: SpeedLeftLeg
   name: S.P.E.E.D left leg
   description: A cybernetic left leg that allows its wearer to run faster.
@@ -149,7 +226,7 @@
     sprintSpeed: 5.175
 
 - type: entity
-  parent: RightLegCyberneticBase
+  parent: RightLegCybernetic
   id: SpeedRightLeg
   name: S.P.E.E.D right leg
   description: A cybernetic left leg that allows its wearer to run faster.

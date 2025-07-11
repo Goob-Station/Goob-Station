@@ -2,7 +2,10 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -14,7 +17,7 @@
 
 - type: entity
   id: BlueshieldUndeterminedWeapon
-  name: blueshield weaponry pack
+  name: blueshield sets pack
   description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
@@ -30,6 +33,7 @@
     - BSOSyringeSet
     maxSelectedSets: 2
 
+
 - type: entity
   id: BlueshieldUndeterminedHardsuit
   name: blueshield hardsuit pack
@@ -42,7 +46,6 @@
   - type: SetSelector
     possibleSets:
     - BSOHardsuitLightSet
-#    - BSOHardsuitHeavySet
     - BSOModsuitSet
     maxSelectedSets: 1
 

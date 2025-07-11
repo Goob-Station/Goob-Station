@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 GNUtopia <erainach14@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reaction
+  id: Artiplates
+  minTemp: 310
+  reactants:
+    Iron:
+      amount: 1
+    Copper:
+      amount: 1
+    TranexamicAcid:
+      amount: 2
+    Saline:
+      amount: 3
+  products:
+    Artiplates: 12
+
+- type: reaction
+  id: AshArtiplates
+  minTemp: 520
+  reactants:
+    Artiplates:
+      amount: 1
+  products:
+    Ash: 1

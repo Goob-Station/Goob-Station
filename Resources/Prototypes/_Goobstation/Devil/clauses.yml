@@ -12,13 +12,6 @@
   clauseWeight: 25
   event: !type:DevilContractSoulOwnershipEvent
 
-# self antag clause
-#- type: clause
-#  id: pride
-#  clauseWeight: -70
-#  implants:
-#  - UplinkImplant
-
 - type: clause
   id: weakness
   clauseWeight: -35
@@ -28,20 +21,14 @@
   id: fearoffire
   clauseWeight: -20
   damageModifierSet: HellSpawn
+  addedComponents:
+  - type: SpecialHighTempImmunity
 
 - type: clause
   id: brokeness
   clauseWeight: -20
   spawnedItems:
   - ClothingShoesRealJordansAutographed
-
-- type: clause
-  id: fearofspace
-  clauseWeight: -30
-  addedComponents:
-  - type: BreathingImmunity
-  - type: PressureImmunity
-  - type: SpecialLowTempImmunity
 
 - type: clause
   id: fearofdeath
@@ -67,10 +54,28 @@
 
 - type: clause
   id: gluttony
-  clauseWeight: -15
+  clauseWeight: -10
   removedComponents:
   - type: Hunger
   - type: Thirst
+
+- type: clause
+  id: fearofdrowning
+  clauseWeight: -10
+  addedComponents:
+  - type: SpecialBreathingImmunity
+
+- type: clause
+  id: fearofcrushing
+  clauseWeight: -10
+  addedComponents:
+  - type: SpecialPressureImmunity
+
+- type: clause
+  id: fearoffreezing
+  clauseWeight: -10
+  addedComponents:
+  - type: SpecialLowTempImmunity
 
 - type: clause
   id: greed

@@ -986,6 +986,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false
+        ignoreBlockers: false
         damage:
           types:
             Heat: -1.5
@@ -1050,6 +1051,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false
+        ignoreBlockers: false
         damage:
           types:
             Blunt: -2
@@ -1118,6 +1120,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: false # theoretically allows for degenerate behaviour, in practice should be unlikely; also low healing amount
+        ignoreBlockers: false
         damage:
           types:
             Blunt: 1
