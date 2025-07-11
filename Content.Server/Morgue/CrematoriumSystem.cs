@@ -174,10 +174,10 @@ public sealed class CrematoriumSystem : EntitySystem
 
         var target = storage.Contents.ContainedEntities[0];
 
-        if (!_goobCrematorium.CanCremate(target))
+        if (!_goobCrematorium.CanCremate(uid, target, out var reason))
         {
             _audio.PlayPvs(component.CremateDeniedSound, uid);
-            _popup.PopupEntity(Loc.GetString("crematorium-cant-cremate"), uid);
+            _popup.PopupEntity(reason, uid);
 
             return false;
         }
