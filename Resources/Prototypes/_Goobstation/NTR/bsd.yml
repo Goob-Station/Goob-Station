@@ -91,7 +91,7 @@
   id: BsdNames
   values:
     prefix: bsd-names-dataset-
-    count: 16
+    count: 17
 
 - type: localizedDataset
   id: BsdPrefix
