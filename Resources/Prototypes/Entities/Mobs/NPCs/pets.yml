@@ -944,6 +944,8 @@
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
     rules: ghost-role-information-nonantagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
   - type: GhostTakeoverAvailable
   - type: Butcherable
     butcheringType: Spike
