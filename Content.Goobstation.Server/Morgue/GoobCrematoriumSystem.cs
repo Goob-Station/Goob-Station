@@ -5,6 +5,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Morgue;
 using Content.Server.Morgue.Components;
 using Content.Server.Popups;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared.Access.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -119,7 +120,7 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
     {
         var comp = Comp<CrematoriumComponent>(uid);
 
-        _damage.TryChangeDamage(target, comp.Damage);
+        _damage.TryChangeDamage(target, comp.Damage, splitDamage: SplitDamageBehavior.None);
     }
 
     public override void LogPassedChecks(EntityUid user, EntityUid target)

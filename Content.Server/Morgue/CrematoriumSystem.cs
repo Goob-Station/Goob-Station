@@ -206,11 +206,15 @@ public sealed class CrematoriumSystem : EntitySystem
                 // Goobstation - crematorium extensions
                 var target = storage.Contents.ContainedEntities[i];
 
+                /*
+                 TODO: Come back to this when the "woundmed" makes "wounds" so bad they're just unrevivable.
+                 Or ashing comes back in any form
                 if (HasComp<MobStateComponent>(target))
                 {
                     _goobCrematorium.Execute(uid, target);
                     continue;
                 }
+                */
 
                 if (HasComp<CrematoriumImmuneComponent>(target)) // GOOBCODE ALERT //
                     continue;
