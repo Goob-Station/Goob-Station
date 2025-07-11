@@ -8,7 +8,7 @@
   id: NamesSyndicateElite
   values:
     prefix: names-syndicate-elite-dataset-
-    count: 23
+    count: 24 # Goobstation edit
 
 - type: localizedDataset
   id: NamesSyndicatePrefix

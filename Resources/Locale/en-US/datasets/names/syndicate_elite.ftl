@@ -21,3 +21,7 @@ names-syndicate-elite-dataset-20 = Phi
 names-syndicate-elite-dataset-21 = Chi
 names-syndicate-elite-dataset-22 = Psi
 names-syndicate-elite-dataset-23 = Omega
+
+# Goobstation
+names-syndicate-elite-dataset-24 = Ligma
+
