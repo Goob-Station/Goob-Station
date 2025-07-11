@@ -27,7 +27,7 @@
       default:
         length: 1
       telebaton:
-        length: 2.5
+        length: 0.5
   - type: ItemToggle
     soundActivate:
       path: /Audio/_Goobstation/Weapons/Baton/contractorbatonextend.ogg
@@ -44,6 +44,7 @@
         Ion: 35
   - type: MeleeWeapon
     bluntStaminaDamageFactor: 0
+    attackRate: 1.25
   - type: StaminaDamageOnHit
     damage: 85
   - type: StunBorgsOnHit
