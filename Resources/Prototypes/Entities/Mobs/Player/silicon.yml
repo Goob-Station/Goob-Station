@@ -607,5 +607,5 @@
       requirements: # Goobstation - ghost roles requirements
       - !type:RoleTimeRequirement
         role: JobBorg
-        time: 3600 #1 hour
+        time: 36000 #10 hour
     - type: GhostTakeoverAvailable
