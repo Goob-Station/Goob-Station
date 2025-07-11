@@ -658,6 +658,9 @@
   id: Diagonal
 
 - type: Tag
+  id: Diamond
+
+- type: Tag
   id: Dice
 
 - type: Tag
@@ -725,6 +728,33 @@
 
 - type: Tag
   id: EmitterBolt
+
+- type: Tag
+  id: EncryptionCargo
+
+- type: Tag
+  id: EncryptionCommand
+
+- type: Tag
+  id: EncryptionCommon
+
+- type: Tag
+  id: EncryptionElse
+
+- type: Tag
+  id: EncryptionEngineering
+
+- type: Tag
+  id: EncryptionMedical
+
+- type: Tag
+  id: EncryptionScience
+
+- type: Tag
+  id: EncryptionSecurity
+
+- type: Tag
+  id: EncryptionService
 
 - type: Tag
   id: Enzyme
@@ -823,6 +853,9 @@
   id: Goliath
 
 - type: Tag
+  id: GoliathPlate
+
+- type: Tag
   id: GPS
 
 - type: Tag
@@ -911,6 +944,9 @@
 
 - type: Tag
   id: HighSecDoor
+
+- type: Tag
+  id: HivelordRemains
 
 - type: Tag
   id: HiViz
@@ -1133,6 +1169,9 @@
   id: Multitool
 
 - type: Tag
+  id: Mushroom
+
+- type: Tag
   id: NoBlockAnchoring
 
 - type: Tag
@@ -1164,6 +1203,21 @@
 
 - type: Tag
   id: Ore
+
+- type: Tag
+  id: OreBananium
+
+- type: Tag
+  id: OreGold
+
+- type: Tag
+  id: OrePlasma
+
+- type: Tag
+  id: OreSilver
+
+- type: Tag
+  id: OreUranium
 
 - type: Tag
   id: Packet
@@ -1339,6 +1393,9 @@
 
 - type: Tag
   id: SalvageExperiment
+
+- type: Tag
+  id: SalvageScrap
 
 - type: Tag
   id: Scarf
@@ -1569,9 +1626,6 @@
 
 - type: Tag
   id: VoiceTrigger
-
-- type: Tag # Eating fix tag
-  id: VoxFood
 
 - type: Tag
   id: Wall

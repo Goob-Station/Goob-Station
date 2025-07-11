@@ -23,7 +23,7 @@
   - !type:GroupLoadoutEffect
     proto: MasterMiner
   equipment:
-    neck: ClothingNeckCloakMiner
+    neck: ClothingNeckCloakSalvagerSupreme
 
 - type: startingGear
   id: LostFrontierProspectorSuit
