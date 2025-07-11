@@ -82,8 +82,6 @@ public sealed class CrematoriumSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly CommonGoobCrematoriumSystem _goobCrematorium = default!;
 
     public override void Initialize()
@@ -174,6 +172,9 @@ public sealed class CrematoriumSystem : EntitySystem
 
         var target = storage.Contents.ContainedEntities[0];
 
+        if (!_goobCrematorium.IsAllowed(uid, user))
+            return false;
+
         if (!_goobCrematorium.CanCremate(uid, target, out var reason))
         {
             _audio.PlayPvs(component.CremateDeniedSound, uid);
@@ -182,44 +183,7 @@ public sealed class CrematoriumSystem : EntitySystem
             return false;
         }
 
-        // Goobstation - Crematorium access requirements
-        if (!_accessReader.IsAllowed(user, uid, reader))
-        {
-            _audio.PlayPvs(component.CremateDeniedSound, uid);
-            // Why do we have multiple "No Access"/"Access Denied" fluent locs? Can't there be like a "no-access" string and thats it?
-            // Why make a new one each time?
-            #region Things that have a duplicate "no access" ftl:
-            /*
-             * news
-             * docking console
-             * cryostorage
-             * cargo console
-             * netconf
-             * gateway
-             * RestrictById in general
-             * APC
-             * air alarm
-             * holopad
-             * deployable turret
-             * emerg shuttle
-             * lock comp
-             * vending machine
-             * gascans
-             *
-             */
-            #endregion
-            _popup.PopupEntity(Loc.GetString("news-write-no-access-popup"), uid);
-            return false;
-        }
-
-        var log = Loc.GetString("crematorium-passed-cremate-log",
-        [
-            ("user", ToPrettyString(user)),
-                    ("target", ToPrettyString(storage.Contents.ContainedEntities[0])),
-        ]);
-
-                                                // Can I kill everyone involved?                                    Pretty please
-        _adminLog.Add(LogType.Verb, LogImpact.High, $"{log}");
+        _goobCrematorium.LogPassedChecks(user, storage.Contents.ContainedEntities[0]);
 
         return Cremate(uid, component, storage);
     }

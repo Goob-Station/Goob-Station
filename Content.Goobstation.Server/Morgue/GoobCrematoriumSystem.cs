@@ -5,7 +5,9 @@ using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Morgue;
 using Content.Server.Morgue.Components;
+using Content.Server.Popups;
 using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
@@ -16,6 +18,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Tag;
 using Moonyware.Miscellaneous.Systems;
+using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Morgue;
@@ -29,6 +32,9 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
     [Dependency] private readonly StorageLookupSystem _storage = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly InventorySystem _inv = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     private static readonly ProtoId<TagPrototype> HighRiskItemTag = "HighRiskItem";
 
@@ -37,6 +43,42 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
         base.Initialize();
 
         SubscribeLocalEvent<CrematoriumComponent, GotEmaggedEvent>(OnEmagged);
+    }
+
+    public override bool IsAllowed(EntityUid uid, EntityUid user)
+    {
+        var component = Comp<CrematoriumComponent>(uid);
+
+        if (!_accessReader.IsAllowed(user, uid))
+        {
+            _audio.PlayPvs(component.CremateDeniedSound, uid);
+            // Why do we have multiple "No Access"/"Access Denied" fluent locs? Can't there be like a "no-access" string and thats it?
+            // Why make a new one each time?
+            #region Things that have a duplicate "no access" ftl:
+            /*
+             * news
+             * docking console
+             * cryostorage
+             * cargo console
+             * netconf
+             * gateway
+             * RestrictById in general
+             * APC
+             * air alarm
+             * holopad
+             * deployable turret
+             * emerg shuttle
+             * lock comp
+             * vending machine
+             * gascans
+             *
+             */
+            #endregion
+            _popup.PopupEntity(Loc.GetString("news-write-no-access-popup"), uid);
+            return false;
+        }
+
+        return true;
     }
 
     public override bool CanCremate(EntityUid ent, EntityUid target, [NotNullWhen(false)] out string? reason)
@@ -77,6 +119,18 @@ public sealed class GoobCrematoriumSystem : CommonGoobCrematoriumSystem
     {
         // Todo inv checks, this should blow up if there are any high risk items
         throw new NotImplementedException();
+    }
+
+    public override void LogPassedChecks(EntityUid user, EntityUid target)
+    {
+        var log = Loc.GetString("crematorium-passed-cremate-log",
+        [
+            ("user", ToPrettyString(user)),
+            ("target", ToPrettyString(target)),
+        ]);
+
+                                                // Can I kill everyone involved?                                    Pretty please
+        _adminLog.Add(LogType.Verb, LogImpact.High, $"{log}");
     }
 
     private bool HasItems(EntityUid ent, InventoryComponent? inv = null)
