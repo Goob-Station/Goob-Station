@@ -1,0 +1,44 @@
+- type: entity
+  parent: OrganAnimalHeart
+  id: OrganSlaughterHeart
+  name: demonic heart
+  components:
+  - type: Organ
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 12
+      Destroyed: 0
+    onAdd:
+    - type: BloodCrawl
+
+- type: entity
+  parent: [PartAnimalBase, ChestAnimal]
+  id: ChestSlaughter
+  name: slaughter chest
+  components:
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Mangled: 0
+
+- type: entity
+  parent: [PartAnimalBase, GroinAnimal]
+  id: GroinSlaughter
+  name: slaughter groin
+  components:
+  - type: Woundable
+    integrity: 500
+    integrityCap: 500
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Mangled: 0

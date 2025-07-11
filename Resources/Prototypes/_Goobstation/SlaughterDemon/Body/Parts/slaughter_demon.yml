@@ -1,0 +1,17 @@
+- type: entity
+  parent: [PartAnimalBase, LegsAnimal]
+  id: LegsSlaughter
+  name: slaughter legs
+  components:
+  - type: Woundable
+    integrity: 350
+    integrityCap: 350
+    thresholds:
+      Minor: 450
+      Moderate: 350
+      Severe: 200
+      Critical: 100
+      Mangled: 0
+  - type: MovementBodyPart
+    sprintSpeed: 1.5
+    walkSpeed: 1.5

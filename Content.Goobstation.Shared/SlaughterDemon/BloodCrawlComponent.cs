@@ -48,12 +48,6 @@ public sealed partial class BloodCrawlComponent : Component
     [DataField]
     public bool IsCrawling;
 
-    /// <summary>
-    /// The original entity, before the polymorph
-    /// </summary>
-    [DataField]
-    public EntityUid? OriginalEntity;
-
     [DataField]
     public ProtoId<ReagentPrototype> Blood = "Blood";
 }

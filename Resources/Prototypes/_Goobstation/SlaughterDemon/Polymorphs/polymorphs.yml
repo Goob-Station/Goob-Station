@@ -1,0 +1,6 @@
+- type: polymorph
+  id: BloodCrawlJaunt
+  configuration:
+    entity: PolymorphBloodCrawlJaunt
+    forced: true
+    attachToGridOrMap: true

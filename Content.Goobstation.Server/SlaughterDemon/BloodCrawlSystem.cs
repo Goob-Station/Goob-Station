@@ -9,7 +9,9 @@ namespace Content.Goobstation.Server.SlaughterDemon;
 
 
 /// <summary>
-/// AHHHH BLOOD BLOOD ME LOVE BLOOD. LOVELY RED YES
+/// This handles the blood crawl system.
+/// Blood Crawl allows you to jaunt, as long as you activate it in a pool of blood.
+/// To exit the jaunt, you must also stand on a poll of blood.
 /// </summary>
 public sealed class BloodCrawlSystem : EntitySystem
 {
@@ -36,7 +38,6 @@ public sealed class BloodCrawlSystem : EntitySystem
             return;
 
         _actions.AddAction(uid, ref component.ActionEntity, component.ActionId, component: actions);
-        component.OriginalEntity = uid;
     }
 
     private void OnBloodCrawl(EntityUid uid, BloodCrawlComponent component, BloodCrawlEvent args)
@@ -49,14 +50,17 @@ public sealed class BloodCrawlSystem : EntitySystem
 
         component.IsCrawling = !component.IsCrawling;
 
-        if (!component.IsCrawling && HasComp<PolymorphedEntityComponent>(uid))
+        if (!component.IsCrawling && TryComp<PolymorphedEntityComponent>(uid, out var polymorph))
         {
             _polymorph.Revert(uid);
+
+            var evExit = new BloodCrawlExitEvent();
+            RaiseLocalEvent(polymorph.Parent, ref evExit);
             return;
         }
 
-        var ev = new BloodCrawlAttemptEvent();
-        RaiseLocalEvent(uid, ref ev);
+        var evAttempt = new BloodCrawlAttemptEvent();
+        RaiseLocalEvent(uid, ref evAttempt);
 
         _polymorph.PolymorphEntity(uid, component.Jaunt);
         _actions.StartUseDelay(component.ActionEntity);

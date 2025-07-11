@@ -1,0 +1,24 @@
+- type: entity
+  id: PolymorphBloodCrawlJaunt
+  name: Unknown
+  description: You can't figure out what that is.
+  parent: [ Incorporeal, BaseMob ]
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 12
+    baseWalkSpeed: 8
+  - type: Input
+    context: "ghost"
+  - type: NoSlip
+  - type: BloodCrawl
+    isCrawling: true
+  - type: Visibility
+    layer: 2
+  - type: Spectral
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - Ghost
+  - type: MindContainer
+    showExamineInfo: true
