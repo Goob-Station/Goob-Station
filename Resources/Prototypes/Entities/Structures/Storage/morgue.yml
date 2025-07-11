@@ -151,6 +151,8 @@
       path: /Audio/Items/deconstruct.ogg
   - type: EntityStorageLayingDownOverride
   - type: Crematorium
+  - type: AccessReader
+    access: [["Chapel"]]
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

@@ -51,6 +51,8 @@ using Content.Server.Ghost;
 using Content.Server.Morgue.Components;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -78,6 +80,7 @@ public sealed class CrematoriumSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
 
     public override void Initialize()
     {
@@ -135,7 +138,7 @@ public sealed class CrematoriumSystem : EntitySystem
         {
             Text = Loc.GetString("cremate-verb-get-data-text"),
             // TODO VERB ICON add flame/burn symbol?
-            Act = () => TryCremate(uid, component, storage),
+            Act = () => TryCremate(uid, args.User, component, storage),
             Impact = LogImpact.High // could be a body? or evidence? I dunno.
         };
         args.Verbs.Add(verb);
@@ -158,13 +161,43 @@ public sealed class CrematoriumSystem : EntitySystem
         return true;
     }
 
-    public bool TryCremate(EntityUid uid, CrematoriumComponent? component = null, EntityStorageComponent? storage = null)
+    public bool TryCremate(EntityUid uid, EntityUid user, CrematoriumComponent? component = null, EntityStorageComponent? storage = null, AccessReaderComponent? reader = null)
     {
-        if (!Resolve(uid, ref component, ref storage))
+        if (!Resolve(uid, ref component, ref storage, ref reader))
             return false;
 
         if (storage.Open || storage.Contents.ContainedEntities.Count < 1)
             return false;
+
+        // Goobstation - Crematorium access requirements
+        if (!_accessReader.IsAllowed(user, uid, reader))
+        {
+            _audio.PlayPvs(component.CremateDeniedSound, uid);
+            // Why do we have multiple "No Access"/"Access Denied" fluent locs? Can't there be like a "no-access" string and thats it?
+            // Why make a new one each time?
+            #region Things that have a duplicate "no access" ftl:
+            /*
+             * news
+             * docking console
+             * cryostorage
+             * cargo console
+             * netconf
+             * gateway
+             * RestrictById in general
+             * APC
+             * air alarm
+             * holopad
+             * deployable turret
+             * emerg shuttle
+             * lock comp
+             * vending machine
+             * gascans
+             *
+             */
+            #endregion
+            _popup.PopupEntity(Loc.GetString("news-write-no-access-popup"), uid);
+            return false;
+        }
 
         return Cremate(uid, component, storage);
     }
