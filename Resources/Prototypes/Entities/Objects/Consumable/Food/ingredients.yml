@@ -792,6 +792,8 @@
   id: FoodButterSlice
   description: A pat of delicious, golden, fatty goodness.
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     state: butter-slice
   - type: SolutionContainerManager
