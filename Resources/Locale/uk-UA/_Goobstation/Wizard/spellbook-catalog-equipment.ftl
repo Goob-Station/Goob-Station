@@ -75,3 +75,7 @@ spellbook-hammer-mjollnir-description = Володійте силою ГРОМУ
 
 spellbook-hammer-singularity-name = Молот Сингулярності
 spellbook-hammer-singularity-description = Коли-небудь замислювалися, як це — бути сингулярністю? Махніть цим молотом, щоб притягнути все навколо; це працює, навіть якщо ви промахнетеся!
+
+spellbook-ninjutsu-name = Сувій Ніндзюцу
+spellbook-ninjutsu-desc = Сувій, що навчає ніндзюцу — бойовому мистецтву та набору тактик, які використовували ніндзя у феодальній Японії.
+    Поверненню не підлягає.

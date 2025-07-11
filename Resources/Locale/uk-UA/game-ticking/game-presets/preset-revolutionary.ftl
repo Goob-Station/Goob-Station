@@ -65,7 +65,7 @@ rev-headrev-name = [color=#5e9cff]{$name}[/color] завербував {$count} 
 ## Deconverted window
 
 rev-deconverted-title = Деконвертований!
-rev-deconverted-text = Оскільки останній хедрев помер, революція закінчилася.
+rev-deconverted-text = Оскільки останній хедрев був нейтралізований, революція закінчилася.
 
     Ви більше не революціонер, тож будьте чемні.
 rev-deconverted-confirm = Підтвердити
