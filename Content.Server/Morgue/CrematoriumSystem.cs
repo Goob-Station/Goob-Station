@@ -46,6 +46,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Morgue;
 using Content.Goobstation.Shared.CrematorImmune;
 using Content.Server.Ghost;
 using Content.Server.Morgue.Components;
@@ -83,6 +84,7 @@ public sealed class CrematoriumSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly CommonGoobCrematoriumSystem _goobCrematorium = default!;
 
     public override void Initialize()
     {
@@ -169,6 +171,16 @@ public sealed class CrematoriumSystem : EntitySystem
 
         if (storage.Open || storage.Contents.ContainedEntities.Count < 1)
             return false;
+
+        var target = storage.Contents.ContainedEntities[0];
+
+        if (!_goobCrematorium.CanCremate(target))
+        {
+            _audio.PlayPvs(component.CremateDeniedSound, uid);
+            _popup.PopupEntity(Loc.GetString("crematorium-cant-cremate"), uid);
+
+            return false;
+        }
 
         // Goobstation - Crematorium access requirements
         if (!_accessReader.IsAllowed(user, uid, reader))
