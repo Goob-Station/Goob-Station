@@ -10,8 +10,8 @@
   parent: [BaseItem, BaseSyndicateContraband]
   id: AccessBreakerUnlimited
   suffix: Unlimited
-  name: authentication disruptor
-  description: A hacked access configurator, specialized to unlock and erase access from digital locks.
+  name: "руйнівник автентифікації"
+  description: "Зламаний конфігуратор доступу, спеціалізований для розблокування та стирання доступу з цифрових замків."
   components:
   - type: Emag
     emagType: Access
@@ -35,9 +35,9 @@
 - type: entity
   parent: [BaseItem, BaseMinorContraband]
   id: DoorJack
-  name: door jack
+  name: "дверний домкрат"
   suffix: Limited
-  description: An ancient device used for hacking doors, its far too old and damaged to last more than a few uses.
+  description: "Стародавній пристрій для злому дверей, він занадто старий і пошкоджений, щоб прослужити більше кількох використань."
   components:
   - type: LimitedCharges
     maxCharges: 3

@@ -6,7 +6,7 @@
 - type: entity
   id: MachinePowerTransmissionLaserCrate
   parent: CrateGenericSteel
-  name: power transmission laser crate
+  name: "ящик з лазером передачі енергії"
   components:
   - type: StorageFill
     contents:

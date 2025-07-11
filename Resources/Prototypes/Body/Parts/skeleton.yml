@@ -42,7 +42,7 @@
   abstract: true
   parent: BasePartInorganic
   id: PartSkeletonBase
-  name: skeleton body part
+  name: "частина тіла скелета"
   components:
   - type: Sprite
     sprite: Mobs/Species/Skeleton/parts.rsi
@@ -68,7 +68,7 @@
 - type: entity
   parent: [ PartSkeletonBase, BaseChestInorganic ]
   id: ChestSkeleton
-  name: skeleton chest
+  name: "груди скелета"
   components:
     - type: Sprite
       sprite: Mobs/Species/Skeleton/parts.rsi
@@ -80,7 +80,7 @@
 - type: entity
   parent: [ PartSkeletonBase, BaseGroinInorganic ]
   id: GroinSkeleton
-  name: skeleton groin
+  name: "пах скелета"
   components:
     - type: Sprite
       sprite: Mobs/Species/Skeleton/parts.rsi
@@ -92,8 +92,8 @@
 - type: entity
   parent: [ PartSkeletonBase, BaseHead ]
   id: HeadSkeleton
-  name: skull
-  description: Alas poor Yorick...
+  name: "череп"
+  description: "Ех, бідний Йорик..."
   components:
   - type: Sprite
     state: "skull_icon"
@@ -127,39 +127,39 @@
 - type: entity
   parent: [ PartSkeletonBase, BaseLeftArm ]
   id: LeftArmSkeleton
-  name: "left skeleton arm"
+  name: "ліва рука скелета"
 
 - type: entity
   parent: [ PartSkeletonBase, BaseRightArm ]
   id: RightArmSkeleton
-  name: "right skeleton arm"
+  name: "права рука скелета"
 
 - type: entity
   parent: [ PartSkeletonBase, BaseLeftHand ]
   id: LeftHandSkeleton
-  name: "left skeleton hand"
+  name: "ліва долоня скелета"
 
 - type: entity
   parent: [ PartSkeletonBase, BaseRightHand ]
   id: RightHandSkeleton
-  name: "right skeleton hand"
+  name: "права долоня скелета"
 
 - type: entity
   parent: [ PartSkeletonBase, BaseLeftLeg ]
   id: LeftLegSkeleton
-  name: "left skeleton leg"
+  name: "ліва нога скелета"
 
 - type: entity
   parent: [ PartSkeletonBase, BaseRightLeg ]
   id: RightLegSkeleton
-  name: "right skeleton leg"
+  name: "права нога скелета"
 
 - type: entity
   parent: [ PartSkeletonBase, BaseLeftFoot ]
   id: LeftFootSkeleton
-  name: "left skeleton foot"
+  name: "ліва стопа скелета"
 
 - type: entity
   parent: [ PartSkeletonBase, BaseRightFoot ]
   id: RightFootSkeleton
-  name: "right skeleton foot"
+  name: "права стопа скелета"

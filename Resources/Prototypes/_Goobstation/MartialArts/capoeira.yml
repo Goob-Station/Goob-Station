@@ -15,7 +15,7 @@
 
 - type: combo
   id: PushKick
-  name: Push Kick
+  name: "Штовхаючий Удар"
   martialArtsForm: Capoeira
   attacks:
   - Grab
@@ -32,7 +32,7 @@
 
 - type: combo
   id: CircleKick
-  name: Circle Kick
+  name: "Круговий Удар"
   martialArtsForm: Capoeira
   attacks:
   - Disarm
@@ -47,7 +47,7 @@
 
 - type: combo
   id: SweepKick
-  name: Sweep Kick
+  name: "Підсічка"
   martialArtsForm: Capoeira
   attacks:
   - Harm
@@ -67,7 +67,7 @@
 
 - type: combo
   id: SpinKick
-  name: Spin Kick
+  name: "Удар з розвороту"
   martialArtsForm: Capoeira
   attacks:
   - Grab
@@ -88,7 +88,7 @@
 
 - type: combo
   id: KickUp
-  name: Kick Up
+  name: "Підйом з ударом"
   martialArtsForm: Capoeira
   attacks:
   - Disarm
