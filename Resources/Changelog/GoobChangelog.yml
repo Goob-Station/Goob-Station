@@ -11995,3 +11995,9 @@ Entries:
       message: Fixed harpy flight making secoffs scream "HE'S REACHING" too often.
   id: 1317
   time: '2025-07-11T20:06:54.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Millions must gulp
+  id: 1318
+  time: '2025-07-11T23:58:30.0000000+00:00'
