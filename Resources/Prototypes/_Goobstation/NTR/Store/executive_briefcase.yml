@@ -38,7 +38,6 @@
           path: /Audio/Machines/id_insert.ogg
   - type: NtrClientAccount
   - type: Speech
-  - type: ContainerContainer
 
 - type: entity
   id: ExecutiveBriefcaseDebug
