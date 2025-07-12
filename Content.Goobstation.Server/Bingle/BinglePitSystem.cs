@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -18,10 +19,7 @@ using System;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
-using Content.Server.GameTicking;
-using Content.Server.Pinpointer;
-using Content.Goobstation.Common.Bingle;
-using Content.Goobstation.Shared.Bingle;
+using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Stunnable;
@@ -30,8 +28,8 @@ using Content.Shared.Destructible;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
@@ -45,6 +43,7 @@ using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
@@ -60,14 +59,16 @@ namespace Content.Goobstation.Server.Bingle;
 
 public sealed class BinglePitSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly BingleSystem _bingleSystem = default!;
+    [Dependency] private readonly BingleSystem _bingle = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -76,10 +77,19 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
+    private EntityQuery<BingleComponent> _query;
+    private EntityQuery<BinglePitFallingComponent> _fallingQuery;
+
+    private readonly List<Entity<BinglePitComponent>> _pits = new();
+    public static readonly ProtoId<ContentTileDefinition> FloorTile = "FloorBingle";
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _query = GetEntityQuery<BingleComponent>();
+        _fallingQuery = GetEntityQuery<BinglePitFallingComponent>();
+
         SubscribeLocalEvent<BinglePitComponent, StepTriggeredOffEvent>(OnStepTriggered);
         SubscribeLocalEvent<BinglePitComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
         SubscribeLocalEvent<BinglePitComponent, MapInitEvent>(OnInit);
@@ -105,7 +115,7 @@ public sealed class BinglePitSystem : EntitySystem
             if (_timing.CurTime < falling.NextDeletionTime)
                 continue;
 
-            _containerSystem.Insert(uid, falling.Pit.Pit);
+            _containerSystem.Insert(uid, falling.Pit.Comp.Pit);
             EnsureComp<StunnedComponent>(uid); // used stunned to prevent any funny being done inside the pit
             RemCompDeferred(uid, falling);
         }
@@ -125,17 +135,21 @@ public sealed class BinglePitSystem : EntitySystem
     private void OnStepTriggered(EntityUid uid, BinglePitComponent component, ref StepTriggeredOffEvent args)
     {
         // dont accept if they are already falling
-        if (HasComp<BinglePitFallingComponent>(args.Tripper))
+        if (_fallingQuery.HasComp(args.Tripper))
             return;
 
-        // Needs to be at level two or above to allow anything alive.
-        if (HasComp<MobStateComponent>(args.Tripper) && component.Level < 2)
-            return;
-
-        // allow dead bingles
-        if (HasComp<BingleComponent>(args.Tripper))
-            if(TryComp<MobStateComponent>(args.Tripper, out var mobState) && mobState.CurrentState == MobState.Alive)
+        if (_query.HasComp(args.Tripper))
+        {
+            // only allow dead bingles so you can't suicide
+            if (_mob.IsAlive(args.Tripper))
                 return;
+        }
+        else
+        {
+            // Needs to be at level two or above to allow any non-bingle mobs, dead or alive
+            if (component.Level < 2 && HasComp<MobStateComponent>(args.Tripper))
+                return;
+        }
 
         StartFalling(uid, component, args.Tripper);
 
@@ -148,21 +162,21 @@ public sealed class BinglePitSystem : EntitySystem
 
     private void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
     {
-        if (TryComp<MobStateComponent>(tripper, out var mobState) && mobState.CurrentState is MobState.Alive or MobState.Critical)
+        if (!_mob.IsDead(tripper))
             component.BinglePoints += component.PointsForAlive;
         else
             component.BinglePoints++;
         if (HasComp<HumanoidAppearanceComponent>(tripper))
-            component.BinglePoints += component.SpawnNewAt * component.Level; // trowing a humanoid in the pit  will spawn a new bingle
+            component.BinglePoints += component.SpawnNewAt * component.Level; // throwing a humanoid in the pit  will spawn a new bingle
 
-        if (HasComp<BingleComponent>(tripper))
+        if (_query.HasComp(tripper))
             component.BinglePoints += (component.SpawnNewAt * component.Level) / 4; //recycling a bingle returns a quarter bingle.
 
         if (TryComp<PullableComponent>(tripper, out var pullable) && pullable.BeingPulled)
             _pulling.TryStopPull(tripper, pullable, ignoreGrab: true);
 
         var fall = EnsureComp<BinglePitFallingComponent>(tripper);
-        fall.Pit = component;
+        fall.Pit = (uid, component);
         fall.NextDeletionTime = _timing.CurTime + fall.DeletionTime;
         _stun.TryKnockdown(tripper, fall.DeletionTime, false);
 
@@ -177,15 +191,22 @@ public sealed class BinglePitSystem : EntitySystem
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
-        OnSpawnTile(uid,component.Level*2, "FloorBingle");
+        OnSpawnTile(uid,component.Level*2);
 
         component.MinionsMade++;
-        if (component.MinionsMade >= component.UpgradeMinionsAfter)
-        {
-            component.MinionsMade = 0;
-            component.Level++;
-            UpgradeBingles(uid, component);
-        }
+        if (component.MinionsMade < component.UpgradeMinionsAfter)
+            return;
+
+        component.MinionsMade = 0;
+        component.Level++;
+        UpgradeBingles(uid, component);
+
+        // fake ascension at level 5 (insanely hard to get)
+        if (component.Level != 5)
+            return;
+
+        var ascendSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_flesh.ogg");
+        _chat.DispatchGlobalAnnouncement(Loc.GetString("heretic-ascension-bingle"), Name(uid), true, ascendSound, Color.Pink);
     }
 
     public void UpgradeBingles(EntityUid uid, BinglePitComponent component)
@@ -193,7 +214,7 @@ public sealed class BinglePitSystem : EntitySystem
         var query = EntityQueryEnumerator<BingleComponent>();
         while (query.MoveNext(out var queryUid, out var queryBingleComp))
             if (queryBingleComp.MyPit != null && queryBingleComp.MyPit.Value == uid)
-                _bingleSystem.UpgradeBingle(queryUid, queryBingleComp);
+                _bingle.UpgradeBingle(queryUid, queryBingleComp);
 
         if (component.Level <= component.MaxSize)
             ScaleUpPit(uid, component);
@@ -219,7 +240,10 @@ public sealed class BinglePitSystem : EntitySystem
         //Remove all falling when pit is destroyed, in the small chance someone is in between start and insert
         var query = EntityQueryEnumerator<BinglePitFallingComponent>();
         while (query.MoveNext(out var fallingUid, out var fallingComp))
-            RemCompDeferred(fallingUid, fallingComp);
+        {
+            if (fallingComp.Pit.Owner == uid)
+                RemCompDeferred(fallingUid, fallingComp);
+        }
     }
 
     public void RemoveAllBingleGhostRoles(EntityUid uid, BinglePitComponent component)
@@ -241,28 +265,25 @@ public sealed class BinglePitSystem : EntitySystem
 
     private void ScaleUpPit(EntityUid uid, BinglePitComponent component)
     {
-        if (!TryComp<AppearanceComponent>(uid, out var appearanceComponent))
-            appearanceComponent = _entityManager.EnsureComponent<AppearanceComponent>(uid);
-        var appearance = _entityManager.System<AppearanceSystem>();
-        _entityManager.EnsureComponent<ScaleVisualsComponent>(uid);
+        EnsureComp<ScaleVisualsComponent>(uid);
 
-        appearance.SetData(uid, ScaleVisuals.Scale, Vector2.One * component.Level, appearanceComponent);
+        _appearance.SetData(uid, ScaleVisuals.Scale, Vector2.One * component.Level);
     }
 
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent ev)
     {
-        var pits = new List<Entity<BinglePitComponent>>();
         var query = AllEntityQuery<BinglePitComponent>();
 
+        _pits.Clear();
         while (query.MoveNext(out var uid, out var comp))
-            pits.Add((uid, comp));
+            _pits.Add((uid, comp));
 
-        if (pits.Count == 0)
+        if (_pits.Count == 0)
             return;
 
         ev.AddLine("");
 
-        foreach (var ent in pits)
+        foreach (var ent in _pits)
         {
             var (uid, comp) = ent;
 
@@ -282,16 +303,14 @@ public sealed class BinglePitSystem : EntitySystem
         ev.AddLine("");
     }
 
-    private void OnSpawnTile(EntityUid uid,
-        float radius,
-        ProtoId<ContentTileDefinition> floorTile = new())
+    private void OnSpawnTile(EntityUid uid, float radius)
     {
         var tgtPos = Transform(uid);
         if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
             return;
 
         var tileEnumerator = _map.GetLocalTilesEnumerator(gridUid, mapGrid, new Box2(tgtPos.Coordinates.Position + new Vector2(-radius, -radius), tgtPos.Coordinates.Position + new Vector2(radius, radius)));
-        var convertTile = (ContentTileDefinition)_tiledef[floorTile];
+        var convertTile = (ContentTileDefinition)_tiledef[FloorTile];
 
         while (tileEnumerator.MoveNext(out var tile))
         {
