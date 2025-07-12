@@ -72,8 +72,6 @@ public sealed partial class RandomTeleportNearby : EntityEffect
             return;
 
         foreach (var entity in canTarget)
-        {
             teleportSystem.RandomTeleport(entity, Radius, TeleportAttempts);
-        }
     }
 }
