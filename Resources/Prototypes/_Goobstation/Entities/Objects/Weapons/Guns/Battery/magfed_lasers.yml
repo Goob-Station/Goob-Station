@@ -1,0 +1,261 @@
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: ER-5 Torrent
+  parent: [ BaseWeaponPowerCell, BaseSecurityContraband ]
+  id: WeaponLaserCellSMG
+  description: A high-tech laser SMG, compatible with specialized SMG power cells.
+  components:
+  - type: Item
+    size: Large
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -16
+  - type: Gun
+    minAngle: 21
+    maxAngle: 32
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_smg.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        whitelist:
+          tags:
+          - MilitaryPowerCellSMG
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_smg.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-4
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Multishot
+    spreadMultiplier: 1.2
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 500
+      Gold: 125
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_smg.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_smg.ogg
+  - type: AmmoCounter
+
+
+- type: entity
+  name:  ES-7 Multilens
+  parent: [ BaseWeaponPowerCell, BaseGunWieldable, BaseSecurityContraband ]
+  id: WeaponLaserCellSniper
+  description: A high-tech burst laser sniper rifle, compatible with specialized sniper power cells.
+  components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,6,1
+  - type: Gun
+    burstFireRate: 10
+    shotsPerBurst: 3
+    burstCooldown: 0.8
+    fireRate: 0.8
+    lockOnTargetBurst: true
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        whitelist:
+          tags:
+          - MilitaryPowerCellSniper
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 800
+      Silver: 300
+      Gold: 200
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: GunRequiresWield
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.5
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: AmmoCounter
+
+
+- type: entity
+  name: EG-1 Taro
+  parent: [ BaseWeaponPowerCellSmall, BaseSecurityContraband ]
+  id: WeaponLaserCellRevolver
+  description: A high-tech laser revolver, compatible with specialized revolver power cells.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 1.5 # Goobstation
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        whitelist:
+          tags:
+          - MilitaryPowerCellRevolver
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_revolver.rsi
+    layers:
+    - state: icon
+      visible: false
+    - state: mag-0
+      visible: false
+      shader: unshaded
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: off
+      map: ["base"]
+  - type: Multishot
+    spreadMultiplier: 1.2
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 250
+      Silver: 50
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_revolver.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - belt
+  - type: ItemToggle
+    wieldToggle: false
+    soundActivate: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+    soundDeactivate: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+    zeroNoAmmo: true
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        base:
+          True: { state: on }
+          False: { state: off }
+  - type: FoldingWeapon
+    setPrefix: false
+  - type: BatterySlotRequiresToggle
+    itemSlot: gun_magazine
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: AmmoCounter
+
+
+- type: entity
+  name: EL-20 HAMRR
+  parent: [BaseItem, BaseSecurityContraband]
+  id: WeaponLaserLMG
+  description: A high-tech laser LMG, that draws power from specialized backpack.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_lmg.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: light
+      shader: unshaded
+      map: ["enum.GunVisualLayers.BaseUnshaded"]
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,3
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -20
+  - type: Gun
+    minAngle: 24
+    maxAngle: 45
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 10
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: AmmoCounter
+  - type: StaticPrice
+    price: 500
+  - type: UseDelay
+    delay: 1
+  - type: Multishot
+    spreadMultiplier: 1.4
+  - type: Appearance
+  - type: Cautery
+    speed: 0.9
+  - type: SurgeryTool
+    endSound:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - LaserLMGBackpack
+  - type: Tag
+    tags:
+    - LaserLMG

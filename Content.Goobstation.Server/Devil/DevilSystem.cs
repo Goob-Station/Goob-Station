@@ -35,6 +35,7 @@ using Content.Server.Temperature.Components;
 using Content.Server.Zombies;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Body.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -100,7 +101,6 @@ public sealed partial class DevilSystem : EntitySystem
 
     private void OnStartup(Entity<DevilComponent> devil, ref MapInitEvent args)
     {
-
         // Remove human components.
         RemComp<CombatModeComponent>(devil);
         RemComp<HungerComponent>(devil);
@@ -125,7 +125,17 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Change damage modifier
         if (TryComp<DamageableComponent>(devil, out var damageableComp))
-            _damageable.SetDamageModifierSetId(devil, devil.Comp.DevilDamageModifierSet, damageableComp);
+           _damageable.SetDamageModifierSetId(devil, devil.Comp.DevilDamageModifierSet, damageableComp);
+
+        // No decapitating the devil
+        foreach (var part in _body.GetBodyChildren(devil))
+        {
+            if (!TryComp(part.Id, out WoundableComponent? woundable))
+                continue;
+
+            woundable.CanRemove = false;
+            Dirty(part.Id, woundable);
+        }
 
         // Add base actions
         foreach (var actionId in devil.Comp.BaseDevilActions)

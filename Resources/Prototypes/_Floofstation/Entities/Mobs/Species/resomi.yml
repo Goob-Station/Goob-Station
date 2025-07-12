@@ -2,10 +2,12 @@
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PeccNeck <74548962+PeccNeck@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -56,11 +58,18 @@
   - type: Speech
     speechVerb: Parrot
     speechSounds: MaleAvali
+    allowedEmotes: ['Chirp', 'Trill', 'Warble', 'Wurble'] #goob
   - type: Vocal
     sounds:
-      Male: MaleAvali
-      Unsexed: MaleAvali
-      Female: FemaleAvali
+      Male: MaleAvaliEmote
+      Unsexed: MaleAvaliEmote
+      Female: FemaleAvaliEmote
+  - type: Tag
+    tags:         # Goob - What the fuck is FootstepSound and DoorBumpOpener for if they work without them - rest fixes anoms though.
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
   - type: Hands
     handDisplacement:
       sizeMaps:
@@ -115,6 +124,11 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: mask
+      outerClothing: # Goob - are you serious? there just wasn't an outerclothing displacement map? taken from starlight
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: outerClothing
       suitstorage:
         sizeMaps:
           32:
@@ -171,6 +185,11 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: mask
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: outerClothing
       suitstorage:
         sizeMaps:
           32:
@@ -280,6 +299,11 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: mask
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: outerClothing
       suitstorage:
         sizeMaps:
           32:

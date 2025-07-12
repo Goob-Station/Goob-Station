@@ -180,7 +180,7 @@ public sealed class SharedMultishotSystem : EntitySystem
     {
         var message = new FormattedMessage();
         var chance = (MathF.Round(ent.Comp.MissChance * 100f)).ToString();
-        message.AddText(Loc.GetString(MultishotComponent.ExamineMessage, ("chance", chance)));
+        message.AddText(Loc.GetString(ent.Comp.ExamineMessage, ("chance", chance)));
         args.PushMessage(message);
     }
 

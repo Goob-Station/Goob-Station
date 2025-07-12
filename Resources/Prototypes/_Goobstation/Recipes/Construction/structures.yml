@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Thom <119594676+ItsMeThom@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -19,3 +21,17 @@
   placementMode: SnapgridCenter
   canRotate: true
   canBuildInImpassable: true
+
+- type: construction
+  name: solar panel assembly
+  id: SolarPanel
+  graph: SolarPanel
+  startNode: start
+  targetNode: solarassembly
+  category: construction-category-structures
+  description: A solar panel, for your solar paneling needs.
+  icon:
+    sprite: Structures/Power/Generation/solar_panel.rsi
+    state: solar_panel_glass
+  objectType: Structure
+  placementMode: SnapgridCenter

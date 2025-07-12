@@ -43,6 +43,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -203,20 +204,10 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
+    requiredSlot:
+    - neck
     clothingPrototypes:
-      neck: ClothingHeadHatHoodGoliathCloak
-  - type: Armor
-    coverage:
-    - Chest
-    - Groin
-    - Tail
-    - Arm
-    - Leg
-    modifiers:
-     coefficients:
-      Blunt: 0.8
-      Slash: 0.8
-      Piercing: 0.8
+      head: ClothingHeadHatHoodGoliathCloak
   - type: Construction
     graph: GoliathCloak
     node: cloak

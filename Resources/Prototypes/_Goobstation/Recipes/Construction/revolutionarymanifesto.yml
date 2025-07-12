@@ -1,0 +1,13 @@
+- type: construction
+  name: revolutionary manifesto
+  id: RevolutionaryManifesto
+  graph: RevolutionaryManifesto
+  startNode: start
+  targetNode: revolutionaryManifesto
+  category: construction-category-weapons
+  description: A literary work highly critical of NanoTrasen.
+  icon: { sprite: Objects/Misc/books.rsi, state: icon_manifesto }
+  objectType: Item
+  entityWhitelist:
+    components:
+    - HeadRevolutionary

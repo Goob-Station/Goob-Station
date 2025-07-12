@@ -7,6 +7,9 @@
 # SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -100,8 +103,9 @@
   query:
     - !type:NearbyHostilesQuery
   considerations:
-    - !type:TargetIsAliveCon
-      curve: !type:BoolCurve
+    # Goobstation - check is dead instead so we can target non-living stuff
+    - !type:TargetIsDeadCon
+      curve: !type:InverseBoolCurve
     - !type:TargetDistanceCon
       curve: !type:PresetCurve
         preset: TargetDistance
@@ -118,8 +122,9 @@
   query:
     - !type:NearbyHostilesQuery
   considerations:
-    - !type:TargetIsAliveCon
-      curve: !type:BoolCurve
+    # Goobstation - check is dead instead so we can target non-living stuff
+    - !type:TargetIsDeadCon
+      curve: !type:InverseBoolCurve
     - !type:TargetDistanceCon
       curve: !type:PresetCurve
         preset: TargetDistance
@@ -200,8 +205,9 @@
   query:
     - !type:NearbyHostilesQuery
   considerations:
-    - !type:TargetIsAliveCon
-      curve: !type:BoolCurve
+    # Goobstation - check is dead instead so we can target non-living stuff
+    - !type:TargetIsDeadCon
+      curve: !type:InverseBoolCurve
     - !type:TargetIsCritCon
       curve: !type:InverseBoolCurve
     - !type:TargetIsStunnedCon

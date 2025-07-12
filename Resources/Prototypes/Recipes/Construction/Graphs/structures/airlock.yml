@@ -19,6 +19,8 @@
 # SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: MIT
 
@@ -101,6 +103,13 @@
       - material: ReinforcedGlass
         amount: 1
         doAfter: 2
+    - to: sealedElectronics # Goobstation - Sealed Doors
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
     - to: wired
       conditions:
       - !type:EntityAnchored {}
@@ -137,6 +146,112 @@
       steps:
       - tool: Prying
         doAfter: 5
+
+  - node: sealedElectronics # Goobstation - Sealed doors
+    entity: AirlockAssembly
+    edges:
+    - to: sealedAirlock
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+        doAfter: 2.5
+    - to: sealedGlassAirlock
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: ReinforcedGlass
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 4
+    - to: electronics
+      conditions:
+      - !type:EntityAnchored {}
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      steps:
+      - tool: Prying
+        doAfter: 5
+
+## Sealed Glass airlock
+  - node: sealedGlassAirlock # Goobstation - Sealed doors
+    entity: AirlockSealedGlass
+    doNotReplaceInheritingEntities: true
+    actions:
+    - !type:SetWiresPanelSecurity
+      wiresAccessible: true
+    edges:
+    - to: sealedElectronics
+      conditions:
+      - !type:EntityAnchored {}
+      - !type:DoorWelded {}
+      - !type:DoorBolted
+        value: false
+      - !type:WirePanel {}
+      - !type:AllWiresCut
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetRGlass1
+        amount: 2
+      steps:
+      - tool: Prying
+        doAfter: 2
+    - to: medSecurityUnfinished
+      conditions:
+      - !type:WirePanel {}
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+    - to: highSecurityUnfinished
+      conditions:
+      - !type:WirePanel {}
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+
+## Sealed airlock
+  - node: sealedAirlock # Goobstation - Sealed doors
+    entity: AirlockSealed
+    doNotReplaceInheritingEntities: true
+    actions:
+    - !type:SetWiresPanelSecurity
+      wiresAccessible: true
+    edges:
+    - to: electronics
+      conditions:
+      - !type:EntityAnchored {}
+      - !type:DoorWelded {}
+      - !type:DoorBolted
+        value: false
+      - !type:WirePanel {}
+      - !type:AllWiresCut
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      steps:
+      - tool: Prying
+        doAfter: 2
+    - to: medSecurityUnfinished
+      conditions:
+      - !type:WirePanel {}
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+    - to: highSecurityUnfinished
+      conditions:
+      - !type:WirePanel {}
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+
 
 ## Glass airlock
   - node: glassAirlock
@@ -247,6 +362,32 @@
       examine: wires-panel-component-on-examine-security-level1
       wiresAccessible: false
     edges:
+    - to: sealedGlassAirlock # Goobstation - Sealed doors
+      completed:
+      - !type:GivePrototype
+        prototype: SheetSteel1
+        amount: 2
+      conditions:
+      - !type:WirePanel {}
+      - !type:HasTag
+        tag: SealedGlassAirlock
+      steps:
+      - tool: Prying
+        doAfter: 4
+
+    - to: sealedAirlock # Goobstation - Sealed doors
+      completed:
+      - !type:GivePrototype
+        prototype: SheetSteel1
+        amount: 2
+      conditions:
+      - !type:WirePanel {}
+      - !type:HasTag
+        tag: SealedAirlock
+      steps:
+      - tool: Prying
+        doAfter: 4
+
     - to: glassAirlock
       completed:
       - !type:GivePrototype
@@ -313,6 +454,32 @@
       examine: wires-panel-component-on-examine-security-level3
       wiresAccessible: false
     edges:
+    - to: sealedGlassAirlock # Goobstation - Sealed doors
+      completed:
+      - !type:GivePrototype
+        prototype: SheetPlasteel1
+        amount: 2
+      conditions:
+      - !type:WirePanel {}
+      - !type:HasTag
+        tag: SealedGlassAirlock
+      steps:
+      - tool: Prying
+        doAfter: 4
+
+    - to: sealedAirlock # Goobstation - Sealed doors
+      completed:
+      - !type:GivePrototype
+        prototype: SheetPlasteel1
+        amount: 2
+      conditions:
+      - !type:WirePanel {}
+      - !type:HasTag
+        tag: SealedAirlock
+      steps:
+      - tool: Prying
+        doAfter: 4
+
     - to: glassAirlock
       completed:
       - !type:GivePrototype

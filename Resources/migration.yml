@@ -866,9 +866,12 @@ SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard
 # 2025-01-27
 FoodCondimentPacketFrostoil: FoodCondimentPacketColdsauce
 
-#2025-02-05
+# 2025-02-05
 WeaponSubMachineGunVector: null
 WeaponSubMachineGunVectorRubber: null
+
+# 2025-02-11
+WallShuttleInterior: WallShuttle
 
 # 2025-02-20
 MagazineBoxAntiMaterielBig: null
@@ -903,7 +906,51 @@ ToxinChemistryBottle: ChemistryBottleToxin
 CargoMailTeleporter: MailTeleporter
 ClothingMaskBlushingMime: ClothingMaskSexyMime
 ClothingMaskBlushingClown: ClothingMaskSexyMime
-ClothingNeckGoldAutismPin: null
+ClothingNeckGoldAutismPin: ClothingNeckAutismPin
+MachineMaterialSilo: null
+CrateMaterialSilo: null
+  
+# 2025-03-29
+ClothingBackpackDuffelSyndicateRaidBundle: ClothingBackpackSyndicateRaidBundle
+
+# 2025-04-15
+SimpleXenoArtifact: ComplexXenoArtifact
+MediumXenoArtifact: ComplexXenoArtifact
+SimpleXenoArtifactItem: ComplexXenoArtifactItem
+MediumXenoArtifactItem: ComplexXenoArtifactItem
+VariedXenoArtifactItem: ComplexXenoArtifactItem
 
 # 2025-05-09 Goobstation
 ClothingBackpackCentcom: ClothingBackpackCentcomm
+
+# 2025-06-04 Goobstation Plushie Death
+PlushieBenny: null
+PlushieCairo: null
+PlushiePash: null
+PlushieDelta: null
+PlushieRaki: null
+PlushieTina: null
+PlushieKnott: null
+PlushieZlorb: null
+PlushieTiderMoth: null
+PlushieCommandHuman: null
+PlushieRanork: null
+PlushieWehWinter: null
+PlushieHaleigh: null
+PlushieStoop: null
+PlushieAhti: null
+PlushieSparkle: null
+PlushieGrub: null
+PlushieHexadecimal: null
+PlushieFlint: null
+PlushiePistachio: null
+PlushieSeesTheStars: null
+PlushieDumbLizard: null
+PlushieSqueaks: null
+PlushieHaato: null
+PlushieTinyLane: null
+PlushieChewsTheShoes: null
+PlushieBlackburn: null
+PlushieBlackburnMatryoskya: null
+PlushieDesislavaBlackburn: null
+PlushieBlackburnKobliska: null

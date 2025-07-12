@@ -73,6 +73,22 @@
 
 - type: entity
   parent: BaseAutomationFilter
+  id: AutomationFilterPressure
+  name: pressure filter
+  description: A filter that can be installed in factory machines. This one has a barometer to check the pressure of gases.
+  components:
+  - type: PressureFilter
+  - type: ActivatableUI
+    key: enum.PressureFilterUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PressureFilterUiKey.Key:
+        type: PressureFilterBUI
+  - type: Construction
+    node: pressure
+
+- type: entity
+  parent: BaseAutomationFilter
   id: AutomationFilterCombined
   name: combined filter
   description: A filter that can be installed in factory machines. This one uses a logic gate to combine 2 installed item filters.

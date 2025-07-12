@@ -14,11 +14,17 @@ SPDX-License-Identifier: MIT
 <DefaultWindow
     xmlns="https://spacestation14.io"
     Title="{Loc admin-announce-title}"
-    MinWidth="500">
+    MinWidth="650"> <!-- CorvaxGoob-TTS-Edit -->
     <GridContainer Columns="1">
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <LineEdit Name="Announcer" Access="Public" PlaceHolder="{Loc admin-announce-announcer-placeholder}" Text="{Loc admin-announce-announcer-default}" HorizontalExpand="True" SizeFlagsStretchRatio="2"/>
             <Control HorizontalExpand="True" SizeFlagsStretchRatio="1" />
+            <!-- CorvaxGoob-TTS-Start -->
+            <BoxContainer HorizontalExpand="True" Visible="False" Name="TTSContainer">
+                <Control HorizontalExpand="True"/>
+                <OptionButton Name="VoiceButton" HorizontalAlignment="Right" Access="Public" />
+            </BoxContainer>
+            <!-- CorvaxGoob-TTS-End -->
             <OptionButton Name="AnnounceMethod" Access="Public" HorizontalExpand="True" SizeFlagsStretchRatio="2"/>
         </BoxContainer>
         <TextEdit Name="Announcement" Access="Public" VerticalExpand="True" MinHeight="100" />

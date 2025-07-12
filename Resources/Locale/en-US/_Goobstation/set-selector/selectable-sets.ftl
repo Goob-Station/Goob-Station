@@ -67,8 +67,8 @@ selectable-set-syndicate-hitman-description =
 selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
-    Contains: holoparasite kit, EMP, scram, freedom,
-    smoke, krav maga and syndicate radio implanters.
+    Contains: EMP, scram, freedom, smoke, krav maga and syndicate radio implanters,
+    Sandevistan and paired mantis blades autosurgeons, and a cool jacket.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
@@ -99,8 +99,8 @@ selectable-set-syndicate-fluclear-description =
 selectable-set-syndicate-friendship-name = Friendship Bundle
 selectable-set-syndicate-friendship-description =
     Friendship is magic! Go find yourself some friends with this bundle!
-    Contains: Contractor baton, handcuffs, 2 mindcontrol implanters,
-    3 Mosin rifles and 3 syndicate encryption keys for all of you.
+    Contains: a contractor baton and handcuffs for you, 4 mindcontrol implanters
+    and Mosin rifles for your friends, and 5 syndicate encryption keys for you all.
 
 selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =
@@ -193,7 +193,7 @@ selectable-set-headofsecurity-voidsuit-desc =
 selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' hardsuit
 selectable-set-headofsecurity-modsuit-desc =
     A modular hardsuit with expensive plastitanium armour for the head of security's use.
-    Comes equipped with a manually operated on-board intravenous stim injector
+    Comes equipped with an AI operated on-board intravenous stim injector
 
 selectable-set-engineering-voidsuit-name = Engineering voidsuit
 selectable-set-engineering-voidsuit-desc =
@@ -204,3 +204,28 @@ selectable-set-engineering-modsuit-desc =
     A modular hardsuit with increased blast plating and the large vulnerable visor
     replaced with external cameras to better protect against explosions
     and other external threats.
+
+selectable-set-captain-voidsuit-name = Captain's parade voidsuit
+selectable-set-captain-voidsuit-desc =
+    Captain's light voidsuit made custom fitted for formal occasions, lightly
+    armored to protect during a calm shift, all while still retaining
+    common spacewalking capabilities.
+
+selectable-set-captain-modsuit-name = Captain's 'Magnate' hardsuit
+selectable-set-captain-modsuit-desc =
+    A modular hardsuit perfectly shined, adorned, and armored for the best of
+    the best, fitted with custom plating, cooling fluid, and diamonds to
+    make even the toughest of times leading seem like nothing to you.
+
+
+selectable-set-research-director-voidsuit-name = RD's voidsuit
+selectable-set-research-director-voidsuit-desc =
+    The Research Director's light voidsuit fitted for experiments, lightly
+    armored to protect from assistants breaking in, all while still retaining
+    common spacewalking capabilities.
+
+selectable-set-research-director-modsuit-name = RD's 'Minerva' hardsuit
+selectable-set-research-director-modsuit-desc =
+    A modular hardsuit armored perfectly to turn you into a research tank,
+    not even the most dangerous of experiments will harm you in this,
+    and the worst of assistants will think twice before breaking in sci.

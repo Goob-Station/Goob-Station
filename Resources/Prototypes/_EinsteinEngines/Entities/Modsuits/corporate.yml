@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -9,8 +11,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitCorporate
-  name: Corporate modsuit control
-  description: The main controller for a Corporate modsuit.
+  name: Corporate hardsuit control unit  # Goob edit
+  description: The main controller for a Corporate hardsuit. # Goob edit
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/corporate.rsi
@@ -41,8 +43,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsCorporate
-  name: Corporate modsuit gauntlets
-  description: A pair of gauntlets made for the Corporate modsuit.
+  name: Corporate hardsuit gauntlets
+  description: A pair of gauntlets made for the Corporate hardsuit. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -55,8 +57,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetCorporate
-  name: Corporate modsuit helmet
-  description: A state-of-the-art helmet designed by NanoTrasen for the Corporate modsuit. It includes a built-in HUD.
+  name: Corporate hardsuit helmet # Goob edit
+  description: A state-of-the-art helmet designed by NanoTrasen for the Corporate hardsuit. It includes a built-in HUD. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -103,8 +105,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateCorporate
-  name: Corporate modsuit chestplate
-  description: A state of the art chestplate designed by NanoTrasen for the Corporate Modsuit. It incorporates powered servos to reduce the equipment load.
+  name: Corporate hardsuit chestplate # Goob edit
+  description: A state of the art chestplate designed by NanoTrasen for the Corporate hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -133,8 +135,8 @@
       visualLayers:
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
-    - type: StaminaDamageResistance
-      coefficient: 0 # 100%
+    - type: StaminaResistance
+      damageCoefficient: 0 # 100%
     - type: PressureProtection
       highPressureMultiplier: 0.02
       lowPressureMultiplier: 1000
@@ -144,8 +146,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsCorporate
-  name: Corporate modsuit boots
-  description: A state-of-the-art pair of magboots for the Corporate modsuit. So long as the suit is powered, these will not slow the wearer down.
+  name: Corporate hardsuit boots # Goob edit
+  description: A state-of-the-art pair of magboots for the Corporate hardsuit. So long as the suit is powered, these will not slow the wearer down. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

@@ -189,15 +189,21 @@ public sealed class PartStatusSystem : EntitySystem
         bool styling = true)
     {
         var message = new FormattedMessage();
+        var titlestring = entity == examiner
+            ? "inspect-part-status-title"
+            : "inspect-part-status-title-other";
+
         if (styling)
         {
             message.PushTag(new MarkupNode("examineborder", null, null)); // border
             message.PushNewline();
         }
+        else
+        {
+            titlestring += "-styleless";
+        }
 
-        message.AddText(Loc.GetString(entity == examiner
-            ? "inspect-part-status-title"
-            : "inspect-part-status-title-other", ("entity", Identity.Name(entity, EntityManager))));
+        message.AddText(Loc.GetString(titlestring, ("entity", Identity.Name(entity, EntityManager))));
         message.PushNewline();
         AddLine(message);
         CreateBodyPartMessage(partStatusSet, entity == examiner, ref message, !styling);

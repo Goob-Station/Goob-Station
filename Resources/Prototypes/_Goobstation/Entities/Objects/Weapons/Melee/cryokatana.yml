@@ -6,7 +6,7 @@
 
 - type: entity
   name: cryo katana
-  parent: [BaseMagicContraband, Katana]
+  parent: [BaseMagicalContraband, Katana]
   id: CryoKatana
   description: Freeze your enemies.
   components:

@@ -11,7 +11,9 @@
 // SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -21,6 +23,8 @@ using Content.Goobstation.Shared.CrewMonitoring;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.PowerCell;
+using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Medical.CrewMonitoring;
 using Content.Shared.Medical.SuitSensor;
 using Content.Shared.Pinpointer;
@@ -59,24 +63,6 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
 
         if (!payload.TryGetValue(SuitSensorConstants.NET_STATUS_COLLECTION, out Dictionary<string, SuitSensorStatus>? sensorStatus))
             return;
-
-        // Goobstation - start
-        if (TryComp<CrewMonitorScanningComponent>(uid, out var scanned))
-        {
-            var newSensorStatus = new Dictionary<string, SuitSensorStatus>();
-            foreach (var pair in sensorStatus)
-            {
-                var sensorUid = GetEntity(pair.Value.SuitSensorUid);
-                if (!HasComp<TransformComponent>(sensorUid))
-                    continue;
-
-                if (scanned.ScannedEntities.Contains(Transform(sensorUid).ParentUid))
-                    newSensorStatus[pair.Key] = pair.Value;
-            }
-            sensorStatus = newSensorStatus;
-        }
-        // Goobstation - end
-
         component.ConnectedSensors = sensorStatus;
 
         UpdateUserInterface(uid, component);
@@ -105,7 +91,18 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             EnsureComp<NavMapComponent>(xform.GridUid.Value);
 
         // Update all sensors info
-        var allSensors = component.ConnectedSensors.Values.ToList();
-        _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors));
+        // GoobStation - Start
+        var isCommandOnly = HasComp<CrewMonitorScanningComponent>(uid);
+
+        var filteredSensors = component.ConnectedSensors
+            .Where(pair => isCommandOnly
+                ? pair.Value.IsCommandTracker
+                : !pair.Value.IsCommandTracker)
+            .Select(pair => pair.Value)
+            .ToList();
+        _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(filteredSensors));
+        // GoobStation - End
+        //var allSensors = component.ConnectedSensors.Values.ToList();
+        //_uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors));
     }
 }

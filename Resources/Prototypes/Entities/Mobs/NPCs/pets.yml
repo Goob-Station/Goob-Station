@@ -217,7 +217,9 @@
     attributes:
       proper: true
       gender: female
-
+  - type: TTS # CorvaxGoob-TTS
+    voice: Dryad
+    
 - type: entity
   name: real mouse
   parent: MobCorgiIan

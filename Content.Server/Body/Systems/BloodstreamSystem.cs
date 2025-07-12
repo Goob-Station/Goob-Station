@@ -150,6 +150,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
@@ -283,21 +284,22 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 {
                     foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
                     {
-                        var isBleeding = false;
+                        var totalPartBleeds = FixedPoint2.Zero;
                         foreach (var wound in _wound.GetWoundableWounds(bodyPart))
                         {
                             if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
                                 continue;
 
-                            totalBleedAmount += bleeds.BleedingAmount;
-                            isBleeding = true;
+                            totalPartBleeds += bleeds.BleedingAmount;
                         }
 
                         if (TryComp<WoundableComponent>(bodyPart, out var woundable))
                         {
-                            woundable.IsBleeding = isBleeding;
+                            woundable.Bleeds = totalPartBleeds;
                             Dirty(bodyPart, woundable);
                         }
+
+                        totalBleedAmount += totalPartBleeds;
                     }
                 }
 
@@ -350,8 +352,8 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 // If they're healthy, we'll try and heal some bloodloss instead.
                 _damageableSystem.TryChangeDamage(
                     uid,
-                    bloodstream.BloodlossHealDamage * bloodPercentage * 11f,
-                    ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.All); // Shitmed Change
+                    bloodstream.BloodlossHealDamage * bloodPercentage,
+                    ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
 
                 // Remove the drunk effect when healthy. Should only remove the amount of drunk and stutter added by low blood level
                 _drunkSystem.TryRemoveDrunkenessTime(uid, bloodstream.StatusTime.TotalSeconds);

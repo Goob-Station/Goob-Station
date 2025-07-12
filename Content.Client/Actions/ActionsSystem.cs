@@ -119,6 +119,7 @@ using System.IO;
 using System.Linq;
 using Content.Goobstation.Common.Actions;
 using Content.Shared.Actions;
+using Content.Shared.Charges.Systems;
 using JetBrains.Annotations;
 using Robust.Client.Player;
 using Robust.Shared.ContentPack;
@@ -140,6 +141,7 @@ namespace Content.Client.Actions
     {
         public delegate void OnActionReplaced(EntityUid actionId);
 
+        [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IResourceManager _resources = default!;
         [Dependency] private readonly ISerializationManager _serialization = default!;
@@ -183,33 +185,6 @@ namespace Content.Client.Actions
 
             ActionsLoaded?.Invoke(GetEntity(msg.Entity));
         }
-
-        // goob edit - man fuck them actions bruh
-        // (it was breaking our actions system so i smashed it)
-        // (regards)
-
-        //public override void FrameUpdate(float frameTime)
-        //{
-        //    base.FrameUpdate(frameTime);
-
-        //    var worldActionQuery = EntityQueryEnumerator<WorldTargetActionComponent>();
-        //    while (worldActionQuery.MoveNext(out var uid, out var action))
-        //    {
-        //        UpdateAction(uid, action);
-        //    }
-
-        //    var instantActionQuery = EntityQueryEnumerator<InstantActionComponent>();
-        //    while (instantActionQuery.MoveNext(out var uid, out var action))
-        //    {
-        //        UpdateAction(uid, action);
-        //    }
-
-        //    var entityActionQuery = EntityQueryEnumerator<EntityTargetActionComponent>();
-        //    while (entityActionQuery.MoveNext(out var uid, out var action))
-        //    {
-        //        UpdateAction(uid, action);
-        //    }
-        //}
 
         private void OnInstantHandleState(EntityUid uid, InstantActionComponent component, ref ComponentHandleState args)
         {
@@ -264,9 +239,6 @@ namespace Content.Client.Actions
             component.Toggled = state.Toggled;
             component.Cooldown = state.Cooldown;
             component.UseDelay = state.UseDelay;
-            component.Charges = state.Charges;
-            component.MaxCharges = state.MaxCharges;
-            component.RenewCharges = state.RenewCharges;
             component.Container = EnsureEntity<T>(state.Container, uid);
             component.EntityIcon = EnsureEntity<T>(state.EntityIcon, uid);
             component.CheckCanInteract = state.CheckCanInteract;
@@ -288,7 +260,8 @@ namespace Content.Client.Actions
             if (!ResolveActionData(actionId, ref action))
                 return;
 
-            action.IconColor = action.Charges < 1 ? action.DisabledIconColor : action.OriginalIconColor;
+            // TODO: Decouple this.
+            action.IconColor = _sharedCharges.GetCurrentCharges(actionId.Value) == 0 ? action.DisabledIconColor : action.OriginalIconColor;
 
             base.UpdateAction(actionId, action);
             if (_playerManager.LocalEntity != action.AttachedEntity)

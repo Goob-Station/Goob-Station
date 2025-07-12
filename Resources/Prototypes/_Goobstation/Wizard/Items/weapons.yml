@@ -84,7 +84,7 @@
 
 - type: entity
   name: supermatter halberd
-  parent: [BaseItem, BaseMagicContraband]
+  parent: [BaseItem, BaseMagicalContraband]
   id: SupermatterHalberd
   description: The revered weapon of Oblivion Enforcers, used to enforce the Order's will.
   components:
@@ -201,7 +201,7 @@
 
 - type: entity
   name: high frequency blade
-  parent: [BaseSword, BaseMagicContraband]
+  parent: [BaseSword, BaseMagicalContraband]
   id: HighFrequencyBlade
   description: A sword reinforced by a powerful alternating current and resonating at extremely high vibration frequencies. This oscillation weakens the molecular bonds of anything it cuts, thereby increasing its cutting ability.
   components:
@@ -252,7 +252,7 @@
 
 - type: entity
   name: spellblade
-  parent: [BaseSword, BaseMagicContraband]
+  parent: [BaseSword, BaseMagicalContraband]
   id: Spellblade
   description: An enchanted blade with a series of runes along the side.
   components:

@@ -4,14 +4,16 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
-  name: standard modsuit hardsuit unit
+  name: standard hardsuit control unit
   description: A special modular suit contol unit containing all necessary modular hardsuit parts.
   components:
   - type: Appearance
@@ -275,7 +277,7 @@
             - PowerCell
 
 - type: entity
-  parent: [ClothingModsuitStandard, BaseCommandContraband] # BaseGrandTheftContraband
+  parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
   id: ClothingModsuitResearchDirector
   name: RD's minerva hardsuit control unit
   description: A  modular hardsuit control module unit for withstanding another shuttlebomb.
@@ -292,11 +294,11 @@
   - type: Construction
     graph: Modsuit
     node: rd
-#  - type: StealTarget
-#    stealGroup: ClothingOuterHardsuitRd
-#  - type: Tag
-#    tags:
-#      - HighRiskItem
+  - type: StealTarget
+    stealGroup: ClothingOuterHardsuitRd
+  - type: Tag
+    tags:
+      - HighRiskItem
 
 - type: entity
   parent: ClothingModsuitResearchDirector
@@ -316,7 +318,7 @@
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitCaptain
   name: captain's magnate hardsuit control unit
-  description: A gem encrysted, mirror shined and absolutely MAGNATE armored hardsuit, the cooling fluid is dragons blood watered down with dr gibb. This shit is nothing to you, man.
+  description: A gem encrusted, mirror shined and absolutely MAGNATE armored hardsuit, the cooling fluid is dragons blood watered down with dr gibb. This shit is nothing to you, man.
   components:
   - type: Appearance
   - type: Sprite

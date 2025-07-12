@@ -1,0 +1,176 @@
+- type: species
+  id: Shadowkin
+  name: species-name-shadowkin
+  roundStart: true
+  prototype: MobShadowkin
+  sprites: MobShadowkinSprites
+  defaultSkinTone: "#FFFFFF"
+  markingLimits: MobShadowkinMarkingLimits
+  dollPrototype: MobShadowkinDummy
+  skinColoration: Hues
+  naming: First
+  maleFirstNames: NamesShadowkin
+  femaleFirstNames: NamesShadowkin
+  minAge: 18
+  maxAge: 250
+  youngAge: 80
+  oldAge: 175
+  sexes:
+    - Male
+    - Female
+
+- type: speciesBaseSprites
+  id: MobShadowkinSprites
+  sprites:
+    Head: MobShadowkinHead
+    Snout: MobShadowkinAnyMarkingFollowSkin
+    HeadTop: MobShadowkinAnyMarking
+    HeadSide: MobShadowkinAnyMarkingFollowSkin
+    Tail: MobShadowkinAnyMarkingFollowSkin
+    Chest: MobShadowkinChest
+    Groin: MobShadowkinGroin
+    Eyes: MobShadowkinEyes
+    LArm: MobShadowkinLArm
+    RArm: MobShadowkinRArm
+    LHand: MobShadowkinLHand
+    RHand: MobShadowkinRHand
+    LLeg: MobShadowkinLLeg
+    RLeg: MobShadowkinRLeg
+    LFoot: MobShadowkinLFoot
+    RFoot: MobShadowkinRFoot
+
+- type: markingPoints
+  id: MobShadowkinMarkingLimits
+  points:
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [TailShadowkin]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [EarsShadowkin]
+    Chest:
+      points: 6
+      required: false
+    Legs:
+      points: 6
+      required: false
+    Arms:
+      points: 6
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobShadowkinAnyMarkingFollowSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobShadowkinAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobShadowkinHead
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShadowkinHeadMale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobShadowkinHeadFemale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobShadowkinChest
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobShadowkinGroin
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobShadowkinChestMale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobShadowkinChestFemale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobShadowkinGroinMale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobShadowkinGroinFemale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: groin_f
+
+- type: humanoidBaseSprite
+  id: MobShadowkinLLeg
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobShadowkinLHand
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobShadowkinEyes
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobShadowkinLArm
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobShadowkinLFoot
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobShadowkinRLeg
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobShadowkinRHand
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobShadowkinRArm
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobShadowkinRFoot
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Shadowkin/parts.rsi
+    state: r_foot

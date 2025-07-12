@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -30,6 +31,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -76,7 +79,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
                 entities.RemoveWhere(entity => !HasComp<InfluenceVitalityComponent>(entity));
 
                 foreach (var entity in entities)
-                    _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1);
+                    _damage.TryChangeDamage(entity, monuComp.MonumentHealing * -1, targetPart: TargetBodyPart.All); // Shitmed Change
 
                 monuComp.CheckTimer = _timing.CurTime + monuComp.CheckWait;
             }

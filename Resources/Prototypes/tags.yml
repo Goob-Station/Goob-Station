@@ -865,6 +865,9 @@
   id: Handcuffs
 
 - type: Tag
+  id: HandGrenade
+
+- type: Tag
   id: HappyHonk
 
 - type: Tag
@@ -1094,9 +1097,6 @@
   id: MimeHappyHonk
 
 - type: Tag
-  id: MindShield
-
-- type: Tag
   id: MindTransferTarget
 
 - type: Tag
@@ -1203,6 +1203,9 @@
 
 - type: Tag
   id: Pipe
+
+- type: Tag
+  id: Pistachios
 
 - type: Tag
   id: Pizza
