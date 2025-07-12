@@ -22,7 +22,7 @@
     animationRotation: 120
     swingLeft: true
     wideAnimationRotation: 135
-    attackRate: 1.5
+    attackRate: 1.2
     damage:
       types:
         Slash: 15
