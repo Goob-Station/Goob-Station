@@ -18,19 +18,19 @@ public sealed partial class ModifySlimeComponent : EntityEffect
     /// How many additional extracts will be produced?
     /// </summary>
     [DataField]
-    public int ExtractBonus;
+    public int? ExtractBonus;
 
     /// <summary>
     /// How many additional offspring MAY be produced?
     /// </summary>
     [DataField]
-    public int OffspringBonus;
+    public int? OffspringBonus;
 
     /// <summary>
     /// How much will we increase/decrease the mutation chance?
     /// </summary>
     [DataField]
-    public float ChanceModifier;
+    public float? ChanceModifier;
 
     /// <summary>
     /// Should we increase, or decrease the mutation chance?
@@ -46,13 +46,13 @@ public sealed partial class ModifySlimeComponent : EntityEffect
         if (!args.EntityManager.TryGetComponent<SlimeComponent>(args.TargetEntity, out var slime))
             return;
 
-        slime.ExtractsProduced += ExtractBonus != 0 ? ExtractBonus : 0;
-        slime.MaxOffspring += OffspringBonus != 0 ? OffspringBonus : 0;
+        slime.ExtractsProduced += ExtractBonus ?? 0;
+        slime.MaxOffspring += OffspringBonus ?? 0;
 
-        if (ChanceModifier != 0)
+        if (ChanceModifier is {} chanceMod)
         {
             slime.MutationChance = Math.Clamp(
-                slime.MutationChance + (ShouldSubtract ? -ChanceModifier : ChanceModifier),
+                slime.MutationChance + (ShouldSubtract ? -chanceMod : chanceMod),
                 0f,
                 1f
             );
