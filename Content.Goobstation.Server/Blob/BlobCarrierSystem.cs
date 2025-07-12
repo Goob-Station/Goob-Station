@@ -22,8 +22,9 @@ using Content.Shared.Mobs;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-//using Content.Server.Language;
-// using Content.Shared.Language;
+using Content.Server._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language.Events;
 
 namespace Content.Goobstation.Server.Blob;
 
@@ -34,7 +35,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
     [Dependency] private readonly GhostRoleSystem _ghost = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
-   // [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
 
     public override void Initialize()
     {
@@ -44,7 +45,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
         SubscribeLocalEvent<BlobCarrierComponent, TransformToBlobActionEvent>(OnTransformToBlobChanged);
 
         SubscribeLocalEvent<BlobCarrierComponent, MapInitEvent>(OnStartup);
-        //SubscribeLocalEvent<BlobCarrierComponent, DetermineEntityLanguagesEvent>(OnApplyLang);
+        SubscribeLocalEvent<BlobCarrierComponent, DetermineEntityLanguagesEvent>(OnApplyLang);
         SubscribeLocalEvent<BlobCarrierComponent, ComponentRemove>(OnRemove);
 
         SubscribeLocalEvent<BlobCarrierComponent, MindAddedMessage>(OnMindAdded);
@@ -53,10 +54,11 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
     [ValidatePrototypeId<EntityPrototype>]
     private const string ActionTransformToBlob = "ActionTransformToBlob";
-    //[ValidatePrototypeId<LanguagePrototype>]
-    //private const string BlobLang = "Blob";
 
-    /*private void OnApplyLang(Entity<BlobCarrierComponent> ent, ref DetermineEntityLanguagesEvent args)
+    [ValidatePrototypeId<LanguagePrototype>]
+    private const string BlobLang = "Blob";
+
+    private void OnApplyLang(Entity<BlobCarrierComponent> ent, ref DetermineEntityLanguagesEvent args)
     {
         if(ent.Comp.LifeStage is
            ComponentLifeStage.Removing
@@ -66,31 +68,19 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
         args.SpokenLanguages.Add(BlobLang);
         args.UnderstoodLanguages.Add(BlobLang);
-    }*/
-
-    private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args)
-    {
-       // _language.UpdateEntityLanguages(ent.Owner);
     }
 
-    private void OnMindAdded(EntityUid uid, BlobCarrierComponent component, MindAddedMessage args)
-    {
-        component.HasMind = true;
-    }
+    private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args) => _language.UpdateEntityLanguages(ent.Owner);
 
-    private void OnMindRemove(EntityUid uid, BlobCarrierComponent component, MindRemovedMessage args)
-    {
-        component.HasMind = false;
-    }
+    private void OnMindAdded(EntityUid uid, BlobCarrierComponent component, MindAddedMessage args) => component.HasMind = true;
 
-    private void OnTransformToBlobChanged(Entity<BlobCarrierComponent> uid, ref TransformToBlobActionEvent args)
-    {
-        TransformToBlob(uid);
-    }
+    private void OnMindRemove(EntityUid uid, BlobCarrierComponent component, MindRemovedMessage args) => component.HasMind = false;
+
+    private void OnTransformToBlobChanged(Entity<BlobCarrierComponent> uid, ref TransformToBlobActionEvent args) => TransformToBlob(uid);
 
     private void OnStartup(EntityUid uid, BlobCarrierComponent component, MapInitEvent args)
     {
-        //_language.UpdateEntityLanguages(uid);
+        _language.UpdateEntityLanguages(uid);
         _action.AddAction(uid, ref component.TransformToBlob, ActionTransformToBlob);
         //EnsureComp<BlobSpeakComponent>(uid).OverrideName = false;
 
