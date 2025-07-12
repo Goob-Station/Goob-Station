@@ -1,14 +1,17 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   name: DT-2 'Justice'
-  parent: [BaseItem, BaseCommandContraband]
+  parent: [BaseItem, BaseGrandTheftContraband]
   id: Justice
   description: An expensive & self-recharging energy sword, designed specifically for the Head of Security. If it were not for injustice, man would not know justice.
   components:
@@ -31,6 +34,7 @@
   - type: Tag
     tags:
     - Justice
+    - HighRiskItem
   - type: GuideHelp
     guides:
     - Security
@@ -48,6 +52,23 @@
       path: /Audio/Weapons/bladeslice.ogg
     angle: 60
     animation: WeaponArcThrust
+  - type: GhostRole
+    name: justice-role-name
+    description: justice-role-description
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: GhostTakeoverAvailable
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: MobState # This shitcod allows the role to pop back up after whoever had it last ghosts out of it, same as PAI
+    allowedStates:
+      - Alive
+  - type: StealTarget
+    stealGroup: WeaponSecHeadSword
   - type: ItemSwitch
     needsPower: true
     defaultState: off
