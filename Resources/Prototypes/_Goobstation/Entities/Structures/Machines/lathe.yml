@@ -5,8 +5,10 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SomethingUnbearable <mewatcher102@gmail.com>
 # SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -18,8 +20,8 @@
 - type: entity
   id: EngineeringTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
-  name: engineering techfab
-  description: Prints equipment and circuitboards for use by engineering department.
+  name: "інженерний техфаб"
+  description: "Друкує обладнання та друковані плати для використання інженерним відділом."
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -51,7 +53,9 @@
     - LightsStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - MiscSignallersStatic
     - NailgunStatic
+    - NailsStatic
     dynamicPacks:
     - AdvancedTools
     - AtmosTools
@@ -83,8 +87,8 @@
 - type: entity
   id: CargoTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
-  name: cargo techfab
-  description: Prints equipment and circuitboards for use by cargo department.
+  name: "вантажний техфаб"
+  description: "Друкує обладнання та друковані плати для використання вантажним відділом."
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -111,6 +115,7 @@
     - CablesStatic
     - PowerCellsStatic
     - MiningToolsStatic
+    - MiscSignallersStatic
     - CargoStatic
     dynamicPacks:
     - AdvancedTools
@@ -144,8 +149,8 @@
 - type: entity
   id: ScienceTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
-  name: science techfab
-  description: Prints equipment and circuitboards for use by science department.
+  name: "науковий техфаб"
+  description: "Друкує обладнання та друковані плати для використання науковим відділом."
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -184,6 +189,7 @@
     - ScienceBoardsStatic
     - ScienceExplosives # Goobstation - Roundstart Grenade Tech
     - GrenadeTriggersStatic # Goobstation - Roundstart Grenade Tech
+    - MiscSignallersStatic
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
@@ -222,8 +228,8 @@
 - type: entity
   id: ServiceTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
-  name: service techfab
-  description: Prints equipment and circuitboards for use by service department.
+  name: "сервісний техфаб"
+  description: "Друкує обладнання та друковані плати для використання сервісним відділом."
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi

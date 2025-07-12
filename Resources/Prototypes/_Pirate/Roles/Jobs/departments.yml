@@ -1,0 +1,15 @@
+- type: department
+  id: Interdyne
+  name: department-Interdyne
+  description: department-Interdyne-description
+  color: "#2d650e"
+  roles:
+  - CaptainInterdyne
+  - InterdyneSecure
+  - InterdyneEngineer
+  - InterdyneDeputy
+  - InterdyneService
+  - Interdyne
+  - InterdyneMed
+  - InterdynePilot
+  - InterdyneShaftMiners

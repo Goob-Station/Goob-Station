@@ -16,3 +16,6 @@ objectives-objective-success = {$objective} | [color={$markupColor}]Успіх![
 objectives-objective-fail = {$objective} | [color={$markupColor}]Невдача![/color] ({$progress}%)
 
 objectives-in-custody = [bold][color=red]| ЗАТРИМАНО | [/color][/bold]
+
+objectives-objective-partial-success = {$objective} | [color=yellow]Частковий успіх![/color] ({TOSTRING($progress, "P0")})
+objectives-objective-partial-failure = {$objective} | [color=orange]Часткова невдача![/color] ({TOSTRING($progress, "P0")})

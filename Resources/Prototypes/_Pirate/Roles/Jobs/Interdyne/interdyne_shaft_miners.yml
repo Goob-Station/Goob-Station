@@ -1,0 +1,11 @@
+- type: job
+  id: InterdyneShaftMiners
+  name: "шахтар Interdyne"
+  description: "видобувайте цінні ресурси для корпорації Interdyne у небезпечних умовах"
+  icon: "JobIconInterdyneShaftMiners"
+  canBeAntag: false
+  playTimeTracker: JobInterdyneShaftMiners
+  access:
+    - Maintenance
+    - External
+    - Interdyne

@@ -4,6 +4,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
@@ -12,8 +14,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsStandard
-  name: standard hardsuit gauntlets
-  description: Special modular suit gloves that protect wearer from electric shock.
+  name: "стандартні рукавиці від скафандру"
+  description: "Спеціальні рукавиці для модульного костюма, що захищають власника від ураження електричним струмом."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -40,16 +42,16 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
-        shader: unshaded
 
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsSecurity
-  name: soldat hardsuit gauntlets
-  description: Robust modular suit gloves for gripping perps and guns tight.
+  name: "рукавиці солдата від скафандру"
+  description: "Міцні модульні рукавиці, щоб міцно тримати злочинців та зброю."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -76,15 +78,16 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
 
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsParamedic
-  name: sanitater hardsuit gauntlets
-  description: Black and white modular suit gloves for gripping percs and patients tight.
+  name: "рукавиці санітара від скафандру"
+  description: "Чорно-білі модульні рукавиці, щоб міцно тримати перкоцет та пацієнтів."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -111,7 +114,8 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
   - type: Armor
@@ -124,8 +128,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsHeadOfSecurity
-  name: bulwark hardsuit gauntlets
-  description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
+  name: "рукавиці оплоту від скафандру"
+  description: "Міцні модульні рукавиці, щоб міцно тримати злочинців та зброю. Ізольовані."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -153,7 +157,8 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
   - type: Armor
@@ -167,8 +172,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsEngineer
-  name: sapper hardsuit gauntlets
-  description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
+  name: "рукавиці сапера від скафандру"
+  description: "Замаслені модульні рукавиці для легкого натискання кнопок на RCD."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -196,9 +201,12 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-resomi:
+      - state: equipped-HAND-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -210,8 +218,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsAtmostech
-  name: aeolus hardsuit gauntlets
-  description: Asbestos-lined modular suit gloves for easily pushing buttons on an RPD.
+  name: "рукавиці Еола від скафандру"
+  description: "Азбестові модульні рукавиці для легкого натискання кнопок на RPD."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -239,9 +247,12 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-resomi:
+      - state: equipped-HAND-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -254,8 +265,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsResearchDirector
-  name: minerva hardsuit gauntlets
-  description: For keeping your digits at 10 after the artifact goes thermonuclear on you.
+  name: "рукавиці Мінерви від скафандру"
+  description: "Щоб зберегти всі ваші десять пальців після того, як артефакт вибухне термоядерним вибухом."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -283,7 +294,8 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
   - type: Armor
@@ -297,8 +309,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingModsuitGauntletsCaptain
-  name: magnate hardsuit gauntlets
-  description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.
+  name: "рукавиці магната від скафандру"
+  description: "Мають спеціальні канавки та вирізи, щоб легше тримати цей чортовий диск."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -313,6 +325,11 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ gloves ]
+    clothingVisuals:
+        hands:
+        - state: equipped-HAND
+        hands-resomi:
+        - state: equipped-HAND-resomi
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
@@ -326,9 +343,12 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
+      gloves-resomi:
+      - state: equipped-HAND-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:

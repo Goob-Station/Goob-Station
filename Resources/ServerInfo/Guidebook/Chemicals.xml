@@ -18,30 +18,30 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 ## Елементи
 <GuideReagentGroupEmbed Group="Elements"/>
 
-## Medicine
+## Медицина
 <GuideReagentGroupEmbed Group="Medicine"/>
 
-## Narcotics
+## Наркотики
 <GuideReagentGroupEmbed Group="Narcotics"/>
 
-## Pyrotechnics
+## Піротехніка
 <GuideReagentGroupEmbed Group="Pyrotechnic"/>
 
-## Toxins
+## Токсини
 <GuideReagentGroupEmbed Group="Toxins"/>
 
-## Foods
+## Їжа
 <GuideReagentGroupEmbed Group="Foods"/>
 
-## Botanical
+## Ботанічні
 <GuideReagentGroupEmbed Group="Botanical"/>
 
-## Biological
+## Біологічні
 <GuideReagentGroupEmbed Group="Biological"/>
 
-## Special
+## Спеціальні
 <GuideReagentGroupEmbed Group="Special"/>
 
-## Other
+## Інші
 <GuideReagentGroupEmbed Group="Unknown"/>
 </Document>

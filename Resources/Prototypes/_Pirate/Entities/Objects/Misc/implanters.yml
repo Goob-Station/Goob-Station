@@ -1,0 +1,15 @@
+- type: entity
+  id: DeathRattleImplanterInterdyne
+  name: "Імплантер сповіщення про смерть в канал Interdyne"
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: DeathRattleImplantInterdyne
+    
+- type: entity
+  id: RadioImplanterInterdyne
+  name: "Імплантер радіо Interdyne"
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: RadioImplantInterdyne

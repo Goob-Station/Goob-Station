@@ -58,3 +58,11 @@ reagent-effect-condition-guidebook-total-hunger = { $max ->
                     *[other] ціль має від {NATURALFIXED($min, 2)} до {NATURALFIXED($max, 2)} загального голоду
                  }
     }
+reagent-effect-condition-guidebook-breathing = метаболізатор { $isBreathing ->
+                [true] дихає нормально
+                *[false] задихається
+               }
+reagent-effect-condition-guidebook-internals = метаболізатор { $usingInternals ->
+                [true] використовує дихальний балон
+                *[false] дихає атмосферним повітрям
+               }

@@ -80,3 +80,4 @@ air-alarm-ui-thresholds-lower-warning-bound = Попередження нижч�
 air-alarm-ui-window-listing-title = {$address} : {-air-alarm-state-name(state:$state)}
 air-alarm-ui-thresholds-copy = Копіювати пороги на всі пристрої
 air-alarm-ui-thresholds-copy-tooltip = Копіює порогові значення датчиків цього пристрою на всі пристрої в цій вкладці повітряної тривоги.
+air-alarm-ui-window-mode-select-locked-label = [bold][color=red] Помилка селектора режимів! [/color][/bold]

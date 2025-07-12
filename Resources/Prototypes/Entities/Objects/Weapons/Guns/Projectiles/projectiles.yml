@@ -160,8 +160,8 @@
 # One bullet to bring them all into the darkness and bind them
 - type: entity
   id: BaseBullet
-  name: BaseBullet
-  description: If you can see this you're probably dead!
+  name: "BaseBullet"
+  description: "Якщо ви бачите це, ви, мабуть, мертві!"
   abstract: true
   components:
   - type: Reflective
@@ -231,7 +231,7 @@
 
 - type: entity
   id: BaseBulletPractice
-  name: base bullet practice
+  name: "практика з базовими кулями"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -246,7 +246,7 @@
 
 - type: entity
   id: BaseBulletIncendiary
-  name: base bullet incendiary
+  name: "базова куля запальна"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -264,7 +264,7 @@
 
 - type: entity
   id: BaseBulletAP
-  name: base bullet armor-piercing
+  name: "базова куля бронебійний"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -280,7 +280,7 @@
 
 - type: entity
   id: BaseBulletUranium
-  name: base bullet uranium
+  name: "базовий уран для куль"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -295,7 +295,7 @@
 
 # Energy projectiles
 - type: entity
-  name: taser bolt
+  name: "болт електрошокера"
   id: BulletTaser
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -418,7 +418,7 @@
     forceSound: true
 
 - type: entity
-  name: emitter bolt
+  name: "болт випромінювача"
   id: EmitterBolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -458,7 +458,7 @@
     lifetime: 3
 
 - type: entity
-  name: watcher bolt
+  name: "сторожовий болт"
   id: WatcherBolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -498,7 +498,7 @@
     heat: -15000 # Lavaland Change
 
 - type: entity
-  name: magmawing watcher bolt
+  name: "магнітний болт зі сторожовим замком"
   id: WatcherBoltMagmawing
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -521,7 +521,7 @@
     heat: 20000 # Lavaland Change
 
 - type: entity
-  name: icewing watcher bolt
+  name: "болт спостерігача крижаного крила"
   id: WatcherBoltIcewing
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -544,11 +544,50 @@
     heat: -30000 # Lavaland Change
 
 - type: entity
+  parent: BaseBullet
+  id: BasiliskRay
+  name: "промінь василіска"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: ice
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: null
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Opaque
+      fly-by: *flybyfixture
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Cold: 5
+  - type: TimedDespawn
+    lifetime: 3
+  - type: ChangeTemperatureOnCollide
+    heat: -50000
+
+- type: entity
   id: BulletKinetic
-  name: kinetic bolt
+  name: "кінетичний болт"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
+  description: "Не так вже й погано, але ви все одно не хочете, щоб він вас зачепив."
   components:
   - type: Reflective
     reflective:
@@ -601,7 +640,7 @@
   parent: BulletRocket
   id: BulletSingularityBusterRocket
   categories: [ HideSpawnMenu ]
-  name: singularity buster rocket
+  name: "ракета \"Руйнівник Сингулярності"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -618,10 +657,10 @@
 
 - type: entity
   id: BulletCharge
-  name: charge bolt
+  name: "зарядний болт"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Marks a target for additional damage.
+  description: "Позначає ціль для нанесення додаткової шкоди."
   components:
   - type: Reflective
     reflective:
@@ -656,7 +695,7 @@
 - type: entity
   parent: BaseBullet
   id: AnomalousParticleDelta
-  name: delta particles
+  name: "дельта-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -710,7 +749,7 @@
 - type: entity
   parent: AnomalousParticleDelta
   id: AnomalousParticleEpsilon
-  name: epsilon particles
+  name: "епсилон-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -740,7 +779,7 @@
 - type: entity
   parent: AnomalousParticleDelta
   id: AnomalousParticleZeta
-  name: zeta particles
+  name: "зета-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -770,7 +809,7 @@
 - type: entity
   parent: AnomalousParticleDelta
   id: AnomalousParticleOmegaStrong
-  name: omega particles
+  name: "омега-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -799,7 +838,7 @@
 - type: entity
   parent: AnomalousParticleDelta
   id: AnomalousParticleSigma
-  name: sigma particles
+  name: "сигма-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -817,7 +856,7 @@
 - type: entity
   parent: AnomalousParticleSigma
   id: AnomalousParticleSigmaStrong
-  name: sigma particles
+  name: "сигма-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: AnomalousParticle
@@ -826,7 +865,7 @@
 # Launcher projectiles (grenade / rocket)
 - type: entity
   id: BulletRocket
-  name: rocket
+  name: "ракета"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -848,7 +887,7 @@
 
 - type: entity
   id: BulletWeakRocket
-  name: weak rocket
+  name: "слабка ракета"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -870,7 +909,7 @@
 
 - type: entity
   id: BulletGrenadeBaton
-  name: baton grenade
+  name: "світлошумова граната"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -891,7 +930,7 @@
 
 - type: entity
   id: BulletGrenadeBlast
-  name: blast grenade
+  name: "бойова граната"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -908,7 +947,7 @@
 
 - type: entity
   id: BulletGrenadeFlash
-  name: flash grenade
+  name: "світлошумова граната"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -929,7 +968,7 @@
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity
   id: BulletGrenadeFrag
-  name: frag grenade
+  name: "осколкова граната"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -947,7 +986,7 @@
 - type: entity
   parent: BaseBulletTrigger
   id: BulletGrenadeCleanade
-  name: cleanade grenade round
+  name: "граната \"чистонада"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -976,7 +1015,7 @@
 
 - type: entity
   id: BulletGrenadeEMP
-  name: EMP rocket
+  name: "ЕМІ-ракета"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -997,7 +1036,7 @@
 
 - type: entity
   id: BulletCap
-  name: cap bullet
+  name: "капсюльна куля"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -1013,7 +1052,7 @@
 
 - type: entity
   id: BulletAcid
-  name: acid spit
+  name: "кислотна слина"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -1030,7 +1069,7 @@
 
 - type: entity
   id: BulletWaterShot
-  name: water
+  name: "вода"
   categories: [ HideSpawnMenu ]
   components:
   - type: Clickable
@@ -1072,8 +1111,19 @@
   - type: VaporVisuals
 
 - type: entity
+  id: BulletHivebot
+  name: "куля хайвбота"
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+
+- type: entity
   id: BulletCannonBall
-  name: cannonball
+  name: "гарматне ядро"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -1095,7 +1145,7 @@
 
 - type: entity
   id: GrapplingHook
-  name: grappling hook
+  name: "гак для захоплення"
   categories: [ HideSpawnMenu ]
   components:
     - type: EmbeddableProjectile
@@ -1246,7 +1296,7 @@
     forceSound: true
 
 - type: entity
-  name: tesla gun lightning
+  name: "блискавка з гармати Тесли"
   id: TeslaGunBullet
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -1281,7 +1331,7 @@
     muzzleFlash: null
 
 - type: entity
-  name: laser bolt
+  name: "лазерний болт"
   id: BulletLaser
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -1318,7 +1368,7 @@
         Heat: 13
 
 - type: entity
-  name: wide laser barrage
+  name: "широкий лазерний залп"
   id: BulletLaserSpread
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
@@ -1329,7 +1379,7 @@
     spread: 30
 
 - type: entity
-  name: narrow laser barrage
+  name: "вузький лазерний промінь"
   id: BulletLaserSpreadNarrow
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
@@ -1340,7 +1390,7 @@
     spread: 10
 
 - type: entity
-  name: disabling laser barrage
+  name: "знерухомлюючий лазерний залп"
   id: BulletDisablerSmgSpread
   categories: [ HideSpawnMenu ]
   parent: BulletDisablerSmg

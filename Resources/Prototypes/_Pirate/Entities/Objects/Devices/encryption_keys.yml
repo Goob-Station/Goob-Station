@@ -1,0 +1,36 @@
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyInterdyne
+  name: "Криптографічний ключ Interdyne"
+  description: "Здається, цей ключ належить робітнику корпорації Interdyne"
+  components:
+  - type: EncryptionKey
+    channels:
+    - Interdyne
+    defaultChannel: Interdyne
+  - type: MetaData
+  - type: Sprite
+    layers:
+      - sprite: Objects/Devices/encryption_keys.rsi
+        state: crypt_silver
+      - sprite: _Pirate/Objects/Devices/encryption_keys.rsi
+        state: interdyne_green
+
+#Приватні ключі. Не використовуються для лодаута!! | Потрібні для гост ролів або івентів
+- type: entity 
+  parent: EncryptionKey
+  id: EncryptionKeyInterdynePrivat
+  name: "Ключ приватного каналу Interdyne"
+  description: "Здається, цей ключ належить корпорації Interdyne, його краще не чіпати"
+  components:
+  - type: EncryptionKey
+    channels:
+    - Interdyne
+    - InterdynePrivat
+    defaultChannel: InterdynePrivat
+  - type: Sprite
+    layers:
+      - sprite: Objects/Devices/encryption_keys.rsi
+        state: crypt_red
+      - sprite: _Pirate/Objects/Devices/encryption_keys.rsi
+        state: interdyne_evil

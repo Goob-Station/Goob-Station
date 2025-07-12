@@ -14,7 +14,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: lightning
+  name: "блискавка"
   id: BaseLightning
   abstract: true
   components:
@@ -45,7 +45,7 @@
       - HideContextMenu
 
 - type: entity
-  name: lightning
+  name: "блискавка"
   id: Lightning
   parent: BaseLightning
   categories: [ HideSpawnMenu ]
@@ -54,7 +54,7 @@
       canArc: true
 
 - type: entity
-  name: spooky lightning
+  name: "моторошна блискавка"
   id: LightningRevenant
   parent: BaseLightning
   categories: [ HideSpawnMenu ]
@@ -81,7 +81,7 @@
       shockDamage: 40
 
 - type: entity
-  name: charged lightning
+  name: "заряджена блискавка"
   id: ChargedLightning
   parent: BaseLightning
   categories: [ HideSpawnMenu ]
@@ -100,7 +100,7 @@
       lightningPrototype: ChargedLightning
 
 - type: entity
-  name: lightning
+  name: "блискавка"
   id: Spark
   parent: BaseLightning
   categories: [ HideSpawnMenu ]
@@ -127,7 +127,7 @@
       - HideContextMenu
 
 - type: entity
-  name: supercharged lightning
+  name: "суперзаряджена блискавка"
   id: SuperchargedLightning
   parent: ChargedLightning
   categories: [ HideSpawnMenu ]
@@ -153,7 +153,7 @@
       castShadows: false
 
 - type: entity
-  name: hypercharged lightning
+  name: "гіперзаряджена блискавка"
   id: HyperchargedLightning
   parent: ChargedLightning
   categories: [ HideSpawnMenu ]

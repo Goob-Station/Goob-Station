@@ -1,7 +1,10 @@
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -11,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitInquisitory
-  name: Inquisitory hardsuit control unit # Goob edit
-  description: The main controller for a Inquisitory hardsuit. # Goob edit
+  name: "блок керування інквізиторським скафандром" # Goob edit
+  description: "Основний контролер для інквізиторського скафандра." # Goob edit
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/inquisitory.rsi
@@ -34,29 +37,31 @@
       grid:
         - 0,0,10,3
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         back:
         - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsInquisitory
-  name: Inquisitory hardsuit gauntlets # Goob edit
-  description: A pair of gauntlets made for the Inquisitory hardsuit. # Goob edit
+  name: "інквізиторські рукавиці від скафандру" # Goob edit
+  description: "Пара рукавиць, створених для інквізиторського скафандра." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/inquisitory.rsi
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         gloves:
         - state: equipped-HAND-sealed
 
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetInquisitory
-  name: Inquisitory hardsuit helmet # Goob edit
-  description: A state-of-the-art helmet designed by NanoTrasen for the Inquisitory hardsuit. It includes a built-in HUD. # Goob edit
+  name: "інквізиторський шолом від скафандру" # Goob edit
+  description: "Сучасний шолом, розроблений NanoTrasen для інквізиторського скафандра. Має вбудований HUD." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -88,17 +93,18 @@
     - type: PointLight
       color: "#FFDF00"
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         head:
-          - state: equipped-HEAD-sealed
-          - state: equipped-HEAD-sealed-unshaded
-            shader: unshaded
+        - state: equipped-HEAD-sealed
+        - state: equipped-HEAD-sealed-unshaded
+          shader: unshaded
 
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateInquisitory
-  name: Inquisitory hardsuit chestplate # Goob edit
-  description: A state of the art chestplate designed by NanoTrasen for the Inquisitory hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
+  name: "інквізиторський нагрудник від скафандру" # Goob edit
+  description: "Сучасний нагрудник, розроблений NanoTrasen для інквізиторського скафандра. Він включає силові сервоприводи для зменшення навантаження від обладнання." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -122,9 +128,10 @@
       walkModifier: 0.95
       sprintModifier: 0.75
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         outerClothing:
-          - state: equipped-OUTERCLOTHING-sealed
+        - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaResistance
       damageCoefficient: 0.5 # 50%
     - type: FireProtection
@@ -133,8 +140,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsInquisitory
-  name: Inquisitory hardsuit boots # Goob edit
-  description: A state-of-the-art pair of magboots for the Inquisitory hardsuit. # Goob edit
+  name: "інквізиторські черевики від скафандру" # Goob edit
+  description: "Сучасна пара магнітних черевиків для інквізиторського скафандра." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
@@ -144,9 +151,10 @@
       tags:
         - WhitelistChameleon
     - type: SealableClothingVisuals
-      visualLayers:
+      spriteLayer: sealed
+      clothingVisuals:
         shoes:
-          - state: equipped-FEET-sealed
+        - state: equipped-FEET-sealed
     - type: ItemToggle
     - type: ToggleClothing
       action: ActionToggleMagboots

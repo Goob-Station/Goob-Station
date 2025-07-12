@@ -161,7 +161,8 @@
 - type: entity
   save: false
   abstract: true
-  id: MobSiliconBase
+  parent: BaseMob
+  id: MobRobotic
   components:
   - type: LagCompensation
   - type: Reactive
@@ -182,12 +183,58 @@
         - MobMask
         layer:
         - MobLayer
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 4
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
+  - type: MovedByPressure
+  - type: Physics
+    bodyType: KinematicController # Same for all inheritors
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - Electrocution
+  - type: Repairable
+    doAfterDelay: 8
+    fuelCost: 15
+  - type: Pullable
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Unimplantable
+    - SiliconMob
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
+    showOverlays: false
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+  - type: TypingIndicator
+    proto: robot
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  - type: Emoting
+  - type: ZombieImmune
+  - type: ProtectedFromStepTriggers
+  - type: NoSlip
+  - type: Insulated
+
+# Used for bots
+- type: entity
+  save: false
+  abstract: true
+  parent: MobRobotic
+  id: MobSiliconBase
+  components:
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
@@ -215,39 +262,11 @@
     - Heat
     - Shock
     locPrefix: silicon
-  - type: MovedByPressure
-  - type: Physics
-    bodyType: KinematicController # Same for all inheritors
-  - type: StatusEffects
-    allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
-    - Stutter
-    - Electrocution
   - type: NameIdentifier
-    group: GenericNumber
-  - type: Repairable
-    doAfterDelay: 8
-    fuelCost: 15
-  - type: Pullable
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - Bot
-    - Unimplantable
-    - SiliconMob
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      120: Dead
-    stateAlertDict:
-      Alive: BorgHealth
-    showOverlays: false
+    group: Silicon
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 4
   - type: Stamina
     critThreshold: 120
   - type: Destructible
@@ -267,27 +286,27 @@
     context: "human"
   - type: InputMover
   - type: MobMover
-  - type: Body
-    bodyType: Simple
-    prototype: Bot
   - type: GuideHelp
     guides:
     - Robotics
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Bot
+    - Unimplantable
+    - SiliconMob
+  - type: Body
+    bodyType: Simple
+    prototype: Bot
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai #couldn't decide if this should be borg or pai sounds so I flipped a coin.
-  - type: TypingIndicator
-    proto: robot
-  - type: ZombieImmune
-  - type: ProtectedFromStepTriggers
-  - type: NoSlip
-  - type: Insulated
 
 - type: entity
   parent: MobSiliconBase
   id: MobFireBot
-  name: firebot
-  description: A little fire extinguishing bot. He looks rather anxious.
+  name: "вогнебот"
+  description: "Маленький бот-вогнегасник. Виглядає досить стривоженим."
   components:
   - type: Sprite
     sprite: Mobs/Silicon/Bots/firebot.rsi
@@ -333,8 +352,8 @@
 - type: entity
   parent: MobSiliconBase
   id: MobHonkBot
-  name: honkbot
-  description: Horrifying.
+  name: "гудкобот"
+  description: "Жахливо."
   components:
   - type: SpamEmitSound
     minInterval: 2
@@ -402,8 +421,8 @@
 - type: entity
   parent: MobHonkBot
   id: MobJonkBot
-  name: jonkbot
-  description: Horrifying.
+  name: "сміхобот"
+  description: "Жахливо."
   components:
   - type: SpamEmitSound
     sound:
@@ -443,8 +462,8 @@
 - type: entity
   parent: MobSiliconBase
   id: MobCleanBot
-  name: cleanbot
-  description: The creep of automation now threatening space janitors.
+  name: "чистко-бот"
+  description: "Повзуча автоматизація тепер загрожує космічним прибиральникам."
   components:
   - type: Sprite
     sprite: Mobs/Silicon/Bots/cleanbot.rsi
@@ -497,8 +516,8 @@
   - ShowMedicalIcons
   - StripableInventoryBase
   id: MobMedibot
-  name: medibot
-  description: No substitute for a doctor, but better than nothing.
+  name: "медико-бот"
+  description: "Це не замінить лікаря, але краще, ніж нічого."
   components:
   - type: Medibot
     treatments:
@@ -568,8 +587,8 @@
   - MobSiliconBase
   - StripableInventoryBase
   id: MobMimeBot
-  name: mimebot
-  description: Why not give the mimebot a friendly wave?
+  name: "мім-бот"
+  description: "Чому б не помахати мім-боту дружелюбно?"
   components:
   - type: Sprite
     layers:
@@ -599,8 +618,8 @@
 - type: entity
   parent: MobSiliconBase
   id: MobSupplyBot
-  name: supplybot
-  description: Delivers cargo!
+  name: "supplybot"
+  description: "Доставляє вантаж!"
   components:
   - type: Sprite
     sprite: Mobs/Silicon/Bots/supplybot.rsi
@@ -666,3 +685,5 @@
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+  - type: Puller
+    needsHands: false

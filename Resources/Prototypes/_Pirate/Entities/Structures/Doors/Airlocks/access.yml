@@ -1,0 +1,120 @@
+- type: entity
+  parent: AirlockInterdyne
+  id: AirlockInterdyneLocked
+  suffix: Interdyne, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIP ]
+      
+- type: entity
+  parent: AirlockInterdyne
+  id: AirlockInterdyneCommandLocked
+  suffix: InterdyneCommand, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPCommand ]
+      
+- type: entity
+  parent: AirlockInterdyne
+  id: AirlockInterdyneOfficerLocked
+  suffix: InterdyneOfficer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPOfficer ]
+      
+#Glass
+
+- type: entity
+  parent: AirlockInterdyneGlass
+  id: AirlockInterdyneGlassLocked
+  suffix: Interdyne, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIP ]
+      
+- type: entity
+  parent: AirlockInterdyneGlass
+  id: AirlockInterdyneCommandGlassLocked
+  suffix: InterdyneCommand, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPCommand ]
+      
+- type: entity
+  parent: AirlockInterdyneGlass
+  id: AirlockInterdyneOfficerGlassLocked
+  suffix: InterdyneOfficer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPOfficer ]
+# HighSec
+
+- type: entity
+  parent: HighSecDoor
+  id: AirlockInterdyneHighSecLocked
+  suffix: Interdyne, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIP ]
+
+- type: entity
+  parent: HighSecDoor
+  id: AirlockInterdyneCommandHighSecLocked
+  suffix: InterdyneCommand, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPCommand ]
+      
+- type: entity
+  parent: HighSecDoor
+  id: AirlockInterdyneOfficerHighSecLocked
+  suffix: InterdyneOfficer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPOfficer ]
+      
+# External Syndicate Dune
+- type: entity
+  parent: AirlockShuttleSyndicate
+  id: AirlockExternalShuttleInterdyneLocked
+  suffix: External, Docking, Interdyne, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIP ]
+      
+- type: entity
+  parent: AirlockShuttleSyndicate
+  id: AirlockExternalShuttleInterdyneCommandLocked
+  suffix: External, Docking, Interdyne, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPCommand ]
+      
+- type: entity
+  parent: AirlockExternalGlassShuttleSyndicateLocked
+  id: AirlockExternalGlassShuttleInterdyneLocked
+  suffix: Interdyne, Locked, Glass
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIP ]
+      
+- type: entity
+  parent: AirlockExternalGlassShuttleSyndicateLocked
+  id: AirlockExternalGlassShuttleInterdyneCommandLocked
+  suffix: Interdyne, Locked, Glass
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsIPCommand ]

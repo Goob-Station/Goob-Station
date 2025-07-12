@@ -1,0 +1,11 @@
+- type: job
+  id: Interdyne
+  name: "оперативник Interdyne"
+  description: "виконуйте завдання, поставлені корпорацією Interdyne, використовуючи спеціалізовані навички та обладнання"
+  icon: "JobIconInterdyne"
+  canBeAntag: false
+  playTimeTracker: JobInterdyne
+  access:
+    - Maintenance
+    - External
+    - Interdyne

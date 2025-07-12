@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -13,8 +14,8 @@
   id: CrateCybersunDarkGygaxBundle
   suffix: Filled
   parent: CrateSyndicate
-  name: Cybersun gygax bundle
-  description: Contains a set of Cybersan light armored mechs.
+  name: "Кіберпан-гігакс пучок"
+  description: "Містить набір легких броньованих мехів \"Кіберсан\"."
   components:
   - type: StorageFill
     contents:
@@ -28,8 +29,8 @@
   id: CrateCybersunMaulerBundle
   suffix: Filled
   parent: CrateSyndicate
-  name: Cybersun mauler bundle
-  description: Contains a set of Cybersan heavy armored mechs.
+  name: "Комплект маулерів Cybersun"
+  description: "Містить набір важких броньованих мехів \"Кіберсан\"."
   components:
   - type: StorageFill
     contents:
@@ -43,8 +44,8 @@
   id: CrateSyndicateBulkMosin
   suffix: Filled
   parent: CrateSyndicate
-  name: Syndicate bulk rifle crate
-  description: Just use more rifles, comrade.
+  name: "Ящик з гвинтівками синдикату"
+  description: "Просто використовуйте більше гвинтівок, товаришу."
   components:
     - type: StorageFill
       contents:
@@ -58,8 +59,8 @@
 - type: entity
   parent: CrateSyndicate
   id: CrateSyndicateDreadnought
-  name: cybersun dreadnought bundle
-  description: "An advanced cybersun dreadnought bundle."
+  name: "комплект дредноута кіберсонця"
+  description: "Просунутий комплект дредноута кіберсонця."
   components:
   - type: StorageFill
     contents:
@@ -72,8 +73,8 @@
 - type: entity
   id: CratePizzaParty
   parent: CratePlastic
-  name: disaster pizza delivery
-  description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+  name: "аварійна доставка піци"
+  description: "В крайньому випадку, коли все інше зазнало невдачі, знайдіть розраду в тому, що більше піци вирішує все. Включає 16 піц."
   components:
   - type: StorageFill
     contents:     #to avoid them from being easily identifiable (8 pizza bomb + 8 regular pizzas)
@@ -105,8 +106,8 @@
 - type: entity
   parent: [ BaseStructureDynamic, BaseSetSelector, BaseSyndicateContraband ]
   id: CrateSyndicateUndetermined # Not actually a crate, just looks like one
-  name: undetermined Syndicate bundle crate
-  description: Contains a Syndicate bundle. Which one is yet to be determined.
+  name: "невизначений ящик з набором Синдикату"
+  description: "Містить набір Синдикату. Який саме - ще не визначено."
   components:
   - type: Icon
     sprite: Structures/Storage/Crates/syndicate.rsi
@@ -127,6 +128,8 @@
     - SyndicateFluclearSet
     - SyndicateFriendshipSet
     - SyndicateCarpSet
+    - SyndicateSusSet
+    - SyndicateBuilderSet
     setsToSelect: 3
     spawnedStoragePrototype: CrateSyndicate
     spawnedStorageContainer: entity_storage

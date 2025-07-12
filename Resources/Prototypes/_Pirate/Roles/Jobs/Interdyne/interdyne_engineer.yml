@@ -1,0 +1,12 @@
+- type: job
+  id: InterdyneEngineer
+  name: "інженер Interdyne"
+  description: "підтримуйте та ремонтуйте обладнання та системи Interdyne, щоб забезпечити безперебійну роботу"
+  icon: "JobIconInterdyneEngineer"
+  canBeAntag: false
+  playTimeTracker: JobInterdyneEngineer
+  access:
+    - Maintenance
+    - External
+    - Interdyne
+    - InterdyneCommand

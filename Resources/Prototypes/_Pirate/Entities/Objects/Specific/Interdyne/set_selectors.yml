@@ -1,0 +1,160 @@
+- type: entity
+  id: InterdyneSecureUndeterminedWeapon
+  name: "Планшет підтримки служби безпеки Interdyne"
+  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPSpecialForces
+    - IPAdvancedDetentionTools
+    - IPESword
+    - IPAdvancedProtect
+    - IPHitman
+    - IPCQCManual
+    maxSelectedSets: 2
+
+
+- type: entity
+  id: InterdyneMedUndeterminedWeapon
+  name: "Планшет підтримки медичного персоналу Interdyne"
+  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPFullMedicalKit
+    - IPSuperKit
+    - IPStimKit
+    - IPSurgeon
+    - IPMedicalGlasses
+    - IPMedicalBeamGunSyndicate
+    maxSelectedSets: 2
+
+- type: entity
+  id: InterdyneEngUndeterminedWeapon
+  name: "Планшет підтримки інженерного персоналу Interdyne"
+  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPClothingBeltCE
+    - IPNutrimentImplanter
+    maxSelectedSets: 1
+
+- type: entity
+  id: InterdynePilotUndeterminedWeapon
+  name: "Планшет підтримки пілота Interdyne"
+  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPHitman
+    - IPNutrimentImplanter
+    - IPPilot
+    - IPESword
+    maxSelectedSets: 2
+    
+- type: entity
+  id: InterdynePersonalUndeterminedWeapon
+  name: "Планшет підтримки персоналу Interdyne"
+  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPNutrimentImplanter
+    - IPAdmin
+    - IPBeltUtility
+    maxSelectedSets: 2
+    
+- type: entity
+  id: InterdyneServiceUndeterminedWeapon
+  name: "Планшет підтримки сервісного персоналу Interdyne"
+  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPNutrimentImplanter
+    - IPAdmin
+    - IPChef
+    - IPJanitor
+    maxSelectedSets: 2
+    
+- type: entity
+  id: InterdyneShaftMinersUndeterminedWeapon
+  name: "Планшет підтримки шахтарського персоналу Interdyne"
+  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPNutrimentImplanter
+    - IPMinerAdvenced
+    - IPLuxuryMedipen
+    - IPPickaxe
+    maxSelectedSets: 2
+    
+- type: entity
+  id: InterdyneDeputyUndeterminedWeapon
+  name: "Планшет підтримки заступника офіцера Interdyne"
+  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPDeputy
+    - IPCyberpunk
+    - IPSuperKit
+    - IPAdvancedProtect
+    - IPAdvancedDetentionTools
+    - IPSpecialForces
+    - IPMedicalBeamGunSyndicate
+    maxSelectedSets: 3
+    
+- type: entity
+  id: InterdyneOfficerUndeterminedWeapon
+  name: "Планшет підтримки офіцера Interdyne"
+  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/uplinkinterdyne.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - IPOfficer
+    - IPCyberpunk
+    - IPSuperKit
+    - IPAdvancedProtect
+    - IPAdvancedDetentionTools
+    - IPSpecialForces
+    - IPMedicalBeamGunSyndicate
+    maxSelectedSets: 3

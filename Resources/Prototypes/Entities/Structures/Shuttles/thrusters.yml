@@ -18,16 +18,14 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: BaseThruster
   parent: BaseStructureDynamic
-  name: thruster
-  description: A thruster that allows a shuttle to move.
+  name: "двигун"
+  description: "Двигун, який дозволяє шатлу рухатися."
   abstract: true
   components:
     - type: Fixtures
@@ -71,7 +69,7 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 300  # Considering we need a lot of thrusters didn't want to make an individual one too tanky # Goobstation - 100->300
+          damage: 300  # Changed 100->300 because impact damage is real
         behaviors:
           - !type:DoActsBehavior
             acts: ["Destruction"]
@@ -88,7 +86,7 @@
 
 - type: entity
   id: Thruster
-  name: thruster
+  name: "двигун"
   parent: [ BaseThruster, ConstructibleMachine ]
   components:
   - type: Machine
@@ -97,13 +95,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600 # Goobstation
+        damage: 600
       behaviors:
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 300 # Goobstation
+        damage: 300
       behaviors:
         - !type:DoActsBehavior
           acts: ["Destruction"]
@@ -165,8 +163,8 @@
 - type: entity
   id: Gyroscope
   parent: [ BaseThruster, ConstructibleMachine ]
-  name: gyroscope
-  description: Increases the shuttle's potential angular rotation.
+  name: "гіроскоп"
+  description: "Збільшує потенційний кутовий поворот шатла."
   components:
   - type: Thruster
     thrusterType: Angular
@@ -267,8 +265,8 @@
 - type: entity
   id: ThrusterShuttleEvac # Can't be unanchored and hard to destroy
   parent: BaseStructure
-  name: thruster
-  description: A thruster that allows a shuttle to move.
+  name: "двигун"
+  description: "Двигун, який дозволяє шатлу рухатися."
   suffix: Evac shuttle, unanchorable
   components:
     - type: Fixtures

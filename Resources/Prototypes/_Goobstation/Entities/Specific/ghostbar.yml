@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
@@ -6,8 +7,8 @@
 
 - type: entity
   id: PlasticPit
-  name: plastic pit
-  description: Has plastic inside. Don't ask where from.
+  name: "пластикова яма"
+  description: "Всередині є пластик. Не питайте звідки."
   suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
@@ -71,8 +72,8 @@
 - type: entity
   id: PlasteelPit
   parent: PlasticPit
-  name: plasteel pit
-  description: Has plasteel inside. Don't ask where from.
+  name: "пласталева яма"
+  description: "Всередині є пласталь. Не питайте звідки."
   components:
   - type: ItemMiner
     proto: SheetPlasteel
@@ -80,8 +81,8 @@
 - type: entity
   id: Omnilathe
   parent: Autolathe
-  name: omnilathe
-  description: Produces just about everything researchable and departmental.
+  name: "омнілат"
+  description: "Виробляє майже все, що можна дослідити та що належить до відділів."
   suffix: DO NOT MAP
   components:
   - type: Lathe
@@ -115,7 +116,8 @@
     - Modsuits
     - PowerCages
     - BorgModulesGoob
-    - Cybernetics
+    - BasicCybernetics
+    - AdvancedCybernetics
     # secfab - real guns and mech weapons 1984'd
     - SecurityEquipmentStatic
     - SecurityEquipmentStaticGoob

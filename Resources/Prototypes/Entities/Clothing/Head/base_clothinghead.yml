@@ -124,9 +124,9 @@
           Quantity: 10
   - type: Tag
     tags:
-      - ClothMade
-      - WhitelistChameleon
-      - DroneUsable # Goobstation
+    - ClothMade
+    - WhitelistChameleon
+    - DroneUsable # Goobstation
 
 - type: entity
   abstract: true
@@ -138,16 +138,20 @@
     spawned:
     - id: MaterialCloth1
       amount: 1
+  - type: PhysicalComposition # 50% of the amount of cloth you'd obtain upon butchering
+    materialComposition:
+      Cloth: 50
   - type: Tag
     tags:
-      - ClothMade
-      - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
 
 - type: entity
   abstract: true
   parent: ClothingHeadBase
   id: ClothingHeadLightBase
-  name: base helmet with light
+  name: "базовий шолом з підсвічуванням"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -206,8 +210,11 @@
   abstract: true
   parent: ClothingHeadBase
   id: ClothingHeadEVAHelmetBase
-  name: base space helmet
+  name: "базовий космічний шолом"
   components:
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [ears, eyes, mask]
   - type: BreathMask
   - type: Item
     size: Normal
@@ -240,9 +247,12 @@
   abstract: true
   # No parent since we aren't actually an item.
   id: ClothingHeadHardsuitBase
-  name: base hardsuit helmet
+  name: "базовий шолом скафандру"
   categories: [ HideSpawnMenu ]
   components:
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [ears, eyes, mask]
   - type: BreathMask
   - type: Sprite
     state: icon # default state used by most inheritors
@@ -293,9 +303,12 @@
   abstract: true
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHardsuitWithLightBase
-  name: base hardsuit helmet with light
+  name: "базовий шолом скафандру з підсвічуванням"
   categories: [ HideSpawnMenu ]
   components:
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [ears, eyes, mask]
   - type: Sprite
     layers:
     - state: icon
@@ -344,8 +357,8 @@
 - type: entity
   abstract: true
   id: ClothingHeadHatHoodWinterBase
-  name: base winter coat hood
-  description: A hood, made to keep your head warm.
+  name: "капюшон базового зимового пальто"
+  description: "Капюшон, створений для того, щоб тримати голову в теплі."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

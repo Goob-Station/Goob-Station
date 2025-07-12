@@ -32,10 +32,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: improvised pneumatic cannon
+  name: "імпровізована пневматична гармата"
   parent: [BaseStorageItem, BaseMinorContraband]
   id: WeaponImprovisedPneumaticCannon
-  description: Improvised using nothing but a pipe, some zipties, and a pneumatic cannon. Doesn't accept tanks without enough gas.
+  description: "Імпровізована з труби, кількох застібок-блискавок і пневматичної гармати. Не приймає танки без достатньої кількості бензину."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/pneumatic_cannon.rsi
@@ -98,10 +98,10 @@
 
 
 - type: entity
-  name: pie cannon
+  name: "пирогова гармата"
   parent: BaseStorageItem
   id: LauncherCreamPie
-  description: Load cream pie for optimal results.
+  description: "Завантажте кремовий пиріг для оптимального результату."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/pie_cannon.rsi

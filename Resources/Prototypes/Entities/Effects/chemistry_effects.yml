@@ -80,7 +80,7 @@
 - type: entity
   parent: BaseFoam
   id: Smoke
-  name: smoke
+  name: "дим"
   categories: [ HideSpawnMenu ]
   components:
   - type: Occluder
@@ -96,7 +96,7 @@
 - type: entity
   parent: BaseFoam
   id: Foam
-  name: foam
+  name: "піна"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -130,7 +130,7 @@
 
 - type: entity
   id: MetalFoam
-  name: metal foam
+  name: "металева піна"
   categories: [ HideSpawnMenu ]
   parent: Foam
   components:
@@ -156,7 +156,7 @@
 
 - type: entity
   id: IronMetalFoam
-  name: iron metal foam
+  name: "залізна піна"
   categories: [ HideSpawnMenu ]
   parent: MetalFoam
   components:
@@ -165,7 +165,7 @@
 
 - type: entity
   id: AluminiumMetalFoam
-  name: aluminium metal foam
+  name: "алюмінієва піна"
   categories: [ HideSpawnMenu ]
   parent: MetalFoam
   components:
@@ -174,7 +174,7 @@
 
 - type: entity
   id: BaseFoamedMetal
-  name: base foamed metal
+  name: "основа зі спіненого металу"
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -229,8 +229,8 @@
 
 - type: entity
   id: FoamedIronMetal
-  name: foamed iron metal
-  description: "For sealing hull breaches."
+  name: "метал з спіненого заліза"
+  description: "Для герметизації пробоїн в корпусі."
   parent: BaseFoamedMetal
   components:
   - type: Sprite
@@ -251,8 +251,8 @@
 
 - type: entity
   id: FoamedAluminiumMetal
-  name: foamed aluminium metal
-  description: "For sealing hull breaches."
+  name: "алюмінієва піна"
+  description: "Залишки розрідженої піни від гранати з алюмінієвою піною. Легко руйнується."
   parent: BaseFoamedMetal
   components:
   - type: Sprite
@@ -270,6 +270,17 @@
       state: metal_foam-north
     - map: [ "enum.EdgeLayer.West" ]
       state: metal_foam-west
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1 # Intentionally very weak to encourage speedy repair, think of it as thin webbing
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: ReactionFlash
@@ -289,7 +300,7 @@
 - type: entity
   parent: BaseFoam
   id: Resin
-  name: resin
+  name: "смола"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

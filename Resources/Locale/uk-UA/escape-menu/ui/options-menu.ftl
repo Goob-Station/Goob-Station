@@ -24,7 +24,7 @@ ui-options-general-accessibility = Доступність
 ## Audio menu
 
 ui-options-master-volume = Основна гучність:
-ui-options-midi-volume = MIDI (Інструменти) Гучність:
+ui-options-midi-volume = Гучність MIDI (Інструментів):
 ui-options-ambient-music-volume = Гучність атмосферної музики:
 ui-options-ambience-volume = Гучність оточення:
 ui-options-lobby-volume = Гучність лобі та закінчення раунду:
@@ -69,12 +69,12 @@ ui-options-hud-theme = Тема HUD:
 ui-options-hud-theme-default = За замовчуванням
 ui-options-hud-theme-plasmafire = Плазмовий Вогонь
 ui-options-hud-theme-slimecore = Слаймкор
-ui-options-hud-theme-clockwork = Заводний механізм
+ui-options-hud-theme-clockwork = Заводний Механізм
 ui-options-hud-theme-retro = Ретро
 ui-options-hud-theme-minimalist = Мінімалістичний
 ui-options-hud-theme-ashen = Попеляста
 ui-options-vp-stretch = Розтягнути зображення для відповідності вікну гри
-ui-options-vp-scale = Фіксований масштаб вікна: x{ $scale }
+ui-options-vp-scale = Фіксований масштаб вікна: x
 ui-options-vp-integer-scaling = Використовувати цілочисельне масштабування (може спричинити появу чорних смуг/обрізання)
 ui-options-vp-integer-scaling-tooltip = Якщо ця опція увімкнена, вікно перегляду буде масштабуватися,
                                         використовуючи ціле значення за певної роздільної здатності.
@@ -82,9 +82,9 @@ ui-options-vp-integer-scaling-tooltip = Якщо ця опція увімкне�
                                         що чорні полоси будуть у верхній/нижній частині екрана або
                                         що частина вікна не буде видна.
 ui-options-vp-low-res = Зображення з низькою роздільною здатністю
-ui-options-parallax-low-quality = Паралакс Низької Якості (фон)
+ui-options-parallax-low-quality = Низька Якість Паралаксу (фон)
 ui-options-fps-counter = Показати лічильник FPS
-ui-options-vp-width = Ширина вікна: { $width }
+ui-options-vp-width = Ширина вікна:
 ui-options-hud-layout = Схема HUD:
 
 ## Controls menu
@@ -391,3 +391,15 @@ ui-options-admin-enable-overlay-starting-job = Показувати початк
 ui-options-admin-overlay-merge-distance = Відстань об'єднання стопок
 ui-options-admin-overlay-ghost-fade-distance = Відстань згасання оверлею привида від миші
 ui-options-admin-overlay-ghost-hide-distance = Відстань приховування оверлею привида від миші
+
+ui-options-function-swap-hands-reverse = Поміняти руки (інший напрямок)
+ui-options-function-hotbar-shift1 = Слот швидкого доступу Shift+1
+ui-options-function-hotbar-shift2 = Слот швидкого доступу Shift+2
+ui-options-function-hotbar-shift3 = Слот швидкого доступу Shift+3
+ui-options-function-hotbar-shift4 = Слот швидкого доступу Shift+4
+ui-options-function-hotbar-shift5 = Слот швидкого доступу Shift+5
+ui-options-function-hotbar-shift6 = Слот швидкого доступу Shift+6
+ui-options-function-hotbar-shift7 = Слот швидкого доступу Shift+7
+ui-options-function-hotbar-shift8 = Слот швидкого доступу Shift+8
+ui-options-function-hotbar-shift9 = Слот швидкого доступу Shift+9
+ui-options-function-hotbar-shift0 = Слот швидкого доступу Shift+0

@@ -126,8 +126,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesBoxingRed
-  name: red boxing gloves
-  description: Red gloves for competitive boxing.
+  name: "червоні боксерські рукавички"
+  description: "Червоні рукавички для спортивного боксу."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Boxing/boxingred.rsi
@@ -158,8 +158,8 @@
 - type: entity
   parent: ClothingHandsGlovesBoxingRed
   id: ClothingHandsGlovesBoxingBlue
-  name: blue boxing gloves
-  description: Blue gloves for competitive boxing.
+  name: "сині боксерські рукавички"
+  description: "Сині рукавички для спортивного боксу."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Boxing/boxingblue.rsi
@@ -174,8 +174,8 @@
 - type: entity
   parent: ClothingHandsGlovesBoxingRed
   id: ClothingHandsGlovesBoxingGreen
-  name: green boxing gloves
-  description: Green gloves for competitive boxing.
+  name: "зелені боксерські рукавички"
+  description: "Зелені рукавички для спортивного боксу."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Boxing/boxinggreen.rsi
@@ -190,8 +190,8 @@
 - type: entity
   parent: ClothingHandsGlovesBoxingRed
   id: ClothingHandsGlovesBoxingYellow
-  name: yellow boxing gloves
-  description: Yellow gloves for competitive boxing.
+  name: "жовті боксерські рукавички"
+  description: "Жовті рукавички для змагального боксу."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Boxing/boxingyellow.rsi
@@ -221,8 +221,8 @@
 - type: entity
   parent: [ClothingHandsBase, BaseCommandContraband]
   id: ClothingHandsGlovesCaptain
-  name: captain gloves
-  description: Regal blue gloves, with a nice gold trim. Swanky.
+  name: "капітанські рукавички"
+  description: "Королівські сині рукавички, з красивою золотою обробкою. Шикарні."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/captain.rsi
@@ -244,8 +244,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesHop
-  name: papercut-proof gloves
-  description: Perfect for dealing with paperwork and matters with bureaucracy.
+  name: "захисні від порізів паперу рукавички"
+  description: "Ідеально підходить для роботи з документами та вирішення питань з бюрократією."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/hop.rsi
@@ -266,8 +266,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesLatex
-  name: latex gloves
-  description: Thin sterile latex gloves. Basic PPE for any doctor.
+  name: "латексні рукавички"
+  description: "Тонкі стерильні латексні рукавички. Базовий ЗІЗ для будь-якого лікаря."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/latex.rsi
@@ -280,8 +280,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesNitrile
-  name: nitrile gloves
-  description: High-quality nitrile gloves. Expensive medical PPE.
+  name: "нітрилові рукавички"
+  description: "Якісні нітрилові рукавички. Дорогі медичні ЗІЗ."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/nitrile.rsi
@@ -294,8 +294,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesLeather
-  name: botanist's leather gloves
-  description: These leather gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin. They're also quite warm.
+  name: "шкіряні рукавички ботаніка"
+  description: "Ці шкіряні рукавички захищають від колючок, шипів, колючок, шпильок та інших шкідливих предметів рослинного походження. Вони також досить теплі."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/leather.rsi
@@ -314,8 +314,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesPowerglove
-  name: power gloves
-  description: Now I'm playin' with power! Wait... they're turned off. #Use "Now I'm playin' with power! BAM!" for when they're turned on
+  name: "робочі рукавички"
+  description: "Тепер я граюся з енергією! Зачекай... вони вимкнені." #Use "Now I'm playin' with power! BAM!" for when they're turned on
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/powerglove.rsi
@@ -328,8 +328,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesRobohands
-  name: robohands gloves
-  description: Beep boop borp!
+  name: "рукавички робототехніка"
+  description: "Біп-буп-борп!"
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/robohands.rsi
@@ -343,8 +343,8 @@
 - type: entity
   parent: [ClothingHandsBase, BaseToggleClothing, BaseMajorContraband]
   id: ClothingHandsGlovesSpaceNinja
-  name: space ninja gloves
-  description: These black nano-enhanced gloves insulate from electricity and provide fire resistance.
+  name: "рукавички космічних ніндзя"
+  description: "Ці чорні рукавички з нанопокриттям ізолюють від електрики та забезпечують вогнестійкість."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/spaceninja.rsi
@@ -374,11 +374,12 @@
     abilities:
     - components:
       - type: BatteryDrainer
-      - type: StunProvider
-        noPowerPopup: ninja-no-power
-        whitelist:
-          components:
-          - Stamina
+      # Goobstation - replaced shock with ninjutsu
+      #- type: StunProvider
+      #  noPowerPopup: ninja-no-power
+      #  whitelist:
+      #    components:
+      #    - Stamina
       - type: EmagProvider
         whitelist:
           components:
@@ -397,8 +398,8 @@
 - type: entity
   parent: [ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband]
   id: ClothingHandsGlovesCombat
-  name: combat gloves
-  description: These tactical gloves are fireproof and shock resistant.
+  name: "бойові рукавички"
+  description: "Ці тактичні рукавички вогнетривкі та ударостійкі."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/combat.rsi
@@ -419,8 +420,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsTacticalMaidGloves
-  name: tactical maid gloves
-  description: Tactical maid gloves, every self-respecting maid should be able to discreetly eliminate her goals.
+  name: "тактичні рукавички прислуги"
+  description: "Тактичні рукавички покоївки, кожна поважаюча себе покоївка повинна вміти непомітно ліквідувати свої цілі."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/tacticalmaidgloves.rsi
@@ -440,8 +441,8 @@
 - type: entity
   parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]
   id: ClothingHandsMercGlovesCombat
-  name: mercenary combat gloves
-  description: High-quality combat gloves to protect hands from mechanical damage during combat.
+  name: "бойові рукавиці найманців"
+  description: "Якісні бойові рукавички для захисту рук від механічних пошкоджень під час бою."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/mercbattle.rsi
@@ -458,8 +459,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesFingerless
-  name: fingerless gloves
-  description: Plain black gloves without fingertips for the hard working.
+  name: "рукавички без пальців"
+  description: "Прості чорні рукавички без пальців для працьовитих людей."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/fingerless.rsi
@@ -476,8 +477,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesFingerlessInsulated
-  name: fingerless insulated gloves
-  description: Insulated gloves resistant to shocks, or at least they used to.
+  name: "ізольовані рукавички без пальців"
+  description: "Утеплені рукавички стійкі до ударів, або, принаймні, були такими раніше."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/fingerlessinsuls.rsi
@@ -494,8 +495,8 @@
 - type: entity
   parent: ClothingHandsButcherable
   id: ClothingHandsGlovesMercFingerless
-  name: mercenary fingerless gloves
-  description: Gloves that may not protect you from finger burns, but will make you cooler.
+  name: "найманські рукавички без пальців"
+  description: "Рукавички, які, можливо, не захистять вас від опіків пальців, але зроблять вас прохолоднішими."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/mercfingerless.rsi
@@ -523,17 +524,17 @@
 - type: entity
   parent: ClothingHandsGlovesColorWhite
   id: ClothingHandsGlovesCluwne
-  name: cluwne hands
+  name: "руки клувні"
   suffix: Unremoveable
-  description:  A cursed pair of cluwne hands.
+  description: "Проклята пара рук клувні."
   components:
   - type: Unremoveable
 
 - type: entity
   parent: [ClothingHandsButcherable, BaseSyndicateContraband]
   id: ClothingHandsGlovesNorthStar
-  name: gloves of the north star
-  description: These gloves allow you to punch incredibly fast.
+  name: "рукавички Полярної зірки"
+  description: "Ці рукавички дозволяють наносити удари неймовірно швидко."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/northstar.rsi
@@ -569,8 +570,8 @@
 - type: entity
   parent: [ClothingHandsBase, BaseSecurityContraband]
   id: ClothingHandsGlovesForensic
-  name: forensic gloves
-  description: Do not leave fibers or fingerprints. If you work without them, you're A TERRIBLE DETECTIVE.
+  name: "криміналістичні рукавички"
+  description: "Не залишайте волокон і відбитків пальців. Якщо ви працюєте без них, ви жахливий детектив."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/forensic.rsi
@@ -585,8 +586,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesJanitor
-  name: rubber gloves
-  description: High-quality rubber gloves, squeaky to do some cleaning!
+  name: "гумові рукавички"
+  description: "Високоякісні гумові рукавички, скрипучі, щоб зробити прибирання!"
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/janitor.rsi

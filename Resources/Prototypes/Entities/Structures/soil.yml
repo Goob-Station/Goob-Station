@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2020 DmitriyRubetskoy <75271456+DmitriyRubetskoy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 DmitriyRubetskoy <rubetskoy234@mail.ru>
 # SPDX-FileCopyrightText: 2020 Remie Richards <remierichards@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
 # SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 # SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
@@ -29,8 +29,9 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: soil
   id: hydroponicsSoil
+  name: "ґрунт"
+  description: "Суміш органічних речовин і мінералів, що створює ґрунт для вирощування рослин у космосі. Здається, він сухий."
   placement:
     mode: SnapgridCenter
   components:
@@ -85,3 +86,20 @@
         solution: soil
   - type: Appearance
   - type: PlantHolderVisuals
+
+- type: entity
+  parent: hydroponicsSoil
+  id: FungalSoil
+  name: "грибний ґрунт"
+  description: "Суміш органічних речовин та грибкового коріння, що створює ґрунт для вирощування рослин у космосі. Здається, він сухий."
+  components:
+  - type: Construction
+    graph: Soil
+    node: fungalSoil
+  - type: Sprite
+    sprite: Structures/Hydroponics/misc.rsi
+    state: fungal_soil
+    noRot: true
+  - type: PlantHolder
+    waterLevel: 0
+    nutritionLevel: 0

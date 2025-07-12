@@ -5,6 +5,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -16,7 +18,7 @@
   abstract: true
   # Used to put pressureProtection, layers blocker and etc components into ComponentToggler
   id: BaseClothingModsuitHelmet
-  name: base modsuit helmet
+  name: "базовий шолом модкостюму"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -51,7 +53,7 @@
   parent: BaseClothingModsuitHelmet
   # Used for helmets that hide your identity even if it's not sealed
   id: BaseClothingModsuitHelmetHideIdentity
-  name: base modsuit helmet
+  name: "базовий шолом модкостюму"
   categories: [ HideSpawnMenu ]
   components:
   - type: IdentityBlocker
@@ -66,8 +68,8 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetStandard
-  name: standard hardsuit helmet
-  description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
+  name: "стандартний шолом від скафандру"
+  description: "Спеціальний герметичний шолом для модульного костюма, розроблений для компактного складання всередині блоку керування модульним костюмом."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -78,16 +80,20 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing # This helmet don't have sprite on unsealed state
+  - type: HideLayerClothing
     slots:
     - Snout
+    hideOnToggle: true
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -153,11 +159,17 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetSecurity
-  name: soldat hardsuit helmet
-  description: A robust brain bucket for holding your brain in place just enough for it to be salvageable.
+  name: "шолом солдата від скафандру"
+  description: "Міцний казанок для мізків, щоб тримати ваші мізки на місці достатньо, щоб їх можна було врятувати."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/security.rsi
     layers:
@@ -165,16 +177,19 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing # This helmet don't have sprite on unsealed state
+  - type: HideLayerClothing
     slots:
     - Snout
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -245,13 +260,19 @@
 
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetHeadOfSecurity
-  name: bulwark hardsuit helmet
-  description: Put on the HEAD of security.. How do you see out of this thing?
+  name: "шолом оплоту від скафандру"
+  description: "Одягається на ГОЛОВУ служби безпеки... Як звідси щось бачити?"
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/headofsecurity.rsi
     layers:
@@ -259,16 +280,18 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3
@@ -293,14 +316,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -339,10 +354,10 @@
     autoRechargeRate: 2
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetParamedic
-  name: sanitater hardsuit helmet
-  description: A robust brain bucket for working on barely salvageable brains.
+  name: "шолом санітара від скафандру"
+  description: "Міцний казанок для мізків для роботи з ледь врятованими мізками."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -353,14 +368,14 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
@@ -381,14 +396,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -427,10 +434,10 @@
     autoRechargeRate: 2
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetEngineer
-  name: sapper hardsuit helmet
-  description: A flat plate with cameras allowing your vision. turns you into an aero-cuck, but not like that matters in space.
+  name: "шолом сапера від скафандру"
+  description: "Пласка пластина з камерами, що забезпечують вам зір. перетворює вас на аеро-рогача, але в космосі це не має значення."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -441,14 +448,15 @@
     - state: helmet-sealed
       visible: false
       map: [ "sealed" ]
-  - type: HideLayerClothing
-    slots:
-    - Snout
+    hideOnToggle: true
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
@@ -461,6 +469,7 @@
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.01
+  - type: EyeProtection # goob
   - type: ComponentToggler
     components:
     - type: BreathMask
@@ -470,14 +479,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -518,8 +519,8 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetAtmostech
-  name: aeolus hardsuit helmet
-  description: A specialised gas helmet to provide oxygen more efficiently.
+  name: "шолом Еола від скафандру"
+  description: "Спеціалізований газовий шолом для більш ефективного постачання кисню."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -533,13 +534,23 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: IngestionBlocker
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     modifiers:
       coefficients:
@@ -548,6 +559,7 @@
         Piercing: 0.85
         Heat: 0.2
         Radiation: 0.05
+  - type: EyeProtection # goob
   - type: ComponentToggler
     components:
     - type: BreathMask
@@ -558,7 +570,6 @@
       heatingCoefficient: 0.005
       coolingCoefficient: 0.005
     - type: IdentityBlocker
-    - type: IngestionBlocker
     - type: HideLayerClothing
       slots:
       - Hair
@@ -605,10 +616,10 @@
     reduction: 0.25
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [BaseClothingModsuitHelmet, BaseClothingModsuitHelmetHideIdentity]
   id: ClothingModsuitHelmetResearchDirector
-  name: minerva hardsuit helmet
-  description: A dark dark dark visor protecting your precious face from shrap and blast.
+  name: "шолом Мінерви від скафандру"
+  description: "Дуже темний візор, що захищає ваше дорогоцінне обличчя від уламків та вибухів."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -621,12 +632,19 @@
       map: [ "sealed" ]
   - type: HideLayerClothing
     slots:
+    - Hair
     - Snout
+    - HeadTop
+    - HeadSide
+    hideOnToggle: true
+  - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
   - type: Armor
@@ -648,14 +666,6 @@
     - type: TemperatureProtection
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
-    - type: IdentityBlocker
-    - type: IngestionBlocker
-    - type: HideLayerClothing
-      slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -696,11 +706,17 @@
 - type: entity
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetCaptain
-  name: magnate hardsuit helmet
-  description: The visor is made from 10,000 year old amythest.
+  name: "шолом магната від скафандру"
+  description: "Візор зроблений з аметисту віком 10 000 років."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      head-resomi:
+      - state: equipped-HEAD-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/captain.rsi
     layers:
@@ -715,9 +731,12 @@
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       head:
       - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
   - type: Armor
     traumaDeductions:
       Dismemberment: 0.3

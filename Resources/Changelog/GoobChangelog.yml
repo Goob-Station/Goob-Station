@@ -25,7 +25,7 @@ Entries:
     message: Повернено пульти керування пожежогасінням до атмосферних шаф.
   id: 6
   time: '2024-06-17T21:00:22.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Fix
     message: Видалено предмети з предметів-хамелеонів, які не були для цього призначені.
@@ -37,7 +37,7 @@ Entries:
     message: Випромінювачі та генератори полів стримування тепер значно дешевші!
   id: 8
   time: '2024-06-18T12:08:34.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Дворфи тепер ш и р о к і.
@@ -55,7 +55,7 @@ Entries:
       – 5%.
   id: 10
   time: '2024-06-18T12:12:08.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Перенесено всі текстури з EE (Einstein Engines).
@@ -69,7 +69,7 @@ Entries:
       ціни та доступність у п'ять разів.
   id: 12
   time: '2024-06-18T12:29:26.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Космос раптово став менш щільним (об'єкти не сповільнюються в космосі)
@@ -79,13 +79,13 @@ Entries:
     message: Метелики мають значно кращий контроль у невагомості
   id: 13
   time: '2024-06-18T12:44:22.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Дворфи більше не пласкі.
   id: 14
   time: '2024-06-18T13:22:18.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: >-
@@ -121,7 +121,7 @@ Entries:
       після його зламу (emag)
   id: 19
   time: '2024-06-20T03:35:55.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Нова музика в лобі!
@@ -177,7 +177,7 @@ Entries:
       стилю
   id: 26
   time: '2024-06-25T04:22:40.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Коробки виживання знову корисні.
@@ -205,13 +205,13 @@ Entries:
     message: Запис у гайдбуці про СМ.
   id: 29
   time: '2024-06-26T05:50:36.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Більше спрайтів для коробок виживання, бо чому б і ні?
   id: 30
   time: '2024-06-26T07:38:16.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Більше кастомної музики для лобі та музичного автомата!
@@ -322,7 +322,7 @@ Entries:
     message: Виправлено регенерацію хімікатів. Дякую, durkk.
   id: 44
   time: '2024-07-14T10:18:42.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Космічний вітер тепер набагато плавніший :)
@@ -398,7 +398,7 @@ Entries:
       Команди обліку ігрового часу тепер можуть використовувати рядки часу (наприклад, 3d30m) для аргументу хвилин.
   id: 51
   time: '2024-07-17T18:09:02.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Додано нову маріонетку, lil cal.
@@ -420,7 +420,7 @@ Entries:
       зменшена до 5.
   id: 53
   time: '2024-07-18T17:39:51.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Додано NPC з OSRS (Old School RuneScape) для розваг адмінів.
@@ -432,7 +432,7 @@ Entries:
     message: Повернено The Throngler до Великої Лотереї
   id: 55
   time: '2024-07-20T20:37:50.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: NPC з OSRS став надійнішим.
@@ -516,7 +516,7 @@ Entries:
       та вимоги до ігрового часу для обох робіт.
   id: 65
   time: '2024-07-31T01:39:15.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Станція та ATS (Advanced Targeting System) тепер мають незначне тертя.
@@ -535,19 +535,19 @@ Entries:
     message: Доступ Представника Nanotrasen (NTR) до системи безпеки виправлено.
   id: 68
   time: '2024-08-02T17:15:42.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Бар для привидів!
   id: 69
   time: '2024-08-02T17:29:43.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Додано СиндиТарганів, альтернативу СиндиКотам!
   id: 70
   time: '2024-08-04T01:53:11.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Fix
     message: Відвідувачі бару для привидів більше не можуть отримати роль антагоніста посеред раунду.
@@ -597,7 +597,7 @@ Entries:
     message: Виправлено спрайти щитів перевертня.
   id: 77
   time: '2024-08-11T03:06:40.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Remove
     message: Гранати зі змазкою та клеєм видалені зі спорядження клоуна та міма.
@@ -617,7 +617,7 @@ Entries:
     message: більше ніяких ігор на Fland з 8 космонавтами.
   id: 80
   time: '2024-08-11T08:41:43.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Іконки для зберігання ломів тепер відповідають кольоровій схемі наших ломів
@@ -631,7 +631,7 @@ Entries:
     message: Виправлено некоректне відображення нових спрайтів поліцейського куленепробивного щита
   id: 82
   time: '2024-08-12T20:08:25.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Представник Nanotrasen (NTR) тепер має власну іконку професії
@@ -643,13 +643,13 @@ Entries:
       їхнім новим комбінезонам.
   id: 83
   time: '2024-08-12T22:15:33.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Fix
     message: Виправлено іконку статусу колективного розуму перевертнів
   id: 84
   time: '2024-08-12T22:52:35.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Змінено сукню Представника Nanotrasen (NTR), щоб вона відповідала сукням інших членів командування
@@ -701,7 +701,7 @@ Entries:
     message: Перемога революціонерів закінчує гру замість виклику шатла
   id: 92
   time: '2024-08-16T09:59:42.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Remove
     message: Вульпи та Гарпії більше не дальтоніки.
@@ -1151,7 +1151,7 @@ Entries:
     message: Bagel тепер має належну зону для будівництва шатлів.
   id: 144
   time: '2024-09-21T13:53:59.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: >-
@@ -1172,7 +1172,7 @@ Entries:
     message: Додано пошту до гри.
   id: 147
   time: '2024-09-23T01:42:22.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: ШІ тепер може бачити очима силіконів Nanotrasen.
@@ -1435,7 +1435,7 @@ Entries:
     message: Якщо ви це читаєте, динаміка працює
   id: 179
   time: '2024-10-07T04:18:45.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Карти для великої кількості гравців мають вищі ліміти ролей
@@ -1443,7 +1443,7 @@ Entries:
     message: Кінець раунду більше не повинен викликати шалених стрибків затримок (сподіваюся)
   id: 180
   time: '2024-10-10T19:05:22.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Remove
     message: Метеорити зникли.
@@ -1484,7 +1484,7 @@ Entries:
     message: повернуто поїзд до списку карт (мін. населення 30, макс. населення 60)
   id: 184
   time: '2024-10-15T19:56:04.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Додано посилання на людину, для якої всі місця однакові.
@@ -1714,7 +1714,7 @@ Entries:
     message: Додано нові емоції. Перевірте їх у меню емоцій
   id: 211
   time: '2024-11-07T22:34:07.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Текст-у-мову (TTS)
@@ -1734,7 +1734,7 @@ Entries:
     message: Тепер ви також можете використовувати *flips для доступу до емоції перевертання.
   id: 214
   time: '2024-11-09T01:57:17.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: >-
@@ -1760,7 +1760,7 @@ Entries:
       шафки)
   id: 217
   time: '2024-11-11T01:45:10.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Автоматичне зникнення слідів ніг/перетягування
@@ -1774,7 +1774,7 @@ Entries:
     message: Збільшено шкоду від куль калібру .30 та .20.
   id: 219
   time: '2024-11-12T05:37:52.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Замінено тарганів метеликів на личинок метеликів.
@@ -1856,7 +1856,7 @@ Entries:
       відповідно.
   id: 230
   time: '2024-11-18T01:27:13.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Remove
     message: >-
@@ -1936,7 +1936,7 @@ Entries:
     message: ЙОВІ тепер більш стійкі до радіації
   id: 238
   time: '2024-11-20T05:16:19.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Кнопки знижок тепер червоні
@@ -2097,7 +2097,7 @@ Entries:
     message: Кібернетичні ноги роблять вас на 25% швидшими.
   id: 257
   time: '2024-11-23T17:28:39.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: >-
@@ -2864,7 +2864,7 @@ Entries:
       Процедурна генерація руди на астероїдах та vg ройді. Збільшено склад руди.
   id: 329
   time: '2024-12-04T19:53:08.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Remove
     message: Видалено Фелінідів з командного складу.
@@ -3151,7 +3151,7 @@ Entries:
     message: Кристали блюспейсу тепер значно легше отримати.
   id: 359
   time: '2024-12-13T21:57:19.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Ви більше не можете відкріплювати заслінки.
@@ -3169,7 +3169,7 @@ Entries:
     message: IPC більше не звучить як порожній c20.
   id: 362
   time: '2024-12-14T18:46:16.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Тайдери тепер незграбні.
@@ -3179,7 +3179,7 @@ Entries:
     message: Видалено доступ до технічних тунелів для тайдерів.
   id: 363
   time: '2024-12-14T18:50:11.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Remove
     message: Видалено веселощі.
@@ -3650,14 +3650,14 @@ Entries:
     message: Мишоловки тепер пошкоджують саме ступні.
   id: 419
   time: '2025-01-02T23:43:37.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: >-
       Додано нову пісню "The Future Soon" Джонатана Колтона до музики в лобі та музичного автомата.
   id: 420
   time: '2025-01-03T03:54:40.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: >-
@@ -4694,7 +4694,7 @@ Entries:
     message: Помідори-вбивці більше не отримують шкоди з часом.
   id: 557
   time: '2025-02-18T16:35:46.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Remove
     message: Видалено лаги.
@@ -4884,7 +4884,7 @@ Entries:
     message: Бінгл
   id: 582
   time: '2025-02-22T06:33:06.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Додано копіум!
@@ -6192,7 +6192,7 @@ Entries:
     message: Змінено шкоду витривалості від прийомів дзюдо, кидок тепер завдає 30, а больовий на руку 70.
   id: 746
   time: '2025-03-16T01:59:32.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Стабільний реліз!
@@ -6212,7 +6212,7 @@ Entries:
     message: Підсічка в крав-мазі тепер завдає шкоди витривалості, а не просто збиває з ніг.
   id: 749
   time: '2025-03-17T06:21:09.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Губ тепер менш стабільний.
@@ -6230,7 +6230,7 @@ Entries:
     message: Скелети тепер мають 10% шанс видати смішний звук під час крику.
   id: 752
   time: '2025-03-19T16:02:31.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Remove
     message: Губ більше не стабільний.
@@ -6798,7 +6798,7 @@ Entries:
     message: Прокляття 1984d byond видалено, проте адміністратори все ще можуть його використовувати.
   id: 826
   time: '2025-04-15T22:07:21.0000000+00:00'
-- author: Rouden, Aidenkrz
+- author: Rouden, Durk
   changes:
   - type: Add
     message: Додано риболовлю.
@@ -7420,7 +7420,7 @@ Entries:
     message: Завдання перевертня 'вкрасти ДНК' змінено на завдання 'поглинути'.
   id: 906
   time: '2025-04-23T01:21:47.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: >-
@@ -7619,7 +7619,7 @@ Entries:
       Ручний факс представника НаноТрейзен тепер кидає папір на землю при друці всередині контейнера, замість того, щоб прикріплювати його до сумки.
   id: 926
   time: '2025-04-29T07:57:58.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: >-
@@ -7992,7 +7992,7 @@ Entries:
     message: Додано Factorio.
   id: 969
   time: '2025-05-03T16:15:09.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Fix
     message: Виправлено чергу для Патронів.
@@ -9110,7 +9110,7 @@ Entries:
     message: Додано хороші імена боргів замість тупих
   id: 1067
   time: '2025-05-18T16:26:17.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Ім'я хоста тепер відображає MOTD та кількість людей у черзі.
@@ -9257,7 +9257,7 @@ Entries:
     message: Виправлено меню розшукуваних.
   id: 1086
   time: '2025-05-20T05:36:39.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Tweak
     message: Перемога Дурка.
@@ -10827,7 +10827,7 @@ Entries:
     message: Зрадники тепер повинні отримувати свої аплінки.
   id: 1245
   time: '2025-06-16T13:16:56.0000000+00:00'
-- author: Aidenkrz
+- author: Durk
   changes:
   - type: Add
     message: Просторовий голосовий чат, перевірте оголошення в Discord для отримання додаткової інформації.
@@ -11162,3 +11162,291 @@ Entries:
       message: Д̵О̷П̵О̷М̵О̶Ж̷І̷Т̸Ь̶ ̵В̵О̷Н̴О̷ ̵Ж̵И̶В̷Е̸
   id: 1278
   time: '2025-06-24T08:41:41.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Модсюти тепер можуть використовувати спрайти, що залежать від виду.
+    - type: Fix
+      message: Маркування хвоста Ресомі тепер накладаються правильно.
+    - type: Add
+      message: Ресомі тепер краще виглядають у модсютах.
+  id: 1279
+  time: '2025-06-29T21:57:12.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Новий набір правил Ядра та ігрового процесу!
+    - type: Tweak
+      message: Умови розкриття ролей були перенесені до довідника - посилання на нього є в правилах.
+  id: 1280
+  time: '2025-06-30T01:10:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Скафандру дослідника повернули його колишні показники опору, але вони лише наполовину ефективні поза зоною тиску Лаваленду.
+  id: 1281
+  time: '2025-06-30T02:28:47.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Реорганізовано більшість невизначених наборів Синдикату, а також додано два нових.
+  id: 1282
+  time: '2025-06-30T02:40:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        NPC більше не повинні відлітати, коли намагаються щось зробити в невагомості, або коли простоюють біля відкритого космосу.
+  id: 1283
+  time: '2025-06-30T06:01:52.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Оновлено базову гру до релізу від 25/05.
+  id: 1284
+  time: '2025-06-30T17:41:57.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Додано два нові дульні пристрої до СекФабу як дослідження першого рівня.
+  id: 1285
+  time: '2025-07-01T18:49:45.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Неактивні NPC більше не повинні крутитися на місці.
+    - type: Fix
+      message: >-
+        NPC в невагомості більше не повинні іноді кружляти навколо своєї цілі.
+  id: 1286
+  time: '2025-07-01T18:50:08.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Додано кілька нових кібернетичних органів, включаючи просунуті легені, печінки та серця зі спеціалізованими ефектами.
+    - type: Add
+      message: Додано нові базові кібернетичні кінцівки.
+    - type: Add
+      message: >-
+        Кібернетику розділено на два окремі дослідження: "Базова кібернетика" та "Просунута кібернетика".
+    - type: Tweak
+      message: >-
+        Змінено баланс вартості матеріалів для всіх існуючих та новододаних кібернетичних органів і кінцівок.
+  id: 1287
+  time: '2025-07-01T18:50:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Вульпканіни тепер можуть відстежувати людей за запахом.
+  id: 1288
+  time: '2025-07-01T18:53:51.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: Перевертання столів тепер доступне лише хосту сервера.
+  id: 1289
+  time: '2025-07-01T18:54:33.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Активовано набір шахтарського ваучера "Капсула-притулок + кріпильна сітка".
+  id: 1290
+  time: '2025-07-01T18:57:33.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Його Милість тепер належним чином лікує свого носія, як і було задумано.
+    - type: Fix
+      message: Його Милість тепер коректно застосовує бонуси до швидкості пересування.
+    - type: Tweak
+      message: Його Милість більше неможливо вибити з рук.
+  id: 1291
+  time: '2025-07-01T18:58:01.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Tweak
+      message: >-
+        Комп'ютери замовлень знову надсилають замовлення безпосередньо до вантажного відділу, замість друку квитанцій.
+  id: 1292
+  time: '2025-07-01T19:04:08.0000000+00:00'
+- author: SomethingUnbearable
+  changes:
+    - type: Add
+      message: >-
+        Додано 2 нові сигналери: голосовий сигналер та сигналер наближення, які роблять саме те, що випливає з їхньої назви.
+  id: 1293
+  time: '2025-07-01T19:04:38.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Жертви "Катастрофи Синдикату" тепер лояльні до екіпажу.
+  id: 1294
+  time: '2025-07-01T19:09:14.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        О, багряне вбрання, виткане в безодні древнього полум'я... пробудись! Додано новий набір одягу мага для ентузіастів тюнібьо.
+  id: 1295
+  time: '2025-07-01T19:22:05.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: Головний інженер тепер отримує власний РПД.
+    - type: Add
+      message: В Інженер-Венді тепер доступні діагностичні ГУДи.
+    - type: Tweak
+      message: Інженерні скафандри тепер мають захист від зварювання.
+    - type: Tweak
+      message: Інженери тепер мають доступ до сигналізації атмосфери.
+    - type: Tweak
+      message: Руйнівник сингулярності став більш надійним.
+    - type: Fix
+      message: Коробка з цвяхами в інженерному фабрикаторі тепер існує.
+  id: 1296
+  time: '2025-07-01T19:28:08.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Звичайні члени екіпажу більше не можуть бачити розломи реальності.
+    - type: Add
+      message: >-
+        Капелан тепер єдиний звичайний член екіпажу, який може бачити розломи, але будьте обережні... він може бути просто божевільним!
+    - type: Fix
+      message: >-
+        Метащит на розломах, який нікому не подобається... більше не повинен бути проблемою.
+  id: 1297
+  time: '2025-07-01T19:40:37.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Fix
+      message: Виправлено граматику в описі жорсткого захвату.
+  id: 1298
+  time: '2025-07-01T19:42:09.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Fix
+      message: Виправлено помилку, через яку Представник НаноТрейзен не отримував свій спеціальний дизейблер.
+  id: 1299
+  time: '2025-07-01T19:43:55.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Tweak
+      message: >-
+        Філботи тепер можуть проходити під дверима, щоб не застрягати щоразу в технічних тунелях.
+  id: 1300
+  time: '2025-07-01T19:49:19.0000000+00:00'
+- author: ThunderBear2006
+  changes:
+    - type: Add
+      message: Станційний ШІ тепер може переміщуватися до камер на станції.
+  id: 1301
+  time: '2025-07-01T19:53:54.0000000+00:00'
+- author: Sleeper Agent 110920
+  changes:
+    - type: Add
+      message: Додано новий набір одягу до зламаного автогардеробу.
+  id: 1302
+  time: '2025-07-01T20:17:04.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Змінено оголошення про вознесіння єретика.
+  id: 1303
+  time: '2025-07-01T20:18:07.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: Зрадники та ядерники знову можуть купувати антимув!
+  id: 1304
+  time: '2025-07-01T20:19:41.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Додано три нові небезпечні істоти: бруллбар, білий вовк та живе прокляття.
+  id: 1305
+  time: '2025-07-01T20:20:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Мікрореактори тепер тимчасово вимикаються під дією ЕМІ.
+  id: 1306
+  time: '2025-07-01T20:23:44.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        Генерація Спезо за допомогою PTL зменшена вдвічі. Інженерний відділ більше не буде найбагатшим.
+  id: 1307
+  time: '2025-07-01T20:25:45.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Виправлено кібернетичні очі.
+  id: 1308
+  time: '2025-07-02T02:30:35.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Виправлено помилку, через яку Слайми та Вокси не могли дихати.
+  id: 1309
+  time: '2025-07-02T02:42:29.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Цього разу очі справді виправлено.
+  id: 1310
+  time: '2025-07-02T04:34:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: IPC тепер можуть пілотувати, відчиняти двері поштовхом та бути носіями аномалій.
+  id: 1311
+  time: '2025-07-02T10:31:40.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Fix
+      message: >-
+        На підмін, що змінили особистість, більше не діятиме обезголовлення
+        (раніше імунітет зникав під час трансформації).
+  id: 1312
+  time: '2025-07-07T14:38:03.0000000+00:00'
+- author: Rubin
+  changes:
+    - type: Fix
+      message: Збій режиму сумісності через голографічний шейдер.
+  id: 1313
+  time: '2025-07-07T14:39:43.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Жертви "Катастрофи Синдикату" знову стають "Вільними Агентами".
+  id: 1314
+  time: '2025-07-07T16:04:04.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Add
+      message: >-
+        Додано новий предмет для шиї, шраг, для тайдерів, які не можуть дозволити собі мантію тайдера.
+  id: 1315
+  time: '2025-07-10T04:18:39.0000000+00:00'
+- author: Aviu, pheenty
+  changes:
+    - type: Add
+      message: 'Додано 3 нових бойових мистецтва: Ніндзюцу, Капоейра та Кунг-фу Дракона.'
+    - type: Add
+      message: 'Додано лічильник комбо для бойових мистецтв.'
+    - type: Add
+      message: 'CQC тепер може парирувати будь-яку атаку ближнього бою, а також ламати шиї.'
+    - type: Add
+      message: 'Додано посібник з бойових мистецтв.'
+    - type: Add
+      message: 'Дзюдо було перероблено, деталі дивіться в посібнику.'
+    - type: Remove
+      message: 'Видалено оглушення від рукавичок ніндзя (замінено на ніндзюцу).'
+  id: 1316
+  time: '2025-07-10T12:26:22.0000000+00:00'

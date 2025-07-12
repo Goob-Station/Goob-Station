@@ -11,8 +11,8 @@
 
 - type: entity
   id: TeslaCoil
-  name: tesla coil
-  description: A machine that converts lightning strikes into an electric current.
+  name: "котушка Тесли"
+  description: "Машина, яка перетворює удари блискавки в електричний струм."
   placement:
     mode: SnapgridCenter
   components:
@@ -67,19 +67,19 @@
     sprite: Structures/Power/Generation/Tesla/coil.rsi
     state: coil
   - type: Battery
-    maxCharge: 1000000
+    maxCharge: 5000000
     startingCharge: 0
   - type: BatteryDischarger
   - type: TeslaCoil
-    chargeFromLightning: 2000000
+    chargeFromLightning: 5000000
   - type: LightningTarget
     priority: 4
     hitProbability: 0.5
     lightningResistance: 10
     lightningExplode: false
   - type: PowerNetworkBattery
-    maxSupply: 1000000
-    supplyRampTolerance: 1000000
+    maxSupply: 350000
+    supplyRampTolerance: 350000
   - type: Anchorable
   - type: Rotatable
   - type: Pullable
@@ -119,8 +119,8 @@
 
 - type: entity
   id: TeslaGroundingRod
-  name: grounding rod
-  description: A machine that keeps lightning from striking too far away.
+  name: "заземлювач"
+  description: "Машина, яка не дає блискавці вдарити занадто далеко."
   placement:
     mode: SnapgridCenter
   components:

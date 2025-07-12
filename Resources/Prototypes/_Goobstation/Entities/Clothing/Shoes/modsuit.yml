@@ -4,6 +4,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
@@ -12,8 +14,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
-  name: standard hardsuit boots
-  description: A special modular suit boots designed for compact folding inside modular suit control.
+  name: "стандартні черевики від скафандру"
+  description: "Спеціальні черевики для модульного костюма, розроблені для компактного складання всередині блоку керування модульним костюмом."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -34,16 +36,16 @@
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
-        shader: unshaded
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSecurity
-  name: soldat hardsuit boots
-  description: THE IRON BOOTS OF THE LAW.
+  name: "черевики солдата від скафандру"
+  description: "ЗАЛІЗНІ ЧОБОТИ ЗАКОНУ."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -64,7 +66,8 @@
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier
@@ -87,8 +90,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsHeadOfSecurity
-  name: bulwark hardsuit boots
-  description: I call these my commie stompers.
+  name: "черевики оплоту від скафандру"
+  description: "Я називаю їх моїми комуняко-топтателями."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -109,7 +112,8 @@
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier
@@ -132,8 +136,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsParamedic
-  name: sanitater hardsuit boots
-  description: Made to get bloody.
+  name: "черевики санітара від скафандру"
+  description: "Створені, щоб ставати кривавими."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -154,15 +158,16 @@
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsEngineer
-  name: sapper hardsuit boots
-  description: Made to get oily.
+  name: "черевики сапера від скафандру"
+  description: "Створені, щоб ставати масляними."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -183,7 +188,8 @@
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
   - type: ItemToggle
@@ -201,8 +207,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsAtmostech
-  name: aeolus hardsuit boots
-  description: Made to get burnt.
+  name: "черевики Еола від скафандру"
+  description: "Створені, щоб ставати обгорілими."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -223,7 +229,8 @@
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
   - type: FireProtection # lmao
@@ -232,8 +239,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsResearchDirector
-  name: minerva hardsuit boots
-  description: Wont stop you slipping on your own blood when the holocarp gets to you.
+  name: "черевики Мінерви від скафандру"
+  description: "Не врятують вас від ковзання по власній крові, коли голокарп до вас добереться."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -254,15 +261,16 @@
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsCaptain
-  name: magnate hardsuit boots
-  description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
+  name: "черевики магната від скафандру"
+  description: "Ці черевики розробив САМ Майкл Джордан і виготовив з древніх сплавів, чувак."
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -283,6 +291,7 @@
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       shoes:
       - state: equipped-FEET-sealed
