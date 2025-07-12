@@ -37,8 +37,8 @@ public partial class XenobiologySystem
         while (query.MoveNext(out var uid, out var slime, out var growthComp, out var hungerComp))
         {
             if (_gameTiming.CurTime < slime.NextUpdateTime
-            || _mobState.IsDead(uid)
-            || growthComp.IsFirstStage)
+                || _mobState.IsDead(uid)
+                || growthComp.IsFirstStage)
                 continue;
 
             eligibleSlimes.Add((uid, slime, growthComp, hungerComp));
