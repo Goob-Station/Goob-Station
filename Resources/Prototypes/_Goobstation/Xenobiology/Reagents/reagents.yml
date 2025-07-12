@@ -1,0 +1,70 @@
+- type: reagent
+  id: PurpleXenoJelly
+  parent: Slime
+  name: reagent-name-purple-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+          max: 1
+        extractBonus: 1
+
+- type: reagent
+  id: BlueXenoJelly
+  parent: Slime
+  name: reagent-name-blue-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+          max: 1
+        chanceModifier: 0.25
+        shouldSubtract: true
+
+- type: reagent
+  id: CeruleanXenoJelly
+  parent: Slime
+  name: reagent-name-cerulean-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+          max: 1
+        offspringBonus: 2
+
+- type: reagent
+  id: RedXenoJelly
+  parent: Slime
+  name: reagent-name-red-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:ModifySlimeComponent
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
+          max: 1
+        chanceModifier: 0.25
+        shouldSubtract: false
+
+- type: reagent
+  id: XenoGenderFluid
+  parent: Slime
+  name: reagent-name-xeno-gender-fluid
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:SexChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15

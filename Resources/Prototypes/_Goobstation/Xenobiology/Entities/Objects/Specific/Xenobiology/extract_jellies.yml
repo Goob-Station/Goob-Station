@@ -1,0 +1,194 @@
+- type: entity
+  name: base slime jelly
+  parent: EdibleBase
+  id: BaseExtractJelly
+  description:
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#828282"
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: FlavorProfile
+    flavors:
+    - tingly
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Slime
+          Quantity: 1
+
+#Tier 1 -
+
+- type: entity
+  id: PurpleExtractJelly
+  parent: BaseExtractJelly
+  name: purple slime jelly
+  description: Slimes love this stuff, metabolizes into additional extracts inside the slime.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#BF77F6"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: PurpleXenoJelly
+          Quantity: 1
+
+- type: entity
+  id: BlueExtractJelly
+  parent: BaseExtractJelly
+  name: blue slime jelly
+  description: The frosty chill caused by this jelly reduces a slime's chance to mutate when metabolized.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#79F6FC"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: BlueXenoJelly
+          Quantity: 1
+
+#Tier 2 -
+
+- type: entity
+  id: DarkBlueExtractJelly
+  parent: BaseExtractJelly
+  name: dark blue slime jelly
+  description: It's covered in a thick fire-retardant gel, have you tried eating it?
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#1e8cfa"
+
+#Tier 2.5 -
+
+- type: entity
+  id: CeruleanExtractJelly
+  parent: BaseExtractJelly
+  name: cerulean slime jelly
+  description: Slimes with more... cannibalistic tendencies... appeared to react more after consuming cerulean jelly.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#2A52BE"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: CeruleanXenoJelly
+          Quantity: 1
+
+#Tier 3 -
+
+- type: entity
+  id: RedExtractJelly
+  parent: BaseExtractJelly
+  name: red slime jelly
+  description: The violent contractions caused by this jelly increase a slime's chance to mutate when metabolized.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ff3333"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: RedXenoJelly
+          Quantity: 1
+
+- type: entity
+  id: VolatileExtractJelly
+  parent: BaseExtractJelly
+  name: volatile red slime jelly
+  description: Primate test subjects exhibited heightened speed and senses, even whilst carrying high density ore - subjects were burnt to a crisp after a scientist lit his cigarette.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ff3333" #This will need an additional distinguishing shader?
+
+- type: entity
+  id: PinkExtractJelly
+  parent: BaseExtractJelly
+  name: pink slime jelly
+  description: Discovered for the first time in the wild recently, a tame Space Carp was found devouring the jelly of a dead Pink Slime.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ff33cc"
+
+#Tier 4 -
+
+- type: entity
+  id: OilyExtractJelly
+  parent: BaseExtractJelly
+  name: oily slime jelly
+  description: The oily jelly looks slick, it appears to slide along the floor when thrown... you better be careful you don't get it stuck in a vent.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#383936"
+      shader: XenoMetallic
+
+- type: entity
+  id: LightPinkExtractJelly
+  parent: BaseExtractJelly
+  name: light pink slime jelly
+  description: Salvage Log 3036 - "Did that Goliath just... talk?"
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#ffb3ec"
+  - type: ExaminableSolution
+    solution: food
+  - type: DrawableSolution
+    solution: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Cognizine
+          Quantity: 5
+
+#Tier 5
