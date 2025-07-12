@@ -60,7 +60,18 @@
   name: trait-high-pain-tolerance-name
   description: trait-high-pain-tolerance-desc
   category: Quirks
-  cost: 1
+  cost: 3
   components:
-    - type: PainTolerance
+    - type: PainTolerant
+      painToleranceModifier: 10
+
+- type: trait
+  id: TraitLowPainTolerance
+  name: trait-low-pain-tolerance-name
+  description: trait-low-pain-tolerance-desc
+  category: Quirks
+  cost: -2
+  components:
+    - type: PainTolerant
+      painToleranceModifier: -10
 #endregion
