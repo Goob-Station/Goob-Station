@@ -942,7 +942,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
   productEntity: AutosurgeonSandevistan
   cost:
-    Telecrystal: 66 # The urge to make it 65...
+    Telecrystal: 65
   categories:
   - UplinkImplants
   conditions:
