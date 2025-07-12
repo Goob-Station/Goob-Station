@@ -76,7 +76,9 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
     private void OnGhostRoleTaken(Entity<SplitPersonalityDummyComponent> dummy, ref TakeGhostRoleEvent args)
     {
         // Transfer the mind to visit the host entity
-        if (!TryComp<SplitPersonalityComponent>(dummy.Comp.Host, out var hostComp)
+        if (dummy.Comp.Host is not { } host
+            || TerminatingOrDeleted(host)
+            || !TryComp<SplitPersonalityComponent>(host, out var hostComp)
             || !_mind.TryGetMind(args.Player, out var dummyMind, out var mindComponent))
             return;
 
@@ -155,6 +157,7 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         foreach (var dummyNullable in comp.GhostRoleDummies)
         {
             if (dummyNullable is not { } dummy
+                || TerminatingOrDeleted(dummy)
                 || !_mind.TryGetMind(dummy, out var dummyMindId, out _)
                 || dummyMindId != originalMind)
                 continue;
@@ -169,7 +172,15 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
     private void SpawnDummy(Entity<SplitPersonalityComponent> host)
     {
         var dummy = Spawn("SplitPersonalityDummy", MapCoordinates.Nullspace);
-        _container.Insert(dummy, host.Comp.MindsContainer);
+        if (dummy == EntityUid.Invalid)
+            return;
+
+        if (!_container.Insert(dummy, host.Comp.MindsContainer))
+        {
+            Del(dummy);
+            return;
+        }
+
         host.Comp.GhostRoleDummies.Add(dummy);
 
         var name = Loc.GetString("split-personality-dummy-name", ("host", Name(host)), ("count", host.Comp.GhostRoleDummies.Count));
@@ -202,9 +213,10 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         base.Update(frametime);
 
         var query = EntityQueryEnumerator<SplitPersonalityComponent>();
-        while (query.MoveNext(out var comp))
+        while (query.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime < comp.NextSwapAttempt
+            if (TerminatingOrDeleted(uid)
+                ||_timing.CurTime < comp.NextSwapAttempt
                 || TryReturnMind(comp))
                 continue;
 
