@@ -12001,3 +12001,13 @@ Entries:
       message: Millions must gulp
   id: 1318
   time: '2025-07-11T23:58:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Boomerang items will now hit you if your hand is occupied.
+    - type: Tweak
+      message: Boomerang items now have a maximum amount of hops they can make.
+    - type: Fix
+      message: Fixed boomerang jank.
+  id: 1319
+  time: '2025-07-12T08:48:25.0000000+00:00'
