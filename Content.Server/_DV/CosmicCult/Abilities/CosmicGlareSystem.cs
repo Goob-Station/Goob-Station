@@ -98,14 +98,7 @@ public sealed class CosmicGlareSystem : EntitySystem
         {
             var targetEnt = GetEntity(target);
 
-            _flash.Flash(targetEnt, // Goob edit on this
-                uid,
-                args.Action,
-                uid.Comp.CosmicGlareDuration,
-                uid.Comp.CosmicGlarePenalty,
-                false,
-                false,
-                uid.Comp.CosmicGlareStun);
+            _flash.Flash(targetEnt, uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun, ignoreProtection: uid.Comp.CosmicEmpowered);
 
             // Goob start we dont have whatever EE comps they're using take ours.
             if (HasComp<BorgChassisComponent>(targetEnt) // fuck them clankers
