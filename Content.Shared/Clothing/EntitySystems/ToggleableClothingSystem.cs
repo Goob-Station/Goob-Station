@@ -1,6 +1,26 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+// SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
 // SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
@@ -15,6 +35,11 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+
+// SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+// SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -357,10 +382,27 @@ public sealed class ToggleableClothingSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Attempts to equip a suit storage item to a user, showing a popup if the equip fails.
+    /// </summary>
+    private void ForceSuitStorage(EntityUid user, EntityUid? suitStorageItem)
+    {
+        if (suitStorageItem != null && !_inventorySystem.TryEquip(user, suitStorageItem.Value, "suitstorage", silent: true))
+            _popupSystem.PopupClient(Loc.GetString("inventory-component-dropped-from-unequip", ("items", 1)), user, user);
+    }
+
+    /// <summary>
+    ///    Finds and unequips the suit storage item from the user, returning it if found.
+    /// </summary>
+    private EntityUid? FindSuitStorage(EntityUid user) =>
+        _inventorySystem.TryGetSlotEntity(user, "suitstorage", out var item) &&
+        _inventorySystem.TryUnequip(user, "suitstorage", silent: true) ? item : null;
+
+    /// <summary>
     ///     Toggle function for single clothing
     /// </summary>
     private void ToggleClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid attachedUid)
     {
+        var suitStorageItem = FindSuitStorage(user);
         var comp = toggleable.Comp;
         var attachedClothings = comp.ClothingUids;
         var container = comp.Container;
@@ -372,9 +414,16 @@ public sealed class ToggleableClothingSystem : EntitySystem
             return;
 
         if (!container!.Contains(attachedUid))
+        {
             UnequipClothing(user, toggleable, attachedUid, slot!);
+            ForceSuitStorage(user, suitStorageItem);
+        }
         else
+        {
             EquipClothing(user, toggleable, attachedUid, slot!);
+            ForceSuitStorage(user, suitStorageItem);
+        }
+
     }
 
     /// <summary>
@@ -393,7 +442,9 @@ public sealed class ToggleableClothingSystem : EntitySystem
         {
             foreach (var clothing in attachedClothings)
             {
+                var suitStorageItem = FindSuitStorage(user);
                 EquipClothing(user, toggleable, clothing.Key, clothing.Value);
+                ForceSuitStorage(user, suitStorageItem);
             }
         }
         else
@@ -401,7 +452,11 @@ public sealed class ToggleableClothingSystem : EntitySystem
             foreach (var clothing in attachedClothings)
             {
                 if (!container!.Contains(clothing.Key))
+                {
+                    var suitStorageItem = FindSuitStorage(user);
                     UnequipClothing(user, toggleable, clothing.Key, clothing.Value);
+                    ForceSuitStorage(user, suitStorageItem);
+                }
             }
         }
     }
