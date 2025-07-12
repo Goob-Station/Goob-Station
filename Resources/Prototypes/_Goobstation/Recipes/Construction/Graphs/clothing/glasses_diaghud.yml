@@ -23,7 +23,7 @@
               doAfter: 5
 
     - node: glassesDiag
-      entity: ClothingEyesGlassesMed
+      entity: ClothingEyesGlassesDiag
       edges:
       - to: start
         steps:
