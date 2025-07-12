@@ -644,7 +644,7 @@ namespace Content.Client.Lobby.UI
         {
             TraitsList.DisposeAllChildren();
 
-            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
+            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => t.Cost).ToList(); // Pirate - Traits Rework
             TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
 
             if (traits.Count < 1)
@@ -741,7 +741,7 @@ namespace Content.Client.Lobby.UI
                     if (category is { MaxTraitPoints: >= 0 } &&
                         selector.Cost + selectionCount > category.MaxTraitPoints)
                     {
-                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                        selector.Checkbox.Label.FontColorOverride = Color.DarkGray; // Pirate - Traits Rework
                     }
 
                     TraitsList.AddChild(selector);
