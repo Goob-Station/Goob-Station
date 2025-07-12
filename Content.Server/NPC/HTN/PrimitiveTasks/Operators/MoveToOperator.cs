@@ -74,7 +74,7 @@ public sealed partial class MoveToOperator : HTNOperator, IHtnConditionalShutdow
     [DataField("stopOnLineOfSight")]
     public bool StopOnLineOfSight;
 
-    // Goobstation
+    // Goobstation - if you see this in a merge conflict: should be safe to just revert our version, however it has changes to some goob HTNs to make them not brake (via setting this datafield to null), you might want to reinstate those
     /// <summary>
     /// Velocity below which we count as successfully braked.
     /// Don't try to brake if null (upstream behavior).
@@ -113,9 +113,10 @@ public sealed partial class MoveToOperator : HTNOperator, IHtnConditionalShutdow
             !_entManager.TryGetComponent<PhysicsComponent>(owner, out var body))
             return (false, null);
 
-        // Goobstation - check if we or target are offgrid
-        var offGrid = !_entManager.TryGetComponent<MapGridComponent>(xform.GridUid, out var ownerGrid) ||
-                      !_entManager.TryGetComponent<MapGridComponent>(_transform.GetGrid(targetCoordinates), out var targetGrid);
+        // Goobstation - check if we or target are offgrid or on different grids
+        var doDirectMove = !_entManager.TryGetComponent<MapGridComponent>(xform.GridUid, out var ownerGrid) ||
+                      !_entManager.TryGetComponent<MapGridComponent>(_transform.GetGrid(targetCoordinates), out var targetGrid) ||
+                      ownerGrid != targetGrid;
 
         var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
 
@@ -136,8 +137,7 @@ public sealed partial class MoveToOperator : HTNOperator, IHtnConditionalShutdow
             });
         }
 
-        // Goobstation - if we're not offgrid, just try to pathfind
-        if (!offGrid)
+        if (!doDirectMove) // Goobstation
         {
             var path = await _pathfind.GetPath(
                 blackboard.GetValue<EntityUid>(NPCBlackboard.Owner),

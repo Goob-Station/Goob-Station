@@ -185,10 +185,11 @@ public sealed partial class NPCSteeringSystem
         }
 
         // Goobstation
+        var velLen = body.LinearVelocity.Length();
+
         var careAboutSpeed = steering.InRangeMaxSpeed != null;
         var finalInRange = ourCoordinates.TryDistance(EntityManager, destinationCoordinates, out var targetDistance) && inLos && targetDistance <= steering.Range;
-                           // ideally this would be careAboutSpeed but schizo C#
-        var velocityHigh = steering.InRangeMaxSpeed != null && body.LinearVelocity.LengthSquared() > steering.InRangeMaxSpeed.Value * steering.InRangeMaxSpeed.Value;
+        var velocityHigh = careAboutSpeed && velLen > steering.InRangeMaxSpeed!.Value;
         // if we're in range and we care about velocity, stop trying to move if we early return
         if (finalInRange && careAboutSpeed)
             moveMultiplier = 0f;
@@ -412,7 +413,6 @@ public sealed partial class NPCSteeringSystem
         var frameAccel = realAccel * frameTime;
 
         // check our tangential velocity
-        var velLen = body.LinearVelocity.Length();
         var normVel = direction * Vector2.Dot(body.LinearVelocity, direction) / direction.LengthSquared();
         var tgVel = body.LinearVelocity - normVel;
 
@@ -420,7 +420,6 @@ public sealed partial class NPCSteeringSystem
         if (haveToBrake)
         {
             // how much distance we'll pass before hitting our desired max speed
-                                                              // schizo C#
             var brakePath = (velLen - steering.InRangeMaxSpeed ?? 0f) / friction;
             var hardBrake = brakePath > MathF.Min(0.5f, steering.Range); // hard brake if it takes more than half a tile
 
@@ -446,9 +445,12 @@ public sealed partial class NPCSteeringSystem
             case MovementType.Braking:
                 if (velLen > 0f)
                 {
+                    // copy our velocity and apply friction to the copy
                     var cvel = body.LinearVelocity;
                     _mover.Friction(0f, frameTime, friction, ref cvel);
-                    // slow down our braking if we would overbrake in this frame
+                    // clamp our braking to what our post-friction velocity would be
+                    // otherwise we can overbrake in this frame and reverse movement direction
+                    // TODO: a way to tell calling code that we don't want to reverse movement direction to not have to do this
                     moveMultiplier = MapValue(cvel.Length(), 0f, frameAccel);
                                         // brake                                 // normalise
                     ApplySeek(interest, -offsetRot.RotateVec(body.LinearVelocity / velLen), 1f);
