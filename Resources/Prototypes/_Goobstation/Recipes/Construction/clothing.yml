@@ -7,8 +7,11 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -33,6 +36,14 @@
   graph: GlassesMedHUD
   startNode: start
   targetNode: glassesMed
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: DiagnosticGlasses
+  graph: GlassesDiagHUD
+  startNode: start
+  targetNode: glassesDiag
   category: construction-category-clothing
   objectType: Item
 
