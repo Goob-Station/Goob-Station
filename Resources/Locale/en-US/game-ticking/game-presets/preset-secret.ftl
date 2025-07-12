@@ -6,4 +6,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 secret-title = Secret
-secret-description = It's a secret to everyone. The threats you encounter are randomized.
+secret-description = The original gamemode of SS14. 1 Single large game type and a side antag ruleset. You will remember why you aren't nostalgic for it.
