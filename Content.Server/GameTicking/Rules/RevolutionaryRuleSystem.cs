@@ -28,6 +28,8 @@
 // SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 // SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
@@ -49,6 +51,8 @@ using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
+using Content.Server.Speech.EntitySystems;
+using Content.Server.Speech.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -62,6 +66,7 @@ using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Stunnable;
+using Content.Shared.Speech.Muting;
 using Content.Shared.Zombies;
 using Content.Shared.Heretic;
 using Content.Goobstation.Common.Changeling;
@@ -216,6 +221,14 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // GoobStation - check if headRev's ability enabled
         if (!comp.ConvertAbilityEnabled)
             return;
+
+        // Goobstation - Something something check for 30 conditions of mute or otherwise speech impeding shit that makes book pointless
+        if (HasComp<MumbleAccentComponent>(uid))
+            return; // Muzzles to bypass speech is bad
+
+        if (HasComp<MutedComponent>(uid))
+            return; // No speech = No convert
+        // Goob edit end (for now)
 
         var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(ev.Target);
 
