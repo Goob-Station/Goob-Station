@@ -97,11 +97,11 @@
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -154,7 +154,6 @@
     - ActionSurvCameraLights
     - ActionAIViewLaws
     - ActionOpenRemoteDevicesMenu # Corvax-Next-AiRemoteControl
-    - ActionOpenCameraWarpMenu # Goobstation-Ai-Camera-Jumping
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -169,8 +168,6 @@
         type: CommunicationsConsoleBoundUserInterface
       enum.RemoteDeviceUiKey.Key: # Corvax-Next-AiRemoteControl
         type: RemoteDevicesBoundUserInterface
-      enum.CamWarpUiKey.Key: # Goobstation-Ai-Camera-Jumping
-        type: AiCameraWarpBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.RadarConsoleUiKey.Key:
@@ -352,12 +349,12 @@
   - type: StationAiWhitelist
   - type: UserInterface
     interfaces:
-      enum.HolopadUiKey.AiRequestWindow:
-        type: HolopadBoundUserInterface
-      enum.HolopadUiKey.AiActionWindow:
-        type: HolopadBoundUserInterface
-      enum.StationAiCustomizationUiKey.Key:
-        type: StationAiCustomizationBoundUserInterface
+       enum.HolopadUiKey.AiRequestWindow:
+         type: HolopadBoundUserInterface
+       enum.HolopadUiKey.AiActionWindow:
+         type: HolopadBoundUserInterface
+       enum.StationAiCustomizationUiKey.Key:
+         type: StationAiCustomizationBoundUserInterface
 
 # The job-ready version of an AI spawn.
 - type: entity

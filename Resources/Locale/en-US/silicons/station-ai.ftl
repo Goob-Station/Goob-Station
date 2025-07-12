@@ -47,9 +47,20 @@ station-ai-icon-clown = Clownin' around
 station-ai-icon-dorf = Adventure awaits
 station-ai-icon-heartline = Lifeline
 station-ai-icon-smiley = All smiles
-
 station-ai-hologram-female = Female appearance
 station-ai-hologram-male = Male appearance
 station-ai-hologram-face = Disembodied head
 station-ai-hologram-cat = Cat form
 station-ai-hologram-dog = Corgi form
+
+#Goobstation
+station-ai-icon-bingle = Bingle
+station-ai-icon-blank = Blank
+station-ai-icon-nanotrasen = Nanotrasen
+station-ai-icon-hal9000 = Hal 9000
+station-ai-icon-notmalf = NotMALF
+station-ai-icon-matrix = Matrix
+station-ai-icon-goon = Goon
+station-ai-hologram-queen = Queen form
+station-ai-hologram-horror = Uncomprehensible form
+station-ai-hologram-performer = Virtual idol form
