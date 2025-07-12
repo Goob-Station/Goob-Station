@@ -18,8 +18,6 @@ using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
-using Serilog;
-using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Goobstation.Server.EntityEffects;
 
