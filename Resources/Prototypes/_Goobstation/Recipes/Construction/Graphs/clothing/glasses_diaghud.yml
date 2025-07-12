@@ -4,7 +4,7 @@
   graph:
     - node: start
       edges:
-        - to: glassesMed
+        - to: glassesDiag
           steps:
             - tag: Sunglasses
               name: construction-graph-tag-sun-glasses
@@ -22,7 +22,7 @@
               amount: 5
               doAfter: 5
 
-    - node: glassesMed
+    - node: glassesDiag
       entity: ClothingEyesGlassesMed
       edges:
       - to: start

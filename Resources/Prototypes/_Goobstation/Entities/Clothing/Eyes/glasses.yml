@@ -93,7 +93,7 @@
     price: 38
 
 - type: entity
-  parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses]
+  parent: [ClothingEyesBase, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesDiag
   name: diagnostic glasses
   description: Sunglasses with a diagnostic hud.
@@ -105,6 +105,11 @@
   - type: Construction
     graph: GlassesDiagHUD
     node: glassesDiag
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses]
