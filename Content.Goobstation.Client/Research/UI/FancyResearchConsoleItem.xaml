@@ -27,7 +27,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <TextureRect
                 Name="ResearchDisplay"
                 TextureScale="2 2"
-                SetSize="64 64"
                 Stretch="KeepAspectCentered">
             </TextureRect>
         </PanelContainer>
