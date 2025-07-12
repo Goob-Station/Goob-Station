@@ -70,8 +70,11 @@ language-RobotTalk-description = A language consisting of harsh binary chirps, w
 language-Calcic-name = Calcic
 language-Calcic-description = The bone-rattling language of skeletons and Plasmamen. It sounds like a harmonic trousle of bones with a humerus tone, sans any off-tune ribbing.
 
-language-Sign-name = Tau-Ceti Basic Sign Language
-language-Sign-description = TCB-SL for short, this sign language is prevalent among mute and deaf people.
+# language-Sign-name = Tau-Ceti Basic Sign Language # This is stupidly long and I changed it.
+language-Sign-name = Sign Language
+language-Sign-description =
+    Tau-Ceti Basic Sign Language.
+    TCB-SL for short, this sign language is prevalent among mute and deaf people.
 
 language-Marish-name = Marish
 language-Marish-description =  A language spoken only by Shadowkin, one that is unable to be replicated by normal tongues.
