@@ -162,7 +162,7 @@ public sealed class ReactiveSystem : EntitySystem
                 if (!reactive.IsReactionsUnlimited)
                     reactive.RemainingReactions -= 1;
 
-                if (!reactive.IsReactionsUnlimited 
+                if (!reactive.IsReactionsUnlimited
                     && reactive.RemainingReactions == 0)
                     QueueDel(uid);
                 // Goobstation - End
