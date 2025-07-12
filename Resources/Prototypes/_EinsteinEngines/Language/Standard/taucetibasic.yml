@@ -1,4 +1,4 @@
-# The "Default Language" other than Universal.
+# The "Default Language" for everyone other than Universal.
 - type: language
   id: TauCetiBasic
   obfuscation:

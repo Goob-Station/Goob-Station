@@ -1,5 +1,5 @@
 # If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
-# Not sure if that's required, but I added it anyway.
+# Not sure if it's required, but I added the warning anyway.
 
 - type: trait
   id: SignLanguage

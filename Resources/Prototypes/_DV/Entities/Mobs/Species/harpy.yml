@@ -156,7 +156,7 @@
       Male: SoundsHarpyMale
       Female: SoundsHarpyFemale
       Unsexed: SoundsHarpyFemale
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - ValyrianStandard

@@ -118,7 +118,7 @@
       Male: MaleSlime
       Female: FemaleSlime
       Unsexed: MaleSlime
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - Bubblish

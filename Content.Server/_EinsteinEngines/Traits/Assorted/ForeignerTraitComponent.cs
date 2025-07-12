@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._EinsteinEngines.Traits.Assorted;
 
 /// <summary>
-///     When applied to a not-yet-spawned player entity, removes <see cref="BaseLanguage"/> from the lists of their languages
+///     When applied to a not-yet-spawned player entity, removes <see cref="BaseLanguage"/> from the lists of their Languages
 ///     and gives them a translator instead.
 /// </summary>
 [RegisterComponent]

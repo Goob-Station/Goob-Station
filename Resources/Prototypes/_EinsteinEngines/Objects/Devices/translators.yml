@@ -51,7 +51,7 @@
   parent: [ PowerCellSlotMediumItem, TranslatorPoweredBase ]
   suffix: Powered
 
-# Normal translator with a high power cell and special appearance
+# Normal translator with a high power cell and special appearance.
 - type: entity
   categories: [ HideSpawnMenu ]
   id: TranslatorForeigner

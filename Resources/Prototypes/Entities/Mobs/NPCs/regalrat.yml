@@ -266,7 +266,7 @@
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - Mouse

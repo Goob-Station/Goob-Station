@@ -25,7 +25,7 @@ public abstract class SharedLanguageSystem : EntitySystem
     public static readonly string PsychomanticPrototype = "Psychomantic";
 
     /// <summary>
-    /// A cached instance of <see cref="PsychomanticPrototype"/>
+    /// A cached instance of <see cref="PsychomanticPrototype"/>.
     /// </summary>
     public static LanguagePrototype Psychomantic { get; private set; } = default!;
 

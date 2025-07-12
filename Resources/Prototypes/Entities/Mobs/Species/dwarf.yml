@@ -91,7 +91,7 @@
     accent: dwarf
   - type: Speech
     speechSounds: Bass
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic
     - SolCommon
