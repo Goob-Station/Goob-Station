@@ -1,0 +1,94 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: space goldfish
+  parent: BaseMobCarp
+  id: MobCarpGoldfish
+  description: A domesticated variety of space carp, much smaller but no less aggressive.
+  components:
+    - type: HTN
+      rootTask:
+        task: IdleCompound
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-information-space-goldfish-name
+      description: ghost-role-information-space-goldfish-description
+      rules: ghost-role-information-freeagent-rules
+      mindRoles:
+      - MindRoleGhostRoleFreeAgent
+    - type: GhostTakeoverAvailable
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: Mobs/Aliens/Carps/goldfish.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: mouth
+        shader: unshaded
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: alive
+          BaseUnshaded: mouth
+        Critical:
+          Base: critical
+          BaseUnshaded: critical_mouth
+        Dead:
+          Base: dead
+          BaseUnshaded: dead_mouth
+    - type: RandomSprite
+      available:
+      - enum.DamageStateVisualLayers.Base:
+          alive: Rainbow
+        enum.DamageStateVisualLayers.BaseUnshaded:
+          mouth: ""
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Mouse_burning
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.2
+          density: 1
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
+    - type: Item
+      size: Tiny
+    - type: CanEscapeInventory
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        30: Critical
+        50: Dead
+    - type: Butcherable
+      spawned:
+        - id: FoodMeatFish
+          amount: 1
+    - type: MeleeWeapon
+      damage:
+        types:
+          Piercing: 2
+    - type: NightVision
+      toggleAction: ToggleNightVision # let ghost roles turn it off
+    - type: Destructible #shitmed
+      thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 100
+        behaviors:
+        - !type:GibBehavior
+          gibContents: Skip
+          recursive: false
+    - type: Body #shitmed
+      prototype: Mouse

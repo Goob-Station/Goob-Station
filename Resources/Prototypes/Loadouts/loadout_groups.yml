@@ -239,6 +239,17 @@
   - CheapSunglasses # Goobstation
 
 - type: loadoutGroup
+  id: Animals  # Goobstation
+  name: loadout-group-animals
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - Squackroach
+  - Mouse
+  - Mothroach
+  - Goldfish
+
+- type: loadoutGroup
   id: GroupTankHarness
   name: loadout-group-tank-harness
   minLimit: 1
