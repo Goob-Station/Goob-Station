@@ -22,6 +22,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 #
@@ -52,13 +53,42 @@
     - prefRoles: [ Changeling ]
       max: 4
       playerRatio: 12
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
   - type: Tag
     tags:
       - RoundstartAntag
+
+- type: entity
+  parent: BaseTraitorRule
+  id: CorporateAgent
+  components:
+  - type: TraitorRule
+    objectiveIssuers: CorporateFlavor
+  - type: AntagRandomObjectives
+    sets:
+    - groups: CorporateObjectiveGroups
+    maxDifficulty: 8 # Very rare antag so they should get a lot of objectives
+  - type: GameRule
+    minPlayers: 30
+    delay:
+      min: 465
+      max: 665 # Delay is so the heads help their department get set up.
+    chaosScore: 500 # It's just one to two people with less tc even if they may be command
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 2
+      playerRatio: 25
+      jobBlacklist: [ NanotrasenRepresentative ]
+      whitelist:
+        components:
+        - CommandStaff
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleTraitor
 
 - type: entity
   parent: BaseTraitorRule
@@ -73,6 +103,7 @@
     - prefRoles: [ Traitor ]
       max: 3
       playerRatio: 15
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
         - AntagImmune
@@ -189,6 +220,7 @@
     - prefRoles: [ HeadRev ]
       max: 1
       playerRatio: 20
+      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -226,7 +258,7 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
         - AntagImmune
@@ -354,7 +386,7 @@
     - prefRoles: [ Devil ]
       max: 1
       playerRatio: 20
-      jobBlacklist: [ Chaplain, Mime ] # Chaplain is obvious. Mime can't write.
+      jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear

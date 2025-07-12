@@ -50,7 +50,6 @@
 # SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 # SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
@@ -69,7 +68,6 @@
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
@@ -79,10 +77,16 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Jackson Langley <tripwiregamer@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -141,6 +145,7 @@
   name: Die a glorious death
   description: Die.
   components:
+  - type: NotCommandRequirement # Goobstation
   - type: Objective
     difficulty: 0.5
     icon:
@@ -208,6 +213,7 @@
   id: RandomTraitorAliveObjective
   description: Identify yourself at your own risk. We just need them alive.
   components:
+  - type: NotCommandRequirement # Goobstation
   - type: Objective
     difficulty: 1.75
   - type: TargetObjective
@@ -219,6 +225,7 @@
   id: RandomTraitorProgressObjective
   description: Identify yourself at your own risk. We just need them to succeed.
   components:
+  - type: NotCommandRequirement # Goobstation
   - type: Objective
     difficulty: 2.5
   - type: TargetObjective
@@ -243,6 +250,8 @@
   parent: BaseCMOStealObjective
   id: CMOHyposprayStealObjective
   components:
+  - type: NotJobRequirement
+    job: ChiefMedicalOfficer # Goobstation
   - type: StealCondition
     stealGroup: Hypospray
 
@@ -269,6 +278,8 @@
   parent: BaseRDStealObjective
   id: RDHardsuitStealObjective
   components:
+  - type: NotJobRequirement
+    job: ResearchDirector # Goobstation
   - type: StealCondition
     stealGroup: ClothingOuterHardsuitRd
   - type: Objective
@@ -279,6 +290,8 @@
   parent: BaseRDStealObjective
   id: HandTeleporterStealObjective
   components:
+  - type: NotJobRequirement
+    job: ResearchDirector # Goobstation
   - type: StealCondition
     stealGroup: HandTeleporter
 
@@ -313,6 +326,8 @@
   parent: BaseCEStealObjective
   id: MagbootsStealObjective
   components:
+  - type: NotJobRequirement
+    job: ChiefEngineer # Goobstation
   - type: StealCondition
     stealGroup: ClothingShoesBootsMagAdv
 
