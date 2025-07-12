@@ -61,3 +61,4 @@ public sealed class ListLanguagesCommand : IConsoleCommand
         return Loc.GetString($"language-{id}-name");
     }
 }
+
