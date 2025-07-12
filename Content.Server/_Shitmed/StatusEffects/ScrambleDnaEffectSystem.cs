@@ -25,15 +25,14 @@ public sealed class ScrambleDnaEffectSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
+    
     public override void Initialize()
     {
         SubscribeLocalEvent<ScrambleDnaEffectComponent, ComponentInit>(OnInit);
     }
 
-    private void OnInit(EntityUid uid, ScrambleDnaEffectComponent component, ComponentInit args)
-    {
+    private void OnInit(EntityUid uid, ScrambleDnaEffectComponent component, ComponentInit args) =>
         Scramble(uid);
-    }
 
     public void Scramble(EntityUid uid)
     {
