@@ -482,7 +482,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             case MartialArtsForms.KungFuDragon:
                 EnsureComp<DragonKungFuTimerComponent>(user);
                 var riposte = EnsureComp<RiposteeComponent>(user);
-                riposte.Data.TryAdd("CQC",
+                riposte.Data.TryAdd("KungFuDragon",
                     new(0.1f,
                     false,
                     null,
@@ -493,8 +493,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                     false,
                     0.75f,
                     null,
-                    null,
-                    new CanDoCQCEvent()));
+                    null
+                    ));
+                    
                 break;
             case MartialArtsForms.Ninjutsu:
                 EnsureComp<NinjutsuSneakAttackComponent>(user);
