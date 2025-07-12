@@ -219,15 +219,18 @@
   suffix: Filled
   components:
   - type: StorageFill
+    # Goobstation - changed
     contents:
-    - id: Crowbar
-    - id: Wrench
-    - id: Screwdriver
-    - id: Wirecutter
-    - id: Welder
-    - id: Multitool
+    # engi gets equivalents of all of this for free or can easily print from engilathe through early sci techs so it's fine
+    - id: DehydratedToolbelt
+    - id: FireExtinguisherMini
+    - id: RCD
     - id: ClothingHandsGlovesCombat
     - id: ClothingMaskGasSyndicate
+    # stack of each
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: SheetPlastic
 
 - type: entity
   id: ToolboxGoldFilled

@@ -1,0 +1,14 @@
+- type: entity
+  id: ClothingBeltUtilityFilledAdvanced
+  parent: ClothingBeltUtility
+  suffix: Advanced tools
+  components:
+  - type: StorageFill
+    contents:
+    - id: PowerDrill
+    - id: JawsOfLife
+    - id: WelderExperimental
+    - id: Multitool
+    - id: HolofanProjector
+    - id: GasAnalyzer
+    - id: trayScanner

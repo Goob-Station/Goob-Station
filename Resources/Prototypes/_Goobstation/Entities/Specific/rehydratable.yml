@@ -14,3 +14,16 @@
   - type: Rehydratable
     possibleSpawns:
     - MobCarpHolo
+
+- type: entity
+  parent: RehydratableItem
+  id: DehydratedToolbelt
+  name: dehydrated toolbelt
+  description: A toolbelt with advanced tools compressed into a small cube using Syndicate technology.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: cube
+  - type: Rehydratable
+    possibleSpawns:
+    - ClothingBeltUtilityFilledAdvanced
