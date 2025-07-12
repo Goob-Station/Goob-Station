@@ -135,6 +135,13 @@
   - type: Speech
     speechVerb: Moth
     allowedEmotes: ['Chitter', 'Squeak', 'Flap'] #flap is from goob
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - Moffic
+    understands:
+    - TauCetiBasic
+    - Moffic
   - type: TypingIndicator
     proto: moth
   - type: Butcherable

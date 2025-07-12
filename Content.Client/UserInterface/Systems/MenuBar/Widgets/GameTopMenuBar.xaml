@@ -89,6 +89,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
     <ui:MenuButton
+        Name="LanguageButton"
+        Access="Internal"
+        Icon="{xe:Tex '/Textures/_EinsteinEngines/Interface/language.png'}"
+        BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguageMenu}"
+        ToolTip="Open the Language Menu"
+        MinSize="42 64"
+        HorizontalExpand="True"
+        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+        />
+    <ui:MenuButton
         Name="AdminButton"
         Access="Internal"
         Icon="{xe:Tex '/Textures/Interface/gavel.svg.192dpi.png'}"

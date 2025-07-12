@@ -205,8 +205,11 @@
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
-  - type: ReplacementAccent
-    accent: slimes
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Bubblish
+    understands:
+    - Bubblish
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true

@@ -1,0 +1,62 @@
+﻿# Spoken by Abductors
+- type: language
+  id: Xeeplian
+  speech:
+    color: "#a4bb98"
+    fontId: YoureGone
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 1
+    replacement:
+    - Narp
+    - Xnarp
+    - Znarp
+    - Vnarp
+    - Gnarp
+    - Nlorp
+    - Xlorp
+    - Zlorp
+    - Vlorp
+    - Glorp
+    - Nleeb
+    - Xleeb
+    - Zleeb
+    - Vleeb
+    - Gleeb
+    - Gorp
+    - Norp
+    - Xorp
+    - Zorp
+    - Vorp
+    - Gorp
+    - Norple
+    - Xorple
+    - Zorple
+    - Vorple
+    - Gorple
+    - Nip
+    - Xip
+    - Zip
+    - Vip
+    - Gip
+    - Nop
+    - Xop
+    - Zop
+    - Vop
+    - Gop
+    - Neegle
+    - Xeegle
+    - Zeegle
+    - Veegle
+    - Geegle
+    - Su'ergy
+    - Leeed'r
+    - Aeys
+    - Heurt
+    - Toolgle
+    - Subjarple
+    - Execztrac
+    - "Skill Issue"
+    - Preebobo
+    - "Inferior lifeforms"

@@ -1,0 +1,27 @@
+# Used by Blob.
+- type: language
+  id: Blob
+  speech:
+    fontId: Monospace
+    color: "#800080"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - bab
+    - bob
+    - beb
+    - bub
+    - gab
+    - gob
+    - geb
+    - gub
+    - blab
+    - blob
+    - bleb
+    - blub
+    - glab
+    - glob
+    - gleb
+    - glub

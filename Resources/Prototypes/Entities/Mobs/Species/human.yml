@@ -123,6 +123,13 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon
   - type: HumanoidAppearance
     species: Human
     hideLayersOnEquip:

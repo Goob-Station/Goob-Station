@@ -25,6 +25,13 @@
   name: Urist McPositronic
   description: A positronic brain in a metal body.
   components:
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
   - type: HarpySinger
     ShutUpDamageThreshold: 5 # Punch does 5 damage
   - type: Instrument

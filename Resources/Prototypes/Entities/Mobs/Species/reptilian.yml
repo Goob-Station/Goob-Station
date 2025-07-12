@@ -167,6 +167,13 @@
       Male: MaleReptilian
       Female: FemaleReptilian
       Unsexed: MaleReptilian
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - Draconic
+    understands:
+    - TauCetiBasic
+    - Draconic
   - type: BodyEmotes
     soundsId: ReptilianBodyEmotes
   - type: Damageable

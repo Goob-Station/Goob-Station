@@ -423,6 +423,13 @@
     guides:
     - Cyborgs
     - Robotics
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
   - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection
     damageProtection:

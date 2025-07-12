@@ -112,6 +112,14 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: Computer
+  # Einstein Engines - Language begin
+  - type: LanguageSpeaker
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  # Einstein Engines - Language end
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface

@@ -266,6 +266,13 @@
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - Mouse
+    understands:
+    - TauCetiBasic
+    - Mouse
   - type: Butcherable
     spawned:
     - id: ClothingHeadHatFancyCrown #how did that get there?
@@ -372,6 +379,12 @@
       state: eyes
       shader: unshaded
   - type: Insulated # Goobstation
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
+    - TauCetiBasic
 
   - type: SpriteMovement
     movementLayers:
