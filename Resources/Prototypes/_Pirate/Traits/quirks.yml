@@ -75,3 +75,25 @@
     - type: PainTolerant
       painToleranceModifier: -10
 #endregion
+
+#region Weight
+
+- type: trait
+  id: TraitLightweight
+  name: trait-pirate-lightweight-name # Pirate specifier was added because LightweightDrunk has similar name
+  description: trait-pirate-lightweight-desc # Pirate specifier was added because LightweightDrunk has similar desc
+  category: Quirks
+  cost: -3
+  components:
+    - type: Lightweight
+      pickupSpeedMultiplier: 3
+
+- type: trait
+  id: TraitLightStep
+  name: trait-light-step-name
+  description: trait-light-step-desc
+  category: Quirks
+  cost: 2
+  components:
+    - type: LightStep
+#endregion
