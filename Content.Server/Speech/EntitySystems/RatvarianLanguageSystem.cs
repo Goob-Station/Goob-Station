@@ -6,6 +6,7 @@
 
 using System.Text;
 using System.Text.RegularExpressions;
+using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
