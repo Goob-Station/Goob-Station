@@ -34,6 +34,11 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("sexRestriction")]
         public Sex? SexRestriction { get; private set; }
 
+        // CorvaxGoob-Sponsors-Start
+        [DataField("sponsorOnly")]
+        public bool SponsorOnly = false;
+        // CorvaxGoob-Sponsors-End
+
         [DataField("followSkinColor")]
         public bool FollowSkinColor { get; private set; } = false;
 

@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Corvax.Interfaces.Shared;
 using Content.Shared.Clothing;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
@@ -74,6 +75,14 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
         // Didn't use options because this is more robust in future.
 
         var selected = loadout.SelectedLoadouts[_groupProto.ID];
+
+        // CorvaxGoob-Loadouts-Start
+        var groupLoadouts = _groupProto.Loadouts;
+        if (collection.TryResolveType<ISharedLoadoutsManager>(out var loadoutsManager) && _groupProto.ID == "Inventory")
+        {
+            groupLoadouts = loadoutsManager.GetClientPrototypes().Select(id => (ProtoId<LoadoutPrototype>) id).ToList();
+        }
+        // CorvaxGoob-Loadouts-End
 
         foreach (var loadoutProto in _groupProto.Loadouts)
         {

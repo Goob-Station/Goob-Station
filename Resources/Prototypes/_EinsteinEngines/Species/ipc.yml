@@ -8,6 +8,7 @@
   id: IPC
   name: species-name-ipc
   roundStart: true
+  sponsorOnly: true # CorvaxGoob-Sponsors
   prototype: MobIPC
   sprites: MobIPCSprites
   markingLimits: MobIPCMarkingLimits

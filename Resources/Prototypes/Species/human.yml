@@ -52,14 +52,14 @@
     RLeg: MobHumanRLeg
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
-    Tail: MobHumanoidAnyMarking # Goobstation - Required for felinids, harpies & tajaran.
+    Tail: MobHumanoidAnyMarking # Goobstation - Required for felinids, harpies & tajaran. CorvaxGoob-Sponsors
     HeadSide: MobHumanoidAnyMarking # Oni port from DeltaV
 
 - type: markingPoints
   id: MobHumanMarkingLimits
   points:
     Special: # the cat ear joke, its real *godo*
-      points: 1
+      points: 1 # CorvaxGoob-Sponsors
       required: false
     Hair:
       points: 1
@@ -71,7 +71,7 @@
       points: 1
       required: false
     Tail: # the cat tail joke, its real *godo*
-      points: 1
+      points: 1 # CorvaxGoob-Sponsors
       required: false
     HeadTop:
       points: 1

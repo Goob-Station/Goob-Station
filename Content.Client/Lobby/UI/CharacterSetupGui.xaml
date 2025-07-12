@@ -33,6 +33,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                   Command="adminremarks"
                                   Text="{Loc 'character-setup-gui-character-setup-adminremarks-button'}"
                                   StyleClasses="ButtonBig" />
+                <!-- CorvaxGoob-Sponsor-Start -->
+                <Button Name="SponsorButton"
+                        Text="{Loc 'character-setup-gui-character-setup-sponsor-button'}"
+                        Visible="False"
+                        StyleClasses="ButtonBig" />
+                <!-- CorvaxGoob-Sponsor-End -->
                 <Button Name="RulesButton"
                         Text="{Loc 'character-setup-gui-character-setup-rules-button'}"
                         StyleClasses="ButtonBig"/>

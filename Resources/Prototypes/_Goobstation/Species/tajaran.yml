@@ -10,6 +10,7 @@
   id: Tajaran
   name: species-name-tajaran
   roundStart: true
+  sponsorOnly: true # CorvaxGoob-Sponsors
   prototype: MobTajaran
   sprites: MobTajaranSprites
   markingLimits: MobTajaranMarkingLimits
@@ -71,11 +72,13 @@
     LFoot: MobTajaranLFoot
     RFoot: MobTajaranRFoot
 
-- type: humanoidBaseSprite
-  id: MobTajaranEyes
-  baseSprite:
-    sprite: Mobs/Customization/eyes.rsi
-    state: eyes
+# CorvaxGoob-Sponsors-Start: Replaced in _CorvaxGoob\Entities\Mobs\Customization\Markings\tajaran.yml
+# - type: humanoidBaseSprite
+#   id: MobTajaranEyes
+#   baseSprite:
+#     sprite: Mobs/Customization/eyes.rsi
+#     state: eyes
+# CorvaxGoob-Sponsors-End
 
 - type: humanoidBaseSprite
   id: MobTajaranHead
