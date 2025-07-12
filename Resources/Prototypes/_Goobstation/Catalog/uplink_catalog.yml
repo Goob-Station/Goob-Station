@@ -538,6 +538,28 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkClothingArmGuardsSyndicate
+  name: uplink-arm-guards-name
+  description: uplink-arm-guards-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Arms/syndicate.rsi, state: icon }
+  productEntity: ClothingArmsSyndicate
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkClothingLegGuardsSyndicate
+  name: uplink-leg-guards-name
+  description: uplink-leg-guards-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Legs/syndicate.rsi, state: icon }
+  productEntity: ClothingLegsSyndicate
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: UplinkHardsuitSyndieMedic
   name: uplink-hardsuit-syndiemedic-name
   description: uplink-hardsuit-syndiemedic-desc

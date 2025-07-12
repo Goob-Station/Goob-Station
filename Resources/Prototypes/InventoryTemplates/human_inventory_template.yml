@@ -16,6 +16,9 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -142,3 +145,17 @@
       uiWindowPos: 3,0
       strippingWindowPos: 0,5
       displayName: Back
+    - name: arms #GOOB
+      slotTexture: arms
+      slotFlags: ARMS
+      stripTime: 3
+      uiWindowPos: 2,3
+      strippingWindowPos: 2,-1
+      displayName: Arms
+    - name: legs #GOOB
+      slotTexture: legs
+      slotFlags: LEGS
+      stripTime: 3
+      uiWindowPos: 2,0
+      strippingWindowPos: 2,1
+      displayName: Legs
