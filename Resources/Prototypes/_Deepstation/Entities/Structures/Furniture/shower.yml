@@ -1,0 +1,46 @@
+- type: entity
+  name: shower
+  id: Shower
+  description: A shower, complete with bluespace water.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+    - type: Sprite
+      sprite: _DeepStation/Structures/Furniture/shower.rsi
+      drawdepth: WallMountedItems
+      layers:
+      - state: shower
+        map: ["enabled", "enum.ShowerVisualState.Off" ]
+    - type: Appearance
+    - type: Rotatable
+    - type: Transform
+      noRot: false
+    - type: Clickable
+    - type: Shower
+    - type: Physics
+      bodyType: Static
+      canCollide: false
+    - type: InteractionOutline
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Construction
+      graph: Shower
+      node: shower
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - type: GenericVisualizer
+      visuals:
+        enum.ShowerVisuals.ShowerVisualState:
+          ShowerVisualState.Off:
+            On: { state: shower_on }
+            Off: { state: shower }
+

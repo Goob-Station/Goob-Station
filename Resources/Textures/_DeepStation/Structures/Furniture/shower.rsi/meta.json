@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Dakodragon, DiscordID: 56038550335922176",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "shower",
+            "directions": 4
+        },
+        {
+            "name": "shower_on",
+            "directions": 4,
+            "delays": [
+                [ 0.3, 0.3, 0.3 ],
+                [ 0.3, 0.3, 0.3 ],
+                [ 0.3, 0.3, 0.3 ],
+                [ 0.3, 0.3, 0.3 ]
+            ]
+        }
+    ]
+}
