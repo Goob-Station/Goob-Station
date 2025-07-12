@@ -80,7 +80,6 @@
     - MobBearGoon
     - MobWhiteWolf
     - MobBoxingKangaroo
-    - MobGrenadePenguin
     - MobClownSpider
     - MobCorgiNarsi
     - MobBearSpace
@@ -149,6 +148,7 @@
     - MobXenoSpitter
     - MobPurpleSnake
     - MobSmallPurpleSnake
+    - MobBingle
     offset: 0.0
 
 - type: entity
@@ -176,7 +176,6 @@
     - MobSnail
     - MobSnailSpeed
     - MobSnailMoth
-    - MobBingle
     offset: 0.0
 
 - type: entity
