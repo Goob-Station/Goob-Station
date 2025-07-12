@@ -920,7 +920,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
   productEntity: AutosurgeonRightMantisBlade
   cost:
-    Telecrystal: 17
+    Telecrystal: 30
   categories:
   - UplinkImplants
 
@@ -931,7 +931,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
   productEntity: AutosurgeonLeftMantisBlade
   cost:
-    Telecrystal: 17
+    Telecrystal: 30
   categories:
   - UplinkImplants
 
@@ -966,8 +966,6 @@
     stock: 1
   - !type:BuyBeforeCondition
     whitelist:
-    - UplinkAutosurgeonRightMantisBlade
-    - UplinkAutosurgeonLeftMantisBlade
     - UplinkAutosurgeonSandevistan
   - !type:BuyerWhitelistCondition
     blacklist:
