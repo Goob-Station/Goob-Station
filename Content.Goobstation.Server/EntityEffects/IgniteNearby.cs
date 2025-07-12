@@ -26,7 +26,7 @@ public sealed partial class IgniteNearby : EntityEffect
     public float Range = 7;
 
     [DataField]
-    public float FireStacks = 5;
+    public float FireStacks = 2;
 
     public override bool ShouldLog => true;
 
