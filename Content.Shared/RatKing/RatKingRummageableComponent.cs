@@ -3,6 +3,9 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -39,14 +42,14 @@ public sealed partial class RatKingRummageableComponent : Component
     /// </summary>
     [DataField("rummageCooldown"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public TimeSpan RummageCooldown = TimeSpan.FromMinutes(5);
+    public TimeSpan RummageCooldown = TimeSpan.FromMinutes(1);
 
     /// <summary>
     /// How long it takes to rummage through a rummageable container.
     /// </summary>
     [DataField("rummageDuration"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public float RummageDuration = 3f;
+    public float RummageDuration = 2f;
 
     /// <summary>
     /// A weighted random entity prototype containing the different loot that rummaging can provide.
