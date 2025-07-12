@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -79,7 +80,7 @@ public sealed partial class HisGraceComponent : Component
     /// The hungrier, the faster.
     /// </summary>
     [DataField]
-    public float SpeedAddition = 0.2f;
+    public float SpeedAddition = 0.05f;
 
     /// <summary>
     /// How much the speed addition will be multiplied for each subsequent level?

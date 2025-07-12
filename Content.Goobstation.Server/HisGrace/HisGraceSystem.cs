@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -158,8 +159,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         if (!TryComp<MeleeWeaponComponent>(hisGrace, out var melee))
             return;
 
-        // 5 blunt per entity consumed
-        hisGrace.Comp.CurrentDamageIncrease.DamageDict["Blunt"] = hisGrace.Comp.EntitiesAbsorbed * 5;
+        // 5 blunt per entity consumed > now 1.4, it was scaling too fast and trivialized ascending
+        hisGrace.Comp.CurrentDamageIncrease.DamageDict["Blunt"] = hisGrace.Comp.EntitiesAbsorbed * 1.4;
         melee.Damage = hisGrace.Comp.BaseDamage + hisGrace.Comp.CurrentDamageIncrease;
 
         Dirty(hisGrace, melee);
