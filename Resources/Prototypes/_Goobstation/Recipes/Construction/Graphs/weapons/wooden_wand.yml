@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: WoodenWand
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: woodenWand
+      steps:
+      - component: AnomalyCore
+        name: recipe-anomaly-core-name
+        icon:
+          sprite: Structures/Specific/Anomalies/Cores/gravity_core.rsi
+          state: core
+      - material: WoodPlank
+        amount: 5
+        doAfter: 3
+  - node: woodenWand
+    entity: WeaponWoodenWand
