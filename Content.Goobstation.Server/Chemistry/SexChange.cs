@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
@@ -24,6 +25,7 @@ public sealed partial class SexChange : EntityEffect
 
         var uid = args.TargetEntity;
         var newSex = NewSex;
+        var goobHumanoidAppearanceSystem = args.EntityManager.System<SharedGoobHumanoidAppearanceSystem>();
         var humanoidAppearanceSystem = args.EntityManager.System<SharedHumanoidAppearanceSystem>();
 
         if (newSex.HasValue)
@@ -33,6 +35,6 @@ public sealed partial class SexChange : EntityEffect
         }
 
         if (appearance.Sex != Sex.Unsexed)
-            humanoidAppearanceSystem.SwapSex(uid);
+            goobHumanoidAppearanceSystem.SwapSex(uid);
     }
 }

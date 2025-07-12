@@ -12,6 +12,7 @@
 
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Goobstation.Shared.Nutrition.EntitySystems;
 using Content.Goobstation.Shared.Xenobiology.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
@@ -29,7 +30,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
     [Dependency] private readonly IEntityManager _entManager = default!;
     private NpcFactionSystem _factions = default!;
     private MobStateSystem _mobSystem = default!;
-    private HungerSystem _hunger = default!;
+    private GoobHungerSystem _hunger = default!;
 
     private EntityLookupSystem _lookup = default!;
     private PathfindingSystem _pathfinding = default!;
@@ -56,7 +57,7 @@ public sealed partial class PickSlimeLatchTargetOperator : HTNOperator
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _mobSystem = sysManager.GetEntitySystem<MobStateSystem>();
         _factions = sysManager.GetEntitySystem<NpcFactionSystem>();
-        _hunger = sysManager.GetEntitySystem<HungerSystem>();
+        _hunger = sysManager.GetEntitySystem<GoobHungerSystem>();
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,

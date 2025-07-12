@@ -48,7 +48,7 @@ public sealed partial class ReactiveComponent : Component
     public bool IsReactionsUnlimited = true;
 
     /// <summary>
-    /// Will this reaction only react with one unit?
+    /// Will this reaction only react with one unit? - Goobstation
     /// </summary>
     [DataField(serverOnly: true)]
     public bool OneUnitReaction;
