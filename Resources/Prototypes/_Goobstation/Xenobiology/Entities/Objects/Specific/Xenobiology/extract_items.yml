@@ -21,13 +21,6 @@
     autoRecharge: true
     autoRechargeRate: 40
   - type: EmpImmune
-  - type: LightningArcShooter
-    arcDepth: 1
-    maxLightningArc: 3
-    shootMinInterval: 90
-    shootMaxInterval: 300
-    shootRange: 5
-    lightningPrototype: Lightning
   - type: SolutionContainerManager
     solutions:
       battery:

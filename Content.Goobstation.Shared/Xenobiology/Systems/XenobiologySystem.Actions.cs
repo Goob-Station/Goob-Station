@@ -182,10 +182,12 @@ public partial class XenobiologySystem
 
     private void OnStartLatch(Entity<SlimeComponent> slime, ref SlimeLatchDoAfterEvent args)
     {
-        if (args.Target is not { } target || _net.IsClient)
+        if (args.Target is not { } target
+            || _net.IsClient)
             return;
 
-        if (args.Handled || args.Cancelled)
+        if (args.Handled
+            || args.Cancelled)
         {
             RemCompDeferred<BeingConsumedComponent>(target);
             return;

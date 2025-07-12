@@ -20,20 +20,19 @@ namespace Content.Server._Shitmed.StatusEffects;
 
 public sealed class ScrambleDnaEffectSystem : EntitySystem
 {
+
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<ScrambleDnaEffectComponent, ComponentInit>(OnInit);
     }
 
-    private void OnInit(EntityUid uid, ScrambleDnaEffectComponent component, ComponentInit args)
-    {
-        Scramble(uid);
-    }
+    private void OnInit(EntityUid uid, ScrambleDnaEffectComponent component, ComponentInit args) => Scramble(uid);
 
     public void Scramble(EntityUid uid)
     {

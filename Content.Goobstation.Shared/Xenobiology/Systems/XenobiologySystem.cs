@@ -62,6 +62,7 @@ public sealed partial class XenobiologySystem : EntitySystem
 
     private EntityQuery<SlimeComponent> _slimeQuery;
     private EntityQuery<HumanoidAppearanceComponent> _humanoidQuery;
+    private EntityQuery<MobStateComponent> _mobQuery;
     private EntityQuery<HungerComponent> _hungerQuery;
 
     public override void Initialize()
@@ -77,6 +78,7 @@ public sealed partial class XenobiologySystem : EntitySystem
 
         _slimeQuery = GetEntityQuery<SlimeComponent>();
         _humanoidQuery = GetEntityQuery<HumanoidAppearanceComponent>();
+        _mobQuery = GetEntityQuery<MobStateComponent>();
         _hungerQuery = GetEntityQuery<HungerComponent>();
     }
 

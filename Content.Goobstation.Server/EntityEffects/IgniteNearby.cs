@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -25,7 +26,7 @@ public sealed partial class IgniteNearby : EntityEffect
     public float Range = 7;
 
     [DataField]
-    public float FireStacks = 5;
+    public float FireStacks = 2;
 
     public override bool ShouldLog => true;
 
@@ -44,9 +45,7 @@ public sealed partial class IgniteNearby : EntityEffect
         var flamSys = entityManager.System<FlammableSystem>();
 
         foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
-        {
             if (entityManager.TryGetComponent(entity, out FlammableComponent? flammable))
                 flamSys.AdjustFireStacks(entity, FireStacks, flammable, true);
-        }
     }
 }

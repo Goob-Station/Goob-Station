@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -37,9 +38,7 @@ public sealed partial class ExtinguishNearby : EntityEffect
         var flamSys = entityManager.System<FlammableSystem>();
 
         foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
-        {
             if (entityManager.TryGetComponent(entity, out FlammableComponent? flammable))
                 flamSys.Extinguish(entity, flammable);
-        }
     }
 }

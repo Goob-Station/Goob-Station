@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -48,7 +49,7 @@ public sealed partial class RandomTeleportNearby : EntityEffect
     {
         if (args is not EntityEffectReagentArgs reagentArgs)
             return;
-            
+
         var entityManager = args.EntityManager;
         var uid = args.TargetEntity;
 
@@ -64,9 +65,14 @@ public sealed partial class RandomTeleportNearby : EntityEffect
         if (entities.Count == 0)
             return;
 
-        foreach (var entity in entities)
-        {
+        var canTarget = entities
+            .Where(entity => entity != null && occlusionSys.InRangeUnOccluded(uid, entity, Range))
+            .ToHashSet();
+
+        if (canTarget.Count == 0)
+            return;
+
+        foreach (var entity in canTarget)
             teleportSystem.RandomTeleport(entity, Radius, TeleportAttempts);
-        }
     }
 }

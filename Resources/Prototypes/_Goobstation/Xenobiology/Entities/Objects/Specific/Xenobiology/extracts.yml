@@ -322,7 +322,7 @@
       effects:
       - !type:CreateEntityReactionEffect
         entity: SheetPlastic10
-        number: 2
+        number: 3
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
@@ -405,7 +405,7 @@
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
       effects:
-      - !type:AreaReactionEffect
+      - !type:AreaReactionEffect #This should be after 5 seconds.
         duration: 10
         prototypeId: AluminiumMetalFoam
         sound:
@@ -461,7 +461,7 @@
       effects:
       - !type:CreateEntityReactionEffect
         entity: MaterialBSCrystal1
-        number: 1
+        number: 3
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Blood ]
@@ -502,7 +502,7 @@
       methods: [ Touch, Injection ]
       effects:
       - !type:CreateEntityReactionEffect
-        entity: XenoExtractChronofield #This should happen after 5 seconds...
+        entity: XenoExtractChronofield # This should happen after 5 seconds...
         number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
@@ -556,7 +556,7 @@
 - type: entity
   id: PyriteSlimeExtract
   parent: BaseSlimeExtract
-  name: pyrite slime extract #these reactions will be deeply evil.
+  name: pyrite slime extract # Requires upstream status effects.
   description:
   components:
   - type: Sprite
@@ -593,6 +593,28 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#4dff4d"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects: # Mutation Toxin reagent required!
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects: # Armok required (Golems...)
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: MaterialBiomass
+        number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -606,6 +628,33 @@
     - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
       state: core
       color: "#ff33cc"
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects: # Mutate nearby plants effect required.
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: PinkExtractJelly
+        number: 1
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:AdjustReagent
+        reagent: XenoGenderFluid
+        amount: 100
+      - !type:PopupMessage
+        messages: [ "xeno-extract-gender-fluid-created" ]
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
 
 - type: entity
@@ -735,4 +784,26 @@
       state: core
       color: "#005c33"
       shader: XenoMetallic
+  - type: Reactive
+    isReactionsUnlimited: false
+    oneUnitReaction: true
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch, Injection ]
+      effects:
+      - !type:CreateGas
+        gas: Healium
+        multiplier: 55
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Plasma ]
+      methods: [ Touch, Injection ]
+      effects: # Requires Armok... (Golems)
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
+    - reagents: [ Blood ]
+      methods: [ Touch, Injection ]
+      effects: # Requires upstream status effects.
+      - !type:PlaySoundEffect
+        sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract

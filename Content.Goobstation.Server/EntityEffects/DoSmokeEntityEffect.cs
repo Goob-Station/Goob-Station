@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -18,8 +19,6 @@ using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
-using Serilog;
-using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Goobstation.Server.EntityEffects;
 
@@ -76,9 +75,9 @@ public sealed partial class DoSmokeEntityEffect : EntityEffect
         var mapCoords = transformSys.GetMapCoordinates(args.TargetEntity, xform);
 
 
-        if (!mapMan.TryFindGridAt(mapCoords, out _, out var grid) ||
-            !grid.TryGetTileRef(xform.Coordinates, out var tileRef) ||
-            tileRef.Tile.IsEmpty)
+        if (!mapMan.TryFindGridAt(mapCoords, out _, out var grid)
+            || !grid.TryGetTileRef(xform.Coordinates, out var tileRef)
+            || tileRef.Tile.IsEmpty)
             return;
 
         if (spreaderSys.RequiresFloorToSpread(SmokePrototype.ToString()) && tileRef.Tile.IsSpace())
@@ -88,7 +87,6 @@ public sealed partial class DoSmokeEntityEffect : EntityEffect
         var ent = entityManager.SpawnAtPosition(SmokePrototype, coords.SnapToGrid());
         if (!entityManager.TryGetComponent<SmokeComponent>(ent, out var smoke))
         {
-            Log.Error($"Smoke prototype {SmokePrototype} was missing SmokeComponent");
             entityManager.QueueDeleteEntity(ent);
             return;
         }
