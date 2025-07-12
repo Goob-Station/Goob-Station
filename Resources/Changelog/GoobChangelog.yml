@@ -12011,3 +12011,9 @@ Entries:
       message: Fixed boomerang jank.
   id: 1319
   time: '2025-07-12T08:48:25.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Stamina resistances work once again.
+  id: 1320
+  time: '2025-07-12T09:05:18.0000000+00:00'
