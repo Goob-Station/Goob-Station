@@ -1,0 +1,41 @@
+- type: entity
+  name: psi-breaker
+  parent: BaseWeaponPistol
+  id: WeaponPistolPsiBreaker
+  description: A small, flashy pistol with a marble style grip. Provides no tactical advantage. Uses .38 special ammo.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Weapons/Guns/Pistols/psibreaker.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 3.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+  - type: Clothing
+    sprite: _EinsteinEngines/Weapons/Guns/Pistols/mk58.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolMindbreaker
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolMindbreaker
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+

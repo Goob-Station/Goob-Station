@@ -1,0 +1,16 @@
+#Epistemics
+- type: entity
+  parent: Holopad
+  id: HolopadEpistemicsMantis
+  suffix: Mantis
+  components:
+  - type: Label
+    currentLabel: holopad-epistemics-mantis
+
+- type: entity
+  parent: Holopad
+  id: HolopadEpistemicsOracle
+  suffix: Oracle
+  components:
+  - type: Label
+    currentLabel: holopad-epistemics-oracle

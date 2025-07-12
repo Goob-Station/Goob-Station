@@ -71,6 +71,18 @@
   access:
   - Service
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Psionic
+      baselinePowerCost: 75
+      nextPowerCost: 75
+      removable: false
+      powerPool: PsychoHistorianPowerPool
+    - type: InnatePsionicPowers
+      powersToAdd:
+        - TelepathyPower
+        - AssayPower
 
 - type: startingGear
   id: LibrarianGear

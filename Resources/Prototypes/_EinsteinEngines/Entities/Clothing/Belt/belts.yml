@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltMantis
+  name: mantis' belt
+  description: Perfect for storing all of your equipment.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Belt/mantis_belt.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Belt/mantis_belt.rsi
+  - type: Storage
+    whitelist:
+      tags:
+        - Document
+        - Flashlight
+        - ForensicBeltEquip
+        - Sidearm
+        - Folder
+      components:
+        - AnomalyScanner
+        - NodeScanner
+        - Flash
+        - HandLabeler

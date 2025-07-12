@@ -1,0 +1,20 @@
+- type: constructionGraph
+  id: EtherealGoggles
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: etherealGoggles
+          steps:
+            - material: BSCrystal
+              amount: 5
+              doAfter: 10
+            - tag: Sunglasses
+              name: shielded sunglasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+                state: icon
+    - node: etherealGoggles
+      entity: ClothingEyesGlassesEthereal

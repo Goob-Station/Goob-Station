@@ -1,0 +1,5 @@
+- type: stack
+  id: Normality
+  name: normality
+  icon: { sprite: Objects/Materials/materials.rsi, state: normality }
+  spawn: MaterialNormality1

@@ -60,6 +60,7 @@
             StationEngineer: [ 1, 2 ]
             Scientist: [ 1, 1 ]
             Passenger: [ -1, -1 ]
+            ForensicMantis: [ 1, 1 ]
 
         # Goobstation blob-config-start LOW
         - type: StationBlobConfig

@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatMantis
+  name: mantis' jacket
+  description: Modeled after an ancient infantry uniform, this jacket may guard you against the unknown in your journey for the truth.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/mantis_jacket.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/mantis_jacket.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+  - type: TemperatureProtection
+    coefficient: 0.3

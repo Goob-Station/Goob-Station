@@ -1,0 +1,19 @@
+<BoxContainer xmlns="https://spacestation14.io"
+        xmlns:cartridges="clr-namespace:Content.Pirate.Client._EinsteinEngines.CartridgeLoader.Cartridges"
+
+        HorizontalExpand="True"
+        VerticalExpand="True"
+        Margin="5">
+    <!-- All labels populated in constructor -->
+    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left">
+        <BoxContainer Orientation="Vertical">
+            <Label Name="Status"/>
+            <Label Text="{Loc 'psionics-records-console-reason'}"/>
+        </BoxContainer>
+        <Control MinWidth="2" StyleClasses="LowDivider" Margin="8 0"/>
+        <BoxContainer Orientation="Vertical">
+            <Label Name="Title"/>
+	        <Label Name="Reason"/>
+        </BoxContainer>
+    </BoxContainer>
+</BoxContainer>

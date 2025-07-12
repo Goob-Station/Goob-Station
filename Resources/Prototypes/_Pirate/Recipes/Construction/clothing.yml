@@ -1,0 +1,10 @@
+- type: construction
+  name: ethereal goggles
+  id: ClothingEyesGlassesEthereal
+  graph: EtherealGoggles
+  startNode: start
+  targetNode: etherealGoggles
+  category: construction-category-clothing
+  description: TetherealGoggles  
+  icon: { sprite: Clothing/Eyes/Glasses/etherealgoogles.rsi, state: icon }
+  objectType: Item 

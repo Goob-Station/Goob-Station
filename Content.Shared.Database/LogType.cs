@@ -582,6 +582,8 @@ public enum LogType
     /// </summary>
     ArtifactNode = 101,
 
+    Psionics = 421, // Pirate from EE
+
     /// <summary>
     /// GameDirector related game interactions.
     /// </summary>

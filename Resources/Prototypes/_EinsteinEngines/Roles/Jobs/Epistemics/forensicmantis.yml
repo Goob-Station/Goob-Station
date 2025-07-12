@@ -1,0 +1,45 @@
+- type: job
+  id: ForensicMantis
+  name: job-name-mantis
+  description: job-description-mantis
+  playTimeTracker: JobForensicMantis
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 3600
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+        - IPC
+  startingGear: ForensicMantisGear
+  icon: "JobIconForensicMantis"
+  supervisors: job-supervisors-rd
+  goobcoins: 25 #Goob content
+  access:
+  - Research
+  - Maintenance
+  - Mantis
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: Psionic
+        powerSlots: 2
+        powerRollMultiplier: 3
+        baselinePowerCost: 75
+        nextPowerCost: 75
+        removable: false
+        powerPool: RandomPsionicPowerPool
+      - type: InnatePsionicPowers
+        powersToAdd:
+          - MetapsionicPower
+          - TelepathyPower
+          - MantisSummonBlackBlade
+          - AssayPower # Pirate
+
+- type: startingGear
+  id: ForensicMantisGear
+  equipment:
+    ears: ClothingHeadsetScience
+    id: ForensicMantisPDA

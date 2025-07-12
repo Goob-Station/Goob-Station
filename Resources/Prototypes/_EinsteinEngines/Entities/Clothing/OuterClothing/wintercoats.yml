@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCoatMantis
+  name: mantis' winter coat
+  description: Solve cold cases in style.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/OuterClothing/WinterCoats/mantis_winter_coat.rsi
+    - type: Clothing
+      sprite: _EinsteinEngines/Clothing/OuterClothing/WinterCoats/mantis_winter_coat.rsi

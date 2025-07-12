@@ -1,0 +1,20 @@
+- type: constructionGraph
+  id: OusianaDustBowl
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ousianadustbowl
+      steps:
+      - material: BSCrystal
+        amount: 1
+      - material: Normality
+        amount: 1
+      - tag: FoodBowlBig
+        icon:
+          sprite: Objects/Consumable/Food/bowl.rsi
+          state: bowl
+        name: bowl
+        doAfter: 2
+  - node: ousianadustbowl
+    entity: FoodOusianaDustBowl

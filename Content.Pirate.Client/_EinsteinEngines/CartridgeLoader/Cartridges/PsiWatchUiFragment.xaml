@@ -1,0 +1,13 @@
+<cartridges:PsiWatchUiFragment xmlns="https://spacestation14.io"
+        xmlns:cartridges="clr-namespace:Content.Pirate.Client._EinsteinEngines.CartridgeLoader.Cartridges"
+        Margin="5"
+        VerticalExpand="True">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <Label Text="{Loc 'psi-watch-title'}" HorizontalExpand="True" HorizontalAlignment="Center"/>
+        <Label Name="NoEntries" Text="{Loc 'psi-watch-no-entries'}" HorizontalExpand="True" HorizontalAlignment="Center" Visible="False"/>
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+            <!-- Populated when state received -->
+            <BoxContainer Name="Entries" Orientation="Vertical" VerticalAlignment="Top"/>
+        </ScrollContainer>
+    </BoxContainer>
+</cartridges:PsiWatchUiFragment>

@@ -1,0 +1,182 @@
+- type: reagent
+  id: PsionicRegenerationEssence
+  name: reagent-name-prometheum
+  group: Biological
+  desc: reagent-desc-prometheum
+  flavor: metallic
+  color: "#700055"
+  physicalDesc: reagent-physical-desc-viscous
+  metabolisms:
+    Medicine:
+      effects:
+      # These messages would be more appropriate if there was a LoS-based Filter type. TODO
+      # - !type:PopupMessage
+      #   type: Pvs
+      #   visualType: Small
+      #   messages: [
+      #     "psionic-regeneration-essence-sweat",
+      #     "psionic-regeneration-essence-veins",
+      #     "psionic-regeneration-essence-breath"
+      #   ]
+      #   probability: 0.15
+      - !type:SatiateThirst
+        factor: -3
+      - !type:SatiateHunger
+        factor: -3
+      - !type:ModifyBleedAmount
+        amount: -1
+      - !type:ModifyBloodLevel
+        amount: 2
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -5
+            Brute: -4
+          types:
+            Caustic: -3
+            Poison: -3
+            Bloodloss: -3
+
+- type: reagent
+  id: SoulbreakerToxin
+  name: reagent-name-soulbreaker-toxin
+  group: Toxins
+  desc: reagent-desc-soulbreaker-toxin
+  flavor: bitter
+  color: "#FFFFF0"
+  physicalDesc: reagent-physical-desc-cloudy
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 40
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        probability: 0.4
+        damage:
+          groups:
+            Toxin: 2
+      - !type:ChemRemovePsionic
+        conditions:
+        - !type:ReagentThreshold
+          reagent: SoulbreakerToxin
+          min: 5
+
+- type: reagent
+  id: LotophagoiOil
+  name: reagent-name-lotophagoi-oil
+  group: Narcotics
+  desc: reagent-desc-lotophagoi-oil
+  flavor: enthralling
+  color: "#FFBF00"
+  physicalDesc: reagent-physical-desc-overpowering
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.2
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+      - !type:ChemRerollPsionic
+        bonusMultiplier: 4
+        conditions:
+        - !type:ReagentThreshold
+          reagent: LotophagoiOil
+          min: 20
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: ScrambledAccent
+      - !type:GenericStatusEffect
+        key: SlurredSpeech
+        component: TelepathicRepeater
+      #- !type:ChemAddMoodlet PIRATE START
+      #  moodPrototype: LotoTranscendence 
+      #  conditions:
+      #  - !type:ReagentThreshold
+      #    reagent: LotophagoiOil
+      #    min: 5 PIRATE END
+
+- type: reagent
+  id: OusianaDust
+  name: reagent-name-ousiana-dust
+  group: Narcotics
+  desc: reagent-desc-ousiana-dust
+  flavor: supernova
+  color: "#10366e"
+  physicalDesc: reagent-physical-desc-diametric
+  metabolisms:
+    Narcotic:
+      metabolismRate: 5
+      effects:
+        - !type:ChemRestorePsionicReroll
+          conditions:
+            - !type:ReagentThreshold
+              reagent: OusianaDust
+              min: 5
+        - !type:GenericStatusEffect
+          key: SeeingRainbows
+          component: SeeingRainbows
+          type: Add
+          time: 30
+        - !type:GenericStatusEffect
+          key: Stutter
+          component: StutteringAccent
+          type: Add
+          time: 30
+        - !type:HealthChange
+          damage:
+            groups:
+              Toxin: 15 #fast heavy damage, but extreamly hard to get large quantity
+              Burn: 5
+        - !type:Drunk
+          boozePower: 50
+        - !type:Paralyze
+          paralyzeTime: 10 #too much reagent needed for arrows to be toooo powerful with this, but still useful for tratiors or robust CMOs that want a long stun and are friends with Epi
+          conditions:
+            - !type:ReagentThreshold
+              reagent: OusianaDust
+              min: 5
+        - !type:Jitter
+          time: 30
+        - !type:Emote
+          emote: Scream
+        - !type:PopupMessage
+          type: Local
+          visualType: LargeCaution
+          messages:
+            - "chem-potential-regained-ousiana-1"
+            - "chem-potential-regained-ousiana-2"
+            - "chem-potential-regained-ousiana-3"
+            - "chem-potential-regained-ousiana-4"
+          conditions:
+          - !type:ReagentThreshold
+            reagent: OusianaDust
+            min: 5
+        - !type:AdjustReagent
+          reagent: OusianaDust
+          amount: -10
+          conditions:
+            - !type:ReagentThreshold
+              reagent: OusianaDust
+              min: 5
+
+
+- type: reagent
+  id: Ectoplasm
+  name: reagent-name-ectoplasm
+  group: Toxins
+  desc: reagent-desc-ectoplasm
+  flavor: sublime
+  color: "#61a79d"
+  physicalDesc: reagent-physical-desc-ethereal
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        probability: 0.4
+        damage:
+          groups:
+            Toxin: 2

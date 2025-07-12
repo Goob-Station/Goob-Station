@@ -1,0 +1,39 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerPsionicsRecords
+  name: psionics registry computer
+  description: This can be used to check psionics registry records. Only epistemics can modify them.
+  components:
+  - type: PsionicsRecordsConsole
+  - type: UserInterface
+    interfaces:
+      enum.PsionicsRecordsConsoleKey.Key:
+        type: PsionicsRecordsConsoleBoundUserInterface
+  - type: ActivatableUI
+    key: enum.PsionicsRecordsConsoleKey.Key
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: registry
+    - map: ["computerLayerKeys"]
+      state: rd_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#1f8c28"
+  - type: Computer
+    board: PsionicsRecordsComputerCircuitboard
+  - type: AccessReader
+    access:
+      - [ Chapel ]
+      - [ Library ]
+      - [ Mantis ]
+      - [ ResearchDirector ]
+  # - type: GuideHelp
+    # guides: # TODO: Add a guide for Psionics Registry

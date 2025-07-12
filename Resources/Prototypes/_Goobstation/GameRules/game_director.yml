@@ -16,6 +16,7 @@
   - type: DoorMetric
   - type: FoodMetric
   - type: PuddleMetric
+  - type: PsionicMetric # Pirate
 
 - type: entity
   id: CombatDynamic
@@ -30,6 +31,7 @@
       - RelaxedAttack
       - ScienceAttack
       - MajorCombat
+      - PsionicAwakening # Pirate
   - type: SelectedGameRules
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable

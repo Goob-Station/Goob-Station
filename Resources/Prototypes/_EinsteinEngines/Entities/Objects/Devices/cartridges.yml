@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseItem
+  id: PsiWatchCartridge
+  name: psi watch cartridge
+  description: A cartridge that tracks the status of currently documented psionics individuals.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-psi
+  - type: Icon
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-psi
+  - type: UIFragment
+    ui: !type:PsiWatchUi
+  - type: Cartridge
+    programName: psi-watch-program-name
+    icon:
+      sprite: _EinsteinEngines/Structures/Machines/glimmer_machines.rsi
+      state: prober
+  - type: PsiWatchCartridge

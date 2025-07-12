@@ -1,0 +1,52 @@
+- type: entity
+  parent: BaseStructure
+  id: SophicScribe
+  name: Sophia
+  description: Latest reports on the Noösphere!
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: _EinsteinEngines/Structures/Decoration/statues.rsi
+    layers:
+      - state: sophie
+      - map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SophicScribe
+  - type: Speech
+    speechSounds: Tenor
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Science
+  - type: Prayable
+  - type: Actions
+  - type: Psionic
+    removable: false
+    roller: false
+    assayFeedback:
+      - sophic-grammateus-feedback
+    psychognomicDescriptors:
+      - p-descriptor-old
+      - p-descriptor-demiurgic
+      - p-descriptor-mysterious
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
+      - NoosphericZapPower
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: SpriteFade
+  #- type: LanguageSpeaker PIRATE
+  #  currentLanguage: TauCetiBasic
+  #- type: LanguageKnowledge
+  #  speaks:
+  #  - TauCetiBasic
+  #  understands:
+  #  - TauCetiBasic
+  - type: GuideHelp
+    guides: [ Psionics ]

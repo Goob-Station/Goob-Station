@@ -436,6 +436,11 @@
         type: Add
         time: 10
         refresh: false
+      - !type:ChemRemovePsionic #PIRATE
+        conditions:
+          - !type:ReagentThreshold
+            reagent: MindbreakerToxin
+            min: 20
   # TODO: PROPER hallucinations
 
 - type: reagent
