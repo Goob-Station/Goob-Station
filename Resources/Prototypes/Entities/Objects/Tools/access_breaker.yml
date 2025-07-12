@@ -1,6 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
@@ -16,10 +19,10 @@
   - type: Emag
     emagType: Access
   - type: Sprite
-    sprite: Objects/Tools/access_breaker.rsi
+    sprite: _Goobstation/Objects/Tools/authentication_disruptor.rsi # Goob edit - TG Sprite Port
     state: icon
   - type: Item
-    sprite: Objects/Tools/access_breaker.rsi
+    sprite: _Goobstation/Objects/Tools/authentication_disruptor.rsi # Goob edit - TG Sprite Port
   - type: Tag # Goobstation
     tags:
     - Hacking

@@ -11,6 +11,9 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
@@ -25,10 +28,10 @@
   components:
   - type: Emag
   - type: Sprite
-    sprite: Objects/Tools/emag.rsi
+    sprite: _Goobstation/Objects/Tools/cryptographic_sequencer.rsi # Goob edit - TG Sprite Port
     state: icon
   - type: Item
-    sprite: Objects/Tools/emag.rsi
+    sprite: _Goobstation/Objects/Tools/cryptographic_sequencer.rsi # Goob edit - TG Sprite Port
     storedRotation: -90
   - type: Tag # Goobstation
     tags:
