@@ -162,10 +162,8 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnClimbedOn(Entity<SlimeGrinderComponent> grinder, ref ClimbedOnEvent args)
-    {
+    private void OnClimbedOn(Entity<SlimeGrinderComponent> grinder, ref ClimbedOnEvent args) =>
         _container.Insert(args.Climber, grinder.Comp.GrindedContainer);
-    }
 
     private void OnDoAfter(Entity<SlimeGrinderComponent> grinder, ref ReclaimerDoAfterEvent args)
     {
