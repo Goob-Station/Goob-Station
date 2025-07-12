@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -18,15 +19,17 @@
     sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi
     state: icon
   - type: MeleeWeapon
+    heavyStaminaCost: 0
     animationRotation: 120
     swingLeft: true
     wideAnimationRotation: 135
-    attackRate: 1.5
+    attackRate: 1.2
     damage:
       types:
-        Slash: 7
-        Piercing: 7
-        Structural: 15
+        Slash: 15
+        Blunt: 5
+        Structural: 20
+      armorPenetration: 0.50
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tag
@@ -43,3 +46,15 @@
   - type: Tool
     qualities:
     - Slicing
+    - Prying
+  - type: Prying
+    speedModifier: 1.5
+    pryPowered: true
+    useSound: /Audio/Items/jaws_pry.ogg
+  - type: ThrowableBlocker
+    blockSound:
+      path: /Audio/Weapons/bladeslice.ogg
+      params:
+        variation: 0.250
+        volume: -2
+

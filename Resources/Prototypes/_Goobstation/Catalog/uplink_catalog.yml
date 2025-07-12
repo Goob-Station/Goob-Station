@@ -51,6 +51,7 @@
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
@@ -920,7 +921,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
   productEntity: AutosurgeonRightMantisBlade
   cost:
-    Telecrystal: 17
+    Telecrystal: 30
   categories:
   - UplinkImplants
 
@@ -931,7 +932,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
   productEntity: AutosurgeonLeftMantisBlade
   cost:
-    Telecrystal: 17
+    Telecrystal: 30
   categories:
   - UplinkImplants
 
@@ -958,7 +959,7 @@
   icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
   productEntity: ClothingOuterDavidsJacketValid
   cost:
-    Telecrystal: 0
+    Telecrystal: 4
   categories:
   - UplinkImplants
   conditions:
@@ -966,8 +967,6 @@
     stock: 1
   - !type:BuyBeforeCondition
     whitelist:
-    - UplinkAutosurgeonRightMantisBlade
-    - UplinkAutosurgeonLeftMantisBlade
     - UplinkAutosurgeonSandevistan
   - !type:BuyerWhitelistCondition
     blacklist:
