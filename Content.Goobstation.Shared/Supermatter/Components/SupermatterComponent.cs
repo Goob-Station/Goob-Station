@@ -6,10 +6,12 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 LaCumbiaDelCoronavirus <90893484+LaCumbiaDelCoronavirus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -398,9 +400,18 @@ public sealed partial class SupermatterComponent : Component
         [Gas.Frezon] = (TransmitModifier: 3f, HeatPenalty: -10f, PowerMixRatio: -1f),
         [Gas.Ammonia] = (TransmitModifier: 0f, HeatPenalty: .5f, PowerMixRatio: 1f),
         [Gas.NitrousOxide] = (TransmitModifier: 0f, HeatPenalty: -5f, PowerMixRatio: -1f),
+
         [Gas.BZ] = (TransmitModifier: 0f, HeatPenalty: 5f, PowerMixRatio: 1f), // Assmos - /tg/ gases
         [Gas.Healium] = (TransmitModifier: 2.4f, HeatPenalty: 4f, PowerMixRatio: 1f), // Assmos - /tg/ gases
         [Gas.Pluoxium] = (TransmitModifier: 0f, HeatPenalty: -2.5f, PowerMixRatio: -1f), // Assmos - /tg/ gases
+        [Gas.Nitrium] = (TransmitModifier: 30f, HeatPenalty: 10f, PowerMixRatio: 1f), // Assmos - /tg/ gases
+        [Gas.Hydrogen] = (TransmitModifier: 20f, HeatPenalty: 10f, PowerMixRatio: 1f), // Assmos - /tg/ gases
+        [Gas.HyperNoblium] = (TransmitModifier: 30f, HeatPenalty: -9f, PowerMixRatio: -1f), // Assmos - /tg/ gases
+        [Gas.ProtoNitrate] = (TransmitModifier: 15f, HeatPenalty: -4f, PowerMixRatio: 1f), // Assmos - /tg/ gases
+        [Gas.Zauker] = (TransmitModifier: 2f, HeatPenalty: 4f, PowerMixRatio: 1f), // Assmos - /tg/ gases
+        [Gas.Halon] = (TransmitModifier: 0.1f, HeatPenalty: 0.1f, PowerMixRatio: 0.1f), // Assmos - /tg/ gases // 0.1f heatres
+        [Gas.Helium] = (TransmitModifier: 0.1f, HeatPenalty: 0.1f, PowerMixRatio: 0.1f), // Assmos - /tg/ gases // 0.1f heatres
+        [Gas.AntiNoblium] = (TransmitModifier: -0.5f, HeatPenalty: 14f, PowerMixRatio: 1f), // Assmos - /tg/ gases
     };
 
     #endregion SM Gas

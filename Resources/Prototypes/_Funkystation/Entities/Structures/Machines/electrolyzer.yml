@@ -1,0 +1,25 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: Electrolyzer
+  name: electrolyzer
+  components:
+  - type: Electrolyzer
+  - type: AtmosDevice
+  - type: ApcPowerReceiver
+    powerDisabled: true
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/electrolyzer.rsi
+    noRot: true
+    layers:
+    - state: electrolyzerOff
+      map: ["enum.ElectrolyzerVisualLayers.Main"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ElectrolyzerVisuals.State:
+        ElectrolyzerVisualLayers.Main:
+          Off: { state: electrolyzerOff }
+          On: { state: electrolyzerOn }
+  - type: Machine
+    board: ElectrolyzerMachineCircuitboard
+  - type: WiresPanel

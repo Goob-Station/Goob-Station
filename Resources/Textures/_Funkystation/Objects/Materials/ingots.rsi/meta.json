@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/99ed48ce8d3ba7e2d26d68519e05eae277c94685",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "hydrogen"
+    },
+    {
+      "name": "hydrogen_2"
+    },
+    {
+      "name": "hydrogen_3"
+    },
+    {
+      "name": "hydrogen-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "hydrogen-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "zaukerite"
+    },
+    {
+      "name": "zaukerite_2"
+    },
+    {
+      "name": "zaukerite_3"
+    },
+    {
+      "name": "zaukerite-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "zaukerite-inhand-right",
+      "directions": 4
+    }
+  ]
+}
