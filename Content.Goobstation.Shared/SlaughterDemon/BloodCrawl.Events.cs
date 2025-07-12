@@ -12,3 +12,6 @@ public record struct BloodCrawlAttemptEvent(bool Cancelled = false);
 // Triggers once the slaughter demon exits the Blood Crawl ability.
 [ByRefEvent]
 public record struct BloodCrawlExitEvent(bool Cancelled = false);
+// Triggers once an entity devours another entity
+[ByRefEvent]
+public record struct SlaughterDevourEvent(EntityUid pullingEnt);

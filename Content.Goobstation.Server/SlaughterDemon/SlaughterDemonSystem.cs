@@ -4,11 +4,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.SlaughterDemon;
+using Content.Goobstation.Shared.SlaughterDemon.Objectives;
+using Content.Server.Mind;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Damage;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.SlaughterDemon;
@@ -19,8 +25,8 @@ public sealed class SlaughterDemonSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SlaughterDevourSystem _slaughterDevour = default!;
 
-    private EntityQuery<PullerComponent> _pullerQuery;
     private EntityQuery<PuddleComponent> _puddleQuery;
 
     /// <inheritdoc/>
@@ -28,13 +34,14 @@ public sealed class SlaughterDemonSystem : EntitySystem
     {
         base.Initialize();
 
-        _pullerQuery = GetEntityQuery<PullerComponent>();
         _puddleQuery = GetEntityQuery<PuddleComponent>();
 
         SubscribeLocalEvent<SlaughterDemonComponent, RefreshMovementSpeedModifiersEvent>(RefreshMovement);
 
         SubscribeLocalEvent<SlaughterDemonComponent, BloodCrawlExitEvent>(OnBloodCrawlExit);
         SubscribeLocalEvent<SlaughterDemonComponent, BloodCrawlAttemptEvent>(OnBloodCrawlAttempt);
+
+        SubscribeLocalEvent<SlaughterDemonComponent, SlaughterDevourEvent>(OnSlaughterDevour);
     }
 
     public override void Update(float frameTime)
@@ -44,13 +51,10 @@ public sealed class SlaughterDemonSystem : EntitySystem
         var query = EntityQueryEnumerator<SlaughterDemonComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.Accumulator)
-            {
-                comp.ExitedBloodCrawl = false;
-                continue;
-            }
-
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+
+            if (_timing.CurTime >= comp.Accumulator)
+                comp.ExitedBloodCrawl = false;
         }
     }
 
@@ -58,6 +62,24 @@ public sealed class SlaughterDemonSystem : EntitySystem
     {
         ent.Comp.Accumulator = _timing.CurTime + ent.Comp.NextUpdate;
         ent.Comp.ExitedBloodCrawl = true;
+
+        SpawnAtPosition(ent.Comp.JauntUpEffect, Transform(ent.Owner).Coordinates);
+    }
+
+    private void OnSlaughterDevour(Entity<SlaughterDemonComponent> ent, ref SlaughterDevourEvent args)
+    {
+        var demonUid = ent.Owner;
+        var demon = ent.Comp;
+        var pullingEnt = args.pullingEnt;
+
+        demon.ConsumedMobs.Add(pullingEnt);
+        demon.Devoured++;
+
+        if (TryComp<SlaughterDevourComponent>(demonUid, out var slaughterDevour))
+            _slaughterDevour.HealAfterDevouring(pullingEnt, demonUid, slaughterDevour);
+
+        _slaughterDevour.IncrementObjective(demonUid,pullingEnt, demon);
+        QueueDel(pullingEnt);
     }
 
     private void RefreshMovement(EntityUid uid,
@@ -76,29 +98,10 @@ public sealed class SlaughterDemonSystem : EntitySystem
 
     private void OnBloodCrawlAttempt(Entity<SlaughterDemonComponent> ent, ref BloodCrawlAttemptEvent args)
     {
-        TryDevour(ent.Owner);
+        SpawnAtPosition(ent.Comp.JauntEffect, Transform(ent.Owner).Coordinates);
     }
 
-    /// <summary>
-    /// Exclusive to slaughter demons. They devour targets once they enter blood crawl jaunt form.
-    /// Laughter demons do not directly devour them, however.
-    /// </summary>
-    private void TryDevour(EntityUid uid)
-    {
-        if (!TryComp<SlaughterDemonComponent>(uid, out var demon))
-            return;
-
-        if (!_pullerQuery.TryComp(uid, out var puller))
-            return;
-
-        if (!HasComp<HumanoidAppearanceComponent>(puller.Pulling))
-            return;
-
-        demon.ConsumedMobs.Add(puller.Pulling.Value);
-        demon.Devoured++;
-        QueueDel(puller.Pulling);
-        Logger.Info("Entity {puller.Pulling.Value} devoured by entity: {uid}");
-    }
+    # region Helper Functions
 
     /// <summary>
     /// Detects if an entity is standing on blood, or not.
@@ -131,4 +134,6 @@ public sealed class SlaughterDemonSystem : EntitySystem
         }
         return false;
     }
+
+    # endregion
 }

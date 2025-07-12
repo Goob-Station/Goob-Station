@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseGameRule
+  id: SlaughterDemonSummon
+  components:
+  - type: AntagSpawner
+    prototype: BaseMobSlaughterDemon
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSlaughterDemon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSlaughterDemon
+  - type: AntagRandomSpawn
+  - type: AntagObjectives
+    objectives:
+      - SlaughterKillEveryoneObjective
+
+- type: entity
+  parent: BaseGameRule
+  id: SlaughterDemonMidround
+  components:
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSlaughterDemon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleSlaughterDemon
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobLesserSlaughterDemon
+  - type: StationEvent
+    weight: 2
+    earliestStart: 75
+    minimumPlayers: 40
+    duration: null
+    maxOccurrences: 1
+    chaos: # todo: adjust all this
+      Hostile: 300
+      Medical: 300
+      Death: 300
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 800
+  - type: Tag
+    tags:
+    - MidroundAntag
+  - type: AntagObjectives
+    objectives:
+      - SlaughterDevourObjective

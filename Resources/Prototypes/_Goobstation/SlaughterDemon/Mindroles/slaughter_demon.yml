@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSlaughterDemon
+  name: Slaughter Demon Role
+  components:
+  - type: MindRole
+    antagPrototype: SlaughterDemon
+    roleType: SoloAntagonist
+    subtype: role-subtype-slaughter-demon
+    exclusiveAntag: true
+  - type: SlaughterDemonRole

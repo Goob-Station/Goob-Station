@@ -1,0 +1,5 @@
+- type: antag
+  id: SlaughterDemon
+  name: roles-antag-slaughter-demon-name
+  antagonist: true
+  objective: roles-antag-slaughter-demon-objective

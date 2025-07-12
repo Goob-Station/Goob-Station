@@ -8,12 +8,8 @@ using Content.Shared.Polymorph;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-
 namespace Content.Goobstation.Shared.SlaughterDemon;
 
-/// <summary>
-/// THIS IS USED TO SHOW YOU THAT BLOOD IS MY ONLY REDEMPTION. SO READ CLOSELY, HUMAN!!
-/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BloodCrawlComponent : Component
 {

@@ -4,7 +4,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.SlaughterDemon;
 
@@ -52,4 +54,30 @@ public sealed partial class SlaughterDemonComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan NextUpdate = TimeSpan.FromSeconds(6f);
+
+    /// <summary>
+    /// The jaunt effect when entering the jaunt
+    /// </summary>
+    [DataField]
+    public EntProtoId JauntEffect = "SlaughterDemonJauntEffect";
+
+    /// <summary>
+    /// The jaunt effect when exiting the jaunt
+    /// </summary>
+    [DataField]
+    public EntProtoId JauntUpEffect = "SlaughterDemonJauntUpEffect";
+
+    /// <summary>
+    /// Is the demon a Lesser Demon?
+    /// </summary>
+    [DataField]
+    public bool IsLesser;
+
+    /// <summary>
+    /// Is the demon the Laughter Demon?
+    /// </summary>
+    [DataField]
+    public bool IsLaughter;
 }
+
+

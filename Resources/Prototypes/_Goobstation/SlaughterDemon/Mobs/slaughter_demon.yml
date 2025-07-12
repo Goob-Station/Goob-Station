@@ -6,7 +6,6 @@
 - type: entity
   parent:
     - SimpleMobBase
-    - InventoryBase
     - MobPolymorphable
   id: BaseMobSlaughterDemon
   name: slaughter demon
@@ -44,7 +43,8 @@
       types:
         Slash: 30
         Structural: 30 # funny
-  - type: SlaughterDemon
+  - type: SlaughterDemon # main component
+  - type: SlaughterDevour # allows the demon to devour
   - type: Puller
   - type: ComplexInteraction
   - type: Targeting
@@ -52,8 +52,6 @@
     speechVerb: Robotic
   - type: TypingIndicator
     proto: guardian
-  - type: Inventory
-  - type: InventorySlots
   - type: Gibbable
   - type: LayingDown
   - type: RotationVisuals
@@ -77,3 +75,15 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 2
+
+# midround roll
+- type: entity
+  parent: BaseMobSlaughterDemon
+  id: MobLesserSlaughterDemon
+  name: lesser slaughter demon
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      200: Dead

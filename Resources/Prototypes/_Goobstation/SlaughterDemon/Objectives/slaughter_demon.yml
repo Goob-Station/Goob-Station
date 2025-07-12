@@ -1,0 +1,37 @@
+- type: entity
+  parent: BaseObjective
+  id: SlaughterBaseObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: Satan
+
+# Major Objectives
+- type: entity
+  parent: SlaughterBaseObjective
+  id: SlaughterKillEveryoneObjective
+  description: Second, kill everyone else.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: SlaughterKillEveryoneCondition
+
+# Midround Objectives
+- type: entity
+  parent: SlaughterBaseObjective
+  id: SlaughterDevourObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: NumberObjective
+    min: 10
+    max: 20
+    title: objective-condition-slaughter-devour-title
+    description: objective-condition-slaughter-devour-desc
+  - type: SlaughterDevourCondition
+
+# Fluff objectives
