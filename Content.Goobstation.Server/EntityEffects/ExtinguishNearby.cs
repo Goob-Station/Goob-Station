@@ -37,9 +37,7 @@ public sealed partial class ExtinguishNearby : EntityEffect
         var flamSys = entityManager.System<FlammableSystem>();
 
         foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
-        {
             if (entityManager.TryGetComponent(entity, out FlammableComponent? flammable))
                 flamSys.Extinguish(entity, flammable);
-        }
     }
 }
