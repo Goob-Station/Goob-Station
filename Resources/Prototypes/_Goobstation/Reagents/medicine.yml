@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
@@ -52,6 +52,42 @@
           damage:
             types:
               Blunt: 100
+        - !type:AdjustTemperature
+          conditions:
+          - !type:Temperature
+            min: 263.15
+          amount: -50000
+
+- type: reagent
+  id: Debughealium
+  name: reagent-name-carbon
+  group: Medicine
+  desc: reagent-desc-carbon
+  physicalDesc: reagent-physical-desc-stasizium
+  flavor: futuristic
+  color: "#8364BE"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+        - !type:ModifyBloodLevel
+          amount: 100
+        - !type:ModifyBleedAmount
+          amount: -200
+        - !type:ReduceRotting
+          seconds: 300
+          conditions:
+          - !type:MobStateCondition
+            mobstate: Dead
+        - !type:HealthChange
+          damage:
+            groups:
+              Brute: -2000
+              Burn: -2000
+              Airloss: -2000
+              Toxin: -2000
+              Genetic: -2000
         - !type:AdjustTemperature
           conditions:
           - !type:Temperature
