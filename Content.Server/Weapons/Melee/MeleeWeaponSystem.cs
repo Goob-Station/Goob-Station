@@ -73,11 +73,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly ContestsSystem _contests = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!; // Goob - Shove Rework
-    [Dependency] private readonly INetConfigurationManager _config = default!; // Goob - Shove Rework
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goob - Shove Rework
-
 
     public override void Initialize()
     {
@@ -137,7 +132,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         return true;
     }
 
-    protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
+    public override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session) // Goob edit
     {
         EntityCoordinates targetCoordinates;
         Angle targetLocalAngle;
@@ -150,7 +145,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         return Interaction.InRangeUnobstructed(user, target, range);
     }
-
 
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
     {
