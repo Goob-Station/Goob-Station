@@ -29,6 +29,7 @@ public partial class XenobiologySystem
         var coords = Transform(slime).Coordinates;
         var user = args.User;
 
+        // Hearts VFX - Slime taming is seperate to core Pettable Component/System
         Spawn(ent.Comp.TameEffect, coords);
         comp.Tamer = user;
         Dirty(ent);
