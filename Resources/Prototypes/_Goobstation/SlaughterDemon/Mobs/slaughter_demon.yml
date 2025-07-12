@@ -1,0 +1,89 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent:
+    - SimpleMobBase
+    - MobPolymorphable
+  id: BaseMobSlaughterDemon
+  name: slaughter demon
+  suffix: ""
+  description: A large, menacing creature covered in armored black scales. You should run.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/SlaughterDemon/demon.rsi
+    state: daemon
+  - type: Damageable
+    damageContainer: Biological
+  - type: MobMover
+  - type: InputMover
+  - type: Input
+    context: "human"
+  - type: InteractionOutline
+  - type: NoSlip
+  - type: Clickable
+  - type: Physics
+    bodyType: KinematicController
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      400: Dead
+  - type: Examiner
+  - type: CombatMode
+    prototype:
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 30
+        Structural: 30 # funny
+  - type: SlaughterDemon # main component
+  - type: SlaughterDevour # allows the demon to devour
+  - type: Puller
+  - type: ComplexInteraction
+  - type: Targeting
+  - type: Speech
+    speechVerb: Robotic
+  - type: TypingIndicator
+    proto: guardian
+  - type: Gibbable
+  - type: LayingDown
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Body
+    prototype: SlaughterDemon
+  - type: StandingState
+  - type: Hands
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+
+# midround roll
+- type: entity
+  parent: BaseMobSlaughterDemon
+  id: MobLesserSlaughterDemon
+  name: lesser slaughter demon
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      200: Dead

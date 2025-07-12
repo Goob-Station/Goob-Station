@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BloodCrawlAction
+  name: Blood Crawl
+  description: JAUNT ANYWHERE WHENEVER YOU ARE ON BLOOD 
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/SlaughterDemon/abilities.rsi
+      state: crawl
+    event: !type:BloodCrawlEvent
+    useDelay: 2
