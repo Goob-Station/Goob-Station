@@ -12,7 +12,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Linq;
-using Content.Shared.Chat; // Einstein Engines - Language
+using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

@@ -27,7 +27,7 @@
 
 using System.Collections.Frozen;
 using Content.Goobstation.Common.MisandryBox;
-using Content.Shared.Chat; // Einstein Engines - Language & Goobmod
+using Content.Shared.Chat; // Einstein Engines - Languages & Goobmod
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;

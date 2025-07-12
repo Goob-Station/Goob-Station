@@ -106,7 +106,7 @@ using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Shared.Traits.Assorted;
-using Content.Shared.Chat; // Einstein Engines - Language
+using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
