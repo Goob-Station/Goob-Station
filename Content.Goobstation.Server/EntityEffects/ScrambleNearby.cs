@@ -44,9 +44,7 @@ public sealed partial class ScrambleNearby : EntityEffect
         var scramSys = entityManager.System<ScrambleDnaEffectSystem>();
 
         foreach (var entity in lookupSys.GetEntitiesInRange(args.TargetEntity, Range))
-        {
             if (entityManager.HasComponent<HumanoidAppearanceComponent>(entity))
                 scramSys.Scramble(entity);
-        }
     }
 }
