@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -35,6 +36,8 @@
         Structural: 10
   - type: Item
     size: Large
+  - type: Hammer # Goobstation - it's a hammer.
+    damageMultiplier: 1.5
 
 - type: entity
   id: Mjollnir
@@ -80,6 +83,8 @@
     size: Ginormous
   - type: Boomerang # Goobstation
     maxHops: 20
+  - type: Hammer # Goobstation - it's a hammer.
+    damageMultiplier: 2
 
 - type: entity
   id: SingularityHammer
@@ -121,3 +126,5 @@
         Structural: 15
   - type: Item
     size: Ginormous
+  - type: Hammer # Goobstation - it's a hammer.
+    damageMultiplier: 2
