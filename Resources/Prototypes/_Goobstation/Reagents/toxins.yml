@@ -343,7 +343,7 @@
   name: reagent-name-nitric-acid
   group: Toxins
   desc: reagent-desc-nitric-acid
-  physicalDesc: reagent-physical-desc-fuming
+  physicalDesc: reagent-physical-desc-abrasive
   flavor: acid
   color: "#FAFAFA"
   boilingPoint: 83
