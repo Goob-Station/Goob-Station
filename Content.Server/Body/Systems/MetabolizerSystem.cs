@@ -55,7 +55,10 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Seven2280 <semvalentin123@gmail.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -64,6 +67,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Bed.Sleep; // Shitmed Change
 using Content.Shared.Body.Organ;
+using Content.Shared.Body.Prototypes; // Goob
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
@@ -302,6 +306,34 @@ namespace Content.Server.Body.Systems
 
             _solutionContainerSystem.UpdateChemicals(soln.Value);
         }
+
+        // Goob-Start
+        public bool TryAddMetabolizerType(MetabolizerComponent component, string metabolizerType)
+        {
+            if (!_prototypeManager.HasIndex<MetabolizerTypePrototype>(metabolizerType))
+                return false;
+
+            if (component.MetabolizerTypes == null)
+                component.MetabolizerTypes = new();
+
+            return component.MetabolizerTypes.Add(metabolizerType);
+        }
+
+        public bool TryRemoveMetabolizerType(MetabolizerComponent component, string metabolizerType)
+        {
+            if (component.MetabolizerTypes == null)
+                return true;
+
+            return component.MetabolizerTypes.Remove(metabolizerType);
+        }
+
+        public void ClearMetabolizerTypes(MetabolizerComponent component)
+        {
+
+            if (component.MetabolizerTypes != null)
+                component.MetabolizerTypes.Clear();
+        }
+        // Goob-End
     }
 
     // TODO REFACTOR THIS
