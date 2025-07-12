@@ -25,4 +25,13 @@ public sealed partial class HisGraceUserComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? HisGrace;
+
+    /// <summary>
+    /// The stam crit threshold the user gains when holding.
+    /// </summary>
+    [DataField]
+    public float HoldingStamCritThreshold = 1000f;
+
+    [ViewVariables]
+    public float BaseStamCritThreshold;
 }
