@@ -44,4 +44,3 @@
         - !type:SpawnPrototype
           prototype: ClothingEyesHudDiagnostic
         - !type:DeleteEntity
-        
