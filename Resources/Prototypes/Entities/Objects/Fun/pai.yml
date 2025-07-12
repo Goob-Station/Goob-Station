@@ -213,6 +213,44 @@
       components:
         - SecretStash
         - WrappedParcel
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic # Instead of universal, add individual so they can speak in said language for privacy.
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - Rootspeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    understands:
+    - TauCetiBasic # Instead of universal, add individual so they can speak in said language for privacy.
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - Rootspeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Sign # Should know it but not speak it, for obvious reasons.
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
