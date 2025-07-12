@@ -28,6 +28,9 @@
 # SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zayyaan <terraspark4941@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 #
@@ -114,3 +117,47 @@
   id: SmallConstructibleMachine
   components:
     - type: RequireProjectileTarget
+
+# Amalgam of BaseItemCabinet and ConstructibleMachine
+# Can't just use both abstracts as shared parents, otherwise ContainerContainer throws a tantrum
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: ConstructibleItemCabinet
+  components:
+  - type: Animateable
+  - type: Machine
+  - type: Openable
+    openOnActivate: true
+    closeable: true
+    sound:
+      path: /Audio/Machines/machine_switch.ogg
+    closeSound:
+      path: /Audio/Machines/machine_switch.ogg
+  - type: ItemCabinet
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      ItemCabinet: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_parts
+    - machine_board
+  - type: LightningTarget
+    priority: 1
+  - type: Appearance
+  # perfect for most things but you can always replace it
+  - type: GenericVisualizer
+    visuals:
+      enum.ItemCabinetVisuals.ContainsItem:
+        enum.ItemCabinetVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: { state: open }
+          False: { state: closed }

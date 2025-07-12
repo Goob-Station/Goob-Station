@@ -12,6 +12,9 @@
 # SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 iacore <74560659+iacore@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zayyaan <terraspark4941@gmail.com>
 #
 # SPDX-License-Identifier: MIT
 
@@ -82,6 +85,20 @@
             - tool: Screwing
               doAfter: 0.5
 
+        - to: machineLocked
+          conditions:
+            - !type:EntityAnchored
+            - !type:MachineFrameComplete
+              guideIconBoard:
+                sprite: Objects/Misc/module.rsi
+                state: id_mod
+              guideIconParts:
+                sprite: Objects/Misc/stock_parts.rsi
+                state: scan_module
+          steps:
+            - tool: Screwing
+              doAfter: 0.5
+
         - to: machineFrame
           conditions:
             - !type:EntityAnchored
@@ -118,6 +135,23 @@
           conditions:
             - !type:EntityAnchored
             - !type:WirePanel
+          steps:
+            - tool: Prying
+              doAfter: 2
+
+    - node: machineLocked
+      entity: !type:BoardNodeEntity { container: machine_board }
+      edges:
+        - to: machineFrame
+          completed:
+            - !type:RaiseEvent
+              event: !type:MachineDeconstructedEvent
+              broadcast: false
+          conditions:
+            - !type:EntityAnchored
+            - !type:WirePanel
+            - !type:Locked
+              locked: false
           steps:
             - tool: Prying
               doAfter: 2
