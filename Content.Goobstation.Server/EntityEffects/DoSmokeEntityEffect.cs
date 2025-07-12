@@ -87,7 +87,6 @@ public sealed partial class DoSmokeEntityEffect : EntityEffect
         var ent = entityManager.SpawnAtPosition(SmokePrototype, coords.SnapToGrid());
         if (!entityManager.TryGetComponent<SmokeComponent>(ent, out var smoke))
         {
-            Log.Error($"Smoke prototype {SmokePrototype} was missing SmokeComponent");
             entityManager.QueueDeleteEntity(ent);
             return;
         }
