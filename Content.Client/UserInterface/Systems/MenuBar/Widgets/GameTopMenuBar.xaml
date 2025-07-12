@@ -129,3 +129,4 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         AppendStyleClass="{x:Static style:StyleBase.ButtonOpenLeft}"
         />
 </widgets:GameTopMenuBar>
+
