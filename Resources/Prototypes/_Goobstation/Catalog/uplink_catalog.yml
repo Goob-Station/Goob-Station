@@ -958,7 +958,7 @@
   icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
   productEntity: ClothingOuterDavidsJacketValid
   cost:
-    Telecrystal: 0
+    Telecrystal: 4
   categories:
   - UplinkImplants
   conditions:
