@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ClothingNeckBase, BaseCentcommContraband]
+  id: ClothingNeckCloakBoat
+  name: NanoTrasen boat cloak
+  description: A regal blue durathread boat cloak with a red felt lining and gold trim. Somehow, it's even more expensive than it looks.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/boatcloak.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/boatcloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckSalvager
+  name: salvager's cloak
+  description: Worn by dangerous people who've deconstructed stations with ease.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Neck/Cloaks/salvage.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Neck/Cloaks/salvage.rsi
