@@ -80,10 +80,13 @@
 # SPDX-FileCopyrightText: 2025 Chaoticaa <zoso-iv@hotmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 James <40279265+ViceEmargo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JohnOakman <10437690+JohnOakman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -2089,3 +2092,27 @@
       Min: 1
       Max: 2
       PotencyDivisor: 40
+
+- type: seed
+  id: moneyTree
+  name: seeds-money-tree-name
+  noun: seeds-noun-seeds
+  displayName: seeds-money-tree-display-name
+  plantRsi: _Goobstation/Objects/Specific/Hydroponics/money_tree.rsi
+  packetPrototype: MoneyTreeSeeds
+  productPrototypes:
+    - SpaceCash10
+  harvestRepeat: Repeat
+  lifespan: 60
+  maturation: 6
+  production: 6
+  yield: 3
+  potency: 5
+  growthStages: 4
+  waterConsumption: 0.60
+  nutrientConsumption: 0.60
+  chemicals:
+    Fiber:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 50
