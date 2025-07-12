@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseGameRule
+  id: Shadowling
+  components:
+  - type: ShadowlingRule
+  - type: GameRule
+    minPlayers: 30
+  - type: AntagSelection
+    definitions:
+      - prefRoles: [ Shadowling ]
+        max: 2
+        playerRatio: 30
+        mindRoles:
+          - MindRoleShadowling
+  - type: AntagObjectives
+    objectives:
+      - ShadowlingAscendObjective

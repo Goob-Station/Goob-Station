@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseCodeObjective
+  id: ShadowlingAscendObjective
+  description: I must ascend at all costs.
+  components:
+  - type: Objective
+    issuer: objective-issuer-shadowling
+    unique: true
+    difficulty: 3
+    icon:
+      sprite: _EinsteinEngines/Shadowling/objectives.rsi
+      state: ascendance_icon
+
+
