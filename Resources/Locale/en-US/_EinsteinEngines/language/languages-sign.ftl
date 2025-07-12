@@ -33,7 +33,7 @@ chat-speech-verb-sign-nalrasan-15 = shifts their ears and tail briefly
 chat-speech-verb-sign-nalrasan-16 = shifts their ears and tail for a while
 chat-speech-verb-sign-nalrasan-17 = shifts their ears and tail several times in quick succession
 
-# There has to be a better way
+# There has to be a better way.
 
 chat-speech-verb-sign-siiktajr-1 = moves their tail and purrs out
 chat-speech-verb-sign-siiktajr-2 = moves their tail and mews

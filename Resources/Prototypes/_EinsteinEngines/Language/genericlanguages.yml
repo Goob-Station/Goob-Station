@@ -5,7 +5,7 @@
   obfuscation:
     !type:ReplacementObfuscation
     replacement:
-    - "*incomprehensible*" # Never actually used.
+    - "*incomprehensible*" # Never actually used
 
 # Used by Robots.
 # TODO: Replace this with much better languages. Yes, robots can have languages.
