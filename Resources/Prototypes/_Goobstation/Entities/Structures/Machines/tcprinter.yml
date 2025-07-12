@@ -3,6 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -13,7 +14,7 @@
   description: A very loud machine that uses bluespace blockchain technology to generate telecrystals every 30 seconds when powered.
   components:
   - type: ApcPowerReceiver
-    powerLoad: 20000
+    powerLoad: 10000
   - type: TelecrystalMiner
     announceAt: 40
     locationAt: 100 # breakeven
