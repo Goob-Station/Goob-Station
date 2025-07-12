@@ -37,6 +37,14 @@
   objectType: Item
 
 - type: construction
+  id: DiagnosticGlasses
+  graph: GlassesDiagHUD
+  startNode: start
+  targetNode: glassesDiag
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
   id: MedicalSecurityGlasses
   graph: GlassesMedSecHUD
   startNode: start
