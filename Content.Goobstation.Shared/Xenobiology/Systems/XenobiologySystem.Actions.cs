@@ -186,7 +186,8 @@ public partial class XenobiologySystem
             || _net.IsClient)
             return;
 
-        if (args.Handled || args.Cancelled)
+        if (args.Handled
+            || args.Cancelled)
         {
             RemCompDeferred<BeingConsumedComponent>(target);
             return;
