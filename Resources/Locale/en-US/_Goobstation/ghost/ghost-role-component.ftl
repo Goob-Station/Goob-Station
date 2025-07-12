@@ -83,6 +83,8 @@ ghost-role-information-conquest-name = Conquest
 ghost-role-information-conquest-description = This station was given orders, they were given time. They were given more leeway than most.
 ghost-role-information-conquest-rules = Prepare this station for the arrival of the Viltrum Empire.
 
+#
+
 # Token Roles
 
 ghost-role-information-description-token-generic = Don't take this role unless you redeemed the token!

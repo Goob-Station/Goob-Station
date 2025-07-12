@@ -93,6 +93,7 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
@@ -555,18 +556,29 @@ public sealed partial class ChatSystem : SharedChatSystem
     // Goobstation - Starlight collective mind port
     private void SendCollectiveMindChat(EntityUid source, string message, CollectiveMindPrototype? collectiveMind)
     {
-        if (_mobStateSystem.IsDead(source) || collectiveMind == null || message == "" || !TryComp<CollectiveMindComponent>(source, out var sourseCollectiveMindComp) || !sourseCollectiveMindComp.Minds.ContainsKey(collectiveMind.ID))
+        if (_mobStateSystem.IsDead(source)
+            || collectiveMind == null
+            || message == ""
+            || !TryComp<CollectiveMindComponent>(source, out var sourceCollectiveMindComp)
+            || !sourceCollectiveMindComp.WebMemberships.TryGetValue(collectiveMind.ID, out var sourceMembership))// Goobstation - Collective Webs
             return;
+
 
         var clients = Filter.Empty();
         var clientsSeeNames = Filter.Empty();
         var mindQuery = EntityQueryEnumerator<CollectiveMindComponent, ActorComponent>();
+
         while (mindQuery.MoveNext(out var uid, out var collectMindComp, out var actorComp))
         {
-            if (_mobStateSystem.IsDead(uid))
+            if (_mobStateSystem.IsDead(uid)
+                || _adminManager.ActiveAdmins.Contains(actorComp.PlayerSession)) // Don't double send to admins.
                 continue;
 
-            if (collectMindComp.Minds.ContainsKey(collectiveMind.ID) || collectMindComp.HearAll)
+            var inSameWeb = collectMindComp.WebMemberships.TryGetValue(collectiveMind.ID, out var membership) // Goobstation - Collective Webs
+                            && membership.WebId == sourceMembership.WebId;
+
+            if (inSameWeb // Goobstation - Collective Webs
+                || collectMindComp.HearAll)
             {
                 if (collectMindComp.SeeAllNames)
                     clientsSeeNames.AddPlayer(actorComp.PlayerSession);
@@ -575,7 +587,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
         }
 
-        var Number = $"{sourseCollectiveMindComp.Minds[collectiveMind.ID]}";
+        var number = $"{sourceMembership.MemberId}"; // Goobstation - Collective webs
 
         var admins = _adminManager.ActiveAdmins
             .Select(p => p.Channel);
@@ -583,7 +595,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
             ("message", message),
             ("channel", collectiveMind.LocalizedName),
-            ("number", Number));
+            ("number", number));
         string namedMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-named",
             ("source", source),
             ("message", message),
@@ -592,7 +604,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("source", source),
             ("message", message),
             ("channel", collectiveMind.LocalizedName),
-            ("number", Number));
+            ("number", number));
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"CollectiveMind chat from {ToPrettyString(source):Player}: {message}");
 
