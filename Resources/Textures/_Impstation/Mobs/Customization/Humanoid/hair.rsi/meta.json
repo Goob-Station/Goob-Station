@@ -1,0 +1,123 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "copyright": "gatheredlow sprited by Sha-Seng (Github), lowpigtails by Skeleskitty (Discord), frenchbraid by AftrLite (Github), halfup styles, midpart styles, mullet styles, undercut_curly and sideshave_curly sprited by argentsunshine (github), floral, messyponytail and headcovers by crocodilecarousel (github), spikyponytaillong originally taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi, resprited by Alekshhh and edited for Impstation by mhachimagus (github), (shaggy, shaggylonger, shaggymessy, susie, susienobangs) by @animal_collective (disc) animal-collective (github) !",
+    "license": "CC-BY-SA-3.0",
+    "states": [
+        {
+            "name": "burqasolid",
+            "directions": 4
+        },
+        {
+            "name": "florallong1",
+            "directions": 4
+        },
+        {
+            "name": "florallong2",
+            "directions": 4
+        },
+        {
+            "name": "floralmid1",
+            "directions": 4
+        },
+        {
+            "name": "floralmid2",
+            "directions": 4
+        },
+        {
+            "name": "frenchbraid",
+            "directions": 4
+        },
+        {
+            "name": "gatheredlow",
+            "directions": 4
+        },
+        {
+            "name": "halfuplong",
+            "directions": 4
+        },
+        {
+            "name": "halfupshort",
+            "directions": 4
+        },
+        {
+            "name": "halfupundercut",
+            "directions": 4
+        },
+        {
+            "name": "hijabchic",
+            "directions": 4
+        },
+        {
+            "name": "hijabsimple",
+            "directions": 4
+        },
+        {
+            "name": "lowpigtails",
+            "directions": 4
+        },
+        {
+            "name": "messyponytail",
+            "directions": 4
+        },
+        {
+            "name": "midpartlong",
+            "directions": 4
+        },
+        {
+            "name": "midpartlonger",
+            "directions": 4
+        },
+        {
+            "name": "mulletsideshave",
+            "directions": 4
+        },
+        {
+            "name": "niqab",
+            "directions": 4
+        },
+        {
+            "name": "sideshavecurly",
+            "directions": 4
+        },
+                {
+            "name": "spikyponytaillong",
+            "directions": 4
+        },
+        {
+            "name": "tichelfashionable",
+            "directions": 4
+        },
+        {
+            "name": "tichelsimple",
+            "directions": 4
+        },
+        {
+            "name": "undercutcurly",
+            "directions": 4
+        },
+        {
+            "name": "shaggy",
+            "directions": 4
+        },
+        {
+            "name": "shaggylonger",
+            "directions": 4
+        },
+        {
+            "name": "shaggymessy",
+            "directions": 4
+        },
+        {
+            "name": "susie",
+            "directions": 4
+        },
+        {
+            "name": "susienobangs",
+            "directions": 4
+        }
+    ]
+}

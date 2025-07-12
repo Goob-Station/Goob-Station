@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "copyright": "frill by CrystalClover, horns_nubby by pinkbat5, koboldearspiercings by starlighthowls, flat by rainyatrium, little by FaelingDraws for Impstation",
+    "license": "CC-BY-SA-3.0",
+    "states": [
+        {
+            "name": "flat",
+            "directions": 4
+        },
+        {
+            "name": "koboldears",
+            "directions": 4
+        },
+        {
+            "name": "koboldearspiercings",
+            "directions": 4
+        },
+        {
+            "name": "frill",
+            "directions": 4
+        },
+        {
+            "name": "little",
+            "directions": 4
+        },
+        {
+            "name": "nubby",
+            "directions": 4
+        }
+    ]
+}
