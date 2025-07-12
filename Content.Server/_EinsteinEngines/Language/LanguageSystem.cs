@@ -50,7 +50,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
     private void OnDetermineUniversalLanguages(Entity<UniversalLanguageSpeakerComponent> entity, ref DetermineEntityLanguagesEvent ev)
     {
-        // We only add it as a spoken language; CanUnderstand checks for ULSC itself.
+        // We only add it as a spoken Language; CanUnderstand checks for ULSC itself.
         if (entity.Comp.Enabled)
             ev.SpokenLanguages.Add(PsychomanticPrototype);
     }

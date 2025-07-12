@@ -1296,7 +1296,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     /// </summary>
     public RadioChannelPrototype? Channel;
 
-        public EntitySpokeEvent(EntityUid source, string message, RadioChannelPrototype? channel, bool isWhisper, LanguagePrototype language) // Einstein Engines - Language
+    public EntitySpokeEvent(EntityUid source, string message, RadioChannelPrototype? channel, bool isWhisper, LanguagePrototype language) // Einstein Engines - Language
     {
         Source = source;
         Message = message;
@@ -1306,8 +1306,4 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     }
 }
 
-/// <summary>
-///     InGameICChatType was moved to Shared already.
-///     Einstein Engines moves all three (InGameICChatType, InGameOOCChatType, and ChatTransmitRange)
-///     to Shared.
-/// </summary>
+// The three chat types (InGameICChatType, InGameOOCChatType, and ChatTransmitRange) have been moved to Shared.

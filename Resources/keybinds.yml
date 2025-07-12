@@ -330,7 +330,7 @@ binds:
 - function: OpenEmotesMenu
   type: State
   key: Y
-- function: OpenLanguageMenu # Einstein Engines - Languages
+- function: OpenLanguageMenu # Einstein Engines - Language
   type: State
   key: L
 - function: TextCursorSelect

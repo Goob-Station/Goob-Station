@@ -7,7 +7,7 @@
     state: icon
   discipline: CivilianServices
   tier: 2
-  cost: 7500 # Thought about 5000, but splitting implanters into a separate research is just bloat.
+  cost: 7500
   recipeUnlocks:
   - BasicGalaticCommonTranslatorImplanter
   - CanilunztTranslator

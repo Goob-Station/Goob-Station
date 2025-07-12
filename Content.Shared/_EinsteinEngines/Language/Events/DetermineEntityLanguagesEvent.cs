@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._EinsteinEngines.Language.Events;
 
 /// <summary>
-///     Raised in order to determine the list of languages the entity can speak and understand at the given moment.
+///     Raised in order to determine the list of Languages the entity can speak and understand at the given moment.
 ///     Typically raised on an entity after a language agent (e.g. a translator) has been added to or removed from them.
 /// </summary>
 [ByRefEvent]

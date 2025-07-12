@@ -29,7 +29,7 @@ public sealed class ListeningSystem : EntitySystem
 
     private void OnSpeak(EntitySpokeEvent ev)
     {
-        PingListeners(ev.Source, ev.Message, ev.IsWhisper); // Einstein Engines - Language
+        PingListeners(ev.Source, ev.Message, ev.IsWhisper); // Einstein Engines - Languages
     }
 
     public void PingListeners(EntityUid source, string message, bool isWhisper) // Einstein Engines - Language

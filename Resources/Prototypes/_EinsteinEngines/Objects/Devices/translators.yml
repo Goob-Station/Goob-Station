@@ -1,4 +1,4 @@
-# Translator that doesn't need power to work
+# Translator that doesn't need power to work.
 - type: entity
   categories: [ HideSpawnMenu ]
   id: TranslatorUnpowered

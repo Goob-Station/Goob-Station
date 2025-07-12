@@ -199,8 +199,8 @@
   - type: CollectiveMind
     hearAll: true
     seeAllNames: true
-  - type: LanguageSpeaker # Einstein Engines - Language
-  - type: UniversalLanguageSpeaker # Einstein Engines - Language
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: UniversalLanguageSpeaker # Einstein Engines - Languages
   - type: UserInterface
     interfaces:
       enum.RevivalContractUiKey.Key: # Goobstation - Devil

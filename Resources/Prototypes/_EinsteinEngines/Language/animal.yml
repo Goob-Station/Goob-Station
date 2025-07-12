@@ -198,7 +198,7 @@
     - wonk
     - wong
 
-- type: language # Goobstation - Reindeer
+- type: language # Goobstation - Deer/Reindeer
   id: Deer
   obfuscation:
     !type:SyllableObfuscation

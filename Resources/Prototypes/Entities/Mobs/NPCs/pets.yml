@@ -264,7 +264,7 @@
     - id: MaterialHideCorgi
   - type: StealTarget
     stealGroup: AnimalIan
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - Dog
     understands:

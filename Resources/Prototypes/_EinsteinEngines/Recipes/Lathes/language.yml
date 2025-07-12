@@ -1,4 +1,4 @@
-# Translators
+## Translators
 - type: latheRecipe
   id: CanilunztTranslator
   result: CanilunztTranslator
@@ -131,7 +131,7 @@
     Plastic: 50
     Gold: 50
 
-# Implanters
+## Implanters
 - type: latheRecipe
   id: BasicGalaticCommonTranslatorImplanter
   result: BasicGalaticCommonTranslatorImplanter

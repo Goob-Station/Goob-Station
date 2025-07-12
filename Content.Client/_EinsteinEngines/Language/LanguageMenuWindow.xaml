@@ -11,7 +11,7 @@
 
         <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False" VScrollEnabled="True" MinHeight="50">
             <BoxContainer Name="OptionsList" Access="Public" HorizontalExpand="True" SeparationOverride="2" Orientation="Vertical">
-                <!-- The rest here is generated programmatically -->
+                <!-- The rest here is generated Programmatically -->
             </BoxContainer>
         </ScrollContainer>
     </BoxContainer>

@@ -18,7 +18,7 @@ public abstract partial class BaseTranslatorComponent : Component
     public List<ProtoId<LanguagePrototype>> UnderstoodLanguages = new();
 
     /// <summary>
-    ///   The languages the wielding MUST know in order for this translator to have effect.
+    ///   The Languages the wielding MUST know in order for this translator to have effect.
     ///   The field [RequiresAllLanguages] indicates whether all of them are required, or just one.
     /// </summary>
     [DataField("requires")]

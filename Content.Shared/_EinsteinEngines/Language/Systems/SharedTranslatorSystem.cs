@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Shared.Examine;
-using Content.Shared.Toggleable;
+using Content.Shared.Toggleable; // Ignore, touching for REUSE Headers.
 using Content.Shared._EinsteinEngines.Language.Components.Translators;
 
 namespace Content.Shared._EinsteinEngines.Language.Systems;

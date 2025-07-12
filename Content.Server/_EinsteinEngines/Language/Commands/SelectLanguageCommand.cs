@@ -52,7 +52,7 @@ public sealed class SelectLanguageCommand : IConsoleCommand
 
     // TODO: find a better place for this method
     /// <summary>
-    ///     Tries to parse the input argument as either a language ID or the position of the language in the list of languages
+    ///     Tries to parse the input argument as either a Language ID or the position of the language in the list of languages
     ///     the entity can speak. Returns true if sucessful.
     /// </summary>
     public static bool TryParseLanguageArgument(

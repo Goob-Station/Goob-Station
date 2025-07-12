@@ -1,7 +1,7 @@
 namespace Content.Shared._EinsteinEngines.Language.Components.Translators;
 
 /// <summary>
-///     Applied internally to the holder of an entity with [HandheldTranslatorComponent].
+///     Applied internally to the holder of an Entity with [HandheldTranslatorComponent].
 /// </summary>
 [RegisterComponent]
 public sealed partial class HoldsTranslatorComponent : Component

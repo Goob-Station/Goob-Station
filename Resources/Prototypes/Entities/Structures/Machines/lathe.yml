@@ -859,8 +859,8 @@
     - MedicalBoards
     - Janitor
     # Einstein Engines Packs
-    - Translators
-    - TranslatorImplanters
+    - Translators # Language
+    - TranslatorImplanters # Language
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs

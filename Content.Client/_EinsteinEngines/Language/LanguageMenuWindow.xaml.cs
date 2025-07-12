@@ -63,7 +63,7 @@ public sealed partial class LanguageMenuWindow : DefaultWindow
             AddLanguageEntry(language);
         }
 
-        // Disable the button for the currently chosen language
+        // Disable the button for the currently chosen Language
         foreach (var entry in _entries)
         {
             if (entry.Button != null)
