@@ -74,9 +74,9 @@ public sealed partial class DoSmokeEntityEffect : EntityEffect
         var mapCoords = transformSys.GetMapCoordinates(args.TargetEntity, xform);
 
 
-        if (!mapMan.TryFindGridAt(mapCoords, out _, out var grid) ||
-            !grid.TryGetTileRef(xform.Coordinates, out var tileRef) ||
-            tileRef.Tile.IsEmpty)
+        if (!mapMan.TryFindGridAt(mapCoords, out _, out var grid)
+            || !grid.TryGetTileRef(xform.Coordinates, out var tileRef)
+            || tileRef.Tile.IsEmpty)
             return;
 
         if (spreaderSys.RequiresFloorToSpread(SmokePrototype.ToString()) && tileRef.Tile.IsSpace())
