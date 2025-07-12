@@ -406,6 +406,7 @@ public abstract class SharedChatSystem : EntitySystem
     }
 }
 
+// Einstein Engines - Language begin (moves chat types to shared)
 /// <summary>
 ///     InGame IC chat is for chat that is specifically ingame (not lobby) but is also in character, i.e. speaking.
 /// </summary>
@@ -445,3 +446,4 @@ public enum ChatTransmitRange : byte
     /// Ghosts can't hear or see it at all. Regular players can if in-range.
     NoGhosts
 }
+// Einstein Engines - Language end
