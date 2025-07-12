@@ -201,3 +201,18 @@
     - SiikMaas
     requires:
     - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MarishTranslatorImplant
+  namee: marish translator implant
+  description: An implant giving the ability to understand and speak Marish.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Marish
+    spoken:
+    - Marish
+    requires:
+    - TauCetiBasic

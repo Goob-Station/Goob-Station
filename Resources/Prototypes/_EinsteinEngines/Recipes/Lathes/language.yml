@@ -121,6 +121,16 @@
     Plastic: 50
     Gold: 50
 
+- type: latheRecipe
+  id: MarishTranslator
+  result: MarishTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
 # Implanters
 - type: latheRecipe
   id: BasicGalaticCommonTranslatorImplanter
@@ -246,6 +256,17 @@
 - type: latheRecipe
   id: SiikMaasTranslatorImplanter
   result: SiikMaasTranslatorImplanter
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 100
+    Gold: 50
+    Silver: 50
+
+- type: latheRecipe
+  id: MarishTranslatorImplanter
+  result: MarishTranslatorImplanter
   completetime: 2
   materials:
     Steel: 500

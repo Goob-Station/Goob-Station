@@ -20,6 +20,7 @@
   - ValyrianStandardTranslator
   - ChittinTranslator
   - SiikMaasTranslator
+  - MarishTranslator
   position: -4, 4
   technologyPrerequisites:
   - AdvancedEntertainment
@@ -46,6 +47,7 @@
   - ValyrianStandardTranslatorImplanter
   - ChittinTranslatorImplanter
   - SiikMaasTranslatorImplanter
+  - MarishTranslatorImplanter
   - AnimalTranslator
   - XenoTranslator
   position: -4, 5

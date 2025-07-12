@@ -13,6 +13,7 @@
   - ValyrianStandardTranslator
   - ChittinTranslator
   - SiikMaasTranslator
+  - MarishTranslator
 
 - type: latheRecipePack
   id: TranslatorImplanters
@@ -29,3 +30,4 @@
   - ValyrianStandardTranslatorImplanter
   - ChittinTranslatorImplanter
   - SiikMaasTranslatorImplanter
+  - MarishTranslatorImplanter

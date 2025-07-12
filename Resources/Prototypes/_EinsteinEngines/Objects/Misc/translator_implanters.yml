@@ -115,3 +115,11 @@
   components:
   - type: Implanter
     implant: SiikMaasTranslatorImplant
+
+- type: entity
+  id: MarishTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: marish translator implant
+  components:
+  - type: Implanter
+    implant: MarishTranslatorImplant
