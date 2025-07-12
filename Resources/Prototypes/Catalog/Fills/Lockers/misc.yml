@@ -270,6 +270,8 @@
     children:
     - id: StrangePill
       prob: 0.15
+    - id: DoorJack
+      prob: 0.05 #Goob content
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable
