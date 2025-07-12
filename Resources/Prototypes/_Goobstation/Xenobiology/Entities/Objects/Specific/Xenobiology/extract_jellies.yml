@@ -79,7 +79,7 @@
   id: DarkBlueExtractJelly
   parent: BaseExtractJelly
   name: dark blue slime jelly
-  description: It's covered in a thick fire-retardent gel, have you tried eating it?
+  description: It's covered in a thick fire-retardant gel, have you tried eating it?
   components:
   - type: Sprite
     layers:
