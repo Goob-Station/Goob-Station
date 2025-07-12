@@ -58,8 +58,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingShoesFlippers
-  name: flippers
-  description: A pair of rubber flippers that improves swimming ability when worn.
+  name: "ласти"
+  description: "Пара гумових ласт, які покращують здатність плавати при носінні."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Misc/flippers.rsi
@@ -69,8 +69,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesLeather
-  name: leather shoes
-  description: Very stylish pair of boots, made from fine leather.
+  name: "шкіряне взуття"
+  description: "Дуже стильні черевики, виготовлені з тонкої шкіри."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Misc/leather.rsi
@@ -80,8 +80,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesSlippers
-  name: slippers
-  description: Fluffy!
+  name: "капці"
+  description: "Пухнасті!"
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Misc/slippers.rsi
@@ -91,9 +91,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoeSlippersDuck
-  name: ducky slippers
-  # description: You wish these made quacking sounds as you walked.
-  description: Comfy, yet haunted by the ghosts of ducks you fed bread to as a child.
+  name: "капці-каченята"
+  description: "Хотілося б, щоб вони крякали, коли ви йдете. Але добре, що вони цього не роблять."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Misc/duck-slippers.rsi
@@ -101,7 +100,7 @@
     sprite: Clothing/Shoes/Misc/duck-slippers.rsi
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepDuck
+      collection: FootstepCarpet
       params:
         variation: 0.07
   - type: WaddleWhenWorn # Goobstation
@@ -113,8 +112,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoeSlippersLizard
-  name: lizard plushie slippers
-  description: An adorable pair of slippers that resemble a lizardperson. Combine this with some other green clothing and you'll be the coolest crewmember on the station!
+  name: "плюшеві капці-ящірки"
+  description: "Чарівна пара капців, що нагадують ящірку. Поєднайте їх з іншим зеленим одягом, і ви будете найкрутішим членом екіпажу на станції!"
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Misc/lizard-slippers.rsi
@@ -122,7 +121,7 @@
     sprite: Clothing/Shoes/Misc/lizard-slippers.rsi
   - type: FootstepModifier
     footstepSoundCollection:
-      collection: FootstepLizardSlippers
+      collection: FootstepCarpet
       params:
         variation: 0.02
   - type: WaddleWhenWorn # Goobstation
@@ -148,8 +147,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesTourist
-  name: tourist shoes
-  description: These cheap sandals don't look very comfortable.
+  name: "туристичне взуття"
+  description: "Ці дешеві босоніжки виглядають не дуже зручно."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Misc/tourist.rsi
@@ -159,8 +158,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesDameDane
-  name: yakuza shoes
-  description: At last...
+  name: "взуття якудза"
+  description: "Нарешті..."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Misc/damedaneshoes.rsi
@@ -170,8 +169,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingShoesSnakeskinBoots
-  name: snakeskin boots
-  description: Boots made of high-class snakeskin, everyone around you will be jealous.
+  name: "чоботи зі зміїної шкіри"
+  description: "Чоботи з висококласної зміїної шкіри, яким позаздрять всі навколо."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Misc/snakeskin.rsi
@@ -182,8 +181,8 @@
 - type: entity
   parent: [ClothingShoesBase, PowerCellSlotSmallItem, BaseToggleClothing]
   id: ClothingShoesBootsSpeed
-  name: speed boots
-  description: High-tech boots woven with quantum fibers, able to convert electricity into pure speed!
+  name: "швидкісні черевики"
+  description: "Високотехнологічні черевики, сплетені з квантових волокон, здатні перетворювати електрику на чисту швидкість!"
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/speedboots.rsi
@@ -225,8 +224,8 @@
 
 - type: entity
   id: ActionToggleSpeedBoots
-  name: Toggle Speed Boots
-  description: Toggles the speed boots on and off.
+  name: "Перемкнути Швидкісні Черевики"
+  description: "Увімкнення та вимкнення швидкості черевиків."
   components:
   - type: InstantAction
     itemIconStyle: BigItem
@@ -235,8 +234,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingShoesBootsMoon
-  name: moon boots
-  description: Special anti-gravity boots developed with a speciality blend of lunar rock gel. Shipped from the Netherlands.
+  name: "місячні чоботи"
+  description: "Спеціальні антигравітаційні черевики, розроблені зі спеціальною сумішшю гелю місячної породи. Постачаються з Нідерландів."
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/moonboots.rsi

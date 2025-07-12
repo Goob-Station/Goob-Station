@@ -5,22 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: BaseRoofMarker
-  abstract: true
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: Transform
-    anchored: true
-  - type: Sprite
-    drawdepth: Overdoors
-    sprite: Markers/cross.rsi
-
-- type: entity
   id: RoofMarker
-  name: Roof
+  name: "Дах"
   suffix: Enabled
-  parent: BaseRoofMarker
+  parent: MarkerBase
   components:
   - type: SetRoof
     value: true
@@ -31,9 +19,9 @@
 
 - type: entity
   id: NoRoofMarker
-  name: Roof
+  name: "Дах"
   suffix: Disabled
-  parent: BaseRoofMarker
+  parent: MarkerBase
   components:
   - type: SetRoof
     value: false

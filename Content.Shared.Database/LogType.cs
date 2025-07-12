@@ -585,12 +585,17 @@ public enum LogType
     Psionics = 421, // Pirate from EE
 
     /// <summary>
-    /// GameDirector related game interactions.
+    /// Damaging grid collision has occurred.
     /// </summary>
-    GameDirector = 10002, // Goobstation
-
+    ShuttleImpact = 102,
+    
     /// <summary>
     /// SecretPlus related game interactions.
     /// </summary>
     SecretPlus = 10001, // Goobstation
+
+    /// <summary>
+    /// GameDirector related game interactions.
+    /// </summary>
+    GameDirector = 10002, // Goobstation
 }

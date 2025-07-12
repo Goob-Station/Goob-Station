@@ -5,6 +5,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
@@ -13,8 +15,8 @@
 - type: entity
   parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
-  name: standard hardsuit control unit
-  description: A special modular suit contol unit containing all necessary modular hardsuit parts.
+  name: "блок керування стандартним скафандром"
+  description: "Спеціальний блок керування модульним костюмом, що містить усі необхідні модульні частини скафандра."
   components:
   - type: Appearance
   - type: Sprite
@@ -81,10 +83,10 @@
   - type: SealableClothingControl
   - type: SealableClothingRequiresPower
   - type: SealableClothingVisuals
-    visualLayers:
+    spriteLayer: sealed
+    clothingVisuals:
       back:
       - state: equipped-BACKPACK-sealed
-        shader: unshaded
   - type: Construction
     graph: Modsuit
     node: standard
@@ -109,8 +111,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseSecurityContraband]
   id: ClothingModsuitSecurity
-  name: security soldat hardsuit control unit
-  description: A robust modular hardsuit control module unit for thrashing commies in spess.
+  name: "блок управління скафандром \"Солдат"
+  description: "Міцний модульний блок управління скафандром для розгрому комуняк у космосі."
   components:
   - type: Appearance
   - type: Sprite
@@ -124,6 +126,11 @@
   - type: Construction
     graph: Modsuit
     node: security
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitSecurity
@@ -142,10 +149,16 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitHeadOfSecurity
-  name: head of security's bulwark hardsuit control unit
-  description: A robust modular HARDERsuit control module unit for the head of security.
+  name: "блок управління скафандром \"Бастіон\" голови служби безпеки"
+  description: "Міцний модульний блок управління МІЦНІШИМ скафандром для голови служби безпеки."
   components:
   - type: Appearance
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      back-resomi:
+      - state: equipped-BACKPACK-resomi
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi
   - type: ToggleableClothing
@@ -157,6 +170,13 @@
   - type: Construction
     graph: Modsuit
     node: headofsecurity
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitHeadOfSecurity
@@ -175,8 +195,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseMedicalContraband]
   id: ClothingModsuitParamedic
-  name: sanitater hardsuit control unit
-  description: A modular hardsuit control module unit for paramedics.
+  name: "блок управління скафандром \"Санітар"
+  description: "Модульний блок управління скафандром для парамедиків."
   components:
   - type: Appearance
   - type: Sprite
@@ -195,6 +215,11 @@
   - type: Construction
     graph: Modsuit
     node: paramedic
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitParamedic
@@ -213,8 +238,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
   id: ClothingModsuitEngineer
-  name: engineer sapper hardsuit control unit
-  description: A  modular hardsuit control module unit for withstanding the greatest hazards on the job.
+  name: "блок управління скафандром \"Сапер"
+  description: "Модульний блок управління скафандром, що витримує найбільші небезпеки на роботі."
   components:
   - type: Appearance
   - type: Sprite
@@ -228,6 +253,13 @@
   - type: Construction
     graph: Modsuit
     node: engineer
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitEngineer
@@ -246,8 +278,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseEngineeringContraband]
   id: ClothingModsuitAtmostech
-  name: atmospheric technician aeolus hardsuit control unit
-  description: A  modular hardsuit control module unit for withstanding the greatest hazards on the job.
+  name: "блок управління скафандром \"Еол\" атмосферного техніка"
+  description: "Модульний блок управління скафандром, що витримує найбільші небезпеки на роботі."
   components:
   - type: Appearance
   - type: Sprite
@@ -261,6 +293,13 @@
   - type: Construction
     graph: Modsuit
     node: atmostech
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitAtmostech
@@ -279,8 +318,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband, BaseGrandTheftContraband]
   id: ClothingModsuitResearchDirector
-  name: RD's minerva hardsuit control unit
-  description: A  modular hardsuit control module unit for withstanding another shuttlebomb.
+  name: "блок управління скафандром \"Мінерва\" наукового керівника"
+  description: "Модульний блок управління скафандром, що витримує чергову бомбу на шатлі."
   components:
   - type: Appearance
   - type: Sprite
@@ -294,6 +333,11 @@
   - type: Construction
     graph: Modsuit
     node: rd
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
   - type: Tag
@@ -317,8 +361,8 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseCommandContraband]
   id: ClothingModsuitCaptain
-  name: captain's magnate hardsuit control unit
-  description: A gem encrusted, mirror shined and absolutely MAGNATE armored hardsuit, the cooling fluid is dragons blood watered down with dr gibb. This shit is nothing to you, man.
+  name: "блок управління скафандром \"Магнат\" капітана"
+  description: "Інкрустований дорогоцінними каменями, відполірований до дзеркального блиску і абсолютно МАГНАТСЬКИЙ броньований скафандр, охолоджуюча рідина - кров дракона, розбавлена доктором Гіббом. Ця хрінь для тебе ніщо, чувак."
   components:
   - type: Appearance
   - type: Sprite
@@ -332,6 +376,13 @@
   - type: Construction
     graph: Modsuit
     node: captain
+  - type: SealableClothingVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK-sealed
+      back-resomi:
+      - state: equipped-BACKPACK-sealed-resomi
 
 - type: entity
   parent: ClothingModsuitCaptain

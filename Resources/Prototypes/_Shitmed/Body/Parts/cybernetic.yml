@@ -28,9 +28,9 @@
     canBleed: false
 
 - type: entity
-  abstract: true
   parent: [ CyberneticPartBase, BaseLeftArm ]
-  id: LeftArmCyberneticBase
+  id: LeftArmCybernetic
+  name: "кібернетична ліва рука"
   components:
   - type: Sprite
     state: "l_arm-combined"
@@ -38,8 +38,6 @@
     state: "l_arm-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLArm
-  - type: GenerateChildPart
-    id: LeftHandCybernetic
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: LArm
@@ -52,9 +50,9 @@
     bleedingOverlay: null
 
 - type: entity
-  abstract: true
   parent: [ CyberneticPartBase, BaseRightArm ]
-  id: RightArmCyberneticBase
+  id: RightArmCybernetic
+  name: "кібернетична права рука"
   components:
   - type: Sprite
     state: "r_arm-combined"
@@ -62,8 +60,6 @@
     state: "r_arm-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRArm
-  - type: GenerateChildPart
-    id: RightHandCybernetic
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: RArm
@@ -76,9 +72,9 @@
     bleedingOverlay: null
 
 - type: entity
-  abstract: true
   parent: [ CyberneticPartBase, BaseLeftLeg ]
-  id: LeftLegCyberneticBase
+  id: LeftLegCybernetic
+  name: "кібернетична ліва нога"
   components:
   - type: Sprite
     state: "l_leg-combined"
@@ -86,8 +82,6 @@
     state: "l_leg-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLLeg
-  - type: GenerateChildPart
-    id: LeftFootCybernetic
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: LLeg
@@ -100,9 +94,9 @@
     bleedingOverlay: null
 
 - type: entity
-  abstract: true
   parent: [ CyberneticPartBase, BaseRightLeg ]
-  id: RightLegCyberneticBase
+  id: RightLegCybernetic
+  name: "кібернетична права нога"
   components:
   - type: Sprite
     state: "r_leg-combined"
@@ -110,8 +104,6 @@
     state: "r_leg-combined"
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRLeg
-  - type: GenerateChildPart
-    id: RightFootCybernetic
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: RLeg
@@ -126,6 +118,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseLeftHand ]
   id: LeftHandCybernetic
+  name: "кібернетична ліва долоня"
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLHand
@@ -143,7 +136,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseRightHand ]
   id: RightHandCybernetic
-  name: cybernetic right hand
+  name: "кібернетична права долоня"
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRHand
@@ -161,7 +154,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseLeftFoot ]
   id: LeftFootCybernetic
-  name: cybernetic left foot
+  name: "кібернетична ліва нога"
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLFoot
@@ -179,7 +172,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseRightFoot ]
   id: RightFootCybernetic
-  name: cybernetic right foot
+  name: "кібернетична права нога"
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRFoot
@@ -195,10 +188,10 @@
     bleedingOverlay: null
 
 - type: entity
-  parent: LeftArmCyberneticBase
+  parent: LeftArmCybernetic
   id: JawsOfLifeLeftArm
-  name: J.W.L left arm
-  description: A cybernetic left arm with the ability to pry doors open.
+  name: "Ліва рука J.W.L"
+  description: "Кібернетична ліва рука з можливістю відчиняти двері."
   components:
   - type: BodyPart
     onAdd:
@@ -209,10 +202,10 @@
       delay: 1
 
 - type: entity
-  parent: RightArmCyberneticBase
+  parent: RightArmCybernetic
   id: JawsOfLifeRightArm
-  name: J.W.L right arm
-  description: A cybernetic right arm with the ability to pry doors open.
+  name: "Права рука J.W.L"
+  description: "Кібернетична права рука з можливістю відчиняти двері."
   components:
   - type: BodyPart
     onAdd:
@@ -223,20 +216,20 @@
       delay: 1
 
 - type: entity
-  parent: LeftLegCyberneticBase
+  parent: LeftLegCybernetic
   id: SpeedLeftLeg
-  name: S.P.E.E.D left leg
-  description: A cybernetic left leg that allows its wearer to run faster.
+  name: "S.P.E.E.D ліва нога"
+  description: "Кібернетична ліва нога, яка дозволяє її власнику бігати швидше."
   components:
   - type: MovementBodyPart
     walkSpeed: 3.125
     sprintSpeed: 5.175
 
 - type: entity
-  parent: RightLegCyberneticBase
+  parent: RightLegCybernetic
   id: SpeedRightLeg
-  name: S.P.E.E.D right leg
-  description: A cybernetic left leg that allows its wearer to run faster.
+  name: "S.P.E.E.D права нога"
+  description: "Кібернетична ліва нога, яка дозволяє її власнику бігати швидше."
   components:
   - type: MovementBodyPart
     walkSpeed: 3.125
@@ -245,8 +238,8 @@
 - type: entity
   id: DexLeftHand
   parent: LeftHandCybernetic
-  name: D.E.X left hand
-  description: A cybernetic left hand that allows its wearer to interact faster.
+  name: "ліва рука D.E.X"
+  description: "Кібернетична ліва рука, що дозволяє її власнику швидше взаємодіяти."
   components:
   - type: DoAfterDelayMultiplier
     multiplier: 0.8
@@ -254,8 +247,8 @@
 - type: entity
   id: DexRightHand
   parent: RightHandCybernetic
-  name: D.E.X right hand
-  description: A cybernetic right hand that allows its wearer to interact faster.
+  name: "права рука D.E.X"
+  description: "Кібернетична права рука, що дозволяє її власнику швидше взаємодіяти."
   components:
   - type: DoAfterDelayMultiplier
     multiplier: 0.8

@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: mail RPDS
+  name: "пошта RPDS"
   parent: [BaseCargoContraband, WeaponLauncherChinaLake]
   id: WeaponMailLake
-  description: Rap(b?)id Parcel Delivery System
+  description: "Швидка Система Доставки Посилок"
   components:
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Launchers/mail.rsi

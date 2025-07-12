@@ -4,8 +4,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -13,8 +15,8 @@
 - type: entity
   parent: ClothingHeadHelmetRaid
   id: ClothingHeadHelmetHelldiver
-  name: salvage NT-01 tactical helmet
-  description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
+  name: "тактичний шолом NT-01"
+  description: "Ця броня є стандартною для NanoTrasen, виготовлена з того ж титанового сплаву, що й корпус \"Голіафа\"."
   components:
   - type: BreathMask
   - type: Sprite
@@ -31,10 +33,10 @@
     - HeadSide
 
 - type: entity
-  parent: ClothingHeadHelmetHardsuitBasic
+  parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetHEV
-  name: H.E.V helmet
-  description: Not included in a set with crowbar, long jump module and gravity manipulation device.
+  name: "шолом H.E.V"
+  description: "Не входить до комплекту з ломом, модулем довгого стрибка та пристроєм маніпуляції гравітацією."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
@@ -64,8 +66,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseMajorContraband ]
   id: ReverseBearTrap
-  name: reverse bear trap
-  description: A horrifying set of shut metal jaws, rigged to a kitchen timer and secured by padlock to a head-mounted clamp. To apply, hit someone with it
+  name: "зворотний ведмежий капкан"
+  description: "Жахливий набір закритих металевих щелеп, підключених до кухонного таймера і закріплених навісним замком на затискачі, що кріпиться на голову. Щоб застосувати, вдарте ним когось"
   components:
   - type: ReverseBearTrap
     countdownDuration: 60
@@ -87,8 +89,8 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadHatHoodCloakSith
-  name: dark lord hood
-  description: What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
+  name: "капюшон темного лорда"
+  description: "Те, що починалося як простий косплей-капюшон, було незаконно посилено броньованими пластинами, перетворивши його на функціональний елемент броні. Схоже, він навіть здатний захистити користувача від відсутності тиску в космосі."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hoods/voidcloak.rsi
@@ -103,6 +105,6 @@
         Blunt: 0.55
         Slash: 0.55
         Piercing: 0.55
-        Heat: 0.7
+        Heat: 0.75
   - type: PressureProtection
     lowPressureMultiplier: 1000

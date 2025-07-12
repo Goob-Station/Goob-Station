@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
 # SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
 # SPDX-FileCopyrightText: 2020 Reno DuBois <renodubois@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 juliangiebel <juliangiebel@live.de>
 # SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
@@ -53,7 +54,14 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Entvari <195642967+Entvari@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Kirus59 <145689588+Kirus59@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -98,8 +106,8 @@
     stealGroup: Battery
 
 - type: entity
-  name: potato battery
-  description: Someone's stuck two nails and some wire in a large potato. Somehow it provides a little charge.
+  name: "картопляна батарея"
+  description: "Справді геніальне джерело енергії."
   id: PowerCellPotato
   parent: BasePowerCell
   components:
@@ -118,8 +126,8 @@
     node: potatobattery
 
 - type: entity
-  name: small-capacity power cell
-  description: A rechargeable power cell. This is the cheapest kind you can find.
+  name: "батарейка малої ємності"
+  description: "Елемент живлення, що перезаряджається. Це найдешевший тип, який ви можете знайти."
   id: PowerCellSmall
   suffix: Full
   parent: BasePowerCell
@@ -164,8 +172,8 @@
 - type: entity
   parent: PowerCellSmall
   id: PowerCellSmallNuclear
-  name: small-capacity nuclear power cell
-  description: A self rechargeable power cell, designed for fast recharge rate at the expense of capacity.
+  name: "ядерний акумулятор малої ємності"
+  description: "Самозарядний акумулятор, розроблений для швидкої перезарядки за рахунок ємності."
   components:
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -174,8 +182,8 @@
     autoRechargePauseTime: 30
 
 - type: entity
-  name: medium-capacity power cell
-  description: A rechargeable power cell. This is the popular and reliable version.
+  name: "батарейка середньої ємності"
+  description: "Акумуляторна батарея. Це популярний і надійний варіант."
   id: PowerCellMedium
   suffix: Full
   parent: BasePowerCell
@@ -220,8 +228,8 @@
     startingCharge: 0
 
 - type: entity
-  name: high-capacity power cell
-  description: A rechargeable standardized power cell. This premium brand stores up to 50% more energy than the competition.
+  name: "батарейка високої ємності"
+  description: "Перезарядний стандартизований елемент живлення. Цей преміальний бренд зберігає до 50% більше енергії, ніж конкуренти."
   id: PowerCellHigh
   suffix: Full
   parent: BasePowerCell
@@ -266,8 +274,8 @@
     startingCharge: 0
 
 - type: entity
-  name: hyper-capacity power cell
-  description: A rechargeable standardized power cell. This one looks like a rare and powerful prototype.
+  name: "гіпер-ємнісний елемент живлення"
+  description: "Стандартизований елемент живлення, що перезаряджається. Ця ітерація розширює верхні межі портативного зберігання енергії, маючи на 66% більшу ємність, ніж її попередник."
   id: PowerCellHyper
   suffix: Full
   parent: BasePowerCell
@@ -306,8 +314,8 @@
 - type: entity
   parent: BasePowerCell
   id: PowerCellMicroreactor
-  name: microreactor power cell
-  description: A rechargeable standardized microreactor cell. Has lower capacity but slowly recharges by itself.
+  name: "мікрореакторна батарейка"
+  description: "Перезаряджається стандартизованим мікрореакторним осередком. Має меншу ємність, але повільно перезаряджається самостійно."
   suffix: Full
   components:
   - type: Sprite
@@ -323,6 +331,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 12 # takes 1 minute to charge itself back to full
+    # Goobstation
+    canEmp: true
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
@@ -352,8 +362,8 @@
     startingCharge: 0
 
 - type: entity
-  name: antique power cell prototype
-  description: A small cell that self recharges. Used in old laser arms research.
+  name: "прототип антикварної батарейки"
+  description: "Невелика батарейка, що самозаряджається. Використовується в дослідженнях старої лазерної зброї."
   id: PowerCellAntiqueProto
   parent: BasePowerCell
   components:
@@ -401,8 +411,8 @@
 - type: entity
   id: PowerCageSmall
   parent: BasePowerCage
-  name: small-capacity power cage
-  description: A rechargeable power cage for big devices. This is the cheapest kind you can find.
+  name: "акумулятор малої ємності"
+  description: "Акумуляторна батарея для великих пристроїв. Це найдешевший тип, який ви можете знайти."
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi
@@ -419,8 +429,8 @@
 - type: entity
   id: PowerCageMedium
   parent: BasePowerCage
-  name: medium-capacity power cage
-  description: A rechargeable power cage for big devices. The gold standard of capacity and cost.
+  name: "акумулятор середньої ємності"
+  description: "Акумуляторна батарея для великих пристроїв. Золотий стандарт ємності та вартості."
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi
@@ -437,8 +447,8 @@
 - type: entity
   id: PowerCageHigh
   parent: BasePowerCage
-  name: high-capacity power cage
-  description: A rechargeable power cage for big devices. Increased capacity for increased power levels.
+  name: "акумулятор великої ємності"
+  description: "Акумуляторна батарея для великих пристроїв. Збільшена ємність для підвищених рівнів потужності."
   components:
   - type: Sprite
     sprite: Objects/Power/power_cages.rsi

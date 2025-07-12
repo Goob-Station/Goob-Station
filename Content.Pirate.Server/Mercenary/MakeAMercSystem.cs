@@ -47,7 +47,11 @@ namespace Content.Pirate.Server.Mercenary
             var mind = playerCData.Mind ?? mindSystem.CreateMind(session.UserId, metadata.EntityName);
 
             var shuttleMap = _mapManager.CreateMap();
-            var options = MapLoadOptions.Default;
+
+            var options = MapLoadOptions.Default with
+            {
+                DeserializationOptions = DeserializationOptions.Default with {InitializeMaps = true}
+            };
 
             if (!_map.TryLoadGeneric(new ResPath(MapPath), out var result, options))
                 return;

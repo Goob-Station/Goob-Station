@@ -18,10 +18,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: head slug
+  name: "головний слимак"
   parent: [SimpleSpaceMobBase] # no dying in space
   id: MobHeadcrab
-  description: You don't want to touch it.
+  description: "Не варто до нього торкатися."
   components:
   - type: Sprite
     drawdepth: SmallMobs

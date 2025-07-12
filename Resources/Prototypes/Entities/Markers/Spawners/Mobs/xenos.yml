@@ -1,0 +1,111 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenoBurrower
+  name: "Спавнер Ксено"
+  suffix: Burrower
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/burrower.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXeno
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenoDrone
+  name: "Спавнер Ксено"
+  suffix: Drone
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/drone.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoDrone
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenoPraetorian
+  name: "Спавнер Ксено"
+  suffix: Praetorian
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/praetorian.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoPraetorian
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenoQueen
+  name: "Спавнер Ксено"
+  suffix: Queen
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/queen.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoQueen
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenoRavager
+  name: "Спавнер Ксено"
+  suffix: Ravager
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/ravager.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoRavager
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenoRunner
+  name: "Спавнер Ксено"
+  suffix: Runner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/runner.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoRunner
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobXenoSpitter
+  name: "Спавнер Ксено"
+  suffix: Spitter
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Aliens/Xenos/spitter.rsi
+      state: running
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoSpitter

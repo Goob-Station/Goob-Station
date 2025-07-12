@@ -70,8 +70,8 @@
 
 - type: listing
   id: UplinkBoxReagentGrenades
-  name: Box of Reagent Grenades
-  description: Contains 2 Glue grenades and 2 Lube Grenades
+  name: "Коробка з реагентними гранатами"
+  description: "Містить 2 клейові гранати та 2 гранати з мастилом"
   productEntity: BoxReagentGrenades
   cost:
     Telecrystal: 30
@@ -646,8 +646,8 @@
 
 - type: listing
   id: UplinkLubeGrenade
-  name: Lube grenade
-  description: Make the floor slippery!
+  name: "Мастильна граната"
+  description: "Робить підлогу слизькою!"
   productEntity: LubeGrenade
   cost:
     Telecrystal: 14
@@ -662,8 +662,8 @@
 
 - type: listing
   id: UplinkGlueGrenade
-  name: Glue grenade
-  description: Make the floor hard to walk in!
+  name: "Клейова граната"
+  description: "Ускладнює пересування по підлозі!"
   productEntity: GlueGrenade
   cost:
     Telecrystal: 5
@@ -1301,6 +1301,32 @@
       tags:
       - NukeOpsUplink
       - ContravendUplink
+
+- type: listing
+  id: UplinkCQCManualChef
+  name: uplink-cqc-name
+  description: uplink-cqc-desc
+  productEntity: CQCManual
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+
+- type: listing
+  id: UplinkCapoeiraManual
+  name: uplink-capoeira-name
+  description: uplink-capoeira-desc
+  productEntity: CapoeiraManual
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkMysteriousScroll

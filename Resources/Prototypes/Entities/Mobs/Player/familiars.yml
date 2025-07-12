@@ -66,46 +66,56 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-#- type: entity PIRATE - now she at _EinsteinEngines/Entity/Mobs/ 
-#  name: Remilia
-#  parent: MobBat
-#  id: MobBatRemilia
-#  description: The chaplain's familiar. Likes fruit.
-#  components:
-#  - type: GhostRole
-#    makeSentient: true
-#    allowMovement: true
-#    allowSpeech: true
-#    name: ghost-role-information-remilia-name
-#    description: ghost-role-information-remilia-description
-#    rules: ghost-role-information-familiar-rules
-#    mindRoles:
-#    - MindRoleGhostRoleFamiliar
-#  - type: GhostTakeoverAvailable
-#  - type: Grammar
-#    attributes:
-#      gender: female
-#      proper: true
-#  - type: Tag
-#    tags:
-#    - DoorBumpOpener
-#    - VimPilot
-#  - type: Access
-#    tags:
-#    - Chapel
-#  - type: MindContainer
-#    showExamineInfo: true
-#  - type: NpcFactionMember
-#    factions:
-#    - PetsNT
-#  - type: Alerts
-#  - type: Familiar
-
+- type:
+  name: Remilia
+  parent: BaseMobPsionicFamiliar
+  id: MobBatRemilia
+  description: The chaplain's familiar. Likes fruit.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-remilia-name
+    description: ghost-role-information-remilia-description
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: Alerts
+  - type: Familiar
+  - type: MeleeWeapon #Pirate psionics
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
 - type: entity
-  name: Cerberus
+  name: "Цербер"
   parent: MobCorgiNarsi
   id: MobCorgiCerberus
-  description: This pupper is not wholesome.
+  description: "Це цуценя не є милим."
   components:
   - type: GhostRole
     makeSentient: true

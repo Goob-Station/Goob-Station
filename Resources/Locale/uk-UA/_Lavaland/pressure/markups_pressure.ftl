@@ -2,3 +2,8 @@ lavaland-examine-pressure-in-range-buff = Це обладнання досяга
 lavaland-examine-pressure-in-range-debuff = Це обладнання ослаблене між [color=yellow]{$min} - {$max} кПа[/color], через що воно завдає в [color=yellow]{$modifier} разів[/color] менше шкоди!
 lavaland-examine-pressure-out-range-buff = Це обладнання працює краще за межами [color=yellow]{$min} - {$max} кПа[/color], що дозволяє йому завдавати в [color=yellow]{$modifier} разів[/color] більше шкоди!
 lavaland-examine-pressure-out-range-debuff = Це обладнання ослаблене за межами [color=yellow]{$min} - {$max} кПа[/color], через що воно завдає в [color=yellow]{$modifier} разів[/color] менше шкоди!
+
+lavaland-examine-pressure-armor-in-range-buff = Цей елемент броні досягає максимальної ефективності в діапазоні [color=yellow]{$min} - {$max} кПа[/color], що робить її пробиття на [color=yellow]{$modifier}%[/color] складнішим!
+lavaland-examine-pressure-armor-in-range-debuff = Цей елемент броні ослаблений в діапазоні [color=yellow]{$min} - {$max} кПа[/color], що робить її пробиття на [color=yellow]{$modifier}%[/color] легшим!
+lavaland-examine-pressure-armor-out-range-buff = Цей елемент броні ефективніший поза діапазоном [color=yellow]{$min} - {$max} кПа[/color], що робить її пробиття на [color=yellow]{$modifier}%[/color] складнішим!
+lavaland-examine-pressure-armor-out-range-debuff = Цей елемент броні ослаблений поза діапазоном [color=yellow]{$min} - {$max} кПа[/color], що робить її пробиття на [color=yellow]{$modifier}%[/color] легшим!

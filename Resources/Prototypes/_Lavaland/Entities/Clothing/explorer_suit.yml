@@ -27,8 +27,8 @@
   parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCargoContraband ]
   id: LavalandEquipmentExplorerSuit
   suffix: Lava
-  name: explorer suit
-  description: An armoured suit for exploring harsh environments.
+  name: "костюм дослідника"
+  description: "Броньований костюм для дослідження суворих умов."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -50,11 +50,13 @@
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Heat: 0.75
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.6
+        Caustic: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.6
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
@@ -64,9 +66,9 @@
   - type: Construction
     graph: ExplorerSuit
     node: start
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
+  - type: FireProtection
+    reduction: 0.4
+  - type: PressureArmorChange
   - type: Tag
     tags:
     - ExplorerSuit
@@ -75,8 +77,8 @@
   parent: ClothingHeadBase
   id: LavalandEquipmentExplorerHood
   suffix: Lava
-  name: explorer hood
-  description: An armoured hood for exploring harsh environments.
+  name: "капюшон дослідника"
+  description: "Броньований капюшон для дослідження суворих умов."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -102,26 +104,32 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Heat: 0.75
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.65
+        Caustic: 0.65
+  - type: PressureArmorChange
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
   id: LavalandEquipmentExplorerSuitReinforced1
   suffix: Reinforced
-  name: reinforced explorer suit
-  description: An armoured suit for exploring harsh environments. Lightly reinforced with goliath plates.
+  name: "посилений костюм дослідника"
+  description: "Броньований костюм для дослідження суворих умов. Злегка посилений пластинами голіафа."
   components:
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.9
-        Heat: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.5
+        Caustic: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.5
+  - type: FireProtection
+    reduction: 0.5
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
     state: reinforced1-icon
@@ -139,8 +147,8 @@
   parent: LavalandEquipmentExplorerHood
   id: LavalandEquipmentExplorerHoodReinforced1
   suffix: Reinforced
-  name: reinforced explorer hood
-  description: An armoured hood for exploring harsh environments. Lightly reinforced with goliath plates.
+  name: "посилений капюшон дослідника"
+  description: "Броньований капюшон для дослідження суворих умов. Злегка посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -151,17 +159,18 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.9
-        Heat: 0.7
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.65
+        Heat: 0.55
+        Caustic: 0.55
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
   id: LavalandEquipmentExplorerSuitReinforced2
   suffix: Reinforced
-  name: reinforced explorer suit
-  description: An armoured suit for exploring harsh environments. Mostly reinforced with goliath plates.
+  name: "посилений костюм дослідника"
+  description: "Броньований костюм для дослідження суворих умов. Значною мірою посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -172,28 +181,28 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.85
-        Heat: 0.65
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.55
+        Heat: 0.4
+        Caustic: 0.4
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.4
+  - type: FireProtection
+    reduction: 0.6
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced2
   - type: Construction
     graph: ExplorerSuit
     node: reinforced2
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
 
 - type: entity
   parent: LavalandEquipmentExplorerHood
   id: LavalandEquipmentExplorerHoodReinforced2
   suffix: Reinforced
-  name: reinforced explorer hood
-  description: An armoured hood for exploring harsh environments. Mostly reinforced with goliath plates.
+  name: "посилений капюшон дослідника"
+  description: "Броньований капюшон для дослідження суворих умов. Значною мірою посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -204,17 +213,18 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.85
-        Heat: 0.65
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.6
+        Heat: 0.45
+        Caustic: 0.45
 
 - type: entity
   parent: LavalandEquipmentExplorerSuit
   id: LavalandEquipmentExplorerSuitReinforced3
   suffix: Reinforced
-  name: reinforced explorer suit
-  description: An armoured suit for exploring harsh environments. Fully reinforced with goliath plates.
+  name: "посилений костюм дослідника"
+  description: "Броньований костюм для дослідження суворих умов. Повністю посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -225,28 +235,28 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.8
-        Heat: 0.6
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.5
+        Heat: 0.3
+        Caustic: 0.3
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.3
+  - type: FireProtection
+    reduction: 0.7
   - type: ToggleableClothing
     clothingPrototypes:
       head: LavalandEquipmentExplorerHoodReinforced3
   - type: Construction
     graph: ExplorerSuit
     node: reinforced3
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
 
 - type: entity
   parent: LavalandEquipmentExplorerHood
   id: LavalandEquipmentExplorerHoodReinforced3
   suffix: Reinforced
-  name: reinforced explorer hood
-  description: An armoured hood for exploring harsh environments. Fully reinforced with goliath plates.
+  name: "посилений капюшон дослідника"
+  description: "Броньований капюшон для дослідження суворих умов. Повністю посилений пластинами голіафа."
   components:
   - type: Sprite
     sprite: _Lavaland/Equipment/explorer_suit.rsi
@@ -257,8 +267,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.8
-        Heat: 0.6
-
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.55
+        Heat: 0.35
+        Caustic: 0.35

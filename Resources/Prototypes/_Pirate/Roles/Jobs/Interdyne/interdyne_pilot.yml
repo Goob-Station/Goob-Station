@@ -1,0 +1,12 @@
+- type: job
+  id: InterdynePilot
+  name: "пілот Interdyne"
+  description: "керуйте транспортними засобами Interdyne, забезпечуючи мобільність та логістичну підтримку"
+  icon: "JobIconInterdynePilot"
+  canBeAntag: false
+  playTimeTracker: JobInterdynePilot
+  access:
+    - Maintenance
+    - External
+    - Interdyne
+    - InterdyneCommand

@@ -1,0 +1,12 @@
+- type: job
+  id: InterdyneSecure
+  name: "служба безпеки Interdyne"
+  description: "захищайте активи та персонал Interdyne від будь-яких загроз"
+  icon: "JobIconInterdyneSecure"
+  canBeAntag: false
+  playTimeTracker: JobInterdyneSecure
+  access:
+    - Maintenance
+    - External
+    - Interdyne
+    - InterdyneCommand

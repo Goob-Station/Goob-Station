@@ -38,8 +38,8 @@
 
 - type: entity
   id: CrateSalvageEquipment
-  name: "salvage equipment crate"
-  description: For the daring.
+  name: "ящик утилізаційного обладнання"
+  description: "Для сміливців."
   suffix: Filled
   parent: CrateGenericSteel
   components:
@@ -130,9 +130,122 @@
 
 - type: entity
   parent: CrateGenericSteel
+  id: CrateCrusherDagger
+  name: "ящик з дробильними кинджалами"
+  description: "Містить 4 дробильні кинджали для використання утилізаторами."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponCrusherDagger
+        amount: 4
+
+# Salvage rewards
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateSeismicCharge
+  name: "ящик з сейсмічними зарядами"
+  description: "Містить 6 сейсмічних зарядів для використання утилізаторами."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: SeismicCharge
+        amount: 6
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateDoubleEmergencyTank
+  name: "ящик з подвійними аварійними балонами"
+  description: "Містить 2 подвійні аварійні кисневі балони та 2 подвійні аварійні азотні балони"
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: DoubleEmergencyOxygenTankFilled
+          amount: 2
+        - id: DoubleEmergencyNitrogenTankFilled
+          amount: 2
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateCrusher
+  name: "ящик з дробарками"
+  description: "Містить 2 дробарки для використання утилізаторами."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponCrusher
+        amount: 2
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFulton
+  name: "ящик з фултонами"
+  description: "Містить фултон-маяк та 8 фултонів."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: FultonBeacon
+        - id: Fulton
+          amount: 8
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateVoidJetpack
+  name: "ящик з порожнечним джетпаком"
+  description: "Містить один порожнечний джетпак."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: JetpackVoidFilled
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateSalvageHardsuit
+  name: "ящик зі скафандром утилізатора"
+  description: "Містить скафандр утилізатора, дихальну маску та кисневий балон."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitSalvage
+        - id: ClothingMaskBreath
+        - id: OxygenTankFilled
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateCrusherGlaive
+  name: "ящик з дробильною глефою"
+  description: "Містить дробильну глефу для використання утилізаторами."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: WeaponCrusherGlaive
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateSupremeSalvagerCloak
+  name: "ящик з плащем найвищого утилізатора"
+  description: "Містить плащ, який можуть носити лише найвищі утилізатори. Носіння його без заслуги призведе до вашої загибелі."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: ClothingNeckCloakSalvagerSupreme
+
+- type: entity
+  parent: CrateGenericSteel
   id: CratePartsT3
-  name: tier 3 parts crate
-  description: Contains 5 random tier 3 parts for upgrading machines.
+  name: "ящик з деталями 3-го рівня"
+  description: "Містить 5 випадкових деталей 3-го рівня для модернізації машин."
   # TODO add contents.
   #components:
   #- type: StorageFill
@@ -143,8 +256,8 @@
 - type: entity
   parent: CrateGenericSteel
   id: CratePartsT3T4
-  name: tier 3/4 parts crate
-  description: Contains 5 random tier 3 or 4 parts for upgrading machines.
+  name: "ящик з деталями 3-го/4-го рівня"
+  description: "Містить 5 випадкових деталей 3 або 4 рівня для модернізації машин."
   # TODO add contents.
   #components:
   # type: StorageFill
@@ -155,8 +268,8 @@
 - type: entity
   parent: CrateGenericSteel
   id: CratePartsT4
-  name: tier 4 parts crate
-  description: Contains 5 random tier 4 parts for upgrading machines.
+  name: "ящик з деталями 4-го рівня"
+  description: "Містить 5 випадкових деталей 4-го рівня для модернізації машин."
   # TODO add contents.
   #components:
   #- type: StorageFill

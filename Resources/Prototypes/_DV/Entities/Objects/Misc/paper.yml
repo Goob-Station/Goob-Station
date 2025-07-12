@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: "ордер на арешт"
+  parent: Paper
+  id: PaperStationWarrant
+  description: "Паперовий ордер, виданий відділом правосуддя."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+      color: "#e0bc99"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#e0bc99"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_DV/Interface/Paper/paper_heading_warrant.svg.200dpi.png"
+    headerMargin: 0.0, 0.0, 10.0, 16.0
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    backgroundModulate: "#e0bc99"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 32.0, 16.0, 32.0, 0.0
+
+# contents set by FugitiveRule or a creative admeme
+- type: entity
+  parent: PaperStationWarrant
+  id: PaperFugitiveReport
+  name: "звіт про втікача"
+  description: "Ордер на арешт космічного втікача, надісланий з ГАЛПОЛу."
+
+- type: entity
+  parent: Paper
+  id: TapeRecorderTranscript
+  name: "стенограма запису"
+  # TODO: could have a unique sprite in the future

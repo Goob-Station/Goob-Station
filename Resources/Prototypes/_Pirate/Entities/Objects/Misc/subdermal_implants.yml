@@ -1,0 +1,22 @@
+- type: entity
+  parent: DeathRattleImplant
+  id: DeathRattleImplantInterdyne
+  name: "Імплант сповіщення"
+  description: "Сповіщує про смерть робітника."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Rattle
+    radioChannel: InterdynePrivat
+    
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RadioImplantInterdyne
+  name: "Радіоімплант Interdyne"
+  description: "Цей імплант дає можливість говорити у канали Interdyne без гарнітури."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: RadioImplant
+    radioChannels:
+    - InterdynePrivat
+    - Interdyne

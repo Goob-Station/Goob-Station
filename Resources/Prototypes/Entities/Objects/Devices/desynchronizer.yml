@@ -1,8 +1,8 @@
 - type: entity
   id: DeviceDesynchronizer
   parent: BaseItem
-  name: desynchronizer
-  description: An experimental device that can temporarily desynchronize the user from spacetime, effectively making them disappear while it's active.
+  name: "десинхронізатор"
+  description: "Експериментальний пристрій, що може тимчасово десинхронізувати користувача з простором-часом, фактично змушуючи його зникати, поки він активний."
   components:
   - type: Sprite
     sprite: Objects/Devices/desynchronizer.rsi

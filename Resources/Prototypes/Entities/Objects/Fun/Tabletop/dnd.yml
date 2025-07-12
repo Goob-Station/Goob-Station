@@ -8,9 +8,9 @@
 - type: entity
   parent: BaseBoardEntity
   id: BaseBattlemap
-  name: battlemap
+  name: "карта бою"
   abstract: true
-  description: A battlemap for your epic dungeon exploring to begin, pieces not included!
+  description: "Карта бою для початку вашого епічного дослідження підземелля, фігурки не включені!"
   components:
     - type: Sprite
       sprite: Objects/Fun/Tabletop/grassbm.rsi
@@ -24,8 +24,8 @@
 - type: entity
   parent: BaseBattlemap
   id: GrassBattlemap
-  name: grass battlemap
-  description: A battlemap for your epic dungeon exploring to begin, pieces not included!
+  name: "карта бою на траві"
+  description: "Карта бою для початку вашого епічного дослідження підземелля, фігурки не включені!"
   components:
     - type: Sprite
       sprite: Objects/Fun/Tabletop/Battlemaps/grassbm.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: BaseBattlemap
   id: MoonBattlemap
-  name: moon battlemap
-  description: A battlemap for your epic moon exploring to begin, pieces not included!
+  name: "карта бою на Місяці"
+  description: "Карта бою для початку вашого епічного дослідження Місяця (деталі не включені)!"
   components:
     - type: Sprite
       sprite: Objects/Fun/Tabletop/Battlemaps/moonbm.rsi
@@ -50,8 +50,8 @@
 - type: entity
   parent: BaseBattlemap
   id: SandBattlemap
-  name: sand battlemap
-  description: A battlemap for your epic beach episodes to begin, pieces not included!
+  name: "піщана карта бою"
+  description: "Карта бою для початку ваших епічних пляжних епізодів (деталі не включені)!"
   components:
     - type: Sprite
       sprite: Objects/Fun/Tabletop/Battlemaps/sandbm.rsi
@@ -63,8 +63,8 @@
 - type: entity
   parent: BaseBattlemap
   id: SnowBattlemap
-  name: snow battlemap
-  description: A battlemap for your frigid exploring to begin, pieces not included! # if this isn't funny enough i can remove it
+  name: "карта снігової битви"
+  description: "Бойова карта для початку вашого холодного дослідження, деталі не включені!" # if this isn't funny enough i can remove it
   components:
     - type: Sprite
       sprite: Objects/Fun/Tabletop/Battlemaps/snowbm.rsi
@@ -76,8 +76,8 @@
 - type: entity
   parent: BaseBattlemap
   id: ShipBattlemap
-  name: ship battlemap
-  description: A battlemap for your epic space exploring to begin, pieces not included!
+  name: "карта бою корабля"
+  description: "Карта бою для початку вашого епічного дослідження космосу (фігурки не включені)!"
   components:
     - type: Sprite
       sprite: Objects/Fun/Tabletop/Battlemaps/shipbm.rsi
@@ -91,7 +91,7 @@
 - type: entity
   parent: BaseBoardTabletop
   id: GrassBoardTabletop
-  name: grass battlemap
+  name: "карта бою на траві"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -103,7 +103,7 @@
 - type: entity
   parent: BaseBoardTabletop
   id: MoonBoardTabletop
-  name: grass battlemap
+  name: "карта бою на траві"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -113,7 +113,7 @@
 - type: entity
   parent: BaseBoardTabletop
   id: SandBoardTabletop
-  name: sand battlemap
+  name: "піщана карта бою"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -123,7 +123,7 @@
 - type: entity
   parent: BaseBoardTabletop
   id: SnowBoardTabletop
-  name: snow battlemap
+  name: "карта снігової битви"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -133,7 +133,7 @@
 - type: entity
   parent: BaseBoardTabletop
   id: ShipBoardTabletop
-  name: ship battlemap
+  name: "карта бою корабля"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

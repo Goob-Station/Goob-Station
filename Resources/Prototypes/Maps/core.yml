@@ -29,7 +29,7 @@
   id: Core
   mapName: 'Ядро'
   mapPath: /Maps/_Goobstation/core.yml # Goobstation
-  minPlayers: 35
+  minPlayers: 25
   maxPlayers: 70
   stations:
     Core:

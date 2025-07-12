@@ -80,10 +80,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: pickaxe
+  name: "кирка"
   parent: BaseItem
   id: Pickaxe
-  description: Notched to perfection, for jamming it into rocks.
+  description: "Зазубрена до досконалості, для вбивання в каміння."
   components:
   - type: Tag
     tags:
@@ -124,10 +124,10 @@
       Wood: 125
 
 - type: entity
-  name: mining drill
+  name: "гірничий бур"
   parent: BaseItem
   id: MiningDrill
-  description: Powerful tool used to quickly drill through rocks.
+  description: "Потужний інструмент для швидкого буріння гірських порід."
   components:
   - type: Item
     storedRotation: -90
@@ -157,10 +157,10 @@
       Plastic: 25
 
 - type: entity
-  name: diamond tipped mining drill
+  name: "гірничий бур з алмазним наконечником"
   parent: MiningDrill
   id: MiningDrillDiamond
-  description: A significantly more efficient mining drill tipped with diamond.
+  description: "Значно ефективніший гірничий бур з алмазним наконечником."
   components:
   - type: Sprite
     sprite: Objects/Tools/handdrilldiamond.rsi
@@ -189,10 +189,12 @@
   abstract: true
   parent: BaseItem
   id: BaseWeaponCrusher # Crusher? But I...
-  name: crusher
-  description: An early design of the proto-kinetic accelerator.
+  name: "дробарка"
+  description: "Ранній проект протокінетичного прискорювача."
   components:
   - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
   - type: UnpoweredFlashlight
   - type: MegafaunaWeaponLooter # So that the crusher, glaive, and dagger get this as well
   - type: PointLight
@@ -265,8 +267,8 @@
 - type: entity
   parent: [ BaseKnife, BaseWeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusherDagger
-  name: crusher dagger
-  description: A scaled down version of a proto-kinetic crusher. Uses kinetic energy to vibrate the blade at high speeds.
+  name: "кинджал дробарки"
+  description: "Зменшена версія протокінетичної дробарки. Використовує кінетичну енергію для вібрації леза на високих швидкостях."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher_dagger.rsi
@@ -299,8 +301,8 @@
 - type: entity
   parent: [ WeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusherGlaive
-  name: crusher glaive
-  description: An early design of the proto-kinetic accelerator, in glaive form.
+  name: "дробарко меч"
+  description: "Ранній проект прото-кінетичного прискорювача у формі рукавиці."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher_glaive.rsi

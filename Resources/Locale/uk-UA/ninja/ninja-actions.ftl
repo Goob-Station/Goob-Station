@@ -8,3 +8,4 @@ ninja-research-steal-success = Вкрадено {$count} нових вузлів
 ninja-criminal-records-hack-announcement = ПОМИЛКА: Кримінальні записи зіткнулися з [REDACTED] помилкою #*;"
 ninja-cell-downgrade = Костюм прийме лише новий елемент живлення, який кращий за поточний!
 ninja-cell-too-large = Це джерело живлення не підходить до костюма ніндзя!
+ninja-download-fail = Сервер не має даних досліджень...

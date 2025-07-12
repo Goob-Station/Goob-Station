@@ -60,30 +60,30 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: human target
+  name: "людська мішень"
   id: TargetHuman
   parent: BaseTarget
-  description: A shooting target. This one is a human.
+  description: "Мішень для стрільби. Це людина."
   components:
   - type: Sprite
     sprite: Objects/Specific/Security/target.rsi
     state: target_h
 
 - type: entity
-  name: syndicate target
+  name: "мішень синдикату"
   id: TargetSyndicate
   parent: BaseTarget
-  description: A shooting target. This one is a syndicate agent.
+  description: "Мішень для стрільби. Це агент синдикату."
   components:
   - type: Sprite
     sprite: Objects/Specific/Security/target.rsi
     state: target_s
 
 - type: entity
-  name: clown target
+  name: "мішень клоуна"
   id: TargetClown
   parent: BaseTarget
-  description: A shooting target. This one is a clown.
+  description: "Мішень для стрільби. Це клоун."
   components:
   - type: Sprite
     sprite: Objects/Specific/Security/target.rsi
@@ -91,10 +91,10 @@
 
 # put it on a salvage or something
 - type: entity
-  name: strange target
+  name: "дивна мішень"
   id: TargetStrange
   parent: BaseTarget
-  description: A shooting target. You aren't quite sure what this one is, but it seems to be extra robust.
+  description: "Мішень для стрільби. Ви не зовсім впевнені, що це за мішень, але здається, що вона дуже міцна."
   components:
   - type: Sprite
     sprite: Objects/Specific/Security/target.rsi

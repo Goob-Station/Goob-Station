@@ -99,7 +99,7 @@
   mapPath: /Maps/_Goobstation/train.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 30
+  minPlayers: 20
   maxPlayers: 60
   stations:
     Train:

@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #Industrial spawners
 - type: entity
-  name: industrial fluff spawner
+  name: "точка появи промислового мотлоху"
   id: LootSpawnerIndustrialFluff
   parent: MarkerBase
   components:
@@ -37,7 +37,7 @@
       offset: 0.0
 
 - type: entity
-  name: industrial loot spawner
+  name: "точка появи промислового луту"
   suffix: Tools + Materials
   id: LootSpawnerIndustrial
   parent: MarkerBase

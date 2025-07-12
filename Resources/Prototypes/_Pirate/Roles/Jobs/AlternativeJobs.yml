@@ -1,0 +1,254 @@
+#region Cargo
+
+#endregion
+
+#region Cent Com
+
+#endregion
+
+#region Civilian
+
+- type: alternativeJob
+  id: AlternativeJobFloraEngineer
+  jobName: job-alternative-name-flora-engineer
+  jobDescription: job-description-botanist
+  jobIconProtoId: JobIconFloraEngineer
+  parentJobId: Botanist
+
+- type: alternativeJob
+  id: AlternativeJobPrankster
+  jobName: job-alternative-name-prankster
+  jobDescription: job-description-clown
+  parentJobId: Clown
+
+- type: alternativeJob
+  id: AlternativeJobWaiter
+  jobName: job-alternative-name-waiter
+  jobDescription: job-description-service-worker
+  parentJobId: ServiceWorker
+
+#endregion
+
+#region Command
+
+- type: alternativeJob
+  id: AlternativeJobFurryFemboy
+  jobName: job-alternative-name-furry-femboy
+  jobDescription: job-description-captain
+  jobIconProtoId: JobIconFurryFemboy
+  parentJobId: Captain
+
+- type: alternativeJob
+  id: AlternativeJobCommandOfficer
+  jobName: job-alternative-name-command-officer
+  jobDescription: job-description-captain
+  parentJobId: Captain
+
+- type: alternativeJob
+  id: AlternativeJobStationDirector
+  jobName: job-alternative-name-station-director
+  jobDescription: job-description-captain
+  parentJobId: Captain
+
+- type: alternativeJob
+  id: AlternativeJobNotarius
+  jobName: job-alternative-name-notarius
+  jobDescription: job-description-hop
+  parentJobId: HeadOfPersonnel
+
+- type: alternativeJob
+  id: AlternativeJobSherif
+  jobName: job-alternative-name-sherif
+  jobDescription: job-description-hos
+  parentJobId: HeadOfSecurity
+
+#endregion
+
+#region Engineering
+
+- type: alternativeJob
+  id: AlternativeJobAtmosphericTEGSpecialist
+  jobName: job-alternative-name-teg-specialist
+  jobDescription: job-description-atmospheric-technician
+  parentJobId: AtmosphericTechnician
+
+- type: alternativeJob
+  id: AlternativeJobEngineSpecialist
+  jobName: job-alternative-name-engine-specialist
+  jobDescription: job-description-engineer
+  parentJobId: StationEngineer
+
+- type: alternativeJob
+  id: AlternativeJobElectrician
+  jobName: job-alternative-name-electrician
+  jobDescription: job-description-engineer
+  jobIconProtoId: JobIconElectrician
+  parentJobId: StationEngineer
+
+#endregion
+
+#region Medical
+
+- type: alternativeJob
+  id: AlternativeJobSurgeon
+  jobName: job-alternative-name-surgeon
+  jobIconProtoId: JobIconSurgeon
+  jobDescription: job-description-medical-doctor
+  parentJobId: MedicalDoctor
+
+- type: alternativeJob
+  id: AlternativeJobCryoSpecialist
+  jobName: job-alternative-name-cryo-specialist
+  jobIconProtoId: JobIconCryoSpecialist
+  jobDescription: job-description-medical-doctor
+  parentJobId: MedicalDoctor
+
+- type: alternativeJob
+  id: AlternativeJobPharmacist
+  jobName: job-alternative-name-pharmacist
+  jobDescription: job-description-chemist
+  parentJobId: Chemist
+
+- type: alternativeJob
+  id: AlternativeJobSMO # SMO - Senior Medical Officer
+  jobName: job-alternative-name-smo
+  jobDescription: job-description-cmo
+  parentJobId: ChiefMedicalOfficer
+
+#endregion
+
+#region Science
+
+- type: alternativeJob
+  id: AlternativeJobAnomalist
+  jobName: job-alternative-name-anomalist
+  jobDescription: job-description-scientist
+  jobIconProtoId: JobIconAnomalist
+  parentJobId: Scientist
+
+- type: alternativeJob
+  id: AlternativeJobXenoarcheologist
+  jobName: job-alternative-name-xenoarcheologist
+  jobDescription: job-description-scientist
+  jobIconProtoId: JobIconXenoarcheologist
+  parentJobId: Scientist
+
+- type: alternativeJob
+  id: AlternativeJobPhoronResearcher
+  jobName: job-alternative-name-phoron-researcher
+  jobDescription: job-description-scientist
+  parentJobId: Scientist
+
+- type: alternativeJob
+  id: AlternativeJobAspirant
+  jobName: job-alternative-name-aspirant
+  jobDescription: job-description-research-assistant
+  parentJobId: ResearchAssistant
+
+- type: alternativeJob
+  id: AlternativeJobLaborant
+  jobName: job-alternative-name-laborant
+  jobDescription: job-description-research-assistant
+  parentJobId: ResearchAssistant
+#endregion
+
+#region Security
+
+- type: alternativeJob
+  id: AlternativeJobPeacekeeper
+  jobName: job-alternative-name-peacekeeper
+  jobDescription: job-description-security-officer
+  parentJobId: SecurityOfficer
+
+- type: alternativeJob
+  id: AlternativeJobInspector
+  jobName: job-alternative-name-inspector
+  jobDescription: job-description-detective
+  parentJobId: Detective
+
+- type: alternativeJob
+  id: AlternativeJobForensist
+  jobName: job-alternative-name-forensist
+  jobDescription: job-description-detective
+  parentJobId: Detective
+
+- type: alternativeJob
+  id: AlternativeJobCorpsman
+  jobName: job-alternative-name-corpsman
+  jobDescription: job-description-brigmedic
+  parentJobId: Brigmedic
+#endregion
+
+#region Other
+
+- type: alternativeJob
+  id: AlternativeJobPsychotherapist
+  jobName: job-alternative-name-psychotherapist
+  jobDescription: job-description-psychologist
+  parentJobId: Psychologist
+
+- type: alternativeJob
+  id: AlternativeJobCorrespondent
+  jobName: job-alternative-name-correspondent
+  jobDescription: job-description-reporter
+  parentJobId: Reporter
+#endregion
+
+#region Icons definitions
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconFloraEngineer
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: flora-engineer
+  jobName: job-alternative-name-flora-engineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconFurryFemboy
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: furry
+  jobName: job-alternative-name-furry-femboy
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconElectrician
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: electrician
+  jobName: job-alternative-name-electrician
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCryoSpecialist
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: cryo-specialist
+  jobName: job-alternative-name-cryo-specialist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconXenoarcheologist
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: xenoarcheologist
+  jobName: job-alternative-name-xenoarcheologist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAnomalist
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: anomalist
+  jobName: job-alternative-name-anomalist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSurgeon
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: surgeon
+  jobName: job-alternative-name-surgeon
+#endregion

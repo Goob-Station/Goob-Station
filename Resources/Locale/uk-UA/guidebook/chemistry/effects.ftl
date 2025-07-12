@@ -408,3 +408,19 @@ reagent-effect-guidebook-artifact-unlock = { $chance ->
         [1] Допомагає
         *[other] допомогти
         } розблокувати інопланетний артефакт.
+reagent-effect-guidebook-even-health-change = { $chance ->
+        [1] { $healsordeals ->
+            [heals] Рівномірно лікує
+            [deals] Рівномірно завдає шкоди
+            *[both] Рівномірно змінює здоров'я на
+        }
+        *[other] { $healsordeals ->
+            [heals] рівномірно лікує
+            [deals] рівномірно завдає шкоди
+            *[both] рівномірно змінює здоров'я на
+        }
+    } { $changes }
+reagent-effect-guidebook-emote = { $chance ->
+        [1] Змусить
+        *[other] змусить
+    } метаболізатор до [bold][color=white]{$emote}[/color][/bold]

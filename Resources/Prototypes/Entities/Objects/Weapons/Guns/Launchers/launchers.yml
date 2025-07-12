@@ -122,18 +122,20 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: BaseWeaponLauncher
+  name: "BaseWeaponLauncher"
   parent: BaseItem
   id: BaseWeaponLauncher
-  description: A rooty tooty point and shooty.
+  description: "Корінцевий зубастий і пагонистий."
   abstract: true
   components:
   - type: Sprite
@@ -155,10 +157,10 @@
   - type: CanTakeAim # PIRATE
 
 - type: entity
-  name: china lake
+  name: "чайна-лейк"
   parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponLauncherChinaLake
-  description: PLOOP.
+  description: "ПЛЮХ."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
@@ -191,8 +193,8 @@
 - type: entity
   parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseMajorContraband ]
   id: WeaponLauncherHydra
-  name: hydra
-  description: PLOOP... FSSSSSS
+  name: "гідра"
+  description: "ПЛУП... ФСССССС"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
@@ -229,10 +231,10 @@
       path: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
 
 - type: entity
-  name: RPG-7
+  name: "РПГ-7"
   parent: [ BaseWeaponLauncher, BaseMajorContraband ]
   id: WeaponLauncherRocket
-  description: A modified ancient rocket-propelled grenade launcher.
+  description: "Модифікований старовинний реактивний гранатомет."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
@@ -262,10 +264,10 @@
   - type: Appearance
 
 - type: entity
-  name: multiple rocket launcher
+  name: "реактивна система залпового вогню"
   parent: BaseWeaponLauncher
   id: WeaponLauncherMultipleRocket
-  description: A modified ancient rocket-propelled grenade launcher.
+  description: "Модифікований старовинний реактивний гранатомет."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
@@ -297,10 +299,10 @@
   - type: Appearance
 
 - type: entity
-  name: pirate cannon
+  name: "піратська гармата"
   parent: BaseWeaponLauncher
   id: WeaponLauncherPirateCannon
-  description: Kaboom!
+  description: "Бабах!"
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
@@ -329,12 +331,12 @@
         path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
 
 - type: entity
-  name: tether gun
+  name: "прив'язна рушниця"
   parent:
   - BaseItem
   - PowerCellSlotMediumItem
   id: WeaponTetherGun
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: "Маніпулює гравітацією навколо об'єктів, щоб кидати їх з великою швидкістю."
   components:
     - type: Item
       storedRotation: -90
@@ -376,12 +378,12 @@
         Silver: 25
 
 - type: entity
-  name: force gun
+  name: "гравіпушка"
   parent:
     - BaseItem
     - PowerCellSlotMediumItem
   id: WeaponForceGun
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: "Маніпулює гравітацією навколо об'єктів, щоб кидати їх з великою швидкістю."
   components:
     - type: Item
       storedRotation: -90
@@ -429,7 +431,7 @@
         Silver: 50
 
 - type: entity
-  name: grappling gun
+  name: "абордажна рушниця"
   parent: BaseItem
   id: WeaponGrapplingGun
   components:
@@ -461,30 +463,31 @@
     - type: PacifismAllowedGun
 
 - type: entity
-  parent: [BaseWeaponLauncher, BaseSecurityEngineeringContraband]
+  parent: [BaseWeaponLauncher, BaseSecurityEngineeringContraband, BaseGunWieldable]
   id: WeaponLauncherSingularityBuster
-  name: singularity buster rocket launcher
-  description: An experimental rocket launcher designed to fire rockets capable of decomposing a singularity or tesla.
+  name: "ракетна установка \"Руйнівник Сингулярності"
+  description: "Експериментальна ракетна установка, призначена для запуску ракет, здатних розкладати сингулярність або теслу."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
     slots:
     - Back
+    - suitStorage #note the speed malus
   - type: Item
     shape:
     - 0,0,5,2
-  - type: MultiHandedItem
   - type: Gun
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: BallisticAmmoProvider
-    autoCycle: false
     whitelist:
       tags:
       - CartridgeRocket
@@ -495,14 +498,22 @@
   - type: Appearance
   - type: StaticPrice
     price: 1000
+  - type: GunRequiresWield
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: ClothingSpeedModifier #Look at the size of this thing, absolute unit to carry on you
+    walkModifier: 0.7
+    sprintModifier: 0.7
 
 # Admeme
 - type: entity
-  name: tether gun
+  name: "прив'язна рушниця"
   parent: BaseItem
   id: WeaponTetherGunAdmin
   suffix: Admeme
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: "Маніпулює гравітацією навколо об'єктів, щоб кидати їх з великою швидкістю."
   components:
     - type: TetherGun
       canTetherAlive: true
@@ -537,11 +548,11 @@
             False: { visible: false }
 
 - type: entity
-  name: force gun
+  name: "гравіпушка"
   parent: BaseItem
   id: WeaponForceGunAdmin
   suffix: Admeme
-  description: Manipulates gravity around objects to fling them at high velocities.
+  description: "Маніпулює гравітацією навколо об'єктів, щоб кидати їх з великою швидкістю."
   components:
     - type: ForceGun
       canTetherAlive: true
@@ -579,11 +590,11 @@
             False: { visible: false }
 
 - type: entity
-  name: meteor launcher
+  name: "метеоритна пускова установка"
   parent: WeaponLauncherMultipleRocket
   id: WeaponLauncherAdmemeMeteorLarge
   suffix: Admeme
-  description: It fires large meteors.
+  description: "Вона стріляє великими метеоритами."
   components:
   - type: BallisticAmmoProvider
     whitelist:
@@ -592,11 +603,11 @@
     proto: MeteorMedium
 
 - type: entity
-  name: immovable rod launcher
+  name: "нерухома пускова установка для стрижнів"
   parent: WeaponLauncherAdmemeMeteorLarge
   id: WeaponLauncherAdmemeImmovableRodSlow
   suffix: Admeme
-  description: It fires slow immovable rods.
+  description: "Він стріляє повільними нерухомими стрижнями."
   components:
   - type: BallisticAmmoProvider
     whitelist:

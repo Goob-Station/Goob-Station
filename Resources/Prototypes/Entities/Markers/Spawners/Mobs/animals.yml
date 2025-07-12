@@ -1,0 +1,272 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobBee
+  name: "Спавнер Бджоли"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: 0
+      sprite: Mobs/Animals/bee.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBee
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobButterfly
+  name: "Спавнер Метелика"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: butterfly
+      sprite: Mobs/Animals/butterfly.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobButterfly
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCatGeneric
+  name: "Спавнер Звичайного Кота"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobCat
+    - MobCatCalico
+    - MobCatCaracal
+    - MobCatKitten
+    rarePrototypes:
+    - MobCatSpace
+    rareChance: 0.05
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCatKitten
+  name: "Спавнер Кошеняти"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCatKitten
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCatSpace
+  name: "Спавнер Космічного Кота"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCatSpace
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCockroach
+  name: "Спавнер Таргана"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Animals/cockroach.rsi
+      state: cockroach_icon
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCockroach
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCow
+  name: "Спавнер Корови"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: cow
+      sprite: Mobs/Animals/cow.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCow
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCrab
+  name: "Спавнер Краба"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: crab
+      sprite: Mobs/Animals/crab.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCrab
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobFrog
+  name: "Спавнер Жаби"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: frog
+      sprite: Mobs/Animals/frog.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFrog
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobGoat
+  name: "Спавнер Кози"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: goat
+      sprite: Mobs/Animals/goat.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobGoat
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobGorilla
+  name: "Спавнер Горили"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: crawling
+      sprite: Mobs/Animals/gorilla.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobGorilla
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobLizard
+  name: "Спавнер Ящірки"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lizard
+      sprite: Mobs/Animals/lizard.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobLizard
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMonkey
+  name: "Спавнер Мавпи"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMonkey
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMouse
+  name: "Спавнер Миші"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Animals/mouse.rsi
+      state: icon-2
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMouse
+    - MobMouse1
+    - MobMouse2
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobParrot
+  name: "Спавнер Папуги"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: parrot
+      sprite: Mobs/Animals/parrot.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobParrot
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobPenguin
+  name: "Спавнер Пінгвіна"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: penguin
+      sprite: Mobs/Animals/penguin.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobPenguin
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobReindeerBuck
+  name: "Спавнер північного оленя-самця"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: reindeer_buck_still
+      sprite: Mobs/Animals/reindeer_buck.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobReindeerBuck
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobReindeerDoe
+  name: "Спавнер північного оленя-самки"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: reindeer_doe_still
+      sprite: Mobs/Animals/reindeer_doe.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobReindeerDoe
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobSlug
+  name: "Спавнер Слимака"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: slug
+      sprite: Mobs/Animals/slug.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobSlug
