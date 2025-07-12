@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -19,20 +20,54 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Destructible.Thresholds;
+using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Weather.Gamerule;
+namespace Content.Server._Lavaland.Mobs;
 
+/// <summary>
+/// Drops some loot when boss having this component dies.
+/// </summary>
 [RegisterComponent]
-public sealed partial class LavalandStormSchedulerRuleComponent : Component
+public sealed partial class SpawnLootOnDeathComponent : Component
 {
     /// <summary>
-    ///     How long until the next check for an event runs
+    /// Should it drop guaranteed loot when dead? If so what exactly?
     /// </summary>
-    [DataField] public float EventClock = 600f; // Ten minutes
+    [DataField]
+    public EntProtoId? Loot;
 
     /// <summary>
-    ///     How much time it takes in seconds for a lavaland storm to be raised.
+    /// Should it drop something besides the main loot as a crusher only reward?
     /// </summary>
-    [DataField] public MinMax Delays = new(20 * 60, 40 * 60);
+    [DataField]
+    public EntProtoId? SpecialLoot;
+
+    /// <summary>
+    /// Whitelist for a weapon that is always checked when hitting the target.
+    /// If target was damaged by something that doesn't pass this whitelist,
+    /// the mob doesn't drop special loot and fallbacks to normal loot instead.
+    /// </summary>
+    [DataField("weaponWhitelist")]
+    public EntityWhitelist SpecialWeaponWhitelist = new() { Components = new []{"MegafaunaWeaponLooter"}};
+
+    /// <summary>
+    /// Should it delete itself after being killed?
+    /// </summary>
+    [DataField]
+    public bool DeleteOnDeath;
+
+    /// <summary>
+    /// If true and the mob was killed with special weapon,
+    /// and both loots are not null, drops both loots at once.
+    /// </summary>
+    [DataField]
+    public bool DropBoth;
+
+    /// <summary>
+    /// Check if the boss got damaged by crusher only.
+    /// True by default. Will immediately switch to false if anything else hit it. Even the environmental stuff.
+    /// </summary>
+    [ViewVariables]
+    public bool DoSpecialLoot = true;
 }

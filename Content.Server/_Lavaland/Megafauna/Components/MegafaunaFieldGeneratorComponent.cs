@@ -21,10 +21,13 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Mobs.Hierophant.Components;
+namespace Content.Server._Lavaland.Megafauna.Components;
 
+/// <summary>
+/// Generates a square field  around the megafauna then it starts attacking.
+/// </summary>
 [RegisterComponent]
-public sealed partial class HierophantFieldGeneratorComponent : Component
+public sealed partial class MegafaunaFieldGeneratorComponent : Component
 {
     [ViewVariables]
     public bool Enabled;
@@ -33,7 +36,10 @@ public sealed partial class HierophantFieldGeneratorComponent : Component
     public List<EntityUid> Walls = new();
 
     [DataField]
-    public int Radius;
+    public int Radius = 11;
+
+    [DataField]
+    public int FieldThickness = 1;
 
     [DataField]
     public EntProtoId HierophantPrototype = "LavalandBossHierophant";

@@ -23,9 +23,9 @@
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using System.Numerics;
-using Content.Server._Lavaland.Mobs.Hierophant.Components;
+using Content.Server._Lavaland.Hierophant.Components;
 
-namespace Content.Server._Lavaland.Mobs.Hierophant;
+namespace Content.Server._Lavaland.Hierophant;
 
 /// <summary>
 ///     Chaser works as a self replicator.
@@ -143,8 +143,8 @@ public sealed class HierophantChaserSystem : EntitySystem
     {
         delta = Vector2.Clamp(Vector2.Round(delta), new Vector2(-1, -1), new Vector2(1, 1));
 
-        return Math.Abs(delta.X) >= Math.Abs(delta.Y) 
-            ? new Vector2i((int)delta.X, 0) 
+        return Math.Abs(delta.X) >= Math.Abs(delta.Y)
+            ? new Vector2i((int)delta.X, 0)
             : new Vector2i(0, (int)delta.Y);
     }
 }

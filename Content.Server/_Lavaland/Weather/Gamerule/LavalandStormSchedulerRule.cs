@@ -57,12 +57,12 @@ public sealed class LavalandStormSchedulerRule : GameRuleSystem<LavalandStormSch
 
     private void StartRandomStorm()
     {
-        var maps = _lavaland.GetLavalands();
-        if (maps.Count == 0)
+        var maps = _lavaland.GetLavalands().ToArray();
+        if (maps.Length == 0)
             return;
 
         // Filter out already stormed maps.
-        var newMaps = maps.Where(lavaland => !HasComp<LavalandStormedMapComponent>(lavaland)).ToList();
+        var newMaps = maps.Where(lavaland => !HasComp<LavalandStormedMapComponent>(lavaland)).ToArray();
         maps = newMaps;
 
         var map = _random.Pick(maps);
