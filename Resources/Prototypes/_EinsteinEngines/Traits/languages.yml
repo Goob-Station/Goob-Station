@@ -7,12 +7,12 @@
   description: trait-language-signlanguage-desc
   category: LanguageTraits
   cost: 1
-  functions:
-    - !type:TraitModifyLanguages
-      languagesSpoken:
-        - Sign
-      languagesUnderstood:
-        - Sign
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+    - Sign
+  languagesUnderstood:
+    - Sign
 
 # Not commented since this is another general-ish language.
 - type: trait
@@ -21,12 +21,12 @@
   description: trait-language-solcommon-desc
   category: LanguageTraits
   cost: 1
-  functions:
-    - !type:TraitModifyLanguages
-      languagesSpoken:
-        - SolCommon
-      languagesUnderstood:
-        - SolCommon
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+    - SolCommon
+  languagesUnderstood:
+    - SolCommon
 
 - type: trait
   id: Tradeband
@@ -34,12 +34,12 @@
   description: trait-language-tradeband-desc
   category: LanguageTraits
   cost: 1
-  functions:
-    - !type:TraitModifyLanguages
-      languagesSpoken:
-        - Tradeband
-      languagesUnderstood:
-        - Tradeband
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+    - Tradeband
+  languagesUnderstood:
+    - Tradeband
 
 - type: trait
   id: Freespeak
@@ -47,12 +47,12 @@
   description: trait-language-freespeak-desc
   category: LanguageTraits
   cost: 1
-  functions:
-    - !type:TraitModifyLanguages
-      languagesSpoken:
-        - Freespeak
-      languagesUnderstood:
-        - Freespeak
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+    - Freespeak
+  languagesUnderstood:
+    - Freespeak
 
 - type: trait
   id: Elyran
@@ -60,12 +60,12 @@
   description: trait-language-elyran-desc
   category: LanguageTraits
   cost: 1
-  functions:
-    - !type:TraitModifyLanguages
-      languagesSpoken:
-        - Elyran
-      languagesUnderstood:
-        - Elyran
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+    - Elyran
+  languagesUnderstood:
+    - Elyran
 
 # Commented out since it's species-specific.
 # - type: trait
@@ -87,17 +87,17 @@
   description: trait-language-novunederic-desc
   category: LanguageTraits
   cost: 1
-  functions:
-    - !type:TraitModifyLanguages
-      languagesSpoken:
-        - NovuNederic
-      languagesUnderstood:
-        - NovuNederic
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+    - NovuNederic
+  languagesUnderstood:
+    - NovuNederic
 
 # Commented out since it's species-specific.
 # - type: trait
 #   id: Azaziba
-#   name: trait-language-azaziba-name
+#   name:
 #   description: trait-language-azaziba-desc
 #   category: LanguageTraits
 #   cost: 1
