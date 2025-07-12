@@ -493,8 +493,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                     false,
                     0.75f,
                     null,
-                    null
-                    ));
+                    null,
+                    null));
                     
                 break;
             case MartialArtsForms.Ninjutsu:
