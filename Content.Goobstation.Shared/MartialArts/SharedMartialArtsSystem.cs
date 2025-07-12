@@ -499,7 +499,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                     null,
                     null,
                     null));
-                    
                 break;
             case MartialArtsForms.Ninjutsu:
                 EnsureComp<NinjutsuSneakAttackComponent>(user);
