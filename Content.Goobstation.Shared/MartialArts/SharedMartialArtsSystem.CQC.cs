@@ -22,6 +22,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -120,15 +121,20 @@ public partial class SharedMartialArtsSystem
                 break;
             case ComboAttackType.Harm:
                 // Snap neck
-                if (!_mobState.IsDead(args.Target) && !HasComp<GodmodeComponent>(args.Target) &&
-                    TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
-                    TryComp(args.Target, out PullableComponent? pullable) &&
-                    TryComp(args.Target, out BodyComponent? body) &&
-                    puller.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
-                    targeting.Target == TargetBodyPart.Head)
+                if (!_mobState.IsDead(args.Target)
+                    && !HasComp<GodmodeComponent>(args.Target)
+                    && TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target
+                    && TryComp(args.Target, out PullableComponent? pullable)
+                    && TryComp(args.Target, out BodyComponent? body)
+                    && puller.GrabStage == GrabStage.Suffocate
+                    && TryComp(ent, out TargetingComponent? targeting)
+                    && targeting.Target == TargetBodyPart.Head
+                    && _mobThreshold.TryGetDeadThreshold(args.Target, out var damageToKill))
                 {
                     _pulling.TryStopPull(args.Target, pullable);
-                    _mobState.ChangeMobState(args.Target, MobState.Dead, null, ent);
+
+                    var blunt = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), damageToKill.Value);
+                    _damageable.TryChangeDamage(args.Target, blunt, true, targetPart: TargetBodyPart.Chest);
 
                     var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
                     var targetedBodyPart = _body.GetBodyChildrenOfType(args.Target, partType, body, symmetry)

@@ -92,6 +92,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
 
     public override void Initialize()
     {
