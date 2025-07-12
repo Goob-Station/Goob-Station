@@ -327,7 +327,7 @@
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
     bloodMaxVolume: 50
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - Mouse
     understands:
