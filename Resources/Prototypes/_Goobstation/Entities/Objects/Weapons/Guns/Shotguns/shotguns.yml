@@ -15,7 +15,6 @@
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunAntelope
   description: A mag-fed shotgun designed for neutralizing threats and keeping criminals at bay with overwhelming force.
-  suffix: DO NOT MAP # This should be made obtainable at some point.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/antelope.rsi
