@@ -93,7 +93,7 @@ public sealed class RadioSystem : EntitySystem
     {
         if (TryComp(uid, out ActorComponent? actor))
         {
-            // Einstein Engines - Language begin
+            // Einstein Engines - Languages begin
             var listener = component.Owner;
             var msg = args.OriginalChatMsg;
 
@@ -101,7 +101,7 @@ public sealed class RadioSystem : EntitySystem
                 msg = args.LanguageObfuscatedChatMsg;
 
             _netMan.ServerSendMessage(new MsgChatMessage { Message = msg }, actor.PlayerSession.Channel);
-            // Einstein Engines - Language end
+            // Einstein Engines - Languages end
         }
     }
 
