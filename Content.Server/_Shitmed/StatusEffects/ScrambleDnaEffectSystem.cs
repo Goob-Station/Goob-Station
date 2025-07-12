@@ -31,8 +31,7 @@ public sealed class ScrambleDnaEffectSystem : EntitySystem
         SubscribeLocalEvent<ScrambleDnaEffectComponent, ComponentInit>(OnInit);
     }
 
-    private void OnInit(EntityUid uid, ScrambleDnaEffectComponent component, ComponentInit args) =>
-        Scramble(uid);
+    private void OnInit(EntityUid uid, ScrambleDnaEffectComponent component, ComponentInit args) => Scramble(uid);
 
     public void Scramble(EntityUid uid)
     {
