@@ -213,6 +213,7 @@
       components:
         - SecretStash
         - WrappedParcel
+  # Einstein Engines - Language begin
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic # Instead of universal, add individual so they can speak in said language for privacy.
@@ -251,6 +252,7 @@
     - Freespeak
     - Tradeband
     - Sign # Should know it but not speak it, for obvious reasons.
+  # Einstein Engines - Language end
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
