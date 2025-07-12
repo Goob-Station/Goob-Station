@@ -12,7 +12,10 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 AffrayedHawk <144155004+AffrayedHawk@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -90,9 +93,14 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (component.UseSound != null)
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
 
-        // Decrease "Ammo"
-        component.Charges--;
-        Dirty(uid, component);
+        // Frontier: check if crayon is infinite, Delta V Port
+        if (component.Charges != int.MaxValue)
+        {
+            // Decrease "Ammo"
+            component.Charges--;
+            Dirty(uid, component);
+        }
+        // End Frontier, Delta V Port
 
         _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{EntityManager.ToPrettyString(args.User):user} drew a {component.Color:color} {component.SelectedState}");
         args.Handled = true;
