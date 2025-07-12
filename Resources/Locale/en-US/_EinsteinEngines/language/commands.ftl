@@ -15,7 +15,7 @@ command-language-entry = {$id}. {$language} - {$name}
 command-language-invalid-number = The language number must be between 0 and {$total}. Alternatively, use the language name.
 command-language-invalid-language = The language {$id} does not exist or you cannot speak it.
 
-# Toolshed
+# toolshed
 
 command-description-language-add = Adds a new language to the piped entity. The two last arguments indicate whether it should be spoken/understood. Example: 'self language:add "Canilunzt" true true'
 command-description-language-rm = Removes a language from the piped entity. Works similarly to language:add. Example: 'self language:rm "TauCetiBasic" true true'.

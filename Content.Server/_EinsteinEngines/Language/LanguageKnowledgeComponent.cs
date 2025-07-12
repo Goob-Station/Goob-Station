@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._EinsteinEngines.Language;
 
 /// <summary>
-///     Stores data about entities' intrinsic language knowledge.
+///     Stores data about entities' intrinsic Language knowledge.
 /// </summary>
 [RegisterComponent]
 public sealed partial class LanguageKnowledgeComponent : Component

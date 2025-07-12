@@ -32,7 +32,7 @@ public sealed class TranslatorImplantSystem : EntitySystem
             return;
 
         component.Enabled = true;
-        // To operate an implant, you need to know its required Language intrinsically, because like... it connects to your brain or something.
+        // To operate an implant, you need to know its required language intrinsically, because like... it connects to your brain or something.
         // So external translators or other implants can't help you operate it.
         component.SpokenRequirementSatisfied = TranslatorSystem.CheckLanguagesMatch(
             component.RequiredLanguages, knowledge.SpokenLanguages, component.RequiresAllLanguages);

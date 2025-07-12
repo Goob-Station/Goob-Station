@@ -14,7 +14,7 @@ public sealed partial class HandheldTranslatorComponent : BaseTranslatorComponen
 
     /// <summary>
     ///     If true, when this translator is turned on, the entities' current spoken language will be set
-    ///     to the first new Language added by this translator.
+    ///     to the first new language added by this translator.
     /// </summary>
     /// <remarks>
     ///      This should generally be used for translators that translate speech between two languages.

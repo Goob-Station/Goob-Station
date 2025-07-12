@@ -4,6 +4,7 @@
   parent: BaseImplantOnlyImplanter
   name: basic translator implanter
 
+# Gives understand
 - type: entity
   id: BasicGalaticCommonTranslatorImplanter
   parent: BaseTranslatorImplanter
@@ -12,6 +13,7 @@
   - type: Implanter
     implant: BasicTauCetiBasicTranslatorImplant
 
+# Gives both speak and understnad
 - type: entity
   id: AdvancedGalaticCommonTranslatorImplanter
   parent: BaseTranslatorImplanter

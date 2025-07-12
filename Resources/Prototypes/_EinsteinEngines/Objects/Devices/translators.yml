@@ -24,7 +24,7 @@
           False: { visible: false }
   - type: HandheldTranslator
     enabled: false
-  - type: Clothing # To allow equipping translators on the neck slot
+  - type: Clothing # To allow equipping translators on the neck slot.
     slots: [neck]
     equipDelay: 0.3
     unequipDelay: 0.3

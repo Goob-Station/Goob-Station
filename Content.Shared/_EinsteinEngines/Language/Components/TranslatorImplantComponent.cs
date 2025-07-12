@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared._EinsteinEngines.Language.Components;
 
 /// <summary>
-///     An implant that allows the implantee to speak and understand other Languages.
+///     An implant that allows the implantee to speak and understand other languages.
 /// </summary>
 [RegisterComponent]
 public sealed partial class TranslatorImplantComponent : BaseTranslatorComponent

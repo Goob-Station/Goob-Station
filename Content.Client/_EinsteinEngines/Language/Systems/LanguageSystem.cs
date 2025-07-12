@@ -18,7 +18,7 @@ public sealed class LanguageSystem : SharedLanguageSystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     /// <summary>
-    ///     Invoked when the Languages of the local player entity change, for use in UI.
+    ///     Invoked when the languages of the local player entity change, for use in UI.
     /// </summary>
     public event Action? OnLanguagesChanged;
 

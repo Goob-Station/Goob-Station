@@ -1,7 +1,7 @@
 namespace Content.Shared._EinsteinEngines.Language.Events;
 
 /// <summary>
-///     Raised on an entity when its list of Languages changes.
+///     Raised on an entity when its list of languages changes.
 /// </summary>
 /// <remarks>
 ///     This is raised both on the server and on the client.

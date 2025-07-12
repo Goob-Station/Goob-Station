@@ -54,7 +54,7 @@
 
 - type: entity
   parent: BaseSubdermalImplant
-  id: DraconicTranslatorImplant # Made available for all, EE Lore isn't Goob Lore.
+  id: DraconicTranslatorImplant # Made available for all, there is no lore to prevent this like EE.
   name: draconic translator implant
   description: A translator implant giving the ability to speak to dragons! Subsequently, also allows to communicate with the Unathi.
   categories: [ HideSpawnMenu ]

@@ -1306,4 +1306,4 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     }
 }
 
-// The three chat types (InGameICChatType, InGameOOCChatType, and ChatTransmitRange) have been moved to Shared.
+// The three chat type enums (InGameICChatType, InGameOOCChatType, and ChatTransmitRange) have been moved to Shared.

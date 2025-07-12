@@ -205,7 +205,7 @@
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Bubblish
     understands:

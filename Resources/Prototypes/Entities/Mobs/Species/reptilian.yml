@@ -167,7 +167,7 @@
       Male: MaleReptilian
       Female: FemaleReptilian
       Unsexed: MaleReptilian
-  - type: LanguageKnowledge # Einstein Engines - Languages
+  - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - TauCetiBasic
     - Draconic
