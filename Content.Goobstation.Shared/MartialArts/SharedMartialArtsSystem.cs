@@ -481,11 +481,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         {
             case MartialArtsForms.KungFuDragon:
                 EnsureComp<DragonKungFuTimerComponent>(user);
-                break;
-            case MartialArtsForms.Ninjutsu:
-                EnsureComp<NinjutsuSneakAttackComponent>(user);
-                break;
-            case MartialArtsForms.CloseQuartersCombat:
                 var riposte = EnsureComp<RiposteeComponent>(user);
                 riposte.Data.TryAdd("CQC",
                     new(0.1f,
@@ -500,6 +495,25 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                     null,
                     null,
                     new CanDoCQCEvent()));
+                break;
+            case MartialArtsForms.Ninjutsu:
+                EnsureComp<NinjutsuSneakAttackComponent>(user);
+                break;
+            case MartialArtsForms.CloseQuartersCombat:
+                //var riposte = EnsureComp<RiposteeComponent>(user);
+                //riposte.Data.TryAdd("CQC",
+                //    new(0.1f,
+                //    false,
+                //    null,
+                //    true,
+                //    new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"),
+                //    TimeSpan.Zero,
+                //    TimeSpan.FromSeconds(4),
+                //    false,
+                //    0.75f,
+                //    null,
+                //    null,
+                //    new CanDoCQCEvent()));
                 break;
         }
 
