@@ -28,7 +28,7 @@ public abstract partial class BaseTranslatorComponent : Component
     ///   If true, the wielder must understand all languages in [RequiredLanguages] to speak [SpokenLanguages],
     ///   and understand all languages in [RequiredLanguages] to understand [UnderstoodLanguages].
     ///
-    ///   Otherwise, at least one language must be known (or the list must be empty).
+    ///   Otherwise, at least one Language must be known (or the list must be empty).
     /// </summary>
     [DataField("requiresAll")]
     public bool RequiresAllLanguages = false;

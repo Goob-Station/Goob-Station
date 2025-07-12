@@ -91,7 +91,7 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
         if (!HasComp<HoldsTranslatorComponent>(args.OldParent))
             return;
 
-        // Update the translator on the next tick - this is necessary because there's a good chance the removal from a container
+        // Update the translator on the next tick - this is necessary because there's a good chance the removal from a container.
         // Was caused by the player moving the translator within their inventory rather than removing it.
         // If that is not the case, then OnProxyDetermineLanguages will remove this translator from HoldsTranslatorComponent.Translators.
         Timer.Spawn(0, () =>

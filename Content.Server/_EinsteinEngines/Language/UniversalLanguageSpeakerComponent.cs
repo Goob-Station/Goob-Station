@@ -6,7 +6,7 @@
 namespace Content.Server._EinsteinEngines.Language;
 
 // <summary>
-//     Signifies that this entity can speak and understand any Language.
+//     Signifies that this entity can speak and understand any language.
 //     Applies to such entities as ghosts.
 // </summary>
 [RegisterComponent]

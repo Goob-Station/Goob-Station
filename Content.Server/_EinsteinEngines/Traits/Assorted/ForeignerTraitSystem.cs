@@ -23,7 +23,7 @@ public sealed partial class ForeignerTraitSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<ForeignerTraitComponent, ComponentInit>(OnSpawn); // TraitSystem adds it after PlayerSpawnCompleteEvent so it's fine
+        SubscribeLocalEvent<ForeignerTraitComponent, ComponentInit>(OnSpawn); // TraitSystem adds it after PlayerSpawnCompleteEvent so it's fine.
     }
 
     private void OnSpawn(Entity<ForeignerTraitComponent> entity, ref ComponentInit args)

@@ -4,7 +4,7 @@ namespace Content.Shared._EinsteinEngines.Language.Events;
 
 /// <summary>
 ///     Raised in order to determine the list of languages the entity can speak and understand at the given moment.
-///     Typically raised on an entity after a language agent (e.g. a translator) has been added to or removed from them.
+///     Typically raised on an entity after a Language Agent (e.g. a translator) has been added to or removed from them.
 /// </summary>
 [ByRefEvent]
 public record struct DetermineEntityLanguagesEvent
