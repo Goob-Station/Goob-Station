@@ -393,7 +393,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             {
                 if (collective != null && collective.RespectAccents)
                 {
-                    modMessage = TransformSpeech(source, modMessage, language); // Einstein Engines - Languages (I appended language to stop errors. I'm not testing this.)
+                    modMessage = TransformSpeech(source, modMessage, null); // Einstein Engines - Languages (I made null since it requires a language input)
                 }
 
                 SendCollectiveMindChat(source, modMessage, channel);
