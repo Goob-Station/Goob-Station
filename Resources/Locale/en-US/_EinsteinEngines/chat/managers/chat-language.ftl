@@ -20,6 +20,9 @@ chat-language-Sign-name = Sign
 chat-language-Marish-name = Marish
 chat-language-Chittin-name = Chittin
 chat-language-Xeeplian-name = Xeeplian
+
+# Addons from EE namespace in EE.
+
 chat-language-NalRasan-name = Nal'rasan
 chat-language-SiikTajr-name = Siik'tajr
 chat-language-SiikMaas-name = Siik'maas
