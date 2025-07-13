@@ -11953,3 +11953,156 @@ Entries:
       message: Syndicate Disaster victims are returned to being Free Agents.
   id: 1314
   time: '2025-07-07T16:04:04.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Add
+      message: >-
+        Added a new neck item to tiders who can't afford the tider mantle,
+        shrug.
+  id: 1315
+  time: '2025-07-10T04:18:39.0000000+00:00'
+- author: Aviu, pheenty
+  changes:
+    - type: Add
+      message: 'Added 3 new martial arts: Ninjutsu, Capoeira and Dragon Kung Fu.'
+    - type: Add
+      message: Added martial art combo counter.
+    - type: Add
+      message: CQC can now parry any melee attack and can also snap necks.
+    - type: Add
+      message: Guidebook for martial arts.
+    - type: Add
+      message: Judo reworked, check guidebook for details.
+    - type: Remove
+      message: Removed ninja gloves stun (replaced with ninjutsu).
+  id: 1316
+  time: '2025-07-10T12:26:22.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Harpies no longer are locked to jumpskirts, and pants have fancy
+        displacement maps too.
+    - type: Fix
+      message: Fixed harpy flight visuals being kinda broken on other clients.
+    - type: Fix
+      message: 'Fixed modsuits being unusable by harpies and diona. '
+    - type: Fix
+      message: >-
+        Fixed harpy flight being broken and moving around at snail-speed. Thanks
+        wizden.
+    - type: Fix
+      message: Fixed harpy flight making secoffs scream "HE'S REACHING" too often.
+  id: 1317
+  time: '2025-07-11T20:06:54.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Millions must gulp
+  id: 1318
+  time: '2025-07-11T23:58:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Boomerang items will now hit you if your hand is occupied.
+    - type: Tweak
+      message: Boomerang items now have a maximum amount of hops they can make.
+    - type: Fix
+      message: Fixed boomerang jank.
+  id: 1319
+  time: '2025-07-12T08:48:25.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Stamina resistances work once again.
+  id: 1320
+  time: '2025-07-12T09:05:18.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: Budget insulated gloves are no longer marked as contraband
+  id: 1321
+  time: '2025-07-13T05:02:41.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: Maintenance doorjack
+  id: 1322
+  time: '2025-07-13T22:36:23.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Fix
+      message: Pun Pun has been reminded of his contract and is no longer a free agent.
+  id: 1323
+  time: '2025-07-13T22:38:17.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Tweak
+      message: >-
+        Compact defibrillator is now in the Advanced Treatment tech (T2 surgical
+        tools).
+  id: 1324
+  time: '2025-07-13T22:39:32.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: Crew borgs are no longer immune to various mobs.
+  id: 1325
+  time: '2025-07-13T22:41:37.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: AI is has crewsimov roundstart.
+  id: 1326
+  time: '2025-07-13T22:43:10.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        The Gorlex Hypospray has a reduced cooldown between injections. Heal to
+        your heart's content.
+  id: 1327
+  time: '2025-07-13T22:46:16.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        You can no longer call the shuttle once cosmic cult reaches tier 2 or
+        above.
+    - type: Tweak
+      message: >-
+        Siphoning no longer informs the target that they feel numb. Pay
+        attention to your health if you wish to continue metagaming.
+    - type: Add
+      message: >-
+        You can now convert dead people into the cosmic cult so long as their
+        corpses are still fresh.
+    - type: Tweak
+      message: >-
+        Being converted into the cosmic cult now fully heals you, rather than
+        doing a partial heal as it used to. It also revives you, if you were
+        dead.
+    - type: Tweak
+      message: Null Glare is slightly less bad.
+    - type: Fix
+      message: Siphoning no longer deals 90 damage.
+    - type: Tweak
+      message: >-
+        Siphoning damage now applies over a larger amount of time, and no longer
+        deals cold damage.
+    - type: Tweak
+      message: While empowered, you gain double the entropy from siphoning.
+  id: 1328
+  time: '2025-07-13T22:49:50.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Remove
+      message: Removed roundstart nailguns.
+  id: 1329
+  time: '2025-07-13T22:51:15.0000000+00:00'
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Mantis blades now cut more than stab, and do more slash than pierce
+  id: 1330
+  time: '2025-07-13T22:53:04.0000000+00:00'

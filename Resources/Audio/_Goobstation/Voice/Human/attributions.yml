@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,3 +20,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Modified version of parp1.ogg from TV_LING modified by Piras314"
   source: "https://github.com/Piras314"
+
+- files: ["gulp.ogg"]
+  license: "CC0-1.0"
+  copyright: "Stock sounds from Pixabay"
+  source: "https://pixabay.com/sound-effects/gulp-male-88413/"
