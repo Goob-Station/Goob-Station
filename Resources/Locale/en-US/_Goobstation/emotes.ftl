@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MoutardOMiel <108993081+Moutardomiel@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Skippy <107330854+SkippyMcSkips@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,6 +18,7 @@ chat-emote-name-jump = Jump
 chat-emote-name-tweak = Tweak
 chat-emote-name-flex = Flex muscles
 chat-emote-name-yip = Yip
+chat-emote-name-gulp = Gulp
 
 chat-emote-msg-flip = does a flip!
 chat-emote-msg-spin = spins!
@@ -24,3 +26,4 @@ chat-emote-msg-jump = jumps!
 chat-emote-msg-tweak = starts tweaking!
 chat-emote-msg-flex = flexes its muscles.
 chat-emote-msg-yip = yips!
+chat-emote-msg-gulp = gulps.
