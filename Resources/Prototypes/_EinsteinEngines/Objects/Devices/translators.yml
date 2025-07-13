@@ -308,7 +308,7 @@
     - SiikMaas
 
 - type: entity
-  id: MarishTranslator # Added as well, all base languages should have one.
+  id: MarishTranslator
   parent: [ TranslatorPoweredBase ]
   name: Marish translator
   description: Translates speech between Marish and Tau-Ceti Basic. For talking to Shadowkin!
