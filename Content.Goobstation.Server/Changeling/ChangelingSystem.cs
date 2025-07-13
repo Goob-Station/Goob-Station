@@ -846,7 +846,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnDamageChange(Entity<ChangelingIdentityComponent> ent, ref DamageChangedEvent args)
     {
         if (!TryComp<MobThresholdsComponent>(ent, out var thresholds)
-            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Dead, out var maxThreshold))
+            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Dead, out var maxThreshold)
+            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Critical, out var critThreshold))
             return;
 
         if (!ent.Comp.IsInStasis)
@@ -857,9 +858,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             var catastrophicDamage = maxThreshold; // enough damage to be dead
 
             var damage = args.Damageable;
-            var damageTaken = float.Round(damage.TotalDamage.Float()) / 2;
-            var damageToTime = MathF.Min(damageTaken, highestStasisTime);
+            var damageTaken = damage.TotalDamage;
 
+            var scalingMult = highestStasisTime;
+            var damageScaled = float.Round((float) (damageTaken / critThreshold * scalingMult));
+
+            var damageToTime = MathF.Min(damageScaled, highestStasisTime);
             var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
 
             if (damageTaken < catastrophicDamage)
