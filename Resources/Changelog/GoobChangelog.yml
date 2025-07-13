@@ -12130,3 +12130,9 @@ Entries:
       message: Fixed BSO's hardsuit not appearing in their locker
   id: 1334
   time: '2025-07-13T23:00:01.0000000+00:00'
+- author: PAFFhassoocks
+  changes:
+    - type: Tweak
+      message: BSOs revolver kit now hits hard.
+  id: 1335
+  time: '2025-07-13T23:01:15.0000000+00:00'
