@@ -1,0 +1,297 @@
+# Default rules
+- type: guideEntry
+  id: CorvaxRuleset
+  name: Правила сервера
+  priority: 0
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/MrpRuleset.xml"
+  children:
+  - CorvaxRule0
+  - CorvaxRule1
+  - CorvaxRule2
+  - CorvaxRule3
+  - CorvaxRule31
+  - CorvaxRule32
+  - CorvaxRule33
+  - CorvaxRule34
+  - CorvaxRule35
+  - CorvaxRule36
+  - CorvaxRule37
+  - CorvaxRule38
+  - CorvaxRule39
+  - CorvaxRule4
+  - CorvaxRule6
+  - CorvaxRule7
+  - CorvaxRule8
+  - CorvaxRule9
+  - CorvaxRule10
+  - CorvaxPunishmentTypes
+
+- type: guideEntry
+  id: CorvaxPunishmentTypes
+  name: Игровые наказания
+  priority: 20
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/PunishmentTypes.xml"
+
+- type: guideEntry
+  id: CorvaxRule0
+  name: Правило 0
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule0.xml"
+
+- type: guideEntry
+  id: CorvaxRule1
+  name: Правило 1
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule1.xml"
+
+- type: guideEntry
+  id: CorvaxRule2
+  name: Правило 2
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule2.xml"
+
+- type: guideEntry
+  id: CorvaxRule3
+  name: Правило 3
+  priority: 4
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.xml"
+
+- type: guideEntry
+  id: CorvaxRule31
+  name: Правило 3.1
+  priority: 5
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.1.xml"
+
+- type: guideEntry
+  id: CorvaxRule32
+  name: Правило 3.2
+  priority: 6
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.2.xml"
+
+- type: guideEntry
+  id: CorvaxRule33
+  name: Правило 3.3
+  priority: 7
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.3.xml"
+
+- type: guideEntry
+  id: CorvaxRule34
+  name: Правило 3.4
+  priority: 8
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.4.xml"
+
+- type: guideEntry
+  id: CorvaxRule35
+  name: Правило 3.5
+  priority: 9
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.5.xml"
+
+- type: guideEntry
+  id: CorvaxRule36
+  name: Правило 3.6
+  priority: 10
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.6.xml"
+
+- type: guideEntry
+  id: CorvaxRule37
+  name: Правило 3.7
+  priority: 11
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.7.xml"
+
+- type: guideEntry
+  id: CorvaxRule38
+  name: Правило 3.8
+  priority: 12
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.8.xml"
+
+- type: guideEntry
+  id: CorvaxRule39
+  name: Правило 3.9
+  priority: 13
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule3.9.xml"
+
+- type: guideEntry
+  id: CorvaxRule4
+  name: Правило 4
+  priority: 14
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule4.xml"
+
+- type: guideEntry
+  id: CorvaxRule6
+  name: Правило 6
+  priority: 15
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule6.xml"
+
+- type: guideEntry
+  id: CorvaxRule7
+  name: Правило 7
+  priority: 16
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule7.xml"
+
+- type: guideEntry
+  id: CorvaxRule8
+  name: Правило 8
+  priority: 17
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule8.xml"
+
+- type: guideEntry
+  id: CorvaxRule9
+  name: Правило 9
+  priority: 18
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule9.xml"
+
+- type: guideEntry
+  id: CorvaxRule10
+  name: Правило 10
+  priority: 19
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/Rule10.xml"
+
+# LRP rules
+- type: guideEntry
+  id: CorvaxLRPRuleset
+  name: Правила сервера Мейн
+  priority: 0
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LrpRuleset.xml"
+  children:
+  - CorvaxLRPRule0
+  - CorvaxLRPRule1
+  - CorvaxLRPRule2
+  - CorvaxLRPRule3
+  - CorvaxLRPRule32
+  - CorvaxLRPRule34
+  - CorvaxLRPRule35
+  - CorvaxLRPRule37
+  - CorvaxLRPRule38
+  - CorvaxLRPRule4
+  - CorvaxLRPRule6
+  - CorvaxLRPRule7
+  - CorvaxLRPRule8
+  - CorvaxLRPRule9
+  - CorvaxLRPRule10
+
+- type: guideEntry
+  id: CorvaxLRPRule0
+  name: Правило 0
+  priority: 1
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule0.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule1
+  name: Правило 1
+  priority: 2
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule1.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule2
+  name: Правило 2
+  priority: 3
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule2.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule3
+  name: Правило 3
+  priority: 4
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule3.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule32
+  name: Правило 3.2
+  priority: 6
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule3.2.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule34
+  name: Правило 3.4
+  priority: 8
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule3.4.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule35
+  name: Правило 3.5
+  priority: 9
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule3.5.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule37
+  name: Правило 3.7
+  priority: 11
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule3.7.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule38
+  name: Правило 3.8
+  priority: 12
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule3.8.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule4
+  name: Правило 4
+  priority: 14
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule4.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule6
+  name: Правило 6
+  priority: 15
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule6.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule7
+  name: Правило 7
+  priority: 16
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule7.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule8
+  name: Правило 8
+  priority: 17
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule8.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule9
+  name: Правило 9
+  priority: 18
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule9.xml"
+
+- type: guideEntry
+  id: CorvaxLRPRule10
+  name: Правило 10
+  priority: 19
+  ruleEntry: true
+  text: "/ServerInfo/Corvax/Guidebook/ServerRules/LRPRule10.xml"
