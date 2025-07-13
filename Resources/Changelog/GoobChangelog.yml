@@ -12100,3 +12100,9 @@ Entries:
       message: Removed roundstart nailguns.
   id: 1329
   time: '2025-07-13T22:51:15.0000000+00:00'
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Mantis blades now cut more than stab, and do more slash than pierce
+  id: 1330
+  time: '2025-07-13T22:53:04.0000000+00:00'
