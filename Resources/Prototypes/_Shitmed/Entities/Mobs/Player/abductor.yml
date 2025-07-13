@@ -136,6 +136,7 @@
     pocket1: AbductorGizmo
     pocket2: WeaponAlien
     suitstorage: Wonderprod
+    id: AgentIDCard
 
 - type: startingGear
   id: AbductorScientistGear
@@ -149,6 +150,7 @@
     back: ClothingBackpackDuffelAbductor
     pocket1: AbductorGizmo
     suitstorage: WeaponDecloner
+    id: AgentIDCard
 
 - type: startingGear
   id: AbductorAgentGear
