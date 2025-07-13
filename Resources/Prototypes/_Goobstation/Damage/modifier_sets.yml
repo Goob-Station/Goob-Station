@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
 #
@@ -32,10 +33,9 @@
   id: Silicon
   coefficients:
     Heat: 0.8
-  flatReductions:
-    Blunt: 5
-    Slash: 5
-    Piercing: 5
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 0.9
 
 - type: damageModifierSet
   id: SiliconProtected
