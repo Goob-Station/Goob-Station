@@ -12124,3 +12124,9 @@ Entries:
       message: Godhand crowbar utility works now
   id: 1333
   time: '2025-07-13T22:59:27.0000000+00:00'
+- author: PAFFhassoocks
+  changes:
+    - type: Tweak
+      message: Fixed BSO's hardsuit not appearing in their locker
+  id: 1334
+  time: '2025-07-13T23:00:01.0000000+00:00'
