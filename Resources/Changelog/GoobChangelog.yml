@@ -12029,3 +12029,9 @@ Entries:
       message: Maintenance doorjack
   id: 1322
   time: '2025-07-13T22:36:23.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Fix
+      message: Pun Pun has been reminded of his contract and is no longer a free agent.
+  id: 1323
+  time: '2025-07-13T22:38:17.0000000+00:00'
