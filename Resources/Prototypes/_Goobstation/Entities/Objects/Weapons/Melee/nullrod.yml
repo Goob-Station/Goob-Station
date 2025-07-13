@@ -217,7 +217,7 @@
     - GodHand
     - Crowbar
   - type: ToolTileCompatible
-  - type: UseDelay # Goobstation - For insta prying
+  - type: UseDelay
     delay: 1
   - type: Prying
 
