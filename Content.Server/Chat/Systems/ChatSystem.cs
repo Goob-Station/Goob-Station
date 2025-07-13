@@ -393,7 +393,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             {
                 if (collective != null && collective.RespectAccents)
                 {
-                    modMessage = TransformSpeech(source, modMessage, null); // Einstein Engines - Languages (I made null since it requires a language input)
+                    modMessage = TransformSpeech(source, modMessage, language); // Einstein Engines - Languages (I made null since it requires a language input)
                 }
 
                 SendCollectiveMindChat(source, modMessage, channel);
@@ -692,13 +692,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         //     ("fontSize", speech.FontSize),
         //     ("message", FormattedMessage.EscapeText(message)));
 
-        // The chat message wrapped in a "x says y" string
+        // The chat message wrapped in a "x says y" string.
         var wrappedMessage = WrapPublicMessage(source, name, message, language: language);
-        // The chat message obfuscated via language obfuscation
+        // The chat message obfuscated via language obfuscation.
         var obfuscated = SanitizeInGameICMessage(source, _language.ObfuscateSpeech(message, language), out var emoteStr, true, _configurationManager.GetCVar(CCVars.ChatPunctuation),
         (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
         || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en"));
-        // The language-obfuscated message wrapped in a "x says y" string
+        // The language-obfuscated message wrapped in a "x says y" string.
         var wrappedObfuscated = WrapPublicMessage(source, name, obfuscated, language: language);
         // Einstein Engines - Language end
 

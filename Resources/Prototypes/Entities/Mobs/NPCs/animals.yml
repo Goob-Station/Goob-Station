@@ -712,7 +712,7 @@
         gibContents: Skip # Shitmed Change
         recursive: false
   - type: NonSpreaderZombie
-  - type: LanguageKnowledge # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Languages
     speaks: [Hissing]
     understands: [Hissing]
   - type: SentienceTarget
