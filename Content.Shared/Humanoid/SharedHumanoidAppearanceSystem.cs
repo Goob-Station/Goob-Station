@@ -492,7 +492,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             SetScale(uid, new Vector2(profile.Width, profile.Height), true, humanoid);
 
         _heightAdjust.SetScale(uid, new Vector2(humanoid.Width, humanoid.Height));
-        //Pirate changes start
+        //Pirate changes end
 
         // Add markings that doesn't need coloring. We store them until we add all other markings that doesn't need it.
         var markingFColored = new Dictionary<Marking, MarkingPrototype>();
