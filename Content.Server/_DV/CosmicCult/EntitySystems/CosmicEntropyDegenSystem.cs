@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -30,7 +32,6 @@ public sealed partial class CosmicEntropyDegenSystem : EntitySystem
 
     private void OnInit(EntityUid uid, CosmicEntropyDebuffComponent comp, ref ComponentStartup args)
     {
-        _damageable.TryChangeDamage(uid, comp.Degen, true, false);
         comp.CheckTimer = _timing.CurTime + comp.CheckWait;
     }
 
@@ -46,9 +47,6 @@ public sealed partial class CosmicEntropyDegenSystem : EntitySystem
 
             component.CheckTimer = _timing.CurTime + component.CheckWait;
             _damageable.TryChangeDamage(uid, component.Degen, true, false, targetPart: TargetBodyPart.All);
-
-            if (_random.Prob(component.PopupChance))
-                _popup.PopupEntity(Loc.GetString("entropy-effect-numb"), uid, uid, PopupType.SmallCaution);
         }
     }
 }
