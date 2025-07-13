@@ -17,6 +17,8 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
@@ -408,7 +410,7 @@ namespace Content.Shared.Damage
 
         public static DamageSpecifier operator /(DamageSpecifier damageSpec, FixedPoint2 factor)
         {
-            DamageSpecifier newDamage = new(damageSpec); // Goob edit
+            DamageSpecifier newDamage = new(damageSpec.ArmorPenetration); // Goob edit
             foreach (var entry in damageSpec.DamageDict)
             {
                 newDamage.DamageDict.Add(entry.Key, entry.Value / factor);
