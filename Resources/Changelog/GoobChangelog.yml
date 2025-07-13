@@ -12094,3 +12094,9 @@ Entries:
       message: While empowered, you gain double the entropy from siphoning.
   id: 1328
   time: '2025-07-13T22:49:50.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Remove
+      message: Removed roundstart nailguns.
+  id: 1329
+  time: '2025-07-13T22:51:15.0000000+00:00'
