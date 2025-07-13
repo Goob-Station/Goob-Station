@@ -49,7 +49,7 @@
   cost: 8
   components:
     - type: NightVision
-      color: "#193242"
+      color: "#2b2d2d"
       activateSound: null
       deactivateSound: null
 #endregion
