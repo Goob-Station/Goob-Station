@@ -12150,3 +12150,12 @@ Entries:
       message: ERT Medical Officer now gets a medical beam gun.
   id: 1337
   time: '2025-07-13T23:02:41.0000000+00:00'
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Made zombies move 5% slower than humans, from 5% faster previously.
+        [font size=3]what the fuck I didn't know left for dead had runner
+        zombies[/font]
+  id: 1338
+  time: '2025-07-13T23:04:17.0000000+00:00'
