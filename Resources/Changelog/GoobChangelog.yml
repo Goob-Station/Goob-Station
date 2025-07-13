@@ -12118,3 +12118,9 @@ Entries:
       message: Cyber eyes work now
   id: 1332
   time: '2025-07-13T22:57:10.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Godhand crowbar utility works now
+  id: 1333
+  time: '2025-07-13T22:59:27.0000000+00:00'
