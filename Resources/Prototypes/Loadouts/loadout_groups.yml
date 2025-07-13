@@ -1627,7 +1627,7 @@
   name: loadout-group-breath-tool
   minLimit: 1
   maxLimit: 1
-  hidden: true
+  hidden: false # red astra change for vox masks
   loadouts:
   - LoadoutSpeciesBreathTool
 
@@ -1636,7 +1636,7 @@
   name: loadout-group-breath-tool
   minLimit: 1
   maxLimit: 1
-  hidden: true
+  hidden: false # red astra change for vox masks
   loadouts:
   - LoadoutSpeciesBreathToolMedical
 
@@ -1645,7 +1645,7 @@
   name: loadout-group-breath-tool
   minLimit: 1
   maxLimit: 1
-  hidden: true
+  hidden: false # red astra change for vox masks
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
 
