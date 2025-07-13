@@ -12055,3 +12055,11 @@ Entries:
       message: AI is has crewsimov roundstart.
   id: 1326
   time: '2025-07-13T22:43:10.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        The Gorlex Hypospray has a reduced cooldown between injections. Heal to
+        your heart's content.
+  id: 1327
+  time: '2025-07-13T22:46:16.0000000+00:00'
