@@ -7,7 +7,7 @@
   cost: 1
   components:
     - type: TempResistant
-      heatModifier: 1.1
+      heatModifier: 1.05
 
 - type: trait
   id: TraitHeatWeakness
@@ -17,7 +17,7 @@
   cost: -1
   components:
     - type: TempResistant
-      heatModifier: 0.9
+      heatModifier: 0.95
 
 - type: trait
   id: TraitColdResistant
@@ -27,7 +27,7 @@
   cost: 1
   components:
     - type: TempResistant
-      coldModifier: 0.9
+      coldModifier: 0.95
 
 - type: trait
   id: TraitColdWeakness
@@ -37,7 +37,7 @@
   cost: -1
   components:
     - type: TempResistant
-      coldModifier: 1.1
+      coldModifier: 1.05
 #endregion
 
 #region Vision
@@ -49,7 +49,7 @@
   cost: 8
   components:
     - type: NightVision
-      color: "#10282e"
+      color: "#193242"
       activateSound: null
       deactivateSound: null
 #endregion
