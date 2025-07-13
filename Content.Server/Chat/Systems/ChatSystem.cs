@@ -372,7 +372,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             wrappedMessagePostfix = postfixEv.Postfix;
         // Goobstation end
 
-        // This is really terrible. I hate myself for doing this. [-] Einstein Engines - Language
+        // This is really terrible. I hate myself for doing this. [-] Einstein Engines - Languages
         if (language.SpeechOverride.ChatTypeOverride is { } chatTypeOverride)
             desiredType = chatTypeOverride;
 

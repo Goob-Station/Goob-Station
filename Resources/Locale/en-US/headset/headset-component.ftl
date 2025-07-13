@@ -23,7 +23,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Chat window radio wrap (prefix and postfix)
-# Einstein Engines - Languages begin (change text color based on language color)
+# Einstein Engines - Languages begin (change text color based on language color set in handler)
 chat-radio-message-wrap = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb},[/color] [font={$fontType} size={$fontSize}][color={$messageColor}]"{$message}"[/color][/font]
 chat-radio-message-wrap-bold = [color={$color}]{$channel} [bold]{$name}[/bold] {$verb},[/color] [font={$fontType} size={$fontSize}][color={$messageColor}][bold]"{$message}"[/bold][/color][/font]
 # Einstein Engines - Languages end
