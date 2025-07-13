@@ -19,7 +19,6 @@
   - type: Tag
     tags:
     - Organ
-    # not meat
 
 # Eyes
 
@@ -40,14 +39,14 @@
       Normal: 21
       Damaged: 11
       Destroyed: 0
-    slotId: eyes # Shitmed Change
+    slotId: eyes
     onAdd:
     - type: FlashImmunity
     - type: EyeProtection
   - type: Tag
     tags:
     - Eyes
-  - type: Eyes # Shitmed Change
+  - type: Eyes
 
 - type: entity
   parent: BasicCyberneticEyes
