@@ -12144,3 +12144,9 @@ Entries:
         wins yet again
   id: 1336
   time: '2025-07-13T23:02:26.0000000+00:00'
+- author: ImHoks
+  changes:
+    - type: Add
+      message: ERT Medical Officer now gets a medical beam gun.
+  id: 1337
+  time: '2025-07-13T23:02:41.0000000+00:00'
