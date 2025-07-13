@@ -363,7 +363,7 @@ public sealed class CarryingSystem : EntitySystem
             length /= mod;
         TryComp<LightweightComponent>(carried, out var lightweight); // Pirate - Traits Rework
 
-        return length / (lightweight?.PickupSpeedMultiplier ?? 1f); // Pirate - Traits Rework
+        return length / float.Max(lightweight?.PickupSpeedMultiplier ?? 1f, 1f); // Pirate - Traits Rework
     }
 
     public override void Update(float frameTime)

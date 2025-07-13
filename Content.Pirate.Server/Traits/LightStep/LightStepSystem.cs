@@ -10,11 +10,17 @@ public sealed class LightStepSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<LightStepComponent, MoveEvent>(OnMove);
+        SubscribeLocalEvent<LightStepComponent, MapInitEvent>(OnInit);
+    }
+
+    private void OnInit(Entity<LightStepComponent> ent, ref MapInitEvent args)
+    {
+        EnsureComp<FootstepModifierComponent>(ent.Owner, out var footstep);
     }
 
     private void OnMove(Entity<LightStepComponent> ent, ref MoveEvent args)
     {
-        if (EnsureComp<FootstepModifierComponent>(ent.Owner, out var footstep))
+        if (TryComp<FootstepModifierComponent>(ent.Owner, out var footstep))
         {
             UpdateCurrentStepSoundCollection(ent);
             footstep.FootstepSoundCollection = ent.Comp.CurrentStepCollection;
