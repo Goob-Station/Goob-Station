@@ -12159,3 +12159,11 @@ Entries:
         zombies[/font]
   id: 1338
   time: '2025-07-13T23:04:17.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Tweak
+      message: >-
+        Contractor baton attack rate increased (1 -> 1.25) and the use delay
+        when active has been decreased (2.5 -> 0.5)
+  id: 1339
+  time: '2025-07-13T23:12:01.0000000+00:00'
