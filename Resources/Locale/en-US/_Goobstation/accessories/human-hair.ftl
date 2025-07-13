@@ -33,6 +33,7 @@ marking-HumanHairFrontBraidsLong = Front Braids Long
 marking-HumanHairFrontBraidsMedium = Front Braids Medium
 marking-HumanHairFrontBraidsShort = Front Braids Short
 marking-HumanHairHairnet = Hairnet
+marking-HumanHairJinx = Jinx
 marking-HumanHairJellyfish = Jellyfish
 marking-HumanHairKazuyaMishima = Kazuya Mishima
 marking-HumanHairLongBraids = Long Braids

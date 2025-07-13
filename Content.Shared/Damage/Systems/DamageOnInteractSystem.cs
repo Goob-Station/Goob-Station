@@ -72,6 +72,9 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 James <40279265+ViceEmargo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -144,7 +147,7 @@ public sealed class DamageOnInteractSystem : EntitySystem
             // or checking the entity for  the comp itself if the inventory didn't work
             if (protectiveEntity.Comp == null && TryComp<DamageOnInteractProtectionComponent>(args.User, out var protectiveComp))
                 protectiveEntity = (args.User, protectiveComp);
-            
+
 
             // if protectiveComp isn't null after all that, it means the user has protection,
             // so let's calculate how much they resist
@@ -167,7 +170,7 @@ public sealed class DamageOnInteractSystem : EntitySystem
             };
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, origin: args.Target, targetPart: targetPart);
+        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, origin: args.Target, targetPart: targetPart, canMiss: false);
         // Shitmed Change End
 
         if (totalDamage != null && totalDamage.AnyPositive())

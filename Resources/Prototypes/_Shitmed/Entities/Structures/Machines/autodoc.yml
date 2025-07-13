@@ -1,8 +1,9 @@
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Autodocs
@@ -115,6 +116,28 @@
 - type: entity
   parent: OmnimedTool
   id: OmnimedToolAutodoc
-  suffix: Unremoveable
+  suffix: Unremoveable, Autodoc
   components:
   - type: Unremoveable
+  - type: Hemostat
+    speed: 2
+  - type: Scalpel
+    speed: 2
+  - type: Drill
+    speed: 2
+  - type: BoneSetter
+    speed: 2
+  - type: Retractor
+    speed: 2
+  - type: Cautery
+    speed: 2
+  - type: BoneGel
+    speed: 2
+  - type: BoneSaw
+    speed: 2
+  - type: Tweezers
+    speed: 2
+  - type: Tending
+    speed: 2
+  - type: Stitches
+    speed: 2

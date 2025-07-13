@@ -28,6 +28,8 @@ using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
+using Robust.Shared.Console;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -48,6 +50,11 @@ public abstract class SharedChatSystem : EntitySystem
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
     public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.
+    // CorvaxGoob-TTS-Start
+    public const int VoiceRange = 10; // how far voice goes in world units
+    public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
+    public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
+    // CorvaxGoob-TTS-End
     public const char CollectiveMindPrefix = '+'; // Goobstation - Starlight collective mind port
     public const char DefaultChannelKey = 'h';
 
@@ -273,6 +280,18 @@ public abstract class SharedChatSystem : EntitySystem
         return false;
     }
 
+    public virtual void TrySendInGameICMessage(
+        EntityUid source,
+        string message,
+        InGameICChatType desiredType,
+        bool hideChat, bool hideLog = false,
+        IConsoleShell? shell = null,
+        ICommonSession? player = null, string? nameOverride = null,
+        bool checkRadioPrefix = true,
+        bool ignoreActionBlocker = false,
+        string wrappedMessagePostfix = "" // Goobstation
+    ) { }
+
     public string SanitizeMessageCapital(string message)
     {
         if (string.IsNullOrEmpty(message))
@@ -385,4 +404,17 @@ public abstract class SharedChatSystem : EntitySystem
         tagStart += tag.Length + 2;
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
+}
+
+/// <summary>
+///     InGame IC chat is for chat that is specifically ingame (not lobby) but is also in character, i.e. speaking.
+/// </summary>
+// ReSharper disable once InconsistentNaming
+public enum InGameICChatType : byte // Einstein Engines - Make InGameIIChatType available in Shared
+{
+    Speak,
+    Emote,
+    Whisper,
+    Telepathic, // Goobstation Change
+    CollectiveMind // Goobstation - Starlight collective mind port
 }

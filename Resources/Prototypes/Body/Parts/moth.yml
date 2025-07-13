@@ -35,6 +35,8 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+  - type: Damageable # Shitmed
+    damageModifierSet: Moth
 
 - type: entity
   id: ChestMoth

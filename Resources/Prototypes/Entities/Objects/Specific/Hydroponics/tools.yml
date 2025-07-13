@@ -18,9 +18,12 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -45,6 +48,9 @@
         Slash: 6
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
 
 - type: entity
   name: plant clippers
@@ -55,6 +61,7 @@
   - type: Tag
     tags:
     - PlantSampleTaker
+    - HydroponicsToolClippers # Einstein Engines
   - type: Sprite
     sprite: Objects/Tools/Hydroponics/clippers.rsi
     state: icon
@@ -75,6 +82,9 @@
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
 
 - type: entity
   name: scythe
@@ -99,6 +109,10 @@
     - back
   - type: StaticPrice
     price: 40
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
 
 - type: entity
   name: hatchet
@@ -127,6 +141,9 @@
   - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
 
 - type: entity
   name: spade
@@ -152,6 +169,9 @@
     sprite: Objects/Tools/Hydroponics/spade.rsi
   - type: Shovel
     speedModifier: 0.75 # slower at digging than a full-sized shovel
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
 
 - type: entity
   name: plant bag

@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
 # SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
@@ -20,20 +19,31 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -45,6 +55,7 @@
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Disruption
 
 - type: listing
@@ -274,6 +285,19 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkTelecrystalMiner
+  name: uplink-tcminer-name
+  description: uplink-tcminer-desc
+  productEntity: TCminerFlatpack
+  cost:
+    Telecrystal: 100
+  categories:
+    - UplinkDisruption
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Weaponry
 
 # - type: listing
@@ -324,6 +348,17 @@
   productEntity: WeaponRifleM90
   cost:
     Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkSyndicateDisabler
+  name: uplink-syndicate-disabler-name
+  description: uplink-syndicate-disabler-desc
+  icon: { sprite: _EinsteinEngines/Objects/Weapons/Guns/Battery/syndicate-disabler.rsi, state: base }
+  productEntity: WeaponDisablerSyndicate
+  cost:
+    Telecrystal: 20
   categories:
   - UplinkWeaponry
 
@@ -381,7 +416,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
   productEntity: WeaponShotgunHeavy
   cost:
-    Telecrystal: 150
+    Telecrystal: 200
   categories:
   - UplinkWeaponry
 
@@ -503,22 +538,6 @@
   - UplinkWearables
 
 - type: listing
-  id: UplinkHeatLamp
-  name: uplink-heat-lamp-name
-  description: uplink-heat-lamp-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Devices/Heatlamps/syndicate.rsi, state: icon-on }
-  productEntity: HeatLampEvil
-  cost:
-    Telecrystal: 20
-  categories:
-  - UplinkWearables
-  #conditions: # Blacklist this from nukies if dreadsuits abuse it too much.
-  #- !type:StoreWhitelistCondition
-  #  blacklist:
-  #    tags:
-  #    - NukeOpsUplink
-
-- type: listing
   id: UplinkHardsuitSyndieMedic
   name: uplink-hardsuit-syndiemedic-name
   description: uplink-hardsuit-syndiemedic-desc
@@ -608,6 +627,22 @@
     whitelist:
     - Clown
 
+- type: listing
+  id: UplinkHisGrace
+  name: uplink-his-grace-name
+  description: uplink-his-grace-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/hisgrace.rsi, state: icon }
+  productEntity: HisGrace
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chaplain
+  saleLimit: 1
+
 
 - type: listing
   id: UplinkLubeGrenade
@@ -695,6 +730,34 @@
     whitelist:
     - Medical
 
+- type: listing
+  id: UplinkMagazineNailgun
+  name: uplink-magazine-nailgun-name
+  description: uplink-magazine-nailgun-desc
+  productEntity: MagazineNailgunArmorPiercing
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Engineering
+
+- type: listing
+  id: UplinkPKAUpgradePressure
+  name: uplink-pressure-modkit-name
+  description: uplink-pressure-modkit-desc
+  productEntity: PKAUpgradePressure
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - SalvageSpecialist
+
 # chemicals
 
 - type: listing
@@ -737,6 +800,42 @@
   categories:
   - UplinkChemicals
 
+- type: listing
+  id: UplinkMedicalBeamGunSyndicate
+  name: uplink-medical-beam-gun-name
+  description: uplink-medical-beam-gun-desc
+  productEntity: MedicalBeamGunSyndicateBattery
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsMedicUplink
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkCombatMedkitPills
+  name: uplink-combat-medkit-pills-name
+  description: uplink-combat-medkit-pills-desc
+  productEntity: MedkitCombatBlueFilled
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkCombatMedkitIPC
+  name: uplink-combat-medkit-ipc-name
+  description: uplink-combat-medkit-ipc-desc
+  productEntity: MedkitCombatPurpleFilled
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkChemicals
 
 # Implants
 
@@ -802,6 +901,78 @@
     Telecrystal: 40
   categories:
     - UplinkImplants
+
+- type: listing
+  id: UplinkBinaryImplant
+  name: uplink-binary-implant-name
+  description: uplink-binary-implant-desc
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
+  productEntity: BinaryImplanter
+  cost:
+    Telecrystal: 5 # goob
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonRightMantisBlade
+  name: uplink-autosurgeon-right-mantis-blade-name
+  description: uplink-autosurgeon-mantis-blade-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
+  productEntity: AutosurgeonRightMantisBlade
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonLeftMantisBlade
+  name: uplink-autosurgeon-left-mantis-blade-name
+  description: uplink-autosurgeon-mantis-blade-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
+  productEntity: AutosurgeonLeftMantisBlade
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkAutosurgeonSandevistan
+  name: uplink-autosurgeon-sandevistan-name
+  description: uplink-autosurgeon-sandevistan-desc
+  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+  productEntity: AutosurgeonSandevistan
+  cost:
+    Telecrystal: 66 # The urge to make it 65...
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkClothingOuterDavidsJacketValid
+  name: uplink-davids-jacket-name
+  description: uplink-davids-jacket-desc
+  icon: { sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi, state: icon }
+  productEntity: ClothingOuterDavidsJacketValid
+  cost:
+    Telecrystal: 0
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - UplinkAutosurgeonRightMantisBlade
+    - UplinkAutosurgeonLeftMantisBlade
+    - UplinkAutosurgeonSandevistan
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 # Deception
 
@@ -1132,6 +1303,32 @@
       - ContravendUplink
 
 - type: listing
+  id: UplinkCQCManualChef
+  name: uplink-cqc-name
+  description: uplink-cqc-desc
+  productEntity: CQCManual
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+
+- type: listing
+  id: UplinkCapoeiraManual
+  name: uplink-capoeira-name
+  description: uplink-capoeira-desc
+  productEntity: CapoeiraManual
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkMysteriousScroll
   name: uplink-sleeping-carp-name
   description: uplink-sleeping-carp-desc
@@ -1167,6 +1364,38 @@
     Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
   categories:
   - UplinkExplosives
+
+- type: listing
+  id: UplinkM172
+  name: uplink-M172LAW-name
+  description: uplink-M172LAW-desc
+  productEntity: WeaponLauncherRocketDisposable
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi, state: icon }
+  cost:
+    Telecrystal: 6 # Basically a worse C4 but ranged
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkRPOA
+  name: uplink-RPOA-name
+  description: uplink-RPOA-desc
+  productEntity: WeaponLauncherRocketDisposableThermobaric
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/shmel.rsi, state: icon }
+  cost:
+    Telecrystal: 6 # one and a half incendiary grenades, takes up the same space as three
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Misc
 - type: listing
@@ -1226,3 +1455,14 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Dwarf # Rock and stone
+
+- type: listing
+  id: UplinkBloodredCasette
+  name: uplink-bloodred-casette-name
+  description: uplink-bloodred-casette-desc
+  icon: { sprite: _Goobstation/Objects/Fun/bloodmonica.rsi, state: icon }
+  productEntity: BloodredCasette
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkPointless

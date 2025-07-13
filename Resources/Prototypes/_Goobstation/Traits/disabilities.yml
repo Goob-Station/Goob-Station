@@ -20,13 +20,15 @@
       prototype: VehicleWheelchair
     - type: LegsStartParalyzed
 
-- type: trait
-  id: ByondYourPrime
-  name: trait-tile-movement-name
-  description: trait-tile-movement-desc
-  category: Disabilities
-  components:
-  - type: TileMovement
+# Corvax Goob-start
+#- type: trait
+#  id: ByondYourPrime
+#  name: trait-tile-movement-name
+#  description: trait-tile-movement-desc
+#  category: Disabilities
+#  components:
+#  - type: TileMovement
+# Corvax Goob-end
 
 - type: trait
   id: MovementImpaired

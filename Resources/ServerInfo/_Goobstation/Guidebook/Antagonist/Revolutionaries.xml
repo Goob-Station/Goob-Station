@@ -30,17 +30,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   [bold]Революция провалится[/bold], если все [bold][color=#5e9cff]Главные революционеры[/color][/bold] погибнут или все их гипнотические способности будут отключены имплантом MindShield, и все [color=red]Революционеры[/color] будут деконвертированы в этом случае.
 
-  ## Главные революционеры и конверсия
-  [bold][color=#5e9cff]Главные революционеры[/color][/bold] выбираются в начале смены и начинают с [color=cyan]флэша[/color], [color=cyan]шифровального ключа синдиката[/color] и пары [color=cyan]солнечных очков[/color].
+  ## Главные революционеры и конвертирование
+  [bold][color=#5e9cff]Главные революционеры[/color][/bold] выбираются в начале смены и начинают с [color=cyan]вспышки[/color], [color=cyan]шифровального ключа синдиката[/color] и пары [color=cyan]солнечных очков[/color].
 
   <Box>
-    <GuideEntityEmbed Entity="Flash"/>
-    <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
+    <GuideEntityEmbed Entity="RevolutionaryManifesto"/>
     <GuideEntityEmbed Entity="EncryptionKeySyndie"/>
   </Box>
 
-  Вы можете конвертировать членов экипажа на свою сторону, взяв любой [bold]флэш[/bold] и атаковав им кого-либо в режиме [color=#ff0000]вреда[/color].
-  Однако вы не сможете конвертировать цель, если на ней есть [color=cyan]защита от флэша[/color], такая как [bold]солнечные очки[/bold] или [bold]сварочная маска[/bold].
+  Вы можете конвертировать членов экипажа на свою сторону, взяв любой [bold]вспышки[/bold] и атаковав им кого-либо в режиме [color=#ff0000]вреда[/color].
+  Однако вы не сможете конвертировать цель, если на ней есть [color=cyan]защита от вспышки[/color], такая как [bold]солнечные очки[/bold] или [bold]сварочная маска[/bold].
 
   <Box>
     <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
@@ -52,7 +51,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Не дают имплантированному человеку стать [color=red]Революционером[/color]
   - Деконвертируют революционеров, лишая их лояльности к вашей цели
   - Видимо меняют внешний вид у [bold][color=#5e9cff]Главных революционеров[/color][/bold], выдавая их и отключая вашу способность конверсии
-  - НЕ защищают от дезориентации флэшем
+  - НЕ защищают от дезориентации вспышки
 
   Предполагается, что все [color=#cb0000]Сотрудники безопасности[/color] и [color=#1b67a5]Руководство[/color] уже имплантированы MindShield.
 
@@ -71,7 +70,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box>
     <GuideEntityEmbed Entity="Implanter"/>
     <GuideEntityEmbed Entity="MedicalTechFab"/>
-    <GuideEntityEmbed Entity="Flash"/>
   </Box>
 
   ## Революционер

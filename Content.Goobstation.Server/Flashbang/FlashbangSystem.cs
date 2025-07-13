@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -63,7 +64,7 @@ public sealed class FlashbangSystem : EntitySystem
 
         var protectionRange = args.Range;
 
-        if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag))
+        if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag) && !_tag.HasTag(args.Target, FlashSystem.FlashVulnerableTag))
         {
             var ev = new GetFlashbangedEvent(MathF.Max(args.Range, ent.Comp.MinProtectionRange + 1f));
             RaiseLocalEvent(args.Target, ev);

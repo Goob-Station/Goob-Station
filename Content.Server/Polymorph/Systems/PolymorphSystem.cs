@@ -55,7 +55,6 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
@@ -92,6 +91,8 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -105,6 +106,7 @@ using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
@@ -123,11 +125,20 @@ using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+
+// Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Body;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
+using System.Linq;
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -136,7 +147,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!; // Goobstation
     [Dependency] private readonly ISerializationManager _serialization = default!; // Goobstation
     [Dependency] private readonly IComponentFactory _compFact = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
@@ -154,6 +165,10 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly TagSystem _tag = default!; // goob edit
+
+    // Shitmed Deps
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly WoundSystem _wound = default!;
 
     private ISawmill _sawMill = default!; // Goobstation
 
@@ -337,7 +352,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
         // Goob edit end
 
-        var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
+        var polymorphedComp = Factory.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
         polymorphedComp.Configuration = configuration;
         AddComp(child, polymorphedComp);
@@ -354,11 +369,33 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         //Transfers all damage from the original to the new one
         if (configuration.TransferDamage &&
-            TryComp<DamageableComponent>(child, out var damageParent) &&
-            _mobThreshold.GetScaledDamage(uid, child, out var damage) &&
+            TryComp<DamageableComponent>(child, out var damageChild) &&
+            _mobThreshold.GetScaledDamage(uid, child, out var damage, out var woundableDamage) &&
             damage != null)
         {
-            _damageable.SetDamage(child, damageParent, damage);
+            if (TryComp<BodyComponent>(child, out var childBody)
+                && childBody.BodyType == Shared._Shitmed.Body.BodyType.Complex // Too lazy to come up with a new name lmfao
+                && _body.TryGetRootPart(child, out var rootPart, childBody))
+            {
+                var woundables = _wound.GetAllWoundableChildrenWithComp<DamageableComponent>(rootPart.Value);
+                var count = woundables.Count();
+                foreach (var woundable in woundables)
+                {
+                    var target = _body.GetTargetBodyPart(woundable);
+
+                    if (woundableDamage is not null)
+                    {
+                        if (woundableDamage.TryGetValue(target, out var wounds))
+                            _damageable.SetDamage(woundable, woundable.Comp2, wounds);
+                    }
+                    else
+                    {
+                        _damageable.SetDamage(woundable, woundable.Comp2, damage / count);
+                    }
+                }
+
+            }
+            _damageable.SetDamage(child, damageChild, damage);
         }
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
@@ -476,6 +513,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
         RaiseLocalEvent(child, ref ev);
 
+        // visual effect spawn
+        if (configuration.EffectProto != null)
+            SpawnAttachedTo(configuration.EffectProto, child.ToCoordinates());
+
         return child;
     }
 
@@ -508,9 +549,31 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (component.Configuration.TransferDamage &&
             TryComp<DamageableComponent>(parent, out var damageParent) &&
-            _mobThreshold.GetScaledDamage(uid, parent, out var damage) &&
+            _mobThreshold.GetScaledDamage(uid, parent, out var damage, out var woundableDamage) &&
             damage != null)
         {
+            if (TryComp<BodyComponent>(parent, out var parentBody)
+                && parentBody.BodyType == Shared._Shitmed.Body.BodyType.Complex // Too lazy to come up with a new name lmfao
+                && _body.TryGetRootPart(parent, out var rootPart, parentBody))
+            {
+                var woundables = _wound.GetAllWoundableChildrenWithComp<DamageableComponent>(rootPart.Value);
+                var count = woundables.Count();
+                foreach (var woundable in woundables)
+                {
+                    var target = _body.GetTargetBodyPart(woundable);
+
+                    if (woundableDamage is not null)
+                    {
+                        if (woundableDamage.TryGetValue(target, out var wounds))
+                            _damageable.SetDamage(woundable, woundable.Comp2, wounds);
+                    }
+                    else
+                    {
+                        _damageable.SetDamage(woundable, woundable.Comp2, damage / count);
+                    }
+                }
+
+            }
             _damageable.SetDamage(parent, damageParent, damage);
         }
 
@@ -557,13 +620,21 @@ public sealed partial class PolymorphSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
         RaiseLocalEvent(parent, ref ev);
 
-        if (component.Configuration.ShowPopup) // Goob edit
-        {
-            _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
+        // visual effect spawn
+        if (component.Configuration.EffectProto != null)
+            SpawnAttachedTo(component.Configuration.EffectProto, parent.ToCoordinates());
+
+        var popup = Loc.GetString("polymorph-revert-popup-generic",
                     ("parent", Identity.Entity(uid, EntityManager)),
-                    ("child", Identity.Entity(parent, EntityManager))),
-                parent);
-        }
+                    ("child", Identity.Entity(parent, EntityManager)));
+
+        if (component.Configuration.ExitPolymorphPopup != null)
+            popup = Loc.GetString(component.Configuration.ExitPolymorphPopup,
+                ("parent", Identity.Entity(uid, EntityManager)),
+                ("child", Identity.Entity(parent, EntityManager)));
+
+        if (component.Configuration.ShowPopup)
+            _popup.PopupEntity(popup, parent);
         QueueDel(uid);
 
         return parent;

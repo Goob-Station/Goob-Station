@@ -101,6 +101,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Content.Server.Shuttles.Components;
+using Robust.Shared.Physics;
 
 namespace Content.Server.Storage.EntitySystems;
 
@@ -247,11 +248,11 @@ public sealed class BluespaceLockerSystem : EntitySystem
             return false;
 
         if (lockerComponent.PickLinksFromSameMap &&
-            link.ToCoordinates().GetMapId(EntityManager) != locker.ToCoordinates().GetMapId(EntityManager))
+            _transformSystem.GetMapId(link.ToCoordinates()) != _transformSystem.GetMapId(locker.ToCoordinates()))
             return false;
 
         if (lockerComponent.PickLinksFromStationGrids &&
-            !HasComp<StationMemberComponent>(link.ToCoordinates().GetGridUid(EntityManager)))
+            !HasComp<StationMemberComponent>(_transformSystem.GetGrid(link.ToCoordinates())))
             return false;
 
         if (lockerComponent.PickLinksFromResistLockers &&
@@ -476,7 +477,7 @@ public sealed class BluespaceLockerSystem : EntitySystem
         switch (component.BehaviorProperties.DestroyType)
         {
             case BluespaceLockerDestroyType.Explode:
-                _explosionSystem.QueueExplosion(uid.ToCoordinates().ToMap(EntityManager, _transformSystem),
+                _explosionSystem.QueueExplosion(_transformSystem.ToMapCoordinates(uid.ToCoordinates()),
                     ExplosionSystem.DefaultExplosionPrototypeId, 4, 1, 2, uid, maxTileBreak: 0);
                 goto case BluespaceLockerDestroyType.Delete;
             case BluespaceLockerDestroyType.Delete:

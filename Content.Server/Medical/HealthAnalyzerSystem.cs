@@ -459,7 +459,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         {
             traumas.Add(GetNetEntity(woundable), FetchTraumaData(woundable, component));
             pain.Add(GetNetEntity(woundable), FetchPainData(woundable, component));
-            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.IsBleeding);
+            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
         }
     }
 
@@ -471,7 +471,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             return bleeding;
 
         foreach (var (woundable, component) in _woundSystem.GetAllWoundableChildren(rootPart))
-            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.IsBleeding);
+            bleeding.Add(_bodySystem.GetTargetBodyPart(woundable), component.Bleeds > 0);
 
         return bleeding;
     }

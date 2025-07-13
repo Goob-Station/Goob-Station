@@ -31,9 +31,9 @@ public sealed class SlipperyEnchantSystem : EntitySystem
     private void Modify(EntityUid item, float factor)
     {
         var comp = EnsureComp<SlipperyComponent>(item);
-        comp.ParalyzeTime *= factor;
-        comp.LaunchForwardsMultiplier *= factor;
-        comp.SuperSlippery = true; // needed to actually launch people
+        comp.SlipData.ParalyzeTime *= factor;
+        comp.SlipData.LaunchForwardsMultiplier *= factor;
+        comp.SlipData.SuperSlippery = true; // needed to actually launch people
         Dirty(item, comp);
     }
 }
