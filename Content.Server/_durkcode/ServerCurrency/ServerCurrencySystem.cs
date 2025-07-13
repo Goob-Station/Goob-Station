@@ -40,6 +40,7 @@ namespace Content.Server._durkcode.ServerCurrency
         private int _goobcoinsNonAntagMultiplier = 1;
         private int _goobcoinsServerMultiplier = 1;
         private int _goobcoinsMinPlayers;
+        private bool _goobcoinsUseLowPopMultiplier;
 
         public override void Initialize()
         {
@@ -51,6 +52,7 @@ namespace Content.Server._durkcode.ServerCurrency
             Subs.CVar(_cfg, GoobCVars.GoobcoinNonAntagMultiplier, value => _goobcoinsNonAntagMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinMinPlayers, value => _goobcoinsMinPlayers = value, true);
+            Subs.CVar(_cfg, GoobCVars.GoobcoinUseLowpopMultiplier, value => _goobcoinsUseLowPopMultiplier = value, true);
         }
 
         public override void Shutdown()
@@ -63,6 +65,8 @@ namespace Content.Server._durkcode.ServerCurrency
         {
             if (_players.PlayerCount < _goobcoinsMinPlayers)
                 return;
+
+            var _lowPopMultiplier = 1.0 - (_players.PlayerCount / (double)_players.MaxPlayers);
 
             var query = EntityQueryEnumerator<MindContainerComponent>();
 
@@ -89,6 +93,9 @@ namespace Content.Server._durkcode.ServerCurrency
                             if (!_jobs.CanBeAntag(session))
                                 money *= _goobcoinsNonAntagMultiplier;
                         }
+
+                        if(_goobcoinsUseLowPopMultiplier)
+                            money += (int)Math.Round(money * _lowPopMultiplier);
 
                         if (_goobcoinsServerMultiplier != 1)
                             money *= _goobcoinsServerMultiplier;
@@ -117,7 +124,6 @@ namespace Content.Server._durkcode.ServerCurrency
         private void OnBalanceChange(PlayerBalanceChangeEvent ev)
         {
             RaiseNetworkEvent(new PlayerBalanceUpdateEvent(ev.NewBalance, ev.OldBalance), ev.UserSes);
-
 
             if (ev.UserSes.AttachedEntity.HasValue)
             {
