@@ -12173,3 +12173,11 @@ Entries:
       message: You can have a spider friend now!
   id: 1340
   time: '2025-07-13T23:17:36.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: Assistants have maintenance access again
+    - type: Tweak
+      message: Assistants have their playtime limit removed
+  id: 1341
+  time: '2025-07-13T23:20:08.0000000+00:00'
