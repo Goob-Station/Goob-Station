@@ -1,8 +1,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -58,12 +62,30 @@
   - PowerCageHigh
 
 - type: latheRecipePack
-  id: Cybernetics
+  id: BasicCybernetics
   recipes:
+  - LeftArmCybernetic
+  - RightArmCybernetic
+  - LeftHandCybernetic
+  - RightHandCybernetic
+  - LeftLegCybernetic
+  - RightLegCybernetic
+  - LeftFootCybernetic
+  - RightFootCybernetic
+  - BasicCyberneticEyes
+  - BasicCyberneticHeart
+  - BasicCyberneticLungs
+  - BasicCyberneticLiver
+
+- type: latheRecipePack
+  id: AdvancedCybernetics
+  recipes:
+  - UpgradedCyberneticHeart
+  - UpgradedCyberneticLungs
   - JawsOfLifeLeftArm
   - JawsOfLifeRightArm
   - SpeedLeftLeg
   - SpeedRightLeg
   - DexLeftHand
   - DexRightHand
-  - BasicCyberneticEyes
+  - DiagnosticCyberneticEyes

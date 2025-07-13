@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SomethingUnbearable <mewatcher102@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -27,3 +29,27 @@
   id: PinpointerBorg
   parent: Pinpointer
   result: PinpointerBorg
+
+- type: latheRecipe
+  id: VoiceSignaller
+  result: VoiceSignaller
+  categories:
+  - Parts
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 200
+    Glass: 100
+    Silver: 100
+
+- type: latheRecipe
+  id: ProximitySignaller
+  result: ProximitySignaller
+  categories:
+  - Parts
+  completetime: 2
+  materials:
+    Steel: 100
+    Plastic: 200
+    Glass: 100
+    Gold: 200
