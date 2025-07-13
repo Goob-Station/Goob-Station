@@ -157,6 +157,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Pirate.UIKit.UserInterface.Lobby; // Pirate - Alternative Jobs
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -242,6 +243,8 @@ namespace Content.Client.Lobby.UI
         private List<SpeciesPrototype> _species = new();
 
         private List<(string, RequirementsSelector)> _jobPriorities = new();
+
+        private Dictionary<string, AlternativeJobSelector> _jobAlternatives = new(); // Pirate - Alternative Jobs
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
 
@@ -918,6 +921,7 @@ namespace Content.Client.Lobby.UI
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
+            UpdateAlternativeJobs(); // Pirate - Alternative Jobs
 
             RefreshAntags();
             RefreshJobs();
@@ -977,6 +981,7 @@ namespace Content.Client.Lobby.UI
             JobList.DisposeAllChildren();
             _jobCategories.Clear();
             _jobPriorities.Clear();
+            _jobAlternatives.Clear(); // Pirate - Alternative Jobs
             var firstCategory = true;
 
             // Get all displayed departments
@@ -1109,6 +1114,24 @@ namespace Content.Client.Lobby.UI
                         SetDirty();
                     };
 
+                    var altJobSelector = new AlternativeJobSelector(job.ID) // Pirate start - Alternative Jobs
+                    {
+                        HorizontalAlignment = HAlignment.Left,
+                        VerticalAlignment = VAlignment.Center,
+                        MinWidth = 120,
+                        Margin = new Thickness(3f, 3f, 3f, 0f),
+                    };
+
+                    altJobSelector.OnAlternativeSelected += alternativeId =>
+                    {
+                        // Add alternative job to profile
+                        Profile = Profile?.WithJobAlternative(new(job.ID, alternativeId));
+                        // SetDirty(); //TODO: Use SetDirty() instead of manual save btn toggling
+                        IsDirty = true;
+                    };
+
+                    _jobAlternatives[job.ID] = altJobSelector; // Pirate end - Alternative Jobs
+
                     var loadoutWindowBtn = new Button()
                     {
                         Text = Loc.GetString("loadout-window"),
@@ -1148,12 +1171,14 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
+                    jobContainer.AddChild(altJobSelector); // Pirate - Alternative Jobs
                     jobContainer.AddChild(loadoutWindowBtn);
                     category.AddChild(jobContainer);
                 }
             }
 
             UpdateJobPriorities();
+            UpdateAlternativeJobs(); // Pirate - Alternative Jobs
         }
 
         private void OpenLoadout(JobPrototype? jobProto, RoleLoadout roleLoadout, RoleLoadoutPrototype roleLoadoutProto)
@@ -1324,7 +1349,7 @@ namespace Content.Client.Lobby.UI
                         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                         break;
                     }
-                // Goobstation Section End - Tajaran
+                    // Goobstation Section End - Tajaran
             }
 
             ReloadProfilePreview();
@@ -1576,7 +1601,7 @@ namespace Content.Client.Lobby.UI
                         _rgbSkinColorSelector.Color = SkinColor.ClosestAnimalFurColor(Profile.Appearance.SkinColor);
                         break;
                     }
-                // Goobstation Section End - Tajaran
+                    // Goobstation Section End - Tajaran
             }
 
         }
@@ -1855,5 +1880,26 @@ namespace Content.Client.Lobby.UI
             ImportButton.Disabled = false;
             ExportButton.Disabled = false;
         }
+
+        private void UpdateAlternativeJobs() // Pirate start - Alternative Jobs
+        {
+            if (Profile == null)
+                return;
+
+            // Assuming Profile has a Dictionary<string, string> AlternativeJobs property
+            // that maps job IDs to their selected alternative (or the original job ID if no alternative is selected)
+            foreach (var (jobId, selector) in _jobAlternatives)
+            {
+                if (Profile.JobAlternatives.TryGetValue(jobId, out var alternativeId))
+                {
+                    selector.SelectAlternative(alternativeId);
+                }
+                else
+                {
+                    // Default to the original job
+                    selector.SelectAlternative(jobId);
+                }
+            }
+        } // Pirate end - Alternative Jobs
     }
 }

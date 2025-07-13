@@ -26,7 +26,7 @@
 
 - type: entity
   id: BaseSpeedLoaderMagnum
-  name: "speed loader (.45 magnum)"
+  name: "прискорювач заряджання (.45 magnum)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -47,9 +47,9 @@
 
 - type: entity
   id: SpeedLoaderMagnum
-  name: "speed loader (.45 magnum)"
+  name: "прискорювач заряджання (.45 magnum)"
   parent: BaseSpeedLoaderMagnum
-  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold general-purpose kinetic ammunition.
+  description: "Призначений для швидкого перезаряджання порожнього револьвера, вміщує до шести патронів. Призначений для кінетичних боєприпасів загального призначення."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
@@ -76,9 +76,9 @@
 
 - type: entity
   id: SpeedLoaderMagnumEmpty
-  name: "speed loader (.45 magnum any)"
+  name: "прискорювач заряджання (.45 magnum будь-який)"
   parent: SpeedLoaderMagnum
-  description: Designed to quickly refill an empty revolver, it fits up to six rounds for the big iron on your hip. #Big Iron reference (duh)
+  description: "Призначений для швидкого перезаряджання порожнього револьвера, вміщує до шести патронів для великої залізяки на вашому стегні." #Big Iron reference (duh)
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -101,18 +101,18 @@
 
 - type: entity
   id: SpeedLoaderMagnumIncendiary
-  name: "speed loader (.45 magnum incendiary)"
+  name: "прискорювач заряджання (.45 magnum запалювальний)"
   parent: SpeedLoaderMagnum
-  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold self-igniting incendiary ammunition.
+  description: "Призначений для швидкого перезаряджання порожнього револьвера, вміщує до шести патронів. Призначений для самозаймистих запалювальних боєприпасів."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumIncendiary
 
 - type: entity
   id: SpeedLoaderMagnumPractice
-  name: "speed loader (.45 magnum practice)"
+  name: "прискорювач заряджання (.45 magnum тренувальний)"
   parent: BaseSpeedLoaderMagnum
-  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold non-harmful chalk ammunition, perfect for practicing your quick draw.
+  description: "Призначений для швидкого перезаряджання порожнього револьвера, вміщує до шести патронів. Призначений для нешкідливих крейдяних боєприпасів, ідеально підходить для тренування швидкого вихоплення зброї."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
@@ -143,9 +143,9 @@
 
 - type: entity
   id: SpeedLoaderMagnumAP
-  name: "speed loader (.45 magnum armor-piercing)"
+  name: "прискорювач заряджання (.45 magnum бронебійний)"
   parent: BaseSpeedLoaderMagnum
-  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold rare armor-piercing ammunition.
+  description: "Призначений для швидкого перезаряджання порожнього револьвера, вміщує до шести патронів. Призначений для рідкісних бронебійних боєприпасів."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP
@@ -176,9 +176,9 @@
 
 - type: entity
   id: SpeedLoaderMagnumUranium
-  name: "speed loader (.45 magnum uranium)"
+  name: "прискорювач заряджання (.45 magnum урановий)"
   parent: BaseSpeedLoaderMagnum
-  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold exotic uranium-core ammunition.
+  description: "Призначений для швидкого перезаряджання порожнього револьвера, вміщує до шести патронів. Призначений для екзотичних боєприпасів з урановим осердям."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium

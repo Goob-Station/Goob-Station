@@ -11,7 +11,7 @@
 # This item is stored in the hand slot while it is blocked, to represent what is blocking that hand.
 - type: entity
   id: VirtualItem
-  name: VIRTUAL ITEM YOU SHOULD NOT SEE THIS
+  name: "ВІРТУАЛЬНИЙ ЕЛЕМЕНТ, ВИ НЕ ПОВИННІ БАЧИТИ ЦЬОГО"
   categories: [ HideSpawnMenu ]
   components:
   - type: Item

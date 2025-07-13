@@ -70,13 +70,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: hellspawn
+  name: "виплодок пекла"
   parent:
   - BaseSimpleMob
   - MobCombat
   - MobBloodstream
   id: MobHellspawn
-  description: An unstoppable force of carnage.
+  description: "Нестримна сила різанини."
   components:
   - type: GhostRole
     allowMovement: true

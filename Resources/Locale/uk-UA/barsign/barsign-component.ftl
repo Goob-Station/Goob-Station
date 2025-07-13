@@ -76,7 +76,7 @@ barsign-prototype-description-wiggle-room = MoMMI зробили кроки.
 
 ## The Lightbulb
 barsign-prototype-name-the-lightbulb = Лампочка
-barsign-prototype-description-the-lightbulb = Кафе, популярне серед молі та мофів. Одного разу воно було закрите на тиждень після того, як барменка використала нафталін, щоб захистити свій запасний одяг.
+barsign-prototype-description-the-lightbulb = Кафе, популярне серед ніан та мофів. Одного разу воно було закрите на тиждень після того, як барменка використала нафталін, щоб захистити свій запасний одяг.
 
 ## The Loose Goose
 barsign-prototype-name-goose = Розслабонь

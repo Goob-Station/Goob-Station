@@ -1,6 +1,6 @@
 - type: entity
   id: MarkerSpecialforce
-  name: special forces spawn marker
+  name: "маркер спавну спецпризначенців"
   parent: MarkerBase
   components:
   - type: Sprite

@@ -43,3 +43,18 @@ krav-maga-ready = Ви готуєтеся до {$action}
 
 martial-arts-action-sender = Ви застосували {$move} на {$name}
 martial-arts-action-receiver = {$name} застосував {$move} на вас
+
+capoeira-success-learned = Ви вивчили капоейру. Посібник згорає у ваших руках...
+dragon-success-learned = Ви вивчили драконяче кунг-фу. Посібник згорає у ваших руках...
+ninjutsu-success-learned = Ви вивчили ніндзюцу. Сувій згорає у ваших руках...
+martial-arts-fail-prone = Ви не можете використовувати це комбо, лежачи!
+martial-arts-fail-target-down = Ви не можете використовувати це комбо на повалених цілях!
+martial-arts-fail-target-standing = Ви не можете використовувати це комбо на цілях, що стоять!
+capoeira-fail-low-velocity = Ви занадто повільні, щоб виконати це комбо!
+ninjutsu-fail-loss-of-surprise = Ваші наміри розкрито! Неможливо виконати цей рух!
+alerts-dragon-power-name = Сила Дракона
+alerts-dragon-power-desc = Ви на мить замислюєтеся про минулі та майбутні битви. Це прозріння захистить вас від майбутньої шкоди.
+alerts-sneak-attack-name = Прихована Атака
+alerts-sneak-attack-desc = Для справжнього шинобі, перший удар і останній удар — одне й те саме.
+alerts-loss-of-surprise-name = Втрата Несподіванки
+alerts-loss-of-surprise-desc = Ваші наміри розкрито! Вам знадобиться кілька миттєвостей, щоб знову атакувати приховано.

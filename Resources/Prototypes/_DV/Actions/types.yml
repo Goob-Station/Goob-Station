@@ -10,8 +10,8 @@
 
 - type: entity
   id: ActionOpenRadioImplant
-  name: Open Radio Implant
-  description: Opens the bluespace key compartment of the radio implant embedded in your skull.
+  name: "Відкрити радіоімплант"
+  description: "Відкриває відсік для ключів bluespace радіоімплантату, вмонтованого у ваш череп."
   components:
   - type: InstantAction
     itemIconStyle: BigAction
@@ -23,8 +23,8 @@
 
 - type: entity
   id: ActionOpenMouthStorage
-  name: Open cheek storage
-  description: Allows you to store items in your cheeks. 
+  name: "Відкрити сховище в щічках"
+  description: "Дозволяє зберігати предмети в щоках."
   components:
   - type: InstantAction
     itemIconStyle: BigAction
@@ -34,8 +34,8 @@
 
 - type: entity
   id: ActionToggleSneakMode
-  name: Toggle sneak mode
-  description: Sneak underneath tables. 
+  name: "Увімкнути прихований режим"
+  description: "Проникайте під столи."
   components:
   - type: InstantAction
     itemIconStyle: BigAction
