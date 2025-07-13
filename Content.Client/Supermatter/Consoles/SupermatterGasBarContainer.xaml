@@ -8,7 +8,7 @@
         <Label Name="GasLabel" Text="{Loc 'supermatter-console-window-label-gas'}" HorizontalExpand="True" HorizontalAlignment="Left" />
         <PanelContainer Name="GasBarBorder" SetWidth="150" SetHeight="24">
             <ProgressBar Name="GasBar" MinValue="0" MaxValue="100" HorizontalExpand="True" VerticalExpand="True" Margin="1">
-                <Label Name="GasBarLabel" HorizontalAlignment="Right" Margin="0 0 4 0" />
+                <Label Name="GasBarLabel" HorizontalAlignment="Left" Margin="0 0 4 0" />
             </ProgressBar>
         </PanelContainer>
     </BoxContainer>

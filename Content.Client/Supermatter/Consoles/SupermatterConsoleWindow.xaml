@@ -3,8 +3,8 @@
                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                Title="{Loc 'supermatter-console-window-title'}"
                Resizable="True"
-               SetSize="700 400"
-               MinSize="700 400">
+               SetSize="700 550"
+               MinSize="700 550">
     <BoxContainer Orientation="Vertical">
         <!-- Main display -->
         <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True">

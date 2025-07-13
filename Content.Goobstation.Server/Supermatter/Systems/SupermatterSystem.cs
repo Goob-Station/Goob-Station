@@ -202,7 +202,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         // more moles of gases are harder to heat than fewer,
         // so let's scale heat damage around them
-        sm.MoleHeatPenaltyThreshold = (float)Math.Max(moles * sm.MoleHeatPenalty, 0.25);
+        sm.MoleHeatPenaltyThreshold = (float) Math.Max(moles * sm.MoleHeatPenalty, 0.25);
 
         // Ramps up or down in increments of 0.02 up to the proportion of co2
         // Given infinite time, powerloss_dynamic_scaling = co2comp
@@ -281,14 +281,20 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         _atmosphere.Merge(mix, absorbedGas);
 
-        var powerReduction = (float)Math.Pow(sm.Power / 500, 3);
+        var powerReduction = (float) Math.Pow(sm.Power / 500, 3);
 
         // After this point power is lowered
         // This wraps around to the begining of the function
         sm.Power = Math.Max(sm.Power - Math.Min(powerReduction * powerlossInhibitor, sm.Power * 0.83f * powerlossInhibitor), 0f);
 
+        sm.GasStorage = sm.GasStorage.ToDictionary(
+            gas => gas.Key,
+            gas => absorbedGas.GetMoles(gas.Key)
+        );
+
         // Console Compatibility from EE
         sm.Temperature = absorbedGas.Temperature;
+        sm.WasteMultiplier = heatModifier;
     }
 
     /// <summary>

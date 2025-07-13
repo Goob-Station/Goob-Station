@@ -10,6 +10,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Serilog;
 using System.Linq;
 
 namespace Content.Client.Supermatter.Consoles;
@@ -48,9 +49,9 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         var monoFont = new VectorFont(_cache.GetResource<FontResource>("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf"), 10);
 
         // Set fonts
-        SupermatterNameLabel.FontOverride = headerFont;
+        //SupermatterNameLabel.FontOverride = headerFont;
 
-        SupermatterStatusLabel.FontOverride = normalFont;
+        //SupermatterStatusLabel.FontOverride = normalFont;
 
         IntegrityLabel.FontOverride = normalFont;
         PowerLabel.FontOverride = normalFont;
@@ -82,8 +83,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         SupermatterNameLabel.Text = Loc.GetString("supermatter-console-window-label-sm", ("name", entry.EntityName));
 
         // Update supermatter status
-        SupermatterStatusLabel.Text = Loc.GetString(GetStatusLabel(entry.EntityStatus));
-        SupermatterStatusLabel.FontColorOverride = GetStatusColor(entry.EntityStatus);
+        //SupermatterStatusLabel.Text = Loc.GetString(GetStatusLabel(entry.EntityStatus));
+        //SupermatterStatusLabel.FontColorOverride = GetStatusColor(entry.EntityStatus);
 
         // Focus updates
         FocusContainer.Visible = isFocus;
@@ -143,6 +144,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
                     var name = gas.Name;
                     var color = Color.FromHex("#" + gas.Color);
                     var value = GetStoredGas(gas, focusData) / focusData.Value.AbsorbedMoles * 100;
+
+                    //Log.Debug(string.Format("{0:N2}", value));
 
                     UpdateGasBar(index, GasTable, name, color, value);
                     index++;
