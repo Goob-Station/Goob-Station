@@ -46,13 +46,22 @@
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.Changeling; // Goobstation
 using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -309,6 +318,24 @@ public abstract partial class SharedMindSystem : EntitySystem
             return true;
         // They might actually be alive.
         return _mobState.IsDead(mind.OwnedEntity.Value, targetMobState);
+    }
+
+    /// <summary>
+    ///     True if the OwnedEntity of this mind is physically unrevivable.
+    ///     This is mainly to check whether a mind is able to inherit their "original" character again without the need for creating a new one.
+    ///     In cases of being a brain, being borged or a zombie they are "unrevivable"
+    /// </summary>
+    public bool IsCharacterUnrevivablePhysically(MindComponent mind)
+    {
+        if (mind.OwnedEntity == null)
+            return true;
+
+        // This entity cannot be dead, alive or crit, so it makes sense it cannot be revived to begin with.
+        if (!HasComp<MobStateComponent>(mind.OwnedEntity))
+            return true;
+
+        // Could use checks for the amount of damage they have, but with chemistry you can never tell what damage means someone is truly "unrevivable".
+        return false;
     }
 
     public virtual void Visit(EntityUid mindId, EntityUid entity, MindComponent? mind = null)
@@ -633,6 +660,27 @@ public abstract partial class SharedMindSystem : EntitySystem
     }
 
     /// <summary>
+    ///     True if this Mind is 'sufficiently unrevivable' IC (Objectives, EndText).
+    ///     Note that this is *IC logic*, it's not necessarily tied to any specific truth.
+    ///     "If administrators decide that zombies are unrevivable, this returns true for zombies."
+    ///     Alternative IsCharacterDeadIC that checks for whether they will be able to inherit their body again.
+    ///     State in which they must be given a new body to "live" (borging, being a brain, etc) should count as "unrevivable".
+    /// </summary>
+    public bool IsCharacterUnrevivableIc(MindComponent mind)
+    {
+        if (mind.OwnedEntity is { } owned)
+        {
+            var ev = new GetCharacterUnrevivableIcEvent(null);
+            RaiseLocalEvent(owned, ref ev);
+
+            if (ev.Unrevivable != null)
+                return ev.Unrevivable.Value;
+        }
+
+        return IsCharacterUnrevivablePhysically(mind);
+    }
+
+    /// <summary>
     ///     A string to represent the mind for logging
     /// </summary>
     public string MindOwnerLoggingString(MindComponent mind)
@@ -652,7 +700,8 @@ public abstract partial class SharedMindSystem : EntitySystem
     /// <summary>
     /// Returns a list of every living humanoid player's minds, except for a single one which is exluded.
     /// </summary>
-    public HashSet<Entity<MindComponent>> GetAliveHumans(EntityUid? exclude = null, bool excludeSilicon = false)
+    public HashSet<Entity<MindComponent>> GetAliveHumans(EntityUid? exclude = null,
+        bool excludeSilicon = false, bool excludeChangeling = false) // Goob edit - exclude certain groups of entities
     {
         var allHumans = new HashSet<Entity<MindComponent>>();
         // HumanoidAppearanceComponent is used to prevent mice, pAIs, etc from being chosen
@@ -666,6 +715,10 @@ public abstract partial class SharedMindSystem : EntitySystem
 
             // Goobstation: Skip IPCs from selections
             if (excludeSilicon && HasComp<SiliconComponent>(uid))
+                continue;
+
+            // Goobstation: Skip changelings from selections
+            if (excludeChangeling && HasComp<ChangelingComponent>(uid))
                 continue;
 
             allHumans.Add(new Entity<MindComponent>(mind, mindComp));
@@ -688,3 +741,11 @@ public record struct GetCharactedDeadIcEvent(bool? Dead);
 /// </summary>
 /// <param name="Objective"></param>
 public record struct ObjectiveAddedEvent(EntityUid Objective);
+
+/// <summary>
+/// Raised on an entity to determine whether or not they are "unrevivable" in IC-logic.
+/// Used to check for things such as being borged or a zombie.
+/// </summary>
+/// <param name="Unrevivable"></param>
+[ByRefEvent]
+public record struct GetCharacterUnrevivableIcEvent(bool? Unrevivable);

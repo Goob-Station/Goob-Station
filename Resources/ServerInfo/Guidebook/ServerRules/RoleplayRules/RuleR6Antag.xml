@@ -1,0 +1,220 @@
+<!--
+SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
+  # Roleplay Rule 6 - Antagonism and roleplaying as an antagonist..
+
+  The goal of antagonists is to create stories and make rounds interesting, for both antagonist players and crew-sided players alike. Antagonists are expected to put in at least some effort towards playing their designated role, though may break with it given sufficient in character reason. Some antagonists are restricted in the ways and quantities they may lend themselves to visiting death and destruction upon the crew.
+
+  ## Precedents
+  - Objectives are suggestions, and antagonists are free to ignore them if they have a preferred or more interesting idea for their course of action.
+  - Actions as an antagonist do not have to be nefarious or evil, but should make an effort to influence the story and meaningfully impact the shift. Explicitly friendly antagonistic play or siding outright with the crew is restricted – players must have good in-character reasoning behind the decision or an antagonistic goal in mind by doing it.
+  - Roleplay rule 10 applies to the actions of antagonists – extremely repetitive antagonistic actions repeated over the long term may draw an administrative request to tone it down or try something new, if most of the people on the server can immediately guess what you’re going to do when made an antagonist, it might be time to come up with a new plan.
+
+  # Restricted Antag Death and Destruction
+
+  ## With Objectives
+  Antagonist objectives are the core of what antagonists are allowed to directly do with no or limited roleplay reasoning. Actions taken to directly accomplish an objective do not have to be proportionate.
+
+  Causing death and destruction to help with indirectly accomplishing objectives must have an in-character roleplay reason. If questioned about a chain of events involving indirect actions, the antagonist should be able to clearly explain what events in the current shift led them to their course of action without resorting to hypotheticals.
+
+  If a player or department directly interferes with the completion of an objective, this is no longer a hypothetical as the antagonist can now point to specific events in the shift to justify their actions.
+
+  ## Without Objectives
+
+  When wanting to cause death and destruction not related to objectives, restricted antagonists may instead rely on extremely relaxed escalation.
+
+  They may escalate lethally sooner and with less justification, may use more lethal methods to escalate and may rely on antagonistic reasons for escalating. Such reasons may include escalating against people who are excessively polite or helpful as well as being mean or rude, escalating against groups of people who exclude them or escalating against people who ignore or avoid attempts to communicate entirely.
+
+  They have no obligation to treat their victims but escalating over minor issues should not result in the antagonist taking steps to permanently round-remove the other player unless escalation policy would otherwise permit it.
+
+  ## Mass Sabotage Exception
+
+  There exist some antagonistic actions which are so indiscriminate that they can never form justification for directly accomplishing an objective, but are also so disproportionate that no IC reason can allow for using them to indirectly accomplish an objective. This has the potential to make dangerous areas of the station safer than intended, because the crew know common antagonists can't take full advantage of those spaces in dangerous or deadly ways.
+
+  To avoid this, mass station sabotage that is likely to kill people is allowed so long as the antagonist does not take any direct and specific personal actions to maximise the bodycount beyond what the sabotage itself causes.
+
+  The test for mass station sabotage is to consider only strategies that a restricted antagonist could never justify using to complete a standard kill objective. Examples include plasma flooding, causing a supermatter delamination and spacing the station, although this list is not exhaustive. An example of a strategy which does not fall under mass station sabotage would be uses of bombs or other explosives, which can form justification for completing a standard kill objective and follow those rules instead.
+
+  # Is this antagonist role restricted in how it can deliver death and destruction?
+  This table covers which antagonists must abide by restrictions in how they deliver death and destruction to the station under RPR 6, as well as any partial or grey-area exemptions.
+
+  <Table Columns="2">
+    <ColorBox>
+      <Box>
+        Antagonist
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Restriction exempt?
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Traitor
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Changeling
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Malfunctioning AI
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Nuclear Operative
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Wizard
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Cosmic Cult/Revolutionary
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        In general no, conversion should take priority, however if the situation is dire you are allowed to kill as many as required to accomplish your goals.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Revenant
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Blob
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Abductor
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Space Ninja
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Pirate
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Heretic
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes, however it should only occur after ascension.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Bingle
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Yes.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Devil
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Paradox Clone
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Thief
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        No.
+      </Box>
+    </ColorBox>
+
+  </Table>
+</Document>

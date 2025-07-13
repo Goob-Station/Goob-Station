@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ExperimentalSyndicateTeleporter
+  parent: [BaseItem, BaseSyndicateContraband]
+  name: experimental Syndicate teleporter
+  description: A self-recharging device that teleports the user forward. In case of teleportation into a wall, uses emergency teleportation. Or gibs the user if it's out of charges.
+  components:
+  - type: Sprite
+    sprite: /Textures/_White/Objects/Devices/experimentalsyndicateteleporter.rsi
+    layers:
+    - state: icon
+  - type: ExperimentalTeleporter
+  - type: LimitedCharges
+    maxCharges: 4
+  - type: AutoRecharge
+    rechargeDuration: 10

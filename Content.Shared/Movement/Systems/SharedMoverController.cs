@@ -99,8 +99,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using System.Numerics;
 using Content.Goobstation.Common.Movement;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -141,6 +143,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly IConfigurationManager _configManager = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private   readonly ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private   readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private   readonly EntityLookupSystem _lookup = default!;
     [Dependency] private   readonly InventorySystem _inventory = default!;
     [Dependency] private   readonly MobStateSystem _mobState = default!;
@@ -152,29 +155,29 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly TagSystem _tags = default!;
     [Dependency] private   readonly SharedInteractionSystem _interaction = default!; // Tile Movement Change
 
+    protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
+    protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
     protected EntityQuery<InputMoverComponent> MoverQuery;
+    protected EntityQuery<MapComponent> MapQuery;
+    protected EntityQuery<MapGridComponent> MapGridQuery;
     protected EntityQuery<MobMoverComponent> MobMoverQuery;
     protected EntityQuery<MovementRelayTargetComponent> RelayTargetQuery;
     protected EntityQuery<MovementSpeedModifierComponent> ModifierQuery;
+    protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
     protected EntityQuery<PhysicsComponent> PhysicsQuery;
     protected EntityQuery<RelayInputMoverComponent> RelayQuery;
     protected EntityQuery<PullableComponent> PullableQuery;
     protected EntityQuery<TransformComponent> XformQuery;
-    protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
-    protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
-    protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
-    protected EntityQuery<MapGridComponent> MapGridQuery;
 
     private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
 
     protected EntityQuery<FixturesComponent> FixturesQuery; // Tile Movement Change
     protected EntityQuery<TileMovementComponent> TileMovementQuery; // Tile Movement Change
-    /// <summary>
-    /// <see cref="CCVars.StopSpeed"/>
-    /// </summary>
-    private float _stopSpeed;
 
     private bool _relativeMovement;
+    private float _minDamping;
+    private float _airDamping;
+    private float _offGridDamping;
     private TimeSpan CurrentTime => PhysicsSystem.EffectiveCurTime ?? Timing.CurTime; // Tile Movement Change
 
     /// <summary>
@@ -200,10 +203,16 @@ public abstract partial class SharedMoverController : VirtualController
         MapGridQuery = GetEntityQuery<MapGridComponent>();
         FixturesQuery = GetEntityQuery<FixturesComponent>(); // Tile Movement Change
         TileMovementQuery = GetEntityQuery<TileMovementComponent>(); // Tile Movement Change
+        MapQuery = GetEntityQuery<MapComponent>();
+
+        SubscribeLocalEvent<MovementSpeedModifierComponent, TileFrictionEvent>(OnTileFriction);
+
         InitializeInput();
         InitializeRelay();
         Subs.CVar(_configManager, CCVars.RelativeMovement, value => _relativeMovement = value, true);
-        Subs.CVar(_configManager, CCVars.StopSpeed, value => _stopSpeed = value, true);
+        Subs.CVar(_configManager, CCVars.MinFriction, value => _minDamping = value, true);
+        Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
+        Subs.CVar(_configManager, CCVars.OffgridFriction, value => _offGridDamping = value, true);
         UpdatesBefore.Add(typeof(TileFrictionController));
     }
 
@@ -216,14 +225,6 @@ public abstract partial class SharedMoverController : VirtualController
     public override void UpdateAfterSolve(bool prediction, float frameTime)
     {
         base.UpdateAfterSolve(prediction, frameTime);
-
-        var query = AllEntityQuery<InputMoverComponent, PhysicsComponent>();
-
-        while (query.MoveNext(out var uid, out var _, out var physics))
-        {
-            //PhysicsSystem.SetLinearVelocity(uid, Vector2.Zero, body: physics);
-        }
-
         UsedMobMovement.Clear();
     }
 
@@ -231,59 +232,75 @@ public abstract partial class SharedMoverController : VirtualController
     ///     Movement while considering actionblockers, weightlessness, etc.
     /// </summary>
     protected void HandleMobMovement(
-        EntityUid uid,
-        InputMoverComponent mover,
-        EntityUid physicsUid,
-        PhysicsComponent physicsComponent,
-        TransformComponent xform,
+        Entity<InputMoverComponent> entity,
         float frameTime)
     {
-        var canMove = mover.CanMove;
-        if (RelayTargetQuery.TryGetComponent(uid, out var relayTarget))
+        var uid = entity.Owner;
+        var mover = entity.Comp;
+
+        // If we're a relay then apply all of our data to the parent instead and go next.
+        if (RelayQuery.TryComp(uid, out var relay))
         {
-            if (_mobState.IsIncapacitated(relayTarget.Source) ||
-                TryComp<SleepingComponent>(relayTarget.Source, out _) ||
-                // Shitmed Change
-                !PhysicsQuery.TryGetComponent(relayTarget.Source, out var relayedPhysicsComponent) ||
-                !MoverQuery.TryGetComponent(relayTarget.Source, out var relayedMover) ||
-                !XformQuery.TryGetComponent(relayTarget.Source, out var relayedXform))
+            if (!MoverQuery.TryComp(relay.RelayEntity, out var relayTargetMover))
+                return;
+
+            // Always lerp rotation so relay entities aren't cooked.
+            LerpRotation(uid, mover, frameTime);
+            var dirtied = false;
+
+            if (relayTargetMover.RelativeEntity != mover.RelativeEntity)
             {
-                canMove = false;
+                relayTargetMover.RelativeEntity = mover.RelativeEntity;
+                dirtied = true;
             }
-            else
+
+            if (relayTargetMover.RelativeRotation != mover.RelativeRotation)
             {
-                mover.LerpTarget = relayedMover.LerpTarget;
-                mover.RelativeEntity = relayedMover.RelativeEntity;
-                mover.RelativeRotation = relayedMover.RelativeRotation;
-                mover.TargetRelativeRotation = relayedMover.TargetRelativeRotation;
-                HandleMobMovement(relayTarget.Source, relayedMover, relayTarget.Source, relayedPhysicsComponent, relayedXform, frameTime);
+                relayTargetMover.RelativeRotation = mover.RelativeRotation;
+                dirtied = true;
             }
+
+            if (relayTargetMover.TargetRelativeRotation != mover.TargetRelativeRotation)
+            {
+                relayTargetMover.TargetRelativeRotation = mover.TargetRelativeRotation;
+                dirtied = true;
+            }
+
+            if (relayTargetMover.CanMove != mover.CanMove)
+            {
+                relayTargetMover.CanMove = mover.CanMove;
+                dirtied = true;
+            }
+
+            if (dirtied)
+            {
+                Dirty(relay.RelayEntity, relayTargetMover);
+            }
+
+            return;
         }
 
-        // Update relative movement
-        // Shitmed Change Start
-        else
+        if (!XformQuery.TryComp(entity.Owner, out var xform))
+            return;
+
+        RelayTargetQuery.TryComp(uid, out var relayTarget);
+        var relaySource = relayTarget?.Source;
+
+        // If we're not the target of a relay then handle lerp data.
+        if (relaySource == null)
         {
+            // Update relative movement
             if (mover.LerpTarget < Timing.CurTime)
             {
-                if (TryComp(uid, out RelayInputMoverComponent? relay)
-                    && TryComp(relay.RelayEntity, out TransformComponent? relayXform))
-                {
-                    if (TryUpdateRelative(mover, relayXform))
-                        Dirty(uid, mover);
-                }
-                else
-                {
-                    if (TryUpdateRelative(mover, xform))
-                        Dirty(uid, mover);
-                }
+                TryUpdateRelative(uid, mover, xform);
             }
+
             LerpRotation(uid, mover, frameTime);
         }
-        // Shitmed Change End
 
-        if (!canMove
-            || physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid)
+        // If we can't move then just use tile-friction / no movement handling.
+        if (!mover.CanMove
+            || !PhysicsQuery.TryComp(uid, out var physicsComponent)
             || PullableQuery.TryGetComponent(uid, out var pullable) && pullable.BeingPulled)
         {
             // Goobstation start
@@ -294,40 +311,123 @@ public abstract partial class SharedMoverController : VirtualController
             return;
         }
 
-        UsedMobMovement[uid] = true;
-        // Specifically don't use mover.Owner because that may be different to the actual physics body being moved.
-        var weightless = _gravity.IsWeightless(physicsUid, physicsComponent, xform);
-        var (walkDir, sprintDir) = GetVelocityInput(mover);
-        var touching = false;
+        // If the body is in air but isn't weightless then it can't move
+        // TODO: MAKE ISWEIGHTLESS EVENT BASED
+        var weightless = _gravity.IsWeightless(uid, physicsComponent, xform);
+        var inAirHelpless = false;
 
-        // Handle wall-pushes.
-        if (weightless)
+        if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
         {
-            if (xform.GridUid != null)
-                touching = true;
-
-            if (!touching)
+            if (!weightless)
             {
-                var ev = new CanWeightlessMoveEvent(uid);
-                RaiseLocalEvent(uid, ref ev, true);
-                // No gravity: is our entity touching anything?
-                touching = ev.CanMove;
-
-                if (!touching && TryComp<MobMoverComponent>(uid, out var mobMover))
-                    touching |= IsAroundCollider(PhysicsSystem, xform, mobMover, physicsUid, physicsComponent);
+                UsedMobMovement[uid] = false;
+                return;
             }
+            inAirHelpless = true;
         }
+
+        UsedMobMovement[uid] = true;
+
+        var moveSpeedComponent = ModifierQuery.CompOrNull(uid);
+
+        float friction;
+        float accel;
+        Vector2 wishDir;
+        var velocity = physicsComponent.LinearVelocity;
 
         // Get current tile def for things like speed/friction mods
         ContentTileDefinition? tileDef = null;
 
-        // Don't bother getting the tiledef here if we're weightless or in-air
-        // since no tile-based modifiers should be applying in that situation
-        if (MapGridQuery.TryComp(xform.GridUid, out var gridComp)
-            && _mapSystem.TryGetTileRef(xform.GridUid.Value, gridComp, xform.Coordinates, out var tile)
-            && !(weightless || physicsComponent.BodyStatus == BodyStatus.InAir))
+        // Tile Movement Change
+        // Try doing tile movement.
+        // Temporairly nuked.
+        //if (TileMovementQuery.TryComp(physicsUid, out var tileMovement))
+        //{
+        //    if (!weightless && !inAirHelpless)
+        //    {
+        //        var didTileMovement = HandleTileMovement(uid,
+        //            physicsUid,
+        //            tileMovement,
+        //            physicsComponent,
+        //            xform,
+        //            mover,
+        //            tileDef,
+        //            relayTarget,
+        //            frameTime);
+        //        tileMovement.WasWeightlessLastTick = weightless;
+        //        if(didTileMovement)
+        //        {
+        //            return;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        tileMovement.WasWeightlessLastTick = weightless;
+        //        tileMovement.SlideActive = false;
+        //    }
+        //}
+
+        var touching = false;
+        // Whether we use tilefriction or not
+        if (weightless || inAirHelpless)
         {
-            tileDef = (ContentTileDefinition) _tileDefinitionManager[tile.Tile.TypeId];
+            // Find the speed we should be moving at and make sure we're not trying to move faster than that
+            var walkSpeed = moveSpeedComponent?.WeightlessWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
+            var sprintSpeed = moveSpeedComponent?.WeightlessSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
+
+            wishDir = AssertValidWish(mover, walkSpeed, sprintSpeed);
+
+            var ev = new CanWeightlessMoveEvent(uid);
+            RaiseLocalEvent(uid, ref ev, true);
+
+            touching = ev.CanMove || xform.GridUid != null || MapGridQuery.HasComp(xform.GridUid);
+
+            // If we're not on a grid, and not able to move in space check if we're close enough to a grid to touch.
+            if (!touching && MobMoverQuery.TryComp(uid, out var mobMover))
+                touching |= IsAroundCollider(PhysicsSystem, xform, mobMover, uid, physicsComponent);
+
+            // If we're touching then use the weightless values
+            if (touching)
+            {
+                touching = true;
+                if (wishDir != Vector2.Zero)
+                    friction = moveSpeedComponent?.WeightlessFriction ?? _airDamping;
+                else
+                    friction = moveSpeedComponent?.WeightlessFrictionNoInput ?? _airDamping;
+            }
+            // Otherwise use the off-grid values.
+            else
+            {
+                friction = moveSpeedComponent?.OffGridFriction ?? _offGridDamping;
+            }
+
+            accel = moveSpeedComponent?.WeightlessAcceleration ?? MovementSpeedModifierComponent.DefaultWeightlessAcceleration;
+        }
+        else
+        {
+            if (MapGridQuery.TryComp(xform.GridUid, out var gridComp)
+                && _mapSystem.TryGetTileRef(xform.GridUid.Value, gridComp, xform.Coordinates, out var tile)
+                && physicsComponent.BodyStatus == BodyStatus.OnGround)
+                tileDef = (ContentTileDefinition) _tileDefinitionManager[tile.Tile.TypeId];
+
+            var walkSpeed = moveSpeedComponent?.CurrentWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
+            var sprintSpeed = moveSpeedComponent?.CurrentSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
+
+            wishDir = AssertValidWish(mover, walkSpeed, sprintSpeed);
+
+            if (wishDir != Vector2.Zero)
+            {
+                friction = moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
+                friction *= tileDef?.MobFriction ?? tileDef?.Friction ?? 1f;
+            }
+            else
+            {
+                friction = moveSpeedComponent?.FrictionNoInput ?? MovementSpeedModifierComponent.DefaultFrictionNoInput;
+                friction *= tileDef?.Friction ?? 1f;
+            }
+
+            accel = moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
+            accel *= tileDef?.MobAcceleration ?? 1f;
         }
 
         // Goobstation start
@@ -335,106 +435,49 @@ public abstract partial class SharedMoverController : VirtualController
         RaiseLocalEvent(uid, ref getTileEvent);
         // Goobstation end
 
-        // Tile Movement Change
-        // Try doing tile movement.
-        if (TileMovementQuery.TryComp(physicsUid, out var tileMovement))
-        {
-            if (!weightless && physicsComponent.BodyStatus == BodyStatus.OnGround)
-            {
-                var didTileMovement = HandleTileMovement(uid,
-                    physicsUid,
-                    tileMovement,
-                    physicsComponent,
-                    xform,
-                    mover,
-                    tileDef,
-                    relayTarget,
-                    frameTime);
-                tileMovement.WasWeightlessLastTick = weightless;
-                if(didTileMovement)
-                {
-                    return;
-                }
-            }
-            else
-            {
-                tileMovement.WasWeightlessLastTick = weightless;
-                tileMovement.SlideActive = false;
-            }
-        }
-
-        // Regular movement.
-        // Target velocity.
-        // This is relative to the map / grid we're on.
-        var moveSpeedComponent = ModifierQuery.CompOrNull(uid);
-
-        var walkSpeed = moveSpeedComponent?.CurrentWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
-        var sprintSpeed = moveSpeedComponent?.CurrentSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
-
-        var total = walkDir * walkSpeed + sprintDir * sprintSpeed;
-
-        var parentRotation = GetParentGridAngle(mover);
-        var wishDir = _relativeMovement ? parentRotation.RotateVec(total) : total;
-
-        DebugTools.Assert(MathHelper.CloseToPercent(total.Length(), wishDir.Length()));
-
-        float friction;
-        float weightlessModifier;
-        float accel;
-        var velocity = physicsComponent.LinearVelocity;
-
-        // Whether we use weightless friction or not.
-        if (weightless)
-        {
-            if (gridComp == null && !MapGridQuery.HasComp(xform.GridUid))
-                friction = moveSpeedComponent?.OffGridFriction ?? MovementSpeedModifierComponent.DefaultOffGridFriction;
-            else if (wishDir != Vector2.Zero && touching)
-                friction = moveSpeedComponent?.WeightlessFriction ?? MovementSpeedModifierComponent.DefaultWeightlessFriction;
-            else
-                friction = moveSpeedComponent?.WeightlessFrictionNoInput ?? MovementSpeedModifierComponent.DefaultWeightlessFrictionNoInput;
-
-            weightlessModifier = moveSpeedComponent?.WeightlessModifier ?? MovementSpeedModifierComponent.DefaultWeightlessModifier;
-            accel = moveSpeedComponent?.WeightlessAcceleration ?? MovementSpeedModifierComponent.DefaultWeightlessAcceleration;
-        }
-        else
-        {
-            if (wishDir != Vector2.Zero || moveSpeedComponent?.FrictionNoInput == null)
-            {
-                friction = tileDef?.MobFriction ?? moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
-            }
-            else
-            {
-                friction = tileDef?.MobFrictionNoInput ?? moveSpeedComponent.FrictionNoInput ?? MovementSpeedModifierComponent.DefaultFrictionNoInput;
-            }
-
-            weightlessModifier = 1f;
-            accel = tileDef?.MobAcceleration ?? moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
-        }
-
+        // This way friction never exceeds acceleration when you're trying to move.
+        // If you want to slow down an entity with "friction" you shouldn't be using this system.
+        if (wishDir != Vector2.Zero)
+            friction = Math.Min(friction, accel);
+        friction = Math.Max(friction, _minDamping);
         var minimumFrictionSpeed = moveSpeedComponent?.MinimumFrictionSpeed ?? MovementSpeedModifierComponent.DefaultMinimumFrictionSpeed;
         Friction(minimumFrictionSpeed, frameTime, friction, ref velocity);
-
-        wishDir *= weightlessModifier;
 
         if (!weightless || touching)
             Accelerate(ref velocity, in wishDir, accel, frameTime);
 
         SetWishDir((uid, mover), wishDir);
 
-        PhysicsSystem.SetLinearVelocity(physicsUid, velocity, body: physicsComponent);
+        /*
+         * SNAKING!!! >-( 0 ================>
+         * Snaking is a feature where you can move faster by strafing in a direction perpendicular to the
+         * direction you intend to move while still holding the movement key for the direction you're trying to move.
+         * Snaking only works if acceleration exceeds friction, and it's effectiveness scales as acceleration continues
+         * to exceed friction.
+         * Snaking works because friction is applied first in the direction of our current velocity, while acceleration
+         * is applied after in our "Wish Direction" and is capped by the dot of our wish direction and current direction.
+         * This means when you change direction, you're technically able to accelerate more than what the velocity cap
+         * allows, but friction normally eats up the extra movement you gain.
+         * By strafing as stated above you can increase your speed by about 1.4 (square root of 2).
+         * This only works if friction is low enough so be sure that anytime you are letting a mob move in a low friction
+         * environment you take into account the fact they can snake! Also be sure to lower acceleration as well to
+         * prevent jerky movement!
+         */
+        PhysicsSystem.SetLinearVelocity(uid, velocity, body: physicsComponent);
 
         // Ensures that players do not spiiiiiiin
-        PhysicsSystem.SetAngularVelocity(physicsUid, 0, body: physicsComponent);
+        PhysicsSystem.SetAngularVelocity(uid, 0, body: physicsComponent);
 
         // Handle footsteps at the end
-        if (total != Vector2.Zero)
+        if (wishDir != Vector2.Zero)
         {
             if (!NoRotateQuery.HasComponent(uid))
             {
                 // TODO apparently this results in a duplicate move event because "This should have its event run during
                 // island solver"??. So maybe SetRotation needs an argument to avoid raising an event?
                 var worldRot = _transform.GetWorldRotation(xform);
-                _transform.SetLocalRotation(xform, xform.LocalRotation + wishDir.ToWorldAngle() - worldRot);
+
+                _transform.SetLocalRotation(uid, xform.LocalRotation + wishDir.ToWorldAngle() - worldRot, xform);
             }
 
             if (!weightless && MobMoverQuery.TryGetComponent(uid, out var mobMover) &&
@@ -447,9 +490,9 @@ public abstract partial class SharedMoverController : VirtualController
                     .WithVariation(sound.Params.Variation ?? mobMover.FootstepVariation);
 
                 // If we're a relay target then predict the sound for all relays.
-                if (relayTarget != null)
+                if (relaySource != null)
                 {
-                    _audio.PlayPredicted(sound, uid, relayTarget.Source, audioParams);
+                    _audio.PlayPredicted(sound, uid, relaySource.Value, audioParams);
                 }
                 else
                 {
@@ -497,14 +540,12 @@ public abstract partial class SharedMoverController : VirtualController
                 adjustment = Math.Clamp(adjustment, -angleDiff, angleDiff);
             }
 
-            mover.RelativeRotation += adjustment;
-            mover.RelativeRotation.FlipPositive();
+            mover.RelativeRotation = (mover.RelativeRotation + adjustment).FlipPositive();
             Dirty(uid, mover);
         }
         else if (!angleDiff.Equals(Angle.Zero))
         {
-            mover.TargetRelativeRotation.FlipPositive();
-            mover.RelativeRotation = mover.TargetRelativeRotation;
+            mover.RelativeRotation = mover.TargetRelativeRotation.FlipPositive();
             Dirty(uid, mover);
         }
     }
@@ -516,18 +557,21 @@ public abstract partial class SharedMoverController : VirtualController
         if (speed < minimumFrictionSpeed)
             return;
 
-        var drop = 0f;
+        // This equation is lifted from the Physics Island solver.
+        // We re-use it here because Kinematic Controllers can't/shouldn't use the Physics Friction
+        velocity *= Math.Clamp(1.0f - frameTime * friction, 0.0f, 1.0f);
 
-        var control = MathF.Max(_stopSpeed, speed);
-        drop += control * friction * frameTime;
+    }
 
-        var newSpeed = MathF.Max(0f, speed - drop);
-
-        if (newSpeed.Equals(speed))
+    public void Friction(float minimumFrictionSpeed, float frameTime, float friction, ref float velocity)
+    {
+        if (velocity < minimumFrictionSpeed)
             return;
 
-        newSpeed /= speed;
-        velocity *= newSpeed;
+        // This equation is lifted from the Physics Island solver.
+        // We re-use it here because Kinematic Controllers can't/shouldn't use the Physics Friction
+        velocity *= Math.Clamp(1.0f - frameTime * friction, 0.0f, 1.0f);
+
     }
 
     /// <summary>
@@ -704,6 +748,32 @@ public abstract partial class SharedMoverController : VirtualController
 
         sound = haveShoes ? tileDef.FootstepSounds : tileDef.BarestepSounds;
         return sound != null;
+    }
+
+    private Vector2 AssertValidWish(InputMoverComponent mover, float walkSpeed, float sprintSpeed)
+    {
+        var (walkDir, sprintDir) = GetVelocityInput(mover);
+
+        var total = walkDir * walkSpeed + sprintDir * sprintSpeed;
+
+        var parentRotation = GetParentGridAngle(mover);
+        var wishDir = _relativeMovement ? parentRotation.RotateVec(total) : total;
+
+        DebugTools.Assert(MathHelper.CloseToPercent(total.Length(), wishDir.Length()));
+
+        return wishDir;
+    }
+
+    private void OnTileFriction(Entity<MovementSpeedModifierComponent> ent, ref TileFrictionEvent args)
+    {
+        if (!TryComp<PhysicsComponent>(ent, out var physicsComponent) || !XformQuery.TryComp(ent, out var xform))
+            return;
+
+        // TODO: Make IsWeightless event based!!!
+        if (physicsComponent.BodyStatus != BodyStatus.OnGround || _gravity.IsWeightless(ent, physicsComponent, xform))
+            args.Modifier *= ent.Comp.BaseWeightlessFriction;
+        else
+            args.Modifier *= ent.Comp.BaseFriction;
     }
 
     // Tile Movement Functions
@@ -1068,8 +1138,7 @@ public abstract partial class SharedMoverController : VirtualController
                 movementSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
         }
 
-        return tileDef?.MobFrictionNoInput ?? movementSpeedComponent.FrictionNoInput ??
-            MovementSpeedModifierComponent.DefaultFrictionNoInput;
+        return movementSpeedComponent.FrictionNoInput;
     }
 
     /// <summary>

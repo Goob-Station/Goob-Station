@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "voice signaller and proxy signaller textures by Zethine, inspired by remote signaller and station beacon respectively",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "voicesignaller"
+    },
+    {
+        "name": "voicesignaller_inhand_right",
+        "directions": 4
+    },
+    {
+        "name": "voicesignaller_inhand_left",
+        "directions": 4
+    },
+    {
+        "name": "proxysignaller_on",
+        "delays": [
+            [
+                2.0,
+                0.1
+            ]
+        ]
+    }
+  ]
+}
