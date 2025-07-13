@@ -12112,3 +12112,9 @@ Entries:
       message: Fixed mislabelled rule on "Rolplay"
   id: 1331
   time: '2025-07-13T22:55:56.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Cyber eyes work now
+  id: 1332
+  time: '2025-07-13T22:57:10.0000000+00:00'
