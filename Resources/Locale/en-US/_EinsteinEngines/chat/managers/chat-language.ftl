@@ -37,6 +37,7 @@ chat-language-Cat-name = Cat
 chat-language-Chicken-name = Chicken
 chat-language-Cow-name = Cow
 chat-language-Crab-name = Crab
+chat-language-Deer-name = Deer
 chat-language-Dog-name = Dog
 chat-language-Duck-name = Duck
 chat-language-Eldritch-name = Eldritch
