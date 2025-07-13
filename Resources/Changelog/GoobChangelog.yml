@@ -11977,3 +11977,49 @@ Entries:
       message: Removed ninja gloves stun (replaced with ninjutsu).
   id: 1316
   time: '2025-07-10T12:26:22.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Harpies no longer are locked to jumpskirts, and pants have fancy
+        displacement maps too.
+    - type: Fix
+      message: Fixed harpy flight visuals being kinda broken on other clients.
+    - type: Fix
+      message: 'Fixed modsuits being unusable by harpies and diona. '
+    - type: Fix
+      message: >-
+        Fixed harpy flight being broken and moving around at snail-speed. Thanks
+        wizden.
+    - type: Fix
+      message: Fixed harpy flight making secoffs scream "HE'S REACHING" too often.
+  id: 1317
+  time: '2025-07-11T20:06:54.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Millions must gulp
+  id: 1318
+  time: '2025-07-11T23:58:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Boomerang items will now hit you if your hand is occupied.
+    - type: Tweak
+      message: Boomerang items now have a maximum amount of hops they can make.
+    - type: Fix
+      message: Fixed boomerang jank.
+  id: 1319
+  time: '2025-07-12T08:48:25.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Stamina resistances work once again.
+  id: 1320
+  time: '2025-07-12T09:05:18.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: Budget insulated gloves are no longer marked as contraband
+  id: 1321
+  time: '2025-07-13T05:02:41.0000000+00:00'
