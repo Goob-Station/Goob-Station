@@ -12023,3 +12023,9 @@ Entries:
       message: Budget insulated gloves are no longer marked as contraband
   id: 1321
   time: '2025-07-13T05:02:41.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: Maintenance doorjack
+  id: 1322
+  time: '2025-07-13T22:36:23.0000000+00:00'
