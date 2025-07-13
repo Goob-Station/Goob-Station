@@ -70,7 +70,7 @@ language-RobotTalk-description = A language consisting of harsh binary chirps, w
 language-Calcic-name = Calcic
 language-Calcic-description = The bone-rattling language of skeletons and Plasmamen. It sounds like a harmonic trousle of bones with a humerus tone, sans any off-tune ribbing.
 
-# Tau-Ceti Basic Sign Language - Removed Tau-Ceti Basic prefix for better readability.
+# Tau-Ceti Basic Sign Language - Removed prefix for better readability.
 language-Sign-name = Sign Language
 language-Sign-description =
     Tau-Ceti Basic Sign Language.
