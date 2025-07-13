@@ -44,10 +44,6 @@ namespace Content.Server.Speech.Muting
 
         private void OnScreamAction(EntityUid uid, MutedComponent component, ScreamActionEvent args)
         {
-            var language = _languages.GetLanguage(uid);
-            if (!language.SpeechOverride.RequireSpeech)
-                return; // Cannot mute if there's no speech involved
-
             if (args.Handled)
                 return;
 
@@ -63,6 +59,10 @@ namespace Content.Server.Speech.Muting
         private void OnSpeakAttempt(EntityUid uid, MutedComponent component, SpeakAttemptEvent args)
         {
             // TODO something better than this.
+
+            var language = _languages.GetLanguage(uid);
+            if (!language.SpeechOverride.RequireSpeech)
+                return; // Cannot mute if there's no speech involved
 
             if (HasComp<MimePowersComponent>(uid))
                 _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
