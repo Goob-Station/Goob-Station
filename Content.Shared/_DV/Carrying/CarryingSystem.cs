@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Pirate.Common.Traits.Lightweight; // Pirate - Traits Rework
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Events;
@@ -360,8 +361,9 @@ public sealed class CarryingSystem : EntitySystem
         var mod = MassContest(carrier, carried);
         if (mod != 0)
             length /= mod;
+        TryComp<LightweightComponent>(carried, out var lightweight); // Pirate - Traits Rework
 
-        return length;
+        return length / float.Max(lightweight?.PickupSpeedMultiplier ?? 1f, 1f); // Pirate - Traits Rework
     }
 
     public override void Update(float frameTime)

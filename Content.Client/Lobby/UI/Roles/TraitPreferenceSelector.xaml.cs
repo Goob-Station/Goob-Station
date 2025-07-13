@@ -29,7 +29,7 @@ public sealed partial class TraitPreferenceSelector : Control
     {
         RobustXamlLoader.Load(this);
 
-        var text = trait.Cost != 0 ? $"[{trait.Cost}] " : "";
+        var text = $"[{trait.Cost}]\t"; // Pirate - Traits Rework
         text += Loc.GetString(trait.Name);
 
         Cost = trait.Cost;
