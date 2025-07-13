@@ -446,6 +446,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerBelt
+  - PassengerShoes
 
 - type: roleLoadout
   id: JobCargoTechnician
