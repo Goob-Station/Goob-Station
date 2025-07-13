@@ -12106,3 +12106,9 @@ Entries:
       message: Mantis blades now cut more than stab, and do more slash than pierce
   id: 1330
   time: '2025-07-13T22:53:04.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Fixed mislabelled rule on "Rolplay"
+  id: 1331
+  time: '2025-07-13T22:55:56.0000000+00:00'
