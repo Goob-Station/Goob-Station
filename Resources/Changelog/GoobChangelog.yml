@@ -12136,3 +12136,11 @@ Entries:
       message: BSOs revolver kit now hits hard.
   id: 1335
   time: '2025-07-13T23:01:15.0000000+00:00'
+- author: Moony33
+  changes:
+    - type: Fix
+      message: >-
+        Fixed jumpskirts texture being ugly while wearing winter jackboots. Drip
+        wins yet again
+  id: 1336
+  time: '2025-07-13T23:02:26.0000000+00:00'
