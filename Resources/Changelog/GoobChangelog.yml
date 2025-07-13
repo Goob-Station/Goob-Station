@@ -12035,3 +12035,11 @@ Entries:
       message: Pun Pun has been reminded of his contract and is no longer a free agent.
   id: 1323
   time: '2025-07-13T22:38:17.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Tweak
+      message: >-
+        Compact defibrillator is now in the Advanced Treatment tech (T2 surgical
+        tools).
+  id: 1324
+  time: '2025-07-13T22:39:32.0000000+00:00'
