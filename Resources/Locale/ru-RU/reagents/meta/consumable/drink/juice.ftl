@@ -29,4 +29,3 @@ reagent-desc-juice-tomato = Томаты превращённые в сок. К�
 reagent-name-juice-watermelon = арбузный сок
 reagent-desc-juice-watermelon = Вкусный сок арбуза.
 reagent-name-juice-cherry = вишнёвый сок
-reagent-desc-juice-cherry = Вкусный вишнёвый сок, сладкий и терпкий.

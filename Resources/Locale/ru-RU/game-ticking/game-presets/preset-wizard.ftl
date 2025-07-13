@@ -27,16 +27,6 @@ survivor-round-end-alive-on-shuttle-count =
 ## Wizard
 
 objective-issuer-swf = [color=turquoise]Федерация космических волшебников[/color]
-wizard-title = Волшебник
-wizard-description = На станции присутствует волшебник! Никогда не знаешь, что они могут натворить.
-roles-antag-wizard-name = Волшебник
-roles-antag-wizard-objective = Преподайте им урок, который они никогда не забудут.
-wizard-role-greeting =
-    ТЫ ВОЛШЕБНИК!
-    Между Федерацией космических волшебников и Nanotrasen возникли противоречия.
-    И вы были выбраны Федерацией Космических Волшебников, чтобы нанести на станцию визит.
-    Хорошенько продемонстрируйте им свои способности.
-    Вам решать, что именно предпринять, но помните, что Космические волшебники желают, чтобы вы вернулись живыми.
 wizard-round-end-name = волшебник
 
 ## TODO: Wizard Apprentice (Coming sometime post-wizard release)

@@ -13,4 +13,3 @@ marking-RobotAntennaAntlers = Рога
 marking-RobotAntennaDroneeyes = Глаза дрона
 marking-RobotAntennaCrowned = Коронованный
 marking-RobotAntennaTowers = Башни
-

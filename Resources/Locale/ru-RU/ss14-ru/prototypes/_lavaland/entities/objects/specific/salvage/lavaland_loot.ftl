@@ -1,4 +1,4 @@
-ent-LavalandCursedHeart = heart
-    .desc = I feel bad for the heartless bastard who lost this.
-ent-LavalandVampirismCrystal = a red crystal
+ent-LavalandCursedHeart = сердце
+    .desc = Мне жаль бессердечного ублюдка, который потерял это.
+ent-LavalandVampirismCrystal = красный кристалл
     .desc = { ent-BasePKAUpgrade.desc }

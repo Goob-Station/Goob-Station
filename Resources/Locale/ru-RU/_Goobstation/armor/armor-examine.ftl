@@ -24,4 +24,3 @@ armor-examine-modify-delayed-knockdown-time =
         [1] секунду
        *[other] секунд
     }[/color].
-

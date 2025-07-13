@@ -1,35 +1,24 @@
 ent-PartTajaran = часть тела таяран
     .desc = { ent-BaseItem.desc }
-
 ent-ChestTajaran = грудь таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-GroinTajaran = пах таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-HeadTajaran = голова таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-LeftArmTajaran = левая рука таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-RightArmTajaran = правая рука таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-LeftHandTajaran = левая кисть таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-RightHandTajaran = правая кисть таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-LeftLegTajaran = левая нога таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-RightLegTajaran = правая нога таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-LeftFootTajaran = левая ступня таяран
     .desc = { ent-PartTajaran.desc }
-
 ent-RightFootTajaran = правая ступня таяран
     .desc = { ent-PartTajaran.desc }

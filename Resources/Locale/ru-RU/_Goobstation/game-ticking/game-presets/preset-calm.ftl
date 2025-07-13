@@ -5,4 +5,3 @@
 
 sleeper-title = Спокойный
 sleeper-description = Спокойный опыт с рядом мирных событий.
-

@@ -1,2 +1,2 @@
-ent-Silencer = silencer
-    .desc = Tool for silencing humans.
+ent-Silencer = глушитель
+    .desc = Инструмент для того, чтобы заставить гуманоидов замолчать.

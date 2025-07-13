@@ -1,8 +1,8 @@
-ent-ActionSmite = Кара
+ent-ActionSmite = Дезинтегрирование
     .desc = Мгновенно поражает цель.
 ent-ActionSmiteNoReq = { ent-ActionSmite }
     .desc = { ent-ActionSmite.desc }
-ent-ActionCluwne = Проклятие клувня
+ent-ActionCluwne = Проклятие КлУвНи
     .desc = Превратите кого-нибудь в клувня!
 ent-ActionSlippery = Скользкая дорожка
     .desc = Сделайте кого-нибудь скользким!

@@ -1,2 +1,2 @@
-ent-ClothingAbductorBelt = alien belt
-    .desc = Can hold various OUR things.
+ent-ClothingAbductorBelt = инопланетный пояс
+    .desc = Может вместить различные НАШИ вещи.

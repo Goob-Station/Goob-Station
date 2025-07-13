@@ -1,10 +1,10 @@
-ent-BasePKAUpgrade = PKA modkit
-    .desc = A modkit for a proto-kinetic accelerator.
-ent-PKAUpgradeDamage = PKA modkit (damage)
+ent-BasePKAUpgrade = улучшение ПКА
+    .desc = Модкит для протокинетического ускорителя.
+ent-PKAUpgradeDamage = улучшение ПКА (урон)
     .desc = { ent-BasePKAUpgrade.desc }
-ent-PKAUpgradeRange = PKA modkit (range)
+ent-PKAUpgradeRange = улучшение ПКА (дальность)
     .desc = { ent-BasePKAUpgrade.desc }
-ent-PKAUpgradeFireRate = PKA modkit (fire rate)
+ent-PKAUpgradeFireRate = улучшение ПКА (скорострельность)
     .desc = { ent-BasePKAUpgrade.desc }
-ent-PKAUpgradeLight = PKA modkit (light)
+ent-PKAUpgradeLight = улучшение ПКА (свет)
     .desc = { ent-BasePKAUpgrade.desc }

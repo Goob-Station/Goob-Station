@@ -1,5 +1,3 @@
-ent-BaseMagicalContraband = { "" }
-    .desc = { "" }
 ent-BaseSyndicateContraband = { "" }
     .desc = { "" }
 ent-BaseMinorContraband = { "" }

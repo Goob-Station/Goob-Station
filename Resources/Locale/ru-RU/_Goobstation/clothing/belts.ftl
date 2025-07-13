@@ -5,4 +5,3 @@
 
 holster-insert-verb = Засунуть в кобуру
 holster-eject-verb = Вынуть из кобуры
-

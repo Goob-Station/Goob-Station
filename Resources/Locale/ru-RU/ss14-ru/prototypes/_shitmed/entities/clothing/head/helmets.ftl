@@ -1,2 +1,2 @@
-ent-ClothingHeadHelmetAbductor = alien helmet
-    .desc = Zeep Glorp!
+ent-ClothingHeadHelmetAbductor = инопланетный шлем
+    .desc = Зиип, Глорп!

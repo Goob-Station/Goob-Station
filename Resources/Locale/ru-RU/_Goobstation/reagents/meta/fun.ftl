@@ -41,19 +41,9 @@ reagent-popup-copium-9 = Ты должен быть капитаном.
 reagent-popup-copium-10 = Ты управляешь этой станцией.
 reagent-popup-copium-11 = Ты знаешь, что лучше.
 reagent-popup-copium-12 = Ты мог бы его победить.
-
 reagent-name-cat-drugs = кошачьи наркотики
 reagent-desc-cat-drugs = Кошачьи наркотики? Наркотики для кошек? Наркотики от кошек? Лучше не спрашивать.
-
 reagent-name-nostalgia = ностальгия
 reagent-desc-nostalgia = Зачем это здесь?
-
 reagent-name-tilenol = тиленол
 reagent-desc-tilenol = Ты чувствуешь, как становишься сильнее, просто держась за это.
-
-
-
-
-
-
-

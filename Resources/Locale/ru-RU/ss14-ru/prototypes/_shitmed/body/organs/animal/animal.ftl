@@ -1,4 +1,4 @@
-ent-OrganAnimalBrain = animal brain
-    .desc = Not so intelligence, not so honk.
-ent-OrganAnimalEyes = animal eyes
-    .desc = I see you!
+ent-OrganAnimalBrain = мозг животного
+    .desc = Источник, бесполезного интеллекта. Не хонк.
+ent-OrganAnimalEyes = гзала животного
+    .desc = Я вижу тебя!

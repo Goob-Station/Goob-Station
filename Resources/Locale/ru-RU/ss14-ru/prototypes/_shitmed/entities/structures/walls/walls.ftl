@@ -1,6 +1,6 @@
-ent-WallAbductorDiagonal = shuttle wall
-    .desc = Keeps the air in and the bloodthirsty salvagers out.
-    .suffix = Diagonal
-ent-WallAbductor = shuttle wall
-    .desc = Keeps the air in and the bloodthirsty salvagers out.
-    .suffix = Reinforced, Exterior
+ent-WallAbductorDiagonal = стена шаттла
+    .desc = Удерживает воздух внутри и кровожадных спасателей снаружи.
+    .suffix = Диагональная
+ent-WallAbductor = стена шаттла
+    .desc = Удерживает воздух внутри и кровожадных спасателей снаружи.
+    .suffix = Усиленная, Внешняя

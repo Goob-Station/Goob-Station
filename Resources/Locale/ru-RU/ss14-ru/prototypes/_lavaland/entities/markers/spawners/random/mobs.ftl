@@ -1,3 +1,3 @@
-ent-SpawnerRandomMobLavaland = lavaland mob spawner
-    .suffix = Lavaland
+ent-SpawnerRandomMobLavaland = спавнер случайный моб Лаваленда
+    .suffix = Лаваленд
     .desc = { ent-MarkerBase.desc }

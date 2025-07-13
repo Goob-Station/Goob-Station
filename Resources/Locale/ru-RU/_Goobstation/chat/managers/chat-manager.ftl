@@ -30,4 +30,3 @@ chat-speech-verb-VoiceModulator-2 = гудит
 chat-speech-verb-VoiceModulator-3 = жужжит
 chat-speech-verb-VoiceModulator-4 = напевает
 chat-speech-verb-VoiceModulator-5 = потрескивает
-

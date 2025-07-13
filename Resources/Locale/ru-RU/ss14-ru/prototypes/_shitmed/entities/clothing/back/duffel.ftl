@@ -1,2 +1,2 @@
-ent-ClothingBackpackDuffelAbductor = alien duffel bag
-    .desc = An ordinary duffel bag woven from a durable fiber.
+ent-ClothingBackpackDuffelAbductor = инопланетный вещмешок
+    .desc = Обычный вещмешок, сотканный из прочного волокна.

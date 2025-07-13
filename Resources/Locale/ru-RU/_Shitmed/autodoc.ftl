@@ -27,7 +27,6 @@ autodoc-error-surgery-failed = ОПЕРАЦИЯ НЕУДАЧНА
 autodoc-error-hand-full = МАНИПУЛЯТОР ПОЛОН
 autodoc-error-storage-full = ЛОТКИ ДЛЯ ПРЕДМЕТОВ ПОЛНЫ
 autodoc-error-patient-unsedated = ПАЦИЕНТ ТРЕБУЕТ СЕДАЦИИ
-
 autodoc-title = АвтоДок MK.XIV
 autodoc-create-program = НОВАЯ ПРОГРАММА
 autodoc-program-title = НАЗВАНИЕ ПРОГРАММЫ
@@ -53,7 +52,6 @@ autodoc-add-step-set-label = УСТАНОВИТЬ МЕТКУ
 autodoc-add-step-set-label-prompt = Метка
 autodoc-add-step-wait = ЖДАТЬ
 autodoc-add-step-wait-prompt = Секунд ожидания
-
 autodoc-body-part-Other = Другое
 autodoc-body-part-Torso = Торс
 autodoc-body-part-Chest = Грудь
@@ -64,10 +62,8 @@ autodoc-body-part-Hand = Кисть
 autodoc-body-part-Leg = Нога
 autodoc-body-part-Foot = Стопа
 autodoc-body-part-Tail = Хвост
-
 autodoc-body-symmetry-ignored = Любая
 autodoc-body-symmetry-None = Нет
 autodoc-body-symmetry-Left = Левая
 autodoc-body-symmetry-Right = Правая
-
 autodoc-submit = Отправить

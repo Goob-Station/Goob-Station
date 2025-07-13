@@ -1,18 +1,13 @@
 ent-ClothingModsuitResponsoryJanitorial = Контроллер модсьюта санитарной респонсории
     .desc = Основной контроллер модсьюта санитарной респонсории.
-
 ent-ClothingModsuitGauntletsResponsoryJanitorial = Рукавицы модсьюта санитарной респонсории
     .desc = Пара рукавиц, созданных для модсьюта санитарной респонсории.
-
 ent-ClothingModsuitHelmetResponsoryJanitorial = Шлем модсьюта санитарной респонсории
     .desc = Передовой шлем, разработанный NanoTrasen для модсьюта санитарной респонсории. Оснащён встроенным HUD.
-
 ent-ClothingModsuitChestplateResponsoryJanitorial = Нагрудник модсьюта санитарной респонсории
     .desc = Передовой нагрудник, разработанный NanoTrasen для модсьюта санитарной респонсории. Оснащён сервоприводами для снижения нагрузки.
-
 ent-ClothingModsuitBootsResponsoryJanitorial = Ботинки модсьюта санитарной респонсории
     .desc = Передовая пара магобуви для модсьюта санитарной респонсории. Пока костюм запитан, они не замедляют пользователя.
-
 ent-SuitStorageResponsoryJanitorial = { ent-SuitStorageBase }
     .suffix = Модсьют санитарной респонсории
     .desc = { ent-SuitStorageBase.desc }

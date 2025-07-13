@@ -1,8 +1,8 @@
 ent-PartCarpBase = { ent-PartBase }
     .desc = { ent-PartBase.desc }
-ent-TailCarp = carp tail
-    .desc = Unique glands in this tail let space carp fly in a vacuum.
-ent-ChestCarp = carp chest
+ent-TailCarp = хвост карпа
+    .desc = Уникальные железы в этом хвосте позволяют космическому карпу летать в вакууме.
+ent-ChestCarp = торс карпа
     .desc = { ent-PartCarpBase.desc }
-ent-GroinCarp = carp groin
+ent-GroinCarp = пах карпа
     .desc = { ent-PartCarpBase.desc }

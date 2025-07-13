@@ -91,7 +91,6 @@ marking-RodentiaCheeksFluffAltCounter-fluff_alt_overlay = Контртенево
 marking-RodentiaCheeksWhiskers = Усы
 marking-RodentiaCheeksWhiskers-whiskers = Усы
 
-
 # body markings
 
 
@@ -124,7 +123,6 @@ marking-RodentiaTailSquirrel-squirrel = Хвост
 marking-RodentiaTailSquirrelBicolor = Хвост — Беличий, двухцветный
 marking-RodentiaTailSquirrelBicolor-squirrel = Хвост
 marking-RodentiaTailSquirrelBicolor-squirrel_overlay = Вторичный цвет
-
 
 ## patterns
 
@@ -165,4 +163,3 @@ marking-RodentiaFootLeftBasic = Левая ступня — Базовая
 marking-RodentiaFootLeftBasic-l_foot = Ступня
 marking-RodentiaFootRightBasic = Правая ступня — Базовая
 marking-RodentiaFootRightBasic-r_foot = Ступня
-

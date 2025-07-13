@@ -1,55 +1,40 @@
 ent-ClothingModsuitStandard = стандартный модульный хардсьют
     .desc = Специальный блок управления модульным костюмом, содержащий все необходимые части хардсьюта.
-
 ent-ClothingModsuitStandardPowerCell = { ent-ClothingModsuitStandard }
     .suffix = Аккумулятор повышенной ёмкости
     .desc = { ent-ClothingModsuitStandard.desc }
-
 ent-ClothingModsuitSecurity = модульный хардсьют для охраны
     .desc = Надёжный блок управления модульным хардсьютом для уничтожения врагов в космосе.
-
 ent-ClothingModsuitSecurityPowerCell = { ent-ClothingModsuitSecurity }
     .suffix = Аккумулятор повышенной ёмкости
     .desc = { ent-ClothingModsuitSecurity.desc }
-
 ent-ClothingModsuitHeadOfSecurity = блок управления хардсьютом начальника охраны
     .desc = Надёжный модуль управления для хардсьюта начальника охраны.
-
 ent-ClothingModsuitHeadOfSecurityPowerCell = { ent-ClothingModsuitHeadOfSecurity }
     .suffix = Аккумулятор повышенной ёмкости
     .desc = { ent-ClothingModsuitHeadOfSecurity.desc }
-
 ent-ClothingModsuitParamedic = модульный хардсьют санитаров
     .desc = Модуль управления хардсьютом для парамедиков.
-
 ent-ClothingModsuitParamedicPowerCell = { ent-ClothingModsuitParamedic }
     .suffix = Аккумулятор повышенной ёмкости
     .desc = { ent-ClothingModsuitParamedic.desc }
-
 ent-ClothingModsuitEngineer = модульный хардсьют инженера сапёра
     .desc = Модуль управления хардсьютом, предназначенный для выдерживания самых серьёзных опасностей на работе.
-
 ent-ClothingModsuitEngineerPowerCell = { ent-ClothingModsuitEngineer }
     .suffix = Аккумулятор повышенной ёмкости
     .desc = { ent-ClothingModsuitEngineer.desc }
-
 ent-ClothingModsuitAtmostech = модульный хардсьют атмосферного техника
     .desc = Модуль управления хардсьютом, предназначенный для выдерживания самых серьёзных опасностей на работе.
-
 ent-ClothingModsuitAtmostechPowerCell = { ent-ClothingModsuitAtmostech }
     .suffix = Аккумулятор повышенной ёмкости
     .desc = { ent-ClothingModsuitAtmostech.desc }
-
 ent-ClothingModsuitResearchDirector = блок управления хардсьютом главного исследователя
     .desc = Модуль управления хардсьютом, способный выдержать ещё одну бомбёжку шаттла.
-
 ent-ClothingModsuitResearchDirectorPowerCell = { ent-ClothingModsuitResearchDirector }
     .suffix = Аккумулятор повышенной ёмкости
     .desc = { ent-ClothingModsuitResearchDirector.desc }
-
 ent-ClothingModsuitCaptain = капитанский хардсьют «Магнат»
     .desc = Украшенный драгоценными камнями, зеркально отполированный и абсолютно бронированный хардсьют. Охлаждающая жидкость — кровь дракона, разбавленная доктором Гиббом. Это для тебя — серьёзная штука.
-
 ent-ClothingModsuitCaptainPowerCell = { ent-ClothingModsuitCaptain }
     .suffix = Аккумулятор повышенной ёмкости
     .desc = { ent-ClothingModsuitCaptain.desc }

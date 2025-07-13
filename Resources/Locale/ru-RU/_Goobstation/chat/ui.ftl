@@ -14,4 +14,3 @@ hud-chatbox-highlights-placeholder =
     МакХендс
     "Судья"
     Медицинский
-

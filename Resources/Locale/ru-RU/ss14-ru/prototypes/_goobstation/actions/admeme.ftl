@@ -1,6 +1,6 @@
 ent-ActionVaporizeFreeman = Испарить
     .desc = На этом всё.
-ent-ActionBlinkFreeman = Миг
+ent-ActionBlinkFreeman = Прыжок
     .desc = Мудрое решение, мистер Фримен. Увидимся впереди.
 ent-ActionShiftFreeman = Сдвиг
     .desc = Неужели снова пришло это время?

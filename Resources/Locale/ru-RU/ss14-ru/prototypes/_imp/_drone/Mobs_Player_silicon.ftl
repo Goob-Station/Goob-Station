@@ -1,4 +1,4 @@
 ent-PlayerSiliconBase = { "" }
     .desc = { "" }
-ent-Drone = drone
+ent-Drone = дрон
     .desc = { ent-PlayerSiliconBase.desc }

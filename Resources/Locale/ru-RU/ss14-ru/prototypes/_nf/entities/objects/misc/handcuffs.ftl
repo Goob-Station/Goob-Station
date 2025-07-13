@@ -1,2 +1,2 @@
-ent-WebCocoon = web cocoon
-    .desc = Strong web cocoon used to restrain preys or just criminals.
+ent-WebCocoon = паутинный кокон
+    .desc = Прочный паутинный кокон, используемый для удержания жертв или просто преступников.

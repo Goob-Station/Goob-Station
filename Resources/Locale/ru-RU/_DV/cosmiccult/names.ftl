@@ -2,7 +2,6 @@ dv-ascended-title-1 = Вознесённый
 dv-ascended-title-2 = Апокрифичный
 dv-ascended-title-3 = Беспредельный
 dv-ascended-title-4 = Трансцендентный
-
 dv-ascended-name-1 = То, Что Взирает,
 dv-ascended-name-2 = То, Что Бежало,
 dv-ascended-name-3 = То, Что Ждёт,

@@ -1,2 +1,2 @@
-ent-HandPlaceholder = unknown tool
+ent-HandPlaceholder = неизвестный инструмент
     .desc = { "" }

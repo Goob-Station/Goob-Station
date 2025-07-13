@@ -10,4 +10,3 @@ chat-manager-send-telepathic-chat-wrap-message-admin = { $source } (Ψ): { $mess
 chat-manager-telepathic-channel-name = ТЕЛЕПАТИЯ
 hud-chatbox-select-channel-Telepathic = Телепатия
 hud-chatbox-channel-Telepathic = Телепатия
-

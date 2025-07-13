@@ -18,5 +18,3 @@ ent-BaseSurviveObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
 ent-BaseCodeObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-BaseFreeObjective = { ent-BaseObjective }
-    .desc = { ent-BaseObjective.desc }

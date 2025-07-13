@@ -35,4 +35,3 @@ loadout-group-security-neck = Ожерелье службы безопаснос
 loadout-group-captain-mask = Маска капитана
 loadout-group-salvage-specialist-neck = Ожерелье специалиста по сальважу
 loadout-group-chemist-head = Голова химика
-

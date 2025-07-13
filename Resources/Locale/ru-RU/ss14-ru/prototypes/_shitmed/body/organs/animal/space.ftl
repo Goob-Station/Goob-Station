@@ -1,12 +1,12 @@
-ent-OrganSpaceAnimalLungs = space animal lungs
+ent-OrganSpaceAnimalLungs = легкие космического животного
     .desc = { ent-OrganAnimalLungs.desc }
-ent-OrganSpaceAnimalHeart = space animal heart
+ent-OrganSpaceAnimalHeart = сердце космического животного
     .desc = { ent-OrganAnimalHeart.desc }
 ent-OrganGoliathHeart = goliath heart
     .desc = { ent-OrganAnimalHeart.desc }
-ent-OrganDragonLungs = dragon lungs
+ent-OrganDragonLungs = драконьи легкие
     .desc = { ent-OrganAnimalLungs.desc }
-ent-OrganLaserEyes = laser raptor eyes
+ent-OrganLaserEyes = лазерные глаза раптора
     .desc = { ent-OrganHumanEyes.desc }
-ent-OrganCobraHeart = cobra gland
+ent-OrganCobraHeart = железа кобры
     .desc = { ent-OrganAnimalHeart.desc }

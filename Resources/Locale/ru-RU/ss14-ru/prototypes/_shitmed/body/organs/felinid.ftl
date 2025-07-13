@@ -1,4 +1,4 @@
-ent-OrganFelinidEars = cat ears
-    .desc = Holding these might potentially be contagious.
-ent-OrganFelinidTail = cat tail
-    .desc = Should you really have this?
+ent-OrganFelinidEars = кошачьи уши
+    .desc = Их хранение потенциально может быть заразным.
+ent-OrganFelinidTail = кошачий хвост
+    .desc = Действительно ли вам это нужно?

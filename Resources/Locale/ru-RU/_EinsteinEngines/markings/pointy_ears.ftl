@@ -22,4 +22,3 @@ marking-PointyEarsLarge-pointy_ears_large = Большие Уши
 marking-PointyEarsLarge = Большие Уши
 marking-PointyEarsNone-pointy_ears_none = Без Ушей
 marking-PointyEarsNone = Без Ушей
-

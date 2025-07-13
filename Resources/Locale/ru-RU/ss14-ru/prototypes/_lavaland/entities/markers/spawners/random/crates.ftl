@@ -1,3 +1,3 @@
-ent-LavalandCrateNecropolisRandom = random necropolis chest spawner
-    .suffix = Lavaland
+ent-LavalandCrateNecropolisRandom = спавнер случайный сундук Некрополя
+    .suffix = Лаваленд
     .desc = { ent-MarkerBase.desc }

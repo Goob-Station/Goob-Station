@@ -16,6 +16,8 @@ monument-interface-glyphs-title = Глиф
 monument-interface-glyphs-button-scribe = Начертить глиф
 monument-interface-glyphs-button-unscribe = Стереть глиф
 # Influences
+monument-interface-influences-title = Influences
+# Influences
 monument-interface-influences-unlocked = Разблокировано
 monument-interface-influences-locked = Заблокировано
 monument-interface-influences-owned = Получено
@@ -25,4 +27,3 @@ monument-interface-influences-purchased = Получено
 monument-interface-influences-owned-tooltip = У вас уже есть это влияние.
 monument-interface-influences-unlocked-not-enough-entropy-tooltip = Необходимо больше ({ $entropy }) энтропии, чтобы получить это влияние.
 monument-interface-influences-locked-tooltip = Это влияние заблокировано. Подайте больше энтропии в Монумент.
-

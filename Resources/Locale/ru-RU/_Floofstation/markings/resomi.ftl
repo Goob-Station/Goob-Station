@@ -22,4 +22,3 @@ marking-ResomiFluffHead = Пух на голове
 marking-ResomiFluffHead-fluff_head = Подпух на голове
 marking-ResomiFluffHeadUp = Приподнятый пух на голове
 marking-ResomiFluffHeadUp-fluff_head_up = Приподнятый пух на голове
-
