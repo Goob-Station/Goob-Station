@@ -1,5 +1,5 @@
 # This file is only for the language traits. If we add species-specific languages to the list of traits,
-# we should add them here in the order they are in the list, for organization.
+# we should add them here in the order they are in the list, for organization. Maybe add more later.
 
 trait-category-languages = Languages
 
