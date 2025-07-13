@@ -12043,3 +12043,9 @@ Entries:
         tools).
   id: 1324
   time: '2025-07-13T22:39:32.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: Crew borgs are no longer immune to various mobs.
+  id: 1325
+  time: '2025-07-13T22:41:37.0000000+00:00'
