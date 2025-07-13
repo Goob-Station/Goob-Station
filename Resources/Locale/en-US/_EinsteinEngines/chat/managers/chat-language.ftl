@@ -21,7 +21,7 @@ chat-language-Marish-name = Marish
 chat-language-Chittin-name = Chittin
 chat-language-Xeeplian-name = Xeeplian
 
-# Animal Language
+# Animal Languages
 
 chat-language-Cat-name = Cat
 chat-language-Chicken-name = Chicken
@@ -41,3 +41,13 @@ chat-language-Pig-name = Pig
 chat-language-Sheep-name = Sheep
 chat-language-Xeno-name = Xeno
 chat-language-DroneTalk-name = Drone
+
+# EE-Specific Languages
+
+chat-language-NalRasan-name = Nal'rasan
+chat-language-SiikTajr-name = Siik'tajr
+chat-language-SiikMaas-name = Siik'maas
+chat-language-YaSsa-name = Ya'ssa
+chat-language-Delvahii-name = Delvahii
+chat-language-Shadowmind-name = Shadowmind
+chat-language-Qiilour-name = Qiilour
