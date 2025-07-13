@@ -4,9 +4,12 @@
      "license": "CC-BY-SA-3.0",
       "copyright": "Taken from Paradise", 
       "states": [
-        
         {
             "name": "daemon",
+            "directions": 4
+        },
+        {
+            "name": "bowmon",
             "directions": 4
         }
       ]

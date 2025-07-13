@@ -5,6 +5,7 @@
 
 using System.Numerics;
 using Content.Shared.Damage;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -78,6 +79,12 @@ public sealed partial class SlaughterDemonComponent : Component
     /// </summary>
     [DataField]
     public bool IsLaughter;
+
+    /// <summary>
+    ///  Sound that plays once the demon dies
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? DeathSound = new SoundPathSpecifier("/Audio/Effects/demon_dies.ogg");
 }
 
 

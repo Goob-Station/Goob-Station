@@ -15,3 +15,8 @@
   license: "CC0-1.0"
   copyright: "ValentinPetiteau"
   source: "https://freesound.org/people/ValentinPetiteau/sounds/628659/"
+
+- files: ["scary_horn2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "todo"
+  source: "https://github.com/ParadiseSS13/Paradise"

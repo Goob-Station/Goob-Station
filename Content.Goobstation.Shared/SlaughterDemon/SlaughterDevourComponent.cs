@@ -1,4 +1,6 @@
 using Content.Shared.Damage;
+using Robust.Shared.Audio;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.SlaughterDemon;
 
@@ -58,4 +60,18 @@ public sealed partial class SlaughterDevourComponent : Component
             { "Shock", -25 },
         }
     };
+
+    /// <summary>
+    /// The sound that plays once devouring someone
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? FeastSound = new SoundPathSpecifier("/Audio/Effects/demon_consume.ogg")
+    {
+        Params = AudioParams.Default.WithVolume(-3f),
+    };
+
+    /// <summary>
+    /// Laughter Demon exclusive: A container that holds the entities instead of outright removing them
+    /// </summary>
+    public Container Container = default!;
 }

@@ -67,7 +67,7 @@ public sealed class BloodCrawlSystem : EntitySystem
         var evAttempt = new BloodCrawlAttemptEvent();
         RaiseLocalEvent(uid, ref evAttempt);
 
-        _polymorph.PolymorphEntity(uid, component.Jaunt);
+        var ent = _polymorph.PolymorphEntity(uid, component.Jaunt);
         _actions.StartUseDelay(component.ActionEntity);
     }
 }

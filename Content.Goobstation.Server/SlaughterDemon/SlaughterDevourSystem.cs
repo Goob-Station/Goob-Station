@@ -7,6 +7,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Silicons.Borgs.Components;
+using Robust.Shared.Containers;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.SlaughterDemon;
@@ -19,6 +20,7 @@ public sealed class SlaughterDevourSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] protected readonly SharedContainerSystem _container = default!;
 
     private EntityQuery<PullerComponent> _pullerQuery;
     private EntityQuery<HumanoidAppearanceComponent> _humanoid;
@@ -32,7 +34,13 @@ public sealed class SlaughterDevourSystem : EntitySystem
         _humanoid = GetEntityQuery<HumanoidAppearanceComponent>();
         _actorQuery = GetEntityQuery<ActorComponent>();
 
+        SubscribeLocalEvent<SlaughterDevourComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlaughterDevourComponent, BloodCrawlAttemptEvent>(OnBloodCrawlAttempt);
+    }
+
+    private void OnMapInit(Entity<SlaughterDevourComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.Container = _container.EnsureContainer<Container>(ent.Owner, "stomach");
     }
 
     private void OnBloodCrawlAttempt(Entity<SlaughterDevourComponent> ent, ref BloodCrawlAttemptEvent args)
