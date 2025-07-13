@@ -12017,3 +12017,9 @@ Entries:
       message: Stamina resistances work once again.
   id: 1320
   time: '2025-07-12T09:05:18.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: Budget insulated gloves are no longer marked as contraband
+  id: 1321
+  time: '2025-07-13T05:02:41.0000000+00:00'
