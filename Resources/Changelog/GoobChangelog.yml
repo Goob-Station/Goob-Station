@@ -12275,3 +12275,11 @@ Entries:
       message: Space is now frictionless again.
   id: 1354
   time: '2025-07-14T09:22:20.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Tweak
+      message: PTL no longer constantly emits rads.
+    - type: Tweak
+      message: Increased max draw of PTL. (1MJ -> 5MJ)
+  id: 1355
+  time: '2025-07-14T09:34:10.0000000+00:00'
