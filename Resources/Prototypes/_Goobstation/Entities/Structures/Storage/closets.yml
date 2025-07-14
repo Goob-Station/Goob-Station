@@ -104,7 +104,7 @@
           False: { state: glass }
   - type: Construction
     graph: Machine
-    node: machineLocked
+    node: machine
     containers:
     - machine_parts
     - machine_board
