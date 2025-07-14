@@ -355,8 +355,8 @@
 
 - type: selectableSet
   id: BSOCQCSet
-  name: selectable-set-blueshield-cqc-name
-  description: selectable-set-blueshield-cqc-description
+  name: selectable-set-blueshield-dragon-name
+  description: selectable-set-blueshield-dragon-description
   sprite:
     sprite: _Goobstation/Objects/Misc/martial_arts.rsi
     state: dragon
