@@ -79,7 +79,7 @@
         - ReagentId: Psicodine
           Quantity: 0.8
   - type: StaticPrice
-    price: 600
+    price: 500
 
 - type: entity
   id: BluntCigar # Shitmed Change
@@ -144,4 +144,4 @@
         - ReagentId: Psicodine
           Quantity: 0.8
   - type: StaticPrice
-    price: 600
+    price: 500
