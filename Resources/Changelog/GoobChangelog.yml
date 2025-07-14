@@ -12187,3 +12187,9 @@ Entries:
       message: Fixed Resomi gasp and deathgasp not working.
   id: 1342
   time: '2025-07-14T08:04:05.0000000+00:00'
+- author: AgentePanela
+  changes:
+    - type: Tweak
+      message: Open remote devices action icon.
+  id: 1343
+  time: '2025-07-14T08:12:35.0000000+00:00'
