@@ -66,6 +66,8 @@ public sealed class SpiderUIController : UIController
         var root = UIManager.RootControl;
         var spider = CreateSpiderInstance(root, false);
         _temporarySpiders.Add(spider);
+
+        _enabled = true;
     }
 
     public void AddPermanentSpider()
@@ -85,6 +87,9 @@ public sealed class SpiderUIController : UIController
             spider.Widget.Parent?.RemoveChild(spider.Widget);
         }
         _temporarySpiders.Clear();
+
+        if (_permanentSpider == null)
+            _enabled = false;
     }
 
     private bool ShouldShowSpiders()
