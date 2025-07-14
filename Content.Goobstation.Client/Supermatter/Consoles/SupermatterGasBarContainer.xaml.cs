@@ -4,7 +4,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 
-namespace Content.Client.Supermatter.Consoles;
+namespace Content.Goobstation.Client.Supermatter.Consoles;
 
 [GenerateTypedNameReferences]
 public sealed partial class SupermatterGasBarContainer : BoxContainer

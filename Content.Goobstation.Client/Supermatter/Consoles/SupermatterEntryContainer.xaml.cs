@@ -13,7 +13,7 @@ using Robust.Client.UserInterface.XAML;
 using Serilog;
 using System.Linq;
 
-namespace Content.Client.Supermatter.Consoles;
+namespace Content.Goobstation.Client.Supermatter.Consoles;
 
 [GenerateTypedNameReferences]
 public sealed partial class SupermatterEntryContainer : BoxContainer

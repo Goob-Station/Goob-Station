@@ -1,6 +1,6 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                xmlns:ui="clr-namespace:Content.Client.Pinpointer.UI"
-               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+               xmlns:controls="using:Content.Client.UserInterface.Controls"
                Title="{Loc 'supermatter-console-window-title'}"
                Resizable="True"
                SetSize="700 550"

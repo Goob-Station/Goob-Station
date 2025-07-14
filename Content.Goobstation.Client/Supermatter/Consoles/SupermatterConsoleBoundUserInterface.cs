@@ -1,6 +1,6 @@
 using Content.Goobstation.Shared.Supermatter.Components;
 
-namespace Content.Client.Supermatter.Consoles;
+namespace Content.Goobstation.Client.Supermatter.Consoles;
 
 public sealed class SupermatterConsoleBoundUserInterface : BoundUserInterface
 {
