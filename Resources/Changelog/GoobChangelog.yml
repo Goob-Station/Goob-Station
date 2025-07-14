@@ -12187,3 +12187,99 @@ Entries:
       message: Fixed Resomi gasp and deathgasp not working.
   id: 1342
   time: '2025-07-14T08:04:05.0000000+00:00'
+- author: AgentePanela
+  changes:
+    - type: Tweak
+      message: Open remote devices action icon.
+  id: 1343
+  time: '2025-07-14T08:12:35.0000000+00:00'
+- author: pheenty, jimmy12or, gentlebutter
+  changes:
+    - type: Add
+      message: Added plant BoH and plant box. Like ore BoH and ore box, but for plants.
+    - type: Tweak
+      message: You can now dump plant bags deirectly into biogenerators.
+    - type: Tweak
+      message: Mutated plants can now contain more random chemicals.
+  id: 1344
+  time: '2025-07-14T08:26:40.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Changed some values from the ratking to make it slightly better at what
+        it does, without directly buffing its combat stats.
+  id: 1345
+  time: '2025-07-14T08:27:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer have paradox clones of nor revolutionize Gemini
+        clones.
+    - type: Fix
+      message: You (Hopefully) can no longer have paradox clones of the station AI.
+  id: 1346
+  time: '2025-07-14T08:28:49.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Modsuits no longer drop suit items when equipped or unequipped
+  id: 1347
+  time: '2025-07-14T08:50:39.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Dramatically improved performance of the flammable system.
+  id: 1348
+  time: '2025-07-14T08:58:32.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Made some performance improvements to the Holopad system.
+  id: 1349
+  time: '2025-07-14T08:59:17.0000000+00:00'
+- author: sprkl
+  changes:
+    - type: Add
+      message: Added Cooing emote to Harpies. You can now Coo with 5 variations!
+  id: 1350
+  time: '2025-07-14T09:00:26.0000000+00:00'
+- author: ARMOK
+  changes:
+    - type: Remove
+      message: Syringes cannot combat mode inject anymore.
+    - type: Tweak
+      message: >-
+        Syringes do not inject on embed anymore without being shot from a
+        syringe gun.
+  id: 1351
+  time: '2025-07-14T09:10:01.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Rusk sickness made weaker overall
+  id: 1352
+  time: '2025-07-14T09:13:27.0000000+00:00'
+- author: Chuds
+  changes:
+    - type: Remove
+      message: Removed TC Miners.
+  id: 1353
+  time: '2025-07-14T09:21:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle max speed is now properly 60 again.
+    - type: Fix
+      message: Space is now frictionless again.
+  id: 1354
+  time: '2025-07-14T09:22:20.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Tweak
+      message: PTL no longer constantly emits rads.
+    - type: Tweak
+      message: Increased max draw of PTL. (1MJ -> 5MJ)
+  id: 1355
+  time: '2025-07-14T09:34:10.0000000+00:00'
