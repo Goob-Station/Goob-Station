@@ -5,7 +5,7 @@
   isVisibleLanguage: true
   speech:
     color: "#ce5e14dd"
-    fontId: Noganas
+    # fontId: Noganas #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

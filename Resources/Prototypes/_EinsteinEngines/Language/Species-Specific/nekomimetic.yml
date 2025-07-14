@@ -6,7 +6,7 @@
   isVisibleLanguage: true
   speech:
     color: "#df57aaee"
-    fontId: Manga
+    # fontId: Manga #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

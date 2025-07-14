@@ -5,7 +5,7 @@
   isVisibleLanguage: true
   speech:
     color: "#00a3e2dd"
-    fontId: RubikBubbles
+    # fontId: RubikBubbles #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

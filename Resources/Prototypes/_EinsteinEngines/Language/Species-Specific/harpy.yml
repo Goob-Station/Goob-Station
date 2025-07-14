@@ -4,7 +4,7 @@
   id: ValyrianStandard
   isVisibleLanguage: true
   speech:
-    fontId: Cambria
+    # fontId: Cambria #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
     color: "#008ecc"
   obfuscation:
     !type:SyllableObfuscation

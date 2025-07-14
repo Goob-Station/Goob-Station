@@ -2,7 +2,7 @@
   id: Calcic
   isVisibleLanguage: true
   speech:
-    fontId: LDFComicSans
+    # fontId: LDFComicSans #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
     color: "#e3dac9"
   obfuscation:
     !type:SyllableObfuscation

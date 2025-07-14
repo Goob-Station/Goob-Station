@@ -5,7 +5,7 @@
   isVisibleLanguage: true
   speech:
     color: "#c7df2edd"
-    fontId: Copperplate
+    # fontId: Copperplate #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2 # Replacements are really short

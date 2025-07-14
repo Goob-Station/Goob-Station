@@ -6,7 +6,7 @@
   isVisibleLanguage: true
   speech:
     color: "#da954bee"
-    fontId: Noganas # Rugged, like the people and the land
+    # fontId: Noganas # Rugged, like the people and the land #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2 # this is mostly based on the name generator, 2-4 is there so it goes here too

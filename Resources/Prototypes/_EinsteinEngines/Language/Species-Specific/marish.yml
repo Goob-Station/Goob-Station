@@ -4,7 +4,7 @@
   isVisibleLanguage: true
   speech:
     color: "#be3cc5"
-    fontId: Lymphatic
+    # fontId: Lymphatic #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
     empathySpeech: false
     speechVerbOverrides:
     - chat-speech-verb-marish
