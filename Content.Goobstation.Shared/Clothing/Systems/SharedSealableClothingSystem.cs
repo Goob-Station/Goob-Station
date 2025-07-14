@@ -310,7 +310,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             return false;
 
         // All parts required to be toggled to perform sealing
-        if (_toggleableSystem.GetAttachedToggleStatus(user.Value, uid, false) != ToggleableClothingAttachedStatus.AllToggled)
+        if (!comp.IsCurrentlySealed && _toggleableSystem.GetAttachedToggleStatus(user.Value, uid, false) != ToggleableClothingAttachedStatus.AllToggled)
         {
             _popupSystem.PopupClient(Loc.GetString(comp.ToggleFailedPopup), uid, user);
             _audioSystem.PlayPredicted(comp.FailSound, uid, user);
