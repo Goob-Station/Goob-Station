@@ -530,7 +530,7 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
-    - id: NTCQCManual
+    - id: NTCQCManual # Goobstation - martial arts
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
