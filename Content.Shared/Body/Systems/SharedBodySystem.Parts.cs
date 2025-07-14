@@ -297,9 +297,8 @@ public partial class SharedBodySystem
         Entity<BodyPartComponent> partEnt,
         string slotId)
     {
-        Dirty(partEnt, partEnt.Comp);
         partEnt.Comp.Body = bodyEnt;
-
+        Dirty(partEnt, partEnt.Comp);
         var ev = new BodyPartAddedEvent(slotId, partEnt);
         RaiseLocalEvent(bodyEnt, ref ev);
 
@@ -640,11 +639,16 @@ public partial class SharedBodySystem
 
         part.ParentSlot = slot;
 
-        if (HasComp<HumanoidAppearanceComponent>(part.Body)
-            && !HasComp<BodyPartAppearanceComponent>(partId)
-            && !TerminatingOrDeleted(parentPartId)
-            && !TerminatingOrDeleted(partId)) // Saw some exceptions involving these due to the spawn menu.
-            EnsureComp<BodyPartAppearanceComponent>(partId);
+        // I cant think of a better way to do this, basically ents get their profile loaded twice when they are initialized.
+        // If I try to add PartAppearance to them before this, then only the default urist colors/markings get loaded, so we track if it has been done
+        // via this param. However by doing that I also prevent PartAppearance from being ensured on newly attached parts, therefore we have this shitcod.
+        if (parentPart.Body is { } body
+            && TryComp<HumanoidAppearanceComponent>(body, out var humanoid)
+            && !humanoid.ProfileLoaded)
+        {
+            humanoid.ProfileLoaded = true;
+            Dirty(body, humanoid);
+        }
 
         return Containers.Insert(partId, container);
     }
@@ -981,10 +985,11 @@ public partial class SharedBodySystem
         return containerNames.Count > 0;
     }
 
-    public bool TryGetPartFromSlotContainer(string slot, out BodyPartType? partType)
+    public bool TryGetPartFromSlotContainer(string slot, [NotNullWhen(true)] out BodyPartType? partType)
     {
         partType = slot switch
         {
+            "innerclothing" or "outerclothing" => BodyPartType.Chest,
             "gloves" => BodyPartType.Hand,
             "shoes" => BodyPartType.Foot,
             "eyes" or "ears" or "head" or "mask" => BodyPartType.Head,
@@ -1086,12 +1091,6 @@ public partial class SharedBodySystem
         //parentPart.Children.Remove(slot.Id);
 
         // start-backmen: surgery
-        if (HasComp<HumanoidAppearanceComponent>(part.Body)
-            && !HasComp<BodyPartAppearanceComponent>(partId)
-            && !TerminatingOrDeleted(parentPartId)
-            && !TerminatingOrDeleted(partId)) // Saw some exceptions involving these due to the spawn menu.
-            EnsureComp<BodyPartAppearanceComponent>(partId);
-
         return Containers.Remove(partId, container);
     }
 
@@ -1261,6 +1260,25 @@ public partial class SharedBodySystem
 
     }
 
+    public IEnumerable<(EntityUid Id, BodyPartComponent Component, T ExtraComponent)> GetBodyChildrenOfTypeWithComponent<T>(
+        EntityUid bodyId,
+        BodyPartType type,
+        BodyComponent? body = null,
+        BodyPartSymmetry? symmetry = null)
+        where T : IComponent
+    {
+        var query = GetEntityQuery<T>();
+
+        foreach (var part in GetBodyChildren(bodyId, body))
+        {
+            if (part.Component.PartType == type
+                && (symmetry == null || part.Component.Symmetry == symmetry)
+                && query.TryGetComponent(part.Id, out var extraComponent))
+            {
+                yield return (part.Id, part.Component, extraComponent);
+            }
+        }
+    }
     // Shitmed Change End
 
     /// <summary>

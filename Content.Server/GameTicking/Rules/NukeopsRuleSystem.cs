@@ -71,6 +71,8 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -336,7 +338,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
     private void OnComponentRemove(EntityUid uid, NukeOperativeComponent component, ComponentRemove args)
     {
-        CheckRoundShouldEnd();
+        CheckRoundShouldEnd(false); // Goobstation
     }
 
     private void OnMobStateChanged(EntityUid uid, NukeOperativeComponent component, MobStateChangedEvent ev)
@@ -503,16 +505,18 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             _roundEndSystem.EndRound();
     }
 
-    private void CheckRoundShouldEnd()
+    private void CheckRoundShouldEnd(bool announce = true) // Goobstation
     {
         var query = QueryActiveRules();
         while (query.MoveNext(out var uid, out _, out var nukeops, out _))
         {
-            CheckRoundShouldEnd((uid, nukeops));
+            CheckRoundShouldEnd((uid, nukeops),
+                                announce); // Goobstation
         }
     }
 
-    private void CheckRoundShouldEnd(Entity<NukeopsRuleComponent> ent)
+    private void CheckRoundShouldEnd(Entity<NukeopsRuleComponent> ent,
+                                     bool announce = true) // Goobstation
     {
         var nukeops = ent.Comp;
 
@@ -569,9 +573,10 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         SetWinType(ent, WinType.CrewMajor, false);
 
         // goob edit - no more roundend behavior, just announcement
-        _chat.DispatchGlobalAnnouncement(
-            Loc.GetString(nukeops.RoundEndTextAnnouncement),
-            Loc.GetString(nukeops.RoundEndTextSender));
+        if (announce)
+            _chat.DispatchGlobalAnnouncement(
+                Loc.GetString(nukeops.RoundEndTextAnnouncement),
+                Loc.GetString(nukeops.RoundEndTextSender));
 
         // prevent it called multiple times
         nukeops.RoundEndBehavior = RoundEndBehavior.Nothing;

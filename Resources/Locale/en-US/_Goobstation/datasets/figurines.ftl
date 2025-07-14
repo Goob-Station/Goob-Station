@@ -9,3 +9,14 @@ figurines-devil-8 = What? No, "Strength" will make you stronger, just trust me!
 figurines-devil-9 = I said I wanted your "Soul", not "Sole". Take the shoes back!
 figurines-devil-10 = No bitches? I can help with that.
 figurines-devil-11 = True name? You don't need to worry about that.
+
+figurines-brigmedic-1 = Remember, team, I am the only thing standing between you and the instant death!
+figurines-brigmedic-2 = The healing is not as rewarding as the hurting.
+figurines-brigmedic-3 = Come over here. I promise I will heal you!
+figurines-brigmedic-4 = It's not a war crime if you had fun.
+figurines-brigmedic-5 = Oops! That was not medicine!
+figurines-brigmedic-6 = Ugh, I do not think we brought enough body bags.
+figurines-brigmedic-7 = Yes, this green glowing chemical is totally just pentenic acid.
+figurines-brigmedic-8 = Stay alive, I didn’t waste all my meds for nothing.
+figurines-brigmedic-9 = Geneva Convention? More like Geneva Suggestion!
+figurines-brigmedic-10 = You call that a wound? I’ve seen worse from just one bullet!

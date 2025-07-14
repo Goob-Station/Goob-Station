@@ -21,6 +21,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Minty642 <42335609+Minty642@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -128,14 +130,14 @@
   minTemp: 374
   reactants:
     Oil:
-      amount: 1 # Goob edit - revert that once we get energy chem
+      amount: 10 # Goob edit - revert that once we get energy chem
     Ash:
-      amount: 0.6 # Goob edit - revert that once we get energy chem
+      amount: 6 # Goob edit - revert that once we get energy chem
     SulfuricAcid:
-      amount: 0.4 # Goob edit - revert that once we get energy chem
+      amount: 4 # Goob edit - revert that once we get energy chem
   effects:
     - !type:CreateEntityReactionEffect
-      entity: SheetPlastic1
+      entity: SheetPlastic10  
 
 - type: reaction
   id: FlashFreezeIce

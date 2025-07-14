@@ -1,5 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -132,7 +135,7 @@
   - type: AmmoCounter
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 2
+    fireRate: 1.25
     burstFireRate: 10
     shotsPerBurst: 3
     burstCooldown: 1

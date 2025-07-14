@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
@@ -29,6 +30,8 @@
     icon:
       sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
       state: cursed_heart
+    checkCanInteract: false
+    checkConsciousness: false
     itemIconStyle: BigAction
     event: !type:PumpHeartActionEvent
     useDelay: 1

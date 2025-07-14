@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesSandals
+  name: sandals
+  description: A pair of simple but stylish sandals.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Specific/sandals.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Specific/sandals.rsi

@@ -54,6 +54,7 @@
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -63,8 +64,8 @@ meta:
   engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 05/15/2025 09:21:13
-  entityCount: 15671
+  time: 05/19/2025 10:47:28
+  entityCount: 15669
 maps:
 - 1
 grids:
@@ -10073,9 +10074,9 @@ entities:
           6,-6:
             1: 61695
           6,-8:
-            1: 19456
+            1: 52224
           7,-8:
-            1: 22272
+            1: 30464
           7,-7:
             1: 21847
           7,-6:
@@ -10325,7 +10326,7 @@ entities:
           -6,10:
             0: 36606
           -6,7:
-            0: 62139
+            0: 62207
           -6,9:
             0: 61152
           -6,11:
@@ -10465,13 +10466,10 @@ entities:
           -9,12:
             0: 48056
           -12,-4:
-            1: 7
             0: 57088
-          -12,-5:
-            1: 28928
           -13,-4:
-            1: 4383
             0: 52352
+            1: 4368
           -12,-3:
             0: 8141
           -13,-3:
@@ -10519,11 +10517,7 @@ entities:
           -14,-1:
             0: 65248
           -14,-4:
-            1: 44680
-          -14,-5:
-            1: 32768
-          -13,-5:
-            1: 64512
+            1: 44672
           -16,1:
             0: 36863
           -17,1:
@@ -10700,8 +10694,7 @@ entities:
           -6,13:
             0: 65520
           -6,14:
-            0: 49399
-            2: 8
+            0: 49407
             1: 4096
           -6,15:
             1: 4369
@@ -10744,7 +10737,7 @@ entities:
             0: 119
             1: 61440
           -2,16:
-            1: 249
+            1: 39417
           -1,13:
             1: 17
             0: 4300
@@ -10802,46 +10795,25 @@ entities:
           -3,20:
             1: 65535
           -2,17:
-            1: 61440
+            1: 28687
           -2,18:
-            1: 65535
+            1: 30583
           -2,19:
-            1: 65535
+            1: 30583
           -2,20:
-            1: 65535
+            1: 30583
           -1,17:
-            1: 28672
-          -1,18:
-            1: 65399
-          -1,19:
-            1: 65535
-          -1,20:
-            1: 65535
-          0,18:
-            1: 4352
-          0,19:
-            1: 4369
+            1: 19
+            2: 1024
           -8,17:
             0: 7
             1: 128
           -9,17:
             1: 12963
           -7,17:
-            1: 34824
+            1: 2056
           -6,17:
-            1: 65339
-          -7,18:
-            1: 34952
-          -6,18:
-            1: 65535
-          -7,19:
-            1: 34952
-          -6,19:
-            1: 65535
-          -7,20:
-            1: 34952
-          -6,20:
-            1: 65535
+            1: 3899
           -5,20:
             1: 65535
           -12,13:
@@ -11176,7 +11148,7 @@ entities:
             3: 57344
           -23,10:
             3: 224
-            6: 57344
+            2: 57344
           -23,12:
             1: 242
           -22,11:
@@ -11246,36 +11218,6 @@ entities:
             1: 3584
           8,-2:
             1: 4369
-          -4,21:
-            1: 65535
-          -5,21:
-            1: 36863
-          -4,22:
-            1: 15
-          -5,22:
-            1: 8
-          -3,21:
-            1: 65535
-          -3,22:
-            1: 15
-          -2,21:
-            1: 65535
-          -2,22:
-            1: 15
-          -1,21:
-            1: 65535
-          -1,22:
-            1: 15
-          0,20:
-            1: 4369
-          0,21:
-            1: 4369
-          0,22:
-            1: 1
-          -7,21:
-            1: 2184
-          -6,21:
-            1: 4095
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -11316,12 +11258,12 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.14975
+          temperature: 293.15
           moles:
-          - 20.078888
-          - 75.53487
           - 0
           - 0
+          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -11379,25 +11321,6 @@ entities:
           - 6666.982
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 6666.982
           - 0
           - 0
           - 0
@@ -12346,6 +12269,11 @@ entities:
     components:
     - type: Transform
       pos: -62.5,43.5
+      parent: 2
+  - uid: 302
+    components:
+    - type: Transform
+      pos: -55.5,62.5
       parent: 2
 - proto: AirlockCaptainLocked
   entities:
@@ -13722,11 +13650,6 @@ entities:
     components:
     - type: Transform
       pos: -52.5,69.5
-      parent: 2
-  - uid: 302
-    components:
-    - type: Transform
-      pos: -55.5,62.5
       parent: 2
   - uid: 303
     components:
@@ -15417,6 +15340,18 @@ entities:
     components:
     - type: Transform
       pos: 17.5,48.5
+      parent: 2
+- proto: BedsheetBrigmedic
+  entities:
+  - uid: 5247
+    components:
+    - type: Transform
+      pos: -55.5,65.5
+      parent: 2
+  - uid: 5248
+    components:
+    - type: Transform
+      pos: -54.5,65.5
       parent: 2
 - proto: BedsheetCaptain
   entities:
@@ -38758,17 +38693,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 18.5,45.5
       parent: 2
-  - uid: 5168
-    components:
-    - type: Transform
-      pos: -54.5,65.5
-      parent: 2
-  - uid: 5169
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -54.5,63.5
-      parent: 2
   - uid: 5170
     components:
     - type: Transform
@@ -43899,6 +43823,11 @@ entities:
       parent: 2
 - proto: Defibrillator
   entities:
+  - uid: 5246
+    components:
+    - type: Transform
+      pos: -56.553486,63.71003
+      parent: 2
   - uid: 5646
     components:
     - type: Transform
@@ -48407,18 +48336,6 @@ entities:
     - type: Transform
       pos: -17.654377,-4.445471
       parent: 2
-  - uid: 6426
-    components:
-    - type: Transform
-      pos: -54.71723,64.74812
-      parent: 2
-- proto: DrinkMugBlue
-  entities:
-  - uid: 6427
-    components:
-    - type: Transform
-      pos: -54.232857,64.76375
-      parent: 2
 - proto: DrinkMugHeart
   entities:
   - uid: 6428
@@ -48447,11 +48364,6 @@ entities:
       parent: 2
 - proto: DrinkMugRed
   entities:
-  - uid: 6432
-    components:
-    - type: Transform
-      pos: -54.27973,64.43562
-      parent: 2
   - uid: 6433
     components:
     - type: Transform
@@ -51878,13 +51790,6 @@ entities:
     components:
     - type: Transform
       pos: -35.01638,3.9468641
-      parent: 2
-- proto: FoodBoxDonkpocketBerry
-  entities:
-  - uid: 6939
-    components:
-    - type: Transform
-      pos: -54.482857,64.65437
       parent: 2
 - proto: FoodBoxDonut
   entities:
@@ -75155,11 +75060,6 @@ entities:
     - type: Transform
       pos: -61.5,89.5
       parent: 2
-  - uid: 10245
-    components:
-    - type: Transform
-      pos: -56.5,63.5
-      parent: 2
 - proto: KitchenReagentGrinder
   entities:
   - uid: 10246
@@ -75586,6 +75486,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: LockerBrigmedicFilled
+  entities:
+  - uid: 5249
+    components:
+    - type: Transform
+      pos: -56.5,65.5
+      parent: 2
 - proto: LockerCaptainFilledHardsuit
   entities:
   - uid: 10289
@@ -77140,6 +77047,16 @@ entities:
       parent: 2
 - proto: MedicalBed
   entities:
+  - uid: 5169
+    components:
+    - type: Transform
+      pos: -54.5,65.5
+      parent: 2
+  - uid: 5244
+    components:
+    - type: Transform
+      pos: -55.5,65.5
+      parent: 2
   - uid: 10461
     components:
     - type: Transform
@@ -82703,6 +82620,11 @@ entities:
       parent: 2
 - proto: RandomSpawner
   entities:
+  - uid: 5245
+    components:
+    - type: Transform
+      pos: -55.5,65.5
+      parent: 2
   - uid: 11314
     components:
     - type: Transform
@@ -84283,11 +84205,6 @@ entities:
     components:
     - type: Transform
       pos: -61.5,65.5
-      parent: 2
-  - uid: 11630
-    components:
-    - type: Transform
-      pos: -55.5,65.5
       parent: 2
   - uid: 11631
     components:
@@ -88448,6 +88365,13 @@ entities:
     - type: Transform
       pos: -41.5,42.5
       parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 5168
+    components:
+    - type: Transform
+      pos: -55.5,64.5
+      parent: 2
 - proto: SpawnPointCaptain
   entities:
   - uid: 12331
@@ -92104,11 +92028,6 @@ entities:
     - type: Transform
       pos: -19.5,46.5
       parent: 2
-  - uid: 12925
-    components:
-    - type: Transform
-      pos: -54.5,64.5
-      parent: 2
   - uid: 12926
     components:
     - type: Transform
@@ -93251,13 +93170,6 @@ entities:
     components:
     - type: Transform
       pos: -8.5,34.5
-      parent: 2
-- proto: VendingMachineDonut
-  entities:
-  - uid: 13096
-    components:
-    - type: Transform
-      pos: -56.5,65.5
       parent: 2
 - proto: VendingMachineEngiDrobe
   entities:

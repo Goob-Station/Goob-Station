@@ -44,6 +44,8 @@
   id: BorgChassisSelectable
   parent: BaseBorgChassisNT
   components:
+  - type: TTS # CorvaxGoob-TTS
+    voice: TrainingRobot
   - type: Sprite
     layers:
     - state: robot

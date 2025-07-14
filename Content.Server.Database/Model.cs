@@ -588,6 +588,7 @@ namespace Content.Server.Database
         public Guid UserId { get; set; }
         public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
+        public List<string> ConstructionFavorites { get; set; } = new();
         public List<Profile> Profiles { get; } = new();
     }
 
@@ -597,12 +598,11 @@ namespace Content.Server.Database
         public int Slot { get; set; }
         [Column("char_name")] public string CharacterName { get; set; } = null!;
         public string FlavorText { get; set; } = null!;
-        // #Goobstation - Borg Preferred Name
-        public string BorgName { get; set; } = null!;
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
+        public string Voice { get; set; } = null!; // CorvaxGoob-TTS
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;

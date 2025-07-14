@@ -13,13 +13,17 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -30,11 +34,17 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
+    chaosScore: 800
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroups
+    maxDifficulty: 5
   - type: AntagObjectives
     objectives:
+    - ChangelingSurviveObjective
+    - ChangelingStealDNAObjective
     - ChangelingAbsorbObjective
     - EscapeIdentityObjective
-    - ChangelingSurviveObjective
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
@@ -56,6 +66,7 @@
   components:
   - type: GameRule
     minPlayers: 30
+    chaosScore: 700
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -79,6 +90,7 @@
   components:
   - type: GameRule
     minPlayers: 30
+    chaosScore: 450
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
@@ -99,6 +111,7 @@
   components:
   - type: GameRule
     minPlayers: 30
+    chaosScore: 1000
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -136,6 +149,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: SurgerySpeedModifier # shitmed
+        speedModifier: 2
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
@@ -166,6 +181,7 @@
   components:
   - type: GameRule
     minPlayers: 30
+    chaosScore: 700
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -193,6 +209,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: BlobRule
+  - type: GameRule
+    chaosScore: 1000
 
 - type: entity
   id: BlobGameMode
@@ -202,6 +220,7 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 15
+    chaosScore: 1000
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -233,6 +252,9 @@
       Hostile: 200
       Death: 300
       Medical: 200
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 1000
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
@@ -289,6 +311,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: SurgerySpeedModifier # shitmed
+        speedModifier: 2
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
@@ -318,6 +342,7 @@
   components:
   - type: DevilRule
   - type: GameRule
+    chaosScore: 350 # low since they tend to revive people and stuff
     minPlayers: 15
   - type: AntagObjectives
     objectives:

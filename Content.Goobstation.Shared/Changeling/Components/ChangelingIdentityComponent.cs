@@ -16,6 +16,7 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
@@ -48,6 +49,11 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     [DataField("shriekPower")]
     public float ShriekPower = 2.5f;
+
+    [DataField("armorTransform")]
+    public SoundSpecifier ArmourSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/armour_transform.ogg");
+    [DataField("armorStrip")]
+    public SoundSpecifier ArmourStripSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/armour_strip.ogg");
 
     public readonly List<EntProtoId> BaseChangelingActions = new()
     {
@@ -86,6 +92,27 @@ public sealed partial class ChangelingIdentityComponent : Component
     public Dictionary<string, EntityUid?> Equipment = new();
 
     /// <summary>
+    ///     The default stasis time (in s).
+    /// </summary>
+    public readonly int DefaultStasisTime = 30;
+
+    /// <summary>
+    ///     The typical longest time that stasis can last (in s).
+    /// </summary>
+    public readonly int MaxStasisTime = 90;
+
+    /// <summary>
+    ///     The time a changeling must stay in stasis upon taking catastrophic damage (in s).
+    /// </summary>
+    public readonly int CatastrophicStasisTime = 120;
+
+    /// <summary>
+    ///     Time in seconds the changeling must spend in stasis.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float StasisTime;
+
+    /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -96,6 +123,12 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MaxChemicals = 100.0f;
+
+    /// <summary>
+    ///     Total evolution points gained by the changeling.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float TotalEvolutionPoints;
 
     /// <summary>
     ///     Bonus chemicals regeneration. In case
@@ -115,8 +148,18 @@ public sealed partial class ChangelingIdentityComponent : Component
     public TimeSpan UpdateTimer = TimeSpan.Zero;
     public float UpdateCooldown = 1f;
 
+    /// <summary>
+    ///     All of the DNA that the changeling had extracted in their lifetime.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public List<TransformData> AbsorbedHistory = new();
+
+    /// <summary>
+    ///     The DNA that the changeling has stored up.
+    /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
+
     /// <summary>
     ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
     /// </summary>
@@ -133,6 +176,12 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public int TotalAbsorbedEntities = 0;
+
+    /// <summary>
+    ///     Total absorbed changelings. Used as a 'bonus' for its respective objective.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int TotalChangelingsAbsorbed = 0;
 
     /// <summary>
     ///     Total stolen DNA. Counts towards objectives.

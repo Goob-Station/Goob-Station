@@ -1,13 +1,15 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Shared.Projectiles;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Events;
 
 namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileThrowOnHit;
 
@@ -16,23 +18,20 @@ namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileThrowOnHit;
 /// </summary>
 public sealed class ProjectileThrowOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
-    /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<ProjectileThrowOnHitComponent, StartCollideEvent>(OnProjectileCollide);
+        SubscribeLocalEvent<ProjectileThrowOnHitComponent, ProjectileHitEvent>(OnProjectileHit);
         SubscribeLocalEvent<ProjectileThrowOnHitComponent, ThrowDoHitEvent>(OnThrowHit);
     }
 
-    private void OnProjectileCollide(Entity<ProjectileThrowOnHitComponent> projectile, ref StartCollideEvent args)
+    private void OnProjectileHit(Entity<ProjectileThrowOnHitComponent> projectile, ref ProjectileHitEvent args)
     {
-        var projectilePos = _transform.GetWorldPosition(args.OurEntity);
+        if (!TryComp<PhysicsComponent>(projectile, out var physics))
+            return;
 
-        var targetPos = _transform.GetMapCoordinates(args.OtherEntity).Position;
-        var direction = targetPos - projectilePos;
-        ThrowOnHitHelper(projectile, args.OurEntity, args.OtherEntity, direction);
+        ThrowOnHitHelper(projectile, projectile, args.Target, physics.LinearVelocity);
     }
 
     private void OnThrowHit(Entity<ProjectileThrowOnHitComponent> projectile, ref ThrowDoHitEvent args)

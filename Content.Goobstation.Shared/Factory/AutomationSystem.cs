@@ -113,7 +113,7 @@ public sealed class AutomationSystem : EntitySystem
             return null;
 
         // automation isn't enabled
-        if (!_automatedQuery.HasComp(ent))
+        if (!IsAutomated(ent))
             return null;
 
         foreach (var slot in ent.Comp.Slots)
@@ -124,6 +124,11 @@ public sealed class AutomationSystem : EntitySystem
         }
 
         return null;
+    }
+
+    public bool IsAutomated(EntityUid uid)
+    {
+        return _automatedQuery.HasComp(uid);
     }
 
     public bool HasSlot(Entity<AutomationSlotsComponent?> ent, string port, bool input)

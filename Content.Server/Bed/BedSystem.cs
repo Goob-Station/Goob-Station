@@ -63,7 +63,6 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
@@ -73,8 +72,11 @@
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -83,6 +85,7 @@ using Content.Server.Bed.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Bed;
+using Content.Shared.Bed.Components;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Components;
 using Content.Shared.Buckle.Components;
@@ -94,45 +97,29 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Shared._Shitmed.Damage; // Shitmed Change
 
 namespace Content.Server.Bed
 {
-    public sealed class BedSystem : EntitySystem
+    public sealed class BedSystem : SharedBedSystem
     {
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-        [Dependency] private readonly ActionsSystem _actionsSystem = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
-        [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
+
+        private EntityQuery<SleepingComponent> _sleepingQuery;
 
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<HealOnBuckleComponent, StrappedEvent>(OnStrapped);
-            SubscribeLocalEvent<HealOnBuckleComponent, UnstrappedEvent>(OnUnstrapped);
+
+            _sleepingQuery = GetEntityQuery<SleepingComponent>();
+
             SubscribeLocalEvent<StasisBedComponent, StrappedEvent>(OnStasisStrapped);
             SubscribeLocalEvent<StasisBedComponent, UnstrappedEvent>(OnStasisUnstrapped);
             SubscribeLocalEvent<StasisBedComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<StasisBedComponent, GotEmaggedEvent>(OnEmagged);
-        }
-
-        private void OnStrapped(Entity<HealOnBuckleComponent> bed, ref StrappedEvent args)
-        {
-            EnsureComp<HealOnBuckleHealingComponent>(bed);
-            bed.Comp.NextHealTime = _timing.CurTime + TimeSpan.FromSeconds(bed.Comp.HealTime);
-            _actionsSystem.AddAction(args.Buckle, ref bed.Comp.SleepAction, SleepingSystem.SleepActionId, bed);
-
-            // Single action entity, cannot strap multiple entities to the same bed.
-            DebugTools.AssertEqual(args.Strap.Comp.BuckledEntities.Count, 1);
-        }
-
-        private void OnUnstrapped(Entity<HealOnBuckleComponent> bed, ref UnstrappedEvent args)
-        {
-            _actionsSystem.RemoveAction(args.Buckle, bed.Comp.SleepAction);
-            _sleepingSystem.TryWaking(args.Buckle.Owner);
-            RemComp<HealOnBuckleHealingComponent>(bed);
         }
 
         public override void Update(float frameTime)
@@ -142,7 +129,7 @@ namespace Content.Server.Bed
             var query = EntityQueryEnumerator<HealOnBuckleHealingComponent, HealOnBuckleComponent, StrapComponent>();
             while (query.MoveNext(out var uid, out _, out var bedComponent, out var strapComponent))
             {
-                if (_timing.CurTime < bedComponent.NextHealTime)
+                if (Timing.CurTime < bedComponent.NextHealTime)
                     continue;
 
                 bedComponent.NextHealTime += TimeSpan.FromSeconds(bedComponent.HealTime);
@@ -158,10 +145,10 @@ namespace Content.Server.Bed
 
                     var damage = bedComponent.Damage;
 
-                    if (HasComp<SleepingComponent>(healedEntity))
+                    if (_sleepingQuery.HasComp(healedEntity))
                         damage *= bedComponent.SleepMultiplier;
 
-                    _damageableSystem.TryChangeDamage(healedEntity, damage * 11f, true, origin: uid, targetPart: TargetBodyPart.All); // Shitmed Change
+                    _damageableSystem.TryChangeDamage(healedEntity, damage, true, origin: uid, targetPart: TargetBodyPart.All, splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
                 }
             }
         }

@@ -37,7 +37,7 @@ public sealed class FirefighterTankRefillableSystem : EntitySystem
     private void OnFirefightingNozzleAfterInteract(Entity<FirefighterTankRefillableComponent> entity, ref AfterInteractEvent args)
     {
         var sprayOwner = entity.Owner;
-        var solutionName = FirefighterTankRefillableComponent.SolutionName;
+        var solutionName = entity.Comp.SolutionName;
 
         if (args.Handled)
             return;
@@ -59,10 +59,10 @@ public sealed class FirefighterTankRefillableSystem : EntitySystem
                     continue;
 
                 if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
-                    _solutionContainerSystem.TryGetSolution(item, FirefighterTankRefillableComponent.SolutionName, out _, out _))
+                    _solutionContainerSystem.TryGetSolution(item, entity.Comp.SolutionName, out _, out _))
                 {
                     sprayOwner = item;
-                    solutionName = FirefighterTankRefillableComponent.SolutionName;
+                    solutionName = entity.Comp.SolutionName;
                     foundContainer = true;
                     break;
                 }
@@ -74,10 +74,10 @@ public sealed class FirefighterTankRefillableSystem : EntitySystem
                 while (enumerator.NextItem(out var item))
                 {
                     if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
-                        _solutionContainerSystem.TryGetSolution(item, FirefighterTankRefillableComponent.SolutionName, out _, out _))
+                        _solutionContainerSystem.TryGetSolution(item, entity.Comp.SolutionName, out _, out _))
                     {
                         sprayOwner = item;
-                        solutionName = FirefighterTankRefillableComponent.SolutionName;
+                        solutionName = entity.Comp.SolutionName;
                         foundContainer = true;
                         break;
                     }

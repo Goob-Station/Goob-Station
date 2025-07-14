@@ -61,6 +61,10 @@
       points: 1
       required: true
       defaultMarkings: [ MobIPCChestDefault ]
+    Groin:
+      points: 1
+      required: true
+      defaultMarkings: [ MobIPCGroinDefault ]
     Legs:
       points: 4
       required: true
@@ -143,6 +147,24 @@
 
 - type: humanoidBaseSprite
   id: MobIPCGroinFemale
+
+- type: marking
+  id: MobIPCGroinDefault
+  bodyPart: Groin
+  markingCategory: Groin
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: groin_m
+
+- type: marking
+  id: MobIPCGroinFemaleDefault
+  bodyPart: Groin
+  markingCategory: Groin
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: groin_f
 
 # Left Leg
 

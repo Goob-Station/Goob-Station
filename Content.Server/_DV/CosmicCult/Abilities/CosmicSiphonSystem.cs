@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Religion;
+using Content.Server.Database;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Shared._DV.CosmicCult;
@@ -18,6 +19,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.NPC;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
+using Robust.Server.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
@@ -34,6 +36,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly CosmicCultSystem _cosmicCult = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly DivineInterventionSystem _divineIntervention = default!;
 
     private readonly HashSet<Entity<PoweredLightComponent>> _lights = [];
@@ -82,11 +85,10 @@ public sealed class CosmicSiphonSystem : EntitySystem
             || args.Cancelled
             || args.Handled)
             return;
-
         args.Handled = true;
 
-        if (_mind.TryGetMind(uid, out var _, out var mind) && mind.Session != null)
-            RaiseNetworkEvent(new CosmicSiphonIndicatorEvent(GetNetEntity(target)), mind.Session);
+        if (_mind.TryGetMind(uid, out var _, out var mind) && _player.TryGetSessionById(mind.UserId, out var session))
+            RaiseNetworkEvent(new CosmicSiphonIndicatorEvent(GetNetEntity(target)), session);
 
         uid.Comp.EntropyStored += uid.Comp.CosmicSiphonQuantity;
         uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;
