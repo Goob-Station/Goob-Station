@@ -12261,3 +12261,9 @@ Entries:
       message: Rusk sickness made weaker overall
   id: 1352
   time: '2025-07-14T09:13:27.0000000+00:00'
+- author: Chuds
+  changes:
+    - type: Remove
+      message: Removed TC Miners.
+  id: 1353
+  time: '2025-07-14T09:21:10.0000000+00:00'
