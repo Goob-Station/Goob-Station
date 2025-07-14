@@ -3,7 +3,10 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -35,7 +38,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
-    [Dependency] private readonly ComponentTogglerSystem _componentTogglerSystem = default!; 
+    [Dependency] private readonly ComponentTogglerSystem _componentTogglerSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -307,7 +310,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             return false;
 
         // All parts required to be toggled to perform sealing
-        if (_toggleableSystem.GetAttachedToggleStatus(uid) != ToggleableClothingAttachedStatus.AllToggled)
+        if (_toggleableSystem.GetAttachedToggleStatus(user.Value, uid, false) != ToggleableClothingAttachedStatus.AllToggled)
         {
             _popupSystem.PopupClient(Loc.GetString(comp.ToggleFailedPopup), uid, user);
             _audioSystem.PlayPredicted(comp.FailSound, uid, user);
