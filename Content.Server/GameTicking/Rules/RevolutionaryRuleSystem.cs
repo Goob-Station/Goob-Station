@@ -223,11 +223,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
 
         // Goobstation - Something something check for 30 conditions of mute or otherwise speech impeding shit that makes book pointless
-        if (HasComp<MumbleAccentComponent>(uid))
-            return; // Muzzles to bypass speech is bad
-
-        if (HasComp<MutedComponent>(uid))
-            return; // No speech = No convert
+        if (HasComp<MumbleAccentComponent>(uid) // Muzzles to bypass speech is bad
+            || HasComp<MutedComponent>(uid)) // No speech = No convert
+            return;
         // Goob edit end (for now)
 
         var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(ev.Target);
