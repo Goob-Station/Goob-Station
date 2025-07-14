@@ -675,3 +675,65 @@
       spawned:
       - id: FoodMeat
         amount: 1
+
+- type: entity
+  name: horse
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobHorse
+  description: Very foul creature. For those that feel like punching.
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 6
+    baseWalkSpeed: 4.5 # default walking speed
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Horse/horse.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: horse
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 15
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHorse
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - CannotSuicide
+  - type: Inventory
+    speciesId: horse
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: horse
+      Critical:
+        Base: horse_dead
+      Dead:
+        Base: horse_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 12
+  - type: InteractionPopup
+    successChance: 0.1
+    interactSuccessString: petting-success-horse
+    interactFailureString: petting-failure-horse
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/_Goobstation/Animals/horse.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
