@@ -28,6 +28,7 @@
   id: MobDionaSprites
   sprites:
     Head: MobDionaHead
+    Face: MobHumanoidAnyMarking #Pirate Changes
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Chest: MobDionaChest
@@ -68,6 +69,11 @@
       points: 1
       required: true
       defaultMarkings: [ DionaVineOverlay ]
+    # PIRATE START
+    Face:
+      points: 3
+      required: false
+    # PIRATE END
 
 - type: humanoidBaseSprite
   id: MobDionaEyes

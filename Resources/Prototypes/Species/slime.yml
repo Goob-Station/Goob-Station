@@ -22,6 +22,7 @@
   id: MobSlimeSprites
   sprites:
     Head: MobSlimeHead
+    Face: MobHumanoidAnyMarking #Pirate Changes
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
     Chest: MobSlimeChest
@@ -54,6 +55,11 @@
     Arms:
       points: 4
       required: false
+    # PIRATE START
+    Face:
+      points: 3
+      required: false
+    # PIRATE END
 
 - type: humanoidBaseSprite
   id: MobSlimeMarkingFollowSkin
