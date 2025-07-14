@@ -47,7 +47,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Roles;
 using Content.Shared.Anomaly.Components;
@@ -115,7 +114,6 @@ namespace Content.Server.Zombies
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ZombieComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<ZombieComponent, EmoteEvent>(OnEmote, before:
                 new[] { typeof(VocalSystem), typeof(BodyEmotesSystem) });
 
@@ -262,8 +260,6 @@ namespace Content.Server.Zombies
                 comp.CurrentLanguage = component.ForcedLanguage;
             _language.UpdateEntityLanguages(uid);
             // Goobstation Change End
-
-            _protoManager.TryIndex(component.EmoteSoundsId, out component.EmoteSounds);
         }
 
         private void OnEmote(EntityUid uid, ZombieComponent component, ref EmoteEvent args)
@@ -271,7 +267,10 @@ namespace Content.Server.Zombies
             // always play zombie emote sounds and ignore others
             if (args.Handled)
                 return;
-            args.Handled = _chat.TryPlayEmoteSound(uid, component.EmoteSounds, args.Emote);
+
+            _protoManager.TryIndex(component.EmoteSoundsId, out var sounds);
+
+            args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
         }
 
         private void OnMobState(EntityUid uid, ZombieComponent component, MobStateChangedEvent args)
