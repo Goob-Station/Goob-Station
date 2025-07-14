@@ -33,7 +33,8 @@
 - type: speciesBaseSprites
   id: MobReptilianSprites
   sprites:
-    Head: MobReptilianHead
+    Head: MobIPCHead # PIRATE
+    Face: MobHumanoidAnyMarking #Pirate Changes
     Snout: MobHumanoidAnyMarking
     Chest: MobReptilianChest
     Groin: MobReptilianGroin
@@ -54,6 +55,15 @@
   id: MobReptilianMarkingLimits
   onlyWhitelisted: true
   points:
+  # PIRATE START
+    Head:
+      points: 1
+      required: true
+      defaultMarkings: [ MarkingLizardBaseHead ]
+    Face:
+      points: 3
+      required: false
+  # PIRATE END
     Hair:
       points: 0
       required: false
@@ -105,37 +115,37 @@
 - type: humanoidBaseSprite
   id: MobReptilianChest
   baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
+    sprite: _Pirate/Mobs/Customization/reptilian_body.rsi # Pirate
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobReptilianChestMale
   baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
+    sprite: _Pirate/Mobs/Customization/reptilian_body.rsi # Pirate
     state: chest_m
 
 - type: humanoidBaseSprite
   id: MobReptilianChestFemale
   baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
+    sprite: _Pirate/Mobs/Customization/reptilian_body.rsi # Pirate
     state: chest_f
 
 - type: humanoidBaseSprite
   id: MobReptilianGroin
   baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
+    sprite: _Pirate/Mobs/Customization/reptilian_body.rsi # Pirate
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobReptilianGroinMale
   baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
+    sprite: _Pirate/Mobs/Customization/reptilian_body.rsi # Pirate
     state: groin_m
 
 - type: humanoidBaseSprite
   id: MobReptilianGroinFemale
   baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
+    sprite: _Pirate/Mobs/Customization/reptilian_body.rsi # Pirate
     state: groin_f
 
 - type: humanoidBaseSprite

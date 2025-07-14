@@ -23,6 +23,7 @@
   id: MobMothSprites
   sprites:
     Head: MobMothHead
+    Face: MobHumanoidAnyMarking #Pirate Changes
     Snout: MobHumanoidAnyMarking
     Chest: MobMothChest
     Groin: MobMothGroin
@@ -81,6 +82,11 @@
     Arms:
       points: 2
       required: false
+    # PIRATE START
+    Face:
+      points: 3
+      required: false
+    # PIRATE END
 
 - type: humanoidBaseSprite
   id: MobMothHead

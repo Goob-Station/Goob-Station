@@ -31,6 +31,7 @@
   id: MobShadowkinSprites
   sprites:
     Head: MobShadowkinHead
+    Face: MobHumanoidAnyMarking # Pirate changes
     Snout: MobShadowkinAnyMarkingFollowSkin
     HeadTop: MobShadowkinAnyMarking
     HeadSide: MobShadowkinAnyMarkingFollowSkin
@@ -67,6 +68,11 @@
     Arms:
       points: 6
       required: false
+    # Pirate changes start
+    Face:
+      points: 1
+      required: false
+    # Pirate changes end
 
 - type: humanoidBaseSprite
   id: MobShadowkinAnyMarkingFollowSkin
