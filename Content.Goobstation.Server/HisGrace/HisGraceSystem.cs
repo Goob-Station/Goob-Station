@@ -300,7 +300,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             true,
             false,
             targetPart: TargetBodyPart.All,
-            splitDamage: SplitDamageBehavior.SplitEnsureAll);
+            splitDamage: SplitDamageBehavior.SplitEnsureAll,
+            ignoreBlockers: true);
 
         // revive if dead
         if (_state.IsDead(user)
