@@ -12181,3 +12181,9 @@ Entries:
       message: Assistants have their playtime limit removed
   id: 1341
   time: '2025-07-13T23:20:08.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed Resomi gasp and deathgasp not working.
+  id: 1342
+  time: '2025-07-14T08:04:05.0000000+00:00'
