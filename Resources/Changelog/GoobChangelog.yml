@@ -12255,3 +12255,9 @@ Entries:
         syringe gun.
   id: 1351
   time: '2025-07-14T09:10:01.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Rusk sickness made weaker overall
+  id: 1352
+  time: '2025-07-14T09:13:27.0000000+00:00'
