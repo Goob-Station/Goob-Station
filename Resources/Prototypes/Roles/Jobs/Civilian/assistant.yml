@@ -90,7 +90,7 @@
   special:
   - !type:PlaytimeDegrade # MisandryBox - tider main syndrome
     since: 600
-    until: 60000
+    until: 24600
     disarmMalus: true
   access:
   - Maintenance
