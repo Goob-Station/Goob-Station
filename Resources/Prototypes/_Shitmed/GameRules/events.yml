@@ -77,6 +77,7 @@
         nameSegments:
           - AbductorScientistPrefix
           - AbductorNames
+        nameFormat: name-format-standard
       - type: Tag
         tags:
           - Abductor
@@ -173,6 +174,7 @@
         nameSegments:
           - AbductorScientistPrefix
           - AbductorNames
+        nameFormat: name-format-standard
       - type: Tag
         tags:
           - Abductor
@@ -223,6 +225,7 @@
         nameSegments:
           - AbductorAgentPrefix
           - AbductorNames
+        nameFormat: name-format-standard
       - type: Tag
         tags:
           - Abductor
