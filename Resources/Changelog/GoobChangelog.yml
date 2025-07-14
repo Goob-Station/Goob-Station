@@ -12221,3 +12221,57 @@ Entries:
       message: You (Hopefully) can no longer have paradox clones of the station AI.
   id: 1346
   time: '2025-07-14T08:28:49.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Modsuits no longer drop suit items when equipped or unequipped
+  id: 1347
+  time: '2025-07-14T08:50:39.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Dramatically improved performance of the flammable system.
+  id: 1348
+  time: '2025-07-14T08:58:32.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Made some performance improvements to the Holopad system.
+  id: 1349
+  time: '2025-07-14T08:59:17.0000000+00:00'
+- author: sprkl
+  changes:
+    - type: Add
+      message: Added Cooing emote to Harpies. You can now Coo with 5 variations!
+  id: 1350
+  time: '2025-07-14T09:00:26.0000000+00:00'
+- author: ARMOK
+  changes:
+    - type: Remove
+      message: Syringes cannot combat mode inject anymore.
+    - type: Tweak
+      message: >-
+        Syringes do not inject on embed anymore without being shot from a
+        syringe gun.
+  id: 1351
+  time: '2025-07-14T09:10:01.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Rusk sickness made weaker overall
+  id: 1352
+  time: '2025-07-14T09:13:27.0000000+00:00'
+- author: Chuds
+  changes:
+    - type: Remove
+      message: Removed TC Miners.
+  id: 1353
+  time: '2025-07-14T09:21:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle max speed is now properly 60 again.
+    - type: Fix
+      message: Space is now frictionless again.
+  id: 1354
+  time: '2025-07-14T09:22:20.0000000+00:00'
