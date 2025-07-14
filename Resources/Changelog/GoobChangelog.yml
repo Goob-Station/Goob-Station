@@ -12245,3 +12245,13 @@ Entries:
       message: Added Cooing emote to Harpies. You can now Coo with 5 variations!
   id: 1350
   time: '2025-07-14T09:00:26.0000000+00:00'
+- author: ARMOK
+  changes:
+    - type: Remove
+      message: Syringes cannot combat mode inject anymore.
+    - type: Tweak
+      message: >-
+        Syringes do not inject on embed anymore without being shot from a
+        syringe gun.
+  id: 1351
+  time: '2025-07-14T09:10:01.0000000+00:00'
