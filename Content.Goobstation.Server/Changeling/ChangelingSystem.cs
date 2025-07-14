@@ -838,9 +838,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnUpdateMobState(Entity<ChangelingIdentityComponent> ent, ref UpdateMobStateEvent args)
     {
         if (ent.Comp.IsInStasis)
-        {
             args.State = MobState.Dead;
-        }
     }
 
     private void OnDamageChange(Entity<ChangelingIdentityComponent> ent, ref DamageChangedEvent args)
