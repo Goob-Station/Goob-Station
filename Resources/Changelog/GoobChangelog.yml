@@ -12181,3 +12181,43 @@ Entries:
       message: Assistants have their playtime limit removed
   id: 1341
   time: '2025-07-13T23:20:08.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed Resomi gasp and deathgasp not working.
+  id: 1342
+  time: '2025-07-14T08:04:05.0000000+00:00'
+- author: AgentePanela
+  changes:
+    - type: Tweak
+      message: Open remote devices action icon.
+  id: 1343
+  time: '2025-07-14T08:12:35.0000000+00:00'
+- author: pheenty, jimmy12or, gentlebutter
+  changes:
+    - type: Add
+      message: Added plant BoH and plant box. Like ore BoH and ore box, but for plants.
+    - type: Tweak
+      message: You can now dump plant bags deirectly into biogenerators.
+    - type: Tweak
+      message: Mutated plants can now contain more random chemicals.
+  id: 1344
+  time: '2025-07-14T08:26:40.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Changed some values from the ratking to make it slightly better at what
+        it does, without directly buffing its combat stats.
+  id: 1345
+  time: '2025-07-14T08:27:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer have paradox clones of nor revolutionize Gemini
+        clones.
+    - type: Fix
+      message: You (Hopefully) can no longer have paradox clones of the station AI.
+  id: 1346
+  time: '2025-07-14T08:28:49.0000000+00:00'
