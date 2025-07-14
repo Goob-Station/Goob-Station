@@ -12203,3 +12203,11 @@ Entries:
       message: Mutated plants can now contain more random chemicals.
   id: 1344
   time: '2025-07-14T08:26:40.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Changed some values from the ratking to make it slightly better at what
+        it does, without directly buffing its combat stats.
+  id: 1345
+  time: '2025-07-14T08:27:22.0000000+00:00'
