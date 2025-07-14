@@ -12221,3 +12221,9 @@ Entries:
       message: You (Hopefully) can no longer have paradox clones of the station AI.
   id: 1346
   time: '2025-07-14T08:28:49.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Modsuits no longer drop suit items when equipped or unequipped
+  id: 1347
+  time: '2025-07-14T08:50:39.0000000+00:00'
