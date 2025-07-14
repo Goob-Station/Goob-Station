@@ -829,7 +829,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             // Floof: handle languages that require LOS
             string result, wrappedMessage;
             if (!language.SpeechOverride.RequireLOS && data.Range <= WhisperClearRange
-                || _examineSystem.InRangeUnOccluded(source, listener, WhisperClearRange))
+                || _examineSystem.InRangeUnOccluded(source, listener, WhisperClearRange)
+                || data.Observer)
             {
                 // Scenario 1: the listener can clearly understand the message
                 result = perceivedMessage;
