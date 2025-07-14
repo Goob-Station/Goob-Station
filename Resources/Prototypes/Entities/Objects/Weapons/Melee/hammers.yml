@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -77,6 +79,7 @@
   - type: Item
     size: Ginormous
   - type: Boomerang # Goobstation
+    maxHops: 20
 
 - type: entity
   id: SingularityHammer
