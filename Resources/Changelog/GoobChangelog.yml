@@ -12211,3 +12211,13 @@ Entries:
         it does, without directly buffing its combat stats.
   id: 1345
   time: '2025-07-14T08:27:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer have paradox clones of nor revolutionize Gemini
+        clones.
+    - type: Fix
+      message: You (Hopefully) can no longer have paradox clones of the station AI.
+  id: 1346
+  time: '2025-07-14T08:28:49.0000000+00:00'
