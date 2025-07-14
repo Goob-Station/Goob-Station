@@ -12267,3 +12267,11 @@ Entries:
       message: Removed TC Miners.
   id: 1353
   time: '2025-07-14T09:21:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle max speed is now properly 60 again.
+    - type: Fix
+      message: Space is now frictionless again.
+  id: 1354
+  time: '2025-07-14T09:22:20.0000000+00:00'
