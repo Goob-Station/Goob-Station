@@ -19,6 +19,7 @@
   sprites:
     Special: MobKoboldAnyMarking
     Head: MobKoboldHead
+    Face: MobHumanoidAnyMarking # Pirate changes
     Chest: MobKoboldChest
     Groin: MobKoboldGroin
     Tail: MobKoboldTail
@@ -170,3 +171,8 @@
     Chest:
       points: 1
       required: false
+    # Pirate changes start
+    Face:
+      points: 1
+      required: false
+    # Pirate changes end

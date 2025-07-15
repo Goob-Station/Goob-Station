@@ -124,6 +124,13 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ProfileLoaded;
+    //Pirate changes start
+    [DataField, AutoNetworkedField]
+    public float Height = 1f;
+
+    [DataField, AutoNetworkedField]
+    public float Width = 1f;
+    //Pirate changes end
 }
 
 [DataDefinition]

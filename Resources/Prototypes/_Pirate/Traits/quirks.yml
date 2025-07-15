@@ -1,0 +1,99 @@
+#region Temperature
+- type: trait
+  id: TraitHeatResistant
+  name: trait-heat-resistant-name
+  description: trait-heat-resistant-desc
+  category: Quirks
+  cost: 1
+  components:
+    - type: TempResistant
+      heatModifier: 1.05
+
+- type: trait
+  id: TraitHeatWeakness
+  name: trait-heat-weakness-name
+  description: trait-heat-weakness-desc
+  category: Quirks
+  cost: -1
+  components:
+    - type: TempResistant
+      heatModifier: 0.95
+
+- type: trait
+  id: TraitColdResistant
+  name: trait-cold-resistant-name
+  description: trait-cold-resistant-desc
+  category: Quirks
+  cost: 1
+  components:
+    - type: TempResistant
+      coldModifier: 0.95
+
+- type: trait
+  id: TraitColdWeakness
+  name: trait-cold-weakness-name
+  description: trait-cold-weakness-desc
+  category: Quirks
+  cost: -1
+  components:
+    - type: TempResistant
+      coldModifier: 1.05
+#endregion
+
+#region Vision
+- type: trait
+  id: TraitNightVision
+  name: trait-night-vision-name
+  description: trait-night-vision-desc
+  category: Quirks
+  cost: 8
+  components:
+    - type: NightVision
+      color: "#2b2d2d"
+      activateSound: null
+      deactivateSound: null
+#endregion
+
+#region Sensory
+- type: trait
+  id: TraitHighPainTolerance
+  name: trait-high-pain-tolerance-name
+  description: trait-high-pain-tolerance-desc
+  category: Quirks
+  cost: 3
+  components:
+    - type: PainTolerant
+      painToleranceModifier: 10
+
+- type: trait
+  id: TraitLowPainTolerance
+  name: trait-low-pain-tolerance-name
+  description: trait-low-pain-tolerance-desc
+  category: Quirks
+  cost: -2
+  components:
+    - type: PainTolerant
+      painToleranceModifier: -10
+#endregion
+
+#region Weight
+
+- type: trait
+  id: TraitLightweight
+  name: trait-pirate-lightweight-name # Pirate specifier was added because LightweightDrunk has similar name
+  description: trait-pirate-lightweight-desc # Pirate specifier was added because LightweightDrunk has similar desc
+  category: Quirks
+  cost: -3
+  components:
+    - type: Lightweight
+      pickupSpeedMultiplier: 3
+
+- type: trait
+  id: TraitLightStep
+  name: trait-light-step-name
+  description: trait-light-step-desc
+  category: Quirks
+  cost: 2
+  components:
+    - type: LightStep
+#endregion

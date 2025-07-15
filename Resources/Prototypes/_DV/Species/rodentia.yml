@@ -27,6 +27,7 @@
   id: MobRodentiaSprites
   sprites:
     Head: MobRodentiaHead
+    Face: MobHumanoidAnyMarking #Pirate Changes
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
@@ -77,6 +78,11 @@
     Chest:
       points: 2
       required: false
+  # PIRATE START
+    Face:
+      points: 3
+      required: false
+  # PIRATE END
 
 - type: humanoidBaseSprite
   id: MobRodentiaHead

@@ -19,6 +19,7 @@
   sprites:
     Special: MobMonkeyAnyMarking
     Head: MobMonkeyHead
+    Face: MobHumanoidAnyMarking #Pirate changes
     HeadTop: MobMonkeyAnyMarking
     Chest: MobMonkeyChest
     Groin: MobMonkeyGroin
@@ -166,3 +167,8 @@
     Chest:
       points: 1
       required: false
+    #Pirate changes start
+    Face:
+      points: 1
+      required: false
+    # Pirate changes end

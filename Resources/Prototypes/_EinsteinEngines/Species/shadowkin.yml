@@ -18,11 +18,20 @@
   sexes:
     - Male
     - Female
+  # Pirate changes start
+  minHeight: 0.65
+  defaultHeight: 0.85
+  maxHeight: 1.15
+  minWidth: 0.6
+  defaultWidth: 0.85
+  maxWidth: 1.2
+  # Pirate changes end
 
 - type: speciesBaseSprites
   id: MobShadowkinSprites
   sprites:
     Head: MobShadowkinHead
+    Face: MobHumanoidAnyMarking # Pirate changes
     Snout: MobShadowkinAnyMarkingFollowSkin
     HeadTop: MobShadowkinAnyMarking
     HeadSide: MobShadowkinAnyMarkingFollowSkin
@@ -59,6 +68,11 @@
     Arms:
       points: 6
       required: false
+    # Pirate changes start
+    Face:
+      points: 1
+      required: false
+    # Pirate changes end
 
 - type: humanoidBaseSprite
   id: MobShadowkinAnyMarkingFollowSkin

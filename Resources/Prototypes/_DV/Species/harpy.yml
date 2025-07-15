@@ -29,6 +29,7 @@
   id: MobHarpySprites
   sprites:
     Head: MobHarpyHead
+    Face: MobHumanoidAnyMarking #Pirate Changes
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
@@ -76,6 +77,11 @@
       points: 1
       required: false
       defaultMarkings: [ HarpyWingDefaultHuescale ]
+  # PIRATE START
+    Face:
+      points: 3
+      required: false
+  # PIRATE END
 
 - type: humanoidBaseSprite
   id: MobHarpyHead

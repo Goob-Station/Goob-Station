@@ -16,6 +16,7 @@ namespace Content.Shared.Humanoid.Markings
     public enum MarkingCategories : byte
     {
         Special,
+        Face, //Pirate Changes
         Hair,
         FacialHair,
         Head,
@@ -38,6 +39,7 @@ namespace Content.Shared.Humanoid.Markings
             return layer switch
             {
                 HumanoidVisualLayers.Special => MarkingCategories.Special,
+                HumanoidVisualLayers.Face => MarkingCategories.Face, // Pirate
                 HumanoidVisualLayers.Hair => MarkingCategories.Hair,
                 HumanoidVisualLayers.FacialHair => MarkingCategories.FacialHair,
                 HumanoidVisualLayers.Head => MarkingCategories.Head,
