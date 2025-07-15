@@ -5,12 +5,14 @@ on:
     types: [opened, reopened]
 
 env:
-  BLOCKED_AUTHORS: |
-    201311861
+  BLOCKED_AUTHORS: "201311861"
 
 jobs:
   check-author:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      issues: write
     steps:
     - name: Check if author is blocked
       id: check_blocked
@@ -18,10 +20,12 @@ jobs:
       run: |
         AUTHOR_ID="${{ github.event.pull_request.user.id }}"
         echo "Author ID: $AUTHOR_ID"
-        if echo "${BLOCKED_AUTHORS}" | grep -x "$AUTHOR_ID" >/dev/null; then
+        if echo "${BLOCKED_AUTHORS}" | tr ' ' '\n' | grep -x "$AUTHOR_ID" >/dev/null; then
           echo "blocked=true" >> $GITHUB_OUTPUT
+          echo "Author $AUTHOR_ID is repobanned"
         else
           echo "blocked=false" >> $GITHUB_OUTPUT
+          echo "Author $AUTHOR_ID is not repobanned"
         fi
 
     - name: Close PR if author is blocked
@@ -29,17 +33,18 @@ jobs:
       uses: actions/github-script@v7
       with:
         script: |
+          const prNumber = context.payload.pull_request.number;
 
           await github.rest.pulls.update({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            pull_number: context.issue.number,
+            pull_number: prNumber,
             state: 'closed'
           });
 
           await github.rest.issues.createComment({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            issue_number: context.issue.number,
+            issue_number: prNumber,
             body: 'This pull request has been automatically closed because the author is soft‑banned.'
           });
