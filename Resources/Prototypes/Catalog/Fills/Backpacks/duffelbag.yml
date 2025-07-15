@@ -488,3 +488,14 @@
       - id: EmpImplanter
       - id: ClothingShoesBootsMagSyndie
       - id: AgentIDCard
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateExplosiveInsulsBundle
+  name: syndicate explosive insuls bundle
+  description: Contains 20 pairs of explosive insuls to keep the tide at bay.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHandsGlovesExplosiveShock
+        amount: 20

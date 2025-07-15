@@ -974,6 +974,19 @@
   categories:
   - UplinkDeception
 
+- type: listing
+  id: UplinkDuffelSyndicateExplosiveInsulsBundle
+  name: uplink-clothing-explosive-gloves-bundle-name
+  description: uplink-clothing-explosive-gloves-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateExplosiveInsulsBundle
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Engineering
 # Ammo
 
 - type: listing

@@ -286,6 +286,9 @@ uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
 uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
 
+uplink-clothing-explosive-gloves-bundle-name = Explosive Insulated Gloves Bundle
+uplink-clothing-explosive-gloves-bundle-desc = Contains 20 Explosive Insulated Gloves to keep the tide away.
+
 # Disruption
 
 uplink-syndicate-weapon-module-advanced-name = Advanced Weapons Module
