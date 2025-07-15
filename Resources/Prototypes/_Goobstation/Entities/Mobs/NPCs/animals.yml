@@ -727,8 +727,10 @@
     spawned:
     - id: FoodMeat
       amount: 12
+  - type: MobPrice
+    price: 2000
   - type: InteractionPopup
-    successChance: 0.1
+    successChance: 0.25
     interactSuccessString: petting-success-horse
     interactFailureString: petting-failure-horse
     interactSuccessSpawn: EffectHearts

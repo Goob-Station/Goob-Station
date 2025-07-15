@@ -48,6 +48,19 @@
     spawned:
     - id: FoodMeat
       amount: 12
+  - type: Bloodstream
+    bloodMaxVolume: 200
+    bloodReagent: SpaceGlue
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: MobPrice
+    price: 5000
   - type: InteractionPopup
     successChance: .05
     interactSuccessString: petting-success-horse
