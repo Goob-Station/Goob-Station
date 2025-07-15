@@ -76,7 +76,11 @@ namespace Content.Shared.Movement.Components
 
         public const float LerpTime = 1.0f;
 
-        public bool Sprinting => (HeldMoveButtons & MoveButtons.Walk) == 0x0;
+        public bool Sprinting => DefaultSprinting
+        ? (HeldMoveButtons & MoveButtons.Walk) != 0x0
+        : (HeldMoveButtons & MoveButtons.Walk) == 0x0;
+        
+        public bool DefaultSprinting = true;
 
         [ViewVariables(VVAccess.ReadWrite)]
         public bool CanMove = true;
@@ -90,6 +94,6 @@ namespace Content.Shared.Movement.Components
         public Angle TargetRelativeRotation;
         public Angle RelativeRotation;
         public TimeSpan LerpTarget;
-        public bool CanMove;
+        public bool CanMove, DefaultSprinting;
     }
 }

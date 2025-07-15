@@ -25,6 +25,7 @@
 using Content.Shared.Alert;
 using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Client.Physics;
@@ -53,6 +54,8 @@ public sealed class MoverController : SharedMoverController
         SubscribeLocalEvent<InputMoverComponent, UpdateIsPredictedEvent>(OnUpdatePredicted);
         SubscribeLocalEvent<MovementRelayTargetComponent, UpdateIsPredictedEvent>(OnUpdateRelayTargetPredicted);
         SubscribeLocalEvent<PullableComponent, UpdateIsPredictedEvent>(OnUpdatePullablePredicted);
+
+        Subs.CVar(_cfg, CCVars.DefaultWalk, _ => RaiseNetworkEvent(new UpdateInputCVarsMessage()));
     }
 
     private void OnUpdatePredicted(Entity<InputMoverComponent> entity, ref UpdateIsPredictedEvent args)
@@ -142,7 +145,7 @@ public sealed class MoverController : SharedMoverController
         // Logger.Info($"[{_gameTiming.CurTick}/{subTick}] Sprint: {enabled}");
         base.SetSprinting(entity, subTick, walking);
 
-        if (walking && _cfg.GetCVar(CCVars.ToggleWalk))
+        if (_cfg.GetCVar(CCVars.ToggleWalk) && (walking && !_cfg.GetCVar(CCVars.DefaultWalk) || !walking && _cfg.GetCVar(CCVars.DefaultWalk)))
             _alerts.ShowAlert(entity, WalkingAlert, showCooldown: false, autoRemove: false);
         else
             _alerts.ClearAlert(entity, WalkingAlert);
