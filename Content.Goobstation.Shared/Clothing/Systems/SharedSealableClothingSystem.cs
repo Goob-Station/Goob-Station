@@ -15,15 +15,19 @@ using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Clothing;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -47,6 +51,8 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedPowerCellSystem _powerCellSystem = default!;
     [Dependency] private readonly ToggleableClothingSystem _toggleableSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
 
     public override void Initialize()
     {
@@ -65,6 +71,10 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingEvent>(OnControlSealEvent);
         //SubscribeLocalEvent<SealableClothingControlComponent, StartSealingProcessDoAfterEvent>(OnStartSealingDoAfter);
         SubscribeLocalEvent<SealableClothingControlComponent, ToggleClothingAttemptEvent>(OnToggleClothingAttempt);
+        SubscribeLocalEvent<SealableClothingControlComponent, ToggledBackClothingFullUnequipAndInsertedEvent>(OnBackClothingUnequipped);
+        SubscribeLocalEvent<SealableClothingControlComponent, BeingUnequippedAttemptEvent>(OnToggleableUnequipAttemptSealCheck);
+        SubscribeLocalEvent<SealableClothingControlComponent, OnToggleableUnequipAttemptEvent>(OnToggleSanityChecker);
+
     }
 
     #region Events
@@ -310,6 +320,8 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             return false;
 
         // All parts required to be toggled to perform sealing
+        // fix; able to unseal even if all parts not toggled
+        // edge cases where a sealed part may be unequipped and you get stuck with a broke suit
         if (!comp.IsCurrentlySealed && _toggleableSystem.GetAttachedToggleStatus(user.Value, uid, false) != ToggleableClothingAttachedStatus.AllToggled)
         {
             _popupSystem.PopupClient(Loc.GetString(comp.ToggleFailedPopup), uid, user);
@@ -358,12 +370,30 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         if (comp.ProcessQueue.Count == 0)
         {
             comp.IsInProcess = false;
-            comp.IsCurrentlySealed = !comp.IsCurrentlySealed;
 
-            if (comp.IsCurrentlySealed)
-                _audioSystem.PlayEntity(comp.SealCompleteSound, comp.WearerEntity!.Value, uid);
+            // if this system was more foolproof we could swap it around as we did
+            // but no so much shit can fuck up
+            // so just actually sanity check the parts when the process is done.
+            var attachedParts = _toggleableSystem.GetAttachedClothingsList(uid);
+            var allpartsSealed = true;
+            if (attachedParts != null)
+            {
+                foreach (var part in attachedParts)
+                {
+                    if (!TryComp<SealableClothingComponent>(part, out var pSeal) || !pSeal.IsSealed)
+                    {
+                        allpartsSealed = false;
+                        break;
+                    }
+                }
+            }
+            comp.IsCurrentlySealed = allpartsSealed;
+            if (comp.IsCurrentlySealed && comp.WearerEntity != null) // if you gib or remove while sound plays it throws exception so yeah we DO CHECK IF NULL
+                _audioSystem.PlayEntity(comp.SealCompleteSound, comp.WearerEntity.Value, uid);
+            else if (comp.WearerEntity != null)
+                _audioSystem.PlayEntity(comp.UnsealCompleteSound, comp.WearerEntity.Value, uid);
             else
-                _audioSystem.PlayEntity(comp.UnsealCompleteSound, comp.WearerEntity!.Value, uid);
+                return;
 
             var ev = new ClothingControlSealCompleteEvent(comp.IsCurrentlySealed);
             RaiseLocalEvent(control, ref ev);
@@ -403,17 +433,119 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         if (!_doAfterSystem.TryStartDoAfter(doAfterArgs) || _netManager.IsClient)
             return;
 
+        if (comp.WearerEntity == null) // dont just fucking assume the fucking entity will never be null what if a dev gibbs you at 3 in the fucking morning.
+            return;
+
         if (comp.IsCurrentlySealed)
 
             _popupSystem.PopupEntity(Loc.GetString(sealableComponent.SealDownPopup,
                 ("partName", Identity.Name(processingPart, EntityManager))),
-                uid, comp.WearerEntity!.Value);
+                uid, comp.WearerEntity.Value);
         else
             _popupSystem.PopupEntity(Loc.GetString(sealableComponent.SealUpPopup,
                 ("partName", Identity.Name(processingPart, EntityManager))),
-                uid, comp.WearerEntity!.Value);
+                uid, comp.WearerEntity.Value);
     }
+
+    private void OnBackClothingUnequipped(Entity<SealableClothingControlComponent> control, ref ToggledBackClothingFullUnequipAndInsertedEvent args)
+    {
+        var comp = control.Comp;
+
+        // Check if it's in the middle of sealing/unsealing
+        if (comp.IsInProcess)
+        {
+            comp.ProcessQueue.Clear();
+            comp.IsInProcess = false;
+            // Force all sealed parts to sealed state immediately
+            var attachedParts = _toggleableSystem.GetAttachedClothingsList(control.Owner);
+            if (attachedParts != null)
+            {
+                foreach (var part in attachedParts)
+                {
+                    if (TryComp<SealableClothingComponent>(part, out var partSeal))
+                    {
+                        partSeal.IsSealed = true;
+                        Dirty(part, partSeal);
+                        _appearanceSystem.SetData(part, SealableClothingVisuals.Sealed, true);
+                    }
+                }
+            }
+        }
+        SealBreaker(control);
+    }
+
+    private void SealBreaker(EntityUid controlUid)
+    {
+        if (!TryComp<SealableClothingControlComponent>(controlUid, out var comp))
+            return;
+
+        comp.IsCurrentlySealed = false;
+        comp.IsInProcess = false;
+        comp.ProcessQueue.Clear();
+        Dirty(controlUid, comp);
+
+        _appearanceSystem.SetData(controlUid, SealableClothingVisuals.Sealed, false);
+
+        var attached = _toggleableSystem.GetAttachedClothingsList(controlUid);
+        if (attached == null || attached.Count == 0)
+            return;
+
+        foreach (var part in attached)
+        {
+            if (!TryComp(part, out SealableClothingComponent? partSeal) || !partSeal.IsSealed)
+                continue;
+
+            partSeal.IsSealed = false;
+            Dirty(part, partSeal);
+            _appearanceSystem.SetData(part, SealableClothingVisuals.Sealed, false);
+        }
+    }
+
+    private void OnToggleableUnequipAttemptSealCheck(Entity<SealableClothingControlComponent> toggleable, ref BeingUnequippedAttemptEvent args)
+    {
+        var toggleableEnt = toggleable.Owner;
+        // Cancel if the control unit is sealed.
+        if (TryComp<SealableClothingControlComponent>(toggleableEnt, out var controlSeal) && controlSeal.IsCurrentlySealed)
+        {
+            _popupSystem.PopupClient(Loc.GetString("sealable-clothing-sealed-toggle-fail"), toggleableEnt, args.Unequipee);
+            args.Cancel();
+            return;
+        }
+
+        if (!TryComp<ToggleableClothingComponent>(toggleable, out var toggleableComp))
+            return;
+
+        // Cancel if any parts are sealed.
+        foreach (var partUid in toggleableComp.ClothingUids.Keys)
+        {
+            if (TryComp<SealableClothingComponent>(partUid, out var partSeal) && partSeal.IsSealed)
+            {
+                _popupSystem.PopupClient(Loc.GetString("sealable-clothing-sealed-toggle-fail"), toggleableEnt, args.Unequipee);
+                args.Cancel();
+                return;
+            }
+        }
+    }
+    private void OnToggleSanityChecker(Entity<SealableClothingControlComponent> sealable, ref OnToggleableUnequipAttemptEvent args)
+    {
+        if (!TryComp<SealableClothingComponent>(args.Attached, out var sealableComp))
+            return;
+
+
+        if (!sealableComp.IsSealed)
+            return;
+
+        var inSlot = _inventorySystem.TryGetContainingSlot(args.Attached, out var slot);
+
+        if (inSlot && slot != null)
+            return;
+        else
+            SealBreaker(args.Toggleable);
+    }
+
 }
+
+
 
 [Serializable, NetSerializable]
 public sealed partial class SealClothingDoAfterEvent : SimpleDoAfterEvent

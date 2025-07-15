@@ -252,6 +252,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
             return;
 
         var parts = comp.ClothingUids;
+        var affectedParts = new List<(EntityUid, string)>();
 
         // if your toggleable clothing is a backslot and gets forcefully removed i.e. gibbing, Robust likes to forcefully eject the container(s)
         // you can try this by making a regular outerclothing item a back item with VV and equipping the toggle, then smiting yourself
@@ -276,6 +277,12 @@ public sealed class ToggleableClothingSystem : EntitySystem
                         force: true, triggerHandContact: true);
                 }
                 _containerSystem.Insert(partUid, comp.Container); // instant insert we dont wait for OnAttachedUnequip
+                affectedParts.Add((partUid, slot));
+            }
+            if (affectedParts.Count > 0)
+            {
+                var ev = new ToggledBackClothingFullUnequipAndInsertedEvent(toggleable.Owner, args.Equipee, affectedParts);
+                RaiseLocalEvent(toggleable.Owner, ref ev);
             }
             return;
         }
@@ -347,6 +354,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
     /// </summary>
     private void OnAttachedUnequip(Entity<AttachedClothingComponent> attached, ref GotUnequippedEvent args)
     {
+        Log.Info($"[AttachedUnequip] Function fired for attached UID: {attached.Owner}");
         var comp = attached.Comp;
 
         // Let containers worry about it.
@@ -369,6 +377,13 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
         if (!toggleableComp.ClothingUids.TryGetValue(attached.Owner, out var slot))
             return;
+        // I'm just assuming any toggleable backslot is a modsuit and deffering sanity checks there
+        if (TryComp<ClothingComponent>(comp.AttachedUid, out var clothingComp) &&
+        (clothingComp.Slots & SlotFlags.BACK) != 0)
+        {
+            var ev = new OnToggleableUnequipAttemptEvent(comp.AttachedUid, attached.Owner, args.Equipee, false);
+            RaiseLocalEvent(comp.AttachedUid, ev);
+        }
 
         // Handle re-equipping contained items
         UnequipClothing(args.Equipee, (comp.AttachedUid, toggleableComp), attached.Owner, slot);
@@ -453,6 +468,11 @@ public sealed class ToggleableClothingSystem : EntitySystem
             ForceSuitStorage(user, suitStorageItem);
         }
 
+        // Throw an event to run sanity check for modsuits in sealablesystem - TODO for later
+        /*
+        var ev = new OnToggleableUnequipAttemptEvent(toggleable, user, false);
+        RaiseLocalEvent(toggleable, ev);
+        */
     }
 
     /// <summary>
@@ -488,6 +508,11 @@ public sealed class ToggleableClothingSystem : EntitySystem
                 }
             }
         }
+        // Throw an event to run sanity check for modsuits in sealablesystem - TODO for later
+        /*
+        var ev = new OnToggleableUnequipAttemptEvent(toggleable, user, true);
+        RaiseLocalEvent(toggleable, ev);
+        */
     }
 
     private bool CanToggleClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable)
@@ -743,3 +768,45 @@ public enum ToggleableClothingAttachedStatus : byte
     PartlyToggled,
     AllToggled
 }
+
+public sealed class OnToggleableUnequipAttemptEvent : CancellableEntityEventArgs
+{
+    public EntityUid Toggleable { get; }
+    public EntityUid Attached { get; }
+    public EntityUid Unequipee { get; }
+    public bool Multiple { get; }
+
+    public OnToggleableUnequipAttemptEvent(EntityUid toggleable, EntityUid attached, EntityUid unequipee, bool multiple)
+    {
+        Toggleable = toggleable;
+        Attached = attached;
+        Unequipee = unequipee;
+        Multiple = multiple;
+
+    }
+}
+
+
+/// <summary>
+/// Raised when a toggleable clothing BACK part is fully unequipped and inserted into its container.
+/// </summary>
+[ByRefEvent]
+public readonly record struct ToggledBackClothingFullUnequipAndInsertedEvent(
+
+    /// <summary>
+    /// EntityUid of the Toggleable Item.
+    /// </summary>
+    EntityUid Toggleable,
+
+    /// <summary>
+    /// EntityUid of the Equipee if there is one.
+    /// </summary>
+    EntityUid Equipee,
+
+    /// <summary>
+    /// List of parts unequipped.
+    /// </summary>
+    List<(EntityUid Part, string Slot)> Parts
+);
+
+
