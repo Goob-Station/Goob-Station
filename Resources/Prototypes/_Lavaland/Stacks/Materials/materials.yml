@@ -34,49 +34,49 @@
 
 - type: stack
   id: GoldOreUnprocessed
-  name: unprocessed gold ore
+  name: stack-unprocessed-gold-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: gold }
   spawn: GoldOre1Unprocessed
   maxCount: 30
 
 - type: stack
   id: DiamondOreUnprocessed
-  name: unprocessed diamond
+  name: stack-unprocessed-diamond-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: diamond }
   spawn: DiamondOre1Unprocessed
   maxCount: 30
 
 - type: stack
   id: SteelOreUnprocessed
-  name: unprocessed iron ore
+  name: stack-unprocessed-steel-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: iron }
   spawn: SteelOre1Unprocessed
   maxCount: 30
 
 - type: stack
   id: PlasmaOreUnprocessed
-  name: unprocessed plasma ore
+  name: stack-unprocessed-plasma-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: plasma }
   spawn: PlasmaOre1Unprocessed
   maxCount: 30
 
 - type: stack
   id: SilverOreUnprocessed
-  name: unprocessed silver ore
+  name: stack-unprocessed-silver-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: silver }
   spawn: SilverOre1Unprocessed
   maxCount: 30
 
 - type: stack
   id: SpaceQuartzUnprocessed
-  name: unprocessed space quartz
+  name: stack-unprocessed-quartz-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: spacequartz }
   spawn: SpaceQuartz1Unprocessed
   maxCount: 30
 
 - type: stack
   id: UraniumOreUnprocessed
-  name: unprocessed uranium ore
+  name: stack-unprocessed-uranium-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: uranium }
   spawn: UraniumOre1Unprocessed
   maxCount: 30
@@ -84,14 +84,14 @@
 
 - type: stack
   id: BananiumOreUnprocessed
-  name: unprocessed bananium ore
+  name: stack-unprocessed-bananium-ore
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: bananium }
   spawn: BananiumOre1Unprocessed
   maxCount: 30
 
 - type: stack
   id: CoalUnprocessed
-  name: unprocessed coal
+  name: stack-unprocessed-coal
   icon: { sprite: /Textures/Objects/Materials/ore.rsi, state: coal }
   spawn: Coal1Unprocessed
   maxCount: 30
