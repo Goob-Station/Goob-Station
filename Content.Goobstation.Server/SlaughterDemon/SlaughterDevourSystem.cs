@@ -6,6 +6,7 @@
 using Content.Goobstation.Shared.SlaughterDemon;
 using Content.Goobstation.Shared.SlaughterDemon.Objectives;
 using Content.Server.Mind;
+using Content.Server.Popups;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
@@ -25,7 +26,8 @@ public sealed class SlaughterDevourSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] protected readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     private EntityQuery<PullerComponent> _pullerQuery;
     private EntityQuery<HumanoidAppearanceComponent> _humanoid;
@@ -76,16 +78,20 @@ public sealed class SlaughterDevourSystem : EntitySystem
 
     public void HealAfterDevouring(EntityUid target, EntityUid devourer, SlaughterDevourComponent component)
     {
+        // I dont know how to refactor this into events so im leaving it like this
         if (HasComp<HumanoidAppearanceComponent>(target) && !HasComp<SiliconComponent>(target))
         {
+            _popup.PopupEntity(Loc.GetString("slaughter-devour-humanoid"), devourer);
             _damageable.TryChangeDamage(devourer, component.ToHeal);
         }
         else if (HasComp<BorgChassisComponent>(target) || HasComp<SiliconComponent>(target))
         {
+            _popup.PopupEntity(Loc.GetString("slaughter-devour-robot"), devourer);
             _damageable.TryChangeDamage(devourer, component.ToHealNonCrew);
         }
         else
         {
+            _popup.PopupEntity(Loc.GetString("slaughter-devour-other"), devourer);
             _damageable.TryChangeDamage(devourer, component.ToHealAnythingElse);
         }
     }
@@ -95,24 +101,23 @@ public sealed class SlaughterDevourSystem : EntitySystem
     /// </summary>
     public void IncrementObjective(EntityUid uid, EntityUid devoured, SlaughterDemonComponent demon)
     {
-        // Get the mind entities
-        if (_mind.TryGetMind(uid, out _, out var mind))
-        {
-            // Goidaaaaaa
-            foreach (var objective in mind.Objectives)
-            {
-                if (TryComp<SlaughterDevourConditionComponent>(objective, out var devourCondition))
-                {
-                    devourCondition.Devour = demon.Devoured;
-                }
+        if (!_mind.TryGetMind(uid, out _, out var mind))
+            return;
 
-                if (TryComp<SlaughterKillEveryoneConditionComponent>(objective, out var killEveryoneCondition))
+        // Goidaaaaaa
+        foreach (var objective in mind.Objectives)
+        {
+            if (TryComp<SlaughterDevourConditionComponent>(objective, out var devourCondition))
+            {
+                devourCondition.Devour = demon.Devoured;
+            }
+
+            if (TryComp<SlaughterKillEveryoneConditionComponent>(objective, out var killEveryoneCondition))
+            {
+                if (_humanoid.HasComp(devoured) && _actorQuery.HasComp(devoured))
                 {
-                    if (_humanoid.HasComp(devoured) && _actorQuery.HasComp(devoured))
-                    {
-                        // We only want to restrict it to actual players
-                        killEveryoneCondition.Devoured++;
-                    }
+                    // We only want to restrict it to actual players
+                    killEveryoneCondition.Devoured++;
                 }
             }
         }

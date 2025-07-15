@@ -3,12 +3,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.SlaughterDemon.Items;
 using Content.Goobstation.Shared.SlaughterDemon.Objectives;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Humanoid;
+using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.SlaughterDemon.Objectives;
 
@@ -18,8 +21,12 @@ namespace Content.Goobstation.Server.SlaughterDemon.Objectives;
 public sealed class SlaughterDemonObjectiveSystem : EntitySystem
 {
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
+    [Dependency] private readonly TargetObjectiveSystem _target = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
-    private EntityQuery<ActorComponent> _actorQuery = default!;
+    private EntityQuery<ActorComponent> _actorQuery;
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -27,8 +34,65 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
 
         _actorQuery = GetEntityQuery<ActorComponent>();
 
+        // Sets progress
         SubscribeLocalEvent<SlaughterDevourConditionComponent, ObjectiveGetProgressEvent>(OnGetDevourProgress);
         SubscribeLocalEvent<SlaughterKillEveryoneConditionComponent, ObjectiveGetProgressEvent>(OnGetKillEveryoneProgress);
+        SubscribeLocalEvent<SlaughterKillTheWizardConditionComponent, ObjectiveGetProgressEvent>(OnGetWizardKillProgress);
+        SubscribeLocalEvent<SlaughterBaseObjectiveComponent, ObjectiveGetProgressEvent>(OnGetBaseObjectiveProgress);
+
+        // Sets the wizard
+        SubscribeLocalEvent<SlaughterKillTheWizardConditionComponent, ObjectiveAssignedEvent>(OnAssignWizard);
+        // Fluff objectives
+        SubscribeLocalEvent<SlaughterSpreadBloodObjectiveComponent, ObjectiveAssignedEvent>(OnSpreadAssign);
+
+        // Sets descriptions and titles
+        SubscribeLocalEvent<SlaughterBaseObjectiveComponent, ObjectiveAfterAssignEvent>(OnAfterAssignObjective);
+
+    }
+
+    private void OnAfterAssignObjective(Entity<SlaughterBaseObjectiveComponent> ent,
+        ref ObjectiveAfterAssignEvent args)
+    {
+        if (ent.Comp.Title != null)
+            _meta.SetEntityName(ent.Owner, Loc.GetString(ent.Comp.Title), args.Meta);
+
+        if (ent.Comp.Description != null)
+            _meta.SetEntityName(ent.Owner, ent.Comp.Description, args.Meta);
+    }
+
+    private void OnSpreadAssign(Entity<SlaughterSpreadBloodObjectiveComponent> ent, ref ObjectiveAssignedEvent args)
+    {
+        if (ent.Comp.Title == null)
+            return;
+
+        var areas = ent.Comp.Areas;
+        var randomArea = _random.Pick(areas);
+        var title = Loc.GetString(ent.Comp.Title, ("area", randomArea));
+
+        _meta.SetEntityName(ent.Owner, title);
+    }
+
+    private void OnAssignWizard(Entity<SlaughterKillTheWizardConditionComponent> ent, ref ObjectiveAssignedEvent args)
+    {
+        if (!TryComp<TargetObjectiveComponent>(ent.Owner, out var targetObjective))
+            return;
+
+        var query = EntityQueryEnumerator<VialSummonComponent>();
+        while (query.MoveNext(out _, out var comp))
+        {
+            if (comp.Used)
+                continue;
+
+            _target.SetTarget(ent.Owner, comp.Summoner, targetObjective);
+            comp.Used = true;
+            return;
+        }
+    }
+
+    private void OnGetBaseObjectiveProgress(Entity<SlaughterBaseObjectiveComponent> ent, ref ObjectiveGetProgressEvent args)
+    {
+        // fluff is fluff
+        args.Progress = 0.0f;
     }
 
     private void OnGetKillEveryoneProgress(Entity<SlaughterKillEveryoneConditionComponent> ent, ref ObjectiveGetProgressEvent args)
@@ -39,6 +103,29 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
     private void OnGetDevourProgress(Entity<SlaughterDevourConditionComponent> ent, ref ObjectiveGetProgressEvent args)
     {
         args.Progress = Progress(ent.Comp.Devour, _number.GetTarget(ent.Owner));
+    }
+
+    private void OnGetWizardKillProgress(Entity<SlaughterKillTheWizardConditionComponent> ent, ref ObjectiveGetProgressEvent args)
+    {
+        if (!_target.GetTarget(ent.Owner, out var targetUid))
+        {
+            args.Progress = 0f;
+            return;
+        }
+
+        args.Progress = GetWizardKillProgress(targetUid.Value);
+    }
+
+    private float GetWizardKillProgress(EntityUid target)
+    {
+        if (!_mind.TryGetMind(target, out _, out var mind))
+            return 1f;
+
+        var targetDead = _mind.IsCharacterDeadIc(mind);
+        if (!targetDead)
+            return 0f;
+
+        return 1f;
     }
 
     private static float Progress(int recruited, int target)

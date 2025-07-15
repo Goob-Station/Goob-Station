@@ -8,6 +8,9 @@ using Content.Server.Actions;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Fluids.Components;
+using Robust.Server.Audio;
 
 
 namespace Content.Goobstation.Server.SlaughterDemon;
@@ -22,19 +25,25 @@ public sealed class BloodCrawlSystem : EntitySystem
 {
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly SlaughterDemonSystem _slaughter = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
     private EntityQuery<ActionsComponent> _actionQuery;
+    private EntityQuery<PuddleComponent> _puddleQuery;
+    private EntityQuery<PolymorphedEntityComponent> _polymorphedQuery;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
         _actionQuery = GetEntityQuery<ActionsComponent>();
-
-        SubscribeLocalEvent<BloodCrawlComponent, BloodCrawlEvent>(OnBloodCrawl);
+        _puddleQuery = GetEntityQuery<PuddleComponent>();
+        _polymorphedQuery = GetEntityQuery<PolymorphedEntityComponent>();
 
         SubscribeLocalEvent<BloodCrawlComponent, ComponentStartup>(OnStartup);
+
+        SubscribeLocalEvent<BloodCrawlComponent, BloodCrawlEvent>(OnBloodCrawl);
     }
 
     private void OnStartup(EntityUid uid, BloodCrawlComponent component, ComponentStartup args)
@@ -47,7 +56,7 @@ public sealed class BloodCrawlSystem : EntitySystem
 
     private void OnBloodCrawl(EntityUid uid, BloodCrawlComponent component, BloodCrawlEvent args)
     {
-        if (!_slaughter.IsStandingOnBlood(uid))
+        if (!IsStandingOnBlood(uid))
         {
             _actions.SetCooldown(component.ActionEntity, component.ActionCooldown);
             return;
@@ -55,21 +64,63 @@ public sealed class BloodCrawlSystem : EntitySystem
 
         component.IsCrawling = !component.IsCrawling;
 
-        if (!component.IsCrawling && TryComp<PolymorphedEntityComponent>(uid, out var polymorph))
+        if (!component.IsCrawling && _polymorphedQuery.TryComp(uid, out var polymorph))
         {
-            _polymorph.Revert(uid);
+            var reverted = _polymorph.Revert(uid);
+
+            if (reverted != null)
+                _audio.PlayPvs(component.ExitJauntSound, reverted.Value);
 
             var evExit = new BloodCrawlExitEvent();
             RaiseLocalEvent(polymorph.Parent, ref evExit);
+
             return;
         }
 
         var evAttempt = new BloodCrawlAttemptEvent();
         RaiseLocalEvent(uid, ref evAttempt);
 
-        var ent = _polymorph.PolymorphEntity(uid, component.Jaunt);
+        _audio.PlayPvs(component.EnterJauntSound, Transform(uid).Coordinates);
+
+        _polymorph.PolymorphEntity(uid, component.Jaunt);
         _actions.StartUseDelay(component.ActionEntity);
     }
+
+    # region Helper Functions
+
+    /// <summary>
+    /// Detects if an entity is standing on blood, or not.
+    /// </summary>
+    public bool IsStandingOnBlood(Entity<BloodCrawlComponent?> ent)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return false;
+
+        var ents = _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.SearchRange);
+        foreach (var entity in ents)
+        {
+            if (!_puddleQuery.TryComp(entity, out var puddle))
+            {
+                Logger.Warning($"Failed to resolve component for puddle {ToPrettyString(entity)}");
+                continue;
+            }
+
+            if (!_solutionContainerSystem.ResolveSolution(entity, puddle.SolutionName, ref puddle.Solution, out var solution))
+            {
+                Logger.Info($"Resolving solution failed");
+                continue;
+            }
+
+            foreach (var reagent in solution.Contents)
+            {
+                if (reagent.Reagent.Prototype == ent.Comp.Blood)
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    # endregion
 }
 
 

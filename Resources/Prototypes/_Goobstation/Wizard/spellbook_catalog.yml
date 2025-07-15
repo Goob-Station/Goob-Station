@@ -830,6 +830,42 @@
       tags:
       - GrimoireGhost
 
+- type: listing
+  id: SpellbookBottleOfBlood
+  name: spellbook-bottle-blood-name
+  description: spellbook-bottle-blood-desc
+  productEntity: BottleOfBlood
+  icon:
+    sprite: _Goobstation/Wizard/Objects/vials.rsi
+    state: vial
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookSummons
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+  disableRefund: true
+
+- type: listing
+  id: SpellbookBottleOfTickles
+  name: spellbook-bottle-tickles-name
+  description: spellbook-bottle-tickles-desc
+  productEntity: BottleOfTickles
+  icon:
+    sprite: _Goobstation/Wizard/Objects/vials.rsi
+    state: vialtickles
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookSummons
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:StoreWhitelistCondition
+  disableRefund: true
+
 # Event
 - type: listing
   id: SpellbookEventDimensionShift

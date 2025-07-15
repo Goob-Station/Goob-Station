@@ -20,3 +20,13 @@
   license: "CC-BY-SA-3.0"
   copyright: "todo"
   source: "https://github.com/ParadiseSS13/Paradise"
+
+- files: ["enter_blood.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "todo"
+  source: "https://github.com/ParadiseSS13/Paradise"
+
+- files: ["exit_blood.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "todo"
+  source: "https://github.com/ParadiseSS13/Paradise"

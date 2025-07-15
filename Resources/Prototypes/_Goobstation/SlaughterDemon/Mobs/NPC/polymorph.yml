@@ -17,6 +17,7 @@
   - type: NoSlip
   - type: BloodCrawl
     isCrawling: true
+  - type: DemonicWhisper
   - type: Visibility
     layer: 2
   - type: Spectral
@@ -27,3 +28,6 @@
     - Ghost
   - type: MindContainer
     showExamineInfo: true
+  - type: ActionGrant
+    actions:
+    - DemonicWhisperAction

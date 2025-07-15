@@ -46,6 +46,7 @@
         Structural: 50
   - type: SlaughterDemon # main component
   - type: SlaughterDevour # allows the demon to devour
+  - type: DemonicWhisper # allows the demon to demonic whisper
   - type: DemonicAccent # the accent
   - type: Puller
     stageChangeCooldown: 0.5
@@ -83,6 +84,9 @@
   - type: NpcFactionMember
     factions:
     - DevilFaction
+  - type: ActionGrant
+    actions:
+      - DemonicWhisperAction
 
 # laughter demon
 - type: entity

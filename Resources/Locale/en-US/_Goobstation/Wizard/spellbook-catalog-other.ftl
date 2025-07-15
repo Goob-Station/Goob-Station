@@ -70,3 +70,22 @@ spellbook-magical-lamp-desc =
     After hosting guardian you won't be able to change your species in wizard magic mirror.
     Can only be purchased once.
     Cannot be refunded.
+
+spellbook-bottle-blood-name = Bottle of Blood
+spellbook-bottle-blood-desc =
+    A bottle of magically infused blood, the smell of which will attract extradimensional beings when broken.
+
+    Be careful though, these creatures, called Slaughter Demons, are indiscriminate in their killing,
+    and you yourself may become a victim.
+
+    You need to 'use' the bottle to unleash the slaughter demon.
+
+spellbook-bottle-tickles-name = Bottle of Tickles
+spellbook-bottle-tickles-desc =
+    A bottle of magically infused fun, the smell of which will attract adorable extradimensional beings when broken.
+
+    These beings are similar to slaughter demons, but instead put their victims in an extradimensional hugspace,
+    reviving them after the demon dies. Chaotic, but not ultimately damaging.
+    The crew's reaction on the other hand could be very destructive.
+
+    You need to 'use' the bottle to unleash the laughter demon.

@@ -5,6 +5,7 @@
 
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Polymorph;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -49,6 +50,21 @@ public sealed partial class BloodCrawlComponent : Component
     [DataField]
     public bool IsCrawling;
 
+    /// <summary>
+    /// The reagent to look out for when searching for puddles
+    /// </summary>
     [DataField]
     public ProtoId<ReagentPrototype> Blood = "Blood";
+
+    /// <summary>
+    /// The sound to play once entering the jaunt
+    /// </summary>
+    [DataField]
+    public SoundPathSpecifier? EnterJauntSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/enter_blood.ogg");
+
+    /// <summary>
+    /// The sound to play once exiting the jaunt
+    /// </summary>
+    [DataField]
+    public SoundPathSpecifier? ExitJauntSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/exit_blood.ogg");
 }

@@ -6,7 +6,7 @@
 - type: entity
   id: BloodCrawlAction
   name: Blood Crawl
-  description: JAUNT ANYWHERE WHENEVER YOU ARE ON BLOOD 
+  description: JAUNT ANYWHERE WHENEVER YOU ARE ON BLOOD
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -15,3 +15,18 @@
       state: crawl
     event: !type:BloodCrawlEvent
     useDelay: 2
+
+- type: entity
+  id: DemonicWhisperAction
+  name: Demonic Whisper
+  description: SEND A MESSAGE TO THEIR SOUL, FROM HELL
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: _Goobstation/SlaughterDemon/abilities.rsi
+      state: whisper
+    event: !type:DemonicWhisperEvent
+    itemIconStyle: NoItem
+    interactOnMiss: false
+    canTargetSelf: false

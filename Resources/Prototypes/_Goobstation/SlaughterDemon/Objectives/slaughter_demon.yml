@@ -9,19 +9,59 @@
   components:
   - type: Objective
     difficulty: 1.5
-    issuer: Satan
+    issuer: objective-issuer-slaughter-satan
+
+- type: entity
+  parent: BaseObjective
+  id: SlaughterFluffBaseObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-slaughter-bubblegum
+  - type: SlaughterBaseObjective
 
 # Major Objectives
 - type: entity
   parent: SlaughterBaseObjective
-  id: SlaughterKillEveryoneObjective
-  description: Second, kill everyone else.
+  id: SlaughterKillTheWizardObjective
   components:
   - type: Objective
+    issuer: objective-condition-kill-wizard-first
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: TargetObjective
+    title: objective-condition-kill-wizard-title
+  - type: SlaughterKillTheWizardCondition
+    title: objective-condition-kill-wizard-title
+    description: objective-kill-wizard-desc
+
+- type: entity
+  parent: SlaughterBaseObjective
+  id: SlaughterKillEveryoneObjective
+  components:
+  - type: Objective
+    issuer: objective-condition-kill-everyone-else
     icon:
       sprite: Structures/Furniture/Altars/Cults/fangs.rsi
       state: blood
   - type: SlaughterKillEveryoneCondition
+    title: objective-condition-kill-everyone-else-title
+    description: objective-kill-everyone-desc
+
+# laughter objectives
+- type: entity
+  parent: SlaughterKillEveryoneObjective
+  id: SlaughterHugAndTickleObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-slaughter-devil
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: SlaughterKillEveryoneCondition
+    title: objective-condition-hug-and-tickle-title
+    description: objective-hug-and-tickle-desc
 
 # Midround Objectives
 - type: entity
@@ -39,4 +79,89 @@
     description: objective-condition-slaughter-devour-desc
   - type: SlaughterDevourCondition
 
-# Fluff objectives
+# Fluff objectives (midround)
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: AnnihilateAllJanitorsObjectiveFluff
+  description: Wipe out all Janitors and their synthetic kin, no broom shall stand.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: SlaughterBaseObjective
+    title: objective-annihilate-janitors-title
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: SpareCrewObjectiveFluff
+  description: Let some survive… only to suffer longer.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: SlaughterBaseObjective
+    title: objective-spare-crew-title
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: HuntTheBraveObjectiveFluff
+  description: Find and punish those foolish enough to face you.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: SlaughterBaseObjective
+    title: objective-hunt-for-brave-title
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: HuntTheCowardsObjectiveFluff
+  description: Track down the ones who run, fear only prolongs their agony.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: SlaughterBaseObjective
+    title: objective-hunt-the-cowards-title
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: ShowCrewPowerObjectiveFluff
+  description: Let them witness your awful might firsthand.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: TargetObjective
+    title: objective-show-power-title
+  - type: PickRandomPerson
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: DriveInsaneObjectiveFluff
+  description: Whisper until breaks, madness is your gift.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: TargetObjective
+    title: objective-drive-insane-title
+  - type: PickRandomPerson
+
+- type: entity
+  parent: SlaughterFluffBaseObjective
+  id: SpreadBloodObjectiveFluff
+  description: Paint it in red, let no clean tile remain.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
+      state: blood
+  - type: SlaughterSpreadBloodObjective
+    title: objective-spread-blood
