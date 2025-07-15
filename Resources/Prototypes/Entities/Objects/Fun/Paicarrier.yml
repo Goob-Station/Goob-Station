@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseItem
+  id: RoundMeal
+  name: NormanReedus
+  description: Its the guy from death stranding holy shit
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/NTpaicarrier.rsi
+    state: icon
