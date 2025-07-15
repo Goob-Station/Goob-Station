@@ -920,7 +920,7 @@ ClothingMaskBlushingMime: ClothingMaskSexyMime
 ClothingMaskBlushingClown: ClothingMaskSexyMime
 MachineMaterialSilo: null
 CrateMaterialSilo: null
-  
+
 # 2025-03-29
 ClothingBackpackDuffelSyndicateRaidBundle: ClothingBackpackSyndicateRaidBundle
 
@@ -997,3 +997,6 @@ SuitStorageBasic: SuitStorageEVA
 
 # 2025-05-18
 ClothingNeckCloakMiner: null
+
+# 2025-07-14 Change Mapped Chem to Energy Chem by default
+ChemDispenser: EnergyChemDispenser
