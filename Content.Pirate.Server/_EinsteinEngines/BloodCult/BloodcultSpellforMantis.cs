@@ -4,9 +4,9 @@ using Content.Shared.Inventory;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Content.Shared.Popups;
-using Content.Pirate.Shared._EinsteinEngines.BloodCult;
+using Content.Pirate.Shared.BloodCult;
 
-namespace Content.Pirate.Server._EinsteinEngines.BloodCult
+namespace Content.Pirate.Server.BloodCult
 {
     public sealed class BloodCultSpellsSystem : EntitySystem
     {

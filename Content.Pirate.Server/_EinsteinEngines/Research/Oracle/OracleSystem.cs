@@ -232,39 +232,41 @@ public sealed class OracleSystem : EntitySystem
 
     private bool GetRandomTechProto(Entity<OracleComponent> oracle, [NotNullWhen(true)] out string? proto)
     {
-        // Try to find the most advanced server.
-        var database = _research.GetServerIds()
-            .Select(x => _research.TryGetServerById(x, out var serverUid, out _) ? serverUid : null)
-            .Where(x => x != null && Transform(x.Value).GridUid == Transform(oracle).GridUid)
-            .Select(x =>
-            {
-                TryComp<TechnologyDatabaseComponent>(x!.Value, out var comp);
-                return new Entity<TechnologyDatabaseComponent?>(x.Value, comp);
-            })
-            .Where(x => x.Comp != null)
-            .OrderByDescending(x =>
-                _research.GetDisciplineTiers(x.Comp!).Select(pair => pair.Value).Max())
-            .FirstOrDefault(EntityUid.Invalid);
+        var oracleGrid = Transform(oracle).GridUid;
+        Entity<TechnologyDatabaseComponent?>? bestDb = null;
+        int bestTier = int.MinValue;
 
-        if (database.Owner == EntityUid.Invalid)
+        var query = EntityQueryEnumerator<TechnologyDatabaseComponent, ResearchServerComponent>();
+        while (query.MoveNext(out var serverUid, out var dbComp, out var serverComp))
         {
-            Log.Warning($"Cannot find an applicable server on grid {Transform(oracle).GridUid} to form an oracle request.");
+            if (Transform(serverUid).GridUid != oracleGrid)
+                continue;
+
+            var maxTier = _research.GetDisciplineTiers(dbComp).Select(pair => pair.Value).DefaultIfEmpty(0).Max();
+
+            if (maxTier > bestTier)
+            {
+                bestTier = maxTier;
+                bestDb = new Entity<TechnologyDatabaseComponent?>(serverUid, dbComp);
+            }
+        }
+
+        if (bestDb == null)
+        {
+            Log.Warning($"Cannot find an applicable server on grid {oracleGrid} to form an oracle request.");
             proto = null;
             return false;
         }
-
-        // Select a technology that's either already unlocked, or can be unlocked from current research
         var techs = _protoMan.EnumeratePrototypes<TechnologyPrototype>()
             .Where(x => !x.Hidden)
             .Where(x =>
-                _research.IsTechnologyUnlocked(database.Owner, x, database.Comp)
-                || _research.IsTechnologyAvailable(database.Comp!, x))
+                _research.IsTechnologyUnlocked(bestDb.Value.Owner, x, bestDb.Value.Comp)
+                || _research.IsTechnologyAvailable(bestDb.Value.Comp!, x))
             .SelectMany(x => x.RecipeUnlocks)
             .Select(x => _protoMan.Index(x).Result)
             .Where(x => IsDemandValid(oracle, x))
             .ToList();
 
-        // Unlikely.
         if (techs.Count == 0)
         {
             proto = null;
@@ -272,11 +274,7 @@ public sealed class OracleSystem : EntitySystem
         }
 
         proto = _random.Pick(techs);
-
-        if (proto == null)
-            return false;
-
-        return true;
+        return proto != null;
     }
 
     private bool GetRandomPlantProto(Entity<OracleComponent> oracle, [NotNullWhen(true)] out string? proto)
