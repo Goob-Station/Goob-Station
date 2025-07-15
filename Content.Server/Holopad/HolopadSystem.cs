@@ -1,6 +1,11 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -460,23 +465,25 @@ public sealed class HolopadSystem : SharedHolopadSystem
 
         _updateTimer += frameTime;
 
-        if (_updateTimer >= UpdateTime)
+        // <Goobstation> - update timer fix ported from EE at e1d701bee25e124ee0e7a9390b46300fc044761f (https://github.com/Simple-Station/Einstein-Engines/pull/2470)
+        if (_updateTimer < UpdateTime)
+            return;
+
+        _updateTimer = 0f;
+
+        var query = AllEntityQuery<HolopadComponent, TelephoneComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var holopad, out var telephone, out var xform))
         {
-            _updateTimer -= UpdateTime;
+            UpdateUIState((uid, holopad), telephone);
 
-            var query = AllEntityQuery<HolopadComponent, TelephoneComponent, TransformComponent>();
-            while (query.MoveNext(out var uid, out var holopad, out var telephone, out var xform))
+            if (holopad.User != null &&
+                !HasComp<IgnoreUIRangeComponent>(holopad.User) &&
+                !_xformSystem.InRange((holopad.User.Value, Transform(holopad.User.Value)), (uid, xform), telephone.ListeningRange))
             {
-                UpdateUIState((uid, holopad), telephone);
-
-                if (holopad.User != null &&
-                    !HasComp<IgnoreUIRangeComponent>(holopad.User) &&
-                    !_xformSystem.InRange((holopad.User.Value, Transform(holopad.User.Value)), (uid, xform), telephone.ListeningRange))
-                {
-                    UnlinkHolopadFromUser((uid, holopad), holopad.User.Value);
-                }
+                UnlinkHolopadFromUser((uid, holopad), holopad.User.Value);
             }
         }
+        // </Goobstation>
     }
 
     public void UpdateUIState(Entity<HolopadComponent> entity, TelephoneComponent? telephone = null)
