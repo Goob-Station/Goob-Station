@@ -12283,3 +12283,9 @@ Entries:
       message: Increased max draw of PTL. (1MJ -> 5MJ)
   id: 1355
   time: '2025-07-14T09:34:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed entities sometimes being in eternal fake fire.
+  id: 1356
+  time: '2025-07-15T19:46:04.0000000+00:00'
