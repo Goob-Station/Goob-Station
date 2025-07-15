@@ -271,6 +271,17 @@
         Blunt: 3
 
 - type: entity
+  parent: Bible
+  name: quran
+  description: "Prayer carpet not included"
+  id: BibleQuran
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chapel/quran.rsi
+  - type: Item
+    sprite: Objects/Specific/Chapel/quran.rsi
+
+- type: entity
   id: BibleDruid
   name: druidic tablet
   parent: Bible
