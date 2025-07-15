@@ -19,6 +19,7 @@
     renderOver: East, SouthEast, South, SouthWest, West
   - type: Strap
     position: Stand
+  - type: WaddleAnimation
   - type: MobThresholds
     thresholds:
       0: Alive
