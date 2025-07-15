@@ -58,6 +58,7 @@
       jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
       components:
       - type: Pacified
+      - type: Stealthy
       mindRoles:
       - MindRoleThief
       briefing:

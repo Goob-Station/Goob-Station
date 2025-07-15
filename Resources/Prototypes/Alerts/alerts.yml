@@ -145,6 +145,7 @@
     - alertType: SuitPower
     - alertType: ModsuitPower # Goobstation - Modsuits
     - category: Internals
+    - alertType: Stealthy #Stolen from Wizden
     - alertType: Fire
     - alertType: Handcuffed
     - alertType: Ensnared
@@ -167,7 +168,6 @@
     - alertType: ShadowCloak # Goobstation
     - alertType: DragonPower # Goobstation
     - category: Ninjutsu # Goobstation
-    - alertType: Stealthy
 
 - type: entity
   id: AlertSpriteView
