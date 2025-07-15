@@ -11,10 +11,14 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/trevor/trevor.rsi
+    sprite: _Goobstation/Mobs/Trevor/trevor.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: trevor
+  - type: Vehicle
+    renderOver: East, SouthEast, South, SouthWest, West
+  - type: Strap
+    position: Stand
   - type: MobThresholds
     thresholds:
       0: Alive

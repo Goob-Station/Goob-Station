@@ -684,7 +684,7 @@
   description: Very foul creature. For those that feel like punching.
   components:
   - type: MovementSpeedModifier
-    baseSprintSpeed: 6
+    baseSprintSpeed: 7.5
     baseWalkSpeed: 4.5 # default walking speed
   - type: Sprite
     drawdepth: Mobs
