@@ -29,6 +29,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -267,7 +268,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     }
 
     /// <summary>
-    /// Prevents clothing from toggling if it's sealed or in sealing process
+    /// Handles clothing toggling if it's sealed or in sealing process
     /// </summary>
     private void OnToggleClothingAttempt(Entity<SealableClothingControlComponent> control, ref ToggleClothingAttemptEvent args)
     {
@@ -284,6 +285,9 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         }
 
         // Popup if sealed, but not in process
+        // fix: My brother in christ its unfun and unintutive to just be beeped at when trying to undo your suit
+        // Especially for others trying to undo it like medics
+        // if the suit is sealed and a full toggle happens assume we want to start unseal then full untoggle
         if (comp.IsCurrentlySealed)
         {
             _popupSystem.PopupClient(Loc.GetString(comp.CurrentlySealedToggleFailPopup), uid, args.User);
@@ -320,8 +324,11 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             return false;
 
         // All parts required to be toggled to perform sealing
-        // fix; able to unseal even if all parts not toggled
+        // fix; now able to unseal even if all parts not toggled
         // edge cases where a sealed part may be unequipped and you get stuck with a broke suit
+        // Sealbreaker along with OnAttachedUnequip in Toggleableclothing should take care if a sealed part unequips
+        // but we still let the user manually unseal as a fallback to an impossible situation
+        // MODSUIT TODO
         if (!comp.IsCurrentlySealed && _toggleableSystem.GetAttachedToggleStatus(user.Value, uid, false) != ToggleableClothingAttachedStatus.AllToggled)
         {
             _popupSystem.PopupClient(Loc.GetString(comp.ToggleFailedPopup), uid, user);
@@ -499,6 +506,11 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             Dirty(part, partSeal);
             _appearanceSystem.SetData(part, SealableClothingVisuals.Sealed, false);
         }
+        if (comp.WearerEntity != null)
+        {
+            _popupSystem.PopupEntity(Loc.GetString(comp.SealBrokenPopup), controlUid, comp.WearerEntity.Value, PopupType.LargeCaution);
+            _audioSystem.PlayPvs(comp.GenericSuitWarning, controlUid);
+        }
     }
 
     private void OnToggleableUnequipAttemptSealCheck(Entity<SealableClothingControlComponent> toggleable, ref BeingUnequippedAttemptEvent args)
@@ -528,9 +540,10 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     }
     private void OnToggleSanityChecker(Entity<SealableClothingControlComponent> sealable, ref OnToggleableUnequipAttemptEvent args)
     {
+        // AttachedUid = Toggleable Part | args.Toggleable
+        // Owner       = Toggled Part    | args.Attached
         if (!TryComp<SealableClothingComponent>(args.Attached, out var sealableComp))
             return;
-
 
         if (!sealableComp.IsSealed)
             return;
@@ -539,10 +552,8 @@ public abstract class SharedSealableClothingSystem : EntitySystem
 
         if (inSlot && slot != null)
             return;
-        else
-            SealBreaker(args.Toggleable);
+        SealBreaker(args.Toggleable);
     }
-
 }
 
 

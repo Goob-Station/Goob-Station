@@ -383,6 +383,10 @@ public sealed class ToggleableClothingSystem : EntitySystem
         {
             var ev = new OnToggleableUnequipAttemptEvent(comp.AttachedUid, attached.Owner, args.Equipee, false);
             RaiseLocalEvent(comp.AttachedUid, ev);
+            // I fucking hate these naming schemes but im not changing them at this point
+            // AttachedUid = Toggleable Part
+            // Owner       = Toggled Part
+
         }
 
         // Handle re-equipping contained items
