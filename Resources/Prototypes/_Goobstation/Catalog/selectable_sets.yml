@@ -58,7 +58,7 @@
   name: selectable-set-thief-chameleon-name
   description: selectable-set-thief-chameleon-description
   sprite:
-    sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
+    sprite: /Textures/Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
   - ClothingBackpackChameleonFill
@@ -100,8 +100,10 @@
   name: selectable-set-thief-communicator-name
   description: selectable-set-thief-communicator-description
   sprite:
-    sprite: Objects/Tools/spy_device.rsi
-    state: icon
+    sprite: /Textures/Objects/Devices/encryption_keys.rsi
+    layers:
+     - state: crypt_gold
+     - state: cap_label
   content:
   - EncryptionKeyStationMaster
   - CyberPen
@@ -113,8 +115,8 @@
   name: selectable-set-thief-smuggler-name
   description: selectable-set-thief-smuggler-description
   sprite:
-    sprite: Clothing/Neck/Cloaks/void.rsi
-    state: icon
+    sprite: /Textures/Objects/Tools/fulton.rsi
+    state: extraction_pack
   content:
   - InvisibleCrate
   - FultonBeacon
