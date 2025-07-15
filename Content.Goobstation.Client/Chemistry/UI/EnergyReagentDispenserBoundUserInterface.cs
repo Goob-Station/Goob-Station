@@ -29,7 +29,7 @@
 
 using Content.Client.Guidebook.Components;
 using Content.Client.UserInterface.Controls;
-using Content.Shared.Chemistry;
+using Content.Goobstation.Shared.Chemistry;
 using Content.Shared.Containers.ItemSlots;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
@@ -63,12 +63,12 @@ namespace Content.Goobstation.Client.Chemistry.UI
             _window.SetInfoFromEntity(EntMan, Owner);
 
             // Setup static button actions.
-            _window.EjectButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent(SharedReagentDispenser.OutputSlotName));
-            _window.ClearButton.OnPressed += _ => SendMessage(new ReagentDispenserClearContainerSolutionMessage());
+            _window.EjectButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent(SharedEnergyReagentDispenser.OutputSlotName));
+            _window.ClearButton.OnPressed += _ => SendMessage(new EnergyReagentDispenserClearContainerSolutionMessage());
 
-            _window.AmountGrid.OnButtonPressed += s => SendMessage(new ReagentDispenserSetDispenseAmountMessage(s));
+            _window.AmountGrid.OnButtonPressed += s => SendMessage(new EnergyReagentDispenserSetDispenseAmountMessage(s));
 
-            _window.OnDispenseReagentButtonPressed += (reagentId) => SendMessage(new ReagentDispenserDispenseReagentMessage(reagentId));
+            _window.OnDispenseReagentButtonPressed += (reagentId) => SendMessage(new EnergyReagentDispenserDispenseReagentMessage(reagentId));
         }
 
         /// <summary>

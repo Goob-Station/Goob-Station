@@ -58,7 +58,6 @@ using Content.Shared.Whitelist;
 using Content.Shared.Containers.ItemSlots;
 using Content.Goobstation.Server.Chemistry.EntitySystems;
 using Content.Goobstation.Shared.Chemistry;
-using Content.Shared.Chemistry.Dispenser;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -82,5 +81,8 @@ namespace Content.Goobstation.Server.Chemistry.Components
 
         [DataField, ViewVariables]
         public SoundSpecifier PowerSound = new SoundPathSpecifier("/Audio/Machines/buzz-sigh.ogg");
+
+        [DataField]
+        public Dictionary<string, float> Reagents = [];
     }
 }

@@ -38,7 +38,6 @@ using Content.Goobstation.Shared.Chemistry;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Chemistry.Dispenser;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Goobstation.Maths.FixedPoint;
@@ -101,7 +100,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
         {
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedEnergyReagentDispenser.OutputSlotName);
             var outputContainerInfo = BuildOutputContainerInfo(outputContainer);
-            var inventory = GetInventory();
+            var inventory = GetInventory(reagentDispenser.Comp);
 
             var batteryCharge = 0f;
             var batteryMaxCharge = 0f;
@@ -138,21 +137,20 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             return null;
         }
 
-        private List<EnergyReagentInventoryItem> GetInventory()
+        private List<EnergyReagentInventoryItem> GetInventory(EnergyReagentDispenserComponent comp)
         {
             var inventory = new List<EnergyReagentInventoryItem>();
-            var reagents = _prototypeManager.EnumeratePrototypes<ReagentPrototype>();
 
-            foreach (var reagent in reagents)
+            foreach (var (reagentId, cost) in comp.Reagents)
             {
-                if (reagent.PowerCostPerUnit <= 0)
+                if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentId, out var reagentProto))
                     continue;
 
                 inventory.Add(new EnergyReagentInventoryItem(
-                    reagent.ID,
-                    reagent.LocalizedName,
-                    reagent.PowerCostPerUnit,
-                    reagent.SubstanceColor
+                    reagentId,
+                    reagentProto.LocalizedName,
+                    cost,
+                    reagentProto.SubstanceColor
                 ));
             }
 
@@ -172,11 +170,11 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             UpdateUiState((uid, component));
         }
 
-        private float GetPowerCostForReagent(string reagentId, int amount)
+        private float GetPowerCostForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
         {
-            return _prototypeManager.TryIndex<ReagentPrototype>(reagentId, out var reagentProto)
-                ? reagentProto.PowerCostPerUnit * amount
-                : 1.0f * amount; // Fallback
+            return comp.Reagents.TryGetValue(reagentId, out var cost)
+                ? cost * amount
+                : float.MaxValue;
 
         }
 
@@ -190,7 +188,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                 return;
 
             var amount = (int)reagentDispenser.Comp.DispenseAmount;
-            var powerRequired = GetPowerCostForReagent(message.ReagentId, amount);
+            var powerRequired = GetPowerCostForReagent(message.ReagentId, amount, reagentDispenser.Comp);
 
             if (battery.CurrentCharge < powerRequired)
             {
