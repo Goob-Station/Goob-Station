@@ -27,6 +27,12 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
@@ -59,6 +65,11 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+
+// Shitmed Change
+using Content.Shared._Shitmed.Damage;
+using Content.Shared._Shitmed.Targeting;
+
 
 namespace Content.Server.Zombies
 {
@@ -100,6 +111,7 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ZombieComponent, CloningEvent>(OnZombieCloning);
             SubscribeLocalEvent<ZombieComponent, TryingToSleepEvent>(OnSleepAttempt);
             SubscribeLocalEvent<ZombieComponent, GetCharactedDeadIcEvent>(OnGetCharacterDeadIC);
+            SubscribeLocalEvent<ZombieComponent, GetCharacterUnrevivableIcEvent>(OnGetCharacterUnrevivableIC);
             SubscribeLocalEvent<ZombieComponent, MindAddedMessage>(OnMindAdded);
             SubscribeLocalEvent<ZombieComponent, MindRemovedMessage>(OnMindRemoved);
 
@@ -167,7 +179,13 @@ namespace Content.Server.Zombies
                     ? comp.CritDamageMultiplier
                     : 1f;
 
-                _damageable.TryChangeDamage(uid, comp.Damage * multiplier, true, false, damage);
+                _damageable.TryChangeDamage(uid,
+                    comp.Damage * multiplier,
+                    true,
+                    false,
+                    damage,
+                    targetPart: TargetBodyPart.All, // Shitmed Change
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
 
             // Heal the zombified
@@ -188,7 +206,14 @@ namespace Content.Server.Zombies
                     : 1f;
 
                 // Gradual healing for living zombies.
-                _damageable.TryChangeDamage(uid, comp.PassiveHealing * multiplier, true, false, damage);
+                _damageable.TryChangeDamage(uid,
+                    comp.PassiveHealing * multiplier,
+                    true,
+                    false,
+                    damage,
+                    ignoreBlockers: true, // Shitmed Change
+                    targetPart: TargetBodyPart.All, // Shitmed Change
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll); // Shitmed Change
             }
         }
 
@@ -200,6 +225,11 @@ namespace Content.Server.Zombies
         private void OnGetCharacterDeadIC(EntityUid uid, ZombieComponent component, ref GetCharactedDeadIcEvent args)
         {
             args.Dead = true;
+        }
+
+        private void OnGetCharacterUnrevivableIC(EntityUid uid, ZombieComponent component, ref GetCharacterUnrevivableIcEvent args)
+        {
+            args.Unrevivable = true;
         }
 
         private void OnStartup(EntityUid uid, ZombieComponent component, ComponentStartup args)
@@ -350,7 +380,7 @@ namespace Content.Server.Zombies
         // Remove the role when getting cloned, getting gibbed and borged, or leaving the body via any other method.
         private void OnMindRemoved(Entity<ZombieComponent> ent, ref MindRemovedMessage args)
         {
-            _role.MindTryRemoveRole<ZombieRoleComponent>(args.Mind);
+            _role.MindRemoveRole<ZombieRoleComponent>((args.Mind.Owner,  args.Mind.Comp));
         }
     }
 }

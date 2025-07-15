@@ -14,10 +14,17 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Clothing;
 using Content.Shared.Actions;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
@@ -25,6 +32,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Strip;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
@@ -32,8 +40,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
 using System.Linq;
-
 namespace Content.Shared.Clothing.EntitySystems;
 
 // GOOBSTATION - MODSUITS - THIS SYSTEM FULLY CHANGED
@@ -49,6 +57,8 @@ public sealed class ToggleableClothingSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     public override void Initialize()
     {
@@ -190,12 +200,10 @@ public sealed class ToggleableClothingSystem : EntitySystem
     /// </summary>
     private void OnToggleableUnequipAttempt(Entity<ToggleableClothingComponent> toggleable, ref BeingUnequippedAttemptEvent args)
     {
-        var comp = toggleable.Comp;
-
-        if (!comp.BlockUnequipWhenAttached)
+        if (!toggleable.Comp.BlockUnequipWhenAttached)
             return;
 
-        if (GetAttachedToggleStatus(toggleable) == ToggleableClothingAttachedStatus.NoneToggled)
+        if (GetAttachedToggleStatus(args.UnEquipTarget, toggleable, true) == ToggleableClothingAttachedStatus.NoneToggled)
             return;
 
         _popupSystem.PopupClient(Loc.GetString("toggleable-clothing-remove-all-attached-first"), args.Unequipee, args.Unequipee);
@@ -381,7 +389,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (!CanToggleClothing(user, toggleable))
             return;
 
-        if (GetAttachedToggleStatus(toggleable, comp) == ToggleableClothingAttachedStatus.NoneToggled)
+        if (GetAttachedToggleStatus(user, toggleable, false, comp) == ToggleableClothingAttachedStatus.NoneToggled)
         {
             foreach (var clothing in attachedClothings)
             {
@@ -530,7 +538,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
     }
 
     // Checks status of all attached clothings toggle status
-    public ToggleableClothingAttachedStatus GetAttachedToggleStatus(EntityUid toggleable, ToggleableClothingComponent? component = null)
+    public ToggleableClothingAttachedStatus GetAttachedToggleStatus(EntityUid user, EntityUid toggleable, bool unequipping, ToggleableClothingComponent? component = null)
     {
         if (!Resolve(toggleable, ref component))
             return ToggleableClothingAttachedStatus.NoneToggled;
@@ -546,7 +554,9 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
         foreach (var attached in attachedClothings)
         {
-            if (container.Contains(attached.Key))
+            if (container.Contains(attached.Key)
+                && unequipping
+                || CheckEquipped(user, attached.Key, attached.Value) < EquipAbility.MissingSlot)
                 continue;
 
             toggledCount++;
@@ -572,6 +582,46 @@ public sealed class ToggleableClothingSystem : EntitySystem
             newList.Add(attachee.Key);
 
         return newList;
+    }
+
+    /// <summary>
+    /// Checks if an entity can equip a piece of clothing based on their body parts.
+    /// </summary>
+    /// <param name="equipment">The item to be equipped</param>
+    /// <param name="equipTarget">The entity attempting to wear the clothing</param>
+    /// <param name="slot">The slot the clothing is being equipped to</param>
+    /// <returns>An enum indicating the equipment ability status</returns>
+    public EquipAbility CheckEquipped(EntityUid equipTarget, EntityUid toEquip, string slot)
+    {
+        if (!TryComp(equipTarget, out BodyComponent? targetBody)
+            || targetBody.Prototype == null
+            || HasComp<BorgChassisComponent>(equipTarget))
+            return EquipAbility.CannotEquip;
+
+        // Does their species proto include the slot?
+        if (!_inventorySystem.TryGetSlotContainer(equipTarget, slot, out var slotContainer, out var slotDefinition))
+            return EquipAbility.MissingSlot;
+
+        // Does the slot NOT have the item equipped?
+        if (slotContainer.ContainedEntity != toEquip)
+            return EquipAbility.SlotOccupiedOrEmpty;
+
+        // Is there a body part associated with the slot?
+        if (_body.TryGetPartFromSlotContainer(slot, out var bodyPart)) // If this fails, that means there's not an associated part.
+        {
+            var bodyPartString = bodyPart.Value.ToString().ToLower();
+            var prototype = _prototypes.Index(targetBody.Prototype.Value);
+
+            var hasPartConnection = prototype.Slots.Values.Any(protoSlot =>
+                protoSlot.Connections.Contains(bodyPartString));
+
+            // If this is a slot that requires a body part, and the part is missing
+            if (hasPartConnection && !_body.GetBodyChildrenOfType(equipTarget, bodyPart.Value).Any())
+                return EquipAbility.MissingPart;
+        }
+
+        // If there's no body part associated with the slot, we can equip the clothing.
+        return EquipAbility.CanEquip;
     }
 }
 

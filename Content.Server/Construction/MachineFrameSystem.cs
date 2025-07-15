@@ -30,7 +30,6 @@ namespace Content.Server.Construction;
 
 public sealed class MachineFrameSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly StackSystem _stack = default!;
@@ -92,7 +91,7 @@ public sealed class MachineFrameSystem : EntitySystem
             if (component.ComponentProgress[compName] >= info.Amount)
                 continue;
 
-            var registration = _factory.GetRegistration(compName);
+            var registration = Factory.GetRegistration(compName);
 
             if (!HasComp(args.Used, registration.Type))
                 continue;
@@ -311,7 +310,7 @@ public sealed class MachineFrameSystem : EntitySystem
             // I have many regrets.
             foreach (var (compName, _) in component.ComponentRequirements)
             {
-                var registration = _factory.GetRegistration(compName);
+                var registration = Factory.GetRegistration(compName);
 
                 if (!HasComp(part, registration.Type))
                     continue;

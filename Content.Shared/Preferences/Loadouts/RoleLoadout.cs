@@ -73,12 +73,16 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Corvax.Interfaces.Shared;
-using Robust.Shared.Collections;
-using Robust.Shared.Network;
+using Content.Shared.CCVar;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Random;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Robust.Shared.Collections;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Preferences.Loadouts;
 
@@ -132,6 +136,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         var groupRemove = new ValueList<string>();
         var protoManager = collection.Resolve<IPrototypeManager>();
         var netManager = collection.Resolve<INetManager>(); // CorvaxGoob-Loadouts
+        var configManager = collection.Resolve<IConfigurationManager>();
 
         if (!protoManager.TryIndex(Role, out var roleProto))
         {
@@ -151,10 +156,11 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         if (EntityName != null)
         {
             var name = EntityName.Trim();
+            var maxNameLength = configManager.GetCVar(CCVars.MaxNameLength);
 
-            if (name.Length > HumanoidCharacterProfile.MaxNameLength)
+            if (name.Length > maxNameLength)
             {
-                EntityName = name[..HumanoidCharacterProfile.MaxNameLength];
+                EntityName = name[..maxNameLength];
             }
 
             if (name.Length == 0)
@@ -238,7 +244,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 }
 
                 Apply(loadoutProto);
-            }
+            }этом пре
 
             // Apply defaults if required
             // Technically it's possible for someone to game themselves into loadouts they shouldn't have

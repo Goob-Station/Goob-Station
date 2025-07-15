@@ -101,7 +101,7 @@ public abstract class SharedSpaceNinjaSystem : EntitySystem
     /// </summary>
     private void OnNinjaAttack(Entity<SpaceNinjaComponent> ent, ref MeleeAttackEvent args)
     {
-        TryRevealNinja(ent, disable: false);
+        TryRevealNinja(ent, disable: true); // Goob edit
     }
 
     private void TryRevealNinja(Entity<SpaceNinjaComponent> ent, bool disable)
