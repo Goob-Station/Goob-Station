@@ -17,3 +17,23 @@
   cost: 3000
   category: cargoproduct-category-name-science
   group: market
+
+- type: cargoProduct
+  id: ScienceAITurret
+  icon:
+    sprite: Objects/Weapons/Guns/Turrets/sentry_turret.rsi
+    state: base
+  product: AITurretCrate
+  cost: 6000
+  category: cargoproduct-category-name-science
+  group: market
+
+- type: cargoProduct
+  id: ScienceHolopad
+  icon:
+    sprite: Structures/Machines/holopad.rsi
+    state: base
+  product: ScienceHolopadCrate
+  cost: 1000
+  category: cargoproduct-category-name-science
+  group: market

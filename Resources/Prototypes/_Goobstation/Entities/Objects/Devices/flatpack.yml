@@ -62,6 +62,24 @@
 
 - type: entity
   parent: BaseFlatpack
+  id: AITurretFlatpack
+  name: AI turret Flatpack
+  description: A flatpack used for constructing a AI sentry turret.
+  components:
+  - type: Flatpack
+    entity: WeaponEnergyTurretAI
+
+- type: entity
+  parent: BaseFlatpack
+  id: HolopadFlatpack
+  name: Holopad Flatpack
+  description: A flatpack used for constructing a holopad.
+  components:
+  - type: Flatpack
+    entity: Holopad
+
+- type: entity
+  parent: BaseFlatpack
   id: ComputerCloningConsoleFlatpack
   name: Computer Cloning Console Flatpack
   description: A flatpack used for constructing a Computer Cloning Console

@@ -18,3 +18,23 @@
     contents:
     - id: ModsuitCoreStandard
       amount: 3
+
+- type: entity
+  id: AITurretCrate
+  parent: CrateScienceSecure
+  name: AI sentry turret crate
+  components:
+  - type: StorageFill
+    contents:
+    - id: AITurretFlatpack
+
+- type: entity
+  id: ScienceHolopadCrate
+  parent: CrateGenericSteel
+  name: Holopad crate
+  description: A crate containing 3 Holopad flatpacks.
+  components:
+  - type: StorageFill
+    contents:
+    - id: HolopadFlatpack
+      amount: 3
