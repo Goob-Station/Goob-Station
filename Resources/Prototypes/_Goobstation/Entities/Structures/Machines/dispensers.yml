@@ -1,0 +1,20 @@
+
+
+- type: entity
+  id: EnergyChemDispenser
+  parent: ChemDispenserEmpty
+  name: energy chem dispenser
+  description: A bluespace Chem Dispenser that uses station energy to synthesize Reagents. The future is here and now.
+  components:
+  - type: Machine
+    board: EnergyChemDispenserMachineCircuitboard #If I forget to add one I'm a dumbass
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 0
+  - type: ApcPowerReceiverBattery
+    idleLoad: 5
+    batteryRechargeRate: 20
+    batteryRechargeEfficiency: 0.0
+  - type: EnergyReagentDispenser #Keep on bottom for view's sake, format is reagentProto: Cost
+    Carbon: 5
+    Aluminum: 5
