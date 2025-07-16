@@ -1,5 +1,4 @@
 
-
 - type: entity
   id: EnergyChemDispenser
   parent: ChemDispenserEmpty
@@ -8,6 +7,12 @@
   components:
   - type: Machine
     board: EnergyChemDispenserMachineCircuitboard #If I forget to add one I'm a dumbass
+  - type: UserInterface
+    interfaces:
+      enum.ReagentDispenserUiKey.Key:
+        type: EnergyReagentDispenserBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: Battery
     maxCharge: 2000
     startingCharge: 0
