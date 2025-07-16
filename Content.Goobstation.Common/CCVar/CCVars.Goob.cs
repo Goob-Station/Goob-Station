@@ -283,31 +283,31 @@ public sealed partial class GoobCVars
     #region Goobcoins
 
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
-        CVarDef.Create("goob.coins_per_player", 10, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.per_player", 10, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinsPerGreentext =
-        CVarDef.Create("goob.coins_per_greentext", 5, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.per_greentext", 5, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
-        CVarDef.Create("goob.coins_non_antag_multiplier", 1, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.non_antag_multiplier", 1, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinServerMultiplier =
-        CVarDef.Create("goob.coins_server_multiplier", 1, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.server_multiplier", 1, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinMinPlayers =
-        CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.min_players", 5, CVar.SERVERONLY);
 
     public static readonly CVarDef<bool> GoobcoinUseLowpopMultiplier =
-        CVarDef.Create("goob.coins_use_lowpop_multiplier", true, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.use_lowpop_multiplier", true, CVar.SERVERONLY);
 
     public static readonly CVarDef<double> GoobcoinLowpopMultiplierStrength =
-        CVarDef.Create("goob.coins_lowpop_multiplier_strength", 1.0, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.lowpop_multiplier_strength", 1.0, CVar.SERVERONLY);
 
     public static readonly CVarDef<bool> GoobcoinUseShortRoundPenalty =
-        CVarDef.Create("goob.coins_use__shortround_penalty", true, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.use__shortround_penalty", true, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinShortRoundPenaltyTargetMinutes =
-        CVarDef.Create("goob.coins_shortround_penalty_target_minutes", 50, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.shortround_penalty_target_minutes", 50, CVar.SERVERONLY);
 
     #endregion
 
