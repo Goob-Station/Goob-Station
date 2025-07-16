@@ -18,7 +18,7 @@
   weights:
     CorporateCaptainIDStealObjective: 1
     CorporateCMOHyposprayStealObjective: 1
-    # CMOCrewMonitorStealObjective: 1 # Goobstation
+    # CMOCrewMonitorStealObjective: 1
     CorporateCMORapidSyringeGunStealObjective: 1
     CorporateRDHardsuitStealObjective: 1
     CorporateNukeDiskStealObjective: 1
