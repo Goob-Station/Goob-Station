@@ -8,8 +8,8 @@
 
 - type: entity
   id: BoxingBell
-  name: "боксерський гонг"
-  description: "Дзинь-дзинь!"
+  name: boxing bell
+  description: Ding ding!
   placement:
     mode: SnapgridCenter
     snap:

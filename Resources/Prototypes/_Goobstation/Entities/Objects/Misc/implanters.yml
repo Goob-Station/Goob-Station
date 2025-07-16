@@ -21,8 +21,8 @@
 - type: entity
   id: BaseFastDrawImplanter
   parent: BaseImplanter
-  name: "імплантер швидкого витягування"
-  description: "Шприц з інструментами для швидкого видалення імплантів. На його корпусі є маленькі золоті зірочки."
+  name: fast draw implanter
+  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
   abstract: true
   components:
     - type: Sprite
@@ -69,8 +69,8 @@
 - type: entity
   id: BaseImplantOnlyImplanterCentcomm
   parent: [ BaseImplantOnlyImplanter, BaseCentcommContraband ]
-  name: "імплантер Центкому"
-  description: "Компактний одноразовий шприц, розроблений виключно для ін'єкції підшкірних імплантів. Голка для введення покрита знеболюючим засобом."
+  name: centcomm implanter
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. The insertion needle is coated with an analgesic.
   abstract: true
   components:
   - type: Item
@@ -99,7 +99,7 @@
 
 - type: entity
   id: BluespaceLifelineImplanter
-  name: "імплантер блюспейс-рятувальника"
+  name: bluespace lifeline implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -115,7 +115,7 @@
 
 - type: entity
   id: CentcommFreedomImplanter
-  name: "імплантатор імпланта \"свободи"
+  name: freedom implant implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -123,7 +123,7 @@
 
 - type: entity
   id: CentcommStorageImplanter
-  name: "імплантатор імпланта \"сховища"
+  name: storage implant implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -131,7 +131,7 @@
 
 - type: entity
   id: CentcommMindShieldImplanter
-  name: "імплантатор \"щита розуму"
+  name: mindshield implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -139,7 +139,7 @@
 
 - type: entity
   id: CentcommNutrimentImplanter
-  name: "імплантатор \"поживної помпи"
+  name: nutriment pump implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -147,7 +147,7 @@
 
 - type: entity
   id: CentcommSpaceproofImplanter
-  name: "імплантатор \"космостійкості"
+  name: space proofing implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -155,7 +155,7 @@
 
 - type: entity
   id: CentcommStypticStimulatorImplanter
-  name: "імплантатор \"кровоспинного стимулятора"
+  name: styptic stimulator implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -164,7 +164,7 @@
 - type: entity
   parent: BaseImplantOnlyImplanter
   id: PacifismImplanter
-  name: "імплантатор імпланта \"пацифізму"
+  name: pacifism implant implanter
   components:
   - type: Implanter
     implant: PacifismImplant
@@ -172,14 +172,14 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: SmokeImplanter
-  name: "імплантатор \"димового\" імпланта"
+  name: smoke implant implanter
   components:
   - type: Implanter
     implant: SmokeImplant
 
 - type: entity
   id: NutrimentImplanter
-  name: "імплантатор \"поживної помпи"
+  name: nutriment pump implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -187,7 +187,7 @@
 
 - type: entity
   id: StypticStimulatorImplanter
-  name: "імплантатор \"кровоспинного стимулятора"
+  name: styptic stimulator implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -196,14 +196,14 @@
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: KravMagaImplanter
-  name: "імплантатор наночіпу \"крав-мага"
+  name: krav maga nanochip implanter
   components:
   - type: Implanter
     implant: KravMagaImplant
 
 - type: entity
   id: BinaryImplanter
-  name: "імплантатор бінарного декодера"
+  name: binary decoder implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -213,7 +213,7 @@
 
 - type: entity
   id: VaporizeImplanter
-  name: "імплантатор імпланта \"випаровування"
+  name: vaporize implant implanter
   suffix: DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
@@ -222,7 +222,7 @@
 
 - type: entity
   id: ShiftImplanter
-  name: "імплантатор імпланта \"зсуву"
+  name: shift implant implanter
   suffix: DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
@@ -231,7 +231,7 @@
 
 - type: entity
   id: BlinkImplanter
-  name: "імплантатор імпланта \"миготіння"
+  name: blink implant implanter
   suffix: DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
@@ -240,7 +240,7 @@
 
 - type: entity
   id: StopTimeImplanter
-  name: "імплантатор імпланта \"зупинки часу"
+  name: stop time implant implanter
   suffix: DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
@@ -259,7 +259,7 @@
 
 - type: entity
   id: AntagImplanterChangeling
-  name: "імплантатор наночіпу перевертня"
+  name: changeling nanochip implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -267,7 +267,7 @@
 
 - type: entity
   id: AntagImplanterHeretic
-  name: "імплантатор наночіпу єретика"
+  name: heretic nanochip implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
@@ -275,7 +275,7 @@
 
 - type: entity
   id: AntagImplanterSpaceNinja
-  name: "імплантатор наночіпу космічного ніндзя"
+  name: space ninja nanochip implanter
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter

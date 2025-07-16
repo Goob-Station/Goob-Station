@@ -8,7 +8,7 @@
 
 - type: body
   id: AnimalHemocyanin
-  name: "гемоціанін"
+  name: "hemocyanin"
   root: chest
   slots:
     chest:

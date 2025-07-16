@@ -72,7 +72,7 @@
   id: FoodBagelBase
   parent: FoodInjectableBase
   abstract: true
-  description: "Смачний бублик."
+  description: A delicious bagel.
   components:
   - type: FlavorProfile
     flavors:
@@ -90,14 +90,14 @@
 
 - type: entity
   id: FoodBagel
-  name: "бублик"
+  name: bagel
   parent: FoodBagelBase
 
 - type: entity
   id: FoodBagelPoppy
   parent: FoodBagelBase
-  name: "бублик з маком"
-  description: "Смачний бублик, посипаний маком з бікардином."
+  name: poppy seed bagel
+  description: A delicious bagel topped with bicaridine-infused poppy seeds.
   components:
   - type: FlavorProfile
     flavors:
@@ -118,8 +118,8 @@
 - type: entity
   id: FoodBagelCotton
   parent: FoodBagelBase
-  name: "бавовняний бублик"
-  description: "Смачний бублик, зроблений з бавовняного тіста."
+  name: cotton bagel
+  description: A delicious bagel made with cotton dough.
   components:
   - type: FlavorProfile
     flavors:

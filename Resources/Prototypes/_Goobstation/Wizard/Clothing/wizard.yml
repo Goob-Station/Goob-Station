@@ -18,8 +18,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesEyepatchMedical
-  name: "медична пов'язка на очі"
-  description: "Використовується космічними вундеркіндами, щоб прикидатися, що у них немає ока, і членами екіпажу, які насправді втратили око, щоб прикидатися, що воно є."
+  name: medical eyepatch
+  description: Used by space weeaboos to pretend their eye isn't there, and crewmembers who actually lost their eye to pretend their eye is there.
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
   save: false
@@ -118,8 +118,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatBlackwizardReal
-  name: "чорний капелюх чарівника"
-  description: "Дивний на вигляд чорний капелюх, який напевно належить справжньому лісовику. Моторошно."
+  name: black wizard hat
+  description: Strange-looking black hat-wear that most certainly belongs to a real lich. Spooky.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/blackwizard.rsi
@@ -129,8 +129,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardBlackReal
-  name: "чорні мантії чарівника"
-  description: "Нервове чорне вбрання, оздоблене дорогоцінними каменями, від якого тхне смертю і розпадом."
+  name: black wizard robes
+  description: An unnerving black gem-lined robe that reeks of death and decay.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/blackwizard.rsi
@@ -141,8 +141,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatYellowwizardReal
-  name: "жовтий капелюх чарівника"
-  description: "Дивний на вигляд жовтий капелюх, який напевно належить могутньому магічному користувачеві."
+  name: yellow wizard hat
+  description: Strange-looking yellow hat-wear that most certainly belongs to a powerful magic user.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/yellowwizard.rsi
@@ -152,8 +152,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardYellowReal
-  name: "жовті мантії чарівника"
-  description: "Розкішна жовта мантія, оздоблена дорогоцінними каменями, яка, здається, випромінює силу."
+  name: yellow wizard robes
+  description: A magnificent yellow gem-lined robe that seems to radiate power.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/yellowwizard.rsi
@@ -164,8 +164,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatTapewizardReal
-  name: "стрічковий капелюх"
-  description: "Магічно налаштований капелюх, зроблений виключно зі скотчу. Його майже не видно."
+  name: tape hat
+  description: A magically attuned hat made exclusively from duct tape. You can barely see.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/tapewizard.rsi
@@ -179,8 +179,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardTapeReal
-  name: "стрічкові халати"
-  description: "Вишукана мантія, зроблена з магічно налаштованого скотчу."
+  name: tape robes
+  description: A fine robe made from magically attuned duct tape.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/tapewizard.rsi
@@ -191,8 +191,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatChanterelleReal
-  name: "капелюшок лисички"
-  description: "Величезна лисичка з порожнистим простором, куди може поміститися голова. Схожа на капелюх чарівника."
+  name: chanterelle hat
+  description: An oversized chanterelle with hollow out space to fit a head in. Kinda looks like wizard's hat.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/chanterelle.rsi
@@ -203,8 +203,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardPaperReal
-  name: "халати з пап'є-маше"
-  description: "Халат, скріплений різними шматочками клейкої стрічки та клею."
+  name: papier-mâché robes
+  description: A robe held together by various bits of clear-tape and paste.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/paperwizard.rsi
@@ -223,14 +223,14 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatPaper]
   id: ClothingHeadHatPaperWizard
-  name: "паперовий чарівний капелюх"
+  name: paper magic hat
 
 # Mime
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatMimeReal
-  name: "чарівний берет"
-  description: "Магічний червоний берет."
+  name: magical beret
+  description: A magical red beret.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/mimewizard.rsi
@@ -240,8 +240,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardMimeReal
-  name: "мімічні халати"
-  description: "Червоні, чорні та білі халати. Більше про них нічого не скажеш."
+  name: mime robes
+  description: Red, black, and white robes. There is not much else to say about them.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/mimewizard.rsi
@@ -252,8 +252,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatClownReal
-  name: "фіолетовий капелюх чарівника"
-  description: "Дивний на вигляд фіолетовий капелюх, який напевно належить справжньому магічному користувачеві."
+  name: purple wizard hat
+  description: Strange-looking purple hat-wear that most certainly belongs to a real magic user.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/clownwizard.rsi
@@ -263,8 +263,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardClownReal
-  name: "клоунські костюми"
-  description: "Набір броньованих шат, які, здається, випромінюють темну силу. Це, а також невдалі модні рішення."
+  name: clown robes
+  description: A set of armoured robes that seem to radiate a dark power. That, and bad fashion decisions.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/clownwizard.rsi
@@ -275,8 +275,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatPsyReal
-  name: "психічний підсилювач"
-  description: "Підсилювач психіки тернового вінця."
+  name: psychic amplifier
+  description: A crown-of-thorns psychic amplifier.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/psywizard.rsi
@@ -286,8 +286,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardPsyReal
-  name: "фіолетові халати"
-  description: "Важкі, королівські фіолетові мантії, пронизані психічними підсилювачами і дивними, колбоподібними лінзами. Не прати у пральній машині."
+  name: purple robes
+  description: Heavy, royal purple robes threaded with psychic amplifiers and weird, bulbous lenses. Do not machine wash.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/psywizard.rsi
@@ -298,8 +298,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatOblivionEnforcer
-  name: "капюшон винищувача забуття"
-  description: "Капюшон, який носить Примус Забуття."
+  name: oblivion enforcer's hood
+  description: A hood worn by an Oblivion Enforcer.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -316,8 +316,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterStorageToggleableBase]
   id: ClothingOuterOblivionEnforcer
-  name: "мантія охоронця забуття"
-  description: "Комплект броньованих, захищених від радіації халатів, які носять Вартові Забуття."
+  name: oblivion enforcer's robes
+  description: A set of armored, radiation-proof robes worn by Oblivion Enforcers.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/oblivionenforcer.rsi
@@ -351,8 +351,8 @@
   parent: [ClothingMaskGas, BaseMagicalContraband]
   id: ClothingMaskGasOblivionEnforcer
   suffix: Voice Mask, Wizard Clothes
-  name: "маска винищувача забуття"
-  description: "Маска охоронця забуття. Не забудьте ввімкнути її перед тим, як виголошувати свої репліки!"
+  name: oblivion enforcer's mask
+  description: The mask of an Oblivion Enforcer. Don't forget to turn it on before giving your one-liners!
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/oblivionenforcer.rsi
@@ -375,64 +375,64 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizard]
   id: ClothingHeadHatWizardReal
-  name: "капелюх чарівника"
+  name: wizard hat
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterWizard]
   id: ClothingOuterWizardReal
-  name: "мантії чарівників"
+  name: wizard robes
 
 # Red
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatRedwizard]
   id: ClothingHeadHatRedwizardReal
-  name: "червоний капелюх чарівника"
+  name: red wizard hat
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterWizardRed]
   id: ClothingOuterWizardRedReal
-  name: "червоні мантії чарівника"
+  name: red wizard robes
 
 # Violet
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatVioletwizard]
   id: ClothingHeadHatVioletwizardReal
-  name: "фіолетовий капелюх чарівника"
+  name: violet wizard hat
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterWizardViolet]
   id: ClothingOuterWizardVioletReal
-  name: "фіолетові мантії чарівника"
+  name: violet wizard robes
 
 # Witch
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatWitch1]
   id: ClothingHeadHatWitchReal
-  name: "капелюх відьми"
+  name: witch hat
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitWitchRobes]
   id: ClothingOuterSuitWitchRobesReal
-  name: "відьомські шати"
+  name: witch robes
 
 # Shrine maiden
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatShrineMaidenWig]
   id: ClothingHeadHatShrineMaidenWigReal
-  name: "перука святої дівиці"
+  name: shrine maiden's wig
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitShrineMaiden]
   id: ClothingOuterSuitShrineMaidenReal
-  name: "дівоче вбрання святині"
+  name: shrine maiden outfit
 
 # Centcomm
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatCentCommwizardReal
-  name: "справжній капелюх чарівника ЦентКому"
+  name: CentComm wizard hat
   suffix: ADMIN
-  description: "Бездоганний зелено-золотий капелюх чарівника, стандартний для таємних оперативників Центрального Командування. Носиться лише тими, хто уповноважений володіти засекреченими тауматургічними інструментами."
+  description: A pristine green and gold wizard hat, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/comwizard.rsi
@@ -442,9 +442,9 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardCentCommReal
-  name: "справжня мантія чарівника ЦентКому"
+  name: CentComm wizard robes
   suffix: ADMIN
-  description: "Бездоганна зелено-золота мантія з дорогоцінними каменями, стандартна для таємних оперативників Центрального Командування. Носиться лише тими, хто уповноважений володіти засекреченими тауматургічними інструментами."
+  description: A pristine green and gold gem-lined robe, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/comwizard.rsi
@@ -455,8 +455,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesWizard
-  name: "рукавички майстра"
-  description: "Чудова пара синіх рукавичок з дорогоцінними каменями, які здаються ізольованими."
+  name: wizard gloves
+  description: A magnificent pair of blue gem-lined gloves that seem to be insulated.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Hands/wizgloves.rsi
@@ -471,8 +471,8 @@
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatCrimsonReal
-  name: "багряний капелюх чарівника"
-  description: "Гостроверхий капелюх чарівника з широкими полями, прикрашений багряною стрічкою та ноткою театральності. На дотик... вибуховий."
+  name: crimson wizard hat
+  description: A wide-brimmed, pointy wizard hat adorned with a crimson band and a touch of theatrical flair. Feels... explosive.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/crimsonwizard.rsi
@@ -482,8 +482,8 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardCrimsonReal
-  name: "багряна мантія чарівника"
-  description: "Спадаючий комплект червоних, оздоблених золотом мантій, створений для драматичного чаклування. Ви можете відчути, як сила тече крізь вас..."
+  name: crimson wizard robes
+  description: A flowing set of red and gold-trimmed robes, made for dramatic spellcasting. You can feel the power flowing through you...
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/OuterClothing/crimsonwizard.rsi
@@ -493,8 +493,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakCrimson
-  name: "Багряний Плащ"
-  description: "Чорний плащ з високим коміром і золотою облямівкою. Драматично розвівається, навіть коли немає вітру."
+  name: Crimson Cape
+  description: A black cape with a high collar and gold trim. Billows dramatically even when there's no wind.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Neck/crimsonwizard.rsi
@@ -502,8 +502,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingUnderShoesCrimson
-  name: "багряні чоботи"
-  description: "Поставляється з парою різнокольорових панчіх до стегон, щоб розкрити їхню повну силу!"
+  name: crimson boots
+  description: Comes with a pair of mismatched thigh-high socks to bring out their full power!
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Shoes/crimson.rsi

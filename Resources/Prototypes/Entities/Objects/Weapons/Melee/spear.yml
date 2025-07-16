@@ -69,10 +69,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "грубий спис"
+  name: spear
   parent: [BaseItem, BaseMinorContraband]
   id: Spear
-  description: "Грубий спис для того, щоб продірявити когось."
+  description: Definition of a Classic. Keeping murder affordable since 200,000 BCE.
   components:
   - type: EmbeddableProjectile
     offset: -0.15,0.0
@@ -200,10 +200,10 @@
 
 
 - type: entity
-  name: "грубий армований спис"
+  name: reinforced spear
   parent: Spear
   id: SpearReinforced
-  description: "Грубий армований спис для тих випадків, коли потрібно наробити в комусь дірок."
+  description: A spear with a reinforced glass shard as a tip.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/reinforced_spear.rsi
@@ -221,10 +221,10 @@
     graph: SpearReinforced
 
 - type: entity
-  name: "плазмовий спис"
+  name: plasma spear
   parent: Spear
   id: SpearPlasma
-  description: "Грубий плазмовий спис для тих випадків, коли потрібно наробити в комусь дірок."
+  description: A spear with a plasma shard as a tip.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/plasma_spear.rsi
@@ -242,10 +242,10 @@
     graph: SpearPlasma
 
 - type: entity
-  name: "урановий спис"
+  name: uranium spear
   parent: Spear
   id: SpearUranium
-  description: "Спис з необробленого урану для тих випадків, коли потрібно наробити в комусь дірок."
+  description: A spear with a uranium shard as a tip.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/uranium_spear.rsi
@@ -265,10 +265,10 @@
     graph: SpearUranium
 
 - type: entity
-  name: "кістяний спис"
+  name: bone spear
   parent: Spear
   id: SpearBone
-  description: "Кістки та шовк у поєднанні."
+  description: A spear made of bones.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/bone_spear.rsi
@@ -300,10 +300,10 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: "спис із зуба акули-гольяна"
+  name: sharkminnow tooth spear
   parent: Spear 
   id: SpearSharkMinnow
-  description: "Спис з зубом акули-гольяна в якості наконечника."
+  description: A spear with a sharkminnow tooth as a tip.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/sharkminnow_spear.rsi
