@@ -12289,3 +12289,20 @@ Entries:
       message: Fixed entities sometimes being in eternal fake fire.
   id: 1356
   time: '2025-07-15T19:46:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic abilities are now path locked, e.g. you cant get Ashen Passage
+        as a void heretic now. General/side knowledge is still fair game.
+  id: 1357
+  time: '2025-07-16T14:13:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the omnimed tool, moth cloak and the 5 gorillion slot machine
+        medkits in Brigmed locker. Now they get a normal surgery duffel bag and
+        an o2 medkit.
+  id: 1358
+  time: '2025-07-16T14:14:43.0000000+00:00'
