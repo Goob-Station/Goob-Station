@@ -1,29 +1,29 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Administration;
-using Content.Shared.Abilities.Mime;
+using Content.Shared.Access.Components;
 using Content.Shared.Administration;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Inventory;
+using Content.Shared.PDA;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Spawn)]
-public sealed class EquipTo : IConsoleCommand
+public sealed class EquipTo : LocalizedCommands
 {
-    public string Command => "equipto";
 
-    public string Description => "Equip a given entity to a specified entity.";
+    public const string CommandName = "equipto";
+    public override string Command => CommandName;
 
-    public string Help => $"Usage: {Command} <target> <itemUid/ProtoId> <bool-DeletePrevious> / {Command} <target> <itemUid/ProtoId> <bool-DeletePrevious> <slot>";
-
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         var entityManager = IoCManager.Resolve<IEntityManager>();
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -31,14 +31,14 @@ public sealed class EquipTo : IConsoleCommand
 
         if (args.Length < 3)
         {
-            shell.WriteLine($"Not enough arguments.\n{Help}");
+            shell.WriteLine(Loc.GetString("cmd-equipto-args-error"));
             return;
         }
 
         if (!NetEntity.TryParse(args[0], out var targetNet)
             || !entityManager.TryGetEntity(targetNet, out var targetEntity))
         {
-            shell.WriteLine($"Invalid target entity: {args[0]}");
+            shell.WriteLine(Loc.GetString("cmd-equipto-bad-target", ("target", args[0])));
             return;
         }
         var target = targetEntity.Value;
@@ -55,47 +55,93 @@ public sealed class EquipTo : IConsoleCommand
         }
         else
         {
-            shell.WriteLine($"Invalid item UID/prototype: {args[1]}");
+            shell.WriteLine(Loc.GetString("cmd-equipto-bad-proto", ("proto", args[1])));
             return;
         }
 
         if (!bool.TryParse(args[2], out var deletePrevious))
-        {
-            shell.WriteLine($"Invalid boolean for deletePrevious: {args[2]}");
             return;
-        }
-
-        string? targetSlot = null;
-
-        if (entityManager.TryGetComponent(item, out ClothingComponent? clothingComp))
-            targetSlot = clothingComp.Slots.ToString().ToLowerInvariant();
 
         if (args.Length >= 4)
-            targetSlot = args[3];
-
-        if (string.IsNullOrEmpty(targetSlot))
         {
-            shell.WriteLine("No valid slot specified and item has no Slot defined.");
+            var targetSlot = args[3];
+
+            invSystem.TryGetSlotEntity(target, targetSlot, out var existing);
+            if (invSystem.TryEquip(target, item, targetSlot, force: true, silent: true))
+            {
+                if (deletePrevious
+                    && existing != null)
+                    entityManager.DeleteEntity(existing.Value);
+
+                shell.WriteLine(Loc.GetString("cmd-equipto-success",
+                    ("item", entityManager.ToPrettyString(item)),
+                    ("target", entityManager.ToPrettyString(target)),
+                    ("targetSlot", targetSlot)));
+            }
+            else
+            {
+                shell.WriteLine(Loc.GetString("cmd-equipto-failure",
+                    ("item", entityManager.ToPrettyString(item)),
+                    ("target", entityManager.ToPrettyString(target)),
+                    ("targetSlot", targetSlot)));
+            }
             return;
         }
 
-        if (deletePrevious)
+        var equipped = false;
+        if (invSystem.TryGetSlots(target, out var slots)
+            && entityManager.TryGetComponent<ClothingComponent>(item, out var clothingComponent))
         {
-            if (invSystem.TryGetSlotEntity(target, targetSlot, out var existing))
-                entityManager.DeleteEntity(existing);
-        }
-        else
-        {
-            invSystem.DropSlotContents(target, targetSlot);
+            foreach (var slot in slots)
+            {
+                if (!clothingComponent.Slots.HasFlag(slot.SlotFlags))
+                    continue;
+
+                if (deletePrevious
+                    && invSystem.TryGetSlotEntity(target, slot.Name, out var existing))
+                    entityManager.DeleteEntity(existing.Value);
+                else
+                    invSystem.TryUnequip(target, slot.Name, true, true);
+
+                invSystem.TryEquip(target, item, slot.Name, force: true, silent: true);
+
+                if (slot.Name == "id" &&
+                    entityManager.TryGetComponent(item, out PdaComponent? pdaComponent) &&
+                    entityManager.TryGetComponent<IdCardComponent>(pdaComponent.ContainedId, out var id))
+                {
+                    id.FullName = entityManager.GetComponent<MetaDataComponent>(target).EntityName;
+                }
+
+                shell.WriteLine(Loc.GetString("cmd-equipto-success",
+                    ("item", entityManager.ToPrettyString(item)),
+                    ("target", entityManager.ToPrettyString(target)),
+                    ("targetSlot", slot.Name)));
+
+                equipped = true;
+                break;
+            }
         }
 
-        if (!invSystem.TryEquip(target, item, targetSlot, force: true, silent: true))
-        {
-            shell.WriteLine($"Failed to equip {entityManager.ToPrettyString(item)} to {targetSlot}.");
+        if (equipped)
             return;
-        }
 
-        shell.WriteLine($"Equipped {entityManager.ToPrettyString(item)} to {entityManager.ToPrettyString(target)} in slot {targetSlot}.");
+        shell.WriteLine(Loc.GetString("cmd-equipto-total-failure",
+            ("item", entityManager.ToPrettyString(item)),
+            ("target", entityManager.ToPrettyString(target))));
+
+        entityManager.DeleteEntity(item);
+    }
+
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+
+        if (args.Length != 4
+            || !prototypeManager.TryIndex<InventoryTemplatePrototype>("human", out var inventoryTemplate))
+            return CompletionResult.Empty;
+
+        var options = inventoryTemplate.Slots.Select(c => c.Name).OrderBy(c => c).ToArray();
+        return CompletionResult.FromHintOptions(options, Loc.GetString("cmd-equipto-hint"));
     }
 }
 

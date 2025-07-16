@@ -53,6 +53,22 @@
   technologyPrerequisites:
   - DraconicMunitions
 
+- type: technology
+  id: RestraintTechnology
+  name: research-technology-restraint
+  icon:
+    sprite: _Goobstation/Clothing/Mask/securemuzzle.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 1
+  cost: 3000
+  recipeUnlocks:
+  - ClothingMaskMuzzleSecure
+  - ClothingMaskMuzzleShock
+  position: 1,1
+  technologyPrerequisites:
+  - SalvageWeapons
+
 # Tier 2
 - type: technology
   id: WeaponLaserCellSMGTech

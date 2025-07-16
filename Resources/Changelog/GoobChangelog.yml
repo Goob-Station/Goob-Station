@@ -11721,3 +11721,571 @@ Entries:
       message: Updated base game to 25/05 release
   id: 1284
   time: '2025-06-30T17:41:57.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: Added two new muzzles to the secfab as a tier 1 research.
+  id: 1285
+  time: '2025-07-01T18:49:45.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Idle NPCs should no longer spin.
+    - type: Fix
+      message: >-
+        NPCs in nograv should no longer sometimes circle around their
+        destination.
+  id: 1286
+  time: '2025-07-01T18:50:08.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Add
+      message: >-
+        Added several new cybernetic organs, including advanced lungs, livers,
+        and hearts with specialized effects.
+    - type: Add
+      message: Added new basic cybernetic limbs.
+    - type: Add
+      message: >-
+        Split cybernetics into two separate researchs: Basic Cybernetics and
+        Advanced Cybernetics.
+    - type: Tweak
+      message: >-
+        Rebalanced material costs for all existing and newly added cybernetic
+        organs and limbs.
+  id: 1287
+  time: '2025-07-01T18:50:41.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Vulpkanin can now track the scents of people.
+  id: 1288
+  time: '2025-07-01T18:53:51.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: Table smites are host-only
+  id: 1289
+  time: '2025-07-01T18:54:33.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Enabled the shelter capsule + webbing mining voucher kit.
+  id: 1290
+  time: '2025-07-01T18:57:33.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: His Grace now properly heals it's host as intended.
+    - type: Fix
+      message: His Grace now properly applies its movement speed bonuses.
+    - type: Tweak
+      message: His Grace is no longer disarm-able.
+  id: 1291
+  time: '2025-07-01T18:58:01.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Tweak
+      message: >-
+        Request computers directly send their orders to cargo again instead of
+        printing slips
+  id: 1292
+  time: '2025-07-01T19:04:08.0000000+00:00'
+- author: SomethingUnbearable
+  changes:
+    - type: Add
+      message: >-
+        2 new signallers: voice signaller and proximity signaller that do
+        exactly what its name implies. 
+  id: 1293
+  time: '2025-07-01T19:04:38.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Syndicate Disaster victims are now Crew Aligned
+  id: 1294
+  time: '2025-07-01T19:09:14.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        O crimson garment, woven in the abyss of ancient flame... awaken! Added
+        a new set of wizard clothing for chuuni enthusiasts.
+  id: 1295
+  time: '2025-07-01T19:22:05.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: CE now gets their own RPD.
+    - type: Add
+      message: Engineering now has diagnostic huds in their Engi-Vend.
+    - type: Tweak
+      message: Engineering suits now have welding protection.
+    - type: Tweak
+      message: Engineers now have access to air alarms.
+    - type: Tweak
+      message: The singularity buster is more reliable.
+    - type: Fix
+      message: Box of nails in engi fab. now exists.
+  id: 1296
+  time: '2025-07-01T19:28:08.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Regular crew can no longer see reality fractures
+    - type: Add
+      message: >-
+        The chaplain is now the only regular member of the crew that can see the
+        fractures, but be warned... he might just be crazy!
+    - type: Fix
+      message: >-
+        The metashield nobody likes on fractures... shouldn't be a problem
+        anymore
+  id: 1297
+  time: '2025-07-01T19:40:37.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Fix
+      message: Fixed hardgrab grammar
+  id: 1298
+  time: '2025-07-01T19:42:09.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Fix
+      message: Fixed the NTRep not getting his special disabler
+  id: 1299
+  time: '2025-07-01T19:43:55.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Tweak
+      message: >-
+        Fillbots can now go underneath doors so they don't get stuck in maints
+        every single time
+  id: 1300
+  time: '2025-07-01T19:49:19.0000000+00:00'
+- author: ThunderBear2006
+  changes:
+    - type: Add
+      message: The Station AI can now jump/warp to on-station cameras
+  id: 1301
+  time: '2025-07-01T19:53:54.0000000+00:00'
+- author: Sleeper Agent 110920
+  changes:
+    - type: Add
+      message: Added a new outfit to the hacked autodrobe.
+  id: 1302
+  time: '2025-07-01T20:17:04.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Changed the heretic ascension announcements.
+  id: 1303
+  time: '2025-07-01T20:18:07.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: Traitors and nukies are once again able to buy antimov!
+  id: 1304
+  time: '2025-07-01T20:19:41.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        Three new dangerous creatures have been added, the brullbar, the white
+        wolf, and the living curse.
+  id: 1305
+  time: '2025-07-01T20:20:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Microreactors now get temporarily disabled when EMPed.
+  id: 1306
+  time: '2025-07-01T20:23:44.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        PTL current Speso creation is halved. No more Engineering being the
+        richest department.
+  id: 1307
+  time: '2025-07-01T20:25:45.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Fixed cybernetic eyes.
+  id: 1308
+  time: '2025-07-02T02:30:35.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Fix
+      message: Fixed Slimes and Voxes not being able to breathe.
+  id: 1309
+  time: '2025-07-02T02:42:29.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: Actually fix eyes this time
+  id: 1310
+  time: '2025-07-02T04:34:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: IPCs can now pilot, bump open doors, and host anomalies.
+  id: 1311
+  time: '2025-07-02T10:31:40.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Fix
+      message: >-
+        Changelings will longer be affected by beheading if they changed
+        identities (the 'immunity' was removed upon transforming)
+  id: 1312
+  time: '2025-07-07T14:38:03.0000000+00:00'
+- author: Rubin
+  changes:
+    - type: Fix
+      message: Compatibility mode crashing due to Holographic shader.
+  id: 1313
+  time: '2025-07-07T14:39:43.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Syndicate Disaster victims are returned to being Free Agents.
+  id: 1314
+  time: '2025-07-07T16:04:04.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Add
+      message: >-
+        Added a new neck item to tiders who can't afford the tider mantle,
+        shrug.
+  id: 1315
+  time: '2025-07-10T04:18:39.0000000+00:00'
+- author: Aviu, pheenty
+  changes:
+    - type: Add
+      message: 'Added 3 new martial arts: Ninjutsu, Capoeira and Dragon Kung Fu.'
+    - type: Add
+      message: Added martial art combo counter.
+    - type: Add
+      message: CQC can now parry any melee attack and can also snap necks.
+    - type: Add
+      message: Guidebook for martial arts.
+    - type: Add
+      message: Judo reworked, check guidebook for details.
+    - type: Remove
+      message: Removed ninja gloves stun (replaced with ninjutsu).
+  id: 1316
+  time: '2025-07-10T12:26:22.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Harpies no longer are locked to jumpskirts, and pants have fancy
+        displacement maps too.
+    - type: Fix
+      message: Fixed harpy flight visuals being kinda broken on other clients.
+    - type: Fix
+      message: 'Fixed modsuits being unusable by harpies and diona. '
+    - type: Fix
+      message: >-
+        Fixed harpy flight being broken and moving around at snail-speed. Thanks
+        wizden.
+    - type: Fix
+      message: Fixed harpy flight making secoffs scream "HE'S REACHING" too often.
+  id: 1317
+  time: '2025-07-11T20:06:54.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Millions must gulp
+  id: 1318
+  time: '2025-07-11T23:58:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Boomerang items will now hit you if your hand is occupied.
+    - type: Tweak
+      message: Boomerang items now have a maximum amount of hops they can make.
+    - type: Fix
+      message: Fixed boomerang jank.
+  id: 1319
+  time: '2025-07-12T08:48:25.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Stamina resistances work once again.
+  id: 1320
+  time: '2025-07-12T09:05:18.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: Budget insulated gloves are no longer marked as contraband
+  id: 1321
+  time: '2025-07-13T05:02:41.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: Maintenance doorjack
+  id: 1322
+  time: '2025-07-13T22:36:23.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Fix
+      message: Pun Pun has been reminded of his contract and is no longer a free agent.
+  id: 1323
+  time: '2025-07-13T22:38:17.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Tweak
+      message: >-
+        Compact defibrillator is now in the Advanced Treatment tech (T2 surgical
+        tools).
+  id: 1324
+  time: '2025-07-13T22:39:32.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: Crew borgs are no longer immune to various mobs.
+  id: 1325
+  time: '2025-07-13T22:41:37.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: AI is has crewsimov roundstart.
+  id: 1326
+  time: '2025-07-13T22:43:10.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        The Gorlex Hypospray has a reduced cooldown between injections. Heal to
+        your heart's content.
+  id: 1327
+  time: '2025-07-13T22:46:16.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        You can no longer call the shuttle once cosmic cult reaches tier 2 or
+        above.
+    - type: Tweak
+      message: >-
+        Siphoning no longer informs the target that they feel numb. Pay
+        attention to your health if you wish to continue metagaming.
+    - type: Add
+      message: >-
+        You can now convert dead people into the cosmic cult so long as their
+        corpses are still fresh.
+    - type: Tweak
+      message: >-
+        Being converted into the cosmic cult now fully heals you, rather than
+        doing a partial heal as it used to. It also revives you, if you were
+        dead.
+    - type: Tweak
+      message: Null Glare is slightly less bad.
+    - type: Fix
+      message: Siphoning no longer deals 90 damage.
+    - type: Tweak
+      message: >-
+        Siphoning damage now applies over a larger amount of time, and no longer
+        deals cold damage.
+    - type: Tweak
+      message: While empowered, you gain double the entropy from siphoning.
+  id: 1328
+  time: '2025-07-13T22:49:50.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Remove
+      message: Removed roundstart nailguns.
+  id: 1329
+  time: '2025-07-13T22:51:15.0000000+00:00'
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Mantis blades now cut more than stab, and do more slash than pierce
+  id: 1330
+  time: '2025-07-13T22:53:04.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Fixed mislabelled rule on "Rolplay"
+  id: 1331
+  time: '2025-07-13T22:55:56.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Cyber eyes work now
+  id: 1332
+  time: '2025-07-13T22:57:10.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Godhand crowbar utility works now
+  id: 1333
+  time: '2025-07-13T22:59:27.0000000+00:00'
+- author: PAFFhassoocks
+  changes:
+    - type: Tweak
+      message: Fixed BSO's hardsuit not appearing in their locker
+  id: 1334
+  time: '2025-07-13T23:00:01.0000000+00:00'
+- author: PAFFhassoocks
+  changes:
+    - type: Tweak
+      message: BSOs revolver kit now hits hard.
+  id: 1335
+  time: '2025-07-13T23:01:15.0000000+00:00'
+- author: Moony33
+  changes:
+    - type: Fix
+      message: >-
+        Fixed jumpskirts texture being ugly while wearing winter jackboots. Drip
+        wins yet again
+  id: 1336
+  time: '2025-07-13T23:02:26.0000000+00:00'
+- author: ImHoks
+  changes:
+    - type: Add
+      message: ERT Medical Officer now gets a medical beam gun.
+  id: 1337
+  time: '2025-07-13T23:02:41.0000000+00:00'
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Made zombies move 5% slower than humans, from 5% faster previously.
+        [font size=3]what the fuck I didn't know left for dead had runner
+        zombies[/font]
+  id: 1338
+  time: '2025-07-13T23:04:17.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Tweak
+      message: >-
+        Contractor baton attack rate increased (1 -> 1.25) and the use delay
+        when active has been decreased (2.5 -> 0.5)
+  id: 1339
+  time: '2025-07-13T23:12:01.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: You can have a spider friend now!
+  id: 1340
+  time: '2025-07-13T23:17:36.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: Assistants have maintenance access again
+    - type: Tweak
+      message: Assistants have their playtime limit removed
+  id: 1341
+  time: '2025-07-13T23:20:08.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed Resomi gasp and deathgasp not working.
+  id: 1342
+  time: '2025-07-14T08:04:05.0000000+00:00'
+- author: AgentePanela
+  changes:
+    - type: Tweak
+      message: Open remote devices action icon.
+  id: 1343
+  time: '2025-07-14T08:12:35.0000000+00:00'
+- author: pheenty, jimmy12or, gentlebutter
+  changes:
+    - type: Add
+      message: Added plant BoH and plant box. Like ore BoH and ore box, but for plants.
+    - type: Tweak
+      message: You can now dump plant bags deirectly into biogenerators.
+    - type: Tweak
+      message: Mutated plants can now contain more random chemicals.
+  id: 1344
+  time: '2025-07-14T08:26:40.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Changed some values from the ratking to make it slightly better at what
+        it does, without directly buffing its combat stats.
+  id: 1345
+  time: '2025-07-14T08:27:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer have paradox clones of nor revolutionize Gemini
+        clones.
+    - type: Fix
+      message: You (Hopefully) can no longer have paradox clones of the station AI.
+  id: 1346
+  time: '2025-07-14T08:28:49.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Modsuits no longer drop suit items when equipped or unequipped
+  id: 1347
+  time: '2025-07-14T08:50:39.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Dramatically improved performance of the flammable system.
+  id: 1348
+  time: '2025-07-14T08:58:32.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Made some performance improvements to the Holopad system.
+  id: 1349
+  time: '2025-07-14T08:59:17.0000000+00:00'
+- author: sprkl
+  changes:
+    - type: Add
+      message: Added Cooing emote to Harpies. You can now Coo with 5 variations!
+  id: 1350
+  time: '2025-07-14T09:00:26.0000000+00:00'
+- author: ARMOK
+  changes:
+    - type: Remove
+      message: Syringes cannot combat mode inject anymore.
+    - type: Tweak
+      message: >-
+        Syringes do not inject on embed anymore without being shot from a
+        syringe gun.
+  id: 1351
+  time: '2025-07-14T09:10:01.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Rusk sickness made weaker overall
+  id: 1352
+  time: '2025-07-14T09:13:27.0000000+00:00'
+- author: Chuds
+  changes:
+    - type: Remove
+      message: Removed TC Miners.
+  id: 1353
+  time: '2025-07-14T09:21:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle max speed is now properly 60 again.
+    - type: Fix
+      message: Space is now frictionless again.
+  id: 1354
+  time: '2025-07-14T09:22:20.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Tweak
+      message: PTL no longer constantly emits rads.
+    - type: Tweak
+      message: Increased max draw of PTL. (1MJ -> 5MJ)
+  id: 1355
+  time: '2025-07-14T09:34:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed entities sometimes being in eternal fake fire.
+  id: 1356
+  time: '2025-07-15T19:46:04.0000000+00:00'
