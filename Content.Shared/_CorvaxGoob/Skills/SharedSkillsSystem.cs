@@ -1,6 +1,6 @@
 namespace Content.Shared._CorvaxGoob.Skills;
 
-public abstract class SharedSkillsSystem : EntitySystem
+public sealed class SharedSkillsSystem : EntitySystem
 {
     public bool HasSkill(EntityUid entity, Skills skill, SkillsComponent? component = null)
     {

@@ -444,7 +444,7 @@
         - Surgery
         - MedicalEquipment
         - Butchering
-      - type: CanChokeGrab # Corvax-Next-Grab
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -819,8 +819,8 @@
         maxInitialInfectedGrace: 450
       - type: ZombifyOnDeath
       - type: IncurableZombie
-      - type: CanChokeGrab # Corvax-Next-Grab
-      - type: Skills # Corvax-Next-Skills
+      - type: CanChokeGrab # CorvaxGoob-Grab
+      - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
         - Shooting
@@ -879,7 +879,7 @@
         - NamesSyndicatePrefix
         - NamesSyndicateNormal
         nameFormat: name-format-nukie-generic
-      - type: CanChokeGrab # Corvax-Next-Grab
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -930,7 +930,7 @@
         - Surgery
         - MedicalEquipment
         - Butchering
-      - type: CanChokeGrab # Corvax-Next-Grab
+      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleTraitorSleeper
 
