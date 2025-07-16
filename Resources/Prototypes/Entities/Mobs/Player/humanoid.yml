@@ -153,6 +153,7 @@
         - Surgery
         - MedicalEquipment
         - Butchering
+    - type: CanChokeGrab # CorvaxGoob-Grab
 
 # Goobstation start
 - type: randomHumanoidSettings

@@ -58,6 +58,15 @@
       - type: RandomMetadata
         nameSegments:
         - NamesDeathCommando
+      - type: CanChokeGrab # CorvaxGoob-Grab
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
   - type: Tag
     tags:
     - MidroundAntag

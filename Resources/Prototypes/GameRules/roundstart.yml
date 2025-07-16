@@ -265,6 +265,7 @@
         - Surgery
         - MedicalEquipment
         - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -291,6 +292,7 @@
         - Surgery
         - MedicalEquipment
         - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -321,6 +323,7 @@
         - Surgery
         - MedicalEquipment
         - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -400,6 +403,7 @@
         - Surgery
         - MedicalEquipment
         - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleTraitor
 
@@ -433,6 +437,7 @@
         - Surgery
         - MedicalEquipment
         - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleHeadRevolutionary
 
@@ -541,6 +546,7 @@
         - Surgery
         - MedicalEquipment
         - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleInitialInfected
 
