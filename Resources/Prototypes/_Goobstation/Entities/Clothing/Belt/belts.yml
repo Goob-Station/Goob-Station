@@ -10,6 +10,7 @@
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 freturt <dimadimafamilia939@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -124,6 +125,10 @@
       - DoorRemote
       - Whistle
       - BalloonPopper
+      - ScatteringGrenade
+  - type: GuideHelp
+    guides:
+    - CorporateJudo
 
 - type: entity
   parent: [ ChemBag, BaseSyndicateContraband ]

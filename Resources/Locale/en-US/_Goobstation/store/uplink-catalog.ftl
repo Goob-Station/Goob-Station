@@ -77,6 +77,9 @@ uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 uplink-dart-gun-name = Dart Gun
 uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
 
+uplink-his-grace-name = His Grace
+uplink-his-grace-desc = An otherworldly entity trapping in a toolbox. Grows in power for every kill, but will consume you if not fed. Activate in-hand to bind yourself.
+
 uplink-magazine-nailgun-name = Nail Gun Magazine (AP)
 uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. The only difference is that this one is armor-piercing.
 
@@ -108,6 +111,9 @@ uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 
 uplink-m90-name = M-90
 uplink-m90-desc = An M-90 combat rifle.
+
+uplink-syndicate-disabler-name = syndicate disabler
+uplink-syndicate-disabler-desc = An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
 
 uplink-dualetta-bundle-name = Dualetta Bundle
 uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
@@ -225,6 +231,9 @@ uplink-lollypop-bundle-desc = Contains 9 completely random lollypops. What could
 uplink-lollypop-bundle-big-name = Donk Co. Candy Bundle
 uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What could they contain?
 
+uplink-medical-beam-gun-name = Medical Beam Gun
+uplink-medical-beam-gun-desc = Heal your teammates with this new device! Runs on internal battery, and automatically recharges after discharging. You can heal only one teammate at once.
+
 uplink-advanced-combat-medipen-name = Advanced Combat Medipen
 uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing chemicals that will rapidly heal most types of damage taken in a fight.
 
@@ -245,11 +254,11 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 uplink-nutriment-implant-name = Nutriment Pump Implant
 uplink-nutriment-implant-desc = Removes the users need to consume food and/or drinks.
 
-uplink-jaunter-implanter-name = Jaunter Implanter
-uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
-
 uplink-krav-maga-implant-name = Krav Maga Implanter
 uplink-krav-maga-implant-desc = Allows the user to perform various Krav Maga moves.
+
+uplink-binary-implant-name = Binary Decoder Implanter
+uplink-binary-implant-desc = Lets the user tap into the silicons' binary channel. Talking on it is ill-advised though, at least until the AI goes malf.
 
 uplink-autosurgeon-right-mantis-blade-name = Right Mantis Blade Autosurgeon
 uplink-autosurgeon-left-mantis-blade-name = Left Mantis Blade Autosurgeon
@@ -269,6 +278,9 @@ uplink-helmet-swat-desc = Robust helmet that offers good protection and also sup
 uplink-reverse-bear-trap-name = Reverse Bear Trap
 uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced onto) the head. Arming it starts a configurable timer (30-120 seconds) mounted on the bear trap. When it goes off, the trap's jaws will violently open, instantly killing anyone wearing it by tearing their jaws in half. To arm, attack someone with it while they're not wearing headgear.
 
+uplink-belt-rig-name = Grenadier Belt
+uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+
 # Deception
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
@@ -282,10 +294,13 @@ uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy 
 # Martial Arts
 
 uplink-cqc-name = CQC Manual
-uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. Does not restrict weapon usage. Your disarms will inflict some stamina damage while making people temporarily slur their words, your grabs will immobilize for a second making it easier to reinforce them, your harm attacks will deal moderate stamina damage, and you will get a set of combos that allow you to efficiently knockdown, disarm or stun your opponent. You can find more information on CQC and its combos here.
+uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. CQC is primarily an aggressive fighting style that focuses on dealing stamina damage to targets - designed to quickly subdue opponents and overpower them with pressure technique and crushing blows.
+
+uplink-capoeira-name = Capoeira Manual
+uplink-capoeira-desc = A manual that teaches a single user Capoeira before self-destructing. Capoeira focuses on swift attacks that link into flowing combos, with each move faster and harder than the last one, fueled by relentless momentum.
 
 uplink-sleeping-carp-name = Way of the Sleeping Carp Scroll
-uplink-sleeping-carp-desc = This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
+uplink-sleeping-carp-desc = This single-use scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
 
 
 # Misc
