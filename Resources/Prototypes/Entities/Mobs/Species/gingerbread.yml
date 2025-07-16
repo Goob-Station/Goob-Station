@@ -34,6 +34,10 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Gingerbread
+  - type: Temperature
+    coldDamage:
+      types:
+        Cold: 0.0 #per second, scales with temperature & other constants
 #  - type: DamageVisuals
 #    damageOverlayGroups:
 #      Brute:
