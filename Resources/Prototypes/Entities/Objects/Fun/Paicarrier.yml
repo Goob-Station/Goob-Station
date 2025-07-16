@@ -1,9 +1,0 @@
-- type: entity
-  parent: ClothingBackpack
-  id: NormanReedus
-  name: NormanReedus
-  description: Its the guy from death stranding
-  components:
-  - type: Sprite
-    sprite: Objects/Storage/NTpaicarrier.rsi
-    state: icon
