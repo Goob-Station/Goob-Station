@@ -73,5 +73,17 @@ public sealed partial class StationXenobiologyBountyDatabaseComponent : Componen
     /// The time between skipping bounties.
     /// </summary>
     [DataField]
-    public TimeSpan SkipDelay = TimeSpan.FromMinutes(15);
+    public TimeSpan SkipDelay = TimeSpan.FromMinutes(10);
+
+    /// <summary>
+    /// The time between global bounty refreshes.
+    /// </summary>
+    [DataField]
+    public TimeSpan GlobalMarketRefreshDelay = TimeSpan.FromMinutes(20);
+
+    /// <summary>
+    /// The time at which all bounties will refresh.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextGlobalMarketRefresh = TimeSpan.Zero;
 }

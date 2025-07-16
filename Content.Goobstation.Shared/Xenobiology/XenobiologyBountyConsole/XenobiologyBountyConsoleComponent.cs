@@ -38,12 +38,14 @@ public sealed partial class XenobiologyBountyConsoleComponent : Component
 public sealed class XenobiologyBountyConsoleState(
     List<XenobiologyBountyData> bounties,
     List<XenobiologyBountyHistoryData> history,
-    TimeSpan untilNextSkip)
+    TimeSpan untilNextSkip,
+    TimeSpan untilNextGlobalRefresh)
     : BoundUserInterfaceState
 {
     public List<XenobiologyBountyData> Bounties = bounties;
     public List<XenobiologyBountyHistoryData> History = history;
     public TimeSpan UntilNextSkip = untilNextSkip;
+    public TimeSpan UntilNextGlobalRefresh = untilNextGlobalRefresh;
 }
 
 [Serializable, NetSerializable]

@@ -60,14 +60,28 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         _sawmill = Logger.GetSawmill("xenobio-console");
     }
 
+    public override void Update(float frametime)
+    {
+        base.Update(frametime);
+
+        var query = EntityQueryEnumerator<StationXenobiologyBountyDatabaseComponent>();
+        while (query.MoveNext(out var uid, out var db))
+        {
+            if (db.NextGlobalMarketRefresh > _timing.CurTime)
+                continue;
+
+            RerollBountyDatabase((uid, db));
+            db.NextGlobalMarketRefresh = _timing.CurTime + db.GlobalMarketRefreshDelay;
+        }
+    }
+
     private void OnBountyConsoleOpened(Entity<XenobiologyBountyConsoleComponent> console, ref BoundUIOpenedEvent args)
     {
         if (_station.GetOwningStation(console) is not { } station ||
-            !TryComp<StationXenobiologyBountyDatabaseComponent>(station, out var bountyDb))
+            !TryComp<StationXenobiologyBountyDatabaseComponent>(station, out var db))
             return;
 
-        var untilNextSkip = bountyDb.NextSkipTime - _timing.CurTime;
-        _uiSystem.SetUiState(console.Owner, CargoConsoleUiKey.Bounty, new XenobiologyBountyConsoleState(bountyDb.Bounties, bountyDb.History, untilNextSkip));
+        UpdateState(console, db);
     }
 
     private void OnFulfillMessage(Entity<XenobiologyBountyConsoleComponent> console, ref BountyFulfillMessage args)
@@ -105,8 +119,7 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
 
         RandomizeBountyPointMultiplier(db); // Randomize prices for all bounties - :trol:
 
-        var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        _uiSystem.SetUiState(console.Owner, CargoConsoleUiKey.Bounty, new XenobiologyBountyConsoleState(db.Bounties, db.History, untilNextSkip));
+        UpdateState(console, db);
     }
 
     private void OnSkipBountyMessage(Entity<XenobiologyBountyConsoleComponent> console, ref BountySkipMessage args)
@@ -135,8 +148,7 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
 
         FillBountyDatabase(station);
         db.NextSkipTime = _timing.CurTime + db.SkipDelay;
-        var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        _uiSystem.SetUiState(console.Owner, CargoConsoleUiKey.Bounty, new XenobiologyBountyConsoleState(db.Bounties, db.History, untilNextSkip));
+        UpdateState(console, db);
     }
 
     private void OnMapInit(Entity<StationXenobiologyBountyDatabaseComponent> database, ref MapInitEvent args) =>
@@ -373,11 +385,18 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
                 || !TryComp<StationXenobiologyBountyDatabaseComponent>(station, out var db))
                 continue;
 
-            var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-            _uiSystem.SetUiState((uid, ui), CargoConsoleUiKey.Bounty, new XenobiologyBountyConsoleState(db.Bounties, db.History, untilNextSkip));
+            UpdateState(uid, db);
         }
     }
 
+    private void UpdateState(EntityUid console, StationXenobiologyBountyDatabaseComponent db)
+    {
+        var untilNextSkip = db.NextSkipTime - _timing.CurTime;
+        var untilNextRefresh = db.NextGlobalMarketRefresh - _timing.CurTime;
+        var state = new XenobiologyBountyConsoleState(db.Bounties, db.History, untilNextSkip, untilNextRefresh);
+
+        _uiSystem.SetUiState(console, CargoConsoleUiKey.Bounty, state);
+    }
     private void RandomizeBountyPointMultiplier(StationXenobiologyBountyDatabaseComponent db)
     {
         foreach (var bounty in db.Bounties)

@@ -41,6 +41,6 @@ public sealed class XenobiologyBountyConsoleBoundUserInterface(EntityUid owner, 
         if (message is not XenobiologyBountyConsoleState state)
             return;
 
-        _menu?.UpdateEntries(state.Bounties, state.History, state.UntilNextSkip);
+        _menu?.UpdateEntries(state.Bounties, state.History, state.UntilNextSkip, state.UntilNextGlobalRefresh);
     }
 }
