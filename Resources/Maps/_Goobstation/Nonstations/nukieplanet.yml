@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/16/2025 14:59:52
-  entityCount: 2475
+  time: 07/16/2025 15:18:45
+  entityCount: 2495
 maps:
 - 1
 grids:
@@ -233,12 +233,23 @@ entities:
             148: 6,-21
         - node:
             color: '#FFFFFFFF'
+            id: Remains
+          decals:
+            152: -1.8551693,7.6189957
+        - node:
+            color: '#FFFFFFFF'
             id: StandClear
           decals:
             141: -2,-18
             149: 2,-14
             150: 2,-15
             151: 2,-16
+        - node:
+            color: '#FFFFFFFF'
+            id: StandClearGreyscale
+          decals:
+            160: 21.745329,6.4002814
+            161: 22.328661,4.7637286
         - node:
             color: '#FFFFFFFF'
             id: WarnCornerNE
@@ -286,6 +297,10 @@ entities:
             110: -9,-15
             111: -9,-14
             112: -9,-13
+            155: 21,7
+            157: 21,6
+            158: 21,5
+            159: 21,4
         - node:
             color: '#FFFFFFFF'
             id: WarnLineW
@@ -1380,22 +1395,6 @@ entities:
     - type: Transform
       pos: 10.5,-4.5
       parent: 2
-- proto: BenchSteelLeft
-  entities:
-  - uid: 128
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.5,-8.5
-      parent: 2
-- proto: BenchSteelRight
-  entities:
-  - uid: 127
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 12.5,-9.5
-      parent: 2
 - proto: Biofabricator
   entities:
   - uid: 93
@@ -1587,6 +1586,13 @@ entities:
     - type: Transform
       pos: 36.63316,-0.29581022
       parent: 2
+- proto: BoxMagazinePistolCaselessRiflePractice
+  entities:
+  - uid: 2488
+    components:
+    - type: Transform
+      pos: 18.399378,4.858804
+      parent: 2
 - proto: BoxMagazinePistolSubMachineGun
   entities:
   - uid: 118
@@ -1594,6 +1600,18 @@ entities:
     - type: Transform
       pos: 36.32066,-0.5614352
       parent: 2
+- proto: BoxMagazinePistolSubMachineGunPractice
+  entities:
+  - uid: 2484
+    components:
+    - type: Transform
+      pos: 18.680628,5.2132173
+      parent: 2
+    - type: UserInterface
+      actors:
+        enum.StorageUiKey.Key:
+        - invalid
+    - type: ActiveUserInterface
 - proto: BoxPillCanister
   entities:
   - uid: 119
@@ -1686,6 +1704,11 @@ entities:
     components:
     - type: Transform
       pos: 7.5,-8.5
+      parent: 2
+  - uid: 127
+    components:
+    - type: Transform
+      pos: 7.5,-16.5
       parent: 2
   - uid: 175
     components:
@@ -2797,6 +2820,11 @@ entities:
     - type: Transform
       pos: -12.5,-10.5
       parent: 2
+  - uid: 986
+    components:
+    - type: Transform
+      pos: 7.5,-17.5
+      parent: 2
   - uid: 1043
     components:
     - type: Transform
@@ -3071,6 +3099,21 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-8.5
+      parent: 2
+  - uid: 2477
+    components:
+    - type: Transform
+      pos: 7.5,-19.5
+      parent: 2
+  - uid: 2478
+    components:
+    - type: Transform
+      pos: 6.5,-19.5
+      parent: 2
+  - uid: 2479
+    components:
+    - type: Transform
+      pos: 7.5,-18.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -4454,6 +4497,20 @@ entities:
     - type: Transform
       pos: -7.503712,-4.3372965
       parent: 2
+- proto: ClothingHandsGlovesExplosiveShock
+  entities:
+  - uid: 2492
+    components:
+    - type: Transform
+      pos: -1.3178754,7.608854
+      parent: 2
+- proto: ClothingNeckHeadphones
+  entities:
+  - uid: 2489
+    components:
+    - type: Transform
+      pos: 18.503546,6.3598466
+      parent: 2
 - proto: ClothingNeckMantleHOS
   entities:
   - uid: 138
@@ -4463,6 +4520,13 @@ entities:
       name: Mantle of a Fallen Warrior
     - type: Transform
       pos: 11.496242,4.5505404
+      parent: 2
+- proto: ClothingUniformJumpsuitColorGrey
+  entities:
+  - uid: 2491
+    components:
+    - type: Transform
+      pos: -0.9637084,7.8798757
       parent: 2
 - proto: Cobweb1
   entities:
@@ -4803,11 +4867,17 @@ entities:
       parent: 2
 - proto: DrinkSuiDreamGlass
   entities:
-  - uid: 634
+  - uid: 128
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 3.3104792,-0.49121237
+      pos: 3.3137612,-0.65456724
+      parent: 2
+- proto: DrinkWhiskeyBottleFull
+  entities:
+  - uid: 2490
+    components:
+    - type: Transform
+      pos: 18.333204,5.6150365
       parent: 2
 - proto: DrinkWineBottleFull
   entities:
@@ -5216,12 +5286,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 38.739777,15.204479
       parent: 2
-  - uid: 723
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 24.270073,7.063351
-      parent: 2
   - uid: 724
     components:
     - type: Transform
@@ -5283,6 +5347,16 @@ entities:
     - type: Transform
       pos: 11.281027,-19.90552
       parent: 2
+  - uid: 2494
+    components:
+    - type: Transform
+      pos: 16.059732,-0.98135376
+      parent: 2
+  - uid: 2495
+    components:
+    - type: Transform
+      pos: 22.080566,0.477993
+      parent: 2
 - proto: FloraTreeSnow
   entities:
   - uid: 737
@@ -5332,12 +5406,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 44.321957,0.8710246
-      parent: 2
-  - uid: 745
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 24.94335,1.3600345
       parent: 2
   - uid: 746
     components:
@@ -5435,6 +5503,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 43.091564,14.422716
+      parent: 2
+  - uid: 2493
+    components:
+    - type: Transform
+      pos: 25.663898,-0.5122781
       parent: 2
 - proto: FluteInstrument
   entities:
@@ -6415,11 +6488,6 @@ entities:
     components:
     - type: Transform
       pos: 18.5,-16.5
-      parent: 2
-  - uid: 986
-    components:
-    - type: Transform
-      pos: 19.5,7.5
       parent: 2
   - uid: 987
     components:
@@ -7404,6 +7472,19 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -2.5,-18.5
+      parent: 2
+- proto: PoweredLightPostSmall
+  entities:
+  - uid: 745
+    components:
+    - type: Transform
+      pos: 15.5,9.5
+      parent: 2
+  - uid: 2481
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.5,1.5
       parent: 2
 - proto: PoweredSmallLight
   entities:
@@ -9512,6 +9593,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,3.5
       parent: 2
+  - uid: 723
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,7.5
+      parent: 2
   - uid: 1468
     components:
     - type: Transform
@@ -9639,6 +9726,24 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,-20.5
       parent: 2
+  - uid: 2482
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,6.5
+      parent: 2
+  - uid: 2483
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,5.5
+      parent: 2
+  - uid: 2485
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,4.5
+      parent: 2
 - proto: TableWood
   entities:
   - uid: 1410
@@ -9714,6 +9819,27 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,-14.5
+      parent: 2
+- proto: TargetClown
+  entities:
+  - uid: 634
+    components:
+    - type: Transform
+      pos: 25.5,7.5
+      parent: 2
+- proto: TargetHuman
+  entities:
+  - uid: 2480
+    components:
+    - type: Transform
+      pos: 23.5,6.5
+      parent: 2
+- proto: TargetStrange
+  entities:
+  - uid: 2476
+    components:
+    - type: Transform
+      pos: 24.5,4.5
       parent: 2
 - proto: TimerTrigger
   entities:
@@ -14556,6 +14682,15 @@ entities:
     - type: Transform
       pos: 38.5,-10.5
       parent: 2
+- proto: WeaponPistolCobra
+  entities:
+  - uid: 2487
+    components:
+    - type: Transform
+      pos: 18.645445,6.974857
+      parent: 2
+    - type: Gun
+      burstCooldownModified: 0.25
 - proto: WeaponPistolViper
   entities:
   - uid: 2387
@@ -14575,6 +14710,15 @@ entities:
           ent: null
     - type: Gun
       burstCooldownModified: 0.25
+- proto: WeaponSubMachineGunDrozd
+  entities:
+  - uid: 2486
+    components:
+    - type: Transform
+      pos: 18.468363,7.4960523
+      parent: 2
+    - type: Gun
+      burstCooldownModified: 0.75
 - proto: WeldingFuelTankFull
   entities:
   - uid: 165
