@@ -20,5 +20,12 @@ SPDX-License-Identifier: MIT
             <Label Text="{Loc 'voice-mask-name-change-speech-style'}" />
             <OptionButton Name="SpeechVerbSelector" /> <!-- Populated in LoadVerbs -->
         </BoxContainer>
+        <!-- CorvaxGoob-TTS-Start -->
+        <BoxContainer Orientation="Horizontal" Margin="5" Visible="False" Name="TTSContainer">
+            <Label Text="{Loc 'voice-mask-voice-change-info'}" />
+            <OptionButton Name="VoiceSelector" />
+            <!-- Populated in LoadVerbs -->
+        </BoxContainer>
+        <!-- CorvaxGoob-TTS-End -->
     </BoxContainer>
 </controls:FancyWindow>

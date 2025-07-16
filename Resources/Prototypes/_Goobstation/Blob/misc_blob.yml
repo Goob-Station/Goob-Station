@@ -87,6 +87,7 @@
     antagPrototype: Blob
     exclusiveAntag: true
     roleType: SoloAntagonist
+    subtype: role-subtype-blob
   - type: BlobRole
 
 - type: factionIcon

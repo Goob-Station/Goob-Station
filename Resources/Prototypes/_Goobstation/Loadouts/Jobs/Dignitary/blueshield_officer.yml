@@ -39,6 +39,11 @@
   equipment:
     head: ClothingHeadHatCowboyBlueshield
 
+- type: loadout
+  id: BlueshieldOfficerGoidaHelmet
+  equipment:
+    head: ClothingHeadHatUshankaBlueshield
+
 # Jumpsuits
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldSkirt
@@ -124,4 +129,4 @@
 - type: loadout
   id: SnowjacksBso
   equipment:
-    shoes: ClothingShoesBootsWinterSnowjackBso
+    shoes: ClothingShoesBootsWinterSnowjackBsoFilled

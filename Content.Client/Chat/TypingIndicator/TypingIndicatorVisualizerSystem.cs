@@ -5,6 +5,8 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -19,7 +21,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, TypingIndicatorComponent component, ref AppearanceChangeEvent args)
     {
@@ -44,15 +46,25 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
             return;
         }
 
-        AppearanceSystem.TryGetData<bool>(uid, TypingIndicatorVisuals.IsTyping, out var isTyping, args.Component);
-        var layerExists = args.Sprite.LayerMapTryGet(TypingIndicatorLayers.Base, out var layer);
+        var layerExists = _sprite.LayerMapTryGet((uid, args.Sprite), TypingIndicatorLayers.Base, out var layer, false);
         if (!layerExists)
-            layer = args.Sprite.LayerMapReserveBlank(TypingIndicatorLayers.Base);
+            layer = _sprite.LayerMapReserve((uid, args.Sprite), TypingIndicatorLayers.Base);
 
-        args.Sprite.LayerSetRSI(layer, proto.SpritePath);
-        args.Sprite.LayerSetState(layer, proto.TypingState);
+        _sprite.LayerSetRsi((uid, args.Sprite), layer, proto.SpritePath);
+        _sprite.LayerSetRsiState((uid, args.Sprite), layer, proto.TypingState);
         args.Sprite.LayerSetShader(layer, proto.Shader);
-        args.Sprite.LayerSetOffset(layer, proto.Offset);
-        args.Sprite.LayerSetVisible(layer, isTyping);
+        _sprite.LayerSetOffset((uid, args.Sprite), layer, proto.Offset);
+
+        AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var state);
+        _sprite.LayerSetVisible((uid, args.Sprite), layer, state != TypingIndicatorState.None);
+        switch (state)
+        {
+            case TypingIndicatorState.Idle:
+                _sprite.LayerSetRsiState((uid, args.Sprite), layer, proto.IdleState);
+                break;
+            case TypingIndicatorState.Typing:
+                _sprite.LayerSetRsiState((uid, args.Sprite), layer, proto.TypingState);
+                break;
+        }
     }
 }

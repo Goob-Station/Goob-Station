@@ -166,6 +166,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server._CorvaxGoob.TTS;
 
 namespace Content.Server.Entry
 {
@@ -244,6 +245,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<INodeGroupFactory>().Initialize();
                 IoCManager.Resolve<ContentNetworkResourceManager>().Initialize();
                 IoCManager.Resolve<GhostKickManager>().Initialize();
+                IoCManager.Resolve<TTSManager>().Initialize(); // CorvaxGoob-TTS
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
 
@@ -358,6 +360,7 @@ namespace Content.Server.Entry
             Load(CCVars.ConfigPresetDebug, "debug");
 #endif
 
+#pragma warning disable CS8321
             void Load(CVarDef<bool> cVar, string name)
             {
                 var path = $"{ConfigPresetsDirBuild}{name}.toml";
@@ -367,6 +370,7 @@ namespace Content.Server.Entry
                     sawmill.Info("Loaded config preset: {Preset}", path);
                 }
             }
+#pragma warning restore CS8321
         }
     }
 }

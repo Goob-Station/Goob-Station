@@ -517,6 +517,7 @@ namespace Content.Server.GameTicking
             AnnounceRound();
             UpdateInfoText();
             SendRoundStartedDiscordMessage();
+            RaiseLocalEvent(new RoundStartedEvent(RoundId)); // CorvaxGoob-StationGoal
 
 #if EXCEPTION_TOLERANCE
             }
@@ -725,6 +726,9 @@ namespace Content.Server.GameTicking
             // Handle restart for server update
             if (_serverUpdates.RoundEnded())
                 return;
+
+            // Check if the GamePreset needs to be reset
+            TryResetPreset();
 
             _sawmill.Info("Restarting round!");
 

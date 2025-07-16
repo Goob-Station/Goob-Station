@@ -47,7 +47,6 @@
 // SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
@@ -65,7 +64,6 @@
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
@@ -78,6 +76,9 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -85,6 +86,7 @@ using System.Linq;
 using Content.Shared.Alert;
 using JetBrains.Annotations;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -98,6 +100,7 @@ public sealed class ClientAlertsSystem : AlertsSystem
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     public event EventHandler? ClearAlerts;
     public event EventHandler<IReadOnlyDictionary<AlertKey, AlertState>>? SyncAlerts;
@@ -110,6 +113,12 @@ public sealed class ClientAlertsSystem : AlertsSystem
         SubscribeLocalEvent<AlertsComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<AlertsComponent, ComponentHandleState>(OnHandleState);
     }
+
+    protected override void HandledAlert()
+    {
+        _ui.ClickSound();
+    }
+
     protected override void LoadPrototypes()
     {
         base.LoadPrototypes();
@@ -135,7 +144,23 @@ public sealed class ClientAlertsSystem : AlertsSystem
         if (args.Current is not AlertComponentState cast)
             return;
 
+        // Save all client-sided alerts to later put back in
+        var clientAlerts = new Dictionary<AlertKey, AlertState>();
+        foreach (var alert in alerts.Comp.Alerts)
+        {
+            if (alert.Key.AlertType != null && TryGet(alert.Key.AlertType.Value, out var alertProto))
+            {
+                if (alertProto.ClientHandled)
+                    clientAlerts[alert.Key] = alert.Value;
+            }
+        }
+
         alerts.Comp.Alerts = new(cast.Alerts);
+
+        foreach (var alert in clientAlerts)
+        {
+            alerts.Comp.Alerts[alert.Key] = alert.Value;
+        }
 
         UpdateHud(alerts);
     }

@@ -1,0 +1,5 @@
+- type: lavalandGridRuin
+  id: CorvaxSyndicateBase
+  name: lavaland-ruin-syndicate
+  path: /Maps/_CorvaxGoob/Lavaland/Lavaland/ruin_syndicate_base.yml
+  priority: -1 # highest priority

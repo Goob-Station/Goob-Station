@@ -132,6 +132,9 @@
       whitelist:
         components:
           - FaxableObject #used to be PaperComponent - brainfood1183
+      blacklist:
+        components:
+          - CargoSlip
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
@@ -177,6 +180,7 @@
   - type: FaxMachine
     name: "Central Command"
     notifyAdmins: true
+    receiveAllStationGoals: true # CorvaxGoob-StationGoal
 
 - type: entity
   parent: FaxMachineBase
@@ -205,5 +209,6 @@
     - type: FaxMachine
       name: "Captain's Office"
       receiveNukeCodes: true
+      receiveStationGoal: true # CorvaxGoob-StationGoal
     - type: StealTarget
       stealGroup: FaxMachineCaptain
