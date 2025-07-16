@@ -35,12 +35,16 @@ namespace Content.Server._durkcode.ServerCurrency
         [Dependency] private readonly IPlayerManager _players = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly LinkAccountManager _linkAccount = default!;
+        [Dependency] private readonly GameTicker _gameTicker = default!;
 
         private int _goobcoinsPerPlayer = 10;
         private int _goobcoinsNonAntagMultiplier = 1;
         private int _goobcoinsServerMultiplier = 1;
         private int _goobcoinsMinPlayers;
         private bool _goobcoinsUseLowPopMultiplier;
+        private double _goobcoinsLowPopMultiplierStrength = 1.0;
+        private bool _goobcoinsUseShortRoundPenalty = true;
+        private int _goobcoinsShortRoundPenaltyTargetMinutes = 50;
 
         public override void Initialize()
         {
@@ -53,6 +57,9 @@ namespace Content.Server._durkcode.ServerCurrency
             Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinMinPlayers, value => _goobcoinsMinPlayers = value, true);
             Subs.CVar(_cfg, GoobCVars.GoobcoinUseLowpopMultiplier, value => _goobcoinsUseLowPopMultiplier = value, true);
+            Subs.CVar(_cfg, GoobCVars.GoobcoinLowpopMultiplierStrength, value => _goobcoinsLowPopMultiplierStrength = value, true);
+            Subs.CVar(_cfg, GoobCVars.GoobcoinUseShortRoundPenalty, value => _goobcoinsUseShortRoundPenalty = value, true);
+            Subs.CVar(_cfg, GoobCVars.GoobcoinShortRoundPenaltyTargetMinutes, value => _goobcoinsShortRoundPenaltyTargetMinutes = value, true);
         }
 
         public override void Shutdown()
@@ -66,7 +73,7 @@ namespace Content.Server._durkcode.ServerCurrency
             if (_players.PlayerCount < _goobcoinsMinPlayers)
                 return;
 
-            var _lowPopMultiplier = 1.0 - (_players.PlayerCount / (double)_players.MaxPlayers);
+            var lowPopMultiplier = 1.0 - (_players.PlayerCount / (double)_players.MaxPlayers);
 
             var query = EntityQueryEnumerator<MindContainerComponent>();
 
@@ -95,13 +102,19 @@ namespace Content.Server._durkcode.ServerCurrency
                         }
 
                         if(_goobcoinsUseLowPopMultiplier)
-                            money += (int)Math.Round(money * _lowPopMultiplier);
+                            money += (int)Math.Round(money * lowPopMultiplier * _goobcoinsLowPopMultiplierStrength);
 
                         if (_goobcoinsServerMultiplier != 1)
                             money *= _goobcoinsServerMultiplier;
 
                         if (session != null && _linkAccount.GetPatron(session)?.Tier != null)
                             money *= 2;
+
+                        if (_goobcoinsUseShortRoundPenalty)
+                        {
+                            var roundMinutesActual = _gameTicker.RoundDuration().TotalMinutes;
+                            money = (int) (money * Math.Min(1, roundMinutesActual / _goobcoinsShortRoundPenaltyTargetMinutes));
+                        }
 
                         _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, money);
                     }

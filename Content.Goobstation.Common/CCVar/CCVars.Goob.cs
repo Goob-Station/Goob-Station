@@ -288,6 +288,15 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> GoobcoinUseLowpopMultiplier =
         CVarDef.Create("goob.coins_use_lowpop_multiplier", true, CVar.SERVERONLY);
 
+    public static readonly CVarDef<double> GoobcoinLowpopMultiplierStrength =
+        CVarDef.Create("goob.coins_lowpop_multiplier_strength", 1.0, CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> GoobcoinUseShortRoundPenalty =
+        CVarDef.Create("goob.coins_use__shortround_penalty", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinShortRoundPenaltyTargetMinutes =
+        CVarDef.Create("goob.coins_shortround_penalty_target_minutes", 50, CVar.SERVERONLY);
+
     #endregion
 
     #region Station Events
