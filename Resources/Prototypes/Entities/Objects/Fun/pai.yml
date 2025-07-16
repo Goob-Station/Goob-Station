@@ -188,6 +188,8 @@
     followEntity: true
   - type: TypingIndicator
     proto: robot
+  - type: TTS # CorvaxGoob-TTS
+    voice: TrainingRobot
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
@@ -212,6 +214,7 @@
     whitelist:
       components:
         - SecretStash
+        - WrappedParcel
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

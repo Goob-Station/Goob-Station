@@ -202,10 +202,12 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MagazineAmmoProvider
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLightLaser
+    fireCost: 50
   - type: ItemSlots
     slots:
-      gun_magazine:
+      cell_slot:
         name: Magazine
         startingItem: PowerCellSmall
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -214,12 +216,14 @@
           tags:
             - PowerCell
             - PowerCellSmall
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
   - type: Appearance
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot
+      cell_slot: !type:ContainerSlot
   - type: Cautery # Shitmed
     speed: 0.9
   - type: SurgeryTool # Shitmed
@@ -475,7 +479,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
     proto: LightPulse # Goobstation
     fireCost: 200
@@ -516,7 +520,7 @@
       - SemiAuto
       - FullAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
@@ -780,7 +784,13 @@
     - Security
     - Antagonists
   - type: PacifismAllowedGun
-
+  # Goobstation start
+  - type: Tag
+    tags:
+    - Taser
+    - Sidearm
+    - WeaponDisabler
+  # Goobstation end
 
 - type: entity
   name: disabler SMG
@@ -1106,3 +1116,21 @@
   - type: Battery
     maxCharge: 1050 # Goobstation
     startingCharge: 1050
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 24
+    autoRechargePause: true
+    autoRechargePauseTime: 30
+
+- type: entity
+  name: xenoborg laser gun
+  parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
+  id: XenoborgLaserGun
+
+- type: entity
+  name: xenoborg heavy laser gun
+  parent: [ WeaponAdvancedLaser, BaseXenoborgContraband ]
+  id: XenoborgHeavyLaserGun
+  components:
+  - type: HitscanBatteryAmmoProvider
+    proto: RedHeavyLaser

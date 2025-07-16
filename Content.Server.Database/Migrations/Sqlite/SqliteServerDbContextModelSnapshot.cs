@@ -757,6 +757,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("admin_ooc_color");
 
+                    b.PrimitiveCollection<string>("ConstructionFavorites")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("construction_favorites");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("selected_character_slot");
@@ -859,6 +864,13 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
+
+                    // CorvaxGoob-TTS-Start
+                    b.Property<string>("Voice")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("voice");
+                     // CorvaxGoob-TTS-End
 
                     b.HasKey("Id")
                         .HasName("PK_profile");

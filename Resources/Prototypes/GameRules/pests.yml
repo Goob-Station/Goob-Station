@@ -160,7 +160,7 @@
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 40
+    chaosScore: 30
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:

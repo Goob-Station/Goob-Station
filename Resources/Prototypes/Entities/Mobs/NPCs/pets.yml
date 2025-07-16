@@ -217,7 +217,9 @@
     attributes:
       proper: true
       gender: female
-
+  - type: TTS # CorvaxGoob-TTS
+    voice: Dryad
+    
 - type: entity
   name: real mouse
   parent: MobCorgiIan
@@ -877,9 +879,7 @@
       200: Dead
   - type: FootstepModifier
     footstepSoundCollection:
-      path: /Audio/Effects/Footsteps/slime1.ogg
-      params:
-        volume: -6
+      collection: FootstepSlime
   - type: Tag
     tags:
     - FootstepSound

@@ -33,6 +33,7 @@ namespace Content.Client.Administration.UI
                 Announcement = Rope.Collapse(_window.Announcement.TextRope),
                 Announcer =  _window.Announcer.Text,
                 AnnounceType =  (AdminAnnounceType) (_window.AnnounceMethod.SelectedMetadata ?? AdminAnnounceType.Station),
+                Voice = (string) (_window.VoiceButton.GetItemMetadata(_window.VoiceButton.SelectedId) ?? "None"), // CorvaxGoob-TTS
                 CloseAfter = !_window.KeepWindowOpen.Pressed,
             });
 
