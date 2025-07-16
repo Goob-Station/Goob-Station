@@ -1605,18 +1605,6 @@ entities:
     - type: Transform
       pos: 36.32066,-0.5614352
       parent: 2
-- proto: BoxMagazinePistolSubMachineGunPractice
-  entities:
-  - uid: 2484
-    components:
-    - type: Transform
-      pos: 18.680628,5.2132173
-      parent: 2
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
-    - type: ActiveUserInterface
 - proto: BoxPillCanister
   entities:
   - uid: 119
