@@ -45,8 +45,8 @@ public sealed partial class ThievingSystem : EntitySystem
 
     private void OnCompInit(Entity<ThievingComponent> entity, ref ComponentInit args)
     {
+        //Remember that ThievingComponent.Stealthy is set to true when created.
         _alertsSystem.ShowAlert(entity, entity.Comp.StealthyAlertProtoId, 1);
-        entity.Comp.Stealthy = true;
     }
 
     private void OnCompRemoved(Entity<ThievingComponent> entity, ref ComponentRemove args)

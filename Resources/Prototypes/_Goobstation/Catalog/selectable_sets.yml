@@ -59,7 +59,7 @@
   name: selectable-set-thief-chameleon-name
   description: selectable-set-thief-chameleon-description
   sprite:
-    sprite: /Textures/Objects/Devices/chameleon_projector.rsi
+    sprite: Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
   - ClothingBackpackChameleonFill
@@ -101,10 +101,8 @@
   name: selectable-set-thief-communicator-name
   description: selectable-set-thief-communicator-description
   sprite:
-    sprite: /Textures/Objects/Devices/encryption_keys.rsi
-    layers:
-     - state: crypt_gold
-     - state: cap_label
+    sprite: Objects/Tools/spy_device.rsi
+    state: icon
   content:
   - EncryptionKeyStationMaster
   - CyberPen

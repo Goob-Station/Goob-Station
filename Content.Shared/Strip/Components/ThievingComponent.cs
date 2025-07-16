@@ -29,10 +29,10 @@ public sealed partial class ThievingComponent : Component
     public TimeSpan StripTimeReduction = TimeSpan.FromSeconds(0.5f);
 
     /// <summary>
-    /// Should it notify the user if they're stripping a pocket?
+    /// Should the pickpocketing progress bar be hidden from the target?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool Stealthy;
+    public bool Stealthy = true;
 
     /// <summary>
     /// Variable pointing at the Alert modal
