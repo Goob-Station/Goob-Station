@@ -313,7 +313,6 @@
       - RoleSurvivalNukieHonkops
       components:
       - type: NukeOperative
-      components:
       - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:

@@ -165,6 +165,7 @@
       - type: Skills # CorvaxGoob-Skills
         skills:
         - Shooting
+      - type: CanChokeGrab # CorvaxGoob-Skills
 
 - type: startingGear
   id: WardenGear

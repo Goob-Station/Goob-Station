@@ -100,6 +100,7 @@
       - type: Skills # CorvaxGoob-Skills
         skills:
         - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Skills
 
 - type: startingGear
   id: ChefGear
