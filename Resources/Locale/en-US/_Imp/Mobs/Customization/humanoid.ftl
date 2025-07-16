@@ -165,9 +165,6 @@ marking-LegHeavyTattoosRight = Heavy Leg Tattoos (Right)
 marking-LegHeavyTattoosRight-heavy1 = Heavy Leg Tattoos (Upper)
 marking-LegHeavyTattoosRight-heavy2 = Heavy Leg Tattoos (Lower)
 
-marking-LegProstheticRight = Prosthetic (Right Leg)
-marking-LegProstheticRight-prosthetic = Prosthetic (Right Leg)
-
 marking-LegTwistingRight = Twisted Scar (Right Leg)
 marking-LegTwistingRight-twisting = Twisted Scar (Right Leg)
 
@@ -181,9 +178,6 @@ marking-LegDollJointsTattooLeft-doll = Doll Joints Leg Tattoo (Left)
 marking-LegHeavyTattoosLeft = Heavy Leg Tattoos (Left)
 marking-LegHeavyTattoosLeft-heavy1 = Heavy Leg Tattoos (Upper)
 marking-LegHeavyTattoosLeft-heavy2 = Heavy Leg Tattoos (Lower)
-
-marking-LegProstheticLeft = Prosthetic (Left Leg)
-marking-LegProstheticLeft-prosthetic = Prosthetic (Left Leg)
 
 marking-LegTwistingLeft = Twisted Scar (Left Leg)
 marking-LegTwistingLeft-twisting = Twisted Scar (Left Leg)
@@ -199,9 +193,6 @@ marking-FootHeavyTattoosLeft = Heavy Foot Tattoos (Left)
 marking-FootHeavyTattoosLeft-heavy1 = Heavy Foot Tattoos (Inner)
 marking-FootHeavyTattoosLeft-heavy2 = Heavy Foot Tattoos (Outer)
 
-marking-FootProstheticLeft-prosthetic = Prosthetic (Left Foot)
-marking-FootProstheticLeft = Prosthetic (Left Foot)
-
 # RFoot
 
 marking-FootDollJointsTattooRight = Doll Joints Foot Tattoo (Right)
@@ -210,9 +201,6 @@ marking-FootDollJointsTattooRight-doll = Doll Joints Foot Tattoo (Right)
 marking-FootHeavyTattoosRight = Heavy Foot Tattoos (Right)
 marking-FootHeavyTattoosRight-heavy1 = Heavy Foot Tattoos (Inner)
 marking-FootHeavyTattoosRight-heavy2 = Heavy Foot Tattoos (Outer)
-
-marking-FootProstheticRight = Prosthetic (Right Foot)
-marking-FootProstheticRight-prosthetic = Prosthetic (Right Foot)
 
 # LHand
 

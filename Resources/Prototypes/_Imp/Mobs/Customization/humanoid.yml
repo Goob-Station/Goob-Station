@@ -642,20 +642,6 @@
     state: heavy2
 
 - type: marking
-  id: LegProstheticRight
-  bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-        color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Humanoid/rleg.rsi
-    state: prosthetic
-
-- type: marking
   id: LegTwistingRight
   bodyPart: RLeg
   markingCategory: Legs
@@ -710,20 +696,6 @@
     state: heavy1
   - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
     state: heavy2
-
-- type: marking
-  id: LegProstheticLeft
-  bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-        color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Humanoid/lleg.rsi
-    state: prosthetic
 
 - type: marking
   id: LegTwistingLeft
@@ -781,20 +753,6 @@
   - sprite: _Impstation/Mobs/Customization/Humanoid/lfoot.rsi
     state: heavy2
 
-- type: marking
-  id: FootProstheticLeft
-  bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-        color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Humanoid/lfoot.rsi
-    state: prosthetic
-
 # RFoot
 
 - type: marking
@@ -826,20 +784,6 @@
     state: heavy1
   - sprite: _Impstation/Mobs/Customization/Humanoid/rfoot.rsi
     state: heavy2
-
-- type: marking
-  id: FootProstheticRight
-  bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [Human, Dwarf, Oni, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-        color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Humanoid/rfoot.rsi
-    state: prosthetic
 
 # LHand
 
