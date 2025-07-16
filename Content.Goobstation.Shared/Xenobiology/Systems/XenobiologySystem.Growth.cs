@@ -25,7 +25,7 @@ public partial class XenobiologySystem
 
         if (!ent.Comp.Stages.ContainsKey(ent.Comp.CurrentStage))
         {
-            Log.Error($"Invalid initial stage {ent.Comp.CurrentStage} for entity {ToPrettyString(ent)}");
+            _sawmill.Error($"Invalid initial stage {ent.Comp.CurrentStage} for entity {ToPrettyString(ent)}");
             ent.Comp.CurrentStage = ent.Comp.FirstStage;
         }
 

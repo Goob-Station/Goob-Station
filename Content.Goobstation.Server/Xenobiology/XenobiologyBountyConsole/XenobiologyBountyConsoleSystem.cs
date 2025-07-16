@@ -40,6 +40,8 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
 
     private EntityQuery<StackComponent> _stackQuery;
 
+    private ISawmill _sawmill = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -50,6 +52,7 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         SubscribeLocalEvent<StationXenobiologyBountyDatabaseComponent, MapInitEvent>(OnMapInit);
 
         _stackQuery = GetEntityQuery<StackComponent>();
+        _sawmill = Logger.GetSawmill("xenobio-console");
     }
 
     private void OnBountyConsoleOpened(Entity<XenobiologyBountyConsoleComponent> console, ref BoundUIOpenedEvent args)
@@ -69,7 +72,7 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
             || !TryComp<StationXenobiologyBountyDatabaseComponent>(station, out var db))
             return;
 
-        if (!IsBountyComplete(args.Actor, bounty.Value, out var bountyEntities))
+        if (!IsBountyComplete(args.Actor, bounty, out var bountyEntities))
         {
             if (_timing.CurTime >= console.Comp.NextDenySoundTime)
             {
@@ -80,18 +83,21 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
             return;
         }
 
-        if (!_proto.TryIndex(bounty.Value.Bounty, out var bountyProto)
+        if (!_proto.TryIndex(bounty.Bounty, out var bountyProto)
             || bountyProto.PointsAwarded <= 0
             || !_research.TryGetClientServer(console, out var server, out var serverComponent)
-            || !TryRemoveBounty(station, bounty.Value, false, args.Actor)
+            || !TryRemoveBounty(station, bounty, false, args.Actor)
             || !TryAddBounty(station))
             return;
 
         foreach (var bountyEnt in bountyEntities)
             Del(bountyEnt);
 
-        _research.ModifyServerPoints(server.Value, bountyProto.PointsAwarded, serverComponent);
+        // This has to be casted and rounded because of how the multiplier works.
+        _research.ModifyServerPoints(server.Value, bountyProto.RoundedPointsAwarded, serverComponent);
         _audio.PlayPvs(console.Comp.FulfillSound, console);
+        _sawmill.Info($"({bounty.Bounty.Id}) Fulfilled - Points: {bountyProto.BasePointsAwarded} -> {bountyProto.RoundedPointsAwarded}");
+        RandomizeBountyPointMultiplier(db); // Randomize prices for all bounties - :trol:
 
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
         _uiSystem.SetUiState(console.Owner, CargoConsoleUiKey.Bounty, new XenobiologyBountyConsoleState(db.Bounties, db.History, untilNextSkip));
@@ -118,7 +124,7 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
             return;
         }
 
-        if (!TryRemoveBounty(station, bounty.Value, true, args.Actor))
+        if (!TryRemoveBounty(station, bounty, true, args.Actor))
             return;
 
         FillBountyDatabase(station);
@@ -144,6 +150,7 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
                 break;
         }
 
+        RandomizeBountyPointMultiplier(database.Comp);
         UpdateBountyConsoles();
     }
 
@@ -279,13 +286,13 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         _nameIdentifier.GenerateUniqueName(uid, BountyNameIdentifierGroup, out var randomVal);
         var newBounty = new XenobiologyBountyData(bounty, randomVal);
 
-        if (component.Bounties.Any(b => b.Id == newBounty.Id))
+        if (component.Bounties.Any(bountyData => bountyData.Id == newBounty.Id))
         {
             Log.Error("Failed to add bounty {ID} because another one with the same ID already existed!", newBounty.Id);
             return false;
         }
 
-        component.Bounties.Add(new XenobiologyBountyData(bounty, randomVal));
+        component.Bounties.Add(newBounty);
         component.TotalBounties++;
         return true;
     }
@@ -296,7 +303,7 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         bool skipped,
         EntityUid? actor = null)
     {
-        return TryGetBountyFromId(ent.Owner, dataId, out var data, ent.Comp) && TryRemoveBounty(ent, data.Value, skipped, actor);
+        return TryGetBountyFromId(ent.Owner, dataId, out var data, ent.Comp) && TryRemoveBounty(ent, data, skipped, actor);
     }
 
     private bool TryRemoveBounty(Entity<StationXenobiologyBountyDatabaseComponent?> ent,
@@ -366,10 +373,18 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         }
     }
 
-    private void UpdateBounty()
+    private void RandomizeBountyPointMultiplier(StationXenobiologyBountyDatabaseComponent db)
     {
-        var query = EntityQueryEnumerator<StationXenobiologyBountyDatabaseComponent>();
-        while (query.MoveNext(out var bountyDatabase))
-            bountyDatabase.CheckedBounties.Clear();
+        foreach (var bounty in db.Bounties)
+            RandomizeBountyPointMultiplier(bounty);
+    }
+
+    private void RandomizeBountyPointMultiplier(XenobiologyBountyData bounty)
+    {
+        if (!_proto.TryIndex(bounty.Bounty, out var bountyProto))
+            return;
+
+        bounty.CurrentMultiplier = _random.NextFloat(bounty.MinMultiplier, bounty.MaxMultiplier);
+        bountyProto.PointsAwarded = bountyProto.BasePointsAwarded * bounty.CurrentMultiplier;
     }
 }

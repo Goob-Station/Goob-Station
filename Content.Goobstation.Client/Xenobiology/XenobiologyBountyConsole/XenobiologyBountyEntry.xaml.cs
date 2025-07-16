@@ -29,6 +29,8 @@ public sealed partial class XenobiologyBountyEntry : BoxContainer
         if (!_prototype.TryIndex(bounty.Bounty, out var bountyPrototype))
             return;
 
+        var points = (int) Math.Round(bountyPrototype.BasePointsAwarded * bounty.CurrentMultiplier);
+
         var items = bountyPrototype.Entries
             .Select(entry => Loc.GetString("bounty-console-manifest-entry",
                 ("amount", entry.Amount),
@@ -36,7 +38,7 @@ public sealed partial class XenobiologyBountyEntry : BoxContainer
             .ToList();
 
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
-        RewardLabel.SetMarkup(Loc.GetString("xenobiology-console-reward-label", ("reward", bountyPrototype.PointsAwarded)));
+        RewardLabel.SetMarkup(Loc.GetString("xenobiology-console-reward-label", ("reward", points)));
         IdLabel.SetMarkup(Loc.GetString("bounty-console-id-label", ("id", bounty.Id)));
 
         FulfillButton.OnPressed += _ => OnFulfillButtonPressed?.Invoke();
