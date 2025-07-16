@@ -26,6 +26,10 @@
   - type: Reactive
     isReactionsUnlimited: false
     oneUnitReaction: true
+  - type: GuideHelp
+    guides:
+    - Xenobiology
+    - Science
 
 - type: entity
   id: GreySlimeExtract
@@ -69,6 +73,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyGreyExtract
 
 ## Tier 1
 - type: entity
@@ -120,6 +127,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyOrangeExtract
 
 - type: entity
   id: PurpleSlimeExtract
@@ -163,6 +173,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyPurpleExtract
 
 - type: entity
   id: BlueSlimeExtract
@@ -208,6 +221,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyBlueExtract
 
 - type: entity
   id: MetalSlimeExtract
@@ -258,6 +274,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyMetalExtract
 
 ## Tier 2
 
@@ -301,6 +320,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyYellowExtract
 
 - type: entity
   id: DarkPurpleSlimeExtract
@@ -342,6 +364,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyDarkPurpleExtract
 
 - type: entity
   id: DarkBlueSlimeExtract
@@ -385,6 +410,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyDarkBlueExtract
 
 - type: entity
   id: SilverSlimeExtract
@@ -429,6 +457,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologySilverExtract
 
 # Tier 2.5
 
@@ -471,6 +502,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyBluespaceExtract
 
 - type: entity
   id: SepiaSlimeExtract
@@ -515,6 +549,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologySepiaExtract
 
 - type: entity
   id: CeruleanSlimeExtract
@@ -552,6 +589,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyCeruleanExtract
 
 - type: entity
   id: PyriteSlimeExtract
@@ -566,6 +606,9 @@
       color: "#dcaa4f"
       shader: XenoMetallic
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyPyriteExtract
 
 # Tier 3
 
@@ -581,6 +624,9 @@
       state: core
       color: "#ff3333"
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyRedExtract
 
 - type: entity
   id: GreenSlimeExtract
@@ -616,6 +662,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyGreenExtract
 
 - type: entity
   id: PinkSlimeExtract
@@ -656,6 +705,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyPinkExtract
 
 - type: entity
   id: GoldSlimeExtract
@@ -698,6 +750,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyGoldExtract
 
 # Tier 4
 
@@ -714,6 +769,9 @@
       color: "#383936"
       shader: XenoMetallic
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyOilExtract
 
 - type: entity
   id: LightPinkSlimeExtract
@@ -758,6 +816,9 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyLightPinkExtract
 
 - type: entity
   id: BlackSlimeExtract
@@ -771,6 +832,9 @@
       state: core
       color: "#000000"
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyBlackExtract
 
 - type: entity
   id: AdamantineSlimeExtract
@@ -807,3 +871,6 @@
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
   - type: SlimeExtract
+  - type: Tag
+    tags:
+    - XenobiologyAdamantineExtract
