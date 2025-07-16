@@ -48,6 +48,8 @@
             Quantity: 20
   - type: RandomMetadata
     nameSegments: [NamesRollie]
+  - type: StaticPrice
+    price: 300
 
 - type: entity
   id: JointRainbow
@@ -76,6 +78,8 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   id: BluntCigar # Shitmed Change
@@ -109,6 +113,8 @@
             Quantity: 20
   - type: RandomMetadata
     nameSegments: [NamesRollie]
+  - type: StaticPrice
+    price: 300
 
 - type: entity
   id: BluntRainbow
@@ -137,3 +143,5 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
+  - type: StaticPrice
+    price: 500
