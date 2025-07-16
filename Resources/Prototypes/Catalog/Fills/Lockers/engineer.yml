@@ -31,6 +31,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
@@ -205,8 +206,6 @@
       - id: RCD
       - id: RCDAmmo
       - id: MetalFoamGrenade
-      - id: WeaponNailgun # Goobstation
-        prob: 0.5
 
 - type: entity
   id: LockerEngineerFilled
@@ -221,8 +220,6 @@
       - id: RCD
       - id: RCDAmmo
       - id: MetalFoamGrenade
-      - id: WeaponNailgun # Goobstation
-        prob: 0.5
 
 - type: entity
   id: ClosetRadiationSuitFilled
