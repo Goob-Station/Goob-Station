@@ -1,0 +1,65 @@
+- type: entity
+  parent: BaseItem
+  id: CarcMeepleBase
+  name: "meeple"
+  description: "Little humanoid figure for board games. Made from flat wood."
+  suffix: "DEBUG"
+  components:
+  - type: Sprite
+    drawdepth: 4
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeples.rsi
+    state: normal
+    color: "#FFFFFFFF"
+  - type: Rotatable
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: CarcMeepleBase
+  id: CarcMeepleRed
+  name: "meeple"
+  suffix: "Red"
+  components:
+  - type: Sprite
+    state: normal
+    color: "#BB0000FF"
+
+- type: entity
+  parent: CarcMeepleBase
+  id: CarcMeepleGreen
+  name: "meeple"
+  suffix: "Green"
+  components:
+  - type: Sprite
+    state: normal
+    color: "#00BB00FF"
+
+- type: entity
+  parent: CarcMeepleBase
+  id: CarcMeepleBlue
+  name: "meeple"
+  suffix: "Blue"
+  components:
+  - type: Sprite
+    state: normal
+    color: "#4444BBFF"
+
+- type: entity
+  parent: CarcMeepleBase
+  id: CarcMeepleBlack
+  name: "meeple"
+  suffix: "Black"
+  components:
+  - type: Sprite
+    state: normal
+    color: "#252525FF"
+
+- type: entity
+  parent: CarcMeepleBase
+  id: CarcMeepleYellow
+  name: "meeple"
+  suffix: "Yellow"
+  components:
+  - type: Sprite
+    state: normal
+    color: "#BBBB00FF"
