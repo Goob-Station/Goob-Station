@@ -116,7 +116,7 @@
   abstract: true
   parent: BaseItem
   id: MaterialBase
-  description: "Сировина."
+  description: A raw material.
   components:
   - type: Sprite
     sprite: Objects/Materials/materials.rsi
@@ -141,7 +141,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialCardboard
-  name: "картон"
+  name: cardboard
   suffix: Full
   components:
   - type: Material
@@ -200,7 +200,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialCloth
-  name: "тканина"
+  name: cloth
   suffix: Full
   components:
   - type: Healing
@@ -295,7 +295,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialDurathread
-  name: "фазова тканина"
+  name: durathread
   suffix: Full
   components:
   - type: Stack
@@ -360,7 +360,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialWoodPlank
-  name: "деревина"
+  name: wood
   suffix: Full
   components:
   - type: Material
@@ -420,7 +420,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialBiomass
-  name: "біомаса"
+  name: biomass
   suffix: Full
   components:
   - type: Material
@@ -455,7 +455,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialHideBear
-  name: "ведмежа шкура"
+  name: bear hide
   components:
   - type: Sprite
     sprite: Objects/Materials/materials.rsi
@@ -482,8 +482,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialHideCorgi
-  name: "шкура коргі"
-  description: "Розкішна шкурка, яку використовують лише в найелітніших видах одягу. Подейкують, що її знаходять, коли коргі відправляють на хорошу ферму."
+  name: corgi hide
+  description: Luxury pelt used in only the most elite fashion. Rumors say this is found when a corgi is sent to the nice farm.
   components:
   - type: Sprite
     sprite: Objects/Materials/materials.rsi
@@ -502,7 +502,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialDiamond
-  name: "очищений діамант"
+  name: refined diamond
   suffix: Full
   components:
   - type: Stack
@@ -553,7 +553,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialCotton
-  name: "бавовна"
+  name: cotton
   suffix: Full
   components:
   - type: Stack
@@ -618,7 +618,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialPyrotton
-  name: "піротон"
+  name: pyrotton
   suffix: Full
   components:
   - type: Stack
@@ -677,7 +677,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialBananium
-  name: "бананіум"
+  name: bananium
   suffix: Full
   components:
   - type: Material
@@ -745,8 +745,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialWebSilk
-  name: "шовк"
-  description: "павутинний матеріал."
+  name: silk
+  description: A webby material.
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -809,8 +809,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialToothSpaceCarp
-  name: "зуб космічного карпа"
-  description: "Досить маленький, але дуже неприємний. Вам вони подобаються найбільше, коли вони не впиваються у вас."
+  name: space carp tooth
+  description: Pretty small but plenty nasty. You like them best when they're not sinking into you.
   suffix: Full
   components:
   - type: Sprite
@@ -852,8 +852,8 @@
 - type: entity
   parent: [ MaterialBase, BaseKnife ]
   id: MaterialToothSharkminnow
-  name: "зуб акулоголова"
-  description: "Виглядає гострим. Досить гострим, щоб виколоти комусь око. Святе лайно, він великий."
+  name: sharkminnow tooth
+  description: Looks sharp. Sharp enough to poke someone's eye out. Holy fuck it's big.
   suffix: Full
   components:
   - type: MeleeWeapon
@@ -900,7 +900,7 @@
 - type: entity
   parent: MaterialBase
   id: MaterialBones
-  name: "кістки"
+  name: bones
   suffix: Full
   components:
   - type: Stack
@@ -944,8 +944,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialGunpowder
-  name: "порох"
-  description: "Вибухова суміш."
+  name: gunpowder
+  description: An explosive compound.
   components:
   - type: Stack
     stackType: Gunpowder
@@ -968,8 +968,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialGoliathHide
-  name: "пластини зі шкури голіафа"
-  description: "Шматочки скелястої шкури Голіафа можуть зробити ваш костюм трохи стійкішим до нападів місцевої фауни."
+  name: goliath hide plates
+  description: Pieces of a goliath's rocky hide, these might be able to make your suit a bit more durable to attack from the local fauna.
   suffix: Full
   components:
   - type: Sprite

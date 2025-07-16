@@ -9,8 +9,8 @@
 
 - type: entity
   parent: Bible
-  name: "Коран"
-  description: "Іншалла."
+  name: Quaran
+  description: "Inshallah."
   id: BibleQuaran
   components:
   - type: Sprite
@@ -20,8 +20,8 @@
 
 - type: entity
   parent: Bible
-  name: "Танах"
-  description: "Обери життя, щоб жив ти і нащадки твої."
+  name: Tanakh
+  description: "Choose life, that you and your offspring may live."
   id: BibleTanakh
   components:
   - type: Sprite

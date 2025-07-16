@@ -6,8 +6,8 @@
 - type: entity
   parent: PaintingBase
   id: PaintingBlunt
-  name: "Тупий живопис"
-  description: "Тупий дивакуватий котяра з самовдоволеним поглядом."
+  name: Blunt Painting
+  description: A blunt smoking weird-cat thing with a smug look.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Wallmounts/Paintings/ps3moira.rsi

@@ -11,8 +11,8 @@
 - type: entity
   id: DecoratedFirTree
   parent: BaseStructure
-  name: "прикрашена ялинка"
-  description: "Дуже святкове дерево для дуже святкового свята."
+  name: decorated fir tree
+  description: A very festive tree for a very festive holiday.
   components:
   - type: Sprite
     sprite: Structures/Decoration/decorated_fir_tree.rsi

@@ -15,10 +15,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Burner"
+  name: Burner
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleBurner
-  description: "Великокаліберна синдикатна зброя під набій .50 калібру, здатна стріляти протиматеріальними та фугасними набоями."
+  description: A high caliber syndicate gun chambered in .50 caliber, capable of firing anti-materiel and high explosive rounds.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi
@@ -67,10 +67,10 @@
     - 0,0,5,2
 
 - type: entity
-  name: "M-90"
+  name: M-90
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleM90
-  description: "Модифікація M-90gl, у якій видалено вбудований гранатомет. Використовує гвинтівкові набої .20."
+  description: A revision of the M-90gl that removes the inbuilt grenade launcher. Uses .20 rifle ammo.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi
@@ -113,10 +113,10 @@
     fireRate: 6
 
 - type: entity
-  name: "Annie"
+  name: Annie
   parent: [BaseCentcommContraband, BaseWeaponRifle]
   id: WeaponRifleAnnie
-  description: "Звір, розроблений, щоб нести тягар нездійсненних місій. Використовує гвинтівкові набої .30."
+  description: A beast designed to shoulder the weight of impossible missions. Uses .30 rifle ammo.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
@@ -170,10 +170,10 @@
   - type: Appearance
 
 - type: entity
-  name: "WSPR"
+  name: WSPR
   parent: [BaseSyndicateContraband, BaseWeaponRifle]
   id: WeaponRifleWSPR
-  description: "Передова гвинтівка від Cybersun, універсальна, надійна та схвалена Синдикатом. Використовує безгільзові патрони 9.5мм магнум."
+  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 9.5mm caseless magnum ammo.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi

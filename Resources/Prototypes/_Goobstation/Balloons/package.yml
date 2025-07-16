@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: BalloonPackage
-  name: "пакунок з кулькою"
-  description: "Пакунок, що містить одну випадкову кульку."
+  name: balloon package
+  description: A package containing one random balloon.
   components: 
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/balloon_package.rsi
@@ -46,10 +46,10 @@
    
    
 - type: entity
-  name: "коробка з пакунками кульок"
+  name: balloon package box
   parent: BoxCardboard
   id: BoxBalloonPackage
-  description: "Коробка, повна майбутніх кульок."
+  description: A box full of soon to be balloons.
   components:
   - type: StorageFill
     contents:
@@ -62,8 +62,8 @@
 - type: entity
   id: CrateBalloonPackage
   parent: CratePlastic
-  name: "пакунок для лопання кульок"
-  description: "Ящик, що містить 2 повні коробки з кульками та додаткове обладнання для їх лопання."
+  name: balloon popper's package
+  description: A crate containing 2 full balloon boxes and some additional popping equipment.
   components:
   - type: StorageFill
     contents:

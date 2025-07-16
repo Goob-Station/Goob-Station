@@ -1,7 +1,7 @@
 - type: entity
   id: InterdyneSecureUndeterminedWeapon
-  name: "Планшет підтримки служби безпеки Interdyne"
-  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  name: Планшет підтримки служби безпеки Інтердайну
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
   components:
   - type: Sprite
@@ -20,8 +20,8 @@
 
 - type: entity
   id: InterdyneMedUndeterminedWeapon
-  name: "Планшет підтримки медичного персоналу Interdyne"
-  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  name: Планшет підтримки медичного персоналу Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
   components:
   - type: Sprite
@@ -39,8 +39,8 @@
 
 - type: entity
   id: InterdyneEngUndeterminedWeapon
-  name: "Планшет підтримки інженерного персоналу Interdyne"
-  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  name: Планшет підтримки інженерного персонала Інтердайну
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
   components:
   - type: Sprite
@@ -54,8 +54,8 @@
 
 - type: entity
   id: InterdynePilotUndeterminedWeapon
-  name: "Планшет підтримки пілота Interdyne"
-  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  name: Планшет підтримки пілота Інтердайну
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
   components:
   - type: Sprite
@@ -71,8 +71,8 @@
     
 - type: entity
   id: InterdynePersonalUndeterminedWeapon
-  name: "Планшет підтримки персоналу Interdyne"
-  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  name: Планшет підтримки персонала Інтердайну
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
   components:
   - type: Sprite
@@ -87,8 +87,8 @@
     
 - type: entity
   id: InterdyneServiceUndeterminedWeapon
-  name: "Планшет підтримки сервісного персоналу Interdyne"
-  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  name: Планшет підтримки сервісного персонала Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
   components:
   - type: Sprite
@@ -104,8 +104,8 @@
     
 - type: entity
   id: InterdyneShaftMinersUndeterminedWeapon
-  name: "Планшет підтримки шахтарського персоналу Interdyne"
-  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  name: Планшет підтримки шахтарського персонала Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
   components:
   - type: Sprite
@@ -121,8 +121,8 @@
     
 - type: entity
   id: InterdyneDeputyUndeterminedWeapon
-  name: "Планшет підтримки заступника офіцера Interdyne"
-  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  name: Планшет підтримки замістника офіцера Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
   components:
   - type: Sprite
@@ -141,8 +141,8 @@
     
 - type: entity
   id: InterdyneOfficerUndeterminedWeapon
-  name: "Планшет підтримки офіцера Interdyne"
-  description: "Маленька коробка, що використовує блюспейс-технологію, щоб доставити спорядження прямо до вас. Обирайте з розумом."
+  name: Планшет підтримки офіцера Інтердайна
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseInterdyneContraband ]
   components:
   - type: Sprite
