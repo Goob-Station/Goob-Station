@@ -1,0 +1,29 @@
+- type: entity
+  name: combat shotgun
+  parent: WeaponShotgunBulldog
+  id: N14WeaponShotgunAuto
+  description: "It's a magazine-fed automatic shotgun designed for close quarters combat, uses 12 gauge shells."
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/combat_shotgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/combat_shotgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Large
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/combat_shotgun.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    minAngle: 23
+    maxAngle: 104
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 2

@@ -1,0 +1,193 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatLightBase
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: light-icon
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+  - type: Clothing
+    equippedPrefix: off
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 3
+    netsync: false
+  - type: Appearance
+  - type: HandheldLight
+    addPrefix: false
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        id: radiating
+        interpolate: Linear
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        property: Radius
+        enabled: false
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        minValue: 0.1
+        maxValue: 2.0
+        isLooped: true
+        property: Radius
+        enabled: false
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: Item
+    heldPrefix: off
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatBaseHelmetMK2
+  name: MK2 metal helmet
+  abstract: true
+  description: A helmet offering advanced protection.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatRangerHelmet
+  name: ranger combat helmet
+  description: A helmet offering advanced protection, this one is commonly used by Rangers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmet.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmet.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatRangerHelmetOld
+  name: old ranger combat helmet
+  description: An old combat helmet, out of use around the time of the war.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetold.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetold.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatRangerHelmetDesert
+  name: desert ranger combat helmet
+  description: An U.S Marine Corps helmet, used by the legendary Desert Rangers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetdesert.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetdesert.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatRangerHelmetPrice
+  name: spider ranger combat helmet
+  description: A customised riot helmet reminiscient of the more advanced riot helmets found in the Divide, sporting purple lenses over the traditional red or green and a pair of red fangs painted over the respirator. The back of the helmet has a the face of an albino spider painted over it.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetprice.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetprice.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatRangerHelmetElite
+  name: elite ranger combat helmet
+  description: An old combat helmet seen in the Divide, repurposed for higher-ranking Rangers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetelite.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetelite.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatRangerHelmetEliteOld
+  name: worn elite ranger combat helmet
+  description: Worn riot helmet from before the war. Faded by time and use, this helmet still sees use as a form of protection for the law bringers of the New California Republic.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetelite.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetelite.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatRangerHelmetFox
+  name: fox ranger combat helmet
+  description: A customized and well-worn helmet of riot gear with parts of the suit reinforced with leather armor and slain Centurion armor pieces by the wearer. A sniper's veil is wrapped around the neck.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetfox.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetfox.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatRangerHelmetModif
+  name: modified ranger combat helmet
+  description: A thicker than average helmet worn by rangers out in the field.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetmodif.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetmodif.rsi
+  - type: Tag
+    tags:
+    - HidesHair

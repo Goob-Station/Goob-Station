@@ -1,0 +1,35 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox45-70
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14Cartridge45-70
+    proto: N14Cartridge45-70
+    capacity: 30
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/45-70.rsi
+    netsync: false
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBox45-70
+  id: MagazineBox45-70
+  name: ammunition box (.45-70 gov't)
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]

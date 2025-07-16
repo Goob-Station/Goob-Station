@@ -1,0 +1,195 @@
+- type: entity
+  abstract: true
+  parent: [Clothing, AllowSuitStorageClothing]
+  id: N14ClothingOuterBase
+  components:
+  - type: Clothing
+    slots:
+    - outerClothing
+  - type: Sprite
+    state: icon
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: N14ClothingOuterRangerArmor
+  name: ranger patrol armor
+  description: A complete piece of combat armor created by the NCR itself, used by the NCR Rangers during their most dangerous patrols.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangersuit.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangersuit.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.7
+        Heat: 0.7
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+
+- type: entity
+  parent: N14ClothingOuterRangerArmor
+  id: N14ClothingOuterRangerArmorB
+  name: customized ranger patrol armor
+  description: A customized and moderately-worn suit of patrol ranger armor. A sun-worn thick olive duster is worn over the armor.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangersuitb.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangersuitb.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: N14ClothingOuterRangerDuster
+  name: ranger recon duster
+  description: A thicker than average duster worn by NCR recon rangers out in the field. It's not heavily armored by any means, but is easy to move around in and provides excellent protection from the harsh desert environment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerduster.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerduster.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05
+
+#MARK: Veteran
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: N14ClothingOuterRangerCoat
+  name: NCR ranger armor
+  description: The most feared and skillful soldiers of the NCR that the wasteland can create tend to wear this armor.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangercoat.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangercoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: N14ClothingOuterRangerCombat
+  name: ranger combat armor
+  description: The Rangers combat armor consists of a pre-war L.A.P.D. riot suit under a duster with rodeo jeans. Considered one of the most prestigious suits of armor to earn and wear while in service of the NCR Rangers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangercombat.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangercombat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.6
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+
+- type: entity
+  parent: N14ClothingOuterRangerCombat
+  id: N14ClothingOuterRangerFox
+  name: fox ranger combat armor
+  description: A customized and well-worn suit of riot gear with parts of the suit reinforced with leather armor and slain Centurion armor pieces by the wearer. A sniper's veil is wrapped around the neck.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerfox.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerfox.rsi
+
+- type: entity
+  parent: N14ClothingOuterRangerCombat
+  id: N14ClothingOuterRangerWeathered
+  name: weathered ranger combat armor
+  description: A set of pre-unification desert ranger armor, made using parts of what was once USMC riot armor. It looks as if it has been worn for decades; the coat has become discoloured from years under the Mojave sun and has multiple tears and bullet holes in its leather. The armor plating itself seems to be in relatively good shape though it could do with some maintenance.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerweathered.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerweathered.rsi
+
+- type: entity
+  parent: N14ClothingOuterRangerCombat
+  id: N14ClothingOuterRangerElite # Admin event gear (OP)
+  name: elite ranger combat armor
+  description: A customized and well-worn suit of riot gear with parts of the suit reinforced with leather armor and slain Centurion armor pieces by the wearer. A sniper's veil is wrapped around the neck.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerelite.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerelite.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.6
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+
+- type: entity
+  parent: N14ClothingOuterRangerCombat
+  id: N14ClothingOuterRangerPrice
+  name: spider ranger combat armor
+  description: A customised and faded suit of riot gear, reminiscient of that found near Hopeville in the Divide, with a pair of wrist mounted ammo pouches for easy access to spare munitions with a pair of stripes down the back made from a fire-proof material.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerspider.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerspider.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.6
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.7

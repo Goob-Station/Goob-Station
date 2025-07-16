@@ -1,0 +1,156 @@
+# NCR Rangers, Vets
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasCombat
+  name: combat gas mask
+  description: An advanced pre-war military gas mask.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/combatgasmask.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/combatgasmask.rsi
+  - type: NightVision
+    isEquipment: true
+  - type: Appearance
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingMaskGasCombat
+  id: ClothingMaskGasRiot
+  name: NCR ranger gas mask
+  description: A close-fitting tactical mask issued to all NCR Rangers as a proof of their service.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/riotgasmask.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/riotgasmask.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingMaskGasCombat
+  id: ClothingMaskGasRangerDesert
+  name: desert ranger gas mask
+  description: An U.S Marine Corps helmet, used by the legendary Desert Rangers.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangerdesertgasmask.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangerdesertgasmask.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasRangerWeathered
+  name: weathered ranger gas mask
+  description: A well-used Desert Ranger helmet passed down through generations. Though this one's stripped of night vision and it's kevlar lining, it's even more lightweight.
+  components:
+  - type: Item
+    size: Tiny
+  - type: EyeProtection
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangerweatheredgasmask.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangerweatheredgasmask.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskGasCombat
+  id: ClothingMaskGasRangerPrice
+  name: spider ranger gas mask
+  description: A customised riot helmet reminiscient of the more advanced riot helmets found in the Divide, sporting purple lenses over the traditional red or green and a pair of red fangs painted over the respirator. The back of the helmet has a the face of an albino spider painted over it.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangerpricegasmask.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangerpricegasmask.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskGasCombat
+  id: ClothingMaskGasRangerElite
+  name: elite riot gas mask
+  description: An old gas mask seen in the Divide, repurposed for higher-ranking Rangers.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangerelitegasmask.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangerelitegasmask.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskGasCombat
+  id: ClothingMaskGasRangerModif
+  name: modified ranger gas mask
+  description: A thicker-than-average mask worn by Rangers out in the field.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangermodifgasmask.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangermodifgasmask.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95

@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: N14ClothingNeckCloakRangerPoncho
+  name: ranger poncho
+  description: A durable muslin poncho. Tough enough to bear the elements and serve as handy blanket.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/NCRrangerponcho.rsi
+  - type: ToggleableClothing
+    clothingPrototype: N14ClothingHeadHatHoodPonchoCloak
+    requiredSlot: neck
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container

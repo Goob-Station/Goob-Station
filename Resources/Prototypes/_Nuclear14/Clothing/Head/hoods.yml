@@ -1,0 +1,22 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatHoodPonchoCloak
+  name: poncho cloak hood
+  description: A hood of a poncho cloak, it is made from muslin cotton.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHoods/ponchocloak.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHoods/ponchocloak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+    priceMultiplier: 0.5
+  - type: Tag
+    tags:
+    - HidesHair
+    - WhitelistChameleon

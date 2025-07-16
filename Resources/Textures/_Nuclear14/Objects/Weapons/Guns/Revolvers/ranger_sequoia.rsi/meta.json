@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken/modified from Mojave sun 13 at https://scrubby.melonmesa.com/dmi/mojave/icons/objects/guns/guns_inventory.dmi?codebase=mojavesun",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "bolt-open"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+		{
+			"name": "equipped-BELT",
+			"directions": 4
+		}
+    ]
+}

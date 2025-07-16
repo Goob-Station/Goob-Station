@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckPatriotScarf
+  name: patriot scarf
+  description: A short but very patriotic scarf.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Bandanas/patriotscarf.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Neck/Bandanas/patriotscarf.rsi
+  - type: ToggleableClothing
+    clothingPrototype: N14ClothingMaskPatriotMask
+    requiredSlot: neck
+    slot: mask
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container
