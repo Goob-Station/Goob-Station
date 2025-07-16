@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+artisticroomba@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 thetuerk <46725294+ThanosDeGraf@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
