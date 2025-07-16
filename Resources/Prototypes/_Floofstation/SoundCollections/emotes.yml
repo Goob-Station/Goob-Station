@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2024 Fansana <fansana95@googlemail.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tom <t.jans@student.fontys.nl>
 # SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -13,3 +16,12 @@
   id: ReptilianHiss
   files:
   - /Audio/_Floofstation/Voice/Reptilian/hiss.ogg
+
+- type: soundCollection
+  id: HarpyCoos
+  files:
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo1.ogg
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo2.ogg
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo3.ogg
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo4.ogg
+  - /Audio/_Floofstation/Voice/Harpy/harpy_coo5.ogg
