@@ -304,7 +304,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("servercurrency.lowpop_multiplier_strength", 1.0, CVar.SERVERONLY);
 
     public static readonly CVarDef<bool> GoobcoinUseShortRoundPenalty =
-        CVarDef.Create("servercurrency.use__shortround_penalty", true, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.use_shortround_penalty", true, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinShortRoundPenaltyTargetMinutes =
         CVarDef.Create("servercurrency.shortround_penalty_target_minutes", 50, CVar.SERVERONLY);
