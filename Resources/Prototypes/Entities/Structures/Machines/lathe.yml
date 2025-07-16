@@ -575,6 +575,8 @@
     - CargoBoards
     - MedicalBoards
     - ServiceBoards
+    - BluespaceTechnologyBoards # CorvaxGoob BluespaceHarvester
+    - BluespaceHarvesterBoards # CorvaxGoob BluespaceHarvester
     #- ScienceBoards - Goobstation - Moved to Scifab
     - CameraBoards
     #- MechBoards - Goobstation - split between departmental lathes
