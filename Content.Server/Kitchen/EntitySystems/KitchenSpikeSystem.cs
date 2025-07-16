@@ -97,6 +97,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
+using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -136,6 +137,9 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+        [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills
+
+        private const float ButcherDelayModifierWithoutSkill = 5; // CorvaxGoob-Skills
 
         public override void Initialize()
         {
@@ -171,10 +175,13 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
 
             _suicide.ApplyLethalDamage((args.Victim, damageableComponent), "Piercing");
-            var othersMessage = Loc.GetString("comp-kitchen-spike-suicide-other", ("victim", args.Victim));
+            var othersMessage = Loc.GetString("comp-kitchen-spike-suicide-other",
+                                                ("victim", Identity.Entity(args.Victim, EntityManager)),
+                                                ("this", entity));
             _popupSystem.PopupEntity(othersMessage, args.Victim, Filter.PvsExcept(args.Victim), true);
 
-            var selfMessage = Loc.GetString("comp-kitchen-spike-suicide-self");
+            var selfMessage = Loc.GetString("comp-kitchen-spike-suicide-self",
+                                            ("this", entity));
             _popupSystem.PopupEntity(selfMessage, args.Victim, args.Victim);
             args.Handled = true;
         }
@@ -257,7 +264,11 @@ namespace Content.Server.Kitchen.EntitySystems
 
             UpdateAppearance(uid, null, component);
 
-            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-kill", ("user", Identity.Entity(userUid, EntityManager)), ("victim", victimUid)), uid, PopupType.LargeCaution);
+            _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-kill",
+                                                    ("user", Identity.Entity(userUid, EntityManager)),
+                                                    ("victim", Identity.Entity(victimUid, EntityManager)),
+                                                    ("this", uid)),
+                                    uid, PopupType.LargeCaution);
 
             _transform.SetCoordinates(victimUid, Transform(uid).Coordinates);
             // THE WHAT?
@@ -379,7 +390,7 @@ namespace Content.Server.Kitchen.EntitySystems
             butcherable.BeingButchered = true;
             component.InUse = true;
 
-            var doAfterArgs = new DoAfterArgs(EntityManager, userUid, component.SpikeDelay + butcherable.ButcherDelay, new SpikeDoAfterEvent(), uid, target: victimUid, used: uid)
+            var doAfterArgs = new DoAfterArgs(EntityManager, userUid, (component.SpikeDelay + butcherable.ButcherDelay) * (_skills.HasSkill(userUid, Skills.Butchering) ? 1 : ButcherDelayModifierWithoutSkill), new SpikeDoAfterEvent(), uid, target: victimUid, used: uid) // CorvaxGoob-Skills
             {
                 BreakOnDamage = true,
                 BreakOnMove = true,

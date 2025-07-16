@@ -95,7 +95,12 @@
   - !type:AddComponentSpecial # Goobstation - Martial Arts
     components: # Goobstation - Martial Arts
       - type: GrantCqc # Goobstation - Martial Arts
+        startingStage: Hard # Goobstation - Martial Arts
         isBlocked: true # Goobstation - Martial Arts
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Skills
 
 - type: startingGear
   id: ChefGear

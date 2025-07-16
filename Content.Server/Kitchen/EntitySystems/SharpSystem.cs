@@ -104,6 +104,8 @@ using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
+using Content.Shared.Hands.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Kitchen;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -111,6 +113,7 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared._CorvaxGoob.Skills;
 
 namespace Content.Server.Kitchen.EntitySystems;
 
@@ -125,6 +128,9 @@ public sealed class SharpSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills
+
+    private const float ButcherDelayModifierWithoutSkill = 5; // CorvaxGoob-Skills
 
     public override void Initialize()
     {
@@ -153,8 +159,11 @@ public sealed class SharpSystem : EntitySystem
         if (!TryComp<SharpComponent>(knife, out var sharp))
             return false;
 
-        if (TryComp<MobStateComponent>(target, out var mobState) && !_mobStateSystem.IsDead(target, mobState))
+        // CorvaxGoob-Skills-Start
+        var hasMobState = TryComp<MobStateComponent>(target, out var mobState);
+        if (hasMobState && !_mobStateSystem.IsDead(target, mobState))
             return false;
+        // CorvaxGoob-Skills-End
 
         if (butcher.Type != ButcheringType.Knife && target != user)
         {
@@ -170,13 +179,24 @@ public sealed class SharpSystem : EntitySystem
         // so that the doafter can be interrupted if they drop the item in their hands
         var needHand = user != knife;
 
-        var doAfter =
-            new DoAfterArgs(EntityManager, user, sharp.ButcherDelayModifier * butcher.ButcherDelay, new SharpDoAfterEvent(), knife, target: target, used: knife)
-            {
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                NeedHand = needHand,
-            };
+        // CorvaxGoob-Skills-Start
+        var delayModifier = hasMobState && !_skills.HasSkill(user, Skills.Butchering) ? ButcherDelayModifierWithoutSkill : 1;
+
+        var doAfter = new DoAfterArgs(
+            EntityManager,
+            user,
+            sharp.ButcherDelayModifier * butcher.ButcherDelay * delayModifier,
+            new SharpDoAfterEvent(),
+            knife,
+            target: target,
+            used: knife)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            NeedHand = needHand,
+        };
+        // CorvaxGoob-Skills-End
+
         _doAfterSystem.TryStartDoAfter(doAfter);
         return true;
     }
@@ -216,7 +236,7 @@ public sealed class SharpSystem : EntitySystem
         if (hasBody)
             popupType = PopupType.LargeCaution;
 
-        _popupSystem.PopupEntity(Loc.GetString("butcherable-knife-butchered-success", ("target", args.Args.Target.Value), ("knife", uid)),
+        _popupSystem.PopupEntity(Loc.GetString("butcherable-knife-butchered-success", ("target", args.Args.Target.Value), ("knife", Identity.Entity(uid, EntityManager))),
             popupEnt, args.Args.User, popupType);
 
         if (hasBody)
@@ -244,10 +264,10 @@ public sealed class SharpSystem : EntitySystem
         var disabled = false;
         string? message = null;
 
-        // if the user has hands
-        // and the item they're holding doesn't have the SharpComponent
+        // if the held item doesn't have SharpComponent
+        // and the user doesn't have SharpComponent
         // disable the verb
-        if (!TryComp<SharpComponent>(args.Using, out var usingSharpComp) && args.Hands != null)
+        if (!TryComp<SharpComponent>(args.Using, out var usingSharpComp) && userSharpComp == null)
         {
             disabled = true;
             message = Loc.GetString("butcherable-need-knife",

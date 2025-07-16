@@ -44,7 +44,7 @@ public sealed class SharedMultishotSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly MissChanceSystem _miss = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly StaminaSystem _staminaSystem = default!;
+    [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
@@ -180,7 +180,7 @@ public sealed class SharedMultishotSystem : EntitySystem
     {
         var message = new FormattedMessage();
         var chance = (MathF.Round(ent.Comp.MissChance * 100f)).ToString();
-        message.AddText(Loc.GetString(MultishotComponent.ExamineMessage, ("chance", chance)));
+        message.AddText(Loc.GetString(ent.Comp.ExamineMessage, ("chance", chance)));
         args.PushMessage(message);
     }
 

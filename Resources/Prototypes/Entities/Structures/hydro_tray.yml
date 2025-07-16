@@ -178,6 +178,8 @@
         acts: ["Destruction"]
   - type: Machine
     board: HydroponicsTrayMachineCircuitboard
+  - type: TTS # CorvaxGoob-TTS
+    voice: TrainingRobot
   - type: WiresPanel
   - type: AmbientSound
     volume: -9

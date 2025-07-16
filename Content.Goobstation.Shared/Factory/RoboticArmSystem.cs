@@ -39,6 +39,8 @@ public sealed class RoboticArmSystem : EntitySystem
 
     private EntityQuery<ItemComponent> _itemQuery;
     private EntityQuery<ThrownItemComponent> _thrownQuery;
+    private TimeSpan _nextUpdate = TimeSpan.Zero;
+    private static readonly TimeSpan _updateDelay = TimeSpan.FromSeconds(0.5);
 
     public override void Initialize()
     {
@@ -66,8 +68,13 @@ public sealed class RoboticArmSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RoboticArmComponent>();
         var now = _timing.CurTime;
+        if (_nextUpdate < now)
+            return;
+
+        _nextUpdate += _updateDelay;
+
+        var query = EntityQueryEnumerator<RoboticArmComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (!_power.IsPowered(uid))
@@ -145,8 +152,9 @@ public sealed class RoboticArmSystem : EntitySystem
         if (_thrownQuery.HasComp(item))
             return;
 
-        // ignore non-filtered items
-        if (_filter.IsBlocked(_filter.GetSlot(ent), item))
+        // ignore items filters will never allow
+        // not using IsBlocked since gas tanks can change pressure in a canister and need to be checked
+        if (_filter.IsAlwaysBlocked(_filter.GetSlot(ent), item))
             return;
 
         var wake = CompOrNull<CollisionWakeComponent>(item);
@@ -310,12 +318,17 @@ public sealed class RoboticArmSystem : EntitySystem
         if (output == null && IsOutputBlocked(ent))
             return false;
 
+        var filter = _filter.GetSlot(ent);
+
         // check them in reverse since removing near the end is cheaper
         var found = EntityUid.Invalid;
         for (var i = count - 1; i >= 0; i--)
         {
             var netEnt = ent.Comp.InputItems[i].Item1;
             if (!TryGetEntity(netEnt, out var item))
+                continue;
+
+            if (_filter.IsBlocked(filter, item.Value))
                 continue;
 
             // make sure the destination will accept it or it gets stuck

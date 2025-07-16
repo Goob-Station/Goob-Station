@@ -11,8 +11,8 @@
 // SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
 // SPDX-FileCopyrightText: 2020 Memory <58238103+FL-OZ@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 // SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
 // SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
@@ -24,7 +24,7 @@
 // SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
 // SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Paul <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
@@ -68,6 +68,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.Construction; // Goobstation
 using Content.Server.Construction.Components;
+using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
@@ -91,7 +92,6 @@ namespace Content.Server.Construction
 {
     public sealed partial class ConstructionSystem
     {
-        [Dependency] private readonly IComponentFactory _factory = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -113,6 +113,10 @@ namespace Content.Server.Construction
             SubscribeNetworkEvent<TryStartStructureConstructionMessage>(HandleStartStructureConstruction);
             SubscribeNetworkEvent<TryStartItemConstructionMessage>(HandleStartItemConstruction);
         }
+
+        // Goobstation - conflict landmine; should ideally not be in the system or be a cvar but whatever
+        // replaces wizcode magic constants
+        public const float ConstructGrabRange = 2f;
 
         // LEGACY CODE. See warning at the top of the file!
         private IEnumerable<EntityUid> EnumerateNearby(EntityUid user)
@@ -156,11 +160,12 @@ namespace Content.Server.Construction
 
             var pos = _transformSystem.GetMapCoordinates(user);
 
-            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, 2f, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate))
+            // Goobstation - conflict landmine: replace magic constant with ConstructGrabRange
+            foreach (var near in _lookupSystem.GetEntitiesInRange(pos, ConstructGrabRange, LookupFlags.Contained | LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate))
             {
                 if (near == user)
                     continue;
-                if (_interactionSystem.InRangeUnobstructed(pos, near, 2f) && _container.IsInSameOrParentContainer(user, near))
+                if (_interactionSystem.InRangeUnobstructed(pos, near, ConstructGrabRange) && _container.IsInSameOrParentContainer(user, near))
                     yield return near;
             }
         }
@@ -241,9 +246,11 @@ namespace Content.Server.Construction
             var steps = new List<ConstructionGraphStep>();
             var used = new HashSet<EntityUid>();
 
+            bool hasSkill = _skills.HasSkill(user, Skills.AdvancedBuilding); // CorvaxGoob-Skills
+
             foreach (var step in edge.Steps)
             {
-                doAfterTime += step.DoAfter;
+                var delay = step.DoAfter; // CorvaxGoob-Skills
 
                 var handled = false;
 
@@ -273,6 +280,11 @@ namespace Content.Server.Construction
                             else if (!_container.Insert(splitStack.Value, GetContainer(materialStep.Store)))
                                 continue;
 
+                            // CorvaxGoob-Skills-Start
+                            if (!hasSkill && IsAdvancedMaterial(entity))
+                                delay *= DelayModifierWithoutSkill;
+                            // CorvaxGoob-Skills-End
+
                             handled = true;
                             break;
                         }
@@ -282,7 +294,7 @@ namespace Content.Server.Construction
                     case ArbitraryInsertConstructionGraphStep arbitraryStep:
                         foreach (var entity in new HashSet<EntityUid>(EnumerateNearby(user)))
                         {
-                            if (!arbitraryStep.EntityValid(entity, EntityManager, _factory))
+                            if (!arbitraryStep.EntityValid(entity, EntityManager, Factory))
                                 continue;
 
                             if (used.Contains(entity))
@@ -317,6 +329,8 @@ namespace Content.Server.Construction
                 }
 
                 steps.Add(step);
+
+                doAfterTime += step.DoAfter; // CorvaxGoob-Skills
             }
 
             if (failed)
@@ -536,7 +550,6 @@ namespace Content.Server.Construction
             var targetNode = constructionGraph.Nodes[constructionPrototype.TargetNode];
             var pathFind = constructionGraph.Path(startNode.Name, targetNode.Name);
 
-
             if (senderSession is {} session) // Goobstation - ignore check for constructor
             {
                 if (_beingBuilt.TryGetValue(session, out var set))
@@ -553,6 +566,11 @@ namespace Content.Server.Construction
                     _beingBuilt[session] = newSet;
                 }
             }
+
+            // Goobstation - can only realistically happen for sus clients, but ignore this for constructor
+            HandsComponent? hands = null;
+            if (senderSession != null && !TryComp<HandsComponent>(user, out hands))
+                return false;
 
             foreach (var condition in constructionPrototype.Conditions)
             {
@@ -571,8 +589,22 @@ namespace Content.Server.Construction
 
             // Goobstation
             EntityUid? entWith = with == null ? null : GetEntity(with);
-            if (entWith == null && TryComp<HandsComponent>(user, out var hands))
+            if (with != null && entWith != null)
+            {
+                // sus client can't use steel half the station away to build
+                var userPos = _transformSystem.GetMapCoordinates(user);
+                var withPos = _transformSystem.GetMapCoordinates(entWith.Value);
+                if (!_container.IsInSameOrParentContainer(user, entWith.Value)
+                    || !_interactionSystem.InRangeUnobstructed(userPos, withPos, ConstructGrabRange))
+                {
+                    Cleanup();
+                    return false;
+                }
+            }
+            else if (hands != null)
+            {
                 entWith = hands.ActiveHandEntity;
+            }
 
             if (!_actionBlocker.CanInteract(user, null)
                 || (senderSession != null && entWith == null)) // Goobstation
@@ -581,7 +613,7 @@ namespace Content.Server.Construction
                 return false;
             }
 
-            var mapPos = location.ToMap(EntityManager, _transformSystem);
+            var mapPos = _transformSystem.ToMapCoordinates(location);
             var predicate = GetPredicate(constructionPrototype.CanBuildInImpassable, mapPos);
 
             if (!_interactionSystem.InRangeUnobstructed(user, mapPos, predicate: predicate))
@@ -615,7 +647,7 @@ namespace Content.Server.Construction
                     switch (step)
                     {
                         case EntityInsertConstructionGraphStep entityInsert:
-                            if (entityInsert.EntityValid(holding, EntityManager, _factory))
+                            if (entityInsert.EntityValid(holding, EntityManager, Factory))
                                 valid = true;
                             break;
                         case ToolConstructionGraphStep _:

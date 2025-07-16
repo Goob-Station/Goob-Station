@@ -87,7 +87,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 #10 hrs
+      time: 9000 #2.5 hrs
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
@@ -106,6 +106,9 @@
   - !type:AddComponentSpecial # goobstation
     components:
       - type: SecurityStaff
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - Shooting
 
 - type: startingGear
   id: SecurityOfficerGear

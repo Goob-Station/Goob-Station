@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -20,7 +21,30 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Lavaland.Aggression;
+using Robust.Shared.GameStates;
 
 namespace Content.Client._Lavaland.Aggression;
 
-public sealed class AggressorsSystem : SharedAggressorsSystem;
+public sealed class AggressorsSystem : SharedAggressorsSystem
+{
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<AggressiveComponent, ComponentHandleState>(HandleComponentState);
+    }
+
+    private void HandleComponentState(Entity<AggressiveComponent> ent, ref ComponentHandleState args)
+    {
+        if (args.Current is not AggressiveComponentState state)
+            return;
+
+        foreach (var netEntity in state.Aggressors)
+        {
+            if (!TryGetEntity(netEntity, out var aggressor))
+                return;
+
+            AddAggressor(ent, aggressor.Value);
+        }
+    }
+}

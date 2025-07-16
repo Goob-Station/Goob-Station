@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressOpenShoulder
+  name: open-shoulder dress
+  description: No sleeves in this dress, only style fierce enough to snatch wigs.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Other/openshoulder_dress.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Other/openshoulder_dress.rsi

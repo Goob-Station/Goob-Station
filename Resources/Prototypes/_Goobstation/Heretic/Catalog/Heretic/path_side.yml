@@ -3,6 +3,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
@@ -13,7 +15,7 @@
   id: HereticSidePath3Armor
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: _Goobstation/Heretic/eldritch_hood.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
     KnowledgePoint: 1
@@ -61,7 +63,7 @@
   id: HereticSidePath3VoidCloak
   name: knowledge-path-side-s3-void-cloak-name
   description: knowledge-path-side-s3-void-cloak-desc
-  icon: { sprite: _Goobstation/Heretic/void_cloak.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi, state: icon }
   productHereticKnowledge: VoidCloak
   cost:
     KnowledgePoint: 1

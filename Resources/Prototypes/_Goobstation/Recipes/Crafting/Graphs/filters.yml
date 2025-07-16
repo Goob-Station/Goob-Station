@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: AutomationFilter
   start: start
@@ -30,6 +36,17 @@
       - material: Cable
         amount: 4
         doAfter: 2
+    - to: pressure
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+      - material: Glass
+        amount: 1
+        doAfter: 2
+      - material: Cable
+        amount: 4
+        doAfter: 1
     - to: combined
       steps:
       - material: Steel
@@ -47,5 +64,7 @@
     entity: AutomationFilterName
   - node: stack
     entity: AutomationFilterStack
+  - node: pressure
+    entity: AutomationFilterPressure
   - node: combined
     entity: AutomationFilterCombined

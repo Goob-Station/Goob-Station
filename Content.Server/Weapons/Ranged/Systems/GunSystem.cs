@@ -118,6 +118,8 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Cargo.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
@@ -140,22 +142,27 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Server.PowerCell;
 using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
+using Content.Shared._CorvaxGoob.Skills;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!; // Goobstation
+    [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     private const float DamagePitchVariation = 0.05f;
+
+    private const float SpreadWithoutSkill = MathHelper.PiOver6; // CorvaxGoob-Skills
 
     public override void Initialize()
     {
@@ -195,16 +202,26 @@ public sealed partial class GunSystem : SharedGunSystem
             }
         }
 
-        var fromMap = fromCoordinates.ToMap(EntityManager, TransformSystem);
-        var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
+        var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates);
+        var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var mapDirection = toMap - fromMap.Position;
         var mapAngle = mapDirection.ToAngle();
         var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
 
+        // CorvaxGoob-Skills-Start
+        if (gun.RequiresSkill && user is not null && !_skills.HasSkill(user!.Value, Skills.Shooting))
+        {
+            var spread = -SpreadWithoutSkill / 2 + Random.NextFloat() * SpreadWithoutSkill;
+
+            mapAngle += spread;
+            angle += spread;
+        }
+        // CorvaxGoob-Skills-End
+
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out var grid)
-            ? fromCoordinates.WithEntityId(gridUid, EntityManager)
-            : new EntityCoordinates(MapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
+        var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out _)
+            ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
+            : new EntityCoordinates(_map.GetMapOrInvalid(fromMap.MapId), fromMap.Position);
 
         // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
@@ -316,7 +333,7 @@ public sealed partial class GunSystem : SharedGunSystem
                                 break;
 
                             fromEffect = Transform(hit).Coordinates;
-                            from = fromEffect.ToMap(EntityManager, _transform);
+                            from = TransformSystem.ToMapCoordinates(fromEffect);
                             dir = ev.Direction;
                             lastUser = hit;
                         }
@@ -327,6 +344,9 @@ public sealed partial class GunSystem : SharedGunSystem
                         var hitEntity = lastHit.Value;
                         if (hitscan.StaminaDamage > 0f)
                             _stamina.TakeStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user, applyResistances: true); // Goob edit
+
+                        if (hitscan.FireStacks > 0f && TryComp(hitEntity, out FlammableComponent? flammable)) // Goobstation
+                            _flammable.AdjustFireStacks(hitEntity, hitscan.FireStacks, flammable, true);
 
                         var dmg = hitscan.Damage;
 
@@ -530,13 +550,13 @@ public sealed partial class GunSystem : SharedGunSystem
         if (gridUid != fromCoordinates.EntityId && TryComp(gridUid, out TransformComponent? gridXform))
         {
             var (_, gridRot, gridInvMatrix) = TransformSystem.GetWorldPositionRotationInvMatrix(gridXform);
-            var map = _transform.ToMapCoordinates(fromCoordinates);
+            var map = TransformSystem.ToMapCoordinates(fromCoordinates);
             fromCoordinates = new EntityCoordinates(gridUid.Value, Vector2.Transform(map.Position, gridInvMatrix));
             angle -= gridRot;
         }
         else
         {
-            angle -= _transform.GetWorldRotation(fromXform);
+            angle -= TransformSystem.GetWorldRotation(fromXform);
         }
 
         if (distance >= 1f)

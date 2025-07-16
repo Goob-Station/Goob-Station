@@ -1,0 +1,16 @@
+- type: explosion
+  id: Bluespace
+  damagePerIntensity:
+    types:
+      Blunt: 5
+      Heat: 5
+      Cold: 5
+      Radiation: 30
+  tileBreakChance: [ 0, 0.5, 1 ]
+  tileBreakIntensity: [ 1, 5, 10 ]
+  tileBreakRerollReduction: 3
+  intensityPerState: 20
+  lightColor: Blue
+  fireColor: Blue
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  fireStates: 3

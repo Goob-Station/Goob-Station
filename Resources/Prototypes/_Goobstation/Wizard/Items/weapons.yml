@@ -1,5 +1,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -84,7 +89,7 @@
 
 - type: entity
   name: supermatter halberd
-  parent: [BaseItem, BaseMagicContraband]
+  parent: [BaseItem, BaseMagicalContraband]
   id: SupermatterHalberd
   description: The revered weapon of Oblivion Enforcers, used to enforce the Order's will.
   components:
@@ -164,24 +169,6 @@
     size: Normal
 
 - type: entity
-  name: broom
-  parent: BaseItem
-  id: BroomWitch
-  description: Used for sweeping, and flying into the night while cackling. Black cat not included.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/broom.rsi
-    state: icon
-  - type: MeleeWeapon
-    wideAnimationRotation: 30
-    damage:
-      types:
-        Blunt: 18
-  - type: Item
-    size: Normal
-    sprite: _Goobstation/Wizard/Objects/Weapons/broom.rsi
-
-- type: entity
   name: tape staff
   parent: BaseItem
   id: StaffTape
@@ -201,7 +188,7 @@
 
 - type: entity
   name: high frequency blade
-  parent: [BaseSword, BaseMagicContraband]
+  parent: [BaseSword, BaseMagicalContraband]
   id: HighFrequencyBlade
   description: A sword reinforced by a powerful alternating current and resonating at extremely high vibration frequencies. This oscillation weakens the molecular bonds of anything it cuts, thereby increasing its cutting ability.
   components:
@@ -252,7 +239,7 @@
 
 - type: entity
   name: spellblade
-  parent: [BaseSword, BaseMagicContraband]
+  parent: [BaseSword, BaseMagicalContraband]
   id: Spellblade
   description: An enchanted blade with a series of runes along the side.
   components:

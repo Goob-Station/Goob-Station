@@ -1,0 +1,83 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  name: living curse
+  id: MobLivingCurse
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  description: Exceedingly slow, but is immune to all forms of damage, except holy.
+  components:
+  - type: Bloodstream
+    bloodMaxVolume: 5
+    bloodReagent: MindbreakerToxin
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Demons/curse.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: curse
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: curse
+      Dead:
+        Base: dead
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.0
+        density: 0
+        mask:
+          - FlyingMobMask
+        layer:
+          - Opaque
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/Effects/demon_attack1.ogg
+    damage:
+      types:
+        Caustic: 5
+  - type: Damageable
+    damageContainer: BiologicalMetaphysical
+    damageModifierSet: AdvancedSpirit
+  - type: WeakToHoly
+    alwaysTakeHoly: true
+  - type: NoSlip
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1
+    baseSprintSpeed : 1
+  - type: Reflect 
+    reflectProb: 1
+    reflects:
+    - Nonenergy
+    - Energy
+  - type: AmbientSound
+    range: 7
+    volume: -5
+    sound:
+      path: /Audio/Ambience/anomaly_scary.ogg
+  - type: PointLight
+    radius: 1.5
+    energy: 12.5
+    color: "#793a80"
+  - type: Megafauna
+    loot: AnomalyCoreShadow
+  
