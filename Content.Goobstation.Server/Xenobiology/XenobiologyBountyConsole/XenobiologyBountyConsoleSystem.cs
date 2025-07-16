@@ -98,10 +98,11 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         foreach (var bountyEnt in bountyEntities)
             Del(bountyEnt);
 
-        // This has to be casted and rounded because of how the multiplier works.
-        _research.ModifyServerPoints(server.Value, bountyProto.RoundedPointsAwarded, serverComponent);
+        var pointsToAward = (int)Math.Round(bountyProto.PointsAwarded * bounty.CurrentMultiplier);
+        _research.ModifyServerPoints(server.Value, pointsToAward, serverComponent);
+
         _audio.PlayPvs(console.Comp.FulfillSound, console);
-        _sawmill.Info($"({bounty.Bounty.Id}) Fulfilled - Points: {bountyProto.BasePointsAwarded} -> {bountyProto.RoundedPointsAwarded}");
+
         RandomizeBountyPointMultiplier(db); // Randomize prices for all bounties - :trol:
 
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
@@ -383,12 +384,6 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
             RandomizeBountyPointMultiplier(bounty);
     }
 
-    private void RandomizeBountyPointMultiplier(XenobiologyBountyData bounty)
-    {
-        if (!_proto.TryIndex(bounty.Bounty, out var bountyProto))
-            return;
-
+    private void RandomizeBountyPointMultiplier(XenobiologyBountyData bounty) =>
         bounty.CurrentMultiplier = _random.NextFloat(bounty.MinMultiplier, bounty.MaxMultiplier);
-        bountyProto.PointsAwarded = bountyProto.BasePointsAwarded * bounty.CurrentMultiplier;
-    }
 }
