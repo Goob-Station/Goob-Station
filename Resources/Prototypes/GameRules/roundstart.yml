@@ -257,6 +257,15 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -275,6 +284,15 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -297,6 +315,15 @@
       roleLoadout:
       - RoleSurvivalNukie
       components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
@@ -367,6 +394,16 @@
         - AntagImmune
         - Changeling # Goobstation
       lateJoinAdditional: true
+      components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleTraitor
 
@@ -392,6 +429,15 @@
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleHeadRevolutionary
 
@@ -492,6 +538,15 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleInitialInfected
 

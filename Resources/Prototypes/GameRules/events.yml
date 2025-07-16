@@ -436,6 +436,15 @@
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
       - type: SpaceNinja
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -810,6 +819,15 @@
         maxInitialInfectedGrace: 450
       - type: ZombifyOnDeath
       - type: IncurableZombie
+      - type: CanChokeGrab # CorvaxGoob-Grab
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
@@ -848,11 +866,20 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicatePrefix
         - NamesSyndicateNormal
         nameFormat: name-format-nukie-generic
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -894,6 +921,16 @@
       blacklist:
         components:
         - AntagImmune
+      components: # CorvaxGoob-Skills
+      - type: Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleTraitorSleeper
 

@@ -179,6 +179,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    requiresSkill: true # CorvaxGoob-Skills
   - type: BallisticAmmoProvider
     autoCycle: false # Goobstation
     whitelist:
@@ -248,6 +249,7 @@
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+    requiresSkill: true # CorvaxGoob-Skills
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -284,6 +286,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+    requiresSkill: true # CorvaxGoob-Skills
   - type: BallisticAmmoProvider
     whitelist:
       tags:
