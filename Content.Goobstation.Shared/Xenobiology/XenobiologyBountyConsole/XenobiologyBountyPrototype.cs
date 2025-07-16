@@ -62,12 +62,6 @@ public sealed partial class XenobiologyBountyPrototype : IPrototype
     /// </summary>
     [DataField]
     public string IdPrefix = "NT";
-
-    /// <summary>
-    /// A group used for categorizing this bounty.
-    /// </summary>
-    [DataField]
-    public ProtoId<XenobiologyBountyGroupPrototype> Group = "StationBounty";
 }
 
 [DataDefinition, Serializable, NetSerializable]

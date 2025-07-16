@@ -262,9 +262,8 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        // todo: consider making the cargo bounties weighted.
+        // todo: consider making the bounties weighted.
         var allBounties = _proto.EnumeratePrototypes<XenobiologyBountyPrototype>()
-            .Where(proto => proto.Group == component.Group)
             .ToList();
 
         var filteredBounties = allBounties
