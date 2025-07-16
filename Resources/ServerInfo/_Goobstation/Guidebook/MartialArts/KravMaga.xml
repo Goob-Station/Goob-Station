@@ -1,0 +1,46 @@
+<Document>
+
+  # Krav Maga
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingHandsGlovesKravMaga" Caption=""/>
+  </Box>
+
+  Krav Maga is a self-defence [textlink="martial art" link="MartialArts"] that was developed by ancient militaries on Terra six centuries ago.
+  It can be learned through years of training or be given to a user by advanced nanomachines stored inside gloves.
+  On the station, a singular pair of Krav Maga Gloves can be found the Warden's locker. Syndicate antagonists can use Krav Maga Implant for the same effect.
+
+  ## Action Combat
+
+  Krav Maga attacks aren't like the combos of most martial arts. The user must instead ready the attack they
+  wish to use in the action bar, then follow it up by performing Harm action on the opponent as normal.
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  ### Leg Sweep
+
+  <Box>
+    <GuideEntityEmbed Entity="ActionLegSweep" Caption=""/>
+  </Box>
+
+  Sweeps the legs out from under an opponent to knock them down.
+
+  ### Neck Chop
+
+  <Box>
+    <GuideEntityEmbed Entity="ActionNeckChop" Caption=""/>
+  </Box>
+
+  A hard swing with the side of the user's hand temporally disables the opponent's ability to speak.
+
+  ### Lung Punch
+
+  <Box>
+    <GuideEntityEmbed Entity="ActionLungPunch" Caption=""/>
+  </Box>
+
+  Deals Stamina damage and temporally disables the opponent's ability to breath.
+
+</Document>

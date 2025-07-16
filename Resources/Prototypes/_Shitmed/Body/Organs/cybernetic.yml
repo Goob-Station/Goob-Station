@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -7,17 +10,20 @@
 
 - type: entity
   id: BaseCyberneticOrgan
-  parent: BaseItem
+  parent: BaseHumanOrgan
   abstract: true
   components:
   - type: Cybernetics
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi
+  - type: Tag
+    tags:
+    - Organ
 
 # Eyes
 
 - type: entity
-  parent: OrganHumanEyes
+  parent: BaseCyberneticOrgan
   id: BasicCyberneticEyes
   name: cybernetic eyes
   description: A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
@@ -33,9 +39,14 @@
       Normal: 21
       Damaged: 11
       Destroyed: 0
+    slotId: eyes
     onAdd:
     - type: FlashImmunity
     - type: EyeProtection
+  - type: Tag
+    tags:
+    - Eyes
+  - type: Eyes
 
 - type: entity
   parent: BasicCyberneticEyes

@@ -46,7 +46,7 @@ public partial class SharedMartialArtsSystem
         if (!_netManager.IsServer)
             return;
 
-        if (ent.Comp.MaximumUses == ent.Comp.CurrentUses)
+        if (ent.Comp.MaximumUses <= ent.Comp.CurrentUses)
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(ent, EntityManager))),
             args.User,
@@ -98,9 +98,6 @@ public partial class SharedMartialArtsSystem
                 ent.Comp.CurrentUses++;
                 break;
         }
-
-        if (ent.Comp.MaximumUses == ent.Comp.CurrentUses)
-            return;
     }
 
     private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent)
@@ -124,7 +121,7 @@ public partial class SharedMartialArtsSystem
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !_proto.TryIndex<MartialArtPrototype>(proto.MartialArtsForm.ToString(), out var martialArtProto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage + ent.Comp.ConsecutiveGnashes * 5, out _);
@@ -133,31 +130,32 @@ public partial class SharedMartialArtsSystem
         if (!downed)
         {
             var saying =
-                Enumerable.ElementAt<LocId>(martialArtProto.RandomSayings, (int)_random.Next(martialArtProto.RandomSayings.Count));
+                Enumerable.ElementAt(martialArtProto.RandomSayings, _random.Next(martialArtProto.RandomSayings.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
         else
         {
             var saying =
-                Enumerable.ElementAt<LocId>(martialArtProto.RandomSayingsDowned, (int)_random.Next(martialArtProto.RandomSayingsDowned.Count));
+                Enumerable.ElementAt(martialArtProto.RandomSayingsDowned, _random.Next(martialArtProto.RandomSayingsDowned.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnSleepingCarpKneeHaul(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpKneeHaulPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         if (!downed)
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds((long)proto.ParalyzeTime), true);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
         }
         else
         {
@@ -169,13 +167,14 @@ public partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnSleepingCarpCrashingWaves(Entity<CanPerformComboComponent> ent,
         ref SleepingCarpCrashingWavesPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || downed)
             return;
 
@@ -188,6 +187,7 @@ public partial class SharedMartialArtsSystem
         _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     #endregion
