@@ -153,6 +153,8 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
     private void OnMapInit(Entity<StationXenobiologyBountyDatabaseComponent> database, ref MapInitEvent args) =>
         FillBountyDatabase(database!);
 
+    #region Bounty Management
+
     /// <summary>
     /// Fills up the bounty database with every bounty.
     /// </summary>
@@ -354,6 +356,10 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         return bounty != null;
     }
 
+    #endregion
+
+    #region Helpers
+
     private void UpdateBountyConsoles()
     {
         var query = EntityQueryEnumerator<XenobiologyBountyConsoleComponent, UserInterfaceComponent>();
@@ -394,36 +400,24 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
             RandomizeBountyPointMultiplier(bounty);
     }
 
-    private void RandomizeBountyPointMultiplier(XenobiologyBountyData bounty) =>
-        bounty.CurrentMultiplier = _random.NextFloat(bounty.MinMultiplier, bounty.MaxMultiplier);
-
-    private void IncreaseBountyPointMultiplier(XenobiologyBountyData bounty)
-    {
-        _sawmill.Info($"Shifting {bounty.CurrentMultiplier} positively towards {bounty.MaxMultiplier}");
-        bounty.CurrentMultiplier = _random.NextFloat(bounty.CurrentMultiplier, bounty.MaxMultiplier);
-        _sawmill.Info($"End result : {bounty.CurrentMultiplier}");
-    }
-
-
-    private void DecreaseBountyPointMultiplier(XenobiologyBountyData bounty)
-    {
-        _sawmill.Info($"Shifting {bounty.CurrentMultiplier} negatively towards {bounty.MinMultiplier}");
-        bounty.CurrentMultiplier = _random.NextFloat(bounty.MinMultiplier, bounty.CurrentMultiplier);
-        _sawmill.Info($"End result : {bounty.CurrentMultiplier}");
-    }
-
-
     private void ShiftAllTowardsDefaultPointMultiplier(StationXenobiologyBountyDatabaseComponent db)
     {
         foreach (var bounty in db.Bounties)
             ShiftTowardsDefaultPointMultiplier(bounty);
     }
 
-    private void ShiftTowardsDefaultPointMultiplier(XenobiologyBountyData bounty)
-    {
-        _sawmill.Info($"Shifting {bounty.CurrentMultiplier} towards {bounty.InitialMultiplier}");
-        bounty.CurrentMultiplier = MathHelper.Lerp(bounty.CurrentMultiplier, bounty.InitialMultiplier, 0.3f);
-        _sawmill.Info($"End result : {bounty.CurrentMultiplier}");
-    }
+    private void RandomizeBountyPointMultiplier(XenobiologyBountyData bounty) =>
+        bounty.CurrentMultiplier = _random.NextFloat(bounty.MinMultiplier, bounty.MaxMultiplier);
 
+    private void IncreaseBountyPointMultiplier(XenobiologyBountyData bounty) =>
+        bounty.CurrentMultiplier = _random.NextFloat(bounty.CurrentMultiplier, bounty.MaxMultiplier);
+
+
+    private void DecreaseBountyPointMultiplier(XenobiologyBountyData bounty) =>
+        bounty.CurrentMultiplier = _random.NextFloat(bounty.MinMultiplier, bounty.CurrentMultiplier);
+
+    private void ShiftTowardsDefaultPointMultiplier(XenobiologyBountyData bounty) =>
+        bounty.CurrentMultiplier = MathHelper.Lerp(bounty.CurrentMultiplier, bounty.InitialMultiplier, 0.3f);
+
+    #endregion
 }
