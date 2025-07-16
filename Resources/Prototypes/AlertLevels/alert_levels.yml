@@ -124,7 +124,7 @@
       announcement: alert-level-gamma-announcement
       selectable: false
       sound:
-        path: /Audio/Misc/gamma.ogg
+        path: /Audio/_CorvaxGoob/Misc/siren.ogg # CorvaxGoob: return old gamma sound
         params:
           volume: -2
       disableSelection: true
