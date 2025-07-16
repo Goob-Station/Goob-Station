@@ -757,6 +757,7 @@
     Plasma: 500
     Glass: 500
 
+# RA Recipes
 - type: latheRecipe
   id: WeaponLightMachineGunL6
   result: WeaponLightMachineGunL6
@@ -774,3 +775,18 @@
     Steel: 1500
     Gold: 1000
     Diamond: 2000
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBox45-70
+  result: MagazineBox45-70
+  materials:
+    Steel: 800
+    Plastic: 450
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: N14BaseSpeedLoader45-70
+  result: N14BaseSpeedLoader45-70
+  materials:
+    Steel: 300

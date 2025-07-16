@@ -62,6 +62,8 @@
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
   - ExplosivePayload
+  - N14BaseSpeedLoader45-70 # RA
+  - MagazineBox45-70 # RA
 
 - type: latheRecipePack
   id: SecurityWeaponsStatic
