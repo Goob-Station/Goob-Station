@@ -8,11 +8,11 @@
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.EventSpells;
-using Content.Shared._Lavaland.Mobs.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Roles.Events;
+using Content.Shared._Lavaland.Movement;
 using Content.Shared.Chat;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind.Components;

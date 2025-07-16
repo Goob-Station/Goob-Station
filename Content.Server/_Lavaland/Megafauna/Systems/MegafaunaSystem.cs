@@ -20,42 +20,27 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using Content.Server._Lavaland.Aggression;
-using Content.Server._Lavaland.Megafauna.Components;
 using Content.Server.Administration.Systems;
 using Content.Shared._Lavaland.Aggression;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
+using Content.Shared._Lavaland.Megafauna;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-// ReSharper disable EnforceForStatementBraces
-// ReSharper disable EntityNameCapturedOnly.Local
 namespace Content.Server._Lavaland.Megafauna.Systems;
 
-public sealed partial class MegafaunaSystem : EntitySystem
+public sealed class MegafaunaSystem : SharedMegafaunaSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly AggressorsSystem _aggressors = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-    [Dependency] private readonly MobThresholdSystem _threshold = default!;
-
-    private EntityQuery<AggressiveMegafaunaAiComponent> _agressiveQuery;
-    private EntityQuery<PhasesMegafaunaAiComponent> _phasesQuery;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<MegafaunaAiComponent, MegafaunaStartupEvent>(OnMegafaunaStartup);
         SubscribeLocalEvent<MegafaunaAiComponent, MegafaunaShutdownEvent>(OnMegafaunaShutdown);
-        SubscribeLocalEvent<MegafaunaAiComponent, AggressorAddedEvent>(OnAggressorAdded);
-        SubscribeLocalEvent<MegafaunaAiComponent, AggressorRemovedEvent>(OnAggressorRemoved);
-
-        _agressiveQuery = GetEntityQuery<AggressiveMegafaunaAiComponent>();
-        _phasesQuery = GetEntityQuery<PhasesMegafaunaAiComponent>();
-
-        InitializePhases();
-        InitializeAggression();
     }
 
     public override void Update(float frameTime)
@@ -65,86 +50,112 @@ public sealed partial class MegafaunaSystem : EntitySystem
         var query = EntityQueryEnumerator<MegafaunaAiComponent, AggressiveComponent>();
         while (query.MoveNext(out var uid, out var ai, out var aggressive))
         {
-            if (!ai.Active)
+            if (ai.NextAction < Timing.CurTime
+                || !ai.Active)
                 continue;
 
-            ai.NextAttackAccumulator -= frameTime;
+            var args = new MegafaunaCalculationBaseArgs(uid, ai, EntityManager);
 
-            if (ai.NextAttackAccumulator > 0f)
-                continue;
+            // Fill action queue if it's less than buffer
+            if (ai.ActionQueue.Count < ai.ActionQueueBufferSize)
+            {
+                for (int i = 0; i < ai.ActionQueueBufferSize - ai.ActionQueue.Count; i++)
+                {
+                    if (!TryPickMegafaunaAttack(args, out var picked))
+                        continue;
 
-            // Pick the attack
-            var args = new MegafaunaThinkBaseArgs(uid, ai, EntityManager);
-            if (!TryPickMegafaunaAttack(args, out var attack))
-                continue;
+                    ai.ActionQueue.Enqueue(picked);
+                }
+            }
 
-            // Pick the target
-            ai.PreviousTarget = ai.CurrentTarget;
+            // Pick new target
             _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
-
-            // Make action, write that we used it and go on to delay
-            var delayTime = attack.Invoke(args);
-
-            ai.PreviousAttack = null;
-            if (!ai.CanRepeatAttacks)
-                ai.PreviousAttack = attack.Name;
-
-            delayTime = Math.Clamp(delayTime, ai.MinAttackCooldown, ai.MaxAttackCooldown);
-            ai.NextAttackAccumulator = delayTime;
+            ai.PreviousTarget = ai.CurrentTarget;
         }
-
-        UpdatePhases(frameTime);
-        UpdateAggression(frameTime);
     }
 
-    #region Event Handling
-
-    private void OnAggressorAdded(Entity<MegafaunaAiComponent> ent, ref AggressorAddedEvent args)
+    /// <summary>
+    /// Picks megafauna attack for the megafauna AI, running conditions for each attack
+    /// </summary>
+    private bool TryPickMegafaunaAttack(MegafaunaCalculationBaseArgs args, [NotNullWhen(true)] out MegafaunaAction? action)
     {
-        if (!TryComp<AggressiveComponent>(ent, out var aggressive))
-            return;
+        action = null;
+        var comp = args.AiComponent;
 
-        if (!ent.Comp.Active)
+        var actionsData = _protoMan.Index(comp.ActionsDataId);
+        var conditionChecks = new List<MegafaunaCheckEntry>(actionsData.Entries.Count);
+        foreach (var patternId in actionsData.Entries)
         {
-            ent.Comp.Active = true;
-            RaiseLocalEvent(ent, new MegafaunaStartupEvent());
+            var pattern = _protoMan.Index(patternId);
+
+            var failCount = 0;
+            foreach (var condition in pattern.Conditions)
+            {
+                var condPassed = condition.Check(args);
+                if (!condPassed)
+                    failCount++;
+            }
+
+            conditionChecks.Add(new MegafaunaCheckEntry(pattern.Action, failCount));
         }
 
-        UpdateScaledThresholds((ent, ent.Comp, aggressive));
+        conditionChecks = FilterByPrevious(conditionChecks, comp.PreviousAttack);
+        conditionChecks = FilterByConditions(conditionChecks);
+
+        return PickRandomMegafaunaAttack(conditionChecks, out action);
     }
 
-    private void OnAggressorRemoved(Entity<MegafaunaAiComponent> ent, ref AggressorRemovedEvent args)
+    private List<MegafaunaCheckEntry> FilterByPrevious(List<MegafaunaCheckEntry> list, string? previousAttack)
     {
-        if (!TryComp<AggressiveComponent>(ent, out var aggressive))
-            return;
+        if (previousAttack == null)
+            return list;
 
-        if (ent.Comp.Active && aggressive.Aggressors.Count == 0)
+        var passed = new List<MegafaunaCheckEntry>(list);
+        foreach (var entry in list)
         {
-            ent.Comp.Active = false;
-            RaiseLocalEvent(ent, new MegafaunaShutdownEvent());
+            if (entry.Action.Name == previousAttack)
+                passed.Remove(entry);
         }
 
-        UpdateScaledThresholds((ent, ent.Comp, aggressive));
+        return passed.Count == 0 ? list : passed;
     }
 
-    private void OnMegafaunaStartup(Entity<MegafaunaAiComponent> ent, ref MegafaunaStartupEvent args)
+    private List<MegafaunaCheckEntry> FilterByConditions(List<MegafaunaCheckEntry> list)
     {
-        if (!_threshold.TryGetDeadThreshold(ent.Owner, out var threshold))
+        var leastFails = int.MaxValue;
+        foreach (var (_, amount) in list)
         {
-            Log.Error($"Megafauna {ToPrettyString(ent)} didn't have MobThresholdComponent when trying to startup a boss!");
-            return;
+            if (leastFails > amount)
+                leastFails = amount;
         }
 
-        ent.Comp.BaseTotalHp = threshold.Value;
+        var passed = new List<MegafaunaCheckEntry>(list);
+        foreach (var entry in list)
+        {
+            if (entry.FailAmout == leastFails)
+                passed.Remove(entry);
+        }
+
+        return passed.Count == 0 ? list : passed;
     }
+
+    private bool PickRandomMegafaunaAttack(
+        List<MegafaunaCheckEntry> actionsData,
+        [NotNullWhen(true)] out MegafaunaAction? attack)
+    {
+        attack = null;
+        if (actionsData.Count == 0)
+            return false;
+
+        attack = _random.PickAndTake(actionsData).Action;
+        return true;
+    }
+
+    private record struct MegafaunaCheckEntry(MegafaunaAction Action, int FailAmout);
 
     private void OnMegafaunaShutdown(Entity<MegafaunaAiComponent> ent, ref MegafaunaShutdownEvent args)
     {
-        _threshold.SetMobStateThreshold(ent, ent.Comp.BaseTotalHp, MobState.Dead);
-
         if (ent.Comp.RejuvenateOnShutdown)
             _rejuvenate.PerformRejuvenate(ent);
     }
-
-    #endregion
 }

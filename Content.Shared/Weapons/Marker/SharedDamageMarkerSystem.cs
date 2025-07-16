@@ -102,7 +102,7 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
             !TryComp<ProjectileComponent>(uid, out var projectile) ||
             projectile.Weapon == null ||
             component.OnlyWorkOnFauna && // Lavaland Change
-            !HasComp<FaunaComponent>(args.OtherEntity))
+            !HasComp<FaunaComponent>(args.OtherEntity)) // Lavaland Change
         {
             return;
         }

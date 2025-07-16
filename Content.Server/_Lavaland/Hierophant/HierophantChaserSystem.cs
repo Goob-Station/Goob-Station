@@ -23,7 +23,7 @@
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using System.Numerics;
-using Content.Server._Lavaland.Hierophant.Components;
+using Content.Shared._Lavaland.Hierophant.Components;
 
 namespace Content.Server._Lavaland.Hierophant;
 
