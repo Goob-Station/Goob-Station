@@ -73,10 +73,10 @@ chatsan-replacement-29 = артефакти
 chatsan-word-30 = артів
 chatsan-replacement-30 = артефактів
 
-chatsan-word-31 = СБ
+chatsan-word-31 = сБ
 chatsan-replacement-31 = служба безпеки
 
-chatsan-word-32 = НВ
+chatsan-word-32 = нВ
 chatsan-replacement-32 = науковий відділ
 
 chatsan-word-33 = 33

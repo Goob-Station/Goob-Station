@@ -16,11 +16,14 @@ chat-emote-name-spin = Крутитися
 chat-emote-name-jump = Стрибнути
 chat-emote-name-tweak = Дьоргатись
 chat-emote-name-flex = Грати м'язами
-chat-emote-name-yip = Скиглення
+chat-emote-name-yip = Тяв
 
 chat-emote-msg-flip = робить сальто!
 chat-emote-msg-spin = крутиться!
 chat-emote-msg-jump = стрибає!
 chat-emote-msg-tweak = починає дьоргатись!
 chat-emote-msg-flex = грає своїми м'язами.
-chat-emote-msg-yip = скиглить!
+chat-emote-msg-yip = тявкає!
+
+chat-emote-name-gulp = Ковть
+chat-emote-msg-gulp = ковтає.
