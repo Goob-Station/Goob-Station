@@ -22,8 +22,10 @@
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - TauCetiBasic
+    - Schechi               # From Floof
     understands:
     - TauCetiBasic
+    - Schechi               # From Floof
   - type: Fixtures
     fixtures:
       fix1:

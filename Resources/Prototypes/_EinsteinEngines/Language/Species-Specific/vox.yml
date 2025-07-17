@@ -1,0 +1,40 @@
+# PORTED FROM FLOOFSTATION
+# Vox language
+- type: language
+  id: NewKinPidgin
+  isVisibleLanguage: true
+  speech:
+    color: "#a489a0"
+    fontId: LeckerliOne
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 4
+    replacement:
+    - ca
+    - ra
+    - ma
+    - sa
+    - na
+    - ta
+    - la
+    - sha
+    - ti
+    - hi
+    - ki
+    - ya
+    - ta
+    - ha
+    - ka
+    - ya
+    - chi
+    - cha
+    - kah
+    - skre
+    - ahk
+    - ek
+    - rawk
+    - kraa
+    - ii
+    - kri
+    - ka
