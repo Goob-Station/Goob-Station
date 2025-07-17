@@ -58,9 +58,6 @@
   - type: SliceableFood
     count: 4
     slice: FoodFreedomCheeseSlice
-  - type: Tag
-    tags:
-    - Trash # Intentional :godo:
 
 
 - type: entity
@@ -90,7 +87,6 @@
           Quantity: 1
   - type: Tag
     tags:
-    - Trash # Intentional :godo:
     - Slice
   - type: FoodSequenceElement
     sprite:
