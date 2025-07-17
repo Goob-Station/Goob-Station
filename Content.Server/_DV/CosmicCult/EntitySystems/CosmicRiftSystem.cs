@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Atmos.Components;
 using Content.Goobstation.Shared.Bible; // Goobstation - Bible
@@ -135,6 +141,7 @@ public sealed class CosmicRiftSystem : EntitySystem
         comp.CosmicGlareStun = TimeSpan.FromSeconds(1);
         comp.CosmicImpositionDuration = TimeSpan.FromSeconds(7.2);
         comp.Respiration = false;
+        EnsureComp<CosmicEmpoweredSpeedComponent>(args.User);
         EnsureComp<PressureImmunityComponent>(args.User);
         EnsureComp<TemperatureImmunityComponent>(args.User);
         _popup.PopupCoordinates(
