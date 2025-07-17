@@ -12362,3 +12362,11 @@ Entries:
       message: Tweak stun batons to require sprite clicking to be effective
   id: 1364
   time: '2025-07-17T06:06:08.0000000+00:00'
+- author: SolsticeOfTheWinter, SolStar2
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer send people to the shadow realm via polymorph
+        shitcode.
+  id: 1365
+  time: '2025-07-17T06:07:43.0000000+00:00'
