@@ -12607,3 +12607,9 @@ Entries:
       message: The china lake bundle now also contains 2 40mm Slugs.
   id: 1389
   time: '2025-07-17T07:35:16.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: You can now make diagnostic glasses.
+  id: 1390
+  time: '2025-07-17T07:38:53.0000000+00:00'
