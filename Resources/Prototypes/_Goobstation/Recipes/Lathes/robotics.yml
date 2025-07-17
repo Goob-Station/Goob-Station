@@ -77,6 +77,11 @@
   id: BorgModuleLollypop
   result: BorgModuleLollypop
 
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleLanguage
+  result: BorgModuleLanguage
+
 # AI
 - type: latheRecipe
   id: AiRemoteBrain

@@ -323,3 +323,41 @@
     requires:
     - TauCetiBasic
     - Marish
+
+
+#Borg
+- type: entity
+  id: NTUniversalTranslator
+  parent: [ TranslatorUnpowered ]
+  name: Universal translator
+  description: Translates speech between all NT approved language. For talking to crew!
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - Marish
+    understood:
+    - TauCetiBasic
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - Marish
+    requires:
+    - RobotTalk
