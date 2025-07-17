@@ -38,7 +38,7 @@
   - type: Prying
     enabled: false
   - type: UseDelay # For insta prying
-    delay: 0.5
+    delay: 1
   - type: Tool
     qualities:
       - Screwing
