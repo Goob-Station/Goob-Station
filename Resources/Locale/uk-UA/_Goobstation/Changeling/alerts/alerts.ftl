@@ -11,3 +11,5 @@ alerts-changeling-chemicals-desc = Витрачайте хімікати для 
 
 alerts-changeling-biomass-name = Біомаса
 alerts-changeling-biomass-desc = Це ваше здоров'я. Якщо воно досягне 0 - це [color=red]кінець гри[/color]. Поглинайте гуманоїдів, щоб відновити його частину.
+alerts-changeling-fleshmend-name = Зцілення плоті
+alerts-changeling-fleshmend-desc = Груба шкода швидко зцілюється! Шкода від опіків та задухи зцілюється повільніше. [color=red]Зцілення припиниться під час горіння.[/color]
