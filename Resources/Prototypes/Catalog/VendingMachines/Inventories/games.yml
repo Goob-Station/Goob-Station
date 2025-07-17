@@ -31,6 +31,7 @@
     MysteryFigureBox: 2
     BooksBag: 3
     CardBoxBlack: 3 # GoobStation
+    CarcBoxClassic: 1 # CorvaxGoob Spacessonne
   contrabandInventory:
     Basketball: 1
     FoodSnackBoritos: 3

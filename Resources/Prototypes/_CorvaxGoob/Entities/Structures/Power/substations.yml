@@ -1,0 +1,43 @@
+- type: entity
+  parent: BaseSubstation
+  id: BluespaceTransitor
+  name: bluespace T.R.A.N.S.I.T.O.R.
+  components:
+  - type: Battery
+    startingCharge: 2500000
+  - type: PowerNetworkBattery
+    maxSupply: 3000000000
+    maxChargeRate: 5000000000
+    supplyRampTolerance: 1000
+    supplyRampRate: 1000000000
+    efficiency: 100
+  - type: Machine
+    board: MachineBluespaceTransitorCircuitboard
+  - type: Explosive
+    explosionType: Bluespace
+    deleteAfterExplosion: false
+    totalIntensity: 5000
+    intensitySlope: 20
+    maxIntensity: 2500
+  - type: PowerMonitoringDevice
+    sprite: _CorvaxGoob/Objects/Structures/Power/bluespace_transitor.rsi
+    state: display
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Structures/Power/bluespace_transitor.rsi
+    snapCardinals: true
+    layers:
+    - state: offline
+    - state: beam
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: PointLight
+    radius: 5
+    energy: 2.5
+    color: "#589bf9"
+    castShadows: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }

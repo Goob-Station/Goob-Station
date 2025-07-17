@@ -94,6 +94,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+    requiresSkill: true # CorvaxGoob-Skills
   - type: BallisticAmmoProvider
     autoCycle: false # Goobstation
     capacity: 10
@@ -192,6 +193,7 @@
     storedRotation: 45
   - type: Gun
     fireRate: 1.2
+    requiresSkill: false # CorvaxGoob-Skills
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
@@ -289,6 +291,7 @@
   - type: Gun
     minAngle: 0
     maxAngle: 30 #miss him entirely because the barrel is smoothbore
+    requiresSkill: false # CorvaxGoob-Skills
   - type: Item
     size: Small
     shape:

@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Created by SonicHDC",
+  "size": {
+    "x": 16,
+    "y": 17
+  },
+  "states": [
+    {
+      "name": "back",
+      "directions": 4
+    },    
+	{
+      "name": "start_back",
+      "directions": 4
+    },
+    {
+      "name": "ccccls",
+      "directions": 4
+    },
+    {
+      "name": "cccfl",
+      "directions": 4
+    },    
+	{
+      "name": "cccfls",
+      "directions": 4
+    },
+    {
+      "name": "cccrl",
+      "directions": 4
+    },    
+	{
+      "name": "cccrls",
+      "directions": 4
+    },    
+	{
+      "name": "ccff",
+      "directions": 4
+    },    
+	{
+      "name": "ccffl",
+      "directions": 4
+    },
+    {
+      "name": "ccffls",
+      "directions": 4
+    },
+    {
+      "name": "ccrr",
+      "directions": 4
+    },
+    {
+      "name": "ccrrl",
+      "directions": 4
+    },
+    {
+      "name": "ccrrls",
+      "directions": 4
+    },
+    {
+      "name": "cfcf",
+      "directions": 4
+    },
+    {
+      "name": "cfcfl",
+      "directions": 4
+    },
+    {
+      "name": "cfcfls",
+      "directions": 4
+    },
+    {
+      "name": "cfff",
+      "directions": 4
+    },
+    {
+      "name": "cfrr",
+      "directions": 4
+    },
+    {
+      "name": "crcr",
+      "directions": 4
+    },
+    {
+      "name": "crfr",
+      "directions": 4
+    },
+    {
+      "name": "crrf",
+      "directions": 4
+    },
+    {
+      "name": "crrr",
+      "directions": 4
+    },
+    {
+      "name": "ffff",
+      "directions": 4
+    },
+    {
+      "name": "rfff",
+      "directions": 4
+    },
+    {
+      "name": "rfrf",
+      "directions": 4
+    },
+    {
+      "name": "rrff",
+      "directions": 4
+    },
+    {
+      "name": "rrrf",
+      "directions": 4
+    },
+    {
+      "name": "rrrr",
+      "directions": 4
+    }
+  ]
+}

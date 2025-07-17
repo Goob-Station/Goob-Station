@@ -1,0 +1,7 @@
+- type: entity
+  id: SkillsImplanter
+  suffix: skills
+  parent: BaseImplantOnlyImplanter
+  components:
+    - type: Implanter
+      implant: SkillsImplant

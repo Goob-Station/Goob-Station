@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Created by SonicHDC",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+	{
+      "name": "overlay"
+    },
+	{
+      "name": "equipped-BELT",
+	  "directions": 4
+    },
+	{
+      "name": "overlay-equipped-BELT",
+	  "directions": 4
+    },
+	{
+      "name": "inhand-left",
+	  "directions": 4
+    },
+	{
+      "name": "overlay-inhand-left",
+	  "directions": 4
+    },
+	{
+      "name": "inhand-right",
+	  "directions": 4
+    },
+	{
+      "name": "overlay-inhand-right",
+	  "directions": 4
+    }
+  ]
+}
