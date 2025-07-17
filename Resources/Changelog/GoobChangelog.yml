@@ -12414,3 +12414,9 @@ Entries:
         visits just to eat or drink.
   id: 1369
   time: '2025-07-17T06:14:45.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Tweak
+      message: Nerfed CQC
+  id: 1370
+  time: '2025-07-17T06:17:25.0000000+00:00'
