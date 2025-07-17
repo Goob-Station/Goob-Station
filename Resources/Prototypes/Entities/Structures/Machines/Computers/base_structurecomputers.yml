@@ -112,6 +112,14 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: Computer
+  - type: SpamEmitSound # Goobstation - random lathe sounds
+    minInterval: 180
+    maxInterval: 480
+    sound:
+      collection: RandomComputerSounds
+      params:
+        volume: -7 # Ambient
+  - type: SpamEmitSoundRequirePower # Goobstation
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface
