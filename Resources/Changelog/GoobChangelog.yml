@@ -12574,3 +12574,16 @@ Entries:
         form of a little hologram!
   id: 1386
   time: '2025-07-17T07:13:40.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Command members, specifically, QM, RD, and CE now have access to a
+        command specific antag called Corporate Agents. Basically Traitor light.
+        Make sure to enable it in the antag menu!
+    - type: Tweak
+      message: The NTR can now roll Devil!
+    - type: Fix
+      message: The devil can now sign contracts while mindshielded
+  id: 1387
+  time: '2025-07-17T07:22:17.0000000+00:00'
