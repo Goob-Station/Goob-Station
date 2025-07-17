@@ -19,3 +19,5 @@ cult-glyph-name-cessation = Згода Припинення
 cult-glyph-description-cessation = Припинення. Перетворює портативний атмосферний скрубер на Порожній Шпиль для нашого використання.
 cult-glyph-name-truth = Згода Істини
 cult-glyph-description-truth = Істина. Прищеплює чисту, незгладиму істину. Здатний навернути абсолютно будь-кого до наших лав.
+
+cult-glyph-target-rotting = Вплив гліфа не діє на гниючих.

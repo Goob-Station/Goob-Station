@@ -1,9 +1,9 @@
-guide-entry-martial-arts = Combat and Martial Arts
+guide-entry-martial-arts = Бій та Бойові Мистецтва
 
-guide-entry-cqc = Close Quarters Combat
-guide-entry-sleeping-carp = Sleeping Carp
-guide-entry-krav-maga = Krav Maga
-guide-entry-corporate-judo = Corporate Judo
-guide-entry-capoeira = Capoeira
-guide-entry-ninjutsu = Ninjutsu
-guide-entry-dragon-kung-fu = Dragon Kung Fu
+guide-entry-cqc = Ближній бій
+guide-entry-sleeping-carp = Сплячий Короп
+guide-entry-krav-maga = Крав-мага
+guide-entry-corporate-judo = Корпоративне Дзюдо
+guide-entry-capoeira = Капоейра
+guide-entry-ninjutsu = Ніндзюцу
+guide-entry-dragon-kung-fu = Кунг-фу Дракона
