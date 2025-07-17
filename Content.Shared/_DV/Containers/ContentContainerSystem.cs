@@ -27,7 +27,7 @@ public sealed class ContentContainerSystem : EntitySystem
         // Recursively drop all entities with MindContainerComponent in all containers on the entity
         // This prevents players from being sent to null-space when carried by a polymorphing entity
         var stack = new Stack<EntityUid>();
-        var found = new List<EntityUid>();
+        var found = new List<EntityUid>(); // Goobstation - Fuck you deltanedas.
         stack.Push(ent);
 
         while (stack.Count > 0)
@@ -51,7 +51,7 @@ public sealed class ContentContainerSystem : EntitySystem
             }
         }
 
-        foreach (var entity in found)
+        foreach (var entity in found) // Goobstation - Fuck you deltanedas.
             _transform.AttachToGridOrMap(entity);
     }
 }
