@@ -12338,3 +12338,19 @@ Entries:
       message: You can zoom in/out on the research console now
   id: 1362
   time: '2025-07-17T06:02:16.0000000+00:00'
+- author: diatomic-ge
+  changes:
+    - type: Fix
+      message: >-
+        Slime people no longer have items such as lighters inserted into their
+        internal inventories or dropped when toggled.
+    - type: Fix
+      message: >-
+        Toggling items such as welding tools in pockets, if it no longer fits,
+        will now either hand you the item, or drop it.
+    - type: Tweak
+      message: >-
+        Toggled items which no longer fit in their former storage container will
+        be put in your hand if possible, rather than just dropped.
+  id: 1363
+  time: '2025-07-17T06:05:04.0000000+00:00'
