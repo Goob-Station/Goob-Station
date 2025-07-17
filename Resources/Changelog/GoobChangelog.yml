@@ -12619,3 +12619,9 @@ Entries:
       message: Horsepuncher now has a horse to punch!
   id: 1391
   time: '2025-07-17T07:40:13.0000000+00:00'
+- author: MarkerWicker
+  changes:
+    - type: Add
+      message: Players can now opt to "Run by default" in the control options.
+  id: 1392
+  time: '2025-07-17T07:42:43.0000000+00:00'
