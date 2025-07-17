@@ -20,14 +20,12 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
     public event Action? ClientBalanceChange;
     public event Action<PlayerBalanceChangeEvent>? BalanceChange;
 
-    public void Initialize() {}
-
     public void PostInject()
     {
         _playMan.PlayerStatusChanged += OnStatusChanged;
     }
 
-    private void OnStatusChanged(object? sender, SessionStatusEventArgs e)
+    public void Initialize()
     {
         /*
          * This looks fucked, so I'll explain
@@ -38,14 +36,17 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
          *
          * Also I really wanted to manually try out EventBus subscriptions outside EntitySystems.
          */
-        if (e.NewStatus == SessionStatus.Connected)
-            _ent.EventBus.SubscribeSessionEvent<PlayerBalanceUpdateEvent>(EventSource.Network, this, UpdateBalance);
 
+        _ent.EventBus.SubscribeSessionEvent<PlayerBalanceUpdateEvent>(EventSource.Network, this, UpdateBalance);
+    }
+
+    private void OnStatusChanged(object? sender, SessionStatusEventArgs e)
+    {
         if (e.NewStatus != SessionStatus.InGame)
             return;
 
         var ev = new PlayerBalanceRequestEvent();
-        _ent.EventBus.RaiseEvent(EventSource.Network, ev);
+        _ent.EntityNetManager.SendSystemNetworkMessage(ev);
     }
 
     private void UpdateBalance(PlayerBalanceUpdateEvent msg, EntitySessionEventArgs args)
@@ -56,7 +57,7 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
 
     public void Shutdown()
     {
-        throw new NotImplementedException();
+        _playMan.PlayerStatusChanged -= OnStatusChanged;
     }
 
     public bool CanAfford(NetUserId? userId, int amount, out int balance)
@@ -94,4 +95,5 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
     {
         return _cachedBalance;
     }
+
 }
