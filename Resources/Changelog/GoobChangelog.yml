@@ -12509,3 +12509,23 @@ Entries:
       message: Different borg types now have unique starting laws.
   id: 1380
   time: '2025-07-17T07:06:21.0000000+00:00'
+- author: CerberusWolfie, FoxxoTrystan, Mnemotechnician, VMSolidus, Timfa2112, Skubman
+  changes:
+    - type: Add
+      message: Added Languages from Einstein Engines.
+    - type: Add
+      message: Rodentia can understand Mice!
+    - type: Add
+      message: Moths can understand Mothroaches!
+    - type: Tweak
+      message: Everybody has an innate language and Tau-Ceti Basic!
+    - type: Tweak
+      message: >-
+        Blob units can now talk to each other in Blob language locally without
+        using Blobmind.
+    - type: Remove
+      message: >-
+        (Because of Languages) Abductors cannot call you shitsec (or anything
+        else they say)!
+  id: 1381
+  time: '2025-07-17T07:08:41.0000000+00:00'
