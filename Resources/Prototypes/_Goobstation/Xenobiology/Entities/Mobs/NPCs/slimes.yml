@@ -146,6 +146,7 @@
   name: grey slime
   id: MobXenoSlime
   parent: BaseMobXenoSlime
+  suffix: Baby
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
   - type: Sprite
@@ -176,3 +177,22 @@
     - PurpleMutation
     - BlueMutation
     - MetalMutation
+
+- type: entity
+  name: grey slime
+  id: MobXenoSlimeAdult
+  parent: MobXenoSlime
+  suffix: Adult
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: MobGrowth
+    hungerRequired: 100
+    currentStage: adult
+    stages:
+      baby:
+        nextStage: adult
+        sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+        displayName: baby
+      adult:
+        sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
+        displayName: adult
