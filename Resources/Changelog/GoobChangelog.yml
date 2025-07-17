@@ -12631,3 +12631,9 @@ Entries:
       message: mapping of Cluster Station
   id: 1393
   time: '2025-07-17T07:49:55.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added holopads, AI turrets and a TEG to Kettle.
+  id: 1394
+  time: '2025-07-17T07:50:23.0000000+00:00'
