@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -25,4 +26,13 @@ public sealed partial class HisGraceUserComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? HisGrace;
+
+    /// <summary>
+    /// The stam crit threshold the user gains when holding.
+    /// </summary>
+    [DataField]
+    public float HoldingStamCritThreshold = 1000f;
+
+    [ViewVariables]
+    public float BaseStamCritThreshold;
 }

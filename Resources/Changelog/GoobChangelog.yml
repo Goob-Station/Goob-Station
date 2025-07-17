@@ -12283,3 +12283,181 @@ Entries:
       message: Increased max draw of PTL. (1MJ -> 5MJ)
   id: 1355
   time: '2025-07-14T09:34:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed entities sometimes being in eternal fake fire.
+  id: 1356
+  time: '2025-07-15T19:46:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic abilities are now path locked, e.g. you cant get Ashen Passage
+        as a void heretic now. General/side knowledge is still fair game.
+  id: 1357
+  time: '2025-07-16T14:13:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the omnimed tool, moth cloak and the 5 gorillion slot machine
+        medkits in Brigmed locker. Now they get a normal surgery duffel bag and
+        an o2 medkit.
+  id: 1358
+  time: '2025-07-16T14:14:43.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Fix
+      message: Lube foam now creates lube.
+  id: 1359
+  time: '2025-07-17T05:56:42.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Fix
+      message: Abductors have names again.
+  id: 1360
+  time: '2025-07-17T05:57:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Zombies can no longer use the Gemini projector.
+    - type: Fix
+      message: You can no longer clone Geminis.
+    - type: Fix
+      message: Geminis can no longer sell their soul.
+    - type: Fix
+      message: Geminis can no longer be polymorphed.
+    - type: Fix
+      message: IPC Geminis now gain the proper encryption keys, and do not need power.
+  id: 1361
+  time: '2025-07-17T06:01:25.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: You can zoom in/out on the research console now
+  id: 1362
+  time: '2025-07-17T06:02:16.0000000+00:00'
+- author: diatomic-ge
+  changes:
+    - type: Fix
+      message: >-
+        Slime people no longer have items such as lighters inserted into their
+        internal inventories or dropped when toggled.
+    - type: Fix
+      message: >-
+        Toggling items such as welding tools in pockets, if it no longer fits,
+        will now either hand you the item, or drop it.
+    - type: Tweak
+      message: >-
+        Toggled items which no longer fit in their former storage container will
+        be put in your hand if possible, rather than just dropped.
+  id: 1363
+  time: '2025-07-17T06:05:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Insta stun abuse
+    - type: Tweak
+      message: Tweak stun batons to require sprite clicking to be effective
+  id: 1364
+  time: '2025-07-17T06:06:08.0000000+00:00'
+- author: SolsticeOfTheWinter, SolStar2
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer send people to the shadow realm via polymorph
+        shitcode.
+  id: 1365
+  time: '2025-07-17T06:07:43.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new hairstyle for humans, "Poofed"
+  id: 1366
+  time: '2025-07-17T06:08:02.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Add
+      message: >-
+        Cultists that were empowered by malign rifts get a 15% boost to their
+        speed.
+    - type: Add
+      message: Vacuous Lance will now return to the user upon being thrown.
+    - type: Remove
+      message: Vacuous Lance will no longer embed on hit.
+    - type: Tweak
+      message: >-
+        Cold damage added to the various Cosmic Cult weapons (asphyxiation
+        damage reduced to compensate)
+    - type: Tweak
+      message: >-
+        Vacuous Lance throw damage halved (to compensate for it returning to the
+        user)
+  id: 1367
+  time: '2025-07-17T06:09:00.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: >-
+        Nanotrasen has added a Persona module to Justice. HOS' sword can now
+        yell obscenities at criminals while they're being beat up.
+    - type: Tweak
+      message: The Syndicate are now interested in stealing your fancy talking sword.
+  id: 1368
+  time: '2025-07-17T06:11:21.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: >-
+        Vox once again heal small amounts of poison damage. No more medbay
+        visits just to eat or drink.
+  id: 1369
+  time: '2025-07-17T06:14:45.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Tweak
+      message: Nerfed CQC
+  id: 1370
+  time: '2025-07-17T06:17:25.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: His Grace has received a buff.
+  id: 1371
+  time: '2025-07-17T06:22:31.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Remove
+      message: Removed damage cap from Changelings.
+    - type: Tweak
+      message: >-
+        The damage-time scaling caps for changelings' stasis were halved.
+        (Lowest 30s -> 15s, Highest 90s -> 45s, Dead 120s -> 60s)
+    - type: Tweak
+      message: >-
+        The damage scaling logic for changeling's stasis was changed. (now
+        current damage (divided by crit threshold) multiplied by highest stasis
+        time)
+    - type: Fix
+      message: >-
+        You should no longer be able to kick a Changeling out of their stasis
+        and revive them by dealing damage to them. bruh.
+  id: 1372
+  time: '2025-07-17T06:24:03.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Fix
+      message: >-
+        Gingerbread no longer take cold damage from temperature, and take cold
+        damage from weapons
+    - type: Remove
+      message: Gingerbread men
+  id: 1373
+  time: '2025-07-17T06:34:14.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Non cultists now take more damage when using cult weapons.
+  id: 1374
+  time: '2025-07-17T06:35:28.0000000+00:00'
