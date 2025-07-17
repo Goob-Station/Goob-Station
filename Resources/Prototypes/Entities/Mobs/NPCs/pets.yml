@@ -125,6 +125,9 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
@@ -170,6 +173,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalIan
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
 
 - type: entity
   name: Old Ian
@@ -259,6 +268,12 @@
     - id: MaterialHideCorgi
   - type: StealTarget
     stealGroup: AnimalIan
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
 
 - type: entity
   name: Aves
@@ -282,6 +297,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
+    - TauCetiBasic
 
 - type: entity
   name: Exception
@@ -302,6 +323,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
+    - TauCetiBasic
 
 - type: entity
   name: Floppa
@@ -329,6 +356,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
+    - TauCetiBasic
 
 - type: entity
   name: Bandito
@@ -344,6 +377,12 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: Bingus
@@ -401,6 +440,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalNamedCat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
+    - TauCetiBasic
 
 - type: entity
   name: McGriff
@@ -441,8 +486,12 @@
     spawned:
     - id: FoodMeat
       amount: 2
-  - type: ReplacementAccent
-    accent: dog
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-dog
@@ -497,6 +546,12 @@
     attributes:
       proper: true
       gender: male
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: Walter
@@ -537,8 +592,12 @@
     spawned:
     - id: FoodMeat
       amount: 3
-  - type: ReplacementAccent
-    accent: dog
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-dog
@@ -583,6 +642,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalMorty
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: Morty
@@ -647,6 +712,12 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
 
 - type: entity
   name: Alexander
@@ -669,6 +740,12 @@
     tags:
     - CannotSuicide
     - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Pig
+    understands:
+    - Pig
+    - TauCetiBasic
 
 - type: entity
   name: Renault
@@ -699,6 +776,12 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalRenault
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Fox
+    understands:
+    - Fox
+    - TauCetiBasic
 
 - type: entity
   name: Hamlet
@@ -752,6 +835,15 @@
     flavors:
     - meaty
     - sadness
+  # Goobstation - hamlet is unique so higher chance to actually get faxed
+  - type: FaxSlip
+    slipChance: 0.5
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
+    - TauCetiBasic
 
 - type: entity
   name: Shiva
@@ -817,6 +909,12 @@
     - FootstepSound
   - type: StealTarget
     stealGroup: AnimalShiva
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+    - TauCetiBasic
 
 - type: entity
   name: Willow
@@ -848,6 +946,12 @@
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ BoxingKangarooGear ]
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Kangaroo
+    understands:
+    - Kangaroo
+    - TauCetiBasic
 
 - type: entity
   name: Smile
@@ -930,6 +1034,13 @@
     attributes:
       proper: true
       gender: female
+  - type: LanguageSpeaker # Einstein Engines - Language (might not have it on base mob, so reassuring here)
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Bubblish # I am not giving them universal like EE. They are a slime, they can do slime speak.
+    understands:
+    - Bubblish
+    - TauCetiBasic
 
 - type: entity
   name: Pun Pun
@@ -967,6 +1078,13 @@
     attributes:
       proper: true
       gender: male
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Monkey
+    understands:
+    - Monkey
+    - Kobold
+    - TauCetiBasic
 
 - type: entity
   name: Tropico
@@ -994,3 +1112,9 @@
 #  - type: AlwaysRevolutionaryConvertible
   - type: StealTarget
     stealGroup: AnimalTropico
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Crab
+    understands:
+    - Crab
+    - TauCetiBasic
