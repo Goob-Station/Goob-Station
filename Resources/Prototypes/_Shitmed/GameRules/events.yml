@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -77,6 +78,7 @@
         nameSegments:
           - AbductorScientistPrefix
           - AbductorNames
+        nameFormat: name-format-standard
       - type: Tag
         tags:
           - Abductor
@@ -173,6 +175,7 @@
         nameSegments:
           - AbductorScientistPrefix
           - AbductorNames
+        nameFormat: name-format-standard
       - type: Tag
         tags:
           - Abductor
@@ -223,6 +226,7 @@
         nameSegments:
           - AbductorAgentPrefix
           - AbductorNames
+        nameFormat: name-format-standard
       - type: Tag
         tags:
           - Abductor

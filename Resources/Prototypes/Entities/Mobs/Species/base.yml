@@ -417,6 +417,7 @@
   - type: SSDIndicator
   - type: StandingState
   - type: Dna
+  - type: Scent # Einstein Engines
   - type: MindContainer
     showExamineInfo: true
   - type: CanEnterCryostorage
@@ -458,6 +459,11 @@
       Male: MaleHuman
       Female: FemaleHuman
       Unsexed: MaleHuman
+  - type: LanguageKnowledge # Einstein Engines - Languages (all mobs should speak TauCeti unless otherwise specified, to prevent universal.)
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
