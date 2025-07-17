@@ -17,6 +17,12 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -79,17 +85,27 @@
         swap: false
 
 - type: entity
-  parent: Holoprojector
+  parent: BaseItem # DeltaV - remove powercell requirement
   id: HolofanProjector
   name: holofan projector
   description: Stop suicidal passengers from killing everyone during atmos emergencies.
   components:
-  - type: HolosignProjector
+  - type: ChargeHolosignProjector # DeltaV - different implementation using charges
     signProto: HoloFan
-    chargeUse: 120
+    signComponentName: Holofan # DeltaV
+    #chargeUse: 120 # DeltaV
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/atmos.rsi
     state: icon
+  # Begin DeltaV Additions
+  - type: Item
+    storedRotation: -90
+  - type: LimitedCharges
+    maxCharges: 6 # same as it was on a medium cell
+  - type: ContainerContainer
+    containers:
+      signs: !type:Container
+  # End DeltaV Additions
   - type: Tag
     tags:
       - HolofanProjector
@@ -109,26 +125,13 @@
 - type: entity
   parent: HolofanProjector
   id: HolofanProjectorEmpty
+  categories: [ HideSpawnMenu ] # DeltaV - this is identical to the normal one
   suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-
-- type: entity
-  parent: HolofanProjector
-  id: HolofanProjectorBorg
-  name: integrated holofan
-  description: Stops idiots from causing more crew harm during atmospheric emergencies. Installed directly into an engineering cyborg, it  recharges over time.
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMicroreactor
-        disableEject: true
-        swap: false
+  #components: # DeltaV - no cell slot for empty one
+  #- type: ItemSlots
+  #  slots:
+  #    cell_slot:
+  #      name: power-cell-slot-component-slot-name-default
 
 - type: entity
   parent: Holoprojector
