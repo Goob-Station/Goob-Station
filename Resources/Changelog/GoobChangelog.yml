@@ -12318,3 +12318,17 @@ Entries:
       message: Abductors have names again.
   id: 1360
   time: '2025-07-17T05:57:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Zombies can no longer use the Gemini projector.
+    - type: Fix
+      message: You can no longer clone Geminis.
+    - type: Fix
+      message: Geminis can no longer sell their soul.
+    - type: Fix
+      message: Geminis can no longer be polymorphed.
+    - type: Fix
+      message: IPC Geminis now gain the proper encryption keys, and do not need power.
+  id: 1361
+  time: '2025-07-17T06:01:25.0000000+00:00'
