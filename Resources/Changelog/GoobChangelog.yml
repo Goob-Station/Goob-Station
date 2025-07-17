@@ -12587,3 +12587,9 @@ Entries:
       message: The devil can now sign contracts while mindshielded
   id: 1387
   time: '2025-07-17T07:22:17.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Faxing critters now sometimes succeeds. Always if lubed.
+  id: 1388
+  time: '2025-07-17T07:25:55.0000000+00:00'
