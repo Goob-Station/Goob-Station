@@ -12489,3 +12489,11 @@ Entries:
       message: Now you can choose different borg chassis sprites.
   id: 1377
   time: '2025-07-17T06:55:42.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Add
+      message: >-
+        Fleshmend has received a rework. (tweaked healing, visual effects and
+        more)
+  id: 1378
+  time: '2025-07-17T07:00:51.0000000+00:00'
