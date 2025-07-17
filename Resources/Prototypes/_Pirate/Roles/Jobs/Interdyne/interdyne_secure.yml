@@ -1,7 +1,7 @@
 - type: job
   id: InterdyneSecure
-  name: job-name-interdyne-secure
-  description: job-description-interdyne-secure
+  name: "служба безпеки Interdyne"
+  description: "захищайте активи та персонал Interdyne від будь-яких загроз"
   icon: "JobIconInterdyneSecure"
   canBeAntag: false
   playTimeTracker: JobInterdyneSecure

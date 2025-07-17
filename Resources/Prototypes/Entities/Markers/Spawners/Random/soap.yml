@@ -7,7 +7,7 @@
 
 - type: entity
   id: RandomSoap
-  name: random soap spawner
+  name: "випадковий спавнер мила"
   parent: MarkerBase
   components:
   - type: Sprite

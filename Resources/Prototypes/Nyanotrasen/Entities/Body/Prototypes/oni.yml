@@ -5,7 +5,7 @@
 
 - type: body
   id: Oni
-  name: "oni"
+  name: "оні"
   root: chest
   slots:
     head:

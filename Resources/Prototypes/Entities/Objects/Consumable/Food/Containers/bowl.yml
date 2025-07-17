@@ -25,10 +25,10 @@
 # Bowls
 
 - type: entity
-  name: bowl
+  name: "чаша"
   parent: ReagentContainerBase
   id: FoodBowlBig
-  description: A simple bowl, used for soups and salads.
+  description: "Проста миска, яку використовують для супів і салатів."
   components:
   - type: Item
     storedRotation: -90
@@ -94,10 +94,10 @@
         Blunt: 5
 
 - type: entity
-  name: broken bowl
+  name: "розбита чаша"
   parent: BaseItem
   id: FoodBowlBigTrash
-  description: A simple bowl, broken and useless.
+  description: "Проста миска, розбита і марна."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/bowl.rsi
@@ -113,10 +113,10 @@
     price: 0
 
 - type: entity
-  name: bowl
+  name: "чаша"
   parent: FoodBowlBig
   id: FoodBowlFancy
-  description: A fancy bowl, used for SPECIAL soups and salads.
+  description: "Вишукана миска, яку використовують для СПЕЦІАЛЬНИХ супів і салатів."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/bowl.rsi

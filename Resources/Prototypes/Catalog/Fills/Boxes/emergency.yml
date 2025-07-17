@@ -56,8 +56,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxSurvival
-  name: survival box
-  description: It's a box with basic internals inside.
+  name: "коробка для виживання"
+  description: "Це коробка з базовим респіратором та аварійним кисневим балоном всередині."
   suffix: Standard
   components:
   - type: StorageFill
@@ -96,8 +96,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxSurvivalEngineering
-  name: extended-capacity survival box
-  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  name: "коробка для подовженого виживання"
+  description: "Це коробка з базовим респіратором та кисневим балоном збільшеної місткості всередині."
   suffix: Extended
   components:
   - type: StorageFill
@@ -137,8 +137,8 @@
 
   parent: BoxCardboard
   id: BoxSurvivalSecurity
-  name: survival box
-  description: It's a box with basic internals inside.
+  name: "коробка для виживання"
+  description: "Це коробка з базовим респіратором та аварійним кисневим балоном всередині."
   suffix: Security
   components:
   - type: StorageFill
@@ -178,8 +178,8 @@
 
   parent: BoxCardboard
   id: BoxSurvivalMedical
-  name: survival box
-  description: It's a box with basic internals inside.
+  name: "коробка для виживання"
+  description: "Це коробка з базовим респіратором та аварійним кисневим балоном всередині."
   suffix: Medical
   components:
   - type: StorageFill
@@ -218,8 +218,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxHug
-  name: box of hugs
-  description: A special box for sensitive people.
+  name: "коробка обіймів"
+  description: "Спеціальна коробка для чутливих людей."
   suffix: Emergency
   components:
   - type: Sprite
@@ -307,8 +307,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxSurvivalSyndicate
-  name: extended-capacity survival box
-  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  name: "коробка для подовженого виживання"
+  description: "Це коробка з базовим респіратором та кисневим балоном збільшеної місткості всередині."
   suffix: Syndicate
   components:
   - type: StorageFill

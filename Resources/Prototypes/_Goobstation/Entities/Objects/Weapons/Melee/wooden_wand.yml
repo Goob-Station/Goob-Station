@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: wooden wand
+  name: "дерев'яна паличка"
   parent: BaseItem
   id: WeaponWoodenWand
-  description: Handcrafted wooden wand with a anomaly core.
+  description: "Дерев'яна паличка ручної роботи з ядром аномалії."
   components:
     - type: Sprite
       sprite: _Goobstation/Objects/Weapons/Melee/wooden_wand.rsi

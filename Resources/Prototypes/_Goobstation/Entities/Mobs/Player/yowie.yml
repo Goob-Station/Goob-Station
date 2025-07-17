@@ -5,6 +5,6 @@
 
 - type: entity
   save: false
-  name: Urist McYow
+  name: "Уріст МакЙов"
   parent: BaseMobYowie
   id: MobYowie

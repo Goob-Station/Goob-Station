@@ -11,8 +11,8 @@
 
 - type: entity
   id: ActionHereticJaunt
-  name: Ashen Passage
-  description: A short range spell that allows you to pass unimpeded through walls.
+  name: "Попелястий пасаж"
+  description: "Заклинання малої дальності дії, що дозволяє безперешкодно проходити крізь стіни."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -29,8 +29,8 @@
 
 - type: entity
   id: ActionHereticVolcanoBlast
-  name: Volcanic Blast
-  description: Charge up a blast of fire that chains between nearby targets, setting them ablaze.
+  name: "Вулканічний Вибух"
+  description: "Заряджайте вибух вогню, який замикає ланцюг між сусідніми цілями, підпалюючи їх."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -47,8 +47,8 @@
 
 - type: entity
   id: ActionHereticNightwatcherRebirth
-  name: Nightwatcher's Rebirth
-  description: Drains nearby heathens engulfed in flames of their life force.
+  name: "Відродження Нічного Вартового"
+  description: "Зливи довколишніх язичників охопили полум'ям їхню життєву силу."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -65,8 +65,8 @@
 
 - type: entity
   id: ActionHereticAscension1
-  name: Oath of Flame
-  description: Create a ring of fire around you.
+  name: "Клятва полум'я"
+  description: "Створіть навколо себе вогняне кільце."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -83,8 +83,8 @@
 
 - type: entity
   id: ActionHereticAscension2
-  name: Fire Cascade
-  description: Burn everything in a large distance.
+  name: "Пожежний каскад"
+  description: "Спалюйте все на великій відстані."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

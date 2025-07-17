@@ -6,8 +6,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskPig
-  name: pig mask
-  description: A rubber pig mask with a built-in voice modulator.
+  name: "свиняча маска"
+  description: "Гумова маска свині з вбудованим голосовим модулятором."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
@@ -28,8 +28,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskFrog
-  name: frog mask
-  description: An ancient mask carved in the shape of a frog. Sanity is like gravity, all it needs is a push.
+  name: "маска жаби"
+  description: "Старовинна маска, вирізана у формі жаби. Здоровий глузд подібний до гравітації, йому потрібен лише поштовх."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/frog.rsi
@@ -50,8 +50,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskCow
-  name: cow mask
-  description: A mask made of soft vinyl and latex, representing the head of a cow.
+  name: "коров'яча маска"
+  description: "Маска з м'якого вінілу та латексу, що зображає голову корови."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/cow.rsi
@@ -72,8 +72,8 @@
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskHorse
-  name: horse mask
-  description: A mask made of soft vinyl and latex, representing the head of a horse.
+  name: "кінська маска"
+  description: "Маска з м'якого вінілу та латексу, що представляє голову коня."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Mask/horse.rsi

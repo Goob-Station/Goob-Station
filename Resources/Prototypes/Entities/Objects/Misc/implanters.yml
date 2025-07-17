@@ -42,7 +42,7 @@
 # Implanters
 
 - type: entity
-  name: implanter
+  name: "імплантер"
   id: BaseImplanter
   parent: BaseItem
   abstract: true
@@ -135,7 +135,7 @@
 - type: entity
   id: Implanter
   parent: BaseImplanter
-  description: A disposable syringe exclusively designed for the injection and extraction of subdermal implants.
+  description: "Одноразовий шприц, призначений виключно для введення та вилучення підшкірних імплантатів."
   components:
     - type: Tag
       tags:
@@ -156,7 +156,7 @@
 - type: entity
   id: BaseImplantOnlyImplanter
   parent: Implanter
-  description: A disposable syringe exclusively designed for the injection of subdermal implants.
+  description: "Одноразовий шприц, призначений виключно для введення підшкірних імплантатів."
   abstract: true
   components:
     - type: Sprite
@@ -175,8 +175,8 @@
 - type: entity
   id: BaseImplantOnlyImplanterSyndi
   parent: [BaseImplantOnlyImplanter, BaseSyndicateContraband]
-  name: syndicate implanter
-  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap or a rag to remove residual DNA after use!
+  name: "імплантер синдикату"
+  description: "Компактний одноразовий шприц, розроблений виключно для ін'єкції підшкірних імплантів. Не забудьте очистити його милом або ганчіркою, щоб видалити залишкову ДНК після використання!"
   abstract: true
   components:
     - type: Item
@@ -208,7 +208,7 @@
 
 - type: entity
   id: SadTromboneImplanter
-  name: sad trombone implanter
+  name: "імплантантер сумного тромбона"
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -216,7 +216,7 @@
 
 - type: entity
   id: LightImplanter
-  name: light implanter
+  name: "світловий імплантантер"
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -224,7 +224,7 @@
 
 - type: entity
   id: BikeHornImplanter
-  name: bike horn implanter
+  name: "імплантантер велосипедного клаксона"
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -234,7 +234,7 @@
 
 - type: entity
   id: TrackingImplanter
-  name: tracking implanter
+  name: "відстежуючий імплантантер"
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -244,7 +244,7 @@
 
 - type: entity
   id: StorageImplanter
-  name: storage implanter
+  name: "імплантантер сховища"
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -252,7 +252,7 @@
 
 - type: entity
   id: FreedomImplanter
-  name: freedom implanter
+  name: "імплантантер свободи"
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -260,7 +260,7 @@
 
 - type: entity
   id: RadioImplanter
-  name: syndicate radio implanter
+  name: "імплантатор рації синдикату"
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -268,7 +268,7 @@
 
 - type: entity
   id: UplinkImplanter
-  name: uplink implanter
+  name: "імплантантер висхідної лінії зв'язку"
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -276,7 +276,7 @@
 
 - type: entity
   id: EmpImplanter
-  name: EMP implanter
+  name: "імплантантер ЕМП"
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -284,7 +284,7 @@
 
 - type: entity
   id: ScramImplanter
-  name: scram implanter
+  name: "скремблерний імплантантер"
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -292,7 +292,7 @@
 
 - type: entity
   id: DnaScramblerImplanter
-  name: DNA scrambler implanter
+  name: "імплантантер скремблера ДНК"
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -302,7 +302,7 @@
 
 - type: entity
   id: MicroBombImplanter
-  name: micro-bomb implanter
+  name: "імплантантер мікробом"
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -310,7 +310,7 @@
 
 - type: entity
   id: MacroBombImplanter
-  name: macro-bomb implanter
+  name: "імплантантер макробомби"
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -318,7 +318,7 @@
 
 - type: entity
   id: DeathRattleImplanter
-  name: death rattle implanter
+  name: "імплантантер брязкальця смерті"
   parent: BaseImplantOnlyImplanterSyndi
   components:
     - type: Implanter
@@ -326,7 +326,7 @@
 
 - type: entity
   id: DeathAcidifierImplanter
-  name: death acidifier implanter
+  name: "імплантантер підкислювача смерті"
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -334,7 +334,7 @@
 
 - type: entity
   id: FakeMindShieldImplanter
-  name: fake mindshield implanter
+  name: "фальшивий імплантатор щита розуму"
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -344,7 +344,7 @@
 
 - type: entity
   id: MindShieldImplanter
-  name: mindshield implanter
+  name: "імплантер ментального щита"
   parent: BaseImplantOnlyImplanter
   components:
     - type: Implanter
@@ -354,7 +354,7 @@
 
 - type: entity
   id: RadioImplanterCentcomm
-  name: centcomm radio implanter
+  name: "імплантатор рації Центкому"
   parent: BaseImplantOnlyImplanterCentcomm # Goobstation
   components:
   - type: Implanter
@@ -362,7 +362,7 @@
 
 - type: entity
   id: DeathRattleImplanterCentcomm
-  name: centcomm death rattle implanter
+  name: "імплантатор передсмертного хрипу Центкому"
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter

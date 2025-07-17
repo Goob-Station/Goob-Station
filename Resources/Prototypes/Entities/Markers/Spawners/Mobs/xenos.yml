@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenoBurrower
-  name: Xeno Spawner
+  name: "Спавнер Ксено"
   suffix: Burrower
   components:
   - type: Sprite
@@ -17,7 +17,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenoDrone
-  name: Xeno Spawner
+  name: "Спавнер Ксено"
   suffix: Drone
   components:
   - type: Sprite
@@ -33,7 +33,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenoPraetorian
-  name: Xeno Spawner
+  name: "Спавнер Ксено"
   suffix: Praetorian
   components:
   - type: Sprite
@@ -49,7 +49,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenoQueen
-  name: Xeno Spawner
+  name: "Спавнер Ксено"
   suffix: Queen
   components:
   - type: Sprite
@@ -65,7 +65,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenoRavager
-  name: Xeno Spawner
+  name: "Спавнер Ксено"
   suffix: Ravager
   components:
   - type: Sprite
@@ -81,7 +81,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenoRunner
-  name: Xeno Spawner
+  name: "Спавнер Ксено"
   suffix: Runner
   components:
   - type: Sprite
@@ -97,7 +97,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenoSpitter
-  name: Xeno Spawner
+  name: "Спавнер Ксено"
   suffix: Spitter
   components:
   - type: Sprite

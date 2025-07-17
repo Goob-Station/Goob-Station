@@ -6,7 +6,7 @@
 
 - type: entity
   save: false
-  name: Urist McOni
+  name: "Уріст МакОні"
   parent: MobOniBase
   id: MobOni
   components:
