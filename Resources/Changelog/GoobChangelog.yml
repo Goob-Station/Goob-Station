@@ -12503,3 +12503,9 @@ Entries:
       message: Added wooden wand.
   id: 1379
   time: '2025-07-17T07:04:07.0000000+00:00'
+- author: THE SWAP
+  changes:
+    - type: Tweak
+      message: Different borg types now have unique starting laws.
+  id: 1380
+  time: '2025-07-17T07:06:21.0000000+00:00'
