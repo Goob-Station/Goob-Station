@@ -12483,3 +12483,9 @@ Entries:
       message: Yowies are not affected by poison damage from surgery anymore.
   id: 1376
   time: '2025-07-17T06:54:49.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Add
+      message: Now you can choose different borg chassis sprites.
+  id: 1377
+  time: '2025-07-17T06:55:42.0000000+00:00'
