@@ -20,7 +20,7 @@ laughter-role-greeting =
 
 # actions
 demonic-whisper-title = Demonic Whisper
-demonic-whisper-popup = [color=#FF0000]Suddenly a strange, demonic voice resonates in your head...[/color]
+demonic-whisper-popup = Suddenly a strange, demonic voice resonates in your head...
 demonic-whisper-whisper = You whisper to {$name}: {$message}
 
 # metadata
