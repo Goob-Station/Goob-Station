@@ -12376,3 +12376,23 @@ Entries:
       message: Added a new hairstyle for humans, "Poofed"
   id: 1366
   time: '2025-07-17T06:08:02.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Add
+      message: >-
+        Cultists that were empowered by malign rifts get a 15% boost to their
+        speed.
+    - type: Add
+      message: Vacuous Lance will now return to the user upon being thrown.
+    - type: Remove
+      message: Vacuous Lance will no longer embed on hit.
+    - type: Tweak
+      message: >-
+        Cold damage added to the various Cosmic Cult weapons (asphyxiation
+        damage reduced to compensate)
+    - type: Tweak
+      message: >-
+        Vacuous Lance throw damage halved (to compensate for it returning to the
+        user)
+  id: 1367
+  time: '2025-07-17T06:09:00.0000000+00:00'
