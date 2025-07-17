@@ -12312,3 +12312,9 @@ Entries:
       message: Lube foam now creates lube.
   id: 1359
   time: '2025-07-17T05:56:42.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Fix
+      message: Abductors have names again.
+  id: 1360
+  time: '2025-07-17T05:57:20.0000000+00:00'
