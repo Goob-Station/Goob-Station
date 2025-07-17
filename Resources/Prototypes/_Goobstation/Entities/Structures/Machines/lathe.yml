@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SomethingUnbearable <mewatcher102@gmail.com>
@@ -213,6 +214,9 @@
     - ExperimentalScienceGoob
     - MechBoardsScience
     - Pinpointers
+    # Einstein Engines Packs
+    - Translators
+    - TranslatorImplanters
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - MechBoardsSecurity
@@ -269,6 +273,9 @@
     - ServiceBoards
     - SharedBoards
     - CameraBoards
+    - ServiceTools
+    # Einstein Engines Packs
+    - Translators
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ServiceBoardsEvilStatic # Donk Co microwave circiutboard
