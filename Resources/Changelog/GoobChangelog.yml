@@ -12396,3 +12396,13 @@ Entries:
         user)
   id: 1367
   time: '2025-07-17T06:09:00.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: >-
+        Nanotrasen has added a Persona module to Justice. HOS' sword can now
+        yell obscenities at criminals while they're being beat up.
+    - type: Tweak
+      message: The Syndicate are now interested in stealing your fancy talking sword.
+  id: 1368
+  time: '2025-07-17T06:11:21.0000000+00:00'
