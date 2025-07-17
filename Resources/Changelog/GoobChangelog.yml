@@ -12406,3 +12406,11 @@ Entries:
       message: The Syndicate are now interested in stealing your fancy talking sword.
   id: 1368
   time: '2025-07-17T06:11:21.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: >-
+        Vox once again heal small amounts of poison damage. No more medbay
+        visits just to eat or drink.
+  id: 1369
+  time: '2025-07-17T06:14:45.0000000+00:00'
