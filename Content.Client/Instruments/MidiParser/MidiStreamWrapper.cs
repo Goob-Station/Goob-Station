@@ -1,10 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 krusti <krusti@fluffytech.xyz>
-//
-// SPDX-License-Identifier: MIT
-
-using System.IO;
+﻿using System.IO;
 using System.Text;
 
 namespace Content.Client.Instruments.MidiParser;
