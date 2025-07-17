@@ -12643,3 +12643,15 @@ Entries:
       message: Tweaked submarine chembay and added departmental request computers.
   id: 1395
   time: '2025-07-17T07:50:54.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Add
+      message: >-
+        Most if not all the markings that Impstation has, plus two glowing eye
+        markings because why not.
+    - type: Add
+      message: Markings can now be unshaded and glow.
+    - type: Tweak
+      message: Extra marking slots for most species.
+  id: 1396
+  time: '2025-07-17T07:52:18.0000000+00:00'
