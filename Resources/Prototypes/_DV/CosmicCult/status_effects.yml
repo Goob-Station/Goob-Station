@@ -1,3 +1,7 @@
 - type: statusEffect
   id: EntropicDegen
   alwaysAllowed: true
+
+- type: statusEffect
+  id: EntropicDegenNonCultist
+  alwaysAllowed: true
