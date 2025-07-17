@@ -12455,3 +12455,9 @@ Entries:
       message: Gingerbread men
   id: 1373
   time: '2025-07-17T06:34:14.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Non cultists now take more damage when using cult weapons.
+  id: 1374
+  time: '2025-07-17T06:35:28.0000000+00:00'
