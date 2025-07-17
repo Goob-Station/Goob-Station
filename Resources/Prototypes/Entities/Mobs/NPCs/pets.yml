@@ -125,6 +125,9 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
@@ -832,6 +835,9 @@
     flavors:
     - meaty
     - sadness
+  # Goobstation - hamlet is unique so higher chance to actually get faxed
+  - type: FaxSlip
+    slipChance: 0.5
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Mouse

@@ -149,7 +149,6 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
@@ -201,7 +200,6 @@
 # SPDX-FileCopyrightText: 2024 nicho <nicholasnewsom577@gmail.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2024 pocl v <24708225+Pinkbat5@users.noreply.github.com>
@@ -236,13 +234,17 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
@@ -254,6 +256,7 @@
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zokkie <6126135+Zokkie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 archee1 <archee3@hotmail.co.uk>
 # SPDX-FileCopyrightText: 2025 cheetah1984 <152602630+cheetah1984@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -265,6 +268,9 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 hyperDelegate <zachary1064@gmail.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
+# SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 osjarw <62134478+osjarw@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ss14-Starlight <ss14-Starlight@outlook.com>
@@ -792,6 +798,9 @@
     allowedEmotes: ['Chitter', 'Squeak', 'Flap'] #flap is from goob
   - type: FaxableObject
     insertingState: inserting_mothroach
+  # Goobstation
+  - type: FaxSlip
+    slipChance: 0.3
   - type: MothAccent
   - type: Sprite
     sprite: Mobs/Animals/mothroach/mothroach.rsi
@@ -2244,6 +2253,8 @@
     defaultChannel: Mousemind
     channels:
     - Mousemind
+  - type: FaxSlip
+    slipChance: 0.3
   # </Goobstation>
   - type: Destructible # Shitmed Change
     thresholds:
@@ -3809,6 +3820,9 @@
   - type: Physics
   - type: FaxableObject
     insertingState: inserting_hamster
+  # Goobstation
+  - type: FaxSlip
+    slipChance: 0.3
   - type: Fixtures
     fixtures:
       fix1:
