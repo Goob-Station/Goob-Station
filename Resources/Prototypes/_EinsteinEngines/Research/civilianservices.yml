@@ -58,8 +58,8 @@
   - MarishTranslatorImplanter
   - AnimalTranslator
   - XenoTranslator
-  - NewKinPidginTranslatorImplant
-  - SchechiTranslatorImplant
+  - NewKinPidginTranslatorImplanter
+  - SchechiTranslatorImplanter
   position: -4, 5
   technologyPrerequisites:
   - BasicTranslation
