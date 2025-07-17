@@ -57,6 +57,18 @@
     },
     {
       "name": "flash-spent"
-    }
+    },
+	{
+	  "name": "slug"
+	},
+	{
+	  "name": "slug-spent"
+	},
+	{
+	  "name": "beanbag"
+	},
+	{
+	  "name": "beanbag-spent"
+	}
   ]
 }

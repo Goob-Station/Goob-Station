@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <bapt.buriot@gmail.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
@@ -355,8 +357,8 @@
 
 - type: selectableSet
   id: BSOCQCSet
-  name: selectable-set-blueshield-cqc-name
-  description: selectable-set-blueshield-cqc-description
+  name: selectable-set-blueshield-dragon-name
+  description: selectable-set-blueshield-dragon-description
   sprite:
     sprite: _Goobstation/Objects/Misc/martial_arts.rsi
     state: dragon
