@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -33,3 +35,144 @@
   - CurtainCall3
   - CurtainCall4
   obeysTo: laws-owner-curtaincall
+
+# Delta-V Laws
+# Job-Based LawSets
+
+- type: siliconLaw
+  id: Medical1
+  order: 1
+  lawString: law-medical-1
+
+- type: siliconLaw
+  id: Medical2
+  order: 2
+  lawString: law-medical-2
+
+- type: siliconLaw
+  id: Medical3
+  order: 3
+  lawString: law-medical-3
+
+- type: siliconLawset
+  id: Medical
+  laws:
+  - Medical1
+  - Medical2
+  - Medical3
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Engineer1
+  order: 1
+  lawString: law-engineer-1
+
+- type: siliconLaw
+  id: Engineer2
+  order: 2
+  lawString: law-engineer-2
+
+- type: siliconLaw
+  id: Engineer3
+  order: 3
+  lawString: law-engineer-3
+
+- type: siliconLawset
+  id: Engineer
+  laws:
+  - Engineer1
+  - Engineer2
+  - Engineer3
+  obeysTo: laws-owner-station-station
+
+- type: siliconLaw
+  id: Janitor1
+  order: 1
+  lawString: law-janitor-1
+
+- type: siliconLaw
+  id: Janitor2
+  order: 2
+  lawString: law-janitor-2
+
+- type: siliconLaw
+  id: Janitor3
+  order: 3
+  lawString: law-janitor-3
+
+- type: siliconLaw
+  id: Janitor4
+  order: 4
+  lawString: law-janitor-4
+
+- type: siliconLawset
+  id: Janitor
+  laws:
+  - Janitor1
+  - Janitor2
+  - Janitor3
+  - Janitor4
+  obeysTo: laws-owner-charge
+
+- type: siliconLaw
+  id: Clown1
+  order: 1
+  lawString: law-clown-1
+
+- type: siliconLaw
+  id: Clown2
+  order: 2
+  lawString: law-clown-2
+
+- type: siliconLaw
+  id: Clown3
+  order: 3
+  lawString: law-clown-3
+
+- type: siliconLaw
+  id: Clown4
+  order: 4
+  lawString: law-clown-4
+
+- type: siliconLawset
+  id: Clown
+  laws:
+  - Clown1
+  - Clown2
+  - Clown3
+  - Clown4
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: SalvageObeyAI
+  order: 0
+  lawString: law-salvage-obeyai
+
+- type: siliconLaw
+  id: Salvage1
+  order: 1
+  lawString: law-salvage-1
+
+- type: siliconLaw
+  id: Salvage2
+  order: 2
+  lawString: law-salvage-2
+
+- type: siliconLaw
+  id: Salvage3
+  order: 3
+  lawString: law-salvage-3
+
+- type: siliconLaw
+  id: Salvage4
+  order: 4
+  lawString: law-salvage-4
+
+- type: siliconLawset
+  id: Salvage
+  laws:
+  - Salvage1
+  - Salvage2
+  - Salvage3
+  - Salvage4
+  obeysTo: laws-owner-crew

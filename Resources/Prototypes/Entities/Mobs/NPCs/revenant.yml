@@ -87,6 +87,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
@@ -180,6 +181,8 @@
     nameFormat: name-format-revenant
   - type: Speech
     speechVerb: Ghost
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: UniversalLanguageSpeaker # Einstein Engines - Languages
   - type: NightVision # Goobstation - Nightvision
     color: MediumPurple
     activateSound: null
@@ -187,3 +190,5 @@
   - type: Reactive
     groups:
       Acidic: [Touch]
+  - type: WeakToHoly # Goobstation Shitchap
+    alwaysTakeHoly: true

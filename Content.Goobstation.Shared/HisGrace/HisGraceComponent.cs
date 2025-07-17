@@ -82,6 +82,13 @@ public sealed partial class HisGraceComponent : Component
     public float SpeedAddition = 0.2f;
 
     /// <summary>
+    /// How much the speed addition will be multiplied for each subsequent level?
+    /// E.G : 0.2 - 0.4 - 0.8
+    /// </summary>
+    [DataField]
+    public float SpeedIncrementMultiplier = 2f;
+
+    /// <summary>
     /// How many entities do you need to consume to ascend?
     /// </summary>
     [DataField]
@@ -179,15 +186,6 @@ public sealed partial class HisGraceComponent : Component
     /// </summary>
     [DataField]
     public float DefaultDamageCoefficient = 0.7f;
-
-    [ViewVariables]
-    public float BaseStamCritThreshold;
-
-    /// <summary>
-    /// The stam crit threshold the user gains when holding.
-    /// </summary>
-    [DataField]
-    public float HoldingStamCritThreshold = 1000f;
 
     [DataField]
     public SoundSpecifier AscendSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/hisgrace_ascension.ogg")
