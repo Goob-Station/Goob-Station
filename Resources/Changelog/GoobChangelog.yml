@@ -12593,3 +12593,107 @@ Entries:
       message: Faxing critters now sometimes succeeds. Always if lubed.
   id: 1388
   time: '2025-07-17T07:25:55.0000000+00:00'
+- author: Orion-416
+  changes:
+    - type: Add
+      message: >-
+        Security now gets a 40mm slug, and 3 beanbag shells in the riot launcher
+        safe, make it count.
+    - type: Add
+      message: >-
+        Added 5 new 40mm ammo types, Beanbag, Birdshot, 00 Buckshot, 0000
+        Buckshot, and Slug.
+    - type: Add
+      message: The china lake bundle now also contains 2 40mm Slugs.
+  id: 1389
+  time: '2025-07-17T07:35:16.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: You can now make diagnostic glasses.
+  id: 1390
+  time: '2025-07-17T07:38:53.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Horsepuncher now has a horse to punch!
+  id: 1391
+  time: '2025-07-17T07:40:13.0000000+00:00'
+- author: MarkerWicker
+  changes:
+    - type: Add
+      message: Players can now opt to "Run by default" in the control options.
+  id: 1392
+  time: '2025-07-17T07:42:43.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: mapping of Cluster Station
+  id: 1393
+  time: '2025-07-17T07:49:55.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added holopads, AI turrets and a TEG to Kettle.
+  id: 1394
+  time: '2025-07-17T07:50:23.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Tweaked submarine chembay and added departmental request computers.
+  id: 1395
+  time: '2025-07-17T07:50:54.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Add
+      message: >-
+        Most if not all the markings that Impstation has, plus two glowing eye
+        markings because why not.
+    - type: Add
+      message: Markings can now be unshaded and glow.
+    - type: Tweak
+      message: Extra marking slots for most species.
+  id: 1396
+  time: '2025-07-17T07:52:18.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: departmental eco to Meta
+    - type: Add
+      message: brig med to meta
+    - type: Add
+      message: PTL to meta
+    - type: Add
+      message: CC office to meta
+    - type: Add
+      message: AI turrets to meta
+    - type: Add
+      message: Public lavaland to meta
+    - type: Add
+      message: genpop to meta
+    - type: Add
+      message: xenobio infrastrucute to meta
+    - type: Add
+      message: holopads to meta
+  id: 1397
+  time: '2025-07-17T07:54:30.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The Nukie Outpost has been completely remapped.
+  id: 1398
+  time: '2025-07-17T07:55:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Rustwalker ai and more movespeed
+  id: 1399
+  time: '2025-07-17T08:02:09.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Tweak
+      message: You now earn increased Goobcoin on servers with fewer players
+    - type: Tweak
+      message: You now earn reduced Goobcoin when a round is ended prematurely
+  id: 1400
+  time: '2025-07-17T08:37:41.0000000+00:00'

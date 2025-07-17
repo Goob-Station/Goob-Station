@@ -66,6 +66,9 @@ ghost-role-information-inspector-description = Perform inspections on the statio
 
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 
+ghost-role-information-trevor-name = Trevor
+ghost-role-information-trevor-description = Securities trusted battle steed.
+
 # Half Life
 
 ghost-role-information-Gman-name = The G-Man
