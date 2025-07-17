@@ -12683,3 +12683,9 @@ Entries:
       message: The Nukie Outpost has been completely remapped.
   id: 1398
   time: '2025-07-17T07:55:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Rustwalker ai and more movespeed
+  id: 1399
+  time: '2025-07-17T08:02:09.0000000+00:00'
