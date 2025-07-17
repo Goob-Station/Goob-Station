@@ -87,6 +87,8 @@
   - type: ActionGrant
     actions:
       - DemonicWhisperAction
+  - type: ReplacementAccent
+    accent: slaughterDemon
 
 # laughter demon
 - type: entity

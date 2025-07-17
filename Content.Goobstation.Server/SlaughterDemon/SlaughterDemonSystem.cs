@@ -27,13 +27,17 @@ public sealed class SlaughterDemonSystem : EntitySystem
     {
         base.Initialize();
 
+        // movement speed
         SubscribeLocalEvent<SlaughterDemonComponent, RefreshMovementSpeedModifiersEvent>(RefreshMovement);
 
+        // blood crawl
         SubscribeLocalEvent<SlaughterDemonComponent, BloodCrawlExitEvent>(OnBloodCrawlExit);
         SubscribeLocalEvent<SlaughterDemonComponent, BloodCrawlAttemptEvent>(OnBloodCrawlAttempt);
 
+        // devouring
         SubscribeLocalEvent<SlaughterDemonComponent, SlaughterDevourEvent>(OnSlaughterDevour);
 
+        // death related
         SubscribeLocalEvent<SlaughterDemonComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SlaughterDemonComponent, BeingGibbedEvent>(OnGib);
     }

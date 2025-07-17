@@ -28,8 +28,8 @@
   - type: Objective
     issuer: objective-condition-kill-wizard-first
     icon:
-      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-      state: blood
+      sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: icon
   - type: TargetObjective
     title: objective-condition-kill-wizard-title
   - type: SlaughterKillTheWizardCondition
@@ -57,11 +57,11 @@
   - type: Objective
     issuer: objective-issuer-slaughter-devil
     icon:
-      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-      state: blood
+      sprite: Objects/Consumable/Food/Baked/cake.rsi
+      state: clown
   - type: SlaughterKillEveryoneCondition
     title: objective-condition-hug-and-tickle-title
-    description: objective-hug-and-tickle-desc
+    description: objective-condition-hug-and-tickle-desc
 
 # Midround Objectives
 - type: entity
@@ -87,8 +87,8 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-      state: blood
+      sprite: Objects/Specific/Janitorial/advmop.rsi
+      state: advmop
   - type: SlaughterBaseObjective
     title: objective-annihilate-janitors-title
 
@@ -99,8 +99,8 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-      state: blood
+      sprite: Objects/Fun/dice.rsi
+      state: d6_2
   - type: SlaughterBaseObjective
     title: objective-spare-crew-title
 
@@ -111,8 +111,8 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-      state: blood
+      sprite: Markers/jobs.rsi
+      state: security_officer
   - type: SlaughterBaseObjective
     title: objective-hunt-for-brave-title
 
@@ -123,8 +123,8 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-      state: blood
+      sprite: Objects/Magic/magicactions.rsi
+      state: gib
   - type: SlaughterBaseObjective
     title: objective-hunt-the-cowards-title
 
@@ -135,8 +135,8 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-      state: blood
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: blood_siphon
   - type: TargetObjective
     title: objective-show-power-title
   - type: PickRandomPerson
@@ -144,12 +144,12 @@
 - type: entity
   parent: SlaughterFluffBaseObjective
   id: DriveInsaneObjectiveFluff
-  description: Whisper until breaks, madness is your gift.
+  description: Whisper they break, madness is your gift.
   components:
   - type: Objective
     icon:
-      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-      state: blood
+      sprite: _Goobstation/SlaughterDemon/abilities.rsi
+      state: whisper
   - type: TargetObjective
     title: objective-drive-insane-title
   - type: PickRandomPerson
@@ -161,7 +161,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-      state: blood
+      sprite: Fluids/tomato_splat.rsi
+      state: puddle-2
   - type: SlaughterSpreadBloodObjective
     title: objective-spread-blood

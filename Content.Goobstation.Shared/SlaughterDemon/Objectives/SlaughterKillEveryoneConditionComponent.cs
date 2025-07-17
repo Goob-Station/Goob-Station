@@ -12,5 +12,11 @@ namespace Content.Goobstation.Shared.SlaughterDemon.Objectives;
 public sealed partial class SlaughterKillEveryoneConditionComponent : Component
 {
     [DataField]
+    public string? Title;
+
+    [DataField]
+    public string? Description;
+
+    [DataField]
     public int Devoured;
 }

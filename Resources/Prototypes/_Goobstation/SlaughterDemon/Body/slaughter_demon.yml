@@ -11,34 +11,27 @@
     chest:
       part: ChestSlaughter
       connections:
+      - groin
       - right arm
       - left arm
-      - groin
       organs:
         lungs: OrganSpaceAnimalLungs # pressure immunity
-        stomach: OrganAnimalStomach
-        liver: OrganAnimalLiver
         heart: OrganSlaughterHeart # blood crawl ability
-        kidneys: OrganAnimalKidneys
     groin:
       part: GroinSlaughter
-      connections:
-      - legs
+      organs:
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
     right arm:
-      part: RightArmMonkey # add proper
+      part: RightArmSlaughter
       connections:
       - right hand
     left arm:
-      part: LeftArmMonkey # add proper
+      part: LeftArmSlaughter
       connections:
       - left hand
     right hand:
-      part: RightHandMonkey # add proper
+      part: RightHandSlaughter
     left hand:
-      part: LeftHandMonkey # add proper
-    legs:
-      part: LegsSlaughter
-      connections:
-      - feet
-    feet:
-      part: FeetAnimal
+      part: LeftHandSlaughter

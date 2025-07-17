@@ -1,0 +1,18 @@
+- type: accent
+  id: slaughterDemon
+  wordReplacements:
+    accent-demonic-words-1: accent-demonic-words-replace-1
+    accent-demonic-words-2: accent-demonic-words-replace-2
+    accent-demonic-words-3: accent-demonic-words-replace-3
+    accent-demonic-words-4: accent-demonic-words-replace-4
+    accent-demonic-words-5: accent-demonic-words-replace-5
+    accent-demonic-words-6: accent-demonic-words-replace-6
+    accent-demonic-words-7: accent-demonic-words-replace-7
+    accent-demonic-words-8: accent-demonic-words-replace-8
+    accent-demonic-words-9: accent-demonic-words-replace-9
+    accent-demonic-words-10: accent-demonic-words-replace-10
+    accent-demonic-words-11: accent-demonic-words-replace-11
+    accent-demonic-words-12: accent-demonic-words-replace-12
+    accent-demonic-words-13: accent-demonic-words-replace-13
+    accent-demonic-words-14: accent-demonic-words-replace-14
+    accent-demonic-words-15: accent-demonic-words-replace-15

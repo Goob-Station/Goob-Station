@@ -5,6 +5,7 @@
 
 using Content.Goobstation.Common.Speech;
 using Content.Server.Speech;
+using Content.Server.Speech.EntitySystems;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Speech;
@@ -12,6 +13,8 @@ namespace Content.Goobstation.Server.Speech;
 public sealed class DemonicAccentSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -22,16 +25,18 @@ public sealed class DemonicAccentSystem : EntitySystem
 
     private void OnAccentGet(Entity<DemonicAccentComponent> entity, ref AccentGetEvent args)
     {
-        var words = args.Message.Split(' ');
-        var wordsNew = new List<string>();
+        var message = args.Message;
 
-        foreach (var _ in words)
+        message = _replacement.ApplyReplacements(message, "slaughter_demon");
+
+        if (_random.Prob(0.15f))
         {
-            var pick = _random.Next(1, 13);
-
-            wordsNew.Add(Loc.GetString($"accent-demonic-replace-{pick}"));
+            var pick = _random.Next(1, 8);
+            message = message + ' ' + Loc.GetString($"accent-demonic-suffix-{pick}");
         }
 
-        args.Message = string.Join(' ', wordsNew);
+        message = message.ToUpperInvariant();
+
+        args.Message = message;
     }
 }

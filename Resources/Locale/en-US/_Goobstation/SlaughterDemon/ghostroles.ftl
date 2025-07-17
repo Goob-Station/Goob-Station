@@ -12,3 +12,6 @@ ghost-role-information-slaughter-demon-rules =
             STUPID GOOBALLS WE CALL HUMANS
     MY FELLOW DEMONS, PLEASE [color=red] DO NOT KILL DEVILS[/color] BECAUSE SATAN WILL SMITE YOU REAL FAST AS SOON AS THE DEVIL SNITCHES ON YOU IN THE UNDERWORLD
 
+
+ghost-role-information-laughter-demon-name = Laughter Demon
+ghost-role-information-laughter-demon-description = WHAT A TIME TO BE ALIVE! YOU BETTER HUG EVERYONE YOU SEE, AND SHOW THEM WHAT TRUE LOVE FEELS LIKE!

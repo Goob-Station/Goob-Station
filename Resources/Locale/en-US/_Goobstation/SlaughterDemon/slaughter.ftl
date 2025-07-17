@@ -24,4 +24,4 @@ demonic-whisper-popup = [color=#FF0000]Suddenly a strange, demonic voice resonat
 demonic-whisper-whisper = You whisper to {$name}: {$message}
 
 # metadata
-name-format-slaughter = {$part0}, the {$part1}
+name-format-slaughter = {$part1}, the {$part0}

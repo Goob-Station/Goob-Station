@@ -47,7 +47,29 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
 
         // Sets descriptions and titles
         SubscribeLocalEvent<SlaughterBaseObjectiveComponent, ObjectiveAfterAssignEvent>(OnAfterAssignObjective);
+        SubscribeLocalEvent<SlaughterKillTheWizardConditionComponent, ObjectiveAfterAssignEvent>(OnAfterWizardAssignObjective);
+        SubscribeLocalEvent<SlaughterKillEveryoneConditionComponent, ObjectiveAfterAssignEvent>(OnAfterKillEveryoneAssignObjective);
 
+    }
+
+    private void OnAfterWizardAssignObjective(Entity<SlaughterKillTheWizardConditionComponent> ent,
+        ref ObjectiveAfterAssignEvent args)
+    {
+        if (ent.Comp.Title != null)
+            _meta.SetEntityName(ent.Owner, Loc.GetString(ent.Comp.Title), args.Meta);
+
+        if (ent.Comp.Description != null)
+            _meta.SetEntityDescription(ent.Owner, Loc.GetString(ent.Comp.Description), args.Meta);
+    }
+
+    private void OnAfterKillEveryoneAssignObjective(Entity<SlaughterKillEveryoneConditionComponent> ent,
+        ref ObjectiveAfterAssignEvent args)
+    {
+        if (ent.Comp.Title != null)
+            _meta.SetEntityName(ent.Owner, Loc.GetString(ent.Comp.Title), args.Meta);
+
+        if (ent.Comp.Description != null)
+            _meta.SetEntityDescription(ent.Owner, Loc.GetString(ent.Comp.Description), args.Meta);
     }
 
     private void OnAfterAssignObjective(Entity<SlaughterBaseObjectiveComponent> ent,
@@ -57,7 +79,7 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
             _meta.SetEntityName(ent.Owner, Loc.GetString(ent.Comp.Title), args.Meta);
 
         if (ent.Comp.Description != null)
-            _meta.SetEntityName(ent.Owner, ent.Comp.Description, args.Meta);
+            _meta.SetEntityDescription(ent.Owner, Loc.GetString(ent.Comp.Description), args.Meta);
     }
 
     private void OnSpreadAssign(Entity<SlaughterSpreadBloodObjectiveComponent> ent, ref ObjectiveAssignedEvent args)
