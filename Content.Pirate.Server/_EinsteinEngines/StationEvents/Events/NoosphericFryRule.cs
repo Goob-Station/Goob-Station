@@ -13,11 +13,11 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
-using Content.Goobstation.Server.StationEvents.Components;
+using Content.Pirate.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Robust.Server.Player;
 
-namespace Content.Goobstation.Server.StationEvents.Events;
+namespace Content.Pirate.Server.StationEvents.Events;
 
 /// <summary>
 /// Fries tinfoil hats and cages

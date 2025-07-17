@@ -5,11 +5,12 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Mobs.Systems;
-using Content.Goobstation.Server.StationEvents.Components;
+using Content.Pirate.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Robust.Shared.Random;
+using Content.Shared.Damage.Systems;
 
-namespace Content.Goobstation.Server.StationEvents.Events;
+namespace Content.Pirate.Server.StationEvents.Events;
 
 internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleComponent>
 {
@@ -17,7 +18,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!; // Додаємо залежність
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
 
     protected override void Started(EntityUid uid, NoosphericZapRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -35,7 +36,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
         foreach (var psion in psionicList)
         {
             // Stun the psionic
-            _staminaSystem.EnterStaminaCrit(psion);
+            _stamina.TakeStaminaDamage(psion, (float) 100);
 
             // Potentially modify power reroll chances if they have rerolls available
             if (TryComp<PsionicComponent>(psion, out var psionicComp) && psionicComp.CanReroll)

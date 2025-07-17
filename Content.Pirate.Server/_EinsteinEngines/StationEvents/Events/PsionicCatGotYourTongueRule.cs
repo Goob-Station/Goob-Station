@@ -7,11 +7,11 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
-using Content.Goobstation.Server.StationEvents.Components;
+using Content.Pirate.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Robust.Server.Player;
 
-namespace Content.Goobstation.Server.StationEvents.Events;
+namespace Content.Pirate.Server.StationEvents.Events;
 
 internal sealed class PsionicCatGotYourTongueRule : StationEventSystem<PsionicCatGotYourTongueRuleComponent>
 {

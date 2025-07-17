@@ -1,13 +1,13 @@
 using Content.Shared.GameTicking.Components;
 using Content.Server.Psionics.Glimmer;
 using Content.Shared.Psionics.Glimmer;
-using Content.Goobstation.Server.StationEvents.Components;
+using Content.Pirate.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Content.Server.GameTicking;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.StationEvents.Events;
+namespace Content.Pirate.Server.StationEvents.Events;
 
 public sealed class GlimmerEventSystem : StationEventSystem<GlimmerEventComponent>
 {

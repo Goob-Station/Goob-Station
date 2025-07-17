@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
-using Content.Goobstation.Server.StationEvents.Events;
+using Content.Pirate.Server.StationEvents.Events;
 
-namespace Content.Goobstation.Server.StationEvents.Components;
+namespace Content.Pirate.Server.StationEvents.Components;
 
 [RegisterComponent, Access(typeof(PsionicCatGotYourTongueRule))]
 public sealed partial class PsionicCatGotYourTongueRuleComponent : Component

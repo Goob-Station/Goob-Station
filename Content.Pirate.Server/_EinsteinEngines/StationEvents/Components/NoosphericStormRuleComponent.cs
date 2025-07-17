@@ -1,6 +1,6 @@
-using Content.Goobstation.Server.StationEvents.Events;
+using Content.Pirate.Server.StationEvents.Events;
 
-namespace Content.Goobstation.Server.StationEvents.Components;
+namespace Content.Pirate.Server.StationEvents.Components;
 
 [RegisterComponent, Access(typeof(NoosphericStormRule))]
 public sealed partial class NoosphericStormRuleComponent : Component

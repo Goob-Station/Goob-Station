@@ -2,7 +2,7 @@ using Content.Server.Abilities.Psionics;
 using Content.Server.Chat.Systems;
 using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
-using Content.Goobstation.Server.StationEvents.Events;
+using Content.Pirate.Server.StationEvents.Events;
 using Content.Shared.Chat;
 using Content.Shared.Interaction;
 using Content.Shared.Psionics.Glimmer;
@@ -62,7 +62,7 @@ public sealed partial class SophicScribeSystem : EntitySystem
 
         component.StateTime = _timing.CurTime + component.StateCD;
 
-        _chat.TrySendInGameICMessage(uid, Loc.GetString("glimmer-report", ("level", _glimmerSystem.GlimmerOutputString)), InGameICChatType.Speak, false); 
+        _chat.TrySendInGameICMessage(uid, Loc.GetString("glimmer-report", ("level", _glimmerSystem.GlimmerOutputString)), InGameICChatType.Speak, false);
     }
 
     private void OnGlimmerEventEnded(GlimmerEventEndedEvent args)

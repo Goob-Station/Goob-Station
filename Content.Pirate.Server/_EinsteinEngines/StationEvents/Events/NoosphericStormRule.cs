@@ -8,10 +8,10 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Zombies;
-using Content.Goobstation.Server.StationEvents.Components;
+using Content.Pirate.Server.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 
-namespace Content.Goobstation.Server.StationEvents.Events;
+namespace Content.Pirate.Server.StationEvents.Events;
 
 internal sealed class NoosphericStormRule : StationEventSystem<NoosphericStormRuleComponent>
 {

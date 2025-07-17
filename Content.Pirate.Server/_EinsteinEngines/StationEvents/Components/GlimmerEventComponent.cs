@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Server.StationEvents.Components;
+namespace Content.Pirate.Server.StationEvents.Components;
 
 /// <summary>
 /// Component for events that are triggered based on glimmer levels
