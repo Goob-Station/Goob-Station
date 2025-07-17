@@ -88,3 +88,9 @@
     - type: StealTarget
       stealGroup: SupermatterSliver # uses to verify sm existense on map
     - type: PhysicsGunBlacklist
+    - type: LanguageSpeaker # Einstein Engines - Language
+    - type: LanguageKnowledge # Einstein Engines - Language
+      speaks:
+      - TauCetiBasic
+      understands:
+      - TauCetiBasic

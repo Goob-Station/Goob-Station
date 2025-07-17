@@ -282,6 +282,14 @@
   - type: WiresVisuals
   - type: CyberdeckHackable # Goobstation - Cyberdeck
     cost: 2
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
 
 - type: entity
   parent: VendingMachine
