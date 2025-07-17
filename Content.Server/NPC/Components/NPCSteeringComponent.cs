@@ -4,7 +4,9 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -107,6 +109,12 @@ public sealed partial class NPCSteeringComponent : Component
     /// How close are we trying to get to the coordinates before being considered in range.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public float Range = 0.2f;
+
+    // Goobstation
+    /// <summary>
+    /// Whether to ignore pathing and just move directly to target.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)] public bool DirectMove = false;
 
     // Goobstation
     /// <summary>
