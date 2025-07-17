@@ -12289,3 +12289,76 @@ Entries:
       message: Fixed entities sometimes being in eternal fake fire.
   id: 1356
   time: '2025-07-15T19:46:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic abilities are now path locked, e.g. you cant get Ashen Passage
+        as a void heretic now. General/side knowledge is still fair game.
+  id: 1357
+  time: '2025-07-16T14:13:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the omnimed tool, moth cloak and the 5 gorillion slot machine
+        medkits in Brigmed locker. Now they get a normal surgery duffel bag and
+        an o2 medkit.
+  id: 1358
+  time: '2025-07-16T14:14:43.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Fix
+      message: Lube foam now creates lube.
+  id: 1359
+  time: '2025-07-17T05:56:42.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Fix
+      message: Abductors have names again.
+  id: 1360
+  time: '2025-07-17T05:57:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Zombies can no longer use the Gemini projector.
+    - type: Fix
+      message: You can no longer clone Geminis.
+    - type: Fix
+      message: Geminis can no longer sell their soul.
+    - type: Fix
+      message: Geminis can no longer be polymorphed.
+    - type: Fix
+      message: IPC Geminis now gain the proper encryption keys, and do not need power.
+  id: 1361
+  time: '2025-07-17T06:01:25.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: You can zoom in/out on the research console now
+  id: 1362
+  time: '2025-07-17T06:02:16.0000000+00:00'
+- author: diatomic-ge
+  changes:
+    - type: Fix
+      message: >-
+        Slime people no longer have items such as lighters inserted into their
+        internal inventories or dropped when toggled.
+    - type: Fix
+      message: >-
+        Toggling items such as welding tools in pockets, if it no longer fits,
+        will now either hand you the item, or drop it.
+    - type: Tweak
+      message: >-
+        Toggled items which no longer fit in their former storage container will
+        be put in your hand if possible, rather than just dropped.
+  id: 1363
+  time: '2025-07-17T06:05:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Insta stun abuse
+    - type: Tweak
+      message: Tweak stun batons to require sprite clicking to be effective
+  id: 1364
+  time: '2025-07-17T06:06:08.0000000+00:00'
