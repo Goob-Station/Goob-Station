@@ -3,4 +3,4 @@ chat-speech-verb-Psychomantic-2 = проєктує
 chat-speech-verb-Psychomantic-3 = вражає
 chat-speech-verb-Psychomantic-4 = випромінює
 
-chat-speech-verb-marish = марш
+chat-speech-verb-marish = маріш

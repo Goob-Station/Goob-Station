@@ -153,7 +153,6 @@ chat-speech-verb-name-cluwne = Клюн
 chat-speech-verb-name-parrot = Папуга
 chat-speech-verb-name-ghost = Привид
 chat-speech-verb-name-electricity = Електрика
-chat-speech-verb-marish = марш
 
 
 chat-manager-send-empathy-chat-wrap-message = {$source}: {$message}
@@ -166,11 +165,6 @@ chat-speech-verb-skeleton-4 = Клацання
 chat-speech-verb-skeleton-5 = Тріск
 chat-speech-verb-name-supermatter = Надматерія
 chat-speech-verb-supermatter = Стани
-
-chat-speech-verb-Psychomantic-1 = резонує
-chat-speech-verb-Psychomantic-2 = проєктує
-chat-speech-verb-Psychomantic-3 = вражає
-chat-speech-verb-Psychomantic-4 = випромінює
 
 chat-manager-sender-announcement = Центральне Командування
 chat-speech-verb-name-goat = Коза
