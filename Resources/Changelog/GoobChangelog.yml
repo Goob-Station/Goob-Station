@@ -12332,3 +12332,9 @@ Entries:
       message: IPC Geminis now gain the proper encryption keys, and do not need power.
   id: 1361
   time: '2025-07-17T06:01:25.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: You can zoom in/out on the research console now
+  id: 1362
+  time: '2025-07-17T06:02:16.0000000+00:00'
