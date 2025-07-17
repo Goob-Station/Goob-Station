@@ -1,0 +1,8 @@
+- type: utilityQuery
+  id: NearbyPsionics
+  query:
+    - !type:NearbyEntityQuery
+      range: 10
+      conditions:
+        - !type:HasComponentCondition
+          component: Psionic

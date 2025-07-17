@@ -17,6 +17,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!; // Додаємо залежність
 
     protected override void Started(EntityUid uid, NoosphericZapRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -34,10 +35,7 @@ internal sealed class NoosphericZapRule : StationEventSystem<NoosphericZapRuleCo
         foreach (var psion in psionicList)
         {
             // Stun the psionic
-            _statusEffectsSystem.TryAddStatusEffect(psion, "Stun", TimeSpan.FromSeconds(component.StunDuration), false, "Stun");
-
-            // Add stuttering
-            _statusEffectsSystem.TryAddStatusEffect(psion, "Stutter", TimeSpan.FromSeconds(component.StutterDuration), false, "Stutter");
+            _staminaSystem.EnterStaminaCrit(psion);
 
             // Potentially modify power reroll chances if they have rerolls available
             if (TryComp<PsionicComponent>(psion, out var psionicComp) && psionicComp.CanReroll)

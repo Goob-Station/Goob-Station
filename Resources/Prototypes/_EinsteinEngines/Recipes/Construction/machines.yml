@@ -1,0 +1,33 @@
+- type: construction
+  id: GlimmerProber
+  name: glimmer prober
+  description: Increases glimmer and research points.
+  graph: GlimmerDevices
+  startNode: start
+  targetNode: glimmerProber
+  category: construction-category-machines
+  icon:
+    sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
+    state: base
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: GlimmerDrain
+  name: glimmer drain
+  description: Decreases glimmer.
+  graph: GlimmerDevices
+  startNode: start
+  targetNode: glimmerDrain
+  category: construction-category-machines
+  icon:
+    sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
+    state: base
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

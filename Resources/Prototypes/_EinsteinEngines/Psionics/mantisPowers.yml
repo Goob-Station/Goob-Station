@@ -53,8 +53,6 @@
       types:
         Slash: 10
         Holy: 15
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 10
     maxTargets: 3
     angle: 90
     soundHit:

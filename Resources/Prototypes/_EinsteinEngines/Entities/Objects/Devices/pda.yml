@@ -1,14 +1,11 @@
 - type: entity
-  parent: BasePDA
+  parent: SciencePDA
   id: ForensicMantisPDA
   name: mantis PDA
   description: Smells like illegal substances.
   components:
   - type: Pda
     id: ForensicMantisIDCard
-    state: pda-science
-  - type: Icon
-    state: pda-science
   - type: CartridgeLoader
     preinstalled:
      - CrewManifestCartridge

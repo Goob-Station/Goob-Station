@@ -6,7 +6,7 @@
       actions:
         - !type:DestroyEntity {}
       edges:
-        - to: etherealGoggles
+        - to: goggles
           steps:
             - material: BSCrystal
               amount: 5
@@ -16,5 +16,5 @@
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
-    - node: etherealGoggles
+    - node: goggles
       entity: ClothingEyesGlassesEthereal

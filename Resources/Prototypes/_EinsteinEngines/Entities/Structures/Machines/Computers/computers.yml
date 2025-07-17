@@ -31,8 +31,6 @@
     board: PsionicsRecordsComputerCircuitboard
   - type: AccessReader
     access:
-      - [ Chapel ]
-      - [ Library ]
       - [ Mantis ]
       - [ ResearchDirector ]
   # - type: GuideHelp

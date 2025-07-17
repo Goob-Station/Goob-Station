@@ -29,9 +29,9 @@ using Robust.Shared.Random;
 using Robust.Shared.GameObjects.Components.Localization;
 using System.Linq;
 using System.Text;
-using Robust.Shared.Player; // For Filter
-using Robust.Shared.Enums; // For Gender
-using Content.Pirate.Common.Chat; // For TelepathicRepeaterComponent
+using Robust.Shared.Player;
+using Robust.Shared.Enums;
+using Content.Pirate.Common.Chat;
 
 namespace Content.Pirate.Server._EinsteinEngines.Chat;
 

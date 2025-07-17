@@ -93,7 +93,7 @@
         key: SlurredSpeech
         component: TelepathicRepeater
       #- !type:ChemAddMoodlet PIRATE START
-      #  moodPrototype: LotoTranscendence 
+      #  moodPrototype: LotoTranscendence
       #  conditions:
       #  - !type:ReagentThreshold
       #    reagent: LotophagoiOil

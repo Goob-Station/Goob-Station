@@ -60,7 +60,6 @@
         3.0
   - type: NPCRetaliation
     attackMemoryLength: 10
-    retaliateFriendlies: true
   - type: PsionicFamiliar
   - type: Dispellable
   - type: DamageOnDispel

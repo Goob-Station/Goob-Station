@@ -78,7 +78,7 @@
       baselinePowerCost: 75
       nextPowerCost: 75
       removable: false
-      powerPool: PsychoHistorianPowerPool
+      powerPool: RandomPsionicPowerPool
     - type: InnatePsionicPowers
       powersToAdd:
         - TelepathyPower

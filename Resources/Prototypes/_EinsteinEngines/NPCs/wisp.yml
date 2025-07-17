@@ -5,18 +5,19 @@
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
             proto: NearbyPsionics
+            key: Target
         - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: Target
           operator: !type:MoveToOperator
             shutdownState: PlanFinished
             pathfindInPlanning: true
             removeKeyOnFinish: false
             targetKey: TargetCoordinates
             pathfindKey: TargetPathfind
-            stopOnLineOfSight: true
-            rangeKey: MeleeRange
-        - !type:HTNPrimitiveTask
-          operator: !type:JukeOperator
-            jukeType: AdjacentTile
+            stopOnLineOfSight: false
+            rangeKey: RangedAttackRange
         - !type:HTNPrimitiveTask
           preconditions:
             - !type:KeyExistsPrecondition
@@ -28,6 +29,12 @@
               id: PsionicService
               proto: NearbyPsionics
               key: Target
+        - !type:HTNPrimitiveTask
+          operator: !type:JukeOperator
+            jukeType: AdjacentTile
     - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:RandomMoveOperator
+            moveChance: 0.3
         - !type:HTNCompoundTask
           task: IdleCompound

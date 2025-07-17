@@ -1,0 +1,43 @@
+- type: constructionGraph
+  id: GlimmerDevices
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: frame
+          completed:
+            - !type:SetAnchor
+              value: false
+          steps:
+            - material: Plasteel
+              amount: 5
+            - material: Cable
+              amount: 5
+              doAfter: 8
+    - node: frame
+      entity: GlimmerDeviceFrame
+      edges:
+        - to: glimmerProber
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Bluespace
+              amount: 5
+              doAfter: 10
+            - tool: Welding
+              doAfter: 5
+        - to: glimmerDrain
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Normality
+              amount: 5
+              doAfter: 10
+            - tool: Welding
+              doAfter: 5
+
+    - node: glimmerProber
+      entity: GlimmerProber
+
+    - node: glimmerDrain
+      entity: GlimmerDrain

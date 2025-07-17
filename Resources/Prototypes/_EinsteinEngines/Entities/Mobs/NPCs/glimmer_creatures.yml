@@ -103,7 +103,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/_EinsteinEngines/Effects/magic_missile_2.oggEffects/wail.ogg
+          path: /Audio/_EinsteinEngines/Effects/wail.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
           Ectoplasm:

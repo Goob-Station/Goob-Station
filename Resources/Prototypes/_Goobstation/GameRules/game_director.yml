@@ -31,7 +31,6 @@
       - RelaxedAttack
       - ScienceAttack
       - MajorCombat
-      - PsionicAwakening # Pirate
   - type: SelectedGameRules
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
