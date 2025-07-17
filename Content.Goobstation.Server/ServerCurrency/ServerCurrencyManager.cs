@@ -11,7 +11,6 @@
 using System.Threading.Tasks;
 using Content.Goobstation.Common.ServerCurrency;
 using Content.Server.Database;
-using Content.Shared._durkcode.ServerCurrency;
 using Robust.Server.Player;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Network;

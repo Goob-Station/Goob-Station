@@ -15,7 +15,6 @@ using Content.Goobstation.Common.ServerCurrency;
 using Content.Server._RMC14.LinkAccount;
 using Content.Server.GameTicking;
 using Content.Server.Popups;
-using Content.Shared._durkcode.ServerCurrency;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;

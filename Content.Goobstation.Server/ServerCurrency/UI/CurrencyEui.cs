@@ -6,10 +6,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.ServerCurrency;
+using Content.Goobstation.Shared.ServerCurrency;
+using Content.Goobstation.Shared.ServerCurrency.UI;
 using Content.Server.Administration.Notes;
 using Content.Server.EUI;
-using Content.Shared._durkcode.ServerCurrency;
-using Content.Shared._durkcode.ServerCurrency.UI;
 using Content.Shared.Eui;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
