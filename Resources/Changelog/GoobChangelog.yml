@@ -12461,3 +12461,13 @@ Entries:
       message: Non cultists now take more damage when using cult weapons.
   id: 1374
   time: '2025-07-17T06:35:28.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Replaced M90 with the upstream's new Estoc. It is burst-fire and has a
+        scope.
+    - type: Tweak
+      message: WSPR is full-auto now.
+  id: 1375
+  time: '2025-07-17T06:53:09.0000000+00:00'
