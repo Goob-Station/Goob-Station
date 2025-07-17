@@ -12426,3 +12426,22 @@ Entries:
       message: His Grace has received a buff.
   id: 1371
   time: '2025-07-17T06:22:31.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Remove
+      message: Removed damage cap from Changelings.
+    - type: Tweak
+      message: >-
+        The damage-time scaling caps for changelings' stasis were halved.
+        (Lowest 30s -> 15s, Highest 90s -> 45s, Dead 120s -> 60s)
+    - type: Tweak
+      message: >-
+        The damage scaling logic for changeling's stasis was changed. (now
+        current damage (divided by crit threshold) multiplied by highest stasis
+        time)
+    - type: Fix
+      message: >-
+        You should no longer be able to kick a Changeling out of their stasis
+        and revive them by dealing damage to them. bruh.
+  id: 1372
+  time: '2025-07-17T06:24:03.0000000+00:00'
