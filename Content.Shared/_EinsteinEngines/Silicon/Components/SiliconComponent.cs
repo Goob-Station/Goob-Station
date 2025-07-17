@@ -116,4 +116,11 @@ public sealed partial class SiliconComponent : Component
     /// </summary>
     [DataField]
     public bool DoSiliconsDreamOfElectricSheep;
+
+    /// <summary>
+    /// Goobstation
+    /// For how long this borg will delay cyberdeck's hacking
+    /// </summary>
+    [DataField]
+    public TimeSpan CyberdeckPenaltyTime = TimeSpan.FromSeconds(8);
 }

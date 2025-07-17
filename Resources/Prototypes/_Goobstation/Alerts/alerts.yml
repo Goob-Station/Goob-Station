@@ -152,6 +152,7 @@
   - sprite: /Textures/_Goobstation/Interface/Alerts/charges.rsi
     state: charge_8
   name: alerts-cyberdeck-charges-name
-  description: alerts-cyberdeck-charges-name
+  description: alerts-cyberdeck-charges-desc
   minSeverity: 0
   maxSeverity: 8
+  clickEvent: !type:CyberdeckInfoAlertEvent

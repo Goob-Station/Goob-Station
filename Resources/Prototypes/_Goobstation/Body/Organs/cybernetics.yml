@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseCyberneticEyes
+  parent: [BasicCyberneticEyes, BaseSyndicateContraband]
   id: OrganCyberdeckEyes
   name: cyberdeck eyes
   description: A pair of cybernetic eyes with integrated hacking programs, that gives its user new abilities.

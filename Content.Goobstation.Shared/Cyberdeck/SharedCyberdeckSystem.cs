@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Common.Access;
+using Content.Goobstation.Common.Charges;
 using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Common.Interaction;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -16,6 +16,7 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
@@ -52,6 +53,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+
     [Dependency] private readonly INetManager _net = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
@@ -59,7 +61,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     private EntityQuery<LimitedChargesComponent> _chargesQuery;
     private EntityQuery<CyberdeckHackableComponent> _hackQuery;
     private EntityQuery<CyberdeckUserComponent> _userQuery;
-    private EntityQuery<CyberdeckSourceComponent> _sourceQuery;
 
     public override void Initialize()
     {
@@ -82,12 +83,13 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionEvent>(OnCyberVisionUsed);
         SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckVisionReturnEvent>(OnCyberVisionReturn);
 
+        SubscribeLocalEvent<SiliconComponent, BeforeCyberdeckHackPlayerEvent>(BeforeSiliconHacked);
+
         _handsQuery = GetEntityQuery<HandsComponent>();
         _containerQuery = GetEntityQuery<ContainerManagerComponent>();
         _chargesQuery = GetEntityQuery<LimitedChargesComponent>();
         _hackQuery = GetEntityQuery<CyberdeckHackableComponent>();
         _userQuery = GetEntityQuery<CyberdeckUserComponent>();
-        _sourceQuery = GetEntityQuery<CyberdeckSourceComponent>();
     }
 
     #region Basic User Handling
@@ -99,12 +101,11 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _actions.AddAction(uid, ref component.HackAction, component.HackActionId);
         _actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
 
-        // Find the cyberdeck source by hand. TODO: Maybe make a BodyOrganRelayEvent and subscribe to it?
-        var evil = _body.GetBodyOrgans(uid).Where(x => _sourceQuery.HasComp(x.Id)).FirstOrNull();
-        if (evil == null)
+        if (_body.TryGetBodyOrganEntityComps<CyberdeckSourceComponent>(uid, out var organs)
+            || organs?.Count == 0)
             return;
 
-        component.ProviderEntity = evil.Value.Id;
+        component.ProviderEntity = organs?[0].Owner;
         UpdateAlert((uid, component));
     }
 
@@ -185,10 +186,9 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     /// </summary>
     private bool CheckCharges(EntityUid user, EntityUid provider, int amount, EntityUid? target = null)
     {
-        if (!_chargesQuery.TryComp(provider, out var chargesComp))
-            return true; // Provider doesn't have charges, so we shouldn't care about them
-
-        if (Charges.HasCharges((provider, chargesComp), amount))
+        // If we don't have a provider, we also return true so it will give infinite charges (feature)
+        if (!_chargesQuery.TryComp(provider, out var chargesComp)
+            || Charges.HasCharges((provider, chargesComp), amount))
             return true;
 
         // Tell user that he doesn't have enough charges
@@ -229,7 +229,9 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     private void OnStartHacking(Entity<CyberdeckUserComponent> ent, ref CyberdeckHackActionEvent args)
     {
         var (uid, component) = ent;
-        if (args.Handled || args.Target == uid)
+
+        if (args.Handled
+            || args.Target == uid)
             return;
 
         args.Handled = true;
@@ -252,7 +254,8 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             }
         }
 
-        if (_handsQuery.TryComp(args.Target, out var handsComp) && target == null)
+        if (_handsQuery.TryComp(args.Target, out var handsComp)
+            && target == null)
         {
             // Check all hands for something that can be hacked
             foreach (var item in _hands.EnumerateHeld(args.Target, handsComp))
@@ -277,10 +280,10 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             && !CheckCharges(uid, component.ProviderEntity.Value, hackable.Cost, target))
             return;
 
-        // Balancing shitcode that prevents you from hacking IPCs in 2 seconds.
-        var penaltyTime = TimeSpan.Zero;
-        if (HasComp<SiliconComponent>(target))
-            penaltyTime = TimeSpan.FromSeconds(8);
+        // Balancing it via ref event that prevents you from hacking IPC batteries in 2 seconds.
+        var beforeEv = new BeforeCyberdeckHackPlayerEvent();
+        RaiseLocalEvent(target.Value, ref beforeEv);
+        var penaltyTime = beforeEv.PenaltyTime;
 
         var ev = new DoAfterArgs(
             EntityManager,
@@ -432,7 +435,8 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         // Client thinks that projection is not null, but is deleted.
         // This normally shouldn't happen, but if it is what it is then we need to cope with what we have.
-        if (TerminatingOrDeleted(user.Comp.ProjectionEntity) && _net.IsClient)
+        if (TerminatingOrDeleted(user.Comp.ProjectionEntity)
+            && _net.IsClient)
         {
             Log.Warning($"Cyberdeck Projection was invalid on client-side for user {ToPrettyString(user.Owner)}," +
                         $" and at the same time it's not null, which shouldn't normally happen. This can cause problems with Cyberdeck prediction.");
@@ -440,7 +444,8 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         }
 
         // If it's deleted on a server, then something is really messed up...
-        if (TerminatingOrDeleted(user.Comp.ProjectionEntity) && _net.IsServer)
+        if (TerminatingOrDeleted(user.Comp.ProjectionEntity)
+            && _net.IsServer)
         {
             Log.Error($"Failed to create Cyberdeck projection for user {ToPrettyString(user.Owner)}, or it was deleted incorrectly at some time!");
             return;
@@ -468,7 +473,8 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     /// </summary>
     private void DetachFromProjection(Entity<CyberdeckUserComponent> user)
     {
-        if (user.Comp.ProjectionEntity == null || !user.Comp.InProjection)
+        if (user.Comp.ProjectionEntity == null
+            || !user.Comp.InProjection)
             return;
 
         RemComp<StationAiOverlayComponent>(user);
@@ -535,6 +541,13 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         DetachFromProjection(ent);
         args.Handled = true;
     }
+
+    #endregion
+
+    #region Other
+
+    private void BeforeSiliconHacked(Entity<SiliconComponent> ent, ref BeforeCyberdeckHackPlayerEvent args)
+        => args.PenaltyTime += ent.Comp.CyberdeckPenaltyTime;
 
     #endregion
 

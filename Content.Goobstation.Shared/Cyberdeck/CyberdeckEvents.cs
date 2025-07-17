@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
@@ -33,6 +34,11 @@ public sealed partial class CyberdeckVisionReturnEvent : InstantActionEvent;
 public sealed partial class CyberdeckHackDoAfterEvent : SimpleDoAfterEvent;
 
 /// <summary>
+/// Shows some info to user that clicked the alert.
+/// </summary>
+public sealed partial class CyberdeckInfoAlertEvent : BaseAlertEvent;
+
+/// <summary>
 /// Actually hacks a device. Subscribe to it to handle effects that happen
 /// after CyberdeckHackDoAfterEvent had run and after charges were taken from the user.
 /// </summary>
@@ -41,3 +47,9 @@ public sealed partial class CyberdeckHackDoAfterEvent : SimpleDoAfterEvent;
 /// </remarks>
 [ByRefEvent]
 public record struct CyberdeckHackDeviceEvent(EntityUid User, bool Refund = false);
+
+/// <summary>
+/// Raised on a player entity before Cyberdeck decides to hack something in it.
+/// </summary>
+[ByRefEvent]
+public record struct BeforeCyberdeckHackPlayerEvent(TimeSpan PenaltyTime);

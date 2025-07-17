@@ -7,6 +7,7 @@ using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Shared.Cyberdeck;
 using Content.Server.Atmos.Monitor.Components;
 using Content.Server.Atmos.Monitor.Systems;
+using Content.Server.Chat.Managers;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Light.Components;
@@ -17,12 +18,14 @@ using Content.Server.VendingMachines;
 using Content.Shared.Alert;
 using Content.Shared.Atmos.Monitor.Components;
 using Content.Shared.Charges.Components;
+using Content.Shared.Chat;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Explosion.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.VendingMachines;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Cyberdeck;
 
@@ -37,6 +40,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly VendingMachineSystem _vending = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
 
     public override void Initialize()
     {
@@ -48,6 +52,7 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         SubscribeLocalEvent<PoweredLightComponent, CyberdeckHackDeviceEvent>(OnLightHacked);
         SubscribeLocalEvent<PowerNetworkBatteryComponent, CyberdeckHackDeviceEvent>(OnPowerNetworkHacked);
         SubscribeLocalEvent<VendingMachineComponent, CyberdeckHackDeviceEvent>(OnVendingHacked);
+        SubscribeLocalEvent<CyberdeckUserComponent, CyberdeckInfoAlertEvent>(OnUserAlertClicked);
     }
 
     public override void Update(float frameTime)
@@ -133,6 +138,32 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
     private void OnVendingHacked(Entity<VendingMachineComponent> ent, ref CyberdeckHackDeviceEvent args)
         => _vending.EjectRandom(ent.Owner, true, true, ent.Comp);
+
+    private void OnUserAlertClicked(Entity<CyberdeckUserComponent> ent, ref CyberdeckInfoAlertEvent args)
+    {
+        if (args.Handled
+            || !TryComp<ActorComponent>(ent, out var actor)
+            || !TryComp<LimitedChargesComponent>(ent.Comp.ProviderEntity, out var chargesComp)
+            || !TryComp<AutoRechargeComponent>(ent.Comp.ProviderEntity, out var rechargeComp))
+            return;
+
+        var session = actor.PlayerSession;
+        var chargesAmount = Charges.GetCurrentCharges((ent.Comp.ProviderEntity.Value, chargesComp, rechargeComp));
+        var rechargeTime = (int) rechargeComp.RechargeDuration.TotalSeconds;
+        var msgStart =
+            Loc.GetString("cyberdeck-get-alert-info",
+                ("chargesAmount", chargesAmount),
+                ("rechargeTime", rechargeTime));
+
+        _chat.ChatMessageToOne(ChatChannel.Emotes,
+            msgStart,
+            msgStart,
+            EntityUid.Invalid,
+            false,
+            session.Channel);
+
+        args.Handled = true;
+    }
 
     /// <inheritdoc/>
     protected override void UpdateAlert(Entity<CyberdeckUserComponent> ent, bool doClear = false)

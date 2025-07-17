@@ -1,5 +1,5 @@
 alerts-cyberdeck-charges-name = Cyberdeck Charges
-alerts-cyberdeck-charges-desc = Shows how many charges you still have left for hacky things.
+alerts-cyberdeck-charges-desc = Charges regen on their own with time. Click on the alert to get more info!
 
 cyberdeck-station-ai-smite-verb = Interrupt Connection
 
@@ -9,3 +9,5 @@ cyberdeck-insufficient-charges-with-target = Need { $amount } more charges to ha
 
 cyberdeck-player-get-hacked = ERROR: SYSTEMS ARE INTERRUPTED BY UNKNOWN CONNECTION.
 cyberdeck-battery-get-hacked = {THE($target)} suddenly fills with sparks!
+
+cyberdeck-get-alert-info = [font size=12]Current amount of charges: { $chargesAmount }. New charge is being regenerated every { $rechargeTime } seconds.[/font]

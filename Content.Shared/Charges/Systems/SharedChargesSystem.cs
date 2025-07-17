@@ -17,6 +17,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Charges; // Goob edit
 using Content.Shared.Actions.Events;
 using Content.Shared.Charges.Components;
 using Content.Shared.Examine;
@@ -257,16 +258,3 @@ public abstract class SharedChargesSystem : EntitySystem
             entity.Comp1.MaxCharges);
     }
 }
-// Goob edit start
-public sealed class ChargesChangedEvent : EntityEventArgs
-{
-    public readonly int CurrentCharges;
-    public readonly int LastCharges;
-
-    public ChargesChangedEvent(int current, int last)
-    {
-        CurrentCharges = current;
-        LastCharges = last;
-    }
-}
-// Goob edit end

@@ -32,7 +32,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Cyberdeck.Components;
+using Content.Goobstation.Common.Cyberdeck.Components; // Goob edit
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -197,7 +197,7 @@ public abstract partial class SharedStationAiSystem
 
         if (!args.CanComplexInteract
             || !HasComp<StationAiHeldComponent>(args.User)
-            && !HasComp<CyberdeckUserComponent>(args.User)
+            && !HasComp<CyberdeckUserComponent>(args.User) // Goob edit
             || !args.CanInteract)
         {
             return;

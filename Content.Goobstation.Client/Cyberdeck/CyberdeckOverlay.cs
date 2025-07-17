@@ -35,10 +35,8 @@ public sealed class CyberdeckOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (!_entityManager.TryGetComponent(_playerManager.LocalEntity, out EyeComponent? eyeComp))
-            return;
-
-        if (args.Viewport.Eye != eyeComp.Eye)
+        if (!_entityManager.TryGetComponent(_playerManager.LocalEntity, out EyeComponent? eyeComp)
+            || args.Viewport.Eye != eyeComp.Eye)
             return;
 
         var viewport = args.WorldAABB;
@@ -46,7 +44,6 @@ public sealed class CyberdeckOverlay : Overlay
         var distance = args.ViewportBounds.Width;
 
         var time = (float) _timing.RealTime.TotalSeconds;
-
 
         var adjustedTime = time * PulseRate;
         float outerMaxLevel = 2.0f * distance;
