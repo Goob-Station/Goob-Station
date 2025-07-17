@@ -1,6 +1,3 @@
-# In the future, I want the prices of these extracts to fluctuate based on a marketplace attached to the database ent.
-# Think of it like how plort prices work in slime-rancher. =w=
-#
 # Also, maybe add weights to the bounties so higher-tier ones roll less? Might be needed.
 
 - type: xenobiologyBounty
