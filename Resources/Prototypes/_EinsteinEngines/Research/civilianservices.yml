@@ -27,7 +27,7 @@
   - ChittinTranslator
   - SiikMaasTranslator
   - MarishTranslator
-  - VoxTranslator
+  - NewKinPidginTranslator
   - SchechiTranslator
   position: -4, 4
   technologyPrerequisites:

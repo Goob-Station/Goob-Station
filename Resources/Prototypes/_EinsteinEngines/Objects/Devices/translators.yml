@@ -331,7 +331,7 @@
     - Marish
 
 - type: entity                      # taken from Floofstation
-  id: VoxTranslator
+  id: NewKinPidginTranslator
   parent: [ TranslatorPoweredBase ]
   name: Ka'rakk translator
   description: Interprets speech for, colloquially, Vox Pidgin. It almost sounds... Alive, inside. Atleast it takes batteries!
