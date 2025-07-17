@@ -12551,3 +12551,17 @@ Entries:
       message: Ported carp goldfish (non-hostile).
   id: 1384
   time: '2025-07-17T07:12:35.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Holofans now work like in SS13, you can place up to 6 at once with
+        charges reclaimed by removing unused holofans.
+    - type: Tweak
+      message: >-
+        You can also recall and restore all holofans by using the projector in
+        hand.
+    - type: Remove
+      message: Removed the battery requirement from holofan projectors.
+  id: 1385
+  time: '2025-07-17T07:13:20.0000000+00:00'
