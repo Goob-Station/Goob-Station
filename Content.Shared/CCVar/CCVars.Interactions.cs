@@ -27,7 +27,7 @@ public sealed partial class CCVars
     ///     Toggles whether the walking key is a toggle or a held key.
     /// </summary>
     public static readonly CVarDef<bool> ToggleWalk =
-        CVarDef.Create("control.toggle_walk", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("control.toggle_walk", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Whether the player mob is walking by default instead of running.
