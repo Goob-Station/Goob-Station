@@ -12543,3 +12543,11 @@ Entries:
       message: SmartFridge now really has functionality
   id: 1383
   time: '2025-07-17T07:11:19.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Pets are now in the loadout.
+    - type: Add
+      message: Ported carp goldfish (non-hostile).
+  id: 1384
+  time: '2025-07-17T07:12:35.0000000+00:00'
