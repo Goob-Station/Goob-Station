@@ -12354,3 +12354,11 @@ Entries:
         be put in your hand if possible, rather than just dropped.
   id: 1363
   time: '2025-07-17T06:05:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Insta stun abuse
+    - type: Tweak
+      message: Tweak stun batons to require sprite clicking to be effective
+  id: 1364
+  time: '2025-07-17T06:06:08.0000000+00:00'
