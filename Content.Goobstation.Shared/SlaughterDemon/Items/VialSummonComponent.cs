@@ -15,7 +15,7 @@ public sealed partial class VialSummonComponent : Component
     ///  The entity who summoned an entity from the vial
     /// </summary>
     [DataField]
-    public EntityUid Summoner;
+    public EntityUid? Summoner;
 
     /// <summary>
     ///  Ensures we get the objective only for that wizard.

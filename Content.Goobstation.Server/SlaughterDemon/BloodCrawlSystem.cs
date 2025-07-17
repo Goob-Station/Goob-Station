@@ -86,7 +86,7 @@ public sealed class BloodCrawlSystem : EntitySystem
         _actions.StartUseDelay(component.ActionEntity);
     }
 
-    # region Helper Functions
+    #region Helper Functions
 
     /// <summary>
     /// Detects if an entity is standing on blood, or not.
@@ -100,16 +100,10 @@ public sealed class BloodCrawlSystem : EntitySystem
         foreach (var entity in ents)
         {
             if (!_puddleQuery.TryComp(entity, out var puddle))
-            {
-                Logger.Warning($"Failed to resolve component for puddle {ToPrettyString(entity)}");
                 continue;
-            }
 
             if (!_solutionContainerSystem.ResolveSolution(entity, puddle.SolutionName, ref puddle.Solution, out var solution))
-            {
-                Logger.Info($"Resolving solution failed");
                 continue;
-            }
 
             foreach (var reagent in solution.Contents)
             {
@@ -120,7 +114,7 @@ public sealed class BloodCrawlSystem : EntitySystem
         return false;
     }
 
-    # endregion
+    #endregion
 }
 
 

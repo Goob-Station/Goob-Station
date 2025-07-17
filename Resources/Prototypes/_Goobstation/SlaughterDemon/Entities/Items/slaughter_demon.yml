@@ -9,8 +9,6 @@
     state: vial
   - type: Item
     size: Tiny
-    sprite: _Goobstation/Wizard/Objects/vials.rsi
-    state: vial
   - type: AddGameRuleOnUse
     rule: SlaughterDemonSummon
   - type: VialSummon
@@ -26,7 +24,5 @@
     state: vialtickles
   - type: Item
     size: Tiny
-    sprite: _Goobstation/Wizard/Objects/vials.rsi
-    state: vialtickles
   - type: AddGameRuleOnUse
     rule: LaughterDemonSummon

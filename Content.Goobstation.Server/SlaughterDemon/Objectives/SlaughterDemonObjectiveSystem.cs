@@ -105,7 +105,10 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
             if (comp.Used)
                 continue;
 
-            _target.SetTarget(ent.Owner, comp.Summoner, targetObjective);
+            if (comp.Summoner == null)
+                continue;
+
+            _target.SetTarget(ent.Owner, comp.Summoner.Value, targetObjective);
             comp.Used = true;
             return;
         }
