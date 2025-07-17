@@ -12471,3 +12471,15 @@ Entries:
       message: WSPR is full-auto now.
   id: 1375
   time: '2025-07-17T06:53:09.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Surgery now requires to hold the tool in the active hand.
+    - type: Fix
+      message: >-
+        Performing surgery through clothes now applies speed modifiers and plays
+        sounds.
+    - type: Fix
+      message: Yowies are not affected by poison damage from surgery anymore.
+  id: 1376
+  time: '2025-07-17T06:54:49.0000000+00:00'
