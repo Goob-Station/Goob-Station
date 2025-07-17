@@ -19,7 +19,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.IO;
 using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Instruments;
