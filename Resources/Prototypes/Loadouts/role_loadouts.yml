@@ -112,6 +112,7 @@
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -127,6 +128,7 @@
   - CaptainOuterClothing
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -149,6 +151,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -187,6 +190,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -200,6 +204,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -219,6 +224,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -241,6 +247,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -260,6 +267,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -280,6 +288,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -303,6 +312,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -326,6 +336,7 @@
   - Survival
   - Trinkets
   - JanitorPlunger
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -347,6 +358,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -370,6 +382,7 @@
   - Glasses
   - SurvivalClown
   - Trinkets
+
   - PassengerJumpsuit
   - PassengerNeck
   - PassengerHat
@@ -378,6 +391,8 @@
   - PassengerOuterClothing
   - PassengerShoes
   - PassengerBelt
+  - Animals
+
 
 - type: roleLoadout
   id: JobMime
@@ -401,6 +416,7 @@
   - PassengerOuterClothing
   - PassengerShoes
   - PassengerBelt
+  - Animals
 
 - type: roleLoadout
   id: JobMusician
@@ -413,6 +429,7 @@
   - Survival
   - Trinkets
   - Instruments
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -437,6 +454,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -460,6 +478,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -481,6 +500,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -504,6 +524,7 @@
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -521,6 +542,7 @@
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -543,6 +565,7 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -564,6 +587,7 @@
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -589,6 +613,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -614,6 +639,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -633,6 +659,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -658,6 +685,7 @@
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
+  - Animals
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -674,6 +702,7 @@
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
+  - Animals
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -691,6 +720,7 @@
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
+  - Animals
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -705,6 +735,7 @@
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
+  - Animals
   - GroupSpeciesBreathToolSecurity
   - PassengerJumpsuit
   - CommonBackpack
@@ -725,6 +756,7 @@
   - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolSecurity
 
 
@@ -744,6 +776,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
   - PassengerJumpsuit
   - CommonBackpack
@@ -768,6 +801,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
   - PassengerJumpsuit
   - CommonBackpack
@@ -786,6 +820,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
   - PassengerJumpsuit
   - CommonBackpack
@@ -808,6 +843,7 @@
   - MedicalShoes
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
   - PassengerJumpsuit
   - CommonBackpack
@@ -831,6 +867,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
   - PassengerJumpsuit
   - CommonBackpack
@@ -849,6 +886,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -868,6 +906,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
@@ -887,6 +926,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - CommonBackpack
@@ -907,6 +947,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - PassengerJumpsuit
   - PassengerNeck
