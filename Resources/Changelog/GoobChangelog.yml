@@ -12593,3 +12593,17 @@ Entries:
       message: Faxing critters now sometimes succeeds. Always if lubed.
   id: 1388
   time: '2025-07-17T07:25:55.0000000+00:00'
+- author: Orion-416
+  changes:
+    - type: Add
+      message: >-
+        Security now gets a 40mm slug, and 3 beanbag shells in the riot launcher
+        safe, make it count.
+    - type: Add
+      message: >-
+        Added 5 new 40mm ammo types, Beanbag, Birdshot, 00 Buckshot, 0000
+        Buckshot, and Slug.
+    - type: Add
+      message: The china lake bundle now also contains 2 40mm Slugs.
+  id: 1389
+  time: '2025-07-17T07:35:16.0000000+00:00'
