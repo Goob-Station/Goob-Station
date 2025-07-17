@@ -12529,3 +12529,11 @@ Entries:
         else they say)!
   id: 1381
   time: '2025-07-17T07:08:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed more NPC movement jank.
+    - type: Fix
+      message: NPCs will now chase and attack you in space. Fear the fish.
+  id: 1382
+  time: '2025-07-17T07:09:57.0000000+00:00'
