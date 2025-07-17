@@ -12689,3 +12689,11 @@ Entries:
       message: Rustwalker ai and more movespeed
   id: 1399
   time: '2025-07-17T08:02:09.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Tweak
+      message: You now earn increased Goobcoin on servers with fewer players
+    - type: Tweak
+      message: You now earn reduced Goobcoin when a round is ended prematurely
+  id: 1400
+  time: '2025-07-17T08:37:41.0000000+00:00'
