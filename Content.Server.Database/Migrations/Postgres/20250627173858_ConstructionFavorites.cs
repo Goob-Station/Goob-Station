@@ -15,7 +15,8 @@ namespace Content.Server.Database.Migrations.Postgres
                 name: "construction_favorites",
                 table: "preference",
                 type: "text[]",
-                nullable: false);
+                nullable: false,
+                defaultValue: new string[0]);
         }
 
         /// <inheritdoc />
