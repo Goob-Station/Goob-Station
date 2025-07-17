@@ -131,6 +131,26 @@
     Plastic: 50
     Gold: 50
 
+- type: latheRecipe
+  id: SchechiTranslator
+  result: SchechiTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
+- type: latheRecipe
+  id: NewKinPidginTranslator
+  result: NewKinPidginTranslator
+  completetime: 2
+  materials:
+    Steel: 500
+    Glass: 100
+    Plastic: 50
+    Gold: 50
+
 # Implanters
 - type: latheRecipe
   id: BasicGalaticCommonTranslatorImplanter
