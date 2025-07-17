@@ -34,7 +34,7 @@ public sealed class MidiStreamWrapper
         if (b == -1)
             throw new Exception("Unexpected end of stream");
 
-        return (byte)b;
+        return (byte) b;
     }
 
     /// <summary>
@@ -60,9 +60,9 @@ public sealed class MidiStreamWrapper
     public uint ReadUInt32()
     {
         var bytes = ReadBytes(4);
-        return (uint)((bytes[0] << 24) |
+        return (uint) ((bytes[0] << 24) |
                       (bytes[1] << 16) |
-                      (bytes[2] << 8)  |
+                      (bytes[2] << 8) |
                       (bytes[3]));
     }
 
@@ -72,7 +72,7 @@ public sealed class MidiStreamWrapper
     public ushort ReadUInt16()
     {
         var bytes = ReadBytes(2);
-        return (ushort)((bytes[0] << 8) | bytes[1]);
+        return (ushort) ((bytes[0] << 8) | bytes[1]);
     }
 
     public string ReadString(int count)
@@ -91,7 +91,7 @@ public sealed class MidiStreamWrapper
         while (true)
         {
             var b = ReadByte();
-            value = (value << 7) | (uint)(b & 0x7f); // Shift current value and add 7 bits
+            value = (value << 7) | (uint) (b & 0x7f); // Shift current value and add 7 bits
             // value << 7, make room for the next 7 bits
             // b & 0x7F mask out the high bit to just get the 7 bit payload
             if ((b & 0x80) == 0)

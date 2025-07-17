@@ -119,8 +119,8 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         if (!TryComp(uid, out InstrumentComponent? instrument))
             return;
 
-        if(value)
-            instrument.Renderer?.SendMidiEvent(RobustMidiEvent.AllNotesOff((byte)channel, 0), false);
+        if (value)
+            instrument.Renderer?.SendMidiEvent(RobustMidiEvent.AllNotesOff((byte) channel, 0), false);
 
         RaiseNetworkEvent(new InstrumentSetFilteredChannelEvent(GetNetEntity(uid), channel, value));
     }
@@ -191,8 +191,8 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
 
         for (int i = 0; i < RobustMidiEvent.MaxChannels; i++)
         {
-            if(instrument.FilteredChannels[i])
-                instrument.Renderer.SendMidiEvent(RobustMidiEvent.AllNotesOff((byte)i, 0));
+            if (instrument.FilteredChannels[i])
+                instrument.Renderer.SendMidiEvent(RobustMidiEvent.AllNotesOff((byte) i, 0));
         }
 
         if (!instrument.AllowProgramChange)
@@ -270,7 +270,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
 
         instrument.MidiEventBuffer.Clear();
 
-        var tick = instrument.Renderer.SequencerTick-1;
+        var tick = instrument.Renderer.SequencerTick - 1;
 
         instrument.MidiEventBuffer.Add(RobustMidiEvent.SystemReset(tick));
         instrument.Renderer.PlayerTick = playerTick;
@@ -388,7 +388,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
             instrument.SequenceStartTick = midiEv.MidiEvent.Min(x => x.Tick) - 1;
         }
 
-        var sqrtLag = MathF.Sqrt((_netManager.ServerChannel?.Ping ?? 0)/ 1000f);
+        var sqrtLag = MathF.Sqrt((_netManager.ServerChannel?.Ping ?? 0) / 1000f);
         var delay = (uint) (renderer.SequencerTimeScale * (.2 + sqrtLag));
         var delta = delay - instrument.SequenceStartTick;
 
@@ -411,7 +411,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
         for (uint i = 0; i < midiEvents.Count; i++)
         {
             // I am surprised this doesn't take uint...
-            var ev = midiEvents[(int)i];
+            var ev = midiEvents[(int) i];
 
             var scheduled = ev.Tick + instrument.SequenceDelay;
 
@@ -423,7 +423,7 @@ public sealed partial class InstrumentSystem : SharedInstrumentSystem
 
             // The order of events with the same timestamp is undefined in Fluidsynth's sequencer...
             // Therefore we add the event index to the scheduled time to ensure every event has an unique timestamp.
-            instrument.Renderer?.ScheduleMidiEvent(ev, scheduled+i, true);
+            instrument.Renderer?.ScheduleMidiEvent(ev, scheduled + i, true);
         }
     }
 

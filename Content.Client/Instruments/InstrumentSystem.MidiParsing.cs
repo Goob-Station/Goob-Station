@@ -27,7 +27,7 @@ public sealed partial class InstrumentSystem
         for (var index = 0; index < tracks.Length; index++)
         {
             var midiTrack = tracks[index];
-            if (midiTrack is { TrackName: null, ProgramName: null, InstrumentName: null})
+            if (midiTrack is { TrackName: null, ProgramName: null, InstrumentName: null })
                 continue;
 
             switch (midiTrack)
