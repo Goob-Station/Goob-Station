@@ -12445,3 +12445,13 @@ Entries:
         and revive them by dealing damage to them. bruh.
   id: 1372
   time: '2025-07-17T06:24:03.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Fix
+      message: >-
+        Gingerbread no longer take cold damage from temperature, and take cold
+        damage from weapons
+    - type: Remove
+      message: Gingerbread men
+  id: 1373
+  time: '2025-07-17T06:34:14.0000000+00:00'
