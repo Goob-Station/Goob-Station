@@ -86,6 +86,10 @@ ghost-role-information-conquest-name = Conquest
 ghost-role-information-conquest-description = This station was given orders, they were given time. They were given more leeway than most.
 ghost-role-information-conquest-rules = Prepare this station for the arrival of the Viltrum Empire.
 
+# Justice Persona Role
+justice-role-name = Justice Persona
+justice-role-description = Help the HOS carry out arrests by shouting phrases for them while they deliver Justice.
+
 # Token Roles
 
 ghost-role-information-description-token-generic = Don't take this role unless you redeemed the token!

@@ -123,6 +123,12 @@
     speechSounds: Bass
   - type: ReplacementAccent
     accent: gondola
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic # Replacement Accent will have to do for now until custom language.
+    understands:
+    - TauCetiBasic # Replacement Accent will have to do for now until custom language.
   - type: HTN
     rootTask:
       task: IdleCompound
@@ -243,6 +249,12 @@
     speechVerb: SmallMob
     speechSounds: Squeak
     allowedEmotes: ['Squeak']
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
   - type: MobState
   - type: DamageStateVisuals
     states:
@@ -363,6 +375,11 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: LanguageKnowledge # Einstein Engines - Language (prevent universal)
+    speaks:
+    - TauCetiBasic # Is sentient, should have TauCeti since it's the norm.
+    understands:
+    - TauCetiBasic
 
 
 - type: entity
@@ -459,6 +476,11 @@
         Slash: 10
   - type: Item
     size: Tiny
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic # Is sentient, should have TauCeti since it is norm.
+    understands:
+    - TauCetiBasic
 
 - type: entity
   parent: MobMouse
@@ -740,3 +762,10 @@
     attributes:
       proper: true
       gender: male
+
+    - type: LanguageKnowledge # Einstein Engines - Language
+      speaks:
+      - Dog
+      understands:
+      - Dog
+
