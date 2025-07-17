@@ -388,7 +388,7 @@
 - type: loadoutGroup
   id: PassengerJumpsuit
   name: loadout-group-passenger-jumpsuit
-  minLimit: 0
+  minLimit: 1
   exclusiveWith: INNERCLOTHING # Goobstation
   loadouts:
   - GreyJumpsuit

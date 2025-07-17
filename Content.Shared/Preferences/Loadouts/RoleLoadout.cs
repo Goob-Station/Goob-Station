@@ -139,6 +139,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         var groupRemove = new ValueList<string>();
         var protoManager = collection.Resolve<IPrototypeManager>();
         var configManager = collection.Resolve<IConfigurationManager>();
+        var exclusiveWith = new ValueList<SlotFlags>(); // Goobstation
 
         if (!protoManager.TryIndex(Role, out var roleProto))
         {
@@ -199,6 +200,19 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 groupRemove.Add(group);
                 continue;
             }
+
+            // Goobstation - Start
+            if (groupProto.ExclusiveWith is { } exclusive)
+            {
+                if (exclusiveWith.Contains(exclusive))
+                {
+                    groupRemove.Add(group);
+                    continue;
+                }
+
+                exclusiveWith.Add(exclusive);
+            }
+            // Goobstation - End
 
             var loadouts = groupLoadouts[..Math.Min(groupLoadouts.Count, groupProto.MaxLimit)];
 
@@ -291,7 +305,6 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
 
         var collection = IoCManager.Instance!;
         var roleProto = protoManager.Index(Role);
-        var exclusiveWith = new List<SlotFlags>();
 
         for (var i = roleProto.Groups.Count - 1; i >= 0; i--)
         {
@@ -316,13 +329,6 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                     if (loadouts.Count >= groupProto.MinLimit)
                         break;
 
-                    if (groupProto.ExclusiveWith is { } exclusive)
-                    {
-                        if (exclusiveWith.Contains(exclusive))
-                            break;
-
-                        exclusiveWith.Add(exclusive);
-                    }
 
                     if (!protoManager.TryIndex(protoId, out var loadoutProto))
                         continue;
