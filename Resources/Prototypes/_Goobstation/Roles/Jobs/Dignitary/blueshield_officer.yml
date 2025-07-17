@@ -28,8 +28,8 @@
 
 - type: job
   id: BlueshieldOfficer
-  name: Blueshield Officer
-  description: "Act as a bodyguard and advisor for Command and CentCom VIPs."
+  name: Red Astra Ranger
+  description: "Protect the crew, guard command, and assist in anyway you know how."
   playTimeTracker: JobBlueshieldOfficer
   requirements:
     - !type:DepartmentTimeRequirement
@@ -48,7 +48,7 @@
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"
   joinNotifyCrew: true
-  supervisors: job-supervisors-ntr-centcom
+  supervisors: job-supervisors-captain
   canBeAntag: false
   access:
   - Security
@@ -67,7 +67,7 @@
   - Cargo
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Go big, or go home.
+    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

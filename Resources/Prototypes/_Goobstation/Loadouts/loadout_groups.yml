@@ -81,6 +81,17 @@
   - BlueshieldOfficerBeret
   - BlueshieldOfficerHeadCowboy
   - BlueshieldOfficerGoidaHelmet
+  - RedAstraRangerCowboyHatA
+  - RedAstraRangerCowboyHatB
+  - RedAstraRangerReconBeret
+  - RedAstraRangerHelmet
+  - RedAstraRangerHelmetOld
+  - RedAstraRangerHelmetDesertRanger
+  - RedAstraRangerHelmetSpider
+  - RedAstraRangerHelmetFox
+  - RedAstraRangerHelmetModified
+  - RedAstraRangerHelmetElite
+  - RedAstraRangerHelmetEliteOld
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -90,6 +101,10 @@
   - BlueshieldOfficerSatchel
   - BlueshieldOfficerDuffel
   - BlueshieldOfficerMessenger
+  - RedAstraRangerBackpack
+  - RedAstraRangerBackpackNCR
+  - RedAstraRangerSatchel
+  - RedAstraRangerSatchelNCR
 
 - type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
@@ -98,6 +113,13 @@
   - BlueshieldOfficerInnerBlueshieldSuit
   - BlueshieldOfficerInnerBlueshieldSkirt
   - BlueshieldOfficerInnerBlueshieldShirt
+  - RedAstraRangerUniformCowboyBrown
+  - RedAstraRangerUniformCowboyGrey
+  - RedAstraRangerUniformDesertBDU
+  - RedAstraRangerUniformRangerBlue
+  - RedAstraRangerUniformRangerFlannel
+  - RedAstraRangerUniformRangerFlannelBlack
+  - RedAstraRangerUniformThaxton
 
 - type: loadoutGroup
   id: BlueshieldOfficerOuter
@@ -107,6 +129,15 @@
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
   - BlueshieldOfficerOuterBlueshieldCowboyVest
   - BlueshieldOfficerOuterWinterBlueshield
+  - RedAstraRangerArmorPatrol
+  - RedAstraRangerArmorCustomized
+  - RedAstraRangerArmorRecon
+  - RedAstraRangerArmorCoat
+  - RedAstraRangerArmorCombat
+  - RedAstraRangerArmorFox
+  - RedAstraRangerArmorSpider
+  - RedAstraRangerArmorWeathered
+  - RedAstraRangerArmorElite
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
@@ -114,6 +145,7 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerOuterBlueshieldMantle
+  - RedAstraRangerNeckPoncho
 
 - type: loadoutGroup
   id: BlueshieldOfficerMask
@@ -121,6 +153,13 @@
   minLimit: 0
   loadouts:
   - BlueshieldOfficerMaskLollypop
+  - RedAstraRangerMaskCombat
+  - RedAstraRangerMaskRiot
+  - RedAstraRangerMaskDesert
+  - RedAstraRangerMaskWeathered
+  - RedAstraRangerMaskSpider
+  - RedAstraRangerMaskElite
+  - RedAstraRangerMaskModified
 
 - type: loadoutGroup
   id: BlueshieldOfficerShoes

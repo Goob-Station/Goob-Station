@@ -17,13 +17,13 @@ loadout-group-ntr-jumpsuit = Nanotrasen Representative jumpsuit
 loadout-group-ntr-belt = Nanotrasen Representative belt
 loadout-group-ntr-shoes = Nanotrasen Representative shoes
 
-loadout-group-bso-head = Blueshield Officer head
-loadout-group-bso-backpack = Blueshield Officer backpack
-loadout-group-bso-jumpsuit = Blueshield Officer jumpsuit
-loadout-group-bso-mask = Blueshield Officer mask
-loadout-group-bso-outer = Blueshield Officer armor
-loadout-group-bso-neck = Blueshield Officer neck
-loadout-group-bso-shoes = Blueshield Officer shoes
+loadout-group-bso-head = Red Astra Ranger head
+loadout-group-bso-backpack = Red Astra Ranger backpack
+loadout-group-bso-jumpsuit = Red Astra Ranger jumpsuit
+loadout-group-bso-mask = Red Astra Ranger mask
+loadout-group-bso-outer = Red Astra Ranger armor
+loadout-group-bso-neck = Red Astra Ranger neck
+loadout-group-bso-shoes = Red Astra Ranger shoes
 
 loadout-group-nct-head = Nanotrasen Career Trainer head
 loadout-group-nct-backpack = Nanotrasen Career Trainer backpack

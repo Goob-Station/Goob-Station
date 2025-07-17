@@ -1,0 +1,23 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBeltRevolver
+  id: ClothingBeltRevolvervetfilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14WeaponRevolver45-70RangerSequoia
+        - id: N14BaseSpeedLoader45-70
+        - id: N14BaseSpeedLoader45-70
+        - id: N14BaseSpeedLoader45-70
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBeltRevolver
+  id: ClothingBeltRevolverdesertfilled
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14WeaponRevolver45-70Hunter
+        - id: N14BaseSpeedLoader45-70
+        - id: N14BaseSpeedLoader45-70
+        - id: N14BaseSpeedLoader45-70

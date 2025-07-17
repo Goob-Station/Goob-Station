@@ -151,6 +151,11 @@ selectable-set-blueshield-syringe-description =
     Perfect for healing allies or poisioning foes in a pinch.
     Includes: A combat injector, and several vials of medicine.
 
+selectable-set-red-astra-ranger-weapons-name = ranger set
+selectable-set-red-astra-ranger-weapons-description =
+    The biggest iron and a combat shotgun. Even in space Ol' Faithful finds you.
+    Includes: Hunting revolver, holster, speedloaders, a box of .45-70, combat shotgun, and two spare magazines
+
 # Blueshield hardsuits
 
 selectable-set-blueshield-hardsuit-light-name = armoured voidsuit

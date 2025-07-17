@@ -391,6 +391,19 @@
   content:
     - BoxCombatInjector
 
+- type: selectableSet
+  id: RARRangerWeapons
+  name: selectable-set-red-astra-ranger-weapons-name
+  description: selectable-set-red-astra-ranger-weapons-description
+  sprite:
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/hunt_revolver.rsi
+    state: icon
+  content:
+    - ClothingBeltRevolverdesertfilled
+    - MagazineBox45-70
+    - MagazineShotgun
+    - N14WeaponShotgunAuto
+
 # Blueshield hardsuits
 
 - type: selectableSet
