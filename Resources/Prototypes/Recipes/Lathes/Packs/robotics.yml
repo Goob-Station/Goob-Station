@@ -24,7 +24,6 @@
   - BorgModuleTool
   - BorgModuleCable
   - BorgModuleFireExtinguisher
-  - BorgModuleLanguage #Goobstation
 
 - type: latheRecipePack
   id: BorgLimbsStatic
