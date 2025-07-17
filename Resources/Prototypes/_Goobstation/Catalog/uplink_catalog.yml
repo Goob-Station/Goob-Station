@@ -329,17 +329,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkM90
-  name: uplink-m90-name
-  description: uplink-m90-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
-  productEntity: WeaponRifleM90
-  cost:
-    Telecrystal: 50
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkSyndicateDisabler
   name: uplink-syndicate-disabler-name
   description: uplink-syndicate-disabler-desc
@@ -1098,17 +1087,6 @@
   - UplinkAmmo
 
 # 弾薬
-- type: listing
-  id: UplinkRifleMag
-  name: uplink-rifle-mag-name
-  description: uplink-rifle-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
-  productEntity: MagazineRifle
-  cost:
-    Telecrystal: 5
-  categories:
-  - UplinkAmmo
-
 - type: listing
   id: UplinkCaselessRifleMag
   name: uplink-rifle-caseless-mag-name
