@@ -12370,3 +12370,9 @@ Entries:
         shitcode.
   id: 1365
   time: '2025-07-17T06:07:43.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new hairstyle for humans, "Poofed"
+  id: 1366
+  time: '2025-07-17T06:08:02.0000000+00:00'
