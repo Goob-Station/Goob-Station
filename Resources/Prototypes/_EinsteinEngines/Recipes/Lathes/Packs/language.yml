@@ -14,6 +14,8 @@
   - ChittinTranslator
   - SiikMaasTranslator
   - MarishTranslator
+  - VoxTranslator
+  - SchechiTranslator
 
 - type: latheRecipePack
   id: TranslatorImplanters
@@ -31,3 +33,5 @@
   - ChittinTranslatorImplanter
   - SiikMaasTranslatorImplanter
   - MarishTranslatorImplanter
+  - NewKinPidginTranslatorImplant
+  - SchechiTranslatorImplant

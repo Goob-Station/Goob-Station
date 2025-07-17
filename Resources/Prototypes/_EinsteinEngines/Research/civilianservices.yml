@@ -21,6 +21,9 @@
   - ChittinTranslator
   - SiikMaasTranslator
   - MarishTranslator
+  - VoxTranslator
+  - SchechiTranslator
+  
   position: -4, 4
   technologyPrerequisites:
   - AdvancedEntertainment
@@ -50,6 +53,8 @@
   - MarishTranslatorImplanter
   - AnimalTranslator
   - XenoTranslator
+  - NewKinPidginTranslatorImplant
+  - SchechiTranslatorImplant
   position: -4, 5
   technologyPrerequisites:
   - BasicTranslation

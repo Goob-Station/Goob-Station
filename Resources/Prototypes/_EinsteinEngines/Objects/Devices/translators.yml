@@ -335,8 +335,8 @@
     - TauCetiBasic
     - NewKinPidgin
     understood:
-    - NewKinPidgin
     - TauCetiBasic
+    - NewKinPidgin
     requires:
     - TauCetiBasic
     - NewKinPidgin

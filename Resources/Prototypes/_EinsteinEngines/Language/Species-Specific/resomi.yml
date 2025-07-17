@@ -5,7 +5,8 @@
   isVisibleLanguage: true
   speech:
     color: "#4DBFD9"
-    fontId: LeckerliOne
+    fontId: Schoolbell
+    fontSize: 14
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

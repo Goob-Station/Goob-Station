@@ -1,3 +1,11 @@
 - type: font
   id: NotoSansSC
   path: /Fonts/NotoSans/NotoSansSC-Regular.ttf
+
+- type: font
+  id: ChelseaMarket                                         # Used for vox font
+  path: /Fonts/_Goobstation/ChelseaMarket/ChelseaMarket.ttf
+
+- type: font
+  id: Schoolbell                                            # Used for resomi font
+  path: /Fonts/_Goobstation/Schoolbell/Schoolbell.ttf

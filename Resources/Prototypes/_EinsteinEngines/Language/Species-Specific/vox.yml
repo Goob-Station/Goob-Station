@@ -5,7 +5,8 @@
   isVisibleLanguage: true
   speech:
     color: "#a489a0"
-    fontId: LeckerliOne
+    fontId: ChelseaMarket
+    fontSize: 12
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

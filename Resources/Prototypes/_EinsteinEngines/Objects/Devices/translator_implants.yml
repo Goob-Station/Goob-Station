@@ -216,3 +216,33 @@
     - Marish
     requires:
     - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SchechiTranslatorImplant
+  name: schechi translator implant
+  description: An implant giving the ability to understand and speak Schechi.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Schechi
+    spoken:
+    - Schechi
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NewKinPidginTranslatorImplant
+  name: ka'rakk translator implant
+  description: An implant giving the ability to understand and speak Ka'rakk.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - NewKinPidgin
+    spoken:
+    - NewKinPidgin
+    requires:
+    - TauCetiBasic
