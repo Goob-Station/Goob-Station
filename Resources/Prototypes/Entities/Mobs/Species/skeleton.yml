@@ -101,6 +101,13 @@
       Male: Skeleton
       Female: Skeleton
       Unsexed: Skeleton
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - Calcic
+    understands:
+    - TauCetiBasic
+    - Calcic
   - type: SkeletonAccent
   - type: Fixtures
     fixtures:
