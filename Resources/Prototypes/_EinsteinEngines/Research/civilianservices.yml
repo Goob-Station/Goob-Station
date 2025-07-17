@@ -23,7 +23,6 @@
   - MarishTranslator
   - VoxTranslator
   - SchechiTranslator
-  
   position: -4, 4
   technologyPrerequisites:
   - AdvancedEntertainment
