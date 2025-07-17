@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -201,6 +202,8 @@
   - type: Tool
     qualities:
     - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: Unremoveable
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -212,6 +215,11 @@
   - type: Tag
     tags:
     - GodHand
+    - Crowbar
+  - type: ToolTileCompatible
+  - type: UseDelay
+    delay: 1
+  - type: Prying
 
 - type: entity
   parent: BaseNullrod
