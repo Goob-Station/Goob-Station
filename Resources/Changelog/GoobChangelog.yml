@@ -12637,3 +12637,9 @@ Entries:
       message: Added holopads, AI turrets and a TEG to Kettle.
   id: 1394
   time: '2025-07-17T07:50:23.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Tweaked submarine chembay and added departmental request computers.
+  id: 1395
+  time: '2025-07-17T07:50:54.0000000+00:00'
