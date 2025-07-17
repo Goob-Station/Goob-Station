@@ -78,10 +78,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "звичайна запальничка"
+  name: basic lighter
   parent: BaseItem
   id: Lighter
-  description: "Проста пластикова запальничка."
+  description: "A simple plastic cigarette lighter."
   components:
   - type: IgnitionSource
     ignited: false
@@ -181,10 +181,10 @@
     - Ignition
 
 - type: entity
-  name: "дешева запальничка"
+  name: cheap lighter
   parent: Lighter
   id: CheapLighter
-  description: "Небезпечно дешева пластикова запальничка, не обпечіть свої пальці!"
+  description: "A dangerously inexpensive plastic lighter, don't burn your thumb!"
   components:
   - type: Sprite
     sprite: Objects/Tools/lighters.rsi
@@ -210,10 +210,10 @@
         maxVol: 4 #uses less fuel than a welder, so this isnt as bad as it looks
 
 - type: entity
-  name: "запальничка фліппо"
+  name: flippo lighter
   parent: BaseItem
   id: FlippoLighter
-  description: "Міцна металева запальничка, служитиме досить довго."
+  description: "A rugged metal lighter, lasts quite a while."
   components:
   - type: Sprite
     sprite: Objects/Tools/lighters.rsi
@@ -304,10 +304,10 @@
     ignited: false
 
 - type: entity
-  name: "запальничка з гравіюванням фліппо"
+  name: flippo engraved lighter
   parent: FlippoLighter
   id: FlippoEngravedLighter
-  description: "Міцна золота запальничка, яка служитиме досить довго. Гравіювання не дають жодної тактичної переваги."
+  description: "A rugged golden lighter, lasts quite a while. Engravings serve no tactical advantage whatsoever."
   components:
   - type: Sprite
     sprite: Objects/Tools/lighters.rsi

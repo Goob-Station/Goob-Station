@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseItem
   id: MailMetricsCartridge
-  name: "картридж поштової метрики"
-  description: "Картридж, який відстежує статистику, пов'язану з доставкою пошти."
+  name: mail metrics cartridge
+  description: A cartridge that tracks statistics related to mail deliveries.
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/cartridge.rsi
@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseItem
   id: NanoChatCartridge
-  name: "Картридж NanoChat"
-  description: "Дозволяє надсилати повідомлення іншим людям!"
+  name: NanoChat cartridge
+  description: Lets you message other people!
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/cartridge.rsi

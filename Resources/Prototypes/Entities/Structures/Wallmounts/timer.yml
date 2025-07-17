@@ -35,8 +35,8 @@
 
 - type: entity
   id: SignalTimer
-  name: "таймер сигналу"
-  description: "Настінний таймер для надсилання синхронізованих сигналів речам."
+  name: signal timer
+  description: It's a timer for sending timed signals to things.
   placement:
     mode: SnapgridCenter
     snap:
@@ -92,8 +92,8 @@
 - type: entity
   id: ScreenTimer
   parent: SignalTimer
-  name: "таймер на екрані"
-  description: "Настінний таймер для надсилання часових сигналів предметам. Цей має екран для відображення тексту."
+  name: screen timer
+  description: It's a timer for sending timed signals to things, with a built-in screen.
   components:
   - type: SignalTimer
     canEditLabel: true
@@ -120,8 +120,8 @@
 - type: entity
   id: BrigTimer
   parent: ScreenTimer
-  name: "таймер гауптвахти"
-  description: "Настінний таймер для надсилання часових сигналів предметам. Цей таймер має екран для відображення тексту і вимагає доступу до системи безпеки для використання."
+  name: brig timer
+  description: It's a timer for brig cells.
   components:
   - type: AccessReader
     access: [["Security"]]
@@ -139,8 +139,8 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: TimerFrame
-  name: "рамка таймера"
-  description: "Будівельна рамка для таймера."
+  name: timer frame
+  description: A construction frame for a timer.
   placement:
     mode: SnapgridCenter
   components:

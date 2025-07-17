@@ -9,10 +9,10 @@
 # I don't want to clutter battery guns with these ones.
 
 - type: entity
-  name: "Гвинтівка \"Зачищувач станції\" X-8"
+  name: X-8 "Station Sweeper"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecurityRifle
-  description: "Складно розроблена гвинтівка, що стріляє зарядами чистого форону. Низька скорострільність, висока шкода."
+  description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
@@ -38,10 +38,10 @@
     price: 2500
 
 - type: entity
-  name: "ПП \"Різьборіз\" X-6"
+  name: X-6 "Threadripper"
   parent: [BaseWeaponBattery, BaseCommandContraband]
   id: WeaponHeadOfSecuritySMG
-  description: "Складно розроблений ПП, що стріляє зарядами чистого форону. Чудово підходить для ведення вогню на придушення."
+  description: An elaborately designed SMG, firing shots of pure phoron. Amazing for laying down suppressive fire.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
@@ -76,10 +76,10 @@
     price: 2500
 
 - type: entity
-  name: "Дробовик \"Фламберг\" X-12"
+  name: X-12 "Flamberge"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecurityShotgun
-  description: "Складно розроблений дробовик, що стріляє зарядами чистого форону. Створений для проламування оборони, і він чудово справляється з цією роботою."
+  description: An elaborately designed shotgun, firing shots of pure phoron. Built to break down defenses, and it does that job well.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
@@ -107,10 +107,10 @@
     price: 2500
 
 - type: entity
-  name: "Снайперська гвинтівка \"Ранот\" X-18"
+  name: X-18 "Ranought"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecuritySniper
-  description: "Складно розроблена снайперська гвинтівка, що стріляє зарядами чистого форону. Ви не захочете потрапити під її постріл."
+  description: An elaborately designed sniper rifle, firing shots of pure phoron. You won't want to get hit by this.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi

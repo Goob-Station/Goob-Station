@@ -8,7 +8,7 @@
 
 - type: body
   id: Mothroach
-  name: "тарганоміль"
+  name: "mothroach"
   root: chest
   slots:
     chest:

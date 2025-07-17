@@ -6,7 +6,7 @@
 
 - type: entity
   id: EntropicPlume
-  name: "ентропійний шлейф"
+  name: entropic plume
   categories: [ HideSpawnMenu ]
   components:
   - type: MovementIgnoreGravity
@@ -76,8 +76,8 @@
 - type: entity
   id: ShadowCloakEntity
   save: false
-  name: "тінь?"
-  description: "Щось є! Всупереч усякому глузду, ця тінь ховається в кутках вашого зору. Ви заплющуєте очі, але вона все одно там. Неважливо, як далеко ви біжите, вона там. У найчорнішій темряві, вона там."
+  name: a shadow?
+  description: Something is there! Against all reason, this shadow lurks at the corners of your vision. You close your eyes, but still, it is there. No matter how far you run, it is there. In pitchest black, it is there.
   components:
   - type: TimedDespawn
     lifetime: 185 # Time of the cloak to wear off + time of particles to disappear
