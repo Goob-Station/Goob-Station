@@ -4,6 +4,7 @@ alerts-cyberdeck-charges-desc = Charges regen on their own with time. Click on t
 cyberdeck-station-ai-smite-verb = Interrupt Connection
 
 cyberdeck-start-hacking = You start trying to hack {THE($target)}...
+cyberdeck-needs-free-hand = You need to select a free hand to start cyberdeck hacking!
 cyberdeck-insufficient-charges = Need { $amount } more charges to perform this action.
 cyberdeck-insufficient-charges-with-target = Need { $amount } more charges to hack { $target }.
 

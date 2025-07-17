@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Common.Cyberdeck.Components;
 
@@ -19,4 +20,7 @@ public sealed partial class CyberdeckHackableComponent : Component
 
     [DataField("delay"), AutoNetworkedField]
     public TimeSpan HackingTime = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public EntProtoId? AfterHackingEffect = "CyberdeckAfterHackingEffect";
 }

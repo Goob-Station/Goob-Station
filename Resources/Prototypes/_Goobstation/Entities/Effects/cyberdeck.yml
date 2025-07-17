@@ -1,0 +1,28 @@
+- type: entity
+  id: CyberdeckAfterHackingEffect
+  name: syndicate hacking trace
+  description: Seems like some device was hacked using illegal syndicate technologies.
+  components:
+  - type: Transform
+    anchored: true
+  - type: InteractionOutline
+  - type: Visibility
+    layer: 128
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: /Textures/Interface/Misc/ai_hud.rsi
+    state: apc_hacked
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: TimedDespawn
+    lifetime: 45.0

@@ -25,7 +25,7 @@
     - Normal
     - StationAiNetwork # Goobstation
   - type: Visibility
-    layer: 64
+    layer: 128
   - type: LagCompensation
   - type: StationAiWhitelist
   - type: NoFTL

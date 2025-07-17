@@ -16,7 +16,6 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
-using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
@@ -101,11 +100,11 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _actions.AddAction(uid, ref component.HackAction, component.HackActionId);
         _actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
 
-        if (_body.TryGetBodyOrganEntityComps<CyberdeckSourceComponent>(uid, out var organs)
-            || organs?.Count == 0)
+        if (!_body.TryGetBodyOrganEntityComps<CyberdeckSourceComponent>(uid, out var organs)
+            || organs.Count == 0)
             return;
 
-        component.ProviderEntity = organs?[0].Owner;
+        component.ProviderEntity = organs[0].Owner;
         UpdateAlert((uid, component));
     }
 
@@ -235,6 +234,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             return;
 
         args.Handled = true;
+
         EntityUid? target = null;
 
         // Starting with most specific cases, moving to most common ones for code safety
@@ -275,6 +275,12 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         if (!_hackQuery.TryComp(target, out var hackable))
             return;
 
+        if (_hands.GetActiveItem(uid) != null)
+        {
+            Popup.PopupClient(Loc.GetString("cyberdeck-needs-free-hand"), uid, uid);
+            return;
+        }
+
         // Make a popup and return if not enough charges
         if (component.ProviderEntity != null
             && !CheckCharges(uid, component.ProviderEntity.Value, hackable.Cost, target))
@@ -282,7 +288,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         // Balancing it via ref event that prevents you from hacking IPC batteries in 2 seconds.
         var beforeEv = new BeforeCyberdeckHackPlayerEvent();
-        RaiseLocalEvent(target.Value, ref beforeEv);
+        RaiseLocalEvent(args.Target, ref beforeEv);
         var penaltyTime = beforeEv.PenaltyTime;
 
         var ev = new DoAfterArgs(
@@ -354,6 +360,13 @@ public abstract class SharedCyberdeckSystem : EntitySystem
                 return;
 
             Charges.AddCharges(userComp.ProviderEntity.Value, ent.Comp.Cost);
+        }
+        else
+        {
+            // Spawn hacking effect entity that can be seen by the station AI
+            var pos = Transform(ent).Coordinates;
+            if (ent.Comp.AfterHackingEffect != null)
+                PredictedSpawnAtPosition(ent.Comp.AfterHackingEffect, pos);
         }
     }
 

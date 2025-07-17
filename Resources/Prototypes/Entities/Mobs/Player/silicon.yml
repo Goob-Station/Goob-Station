@@ -450,7 +450,7 @@
     - Normal
     - StationAiNetwork
   - type: Visibility
-    layer: 64
+    layer: 128
   # Goob edit end
   - type: Sprite
     sprite: Mobs/Silicon/station_ai.rsi
