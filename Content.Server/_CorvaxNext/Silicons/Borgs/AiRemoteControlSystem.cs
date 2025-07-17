@@ -10,6 +10,7 @@ using Content.Server.Radio.Components;
 using Content.Server.Silicons.Laws;
 using Content.Shared._CorvaxNext.Silicons.Borgs;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
+using Content.Server._EinsteinEngines.Language;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Silicons.Laws.Components;
@@ -27,6 +28,7 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     [Dependency] private readonly SiliconLawSystem _lawSystem = default!;
     [Dependency] private readonly SharedStationAiSystem _stationAiSystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
 
@@ -67,6 +69,15 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         if (TryComp(entity, out ActiveRadioComponent? activeRadio)
             && entity.Comp.PreviouslyActiveRadioChannels != null)
             activeRadio.Channels = [.. entity.Comp.PreviouslyActiveRadioChannels];
+
+        if (TryComp(entity, out LanguageKnowledgeComponent? languageKnowledge))
+        {
+            if (entity.Comp.PreviouslySpokenLanguages != null)
+                languageKnowledge.SpokenLanguages = [.. entity.Comp.PreviouslySpokenLanguages];
+            if (entity.Comp.PreviouslyUnderstoodLanguages != null)
+                languageKnowledge.UnderstoodLanguages = [.. entity.Comp.PreviouslyUnderstoodLanguages];
+            _language.UpdateEntityLanguages(entity.Owner);
+        }
 
         ReturnMindIntoAi(entity);
     }
@@ -114,6 +125,18 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
             if (TryComp(ai, out ActiveRadioComponent? stationAiActiveRadio))
                 activeRadio.Channels = [.. stationAiActiveRadio.Channels];
+        }
+
+        if (TryComp(entity, out LanguageKnowledgeComponent? languageKnowledge))
+        {
+            aiRemoteComp.PreviouslySpokenLanguages = [.. languageKnowledge.SpokenLanguages];
+            aiRemoteComp.PreviouslyUnderstoodLanguages = [.. languageKnowledge.UnderstoodLanguages];
+            if (TryComp(ai, out LanguageKnowledgeComponent? stationAiLanguageKnowledge))
+            {
+                languageKnowledge.SpokenLanguages = [.. stationAiLanguageKnowledge.SpokenLanguages];
+                languageKnowledge.UnderstoodLanguages = [.. stationAiLanguageKnowledge.UnderstoodLanguages];
+            }
+            _language.UpdateEntityLanguages(entity);
         }
 
         _mind.ControlMob(ai, entity);

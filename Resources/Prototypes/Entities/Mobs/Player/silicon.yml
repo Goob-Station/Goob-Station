@@ -425,6 +425,47 @@
       state: ai_female
   - type: NameIdentifier
     group: StationAi
+  # Einstein Engines - Language begin
+  - type: LanguageSpeaker
+  - type: LanguageKnowledge #Equivalent to PAI
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Sign # Should know it but not speak it, for obvious reasons.
+  # Einstein Engines - Language end
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

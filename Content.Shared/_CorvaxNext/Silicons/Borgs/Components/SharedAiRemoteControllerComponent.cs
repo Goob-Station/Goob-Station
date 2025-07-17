@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._EinsteinEngines.Language;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -17,6 +18,9 @@ public sealed partial class AiRemoteControllerComponent : Component
 
     [DataField] public string[]? PreviouslyTransmitterChannels;
     [DataField] public string[]? PreviouslyActiveRadioChannels;
+
+    [DataField] public List<ProtoId<LanguagePrototype>>? PreviouslySpokenLanguages;
+    [DataField] public List<ProtoId<LanguagePrototype>>? PreviouslyUnderstoodLanguages;
 
     [DataField] public EntProtoId BackToAiAction = "ActionBackToAi";
     [DataField] public EntityUid? BackToAiActionEntity;
