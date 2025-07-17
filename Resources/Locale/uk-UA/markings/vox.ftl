@@ -1,12 +1,12 @@
-marking-VoxBeak = Vox Дзьоб
-marking-VoxLArmScales = Vox Ліва рука
-marking-VoxLFootScales = Vox Ліва нога
-marking-VoxLHandScales = Vox Ліва рука
-marking-VoxLLegScales = Vox Ліва рука
-marking-VoxRArmScales = Vox Права рука
-marking-VoxRFootScales = Vox Права Нога
-marking-VoxRHandScales = Vox Права рука
+marking-VoxBeak = Стандартний дзьоб
+marking-VoxLArmScales = Луска на лівій руці
+marking-VoxLFootScales = Луска на лівій ступні
+marking-VoxLHandScales = Луска на лівій кисті
+marking-VoxLLegScales = Луска на лівій нозі
+marking-VoxRArmScales = Луска на правій руці
+marking-VoxRFootScales = Луска на правій ступні
+marking-VoxRHandScales = Луска на правій кисті
 marking-VoxRLegScale = Vox Права нога
-marking-VoxTail = Хвіст Vox Tail
+marking-VoxTail = Стандартний хвіст
 
-marking-VoxRLegScales = Права нога вокса
+marking-VoxRLegScales = Луска на правій нозі

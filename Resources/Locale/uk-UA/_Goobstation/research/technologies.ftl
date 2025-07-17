@@ -34,3 +34,5 @@ research-technology-mag-fed-smg = Пістолети-кулемети з жив�
 research-technology-mag-fed-sniper = Снайперські гвинтівки з живленням від енергокомірок
 research-technology-mag-fed-lmg = Легкі кулемети з живленням від енергокомірок
 research-technology-restraint = Технології стримування
+
+research-technology-advanced-power-generation = Просунута генерація енергії
