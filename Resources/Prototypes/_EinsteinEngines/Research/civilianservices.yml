@@ -56,10 +56,10 @@
   - ChittinTranslatorImplanter
   - SiikMaasTranslatorImplanter
   - MarishTranslatorImplanter
+  - SchechiTranslatorImplanter
+  - NewKinPidginTranslatorImplanter
   - AnimalTranslator
   - XenoTranslator
-  - NewKinPidginTranslatorImplanter
-  - SchechiTranslatorImplanter
   position: -4, 5
   technologyPrerequisites:
   - BasicTranslation
