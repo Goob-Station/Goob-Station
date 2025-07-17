@@ -1,8 +1,6 @@
-# Also, maybe add weights to the bounties so higher-tier ones roll less? Might be needed.
-
 - type: xenobiologyBounty
   id: BountyExtractAnyThree
-  pointsAwarded: 5000
+  pointsAwarded: 9000
   entries:
   - name: bounty-item-extract-any-three
     amount: 3
