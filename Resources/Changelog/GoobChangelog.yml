@@ -12625,3 +12625,9 @@ Entries:
       message: Players can now opt to "Run by default" in the control options.
   id: 1392
   time: '2025-07-17T07:42:43.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: mapping of Cluster Station
+  id: 1393
+  time: '2025-07-17T07:49:55.0000000+00:00'
