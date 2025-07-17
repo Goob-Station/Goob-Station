@@ -12655,3 +12655,25 @@ Entries:
       message: Extra marking slots for most species.
   id: 1396
   time: '2025-07-17T07:52:18.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: departmental eco to Meta
+    - type: Add
+      message: brig med to meta
+    - type: Add
+      message: PTL to meta
+    - type: Add
+      message: CC office to meta
+    - type: Add
+      message: AI turrets to meta
+    - type: Add
+      message: Public lavaland to meta
+    - type: Add
+      message: genpop to meta
+    - type: Add
+      message: xenobio infrastrucute to meta
+    - type: Add
+      message: holopads to meta
+  id: 1397
+  time: '2025-07-17T07:54:30.0000000+00:00'
