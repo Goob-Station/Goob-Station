@@ -12565,3 +12565,12 @@ Entries:
       message: Removed the battery requirement from holofan projectors.
   id: 1385
   time: '2025-07-17T07:13:20.0000000+00:00'
+- author: CerberusWolfie, Erisfiregamer1
+  changes:
+    - type: Add
+      message: >-
+        Added an Item Renderer Hologram to the Recharger, Turbo Recharger, and
+        Wall-Mounted Recharger. You can now see what you are recharging in the
+        form of a little hologram!
+  id: 1386
+  time: '2025-07-17T07:13:40.0000000+00:00'
