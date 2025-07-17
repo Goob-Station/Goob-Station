@@ -11933,3 +11933,663 @@ Entries:
       message: IPCs can now pilot, bump open doors, and host anomalies.
   id: 1311
   time: '2025-07-02T10:31:40.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Fix
+      message: >-
+        Changelings will longer be affected by beheading if they changed
+        identities (the 'immunity' was removed upon transforming)
+  id: 1312
+  time: '2025-07-07T14:38:03.0000000+00:00'
+- author: Rubin
+  changes:
+    - type: Fix
+      message: Compatibility mode crashing due to Holographic shader.
+  id: 1313
+  time: '2025-07-07T14:39:43.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Syndicate Disaster victims are returned to being Free Agents.
+  id: 1314
+  time: '2025-07-07T16:04:04.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Add
+      message: >-
+        Added a new neck item to tiders who can't afford the tider mantle,
+        shrug.
+  id: 1315
+  time: '2025-07-10T04:18:39.0000000+00:00'
+- author: Aviu, pheenty
+  changes:
+    - type: Add
+      message: 'Added 3 new martial arts: Ninjutsu, Capoeira and Dragon Kung Fu.'
+    - type: Add
+      message: Added martial art combo counter.
+    - type: Add
+      message: CQC can now parry any melee attack and can also snap necks.
+    - type: Add
+      message: Guidebook for martial arts.
+    - type: Add
+      message: Judo reworked, check guidebook for details.
+    - type: Remove
+      message: Removed ninja gloves stun (replaced with ninjutsu).
+  id: 1316
+  time: '2025-07-10T12:26:22.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Harpies no longer are locked to jumpskirts, and pants have fancy
+        displacement maps too.
+    - type: Fix
+      message: Fixed harpy flight visuals being kinda broken on other clients.
+    - type: Fix
+      message: 'Fixed modsuits being unusable by harpies and diona. '
+    - type: Fix
+      message: >-
+        Fixed harpy flight being broken and moving around at snail-speed. Thanks
+        wizden.
+    - type: Fix
+      message: Fixed harpy flight making secoffs scream "HE'S REACHING" too often.
+  id: 1317
+  time: '2025-07-11T20:06:54.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Millions must gulp
+  id: 1318
+  time: '2025-07-11T23:58:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Boomerang items will now hit you if your hand is occupied.
+    - type: Tweak
+      message: Boomerang items now have a maximum amount of hops they can make.
+    - type: Fix
+      message: Fixed boomerang jank.
+  id: 1319
+  time: '2025-07-12T08:48:25.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Stamina resistances work once again.
+  id: 1320
+  time: '2025-07-12T09:05:18.0000000+00:00'
+- author: vrilly
+  changes:
+    - type: Fix
+      message: Budget insulated gloves are no longer marked as contraband
+  id: 1321
+  time: '2025-07-13T05:02:41.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Remove
+      message: Maintenance doorjack
+  id: 1322
+  time: '2025-07-13T22:36:23.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Fix
+      message: Pun Pun has been reminded of his contract and is no longer a free agent.
+  id: 1323
+  time: '2025-07-13T22:38:17.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Tweak
+      message: >-
+        Compact defibrillator is now in the Advanced Treatment tech (T2 surgical
+        tools).
+  id: 1324
+  time: '2025-07-13T22:39:32.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: Crew borgs are no longer immune to various mobs.
+  id: 1325
+  time: '2025-07-13T22:41:37.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: AI is has crewsimov roundstart.
+  id: 1326
+  time: '2025-07-13T22:43:10.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: >-
+        The Gorlex Hypospray has a reduced cooldown between injections. Heal to
+        your heart's content.
+  id: 1327
+  time: '2025-07-13T22:46:16.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: >-
+        You can no longer call the shuttle once cosmic cult reaches tier 2 or
+        above.
+    - type: Tweak
+      message: >-
+        Siphoning no longer informs the target that they feel numb. Pay
+        attention to your health if you wish to continue metagaming.
+    - type: Add
+      message: >-
+        You can now convert dead people into the cosmic cult so long as their
+        corpses are still fresh.
+    - type: Tweak
+      message: >-
+        Being converted into the cosmic cult now fully heals you, rather than
+        doing a partial heal as it used to. It also revives you, if you were
+        dead.
+    - type: Tweak
+      message: Null Glare is slightly less bad.
+    - type: Fix
+      message: Siphoning no longer deals 90 damage.
+    - type: Tweak
+      message: >-
+        Siphoning damage now applies over a larger amount of time, and no longer
+        deals cold damage.
+    - type: Tweak
+      message: While empowered, you gain double the entropy from siphoning.
+  id: 1328
+  time: '2025-07-13T22:49:50.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Remove
+      message: Removed roundstart nailguns.
+  id: 1329
+  time: '2025-07-13T22:51:15.0000000+00:00'
+- author: Avalon-Proto
+  changes:
+    - type: Tweak
+      message: Mantis blades now cut more than stab, and do more slash than pierce
+  id: 1330
+  time: '2025-07-13T22:53:04.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Fixed mislabelled rule on "Rolplay"
+  id: 1331
+  time: '2025-07-13T22:55:56.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Cyber eyes work now
+  id: 1332
+  time: '2025-07-13T22:57:10.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Godhand crowbar utility works now
+  id: 1333
+  time: '2025-07-13T22:59:27.0000000+00:00'
+- author: PAFFhassoocks
+  changes:
+    - type: Tweak
+      message: Fixed BSO's hardsuit not appearing in their locker
+  id: 1334
+  time: '2025-07-13T23:00:01.0000000+00:00'
+- author: PAFFhassoocks
+  changes:
+    - type: Tweak
+      message: BSOs revolver kit now hits hard.
+  id: 1335
+  time: '2025-07-13T23:01:15.0000000+00:00'
+- author: Moony33
+  changes:
+    - type: Fix
+      message: >-
+        Fixed jumpskirts texture being ugly while wearing winter jackboots. Drip
+        wins yet again
+  id: 1336
+  time: '2025-07-13T23:02:26.0000000+00:00'
+- author: ImHoks
+  changes:
+    - type: Add
+      message: ERT Medical Officer now gets a medical beam gun.
+  id: 1337
+  time: '2025-07-13T23:02:41.0000000+00:00'
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Made zombies move 5% slower than humans, from 5% faster previously.
+        [font size=3]what the fuck I didn't know left for dead had runner
+        zombies[/font]
+  id: 1338
+  time: '2025-07-13T23:04:17.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Tweak
+      message: >-
+        Contractor baton attack rate increased (1 -> 1.25) and the use delay
+        when active has been decreased (2.5 -> 0.5)
+  id: 1339
+  time: '2025-07-13T23:12:01.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: You can have a spider friend now!
+  id: 1340
+  time: '2025-07-13T23:17:36.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: Assistants have maintenance access again
+    - type: Tweak
+      message: Assistants have their playtime limit removed
+  id: 1341
+  time: '2025-07-13T23:20:08.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed Resomi gasp and deathgasp not working.
+  id: 1342
+  time: '2025-07-14T08:04:05.0000000+00:00'
+- author: AgentePanela
+  changes:
+    - type: Tweak
+      message: Open remote devices action icon.
+  id: 1343
+  time: '2025-07-14T08:12:35.0000000+00:00'
+- author: pheenty, jimmy12or, gentlebutter
+  changes:
+    - type: Add
+      message: Added plant BoH and plant box. Like ore BoH and ore box, but for plants.
+    - type: Tweak
+      message: You can now dump plant bags deirectly into biogenerators.
+    - type: Tweak
+      message: Mutated plants can now contain more random chemicals.
+  id: 1344
+  time: '2025-07-14T08:26:40.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: >-
+        Changed some values from the ratking to make it slightly better at what
+        it does, without directly buffing its combat stats.
+  id: 1345
+  time: '2025-07-14T08:27:22.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer have paradox clones of nor revolutionize Gemini
+        clones.
+    - type: Fix
+      message: You (Hopefully) can no longer have paradox clones of the station AI.
+  id: 1346
+  time: '2025-07-14T08:28:49.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Fix
+      message: Modsuits no longer drop suit items when equipped or unequipped
+  id: 1347
+  time: '2025-07-14T08:50:39.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Dramatically improved performance of the flammable system.
+  id: 1348
+  time: '2025-07-14T08:58:32.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Fix
+      message: Made some performance improvements to the Holopad system.
+  id: 1349
+  time: '2025-07-14T08:59:17.0000000+00:00'
+- author: sprkl
+  changes:
+    - type: Add
+      message: Added Cooing emote to Harpies. You can now Coo with 5 variations!
+  id: 1350
+  time: '2025-07-14T09:00:26.0000000+00:00'
+- author: ARMOK
+  changes:
+    - type: Remove
+      message: Syringes cannot combat mode inject anymore.
+    - type: Tweak
+      message: >-
+        Syringes do not inject on embed anymore without being shot from a
+        syringe gun.
+  id: 1351
+  time: '2025-07-14T09:10:01.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Rusk sickness made weaker overall
+  id: 1352
+  time: '2025-07-14T09:13:27.0000000+00:00'
+- author: Chuds
+  changes:
+    - type: Remove
+      message: Removed TC Miners.
+  id: 1353
+  time: '2025-07-14T09:21:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Shuttle max speed is now properly 60 again.
+    - type: Fix
+      message: Space is now frictionless again.
+  id: 1354
+  time: '2025-07-14T09:22:20.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Tweak
+      message: PTL no longer constantly emits rads.
+    - type: Tweak
+      message: Increased max draw of PTL. (1MJ -> 5MJ)
+  id: 1355
+  time: '2025-07-14T09:34:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed entities sometimes being in eternal fake fire.
+  id: 1356
+  time: '2025-07-15T19:46:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Heretic abilities are now path locked, e.g. you cant get Ashen Passage
+        as a void heretic now. General/side knowledge is still fair game.
+  id: 1357
+  time: '2025-07-16T14:13:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the omnimed tool, moth cloak and the 5 gorillion slot machine
+        medkits in Brigmed locker. Now they get a normal surgery duffel bag and
+        an o2 medkit.
+  id: 1358
+  time: '2025-07-16T14:14:43.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Fix
+      message: Lube foam now creates lube.
+  id: 1359
+  time: '2025-07-17T05:56:42.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Fix
+      message: Abductors have names again.
+  id: 1360
+  time: '2025-07-17T05:57:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Zombies can no longer use the Gemini projector.
+    - type: Fix
+      message: You can no longer clone Geminis.
+    - type: Fix
+      message: Geminis can no longer sell their soul.
+    - type: Fix
+      message: Geminis can no longer be polymorphed.
+    - type: Fix
+      message: IPC Geminis now gain the proper encryption keys, and do not need power.
+  id: 1361
+  time: '2025-07-17T06:01:25.0000000+00:00'
+- author: Durk
+  changes:
+    - type: Tweak
+      message: You can zoom in/out on the research console now
+  id: 1362
+  time: '2025-07-17T06:02:16.0000000+00:00'
+- author: diatomic-ge
+  changes:
+    - type: Fix
+      message: >-
+        Slime people no longer have items such as lighters inserted into their
+        internal inventories or dropped when toggled.
+    - type: Fix
+      message: >-
+        Toggling items such as welding tools in pockets, if it no longer fits,
+        will now either hand you the item, or drop it.
+    - type: Tweak
+      message: >-
+        Toggled items which no longer fit in their former storage container will
+        be put in your hand if possible, rather than just dropped.
+  id: 1363
+  time: '2025-07-17T06:05:04.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Insta stun abuse
+    - type: Tweak
+      message: Tweak stun batons to require sprite clicking to be effective
+  id: 1364
+  time: '2025-07-17T06:06:08.0000000+00:00'
+- author: SolsticeOfTheWinter, SolStar2
+  changes:
+    - type: Fix
+      message: >-
+        You can no longer send people to the shadow realm via polymorph
+        shitcode.
+  id: 1365
+  time: '2025-07-17T06:07:43.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added a new hairstyle for humans, "Poofed"
+  id: 1366
+  time: '2025-07-17T06:08:02.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Add
+      message: >-
+        Cultists that were empowered by malign rifts get a 15% boost to their
+        speed.
+    - type: Add
+      message: Vacuous Lance will now return to the user upon being thrown.
+    - type: Remove
+      message: Vacuous Lance will no longer embed on hit.
+    - type: Tweak
+      message: >-
+        Cold damage added to the various Cosmic Cult weapons (asphyxiation
+        damage reduced to compensate)
+    - type: Tweak
+      message: >-
+        Vacuous Lance throw damage halved (to compensate for it returning to the
+        user)
+  id: 1367
+  time: '2025-07-17T06:09:00.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Add
+      message: >-
+        Nanotrasen has added a Persona module to Justice. HOS' sword can now
+        yell obscenities at criminals while they're being beat up.
+    - type: Tweak
+      message: The Syndicate are now interested in stealing your fancy talking sword.
+  id: 1368
+  time: '2025-07-17T06:11:21.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Fix
+      message: >-
+        Vox once again heal small amounts of poison damage. No more medbay
+        visits just to eat or drink.
+  id: 1369
+  time: '2025-07-17T06:14:45.0000000+00:00'
+- author: Baptr0b0t
+  changes:
+    - type: Tweak
+      message: Nerfed CQC
+  id: 1370
+  time: '2025-07-17T06:17:25.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: His Grace has received a buff.
+  id: 1371
+  time: '2025-07-17T06:22:31.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Remove
+      message: Removed damage cap from Changelings.
+    - type: Tweak
+      message: >-
+        The damage-time scaling caps for changelings' stasis were halved.
+        (Lowest 30s -> 15s, Highest 90s -> 45s, Dead 120s -> 60s)
+    - type: Tweak
+      message: >-
+        The damage scaling logic for changeling's stasis was changed. (now
+        current damage (divided by crit threshold) multiplied by highest stasis
+        time)
+    - type: Fix
+      message: >-
+        You should no longer be able to kick a Changeling out of their stasis
+        and revive them by dealing damage to them. bruh.
+  id: 1372
+  time: '2025-07-17T06:24:03.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Fix
+      message: >-
+        Gingerbread no longer take cold damage from temperature, and take cold
+        damage from weapons
+    - type: Remove
+      message: Gingerbread men
+  id: 1373
+  time: '2025-07-17T06:34:14.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Tweak
+      message: Non cultists now take more damage when using cult weapons.
+  id: 1374
+  time: '2025-07-17T06:35:28.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Replaced M90 with the upstream's new Estoc. It is burst-fire and has a
+        scope.
+    - type: Tweak
+      message: WSPR is full-auto now.
+  id: 1375
+  time: '2025-07-17T06:53:09.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Surgery now requires to hold the tool in the active hand.
+    - type: Fix
+      message: >-
+        Performing surgery through clothes now applies speed modifiers and plays
+        sounds.
+    - type: Fix
+      message: Yowies are not affected by poison damage from surgery anymore.
+  id: 1376
+  time: '2025-07-17T06:54:49.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Add
+      message: Now you can choose different borg chassis sprites.
+  id: 1377
+  time: '2025-07-17T06:55:42.0000000+00:00'
+- author: the biggest bruh
+  changes:
+    - type: Add
+      message: >-
+        Fleshmend has received a rework. (tweaked healing, visual effects and
+        more)
+  id: 1378
+  time: '2025-07-17T07:00:51.0000000+00:00'
+- author: bebright
+  changes:
+    - type: Add
+      message: Added wooden wand.
+  id: 1379
+  time: '2025-07-17T07:04:07.0000000+00:00'
+- author: THE SWAP
+  changes:
+    - type: Tweak
+      message: Different borg types now have unique starting laws.
+  id: 1380
+  time: '2025-07-17T07:06:21.0000000+00:00'
+- author: CerberusWolfie, FoxxoTrystan, Mnemotechnician, VMSolidus, Timfa2112, Skubman
+  changes:
+    - type: Add
+      message: Added Languages from Einstein Engines.
+    - type: Add
+      message: Rodentia can understand Mice!
+    - type: Add
+      message: Moths can understand Mothroaches!
+    - type: Tweak
+      message: Everybody has an innate language and Tau-Ceti Basic!
+    - type: Tweak
+      message: >-
+        Blob units can now talk to each other in Blob language locally without
+        using Blobmind.
+    - type: Remove
+      message: >-
+        (Because of Languages) Abductors cannot call you shitsec (or anything
+        else they say)!
+  id: 1381
+  time: '2025-07-17T07:08:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed more NPC movement jank.
+    - type: Fix
+      message: NPCs will now chase and attack you in space. Fear the fish.
+  id: 1382
+  time: '2025-07-17T07:09:57.0000000+00:00'
+- author: sowelipililimute, Whatstone and Will-Oliver-Br
+  changes:
+    - type: Tweak
+      message: SmartFridge now really has functionality
+  id: 1383
+  time: '2025-07-17T07:11:19.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Pets are now in the loadout.
+    - type: Add
+      message: Ported carp goldfish (non-hostile).
+  id: 1384
+  time: '2025-07-17T07:12:35.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Holofans now work like in SS13, you can place up to 6 at once with
+        charges reclaimed by removing unused holofans.
+    - type: Tweak
+      message: >-
+        You can also recall and restore all holofans by using the projector in
+        hand.
+    - type: Remove
+      message: Removed the battery requirement from holofan projectors.
+  id: 1385
+  time: '2025-07-17T07:13:20.0000000+00:00'
+- author: CerberusWolfie, Erisfiregamer1
+  changes:
+    - type: Add
+      message: >-
+        Added an Item Renderer Hologram to the Recharger, Turbo Recharger, and
+        Wall-Mounted Recharger. You can now see what you are recharging in the
+        form of a little hologram!
+  id: 1386
+  time: '2025-07-17T07:13:40.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: >-
+        Command members, specifically, QM, RD, and CE now have access to a
+        command specific antag called Corporate Agents. Basically Traitor light.
+        Make sure to enable it in the antag menu!
+    - type: Tweak
+      message: The NTR can now roll Devil!
+    - type: Fix
+      message: The devil can now sign contracts while mindshielded
+  id: 1387
+  time: '2025-07-17T07:22:17.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Faxing critters now sometimes succeeds. Always if lubed.
+  id: 1388
+  time: '2025-07-17T07:25:55.0000000+00:00'
