@@ -80,7 +80,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Client._durkcode.ServerCurrency;
 using Content.Client._RMC14.LinkAccount;
 using Content.Client.Audio;
 using Content.Client.GameTicking.Managers;
@@ -89,6 +88,7 @@ using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
+using Content.Goobstation.Common.ServerCurrency;
 using Content.Shared.CCVar;
 using Robust.Client;
 using Robust.Client.Console;
@@ -110,7 +110,7 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly ServerCurrencySystem _serverCur = default!; // Goobstation - server currency
+        [Dependency] private readonly ICommonCurrencyManager _serverCur = default!; // Goobstation - server currency
         [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
 
         private ISawmill _sawmill = default!; // Goobstation
@@ -161,7 +161,7 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
 
-            _serverCur.BalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
+            _serverCur.ClientBalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
         }
 
         protected override void Shutdown()
@@ -172,7 +172,7 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated -= LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated -= LobbyLateJoinStatusUpdated;
             _contentAudioSystem.LobbySoundtrackChanged -= UpdateLobbySoundtrackInfo;
-            _serverCur.BalanceChange -= UpdatePlayerBalance; // Goobstation - Goob Coin
+            _serverCur.ClientBalanceChange -= UpdatePlayerBalance; // Goobstation - Goob Coin
 
             _voteManager.ClearPopupContainer();
 

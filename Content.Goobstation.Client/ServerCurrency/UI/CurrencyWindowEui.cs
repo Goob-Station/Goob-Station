@@ -10,9 +10,9 @@ using Content.Shared._durkcode.ServerCurrency;
 using Content.Shared._durkcode.ServerCurrency.UI;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._durkcode.ServerCurrency.UI
+namespace Content.Goobstation.Client.ServerCurrency.UI
 {
-    public class CurrencyEui : BaseEui
+    public sealed class CurrencyEui : BaseEui
     {
         private readonly CurrencyWindow _window;
         public CurrencyEui()
