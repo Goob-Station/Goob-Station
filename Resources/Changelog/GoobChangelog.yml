@@ -12537,3 +12537,9 @@ Entries:
       message: NPCs will now chase and attack you in space. Fear the fish.
   id: 1382
   time: '2025-07-17T07:09:57.0000000+00:00'
+- author: sowelipililimute, Whatstone and Will-Oliver-Br
+  changes:
+    - type: Tweak
+      message: SmartFridge now really has functionality
+  id: 1383
+  time: '2025-07-17T07:11:19.0000000+00:00'
