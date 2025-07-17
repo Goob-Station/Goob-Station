@@ -14,13 +14,17 @@
 # SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: HolosignWetFloor
-  name: wet floor sign
-  description: The words flicker as if they mean nothing.
+  name: "знак мокрої підлоги"
+  description: "Слова мерехтять, ніби нічого не означають."
   placement:
     mode: SnapgridCenter
   components:
@@ -47,9 +51,9 @@
 
 - type: entity
   id: HoloFan
-  parent: HolosignWetFloor
-  name: holofan
-  description: A barrier of hard light that blocks air, but nothing else.
+  parent: BaseHolosign # DeltaV - don't include TimedDespawn
+  name: "голофан"
+  description: "Бар'єр жорсткого світла, який блокує повітря, але не більше."
   components:
   - type: Sprite
     sprite: Structures/Holo/holofan.rsi
@@ -60,16 +64,19 @@
         shape:
           !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
-  - type: TimedDespawn
-    lifetime: 180
+  #- type: TimedDespawn # DeltaV - no despawning for holofans
+  #  lifetime: 180
+  - type: Transform # DeltaV
+    noRot: true
   - type: Airtight
     noAirWhenFullyAirBlocked: false
+  - type: Holofan # DeltaV - for whitelisting
 
 - type: entity
   id: HolosignSecurity
   parent: HolosignWetFloor
-  name: holographic barrier
-  description: A barrier of hard light that blocks movement, but pretty weak.
+  name: "голографічний бар'єр"
+  description: "Бар'єр жорсткого світла, який блокує рух, але досить слабкий."
   components:
     - type: Physics
       bodyType: Static
@@ -99,8 +106,8 @@
 - type: entity
   id: HolosignForcefield
   parent: HolosignWetFloor
-  name: holographic force field
-  description: A powerful temporal containment field that doesn't let anything through, not even a tesla or singularity.
+  name: "голографічне силове поле"
+  description: "Потужне темпоральне стримуюче поле, яке не пропускає нічого, навіть тесла чи сингулярність."
   components:
   - type: Physics
     bodyType: Static

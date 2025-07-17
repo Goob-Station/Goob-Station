@@ -6,3 +6,8 @@
 
 # Gondola
 accent-words-gondola-1 = ...
+
+# Хуман
+
+accent-human-words-1 = 65
+accent-human-words-replace-1 = я невдаха

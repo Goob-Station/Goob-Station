@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: Empty Crate Spawner
+  name: "спавнер пустого ящику"
   id: CrateEmptySpawner
   parent: MarkerBase
   components:
@@ -168,7 +168,7 @@
       weight: 0.2
 
 - type: entity
-  name: Filled Crate Spawner
+  name: "спавнер заповненого ящику"
   id: CrateFilledSpawner
   suffix: Low Value
   parent: MarkerBase
@@ -185,7 +185,7 @@
     offset: 0.0
 
 - type: entity
-  name: random engineering crate spawner
+  name: "спавнер випадкового інженерного ящика"
   id: LootSpawnerRandomCrateEngineering
   parent: MarkerBase
   components:
@@ -228,7 +228,7 @@
     offset: 0.0
 
 - type: entity
-  name: random security crate spawner
+  name: "спавнер випадкового ящика служби безпеки"
   id: LootSpawnerRandomCrateSecurity
   parent: MarkerBase
   components:
@@ -270,7 +270,7 @@
     - id: CrateLockBoxService
 
 - type: entity
-  name: random lockbox spawner
+  name: "спавнер випадкових сейфів"
   id: LootSpawnerRandomLockbox
   parent: MarkerBase
   suffix: 90%

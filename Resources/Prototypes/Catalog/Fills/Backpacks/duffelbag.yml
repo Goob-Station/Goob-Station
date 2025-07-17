@@ -72,7 +72,6 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
@@ -118,22 +117,30 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ColonicAcid <claudiomota1990@googlemail.com>
+# SPDX-FileCopyrightText: 2025 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PicklOH <62030853+semensponge@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Stomf <5dorkydorks@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 robinthedragon <92946919+robinthedragon@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   parent: ClothingBackpackDuffelMedical
   id: ClothingBackpackDuffelSurgeryFilled
-  name: surgical duffel bag
-  description: "A large duffel bag for holding extra medical supplies - this one seems to be designed for holding surgical tools."
+  name: "хірургічна сумка-мішок"
+  description: "Велика сумка для додаткових медичних засобів - ця, здається, призначена для зберігання хірургічних інструментів."
   components:
   - type: StorageFill
     contents:
@@ -150,8 +157,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
   id: ClothingBackpackDuffelSyndicateFilledMedical
-  name: syndicate surgical duffel bag
-  description: A large duffel bag containing a full suite of surgical tools.
+  name: "синдикатська хірургічна сумка-мішок"
+  description: "Велика сумка з повним набором хірургічних інструментів."
   components:
   - type: StorageFill
     contents: # goob edited
@@ -169,8 +176,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledShotgun
-  name: Bulldog bundle
-  description: "Lean and mean: Contains the popular Bulldog Shotgun, a 12g slug drum, and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
+  name: "комплект \"Бульдог"
+  description: "Стрункий та злий: Містить популярний дробовик \"Бульдог\", барабан з 12-мм кулями та чотири барабани з 12-мм картеччю." #, and a pair of Thermal Imaging Goggles.
   components:
   - type: StorageFill
     contents:
@@ -183,8 +190,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledSMG
-  name: C-20r bundle
-  description: "Old faithful: The classic C-20r Submachine Gun, bundled with three magazines." #, and a Suppressor.
+  name: "комплект з C-20r"
+  description: "Старий, як світ: класичний пістолет-кулемет C-20r у комплекті з трьома магазинами." #, and a Suppressor.
   components:
   - type: StorageFill
     contents:
@@ -195,9 +202,21 @@
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledRifle
+  name: "Набір \"Есток" # goob
+  description: "Для стрільби на середні дистанції - \"Есток\". У комплекті з трьома магазинами." # goob
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleEstoc
+    - id: MagazineRifle
+      amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledRevolver
-  name: Python bundle
-  description: "Go loud and proud with a fully loaded Magnum Python, bundled with two speed loaders."
+  name: "комплект з Python"
+  description: "З повністю зарядженим Magnum Python, оснащеним двома спідлоудерами, ви будете голосно і гордо заявляти про себе."
   components:
   - type: StorageFill
     contents:
@@ -208,8 +227,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledLMG
-  name: L6 Saw bundle
-  description: "More dakka: The iconic L6 lightmachinegun, bundled with 2 box magazines."
+  name: "комплект з L6 SAW"
+  description: "Більше дакка: культовий кулемет L6 у комплекті з 2 коробчастими магазинами."
   components:
   - type: StorageFill
     contents:
@@ -219,8 +238,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
-  name: China-Lake bundle
-  description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
+  name: "Набір China-Lake"
+  description: "Старий гранатомет China-Lake у комплекті з 13-ма снарядами різної руйнівної сили."
   components:
   - type: StorageFill
     contents:
@@ -229,12 +248,14 @@
         amount: 4
       - id: GrenadeFrag
         amount: 4
+      - id: GrenadeSlug # Goobstation, you only get two of these, and cannot make more.
+        amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledCarbine
-  name: M-90gl bundle
-  description: "A versatile battle rifle with an attached grenade launcher, bundled with 3 magazines and 6 grenades of various capabilities."
+  name: "комплект з М-90г"
+  description: "Універсальна бойова гвинтівка з підствольним гранатометом, в комплекті з 3 магазинами та 6 гранатами різної потужності."
   components:
   - type: StorageFill
     contents:
@@ -251,8 +272,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
-  name: ammo bundle
-  description: "Reloading! Contains 4 magazines for the C-20r, 5 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
+  name: "комплект боєприпасів"
+  description: "Перезарядка! Містить 4 магазини для C-20r, 5 барабанів для \"Бульдога\", 2 коробки з патронами для L6 SAW та 3 магазини для \"Пальника\"."
   components:
   - type: StorageFill
     contents:
@@ -290,8 +311,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateCarpSuit
-  name: carp suit duffel bag
-  description: Contains a carp suit and some friends to play with.
+  name: "комплект з костюмом коропа"
+  description: "Містить костюм коропа та друзів, з якими можна погратися."
   components:
   - type: StorageFill
     contents:
@@ -302,8 +323,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicatePyjamaBundle
-  name: syndicate pyjama duffel bag
-  description: Contains 3 pairs of syndicate pyjamas and 4 plushies for the ultimate sleepover.
+  name: "сумка з піжамами синдикату"
+  description: "Містить 3 пари піжам синдикату та 4 плюшеві іграшки для найкращої піжамної вечірки."
   components:
   - type: Storage
     grid:
@@ -328,8 +349,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateC4tBundle
-  name: syndicate C-4 bundle
-  description: "Contains a lot of C-4 charges."
+  name: "комплект з С-4 Синдикату"
+  description: "Містить багато зарядів С-4."
   components:
     - type: StorageFill
       contents:
@@ -360,8 +381,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEVABundle
-  name: syndicate EVA bundle
-  description: "Contains the Syndicate approved EVA suit."
+  name: "комплект EVA Синдикату"
+  description: "Містить затверджений Синдикатом костюм EVA."
   components:
   - type: StorageFill
     contents:
@@ -375,8 +396,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
-  name: syndicate voidsuit bundle
-  description: "Contains the Syndicate's signature blood red voidsuit."
+  name: "набір скафандра синдикату"
+  description: "Містить фірмовий криваво-червоний скафандр Синдикату."
   components:
   - type: StorageFill
     contents:
@@ -389,8 +410,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite voidsuit bundle
-  description: "Contains the Syndicate's elite voidsuit, which comes with some more stuff in it."
+  name: "набір елітного скафандра синдикату"
+  description: "Містить елітний скафандр Синдикату, в якому є ще дещо."
   components:
   - type: StorageFill
     contents:
@@ -403,8 +424,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitExtrasBundle
-  name: syndicate voidsuit extras bundle
-  description: "Contains stuff that you will absolutely want to have when purchasing a voidsuit."
+  name: "додатковий набір до скафандра синдикату"
+  description: "Містить речі, які ви точно захочете мати при покупці скафандра."
   components:
   - type: StorageFill
     contents:
@@ -416,8 +437,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelZombieBundle
-  name: syndicate zombie bundle
-  description: "An all-in-one kit for unleashing the undead upon a station."
+  name: "комплект зомбі"
+  description: "Комплект \"все в одному\" для вивільнення нежиті на станції."
   components:
   - type: StorageFill
     contents:
@@ -431,8 +452,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
   id: ClothingBackpackDuffelSyndicateMedicalBundleFilled
-  name: medical bundle
-  description: "All you need to get your comrades back in the fight."
+  name: "комплект медицини"
+  description: "Все, що вам потрібно, - це повернути товаришів у бій."
   components:
   - type: StorageFill
     contents:
@@ -453,8 +474,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateDecoyKitFilled
-  name: decoy bundle
-  description: "Contains distractions, both auditory and visual. Smell coming soon."
+  name: "комплект приманок"
+  description: "Містить відволікаючі пристрої, як слухові, так і візуальні. Скоро - і з запахами."
   components:
   - type: StorageFill
     contents:
@@ -472,8 +493,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledStarterKit
-  name: basic operative bundle
-  description: "Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities."
+  name: "базовий набір оперативника"
+  description: "Містить зброю, медикаменти, інструменти для злому, запасні набої та деякі прості утиліти."
   components:
   - type: StorageFill
     contents:

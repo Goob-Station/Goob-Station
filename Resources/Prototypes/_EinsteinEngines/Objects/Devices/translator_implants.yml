@@ -1,0 +1,218 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BasicTauCetiBasicTranslatorImplant
+  name: "базовий загальний перекладацький імплантат"
+  description: "Надає вашим неписьменним друзям можливість зрозуміти спільну галактичну мову."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TauCetiBasicTranslatorImplant
+  name: "вдосконалений імплантат загального перекладача"
+  description: "Більш просунута версія імплантату-перекладача навчить ваших неписьменних друзів не тільки говорити, але й розуміти галактичну мову!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - TauCetiBasic
+    spoken:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BubblishTranslatorImplant
+  name: "імплантат перекладача bubblish"
+  description: "Імплантат, який допоможе вам говорити і розуміти мову слизунів! Спеціальні голосові зв'язки не входять до комплекту."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Bubblish
+    spoken:
+    - Bubblish
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NekomimeticTranslatorImplant
+  name: "некоміметичний перекладацький імплантат"
+  description: "Імплантат-перекладач, створений для того, щоб допомогти власникам домашніх котів розуміти своїх улюбленців, тепер дає можливість розуміти і розмовляти з фелінідами!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Nekomimetic
+    spoken:
+    - Nekomimetic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: DraconicTranslatorImplant
+  name: "драконівський імплантат перекладача"
+  description: "Імплантат-перекладач, що дає можливість розмовляти з драконами! Згодом також дозволяє спілкуватися з унатами."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Draconic
+    spoken:
+    - Draconic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: CanilunztTranslatorImplant
+  name: "імплантат перекладача canilunzt"
+  description: "Імплантат-перекладач, який допоможе вам спілкуватися з місцевими йіперами. Ух ти!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Canilunzt
+    spoken:
+    - Canilunzt
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SolCommonTranslatorImplant
+  name: "імплантат перекладача солкомови"
+  description: "Імплантат, що дає можливість розуміти та розмовляти солкомовною. Аааа!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - SolCommon
+    spoken:
+    - SolCommon
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NovuNedericTranslatorImplant
+  name: "імплант-перекладач нову-недерік"
+  description: "Імплант, що дає можливість розуміти і розмовляти нову-недерік. Хозі!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - NovuNederic
+    spoken:
+    - NovuNederic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: RootSpeakTranslatorImplant
+  name: "імплантат перекладача кореневої мови"
+  description: "Імплантат, який дозволяє говорити від імені дерев. Або з деревами."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - RootSpeak
+    spoken:
+    - RootSpeak
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MofficTranslatorImplant
+  name: "Імплантат перекладача з мофської"
+  description: "Імплантат, покликаний допомогти одомашнити тарганів. Згодом дозволяє спілкуватися з молью людям."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Moffic
+    spoken:
+    - Moffic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ValyrianStandardTranslatorImplant
+  name: "валірійський стандартний перекладацький імплантат"
+  description: "Імплант, що дає можливість розуміти та розмовляти валірійською мовою. Цвірінькай!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - ValyrianStandard
+    spoken:
+    - ValyrianStandard
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AzazibaTranslatorImplant
+  name: "імплант перекладача азазіба"
+  description: "Імплант, що дає можливість розуміти та розмовляти мовою азазіба." # Intended for Admins Only, this item is for lore reasons not obtainable.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Azaziba
+    spoken:
+    - Azaziba
+    requires:
+    - Draconic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ChittinTranslatorImplant
+  name: "імплантат хітинового перекладача"
+  description: "Імплантат, що дає можливість розуміти та розмовляти мовою читтин."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Chittin
+    spoken:
+    - Chittin
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SiikMaasTranslatorImplant
+  name: "імплантат перекладача siik'maas"
+  description: "Імплантат, що дає можливість розуміти та розмовляти мовою сіік'маас."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - SiikMaas
+    spoken:
+    - SiikMaas
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MarishTranslatorImplant
+  name: "імплант-перекладач з маріш"
+  description: "Імплант, що дає можливість розуміти маріш та розмовляти нею."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - Marish
+    spoken:
+    - Marish
+    requires:
+    - TauCetiBasic

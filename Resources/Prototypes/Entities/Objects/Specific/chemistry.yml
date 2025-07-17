@@ -6,6 +6,7 @@
 # SPDX-FileCopyrightText: 2020 PrPleGoo <PrPleGoo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
 # SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
 # SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
@@ -46,6 +47,7 @@
 # SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
 # SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Brayden H <35241666+hord-brayden@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Joel Hedtjärn <joel.hedtjarn@gmail.com>
 # SPDX-FileCopyrightText: 2023 Joel Hedtj�rn <joel.hedtjarn@gmail.com>
 # SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
@@ -142,12 +144,16 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -265,8 +271,8 @@
 - type: entity
   parent: BaseItem
   id: BorgBeaker
-  name: integrated beaker
-  description: An internal compartment installed into a cyborg. Rated for 50 units of any liquid.
+  name: "вбудований хімічний стакан"
+  description: "Внутрішній відсік, встановлений у кіборга. Розрахований на 50 одиниць будь-якої рідини."
   components:
   # 3 morbillion components are to avoid inheriting breakable since borgs can't replace beakers.
   - type: Tag
@@ -383,9 +389,9 @@
   - type: DnaSubstanceTrace
 
 - type: entity
-  name: beaker
+  name: "мензурка"
   parent: BaseBeaker
-  description: Used to contain a moderate amount of chemicals and solutions.
+  description: "Використовується для зберігання помірної кількості хімічних речовин і розчинів."
   id: Beaker
   components:
   - type: Spillable
@@ -417,9 +423,9 @@
           Quantity: 50
 
 - type: entity
-  name: large beaker
+  name: "велика мензурка"
   parent: BaseBeaker
-  description: Used to contain a large amount of chemicals or solutions.
+  description: "Використовується для зберігання великої кількості хімічних речовин або розчинів."
   id: LargeBeaker
   components:
   - type: Spillable
@@ -451,9 +457,9 @@
     price: 20
 
 - type: entity
-  name: cryostasis beaker
+  name: "кріостазисна мензурка"
   parent: BaseBeakerMetallic
-  description: Used to contain chemicals or solutions without reactions.
+  description: "Використовується для утримання хімічних речовин або розчинів, що не вступають у реакцію."
   id: CryostasisBeaker
   components:
   - type: Spillable
@@ -475,9 +481,9 @@
       Plastic: 12
 
 - type: entity
-  name: bluespace beaker
+  name: "блюспейс мензурка"
   parent: BaseBeakerMetallic
-  description: Powered by experimental bluespace technology.
+  description: "Працює на експериментальній технології bluespace."
   id: BluespaceBeaker
   components:
   - type: Spillable
@@ -502,9 +508,9 @@
     price: 65
 
 - type: entity
-  name: dropper
+  name: "піпетка"
   parent: BaseItem
-  description: Used to transfer small amounts of chemical solution between containers.
+  description: "Використовується для переміщення невеликих кількостей хімічного розчину між контейнерами."
   id: Dropper
   components:
   - type: Sprite
@@ -557,8 +563,8 @@
 - type: entity
   parent: Dropper
   id: BorgDropper
-  name: hydraulic pipette
-  description: State-of-the-art hydraulic dropper built for cyborgs. It features a higher capacity than hand-powered droppers, able to hold 15 units of liquid.
+  name: "гідравлічна піпетка"
+  description: "Сучасна гідравлічна піпетка, створена для кіборгів. Вона має більшу ємність, ніж ручні піпетки, і здатна вмістити 15 одиниць рідини."
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/dropper.rsi
@@ -575,9 +581,9 @@
     sprite: Objects/Specific/Chemistry/dropper.rsi
 
 - type: entity
-  name: syringe
+  name: "шприц"
   parent: BaseItem
-  description: Used to draw blood samples from mobs, or to inject them with reagents.
+  description: "Використовується для відбору зразків крові у натовпу або для ін'єкцій реагентів."
   id: BaseSyringe
   abstract: true
   components:
@@ -612,9 +618,9 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/pierce.ogg
-  - type: CombatDoAfter
-    trigger: !type:CombatSyringeTriggerEvent
-    breakOnDamage: true
+  ##- type: CombatDoAfter - This is just problematic and unfun
+  ##  trigger: !type:CombatSyringeTriggerEvent
+  ##  breakOnDamage: true
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -629,7 +635,7 @@
     offset: "-0.1,0"
     minimumSpeed: 3
     removalTime: 0.25
-    embedOnThrow: true
+    embedOnThrow: false
     sound: /Audio/Weapons/Guns/Hits/bullet_meat1.ogg
   - type: SolutionInjectWhileEmbedded
     transferAmount: 0.75
@@ -763,8 +769,8 @@
 - type: entity
   id: SyringeBluespace
   parent: BaseSyringe
-  name: bluespace syringe
-  description: Injecting with advanced bluespace technology.
+  name: "блюспейс шприц"
+  description: "Ін'єкції за допомогою передової технології bluespace."
   components:
   - type: Sprite
     layers:
@@ -798,14 +804,14 @@
       Glass: 62
       Plasma: 25
       Silver: 12
-  - type: CombatDoAfter # Goobstation
-    delay: 3 # Longer than a regular syringe
+  #- type: CombatDoAfter # Goobstation
+  #  delay: 3 # Longer than a regular syringe
 
 - type: entity
   id: SyringeCryostasis
   parent: BaseSyringe
-  name: cryostasis syringe
-  description: An improved syringe used to contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+  name: "шприц для кріостазу"
+  description: "Покращений шприц, що використовується для зберігання хімічних речовин або розчинів без реакцій." # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   components:
   - type: Sprite
     layers:
@@ -840,10 +846,10 @@
 
 
 - type: entity
-  name: pill
+  name: "таблетка"
   parent: BaseItem
   id: Pill
-  description: It's not a suppository.
+  description: "Це не супозиторії."
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -890,10 +896,10 @@
     - Pill
 
 - type: entity
-  name: pill canister
+  name: "контейнер для таблеток"
   id: PillCanister
   parent: BaseStorageItem
-  description: Holds up to 15 pills. # Goobstation
+  description: "Вміщує до 15 таблеток." # Goobstation
   components:
   - type: Item
     size: Tiny

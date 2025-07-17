@@ -282,7 +282,7 @@
   id: BaseLathe
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   abstract: true
-  name: lathe
+  name: "токарний верстат"
   components:
   - type: Appearance
   - type: WiresVisuals
@@ -375,8 +375,8 @@
 - type: entity
   id: Autolathe
   parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
-  name: autolathe
-  description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
+  name: "автолат"
+  description: "Він виробляє базові предмети, використовуючи метал і скло. Має можливість обробляти креслення для друку нових рецептів."
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -449,8 +449,8 @@
 - type: entity
   id: AutolatheHyperConvection
   parent: [Autolathe, BaseHyperlathe]
-  name: hyper convection autolathe
-  description: A highly-experimental autolathe that harnesses the power of extreme heat to slowly create objects more cost-effectively.
+  name: "гіперконвекційний автолат"
+  description: "Високоекспериментальний автолат, який використовує потужність надзвичайного тепла для повільного та більш економічно ефективного створення об'єктів."
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe_hypercon.rsi
@@ -460,8 +460,8 @@
 - type: entity
   id: Protolathe
   parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
-  name: protolathe
-  description: Converts raw materials into advanced items.
+  name: "протолат"
+  description: "Перетворює сировину на вдосконалені предмети."
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
@@ -513,6 +513,8 @@
     - MedicalMisc
     - MedicalVehiclesAdvanced
     - UpgradeKits
+    # Einstein Engines Packs
+    - Translators
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -528,8 +530,8 @@
 - type: entity
   id: ProtolatheHyperConvection
   parent: [Protolathe, BaseHyperlathe]
-  name: hyper convection protolathe
-  description: A highly-experimental protolathe that harnesses the power of extreme heat to slowly create objects more cost-effectively.
+  name: "гіперконвекційний протолат"
+  description: "Високоекспериментальний протолат, який використовує потужність надзвичайного тепла для повільного та більш економічно ефективного створення об'єктів."
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe_hypercon.rsi
@@ -539,8 +541,8 @@
 - type: entity
   id: CircuitImprinter
   parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
-  name: circuit imprinter
-  description: Prints circuit boards for machines.
+  name: "друкар плат"
+  description: "Друкує плати для механізмів."
   components:
   - type: Sprite
     sprite: Structures/Machines/circuit_imprinter.rsi
@@ -592,8 +594,8 @@
 - type: entity
   id: CircuitImprinterHyperConvection
   parent: [CircuitImprinter, BaseHyperlathe]
-  name: hyper convection circuit imprinter
-  description: A highly-experimental circuit imprinter that harnesses the power of extreme heat to slowly create objects more cost-effectively.
+  name: "гіперконвекційний друкар плат"
+  description: "Високоекспериментальний друкар плат, який використовує потужність надзвичайного тепла для повільного та більш економічно ефективного створення об'єктів."
   components:
   - type: Sprite
     sprite: Structures/Machines/circuit_imprinter_hypercon.rsi
@@ -603,8 +605,8 @@
 - type: entity
   id: ExosuitFabricator
   parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
-  name: exosuit fabricator
-  description: Creates parts for robotics and other mechanical needs.
+  name: "фабрикатор екзокостюмів"
+  description: "Створює деталі для робототехніки та інших механічних потреб."
   components:
   - type: Sprite
     sprite: Structures/Machines/exosuit_fabricator.rsi
@@ -665,8 +667,8 @@
 - type: entity
   id: Biofabricator
   parent: BaseLatheLube
-  name: biocube fabricator
-  description: Produces animal cubes using biomass.
+  name: "біофабрикатор"
+  description: "Виробляє куби тварин, використовуючи біомасу."
   components:
   - type: Sprite
     sprite: Structures/Machines/biofabricator.rsi
@@ -708,8 +710,8 @@
 - type: entity
   id: SecurityTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
-  name: security techfab
-  description: Prints equipment and circuitboards for use by security crew. #Goobstation - Circuitboards description
+  name: "техфаб служби безпеки"
+  description: "Друкує обладнання та плати для використання екіпажем служби безпеки." #Goobstation - Circuitboards description
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -780,8 +782,8 @@
 - type: entity
   id: AmmoTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
-  name: ammo techfab
-  description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
+  name: "техфаб боєприпасів"
+  description: "Друкує мінімально необхідну кількість набоїв, яка може знадобитися будь-якій бюджетній армії чи зброярні. Нічого особливого."
   components:
     - type: Sprite
       sprite: Structures/Machines/techfab.rsi
@@ -819,8 +821,8 @@
 - type: entity
   id: MedicalTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer] #Goobstation - Circuitboards description
-  name: medical techfab
-  description: Prints equipment and circuitboards for use by the medbay.
+  name: "медичний техфаб"
+  description: "Друкує обладнання та плати для використання медблоком."
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -865,6 +867,9 @@
     - MedicalVehiclesAdvanced
     - MedicalBoards
     - Janitor
+    # Einstein Engines Packs
+    - Translators # Language
+    - TranslatorImplanters # Language
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs
@@ -876,8 +881,8 @@
 - type: entity
   parent: BaseLathe
   id: UniformPrinter
-  name: uniform printer
-  description: Prints new or replacement uniforms.
+  name: "принтер уніформ"
+  description: "Друкує нову або запасну уніформу."
   components:
   - type: Transform
     noRot: false
@@ -926,8 +931,8 @@
 - type: entity
   id: Biogenerator
   parent: BaseLathe
-  name: biogenerator
-  description: Converts plants into biomass, which can be used to construct useful items.
+  name: "біогенератор"
+  description: "Перетворює рослини на біомасу, яку можна використовувати для створення корисних предметів."
   components:
   - type: Sprite
     sprite: Structures/Machines/biofabricator.rsi
@@ -969,8 +974,8 @@
 - type: entity
   parent: [BaseLathe, BaseSiloUtilizer] # Goob edit
   id: OreProcessor
-  name: ore processor
-  description: It produces sheets and ingots using ores.
+  name: "переробник руди"
+  description: "Виробляє листи та злитки, використовуючи руди."
   components:
     - type: Sprite
       sprite: Structures/Machines/ore_processor.rsi
@@ -1012,8 +1017,8 @@
 - type: entity
   parent: OreProcessor
   id: OreProcessorIndustrial
-  name: industrial ore processor
-  description: An ore processor specifically designed for mass-producing metals in industrial applications.
+  name: "промисловий переробник руди"
+  description: "Переробник руди, спеціально розроблений для масового виробництва металів у промислових цілях."
   components:
   - type: Sprite
     sprite: Structures/Machines/ore_processor_industrial.rsi
@@ -1030,8 +1035,8 @@
 - type: entity
   parent: BaseLathe
   id: Sheetifier
-  name: sheet-meister 2000
-  description: A very sheety machine.
+  name: "листороб-2000"
+  description: "Та ще листова машина."
   components:
   - type: Sprite
     sprite: Structures/Machines/sheetifier.rsi
@@ -1061,8 +1066,8 @@
 - type: entity
   parent: BaseLathe
   id: CutterMachine
-  name: cutter machine
-  description: This is a cutter. It cuts. Add variety to your station floor with eye-pleasing patterns! Don't stick your fingers in.
+  name: "різальна машина"
+  description: "Це різак. Він ріже. Додайте різноманітності підлозі вашої станції за допомогою приємних для ока візерунків! Не суньте пальці."
   components:
   - type: Transform
     noRot: false

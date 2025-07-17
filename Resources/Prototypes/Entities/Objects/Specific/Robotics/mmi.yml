@@ -109,8 +109,8 @@
 - type: entity
   parent: BaseItem
   id: MMI
-  name: man-machine interface
-  description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents.
+  name: "людино-машинний інтерфейс"
+  description: "Машина, здатна полегшити комунікацію між біологічним мозком і електронікою, що дозволяє екіпажу продовжувати приносити користь після інцидентів, пов'язаних з роботою."
   components:
   - type: Sprite
     sprite: Objects/Specific/Robotics/mmi.rsi
@@ -166,6 +166,14 @@
     whitelist:
       components:
       - SecretStash
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
 
 - type: entity
   parent: MMI
@@ -184,8 +192,8 @@
 - type: entity
   parent: BaseItem
   id: PositronicBrain
-  name: positronic brain
-  description: An artificial brain capable of spontaneous neural activity.
+  name: "позитронний мозок"
+  description: "Штучний мозок, здатний до спонтанної нейронної активності."
   components:
     - type: Sprite
       sprite: Objects/Specific/Robotics/mmi.rsi
@@ -261,3 +269,11 @@
     - type: NerveSystem # backmen: wounding
     - type: ConsciousnessRequired
       identifier: "nerveSystem"
+    - type: LanguageSpeaker # Einstein Engines - Language
+    - type: LanguageKnowledge # Einstein Engines - Language
+      speaks:
+      - TauCetiBasic # Added since posi brains should be able to talk to roboticists/scientists.
+      - RobotTalk
+      understands:
+      - TauCetiBasic # Added since posi brains should be able to understand TauCetiBasic (they can in a chassis)
+      - RobotTalk

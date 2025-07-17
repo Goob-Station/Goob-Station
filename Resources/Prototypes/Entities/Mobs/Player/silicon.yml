@@ -101,19 +101,21 @@
 # SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
 # SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lizelive <github@lize.live>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Be careful with these as they get removed on shutdown too!
 - type: entity
   id: AiHeld
-  description: Components added / removed from an entity that gets inserted into an AI core.
+  description: "Компоненти, що додаються/видаляються з сутності, яка вставляється в ядро ШІ."
   categories: [ HideSpawnMenu ]
   components:
   - type: IntrinsicRadioReceiver
@@ -204,7 +206,7 @@
 
 - type: entity
   id: AiHeldIntellicard
-  description: Components added / removed from an entity that gets inserted into an Intellicard.
+  description: "Компоненти, додані/вилучені з сутності, яка вставляється в Intellicard."
   categories: [ HideSpawnMenu ]
   components:
   - type: IntrinsicRadioReceiver
@@ -233,7 +235,7 @@
 - type: entity
   id: AiHolder
   abstract: true
-  description: Handles AI interactions across holocards + AI cores
+  description: "Керує взаємодією ШІ між голографічними картками + ядрами ШІ"
   components:
   - type: ItemSlots
   - type: StationAiHolder
@@ -256,8 +258,8 @@
 # Items
 - type: entity
   id: Intellicard
-  name: intellicard
-  description: A storage device for AIs.
+  name: "інтелекткарт"
+  description: "Пристрій для зберігання даних для ШІ."
   parent:
   - BaseItem
   - AiHolder
@@ -295,8 +297,8 @@
 
 - type: entity
   id: PlayerStationAiEmpty
-  name: AI Core
-  description: The latest in Artificial Intelligences.
+  name: "Ядро штучного інтелекту"
+  description: "Останнє в галузі штучного інтелекту."
   parent:
   - BaseStructure
   - AiHolder
@@ -381,7 +383,7 @@
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawProvider
-    laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
+    laws: Crewsimov
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
   - type: SiliconLawBound
   - type: ActionGrant
@@ -430,8 +432,8 @@
   - Incorporeal
   - BaseMob
   id: StationAiHolo
-  name: AI eye
-  description: The AI's viewer.
+  name: "Око штучного інтелекту"
+  description: "Глядач ШІ."
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: MovementSpeedModifier # Goobstation
@@ -454,8 +456,8 @@
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity
   id: StationAiHoloLocal
-  name: AI hologram
-  description: A holographic representation of an AI.
+  name: "Голограма зі штучним інтелектом"
+  description: "Голографічне зображення штучного інтелекту."
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Transform
@@ -558,7 +560,7 @@
     - type: GhostTakeoverAvailable
 
 - type: entity
-  name: syndicate invasion borg spawner
+  name: "спавнер боргів для вторгнення синдикату"
   id: PlayerBorgSyndicateInvasionGhostRoleSpawner
   parent: MarkerBase
   components:

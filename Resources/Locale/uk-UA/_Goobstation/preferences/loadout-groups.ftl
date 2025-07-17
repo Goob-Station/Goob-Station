@@ -51,3 +51,5 @@ loadout-group-brigmedic-outer = Верхній одяг бригмедика
 loadout-group-brigmedic-backpack = Рюкзак бригмедика
 
 loadout-group-security-melee = Холодна зброя служби безпеки
+
+loadout-group-animals = Тварини

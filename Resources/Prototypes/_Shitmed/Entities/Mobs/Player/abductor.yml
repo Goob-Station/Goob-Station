@@ -1,6 +1,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -38,7 +42,7 @@
       - DoorBumpOpener
 
 - type: entity
-  name: lone abductor
+  name: "викрадач-одинак"
   parent: MobAbductorAntag
   id: MobLoneAbductor
   components:
@@ -66,7 +70,7 @@
       - LoneAbductorGear
 
 - type: entity
-  name: abductor scientist
+  name: "вчений-викрадач"
   parent: MobAbductorAntag
   id: MobAbductorScientist
   components:
@@ -91,7 +95,7 @@
       - AbductorScientistGear
 
 - type: entity
-  name: abductor agent
+  name: "агент викрадачів"
   parent: MobAbductorAntag
   id: MobAbductorAgent
   components:
@@ -136,6 +140,7 @@
     pocket1: AbductorGizmo
     pocket2: WeaponAlien
     suitstorage: Wonderprod
+    id: AgentIDCard
 
 - type: startingGear
   id: AbductorScientistGear
@@ -149,6 +154,7 @@
     back: ClothingBackpackDuffelAbductor
     pocket1: AbductorGizmo
     suitstorage: WeaponDecloner
+    id: AgentIDCard
 
 - type: startingGear
   id: AbductorAgentGear
@@ -167,7 +173,7 @@
 # Spawners
 
 - type: entity
-  name: lone abductor spawner
+  name: "самотній нерестовик-викрадач"
   id: SpawnPointLoneAbductor
   parent: MarkerBase
   components:
@@ -209,7 +215,7 @@
         state: radiation
 
 - type: entity
-  name: abductor agent spawner
+  name: "викрадач агент нерестовик"
   id: SpawnPointAbductorAgent
   parent: MarkerBase
   components:
@@ -248,7 +254,7 @@
         state: radiation
 
 - type: entity
-  name: abductor scientist spawner
+  name: "викрадач вчений нерестовик"
   id: SpawnPointAbductorScientist
   parent: MarkerBase
   components:

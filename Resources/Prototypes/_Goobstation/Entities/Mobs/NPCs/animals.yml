@@ -11,18 +11,21 @@
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: gondola
+  name: "гондола"
   parent:
     - MobRespirator
     - MobAtmosStandard
@@ -30,7 +33,7 @@
     - MobBloodstream
     - MobFlammable
   id: MobGondola
-  description: Having no hands he embodies the Taoist principle of wu-wei (non-action) while his smiling facial expression shows his utter and complete acceptance of the world as it is.
+  description: "Не маючи рук, він втілює даоський принцип у-вей (недіяння), а його усміхнений вираз обличчя демонструє його повне і абсолютне прийняття світу таким, яким він є."
   components:
   - type: Hunger
     thresholds:
@@ -122,6 +125,12 @@
     speechSounds: Bass
   - type: ReplacementAccent
     accent: gondola
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic # Replacement Accent will have to do for now until custom language.
+    understands:
+    - TauCetiBasic # Replacement Accent will have to do for now until custom language.
   - type: HTN
     rootTask:
       task: IdleCompound
@@ -140,10 +149,10 @@
   - type: Perishable
 
 - type: entity
-  name: syndiroach
+  name: "синді-тарган"
   id: MobMothSyndy
   parent: MobMothroach
-  description: Explosive moth.
+  description: "Вибуховий мофф."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
@@ -174,11 +183,11 @@
     - Syndicate
 
 - type: entity
-  name: syndie bee
+  name: "синді бі"
   suffix: Angry, syndicate
   parent: [ MobAngryBee ]
   id: MobSyndieAngryBee
-  description: How nice a bee. Oh no, it looks angry and wants my pizza.
+  description: "Яка гарна бджілка. О ні, вона виглядає сердитою і хоче мою піцу."
   components:
   - type: NpcFactionMember
     factions:
@@ -205,10 +214,10 @@
         3
 
 - type: entity
-  name: lootbug
+  name: "лутбаг"
   id: MobLootbug
   parent: SimpleMobBase
-  description: It eats metal, maybe it's eaten something of value?
+  description: "Він їсть метал, можливо, він з'їв щось цінне?"
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -242,6 +251,12 @@
     speechVerb: SmallMob
     speechSounds: Squeak
     allowedEmotes: ['Squeak']
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
   - type: MobState
   - type: DamageStateVisuals
     states:
@@ -269,10 +284,10 @@
   - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
-  name: space carp
+  name: "космічний короп"
   id: MobCarpSentient
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
-  description: It's a space carp. Used to be a person.
+  description: "Це космічний короп. Раніше був людиною."
   components:
   - type: InputMover
   - type: MobMover
@@ -362,13 +377,18 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: LanguageKnowledge # Einstein Engines - Language (prevent universal)
+    speaks:
+    - TauCetiBasic # Is sentient, should have TauCeti since it's the norm.
+    understands:
+    - TauCetiBasic
 
 
 - type: entity
-  name: strange mouse
+  name: "дивна миша"
   parent: MobMouse
   id: MobMouseSentient
-  description: Squeak! Used to be a person!
+  description: "Піск! Раніше була людиною!"
   components:
   - type: MobThresholds
     thresholds:
@@ -392,10 +412,10 @@
         Piercing: 5
 
 - type: entity
-  name: homunculus
+  name: "гомункул"
   id: MobHomunculus
   parent: SimpleMobBase
-  description: What a wretched beast...
+  description: "Яке жалюгідне створіння..."
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -458,11 +478,16 @@
         Slash: 10
   - type: Item
     size: Tiny
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic # Is sentient, should have TauCeti since it is norm.
+    understands:
+    - TauCetiBasic
 
 - type: entity
   parent: MobMouse
   id: MouseMenace
-  name: menace
+  name: "загроза"
   components:
   - type: EnchantFill
     enchants:
@@ -471,10 +496,10 @@
       EnchantSharpness: 5 # hit hard ye
 
 - type: entity
-  name: Clown Ian
+  name: "Клоун Ієн"
   parent: MobCorgiIan
   id: MobCorgiIanClown
-  description: Honkmother's favorite corgi.
+  description: "Улюблений коргі Хонкматері."
   components:
     - type: Sprite
       drawdepth: Mobs
@@ -513,10 +538,10 @@
       - FootstepSound
 
 - type: entity
-  name: brullbar
+  name: "брулбар"
   id: MobBrullbar
   parent: [ SimpleSpaceMobBase, MobCombat ]
-  description: It's like a bear, but not as huggable.
+  description: "Схожий на ведмедя, але не такий придатний для обіймів."
   components:
   - type: HTN
     rootTask:
@@ -560,10 +585,10 @@
   - type: Fauna # Lavaland Change
 
 - type: entity
-  name: brullbar king
+  name: "король брулбарів"
   id: MobBrullbarKing
   parent: MobBrullbar
-  description: Looks mean, is mean. You better run.
+  description: "Виглядає злим, і є злим. Тобі краще тікати."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -593,10 +618,10 @@
       prob: 0.2
 
 - type: entity
-  name: bear
+  name: "ведмідь"
   id: MobBearGoon
   parent: [ SimpleSpaceMobBase, MobCombat ]
-  description: Why are you staring? Never seen a bear before?
+  description: "Чого витріщився? Ніколи не бачив ведмедя?"
   components:
   - type: HTN
     rootTask:
@@ -632,10 +657,10 @@
   - type: Fauna # Lavaland Change
 
 - type: entity
-  name: white wolf
+  name: "білий вовк"
   parent: [ SimpleMobBase, MobCombat ]
   id: MobWhiteWolf
-  description: Don't try to pet this one.
+  description: "Не намагайтеся погладити цього."
   components:
     - type: HTN
       rootTask:
@@ -675,3 +700,74 @@
       spawned:
       - id: FoodMeat
         amount: 1
+    - type: LanguageKnowledge # Einstein Engines - Language
+      speaks:
+      - Dog
+      understands:
+      - Dog
+
+
+- type: entity
+  name: "кінь"
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobHorse
+  description: "Дуже мерзенне створіння. Для тих, хто любить помахати кулаками."
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 7.5
+    baseWalkSpeed: 4.5 # default walking speed
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Horse/horse.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: horse
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 15
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHorse
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - CannotSuicide
+  - type: Inventory
+    speciesId: horse
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: horse
+      Critical:
+        Base: horse_dead
+      Dead:
+        Base: horse_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 12
+  - type: MobPrice
+    price: 2000
+  - type: InteractionPopup
+    successChance: 0.25
+    interactSuccessString: petting-success-horse
+    interactFailureString: petting-failure-horse
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/_Goobstation/Animals/horse.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+

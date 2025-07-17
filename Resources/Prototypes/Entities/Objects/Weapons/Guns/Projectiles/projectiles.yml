@@ -64,7 +64,6 @@
 # SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2024 MaloTV <70515562+MaloTV@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.co>
@@ -77,22 +76,28 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GaussiArson <193122004+GaussiArson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TytosB <54259736+TytosB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -160,8 +165,8 @@
 # One bullet to bring them all into the darkness and bind them
 - type: entity
   id: BaseBullet
-  name: BaseBullet
-  description: If you can see this you're probably dead!
+  name: "BaseBullet"
+  description: "Якщо ви бачите це, ви, мабуть, мертві!"
   abstract: true
   components:
   - type: Reflective
@@ -231,7 +236,7 @@
 
 - type: entity
   id: BaseBulletPractice
-  name: base bullet practice
+  name: "практика з базовими кулями"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -246,7 +251,7 @@
 
 - type: entity
   id: BaseBulletIncendiary
-  name: base bullet incendiary
+  name: "базова куля запальна"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -264,7 +269,7 @@
 
 - type: entity
   id: BaseBulletAP
-  name: base bullet armor-piercing
+  name: "базова куля бронебійний"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -280,7 +285,7 @@
 
 - type: entity
   id: BaseBulletUranium
-  name: base bullet uranium
+  name: "базовий уран для куль"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -295,7 +300,7 @@
 
 # Energy projectiles
 - type: entity
-  name: taser bolt
+  name: "болт електрошокера"
   id: BulletTaser
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -418,7 +423,7 @@
     forceSound: true
 
 - type: entity
-  name: emitter bolt
+  name: "болт випромінювача"
   id: EmitterBolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -458,7 +463,7 @@
     lifetime: 3
 
 - type: entity
-  name: watcher bolt
+  name: "сторожовий болт"
   id: WatcherBolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -498,7 +503,7 @@
     heat: -15000 # Lavaland Change
 
 - type: entity
-  name: magmawing watcher bolt
+  name: "магнітний болт зі сторожовим замком"
   id: WatcherBoltMagmawing
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -521,7 +526,7 @@
     heat: 20000 # Lavaland Change
 
 - type: entity
-  name: icewing watcher bolt
+  name: "болт спостерігача крижаного крила"
   id: WatcherBoltIcewing
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -546,7 +551,7 @@
 - type: entity
   parent: BaseBullet
   id: BasiliskRay
-  name: basilisk ray
+  name: "промінь василіска"
   categories: [ HideSpawnMenu ]
   components:
   - type: FlyBySound
@@ -584,10 +589,10 @@
 
 - type: entity
   id: BulletKinetic
-  name: kinetic bolt
+  name: "кінетичний болт"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
+  description: "Не так вже й погано, але ви все одно не хочете, щоб він вас зачепив."
   components:
   - type: Reflective
     reflective:
@@ -640,7 +645,7 @@
   parent: BulletRocket
   id: BulletSingularityBusterRocket
   categories: [ HideSpawnMenu ]
-  name: singularity buster rocket
+  name: "ракета \"Руйнівник Сингулярності"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -657,10 +662,10 @@
 
 - type: entity
   id: BulletCharge
-  name: charge bolt
+  name: "зарядний болт"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: Marks a target for additional damage.
+  description: "Позначає ціль для нанесення додаткової шкоди."
   components:
   - type: Reflective
     reflective:
@@ -695,7 +700,7 @@
 - type: entity
   parent: BaseBullet
   id: AnomalousParticleDelta
-  name: delta particles
+  name: "дельта-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -749,7 +754,7 @@
 - type: entity
   parent: AnomalousParticleDelta
   id: AnomalousParticleEpsilon
-  name: epsilon particles
+  name: "епсилон-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -779,7 +784,7 @@
 - type: entity
   parent: AnomalousParticleDelta
   id: AnomalousParticleZeta
-  name: zeta particles
+  name: "зета-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -809,7 +814,7 @@
 - type: entity
   parent: AnomalousParticleDelta
   id: AnomalousParticleOmegaStrong
-  name: omega particles
+  name: "омега-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -838,7 +843,7 @@
 - type: entity
   parent: AnomalousParticleDelta
   id: AnomalousParticleSigma
-  name: sigma particles
+  name: "сигма-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -856,7 +861,7 @@
 - type: entity
   parent: AnomalousParticleSigma
   id: AnomalousParticleSigmaStrong
-  name: sigma particles
+  name: "сигма-частинки"
   categories: [ HideSpawnMenu ]
   components:
   - type: AnomalousParticle
@@ -865,7 +870,7 @@
 # Launcher projectiles (grenade / rocket)
 - type: entity
   id: BulletRocket
-  name: rocket
+  name: "ракета"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -887,7 +892,7 @@
 
 - type: entity
   id: BulletWeakRocket
-  name: weak rocket
+  name: "слабка ракета"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -909,7 +914,7 @@
 
 - type: entity
   id: BulletGrenadeBaton
-  name: baton grenade
+  name: "світлошумова граната"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -930,7 +935,7 @@
 
 - type: entity
   id: BulletGrenadeBlast
-  name: blast grenade
+  name: "бойова граната"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -947,7 +952,7 @@
 
 - type: entity
   id: BulletGrenadeFlash
-  name: flash grenade
+  name: "світлошумова граната"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -968,7 +973,7 @@
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity
   id: BulletGrenadeFrag
-  name: frag grenade
+  name: "осколкова граната"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -986,7 +991,7 @@
 - type: entity
   parent: BaseBulletTrigger
   id: BulletGrenadeCleanade
-  name: cleanade grenade round
+  name: "граната \"чистонада"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -1015,7 +1020,7 @@
 
 - type: entity
   id: BulletGrenadeEMP
-  name: EMP rocket
+  name: "ЕМІ-ракета"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -1036,7 +1041,7 @@
 
 - type: entity
   id: BulletCap
-  name: cap bullet
+  name: "капсюльна куля"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -1052,7 +1057,7 @@
 
 - type: entity
   id: BulletAcid
-  name: acid spit
+  name: "кислотна слина"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -1069,7 +1074,7 @@
 
 - type: entity
   id: BulletWaterShot
-  name: water
+  name: "вода"
   categories: [ HideSpawnMenu ]
   components:
   - type: Clickable
@@ -1112,7 +1117,7 @@
 
 - type: entity
   id: BulletHivebot
-  name: hivebot bullet
+  name: "куля хайвбота"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -1123,7 +1128,7 @@
 
 - type: entity
   id: BulletCannonBall
-  name: cannonball
+  name: "гарматне ядро"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -1145,7 +1150,7 @@
 
 - type: entity
   id: GrapplingHook
-  name: grappling hook
+  name: "гак для захоплення"
   categories: [ HideSpawnMenu ]
   components:
     - type: EmbeddableProjectile
@@ -1296,7 +1301,7 @@
     forceSound: true
 
 - type: entity
-  name: tesla gun lightning
+  name: "блискавка з гармати Тесли"
   id: TeslaGunBullet
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -1331,7 +1336,7 @@
     muzzleFlash: null
 
 - type: entity
-  name: laser bolt
+  name: "лазерний болт"
   id: BulletLaser
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -1368,7 +1373,7 @@
         Heat: 13
 
 - type: entity
-  name: wide laser barrage
+  name: "широкий лазерний залп"
   id: BulletLaserSpread
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
@@ -1379,7 +1384,7 @@
     spread: 30
 
 - type: entity
-  name: narrow laser barrage
+  name: "вузький лазерний промінь"
   id: BulletLaserSpreadNarrow
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
@@ -1390,7 +1395,7 @@
     spread: 10
 
 - type: entity
-  name: disabling laser barrage
+  name: "знерухомлюючий лазерний залп"
   id: BulletDisablerSmgSpread
   categories: [ HideSpawnMenu ]
   parent: BulletDisablerSmg

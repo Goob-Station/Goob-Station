@@ -52,6 +52,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
@@ -186,30 +187,15 @@
   - type: StorageFill
     contents: # heavily good edited
       - id: BoxAutoinjectorCartidges
-      - id: OmnimedTool
+      - id: ClothingBackpackDuffelSurgeryFilled
+      - id: ClothingHandsGlovesLatex
       - id: ClothingOuterHardsuitBrigmedic
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingUniformJumpskirtOfLife
         prob: 0.1
-      - id: MedkitOxygenFilled # This one is guaranteed
-      # And extra 3 medkits on average, with autoinjectors and surgery tools should be more than enough round start
-      - id: MedkitFilled
-        prob: 0.75
-      - id: MedkitBruteFilled
-        prob: 0.5
-      - id: MedkitBurnFilled
-        prob: 0.5
-      - id: MedkitToxinFilled
-        prob: 0.3
-      - id: MedkitRadiationFilled
-        prob: 0.3
+      - id: MedkitOxygenFilled
       - id: MedkitAdvancedFilled
-        prob: 0.2
-      - id: MedkitCombatFilled
-        prob: 0.1
-      - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
-        prob: 0.065 # 6,5% for moth obviozzzsly
 
 - type: entity
   id: LockerDetectiveFilled
@@ -254,7 +240,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeDisabler
-  name: disabler safe
+  name: "сейф-знешкоджувач"
   components:
   - type: StorageFill
     contents:
@@ -264,7 +250,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafePistolMk58
-  name: mk58 safe
+  name: "сейф для MK58"
   components:
   - type: StorageFill
     contents:
@@ -276,7 +262,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeRifleLecter
-  name: lecter safe
+  name: "сейф для Лектора"
   components:
   - type: StorageFill
     contents:
@@ -288,7 +274,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeSubMachineGunDrozd
-  name: drozd safe
+  name: "сейф для Дрозда"
   components:
   - type: StorageFill
     contents:
@@ -300,7 +286,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeShotgunEnforcer
-  name: enforcer safe
+  name: "сейф для Enforcer"
   components:
   - type: StorageFill
     contents:
@@ -312,7 +298,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeShotgunKammerer
-  name: kammerer safe
+  name: "сейф для Каммерера"
   components:
   - type: StorageFill
     contents:
@@ -325,7 +311,7 @@
   id: GunSafeSubMachineGunWt550
   suffix: Wt550
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
-  name: wt550 safe
+  name: "сейф для WT550 "
   components:
   - type: StorageFill
     contents:
@@ -337,7 +323,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeLaserCarbine
-  name: laser safe
+  name: "сейф для лазерних карабінів"
   components:
   - type: StorageFill
     contents:

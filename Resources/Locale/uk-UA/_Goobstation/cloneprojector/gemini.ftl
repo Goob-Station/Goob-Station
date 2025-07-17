@@ -24,3 +24,6 @@ ghost-role-information-gemini-clone-name = Голограма Джеміні
 ghost-role-information-gemini-clone-description = Допомагайте директору з досліджень у всіх його завданнях. Можливо, спаліть місто чи два, якщо він захоче.
 
 monozygotic-projector-clone-name-suffix = - Зигота
+
+ghost-role-information-monozygotic-clone-name = Монозиготна голограма
+ghost-role-information-monozygotic-clone-description = Допомагайте Центральному командуванню у всіх їхніх завданнях.

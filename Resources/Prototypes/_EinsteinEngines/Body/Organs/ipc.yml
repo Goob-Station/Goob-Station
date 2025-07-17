@@ -27,7 +27,7 @@
 - type: entity
   id: OrganIPCEyes
   parent: BaseIPCOrgan
-  name: robotic eyes
+  name: "роботичні очі"
   description: "01001001 00100000 01110011 01100101 01100101 00100000 01111001 01101111 01110101 00100001"
   components:
   - type: Sprite
@@ -45,8 +45,8 @@
 - type: entity
   id: OrganIPCTongue
   parent: BaseIPCOrgan
-  name: vocal modulator
-  description: "A vocal modulator, used to produce speech."
+  name: "голосовий модулятор"
+  description: "Голосовий модулятор, що використовується для відтворення мови."
   components:
   - type: Sprite
     state: tongue
@@ -59,7 +59,7 @@
 - type: entity
   id: OrganIPCEars
   parent: BaseIPCOrgan
-  name: "sonic receptors"
+  name: "звукові рецептори"
   description:
   components:
   - type: Sprite
@@ -69,8 +69,8 @@
 - type: entity
   id: OrganIPCPump
   parent: BaseIPCOrgan
-  name: micro pump
-  description: "A micro pump, used to circulate coolant."
+  name: "мікронасос"
+  description: "Мікронасос, що використовується для циркуляції охолоджуючої рідини."
   components:
   - type: Sprite
     state: heart-on

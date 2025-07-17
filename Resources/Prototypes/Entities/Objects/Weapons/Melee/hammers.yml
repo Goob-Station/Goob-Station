@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -9,10 +11,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: sledgehammer
+  name: "кувалда"
   parent: BaseItem
   id: Sledgehammer
-  description: The perfect tool for wanton carnage.
+  description: "Ідеальний інструмент для безглуздої різанини."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/sledgehammer.rsi
@@ -37,8 +39,8 @@
 - type: entity
   id: Mjollnir
   parent: BaseItem
-  name: Mjollnir
-  description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
+  name: "Мйольнір"
+  description: "Зброя, гідна бога, здатна завдавати ударів з силою блискавки. Вона тріщить від ледь стримуваної енергії."
   components:
   - type: Wieldable
     useDelayOnWield: false # GoobStation Edit
@@ -77,12 +79,13 @@
   - type: Item
     size: Ginormous
   - type: Boomerang # Goobstation
+    maxHops: 20
 
 - type: entity
   id: SingularityHammer
   parent: BaseItem
-  name: Singularity Hammer
-  description: The pinnacle of close combat technology, the hammer harnesses the power of a miniaturized singularity to deal crushing blows.
+  name: "Молот Сингулярності"
+  description: "Вершина технології ближнього бою, молот використовує силу мініатюрної сингулярності для нанесення нищівних ударів."
   components:
   - type: Wieldable
     useDelayOnWield: false

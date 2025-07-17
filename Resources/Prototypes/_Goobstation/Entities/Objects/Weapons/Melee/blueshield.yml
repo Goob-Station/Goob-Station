@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -24,10 +25,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: DT-3 "Atrocity"
+  name: "DT-3 \"Жорстокість\""
   parent: [BaseItem, BaseCentcommContraband]
   id: BlueshieldMace
-  description: Crush all those who oppose your leaders. Functions as a stun baton in its powered state.
+  description: "Розтрощіть усіх, хто протистоїть вашим лідерам. Функціонує як електрошоковий кийок у ввімкненому стані."
   components:
   - type: Tag
     tags:
@@ -69,14 +70,9 @@
     soundHit:
       path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
   - type: StaminaDamageOnHit
-    damage: 40
-    overtime: 40
-    lightAttackDamageMultiplier: 2
-    lightAttackOvertimeDamageMultiplier: 0.5
-    sound: /Audio/Weapons/egloves.ogg
-  - type: StaminaDamageOnCollide
-    damage: 15
-    overtime: 40
+    damage: 5
+    overtime: 1
+    lightAttackOvertimeDamageMultiplier: 50
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor
   - type: Battery
@@ -104,10 +100,10 @@
     price: 1000
 
 - type: entity
-  name: combat injector
+  name: "бойовий інжектор"
   parent: [BaseItem, BaseCentcommContraband]
   id: CombatInjector
-  description: Injects stored chemicals on hit, has a low capacity due to its sturdy design.
+  description: "Вводить збережені хімікати при ударі, має низьку ємність через свою міцну конструкцію."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
