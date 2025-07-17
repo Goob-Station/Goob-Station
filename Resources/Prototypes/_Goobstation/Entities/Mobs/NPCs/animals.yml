@@ -700,6 +700,12 @@
       spawned:
       - id: FoodMeat
         amount: 1
+    - type: LanguageKnowledge # Einstein Engines - Language
+      speaks:
+      - Dog
+      understands:
+      - Dog
+
 
 - type: entity
   name: horse
@@ -764,10 +770,4 @@
     attributes:
       proper: true
       gender: male
-
-    - type: LanguageKnowledge # Einstein Engines - Language
-      speaks:
-      - Dog
-      understands:
-      - Dog
 
