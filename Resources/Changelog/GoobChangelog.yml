@@ -12420,3 +12420,9 @@ Entries:
       message: Nerfed CQC
   id: 1370
   time: '2025-07-17T06:17:25.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: His Grace has received a buff.
+  id: 1371
+  time: '2025-07-17T06:22:31.0000000+00:00'
