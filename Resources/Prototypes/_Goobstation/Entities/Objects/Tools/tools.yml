@@ -30,20 +30,15 @@
   - type: Tag
     tags:
     - Multitool
-  - type: Flash
-    duration: 20000
-    aoeFlashDuration: 10000
-    slowTo: 0.2
-    range: 15
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
       types:
-        Blunt: 0 # melee weapon to allow flashing individual targets
+        Blunt: 0
   - type: Prying
     enabled: false
   - type: UseDelay # For insta prying
-    delay: 1
+    delay: 0.5
   - type: Tool
     qualities:
       - Screwing
