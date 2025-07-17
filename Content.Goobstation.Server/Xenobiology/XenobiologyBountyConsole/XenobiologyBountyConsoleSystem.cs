@@ -112,7 +112,7 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         foreach (var bountyEnt in bountyEntities)
             Del(bountyEnt);
 
-        var pointsToAward = (int)Math.Round(bountyProto.PointsAwarded * bounty.CurrentMultiplier);
+        var pointsToAward = GetActualValue(bounty);
         _research.ModifyServerPoints(server.Value, pointsToAward, serverComponent);
 
         _audio.PlayPvs(console.Comp.FulfillSound, console);
@@ -347,7 +347,8 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        foreach (var bountyData in component.Bounties.Where(bountyData => bountyData.Id == id))
+        foreach (var bountyData in component.Bounties
+                     .Where(bountyData => bountyData.Id == id))
         {
             bounty = bountyData;
             break;
@@ -379,19 +380,14 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
         var untilNextRefresh = db.NextGlobalMarketRefresh - _timing.CurTime;
         var state = new XenobiologyBountyConsoleState(db.Bounties, db.History, untilNextSkip, untilNextRefresh);
 
+        SortBounties(db);
         _uiSystem.SetUiState(console, CargoConsoleUiKey.Bounty, state);
     }
 
     private void SortBounties(StationXenobiologyBountyDatabaseComponent db)
     {
        db.Bounties = db.Bounties
-            .OrderBy(bounty =>
-            {
-                if (!_proto.TryIndex(bounty.Bounty, out var proto))
-                    return 0;
-
-                return proto.PointsAwarded * bounty.CurrentMultiplier;
-            })
+            .OrderBy(bounty => !_proto.TryIndex(bounty.Bounty, out var proto) ? 0 : GetActualValue(bounty))
             .ToList();
     }
     private void RandomizeAllBountyPointMultipliers(StationXenobiologyBountyDatabaseComponent db)
@@ -418,6 +414,18 @@ public sealed class XenobiologyBountyConsoleSytem : EntitySystem
 
     private void ShiftTowardsDefaultPointMultiplier(XenobiologyBountyData bounty) =>
         bounty.CurrentMultiplier = MathHelper.Lerp(bounty.CurrentMultiplier, bounty.InitialMultiplier, 0.3f);
+
+    private int GetActualValue(XenobiologyBountyData bounty)
+    {
+        if (!_proto.TryIndex(bounty.Bounty, out var proto))
+            return 0;
+
+        double absNumber = Math.Abs(proto.PointsAwarded * bounty.CurrentMultiplier);
+        var exponent = Math.Floor(Math.Log10(absNumber));
+        var baseValue = 0.25 * Math.Pow(10, exponent);
+        var roundedAbs = Math.Round(absNumber / baseValue, MidpointRounding.AwayFromZero) * baseValue;
+        return  (int)roundedAbs;
+    }
 
     #endregion
 }

@@ -34,7 +34,11 @@ public sealed partial class XenobiologyBountyEntry : BoxContainer
         if (!_prototype.TryIndex(bounty.Bounty, out var bountyPrototype))
             return;
 
-        var points = (int) Math.Round(bountyPrototype.PointsAwarded * bounty.CurrentMultiplier);
+        double absNumber = Math.Abs(bountyPrototype.PointsAwarded * bounty.CurrentMultiplier);
+        var exponent = Math.Floor(Math.Log10(absNumber));
+        var baseValue = 0.25 * Math.Pow(10, exponent);
+        var roundedAbs = Math.Round(absNumber / baseValue, MidpointRounding.AwayFromZero) * baseValue;
+        var points = (int) roundedAbs;
 
         var items = bountyPrototype.Entries
             .Select(entry => Loc.GetString("bounty-console-manifest-entry",
