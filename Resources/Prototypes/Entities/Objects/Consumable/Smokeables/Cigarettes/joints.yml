@@ -53,8 +53,8 @@
             Quantity: 20
   - type: RandomMetadata
     nameSegments: [NamesRollie]
-  - type: StaticPrice
-    price: 300
+  - type: StaticPrice #Goobstation
+    price: 300        #Goobstation
 
 - type: entity
   id: JointRainbow
@@ -83,8 +83,8 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
-  - type: StaticPrice
-    price: 500
+  - type: StaticPrice #Goobstation
+    price: 500        #Goobstation
 
 - type: entity
   id: BluntCigar # Shitmed Change
@@ -118,8 +118,8 @@
             Quantity: 20
   - type: RandomMetadata
     nameSegments: [NamesRollie]
-  - type: StaticPrice
-    price: 300
+  - type: StaticPrice #Goobstation
+    price: 300        #Goobstation
 
 - type: entity
   id: BluntRainbow
@@ -148,5 +148,5 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
-  - type: StaticPrice
-    price: 500
+  - type: StaticPrice #Goobstation
+    price: 500        #Goobstation
