@@ -12306,3 +12306,9 @@ Entries:
         an o2 medkit.
   id: 1358
   time: '2025-07-16T14:14:43.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Fix
+      message: Lube foam now creates lube.
+  id: 1359
+  time: '2025-07-17T05:56:42.0000000+00:00'
