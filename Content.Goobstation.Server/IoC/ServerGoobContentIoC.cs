@@ -11,10 +11,12 @@ using Content.Goobstation.Common.Antag;
 using Content.Goobstation.Common.JoinQueue;
 using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Server.Antag;
+using Content.Goobstation.Common.ServerCurrency;
 using Content.Goobstation.Server.JoinQueue;
 using Content.Goobstation.Server.MisandryBox.JumpScare;
 using Content.Goobstation.Server.MisandryBox.Spider;
 using Content.Goobstation.Server.Redial;
+using Content.Goobstation.Server.ServerCurrency;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Shared.MisandryBox.JumpScare;
 using Robust.Shared.IoC;
@@ -33,5 +35,6 @@ internal static class ServerGoobContentIoC
         instance.Register<IFullScreenImageJumpscare, ServerFullScreenImageJumpscare>();
         instance.Register<ILastRolledAntagManager, LastRolledAntagManager>();
         instance.Register<ISpiderManager, ServerSpiderManager>();
+        instance.Register<ICommonCurrencyManager, ServerCurrencyManager>();
     }
 }

@@ -12,6 +12,8 @@ using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Common.JoinQueue;
 using Content.Goobstation.Common.MisandryBox;
+using Content.Goobstation.Common.ServerCurrency;
+using Content.Goobstation.Server.ServerCurrency;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
 using Robust.Shared.Timing;
@@ -22,6 +24,7 @@ public sealed class EntryPoint : GameServer
 {
     private ILastRolledAntagManager _antagPity = default!;
     private IVoiceChatServerManager _voiceManager = default!;
+    private ICommonCurrencyManager _curr = default!;
 
     public override void Init()
     {
@@ -36,6 +39,9 @@ public sealed class EntryPoint : GameServer
         IoCManager.Resolve<IJoinQueueManager>().Initialize();
         IoCManager.Resolve<ISpiderManager>().Initialize();
         _antagPity = IoCManager.Resolve<ILastRolledAntagManager>();
+
+        _curr = IoCManager.Resolve<ICommonCurrencyManager>();
+        _curr.Initialize();
     }
 
     public override void PostInit()
@@ -63,5 +69,6 @@ public sealed class EntryPoint : GameServer
         base.Dispose(disposing);
 
         _antagPity.Shutdown();
+        _curr.Shutdown();
     }
 }
