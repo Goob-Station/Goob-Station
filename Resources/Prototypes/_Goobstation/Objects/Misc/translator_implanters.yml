@@ -1,0 +1,7 @@
+- type: entity
+  id: UniversalTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: universal translator implant
+  components:
+  - type: Implanter
+    implant: UniversalTranslatorImplant
