@@ -26,6 +26,11 @@ using Content.Shared.Alert;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Rounding;
+<<<<<<< Updated upstream
+=======
+using Content.Shared.Damage.Events;
+using Content.Shared.Damage.Systems;
+>>>>>>> Stashed changes
 
 namespace Content.Server.Psionics;
 
@@ -47,6 +52,8 @@ public sealed class PsionicsSystem : EntitySystem
     [Dependency] private readonly PsionicFamiliarSystem _psionicFamiliar = default!;
     [Dependency] private readonly NPCRetaliationSystem _retaliationSystem = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
 
     private const string BaselineAmplification = "Baseline Amplification";
     private const string BaselineDampening = "Baseline Dampening";
@@ -78,7 +85,6 @@ public sealed class PsionicsSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<PsionicComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<AntiPsionicWeaponComponent, TakeStaminaDamageEvent>(OnStamHit);
         SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobstateChanged);
         SubscribeLocalEvent<PsionicComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<PsionicComponent, AttackAttemptEvent>(OnAttackAttempt);
@@ -162,7 +168,7 @@ public sealed class PsionicsSystem : EntitySystem
             if (!_random.Prob(component.DisableChance))
                 return;
 
-            _statusEffects.TryAddStatusEffect(entity, component.DisableStatus, TimeSpan.FromSeconds(component.DisableDuration), true, component.DisableStatus);
+            _stamina.TakeStaminaDamage(entity, (float) 100);
         }
 
         if (TryComp<MindSwappedComponent>(entity, out var swapped))
@@ -195,14 +201,6 @@ public sealed class PsionicsSystem : EntitySystem
             return;
 
         _npcFactonSystem.RemoveFaction(uid, "PsionicInterloper");
-    }
-
-    private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, TakeStaminaDamageEvent args)
-    {
-        if (!HasComp<PsionicComponent>(args.Target))
-            return;
-
-        args.FlatModifier += component.PsychicStaminaDamage;
     }
 
     /// <summary>
