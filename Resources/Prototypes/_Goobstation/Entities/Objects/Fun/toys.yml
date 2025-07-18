@@ -509,9 +509,6 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
@@ -527,11 +524,12 @@
         Blunt: 0
     soundHit:
       path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
-  - type: Destructible
+  - type: Damageable
+    damageContainer: 
+  - type: OnlyPiercing
     thresholds:
     - trigger:
         !type:DamageTypeTrigger
-        damageType: Piercing
         damage: 6
       behaviors:
       - !type:DoActsBehavior
@@ -557,9 +555,6 @@
   - type: Item
     heldPrefix: plushiebaldzby
   - type: EmitSoundOnUse
-    sound:
-      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
-  - type: EmitSoundOnLand
     sound:
       path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnActivate

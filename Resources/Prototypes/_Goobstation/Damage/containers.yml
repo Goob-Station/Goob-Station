@@ -37,3 +37,8 @@
   id: OnlyStructural
   supportedTypes:
   - Structural
+
+- type: damageContainer
+  id: OnlyPiercing
+  supportedTypes:
+  - Piercing
