@@ -169,6 +169,7 @@
     pocket1: Silencer
     pocket2: WeaponAlien
     suitstorage: Wonderprod
+    id: AgentIDCard
 
 # Spawners
 
