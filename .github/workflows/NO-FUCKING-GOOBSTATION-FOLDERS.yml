@@ -1,0 +1,38 @@
+﻿name: Check for fork folder meme
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  check-goobstation-folder:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Check for fork folder meme
+      run: |
+        FOUND_FOLDERS=""
+
+        for base_dir in "Content.Client" "Content.Shared" "Content.Server"; do
+          if [ -d "$base_dir" ]; then
+            found_folders=$(find "$base_dir" -maxdepth 1 -type d -iname "*goobstation*" 2>/dev/null)
+            if [ ! -z "$found_folders" ]; then
+              FOUND_FOLDERS="$FOUND_FOLDERS $found_folders"
+            fi
+          fi
+        done
+
+        if [ ! -z "$FOUND_FOLDERS" ]; then
+          echo "❌ ERROR: Folder(s) containing 'goobstation' found in"
+          for folder in $FOUND_FOLDERS; do
+            echo "  - $folder"
+          done
+          echo ""
+          echo "Move your shit to goobmod!"
+          exit 1
+        fi
