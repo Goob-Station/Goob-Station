@@ -311,8 +311,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
-        - ReagentId: Omnizine
-          Quantity: 2
+        - ReagentId: Honk
+          Quantity: 0.50
   - type: Sprite
     state: banana
 
@@ -332,6 +332,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: Honk
+          Quantity: 1
         - ReagentId: Omnizine
           Quantity: 2
 
