@@ -86,9 +86,11 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Jarl <140098675+JarlElbowses@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Vrilly <tnjans@outlook.de>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -101,8 +103,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorPurple
-  name: purple gloves
-  description: Regular purple gloves that do not keep you from frying.
+  name: "фіолетові рукавички"
+  description: "Звичайні фіолетові рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -130,8 +132,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorRed
-  name: red gloves
-  description: Regular red gloves that do not keep you from frying.
+  name: "червоні рукавички"
+  description: "Звичайні червоні рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -159,8 +161,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorBlue
-  name: blue gloves
-  description: Regular blue gloves that do not keep you from frying.
+  name: "сині рукавички"
+  description: "Звичайні сині рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -188,8 +190,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorTeal
-  name: teal gloves
-  description: Regular teal gloves that do not keep you from frying.
+  name: "бірюзові рукавички"
+  description: "Звичайні бірюзові рукавички, які не захистять вас від ураження струмом."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -217,8 +219,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorBrown
-  name: brown gloves
-  description: Regular brown gloves that do not keep you from frying.
+  name: "коричневі рукавички"
+  description: "Звичайні коричневі рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -246,8 +248,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorGray
-  name: grey gloves
-  description: Regular grey gloves that do not keep you from frying.
+  name: "сірі рукавички"
+  description: "Звичайні сірі рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -275,8 +277,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorGreen
-  name: green gloves
-  description: Regular green gloves that do not keep you from frying.
+  name: "зелені рукавички"
+  description: "Звичайні зелені рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -304,8 +306,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorLightBrown
-  name: light brown gloves
-  description: Regular light brown gloves that do not keep you from frying.
+  name: "світло-коричневі рукавички"
+  description: "Звичайні світло-коричневі рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -333,8 +335,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorOrange
-  name: orange gloves
-  description: Regular orange gloves that do not keep you from frying.
+  name: "помаранчеві рукавички"
+  description: "Звичайні помаранчеві рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -362,8 +364,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorWhite
-  name: white gloves
-  description: Regular white gloves that do not keep you from frying.
+  name: "білі рукавички"
+  description: "Звичайні білі рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -392,8 +394,8 @@
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorBlack
-  name: black gloves
-  description: Regular black gloves that do not keep you from frying.
+  name: "чорні рукавички"
+  description: "Звичайні чорні рукавички, які не заважають смажити."
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/black.rsi
@@ -414,13 +416,10 @@
   - type: Fiber
     fiberColor: fibers-black
 
-# Insulated Gloves (Yellow Gloves)
-# Currently can not be greyscaled without looking like shit.
-- type: entity
-  parent: [ClothingHandsBase, BaseEngineeringContraband]
-  id: ClothingHandsGlovesColorYellow
-  name: insulated gloves
-  description: These gloves will protect the wearer from electric shocks.
+- type: entity # Goobstation
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesColorYellowBase
+  abstract: true
   components:
   - type: FingerprintMask
   - type: Sprite
@@ -443,12 +442,20 @@
         Piercing: 0.95
         Shock: 0.75
 
+# Insulated Gloves (Yellow Gloves)
+# Currently can not be greyscaled without looking like shit.
+- type: entity
+  parent: [ClothingHandsGlovesColorYellowBase, BaseEngineeringContraband] # Goob
+  id: ClothingHandsGlovesColorYellow
+  name: "ізольовані рукавички"
+  description: "Ці рукавички захистять користувача від ураження електричним струмом."
+
 # Budget Insulated Gloves
 - type: entity
-  parent: ClothingHandsGlovesColorYellow
+  parent: ClothingHandsGlovesColorYellowBase # Goob
   id: ClothingHandsGlovesColorYellowBudget
-  name: budget insulated gloves
-  description: These gloves are cheap knockoffs of the coveted ones - no way this can end badly.
+  name: "бюджетні ізольовані рукавички"
+  description: "Ці рукавички є дешевими підробками омріяних рукавичок - нічим поганим це не може закінчитися."
   components:
   - type: RandomInsulation
     # Why repeated numbers? So some numbers are more common, of course!

@@ -96,3 +96,11 @@ roles-wizard-name-token = Чарівник (Жетон)
 
 ghost-role-information-huborg-name = Уріст МакБорг
 ghost-role-information-huborg-description = Ви — огидна потвора кіборга.
+ghost-role-information-trevor-name = Тревор
+ghost-role-information-trevor-description = Надійний бойовий кінь служби безпеки.
+
+# Half Life
+justice-role-name = Персона Правосуддя
+justice-role-description = Допомагайте голові служби безпеки проводити арешти, вигукуючи фрази для них, поки вони вершать Правосуддя.
+
+# Ролі за жетони

@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -22,7 +23,7 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: PermaKillRandomTraitorObjective
-  description: Do it however you like, as long as they're not breathing anymore.
+  description: "Зробіть це як завгодно, аби вони більше не дихали."
   components:
   - type: Objective
     difficulty: 2.5 # Most cases tots are armed themselves so have fun
@@ -39,7 +40,7 @@
 - type: entity
   parent: [BaseTraitorObjective, BaseKillObjective]
   id: PermaKillRandomPersonObjective
-  description: Do it however you like, as long as they're not breathing anymore.
+  description: "Зробіть це як завгодно, аби вони більше не дихали."
   components:
   - type: Objective
     difficulty: 1.75
@@ -58,7 +59,7 @@
 - type: entity
   parent: [BaseTraitorSocialObjective, BaseKeepAliveObjective]
   id: RandomTraitorTargetAliveObjective
-  description: Rival agents intend to assassinate this target. Identify yourself at your own risk.
+  description: "Ворожі агенти мають намір вбити цю ціль. Ідентифікуйте себе на свій страх і ризик."
   components:
   - type: Objective
     difficulty: 1 # This can be either protect HoS (objective solves itself) or having some tider die in maints silently. Difficulty is set to 1 to have other objectives.
@@ -93,6 +94,18 @@
     job: HeadOfSecurity
   - type: StealCondition
     stealGroup: WeaponEnergyGunLawbringer
+    owner: job-name-hos
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: JusticeStealObjective
+  components:
+  - type: Objective
+    difficulty: 5 #Cannot be pocketed/bagged like Lawbringer or similar, requires your belt slot or hand to hold.
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: WeaponSecHeadSword
     owner: job-name-hos
 
 - type: entity

@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+# SPDX-FileCopyrightText: 2025 PAFFhassoocks <asukalangleydanielle@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -13,7 +14,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity #DeltaV, modified by Goobstation to work in this folder.
-  name: energy bolt
+  name: "енергетичний болт"
   id: BulletEnergyGunLaser
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -51,7 +52,7 @@
       collection: MeatLaserImpact
 
 - type: entity #Goobstation, put here so the X-01 stuff isnt spread everywhere.
-  name: ion bolt
+  name: "іонний заряд"
   id: BulletEnergyGunIon
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -90,7 +91,7 @@
       collection: MeatLaserImpact
 
 - type: entity # Goobstation, put here so the X-01 stuff isnt spread everywhere.
-  name: magnum bolt
+  name: "магнум болт"
   id: BulletEnergyGunMagnum
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -123,7 +124,7 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Blunt: 3
-        Heat: 12
+        Blunt: 4
+        Heat: 20
     soundHit:
       collection: MeatLaserImpact

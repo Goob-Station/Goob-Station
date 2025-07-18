@@ -37,7 +37,7 @@
 
 - type: entity
   save: false
-  name: Urist McRat
+  name: "Уріст МакРат"
   parent: BaseMobSpeciesOrganic
   id: BaseMobRodentia
   abstract: true
@@ -58,6 +58,13 @@
     speechVerb: Rodentia
     speechSounds: Squeak
     allowedEmotes: ['Squeak']
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - Mouse # Can communicate with mice, I guess.
+    understands:
+    - TauCetiBasic
+    - Mouse # There was no other language for them. This is how it used to be before EE removed them.
   - type: CheeseAccent
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
@@ -156,11 +163,11 @@
 
 - type: entity
   save: false
-  name: Rodentia Dummy
+  name: "Манекен роденції"
   parent: MobHumanDummy
   id: MobRodentiaDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy rodentia meant to be used in character setup.
+  description: "Фіктивна роденція, призначена для використання в наборі символів."
   components:
   - type: HumanoidAppearance
     species: Rodentia

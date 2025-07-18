@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 BeeRobynn <robynthewarcrime@proton.me>
 # SPDX-FileCopyrightText: 2025 Cattowo <2spoopy4u2handle@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -686,3 +687,8 @@
     accent-cheese-words-14: accent-cheese-words-replace-14
     accent-cheese-words-15: accent-cheese-words-replace-15
     accent-cheese-words-16: accent-cheese-words-replace-16
+
+- type: accent
+  id: valid
+  wordReplacements:
+    accent-human-words-1: accent-human-words-replace-1

@@ -16,7 +16,7 @@
 
 - type: entity
   save: false
-  name: Urist McFelinid
+  name: "Уріст МакФелінід"
   parent: BaseMobHuman
   id: MobFelinidBase
   abstract: true
@@ -61,6 +61,13 @@
 #    - OwOnavirus
   - type: Speech
     speechSounds: Alto
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - Nekomimetic
+    understands:
+    - TauCetiBasic
+    - Nekomimetic
   - type: DamageOnHighSpeedImpact # Landing on all fours!
     damage:
       types:
@@ -98,11 +105,11 @@
 
 - type: entity
   save: false
-  name: Urist McHands
+  name: "Уріст МакХендс"
   parent: MobHumanDummy
   id: MobFelinidDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy felinid meant to be used in character setup.
+  description: "Фіктивний фелінід, призначений для використання в налаштуваннях персонажів."
   components:
   - type: HumanoidAppearance
     species: Felinid

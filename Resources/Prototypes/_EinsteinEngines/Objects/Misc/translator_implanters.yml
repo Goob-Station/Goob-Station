@@ -1,0 +1,127 @@
+- type: entity
+  id: BaseTranslatorImplanter
+  abstract: true
+  parent: BaseImplantOnlyImplanter
+  name: "базовий перекладач-імплантатор"
+
+# Gives ability to understand TauCetiBasic.
+- type: entity
+  id: BasicGalaticCommonTranslatorImplanter
+  parent: BaseTranslatorImplanter
+  name: "базовий загальний перекладач-імплантатор"
+  components:
+  - type: Implanter
+    implant: BasicTauCetiBasicTranslatorImplant
+
+# Gives both ability to speak and understand TauCetiBasic.
+- type: entity
+  id: AdvancedGalaticCommonTranslatorImplanter
+  parent: BaseTranslatorImplanter
+  name: "просунутий загальний перекладач-імплантатор"
+  components:
+  - type: Implanter
+    implant: TauCetiBasicTranslatorImplant
+
+- type: entity
+  id: BubblishTranslatorImplanter
+  parent: BaseTranslatorImplanter
+  name: "імплантат перекладача bubblish"
+  components:
+  - type: Implanter
+    implant: BubblishTranslatorImplant
+
+- type: entity
+  id: NekomimeticTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "некоміметичний перекладацький імплантат"
+  components:
+  - type: Implanter
+    implant: NekomimeticTranslatorImplant
+
+- type: entity
+  id: DraconicTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплантат перекладача унаті"
+  components:
+  - type: Implanter
+    implant: DraconicTranslatorImplant
+
+- type: entity
+  id: CanilunztTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплантат перекладача canilunzt"
+  components:
+  - type: Implanter
+    implant: CanilunztTranslatorImplant
+
+- type: entity
+  id: SolCommonTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплантат перекладача sol-common"
+  components:
+  - type: Implanter
+    implant: SolCommonTranslatorImplant
+
+- type: entity
+  id: NovuNedericTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплант-перекладач нову-недерік"
+  components:
+  - type: Implanter
+    implant: NovuNedericTranslatorImplant
+
+- type: entity
+  id: RootSpeakTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплантат перекладача кореневої мови"
+  components:
+  - type: Implanter
+    implant: RootSpeakTranslatorImplant
+
+- type: entity
+  id: MofficTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплантат перекладача moffic"
+  components:
+  - type: Implanter
+    implant: MofficTranslatorImplant
+
+- type: entity
+  id: ValyrianStandardTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "валірійський стандартний перекладацький імплантат"
+  components:
+  - type: Implanter
+    implant: ValyrianStandardTranslatorImplant
+
+- type: entity
+  id: AzazibaTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплантат перекладача азазіба"
+  components:
+  - type: Implanter
+    implant: AzazibaTranslatorImplant
+
+- type: entity
+  id: ChittinTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплантат хітинового перекладача"
+  components:
+  - type: Implanter
+    implant: ChittinTranslatorImplant
+
+- type: entity
+  id: SiikMaasTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплантат перекладача siik'maas"
+  components:
+  - type: Implanter
+    implant: SiikMaasTranslatorImplant
+
+- type: entity
+  id: MarishTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: "імплант-перекладач з маріш"
+  components:
+  - type: Implanter
+    implant: MarishTranslatorImplant

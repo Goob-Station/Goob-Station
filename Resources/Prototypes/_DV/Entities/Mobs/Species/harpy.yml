@@ -23,13 +23,14 @@
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   save: false
-  name: Urist McHarpy
+  name: "Уріст МакГарпі"
   parent: BaseMobHuman
   id: MobHarpyBase
   abstract: true
@@ -156,6 +157,13 @@
       Male: SoundsHarpyMale
       Female: SoundsHarpyFemale
       Unsexed: SoundsHarpyFemale
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - ValyrianStandard
+    understands:
+    - TauCetiBasic
+    - ValyrianStandard
   - type: GenericVisualizer
     visuals:
       enum.HarpyVisualLayers.Singing:
@@ -168,6 +176,18 @@
   - type: Inventory
     speciesId: harpy
     templateId: digitigrade # Einstein Engines
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
   - type: HarpyVisuals
   - type: Tag
     tags:
@@ -185,17 +205,29 @@
 
 - type: entity
   save: false
-  name: Urist McHands
+  name: "Уріст МакРуки"
   parent: MobHumanDummy
   id: MobHarpyDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy Harpy meant to be used in character setup.
+  description: "Манекен гарпії, призначений для використання при створенні персонажа."
   components:
   - type: HumanoidAppearance
     species: Harpy
   - type: Inventory
     speciesId: harpy
-    templateId: digitigrade
+    templateId: digitigrade # Einstein Engines
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _DV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -242,8 +274,8 @@
 
 - type: entity
   id: ActionHarpyPlayMidi
-  name: Play MIDI
-  description: Sing your heart out! Right click yourself to set an instrument.
+  name: "Відтворення MIDI"
+  description: "Співайте від душі! Клацніть правою кнопкою миші на себе, щоб вибрати інструмент."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -254,8 +286,8 @@
 
 - type: entity
   id: ActionSyrinxChangeVoiceMask
-  name: Set name
-  description: Change the name others hear to something else.
+  name: "Назва набору"
+  description: "Змініть ім'я, яке чують інші, на інше."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -265,8 +297,8 @@
 
 - type: entity
   id: ActionToggleFlight
-  name: Fly
-  description: Make use of your wings to fly. Beat the flightless bird allegations.
+  name: "Літати"
+  description: "Використовуйте свої крила, щоб літати. Спростуйте звинувачення в нездатності літати."
   components:
   - type: InstantAction
     checkCanInteract: false

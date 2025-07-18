@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatMail
-  name: mail carrier's winter coat
-  description: It'll keep away the cold but not the dogs.
+  name: "зимове пальто листоноші"
+  description: "Він захистить від холоду, але не від собак."
   components:
     - type: Sprite
       sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
@@ -23,8 +23,8 @@
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterCoatTrainer
-  name: NCT's coat
-  description: A robust coat issued to Nanotrasen Career Trainers. Great for teaching newbies.
+  name: "пальто NCT"
+  description: "Міцне пальто, що видається кар'єрним тренерам NanoTrasen. Чудово підходить для навчання новачків."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/trainer.rsi
@@ -34,8 +34,8 @@
 - type: entity
   parent: [ClothingOuterArmorBase, ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
   id: ClothingOuterWinterSecArmored
-  name: security armored winter coat
-  description: A sturdy, utilitarian winter coat designed to protect security members from any threats and hypothermic events.
+  name: "броньоване зимове пальто служби безпеки"
+  description: "Міцне, утилітарне зимове пальто, розроблене для захисту членів служби безпеки від будь-яких загроз та гіпотермічних подій."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/secvestcoat.rsi
@@ -59,8 +59,8 @@
 - type: entity
   parent: ClothingOuterWinterSecArmored
   id: ClothingOuterWinterSeniorSecArmored
-  name: senior security armored winter coat
-  description: A sturdy, utilitarian winter coat designed to protect senior security members from any threats and hypothermic events.
+  name: "броньоване зимове пальто старшого офіцера служби безпеки"
+  description: "Міцне, утилітарне зимове пальто, розроблене для захисту старших членів служби безпеки від будь-яких загроз та гіпотермічних подій."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/seniorsecvestcoat.rsi

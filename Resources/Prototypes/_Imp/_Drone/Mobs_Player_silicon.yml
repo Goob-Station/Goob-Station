@@ -102,7 +102,7 @@
     speechSounds: Borg
 
 - type: entity
-  name: drone
+  name: "дрон"
   id: Drone
   parent: [PlayerSiliconBase, BaseBorgTransponder]
   components:
@@ -210,7 +210,7 @@
     sprite:
       sprite: _Imp/Drone/drone.rsi
       state: shell
-    name: drone
+    name: "дрон"
   - type: MovementIgnoreGravity
   - type: Fixtures
     fixtures:
@@ -230,8 +230,18 @@
         base:
           Off: { state: shell }
           On: { state: drone }
-  - type: ReplacementAccent
-    accent: silicon
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - DroneTalk
+    understands:
+    - DroneTalk
+    - TauCetiBasic
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 8

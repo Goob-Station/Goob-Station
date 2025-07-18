@@ -41,12 +41,12 @@
     speedModifierThresholds:
       60: 0.7
       80: 0.5
-      
+
 - type: entity
-  name: shadow cat
+  name: "тіньовий кіт"
   parent: BaseShadowMob
   id: MobCatShadow
-  description: A lovely piece of darkness. Hope he doesn't bring you a curse.
+  description: "Милий шматочок темряви. Сподіваюся, він не принесе тобі прокляття."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -55,8 +55,11 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cat
   - type: Physics
-  - type: ReplacementAccent
-    accent: cat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
   - type: InteractionPopup
     successChance: 0.01 # you cant pet shadow cat... almost
     interactSuccessString: petting-success-cat

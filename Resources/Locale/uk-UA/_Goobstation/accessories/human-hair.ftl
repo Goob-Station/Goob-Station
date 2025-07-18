@@ -58,3 +58,4 @@ marking-HumanHairWispy = Тонкі пасма
 marking-HumanHairSpikeHawk = Колючий ірокез
 
 marking-HumanHairJinx = Джинкс
+marking-HumanHairPoofed = Напудрене

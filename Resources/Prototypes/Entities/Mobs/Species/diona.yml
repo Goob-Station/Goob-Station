@@ -41,7 +41,7 @@
 
 - type: entity
   save: false
-  name: Urist McPlants
+  name: "Уріст МакПлантс"
   parent: BaseMobSpeciesOrganic
   id: BaseMobDiona
   abstract: true
@@ -135,6 +135,13 @@
       Unsexed: UnisexDiona
   - type: TypingIndicator
     proto: diona
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RootSpeak
+    understands:
+    - TauCetiBasic
+    - RootSpeak
   - type: BodyEmotes
     soundsId: DionaBodyEmotes
   - type: IgnoreKudzu
