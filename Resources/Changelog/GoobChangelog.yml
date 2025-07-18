@@ -12697,3 +12697,23 @@ Entries:
       message: You now earn reduced Goobcoin when a round is ended prematurely
   id: 1400
   time: '2025-07-17T08:37:41.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        Muzzled headrevs can no longer convert. Stop trying to bypass speeches
+        freaks.
+    - type: Tweak
+      message: Muted headrevs can no longer convert. No more bullshit silent converts.
+    - type: Remove
+      message: >-
+        Mimes can no longer roll headrev as muted people cannot convert new
+        revs.
+  id: 1401
+  time: '2025-07-18T01:29:19.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed polymorphs teleporting your brain.
+  id: 1402
+  time: '2025-07-18T06:25:39.0000000+00:00'
