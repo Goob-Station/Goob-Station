@@ -19,7 +19,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Tile;
+using Content.Shared._Lavaland.Tile.Shapes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -66,10 +66,10 @@ public sealed partial class HierophantClubItemComponent : Component
     public int CrossRange = 5;
 
     [DataField]
-    public ProtoId<TileShapePrototype> CrossAttackShape;
+    public TileShape CrossAttackShape;
 
     [DataField]
-    public ProtoId<TileShapePrototype> BlinkShape;
+    public TileShape BlinkShape;
 
     [DataField]
     public SoundSpecifier DamageSound = new SoundPathSpecifier("/Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg");

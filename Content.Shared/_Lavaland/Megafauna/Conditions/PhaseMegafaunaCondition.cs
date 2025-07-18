@@ -4,7 +4,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.MobPhases;
 
 namespace Content.Shared._Lavaland.Megafauna.Conditions;

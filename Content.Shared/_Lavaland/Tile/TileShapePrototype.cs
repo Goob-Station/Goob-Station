@@ -1,10 +1,10 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Content.Shared._Lavaland.Tile.Shapes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Tile;
 
 /// <summary>
-/// Can contain multiple just one or multiple TileShapes
-/// to be used in components and code more conveniently.
+/// Contains one or multiple TileShapes to create a pattern.
 /// </summary>
 [Prototype]
 public sealed partial class TileShapePrototype : IPrototype
@@ -13,9 +13,6 @@ public sealed partial class TileShapePrototype : IPrototype
     [IdDataField]
     public string ID { get; } = default!;
 
-    [DataField]
-    public bool CanOverlap;
-
     [DataField(required: true)]
-    public TileShape[] Shapes = default!;
+    public TileShape Shape = default!;
 }

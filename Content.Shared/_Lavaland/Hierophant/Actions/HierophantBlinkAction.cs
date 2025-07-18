@@ -6,7 +6,7 @@
 using Content.Shared._Lavaland.Anger;
 using Content.Shared._Lavaland.Hierophant.Systems;
 using Content.Shared._Lavaland.Megafauna;
-using Content.Shared._Lavaland.Tile;
+using Content.Shared._Lavaland.Tile.Shapes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Hierophant.Actions;
@@ -17,7 +17,7 @@ public sealed partial class HierophantBlinkAction : MegafaunaAction
     public EntProtoId DamageTile = "LavalandHierophantChaser";
 
     [DataField]
-    public ProtoId<TileShapePrototype> TeleportShape;
+    public TileShape TeleportShape;
 
     [DataField]
     public float BaseAfterDelay = 0.9f;

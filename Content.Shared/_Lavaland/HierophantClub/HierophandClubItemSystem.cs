@@ -43,7 +43,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly HierophantSystem _hierophant = default!;
-    [Dependency] private readonly TileShapeSpawnerSystem _tileSpawner = default!;
+    [Dependency] private readonly TileShapeSystem _tile = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -108,7 +108,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
 
         var position = Transform(args.Performer)
             .Coordinates
-            .AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapMan);
+            .SnapToGrid(EntityManager, _mapMan);
 
         var marker = PredictedSpawnAtPosition(ent.Comp.TeleportMarkerPrototype, position);
         ent.Comp.TeleportMarker = marker;
@@ -116,7 +116,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
         _popup.PopupEntity("Teleportation point set.", user);
 
         AddImmunity(user);
-        _tileSpawner.SpawnTileShapeAtPosition(position, ent.Comp.HierophantDamageTileId, ent.Comp.BlinkShape);
+        _tile.SpawnTileShape(ent.Comp.BlinkShape, position, ent.Comp.HierophantDamageTileId, out _);
 
         args.Handled = true;
     }
@@ -143,7 +143,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
 
     private void OnToggleTileMovement(Entity<HierophantClubItemComponent> ent, ref HierophantClubToggleTileMovementEvent args)
     {
-        if (args.Handled && !TerminatingOrDeleted(args.Target))
+        if (args.Handled || TerminatingOrDeleted(args.Target))
             return;
 
         if (HasComp<HierophantBeatComponent>(args.Target))
@@ -158,7 +158,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
     private void SpawnHierophantCross(EntityUid owner, EntityCoordinates coords, HierophantClubItemComponent club)
     {
         AddImmunity(owner);
-        _tileSpawner.SpawnTileShapeAtPosition(coords, club.HierophantDamageTileId, club.CrossAttackShape);
+        _tile.SpawnTileShape(club.CrossAttackShape, coords, club.HierophantDamageTileId, out _);
         _audio.PlayPredicted(club.DamageSound, coords, owner, AudioParams.Default.WithMaxDistance(10f));
     }
 

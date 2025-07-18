@@ -31,6 +31,7 @@ using System.Linq;
 using Content.Shared._Lavaland.Hierophant.Components;
 using Content.Shared._Lavaland.Megafauna;
 using Content.Shared._Lavaland.Tile;
+using Content.Shared._Lavaland.Tile.Shapes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -42,7 +43,7 @@ public sealed class HierophantSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly TileShapeSpawnerSystem _tileSpawner = default!;
+    [Dependency] private readonly TileShapeSystem _tile = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -111,14 +112,14 @@ public sealed class HierophantSystem : EntitySystem
     public void Blink(
         EntityUid ent,
         EntProtoId damageBoxId,
-        ProtoId<TileShapePrototype> shapeId,
+        TileShape shape,
         EntityCoordinates coords,
         TimeSpan? duration = null,
         SoundSpecifier? sound = null)
     {
         var dummy = PredictedSpawnAtPosition(null, coords);
-        _tileSpawner.SpawnTileShapeAtTarget(dummy, damageBoxId, shapeId);
-        _tileSpawner.SpawnTileShapeAtTarget(dummy, damageBoxId, shapeId);
+        _tile.SpawnTileShape(shape, dummy, damageBoxId, out _);
+        _tile.SpawnTileShape(shape, dummy, damageBoxId, out _);
 
         // TODO add cool shaders on clientside
         _audio.PlayPvs(sound ?? _defaultBlinkSound,
@@ -132,16 +133,16 @@ public sealed class HierophantSystem : EntitySystem
     public void BlinkToTarget(
         EntityUid ent,
         EntProtoId damageBoxId,
-        ProtoId<TileShapePrototype> shapeId,
+        TileShape shape,
         EntityUid target,
         TimeSpan? duration = null,
         SoundSpecifier? sound = null)
-        => Blink(ent, damageBoxId, shapeId, Transform(ent).Coordinates, duration);
+        => Blink(ent, damageBoxId, shape, Transform(ent).Coordinates, duration);
 
     public void BlinkRandom(
         EntityUid uid,
         EntProtoId damageBoxId,
-        ProtoId<TileShapePrototype> shapeId,
+        TileShape shape,
         SoundSpecifier? sound = null)
     {
         var xform = Transform(uid);
@@ -161,6 +162,6 @@ public sealed class HierophantSystem : EntitySystem
                 newPos = position;
         }
 
-        Blink(uid, damageBoxId, shapeId, newPos);
+        Blink(uid, damageBoxId, shape, newPos);
     }
 }

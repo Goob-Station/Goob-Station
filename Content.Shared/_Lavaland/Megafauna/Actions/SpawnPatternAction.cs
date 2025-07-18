@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Lavaland.Tile;
+using Content.Shared._Lavaland.Tile.Shapes;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -13,7 +14,7 @@ namespace Content.Shared._Lavaland.Megafauna.Actions;
 public sealed partial class SpawnPatternAction : MegafaunaAction
 {
     [DataField(required: true)]
-    public ProtoId<TileShapePrototype> Shape;
+    public TileShape Shape;
 
     [DataField]
     public EntProtoId SpawnId = "LavalandHierophantSquare";
@@ -25,10 +26,10 @@ public sealed partial class SpawnPatternAction : MegafaunaAction
     {
         var entMan = args.EntityManager;
         var uid = args.BossEntity;
-        var shapeSpawner = entMan.System<TileShapeSpawnerSystem>();
+        var shapeSpawner = entMan.System<TileShapeSystem>();
 
         var target = args.AiComponent.CurrentTarget ?? uid;
-        shapeSpawner.SpawnTileShapeAtTarget(target, SpawnId, Shape);
+        shapeSpawner.SpawnTileShape(Shape, target, SpawnId, out _);
         return Delay;
     }
 }

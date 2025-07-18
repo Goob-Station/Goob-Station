@@ -89,20 +89,14 @@
   - type: HierophantBoss
   - type: SpawnLootOnDeath
     loot: LavalandHierophantClub
-  - type: MegafaunaAi
+  #- type: MegafaunaAi
   - type: MegafaunaFieldGenerator
-    radius: 11
-  - type: AggressiveMegafaunaAi
-  - type: PhasesMegafaunaAi
-    actionsData:
-      1:
-      - !type:HierophantBlinkAction
-      - !type:HierophantChasersAction
-      - !type:HierophantCrossAction
-      - !type:HierophantSquareAction
-      2:
-      - !type:HierophantFinalAttackAction
-      - !type:HierophantChasersAction
+    wallId: WallHierophantArenaTemporary
+    wallShape: !type:NestedTileShape
+      id: BoxHollow
+      size: 11
+  - type: Anger
+  - type: MobPhases
     phaseThresholds:
       0:    1
       2000: 2

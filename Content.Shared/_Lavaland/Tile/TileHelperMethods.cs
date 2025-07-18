@@ -60,7 +60,10 @@ public static class TileHelperMethods
         return boxTiles;
     }
 
-    public static List<Vector2i> MakeBoxRandom(Vector2i center, int range, IRobustRandom random, float filledSquareChance = 0.3f)
+    /// <summary>
+    /// Makes a box where each square is filled by a random chance.
+    /// </summary>
+    public static List<Vector2i> MakeBoxChanceRandom(Vector2i center, int range, System.Random random, float filledSquareChance = 0.3f)
     {
         var refs = MakeBox(center, range);
         var refsTemp = new List<Vector2i>(refs);
@@ -68,6 +71,24 @@ public static class TileHelperMethods
         {
             if (!random.Prob(filledSquareChance))
                 refs.Remove(tile);
+        }
+
+        return refs;
+    }
+
+    /// <summary>
+    /// Makes a box and then removes the specified amount of tiles from it randomly.
+    /// </summary>
+    public static List<Vector2i> MakeBoxCountRandom(Vector2i center, int range, System.Random random, int removeAmount)
+    {
+        var refs = MakeBox(center, range);
+        var refsTemp = new List<Vector2i>(refs);
+        for (int i = 0; i < removeAmount; i++)
+        {
+            if (refs.Count == 0)
+                return refs;
+
+            refs.Remove(random.Pick(refsTemp));
         }
 
         return refs;

@@ -22,7 +22,6 @@
 using System.Linq;
 using Content.Shared._Lavaland.Megafauna;
 using Content.Shared._Lavaland.Tile;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Threading;
 
 // ReSharper disable EnforceForeachStatementBraces
@@ -30,8 +29,7 @@ namespace Content.Shared._Lavaland.MegafaunaField;
 
 public sealed class MegafaunaFieldSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly TileShapeSystem _tileShape = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
 
     private MegafaunaSpawnFieldJob _job;
@@ -68,24 +66,8 @@ public sealed class MegafaunaFieldSystem : EntitySystem
 
     private void SpawnField(Entity<MegafaunaFieldGeneratorComponent> ent)
     {
-        var xform = Transform(ent);
-
-        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
-            return;
-
-        // get tile position of our entity
-        if (!_transform.TryGetGridTilePosition((ent, xform), out var tilePos))
-            return;
-
-        var tiles = TileHelperMethods.MakeBoxHollow(tilePos, ent.Comp.Radius);
-
-        // fill the box
-        foreach (var tile in tiles)
-        {
-            var coords = _map.GridTileToLocal(xform.GridUid.Value, grid, tile);
-            var wall = PredictedSpawnAtPosition(ent.Comp.WallPrototype, coords);
-            ent.Comp.Walls.Add(wall);
-        }
+        var comp = ent.Comp;
+        _tileShape.SpawnTileShape(comp.WallShape, ent.Owner, comp.WallId, out comp.Walls);
     }
 
     public void DeactivateField(Entity<MegafaunaFieldGeneratorComponent> ent)
