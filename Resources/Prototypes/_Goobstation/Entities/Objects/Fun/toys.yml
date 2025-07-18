@@ -508,25 +508,25 @@
     heldPrefix: plushiebrizby
   - type: EmitSoundOnUse
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnLand
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnCollide
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: MeleeWeapon
     damage:
       types:
         Blunt: 0
     soundHit:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: Destructible
     thresholds:
     - trigger:
@@ -542,8 +542,8 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           PlushieBaldzby:
-          min: 1
-          max: 1
+            min: 1
+            max: 1
 
 - type: entity
   parent: BasePlushie
@@ -558,22 +558,22 @@
     heldPrefix: plushiebaldzby
   - type: EmitSoundOnUse
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnLand
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: EmitSoundOnCollide
     sound:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: MeleeWeapon
     damage:
       types:
         Blunt: 0
     soundHit:
-      path: Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+      path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
