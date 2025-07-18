@@ -118,21 +118,11 @@
 
 - type: entity
   name: taiwan pond
-  parent: [BaseWeaponLauncher, BaseGunWieldable] # A fake taiwan pond for the clown, acts like a normal china lake.
+  parent: [WeaponLauncherTaiwanPond] # A fake taiwan pond for the clown, acts like a normal china lake.
   id: WeaponLauncherFakeTaiwanPond
   description: PLOOP.
+  suffix: LETHAL
   components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
-    layers:
-      - state: icon
-        map: ["enum.GunVisualLayers.Base"]
-  - type: Clothing
-    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
-    slots:
-    - Back
-    - suitStorage
-  - type: AmmoCounter
   - type: Gun
     fireRate: 1
     selectedMode: SemiAuto
