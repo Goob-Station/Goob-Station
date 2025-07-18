@@ -137,9 +137,9 @@
   description: The welding hand of an ifrit.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
+    sprite: _EinsteinEngines/Objects/Tools/ifrit_hand.rsi
   - type: Item
-    sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
+    sprite: _EinsteinEngines/Objects/Tools/ifrit_hand.rsi
   - type: SolutionContainerManager
     solutions:
       Welder:
