@@ -26,11 +26,8 @@ using Content.Shared.Alert;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Rounding;
-<<<<<<< Updated upstream
-=======
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
->>>>>>> Stashed changes
 
 namespace Content.Server.Psionics;
 
