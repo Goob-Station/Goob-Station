@@ -125,10 +125,6 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-    requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: Epistemics
-      min: 14400 # 4 hours
 
 - type: entity
   parent: WelderExperimental
