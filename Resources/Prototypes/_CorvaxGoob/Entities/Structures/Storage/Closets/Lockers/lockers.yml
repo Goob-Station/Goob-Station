@@ -1,0 +1,31 @@
+- type: entity
+  id: LockerPilot
+  parent: LockerBaseSecure
+  name: pilot locker
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _CorvaxGoob/Structures/Storage/closet.rsi
+    noRot: true
+    layers:
+    - state: pilot
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: pilot_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      offset: "-0.065,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: pilot
+    stateDoorOpen: pilot_open
+    stateDoorClosed: pilot_door
+  - type: AccessReader
+    access: [["Security"]]

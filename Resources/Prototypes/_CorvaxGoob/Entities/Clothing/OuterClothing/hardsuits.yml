@@ -1,0 +1,74 @@
+- type: entity
+  parent: [ BaseSecurityContraband, ClothingOuterBaseLarge, AllowSuitStorageClothing ]
+  id: ClothingOuterHardsuitSecPilot
+  name: suit pilot security services
+  suffix: Empty
+  description: A special suit that protects against dangerous environments with low pressure. It is made of special fiber, which protects well from various factors, but is vulnerable to mechanical stress.  It has a "setup" for flying in a gravity-free environment. It holds 2.0 liters of gas.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Hardsuits/pilot.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Hardsuits/pilot.rsi
+    equipSound: /Audio/Items/belt_equip.ogg
+    unequipSound: /Audio/Items/belt_equip.ogg
+    equipDelay: 2
+    unequipDelay: 1.2
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.05
+  - type: FireProtection
+    reduction: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.70
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.5
+        Radiation: 0.4
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ActivatableUI
+    key: enum.SharedGasTankUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: InputMover
+  - type: CanMoveInAir
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1
+    weightlessFriction: 0.3
+    weightlessModifier: 1.2
+  - type: GroupExamine
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: Jetpack
+    moleUsage: 0.0085
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      volume: 2
+
+- type: entity
+  parent: ClothingOuterHardsuitSecPilot
+  id: ClothingOuterHardsuitSecPilotFilled
+  name: suit pilot security services
+  suffix: Full
+  components:
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      volume: 2
+      temperature: 293.15
+      moles:
+        - 0.41571197 # oxygen
+        - 0.41571197 # nitrogen

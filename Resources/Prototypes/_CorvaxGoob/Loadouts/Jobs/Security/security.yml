@@ -1,0 +1,11 @@
+# Shoes
+- type: loadout
+  id: JackSecBoots
+  equipment:
+    shoes: ClothingShoesBootsJackSecFilled
+
+# Outerclothing
+- type: loadout
+  id: ArmorVestSec
+  equipment:
+    outerClothing: ClothingOuterVestArmorSec

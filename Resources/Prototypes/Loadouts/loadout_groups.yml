@@ -220,6 +220,17 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  # CorvaxGoob-Loadouts-Start
+  - ClothingNeckAtharaPin
+  - ClothingNeckCorvaxPin
+  - ClothingNeckEchoPin
+  - ClothingNeckElysiumPin
+  - ClothingNeckMainPin
+  - ClothingNeckNebulaPin
+  - ClothingNeckNovaPin
+  - ClothingNeckSolarisPin
+  - ClothingNeckWhiteListPin
+  # CorvaxGoob-Loadouts-End
   # Begin DeltaV Additions
   - GoldRing
   - SilverRing
@@ -289,6 +300,10 @@
   loadouts:
   - CaptainHead
   - CaptainCap
+  # Corvax-Loadouts-Start
+  - CaptainJumpsuitTurtleneck
+  - CaptainJumpskirtTurtleneck
+  # Corvax-Loadouts-End
 
 - type: loadoutGroup
   id: CaptainJumpsuit
@@ -340,6 +355,10 @@
   - HoPJumpsuit
   - HoPJumpskirt
   - HoPJumpsuitMilitary # goob
+  # Corvax-Loadouts-Start
+  - HoPJumpsuitTurtleneck
+  - HoPJumpskirtTurtleneck
+  # Corvax-Loadouts-End
 
 - type: loadoutGroup
   id: HoPNeck
@@ -1089,6 +1108,10 @@
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
   - ResearchDirectorMJ # goob
+  # CorvaxGoob-Loadouts-Start
+  - ResearchDirectorJumpsuitClassical
+  - ResearchDirectorJumpskirtClassical
+  # CorvaxGoob-Loadouts-End
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
@@ -1206,6 +1229,10 @@
   - HeadofSecurityTurtleneckSkirt
   - HeadofSecurityFormalSuit
   - HeadofSecurityFormalSkirt
+  # Corvax-Loadouts-Start
+  - HeadofSecurityJumpsuitBlack
+  - HeadofSecurityJumpskirtBlack
+  # Corvax-Loadouts-End
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
