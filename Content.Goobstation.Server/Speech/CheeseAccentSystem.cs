@@ -7,10 +7,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Speech.Components;
+using Content.Server.Speech;
+using Content.Server.Speech.EntitySystems;
 using Robust.Shared.Random;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Goobstation.Server.Speech;
 
 public sealed class CheeseAccentSystem : EntitySystem
 {
@@ -20,10 +21,10 @@ public sealed class CheeseAccentSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<CheeseAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<Goobstation.Server.Speech.CheeseAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, CheeseAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, Goobstation.Server.Speech.CheeseAccentComponent component, AccentGetEvent args)
     {
         var message = args.Message;
 
