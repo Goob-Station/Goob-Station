@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Antag;
 using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Common.JoinQueue;
@@ -18,6 +19,7 @@ namespace Content.Goobstation.Server.Entry;
 
 public sealed class EntryPoint : GameServer
 {
+    private ILastRolledAntagManager _antagPity = default!;
     private IVoiceChatServerManager _voiceManager = default!;
 
     public override void Init()
@@ -32,11 +34,14 @@ public sealed class EntryPoint : GameServer
 
         IoCManager.Resolve<IJoinQueueManager>().Initialize();
         IoCManager.Resolve<ISpiderManager>().Initialize();
+        _antagPity = IoCManager.Resolve<ILastRolledAntagManager>();
     }
 
     public override void PostInit()
     {
         base.PostInit();
+
+        _antagPity.Initialize();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
@@ -50,5 +55,12 @@ public sealed class EntryPoint : GameServer
                 break;
 
         }
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        _antagPity.Shutdown();
     }
 }
