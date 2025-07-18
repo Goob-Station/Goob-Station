@@ -82,7 +82,7 @@ public sealed class SlippingTest : MovementTest
         AssertComp<KnockedDownComponent>(false, Player);
 
         // Moving at normal speeds does trigger a slip.
-        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Down);
+        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Down); // solstice is a MAJOR nerd.
         await Move(DirectionFlag.West, 1f);
         Assert.That(sys.Slipped, Does.Contain(SEntMan.GetEntity(Player)));
         AssertComp<KnockedDownComponent>(true, Player);
