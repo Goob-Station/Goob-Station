@@ -74,12 +74,9 @@
   access:
   - Service
   - Maintenance
-  special: # Goobstation start - Librarian should speak every language
+  special: # Goobstation start - Librarian should speak most languages.
   - !type:AddImplantSpecial
-    implants: [ UniversalTranslatorImplant ]
-  - !type:AddComponentSpecial
-    components:
-      - type: UniversalLanguageSpeaker # Goobstation end
+    implants: [ LibrarianTranslatorImplant ] # Goobstation end
 
 - type: startingGear
   id: LibrarianGear

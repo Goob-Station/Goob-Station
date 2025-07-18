@@ -5,14 +5,13 @@
 
 - type: entity
   parent: BaseSubdermalImplant
-  id: UniversalTranslatorImplant
-  name: universal translator implant
-  description: An implant giving the ability to understand and speak every language.
+  id: LibrarianTranslatorImplant
+  name: librarian translator implant
+  description: An implant giving the ability to understand and speak most languages.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
     spoken:
-      - Blob
       - Eldritch
       - Chittin
       - RootSpeak
@@ -30,35 +29,17 @@
       - YaSsa
       - Delvahii
       - Canilunzt
-      - Xeeplian
       - Elyran
       - Freespeak
       - NovuNederic
       - SolCommon
       - TauCetiBasic
       - Tradeband
-      - Cat
-      - Dog
-      - Fox
-      - Xeno
-      - Monkey
       - Mouse
-      - Chicken
-      - Duck
-      - Cow
-      - Sheep
-      - Kangaroo
-      - Pig
-      - Crab
-      - Kobold
-      - Hissing
-      - Penguin
-      - Deer
-      - RobotTalk
-      - DroneTalk
       - Sign
+      - Monkey
+      - Kobold
     understood:
-      - Blob
       - Eldritch
       - Chittin
       - RootSpeak
@@ -76,30 +57,13 @@
       - YaSsa
       - Delvahii
       - Canilunzt
-      - Xeeplian
       - Elyran
       - Freespeak
       - NovuNederic
       - SolCommon
       - TauCetiBasic
       - Tradeband
-      - Cat
-      - Dog
-      - Fox
-      - Xeno
-      - Monkey
       - Mouse
-      - Chicken
-      - Duck
-      - Cow
-      - Sheep
-      - Kangaroo
-      - Pig
-      - Crab
-      - Kobold
-      - Hissing
-      - Penguin
-      - Deer
-      - RobotTalk
-      - DroneTalk
       - Sign
+      - Monkey
+      - Kobold

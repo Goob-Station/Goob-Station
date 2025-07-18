@@ -4,9 +4,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: UniversalTranslatorImplanter
+  id: LibrarianTranslatorImplanter
   parent: [ BaseTranslatorImplanter ]
-  name: universal translator implant
+  name: librarian translator implant
   components:
   - type: Implanter
-    implant: UniversalTranslatorImplant
+    implant: LibrarianTranslatorImplant
