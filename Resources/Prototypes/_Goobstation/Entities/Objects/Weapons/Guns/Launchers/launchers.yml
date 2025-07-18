@@ -115,3 +115,37 @@
     capacity: 1
   - type: UseDelay
     delay: 1.5
+
+- type: entity
+  name: taiwan pond
+  parent: [BaseWeaponLauncher, BaseGunWieldable] # A fake taiwan pond for the clown, acts like a normal china lake.
+  id: WeaponLauncherFakeTaiwanPond
+  description: PLOOP.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    clumsyProof: true
+  - type: BallisticAmmoProvider
+    autoCycle: false # Goobstation
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 3
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg

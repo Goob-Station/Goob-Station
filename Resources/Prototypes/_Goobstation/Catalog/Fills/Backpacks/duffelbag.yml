@@ -132,3 +132,15 @@
       amount: 9
     - id: CartridgeG8Hypercharged
       amount: 9
+
+- type: entity
+  parent: ClothingBackpackDuffelClownBundle
+  id: ClothingBackpackDuffelClownFilledFakeTaiwanPond
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponLauncherFakeTaiwanPond
+      - id: GrenadeSlug
+        amount: 2
+      - id: GrenadeBirdshot
+        amount: 2

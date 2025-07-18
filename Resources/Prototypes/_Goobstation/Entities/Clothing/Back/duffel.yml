@@ -11,3 +11,11 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Duffels/blueshield.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffelClown
+  id: ClothingBackpackDuffelClownBundle
+  abstract: true
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag

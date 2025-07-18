@@ -86,6 +86,9 @@ uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. 
 uplink-pressure-modkit-name = Pressure Modkit
 uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
 
+uplink-fake-taiwan-pond-bundle-name = Taiwan Pond Bundle
+uplink-fake-taiwan-pond-bundle-desc = A China lake painted to look like a Taiwan Pond, Comes with two 40mm slugs and two 40mm birdshot grenades.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton
