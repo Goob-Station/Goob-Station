@@ -53,7 +53,10 @@
     - prefRoles: [ Changeling ]
       max: 4
       playerRatio: 12
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -103,9 +106,9 @@
     - prefRoles: [ Traitor ]
       max: 3
       playerRatio: 15
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
         - Changeling
       lateJoinAdditional: true
@@ -129,6 +132,9 @@
     - prefRoles: [ Changeling ]
       max: 2
       playerRatio: 15
+      blacklist:
+        components:
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -220,7 +226,9 @@
     - prefRoles: [ HeadRev ]
       max: 1
       playerRatio: 20
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      blacklist:
+        components:
+        - CommandStaff
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -258,9 +266,10 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
       briefing:
         text: blob-carrier-role-greeting

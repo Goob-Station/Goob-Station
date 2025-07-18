@@ -40,6 +40,7 @@
       blacklist:
         components:
         - AntagImmune
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -78,6 +79,7 @@
       playerRatio: 10
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
         - BibleUser
       lateJoinAdditional: true
@@ -118,6 +120,7 @@
       playerRatio: 15
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
         - BibleUser
       lateJoinAdditional: true

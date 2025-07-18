@@ -15,9 +15,9 @@
   - type: GameRule
     minPlayers: 25
     chaosScore: 1200
-    delay:
-      min: 60
-      max: 120
+   # delay:
+   #   min: 60
+   #   max: 120
   - type: AntagObjectives
     objectives:
     - CosmicFinalityObjective
@@ -26,15 +26,17 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ CosmicAntagCultist ]
-      min: 2
+      min: 1
       max: 6
-      playerRatio: 10
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
+      playerRatio: 1
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
+        - CommandStaff # GOOBSTATION
         - AntagImmune
         - BibleUser
       components:
+      - type: NotCommandRequirement
       - type: CosmicCult
       - type: WeakToHoly # GOOBSTATION
       mindRoles:
