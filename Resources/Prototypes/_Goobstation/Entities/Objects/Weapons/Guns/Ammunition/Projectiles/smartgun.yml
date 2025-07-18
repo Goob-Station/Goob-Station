@@ -5,7 +5,7 @@
 
 - type: entity
   id: BulletSmart
-  name: bullet (.160 smart)
+  name: "куля (.160 розумна)"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

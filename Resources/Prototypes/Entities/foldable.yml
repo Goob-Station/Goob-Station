@@ -6,7 +6,7 @@
 
 - type: entity
   id: BaseFoldable
-  name: "foldable"
+  name: "складаний"
   abstract: true
   components:
   - type: Foldable
@@ -24,6 +24,6 @@
   abstract: true
   parent: BaseFoldable
   id: BaseDeployFoldable
-  name: "deploy foldable"
+  name: "розгорнути складаний предмет"
   components:
   - type: DeployFoldable

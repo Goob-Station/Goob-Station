@@ -24,8 +24,8 @@
 - type: entity
   parent: BaseItemCabinet
   id: DefibrillatorCabinet
-  name: defibrillator cabinet
-  description: A small wall mounted cabinet designed to hold a defibrillator.
+  name: "шафа для дефібрилятора"
+  description: "Невелика настінна шафа, призначена для розміщення дефібрилятора."
   placement:
     mode: SnapgridCenter
   components:

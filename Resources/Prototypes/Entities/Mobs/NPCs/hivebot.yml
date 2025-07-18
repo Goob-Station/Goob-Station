@@ -2,8 +2,8 @@
 - type: entity
   parent: [ BaseSimpleMob, MobCombat, MobRobotic ]
   id: MobHivebot
-  name: hivebot
-  description: Agitating, mechanized pests.
+  name: "хайвбот"
+  description: "Дратівливі, механізовані шкідники."
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -73,9 +73,9 @@
 - type: entity
   parent: MobHivebot
   id: MobHivebotRanged
-  name: hivebot
+  name: "хайвбот"
   suffix: Ranged
-  description: Agitating, mechanized pests. This one has a gun.
+  description: "Дратівливі, механізовані шкідники. У цього є зброя."
   components:
   - type: Sprite
     layers:
@@ -104,8 +104,8 @@
 - type: entity
   parent: MobHivebotRanged
   id: MobHivebotStrong
-  name: strong hivebot
-  description: Agitating, mechanized pests. This one looks much stronger then normal.
+  name: "сильний хайвбот"
+  description: "Дратівливі, механізовані шкідники. Цей виглядає набагато сильнішим за звичайного."
   components:
   - type: Sprite
     layers:

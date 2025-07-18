@@ -8,8 +8,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorWhite
-  name: white jumpskirt
-  description: A generic white jumpskirt with no rank markings.
+  name: "біла комбінезон-спідниця"
+  description: "Універсальний білий комбінезон без жодних позначок про звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorGrey
-  name: grey jumpskirt
-  description: A tasteful grey jumpskirt that reminds you of the good old days.
+  name: "сірий комбінезон-спідниця"
+  description: "Зі смаком підібрана сіра спідниця-комбінезон, що нагадує про старі добрі часи."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -66,8 +66,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorBlack
-  name: black jumpskirt
-  description: A generic black jumpskirt with no rank markings.
+  name: "чорна комбінезон-спідниця"
+  description: "Універсальний чорний комбінезон без маркування рангу."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -97,8 +97,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorBlue
-  name: blue jumpskirt
-  description: A generic blue jumpskirt with no rank markings.
+  name: "синя спідниця"
+  description: "Універсальний синій комбінезон без жодних позначок про звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -128,8 +128,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorDarkBlue
-  name: dark blue jumpskirt
-  description: A generic dark blue jumpskirt with no rank markings.
+  name: "темно-синя комбінезон-спідниця"
+  description: "Універсальний темно-синій комбінезон без маркування звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -159,8 +159,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorTeal
-  name: teal jumpskirt
-  description: A generic teal jumpskirt with no rank markings.
+  name: "бірюзова комбінезон-спідниця"
+  description: "Універсальна спідниця-комбінезон бірюзового кольору без маркування рангу."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -190,8 +190,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorGreen
-  name: green jumpskirt
-  description: A generic green jumpskirt with no rank markings.
+  name: "зелена комбінезон-спідниця"
+  description: "Універсальний зелений комбінезон без маркування звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -221,8 +221,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorDarkGreen
-  name: dark green jumpskirt
-  description: A generic dark green jumpskirt with no rank markings.
+  name: "темно-зелена комбінезон-спідниця"
+  description: "Універсальний темно-зелений комбінезон без маркування звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -252,8 +252,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorOrange
-  name: orange jumpskirt
-  description: Don't wear this near paranoid security officers.
+  name: "помаранчева комбінезон-спідниця"
+  description: "Не носіть це поруч з параноїдальними офіцерами безпеки."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -283,8 +283,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorPink
-  name: pink jumpskirt
-  description: Just looking at this makes you feel <i>fabulous</i>.
+  name: "рожева комбінезон-спідниця"
+  description: "Просто дивлячись на це, ви відчуваєте себе <i>казково</i>."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -314,8 +314,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorRed
-  name: red jumpskirt
-  description: A generic red jumpskirt with no rank markings.
+  name: "червона комбінезон-спідниця"
+  description: "Універсальний червоний комбінезон без жодних позначок про звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -345,8 +345,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorYellow
-  name: yellow jumpskirt
-  description: A generic yellow jumpskirt with no rank markings.
+  name: "жовта комбінезон-спідниця"
+  description: "Універсальний жовтий комбінезон без жодних позначок про звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -376,8 +376,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorPurple
-  name: purple jumpskirt
-  description: A generic light purple jumpskirt with no rank markings.
+  name: "фіолетова комбінезон-спідниця"
+  description: "Універсальний світло-фіолетовий комбінезон без маркування звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -407,8 +407,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorLightBrown
-  name: light brown jumpskirt
-  description: A generic light brown jumpskirt with no rank markings.
+  name: "світло-коричнева комбінезон-спідниця"
+  description: "Універсальна світло-коричнева спідниця-комбінезон без знаків розрізнення."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -438,8 +438,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorBrown
-  name: brown jumpskirt
-  description: A generic brown jumpskirt with no rank markings.
+  name: "коричнева комбінезон-спідниця"
+  description: "Універсальний коричневий комбінезон без маркування звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -469,8 +469,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorMaroon
-  name: maroon jumpskirt
-  description: A generic maroon jumpskirt with no rank markings.
+  name: "бордова комбінезон-спідниця"
+  description: "Універсальний бордовий комбінезон без маркування звання."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/color.rsi
@@ -500,8 +500,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpskirtColorRainbow
-  name: rainbow jumpskirt
-  description: A multi-colored jumpskirt!
+  name: "райдужна спідниця-комбінезон"
+  description: "Різнокольорова спідниця-комбінезон!"
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/rainbow.rsi
