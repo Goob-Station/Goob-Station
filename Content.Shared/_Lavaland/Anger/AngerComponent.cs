@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Anger;
 
@@ -11,25 +12,29 @@ namespace Content.Shared._Lavaland.Anger;
 /// Makes megafauna stronger when it takes more damage.
 /// Aggression value can be used in MegafaunaActions to control their power.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AngerComponent : Component
 {
-    [ViewVariables]
-    public float CurrentAnger = 1f;
-
-    [DataField]
-    public float AngerScalingFactor = 1.2f;
-
-    [DataField]
-    public float HealthScalingFactor = 1.15f;
+    /// <summary>
+    /// Current percentage of anger. By just receiving damage goes up to 1,
+    /// but can be
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public float CurrentAnger = 0f;
 
     /// <summary>
     /// Total HP of a boss.
     /// Gets set to Dead MobThreshold when megafauna
     /// initializes, and backwards when shutting down.
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public FixedPoint2 BaseTotalHp = 1;
+
+    [DataField]
+    public float AngerScalingFactor = 1.2f;
+
+    [DataField]
+    public float HealthScalingFactor = 1.15f;
 
     /// <summary>
     /// If specified, anger will be scaled not just according to scaled BaseTotalHp, but
@@ -43,18 +48,12 @@ public sealed partial class AngerComponent : Component
     public float AdjustAngerOnAttack = 0.1f;
 
     [DataField]
-    public float MinAnger = 1f;
-
-    /// <summary>
-    /// Softcap for anger that will be reached when megafauna will take the limit damage.
-    /// </summary>
-    [DataField]
-    public float MaxAnger = 3f;
+    public float MinAnger;
 
     /// <summary>
     /// The maximum value of anger that always stays the same.
     /// Prevents some crazy bugs when AI kills the server by spamming with a lot of things with crazy high anger.
     /// </summary>
     [DataField]
-    public float MaxAngerHardCap = 6f;
+    public float MaxAnger = 2f;
 }

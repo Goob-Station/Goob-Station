@@ -4,32 +4,22 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared._Lavaland.Megafauna.Prototypes;
+using Content.Shared._Lavaland.Megafauna.Actions;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Megafauna;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MegafaunaAiComponent : Component
 {
-    /// <summary>
-    /// List of all available megafauna attacks and their conditions to be executed.
-    /// </summary>
     [DataField(required: true), ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<MegafaunaPatternsListPrototype> ActionsDataId;
+    public MegafaunaActionSelector Actions;
 
     [ViewVariables, AutoNetworkedField]
     public bool Active;
 
-    [ViewVariables, AutoNetworkedField]
-    public Queue<MegafaunaAction> ActionQueue;
-
-    [ViewVariables, AutoNetworkedField]
-    public TimeSpan NextAction;
-
-    [DataField, AutoNetworkedField]
-    public int ActionQueueBufferSize = 3;
+    [ViewVariables]
+    public Dictionary<TimeSpan, MegafaunaActionSelector> ActionSchedule;
 
     /// <summary>
     /// Target that is picked before each new attack
@@ -43,7 +33,7 @@ public sealed partial class MegafaunaAiComponent : Component
     /// <summary>
     /// Stores name of the last attack that was used by this boss.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string? PreviousAttack;
 
     /// <summary>
@@ -70,4 +60,10 @@ public sealed partial class MegafaunaAiComponent : Component
 
     [DataField, AutoNetworkedField]
     public float MaxAttackCooldown = 5f;
+
+    /// <summary>
+    /// Defines delay for the first megafauna's attack.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float StartingCooldown = 0.3f;
 }

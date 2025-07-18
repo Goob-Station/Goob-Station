@@ -3,35 +3,23 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Anger;
 using Content.Shared._Lavaland.Hierophant.Systems;
 using Content.Shared._Lavaland.Megafauna;
+using Content.Shared._Lavaland.Megafauna.Actions;
 using Content.Shared._Lavaland.Tile.Shapes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Hierophant.Actions;
 
-public sealed partial class HierophantBlinkAction : MegafaunaAction
+public sealed partial class HierophantBlinkAction : MegafaunaActionSelector
 {
     [DataField]
-    public EntProtoId DamageTile = "LavalandHierophantChaser";
+    public EntProtoId DamageTile = "LavalandHierophantSquare";
 
     [DataField]
     public TileShape TeleportShape;
 
-    [DataField]
-    public float BaseAfterDelay = 0.9f;
-
-    [DataField]
-    public float MinAfterDelay = 0.6f;
-
-    [DataField]
-    public float MaxAfterDelay = 1.5f;
-
-    [DataField("delayMultiplier")]
-    public float AfterDelayAgressionMultiplier = 1.5f;
-
-    public override float Invoke(MegafaunaCalculationBaseArgs args)
+    protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
         var entMan = args.EntityManager;
         var uid = args.BossEntity;
@@ -42,8 +30,6 @@ public sealed partial class HierophantBlinkAction : MegafaunaAction
         else
             hieroSystem.BlinkRandom(uid, DamageTile, TeleportShape);
 
-        var anger = entMan.GetComponentOrNull<AngerComponent>(uid)?.CurrentAnger;
-        var delay = Math.Min(anger != null ? Math.Max(anger.Value * AfterDelayAgressionMultiplier, MinAfterDelay) : BaseAfterDelay, MaxAfterDelay);
-        return delay;
+        return DelaySelector.Get(args);
     }
 }

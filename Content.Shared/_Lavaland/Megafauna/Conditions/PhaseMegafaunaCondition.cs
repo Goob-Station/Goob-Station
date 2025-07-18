@@ -17,7 +17,7 @@ public abstract partial class PhasesMegafaunaCondition : MegafaunaCondition
     [DataField(required: true)]
     public int[] RequiredPhases;
 
-    public override bool Check(MegafaunaCalculationBaseArgs args)
+    public override bool EvaluateImplementation(MegafaunaCalculationBaseArgs args)
     {
         var entMan = args.EntityManager;
         if (!entMan.TryGetComponent(args.BossEntity, out MobPhasesComponent? phasesComp))

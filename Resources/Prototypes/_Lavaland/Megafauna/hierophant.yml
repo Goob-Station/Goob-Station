@@ -1,0 +1,104 @@
+# MAIN SELECTOR
+
+- type: megafaunaAction
+  id: Hierophant
+  action: !type:GroupMegafaunaAction
+    children:
+    # Phase 1
+    - id: HierophantBoxExpanding
+    - id: HierophantCrossSequence
+    - id: HierophantSpawnChasers
+    - id: HierophantBlink
+    # Phase 2
+    - id: HierophantCrossSequenceHard
+    - id: 
+
+# TILE ATTACKS
+
+## Basic patterns
+- type: megafaunaAction
+  id: HierophantBox
+  action: !type:SpawnPatternAction
+    shape: !type:NestedTileShape
+      id: BoxHollow
+    shapeOperator: !type:TileShapeSizeOperator
+    spawnId: LavalandHierophantSquare
+
+- type: megafaunaAction
+  id: HierophantRookCross
+  action: !type:SpawnPatternAction
+    shape: !type:NestedTileShape
+      id: RookCross
+      size: 11
+    spawnId: LavalandHierophantSquare
+
+- type: megafaunaAction
+  id: HierophantBishopCross
+  action: !type:SpawnPatternAction
+    shape: !type:NestedTileShape
+      id: BishopCross
+      size: 11
+    spawnId: LavalandHierophantSquare
+
+- type: megafaunaAction
+  id: HierophantQueenCross
+  action: !type:SpawnPatternAction
+    shape: !type:NestedTileShape
+      id: QueenCross
+      size: 11
+    spawnId: LavalandHierophantSquare
+
+## Random crosses
+- type: megafaunaAction
+  id: HierophantRandomCross
+  action: !type:GroupMegafaunaAction
+    children:
+    - id: HierophantRookCross
+    - id: HierophantBishopCross
+
+- type: megafaunaAction
+  id: HierophantRandomCrossHard
+  action: !type:GroupMegafaunaAction
+    children:
+    - id: HierophantRookCross
+    - id: HierophantBishopCross
+    - id: HierophantQueenCross
+      weight: 0.5
+
+## Sequence attacks
+- type: megafaunaAction
+  id: HierophantBoxExpanding
+  action: !type:SequenceMegafaunaAction
+    selector: HierophantBox
+    delay: 0.8
+    rolls: !type:AngerNumberSelector
+      range: 3,8
+
+- type: megafaunaAction
+  id: HierophantCrossSequence
+  action: !type:SequenceMegafaunaAction
+    selector: HierophantRandomCross
+    delay: 1.6
+    rolls: !type:AngerNumberSelector
+      range: 1,3
+
+- type: megafaunaAction
+  id: HierophantCrossSequenceHard
+  action: !type:SequenceMegafaunaAction
+    selector: HierophantRandomCrossHard
+    delay: 1.6
+    rolls: !type:AngerNumberSelector
+      range: 2,4
+
+# OTHER
+
+- type: megafaunaAction
+  id: HierophantSpawnChasers
+  action: !type:HierophantChasersAction
+
+- type: megafaunaAction
+  id: HierophantBlink
+  action: !type:HierophantBlinkAction
+    teleportShape: !type:NestedTileShape
+      id: BoxFilled
+      size: 3

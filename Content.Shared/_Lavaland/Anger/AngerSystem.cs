@@ -13,7 +13,7 @@ using Content.Shared.Weapons.Melee.Events;
 // ReSharper disable EnforceForStatementBraces
 namespace Content.Shared._Lavaland.Anger;
 
-public sealed class SharedAngerSystem : EntitySystem
+public sealed class AngerSystem : EntitySystem
 {
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
 
@@ -53,9 +53,9 @@ public sealed class SharedAngerSystem : EntitySystem
         }
 
         var maxUnscaledHp = anger.HpAgressionLimit ?? anger.BaseTotalHp;
-        var newMinAnger = Math.Max((float) (damage.TotalDamage / (maxUnscaledHp * healthMultiplier)) * anger.MaxAnger - 1f, 0f) + 1f;
+        var newMinAnger = Math.Max((float) (damage.TotalDamage / (maxUnscaledHp * healthMultiplier)), 0f);
         anger.MinAnger = newMinAnger * angerMultiplier;
-        anger.CurrentAnger = Math.Clamp(anger.CurrentAnger, anger.MinAnger, anger.MaxAngerHardCap);
+        anger.CurrentAnger = Math.Clamp(anger.CurrentAnger, anger.MinAnger, anger.MaxAnger);
     }
 
     public void UpdateScaledThresholds(Entity<AngerComponent?, AggressiveComponent?> ent)

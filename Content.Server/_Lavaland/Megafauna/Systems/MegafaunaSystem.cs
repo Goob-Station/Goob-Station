@@ -20,11 +20,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Diagnostics.CodeAnalysis;
 using Content.Server._Lavaland.Aggression;
 using Content.Server.Administration.Systems;
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Megafauna;
+using Content.Shared._Lavaland.Megafauna.Actions;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -32,16 +32,19 @@ namespace Content.Server._Lavaland.Megafauna.Systems;
 
 public sealed class MegafaunaSystem : SharedMegafaunaSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly AggressorsSystem _aggressors = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<MegafaunaAiComponent, MegafaunaStartupEvent>(OnMegafaunaStartup);
         SubscribeLocalEvent<MegafaunaAiComponent, MegafaunaShutdownEvent>(OnMegafaunaShutdown);
     }
+
 
     public override void Update(float frameTime)
     {
@@ -50,111 +53,43 @@ public sealed class MegafaunaSystem : SharedMegafaunaSystem
         var query = EntityQueryEnumerator<MegafaunaAiComponent, AggressiveComponent>();
         while (query.MoveNext(out var uid, out var ai, out var aggressive))
         {
-            if (ai.NextAction < Timing.CurTime
-                || !ai.Active)
+            if (!ai.Active)
                 continue;
 
-            var args = new MegafaunaCalculationBaseArgs(uid, ai, EntityManager);
-
-            // Fill action queue if it's less than buffer
-            if (ai.ActionQueue.Count < ai.ActionQueueBufferSize)
+            var schedule = new Dictionary<TimeSpan, MegafaunaActionSelector>(ai.ActionSchedule);
+            foreach (var (time, action) in schedule)
             {
-                for (int i = 0; i < ai.ActionQueueBufferSize - ai.ActionQueue.Count; i++)
-                {
-                    if (!TryPickMegafaunaAttack(args, out var picked))
-                        continue;
+                if (time < Timing.CurTime)
+                    continue;
 
-                    ai.ActionQueue.Enqueue(picked);
-                }
+                var args = new MegafaunaCalculationBaseArgs(uid, ai, EntityManager, _protoMan, Timing, _random.GetRandom());
+                var delayTime = action.Invoke(args);
+
+                ai.PreviousAttack = null;
+                if (!ai.CanRepeatAttacks)
+                    ai.PreviousAttack = action.Name;
+
+                // Add new action
+                delayTime = Math.Clamp(delayTime, ai.MinAttackCooldown, ai.MaxAttackCooldown);
+                var nextAction = Timing.CurTime + TimeSpan.FromSeconds(delayTime);
+                ai.ActionSchedule.TryAdd(nextAction, ai.Actions);
+
+                // Pick new target
+                _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
+                ai.PreviousTarget = ai.CurrentTarget;
             }
-
-            // Pick new target
-            _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
-            ai.PreviousTarget = ai.CurrentTarget;
         }
     }
 
-    /// <summary>
-    /// Picks megafauna attack for the megafauna AI, running conditions for each attack
-    /// </summary>
-    private bool TryPickMegafaunaAttack(MegafaunaCalculationBaseArgs args, [NotNullWhen(true)] out MegafaunaAction? action)
+    private void OnMegafaunaStartup(Entity<MegafaunaAiComponent> ent, ref MegafaunaStartupEvent args)
     {
-        action = null;
-        var comp = args.AiComponent;
-
-        var actionsData = _protoMan.Index(comp.ActionsDataId);
-        var conditionChecks = new List<MegafaunaCheckEntry>(actionsData.Entries.Count);
-        foreach (var patternId in actionsData.Entries)
-        {
-            var pattern = _protoMan.Index(patternId);
-
-            var failCount = 0;
-            foreach (var condition in pattern.Conditions)
-            {
-                var condPassed = condition.Check(args);
-                if (!condPassed)
-                    failCount++;
-            }
-
-            conditionChecks.Add(new MegafaunaCheckEntry(pattern.Action, failCount));
-        }
-
-        conditionChecks = FilterByPrevious(conditionChecks, comp.PreviousAttack);
-        conditionChecks = FilterByConditions(conditionChecks);
-
-        return PickRandomMegafaunaAttack(conditionChecks, out action);
+        var nextAction = Timing.CurTime + TimeSpan.FromSeconds(ent.Comp.StartingCooldown);
+        ent.Comp.ActionSchedule.TryAdd(nextAction, ent.Comp.Actions);
     }
-
-    private List<MegafaunaCheckEntry> FilterByPrevious(List<MegafaunaCheckEntry> list, string? previousAttack)
-    {
-        if (previousAttack == null)
-            return list;
-
-        var passed = new List<MegafaunaCheckEntry>(list);
-        foreach (var entry in list)
-        {
-            if (entry.Action.Name == previousAttack)
-                passed.Remove(entry);
-        }
-
-        return passed.Count == 0 ? list : passed;
-    }
-
-    private List<MegafaunaCheckEntry> FilterByConditions(List<MegafaunaCheckEntry> list)
-    {
-        var leastFails = int.MaxValue;
-        foreach (var (_, amount) in list)
-        {
-            if (leastFails > amount)
-                leastFails = amount;
-        }
-
-        var passed = new List<MegafaunaCheckEntry>(list);
-        foreach (var entry in list)
-        {
-            if (entry.FailAmout == leastFails)
-                passed.Remove(entry);
-        }
-
-        return passed.Count == 0 ? list : passed;
-    }
-
-    private bool PickRandomMegafaunaAttack(
-        List<MegafaunaCheckEntry> actionsData,
-        [NotNullWhen(true)] out MegafaunaAction? attack)
-    {
-        attack = null;
-        if (actionsData.Count == 0)
-            return false;
-
-        attack = _random.PickAndTake(actionsData).Action;
-        return true;
-    }
-
-    private record struct MegafaunaCheckEntry(MegafaunaAction Action, int FailAmout);
 
     private void OnMegafaunaShutdown(Entity<MegafaunaAiComponent> ent, ref MegafaunaShutdownEvent args)
     {
+        ent.Comp.ActionSchedule.Clear();
         if (ent.Comp.RejuvenateOnShutdown)
             _rejuvenate.PerformRejuvenate(ent);
     }

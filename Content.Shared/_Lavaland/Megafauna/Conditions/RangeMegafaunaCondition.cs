@@ -19,7 +19,7 @@ public abstract partial class RangeMegafaunaCondition : MegafaunaCondition
     [DataField]
     public float MaxRange = 16f;
 
-    public override bool Check(MegafaunaCalculationBaseArgs args)
+    public override bool EvaluateImplementation(MegafaunaCalculationBaseArgs args)
     {
         var entMan = args.EntityManager;
         var transformSys = entMan.System<SharedTransformSystem>();
