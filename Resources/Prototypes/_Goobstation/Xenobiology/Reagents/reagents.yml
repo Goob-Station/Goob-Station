@@ -56,6 +56,50 @@
         chanceModifier: 0.25
         shouldSubtract: false
 
+# Species Morphchems
+- type: reagent
+  id: GreenXenoJelly
+  parent: Slime
+  name: reagent-name-green-xeno-jelly
+  metabolisms:
+    Food:
+      effects:
+      - !type:SpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+        newSpecies: SlimePerson
+
+- type: reagent
+  id: XenoHumanToxin
+  parent: Slime
+  name: reagent-name-human-mutation-toxin
+  metabolisms:
+    Food:
+      effects:
+      - !type:SpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+        newSpecies: Human
+
+- type: reagent
+  id: XenoLizardToxin
+  parent: Slime
+  name: reagent-name-lizard-mutation-toxin
+  metabolisms:
+    Food:
+      effects:
+      - !type:SpeciesChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+        newSpecies: Reptilian
+# End Species Morphchems
+
 - type: reagent
   id: XenoGenderFluid
   parent: Slime

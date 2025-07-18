@@ -25,6 +25,8 @@
   - type: FlavorProfile
     flavors:
     - tingly
+  - type: Extractable
+    grindableSolutionName: food
   - type: SolutionContainerManager
     solutions:
       food:
@@ -128,6 +130,25 @@
         reagents:
         - ReagentId: RedXenoJelly
           Quantity: 1
+
+- type: entity
+  id: GreenExtractJelly
+  parent: BaseExtractJelly
+  name: green slime jelly
+  description: The violent contractions caused by this jelly increase a slime's chance to mutate when metabolized.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract_jellies.rsi
+      state: jelly
+      color: "#4dff4d"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: GreenXenoJelly
+          Quantity: 15
 
 - type: entity
   id: VolatileExtractJelly

@@ -645,7 +645,10 @@
     reactions:
     - reagents: [ Water ]
       methods: [ Touch, Injection ]
-      effects: # Mutation Toxin reagent required!
+      effects:
+      - !type:CreateEntityReactionEffect
+        entity: GreenExtractJelly
+        number: 1
       - !type:PlaySoundEffect
         sound: /Audio/Effects/Chemistry/bubbles.ogg
     - reagents: [ Plasma ]
@@ -840,7 +843,7 @@
       effects:
       - !type:RandomRemoveOrganNearby
       - !type:PlaySoundEffect
-        sound: /Audio/Effects/Chemistry/bubbles.ogg
+        sound: /Audio/Effects/gib3.ogg
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
       effects:
