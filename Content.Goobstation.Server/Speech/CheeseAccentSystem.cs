@@ -21,10 +21,10 @@ public sealed class CheeseAccentSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Goobstation.Server.Speech.CheeseAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<CheeseAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, Goobstation.Server.Speech.CheeseAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, CheeseAccentComponent component, AccentGetEvent args)
     {
         var message = args.Message;
 
