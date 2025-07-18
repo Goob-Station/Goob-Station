@@ -1,7 +1,7 @@
 - type: guideEntry
   id: Psionics
   name: guide-entry-psionics
-  text: "/ServerInfo/Guidebook/Psionics/Psionics.xml"
+  text: "/ServerInfo/_Pirate/Guidebook/Psionics/Psionics.xml"
   children:
   - Glimmer
   - PsionicInsulation
@@ -12,24 +12,24 @@
 - type: guideEntry
   id: Glimmer
   name: guide-entry-glimmer
-  text: "/ServerInfo/Guidebook/Psionics/Glimmer.xml"
+  text: "/ServerInfo/_Pirate/Guidebook/Psionics/Glimmer.xml"
 
 - type: guideEntry
   id: PsionicInsulation
   name: guide-entry-psionic-insulation
-  text: "/ServerInfo/Guidebook/Psionics/PsionicInsulation.xml"
+  text: "/ServerInfo/_Pirate/Guidebook/Psionics/PsionicInsulation.xml"
 
 - type: guideEntry
   id: Mindbreaking
   name: guide-entry-mindbreaking
-  text: "/ServerInfo/Guidebook/Psionics/Mindbreaking.xml"
+  text: "/ServerInfo/_Pirate/Guidebook/Psionics/Mindbreaking.xml"
 
 - type: guideEntry
   id: AltarsGolemancy
   name: guide-entry-altars-golemancy
-  text: "/ServerInfo/Guidebook/Psionics/Altar.xml"
+  text: "/ServerInfo/_Pirate/Guidebook/Psionics/Altar.xml"
 
 - type: guideEntry
   id: GlimmerCreatures
   name: guide-entry-glimmer-creatures
-  text: "/ServerInfo/Guidebook/Psionics/GlimmerCreatures.xml"
+  text: "/ServerInfo/_Pirate/Guidebook/Psionics/GlimmerCreatures.xml"

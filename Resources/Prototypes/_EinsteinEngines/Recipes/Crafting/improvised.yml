@@ -1,12 +1,9 @@
 - type: construction
-  name: tinfoil hat
+  name: tinfoil-hat-name
   id: tinfoilhat
   graph: TinfoilHat
   startNode: start
   targetNode: tinfoilhat
   category: construction-category-misc
-  description: Protect yourself from all the psionics on board this cursed vessel.
-  icon:
-    sprite: _EinsteinEngines/Clothing/Head/Hats/tinfoil.rsi
-    state: icon
+  description: tinfoil-hat-description
   objectType: Item
