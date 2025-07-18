@@ -36,7 +36,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Drawbacks
 
-  - Takes 30% more Blunt damage, and 15% more Slash and Piercing damage.
+  - Takes 15% more Blunt, Slash, and Piercing damage.
   - Always triggers mousetraps, regardless of whether or not they are wearing shoes.
   - Gets hungry 33% faster.
 
