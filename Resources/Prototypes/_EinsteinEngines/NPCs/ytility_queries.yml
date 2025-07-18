@@ -1,8 +1,17 @@
 - type: utilityQuery
   id: NearbyPsionics
   query:
-    - !type:NearbyEntityQuery
-      range: 10
-      conditions:
-        - !type:HasComponentCondition
-          component: Psionic
+    - !type:ComponentQuery
+      components:
+      - type: Psionic
+  considerations:
+    - type: DistanceToTarget
+      curve: InverseLinear
+      maxDistance: 20
+    - type: TargetIsAlive
+      trueValue: 1.0
+      falseValue: 0.0
+    - type: TargetEnergyLevel
+      curve: Linear
+      minValue: 0
+      maxValue: 100

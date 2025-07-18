@@ -1,40 +1,28 @@
 - type: htnCompound
   id: GlimmerWispCompound
   branches:
-    - tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:UtilityOperator
-            proto: NearbyPsionics
-            key: Target
-        - !type:HTNPrimitiveTask
-          preconditions:
-            - !type:KeyExistsPrecondition
-              key: Target
-          operator: !type:MoveToOperator
-            shutdownState: PlanFinished
-            pathfindInPlanning: true
-            removeKeyOnFinish: false
-            targetKey: TargetCoordinates
-            pathfindKey: TargetPathfind
-            stopOnLineOfSight: false
-            rangeKey: RangedAttackRange
-        - !type:HTNPrimitiveTask
-          preconditions:
-            - !type:KeyExistsPrecondition
-              key: Target
-          operator: !type:GunOperator
-            targetKey: Target
-          services:
-            - !type:UtilityService
-              id: PsionicService
-              proto: NearbyPsionics
-              key: Target
-        - !type:HTNPrimitiveTask
-          operator: !type:JukeOperator
-            jukeType: AdjacentTile
-    - tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:RandomMoveOperator
-            moveChance: 0.3
-        - !type:HTNCompoundTask
-          task: IdleCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: RangedCombatCompound
+#  - tasks:
+#    - !type:HTNCompoundTask
+#      task: DrainPsionicCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound
+
+#- type: htnCompound
+#  id: DrainPsionicCompound
+#  branches:
+#  - tasks:
+#    - !type:HTNPrimitiveTask
+#      operator: !type:PickDrainTargetOperator
+#        targetKey: TargetCoordinates
+#        drainKey: DrainTarget
+#        rangeKey: IdleRange
+#    - !type:HTNPrimitiveTask
+#      operator: !type:MoveToOperator
+#        pathfindInPlanning: false
+#    - !type:HTNPrimitiveTask
+#      operator: !type:DrainOperator
+#        drainKey: DrainTarget
