@@ -3,8 +3,6 @@
   start: start
   graph:
     - node: start
-      actions:
-        - !type:DestroyEntity {}
       edges:
         - to: goggles
           steps:
@@ -16,5 +14,6 @@
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon
+              doAfter: 5
     - node: goggles
       entity: ClothingEyesGlassesEthereal

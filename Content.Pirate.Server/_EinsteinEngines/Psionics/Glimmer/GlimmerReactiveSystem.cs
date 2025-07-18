@@ -189,7 +189,7 @@ public sealed class GlimmerReactiveSystem : EntitySystem
 
     private void OnDestroyed(EntityUid uid, SharedGlimmerReactiveComponent component, DestructionEventArgs args)
     {
-        Spawn("MaterialBluespace1", Transform(uid).Coordinates);
+        Spawn("MaterialBSCrystal1", Transform(uid).Coordinates);
 
         var tier = _glimmerSystem.GetGlimmerTier();
         if (tier < GlimmerTier.High)

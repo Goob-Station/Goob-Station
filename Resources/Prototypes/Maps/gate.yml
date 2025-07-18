@@ -125,7 +125,6 @@
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 4 ]
-            ForensicMantis: [ 1, 1 ]
             ResearchAssistant: [ 4, 4 ]
             #security
             HeadOfSecurity: [ 1, 1 ]

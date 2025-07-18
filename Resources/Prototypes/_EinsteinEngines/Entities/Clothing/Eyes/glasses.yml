@@ -9,6 +9,9 @@
   - type: Clothing
     sprite: _EinsteinEngines/Clothing/Eyes/Glasses/etherealgoogles.rsi
   - type: ShowEthereal
+  - type: Construction
+    graph: EtherealGoggles
+    node: goggles
 
 - type: entity
   parent: [ClothingEyesBase, ShowPsionicsIcons]
