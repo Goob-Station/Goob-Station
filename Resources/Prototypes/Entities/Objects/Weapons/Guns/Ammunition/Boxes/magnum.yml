@@ -56,8 +56,8 @@
 - type: entity
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnum
-  name: "коробка з патронами (.45 magnum)"
-  description: "Картонна коробка з патронами .45 magnum. Призначена для кінетичних боєприпасів загального призначення."
+  name: ammunition box (.45 magnum)
+  description: A cardboard box of .45 magnum rounds. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
@@ -71,8 +71,8 @@
 - type: entity
   parent: BaseMagazineBoxMagnum
   id: MagazineBoxMagnumPractice
-  name: "коробка з патронами (.45 magnum тренувальні)"
-  description: "Картонна коробка з патронами .45 magnum. Призначена для безпечних крейдяних боєприпасів."
+  name: ammunition box (.45 magnum practice)
+  description: A cardboard box of .45 magnum rounds. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
@@ -87,8 +87,8 @@
 - type: entity
   id: MagazineBoxMagnumIncendiary
   parent: BaseMagazineBoxMagnum
-  name: "коробка з патронами (.45 magnum запалювальні)"
-  description: "Картонна коробка з патронами .45 magnum. Призначена для самозаймистих запалювальних боєприпасів."
+  name: ammunition box (.45 magnum incendiary)
+  description: A cardboard box of .45 magnum rounds. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumIncendiary
@@ -103,8 +103,8 @@
 - type: entity
   id: MagazineBoxMagnumUranium
   parent: BaseMagazineBoxMagnum
-  name: "коробка з патронами (.45 magnum уранові)"
-  description: "Картонна коробка з патронами .45 magnum. Призначена для екзотичних боєприпасів з урановим осердям."
+  name: ammunition box (.45 magnum uranium)
+  description: A cardboard box of .45 magnum rounds. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
@@ -119,8 +119,8 @@
 - type: entity
   id: MagazineBoxMagnumAP
   parent: BaseMagazineBoxMagnum
-  name: "коробка з патронами (.45 magnum бронебійні)"
-  description: "Картонна коробка з патронами .45 magnum. Призначена для рідкісних бронебійних боєприпасів."
+  name: ammunition box (.45 magnum armor-piercing)
+  description: A cardboard box of .45 magnum rounds. Intended to hold rare armor-piercing ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP

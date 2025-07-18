@@ -10,7 +10,7 @@
 
 - type: body
   id: SpaceSpider
-  name: "космічний павук"
+  name: "space spider"
   root: chest
   slots:
     chest:

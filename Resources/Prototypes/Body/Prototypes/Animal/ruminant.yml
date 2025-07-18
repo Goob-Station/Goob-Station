@@ -9,7 +9,7 @@
 
 - type: body
   id: AnimalRuminant
-  name: "травоїдна"
+  name: "ruminant"
   root: chest
   slots:
     chest:

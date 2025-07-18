@@ -102,7 +102,7 @@
   parent: FoodInjectableBase
   id: FoodMealBase
   abstract: true
-  description: "Смачна їжа, приготована з любов'ю."
+  description: A delicious meal, cooked with love.
   components:
   - type: Item
     storedRotation: -90
@@ -120,10 +120,10 @@
 # Meals
 
 - type: entity
-  name: "завантажена запечена картопля"
+  name: loaded baked potato
   parent: FoodMealBase
   id: FoodMealPotatoLoaded
-  description: "Повністю запечена."
+  description: Totally baked.
   components:
   - type: FlavorProfile
     flavors:
@@ -134,10 +134,10 @@
 # Tastes like potato.
 
 - type: entity
-  name: "картопля фрі"
+  name: space fries
   parent: FoodMealBase
   id: FoodMealFries
-  description: "Також відома як картопля фрі, картопля фрі, картопля фрі тощо."
+  description: AKA, French Fries, Freedom Fries, etc.
   components:
   - type: FlavorProfile
     flavors:
@@ -148,10 +148,10 @@
 # Tastes like fries, salt.
 
 - type: entity
-  name: "сирна картопля фрі"
+  name: cheesy fries
   parent: FoodMealBase
   id: FoodMealFriesCheesy
-  description: "Картопля фрі. Покрита сиром. Ага."
+  description: Fries. Covered in cheese. Duh.
   components:
   - type: FlavorProfile
     flavors:
@@ -163,10 +163,10 @@
 # Tastes like fries, cheese.
 
 - type: entity
-  name: "морквяна картопля фрі"
+  name: carrot fries
   parent: FoodMealBase
   id: FoodMealFriesCarrot
-  description: "Смачна картопля фрі зі свіжої моркви."
+  description: Tasty fries from fresh carrots.
   components:
   - type: FlavorProfile
     flavors:
@@ -187,10 +187,10 @@
 # Tastes like carrots, salt.
 
 - type: entity
-  name: "начос"
+  name: nachos
   parent: FoodMealBase
   id: FoodMealNachos
-  description: "Чіпси з Космічної Мексики."
+  description: Chips from Space Mexico.
   components:
   - type: Food
     trash:
@@ -214,10 +214,10 @@
 # Tastes like nachos.
 
 - type: entity
-  name: "сирні начос"
+  name: cheesy nachos
   parent: FoodMealBase
   id: FoodMealNachosCheesy
-  description: "Смачне поєднання начос і сиру, що плавиться."
+  description: The delicious combination of nachos and melting cheese.
   components:
   - type: Food
     trash:
@@ -242,10 +242,10 @@
 # Tastes like nachos, cheese.
 
 - type: entity
-  name: "Кубинські начос"
+  name: Cuban nachos
   parent: FoodMealBase
   id: FoodMealNachosCuban
-  description: "Це небезпечно гострі начос."
+  description: That's some dangerously spicy nachos.
   components:
   - type: Food
     trash:
@@ -271,10 +271,10 @@
 # Tastes like nachos, hot pepper.
 
 - type: entity
-  name: "м'ята"
+  name: mint
   parent: FoodMealBase
   id: FoodMealMint
-  description: "Він тонкий, як вафля."
+  description: It's wafer thin.
   components:
   - type: FlavorProfile
     flavors:
@@ -292,10 +292,10 @@
 # Tastes like parsnips, salt.
 
 - type: entity
-  name: "баклажани парміджана"
+  name: eggplant parmigiana
   parent: FoodMealBase
   id: FoodMealEggplantParm
-  description: "Єдиний хороший рецепт для баклажанів."
+  description: The only good recipe for eggplant.
   components:
   - type: FlavorProfile
     flavors:
@@ -318,10 +318,10 @@
 # Tastes like eggplant, cheese.
 
 - type: entity
-  name: "яки імо"
+  name: yaki imo
   parent: FoodMealBase
   id: FoodMealPotatoYaki
-  description: "Приготований зі смаженою солодкою картоплею!"
+  description: Made with roasted sweet potatoes!
   components:
   - type: FlavorProfile
     flavors:
@@ -332,10 +332,10 @@
 # Tastes like sweet potato.
 
 - type: entity
-  name: "Кубинський короп"
+  name: Cuban carp
   parent: FoodMealBase
   id: FoodMealCubancarp
-  description: "Бутерброд, який обпікає язик, а потім залишає його онімілим!"
+  description: A grifftastic sandwich that burns your tongue and then leaves it numb!
   components:
   - type: FlavorProfile
     flavors:
@@ -360,10 +360,10 @@
 # Tastes like fish, batter, hot peppers.
 
 - type: entity
-  name: "солонина з капустою"
+  name: corned beef and cabbage
   parent: FoodMealBase
   id: FoodMealCornedbeef
-  description: "Тепер ви можете відчути себе справжнім туристом, який відпочиває в Ірландії."
+  description: Now you can feel like a real tourist vacationing in Ireland.
   components:
   - type: FlavorProfile
     flavors:
@@ -386,10 +386,10 @@
 # Tastes like meat, cabbage.
 
 - type: entity
-  name: "філе мігрант"
+  name: filet migrawr
   parent: FoodMealBase
   id: FoodMealBearsteak
-  description: "Тому що з'їсти ведмедя було недостатньо мужньо."
+  description: Because eating bear wasn't manly enough.
   components:
   - type: FlavorProfile
     flavors:
@@ -412,10 +412,10 @@
 # Tastes like meat, salmon.
 
 - type: entity
-  name: "свиня в ковдрі"
+  name: pig in a blanket
   parent: FoodMealBase
   id: FoodMealPigblanket
-  description: "Крихітна ковбаска, загорнута в хрусткий, змащений маслом рулет. Звільніть цю свинку з ковдрової в'язниці, з'ївши її."
+  description: A tiny sausage wrapped in a flakey, buttery roll. Free this pig from its blanket prison by eating it.
   components:
   - type: FlavorProfile
     flavors:
@@ -438,10 +438,10 @@
 # Tastes like meat, butter.
 
 - type: entity
-  name: "реберця барбекю"
+  name: bbq ribs
   parent: FoodMealBase
   id: FoodMealRibs
-  description: "Реберця барбекю, вкриті корисним соусом барбекю. Найменш веганська річ, яка коли-небудь існувала."
+  description: BBQ ribs, slathered in a healthy coating of BBQ sauce. The least vegan thing to ever exist.
   components:
   - type: Food
     trash:
@@ -469,10 +469,10 @@
 # Tastes like meat, smokey sauce.
 
 - type: entity
-  name: "яйця бенедикт"
+  name: eggs benedict
   parent: FoodMealBase
   id: FoodMealEggsbenedict
-  description: "Тут лише одне яйце, як грубо."
+  description: There is only one egg on this, how rude.
   components:
   - type: FlavorProfile
     flavors:
@@ -496,10 +496,10 @@
 # Tastes like eggs, bacon, bun.
 
 - type: entity
-  name: "сирний омлет"
+  name: cheese omelette
   parent: FoodMealBase
   id: FoodMealOmelette
-  description: "Сирниий."
+  description: Cheesy.
   components:
   - type: FlavorProfile
     flavors:
@@ -520,10 +520,10 @@
 # Tastes like egg, cheese.
 
 - type: entity
-  name: "яєчня"
+  name: fried egg
   parent: FoodMealBase
   id: FoodMealFriedegg
-  description: "Смажене яйце, злегка посолена і поперчена."
+  description: A fried egg, with a touch of salt and pepper.
   components:
   - type: FlavorProfile
     flavors:
@@ -549,10 +549,10 @@
 # Tastes like egg, salt, pepper.
 
 - type: entity
-  name: "молочна мавпа"
+  name: milk ape
   parent: FoodMealBase
   id: FoodMealMilkape
-  description: "Король густих джунглів."
+  description: The king of Jungle Thick.
   components:
   - type: FlavorProfile
     flavors:
@@ -563,10 +563,10 @@
 # Tastes like milk, chocolate, the jungle.
 
 - type: entity
-  name: "цибуля-порей пам'яті"
+  name: memory leek
   parent: FoodMealBase
   id: FoodMealMemoryleek
-  description: "Це має освіжити вашу пам'ять."
+  description: This should refresh your memory.
   components:
   - type: FlavorProfile
     flavors:
@@ -585,10 +585,10 @@
 # Tastes like pain.
 
 - type: entity
-  name: "солоно-солодкий місо-кола-суп"
+  name: salty sweet miso cola soup
   parent: FoodMealBase
   id: DisgustingSweptSoup
-  description: "Господи Боже."
+  description: Jesus christ.
   components:
   - type: Sprite
     state: saltysweet
@@ -606,10 +606,10 @@
 # Tastes awesome.
 
 - type: entity
-  name: "кесо"
+  name: queso
   parent: FoodMealBase
   id: FoodMealQueso
-  description: "Класичний соус для занурення, з яким неможливо помилитися."
+  description: A classic dipping sauce that you can't go wrong with.
   components:
     - type: FlavorProfile
       flavors:
@@ -619,10 +619,10 @@
 # Its queso! Everyone loves queso... Right?.
 
 - type: entity
-  name: "сашимі"
+  name: sashimi
   parent: FoodMealBase
   id: FoodMealSashimi
-  description: "Його смак можна описати лише як \"Екзотичний\". А отруєння? Це досить звична справа."
+  description: Its taste can only be described as "Exotic". The poisoning though? That's pretty common.
   components:
   - type: FlavorProfile
     flavors:
@@ -644,10 +644,10 @@
 # tastes exotic
 
 - type: entity
-  name: "енхиладас"
+  name: enchiladas
   parent: FoodMealBase
   id: FoodMealEnchiladas
-  description: "Віва Ля Мехіко!"
+  description: Viva La Mexico!
   components:
     - type: FlavorProfile
       flavors:
@@ -669,10 +669,10 @@
 # What do Europeans eat instead of enchiladas? 25.4 millimeter-iladas.
 
 - type: entity
-  name: "динна фруктова миска"
+  name: melon fruit bowl
   parent: FoodMealBase
   id: FoodSaladWatermelonFruitBowl
-  description: "Єдиний салат, де можна з'їсти миску."
+  description: The only salad where you can eat the bowl.
   components:
   - type: FlavorProfile
     flavors:
@@ -700,10 +700,10 @@
     - Fruit
 
 - type: entity
-  name: "кукурудза в маслі"
+  name: corn in butter
   parent: FoodMealBase
   id: FoodMealCornInButter
-  description: "Масляниста."
+  description: Buttery.
   components:
   - type: Food
     trash:

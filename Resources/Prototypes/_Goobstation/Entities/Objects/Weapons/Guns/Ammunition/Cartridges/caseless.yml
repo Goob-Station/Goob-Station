@@ -5,7 +5,7 @@
 
 - type: entity
   id: CartridgeCaselessRifleSAPHE
-  name: "патрон (9.5мм SAP-HE)"
+  name: cartridge (9.5mm SAP-HE)
   parent: BaseCartridgeCaselessRifle
   components:
   - type: CartridgeAmmo

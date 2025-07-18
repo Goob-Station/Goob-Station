@@ -9,7 +9,7 @@
 - type: entity
   id: OrganDwarfHeart
   parent: OrganHumanHeart
-  name: "серце дворфа"
+  name: dwarf heart
   components:
   - type: Metabolizer
     metabolizerTypes: [Dwarf]
@@ -17,7 +17,7 @@
 - type: entity
   id: OrganDwarfLiver
   parent: OrganHumanLiver
-  name: "печінка дворфа"
+  name: dwarf liver
   components:
   - type: Metabolizer
     metabolizerTypes: [Dwarf]
@@ -25,7 +25,7 @@
 - type: entity
   id: OrganDwarfStomach
   parent: OrganHumanStomach
-  name: "шлунок дворфа"
+  name: dwarf stomach
   components:
   - type: Sprite
     state: stomach

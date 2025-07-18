@@ -26,8 +26,8 @@
 
 - type: entity
   id: SpiderWeb
-  name: "павутиння"
-  description: "Він в'язкий і липкий."
+  name: spider web
+  description: It's stringy and sticky.
   placement:
     mode: SnapgridCenter
     snap:
@@ -105,8 +105,8 @@
 
 - type: entity
   id: SpiderWebClown
-  name: "клоунська павутина"
-  description: "Він в'язкий і слизький."
+  name: clown spider web
+  description: It's stringy and slippy.
   placement:
     mode: SnapgridCenter
     snap:

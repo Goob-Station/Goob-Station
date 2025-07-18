@@ -7,8 +7,8 @@
 - type: entity
   parent: [ ConstructibleMachine, BaseMachinePowered ]
   id: RoboticArm
-  name: "роботизована рука"
-  description: "Високотехнологічна роботизована рука, здатна переміщувати предмети до та з машин, що мають оновлення автоматизації."
+  name: robotic arm
+  description: A high-tech robotic arm capable of moving items to and from machines that have automation upgrades.
   components:
   # Visuals
   - type: Sprite
