@@ -29,7 +29,7 @@
     - prefRoles: [ CosmicAntagCultist ]
       min: 2
       max: 6
-      playerRatio: 1
+      playerRatio: 10
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
