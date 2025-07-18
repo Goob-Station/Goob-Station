@@ -1,9 +1,7 @@
 - type: construction
-  name: ethereal-goggles-name
   id: ClothingEyesGlassesEthereal
   graph: EtherealGoggles
   startNode: start
   targetNode: etherealGoggles
   category: construction-category-clothing
-  description: ethereal-goggles-description
   objectType: Item
