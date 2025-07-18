@@ -15,9 +15,9 @@
   - type: GameRule
     minPlayers: 25
     chaosScore: 1200
-   # delay:
-   #   min: 60
-   #   max: 120
+    delay:
+      min: 60
+      max: 120
   - type: AntagObjectives
     objectives:
     - CosmicFinalityObjective
@@ -26,7 +26,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ CosmicAntagCultist ]
-      min: 1
+      min: 2
       max: 6
       playerRatio: 1
       jobBlacklist: [ Chaplain ] # GOOBSTATION
