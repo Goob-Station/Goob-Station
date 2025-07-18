@@ -125,3 +125,15 @@
   components:
   - type: Implanter
     implant: MarishTranslatorImplant
+
+# Goobstation start
+
+- type: entity
+  id: LibrarianTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: librarian translator implant
+  components:
+  - type: Implanter
+    implant: LibrarianTranslatorImplant
+
+# Goobstation end

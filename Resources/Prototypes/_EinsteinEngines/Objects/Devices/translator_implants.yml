@@ -216,3 +216,72 @@
     - Marish
     requires:
     - TauCetiBasic
+
+# Goobstation start
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: LibrarianTranslatorImplant
+  name: librarian translator implant
+  description: An implant giving the ability to understand and speak most languages.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    spoken:
+      - Eldritch
+      - Chittin
+      - RootSpeak
+      - ValyrianStandard
+      - Marish
+      - Moffic
+      - Nekomimetic
+      - Draconic
+      - Azaziba
+      - Calcic
+      - Bubblish
+      - SiikMaas
+      - NalRasan
+      - SiikTajr
+      - YaSsa
+      - Delvahii
+      - Canilunzt
+      - Elyran
+      - Freespeak
+      - NovuNederic
+      - SolCommon
+      - TauCetiBasic
+      - Tradeband
+      - Mouse
+      - Sign
+      - Monkey
+      - Kobold
+    understood:
+      - Eldritch
+      - Chittin
+      - RootSpeak
+      - ValyrianStandard
+      - Marish
+      - Moffic
+      - Nekomimetic
+      - Draconic
+      - Azaziba
+      - Calcic
+      - Bubblish
+      - SiikMaas
+      - NalRasan
+      - SiikTajr
+      - YaSsa
+      - Delvahii
+      - Canilunzt
+      - Elyran
+      - Freespeak
+      - NovuNederic
+      - SolCommon
+      - TauCetiBasic
+      - Tradeband
+      - Mouse
+      - Sign
+      - Monkey
+      - Kobold
+
+# Goobstation end
