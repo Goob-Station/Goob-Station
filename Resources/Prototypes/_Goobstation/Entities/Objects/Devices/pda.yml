@@ -121,8 +121,8 @@
 - type: entity
   parent: BaseMedicalPDA
   id: BlueshieldPDA
-  name: blueshield officer PDA
-  description: The silver shield of the Blueshield is engraved on the front.
+  name: red astra ranger PDA
+  description: Weathered, rugged, and a little burnt. The silver shield of a blueshield officer has been partly scrapped off.
   components:
   - type: Appearance
     appearanceDataInit:
