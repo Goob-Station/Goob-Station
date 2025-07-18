@@ -3,6 +3,6 @@
   stackEntity: MaterialNormality1
   name: materials-normality
   unit: materials-unit-piece
-  icon: { sprite: Objects/Materials/materials.rsi, state: normality }
+  icon: { sprite: _EinsteinEngines/Objects/Materials/materials.rsi, state: normality }
   color: "#53a9ff"
   price: 7.5

@@ -12,7 +12,7 @@
               amount: 5
               doAfter: 10
             - tag: Sunglasses
-              name: shielded sunglasses
+              name: construction-graph-tag-sun-glasses
               icon:
                 sprite: Clothing/Eyes/Glasses/sunglasses.rsi
                 state: icon

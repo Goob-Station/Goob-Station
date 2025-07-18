@@ -67,7 +67,6 @@
   - type: PowerSwitch
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: ShockAbsorber
   - type: CargoSellBlacklist
   - type: AmbientSound
     range: 6

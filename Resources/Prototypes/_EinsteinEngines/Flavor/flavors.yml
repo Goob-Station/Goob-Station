@@ -7,3 +7,8 @@
   id: enthralling
   flavorType: Complex
   description: flavor-complex-enthralling
+
+- type: flavor
+  id: sublime
+  flavorType: Complex
+  description: flavor-complex-sublime

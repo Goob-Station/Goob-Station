@@ -21,7 +21,7 @@
           conditions:
             - !type:EntityAnchored {}
           steps:
-            - material: Bluespace
+            - material: BSCrystal
               amount: 5
               doAfter: 10
             - tool: Welding
