@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/18/2025 11:49:12
-  entityCount: 27666
+  time: 07/18/2025 16:04:38
+  entityCount: 27668
 maps:
 - 1
 grids:
@@ -6727,7 +6727,7 @@ entities:
           16,-6:
             0: 143
             1: 8704
-            5: 32768
+            6: 32768
           13,-3:
             0: 62719
           13,-2:
@@ -7528,34 +7528,34 @@ entities:
             1: 257
           16,-4:
             1: 8738
-            6: 136
-            5: 32768
+            5: 136
+            6: 32768
           16,-3:
             1: 8738
-            5: 32904
+            6: 32904
           16,-2:
             1: 57890
-            5: 136
+            6: 136
           16,-5:
             1: 8738
-            6: 32768
-            5: 136
+            5: 32768
+            6: 136
           17,-4:
-            6: 51
-            5: 12288
+            5: 51
+            6: 12288
             0: 2176
             1: 32768
           17,-3:
-            5: 12339
+            6: 12339
             1: 34952
           17,-2:
-            5: 51
+            6: 51
             1: 55432
             0: 8192
           17,-5:
-            6: 12288
+            5: 12288
             0: 34816
-            5: 51
+            6: 51
             1: 136
           18,-4:
             0: 3975
@@ -7597,7 +7597,7 @@ entities:
             0: 7677
           17,-6:
             0: 31
-            5: 12288
+            6: 12288
             1: 34816
           17,-9:
             0: 65535
@@ -7980,7 +7980,7 @@ entities:
           3,-16:
             1: 3745
           3,-14:
-            5: 3822
+            6: 3822
             0: 16384
           4,-15:
             0: 53070
@@ -8702,7 +8702,7 @@ entities:
           - 0
           - 0
           - 0
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -8721,7 +8721,7 @@ entities:
           - 0
           - 0
           - 0
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -11355,7 +11355,7 @@ entities:
       pos: -42.5,29.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -19103.355
+      secondsUntilStateChange: -19186.674
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -122732,6 +122732,19 @@ entities:
         - 0
         - 0
         - 0
+- proto: LockerSalvageSpecialistFilled
+  entities:
+  - uid: 27667
+    components:
+    - type: Transform
+      pos: -39.5,26.5
+      parent: 2
+    - type: Conveyed
+  - uid: 27668
+    components:
+    - type: Transform
+      pos: -39.5,25.5
+      parent: 2
 - proto: LockerScienceFilled
   entities:
   - uid: 4123
@@ -126021,7 +126034,6 @@ entities:
     - type: Physics
       angularDamping: 0.080000006
       linearDamping: 0.080000006
-      sleepTime: 0.1333332
   - uid: 18480
     components:
     - type: Transform
