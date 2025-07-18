@@ -107,6 +107,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeCapoeira();
         InitializeDragon();
         InitializeNinjutsu();
+        InitializeHellRip();
         InitializeCanPerformCombo();
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);

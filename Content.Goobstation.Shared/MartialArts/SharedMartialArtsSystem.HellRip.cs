@@ -12,6 +12,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -32,11 +33,16 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Humanoid;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
+    [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
+
     private void InitializeHellRip()
     {
         SubscribeLocalEvent<CanPerformComboComponent, HellRipSlamPerformedEvent>(OnHellRipSlam);
@@ -87,23 +93,27 @@ public partial class SharedMartialArtsSystem
     private void OnHellRipHeadRip(Entity<CanPerformComboComponent> ent, ref HellRipHeadRipPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out _)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || !downed
-            || !TryComp(target, out StatusEffectsComponent? status))
+            || !TryComp(target, out StatusEffectsComponent? status)
+            || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
 
+        _pulling.TryStopPull(target, pullable, ent, true);
+
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", 300);
-        _damageable.TryChangeDamage(target, damage, true, origin: uid, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
-        var head = _body.GetBodyChildrenOfType(target.Value, BodyPartType.Head).FirstOrDefault();
+        _damageable.TryChangeDamage(target, damage, true, origin: ent, targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head);
+        var head = _body.GetBodyChildrenOfType(target , BodyPartType.Head).FirstOrDefault();
         if (head != default
             && TryComp<WoundableComponent>(head.Id, out var woundable)
             && woundable.ParentWoundable.HasValue)
             _wound.AmputateWoundable(woundable.ParentWoundable.Value, head.Id, woundable);
 
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/gib1.ogg"), target);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
@@ -127,12 +137,13 @@ public partial class SharedMartialArtsSystem
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
-        _pulling.TryStopPull(target, pullable, ent, true);
+        //_pulling.TryStopPull(target, pullable, ent, true);
 
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
         _standingState.Stand(ent);
 
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/metal_slam5.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
@@ -148,25 +159,35 @@ public partial class SharedMartialArtsSystem
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
         _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position, 50);
+        //_grabThrowing.Throw(target, ent, _transform.GetMapCoordinates(ent).Position + _transform.GetMapCoordinates(target).Position, 50);
+        var entPos = _transform.GetMapCoordinates(ent).Position;
+        var targetPos = _transform.GetMapCoordinates(target).Position;
+        var direction = targetPos - entPos; // vector from ent to target
+
+        _grabThrowing.Throw(target, ent, direction, 25);
 
 
 
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
+
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
     }
 
-     private void OnHellRipTearDown(Entity<CanPerformComboComponent> ent,
-        ref HellRipTearDownPerformedEvent args)
+    private void OnHellRipTearDown(Entity<CanPerformComboComponent> ent,
+       ref HellRipTearDownPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !_proto.TryIndex<MartialArtPrototype>(proto.MartialArtsForm.ToString(), out var martialArtProto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
+            || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
+        _pulling.TryStopPull(target, pullable, ent, true);
+
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Fluids/blood1.ogg"), target);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/demon_attack1.ogg"), ent);
 
     }
 

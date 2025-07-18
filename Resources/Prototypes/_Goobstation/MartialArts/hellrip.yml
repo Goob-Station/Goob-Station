@@ -54,11 +54,10 @@
   attacks:
   - Harm
   - Disarm
-  - Harm
+  - Grab
   event: !type:HellRipTearDownPerformedEvent
   staminaDamage: 50
   extraDamage: 60
-  canDoWhileProne: false
 
 - type: combo
   id: Slam
@@ -70,4 +69,3 @@
   event: !type:HellRipSlamPerformedEvent
   paralyzeTime: 8
   staminaDamage: 100
-  canDoWhileProne: false
