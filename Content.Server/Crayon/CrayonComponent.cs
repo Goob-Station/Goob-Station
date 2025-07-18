@@ -43,6 +43,10 @@ namespace Content.Server.Crayon
         public bool SelectableColor { get; set; }
 
         [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("infiniteCharges")]
+        public bool InfiniteCharges { get; set; }
+
+        [ViewVariables(VVAccess.ReadWrite)]
         public int Charges { get; set; }
 
         [ViewVariables(VVAccess.ReadWrite)]

@@ -22,6 +22,7 @@ namespace Content.Client.Crayon
     public sealed partial class CrayonComponent : SharedCrayonComponent
     {
         [ViewVariables(VVAccess.ReadWrite)] public bool UIUpdateNeeded;
+        [ViewVariables] public bool InfiniteCharges { get; set; }
         [ViewVariables] public int Charges { get; set; }
         [ViewVariables] public int Capacity { get; set; }
     }

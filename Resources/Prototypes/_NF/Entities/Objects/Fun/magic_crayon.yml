@@ -20,7 +20,7 @@
     - Write
     - Crayon
   - type: Crayon
-    capacity: 2147483647 # int.MaxValue, infinite charges
+    infiniteCharges: true
   - type: FlavorProfile
     flavors:
     - chewy

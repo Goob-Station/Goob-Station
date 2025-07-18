@@ -94,7 +94,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
 
         // Frontier: check if crayon is infinite, Delta V Port
-        if (component.Charges != int.MaxValue)
+        if (!component.InfiniteCharges)
         {
             // Decrease "Ammo"
             component.Charges--;
