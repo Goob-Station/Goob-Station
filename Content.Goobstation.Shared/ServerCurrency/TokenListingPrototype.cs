@@ -7,7 +7,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._durkcode.ServerCurrency;
+namespace Content.Goobstation.Shared.ServerCurrency;
 
 [Prototype("tokenListing")]
 public sealed class TokenListingPrototype : IPrototype
