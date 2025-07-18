@@ -525,18 +525,19 @@
     soundHit:
       path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
   - type: Damageable
-    damageContainer: 
-  - type: OnlyPiercing
+    damageContainer: Inorganic
+  - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTypeTrigger
+        damageType: Piercing
         damage: 6
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
-          path: Audio/Items/scissors.ogg
+          path: /Audio/Items/scissors.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
           PlushieBaldzby:
