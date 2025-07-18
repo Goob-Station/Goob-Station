@@ -8,7 +8,7 @@
 - type: entity
   id: BaseBlob
   abstract: true
-  name: "базовий блоб"
+  name: base blob
   placement:
     mode: SnapgridCenter
     snap:
@@ -57,7 +57,7 @@
 
 - type: entity
   id: MobObserverBlobController
-  name: "Контролер блоба спостерігача"
+  name: Blob observer controller
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

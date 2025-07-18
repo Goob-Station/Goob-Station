@@ -6,8 +6,8 @@
 
 - type: entity
   id: BaseHandheldTelevision
-  name: "ручний телевізор"
-  description: "Нарешті, пристойний прийом..."
+  name: handheld television
+  description: Finally, some decent reception around here...
   parent: BaseItem
   components:
     - type: Sprite

@@ -6,7 +6,7 @@
 
 - type: palette
   id: GondolaBrowns
-  name: "Коричневі Гондоли"
+  name: Gondola Browns
   colors:
     brown: "#6e4e40"
     brown1: "#593d31"

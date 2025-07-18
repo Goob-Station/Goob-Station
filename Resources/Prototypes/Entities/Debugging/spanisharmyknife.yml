@@ -48,10 +48,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "іспанський армійський ніж"
+  name: spanish army knife
   parent: BaseItem
   id: ToolDebug
-  description: "Біль від його використання майже занадто сильний, щоб його витримати."
+  description: The pain of using this is almost too great to bear.
   suffix: DEBUG
   components:
   - type: Tag

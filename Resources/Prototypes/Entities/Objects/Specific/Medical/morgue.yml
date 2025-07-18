@@ -45,8 +45,8 @@
 - type: entity
   id: BodyBag
   parent: BaseDeployFoldable
-  name: "мішок для трупів"
-  description: "Поліетиленовий мішок, призначений для зберігання і транспортування трупів, щоб запобігти розкладанню тіла."
+  name: body bag
+  description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
   components:
   - type: Item
     size: Small
@@ -159,8 +159,8 @@
 
 - type: entity
   id: BodyBagFolded
-  name: "мішок для трупів"
-  description: "Поліетиленовий мішок, призначений для зберігання і транспортування трупів, щоб запобігти розкладанню тіла."
+  name: body bag
+  description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
   parent: BodyBag
   suffix: folded
   components:
@@ -174,8 +174,8 @@
 - type: entity
   parent: BaseItem
   id: Ash
-  name: "попіл"
-  description: "Раніше це було чимось, але зараз це не так."
+  name: ash
+  description: This used to be something, but now it's not.
   components:
   - type: Item
     size: Tiny
@@ -204,8 +204,8 @@
 - type: entity
   parent: Ash
   id: Ectoplasm
-  name: "ектоплазма"
-  description: "Набагато менш смертельна в такому вигляді."
+  name: ectoplasm
+  description: Much less deadly in this form.
   components:
     - type: Sprite
       sprite: Mobs/Ghosts/revenant.rsi

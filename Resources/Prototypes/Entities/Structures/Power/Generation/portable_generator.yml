@@ -176,8 +176,10 @@
         enabled: false
 
 - type: entity
-  name: "Портативний генератор типу P.A.C.M.A.N"
-  description: "Гнучкий резервний генератор для живлення різноманітного обладнання.\nПрацює від суцільних плазмових листів і має потужність до 30 кВт."
+  name: P.A.C.M.A.N.-type portable generator
+  description: |-
+    A flexible backup generator for powering a variety of equipment.
+    Runs off solid plasma sheets and is rated for up to 30 kW.
   parent: PortableGeneratorSwitchableBase
   id: PortableGeneratorPacman
   suffix: Plasma, 30 kW
@@ -235,8 +237,10 @@
       supplyRampTolerance: 1500
 
 - type: entity
-  name: "Портативний генератор типу S.U.P.E.R.P.A.C.M.A.N"
-  description: "Удосконалений генератор для живлення відділень.\nПрацює від уранових листів і має потужність до 50 кВт."
+  name: S.U.P.E.R.P.A.C.M.A.N.-type portable generator
+  description: |-
+    An advanced generator for powering departments.
+    Runs off uranium sheets and is rated for up to 50 kW.
   parent: PortableGeneratorSwitchableBase
   id: PortableGeneratorSuperPacman
   suffix: Uranium, 50 kW
@@ -289,8 +293,11 @@
       supplyRampTolerance: 2500
 
 - type: entity
-  name: "Портативний генератор типу J.R.P.A.C.M.A.N"
-  description: "Невеликий генератор, здатний забезпечити електроенергією окремі приміщення в разі надзвичайних ситуацій.\nПрацює на зварювальному паливі та має потужність до 8 кВт.\nРозрахований на вік від 3 років."
+  name: J.R.P.A.C.M.A.N.-type portable generator
+  description: |-
+    A small generator capable of powering individual rooms, in case of emergencies.
+    Runs off welding fuel and is rated for up to 8 kW.
+    Rated ages 3 and up.
   parent: PortableGeneratorBase
   id: PortableGeneratorJrPacman
   suffix: Welding Fuel, 8 kW

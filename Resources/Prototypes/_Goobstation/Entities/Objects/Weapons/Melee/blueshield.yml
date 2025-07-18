@@ -25,10 +25,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "DT-3 \"Жорстокість\""
+  name: DT-3 "Atrocity"
   parent: [BaseItem, BaseCentcommContraband]
   id: BlueshieldMace
-  description: "Розтрощіть усіх, хто протистоїть вашим лідерам. Функціонує як електрошоковий кийок у ввімкненому стані."
+  description: Crush all those who oppose your leaders. Functions as a stun baton in its powered state.
   components:
   - type: Tag
     tags:
@@ -100,10 +100,10 @@
     price: 1000
 
 - type: entity
-  name: "бойовий інжектор"
+  name: combat injector
   parent: [BaseItem, BaseCentcommContraband]
   id: CombatInjector
-  description: "Вводить збережені хімікати при ударі, має низьку ємність через свою міцну конструкцію."
+  description: Injects stored chemicals on hit, has a low capacity due to its sturdy design.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi

@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenoEasy
-  name: "Спавнер Ксено"
+  name: Xeno Spawner
   suffix: Easy, Random
   components:
   - type: Sprite
@@ -19,7 +19,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobXenoHard
-  name: "Спавнер Ксено"
+  name: Xeno Spawner
   suffix: Hard, Random
   components:
   - type: Sprite

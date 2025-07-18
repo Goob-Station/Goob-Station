@@ -23,10 +23,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "прото-кінетичний дробовик"
+  name: proto-kinetic shotgun
   id: WeaponProtoKineticShotgun
   parent: [ BaseGunWieldable, WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
-  description: "Стріляє розсіюванням кінетичних снарядів з низькою шкодою, які вдвічі менш ефективні для видобутку."
+  description: Fires a spread of low-damage kinetic bolts that are half as effective for mining.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
@@ -60,10 +60,10 @@
     - 0,0,4,0
 
 - type: entity
-  name: "прото-кінетичний репітер"
+  name: proto-kinetic repeater
   id: WeaponProtoKineticRepeater
   parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
-  description: "Стріляє залпом кінетичних снарядів із середньою шкодою на короткій дистанції."
+  description: Fires a barrage of medium-damage kinetic bolts at a short range.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
@@ -106,10 +106,10 @@
     - 0,0,2,1
 
 - type: entity
-  name: "протокінетичний пістолет"
+  name: proto-kinetic pistol
   id: WeaponProtoKineticPistol
   parent: [ WeaponProtoKineticAcceleratorBase, BaseCargoContraband ]
-  description: "Випускає кінетичні болти малої потужності, має більшу ємність для модифікацій."
+  description: Fires low-damage kinetic bolts, has a higher mod capacity.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi

@@ -1,6 +1,6 @@
 - type: entity
-  name: "бладтрек"
-  description: "Ручний пристрій стеження, здатний відстежувати когось за їхньою ДНК. Ця конкретна модель працює тільки на калюжах і функціонує лише короткий час."
+  name: bloodtrak
+  description: A handheld tracking device, capable of tracking someone from their DNA. This particular model only works on puddles, and only functions for a short duration.
   parent: [BaseItem, BaseSecurityContraband]
   id: BloodTrak
   components:
