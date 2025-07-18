@@ -98,13 +98,15 @@ namespace Content.Shared.Crayon
     {
         public readonly Color Color;
         public readonly string State;
+        public readonly bool InfiniteCharges;
         public readonly int Charges;
         public readonly int Capacity;
 
-        public CrayonComponentState(Color color, string state, int charges, int capacity)
+        public CrayonComponentState(Color color, string state, bool infiniteCharges, int charges, int capacity)
         {
             Color = color;
             State = state;
+            InfiniteCharges = infiniteCharges;
             Charges = charges;
             Capacity = capacity;
         }

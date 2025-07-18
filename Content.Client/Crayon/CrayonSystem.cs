@@ -37,6 +37,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
 
         component.Color = state.Color;
         component.SelectedState = state.State;
+        component.InfiniteCharges = state.InfiniteCharges;
         component.Charges = state.Charges;
         component.Capacity = state.Capacity;
 
