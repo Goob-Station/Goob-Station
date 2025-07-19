@@ -14,7 +14,7 @@
         icon:
           sprite: Objects/Consumable/Food/bowl.rsi
           state: bowl
-        name: bowl
+        name: construction-graph-tag-bowl
         doAfter: 2
   - node: ousianadustbowl
     entity: FoodOusianaDustBowl
