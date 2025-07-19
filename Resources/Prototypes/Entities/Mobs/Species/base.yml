@@ -374,7 +374,7 @@
   - type: StatusEffects
     allowed:
     - Stun
-    - KnockedDown
+    - Friction
     - SlowedDown
     - Stutter
     - Electrocution
