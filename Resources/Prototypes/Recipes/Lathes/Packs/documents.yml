@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipePack
+  id: DocumentsStatic
+  recipes:
+  - PrintedDocumentReportStationRecipe
+  - PrintedDocumentReportOnEliminationOfViolationsRecipe
+  - PrintedDocumentReportDepartmentRecipe
+  - PrintedDocumentReportEmployeePerformanceRecipe
+  - PrintedDocumentReportOnTheChaptersMeetingRecipe
+  - PrintedDocumentInternalAffairsAgentsReportRecipe
+  - PrintedDocumentConditionReportRecipe
+  - PrintedDocumentReportStudyObjectRecipe
+  - PrintedDocumentExperimentReportRecipe
+  - PrintedDocumentDisposalReportRecipe
+  - PrintedDocumentApplicationAppointmentInterimRecipe
+  - PrintedDocumentApplicationEmploymentRecipe
+  - PrintedDocumentLetterResignationRecipe
+  - PrintedDocumentApplicationAccessRecipe
+  - PrintedDocumentApplicationEquipmentRecipe
+  - PrintedDocumentAppealRecipe
+  - PrintedDocumentEvacuationShuttleRequestRecipe
+  - PrintedDocumentShuttleRegistrationRequestRecipe
+  - PrintedDocumentRequestCallMembersCentralCommitteeDSORecipe
+  - PrintedDocumentRequestRequestToEstablishThreatLevelRecipe
+  - PrintedDocumentRequestChangeSalaryRecipe
+  - PrintedDocumentRequestForNonlistedEmploymentRecipe
+  - PrintedDocumentRequestForPromotionRecipe
+  - PrintedDocumentRequestDocumentsRecipe
+  - PrintedDocumentRequestEuthanasiaRecipe
+  - PrintedDocumentRequestConstructionWorkRecipe
+  - PrintedDocumentRequestModernizationRecipe
+  - PrintedDocumentComplaintViolationLaborRulesRecipe
+  - PrintedDocumentComplaintOffenseRecipe
+  - PrintedDocumentPermissionEquipmentRecipe
+  - PrintedDocumentPermissionToTravelInCaseOfThreatRecipe
+  - PrintedDocumentSearchPermissionRecipe
+  - PrintedDocumentPermissionToCarryWeaponsRecipe
+  - PrintedDocumentPrescriptionDrugAuthorizationRecipe
+  - PrintedDocumentPermissionDisposeBodyRecipe
+  - PrintedDocumentConstructionPermitRecipe
+  - PrintedDocumentPermissionToExtendMarriageRecipe
+  - PrintedDocumentOrderDismissalRecipe
+  - PrintedDocumentOrderDeprivationAccessRecipe
+  - PrintedDocumentOrderEncouragementRecipe
+  - PrintedDocumentOrderParolePrisonerRecipe
+  - PrintedDocumentOrderRecognizingSentienceCreatureRecipe
+  - PrintedDocumentOrderMedicalInterventionRecipe
+  - PrintedDocumentProductManufacturingOrderRecipe
+  - PrintedDocumentOrderPurchaseResourcesEquipmentRecipe
+  - PrintedDocumentOrderingSpecialEquipmentRecipe
+  - PrintedDocumentOrderPurchaseWeaponsRecipe
+  - PrintedDocumentCertificateRecipe
+  - PrintedDocumentCertificateAdvancedTrainingRecipe
+  - PrintedDocumentCertificateOffenseRecipe
+  - PrintedDocumentDeathCertificateRecipe
+  - PrintedDocumentMarriageCertificateRecipe
+  - PrintedDocumentDivorceCertificateRecipe
+  - PrintedDocumentClosingIndictmentRecipe
+  - PrintedDocumentSentenceRecipe
+  - PrintedDocumentJudgmentRecipe
+  - PrintedDocumentStatementHealtheRecipe
+  - PrintedDocumentDecisionToStartTrialRecipe
