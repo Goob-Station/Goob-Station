@@ -10,9 +10,12 @@ namespace Content.Shared._Lavaland.Megafauna.NumberSelectors;
 [ImplicitDataDefinitionForInheritors, UsedImplicitly(ImplicitUseTargetFlags.WithInheritors)]
 public abstract partial class MegafaunaNumberSelector
 {
+    [DataField]
+    public MidpointRounding Rounding = MidpointRounding.ToEven;
+
     public int GetRounded(MegafaunaCalculationBaseArgs args) // Hello, Im Rounded
     {
-        return (int) Math.Round(Get(args));
+        return (int) Math.Round(Get(args), Rounding);
     }
 
     public abstract float Get(MegafaunaCalculationBaseArgs args);

@@ -27,6 +27,9 @@ public sealed partial class SequenceMegafaunaAction : MegafaunaActionSelector
             args.AiComponent.ActionSchedule.Add(time, Selector);
         }
 
+        if (rolls == 0)
+            return FailDelay;
+
         return delay * rolls;
     }
 }

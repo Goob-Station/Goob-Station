@@ -82,9 +82,9 @@
   action: !type:SequenceMegafaunaAction
     selector: !type:NestedMegafaunaAction
       id: HierophantBox
-    delay: !type:AngerNumberSelector
-      range: 1.0,0.8
-    rolls: !type:AngerNumberSelector
+    delay: !type:MegafaunaRangeNumberSelector
+      range: 0.8,1.0
+    rolls: !type:MegafaunaRangeNumberSelector
       range: 3,8
 
 - type: megafaunaAction
@@ -92,9 +92,9 @@
   action: !type:SequenceMegafaunaAction
     selector: !type:NestedMegafaunaAction
       id: HierophantRandomCross
-    delay: !type:AngerNumberSelector
-      range: 1.6,1.2
-    rolls: !type:AngerNumberSelector
+    delay: !type:MegafaunaRangeNumberSelector
+      range: 1.2,1.6
+    rolls: !type:MegafaunaRangeNumberSelector
       range: 1,3
 
 - type: megafaunaAction
@@ -102,9 +102,9 @@
   action: !type:SequenceMegafaunaAction
     selector: !type:NestedMegafaunaAction
       id: HierophantRandomCrossHard
-    delay: !type:AngerNumberSelector
-      range: 1.6,1.2
-    rolls: !type:AngerNumberSelector
+    delay: !type:MegafaunaRangeNumberSelector
+      range: 1.2,1.6
+    rolls: !type:MegafaunaRangeNumberSelector
       range: 2,4
 
 # OTHER
@@ -112,11 +112,11 @@
 - type: megafaunaAction
   id: HierophantSpawnChasers
   action: !type:HierophantChasersAction
-    speedSelector: !type:AngerNumberSelector
+    speedSelector: !type:MegafaunaRangeNumberSelector
       range: 2,5
-    stepsSelector: !type:AngerNumberSelector
+    stepsSelector: !type:MegafaunaRangeNumberSelector
       range: 20,50
-    amountSelector: !type:AngerNumberSelector
+    amountSelector: !type:MegafaunaRangeNumberSelector
       range: 1,3
 
 - type: megafaunaAction
