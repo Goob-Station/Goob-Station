@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Kevin Zheng <kevinz5000@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
@@ -13,6 +15,7 @@ using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
+using System.Linq;
 
 namespace Content.Client.Mech.Ui;
 
@@ -55,7 +58,7 @@ public sealed class MechBoundUserInterface : BoundUserInterface
         if (!EntMan.TryGetComponent<MechComponent>(Owner, out var mechComp))
             return;
 
-        foreach (var ent in mechComp.EquipmentContainer.ContainedEntities)
+        foreach (var ent in mechComp.EquipmentContainer.ContainedEntities.Concat(mechComp.ArmorContainer.ContainedEntities))
         {
             var ui = GetEquipmentUi(ent);
             if (ui == null)
