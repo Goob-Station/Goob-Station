@@ -8,4 +8,4 @@
     - state: default
     - state: idpassenger
   - type: PresetIdCard
-    job: Offduty
+    job: Passenger

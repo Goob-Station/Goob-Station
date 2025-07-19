@@ -10,8 +10,6 @@
     spawned:
     - id: MaterialCloth1
       amount: 3
-    - id: N14MaterialThread1
-      amount: 3
 
 - type: entity
   parent: N14ClothingUniformBase

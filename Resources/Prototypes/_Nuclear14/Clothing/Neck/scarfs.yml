@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckPatriotScarf
+  id: N14ClothingNeckPatriotScarf
   name: patriot scarf
   description: A short but very patriotic scarf.
   components:

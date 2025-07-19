@@ -27,7 +27,7 @@
     whitelist:
       tags:
         - Sidearm
-        - SpeedLoader
+        - SpeedLoader45-70
       components:
         - BallisticAmmoProvider
   - type: Appearance

@@ -13,7 +13,7 @@
       tags:
         - N14Cartridge45-70
         - SpeedLoader45-70
-    proto: N14Cartridge45-70
+    proto: N14Bullet45-70
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]

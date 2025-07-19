@@ -7,8 +7,8 @@
     mayTransfer: true
     whitelist:
       tags:
-        - N14Cartridge45-70
-    proto: N14Cartridge45-70
+        - N14Bullet45-70
+    proto: N14Bullet45-70
     capacity: 30
   - type: ContainerContainer
     containers:
