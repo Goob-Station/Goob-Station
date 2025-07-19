@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared.Contests;
+using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.DoAfter;
 using Content.Shared.Ghost;
 using Content.Shared.InteractionVerbs.Events;
