@@ -1,0 +1,27 @@
+- type: marking
+  id: LesserShadowlingEyes
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Shadow]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadow/lesser_eyes.rsi
+    state: lesser_eyes
+
+- type: marking
+  id: AbominationHorns
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Shadowling]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadow/abomination_horns.rsi
+    state: abomination_horns
+
+- type: marking
+  id: AbominationTorso
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Shadowling]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/Shadow/abomination_torso.rsi
+    state: abomination_torso
+
