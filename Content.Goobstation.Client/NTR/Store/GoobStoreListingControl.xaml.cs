@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Store;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
