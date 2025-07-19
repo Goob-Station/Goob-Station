@@ -23,6 +23,7 @@
        types:
         Heat: 10
         Blunt: 5
+    forceHeat: true
     offShape:
     - 0,0,0,1
     onShape:
@@ -133,7 +134,6 @@
     needsPower: false
     powerToHeatMultiplier: 600
     containerMultiplier: 1
-    forceHeat: true
     offShape:
     - 0,0,0,1
     onShape:

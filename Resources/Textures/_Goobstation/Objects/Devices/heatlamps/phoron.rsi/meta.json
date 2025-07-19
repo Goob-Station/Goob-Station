@@ -11,13 +11,7 @@
             "name": "icon-off"
         },
         {
-            "name": "icon-on",
-            "delays": [
-                [
-                    0.4,
-                    0.4
-                ]
-            ]
+            "name": "icon-on"
         },
         {
             "name": "off-inhand-right",
