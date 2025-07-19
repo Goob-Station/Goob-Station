@@ -247,6 +247,30 @@
   - type: Unremoveable
 
 - type: entity
+  parent: [ClothingHandsGlovesDeathsquad, ClothingShoesBootsMagDeathsquad]
+  id: ClothingHandsGlovesDeathsquadGyro # For species that cant wear shoes
+  name: mk-3.1 "redactor" power gloves  # 3.1
+  description: A pair of highly-advanced gauntlets capable of ripping open doors. Its retractable claws are laced with a potent neurotoxin. This version includes gyroscopic thrusters!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    equippedPrefix: gauntlet
+  - type: Item
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    heldPrefix: gauntlet
+  - type: Magboots
+    slot: gloves
+
+- type: entity
+  parent: ClothingHandsGlovesDeathsquadGyro
+  id: ClothingHandsGlovesDeathsquadGyroUnremoveable
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
+
+- type: entity
   parent: [ClothingHandsGlovesColorYellow, BaseEngineeringContraband]
   id: ClothingHandsGlovesAtmosInsulated
   name: insulated atmos gloves
@@ -433,3 +457,22 @@
         Blunt: 35
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+
+
+- type: entity # for diona & harpy ERT. Probably remove from diona if upstream gets merged. Or dont, it's ERT.
+  parent: [ClothingHandsGlovesCombat, ClothingShoesBootsMagEmergencyResponseTeam]
+  id: ClothingHandsGlovesEmergencyResponseTeam
+  name: tactical response gyroscopic gloves # yes gyroscopes are my stupid excuse
+  description: Look! Supergloves for an emergency responder that can't wear shoes! we're saved!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/emergencyresponseteam.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/emergencyresponseteam.rsi
+    slots: [gloves]
+  - type: Item
+    sprite: _Goobstation/Clothing/Hands/Gloves/emergencyresponseteam.rsi
+  - type: Magboots
+    slot: gloves
+  - type: StaticPrice
+    price: 1000
