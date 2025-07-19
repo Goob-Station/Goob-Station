@@ -33,7 +33,7 @@
     description: ghost-role-information-slaughter-demon-description
     rules: ghost-role-information-slaughter-demon-rules
     mindRoles:
-    - MindRoleGhostSoloAntagonist
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
     requirements:
