@@ -9,7 +9,7 @@ using Content.Shared.Eui;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._durkcode.ServerCurrency.UI
+namespace Content.Goobstation.Shared.ServerCurrency.UI
 {
     [Serializable, NetSerializable]
     public sealed class CurrencyEuiState : EuiStateBase
