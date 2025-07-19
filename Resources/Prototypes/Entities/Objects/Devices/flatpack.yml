@@ -20,7 +20,10 @@
 # SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <scarky0@onet.eu>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 #
@@ -297,3 +300,39 @@
     guides:
     - Botany
     - Chemicals
+
+- type: entity
+  parent: BaseFlatpack
+  id: TegCenterPartFlatpack
+  name: TEG Center flatpack
+  description: A flatpack used for constructing the central core of a TEG.
+  components:
+  - type: Flatpack
+    entity: TegCenter
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#cec8ac"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+  - type: GuideHelp
+    guides: [ TEG, Power ]
+
+- type: entity
+  parent: BaseFlatpack
+  id: TegCirculatorPartFlatpack
+  name: TEG Circulator flatpack
+  description: A flatpack used for constructing the circulator of a TEG.
+  components:
+  - type: Flatpack
+    entity: TegCirculator
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#cec8ac"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+  - type: GuideHelp
+    guides: [ TEG, Power ]
