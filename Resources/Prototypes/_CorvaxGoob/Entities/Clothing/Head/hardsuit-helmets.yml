@@ -5,7 +5,7 @@
   description: Helmet for the security service pilot's suit. It has a more powerful flashlight for better patrolling.
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Clothing/Head/Hardsuits/pilot.rsi
+    sprite: _CorvaxGoob/Clothing/Head/hardsuits/pilot.rsi
     layers:
     - state: icon
     - state: icon-unshaded
@@ -15,7 +15,7 @@
       shader: unshaded
       map: [ "light" ]
   - type: Clothing
-    sprite: _CorvaxGoob/Clothing/Head/Hardsuits/pilot.rsi
+    sprite: _CorvaxGoob/Clothing/Head/hardsuits/pilot.rsi
     equippedPrefix: off
     equipDelay: 1.5
     unequipDelay: 1
@@ -47,7 +47,7 @@
   description: A pressure resistant and fireproof hood worn by special cleanup units.
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Clothing/Head/Hardsuits/cburncommander.rsi
+    sprite: _CorvaxGoob/Clothing/Head/hardsuits/cburncommander.rsi
   - type: Armor
     modifiers:
       coefficients:
