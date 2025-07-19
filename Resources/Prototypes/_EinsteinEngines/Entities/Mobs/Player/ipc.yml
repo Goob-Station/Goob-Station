@@ -161,6 +161,8 @@
   - type: WeldingHealable
   - type: DamagedSiliconAccent
   - type: Uncloneable
+  - type: OwnInteractionVerbs
+    allowedVerbs: [] # TODO: define something here, or don't.
   - type: Tag
     tags:
     - SiliconMob
