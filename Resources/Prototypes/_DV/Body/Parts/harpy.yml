@@ -77,7 +77,7 @@
       isLayerAnimated: true
       layer: "/Textures/_EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi"
       animationKey: "Flap"
-      speedModifier: 2.2 # Had to modify after wizden's wackass refactors for weightless movement. I think this works similarly to before after using a lap around dev env as a measurement?
+      speedModifier: 2.6 # Buffed to account for Sprinting being a thing.
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftHand ]

@@ -46,10 +46,22 @@ public sealed partial class FlightComponent : Component
     public float ActivationDelay = 1.0f;
 
     /// <summary>
-    ///     Speed modifier while in flight
+    ///     How much does this modify the weightless acceleration and speed?
     /// </summary>
     [DataField, AutoNetworkedField]
     public float SpeedModifier = 2.0f;
+
+    /// <summary>
+    ///     How much does this modify the weightless friction?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float FrictionModifier = 5f;
+
+    /// <summary>
+    ///     How much does this modify the weightless friction when no input is applied?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float FrictionNoInputModifier = 25f;
 
     /// <summary>
     ///     Path to a sound specifier or collection for the noises made during flight
@@ -106,4 +118,17 @@ public sealed partial class FlightComponent : Component
     public float FlapInterval = 1.0f;
 
     public float TimeUntilFlap;
+
+    /// <summary>
+    ///     Does this flight behavior change collision masks?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ChangeCollisionMasks = true;
+
+    /// <summary>
+    ///     List of fixtures that had their collision mask changed.
+    ///     Required for re-adding the collision mask.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<(string key, int originalMask)> ChangedFixtures = new();
 }

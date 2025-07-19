@@ -13,10 +13,10 @@
 using Content.Shared._EinsteinEngines.Flight.Events;
 using Content.Shared.Actions;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Climbing.Events;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
-using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
@@ -24,10 +24,13 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Physics;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Systems;
 
 
 namespace Content.Shared._EinsteinEngines.Flight;
@@ -39,9 +42,10 @@ public abstract class SharedFlightSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+
 
     public override void Initialize()
     {
@@ -50,7 +54,6 @@ public abstract class SharedFlightSystem : EntitySystem
         SubscribeLocalEvent<FlightComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<FlightComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<FlightComponent, ToggleFlightEvent>(OnToggleFlight);
-        SubscribeLocalEvent<FlightComponent, FlightDoAfterEvent>(OnFlightDoAfter);
         SubscribeLocalEvent<FlightComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessMoveSpeed);
         SubscribeLocalEvent<FlightComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
         SubscribeLocalEvent<FlightComponent, EntityZombifiedEvent>(OnZombified);
@@ -58,6 +61,7 @@ public abstract class SharedFlightSystem : EntitySystem
         SubscribeLocalEvent<FlightComponent, StunnedEvent>(OnStunned);
         SubscribeLocalEvent<FlightComponent, DownedEvent>(OnDowned);
         SubscribeLocalEvent<FlightComponent, SleepStateChangedEvent>(OnSleep);
+        SubscribeLocalEvent<FlightComponent, AttemptClimbEvent>(OnAttemptClimb);
     }
 
     public override void Update(float frameTime)
@@ -102,42 +106,68 @@ public abstract class SharedFlightSystem : EntitySystem
         RaiseLocalEvent(uid, new FlightEvent(uid, component.On, component.IsAnimated));
         _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false, "flight");
         _movementSpeed.RefreshWeightlessModifiers(uid);
-        UpdateHands(uid, active);
+        ToggleCollisionMasks(uid, component);
+        // UpdateHands(uid, active); - Commenting out as a small buff to account for sprinting!
         Dirty(uid, component);
     }
 
     private void OnToggleFlight(EntityUid uid, FlightComponent component, ToggleFlightEvent args)
     {
-        // If the user isnt flying, we check for conditionals and initiate a doafter.
-        if (!component.On)
-        {
-            if (!CanFly(uid, component))
-                return;
-
-            var doAfterArgs = new DoAfterArgs(EntityManager,
-            uid, component.ActivationDelay,
-            new FlightDoAfterEvent(), uid, target: uid)
-            {
-                BlockDuplicate = true,
-                BreakOnDamage = true,
-                NeedHand = true,
-                MultiplyDelay = false, // Goobstation
-            };
-
-            if (!_doAfter.TryStartDoAfter(doAfterArgs))
-                return;
-        }
-        else
-            ToggleActive(uid, false, component);
-    }
-
-    private void OnFlightDoAfter(EntityUid uid, FlightComponent component, FlightDoAfterEvent args)
-    {
-        if (args.Handled || args.Cancelled)
+        if (!component.On
+            && !CanFly(uid, component))
             return;
 
-        ToggleActive(uid, true, component);
-        args.Handled = true;
+        ToggleActive(uid, !component.On, component);
+    }
+
+    private void ToggleCollisionMasks(EntityUid uid, FlightComponent component)
+    {
+        if (component.On)
+            DisableCollisionMasks(uid, component);
+        else
+            EnableCollisionMasks(uid, component);
+    }
+
+    private void DisableCollisionMasks(EntityUid uid, FlightComponent component)
+    {
+        if (!component.On)
+            return;
+
+        if (TryComp(uid, out FixturesComponent? fixtureComponent))
+        {
+            foreach (var (key, fixture) in fixtureComponent.Fixtures)
+            {
+                var newMask = (fixture.CollisionMask
+                    & (int)~CollisionGroup.HighImpassable
+                    & (int)~CollisionGroup.MidImpassable)
+                    | (int)CollisionGroup.InteractImpassable;
+
+                if (fixture.CollisionMask == newMask)
+                    continue;
+
+                component.ChangedFixtures.Add((key, fixture.CollisionMask));
+                _physics.SetCollisionMask(uid,
+                    key,
+                    fixture,
+                    newMask,
+                    manager: fixtureComponent);
+            }
+        }
+        return;
+    }
+
+    private void EnableCollisionMasks(EntityUid uid, FlightComponent component)
+    {
+        if (component.On)
+            return;
+
+        // Restore normal collision masks
+        if (TryComp(uid, out FixturesComponent? fixtureComponent))
+            foreach (var (key, originalMask) in component.ChangedFixtures)
+                if (fixtureComponent.Fixtures.TryGetValue(key, out var fixture))
+                    _physics.SetCollisionMask(uid, key, fixture, originalMask, fixtureComponent);
+
+        component.ChangedFixtures.Clear();
     }
 
     private void UpdateHands(EntityUid uid, bool flying)
@@ -189,6 +219,7 @@ public abstract class SharedFlightSystem : EntitySystem
             return;
 
         args.ModifyAcceleration(component.SpeedModifier);
+        args.ModifyFriction(component.FrictionModifier, component.FrictionNoInputModifier);
     }
 
     #endregion
@@ -273,6 +304,14 @@ public abstract class SharedFlightSystem : EntitySystem
             return;
 
         Dirty(uid, stamina);
+    }
+
+    private void OnAttemptClimb(EntityUid uid,
+        FlightComponent component,
+        AttemptClimbEvent args)
+    {
+        if (component.On)
+            args.Cancelled = true;
     }
 
     #endregion

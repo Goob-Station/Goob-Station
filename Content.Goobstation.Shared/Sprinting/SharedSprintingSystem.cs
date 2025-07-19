@@ -23,7 +23,7 @@ using Robust.Shared.Network;
 using System.Numerics;
 
 namespace Content.Goobstation.Shared.Sprinting;
-public sealed class SharedSprintingSystem : EntitySystem
+public abstract class SharedSprintingSystem : EntitySystem
 {
     [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
@@ -51,24 +51,6 @@ public sealed class SharedSprintingSystem : EntitySystem
     }
 
     #region Core Functions
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<SprinterComponent>();
-        while (query.MoveNext(out var uid, out var component))
-        {
-            if (!component.IsSprinting
-                || !_net.IsClient
-                || !_timing.IsFirstTimePredicted
-                || _timing.CurTime - component.LastStep < component.TimeBetweenSteps)
-                continue;
-
-            Spawn(component.StepAnimation, Transform(uid).Coordinates);
-            component.LastStep = _timing.CurTime;
-        }
-    }
 
     private sealed class SprintInputCmdHandler : InputCmdHandler
     {
@@ -99,6 +81,7 @@ public sealed class SharedSprintingSystem : EntitySystem
             || !TryComp<SprinterComponent>(session.AttachedEntity, out var sprinterComponent)
             || !TryComp<InputMoverComponent>(session.AttachedEntity, out var inputMoverComponent)
             || !sprinterComponent.IsSprinting
+            || !sprinterComponent.CanSprint
             // We check this instead of physics so that we can gatekeep sprinting to only work when you are moving intentionally, and not walking.
             && _moverController.GetVelocityInput(inputMoverComponent).Sprinting == Vector2.Zero)
             return;
@@ -121,10 +104,11 @@ public sealed class SharedSprintingSystem : EntitySystem
 
         component.IsSprinting = isSprinting;
 
-        if (isSprinting
-            && _net.IsClient
-            && _timing.IsFirstTimePredicted)
-            Spawn(component.SprintAnimation, Transform(uid).Coordinates);
+        if (isSprinting)
+        {
+            RaiseLocalEvent(uid, new SprintStartEvent());
+            _audio.PlayPredicted(component.SprintStartupSound, uid, uid);
+        }
 
         if (!gracefulStop)
             _damageable.TryChangeDamage(uid, component.SprintDamageSpecifier);
