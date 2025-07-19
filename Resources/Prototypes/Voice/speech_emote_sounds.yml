@@ -596,8 +596,6 @@
       collection: MaleYawn
     Snore:
       collection: Snores
-    Honk:
-      collection: BikeHorn
     Sigh:
       collection: MaleSigh
     Crying:
@@ -642,8 +640,6 @@
       collection: FemaleYawn
     Snore:
       collection: Snores
-    Honk:
-      collection: BikeHorn
     Sigh:
       collection: FemaleSigh
     Crying:
