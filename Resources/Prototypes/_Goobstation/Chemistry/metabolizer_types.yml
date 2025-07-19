@@ -9,3 +9,7 @@
 - type: metabolizerType
   id: Yowie
   name: metabolizer-type-yowie
+
+- type: metabolizerType
+  id: Reptilian
+  name: metabolizer-type-reptilian

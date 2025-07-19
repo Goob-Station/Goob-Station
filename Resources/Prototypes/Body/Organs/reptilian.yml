@@ -39,3 +39,11 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+
+- type: entity
+  id: OrganReptilianLiver
+  parent: OrganHumanLiver
+  name: reptilian liver
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Reptilian]

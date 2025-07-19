@@ -4,12 +4,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Power.PTL;
 using Content.Server.Body.Components;
 using Content.Server.Examine;
 using Content.Server.Item;
 using Content.Server.PowerCell;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Emag.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;
@@ -41,6 +44,7 @@ public sealed partial class HeatlampSystem : EntitySystem
     [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     private readonly int _settingCount = Enum.GetValues<EntityHeaterSetting>().Length;
     public override void Initialize()
@@ -52,6 +56,7 @@ public sealed partial class HeatlampSystem : EntitySystem
 
         SubscribeLocalEvent<HeatlampComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<HeatlampComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<HeatlampComponent, GotEmaggedEvent>(OnEmagged);
     }
     public override void Update(float frameTime)
     {
@@ -87,13 +92,16 @@ public sealed partial class HeatlampSystem : EntitySystem
             _appearance.SetData(heatlamp, ToggleVisuals.Toggled, true, appearance);
             _item.SetHeldPrefix(heatlamp, "on");
 
-
             if (heatlamp.Comp.ActivatedDamage == null)
                 return;
 
             heatlamp.Comp.DeactivatedDamage ??= melee.Damage;
-            melee.Damage = heatlamp.Comp.ActivatedDamage;
 
+            // Apply EmaggedDamage if emagged, otherwise normal damage
+            if (heatlamp.Comp.Emagged && heatlamp.Comp.EmaggedDamage != null)
+                melee.Damage = heatlamp.Comp.EmaggedDamage;
+            else
+                melee.Damage = heatlamp.Comp.ActivatedDamage;
         }
         else
         {
@@ -108,6 +116,21 @@ public sealed partial class HeatlampSystem : EntitySystem
             if (heatlamp.Comp.DeactivatedDamage != null)
                 melee.Damage = heatlamp.Comp.DeactivatedDamage;
         }
+    }
+
+    private void OnEmagged(EntityUid uid, HeatlampComponent component, ref GotEmaggedEvent args)
+    {
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(uid, EmagType.Interaction))
+            return;
+
+        if (component.Emagged)
+            return;
+
+        component.Emagged = true;
+        args.Handled = true;
     }
 
 
@@ -218,4 +241,5 @@ public sealed partial class HeatlampSystem : EntitySystem
             _ => 0f,
         };
     }
+
 }

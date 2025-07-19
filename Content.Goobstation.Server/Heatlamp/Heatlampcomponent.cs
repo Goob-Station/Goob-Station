@@ -128,4 +128,16 @@ public sealed partial class HeatlampComponent : Component
     [DataField]
     public DamageSpecifier? DeactivatedDamage;
 
+    /// <summary>
+    /// True if this heatlamp has been emagged and should use emagged behavior.
+    /// </summary>
+    [DataField]
+    public bool Emagged = false;
+
+    /// <summary>
+    /// The damage when emagged.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier? EmaggedDamage;
+
 }

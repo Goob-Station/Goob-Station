@@ -19,6 +19,10 @@
       types:
         Heat: 1
         Blunt: 5
+    emaggedDamage:
+       types:
+        Heat: 10
+        Blunt: 5
     offShape:
     - 0,0,0,1
     onShape:
@@ -121,6 +125,11 @@
   description: An phoron-based temperature stabilization device that doesn't need external power. Fixes almost any temperature deviation at lightning fast speeds.
   components:
   - type: Heatlamp
+    emaggedDamage:
+       types:
+        Cold: 5
+        Heat: 10
+        Blunt: 5
     needsPower: false
     powerToHeatMultiplier: 600
     containerMultiplier: 1
@@ -158,6 +167,8 @@
     - 0,0,1,1
     onShape:
     - 0,0,1,3
+  - type: IgniteOnMeleeHit
+    fireStacks: 2
   - type: ItemSlots
     slots:
       cell_slot:

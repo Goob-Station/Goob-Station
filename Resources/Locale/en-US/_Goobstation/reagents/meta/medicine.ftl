@@ -103,4 +103,4 @@ reagent-name-hercuri = hercuri
 reagent-desc-hercuri = Strong coolant, both serviceable for internal and external application, though care must be taken not to freeze the patients too much.
 
 reagent-name-herignis = herignis
-reagent-desc-herignis = Can thaw out most chilled of lizardmen, recommended to only use in small doses, as it can quickly heat up its metaboliser to dangerous levels.
+reagent-desc-herignis = Rumored to have been created and forged in lava itself, this chemical rapidly heats up even the coldest of lizards. Non-lizards can't handle its fiery strength, Handle with caution.

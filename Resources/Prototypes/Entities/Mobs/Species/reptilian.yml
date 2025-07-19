@@ -191,7 +191,7 @@
       types:
         Slash: 5
   - type: Temperature
-    heatDamageThreshold: 500 # Goobstation
+    heatDamageThreshold: 470 # Goobstation
     coldDamageThreshold: 295 # Goobstation
     currentTemperature: 310.15
     specificHeat: 42

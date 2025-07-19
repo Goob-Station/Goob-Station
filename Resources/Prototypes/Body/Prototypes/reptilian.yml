@@ -37,7 +37,7 @@
       - left leg
       organs:
         stomach: OrganReptilianStomach
-        liver: OrganAnimalLiver
+        liver: OrganReptilianLiver
         kidneys: OrganHumanKidneys
     right arm:
       part: RightArmReptilian

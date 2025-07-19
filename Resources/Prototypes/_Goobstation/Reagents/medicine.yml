@@ -1442,26 +1442,48 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Cold: -3
-      - !type:HealthChange
-        damage:
-          types:
-            Cold: -3
+      - !type:FlammableReaction
         conditions:
-        - !type:TypedDamageThreshold
-          damage:
-            types:
-              Cold: 40
+        - !type:OrganType
+          type: Reptilian
+          shouldHave: false
+        multiplier: 0.4
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: -3
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Reptilian
+          shouldHave: false
+        damage:
+          types:
+            Heat: 3
       - !type:AdjustTemperature
         conditions:
+        - !type:OrganType
+          type: Reptilian
+          shouldHave: true
         - !type:Temperature
-          max: 420 # ends at 70 degrees, but just in case
+          max: 470
         amount: 10000
       - !type:AdjustSolutionThermalEnergyEffect
         delta: 150
+      - !type:MovespeedModifier
+        conditions:
+        - !type:OrganType
+          type: Reptilian
+          shouldHave: true
+        - !type:ReagentThreshold
+          min: 10
+        walkSpeedModifier: 1.10
+        sprintSpeedModifier: 1.10
+      - !type:FlammableReaction
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        multiplier: 0.4
 
 - type: reagent
   id: Tramadol
