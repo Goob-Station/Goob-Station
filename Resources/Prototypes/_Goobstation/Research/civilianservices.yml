@@ -29,6 +29,7 @@
   recipeUnlocks:
   - VehicleHoverchairSci
   - PrescriptionGlasses
+  - HeatLampTierTwo
   position: 3,4
   technologyPrerequisites:
   - AdvancedEntertainment

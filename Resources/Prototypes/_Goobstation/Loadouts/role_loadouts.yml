@@ -103,6 +103,7 @@
   - Animals
   - GroupSpeciesBreathTool
   - Survival
+  - GroupSpeciesHeatingTool
 
 - type: roleLoadout
   id: JobBlueshieldOfficer
@@ -118,6 +119,7 @@
   - Animals
   - GroupSpeciesBreathTool
   - SurvivalSecurity
+  - GroupSpeciesHeatingTool
 
 - type: roleLoadout
   id: JobNanotrasenCareerTrainer
@@ -134,6 +136,7 @@
   - Animals
   - GroupSpeciesBreathTool
   - Survival
+  - GroupSpeciesHeatingTool
 
 - type: roleLoadout
   id: RoleSurvivalNukieHonkops
@@ -141,6 +144,7 @@
   - SurvivalSyndicate
   - GroupHonkopsMask
   - GroupPocketTankDouble
+  - LoadoutSpeciesHeatingToolSyndicate
 
 - type: roleLoadout
   id: JobBrigmedic
@@ -159,3 +163,4 @@
   - Animals
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool

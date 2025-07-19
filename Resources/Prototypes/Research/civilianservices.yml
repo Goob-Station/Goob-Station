@@ -342,6 +342,7 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+  - HeatLampTierThree
   # Goobstation R&D Console rework start
   position: 2,6
   technologyPrerequisites:

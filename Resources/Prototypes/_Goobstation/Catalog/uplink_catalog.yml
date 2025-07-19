@@ -478,6 +478,17 @@
 # Wearables
 
 - type: listing
+  id: UplinkHeatLamp
+  name: uplink-heat-lamp-name
+  description: uplink-heat-lamp-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Devices/Heatlamps/syndicate.rsi, state: icon-on }
+  productEntity: HeatLampEvil
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: UplinkClothingDreadnought
   name: uplink-hardsuit-cybersun-dreadnought-name
   description: uplink-hardsuit-cybersun-dreadnought-desc

@@ -53,3 +53,6 @@ loadout-group-brigmedic-backpack = Brigmedic backpack
 loadout-group-security-melee = Security melee weapon
 
 loadout-group-animals = Animals
+
+loadout-group-species-heating-tool = Heating Tool
+loadout-group-species-heating-tool-syndicate = Evil Heating Tool

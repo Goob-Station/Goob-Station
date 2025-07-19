@@ -92,3 +92,30 @@
   storage:
     back:
     - MobCarpGoldfish
+
+# Survival
+
+- type: loadoutEffectGroup
+  id: EffectSpeciesReptilian
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Reptilian
+
+- type: loadout
+  id: LoadoutSpeciesHeatingTool
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesReptilian
+  storage:
+    back:
+    - HeatLamp
+
+- type: loadout
+  id: LoadoutSpeciesHeatingToolSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesReptilian
+  storage:
+    back:
+    - HeatLampEvil

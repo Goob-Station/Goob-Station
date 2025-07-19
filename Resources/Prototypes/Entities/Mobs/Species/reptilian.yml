@@ -188,22 +188,31 @@
       types:
         Slash: 5
   - type: Temperature
-    heatDamageThreshold: 400
-    coldDamageThreshold: 285
+    heatDamageThreshold: 500 # Goobstation
+    coldDamageThreshold: 295 # Goobstation
     currentTemperature: 310.15
     specificHeat: 42
     coldDamage:
       types:
-        Cold : 0.1 #per second, scales with temperature & other constants
+        Cold : 0.2 #per second, scales with temperature & other constants # Goobstation
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      301: 0.8
-      295: 0.6
-      285: 0.4
+      305: 0.8 # Goobstation - start
+      301: 0.6
+      295: 0.4
+      285: 0.2 # Goobstation - end
   - type: Wagging
+  - type: ThermalRegulator # Goobstation - Start
+    metabolismHeat: 0
+    radiatedHeat: 0
+    implicitHeatRegulation: 0
+    sweatHeatRegulation: 0
+    shiveringHeatRegulation: 0
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 500 # Goobstation - End
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start

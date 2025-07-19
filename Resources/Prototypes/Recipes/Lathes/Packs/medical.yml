@@ -51,6 +51,7 @@
   - DiseaseSwab
   - BodyBag
   - WhiteCane
+  - HeatLamp
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -99,6 +100,7 @@
   - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
+  - HeatLampTierThree # Goobstation
 
 - type: latheRecipePack
   id: MedicalBoards

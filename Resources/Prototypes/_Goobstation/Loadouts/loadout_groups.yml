@@ -297,3 +297,21 @@
   - SecurityMeleeKnife
   - SecurityMeleePolyBaton
   - SecurityMeleeSpear
+
+# Lizard
+
+- type: loadoutGroup
+  id: GroupSpeciesHeatingTool
+  name: loadout-group-species-heating-tool
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesHeatingTool
+
+- type: loadoutGroup
+  id: GroupSpeciesHeatingToolSyndicate
+  name: loadout-group-species-heating-tool-syndicate
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesHeatingToolSyndicate

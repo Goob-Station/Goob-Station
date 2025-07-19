@@ -129,6 +129,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -144,6 +145,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Silicons
 - type: roleLoadout
@@ -173,6 +175,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobBartender
@@ -187,6 +190,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -199,6 +203,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobChef
@@ -214,6 +219,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobLibrarian
@@ -226,6 +232,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobLawyer
@@ -239,6 +246,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobChaplain
@@ -255,6 +263,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobJanitor
@@ -271,6 +280,7 @@
   - JanitorPlunger
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobBotanist
@@ -285,6 +295,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobClown
@@ -300,6 +311,7 @@
   - SurvivalClown
   - Trinkets
   - Animals
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobMime
@@ -316,6 +328,7 @@
   - SurvivalMime
   - Trinkets
   - Animals
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobMusician
@@ -330,6 +343,7 @@
   - Instruments
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Cargo
 - type: roleLoadout
@@ -347,6 +361,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -362,6 +377,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -376,6 +392,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Engineering
 - type: roleLoadout
@@ -392,6 +409,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -403,6 +421,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -418,6 +437,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -432,6 +452,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Science
 - type: roleLoadout
@@ -450,6 +471,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobScientist
@@ -468,6 +490,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -480,6 +503,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Security
 - type: roleLoadout
@@ -498,6 +522,7 @@
   - SecurityStar
   - Animals
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobWarden
@@ -515,6 +540,7 @@
   - SecurityStar
   - Animals
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -533,6 +559,7 @@
   - SecurityStar
   - Animals
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobDetective
@@ -548,6 +575,7 @@
   - SecurityStar
   - Animals
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -561,6 +589,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolSecurity
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Medical
 - type: roleLoadout
@@ -580,6 +609,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -598,6 +628,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -610,6 +641,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobChemist
@@ -626,6 +658,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobParamedic
@@ -643,6 +676,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - GroupSpeciesHeatingTool # Goobstation
 
 # Wildcards
 - type: roleLoadout
@@ -655,6 +689,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobReporter
@@ -668,6 +703,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 
 - type: roleLoadout
@@ -681,6 +717,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: JobBoxer
@@ -694,6 +731,7 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - GroupSpeciesHeatingTool # Goobstation
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
@@ -719,12 +757,14 @@
   - Survival
   - GroupSpeciesBreathTool
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalClown
   groups:
   - SurvivalClown
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalExtended
@@ -732,6 +772,7 @@
   - SurvivalExtended
   - GroupSpeciesBreathTool
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalMedical
@@ -739,6 +780,7 @@
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalSecurity
@@ -746,6 +788,7 @@
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalSyndicate
@@ -753,6 +796,7 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupTankHarness
+  - GroupSpeciesHeatingTool # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalNukie
@@ -760,9 +804,11 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupPocketTankDouble
+  - LoadoutSpeciesHeatingToolSyndicate # Goobstation
 
 - type: roleLoadout
   id: RoleSurvivalEVA
   groups:
   - GroupEVATank
   - SurvivalExtended
+  - GroupSpeciesHeatingTool # Goobstation

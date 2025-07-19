@@ -275,6 +275,9 @@ uplink-davids-jacket-desc = A jacket for those particularly interested in improv
 
 # Wearables
 
+uplink-heat-lamp-name = Cybersun Heat Lamp
+uplink-heat-lamp-desc = A cybersun design, often utilized by cold-blooded Gorlex Marauders in their sieges. Also functions as an effective melee weapon in a pinch.
+
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 

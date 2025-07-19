@@ -72,6 +72,8 @@
   recipes:
   - PrescriptionGlasses
   - VehicleHoverchairSci
+  - HeatLamp
+  - HeatLampTierTwo
 
 - type: latheRecipePack
   id: MedicalMiscRestricted
