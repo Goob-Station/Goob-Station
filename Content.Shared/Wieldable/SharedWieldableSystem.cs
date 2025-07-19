@@ -166,7 +166,7 @@ public abstract class SharedWieldableSystem : EntitySystem
 
     private void OnGunUnwielded(EntityUid uid, GunWieldBonusComponent component, ItemUnwieldedEvent args)
     {
-        _gun.RefreshModifiers(uid, args.User);
+        _gun.RefreshModifiers(uid);
     }
 
     private void OnGunWielded(EntityUid uid, GunWieldBonusComponent component, ref ItemWieldedEvent args)

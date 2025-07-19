@@ -1,75 +1,13 @@
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 pointer-to-null <91910481+pointer-to-null@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 nikitosych <boriszyn@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Interaction;
+using Content.Shared.Alert;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
+using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -80,60 +18,35 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Containers;
-using Content.Shared.Jittering;
-using Content.Shared.Speech.EntitySystems;
-using Content.Goobstation.Common.Standing;
-using Content.Goobstation.Common.Stunnable;
-using Content.Shared._White.Standing;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Stunnable;
 
 public abstract partial class SharedStunSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
+    [Dependency] protected readonly AlertsSystem Alerts = default!;
+    [Dependency] protected readonly IGameTiming GameTiming = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly StandingStateSystem _standingState = default!;
+    [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
+    [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!; // WD EDIT
-    [Dependency] private readonly SharedContainerSystem _container = default!; // WD EDIT
-    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
-
-    /// <summary>
-    /// Friction modifier for knocked down players.
-    /// Doesn't make them faster but makes them slow down... slower.
-    /// </summary>
-    public const float KnockDownModifier = 0.2f;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<KnockedDownComponent, ComponentInit>(OnKnockInit);
-        SubscribeLocalEvent<KnockedDownComponent, ComponentShutdown>(OnKnockShutdown);
-        SubscribeLocalEvent<KnockedDownComponent, StandAttemptEvent>(OnStandAttempt);
-
         SubscribeLocalEvent<SlowedDownComponent, ComponentInit>(OnSlowInit);
         SubscribeLocalEvent<SlowedDownComponent, ComponentShutdown>(OnSlowRemove);
+        SubscribeLocalEvent<SlowedDownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
         SubscribeLocalEvent<StunnedComponent, ComponentStartup>(UpdateCanMove);
         SubscribeLocalEvent<StunnedComponent, ComponentShutdown>(OnStunShutdown);
 
         SubscribeLocalEvent<StunOnContactComponent, StartCollideEvent>(OnStunOnContactCollide);
-
-        // helping people up if they're knocked down
-        SubscribeLocalEvent<KnockedDownComponent, InteractHandEvent>(OnInteractHand);
-        SubscribeLocalEvent<SlowedDownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
-
-        SubscribeLocalEvent<KnockedDownComponent, TileFrictionEvent>(OnKnockedTileFriction);
 
         // Attempt event subscriptions.
         SubscribeLocalEvent<StunnedComponent, ChangeDirectionAttemptEvent>(OnAttempt);
@@ -148,7 +61,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         SubscribeLocalEvent<StunnedComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt);
         SubscribeLocalEvent<MobStateComponent, MobStateChangedEvent>(OnMobStateChanged);
 
-        // Stun Appearance Data
+        InitializeKnockdown();
         InitializeAppearance();
     }
 
@@ -210,39 +123,7 @@ public abstract partial class SharedStunSystem : EntitySystem
             return;
 
         TryStun(args.OtherEntity, ent.Comp.Duration, true, status);
-        TryKnockdown(args.OtherEntity, ent.Comp.Duration, true, status);
-    }
-
-    private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
-    {
-        _layingDown.UpdateSpriteRotation(uid); // Goobstation
-        RaiseLocalEvent(uid, new CheckAutoGetUpEvent()); // WD EDIT
-        _layingDown.TryLieDown(uid, null, null, component.DropHeldItemsBehavior); // WD EDIT
-    }
-
-    private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
-    {
-        // WD EDIT START
-        if (!TryComp(uid, out StandingStateComponent? standing))
-            return;
-
-        if (TryComp(uid, out LayingDownComponent? layingDown)
-            && component.StandOnRemoval) // Shitmed Change
-        {
-            if (layingDown.AutoGetUp && !_container.IsEntityInContainer(uid))
-                _layingDown.TryStandUp(uid, layingDown);
-            return;
-        }
-
-        if (component.StandOnRemoval) // Shitmed Change
-            _standingState.Stand(uid, standing);
-        // WD EDIT END
-    }
-
-    private void OnStandAttempt(EntityUid uid, KnockedDownComponent component, StandAttemptEvent args)
-    {
-        if (component.LifeStage <= ComponentLifeStage.Running)
-            args.Cancel();
+        TryKnockdown(args.OtherEntity, ent.Comp.Duration, ent.Comp.Refresh, ent.Comp.AutoStand);
     }
 
     private void OnSlowInit(EntityUid uid, SlowedDownComponent component, ComponentInit args)
@@ -257,23 +138,13 @@ public abstract partial class SharedStunSystem : EntitySystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
     }
 
-    private void OnRefreshMovespeed(EntityUid uid, SlowedDownComponent component, RefreshMovementSpeedModifiersEvent args)
-    {
-        args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
-    }
-
     // TODO STUN: Make events for different things. (Getting modifiers, attempt events, informative events...)
 
     /// <summary>
     ///     Stuns the entity, disallowing it from doing many interactions temporarily.
     /// </summary>
-    public bool TryStun(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null)
+    public bool TryStun(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
     {
-        var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
-        time *= modifierEv.Modifier;
-
         if (time <= TimeSpan.Zero)
             return false;
 
@@ -282,11 +153,6 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         if (!_statusEffect.TryAddStatusEffect<StunnedComponent>(uid, "Stun", time, refresh))
             return false;
-
-        // goob edit
-        _jitter.DoJitter(uid, time, refresh);
-        _stutter.DoStutter(uid, time, refresh);
-        // goob edit end
 
         var ev = new StunnedEvent();
         RaiseLocalEvent(uid, ref ev);
@@ -298,63 +164,48 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// <summary>
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
-    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        DropHeldItemsBehavior behavior, StatusEffectsComponent? status = null, bool standOnRemoval = true) // Shitmed Change
+    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh, bool autoStand = true, bool drop = true)
     {
-        var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
-        time *= modifierEv.Modifier;
-
-        if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
-            return false;
-
-        if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
-            return false;
-
-        var component = _componentFactory.GetComponent<KnockedDownComponent>();
-        component.DropHeldItemsBehavior = behavior;
-        component.StandOnRemoval = standOnRemoval;
-        if (!_statusEffect.TryAddStatusEffect(uid, "KnockedDown", time, refresh, component, status))
-            return false;
-
-        var ev = new KnockedDownEvent();
-        RaiseLocalEvent(uid, ref ev);
-        return true;
-    }
-
-    /// <summary>
-    ///     Goobstation.
-    ///     Try knockdown, if it fails - stun.
-    /// </summary>
-    public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
-    {
-        return TryKnockdown(uid, time, refresh, status) || TryStun(uid, time, refresh, status);
-    }
-
-    /// <summary>
-    ///     Knocks down the entity, making it fall to the ground.
-    /// </summary>
-    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null)
-    {
-        var modifierEv = new GetClothingStunModifierEvent(uid);
-        RaiseLocalEvent(modifierEv);
-        time *= modifierEv.Modifier;
-
-        if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
-            return false;
-
         if (time <= TimeSpan.Zero)
             return false;
 
-        if (!Resolve(uid, ref status, false))
+        // Can't fall down if you can't actually be downed.
+        if (!HasComp<StandingStateComponent>(uid))
             return false;
 
-        if (!_statusEffect.TryAddStatusEffect<KnockedDownComponent>(uid, "KnockedDown", time, refresh))
+        var evAttempt = new KnockDownAttemptEvent(autoStand, drop);
+        RaiseLocalEvent(uid, ref evAttempt);
+
+        if (evAttempt.Cancelled)
             return false;
 
-        var ev = new KnockedDownEvent();
-        RaiseLocalEvent(uid, ref ev);
+        // Initialize our component with the relevant data we need if we don't have it
+        if (EnsureComp<KnockedDownComponent>(uid, out var component))
+        {
+            RefreshKnockedMovement((uid, component));
+            CancelKnockdownDoAfter((uid, component));
+        }
+        else
+        {
+            // Only drop items the first time we want to fall...
+            if (drop)
+            {
+                var ev = new DropHandItemsEvent();
+                RaiseLocalEvent(uid, ref ev);
+            }
+
+            // Only update Autostand value if it's our first time being knocked down...
+            SetAutoStand((uid, component), evAttempt.AutoStand);
+        }
+
+        var knockedEv = new KnockedDownEvent(time);
+        RaiseLocalEvent(uid, ref knockedEv);
+
+        UpdateKnockdownTime((uid, component), knockedEv.Time, refresh);
+
+        Alerts.ShowAlert(uid, KnockdownAlert, null, (GameTiming.CurTime, component.NextUpdate));
+
+        _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} knocked down for {time.Seconds} seconds");
 
         return true;
     }
@@ -363,20 +214,19 @@ public abstract partial class SharedStunSystem : EntitySystem
     ///     Applies knockdown and stun to the entity temporarily.
     /// </summary>
     public bool TryParalyze(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null, bool standOnRemoval = true) // Shitmed Change
+        StatusEffectsComponent? status = null)
     {
         if (!Resolve(uid, ref status, false))
             return false;
 
-        return TryKnockdown(uid, time, refresh, DropHeldItemsBehavior.AlwaysDrop, status, standOnRemoval) && // Shitmed Change
-               TryStun(uid, time, refresh, status); // Goob edit
+        return TryKnockdown(uid, time, refresh) && TryStun(uid, time, refresh, status);
     }
 
     /// <summary>
     ///     Slows down the mob's walking/running speed temporarily
     /// </summary>
     public bool TrySlowdown(EntityUid uid, TimeSpan time, bool refresh,
-        float walkSpeedMultiplier = 1f, float runSpeedMultiplier = 1f,
+        float walkSpeedMod = 1f, float sprintSpeedMod = 1f,
         StatusEffectsComponent? status = null)
     {
         if (!Resolve(uid, ref status, false))
@@ -389,11 +239,11 @@ public abstract partial class SharedStunSystem : EntitySystem
         {
             var slowed = Comp<SlowedDownComponent>(uid);
             // Doesn't make much sense to have the "TrySlowdown" method speed up entities now does it?
-            walkSpeedMultiplier = Math.Clamp(walkSpeedMultiplier, 0f, 1f);
-            runSpeedMultiplier = Math.Clamp(runSpeedMultiplier, 0f, 1f);
+            walkSpeedMod = Math.Clamp(walkSpeedMod, 0f, 1f);
+            sprintSpeedMod = Math.Clamp(sprintSpeedMod, 0f, 1f);
 
-            slowed.WalkSpeedModifier *= walkSpeedMultiplier;
-            slowed.SprintSpeedModifier *= runSpeedMultiplier;
+            slowed.WalkSpeedModifier *= walkSpeedMod;
+            slowed.SprintSpeedModifier *= sprintSpeedMod;
 
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
             return true;
@@ -409,30 +259,16 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// Otherwise, the slowdown component is created or updated with the provided modifiers,
     /// and the movement speed is refreshed accordingly.
     /// </summary>
-    /// <remarks>Goob edit - no slowdown, only jitter</remarks>
     /// <param name="ent">Entity whose movement speed should be updated.</param>
     /// <param name="walkSpeedModifier">New walk speed modifier. Default is 1f (normal speed).</param>
     /// <param name="runSpeedModifier">New run (sprint) speed modifier. Default is 1f (normal speed).</param>
     public void UpdateStunModifiers(Entity<StaminaComponent?> ent,
         float walkSpeedModifier = 1f,
-        float runSpeedModifier = 1f,
-        bool visual = true) // Goob edit
+        float runSpeedModifier = 1f)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        // goob edit - stunmeta
-        // no slowdown because funny
-        // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
-        var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, runSpeedModifier), 0, 1);
-        var cCTime = TimeSpan.FromSeconds(10f);
-        if (visual) // Goob edit
-        {
-            _jitter.DoJitter(ent, cCFactor * cCTime, true);
-            _stutter.DoStutter(ent, cCFactor * cCTime, true);
-        }
-
-        /*
         if (
             (MathHelper.CloseTo(walkSpeedModifier, 1f) && MathHelper.CloseTo(runSpeedModifier, 1f) && ent.Comp.StaminaDamage == 0f) ||
             (walkSpeedModifier == 0f && runSpeedModifier == 0f)
@@ -449,7 +285,6 @@ public abstract partial class SharedStunSystem : EntitySystem
         comp.SprintSpeedModifier = runSpeedModifier;
 
         _movementSpeedModifier.RefreshMovementSpeedModifiers(ent);
-        */
 
         Dirty(ent);
     }
@@ -458,40 +293,24 @@ public abstract partial class SharedStunSystem : EntitySystem
     /// A convenience overload of <see cref="UpdateStunModifiers(EntityUid, float, float, StaminaComponent?)"/> that sets both
     /// walk and run speed modifiers to the same value.
     /// </summary>
-    /// <remarks>Goob edit - no slowdown, only jitter</remarks>
     /// <param name="ent">Entity whose movement speed should be updated.</param>
     /// <param name="speedModifier">New walk and run speed modifier. Default is 1f (normal speed).</param>
     /// <param name="component">
     /// Optional <see cref="StaminaComponent"/> of the entity.
     /// </param>
-    public void UpdateStunModifiers(Entity<StaminaComponent?> ent, float speedModifier = 1f, bool visual = true) // Goob edit
+    public void UpdateStunModifiers(Entity<StaminaComponent?> ent, float speedModifier = 1f)
     {
-        UpdateStunModifiers(ent, speedModifier, speedModifier, visual); // Goob edit
+        UpdateStunModifiers(ent, speedModifier, speedModifier);
     }
 
-    private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
+    #region friction and movement listeners
+
+    private void OnRefreshMovespeed(EntityUid ent, SlowedDownComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        if (args.Handled || knocked.HelpTimer > 0f)
-            return;
-
-        // TODO: This should be an event.
-        if (HasComp<SleepingComponent>(uid))
-            return;
-
-        // Set it to half the help interval so helping is actually useful...
-        knocked.HelpTimer = knocked.HelpInterval / 2f;
-
-        _statusEffect.TryRemoveTime(uid, "KnockedDown", TimeSpan.FromSeconds(knocked.HelpInterval));
-        _audio.PlayPredicted(knocked.StunAttemptSound, uid, args.User);
-        Dirty(uid, knocked);
-
-        args.Handled = true;
+        args.ModifySpeed(comp.WalkSpeedModifier, comp.SprintSpeedModifier);
     }
 
-    private void OnKnockedTileFriction(EntityUid uid, KnockedDownComponent component, ref TileFrictionEvent args)
-    {
-        args.Modifier *= KnockDownModifier;
-    }
+    #endregion
 
     #region Attempt Event Handling
 
@@ -524,15 +343,3 @@ public abstract partial class SharedStunSystem : EntitySystem
 
     #endregion
 }
-
-/// <summary>
-///     Raised directed on an entity when it is stunned.
-/// </summary>
-[ByRefEvent]
-public record struct StunnedEvent;
-
-/// <summary>
-///     Raised directed on an entity when it is knocked down.
-/// </summary>
-[ByRefEvent]
-public record struct KnockedDownEvent;

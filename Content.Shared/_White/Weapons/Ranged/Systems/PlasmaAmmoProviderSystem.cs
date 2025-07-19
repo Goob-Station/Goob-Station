@@ -30,7 +30,7 @@ public sealed class PlasmaAmmoProviderSystem : EntitySystem
                 return;
 
             var shot = Spawn(component.Proto, args.Coordinates);
-            args.Ammo.Add((shot, _gun.EnsureShootable(shot)));
+            args.Ammo.Add((shot, null));
         }
     }
 

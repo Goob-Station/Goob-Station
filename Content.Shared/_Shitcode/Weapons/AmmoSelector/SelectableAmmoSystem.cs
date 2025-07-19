@@ -83,9 +83,9 @@ public sealed class SelectableAmmoSystem : EntitySystem
         if ((setSound || setFireRate) && TryComp(ent, out GunComponent? gun))
         {
             if (setSound)
-                _gun.SetSoundGunshot(gun, index.SoundGunshot);
+                gun.SoundGunshot = index.SoundGunshot;
             if (setFireRate)
-                _gun.SetFireRate(gun, index.FireRate);
+                gun.FireRate = index.FireRate;
 
             _gun.RefreshModifiers((ent.Owner, gun));
         }

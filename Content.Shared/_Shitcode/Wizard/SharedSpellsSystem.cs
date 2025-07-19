@@ -424,7 +424,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             if (HasComp<SiliconComponent>(target) || HasComp<BorgChassisComponent>(target))
                 Stun.TryParalyze(target, ev.SiliconStunTime / range, true, status);
             else
-                Stun.KnockdownOrStun(target, ev.KnockdownTime / range, true, status);
+                Stun.TryParalyze(target, ev.KnockdownTime / range, true, status);
         }
 
         ev.Handled = true;
@@ -1426,12 +1426,10 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (target == null || target == user || checkMobState && !HasComp<MobStateComponent>(target))
             return;
 
-        _gunSystem.SetTarget(projectile, target, out var targeted, false);
-
         var homing = EnsureComp<HomingProjectileComponent>(projectile);
         homing.Target = target;
 
-        Entity<HomingProjectileComponent, TargetedProjectileComponent> ent = (projectile, homing, targeted);
+        Entity<HomingProjectileComponent> ent = (projectile, homing);
 
         Dirty(ent);
     }

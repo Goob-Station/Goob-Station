@@ -34,11 +34,23 @@ public sealed partial class StandingStateComponent : Component
     // WD EDIT END
 
     /// <summary>
-    /// Goobstation - made to just use CurrentState and no longer a real field
-    /// This means while you try to get up it pushes mobs away which looks a bit better than standing up and suddenly pushing everyone out.
+    /// Time it takes us to stand up
     /// </summary>
-    [ViewVariables]
-    public bool Standing => CurrentState != StandingState.Lying;
+    [DataField, AutoNetworkedField]
+    public TimeSpan StandTime = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// Default Friction modifier for knocked down players.
+    /// Makes them accelerate and deccelerate slower.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float FrictionModifier = 0.4f;
+
+    /// <summary>
+    /// Base modifier to the maximum movement speed of a knocked down mover.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float SpeedModifier = 0.3f;
 
     /// <summary>
     ///     List of fixtures that had their collision mask changed when the entity was downed.
@@ -47,6 +59,7 @@ public sealed partial class StandingStateComponent : Component
     [DataField, AutoNetworkedField]
     public List<string> ChangedFixtures = new();
 }
+
 // WD EDIT START
 public enum StandingState
 {
