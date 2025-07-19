@@ -37,3 +37,15 @@
       Capacitor: 15
   - type: Item
     size: Normal
+
+- type: entity
+  id: PrinterDocMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: document printer machine board
+  description: A machine printed circuit board for an document printer
+  components:
+    - type: MachineBoard
+      prototype: PrinterDoc
+      stackRequirements:
+        Manipulator: 4
+        Glass: 1

@@ -1,0 +1,86 @@
+- type: latheRecipe
+  id: ClothingHeadHatBeretSecurityMedic
+  result: ClothingHeadHatBeretSecurityMedic
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingHeadHatCapHoS
+  result: ClothingHeadHatCapHoS
+  completetime: 2
+  materials:
+    Cloth: 100
+    Durathread: 50
+
+- type: latheRecipe
+  id: ClothingHeadHatCapWardenAlt
+  result: ClothingHeadHatCapWardenAlt
+  completetime: 2
+  materials:
+    Cloth: 100
+    Durathread: 50
+
+- type: latheRecipe
+  id: ClothingUniformJumpsuitCapTurtleneck
+  result: ClothingUniformJumpsuitCapTurtleneck
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtCapTurtleneck
+  result: ClothingUniformJumpskirtCapTurtleneck
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
+
+- type: latheRecipe
+  id: ClothingUniformJumpsuitHoSBlack
+  result: ClothingUniformJumpsuitHoSBlack
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtHoSBlack
+  result: ClothingUniformJumpskirtHoSBlack
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
+
+- type: latheRecipe
+  id: ClothingUniformJumpsuitHoPTurtleneck
+  result: ClothingUniformJumpsuitHoPTurtleneck
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtHoPTurtleneck
+  result: ClothingUniformJumpskirtHoPTurtleneck
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
+
+- type: latheRecipe
+  id: ClothingUniformJumpsuitRDClassical
+  result: ClothingUniformJumpsuitRDClassical
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtRDClassical
+  result: ClothingUniformJumpskirtRDClassical
+  completetime: 4
+  materials:
+    Cloth: 300
+    Durathread: 100
