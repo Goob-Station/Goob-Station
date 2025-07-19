@@ -237,6 +237,7 @@
   roles:
   - ResearchDirector
   - Scientist
+  - ForensicMantis
   - ResearchAssistant
 
 - type: department

@@ -1,0 +1,27 @@
+- type: construction
+  id: GlimmerProber
+  name: glimmer-prober-name
+  description: glimmer-prober-description
+  graph: GlimmerDevices
+  startNode: start
+  targetNode: glimmerProber
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: GlimmerDrain
+  name: glimmer-drain-name
+  description: glimmer-drain-description
+  graph: GlimmerDevices
+  startNode: start
+  targetNode: glimmerDrain
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

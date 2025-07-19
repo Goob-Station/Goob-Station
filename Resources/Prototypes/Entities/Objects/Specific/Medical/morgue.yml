@@ -220,9 +220,11 @@
           maxVol: 50
           reagents:
             - ReagentId: Ash
-              Quantity: 25
+              Quantity: 5
             - ReagentId: Necrosol
-              Quantity: 25
+              Quantity: 5
+            - ReagentId: Ectoplasm  # Pirate psionic from EE
+              Quantity: 30
     - type: GuideHelp
       guides:
       - MinorAntagonists

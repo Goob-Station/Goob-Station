@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseItem
+  id: GlimmerMonitorCartridge
+  name: glimmer monitor cartridge
+  description: A cartridge that keeps track of glimmer.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Devices/cartridge.rsi
+    state: cart-psi
+  - type: Icon
+    sprite: _EinsteinEngines/Objects/Devices/cartridge.rsi
+    state: cart-psi
+  - type: UIFragment
+    ui: !type:GlimmerMonitorUi
+  - type: Cartridge
+    programName: glimmer-monitor-program-name
+    icon:
+      sprite: _EinsteinEngines/Icons/psi.rsi
+      state: psi
+  - type: GlimmerMonitorCartridge
+
+- type: entity
+  parent: IDCardStandard
+  id: ForensicMantisIDCard
+  name: mantis ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idmantis
+  - type: PresetIdCard
+    job: ForensicMantis

@@ -1,0 +1,174 @@
+# SPDX-FileCopyrightText: 2025 Einstein Engines
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Psionic Events for Game Director System
+# These events are triggered based on glimmer levels and psionic chaos
+
+- type: entity
+  id: NoosphericStorm
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-noospheric-storm-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 6
+    minimumPlayers: 15
+    earliestStart: 20
+    chaos:
+      Psionic: 30  # Increases psionic chaos
+      Medical: 10  # Minor medical chaos from awakening psionics
+    eventType: Psionic
+  - type: GameRule
+    chaosScore: 200
+  - type: NoosphericStormRule
+    maxAwaken: 3
+    baseGlimmerAddMin: 65
+    baseGlimmerAddMax: 85
+  - type: GlimmerEvent
+    minimumGlimmer: 300
+    maximumGlimmer: 1000
+    glimmerBurnLower: 25
+    glimmerBurnUpper: 70
+    report: "glimmer-event-report-storm"
+
+- type: entity
+  id: NoosphericZap
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-noospheric-zap-announcement
+    startAudio:
+      path: /Audio/Effects/Lightning/lightningbolt.ogg
+    weight: 8
+    minimumPlayers: 10
+    earliestStart: 15
+    chaos:
+      Psionic: 20  # Moderate psionic chaos
+      Medical: 15  # Medical chaos from stunning/injuries
+    eventType: Psionic
+  - type: GameRule
+    chaosScore: 150
+  - type: NoosphericZapRule
+    stunDuration: 5.0
+    stutterDuration: 10.0
+    powerRerollMultiplier: 0.25
+  - type: GlimmerEvent
+    minimumGlimmer: 200
+    maximumGlimmer: 1000
+    glimmerBurnLower: 15
+    glimmerBurnUpper: 40
+    report: "glimmer-event-report-zap"
+
+- type: entity
+  id: NoosphericFry
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-noospheric-fry-announcement
+    startAudio:
+      path: /Audio/Effects/lightburn.ogg
+    weight: 5
+    minimumPlayers: 8
+    earliestStart: 25
+    chaos:
+      Psionic: 25  # High psionic chaos
+      Medical: 20  # Medical chaos from burns
+    eventType: Psionic
+  - type: GameRule
+    chaosScore: 180
+  - type: NoosphericFryRule
+    fryHeadgearMinorThreshold: 750.0
+    fryHeadgearMajorThreshold: 900.0
+  - type: GlimmerEvent
+    minimumGlimmer: 500
+    maximumGlimmer: 1000
+    glimmerBurnLower: 30
+    glimmerBurnUpper: 60
+    report: "glimmer-event-report-fry"
+
+- type: entity
+  id: GlimmerMobSpawn
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-glimmer-mob-spawn-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    weight: 7
+    minimumPlayers: 12
+    earliestStart: 30
+    chaos:
+      Psionic: 15  # Moderate psionic chaos
+      Hostile: 25  # Hostile mobs spawned
+      Medical: 10  # Potential medical issues
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 250
+  - type: VentCrittersRule
+    table:
+      id: MobGlimmerMite
+  - type: GlimmerEvent
+    minimumGlimmer: 400
+    maximumGlimmer: 1000
+    glimmerBurnLower: 20
+    glimmerBurnUpper: 50
+    report: "glimmer-event-report-mob-spawn"
+
+- type: entity
+  id: PsionicCatGotYourTongue
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-psionic-cat-tongue-announcement
+    startAudio:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+    weight: 4
+    minimumPlayers: 8
+    earliestStart: 20
+    chaos:
+      Psionic: 10  # Minor psionic chaos
+      Medical: 5   # Minor medical impact (muting)
+    eventType: Psionic
+  - type: GameRule
+    chaosScore: 80
+  - type: PsionicCatGotYourTongueRule
+    minDuration: 20
+    maxDuration: 80
+    sound:
+      path: /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+  - type: GlimmerEvent
+    minimumGlimmer: 100
+    maximumGlimmer: 1000
+    glimmerBurnLower: 10
+    glimmerBurnUpper: 30
+    report: "glimmer-event-report-cat-tongue"
+
+- type: entity
+  id: GlimmerRandomSentience
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-glimmer-sentience-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 3
+    minimumPlayers: 15
+    earliestStart: 25
+    maxOccurrences: 2
+    chaos:
+      Psionic: 20  # Moderate psionic chaos
+      Friend: -10  # Potential new allies
+      Mess: 10     # Chaos from sentient objects
+    eventType: Neutral
+  - type: GameRule
+    chaosScore: 120
+  - type: RandomSentienceRule
+    minSentiences: 1
+    maxSentiences: 3
+  - type: GlimmerEvent
+    minimumGlimmer: 350
+    maximumGlimmer: 1000
+    glimmerBurnLower: 25
+    glimmerBurnUpper: 55
+    report: "glimmer-event-report-sentience"

@@ -45,7 +45,7 @@ namespace Content.Server.Chat.Commands
             if (player.Status != SessionStatus.InGame)
                 return;
 
-            if (player.AttachedEntity is not {} playerEntity)
+            if (player.AttachedEntity is not { } playerEntity)
             {
                 shell.WriteError("You don't have an entity!");
                 return;
@@ -58,7 +58,8 @@ namespace Content.Server.Chat.Commands
             if (string.IsNullOrEmpty(message))
                 return;
             //Not sure if I should hide the logs from this. Default is false.
-            EntitySystem.Get<ChatSystem>().TrySendInGameICMessage(playerEntity, message, InGameICChatType.Telepathic, ChatTransmitRange.Normal, false, shell, player);
+            EntitySystem.Get<ChatSystem>()
+                .TrySendInGameICMessage(playerEntity, message, InGameICChatType.Telepathic, ChatTransmitRange.Normal, false, shell, player);
         }
     }
 }

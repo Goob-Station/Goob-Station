@@ -1,0 +1,163 @@
+- type: entity
+  name: glimmer mite
+  parent: MobCockroach
+  id: MobGlimmerMite
+  description: A strange pest from a world beyond the noosphere.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Ghosts/glimmermite.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mite
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mite
+      Dead:
+        Base: mite_dead
+    baseDecayRate: 0.25
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ectoplasm
+          Quantity: 15
+  - type: Psionic
+    removable: false
+    roller: false
+    assayFeedback:
+      - glimmer-mite-feedback
+  - type: GlimmerSource
+  - type: AmbientSound
+    range: 6
+    volume: -3
+    sound: /Audio/_EinsteinEngines/Glimmer_Creatures/mite.ogg
+  - type: AmbientOnPowered
+
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  - MobDamageable
+  id: MobGlimmerWisp
+  name: glimmer wisp
+  description: A strange orb that moves with intent.
+  components:
+  # appearance
+  - type: Sprite
+    drawDepth: Ghosts
+    sprite: _EinsteinEngines/Mobs/Demons/glimmer_wisp.rsi
+    layers:
+    - state: willowisp
+      shader: unshaded
+  - type: PointLight
+    color: "#419ba3"
+  - type: Stealth
+    lastVisibility: 0.66
+  - type: AmbientSound
+    volume: -8
+    range: 5
+    sound:
+      path: /Audio/_EinsteinEngines/Ambience/wisp_ambience.ogg
+  # physical
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 13
+        mask:
+        - Opaque
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 8
+    baseWalkSpeed: 5
+  - type: MovementIgnoreGravity
+  - type: Speech
+  # powers
+  - type: Psionic
+    removable: false
+    roller: false
+  - type: InnatePsionicPowers
+    powersToAdd:
+    - NoosphericZapPower
+  # damage
+  - type: Reactive
+    groups:
+      Acidic: [Touch] # Holy water
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_EinsteinEngines/Effects/wail.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ectoplasm:
+            min: 2
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
+  - type: DamageOnDispel
+    damage:
+      types:
+        Heat: 100
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      10: 0.8
+      20: 0.6
+      30: 0.3
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown #KnockedDown is inseperable from stun because... IT JUST IS OK?
+    - SlowedDown
+    - Pacified
+  # combat
+  - type: Gun
+    fireRate: 0.4
+    soundGunshot:
+      collection: MagicMissile
+    showExamineText: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    minAngle: 0.17453
+    maxAngle: 0.52359
+  - type: HitscanBatteryAmmoProvider
+    proto: WispLash
+    fireCost: 1
+    # TODO: implement upstream or make it use a proper thing, maybe copy dragon
+    #examinable: false
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
+  # AI
+  - type: HTN
+    rootTask:
+      task: GlimmerWispCompound
+  - type: NpcFactionMember
+    factions:
+    - GlimmerMonster
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: NPCRangedCombat

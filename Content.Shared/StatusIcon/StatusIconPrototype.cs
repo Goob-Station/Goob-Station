@@ -248,6 +248,24 @@ public sealed partial class SecurityIconPrototype : StatusIconPrototype, IInheri
     public bool Abstract { get; private set; }
 }
 
+/// Pirate from Einstein Engines start
+/// <summary>
+/// StatusIcons for showing the psionics status on the epi HUD
+/// </summary>
+[Prototype]
+public sealed partial class PsionicsIconPrototype : StatusIconPrototype, IInheritingPrototype
+{
+    /// <inheritdoc />
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<PsionicsIconPrototype>))]
+    public string[]? Parents { get; }
+
+    /// <inheritdoc />
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; }
+}
+/// Pirate from Einstein Engines end
+
 /// <summary>
 /// StatusIcons for faction membership
 /// </summary>

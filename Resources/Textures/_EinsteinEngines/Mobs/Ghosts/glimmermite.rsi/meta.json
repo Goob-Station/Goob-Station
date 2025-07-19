@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "leonardo_dabepis (232229415176634368) on Discord",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mite",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.3
+        ],
+        [
+          0.2,
+          0.3
+        ],
+        [
+          0.2,
+          0.3
+        ],
+        [
+          0.2,
+          0.3
+        ]
+      ]
+    },
+    {
+        "name": "icon"
+    },
+    {
+        "name": "mite_dead"
+    }
+  ]
+}

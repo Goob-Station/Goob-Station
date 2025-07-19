@@ -584,6 +584,8 @@ public enum LogType
     /// </summary>
     ArtifactNode = 101,
 
+    Psionics = 421, // Pirate from EE
+
     /// <summary>
     /// Damaging grid collision has occurred.
     /// </summary>

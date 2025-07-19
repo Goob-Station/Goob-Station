@@ -67,8 +67,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: Remilia
-  parent: MobBat
+  name: "Ремілія"
+  parent: BaseMobPsionicFamiliar
   id: MobBatRemilia
   description: The chaplain's familiar. Likes fruit.
   components:
@@ -100,7 +100,17 @@
     - PetsNT
   - type: Alerts
   - type: Familiar
-
+  - type: MeleeWeapon #Pirate psionics
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
 - type: entity
   name: Cerberus
   parent: MobCorgiNarsi

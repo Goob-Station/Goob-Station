@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: EtherealGoggles
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: goggles
+          steps:
+            - material: BSCrystal
+              amount: 5
+              doAfter: 10
+            - tag: Sunglasses
+              name: construction-graph-tag-sun-glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+                state: icon
+              doAfter: 5
+    - node: goggles
+      entity: ClothingEyesGlassesEthereal

@@ -1,0 +1,79 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadTinfoil
+  name: tinfoil hat
+  description: Protects you from all manner of psionic assaults.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Hats/tinfoil.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Hats/tinfoil.rsi
+  - type: TinfoilHat
+  - type: Armor
+    modifiers:
+      coefficients:
+        Radiation: 0.95
+  - type: Construction
+    graph: TinfoilHat
+    node: tinfoilhat
+  - type: GuideHelp
+    guides: [ PsionicInsulation ]
+
+- type: entity
+  parent: ClothingHeadTinfoil
+  id: ClothingHeadCage
+  name: insulative headcage
+  description: Psionically insulates whoevers head is inside it. It takes time to resist out of.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Hats/cage.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Hats/cage.rsi
+    equipDelay: 0.5
+    unequipDelay: 6
+  - type: HeadCage
+  - type: Tag
+    tags:
+    - ForensicBeltEquip
+
+- type: entity
+  parent: ClothingHeadTinfoil
+  id: ClothingHeadHelmetInsulated
+  name: insulative skullcap
+  description: Psionically insulates whoevers head is inside it. It has some protection from physical damage.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Helmets/insulative_skullcap.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Helmets/insulative_skullcap.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.95
+        Radiation: 0.95
+  - type: GuideHelp
+    guides: [ PsionicInsulation ]
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFezMantis
+  name: mantis' fez
+  description: A fine red fez with a gold tassel.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Hats/mantis_fez.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Hats/mantis_fez.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMysta
+  name: mystagogue's beret
+  description: A purple beret with a blue epistemics emblem. Mystical and stylish.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Head/Hats/beret_mysta.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Head/Hats/beret_mysta.rsi

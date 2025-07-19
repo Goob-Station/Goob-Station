@@ -1,0 +1,17 @@
+# I wanted to add this, but unfortunately it is available to IPC, I don't want to port the trait requirements from EE yet.
+#- type: trait
+#  id: PsionicTrait
+#  name: trait-psionic-name
+#  description: trait-psionic-desc
+#  category: Quirks
+#  components:
+#  - type: Psionic
+#    powerSlots: 0
+#    baselinePowerCost: 100
+#    nextPowerCost: 100
+#    removable: true
+#    powerPool: RandomPsionicPowerPool
+#  - type: InnatePsionicPowers
+#    powersToAdd:
+#      - TelepathyPower
+
