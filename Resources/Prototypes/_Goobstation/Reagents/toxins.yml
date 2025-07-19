@@ -1,8 +1,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tryded <tryded213@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
@@ -334,3 +337,75 @@
           shouldHave: false
         probability: 0.05
         paralyzeTime: 2
+
+- type: reagent
+  id: NitricAcid
+  name: reagent-name-nitric-acid
+  group: Toxins
+  desc: reagent-desc-nitric-acid
+  physicalDesc: reagent-physical-desc-abrasive
+  flavor: acid
+  color: "#FAFAFA"
+  boilingPoint: 83
+  meltingPoint: -42
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 10
+  - !type:PlantAdjustWeeds
+    amount: -2
+  - !type:PlantAdjustHealth
+    amount: -5
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 0.1
+      - !type:Emote
+        emote: Scream
+        probability: 0.1
+  metabolisms:
+    Poison:
+      metabolismRate: 3.00 # Okay damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 4
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "generic-reagent-effect-burning-insides" ]
+        probability: 0.33
+      - !type:Emote
+        emote: Scream
+        probability: 0.2
+
+- type: reagent
+  id: Formaldehyde
+  name: reagent-name-formaldehyde
+  group: Toxins
+  desc: reagent-desc-formaldehyde
+  flavor: bitter
+  color: "#FAFAFA"
+  physicalDesc: reagent-physical-desc-gaseous
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 10
+  - !type:PlantAdjustHealth
+    amount: -5
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        damage:
+          types:
+            Poison: 2
