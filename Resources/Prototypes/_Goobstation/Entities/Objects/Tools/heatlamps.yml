@@ -31,13 +31,13 @@
   - type: ExaminableBattery
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/basic.rsi
     state: icon-off
   - type: Item
     size: Normal
-    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/basic.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/basic.rsi
     slots:
     - Belt
   - type: GenericVisualizer
@@ -85,13 +85,13 @@
     onShape:
     - 0,0,0,3
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/basic.rsi
     state: icon-off
   - type: Item
     size: Normal
-    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/basic.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Devices/Heatlamps/basic.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/basic.rsi
     slots:
     - Belt
 
@@ -109,13 +109,13 @@
     onShape:
     - 0,0,1,3
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
     state: icon-off
   - type: Item
     size: Normal
-    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/upgraded.rsi
     slots:
     - Belt
 
@@ -139,13 +139,13 @@
     onShape:
     - 0,0,0,2
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/Heatlamps/phoron.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/phoron.rsi
     state: icon-off
   - type: Item
     size: Normal
-    sprite: _Goobstation/Objects/Devices/Heatlamps/phoron.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/phoron.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Devices/Heatlamps/phoron.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/phoron.rsi
     slots:
     - Belt
 
@@ -175,12 +175,12 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
     state: icon-off
   - type: Item
     size: Normal
-    sprite: _Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
+    sprite: /_Goobstation/Objects/Devices/Heatlamps/syndicate.rsi
     slots:
     - Belt
