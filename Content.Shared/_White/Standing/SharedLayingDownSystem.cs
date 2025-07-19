@@ -113,7 +113,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     private void OnRefreshMovementSpeed(EntityUid uid, LayingDownComponent component, RefreshMovementSpeedModifiersEvent args)
     {
         if (_standing.IsDown(uid))
-            args.ModifySpeed(component.SpeedModify, component.SpeedModify);
+            args.ModifySpeed(component.SpeedModify, component.SpeedModify, bypassImmunity: true);
         else
             args.ModifySpeed(1f, 1f);
     }

@@ -81,10 +81,17 @@ public abstract class SharedSprintingSystem : EntitySystem
             || !TryComp<SprinterComponent>(session.AttachedEntity, out var sprinterComponent)
             || !TryComp<InputMoverComponent>(session.AttachedEntity, out var inputMoverComponent)
             || !sprinterComponent.IsSprinting
-            || !sprinterComponent.CanSprint
             // We check this instead of physics so that we can gatekeep sprinting to only work when you are moving intentionally, and not walking.
             && _moverController.GetVelocityInput(inputMoverComponent).Sprinting == Vector2.Zero)
             return;
+
+        if (!sprinterComponent.CanSprint)
+        {
+            if (message.State == BoundKeyState.Down) // Without this check the message triggers when holding and releasing.
+                _popupSystem.PopupClient(Loc.GetString("sprint-disabled"), session.AttachedEntity.Value, session.AttachedEntity.Value, PopupType.Medium);
+
+            return;
+        }
 
         RaiseLocalEvent(session.AttachedEntity.Value, new SprintToggleEvent(!sprinterComponent.IsSprinting && message.State == BoundKeyState.Down));
     }
