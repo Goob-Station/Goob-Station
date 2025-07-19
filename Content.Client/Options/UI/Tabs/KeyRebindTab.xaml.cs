@@ -128,13 +128,13 @@ namespace Content.Client.Options.UI.Tabs
             }
         }
 
-        private void HandleToggle(BaseButton.ButtonToggledEventArgs args, BoundKeyFunction key)
+        private void HandleToggleWalk(BaseButton.ButtonToggledEventArgs args)
         {
             _cfg.SetCVar(CCVars.ToggleWalk, args.Pressed);
             _cfg.SaveToFile();
             InitToggleWalk();
 
-            if (!_keyControls.TryGetValue(key, out var keyControl))
+            if (!_keyControls.TryGetValue(EngineKeyFunctions.Walk, out var keyControl))
             {
                 return;
             }
@@ -150,7 +150,7 @@ namespace Content.Client.Options.UI.Tabs
 
                 var registration = new KeyBindingRegistration
                 {
-                    Function = key,
+                    Function = EngineKeyFunctions.Walk,
                     BaseKey = binding.BaseKey,
                     Mod1 = binding.Mod1,
                     Mod2 = binding.Mod2,
