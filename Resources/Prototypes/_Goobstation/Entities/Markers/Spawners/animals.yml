@@ -12,7 +12,7 @@
   components:
   - type: Sprite
     layers:
-    - state: alive
+    - state: horse
     - state: ai
   - type: ConditionalSpawner
     prototypes:
@@ -25,8 +25,7 @@
   components:
   - type: Sprite
     layers:
-    - state: alive
-    - state: ai
+    - state: trevor
   - type: ConditionalSpawner
     prototypes:
     - MobTrevor
