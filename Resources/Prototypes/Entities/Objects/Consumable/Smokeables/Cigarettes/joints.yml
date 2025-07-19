@@ -13,6 +13,11 @@
 # SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DieselMohawk <173439801+DieselMohawk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -48,6 +53,8 @@
             Quantity: 20
   - type: RandomMetadata
     nameSegments: [NamesRollie]
+  - type: StaticPrice #Goobstation
+    price: 300        #Goobstation
 
 - type: entity
   id: JointRainbow
@@ -76,6 +83,8 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
+  - type: StaticPrice #Goobstation
+    price: 500        #Goobstation
 
 - type: entity
   id: BluntCigar # Shitmed Change
@@ -109,6 +118,8 @@
             Quantity: 20
   - type: RandomMetadata
     nameSegments: [NamesRollie]
+  - type: StaticPrice #Goobstation
+    price: 300        #Goobstation
 
 - type: entity
   id: BluntRainbow
@@ -137,3 +148,5 @@
 #         Quantity: 1.33
         - ReagentId: Psicodine
           Quantity: 0.8
+  - type: StaticPrice #Goobstation
+    price: 500        #Goobstation
