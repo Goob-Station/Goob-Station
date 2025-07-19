@@ -37,6 +37,9 @@ public sealed class KeyringSystem : EntitySystem
     {
         var access = EnsureComp<AccessComponent>(keyring);
 
+        if (keyring.Comp.PossibleAccesses.Count == 0)
+            return;
+
         for (var i = 0; i < keyring.Comp.MaxPossibleAccesses; i++)
         {
             var pick = _random.PickAndTake(keyring.Comp.PossibleAccesses.ToList());
