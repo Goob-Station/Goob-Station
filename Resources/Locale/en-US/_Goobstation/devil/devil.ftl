@@ -19,6 +19,9 @@ devil-true-name-heard-chaplain = The act of {$speaker}'s holy words commanding t
 objective-condition-contract-title = Collect Souls
 objective-condition-contract-description = Collect as many souls as possible.
 
+objective-condition-weight-title = Make profitable deals.
+objective-condition-weight-description = Ensure the deals benefit you as much as possible.
+
 hand-shake-prompt-verb = Offer handshake to {$target}
 hand-shake-accept-verb = Shake {$target}'s hand
 
