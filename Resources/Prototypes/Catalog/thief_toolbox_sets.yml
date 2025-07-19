@@ -107,12 +107,15 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+scarky0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 thetuerk <46725294+ThanosDeGraf@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -121,7 +124,7 @@
   name: thief-backpack-category-chameleon-name
   description: thief-backpack-category-chameleon-description
   sprite:
-    sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
+    sprite: Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
   - ClothingBackpackChameleonFill
@@ -134,8 +137,8 @@
   name: thief-backpack-category-tools-name
   description: thief-backpack-category-tools-description
   sprite:
-    sprite: Objects/Tools/jaws_of_life.rsi
-    state: jaws_pry
+    sprite: Objects/Weapons/Bombs/c4.rsi
+    state: icon
   content:
   - WelderIndustrialAdvanced
   - ClothingEyesGlassesMeson
@@ -196,8 +199,8 @@
   name: thief-backpack-category-communicator-name
   description: thief-backpack-category-communicator-description
   sprite:
-    sprite: Objects/Tools/spy_device.rsi
-    state: icon
+    sprite: Objects/Devices/communication.rsi
+    state: old-radio
   content:
   - EncryptionKeyStationMaster
   - CyberPen
@@ -210,8 +213,8 @@
   name: thief-backpack-category-smuggler-name
   description: thief-backpack-category-smuggler-description
   sprite:
-    sprite: Clothing/Neck/Cloaks/void.rsi
-    state: icon
+    sprite: Objects/Tools/fulton.rsi
+    state: extraction_pack
   content:
   - InvisibleCrate
   - FultonBeacon

@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Baptr0b0t <bapt.buriot@gmail.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
@@ -15,6 +16,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 thetuerk <46725294+ThanosDeGraf@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -58,7 +60,7 @@
   name: selectable-set-thief-chameleon-name
   description: selectable-set-thief-chameleon-description
   sprite:
-    sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
+    sprite: Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
   - ClothingBackpackChameleonFill
@@ -113,8 +115,8 @@
   name: selectable-set-thief-smuggler-name
   description: selectable-set-thief-smuggler-description
   sprite:
-    sprite: Clothing/Neck/Cloaks/void.rsi
-    state: icon
+    sprite: /Textures/Objects/Tools/fulton.rsi
+    state: extraction_pack
   content:
   - InvisibleCrate
   - FultonBeacon
