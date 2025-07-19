@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 RadsammyT <radsammyt@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.InteractionVerbs;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
