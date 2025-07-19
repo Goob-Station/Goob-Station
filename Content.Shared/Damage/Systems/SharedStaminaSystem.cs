@@ -15,7 +15,6 @@
 // SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Adeinitas <147965189+adeinitas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Callmore <22885888+Callmore@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Dakamakat <52600490+dakamakat@users.noreply.github.com>
@@ -36,12 +35,19 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 nikitosych <boriszyn@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
@@ -59,6 +65,7 @@ using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared._Shitcode.Weapons.Misc; // Goob
 using Content.Shared.Jittering;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
@@ -235,19 +242,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         // goobstation
         foreach (var (ent, comp) in toHit)
         {
-            var hitEvent = new TakeStaminaDamageEvent((ent, comp));
+            var hitEvent = new BeforeStaminaDamageEvent(1f);
             // raise event for each entity hit
-            RaiseLocalEvent(ent, hitEvent);
-
-            if (hitEvent.Handled)
-                return;
+            RaiseLocalEvent(ent, ref hitEvent);
 
             var damageImmediate = component.Damage;
             var damageOvertime = component.Overtime;
-            damageImmediate *= hitEvent.Multiplier;
-            damageImmediate += hitEvent.FlatModifier;
-            damageOvertime *= hitEvent.Multiplier;
-            damageOvertime += hitEvent.FlatModifier;
+            damageImmediate *= hitEvent.Value;
+            damageOvertime *= hitEvent.Value;
 
             if (args.Direction == null)
             {
@@ -291,19 +293,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             return;
 
         // goobstation
-        var hitEvent = new TakeStaminaDamageEvent((target, stamComp));
-        RaiseLocalEvent(target, hitEvent);
-
-        if (hitEvent.Handled)
-            return;
+        var hitEvent = new BeforeStaminaDamageEvent(1f);
+        RaiseLocalEvent(target, ref hitEvent);
 
         var damage = component.Damage;
         var overtime = component.Overtime;
 
-        damage *= hitEvent.Multiplier;
-        damage += hitEvent.FlatModifier;
-        overtime *= hitEvent.Multiplier;
-        overtime += hitEvent.FlatModifier;
+        damage *= hitEvent.Value;
+        overtime *= hitEvent.Value;
 
         TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
         TakeOvertimeStaminaDamage(target, overtime); // Goobstation
@@ -365,23 +362,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
+        if (applyResistances)
+            value = ev.Value;
+
         value = UniversalStaminaDamageModifier * value;
 
         // Have we already reached the point of max stamina damage?
         if (component.Critical)
             return;
-
-        if (applyResistances)
-        {
-            var hitEvent = new TakeStaminaDamageEvent((uid, component));
-            RaiseLocalEvent(uid, hitEvent);
-
-            if (hitEvent.Handled)
-                return;
-
-            value *= hitEvent.Multiplier;
-            value += hitEvent.FlatModifier;
-        }
 
         var oldDamage = component.StaminaDamage;
         component.StaminaDamage = MathF.Max(0f, component.StaminaDamage + value);
