@@ -63,9 +63,9 @@
   ghostDescription: Шляпа
 
 - type: customGhost
-  id: bunkenran-ghost
-  ckey: bunkenran
-  sprite: _Pirate/Ghosts/bunkenran.rsi
+  id: bunkeran-ghost
+  ckey: bunkeran
+  sprite: _Pirate/Ghosts/bunkeran.rsi
   alpha: 1
   ghostName: ipc bunkeran
   ghostDescription: ghost ipc... boo?
@@ -78,28 +78,13 @@
   ghostName: mushroom_Fox
   ghostDescription: Ви бачите щось миле мале і голодне, воно вимагає у вас їсти! Сквік Сквік! * звуки жування огурчика *
 
-- type: customGhost
-  id: oxygen_femboy_terminator-ghost
-  ckey: nitrogen_femboy_terminator
-  sprite: _Pirate/Ghosts/oxygen_femboy_terminator.rsi
-  alpha: 1
-  ghostName: nitrogen_femboy_terminator
-  ghostDescription: Do you like kissing lemons dont you? OwO
 
 - type: customGhost
-  id: ImperiaArtSempai-ghost
-  ckey: ImperiaArtSempai
-  sprite: _Pirate/Ghosts/ImperiaArtSempai.rsi
+  id: Omak-ghost
+  ckey: Omak
+  sprite: _Pirate/Ghosts/Omak.rsi
   alpha: 1
-  ghostName: ImperiaArtSempai
-  ghostDescription: Юкі – це втілення сили та справедливості з яскраво-блакитним волоссям та палаючими червоними очима. Її величезний молот, який вона тримає за спиною, готовий покарати всіх порушників, які осміляться ослухатися написаних правил. Юкі – невблаганний охоронець закону та порядку, а якщо ви набігатор – вам не позаздрить жодна жива істота на цьому білому світі.
-
-- type: customGhost
-  id: Moomoo_505-ghost
-  ckey: UwUUwUUwU
-  sprite: _Pirate/Ghosts/Moomoo_505.rsi
-  alpha: 1
-  ghostName: Moomoo_505
+  ghostName: Omak
   ghostDescription: Він виглядає як ворожий стенд
 
 - type: customGhost
@@ -179,3 +164,11 @@
   alpha: 1
   ghostName: Carry_ua
   ghostDescription: UwU -><-
+
+- type: customGhost
+  id: lemax-ghost
+  ckey: lemax
+  sprite: _Pirate/Ghosts/lemax.rsi
+  alpha: 1
+  ghostName: lemax
+  ghostDescription: Вибухова ляля

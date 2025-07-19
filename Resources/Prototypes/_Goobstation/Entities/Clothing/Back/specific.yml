@@ -14,8 +14,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackStasisBattery
-  name: "стазисне зберігання"
-  description: "Накопичує енергію, щоб зупинити плин часу, деформуючи простір всередині для більшої місткості."
+  name: stasis storage
+  description: Stores energy to freeze time flow, warping the space inside for more capacity.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/stasis_back.rsi
@@ -87,8 +87,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelGman
-  name: "дивна спортивна сумка"
-  description: "Дивна, незнімна сумка, здатна вмістити абсурдну кількість предметів. Здається невидимою для неозброєного ока."
+  name: strange duffelbag
+  description: A strange, unremovable, bag capable of containing an absurd amount of items. Seemingly invisible to the naked eye.
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/duffel.rsi
@@ -104,8 +104,8 @@
 - type: entity
   parent: [Clothing, ClothingSlotBase]
   id: ClothingBackpackLMGBattery
-  name: "сховище EL-20"
-  description: "Приймає спеціалізовані автомобільні акумулятори для живлення кулемета EL-20 HAMRR."
+  name: EL-20 storage
+  description: Accepts specialized car batteries to power the EL-20 HAMRR LMG.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/lmg_backpack.rsi

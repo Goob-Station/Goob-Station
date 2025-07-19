@@ -843,32 +843,27 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnDamageChange(Entity<ChangelingIdentityComponent> ent, ref DamageChangedEvent args)
     {
-        if (!TryComp<MobThresholdsComponent>(ent, out var thresholds)
+        if (ent.Comp.IsInStasis
             || !_mobThreshold.TryGetThresholdForState(ent, MobState.Dead, out var maxThreshold)
             || !_mobThreshold.TryGetThresholdForState(ent, MobState.Critical, out var critThreshold))
             return;
 
-        if (!ent.Comp.IsInStasis)
-        {
-            var lowestStasisTime = ent.Comp.DefaultStasisTime; // 15 sec
-            var highestStasisTime = ent.Comp.MaxStasisTime; // 45 sec
-            var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 1 min
-            var catastrophicDamage = maxThreshold; // enough damage to be dead
+        var lowestStasisTime = ent.Comp.DefaultStasisTime; // 15 sec
+        var highestStasisTime = ent.Comp.MaxStasisTime; // 45 sec
+        var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 1 min
 
-            var damage = args.Damageable;
-            var damageTaken = damage.TotalDamage;
+        var damage = args.Damageable;
+        var damageTaken = damage.TotalDamage;
 
-            var scalingMult = highestStasisTime;
-            var damageScaled = float.Round((float) (damageTaken / critThreshold * scalingMult));
+        var damageScaled = float.Round((float) (damageTaken / critThreshold.Value * highestStasisTime));
 
-            var damageToTime = MathF.Min(damageScaled, highestStasisTime);
-            var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
+        var damageToTime = MathF.Min(damageScaled, highestStasisTime);
+        var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
 
-            if (damageTaken < catastrophicDamage)
-                ent.Comp.StasisTime = newStasisTime;
-            else
-                ent.Comp.StasisTime = catastrophicStasisTime;
-        }
+        if (damageTaken < maxThreshold)
+            ent.Comp.StasisTime = newStasisTime;
+        else
+            ent.Comp.StasisTime = catastrophicStasisTime;
     }
 
     private void OnComponentRemove(Entity<ChangelingIdentityComponent> ent, ref ComponentRemove args)

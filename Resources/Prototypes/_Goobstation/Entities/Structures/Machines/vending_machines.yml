@@ -13,8 +13,8 @@
 - type: entity
   id: VendingMachineFitness
   parent: VendingMachine
-  name: "SweatMAX"
-  description: "Продавець тренажерів і харчових добавок, який наживається на вашій неадекватності."
+  name: SweatMAX
+  description: An exercise aid and nutrition supplement vendor that preys on your inadequacy.
   components:
   - type: Sprite
     noRot: true
@@ -57,8 +57,8 @@
 - type: entity
   id: VendingMachineHotfood
   parent: VendingMachine
-  name: "гарячі страви"
-  description: "Старий торговий автомат, що обіцяє \"гарячу їжу\". Ви сумніваєтеся, що його вміст ще їстівний."
+  name: hot foods
+  description: An old vending machine promising 'hot foods'. You doubt any of its contents are still edible.
   components:
   - type: Sprite
     noRot: true
@@ -96,8 +96,8 @@
 - type: entity
   id: VendingMachineSolsnack
   parent: VendingMachine
-  name: "Марс Март"
-  description: "Торговий автомат SolCentric видає ласощі з дому."
+  name: Mars Mart
+  description: A SolCentric vending machine dispensing treats from home.
   components:
   - type: Sprite
     noRot: true
@@ -136,8 +136,8 @@
 - type: entity
   id: VendingMachineWeeb
   parent: VendingMachine
-  name: "Ніппон-тан"
-  description: "Сумнозвісний етнічний торговий автомат, наповнений низькокалорійними снеками з високим вмістом сахарози, за браком кращого слова, через брак слів."
+  name: Nippon-tan
+  description: A distressingly ethnic vending machine loaded with high sucrose low calorie for lack of better words snacks.
   components:
   - type: Sprite
     noRot: true
@@ -177,8 +177,8 @@
 - type: entity
   parent: VendingMachine
   id: VendingMachineMailDrobe
-  name: "MailDrobe"
-  description: "Ні сонячні спалахи, ні метеори, ні плазмовий вогонь, ні порожнеча космосу не зупинять цих кур'єрів від швидкого виконання призначених їм завдань."
+  name: MailDrobe
+  description: Neither solar flares nor meteors nor plasma fire nor void of space stays these couriers from the swift completion of their appointed rounds.
   components:
   - type: VendingMachine
     pack: MailDrobeInventory
@@ -207,8 +207,8 @@
 - type: entity
   id: VendingMachineSweetToof
   parent: VendingMachine
-  name: "цукерки Sweet-toof Co"
-  description: "Торговий автомат, що продає нездорову кількість цукерок. Треба бути \"солодкоїжкою\", щоб насолоджуватися цим."
+  name: sweet-toof co. candy
+  description: A vending machine selling an unhealthy amount of candy. You'd have to have a 'sweet-tooth' to enjoy it.
   components:
   - type: Sprite
     noRot: true
