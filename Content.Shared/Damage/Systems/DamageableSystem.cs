@@ -37,6 +37,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
@@ -49,6 +50,7 @@
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
@@ -61,6 +63,7 @@
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -475,7 +478,8 @@ namespace Content.Shared.Damage
                 if (damageable.DamageModifierSetId != null &&
                     _prototypeManager.TryIndex(damageable.DamageModifierSetId, out var modifierSet))
                 {
-                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+                    damage = DamageSpecifier.ApplyModifierSet(damage,
+                        DamageSpecifier.PenetrateArmor(modifierSet, damage.ArmorPenetration)); // Goob edit
                 }
 
                 if (TryComp(uid, out BodyPartComponent? bodyPart))
@@ -513,52 +517,62 @@ namespace Content.Shared.Damage
             var dict = damageable.Damage.DamageDict;
 
             // Check for integrity cap on body parts
-            float? scaleFactor = null;
             bool isWoundable = false;
+            FixedPoint2? damageCap = null;
             if (_woundableQuery.TryComp(uid, out var woundable))
             {
                 isWoundable = true;
-                var positiveDamage = damage.DamageDict.Where(d => d.Value > 0).Sum(d => d.Value.Float());
-                if (positiveDamage > 0)
-                {
-                    var remaining = (woundable.IntegrityCap - damageable.TotalDamage).Float();
-                    if (remaining > 0)
-                    {
-                        if (remaining < positiveDamage)
-                            scaleFactor = remaining / positiveDamage;
-                        else
-                            scaleFactor = 1f;
-                    }
-                    else
-                    {
-                        scaleFactor = 0f;
-                    }
-                }
+                damageCap = woundable.IntegrityCap;
             }
 
             // Apply damage
+            var currentTotalDamage = damageable.TotalDamage.Float();
+            FixedPoint2? remainingCap = damageCap.HasValue ? damageCap.Value - currentTotalDamage : null;
+
             foreach (var (type, value) in damage.DamageDict)
             {
                 if (!dict.TryGetValue(type, out var oldValue))
                     continue;
 
-                // Scale positive damage if needed due to integrity cap
-                var adjustedValue = value;
-                if (scaleFactor is not null)
-                    adjustedValue = FixedPoint2.New(value.Float() * scaleFactor.Value);
+                // For positive damage, we need to check if we've hit the cap
+                if (value > 0)
+                {
+                    // Delta ignores this stuff since we need it for effects.
+                    delta.DamageDict[type] = value;
 
-                var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + adjustedValue);
-                if (newValue == oldValue
-                    && (scaleFactor is null
-                    || scaleFactor is not null
-                    && scaleFactor.Value != 0f))
-                    continue;
+                    // If we're not a woundable or we don't have a cap, apply the damage normally
+                    if (!isWoundable
+                        || remainingCap is null)
+                    {
+                        dict[type] = oldValue + value;
+                        continue;
+                    }
 
-                dict[type] = newValue;
-                if (value >= 0)
-                    delta.DamageDict[type] = value; // Report original damage value in delta so that parts with damage capped will always apply effects
+                    // If we've already hit the cap, skip this damage type
+                    if (remainingCap.Value <= 0)
+                        continue;
+
+                    // Calculate how much of this damage type we can apply
+                    var damageToApply = FixedPoint2.Min(value, remainingCap.Value);
+                    var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + damageToApply);
+
+                    // Update remaining cap
+                    remainingCap -= damageToApply;
+
+                    // Only update the dict if the value actually changed
+                    if (newValue != oldValue)
+                        dict[type] = newValue;
+                }
                 else
-                    delta.DamageDict[type] = newValue - oldValue; // If it's a heal, then who cares. Overhealing isn't real.
+                {
+                    // For negative damage (healing), apply normally
+                    var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
+                    if (newValue != oldValue)
+                    {
+                        dict[type] = newValue;
+                        delta.DamageDict[type] = newValue - oldValue;
+                    }
+                }
             }
 
             if (delta.DamageDict.Count > 0)
@@ -569,7 +583,7 @@ namespace Content.Shared.Damage
                 // which also means we send that shit to refresh the body.
                 if (isWoundable)
                 {
-                    var updated = UpdateParentDamageFromBodyParts(uid,
+                    UpdateParentDamageFromBodyParts(uid,
                         delta,
                         interruptsDoAfters,
                         origin,
@@ -904,7 +918,7 @@ namespace Content.Shared.Damage
                 damage.DamageDict.Add(typeId, damageValue);
             }
 
-            TryChangeDamage(uid, damage, interruptsDoAfters: false);
+            TryChangeDamage(uid, damage, interruptsDoAfters: false, origin: args.Origin);
         }
 
         private void OnRejuvenate(EntityUid uid, DamageableComponent component, RejuvenateEvent args)
@@ -967,16 +981,14 @@ namespace Content.Shared.Damage
         public DamageSpecifier Damage;
         public EntityUid? Origin;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
-        public float ArmorPenetration; // Goobstation
 
-        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null, float armorPenetration = 0) // Shitmed + Goobstation Change
+        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed + Goobstation Change
         {
             Target = target; // Goobstation
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
             TargetPart = targetPart; // Shitmed Change
-            ArmorPenetration = armorPenetration; // Goobstation
         }
     }
 

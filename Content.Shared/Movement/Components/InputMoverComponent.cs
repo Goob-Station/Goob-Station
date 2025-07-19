@@ -1,7 +1,11 @@
 // SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -35,12 +39,6 @@ namespace Content.Shared.Movement.Components
         // We change which vector we write into based on whether we were sprinting after the previous input.
         //   (well maybe we do but the code is designed such that MoverSystem applies movement speed)
         //   (and I'm not changing that)
-
-        /// <summary>
-        /// Should our velocity be applied to our parent?
-        /// </summary>
-        [DataField]
-        public bool ToParent = false;
 
         public GameTick LastInputTick;
         public ushort LastInputSubTick;
@@ -82,7 +80,11 @@ namespace Content.Shared.Movement.Components
 
         public const float LerpTime = 1.0f;
 
-        public bool Sprinting => (HeldMoveButtons & MoveButtons.Walk) == 0x0;
+        public bool Sprinting => DefaultSprinting
+        ? (HeldMoveButtons & MoveButtons.Walk) != 0x0
+        : (HeldMoveButtons & MoveButtons.Walk) == 0x0;
+        
+        public bool DefaultSprinting = true;
 
         [ViewVariables(VVAccess.ReadWrite)]
         public bool CanMove = true;
@@ -96,6 +98,6 @@ namespace Content.Shared.Movement.Components
         public Angle TargetRelativeRotation;
         public Angle RelativeRotation;
         public TimeSpan LerpTarget;
-        public bool CanMove;
+        public bool CanMove, DefaultSprinting;
     }
 }

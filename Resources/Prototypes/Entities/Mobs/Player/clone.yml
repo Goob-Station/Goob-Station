@@ -17,11 +17,13 @@
   # traits
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
+  - Muted
   - Narcolepsy
   - Pacified
   - PainNumbness
   - Paracusia
   - PermanentBlindness
+  - Snoring
   - Unrevivable
   # job specific
   - BibleUser
@@ -37,6 +39,7 @@
   - BleatingAccent
   - DamagedSiliconAccent
   - FrenchAccent
+  - FrontalLisp
   - GermanAccent
   - LizardAccent
   - MobsterAccent
@@ -57,6 +60,11 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
+  # Einstein Engines - Language begin
+  - LanguageSpeaker
+  - LanguageKnowledge
+  - ForeignerTrait
+  # Einstein Engines - Language end
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit
@@ -72,6 +80,7 @@
   - HeadRevolutionary
   - Revolutionary
   - NukeOperative
+  forceCloning: true # Goob - IPC/Vox cloning for paradox ghostrole
 
 # for cloning pods
 - type: cloningSettings

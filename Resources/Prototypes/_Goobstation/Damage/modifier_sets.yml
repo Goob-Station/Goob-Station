@@ -12,14 +12,18 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 cheetah1984 <152602630+cheetah1984@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
 #
@@ -29,10 +33,9 @@
   id: Silicon
   coefficients:
     Heat: 0.8
-  flatReductions:
-    Blunt: 5
-    Slash: 5
-    Piercing: 5
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 0.9
 
 - type: damageModifierSet
   id: SiliconProtected
@@ -224,6 +227,16 @@
   ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
+  id: HisGraceAscended
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Cold: 0.5
+    Heat: 0.5
+  ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
   id: DevilDealPositive
   coefficients:
     Blunt: 0.50
@@ -254,6 +267,16 @@
   id: StructuralImmunity
   coefficients:
     Structural: 0
+
+- type: damageModifierSet
+  id: Dragon
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.85
+    Piercing: 0.8
+    Shock: 1.2 # I guess snakes better conduct electricity????????
+    Heat: 0.7
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: StrongCrates

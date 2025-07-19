@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseGameRule
   id: CosmicCult
@@ -5,6 +14,7 @@
   - type: CosmicCultRule
   - type: GameRule
     minPlayers: 25
+    chaosScore: 1200
     delay:
       min: 60
       max: 120
@@ -19,12 +29,13 @@
       min: 2
       max: 6
       playerRatio: 10
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
       blacklist:
         components:
         - AntagImmune
         - BibleUser
       components:
       - type: CosmicCult
+      - type: WeakToHoly # GOOBSTATION
       mindRoles:
       - MindRoleCosmicCult

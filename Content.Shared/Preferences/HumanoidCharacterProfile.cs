@@ -36,9 +36,15 @@
 // SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Hyper B <137433177+HyperB1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -73,10 +79,6 @@ namespace Content.Shared.Preferences
     {
         private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
-
-        public const int MaxNameLength = 32;
-        public const int MaxLoadoutNameLength = 32;
-        public const int MaxDescLength = 512;
 
         /// <summary>
         /// Job preferences for initial spawn.
@@ -127,11 +129,6 @@ namespace Content.Shared.Preferences
         [DataField]
         public int Age { get; set; } = 18;
 
-        // #Goobstation - Prefered Borg Name Stuff
-
-        [DataField]
-        public string BorgName { get; set; } = "Genero-Bot";
-
         [DataField]
         public Sex Sex { get; private set; } = Sex.Male;
 
@@ -176,12 +173,10 @@ namespace Content.Shared.Preferences
         [DataField]
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
-        // #Goobstation - Borg Preferred Name (borgname)
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
             string species,
-            string borgname,
             int age,
             Sex sex,
             Gender gender,
@@ -197,7 +192,6 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             Species = species;
-            BorgName = borgname;
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -229,8 +223,6 @@ namespace Content.Shared.Preferences
             : this(other.Name,
                 other.FlavorText,
                 other.Species,
-                // #Goobstation - Borg Preferred Name
-                other.BorgName,
                 other.Age,
                 other.Sex,
                 other.Gender,
@@ -308,13 +300,10 @@ namespace Content.Shared.Preferences
 
             var name = GetName(species, gender);
 
-            // #Goobstation - Borg Preferred Name
-            var borgname = GetBorgName();
 
             return new HumanoidCharacterProfile()
             {
                 Name = name,
-                BorgName = borgname,
                 Sex = sex,
                 Age = age,
                 Gender = gender,
@@ -336,13 +325,6 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithAge(int age)
         {
             return new(this) { Age = age };
-        }
-
-        // #Goobstation - Borg Stuff (see above for more borgname things
-
-        public HumanoidCharacterProfile WithBorgName(string borgname)
-        {
-            return new(this) { BorgName = borgname };
         }
 
         public HumanoidCharacterProfile WithSex(Sex sex)
@@ -527,8 +509,6 @@ namespace Content.Shared.Preferences
             if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
             if (Age != other.Age) return false;
-            // #Goobstation - Borg Preferred Name
-            if (BorgName != other.BorgName) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
@@ -577,13 +557,14 @@ namespace Content.Shared.Preferences
             };
 
             string name;
+            var maxNameLength = configManager.GetCVar(CCVars.MaxNameLength);
             if (string.IsNullOrEmpty(Name))
             {
                 name = GetName(Species, gender);
             }
-            else if (Name.Length > MaxNameLength)
+            else if (Name.Length > maxNameLength)
             {
-                name = Name[..MaxNameLength];
+                name = Name[..maxNameLength];
             }
             else
             {
@@ -611,34 +592,14 @@ namespace Content.Shared.Preferences
 
 
             string flavortext;
-            if (FlavorText.Length > MaxDescLength)
+            var maxFlavorTextLength = configManager.GetCVar(CCVars.MaxFlavorTextLength);
+            if (FlavorText.Length > maxFlavorTextLength)
             {
-                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText)[..MaxDescLength];
+                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText)[..maxFlavorTextLength];
             }
             else
             {
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
-            }
-            // #Goobstation - Borg Preferred Name
-            string borgname;
-            if (string.IsNullOrEmpty(BorgName))
-            {
-                borgname = GetBorgName();
-            }
-            else if (BorgName.Length > MaxNameLength)
-            {
-                borgname = BorgName[..MaxNameLength];
-            }
-            else
-            {
-                borgname = BorgName;
-            }
-
-            borgname = borgname.Trim();
-
-            if (string.IsNullOrEmpty(borgname))
-            {
-                borgname = GetBorgName();
             }
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
@@ -689,8 +650,6 @@ namespace Content.Shared.Preferences
 
             Name = name;
             FlavorText = flavortext;
-            // #Goobstation - Borg Preferred Name
-            BorgName = borgname;
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -785,15 +744,6 @@ namespace Content.Shared.Preferences
             var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
             return namingSystem.GetName(species, gender);
         }
-        // #Goobstation - Borg Preferred Name
-        public static string GetBorgName()
-        {
-            var random = IoCManager.Resolve<IRobustRandom>();
-            var prototypeSystem = IoCManager.Resolve<IPrototypeManager>();
-            var prototype = prototypeSystem.Index<LocalizedDatasetPrototype>("NamesBorg");
-            return random.Pick(prototype);
-
-        }
 
         public override bool Equals(object? obj)
         {
@@ -809,8 +759,6 @@ namespace Content.Shared.Preferences
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
-            // #Goobstation - Borg Preferred Name
-            hashCode.Add(BorgName);
             hashCode.Add(Species);
             hashCode.Add(Age);
             hashCode.Add((int) Sex);

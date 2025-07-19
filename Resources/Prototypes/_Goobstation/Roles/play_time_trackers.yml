@@ -7,6 +7,8 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -43,10 +45,16 @@
   id: JobNanotrasenCareerTrainer
 
 - type: playTimeTracker
+  id: JobHighCommander
+
+- type: playTimeTracker
   id: JobGovernmentMan
 
 - type: playTimeTracker
   id: JobConquest
+
+- type: playTimeTracker
+  id: JobMercenaryCaptain
 
 - type: playTimeTracker
   id: JobBrigmedic

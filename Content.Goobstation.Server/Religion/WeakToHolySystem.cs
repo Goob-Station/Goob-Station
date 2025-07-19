@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -135,8 +136,8 @@ public sealed class WeakToHolySystem : EntitySystem
         base.Update(frameTime);
 
         // Holy damage healing.
-        var query = EntityQueryEnumerator<BodyComponent, WeakToHolyComponent>();
-        while (query.MoveNext(out var uid, out var body, out var weakToHoly))
+        var query = EntityQueryEnumerator<WeakToHolyComponent, BodyComponent>();
+        while (query.MoveNext(out var uid, out var weakToHoly, out var body))
         {
             if (!TryComp<DamageableComponent>(uid, out var damageable))
                 return;

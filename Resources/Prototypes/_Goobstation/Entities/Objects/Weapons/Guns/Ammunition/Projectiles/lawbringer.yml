@@ -250,15 +250,6 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
-        hard: false
-        mask:
-        - Opaque
   - type: Reflective
     reflective:
     - Energy
@@ -278,5 +269,5 @@
       types:
         Blunt: 2
         Heat: 2
-        Structural: 50
+        Structural: 100
     ignoreResistances: true # This needs ProjectileDamageWhitelistComponent

@@ -39,7 +39,10 @@ public sealed partial class NerveSystemComponent : Component
     public Dictionary<EntityUid, NerveComponent> Nerves = new();
 
     // Don't add manually!! Use built-in functions.
+    [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<string, PainMultiplier> Multipliers = new();
+
+    [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<(EntityUid, string), PainModifier> Modifiers = new();
 
     public Dictionary<EntityUid, AudioComponent> PlayedPainSounds = new();

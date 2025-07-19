@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: htnCompound
+  id: FillbotCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FillMachineCompound
+
+# Picks an object depending on what machine the bot is linked to, and puts it in the machine it's linked to
+- type: htnCompound
+  id: FillMachineCompound
+  branches:
+    - tasks:
+        # Find an item that will fit into the machine
+        - !type:HTNPrimitiveTask
+          operator: !type:PickNearbyFillableItemOperator
+            targetKey: NearbyFillableItem
+            targetMoveKey: TargetCoordinates
+        # Move in range
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: NearbyFillableItem
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+            brakeMaxVelocity: null # don't need to brake
+        # Pick it up
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: NearbyFillableItem
+              rangeKey: InteractRange
+            - !type:KeyExistsPrecondition
+              key: NearbyFillableItem
+          operator: !type:InteractWithOperator
+            targetKey: NearbyFillableItem
+        # Find the machine the bot is linked to
+        - !type:HTNPrimitiveTask
+          operator: !type:FindLinkedMachineOperator
+            targetKey: LinkedFillableMachine
+            targetMoveKey: TargetCoordinates
+        # Move to the machine
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: LinkedFillableMachine
+          operator: !type:MoveToOperator
+            pathfindInPlanning: false
+            brakeMaxVelocity: null
+        # Insert the item
+        - !type:HTNPrimitiveTask
+          operator: !type:FillLinkedMachineOperator
+            targetKey: LinkedFillableMachine

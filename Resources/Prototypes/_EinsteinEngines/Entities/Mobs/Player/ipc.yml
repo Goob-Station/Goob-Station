@@ -8,9 +8,12 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -22,6 +25,13 @@
   name: Urist McPositronic
   description: A positronic brain in a metal body.
   components:
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
   - type: HarpySinger
     ShutUpDamageThreshold: 5 # Punch does 5 damage
   - type: Instrument
@@ -151,6 +161,13 @@
   - type: WeldingHealable
   - type: DamagedSiliconAccent
   - type: Uncloneable
+  - type: Tag
+    tags:
+    - SiliconMob
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
 
 - type: entity
   save: false
