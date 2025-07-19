@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Angelo Fallaria <ba.fallaria@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Common.Movement;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
