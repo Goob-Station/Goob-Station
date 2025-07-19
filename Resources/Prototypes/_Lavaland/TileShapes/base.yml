@@ -1,0 +1,23 @@
+- type: tileShape
+  id: BoxFilled
+  shape: !type:BoxTileShape
+
+- type: tileShape
+  id: BoxHollow
+  shape: !type:BoxTileShape
+    hollow: true
+
+- type: tileShape
+  id: RookCross
+  shape: !type:RookTileShape
+
+- type: tileShape
+  id: BishopCross
+  shape: !type:BishopTileShape
+
+- type: tileShape
+  id: QueenCross
+  shape: !type:GroupTileShape
+    children:
+    - id: RookCross
+    - id: BishopCross

@@ -46,6 +46,12 @@
         Blunt: 15
         Heat: 5
   - type: HierophantClubItem
+    crossAttackShape: !type:NestedTileShape
+      id: QueenCross
+      size: 5
+    blinkShape: !type:NestedTileShape
+      id: BoxFilled
+      size: 3
 
 - type: entity
   id: LavalandHierophantClubTeleportMarker
