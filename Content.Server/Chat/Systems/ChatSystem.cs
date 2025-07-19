@@ -140,6 +140,7 @@ using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Content.Shared.Whitelist;
+using Content.Shared.Zombies;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -359,9 +360,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
-        {
             SendEntityEmote(source, emoteStr, range, nameOverride, language, ignoreActionBlocker); // Einstein Engines - Language
-        }
 
         // This can happen if the entire string is sanitized out.
         if (string.IsNullOrEmpty(message))
@@ -394,9 +393,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
             {
                 if (collective != null && collective.RespectAccents)
-                {
                     modMessage = TransformSpeech(source, modMessage, language); // Einstein Engines - Languages (I made null since it requires a language input)
-                }
 
                 SendCollectiveMindChat(source, modMessage, channel);
                 return;
@@ -1063,7 +1060,8 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     public string TransformSpeech(EntityUid sender, string message, LanguagePrototype language) // Einstein Engines - Language
     {
-        if (!language.SpeechOverride.RequireSpeech) // Einstein Engines - Language
+        if (!language.SpeechOverride.RequireSpeech // Einstein Engines - Language
+            && !HasComp<ZombieComponent>(sender)) // No Zombie Gang Signs
             return message; // Do not apply speech accents if there's no speech involved.
 
         var ev = new TransformSpeechEvent(sender, message);
@@ -1121,7 +1119,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     // Einstein Engines - Language begin
-       /// <summary>
+    /// <summary>
     ///     Wraps a message sent by the specified entity into an "x says y" string.
     /// </summary>
     public string WrapPublicMessage(EntityUid source, string name, string message, LanguagePrototype? language = null)
