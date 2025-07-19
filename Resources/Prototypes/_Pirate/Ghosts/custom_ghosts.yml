@@ -167,7 +167,7 @@
 
 - type: customGhost
   id: lemax-ghost
-  ckey: localhost@lemax
+  ckey: lemax
   sprite: _Pirate/Ghosts/lemax.rsi
   alpha: 1
   ghostName: lemax
