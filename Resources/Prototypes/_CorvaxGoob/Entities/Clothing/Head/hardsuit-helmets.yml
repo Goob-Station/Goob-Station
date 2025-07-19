@@ -1,0 +1,60 @@
+- type: entity
+  parent: [ BaseSecurityContraband, ClothingHeadHelmetAtmosFire ]
+  id: ClothingHeadHelmetHardsuitSecPilot
+  name: helmet pilot security services
+  description: Helmet for the security service pilot's suit. It has a more powerful flashlight for better patrolling.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/hardsuits/pilot.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/hardsuits/pilot.rsi
+    equippedPrefix: off
+    equipDelay: 1.5
+    unequipDelay: 1
+  - type: Item
+    size: Huge
+  - type: PointLight
+    color: "#FED540"
+    radius: 7
+  - type: PressureProtection
+    highPressureMultiplier: 0.25
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+        Radiation: 0.80
+        Caustic: 0.95
+  - type: FireProtection
+    reduction: 0.99
+
+- type: entity
+  parent: ClothingHeadHelmetCBURN
+  id: ClothingHeadHelmetCBURNLeader
+  categories: [ HideSpawnMenu ]
+  name: cburn commander helmet
+  description: A pressure resistant and fireproof hood worn by special cleanup units.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/hardsuits/cburncommander.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.1
+        Shock: 0.1
+        Cold: 0.2
+        Radiation: 0.2

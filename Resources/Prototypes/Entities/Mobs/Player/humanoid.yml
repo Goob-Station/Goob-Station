@@ -142,10 +142,18 @@
 - type: randomHumanoidSettings
   id: EventHumanoidMindShielded
   parent: EventHumanoid
-  randomizeName: false
   components:
     - type: MindShield
     - type: AntagImmune
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+    - type: CanChokeGrab # CorvaxGoob-Grab
 
 # Goobstation start
 - type: randomHumanoidSettings
@@ -162,6 +170,7 @@
 - type: randomHumanoidSettings
   id: EventHumanoidCentcomm
   parent: EventHumanoidMindShielded
+  randomizeName: false
   components:
   - type: AutoImplant
     implants:

@@ -49,12 +49,13 @@
     checkCanInteract: false # Goobstation
     useDelay: 25 # Goob edit
     event: !type:PolymorphSpellEvent # Goob edit
-      speech: action-speech-spell-rod-form # Goobstation
       protoId: WizardRod
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: immrod # Goob edit
+  - type: SpeakOnAction
+    sentence: action-speech-spell-rod-form # Goobstation
   - type: Magic # Goobstation
     requiresClothes: true
     requiresSpeech: true

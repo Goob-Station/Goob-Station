@@ -1,0 +1,469 @@
+- type: entity
+  parent: [BaseItem, BaseFoldable]
+  id: CarcTileBase
+  name: "tile"
+  description: CarcTileBase
+  suffix: "DEBUG"
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-flip-verb
+    foldVerbText: fold-flip-verb
+  - type: Sprite
+    drawdepth: 3
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/tiles.rsi
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: start_back
+      map: ["foldedLayer"]
+      visible: false
+  - type: Rotatable
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - CarcTile
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileStart
+  name: "tile"
+  description: CarcTileStart
+  suffix: "Start tile CRFR"
+  components:
+  - type: Sprite
+    layers:
+    - state: start_back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: crfr
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCCCLS
+  name: "tile"
+  suffix: "Tile CCCCLS"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: ccccls
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCCFL
+  name: "tile"
+  suffix: "Tile CCCFL"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: cccfl
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCCFLS
+  name: "tile"
+  suffix: "Tile CCCFLS"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: cccfls
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCCRL
+  name: "tile"
+  suffix: "Tile CCCRL"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: cccrl
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCCRLS
+  name: "tile"
+  suffix: "Tile CCCRLS"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: cccrls
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCFF
+  name: "tile"
+  suffix: "Tile CCFF"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: ccff
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCFFL
+  name: "tile"
+  suffix: "Tile CCFFL"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: ccffl
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCFFLS
+  name: "tile"
+  suffix: "Tile CCFFLS"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: ccffls
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCRR
+  name: "tile"
+  suffix: "Tile CCRR"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: ccrr
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCRRL
+  name: "tile"
+  suffix: "Tile CCRRl"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: ccrrl
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCCRRLS
+  name: "tile"
+  suffix: "Tile CCRRLS"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: ccrrls
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCFCF
+  name: "tile"
+  suffix: "Tile CFCF"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: cfcf
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCFCFL
+  name: "tile"
+  suffix: "Tile CFCFL"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: cfcfl
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCFCFLS
+  name: "tile"
+  suffix: "Tile CFCFLS"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: cfcfls
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCFFF
+  name: "tile"
+  suffix: "Tile CFFF"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: cfff
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCFRR
+  name: "tile"
+  suffix: "Tile CFRR"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: cfrr
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCRCR
+  name: "tile"
+  suffix: "Tile CRCR"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: crcr
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCRFR
+  name: "tile"
+  suffix: "Tile CRFR"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: crfr
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCRRF
+  name: "tile"
+  suffix: "Tile CRRF"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: crrf
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileCRRR
+  name: "tile"
+  suffix: "Tile CRRR"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: crrr
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileFFFF
+  name: "tile"
+  suffix: "Tile FFFF"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: ffff
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileRFFF
+  name: "tile"
+  suffix: "Tile RFFF"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: rfff
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileRFRF
+  name: "tile"
+  suffix: "Tile RFRF"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: rfrf
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileRRFF
+  name: "tile"
+  suffix: "Tile RRFF"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: rrff
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileRRRF
+  name: "tile"
+  suffix: "Tile RRRF"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: rrrf
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: CarcTileBase
+  id: CarcTileRRRR
+  name: "tile"
+  suffix: "Tile RRRR"
+  components:
+  - type: Sprite
+    layers:
+    - state: back
+      map: [ "unfoldedLayer"]
+      visible: true
+    - state: rrrr
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  name: random tile
+  id: CarcTileSpawner
+  parent: CarcTileBase
+  components:
+    - type: RandomSpawner
+      prototypes:
+        - CarcTileCCCCLS
+        - CarcTileCCCFL
+        - CarcTileCCCRL
+        - CarcTileCCCRLS
+        - CarcTileCCCFLS
+        - CarcTileCCFF
+        - CarcTileCCFFL
+        - CarcTileCCFFLS
+        - CarcTileCCRR
+        - CarcTileCCRRLS
+        - CarcTileCCRRL
+        - CarcTileCFCF
+        - CarcTileCFCFL
+        - CarcTileCFCFLS
+        - CarcTileCFRR
+        - CarcTileCRCR
+        - CarcTileCRFR
+        - CarcTileCRRF
+        - CarcTileCRRR
+        - CarcTileCFFF
+        - CarcTileFFFF
+        - CarcTileRFFF
+        - CarcTileRFRF
+        - CarcTileRRFF
+        - CarcTileRRRF
+        - CarcTileRRRR
+      offset: 0.0

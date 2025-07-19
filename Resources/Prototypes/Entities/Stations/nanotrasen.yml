@@ -50,6 +50,7 @@
   id: StandardNanotrasenStation
   parent:
     - BaseStation
+    - BaseStationGoal # CorvaxGoob
     - BaseStationNews
     - BaseStationCargo
     - BaseStationJobsSpawning
@@ -62,6 +63,7 @@
     - BaseStationAlertLevels
     - BaseStationMagnet
     - BaseStationExpeditions
+    - BaseStationSalvageJobs
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen

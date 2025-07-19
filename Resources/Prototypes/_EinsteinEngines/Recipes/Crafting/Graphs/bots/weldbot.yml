@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: WeldBot
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bot
+      steps:
+      - tag: ProximitySensor
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: construction-graph-tag-proximity-sensor
+        doAfter: 2
+      - tag: WeldingMask
+        icon:
+          sprite: Clothing/Head/Welding/welding.rsi
+          state: icon
+        name: construction-graph-tag-welding-mask
+        doAfter: 2
+      - tag: WeldingTool
+        icon:
+          sprite: Objects/Tools/welder.rsi
+          state: icon
+        name: construction-graph-tag-welding-tool
+        doAfter: 2
+  - node: bot
+    entity: MobWeldbot

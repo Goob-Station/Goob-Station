@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Ko4erga",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "hemostat"
+    },
+    {
+      "name": "scalpel"
+    },
+    {
+      "name": "energyScalpel"
+    },
+    {
+      "name": "scalpelLaser"
+    },
+    {
+      "name": "retractor"
+    },
+    {
+      "name": "advancedRetractor"
+    },
+    {
+      "name": "cautery"
+    },
+    {
+      "name": "energyCautery"
+    },
+    {
+      "name": "drill"
+    },
+    {
+      "name": "sawElectric"
+    },
+    {
+      "name": "hemostat-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "scalpel-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "energyScalpel-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "scalpelLaser-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "retractor-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "advancedRetractor-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "cautery-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "energyCautery-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "drill-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "sawElectric-equipped-BELT",
+      "directions": 4
+    }
+  ]
+}

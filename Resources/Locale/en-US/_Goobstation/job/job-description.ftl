@@ -17,11 +17,16 @@ job-description-navy-special-operations-officer = Send, brief, and direct emerge
 
 job-description-nct = Teach the newbies how to perform their company assigned tasks properly, and stay out of trouble.
 
+# Syndicate
+
+job-description-highcommander = You are an elite, high-ranking official within the Spinward Syndicate. It doesn't matter which faction, you're important to them all.
+
 # Half Life
 
-job-description-gman = Well, well, isn't this just like old times.
+job-description-governmentman = Well, well, isn't this just like old times.
 job-description-hecu = Fufill the orders of your supervisor, no matter the morales.
 
 # Misc
 
 job-description-conquest = Stand ready for my arrival, worm.
+job-description-mercenarycaptain = Order other mercs around. Act as muscle for the highest bidder. Just because it's NT now, doesn't mean it won't change later.

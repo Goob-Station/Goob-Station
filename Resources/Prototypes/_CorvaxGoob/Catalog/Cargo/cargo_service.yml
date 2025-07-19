@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ServiceLoreBooks
+  icon:
+    sprite: _CorvaxGoob/Objects/Misc/books.rsi
+    state: book_grav
+  product: CrateServiceLoreBooks
+  cost: 1500
+  category: cargoproduct-category-name-service
+  group: market

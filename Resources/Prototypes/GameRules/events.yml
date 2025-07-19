@@ -126,8 +126,10 @@
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -171,6 +173,7 @@
 #    - id: TidemindDevelop - Corvax Goob
     - id: MothroachSpawn # DeltaV
     - id: XenoVents # DeltaV
+    - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -228,7 +231,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/_CorvaxGoob/Announcements/flux.ogg # CorvaxGoob-Announcements
     weight: 8
     duration: 35
     chaos: # Goobstation
@@ -251,7 +254,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/_CorvaxGoob/Announcements/blusp_anomalies.ogg # CorvaxGoob-Announcements
     weight: 8
     duration: 35
     chaos: # Goobstation
@@ -433,6 +436,15 @@
         sound: /Audio/Misc/ninja_greeting.ogg
       components:
       - type: SpaceNinja
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -505,7 +517,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 280
+    chaosScore: 450
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -565,13 +577,17 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/gasleak_start.ogg # CorvaxGoob-Announcements
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
     chaos:
       Atmos: 100
       Medical: 50
     eventType: Maintenance # Goobstation
+    endAudio: # CorvaxGoob-Announcements
+      path: /Audio/Announcements/gasleak_end.ogg
+      params:
+        volume: -4
   # Goobstation
   - type: GameRule
     chaosScore: 80 # most of the time scrubbers just clean it
@@ -593,7 +609,7 @@
     eventType: Maintenance # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 40
+    chaosScore: 80
   - type: KudzuGrowthRule
 
 - type: entity
@@ -625,7 +641,7 @@
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/_CorvaxGoob/Announcements/comms_blackout.ogg # CorvaxGoob-Announcements
     duration: 120
     maxDuration: 240
     chaos: # Goobstation
@@ -657,7 +673,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention.ogg # CorvaxGoob-Announcements
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
@@ -677,7 +693,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
+      path: /Audio/Announcements/attention.ogg # CorvaxGoob-Announcements
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -688,7 +704,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 360
+    chaosScore: 200
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -714,7 +730,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 360
+    chaosScore: 240
   - type: VentCrittersRule
     table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
       children:
@@ -740,7 +756,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 360
+    chaosScore: 240
   - type: VentCrittersRule
     table: # DeltaV: EntityTable instead of spawn entries
       id: MobGiantSpiderAngry
@@ -763,7 +779,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 360
+    chaosScore: 240
   - type: VentCrittersRule
     playerRatio: 20 # DeltaV: Clown spiders are very robust
     table: # DeltaV: EntityTable instead of spawn entries
@@ -807,6 +823,15 @@
         maxInitialInfectedGrace: 450
       - type: ZombifyOnDeath
       - type: IncurableZombie
+      - type: CanChokeGrab # CorvaxGoob-Grab
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
@@ -845,11 +870,20 @@
       - RoleSurvivalNukie
       components:
       - type: NukeOperative
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: RandomMetadata
         nameSegments:
         - NamesSyndicatePrefix
         - NamesSyndicateNormal
         nameFormat: name-format-nukie-generic
+      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -879,7 +913,7 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 550
+    chaosScore: 500
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -891,6 +925,16 @@
       blacklist:
         components:
         - AntagImmune
+      components: # CorvaxGoob-Skills
+      - type: Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
+      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleTraitorSleeper
 
@@ -929,6 +973,8 @@
       Friend: 20
       Mess: 30
     eventType: Chaotic # Goobstation
+    startAudio:
+      path: /Audio/_CorvaxGoob/Adminbuse/i-storm1.ogg # CorvaxGoob-Announcements
   # Goobstation
   - type: GameRule
     chaosScore: 150

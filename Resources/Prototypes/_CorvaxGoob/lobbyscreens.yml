@@ -1,0 +1,219 @@
+- type: lobbyBackground
+  id: BarLife
+  background: /Textures/_CorvaxGoob/LobbyScreens/bar-life.png
+
+- type: lobbyBackground
+  id: DeadInSpace
+  background: /Textures/_CorvaxGoob/LobbyScreens/dead-in-space.png
+
+- type: lobbyBackground
+  id: Deadsquad
+  background: /Textures/_CorvaxGoob/LobbyScreens/deadsquad.png
+
+- type: lobbyBackground
+  id: Detective
+  background: /Textures/_CorvaxGoob/LobbyScreens/detective.png
+
+- type: lobbyBackground
+  id: EngineersChill
+  background: /Textures/_CorvaxGoob/LobbyScreens/engineers-chill.png
+
+- type: lobbyBackground
+  id: Greytide
+  background: /Textures/_CorvaxGoob/LobbyScreens/greytide.png
+
+- type: lobbyBackground
+  id: Hydroponics
+  background: /Textures/_CorvaxGoob/LobbyScreens/hydroponics.png
+
+- type: lobbyBackground
+  id: IntoSpace
+  background: /Textures/_CorvaxGoob/LobbyScreens/into-space.png
+
+- type: lobbyBackground
+  id: Jailbreak
+  background: /Textures/_CorvaxGoob/LobbyScreens/jailbreak.png
+
+- type: lobbyBackground
+  id: Kosmologistika
+  background: /Textures/_CorvaxGoob/LobbyScreens/kosmologistika.png
+
+- type: lobbyBackground
+  id: LizardBar
+  background: /Textures/_CorvaxGoob/LobbyScreens/lizard-bar.png
+
+- type: lobbyBackground
+  id: Lofi
+  background: /Textures/_CorvaxGoob/LobbyScreens/lofi.png
+
+- type: lobbyBackground
+  id: MaintenanceClown
+  background: /Textures/_CorvaxGoob/LobbyScreens/maintenance-clown.png
+
+- type: lobbyBackground
+  id: MedDepart
+  background: /Textures/_CorvaxGoob/LobbyScreens/med-depart.png
+
+- type: lobbyBackground
+  id: NukiesHere
+  background: /Textures/_CorvaxGoob/LobbyScreens/nukies-here.png
+
+- type: lobbyBackground
+  id: RegularShift
+  background: /Textures/_CorvaxGoob/LobbyScreens/regular-shift.png
+
+- type: lobbyBackground
+  id: Russellmart
+  background: /Textures/_CorvaxGoob/LobbyScreens/russellmart.png
+
+- type: lobbyBackground
+  id: Sidor
+  background: /Textures/_CorvaxGoob/LobbyScreens/sidor.png
+
+- type: lobbyBackground
+  id: Singulord
+  background: /Textures/_CorvaxGoob/LobbyScreens/singulord.png
+
+- type: lobbyBackground
+  id: SpaceMudaki
+  background: /Textures/_CorvaxGoob/LobbyScreens/space-mudaki.png
+
+- type: lobbyBackground
+  id: Traitor
+  background: /Textures/_CorvaxGoob/LobbyScreens/traitor.png
+
+- type: lobbyBackground
+  id: NukieDudes
+  background: /Textures/_CorvaxGoob/LobbyScreens/nukie-dudes.png
+
+- type: lobbyBackground
+  id: LostAndPowerless
+  background: /Textures/_CorvaxGoob/LobbyScreens/lost-and-powerless.png
+
+- type: lobbyBackground
+  id: MenAtWork
+  background: /Textures/_CorvaxGoob/LobbyScreens/men-at-work.png
+
+- type: lobbyBackground
+  id: FleshAnom
+  background: /Textures/_CorvaxGoob/LobbyScreens/fleshanom.png
+
+- type: lobbyBackground
+  id: Revenant
+  background: /Textures/_CorvaxGoob/LobbyScreens/revenant.png
+
+- type: lobbyBackground
+  id: DeathNettle
+  background: /Textures/_CorvaxGoob/LobbyScreens/deathnettle.png
+
+- type: lobbyBackground
+  id: Xeno
+  background: /Textures/_CorvaxGoob/LobbyScreens/xeno.png
+
+- type: lobbyBackground
+  id: ClownSpider
+  background: /Textures/_CorvaxGoob/LobbyScreens/clownspider.png
+
+- type: lobbyBackground
+  id: AIMia
+  background: /Textures/_CorvaxGoob/LobbyScreens/ai-mia.png
+
+- type: lobbyBackground
+  id: XenoAttack
+  background: /Textures/_CorvaxGoob/LobbyScreens/xenosattack.png
+
+- type: lobbyBackground
+  id: SingulordCage
+  background: /Textures/_CorvaxGoob/LobbyScreens/singulord-cage.png
+
+- type: lobbyBackground
+  id: YouLookLonely
+  background: /Textures/_CorvaxGoob/LobbyScreens/you-look-lonely.png
+
+- type: lobbyBackground
+  id: GrayTide
+  background: /Textures/_CorvaxGoob/LobbyScreens/gray-tide.png
+
+- type: lobbyBackground
+  id: NewYearBar
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-bar.png
+
+- type: lobbyBackground
+  id: NewYearSec
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-sec.png
+
+- type: lobbyBackground
+  id: NewYearSave
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-save.png
+
+- type: lobbyBackground
+  id: NewYearComfort
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-comfort.png
+
+- type: lobbyBackground
+  id: NewYearParty
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-party.png
+
+- type: lobbyBackground
+  id: NewYearPine
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-pine.png
+
+- type: lobbyBackground
+  id: NewYearExplosion
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-explosion.png
+
+- type: lobbyBackground
+  id: SpaceNuke
+  background: /Textures/_CorvaxGoob/LobbyScreens/space-nuke.png
+
+- type: lobbyBackground
+  id: NewYearPenguins
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-penguins.png
+
+- type: lobbyBackground
+  id: NewYearNuke
+  background: /Textures/_CorvaxGoob/LobbyScreens/new-year-nuke.png
+
+- type: lobbyBackground
+  id: ArnoldIntelligence
+  background: /Textures/_CorvaxGoob/LobbyScreens/arnold-intelligence.png
+
+- type: lobbyBackground
+  id: MimesInTechs
+  background: /Textures/_CorvaxGoob/LobbyScreens/mimes-in-techs.png
+
+- type: lobbyBackground
+  id: NukieWar
+  background: /Textures/_CorvaxGoob/LobbyScreens/nukie-war.png
+
+- type: lobbyBackground
+  id: EngineersVsZombies
+  background: /Textures/_CorvaxGoob/LobbyScreens/engineers-vs-zombies.png
+
+- type: lobbyBackground
+  id: SillyIsland
+  background: /Textures/_CorvaxGoob/LobbyScreens/silly-island.png
+
+- type: lobbyBackground
+  id: EchoTeam
+  background: /Textures/_CorvaxGoob/LobbyScreens/echo-team.png
+
+- type: lobbyBackground
+  id: YouAreNotFunny
+  background: /Textures/_CorvaxGoob/LobbyScreens/you-are-not-funny.png
+
+- type: lobbyBackground
+  id: NarSieCult
+  background: /Textures/_CorvaxGoob/LobbyScreens/nar-sie.png
+
+- type: lobbyBackground
+  id: End
+  background: /Textures/_CorvaxGoob/LobbyScreens/end.png
+
+- type: lobbyBackground
+  id: CyborgNinja
+  background: /Textures/_CorvaxGoob/LobbyScreens/cyborg-ninja.png
+
+- type: lobbyBackground
+  id: Security
+  background: /Textures/_CorvaxGoob/LobbyScreens/security.png
