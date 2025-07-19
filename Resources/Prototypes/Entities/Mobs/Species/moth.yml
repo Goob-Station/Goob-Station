@@ -161,8 +161,8 @@
   - type: MothAccent
   - type: Vocal
     sounds:
-      Male: UnisexMoth
-      Female: UnisexMoth
+      Male: MaleMoth
+      Female: FemaleMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
     weightlessAcceleration: 3 # Goobstation value
