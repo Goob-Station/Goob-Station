@@ -57,6 +57,14 @@
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       components:
       - type: Pacified
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       mindRoles:
       - MindRoleThief
       briefing:

@@ -1,0 +1,64 @@
+- type: entity
+  id: CarcBoxBase
+  parent: BaseStorageItem
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+      - map: [ base ]
+        state: classic
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,6,3
+  - type: Item
+    size: Large
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2
+  - type: Tag
+    tags:
+    - Toolbox
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: classic-open }
+          False: { state: classic }
+  - type: Appearance
+
+- type: entity
+  parent: CarcBoxBase
+  id: CarcBoxClassic
+  name: "box"
+  description: "Box for classic edition of game Spacessonne. Design from 3001 looks too old..."
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/boxes.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: classic-open }
+          False: { state: classic }
+  - type: StaticPrice
+    price: 100
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    - 0,3,3,5
+    quickInsert: true
+    areaInsert: true
+    maxItemSize: Small
+  - type: StorageFill
+    contents:
+      - id: CarcBagMeepleRed
+      - id: CarcBagMeepleGreen
+      - id: CarcBagClassic
+      - id: BookCarcRulesClassic
+      - id: Paper
+      - id: Pen
+      - id: CarcBagMeepleBlue
+      - id: CarcBagMeepleYellow
+      - id: CarcBagMeepleBlack

@@ -92,6 +92,10 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
   - type: Cautery
+  - type: Tag # CorvaxGoob-SurgicalMagneticBoard
+    tags:
+    - SurgeryTool
+    - Cautery
 
 # Drill
 
@@ -122,6 +126,10 @@
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: Drill
+  - type: Tag # CorvaxGoob-SurgicalMagneticBoard
+    tags:
+    - SurgeryTool
+    - Drill
 
 # Scalpel
 
@@ -166,6 +174,7 @@
     tags:
     - SurgeryTool
     - Knife
+    - Scalpel # CorvaxGoob-SurgicalMagneticBoard
 
 - type: entity
   name: shiv
@@ -216,6 +225,10 @@
     heldPrefix: laser
   - type: Scalpel # Shitmed
     speed: 1.75
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - ScalpelLaser
   # TODO: prevent bleeding from incisions
 
 # Retractor
@@ -239,6 +252,10 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
   - type: Retractor
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - Retractor
 
 # Hemostat
 
@@ -264,6 +281,10 @@
   - type: Hemostat
   - type: Tweezers # Shitmed
   - type: Tending # Shitmed
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - Hemostat
 
 # Saws
 
@@ -341,6 +362,10 @@
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - SawElectric
 
 - type: entity
   name: advanced circular saw
@@ -379,6 +404,10 @@
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/bone_setter.ogg
+  - type: Tag
+    tags:
+    - SurgeryTool
+    - BoneSetter
 
 - type: entity
   parent: BaseToolSurgery
@@ -437,6 +466,10 @@
     speed: 2
   - type: BoneSaw
     speed: 2
+  - type: Tag # CorvaxGoob-SurgicalMagneticBoard
+    tags:
+    - SurgeryTool
+    - EnergyScalpel
   - type: ItemSwitch
     showLabel: true
     state: scalpel
@@ -564,6 +597,10 @@
       Plasma: 37
   - type: Cautery
     speed: 2
+  - type: Tag # CorvaxGoob-SurgicalMagneticBoard
+    tags:
+    - SurgeryTool
+    - EnergyCautery
   - type: ItemSwitch
     showLabel: true
     state: cautery
