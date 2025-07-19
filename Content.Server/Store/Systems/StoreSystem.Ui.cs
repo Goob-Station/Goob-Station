@@ -209,7 +209,7 @@ public sealed partial class StoreSystem
                 return;
             }
         }
-        if (TryComp<NtrClientAccountComponent>(uid, out var _))
+        if (HasComp<NtrClientAccountComponent>(uid))
             RaiseLocalEvent(uid, new NtrListingPurchaseEvent(listing.Cost.First().Value));
         OnPurchase(listing); // Goob edit - ntr shittery
 

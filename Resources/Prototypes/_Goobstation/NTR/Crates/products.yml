@@ -50,7 +50,7 @@
   id: NTRCrateToolsSmall
   parent: CrateEngineeringSecure
   name: Tools crate
-  description: A crate with standart NanoTrasen tools.
+  description: A crate with standard NanoTrasen tools.
   components:
   - type: StorageFill
     contents:

@@ -24,13 +24,12 @@ public partial record struct NtrTaskData
     /// <summary>
     /// A unique id used to identify the bounty
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public string Id { get; init; } = string.Empty;
 
     /// <summary>
     /// The prototype containing information about the bounty.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
     [DataField(required: true)]
     public ProtoId<NtrTaskPrototype> Task { get; init; } = string.Empty;
 

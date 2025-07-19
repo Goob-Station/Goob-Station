@@ -18,6 +18,7 @@
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
   - type: Store
+    ownerOnly: false # me when NTR cryos and the next one cant do anything
     balance:
       NTLoyaltyPoint: 0
   - type: Tag
@@ -50,7 +51,6 @@
     categories:
     - NTRstation
     - NTRpersonal
-    - NTRresponse
     - NTRBoards
     - NTREvil
 
@@ -65,7 +65,6 @@
     categories:
     - NTRstation # for stuff like buying spesos, disablers, etc
     - NTRpersonal # for, well, personal stuff.
-#    - NTRresponse # do not.
     - NTRBoards # for hard to get boards
 #    - NTREvil # for evil stuff
     currencyWhitelist:
@@ -85,19 +84,14 @@
   priority: 1
 
 - type: storeCategory
-  id: NTRresponse
-  name: ntr-executive-tier-2-name
-  priority: 2
-
-- type: storeCategory
   id: NTRBoards
   name: ntr-executive-tier-5-name
-  priority: 3
+  priority: 2
 
 - type: storeCategory
   id: NTREvil
   name: Evil
-  priority: 4
+  priority: 3
   evil: true # lol
 
 - type: currency

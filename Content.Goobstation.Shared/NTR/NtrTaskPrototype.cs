@@ -87,9 +87,6 @@ public readonly partial record struct NtrTaskItemEntry()
     [DataField]
     public bool InstantCompletion { get; init; } = false;
 
-    [DataField]
-    public bool IsEvent { get; init; } = false;
-
     /// <summary>
     /// A player-facing name for the item.
     /// </summary>

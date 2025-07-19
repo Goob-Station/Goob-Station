@@ -180,7 +180,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     [DataField]
     public TimeSpan RestockDuration = TimeSpan.FromMinutes(10); // goob edit
 
-    [DataField("restockAfterPurchase")]
+    [DataField]
     public TimeSpan? RestockAfterPurchase { get; private set; } // goob edit
 
     public bool Equals(ListingData? listing)

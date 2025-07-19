@@ -190,7 +190,7 @@
     ClothingHeadsetAltMedicalStealObjective: 1
     FireAxeStealObjective: 1                            #eng
     AmePartFlatpackStealObjective: 1
-    ExpeditionsCircuitboardStealObjective: 1            #sup
+    #ExpeditionsCircuitboardStealObjective: 1 Goob edit - Removed because lavaland #sup
     CargoShuttleCircuitboardStealObjective: 1
     SalvageShuttleCircuitboardStealObjective: 1
     ClothingEyesHudBeerStealObjective: 1                #srv

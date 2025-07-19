@@ -43,7 +43,7 @@ public sealed partial class NtrTaskDatabaseComponent : Component
     /// <summary>
     /// The time at which players will be able to skip the next bounty.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField]
     public TimeSpan NextSkipTime = TimeSpan.Zero;
 
     /// <summary>
@@ -70,6 +70,6 @@ public sealed partial class NtrTaskDatabaseComponent : Component
     [DataField]
     public HashSet<string> PrintedPrototypes = new();
 
-    [DataField("maxActiveTime")] // if u cant complete a task in 20 mins, skill issue.
+    [DataField] // if u cant complete a task in 20 mins, skill issue.
     public TimeSpan MaxActiveTime = TimeSpan.FromMinutes(20); // 20 min to complete a task
 }

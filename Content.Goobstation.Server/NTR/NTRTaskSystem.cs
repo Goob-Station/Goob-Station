@@ -50,6 +50,7 @@ public sealed class NtrTaskSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private const string NameIdentifierGroup = "Task";
 
@@ -119,17 +120,6 @@ public sealed class NtrTaskSystem : EntitySystem
 
         if (!_prototypes.TryIndex(taskData.Value.Task, out var taskProto))
             return;
-
-        if (taskProto.Entries.Any(e => e.IsEvent))
-        {
-            var item = Spawn(taskProto.Proto, Transform(uid).Coordinates);
-            HandleTaskOutcome(uid, station, taskData.Value, true);
-            component.ActiveTaskIds.Remove(args.TaskId);
-            component.NextPrintTime = _timing.CurTime + component.PrintDelay;
-            _audio.PlayPvs(component.PrintSound, uid);
-            UpdateConsoleUi(uid, db);
-            return;
-        }
         for (int i = 0; i < db.Tasks.Count; i++)
         {
             if (db.Tasks[i].Id == taskData.Value.Id)
@@ -279,7 +269,7 @@ public sealed class NtrTaskSystem : EntitySystem
 
     private bool TryHandleVial(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
     {
-        if (!HasTag(item, "Vial") && !HasTag(item, "Bottle"))
+        if (!_tag.HasTag(item, "Vial") && !_tag.HasTag(item, "Bottle"))
             return false;
 
         var station = _station.GetOwningStation(console);
@@ -333,11 +323,6 @@ public sealed class NtrTaskSystem : EntitySystem
         if (!TryGetActiveTask(station.Value, task, out var taskData))
             return false;
 
-        if (task.Entries.Any(e => e.IsEvent))
-        {
-            HandleTaskOutcome(console, station.Value, taskData.Value, true);
-            return true;
-        }
         RaiseLocalEvent(console, new TaskCompletedEvent(taskData.Value));
 
         if (TryRemoveTask(station.Value, taskData.Value.Id, false))
@@ -563,10 +548,6 @@ public sealed class NtrTaskSystem : EntitySystem
     #endregion
 
     #region Utility Methods
-    private bool HasTag(EntityUid uid, string tag)
-    {
-        return EntityManager.System<TagSystem>().HasTag(uid, tag);
-    }
 
     private string? GetActorName(EntityUid actor)
     {

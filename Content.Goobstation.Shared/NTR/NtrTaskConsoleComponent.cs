@@ -38,13 +38,13 @@ public sealed partial class NtrTaskConsoleComponent : Component
     /// <summary>
     /// The time at which the console will be able to print a label again.
     /// </summary>
-    [DataField("nextPrintTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField]
     public TimeSpan NextPrintTime = TimeSpan.Zero;
 
     /// <summary>
     /// The id of the label entity spawned by the print label button.
     /// </summary>
-    [DataField("taskLabelId", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField]
     public string TaskLabelId = "Paper";
 
     /// <summary>

@@ -40,7 +40,6 @@ public sealed partial class StoreListingControl : Control
 
     private readonly bool _hasBalance;
     private readonly string _price;
-    private readonly TimeSpan _initialRestockTime; // goob edit
     public StoreListingControl(ListingData data, string price, bool hasBalance, Texture? texture = null)
     {
         IoCManager.InjectDependencies(this);
@@ -51,7 +50,6 @@ public sealed partial class StoreListingControl : Control
         _data = data;
         _hasBalance = hasBalance;
         _price = price;
-        _initialRestockTime = data.RestockTime; // goob edit
 
         StoreItemName.Text = ListingLocalisationHelpers.GetLocalisedNameOrEntityName(_data, _prototype);
         StoreItemDescription.SetMessage(ListingLocalisationHelpers.GetLocalisedDescriptionOrEntityDescription(_data, _prototype));
@@ -100,14 +98,6 @@ public sealed partial class StoreListingControl : Control
 
         StoreItemName.Text = name;
     }
-    private void OnPurchase(ListingData listing) //goob start
-    {
-        if (!_prototype.TryIndex<ListingPrototype>(listing.ID, out var prototype))
-            return;
-
-        if (prototype.ResetRestockOnPurchase)
-            listing.RestockTime = _timing.CurTime + prototype.RestockDuration;
-    } //goob end
 
     protected override void FrameUpdate(FrameEventArgs args)
     {

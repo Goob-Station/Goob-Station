@@ -24,18 +24,21 @@ namespace Content.Goobstation.Client.NTR.UI;
 public sealed partial class TaskEntry : BoxContainer
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     public Action? OnLabelButtonPressed;
     public Action? OnSkipButtonPressed;
 
-    public TimeSpan EndTime;
-    public TimeSpan UntilNextSkip;
+    private readonly TimeSpan _skipAvailableTime;
+    private bool _skipButtonAvailable;
+    private TimeSpan _nextUpdate = TimeSpan.Zero;
+
     public TaskEntry(NtrTaskData task, TimeSpan untilNextSkip)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        UntilNextSkip = untilNextSkip;
+        _skipAvailableTime = _gameTiming.RealTime + untilNextSkip;
 
         if (!_prototype.TryIndex(task.Task, out var taskPrototype))
             return;
@@ -54,24 +57,37 @@ public sealed partial class TaskEntry : BoxContainer
 
         PrintButton.OnPressed += _ => OnLabelButtonPressed?.Invoke();
         SkipButton.OnPressed += _ => OnSkipButtonPressed?.Invoke();
+
+        UpdateSkipButton();
     }
 
-    private void UpdateSkipButton(float deltaSeconds)
+    private void UpdateSkipButton()
     {
-        UntilNextSkip -= TimeSpan.FromSeconds(deltaSeconds);
-        if (UntilNextSkip > TimeSpan.Zero)
-        {
-            SkipButton.Label.Text = UntilNextSkip.ToString("mm\\:ss");
-            SkipButton.Disabled = true;
-            return;
-        }
+        var remaining = _skipAvailableTime - _gameTiming.RealTime;
 
-        SkipButton.Label.Text = Loc.GetString("bounty-console-skip-button-text");
-        SkipButton.Disabled = false;
+        if (remaining > TimeSpan.Zero)
+        {
+            SkipButton.Label.Text = remaining.ToString(@"mm\:ss");
+            SkipButton.Disabled = true;
+            _skipButtonAvailable = false;
+
+            _nextUpdate = _gameTiming.RealTime + TimeSpan.FromSeconds(1);
+        }
+        else
+        {
+            SkipButton.Label.Text = Loc.GetString("bounty-console-skip-button-text");
+            SkipButton.Disabled = false;
+            _skipButtonAvailable = true;
+        }
     }
+
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
-        UpdateSkipButton(args.DeltaSeconds);
+        if (_skipButtonAvailable
+            || _gameTiming.RealTime < _nextUpdate)
+            return;
+
+        UpdateSkipButton();
     }
 }

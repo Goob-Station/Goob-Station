@@ -11,7 +11,7 @@ namespace Content.Goobstation.Shared.NTR;
 [RegisterComponent]
 public sealed partial class NtrBankAccountComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("balance")]
+    [DataField]
     public int Balance;
 
     [DataField]
