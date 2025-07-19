@@ -1,2 +1,2 @@
-tinfoil-hat-name = tinfoil hat
-tinfoil-hat-description = Protect yourself from all the psionics on board this cursed vessel.
+tinfoil-hat-name = шапочка з фольги
+tinfoil-hat-description = Захистіть себе від усіх псіоніків на борту цього проклятого судна.

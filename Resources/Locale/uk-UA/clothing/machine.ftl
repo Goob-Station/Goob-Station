@@ -1,5 +1,5 @@
-glimmer-prober-name = glimmer prober
-glimmer-prober-description = Increases glimmer and research points.
+glimmer-prober-name = зонд мерехтіння
+glimmer-prober-description = Збільшує рівень мерехтіння та очки дослідження.
 
-glimmer-drain-name = glimmer drain
-glimmer-drain-description = Decreases glimmer.
+glimmer-drain-name = поглинач мерехтіння
+glimmer-drain-description = Зменшує рівень мерехтіння.
