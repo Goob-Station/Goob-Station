@@ -1,0 +1,45 @@
+- type: entity
+  parent: FlaskBase
+  id: DrinkOniGourd
+  name: sake gourd
+  description: A traditional drinking vessel used by oni. It is said to be filled with the finest sake.
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _DV/Objects/Specific/Species/Oni/gourd.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Sake
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Sake
+        Quantity: 2
+    duration: 10
+
+- type: entity
+  parent: DrinkOniGourd
+  id: BeastBloodGourd
+  name: beast's blood gourd
+  description: A modified drinking gourd from cybersun, this one produces a potent blend of stims and booze known as beast's blood.
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _DV/Objects/Specific/Species/Oni/cybergourd.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: BeastBlood
+          Quantity: 50
+  - type: SolutionRegeneration
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: BeastBlood
+        Quantity: 2
+    duration: 10
