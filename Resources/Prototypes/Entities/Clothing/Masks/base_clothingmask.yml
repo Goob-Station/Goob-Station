@@ -67,8 +67,8 @@
 
 - type: entity
   id: ActionToggleMask
-  name: "Перемкнути Маску"
-  description: "Зручно, але заважає вставляти пиріг у ваш отвір для пирогів."
+  name: Toggle Mask
+  description: Handy, but prevents insertion of pie into your pie hole.
   components:
   - type: InstantAction
     icon: { sprite: Clothing/Mask/gas.rsi, state: icon }

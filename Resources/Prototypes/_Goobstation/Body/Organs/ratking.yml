@@ -23,7 +23,7 @@
   id: OrganRatKingStomach
   parent: OrganAnimalStomach
   suffix: "ratking"
-  description: "Наскільки голодний?"
+  description: "How hungry?"
   components:
   - type: SolutionContainerManager
     solutions:

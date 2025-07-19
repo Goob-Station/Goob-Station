@@ -77,10 +77,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "сумка для книг"
+  name: books bag
   id: BooksBag
   parent: BaseStorageItem
-  description: "Вишукана сумка для перенесення власної бібліотеки."
+  description: A refined bag to carry your own library.
   components:
     - type: Sprite
       sprite: Objects/Specific/Library/Equipment/books_bag.rsi
