@@ -11,6 +11,13 @@ public sealed partial class AngerNumberSelector : MegafaunaNumberSelector
     [DataField]
     public Vector2 Range = new(1f, 1f);
 
+    /// <summary>
+    /// If true, will inverse the calculation so the value will
+    /// become smaller with bigger aggression.
+    /// </summary>
+    [DataField]
+    public bool Inverse;
+
     [DataField]
     public NumberGrowthFormula ScaleFormula = NumberGrowthFormula.Linear;
 
@@ -27,7 +34,9 @@ public sealed partial class AngerNumberSelector : MegafaunaNumberSelector
         switch (ScaleFormula)
         {
             case NumberGrowthFormula.Linear:
-                return anger * ((Range.Y - Range.X) / maxAnger);
+                var k = Inverse ? Range.X - Range.Y : Range.Y - Range.X;
+                var b = Inverse ? Range.X * maxAnger : 0;
+                return anger * (k / maxAnger) + b;
             case NumberGrowthFormula.Exponent:
                 return Range.X;
             case NumberGrowthFormula.Sqrt:

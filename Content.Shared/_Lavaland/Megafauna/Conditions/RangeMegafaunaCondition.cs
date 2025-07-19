@@ -11,13 +11,13 @@ namespace Content.Shared._Lavaland.Megafauna.Conditions;
 /// Condition that returns true if the target is at specific range from the boss.
 /// Returns false if out of range, or target is null.
 /// </summary>
-public abstract partial class RangeMegafaunaCondition : MegafaunaCondition
+public sealed partial class RangeMegafaunaCondition : MegafaunaCondition
 {
     [DataField]
-    public float MinRange;
+    public float? MinRange;
 
     [DataField]
-    public float MaxRange = 16f;
+    public float? MaxRange;
 
     public override bool EvaluateImplementation(MegafaunaCalculationBaseArgs args)
     {
@@ -37,6 +37,6 @@ public abstract partial class RangeMegafaunaCondition : MegafaunaCondition
 
         var distance = Vector2.Distance(bossPos.Position, targetPos.Position);
 
-        return distance > MinRange && distance < MaxRange;
+        return distance > (MinRange ?? -1f) && distance < (MaxRange ?? float.MaxValue);
     }
 }

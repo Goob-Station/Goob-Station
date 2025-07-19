@@ -7,19 +7,19 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Lavaland.Megafauna.Actions;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Lavaland.Megafauna;
+namespace Content.Shared._Lavaland.Megafauna.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MegafaunaAiComponent : Component
 {
     [DataField(required: true), ViewVariables(VVAccess.ReadOnly)]
-    public MegafaunaActionSelector Actions;
+    public MegafaunaActionSelector Selector;
 
     [ViewVariables, AutoNetworkedField]
     public bool Active;
 
     [ViewVariables]
-    public Dictionary<TimeSpan, MegafaunaActionSelector> ActionSchedule;
+    public Dictionary<TimeSpan, MegafaunaActionSelector> ActionSchedule = new();
 
     /// <summary>
     /// Target that is picked before each new attack
@@ -29,12 +29,6 @@ public sealed partial class MegafaunaAiComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public EntityUid? PreviousTarget;
-
-    /// <summary>
-    /// Stores name of the last attack that was used by this boss.
-    /// </summary>
-    [DataField]
-    public string? PreviousAttack;
 
     /// <summary>
     /// If true, will allow this boss to pick the same attacks twice in a row.
@@ -56,7 +50,7 @@ public sealed partial class MegafaunaAiComponent : Component
     public FixedPoint2 BaseTotalHp = 1;
 
     [DataField, AutoNetworkedField]
-    public float MinAttackCooldown = 0.5f;
+    public float MinAttackCooldown = 0.099f;
 
     [DataField, AutoNetworkedField]
     public float MaxAttackCooldown = 5f;

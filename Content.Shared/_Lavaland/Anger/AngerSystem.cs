@@ -23,6 +23,7 @@ public sealed class AngerSystem : EntitySystem
 
         SubscribeLocalEvent<AngerComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<AngerComponent, DamageChangedEvent>(OnDamaged);
+        SubscribeLocalEvent<AngerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<AngerComponent, MegafaunaStartupEvent>(OnMegafaunaStartup);
         SubscribeLocalEvent<AngerComponent, MegafaunaShutdownEvent>(OnMegafaunaShutdown);
         SubscribeLocalEvent<AngerComponent, AggressorAddedEvent>(OnAggressorAdded);
@@ -88,7 +89,7 @@ public sealed class AngerSystem : EntitySystem
     private void OnDamaged(Entity<AngerComponent> ent, ref DamageChangedEvent args)
         => UpdateAggression(ent.Owner);
 
-    private void OnMegafaunaStartup(Entity<AngerComponent> ent, ref MegafaunaStartupEvent args)
+    private void OnStartup(Entity<AngerComponent> ent, ref ComponentStartup args)
     {
         if (!_threshold.TryGetDeadThreshold(ent.Owner, out var threshold))
         {
@@ -98,6 +99,9 @@ public sealed class AngerSystem : EntitySystem
 
         ent.Comp.BaseTotalHp = threshold.Value;
     }
+
+    private void OnMegafaunaStartup(Entity<AngerComponent> ent, ref MegafaunaStartupEvent args)
+        => UpdateScaledThresholds(ent.Owner);
 
     private void OnMegafaunaShutdown(Entity<AngerComponent> ent, ref MegafaunaShutdownEvent args)
         => UpdateScaledThresholds(ent.Owner);

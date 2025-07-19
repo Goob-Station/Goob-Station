@@ -28,9 +28,6 @@ public sealed partial class HierophantChasersAction : MegafaunaActionSelector
     [DataField]
     public EntProtoId DamageTile = "LavalandHierophantSquare";
 
-    [DataField]
-    public int BaseAdditionalSteps = 10;
-
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
         var entMan = args.EntityManager;

@@ -25,6 +25,8 @@ using Content.Server.Administration.Systems;
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Megafauna;
 using Content.Shared._Lavaland.Megafauna.Actions;
+using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Shared._Lavaland.Megafauna.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -59,20 +61,22 @@ public sealed class MegafaunaSystem : SharedMegafaunaSystem
             var schedule = new Dictionary<TimeSpan, MegafaunaActionSelector>(ai.ActionSchedule);
             foreach (var (time, action) in schedule)
             {
-                if (time < Timing.CurTime)
+                if (Timing.CurTime < time)
                     continue;
 
                 var args = new MegafaunaCalculationBaseArgs(uid, ai, EntityManager, _protoMan, Timing, _random.GetRandom());
                 var delayTime = action.Invoke(args);
+                schedule.Remove(time);
 
-                ai.PreviousAttack = null;
-                if (!ai.CanRepeatAttacks)
-                    ai.PreviousAttack = action.Name;
+                // We should spawn new actions only if there are no plans for new ones.
+                // The Stack Overflow Defense
+                if (ai.ActionSchedule.Count > 1)
+                    continue;
 
                 // Add new action
                 delayTime = Math.Clamp(delayTime, ai.MinAttackCooldown, ai.MaxAttackCooldown);
                 var nextAction = Timing.CurTime + TimeSpan.FromSeconds(delayTime);
-                ai.ActionSchedule.TryAdd(nextAction, ai.Actions);
+                ai.ActionSchedule.TryAdd(nextAction, ai.Selector);
 
                 // Pick new target
                 _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
@@ -84,7 +88,7 @@ public sealed class MegafaunaSystem : SharedMegafaunaSystem
     private void OnMegafaunaStartup(Entity<MegafaunaAiComponent> ent, ref MegafaunaStartupEvent args)
     {
         var nextAction = Timing.CurTime + TimeSpan.FromSeconds(ent.Comp.StartingCooldown);
-        ent.Comp.ActionSchedule.TryAdd(nextAction, ent.Comp.Actions);
+        ent.Comp.ActionSchedule.TryAdd(nextAction, ent.Comp.Selector);
     }
 
     private void OnMegafaunaShutdown(Entity<MegafaunaAiComponent> ent, ref MegafaunaShutdownEvent args)

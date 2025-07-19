@@ -36,7 +36,7 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.35,-0.6,0.35,0.6"
-        density: 50
+        density: 10000 # 10 tons.
         mask:
         - MobMask
         layer:
@@ -89,12 +89,15 @@
   - type: HierophantBoss
   - type: SpawnLootOnDeath
     loot: LavalandHierophantClub
-  #- type: MegafaunaAi
+  - type: MegafaunaAi
+    selector: !type:NestedMegafaunaAction
+      id: Hierophant
   - type: MegafaunaFieldGenerator
     wallId: WallHierophantArenaTemporary
     wallShape: !type:NestedTileShape
       id: BoxHollow
       size: 11
+  - type: MegafaunaAnchor
   - type: Anger
   - type: MobPhases
     phaseThresholds:

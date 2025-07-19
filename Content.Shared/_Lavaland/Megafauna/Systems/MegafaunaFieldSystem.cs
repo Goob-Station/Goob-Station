@@ -20,12 +20,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Lavaland.Megafauna;
+using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Tile;
 using Robust.Shared.Threading;
 
 // ReSharper disable EnforceForeachStatementBraces
-namespace Content.Shared._Lavaland.MegafaunaField;
+namespace Content.Shared._Lavaland.Megafauna.Systems;
 
 public sealed class MegafaunaFieldSystem : EntitySystem
 {

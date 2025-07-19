@@ -4,14 +4,25 @@
   id: Hierophant
   action: !type:GroupMegafaunaAction
     children:
-    # Phase 1
     - id: HierophantBoxExpanding
-    - id: HierophantCrossSequence
     - id: HierophantSpawnChasers
     - id: HierophantBlink
-    # Phase 2
+      conditions:
+      - !type:PhaseMegafaunaCondition
+        phases:
+        - 1
+      - !type:RangeMegafaunaCondition
+        minRange: 3.0
+    - id: HierophantCrossSequence
+      conditions:
+      - !type:PhaseMegafaunaCondition
+        phases:
+        - 1
     - id: HierophantCrossSequenceHard
-    - id: 
+      conditions:
+      - !type:PhaseMegafaunaCondition
+        phases:
+        - 2
 
 # TILE ATTACKS
 
@@ -69,24 +80,30 @@
 - type: megafaunaAction
   id: HierophantBoxExpanding
   action: !type:SequenceMegafaunaAction
-    selector: HierophantBox
-    delay: 0.8
+    selector: !type:NestedMegafaunaAction
+      id: HierophantBox
+    delay: !type:AngerNumberSelector
+      range: 1.0,0.8
     rolls: !type:AngerNumberSelector
       range: 3,8
 
 - type: megafaunaAction
   id: HierophantCrossSequence
   action: !type:SequenceMegafaunaAction
-    selector: HierophantRandomCross
-    delay: 1.6
+    selector: !type:NestedMegafaunaAction
+      id: HierophantRandomCross
+    delay: !type:AngerNumberSelector
+      range: 1.6,1.2
     rolls: !type:AngerNumberSelector
       range: 1,3
 
 - type: megafaunaAction
   id: HierophantCrossSequenceHard
   action: !type:SequenceMegafaunaAction
-    selector: HierophantRandomCrossHard
-    delay: 1.6
+    selector: !type:NestedMegafaunaAction
+      id: HierophantRandomCrossHard
+    delay: !type:AngerNumberSelector
+      range: 1.6,1.2
     rolls: !type:AngerNumberSelector
       range: 2,4
 
@@ -95,6 +112,12 @@
 - type: megafaunaAction
   id: HierophantSpawnChasers
   action: !type:HierophantChasersAction
+    speedSelector: !type:AngerNumberSelector
+      range: 2,5
+    stepsSelector: !type:AngerNumberSelector
+      range: 20,50
+    amountSelector: !type:AngerNumberSelector
+      range: 1,3
 
 - type: megafaunaAction
   id: HierophantBlink

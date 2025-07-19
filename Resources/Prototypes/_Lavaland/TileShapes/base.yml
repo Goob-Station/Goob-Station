@@ -1,12 +1,11 @@
 - type: tileShape
   id: BoxFilled
   shape: !type:BoxTileShape
-    filled: true
 
 - type: tileShape
   id: BoxHollow
   shape: !type:BoxTileShape
-    filled: false
+    hollow: true
 
 - type: tileShape
   id: RookCross

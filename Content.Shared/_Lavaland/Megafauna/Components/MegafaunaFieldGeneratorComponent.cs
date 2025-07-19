@@ -19,12 +19,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Tile;
 using Content.Shared._Lavaland.Tile.Shapes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Lavaland.MegafaunaField;
+namespace Content.Shared._Lavaland.Megafauna.Components;
 
 /// <summary>
 /// Generates a square field  around the megafauna then it starts attacking.

@@ -70,10 +70,6 @@ public abstract partial class MegafaunaActionSelector
 
     public bool CheckConditions(MegafaunaCalculationBaseArgs args)
     {
-        if (!args.AiComponent.CanRepeatAttacks
-            && args.AiComponent.PreviousAttack == Name)
-            return false;
-
         if (Conditions.Count == 0)
             return true;
 

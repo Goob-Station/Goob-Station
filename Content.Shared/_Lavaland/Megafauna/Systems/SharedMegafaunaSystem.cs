@@ -1,7 +1,8 @@
 ﻿using Content.Shared._Lavaland.Aggression;
+using Content.Shared._Lavaland.Megafauna.Components;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Lavaland.Megafauna;
+namespace Content.Shared._Lavaland.Megafauna.Systems;
 
 public abstract class SharedMegafaunaSystem : EntitySystem
 {

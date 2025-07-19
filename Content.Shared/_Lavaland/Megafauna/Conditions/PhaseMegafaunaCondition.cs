@@ -12,9 +12,9 @@ namespace Content.Shared._Lavaland.Megafauna.Conditions;
 /// Condition that returns true if the boss is currently at specific phase.
 /// Returns false if doesn't have <see cref="MobPhasesComponent"/> or phase doesn't equal to any of RequiredPhases.
 /// </summary>
-public abstract partial class PhasesMegafaunaCondition : MegafaunaCondition
+public sealed partial class PhaseMegafaunaCondition : MegafaunaCondition
 {
-    [DataField(required: true)]
+    [DataField("phases", required: true)]
     public int[] RequiredPhases;
 
     public override bool EvaluateImplementation(MegafaunaCalculationBaseArgs args)
