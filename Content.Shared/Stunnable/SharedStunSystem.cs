@@ -460,8 +460,10 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
     {
+        // EE Interaction Verbs Begin
         // This is currently disabled in favor of an interaction verb with the same effect, but more obvious usage.
-        return;
+        //return; // port note: no.
+        // End
 
         if (args.Handled || knocked.HelpTimer > 0f)
             return;

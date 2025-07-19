@@ -84,7 +84,7 @@
         acts: ["Destruction"]
   - type: Occluder
   - type: BlockWeather
-  - type: InteractionVerbs
+  - type: InteractionVerbs # EE: Interaction Verbs
     allowedVerbs:
     - KnockOn
 

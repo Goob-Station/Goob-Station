@@ -83,7 +83,7 @@
     - TauCetiBasic
     understands:
     - TauCetiBasic
-  - type: InteractionVerbs
+  - type: InteractionVerbs # EE: Interaction Verbs
     allowedVerbs:
     - KnockOn
 

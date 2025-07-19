@@ -148,7 +148,7 @@
     interactSuccessSound:
       collection: FenceRattle
   - type: BlockWeather
-  - type: InteractionVerbs
+  - type: InteractionVerbs # EE: Interaction Verbs
     allowedVerbs:
     - KnockOn
 
