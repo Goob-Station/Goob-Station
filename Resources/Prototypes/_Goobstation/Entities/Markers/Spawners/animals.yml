@@ -1,0 +1,27 @@
+
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobHorse
+  name: Horse Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: alive
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHorse
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobHorseTrevor
+  name: Trevor Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: alive
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobTrevor
