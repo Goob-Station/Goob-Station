@@ -113,8 +113,9 @@ public sealed partial class InteractionVerbPrototype : IPrototype, IInheritingPr
         User = EntityUid.Invalid,
         NetUser = NetEntity.Invalid,
         BreakOnDamage = true,
-        BreakOnTargetMove = true,
-        BreakOnUserMove = true,
+        //BreakOnTargetMove = true,
+        //BreakOnUserMove = true,
+        BreakOnMove = true,
         BreakOnWeightlessMove = true,
         RequireCanInteract = false,
         // Never used, but must be present because the field is non-nullable and will error during serialization if not set.
