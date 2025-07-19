@@ -1,0 +1,23 @@
+- type: construction
+  id: MetalHydrogenArmor
+  graph: MetalHydrogenArmor
+  startNode: start
+  targetNode: armor
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: MetalHydrogenHelmet
+  graph: MetalHydrogenHelmet
+  startNode: start
+  targetNode: helmet
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: AtmosianArmor
+  graph: AtmosianArmor
+  startNode: start
+  targetNode: armor
+  category: construction-category-clothing
+  objectType: Item
