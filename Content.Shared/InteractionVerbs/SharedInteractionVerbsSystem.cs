@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -155,7 +156,7 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
             Broadcast = true,
             BreakOnHandChange = proto.RequiresHands,
             NeedHand = proto.RequiresHands,
-            RequireCanInteract = proto.RequiresCanInteract,
+            RequireCanInteract = false,
             Delay = delay,
             Event = new InteractionVerbDoAfterEvent(proto.ID, args)
         };
