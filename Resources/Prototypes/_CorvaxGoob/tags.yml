@@ -3,3 +3,36 @@
   
 - type: Tag
   id: Skills
+
+- type: Tag
+  id: Hemostat
+
+- type: Tag
+  id: Scalpel
+
+- type: Tag
+  id: EnergyScalpel
+
+- type: Tag
+  id: ScalpelLaser
+
+- type: Tag
+  id: Retractor
+
+- type: Tag
+  id: BoneSetter
+
+- type: Tag
+  id: AdvancedRetractor
+
+- type: Tag
+  id: Cautery
+
+- type: Tag
+  id: EnergyCautery
+
+- type: Tag
+  id: Drill
+
+- type: Tag
+  id: SawElectric
