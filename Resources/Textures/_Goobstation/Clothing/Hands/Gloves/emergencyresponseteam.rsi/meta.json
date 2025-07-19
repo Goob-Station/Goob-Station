@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Marty Shitsprite made from combat gloves + tacresponse magboots",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "equipped-HAND",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "icon-on"
+        },
+        {
+            "name": "on-equipped-HAND",
+            "directions": 4
+        },
+        {
+            "name": "on-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "on-inhand-right",
+            "directions": 4
+        }
+    ]
+}
