@@ -1,0 +1,6 @@
+- type: speechVerb
+  id: SlaughterDemon
+  name: chat-speech-verb-name-demon
+  speechVerbStrings:
+  - chat-speech-verb-demon-1
+  - chat-speech-verb-demon-2

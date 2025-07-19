@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: body
+  id: SlaughterDemon
+  name: "slaughter demon"
+  root: chest
+  slots:
+    chest:
+      part: ChestSlaughter
+      connections:
+      - groin
+      - right arm
+      - left arm
+      organs:
+        lungs: OrganSpaceAnimalLungs # pressure immunity
+        heart: OrganSlaughterHeart # blood crawl ability
+    groin:
+      part: GroinSlaughter
+      organs:
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    right arm:
+      part: RightArmSlaughter
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmSlaughter
+      connections:
+      - left hand
+    right hand:
+      part: RightHandSlaughter
+    left hand:
+      part: LeftHandSlaughter

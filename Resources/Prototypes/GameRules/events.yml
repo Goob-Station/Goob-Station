@@ -194,6 +194,7 @@
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
     - id: BingleSpawn #Goobstation - Bingle
+    - id: SlaughterDemonMidround # Goobstation - Slaughter Demon
 
 - type: entity
   id: BaseStationEvent
