@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Clothing.Components;
 /// <summary>
-/// Requires LoadoutComponent, replaces a role loadout or specific slots with different ones depending on species.
+/// Requires LoadoutComponent, replaces starting gear or specific slots with different ones depending on species.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class LoadoutSpeciesComponent : Component
