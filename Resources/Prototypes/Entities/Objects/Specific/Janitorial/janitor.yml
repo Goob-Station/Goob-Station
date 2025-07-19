@@ -186,6 +186,8 @@
     guides:
     - Janitorial
   - type: DnaSubstanceTrace
+  - type: CleaningTool # Goobstation
+    radius: 2
 
 - type: entity
   parent: BaseItem
@@ -252,6 +254,9 @@
         Plastic: 100
         Glass: 25
         Steel: 25
+    - type: CleaningTool # Goobstation
+      radius: 3
+      cleanDelay: 6
 
 - type: entity
   name: wet floor sign
@@ -480,6 +485,7 @@
         - Mop
         - DroneUsable # Goobstation
     - type: CleansForensics
+    - type: CleaningTool # Goobstation
     - type: Fiber
       fiberColor: fibers-white
     - type: DnaSubstanceTrace

@@ -95,9 +95,7 @@
     id: JanitorPDA
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
-  storage:
-    back:
-    - KeyRingJanitor # Goobstation
+    pocket1: KeyRingJanitor # Goobstation
 
 - type: startingGear
   id: JanitorMaidGear
@@ -108,6 +106,4 @@
     head: ClothingHeadHatCatEars
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
-  storage:
-    back:
-    - KeyRingJanitor # Goobstation
+    pocket1: KeyRingJanitor # Goobstation

@@ -58,6 +58,10 @@ public sealed class FootprintSystem : EntitySystem
 
     private void OnMove(Entity<FootprintOwnerComponent> entity, ref MoveEvent e)
     {
+        if (TryComp<NoFootprintsComponent>(entity, out var noFootprints)
+            && noFootprints.Enabled)
+            return;
+
         if (!e.OldPosition.IsValid(EntityManager))
             return;
 

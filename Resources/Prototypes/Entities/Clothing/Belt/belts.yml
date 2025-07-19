@@ -384,6 +384,7 @@
         - WetFloorSign
         - HolosignProjector
         - Plunger
+        - Keyring # Goobstation
       components:
         - LightReplacer
         - SmokeOnTrigger
@@ -402,6 +403,10 @@
         whitelist:
           tags:
           - Wrench
+      keyring: # Goobstation
+        whitelist:
+          tags:
+          - Keyring
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
 

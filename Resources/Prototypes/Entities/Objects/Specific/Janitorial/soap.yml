@@ -109,6 +109,8 @@
     solution: soap
   - type: BadFood
   - type: CleansForensics
+  - type: CleaningTool # Goobstation
+    cleanDelay: 12
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-green
@@ -299,6 +301,7 @@
     sprite: Objects/Specific/Janitorial/soap.rsi
     storedRotation: -90
   - type: CleansForensics
+  - type: CleaningTool # Goobstation
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-grey
