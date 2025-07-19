@@ -440,6 +440,13 @@
   - WinterBoots
 
 - type: loadoutGroup
+  id: PassengerID
+  name: loadout-group-passenger-id
+  loadouts:
+  - PassengerPDA
+  - OffdutyPDA
+
+- type: loadoutGroup
   id: BartenderHead
   name: loadout-group-bartender-head
   minLimit: 0

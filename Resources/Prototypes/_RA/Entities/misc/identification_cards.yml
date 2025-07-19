@@ -1,0 +1,11 @@
+- type: entity
+  parent: PassengerIDCard
+  id: OffdutyIDCard
+  name: off-duty crew ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idpassenger
+  - type: PresetIdCard
+    job: Offduty
