@@ -26,6 +26,7 @@
     CrateFunInstrumentsVariety: 0.25
     CrateSalvageEquipment: 0.25
     RandomArtifactSpawner: 0.25
+    ResearchDisk5000: 0.25
     # weighted down since it sells for a lot
     NuclearBombKeg: 0.1
     # money
@@ -43,6 +44,7 @@
     CratePartsT3: 1.0
     CratePartsT3T4: 0.5
     TechnologyDiskRare: 0.5
+    ResearchDisk10000: 1.0
     # cloning boards
     CloningPodMachineCircuitboard: 0.5
     MedicalScannerMachineCircuitboard: 0.5
@@ -72,6 +74,8 @@
     ResearchAndDevelopmentServerMachineCircuitboard: 1.0
     CratePartsT4: 1.0
     PowerCellAntiqueProto: 0.25
+    ResearchDisk50000: 0.5
+    ResearchDisk20000: 1.0
     # basic weapons
     CrateArmorySMG: 1.0
     CrateArmoryLaser: 1.0

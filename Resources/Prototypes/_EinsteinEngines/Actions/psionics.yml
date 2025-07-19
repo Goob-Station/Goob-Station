@@ -1,0 +1,402 @@
+- type: entity
+  id: ActionDispel
+  name: action-name-dispel
+  description: action-description-dispel
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      icon: _EinsteinEngines/Interface/VerbIcons/dispel.png
+      useDelay: 45
+      checkCanAccess: false
+      range: 6
+      itemIconStyle: BigAction
+      canTargetSelf: false
+      blacklist:
+        components:
+          - PsionicInsulation
+          - Mindbroken
+      event: !type:DispelPowerActionEvent
+
+- type: entity
+  id: ActionMassSleep
+  name: action-name-mass-sleep
+  description: action-description-mass-sleep
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WorldTargetAction
+      icon: _EinsteinEngines/Interface/VerbIcons/mass_sleep.png
+      useDelay: 60
+      checkCanAccess: false
+      range: 8
+      itemIconStyle: BigAction
+      event: !type:MassSleepPowerActionEvent
+
+- type: entity
+  id: ActionMindSwapPsionic
+  name: action-name-mind-swap
+  description: action-description-mind-swap
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      icon: _EinsteinEngines/Interface/VerbIcons/mind_swap.png
+      useDelay: 240
+      checkCanAccess: false
+      range: 8
+      itemIconStyle: BigAction
+      blacklist:
+        components:
+          - PsionicInsulation
+          - Mindbroken
+      event: !type:MindSwapPowerActionEvent
+
+- type: entity
+  id: ActionMindSwapReturn
+  name: action-name-mind-swap-return
+  description: action-description-mind-swap-return
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: _EinsteinEngines/Interface/VerbIcons/mind_swap_return.png
+      useDelay: 20
+      checkCanInteract: false
+      event: !type:MindSwapPowerReturnActionEvent
+
+- type: entity
+  id: ActionNoosphericZap
+  name: action-name-noospheric-zap
+  description: action-description-noospheric-zap
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      icon: _EinsteinEngines/Interface/VerbIcons/noospheric_zap.png
+      useDelay: 50
+      range: 5
+      itemIconStyle: BigAction
+      blacklist:
+        components:
+          - PsionicInsulation
+          - Mindbroken
+      event: !type:NoosphericZapPowerActionEvent
+
+- type: entity
+  id: ActionPyrokinesis
+  name: action-name-pyrokinesis
+  description: action-description-pyrokinesis
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      icon: _EinsteinEngines/Interface/VerbIcons/pyrokinesis.png
+      useDelay: 50
+      range: 6
+      checkCanAccess: false
+      itemIconStyle: BigAction
+      event: !type:PyrokinesisPowerActionEvent
+
+- type: entity
+  id: ActionMetapsionic
+  name: action-name-metapsionic
+  description: action-description-metapsionic
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: _EinsteinEngines/Interface/VerbIcons/metapsionic.png
+      useDelay: 45
+      event: !type:MetapsionicPowerActionEvent
+
+- type: entity
+  id: ActionPsionicRegeneration
+  name: action-name-psionic-regeneration
+  description: action-description-psionic-regeneration
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: _EinsteinEngines/Interface/VerbIcons/psionic_regeneration.png
+      useDelay: 120
+      event: !type:PsionicRegenerationPowerActionEvent
+
+- type: entity
+  id: ActionTelegnosis
+  name: action-name-telegnosis
+  description: action-description-telegnosis
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: _EinsteinEngines/Interface/VerbIcons/telegnosis.png
+      useDelay: 150
+      event: !type:TelegnosisPowerActionEvent
+
+#- type: entity PIRATE REMOVEEE
+#  id: ActionPsionicInvisibility
+#  name: action-name-psionic-invisibility
+#  description: action-description-psionic-invisibility
+#  categories: [ HideSpawnMenu ]
+#  components:
+#    - type: InstantAction
+#      icon: _EinsteinEngines/Interface/VerbIcons/psionic_invisibility.png
+#      useDelay: 120
+#      event: !type:PsionicInvisibilityPowerActionEvent
+#
+#- type: entity
+#  id: ActionPsionicInvisibilityUsed
+#  name: action-name-psionic-invisibility-off
+#  description: action-description-psionic-invisibility-off
+#  categories: [ HideSpawnMenu ]
+#  components:
+#    - type: InstantAction
+#      icon: _EinsteinEngines/Interface/VerbIcons/psionic_invisibility_off.png
+#      event: !type:RemovePsionicInvisibilityOffPowerActionEvent Pirate end
+
+- type: entity
+  id: ActionHealingWord
+  name: action-name-healing-word
+  description: action-description-healing-word
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      icon: { sprite: _EinsteinEngines/Interface/Actions/psionics.rsi, state: healing_word }
+      useDelay: 10
+      checkCanAccess: false
+      range: 6
+      itemIconStyle: BigAction
+      canTargetSelf: true
+      blacklist:
+        components:
+          - PsionicInsulation
+          - Mindbroken
+      event: !type:PsionicHealOtherPowerActionEvent
+        healingAmount:
+          groups: # These all get divided by the number of damage types in the group. So they're all -2.5.
+            Genetic: -2.5
+            Toxin: -5
+            Airloss: -5
+            Brute: -7.5
+            Burn: -10
+        rotReduction: 10
+        useDelay: 1
+        doRevive: false
+        powerName: Healing Word
+        popupText: healing-word-begin
+        playSound: true
+        minGlimmer: 1
+        maxGlimmer: 2
+        glimmerSoundThreshold: 100
+        glimmerPopupThreshold: 200
+        glimmerDoAfterVisibilityThreshold: 70
+
+- type: entity
+  id: ActionRevivify
+  name: action-name-revivify
+  description: action-description-revivify
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      icon: { sprite: _EinsteinEngines/Interface/Actions/psionics.rsi, state: revivify }
+      useDelay: 120
+      checkCanAccess: false
+      range: 2
+      itemIconStyle: BigAction
+      canTargetSelf: false
+      blacklist:
+        components:
+          - PsionicInsulation
+          - Mindbroken
+      event: !type:PsionicHealOtherPowerActionEvent
+        healingAmount:
+          # These all get divided by the number of damage types in the group. So they're all -15
+          # Additionally, they're multiplied by the caster's Amplification, which,
+          #   assuming this is the only power they have, the multiplier is between 2.9-3.9
+          groups:
+            Genetic: -15
+            Toxin: -30
+            Airloss: -60 # Except airloss, which heals 30 per type
+            Brute: -45
+            Burn: -60
+        rotReduction: 60
+        doRevive: true
+        powerName: Revivify
+        popupText: revivify-begin
+        playSound: true
+        minGlimmer: 3 # These also get multiplied by caster stats. So,
+        maxGlimmer: 6 # keeping in mind the ~3.5x multiplier, this spikes glimmer by as much as 60 points.
+        glimmerSoundThreshold: 50
+        glimmerPopupThreshold: 100
+        glimmerDoAfterVisibilityThreshold: 35
+
+- type: entity
+  id: ActionShadeskip
+  name: action-name-shadeskip
+  description: action-description-shadeskip
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite : _EinsteinEngines/Interface/Actions/psionics.rsi, state: shadeskip }
+    useDelay: 45
+    checkCanInteract: false
+    event: !type:AnomalyPowerActionEvent
+            settings:
+              checkInsulation: true
+              powerName: "Shadeskip"
+              minGlimmer: 6
+              maxGlimmer: 8
+              glimmerSoundThreshold: 50
+              doSupercritical: false
+            entitySpawnEntries:
+              - settings:
+                  spawnOnPulse: true
+                  spawnOnSuperCritical: true
+                  minAmount: 20
+                  maxAmount: 25
+                  maxRange: 2.25
+                spawns:
+                - ShadowKudzuWeak
+              - settings:
+                  spawnOnPulse: true
+                  spawnOnSuperCritical: true
+                  minAmount: 1
+                  maxAmount: 1
+                  maxRange: 2
+                spawns:
+                - EffectFlashShadeskip
+
+- type: entity
+  id: ActionTelekineticPulse
+  name: action-name-telekinetic-pulse
+  description: action-description-telekinetic-pulse
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: { sprite: _EinsteinEngines/Interface/Actions/psionics.rsi, state: telekinetic_pulse }
+      useDelay: 45
+      checkCanInteract: false
+      event: !type:AnomalyPowerActionEvent
+        settings:
+          checkInsulation: true
+          powerName: "Telekinetic Pulse"
+          overchargeFeedback: "shadeskip-overcharge-feedback" # The text behind this is fine.
+          overchargeCooldown: 120
+          overchargeRecoil:
+            groups:
+              Burn: -100 #This will be divided by the caster's Dampening.
+          minGlimmer: 6
+          maxGlimmer: 8
+          doSupercritical: false
+        entitySpawnEntries:
+          - settings:
+              spawnOnPulse: true
+              minAmount: 1
+              maxAmount: 1
+              maxRange: 0.5
+            spawns:
+              - EffectFlashTelekineticPulse
+        gravity:
+          maxThrowRange: 2
+          maxThrowStrength: 3
+          spaceRange: 2
+
+- type: entity
+  id: ActionDarkSwap
+  name: action-name-darkswap
+  description: action-description-darkswap
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: { sprite: _EinsteinEngines/Interface/Actions/shadowkin_icons.rsi, state: darkswap }
+      useDelay: 10
+      checkCanInteract: false
+      event: !type:DarkSwapActionEvent
+
+- type: entity
+  id: ActionPyrokineticFlare
+  name: action-name-pyrokinetic-flare
+  description: action-description-pyrokinetic-flare
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: { sprite: _EinsteinEngines/Interface/Actions/psionics.rsi, state: pyrokinetic_flare }
+      useDelay: 25
+      checkCanInteract: false
+      event: !type:AnomalyPowerActionEvent
+        settings:
+          checkInsulation: true
+          powerName: "Pyrokinetic Flare"
+          minGlimmer: 3
+          maxGlimmer: 5
+          doSupercritical: false
+        entitySpawnEntries:
+          - settings:
+              spawnOnPulse: true
+              spawnOnSuperCritical: true
+              minAmount: 1
+              maxAmount: 3
+              maxRange: 1
+            spawns:
+              - EffectPyrokineticFlare
+
+- type: entity
+  id: ActionSummonImp
+  name: action-name-summon-imp
+  description: action-description-summon-imp
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: { sprite: _EinsteinEngines/Interface/Actions/psionics.rsi, state: summon_imp }
+      useDelay: 120
+      checkCanInteract: false
+      event: !type:SummonPsionicFamiliarActionEvent
+        familiarProto: MobPsionicFamiliarImp
+        powerName: "Summon Imp"
+        checkInsulation: true
+        doGlimmerEffects: true
+        followMaster: true
+        minGlimmer: 10
+        maxGlimmer: 20
+
+- type: entity
+  id: ActionSummonRemilia
+  name: action-name-summon-remilia
+  description: action-description-summon-remilia
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: { sprite: _EinsteinEngines/Interface/Actions/psionics.rsi, state: summon_remilia }
+      useDelay: 120
+      checkCanInteract: false
+      event: !type:SummonPsionicFamiliarActionEvent
+        familiarProto: MobBatRemilia
+        powerName: "Summon Remilia"
+        checkInsulation: true
+        doGlimmerEffects: true
+        followMaster: true
+        minGlimmer: 5
+        maxGlimmer: 10
+
+- type: entity
+  id: ActionAssay
+  name: action-name-assay
+  description: action-description-assay
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      icon: { sprite: _EinsteinEngines/Interface/Actions/psionics.rsi, state: assay }
+      useDelay: 45
+      checkCanAccess: false
+      range: 2
+      itemIconStyle: BigAction
+      canTargetSelf: true
+      blacklist:
+        components:
+          - PsionicInsulation
+          - Mindbroken
+      event: !type:AssayPowerActionEvent
+
+- type: entity
+  id: ActionAnoigo
+  name: action-name-anoigo
+  description: action-description-anoigo
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon: { sprite: _EinsteinEngines/Interface/Actions/psionics.rsi, state: anoigo }
+    useDelay: 40
+    itemIconStyle: BigAction
+    event: !type:AnoigoPowerActionEvent

@@ -1,0 +1,16 @@
+- type: roleLoadout
+  id: JobForensicMantis
+  groups:
+  - GroupTankHarness
+  - MantisHead
+  - ScientistNeck
+  - MantisJumpsuit
+  - MantisBack
+  - MantisOuterClothing
+  - ScientistGloves
+  - MantisShoes
+  - MantisBelt
+  - MantisEyes
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool

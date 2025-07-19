@@ -1,0 +1,36 @@
+- type: entity
+  parent:
+  - Incorporeal
+  - BaseMob
+  id: MobTelegnosisObserver
+  name: psionic projection
+  description: A soul dancing across the dreamlight
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Mobs/Ghosts/telegnostic_observer.rsi #Feel free to improve this!
+    layers:
+    - state: animated
+      shader: unshaded
+  - type: Eye
+    drawFov: false
+    visMask:
+      - Ethereal
+      - Normal
+  - type: Examiner
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 8
+    baseWalkSpeed: 5
+  - type: Psionic
+    removable: false
+    roller: false
+    psychognomicDescriptors:
+      - p-descriptor-liminal # because you arnt currently in your body
+  - type: InnatePsionicPowers
+    powersToAdd:
+      #- XenoglossyPower #Remove if a better way to have the projection understand langs is implemented, ideal is to have projection inherit user langs
+      - TelepathyPower
+      #- PsychognomyPower
+  - type: TelegnosticProjection
+  - type: Stealth
+    lastVisibility: 0.66

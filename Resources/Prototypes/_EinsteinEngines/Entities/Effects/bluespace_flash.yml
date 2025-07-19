@@ -1,0 +1,36 @@
+- type: entity
+  id: EffectFlashTelekineticPulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 10
+    energy: 3.5
+    color: "#18abf5"
+  - type: TimedDespawn
+    lifetime: 1
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Lightning/lightningbolt.ogg
+
+- type: entity
+  id: EffectPyrokineticFlare
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Interface/Actions/psionics.rsi
+      visible: false
+      state: pyrokinetic_flare
+    - type: TriggerOnSpawn
+    - type: PointLight
+      radius: 5
+      energy: 8
+      color: "#ff4500"
+    - type: LightFade
+      duration: 0.5
+    - type: TimedDespawn
+      lifetime: 0.5
+    - type: FlashOnTrigger
+      range: 7
+    - type: EmitSoundOnSpawn
+      sound:
+        path: /Audio/Effects/flash_bang.ogg

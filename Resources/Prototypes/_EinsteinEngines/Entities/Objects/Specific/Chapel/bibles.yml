@@ -1,0 +1,14 @@
+- type: entity
+  parent: Bible
+  id: BibleMystagogue
+  name: book of mysteries
+  description: Книга виклику фамільяра.
+  components:
+  - type: Summonable
+    specialItem: SpawnPointGhostIfrit
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Specific/Chapel/holylight.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _EinsteinEngines/Objects/Specific/Chapel/holylight.rsi

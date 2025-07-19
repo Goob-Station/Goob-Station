@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Nyanotrasen at https://github.com/Nyanotrasen/Nyanotrasen/commit/3fd6fff706c3f2f61b6cd52a38e0c998ba5d92ef",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "stamp-mantis"
+    }
+  ]
+}

@@ -13,3 +13,13 @@
   id: Flap
   kind: source
   path: "/Textures/_EinsteinEngines/Shaders/flap.swsl"
+
+- type: shader
+  id: Ethereal
+  kind: source
+  path: "/Textures/_EinsteinEngines/Shaders/ethereal.swsl"
+
+- type: shader
+  id: ColorTint
+  kind: source
+  path: "/Textures/_EinsteinEngines/Shaders/color_tint.swsl"

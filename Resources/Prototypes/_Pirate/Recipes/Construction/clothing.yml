@@ -1,0 +1,7 @@
+- type: construction
+  id: ClothingEyesGlassesEthereal
+  graph: EtherealGoggles
+  startNode: start
+  targetNode: goggles
+  category: construction-category-clothing
+  objectType: Item

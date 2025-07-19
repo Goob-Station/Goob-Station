@@ -27,43 +27,43 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 {
     [Dependency] private readonly StationSystem _stationSystem = default!;
 
-    private static readonly Gauge DoorsTotal = Metrics.CreateGauge(
+    private static readonly Gauge DoorsTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_total",
         "Total number of doors counted on station grids.");
 
-    private static readonly Gauge FirelocksTotal = Metrics.CreateGauge(
+    private static readonly Gauge FirelocksTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_firelocks_total",
         "Total number of firelocks counted.");
 
-    private static readonly Gauge AirlocksTotal = Metrics.CreateGauge(
+    private static readonly Gauge AirlocksTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_airlocks_total",
         "Total number of airlocks counted.");
 
-    private static readonly Gauge FirelocksHoldingFire = Metrics.CreateGauge(
+    private static readonly Gauge FirelocksHoldingFire = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_firelocks_holding_fire",
         "Number of firelocks currently holding back fire.");
 
-    private static readonly Gauge FirelocksHoldingPressure = Metrics.CreateGauge(
+    private static readonly Gauge FirelocksHoldingPressure = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_firelocks_holding_pressure",
         "Number of firelocks currently holding back pressure.");
 
-    private static readonly Gauge EmaggedAirlocksWeighted = Metrics.CreateGauge(
+    private static readonly Gauge EmaggedAirlocksWeighted = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_emagged_airlocks_weighted",
         "Weighted count of emagged airlocks (higher value for higher access).");
 
-    private static readonly Gauge UnpoweredDoors = Metrics.CreateGauge(
+    private static readonly Gauge UnpoweredDoors = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_unpowered_total",
         "Number of doors or firelocks currently without power.");
 
-    private static readonly Gauge SecurityChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge SecurityChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_security_chaos_calculated",
         "Calculated chaos value contributed by security status (emagged doors).");
 
-    private static readonly Gauge AtmosChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge AtmosChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_atmos_chaos_calculated",
         "Calculated chaos value contributed by atmospheric status (fire/pressure).");
 
-    private static readonly Gauge PowerChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge PowerChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_door_power_chaos_calculated",
         "Calculated chaos value contributed by power status.");
 

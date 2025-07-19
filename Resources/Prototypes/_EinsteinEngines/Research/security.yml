@@ -1,0 +1,19 @@
+- type: technology
+  id: PsionicCountermeasures
+  name: research-technology-psionic-countermeasures
+  icon:
+    sprite: _EinsteinEngines/Clothing/Head/Helmets/insulative_skullcap.rsi # DeltaV - Change the icon to the insulative skullcap
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ClothingHeadHelmetInsulated
+  - ClothingHeadCage
+  - MagazineBoxPistolMindbreaker
+  - MagazinePistolMindbreaker
+  - ShellSoulbreaker
+  - BoxShellSoulbreaker
+  position: -2,-3
+  technologyPrerequisites:
+  - BasicRobotics

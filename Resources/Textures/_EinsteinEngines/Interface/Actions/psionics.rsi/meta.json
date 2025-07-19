@@ -1,0 +1,41 @@
+﻿{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "assay, healing_word, revivify, shadeskip by leonardo_dabepis (discord), telekinetic_pulse by .mocho (discord), pyrokinetic_flare, summon_remilia, summon_bat and summon_imp by ghost581 (discord)",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "assay"
+    },
+    {
+      "name": "anoigo"
+    },
+    {
+      "name": "healing_word"
+    },
+    {
+      "name": "revivify"
+    },
+    {
+      "name": "shadeskip"
+    },
+    {
+      "name": "telekinetic_pulse"
+    },
+    {
+      "name": "pyrokinetic_flare"
+    },
+    {
+      "name": "summon_imp"
+    },
+    {
+      "name": "summon_remilia"
+    },
+    {
+      "name": "summon_bat"
+    }
+  ]
+}

@@ -138,6 +138,9 @@
   playTimeTracker: JobResearchDirector
   requirements:
   - !type:RoleTimeRequirement
+    role: JobForensicMantis
+    time: 18000 # 5 hours
+  - !type:RoleTimeRequirement
     role: JobScientist
     time: 18000 #5 hrs
   - !type:DepartmentTimeRequirement
@@ -163,7 +166,16 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
+      - type: Psionic # Nyano - They start with telepathic chat
+        powerSlots: 3
+        baselinePowerCost: 75
+        nextPowerCost: 75 # No that's fully intended that he has the "Full" power pull. Have fun with being a crew-aligned wizard/cultist.
       - type: CommandStaff
+      - type: InnatePsionicPowers
+        powersToAdd:
+          - DispelPower
+          - MetapsionicPower
+          - TelepathyPower
 
 - type: startingGear
   id: ResearchDirectorGear

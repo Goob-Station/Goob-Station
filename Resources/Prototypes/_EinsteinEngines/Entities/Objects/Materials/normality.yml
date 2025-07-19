@@ -1,0 +1,72 @@
+- type: entity
+  parent: MaterialBSCrystal1
+  id: MaterialBSCrystal3
+  suffix: 3
+  components:
+  - type: Stack
+    count: 3
+
+- type: entity
+  parent: MaterialBSCrystal1
+  id: MaterialBSCrystal5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: MaterialBase
+  id: MaterialNormality
+  suffix: Full
+  name: normality crystal
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Materials/materials.rsi
+    layers:
+    - state: normality_3
+      map: ["base"]
+  - type: Appearance
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Normality: 100
+  - type: Tag
+    tags:
+    - NormalityCrystal
+    - RawMaterial
+  - type: Stack
+    stackType: Normality
+    baseLayer: base
+    layerStates:
+    - normality
+    - normality_2
+    - normality_3
+    count: 5
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: MaterialNormality
+  id: MaterialNormality1
+  suffix: 1
+  components:
+  - type: Sprite
+    state: normality
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialNormality1
+  id: MaterialNormality3
+  suffix: 3
+  components:
+  - type: Stack
+    count: 3
+
+- type: entity
+  parent: MaterialNormality1
+  id: MaterialNormality5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5

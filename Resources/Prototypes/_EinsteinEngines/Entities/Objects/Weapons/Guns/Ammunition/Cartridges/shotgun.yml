@@ -1,0 +1,27 @@
+- type: entity
+  id: ShellSoulbreaker
+  name: shell (.50 soulbreaker)
+  parent: [ BaseShellShotgun, BaseSecurityContraband ]
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - ShellShotgun
+    - ShellShotgunLight
+  - type: Sprite
+    layers:
+      - state: tranquilizer
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunTranquilizer
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: SoulbreakerToxin
+          Quantity: 15
+  - type: SolutionTransfer
+    maxTransferAmount: 15
+  - type: SpentAmmoVisuals
+    state: "tranquilizer"

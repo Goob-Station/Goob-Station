@@ -1138,6 +1138,8 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - GlimmerMonitorCartridge # Einstein Engines
+      - PsiWatchCartridge # Einstein Engines
 
 - type: entity
   parent: CentcomPDA
@@ -1166,6 +1168,8 @@
       - MedTekCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - GlimmerMonitorCartridge # Einstein Engines
+      - PsiWatchCartridge # Einstein Engines
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1321,6 +1325,8 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - GlimmerMonitorCartridge # Einstein Engines
+      - PsiWatchCartridge # Einstein Engines
 
 - type: entity
   parent: ERTLeaderPDA

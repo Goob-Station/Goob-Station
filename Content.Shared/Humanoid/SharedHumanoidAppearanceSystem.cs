@@ -478,6 +478,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         SetSpecies(uid, profile.Species, false, humanoid);
         SetSex(uid, profile.Sex, false, humanoid);
         humanoid.EyeColor = profile.Appearance.EyeColor;
+        var ev = new EyeColorInitEvent(); // Pirate
+        RaiseLocalEvent(uid, ref ev);  // Pirate
 
         SetSkinColor(uid, profile.Appearance.SkinColor, false);
 

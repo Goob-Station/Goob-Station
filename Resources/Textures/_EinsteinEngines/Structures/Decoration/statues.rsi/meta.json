@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "leonardo_dabepis (232229415176634368) on Discord for the Oracle and Sophie, @Vordenburg for the liquid",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "sophie"
+    },
+    {
+      "name": "oracle-0"
+    },
+    {
+      "name": "oracle-1"
+    },
+    {
+      "name": "oracle-2"
+    },
+    {
+      "name": "oracle-3"
+    },
+    {
+      "name": "oracle-4"
+    },
+    {
+      "name": "oracle-5"
+    },
+    {
+      "name": "oracle-6",
+      "delays": [
+        [
+          0.20,
+          0.20,
+          0.20,
+          0.20
+        ]
+      ]
+    },
+    {
+      "name": "oracle-7",
+      "delays": [
+        [
+          0.20,
+          0.20,
+          0.20,
+          0.20
+        ]
+      ]
+    },
+    {
+      "name": "oracle-8",
+      "delays": [
+        [
+          0.20,
+          0.20,
+          0.20,
+          0.20
+        ]
+      ]
+    },
+    {
+      "name": "oracle-9",
+      "delays": [
+        [
+          0.20,
+          0.20,
+          0.20,
+          0.20
+        ]
+      ]
+    },
+    {
+      "name": "oracle-10",
+      "delays": [
+        [
+          0.20,
+          0.20,
+          0.20,
+          0.20
+        ]
+      ]
+    }
+  ]
+}
