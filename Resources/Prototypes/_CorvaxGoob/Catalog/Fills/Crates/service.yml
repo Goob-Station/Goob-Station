@@ -1,0 +1,38 @@
+- type: entity
+  id: CrateServiceLoreBooks
+  parent: CrateGenericSteel
+  name: ящик космологических книг
+  description: Ящик, содержащий книги по устройству мира, техники, политических тонкостях, ествественных закономерностях и об исторических событиях.
+  components:
+    - type: StorageFill
+      contents:
+      - id: BookClones
+      - id: BookDAM
+      - id: BookExpensiveCrystal
+      - id: BookFaks
+      - id: BookFamalis
+      - id: BookGrav
+      - id: BookHalifat
+      - id: BookRedspace
+      - id: BookShips
+      - id: BookZP
+      - id: BookBSS
+      - id: BookConarex
+      - id: BookDione
+      - id: BookGefest
+      - id: BookGior
+      - id: BookImplants
+      - id: BookMBS1
+      - id: BookMBS2
+      - id: BookMirt
+      - id: BookNakamura
+      - id: BookNooc
+      - id: BookPetr
+      - id: BookSNK
+      - id: BookSaibasan
+      - id: BookScaf
+      - id: BookUSSP
+      - id: BookUmpor
+      - id: BookUnath1
+      - id: BookUnath2
+      - id: BookVitz
