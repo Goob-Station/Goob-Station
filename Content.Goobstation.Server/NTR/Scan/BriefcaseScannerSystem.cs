@@ -39,16 +39,15 @@ namespace Content.Goobstation.Server.NTR.Scan
             if (!args.CanReach
                 || args.Target == null)
                 return;
-                
-        if (TryComp<StoreComponent>(uid, out var store)
-            && store.OwnerOnly
-            && !_mind.TryGetMind(args.User, out var mindId, out _)
-            || store.AccountOwner != mindId)
+
+            if (TryComp<StoreComponent>(uid, out var store)
+                && store.OwnerOnly)
             {
-                _popup.PopupEntity(Loc.GetString("store-not-account-owner", ("store", uid)), uid, args.User);
+                if (!_mind.TryGetMind(args.User, out var mindId, out _)
+                    || store.AccountOwner != mindId)
+                    _popup.PopupEntity(Loc.GetString("store-not-account-owner", ("store", uid)), uid, args.User);
                 return;
             }
-        }
             var target = args.Target.Value;
 
             if (!TryComp<ScannableForPointsComponent>(target, out var scannable)
@@ -78,28 +77,26 @@ namespace Content.Goobstation.Server.NTR.Scan
                 || args.Handled
                 || args.Target == null)
                 return;
-                
+
             var target = args.Target.Value;
-            
+
             if (!TryComp<ScannableForPointsComponent>(target, out var scannable)
                 || scannable.AlreadyScanned)
                 return;
+
             scannable.AlreadyScanned = true;
             //Dirty(target, scannable);
-            if (TryComp<StoreComponent>(uid, out var store)
-                && store.CurrencyWhitelist.Contains("NTLoyaltyPoint"))
+
+            if (TryComp<StoreComponent>(uid, out var store) && store.CurrencyWhitelist.Contains("NTLoyaltyPoint"))
             {
                 var points = scannable.Points;
                 if (points <= 0)
-                {
                     _chatManager.TrySendInGameICMessage(uid, Loc.GetString("ntr-scan-fail"), InGameICChatType.Speak, true);
-                }
+
                 else
                 {
-                    _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>
-                    {
-                        { "NTLoyaltyPoint", FixedPoint2.New(points) }
-                    },
+                    _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2> {
+                        { "NTLoyaltyPoint", FixedPoint2.New(points) } },
                     uid,
                     store);
                     _chatManager.TrySendInGameICMessage(uid, Loc.GetString("ntr-scan-success", ("amount", points)), InGameICChatType.Speak, true);
