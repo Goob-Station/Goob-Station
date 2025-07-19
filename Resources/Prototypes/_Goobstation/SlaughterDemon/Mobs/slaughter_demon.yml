@@ -25,6 +25,21 @@
   - type: InteractionOutline
   - type: NoSlip
   - type: Clickable
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-slaughter-demon-name
+    description: ghost-role-information-slaughter-demon-description
+    rules: ghost-role-information-slaughter-demon-rules
+    mindRoles:
+    - MindRoleGhostSoloAntagonist
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+  - type: GhostTakeoverAvailable
   - type: Physics
     bodyType: KinematicController
   - type: MobState
@@ -119,6 +134,20 @@
       types:
         Slash: 25
         Structural: 50
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-laughter-demon-name
+    description: ghost-role-information-laughter-demon-description
+    rules: ghost-role-information-slaughter-demon-rules
+    mindRoles:
+    - MindRoleGhostSoloAntagonist
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
 
 # midround roll
 - type: entity

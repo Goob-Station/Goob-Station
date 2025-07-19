@@ -9,3 +9,6 @@
     entity: PolymorphBloodCrawlJaunt
     forced: true
     attachToGridOrMap: true
+    showPopup: false
+    componentsToTransfer:
+    - component: SlaughterDevour

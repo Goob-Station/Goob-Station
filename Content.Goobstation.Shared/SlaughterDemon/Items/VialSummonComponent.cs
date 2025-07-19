@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.SlaughterDemon.Items;
+namespace Content.Goobstation.Shared.SlaughterDemon.Items;
 
 /// <summary>
 /// This is used for tracking objectives

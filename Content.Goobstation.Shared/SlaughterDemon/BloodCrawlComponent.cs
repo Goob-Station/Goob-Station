@@ -23,7 +23,7 @@ public sealed partial class BloodCrawlComponent : Component
     /// <summary>
     /// This is the entity storing the action of this ability
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public EntityUid? ActionEntity;
 
     /// <summary>

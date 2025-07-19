@@ -3,7 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.SlaughterDemon.Items;
+using System.Linq;
+using Content.Goobstation.Shared.SlaughterDemon.Items;
 using Content.Goobstation.Shared.SlaughterDemon.Objectives;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
@@ -26,13 +27,10 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private EntityQuery<ActorComponent> _actorQuery;
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
-
-        _actorQuery = GetEntityQuery<ActorComponent>();
 
         // Sets progress
         SubscribeLocalEvent<SlaughterDevourConditionComponent, ObjectiveGetProgressEvent>(OnGetDevourProgress);
@@ -102,10 +100,7 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
         var query = EntityQueryEnumerator<VialSummonComponent>();
         while (query.MoveNext(out _, out var comp))
         {
-            if (comp.Used)
-                continue;
-
-            if (comp.Summoner == null)
+            if (comp.Used || comp.Summoner == null)
                 continue;
 
             _target.SetTarget(ent.Owner, comp.Summoner.Value, targetObjective);
@@ -114,21 +109,14 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
         }
     }
 
-    private void OnGetBaseObjectiveProgress(Entity<SlaughterBaseObjectiveComponent> ent, ref ObjectiveGetProgressEvent args)
-    {
-        // fluff is fluff
+    private void OnGetBaseObjectiveProgress(Entity<SlaughterBaseObjectiveComponent> ent, ref ObjectiveGetProgressEvent args) =>
         args.Progress = 0.0f;
-    }
 
-    private void OnGetKillEveryoneProgress(Entity<SlaughterKillEveryoneConditionComponent> ent, ref ObjectiveGetProgressEvent args)
-    {
+    private void OnGetKillEveryoneProgress(Entity<SlaughterKillEveryoneConditionComponent> ent, ref ObjectiveGetProgressEvent args) =>
         args.Progress = Progress(ent.Comp.Devoured, GetAllPlayers());
-    }
 
-    private void OnGetDevourProgress(Entity<SlaughterDevourConditionComponent> ent, ref ObjectiveGetProgressEvent args)
-    {
+    private void OnGetDevourProgress(Entity<SlaughterDevourConditionComponent> ent, ref ObjectiveGetProgressEvent args) =>
         args.Progress = Progress(ent.Comp.Devour, _number.GetTarget(ent.Owner));
-    }
 
     private void OnGetWizardKillProgress(Entity<SlaughterKillTheWizardConditionComponent> ent, ref ObjectiveGetProgressEvent args)
     {
@@ -146,35 +134,17 @@ public sealed class SlaughterDemonObjectiveSystem : EntitySystem
         if (!_mind.TryGetMind(target, out _, out var mind))
             return 1f;
 
-        var targetDead = _mind.IsCharacterDeadIc(mind);
-        if (!targetDead)
-            return 0f;
-
-        return 1f;
+        return !_mind.IsCharacterDeadIc(mind) ? 0f : 1f;
     }
 
     private static float Progress(int recruited, int target)
     {
         // prevent divide-by-zero
-        if (target == 0)
-            return 1f;
-
-        return MathF.Min(recruited / (float) target, 1f);
+        return target == 0 ? 1f : MathF.Min(recruited / (float) target, 1f);
     }
 
     private int GetAllPlayers()
     {
-        var count = 0;
-
-        var query = EntityQueryEnumerator<HumanoidAppearanceComponent>();
-        while (query.MoveNext(out var uid, out _))
-        {
-            if (!_actorQuery.HasComp(uid))
-                continue;
-
-            count++;
-        }
-
-        return count;
+        return EntityQuery<HumanoidAppearanceComponent, ActorComponent>().Count();
     }
 }

@@ -5,8 +5,10 @@
 
 using Content.Goobstation.Shared.SlaughterDemon;
 using Content.Server.Body.Components;
+using Content.Server.Polymorph.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Polymorph;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -40,6 +42,9 @@ public sealed class SlaughterDemonSystem : EntitySystem
         // death related
         SubscribeLocalEvent<SlaughterDemonComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SlaughterDemonComponent, BeingGibbedEvent>(OnGib);
+
+        // polymorph shittery
+        SubscribeLocalEvent<SlaughterDemonComponent, PolymorphedEvent>(OnPolymorph);
     }
 
     public override void Update(float frameTime)
@@ -49,10 +54,26 @@ public sealed class SlaughterDemonSystem : EntitySystem
         var query = EntityQueryEnumerator<SlaughterDemonComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+            if (_timing.CurTime < comp.Accumulator || !comp.ExitedBloodCrawl)
+                continue;
 
-            if (_timing.CurTime >= comp.Accumulator)
-                comp.ExitedBloodCrawl = false;
+            comp.ExitedBloodCrawl = false;
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
+        }
+    }
+
+    private void OnPolymorph(Entity<SlaughterDemonComponent> ent, ref PolymorphedEvent args)
+    {
+        if (!TryComp<SlaughterDevourComponent>(args.NewEntity, out var component)
+            || !ent.Comp.IsLaughter)
+            return;
+
+        foreach (var entity in ent.Comp.ConsumedMobs)
+        {
+            if (entity == null)
+                continue;
+
+            _container.Insert(entity.Value, component.Container);
         }
     }
 
@@ -60,6 +81,7 @@ public sealed class SlaughterDemonSystem : EntitySystem
     {
         ent.Comp.Accumulator = _timing.CurTime + ent.Comp.NextUpdate;
         ent.Comp.ExitedBloodCrawl = true;
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(ent.Owner);
 
         SpawnAtPosition(ent.Comp.JauntUpEffect, Transform(ent.Owner).Coordinates);
     }
@@ -75,7 +97,7 @@ public sealed class SlaughterDemonSystem : EntitySystem
 
         if (!TryComp<SlaughterDevourComponent>(demonUid, out var slaughterDevour))
             return;
-        // todo: find way in the future to make the feast sound work (i hate polymorphs)
+
         if (ent.Comp.IsLaughter)
         {
             _container.Insert(pullingEnt, slaughterDevour.Container);
@@ -84,6 +106,8 @@ public sealed class SlaughterDemonSystem : EntitySystem
         {
             QueueDel(pullingEnt);
         }
+
+        _audio.PlayPvs(slaughterDevour.FeastSound, args.PreviousCoordinates);
 
         _slaughterDevour.HealAfterDevouring(pullingEnt, demonUid, slaughterDevour);
         _slaughterDevour.IncrementObjective(demonUid,pullingEnt, demon);
@@ -103,10 +127,8 @@ public sealed class SlaughterDemonSystem : EntitySystem
         }
     }
 
-    private void OnBloodCrawlAttempt(Entity<SlaughterDemonComponent> ent, ref BloodCrawlAttemptEvent args)
-    {
+    private void OnBloodCrawlAttempt(Entity<SlaughterDemonComponent> ent, ref BloodCrawlAttemptEvent args) =>
         SpawnAtPosition(ent.Comp.JauntEffect, Transform(ent.Owner).Coordinates);
-    }
 
     private void OnMobStateChanged(Entity<SlaughterDemonComponent> ent, ref MobStateChangedEvent args)
     {
@@ -116,10 +138,10 @@ public sealed class SlaughterDemonSystem : EntitySystem
 
     private void OnGib(Entity<SlaughterDemonComponent> ent, ref BeingGibbedEvent args)
     {
-        if (ent.Comp.IsLaughter)
-        {
-            if (TryComp<SlaughterDevourComponent>(ent.Owner, out var devour))
-                _container.EmptyContainer(devour.Container);
-        }
+        if (!ent.Comp.IsLaughter
+            || !TryComp<SlaughterDevourComponent>(ent.Owner, out var devour))
+            return;
+
+        _container.EmptyContainer(devour.Container);
     }
 }

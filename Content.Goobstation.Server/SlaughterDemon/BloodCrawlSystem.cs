@@ -12,7 +12,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Fluids.Components;
 using Robust.Server.Audio;
 
-
 namespace Content.Goobstation.Server.SlaughterDemon;
 
 

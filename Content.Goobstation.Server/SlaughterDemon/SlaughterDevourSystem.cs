@@ -45,15 +45,11 @@ public sealed class SlaughterDevourSystem : EntitySystem
         SubscribeLocalEvent<SlaughterDevourComponent, BloodCrawlAttemptEvent>(OnBloodCrawlAttempt);
     }
 
-    private void OnMapInit(Entity<SlaughterDevourComponent> ent, ref MapInitEvent args)
-    {
+    private void OnMapInit(Entity<SlaughterDevourComponent> ent, ref MapInitEvent args) =>
         ent.Comp.Container = _container.EnsureContainer<Container>(ent.Owner, "stomach");
-    }
 
-    private void OnBloodCrawlAttempt(Entity<SlaughterDevourComponent> ent, ref BloodCrawlAttemptEvent args)
-    {
+    private void OnBloodCrawlAttempt(Entity<SlaughterDevourComponent> ent, ref BloodCrawlAttemptEvent args) =>
         TryDevour(ent.Owner);
-    }
 
     /// <summary>
     /// Exclusive to slaughter demons. They devour targets once they enter blood crawl jaunt form.
@@ -61,10 +57,8 @@ public sealed class SlaughterDevourSystem : EntitySystem
     /// </summary>
     private void TryDevour(EntityUid uid)
     {
-        if (!_pullerQuery.TryComp(uid, out var puller))
-            return;
-
-        if (puller.Pulling == null)
+        if (!_pullerQuery.TryComp(uid, out var puller)
+            || puller.Pulling == null)
             return;
 
         var pullingEnt = puller.Pulling.Value;
@@ -72,7 +66,7 @@ public sealed class SlaughterDevourSystem : EntitySystem
         if (_mobState.IsAlive(pullingEnt))
             return;
 
-        var ev = new SlaughterDevourEvent(pullingEnt);
+        var ev = new SlaughterDevourEvent(pullingEnt, Transform(uid).Coordinates);
         RaiseLocalEvent(uid, ref ev);
     }
 
@@ -108,17 +102,13 @@ public sealed class SlaughterDevourSystem : EntitySystem
         foreach (var objective in mind.Objectives)
         {
             if (TryComp<SlaughterDevourConditionComponent>(objective, out var devourCondition))
-            {
                 devourCondition.Devour = demon.Devoured;
-            }
 
-            if (TryComp<SlaughterKillEveryoneConditionComponent>(objective, out var killEveryoneCondition))
+            if (TryComp<SlaughterKillEveryoneConditionComponent>(objective, out var killEveryoneCondition)
+                && _humanoid.HasComp(devoured)
+                && _actorQuery.HasComp(devoured))
             {
-                if (_humanoid.HasComp(devoured) && _actorQuery.HasComp(devoured))
-                {
-                    // We only want to restrict it to actual players
-                    killEveryoneCondition.Devoured++;
-                }
+                killEveryoneCondition.Devoured++;
             }
         }
     }

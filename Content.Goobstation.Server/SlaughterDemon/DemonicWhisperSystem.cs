@@ -38,10 +38,8 @@ public sealed class DemonicWhisperSystem : EntitySystem
     {
         var target = args.Target;
 
-        if (!_actorQuery.TryComp(ent.Owner, out var actor))
-            return;
-
-        if (!_actorQuery.TryComp(target, out var actorTarget))
+        if (!_actorQuery.TryComp(ent.Owner, out var actor)
+            || !_actorQuery.TryComp(target, out var actorTarget))
             return;
 
         _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("demonic-whisper-title"), "Message", (string message) =>

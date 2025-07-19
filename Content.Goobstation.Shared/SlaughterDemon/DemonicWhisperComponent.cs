@@ -9,7 +9,4 @@ namespace Content.Goobstation.Shared.SlaughterDemon;
 /// This is used for the Demonic Whisper action
 /// </summary>
 [RegisterComponent]
-public sealed partial class DemonicWhisperComponent : Component
-{
-
-}
+public sealed partial class DemonicWhisperComponent : Component;

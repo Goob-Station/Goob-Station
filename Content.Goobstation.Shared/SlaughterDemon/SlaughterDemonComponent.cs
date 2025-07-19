@@ -16,7 +16,7 @@ public sealed partial class SlaughterDemonComponent : Component
     /// The list of mobs that the entity has devoured/consumed.
     /// </summary>
     [DataField]
-    public List<EntityUid> ConsumedMobs { get; set; } = new();
+    public List<EntityUid?> ConsumedMobs { get; set; } = new();
 
     /// <summary>
     /// The number of devoured mobs.
@@ -39,7 +39,7 @@ public sealed partial class SlaughterDemonComponent : Component
     /// <summary>
     /// This indicates whether the entity exited blood crawl
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool ExitedBloodCrawl;
 
     /// <summary>
