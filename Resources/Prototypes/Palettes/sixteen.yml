@@ -8,7 +8,7 @@
 
 - type: palette
   id: Rainbow
-  name: Rainbow
+  name: "Веселка"
   colors:
     blue: "#1861d5"
     red: "#951710"
@@ -20,7 +20,7 @@
 
 - type: palette
   id: Sixteen
-  name: Sixteen
+  name: "Шістнадцять"
   colors:
     black: "#1D1D21"
     red: "#B02E26"

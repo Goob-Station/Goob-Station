@@ -75,8 +75,8 @@
 
 - type: entity
   id: BasaltOne
-  name: basalt
-  description: Rock.
+  name: "базальт"
+  description: "Камінь."
   placement:
     mode: SnapgridCenter
   components:

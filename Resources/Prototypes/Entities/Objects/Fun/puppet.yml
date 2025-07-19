@@ -12,9 +12,9 @@
 - type: entity
   parent: [ BaseItem, MobCombat ]
   id: MrChips
-  name: mr chips
+  name: "містер Чіпс"
   suffix: Dummy
-  description: It's a dummy, dummy!
+  description: "Це лише лялька, лише лялька!"
   components:
   - type: Sprite
     sprite: Objects/Fun/mrchips.rsi
@@ -45,7 +45,7 @@
 - type: entity
   parent: MrChips
   id: MrDips
-  name: mr dips
+  name: "містер Діпс"
   components:
   - type: Sprite
     sprite: Objects/Fun/mrdips.rsi

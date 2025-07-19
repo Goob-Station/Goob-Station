@@ -7,7 +7,7 @@
 - type: entity
   id: AbductorOperatingTable
   parent: OperatingTable
-  name: abductor operating table
+  name: "абдукторний операційний стіл"
   components:
   - type: Sprite
     sprite: _Shitmed/Structures/Furniture/Tables/abductor_optable.rsi

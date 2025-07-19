@@ -14,10 +14,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: Chester
+  name: "Честер"
   parent: [ BaseWeaponRifle, BaseGunWieldable, BaseCentcommContraband ]
   id: WeaponLeverChester
-  description: An improved lever-action rifle designed to fire specialized 8 gauge ammunition for rapid threat removal.
+  description: "Покращена гвинтівка з важільним затвором, розроблена для стрільби спеціалізованими боєприпасами 8-го калібру для швидкого усунення загроз."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi

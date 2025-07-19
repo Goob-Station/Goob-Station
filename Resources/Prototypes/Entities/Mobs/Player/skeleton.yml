@@ -80,7 +80,7 @@
     messagePerceivedByOthers: hugging-success-generic-others
 
 - type: entity
-  name: skeleton pirate
+  name: "пірат-скелет"
   parent: MobSkeletonPerson
   id: MobSkeletonPirate
   components:
@@ -99,7 +99,7 @@
 
 
 - type: entity
-  name: skeleton biker
+  name: "скелетон-байкер"
   parent: MobSkeletonPerson
   id: MobSkeletonBiker
   components:
@@ -119,7 +119,7 @@
 - type: entity
   parent: MobSkeletonPerson
   id: MobSkeletonCloset
-  name: closet skeleton
+  name: "каркас шафи"
   components:
   - type: GhostRole
     name: ghost-role-information-closet-skeleton-name

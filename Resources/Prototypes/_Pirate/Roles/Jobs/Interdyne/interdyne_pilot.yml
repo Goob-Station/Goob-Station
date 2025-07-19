@@ -1,7 +1,7 @@
 - type: job
   id: InterdynePilot
-  name: job-name-interdyne-pilot
-  description: job-description-interdyne-pilot
+  name: "пілот Interdyne"
+  description: "керуйте транспортними засобами Interdyne, забезпечуючи мобільність та логістичну підтримку"
   icon: "JobIconInterdynePilot"
   canBeAntag: false
   playTimeTracker: JobInterdynePilot

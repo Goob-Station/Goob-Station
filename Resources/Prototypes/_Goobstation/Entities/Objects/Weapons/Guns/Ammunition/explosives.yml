@@ -5,7 +5,7 @@
 
 - type: entity
   id: GrenadeMPAPERS
-  name: MP-APERS shell (40mm)
+  name: "снаряд MP-APERS (40мм)"
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -22,7 +22,7 @@
 
 - type: entity
   id: GrenadeTeargas
-  name: tear gas shell (40mm)
+  name: "снаряд зі сльозогінним газом (40мм)"
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo

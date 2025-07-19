@@ -61,7 +61,7 @@
 - type: entity
   parent: LockerWallMedical
   id: LockerWallMedicalFilled
-  name: medicine wall locker
+  name: "настінна шафка для медикаментів"
   suffix: Filled
   components:
   - type: EntityTableContainerFill
@@ -111,7 +111,7 @@
 - type: entity
   parent: LockerWallMedical
   id: LockerWallMedicalDoctorFilled
-  name: medical doctor's wall locker
+  name: "настінна шафка лікаря"
   suffix: Filled
   components:
   - type: EntityTableContainerFill
