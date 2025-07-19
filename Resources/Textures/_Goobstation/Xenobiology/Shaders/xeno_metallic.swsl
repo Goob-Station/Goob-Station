@@ -1,0 +1,24 @@
+uniform highp float edge_power = 5.5;
+uniform highp float specular_power = 32.0;
+uniform highp float specular_intensity = 0.5;
+
+void fragment() {
+    highp vec4 sprite = texture(TEXTURE, UV);
+
+    if (sprite.a == 0.0) {
+        discard;
+    }
+
+    float edge = length(vec2(dFdx(sprite.r), dFdy(sprite.g)));
+    edge = pow(edge, edge_power) * 1.2;
+
+    vec2 uv_gradient = vec2(dFdx(UV.y), dFdy(UV.x));
+    float fake_specular = pow(length(uv_gradient), specular_power) * specular_intensity;
+
+    // Combine effects
+    vec3 result = sprite.rgb;
+    result = mix(result, vec3(1.0), edge * 0.6);
+    result += fake_specular * (vec3(1.0) + result);
+
+    COLOR = vec4(result, 1.0);
+}

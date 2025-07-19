@@ -72,3 +72,31 @@
   - type: ConditionalSpawner
     prototypes:
     - MobLivingCurse
+
+- type: entity
+  name: Baby Grey Slime Spawner
+  id: SpawnMobGreySlime
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: base
+      sprite: _Goobstation/Xenobiology/Mobs/slimesBaby.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoSlime
+
+- type: entity
+  name: Adult Grey Slime Spawner
+  id: SpawnMobGreySlimeAdult
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: base
+      sprite: _Goobstation/Xenobiology/Mobs/slimesAdult.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobXenoSlimeAdult
