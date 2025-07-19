@@ -61,12 +61,12 @@ public sealed class MegafaunaSystem : SharedMegafaunaSystem
             var schedule = new Dictionary<TimeSpan, MegafaunaActionSelector>(ai.ActionSchedule);
             foreach (var (time, action) in schedule)
             {
-                if (Timing.CurTime < time)
+                if (time > Timing.CurTime)
                     continue;
 
                 var args = new MegafaunaCalculationBaseArgs(uid, ai, EntityManager, _protoMan, Timing, _random.GetRandom());
                 var delayTime = action.Invoke(args);
-                schedule.Remove(time);
+                ai.ActionSchedule.Remove(time);
 
                 // We should spawn new actions only if there are no plans for new ones.
                 // The Stack Overflow Defense

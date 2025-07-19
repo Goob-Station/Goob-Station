@@ -22,7 +22,7 @@ public sealed partial class SequenceMegafaunaAction : MegafaunaActionSelector
         var delay = DelaySelector.Get(args);
         for (int i = 0; i < rolls; i++)
         {
-            var time = args.Timing.CurTime + TimeSpan.FromSeconds(delay);
+            var time = args.Timing.CurTime + TimeSpan.FromSeconds(delay * i);
             Selector.Counter = i;
             args.AiComponent.ActionSchedule.Add(time, Selector);
         }
