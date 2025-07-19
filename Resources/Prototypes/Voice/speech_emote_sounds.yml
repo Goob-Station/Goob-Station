@@ -558,6 +558,22 @@
       path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
 
 - type: emoteSounds
   id: MaleMoth
@@ -602,6 +618,10 @@
       collection: MaleCry
     Whistle:
       collection: Whistles
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
       
 - type: emoteSounds
   id: FemaleMoth
@@ -646,6 +666,10 @@
       collection: FemaleCry
     Whistle:
       collection: Whistles
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
 
 - type: emoteSounds
   id: UnisexSilicon
