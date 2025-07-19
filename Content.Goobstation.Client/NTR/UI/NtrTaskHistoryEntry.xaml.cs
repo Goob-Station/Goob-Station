@@ -45,6 +45,7 @@ public sealed partial class NtrTaskHistoryEntry : BoxContainer
             Visible = false;
             return;
         }
+
         foreach (var entry in taskPrototype.Entries)
         {
             items.Add(Loc.GetString("ntr-bounty-console-manifest-entry",
@@ -59,13 +60,9 @@ public sealed partial class NtrTaskHistoryEntry : BoxContainer
         TimestampLabel.SetMarkup(task.Timestamp.ToString(@"hh\:mm\:ss"));
 
         if (task.Result == NtrTaskHistoryData.TaskResult.Completed)
-        {
             NoticeLabel.SetMarkup(Loc.GetString("bounty-console-history-notice-completed-label"));
-        }
         else
-        {
             NoticeLabel.SetMarkup(Loc.GetString("bounty-console-history-notice-skipped-label",
                 ("id", task.ActorName ?? "")));
-        }
     }
 }

@@ -11,7 +11,7 @@ namespace Content.Goobstation.Server.NTR
     [RegisterComponent]
     public sealed partial class EventTriggerComponent : Component
     {
-        [DataField("eventId", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [DataField("eventId", required: true)]
         public string EventId = string.Empty;
     }
 }

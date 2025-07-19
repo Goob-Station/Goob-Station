@@ -35,29 +35,36 @@ namespace Content.Goobstation.Server.Administration
                 shell.WriteLine("You don't have permission to run this command!");
                 return; // who do you think i am to let players abuse this command, john station mr. 65%?
             }
+            
             if (args.Length != 3)
             {
                 shell.WriteLine("Invalid number of arguments!");
                 shell.WriteLine(Help);
                 return;
             }
+            
             if (!int.TryParse(args[0], out var seconds) || seconds <= 0)
             {
                 shell.WriteLine("Invalid time value! Must be positive integer seconds.");
                 return;
             }
+            
             if (!EntityUid.TryParse(args[1], out var storeUid))
             {
                 shell.WriteLine("Invalid store entity UID!");
                 return;
             }
+            
             var listingId = args[2];
+            
             if (!_entities.TryGetComponent<StoreComponent>(storeUid, out var store))
             {
                 shell.WriteLine("Target entity is not a store!");
                 return;
             }
+            
             var listing = store.Listings.FirstOrDefault(l => l.ID == listingId);
+            
             if (listing == null)
             {
                 shell.WriteLine($"Listing with ID '{listingId}' not found in store!");

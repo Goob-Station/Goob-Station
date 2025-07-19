@@ -102,6 +102,7 @@ public sealed class NtrTaskSystem : EntitySystem
         while (query.MoveNext(out var client, out _))
             RaiseLocalEvent(client, ev);
     }
+
     private void OnPrintLabelMessage(EntityUid uid, NtrTaskConsoleComponent component, TaskPrintLabelMessage args)
     {
         if (_timing.CurTime < component.NextPrintTime)
@@ -113,9 +114,9 @@ public sealed class NtrTaskSystem : EntitySystem
             return;
         }
 
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<NtrTaskDatabaseComponent>(station, out var db) ||
-            !TryGetTaskFromId(station, args.TaskId, out var taskData))
+        if (_station.GetOwningStation(uid) is not { } station
+            || !TryComp<NtrTaskDatabaseComponent>(station, out var db)
+            || !TryGetTaskFromId(station, args.TaskId, out var taskData))
             return;
 
         if (!_prototypes.TryIndex(taskData.Value.Task, out var taskProto))
@@ -141,9 +142,9 @@ public sealed class NtrTaskSystem : EntitySystem
 
     private void OnTaskSkipMessage(EntityUid uid, NtrTaskConsoleComponent component, TaskSkipMessage args)
     {
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<NtrTaskDatabaseComponent>(station, out var db) ||
-            _timing.CurTime < db.NextSkipTime)
+        if (_station.GetOwningStation(uid) is not { } station
+            || !TryComp<NtrTaskDatabaseComponent>(station, out var db)
+            || _timing.CurTime < db.NextSkipTime)
             return;
 
         if (TryRemoveTask(station, args.TaskId, true, args.Actor))
@@ -169,16 +170,15 @@ public sealed class NtrTaskSystem : EntitySystem
     private void CleanExpiredTasks(EntityUid uid, NtrTaskDatabaseComponent db)
     {
         foreach (var task in db.Tasks.ToArray())
-        {
-            if (task.IsActive && (_timing.CurTime - task.ActiveTime) > db.MaxActiveTime)
+            if (task.IsActive
+                && (_timing.CurTime - task.ActiveTime) > db.MaxActiveTime)
                 TryRemoveTask(uid, task.Id, true);
-        }
     }
 
     private void GenerateNewTasks(EntityUid uid, NtrTaskDatabaseComponent db)
     {
-        while (_timing.CurTime >= db.NextTaskGenerationTime &&
-               db.Tasks.Count < db.MaxTasks)
+        while (_timing.CurTime >= db.NextTaskGenerationTime
+            && db.Tasks.Count < db.MaxTasks)
         {
             var availableTasks = GetAvailableTasks(db);
 
@@ -214,9 +214,9 @@ public sealed class NtrTaskSystem : EntitySystem
 
     private void HandleTaskOutcome(EntityUid console, EntityUid station, NtrTaskData taskData, bool success)
     {
-        if (!TryComp<NtrTaskDatabaseComponent>(station, out var db) ||
-            !TryComp<NtrBankAccountComponent>(station, out var account) ||
-            !_prototypes.TryIndex(taskData.Task, out NtrTaskPrototype? taskProto))
+        if (!TryComp<NtrTaskDatabaseComponent>(station, out var db)
+            || !TryComp<NtrBankAccountComponent>(station, out var account)
+            || !_prototypes.TryIndex(taskData.Task, out NtrTaskPrototype? taskProto))
             return;
 
         var amount = success ? taskProto.Reward : -taskProto.Penalty;
@@ -242,16 +242,16 @@ public sealed class NtrTaskSystem : EntitySystem
     private bool TryGetActiveTask(EntityUid station, NtrTaskPrototype proto, [NotNullWhen(true)] out NtrTaskData? task)
     {
         task = null;
-        return TryComp<NtrTaskDatabaseComponent>(station, out var db) &&
-               (task = db.Tasks.FirstOrDefault(t => t.Task == proto.ID && t.IsActive)) != null;
+        return TryComp<NtrTaskDatabaseComponent>(station, out var db)
+               && (task = db.Tasks.FirstOrDefault(t => t.Task == proto.ID && t.IsActive)) != null;
     }
 
     public bool TryGetTaskId(EntityUid uid, NtrTaskPrototype taskProto, [NotNullWhen(true)] out string? taskId)
     {
         taskId = null;
-        return TryComp<NtrTaskDatabaseComponent>(uid, out var db) &&
-               db.Tasks.FirstOrDefault(t => t.Task == taskProto.ID) is {} taskData &&
-               (taskId = taskData.Id) != null;
+        return TryComp<NtrTaskDatabaseComponent>(uid, out var db)
+               && db.Tasks.FirstOrDefault(t => t.Task == taskProto.ID) is {} taskData
+               && (taskId = taskData.Id) != null;
     }
     #endregion
 
@@ -278,7 +278,8 @@ public sealed class NtrTaskSystem : EntitySystem
 
         foreach (var task in db.Tasks.Where(t => t.IsActive))
         {
-            if (!_prototypes.TryIndex(task.Task, out var proto) || !proto.IsReagentTask)
+            if (!_prototypes.TryIndex(task.Task, out var proto)
+                || !proto.IsReagentTask)
                 continue;
 
             if (ValidateReagentRequirements(item, proto))
@@ -290,7 +291,8 @@ public sealed class NtrTaskSystem : EntitySystem
 
     private bool TryHandleRegularDocument(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
     {
-        if (!TryComp<RandomDocumentComponent>(item, out var doc) || doc.Tasks.Count == 0)
+        if (!TryComp<RandomDocumentComponent>(item, out var doc)
+            || doc.Tasks.Count == 0)
             return false;
 
         if (!ValidateDocumentStamps(item))
@@ -354,10 +356,9 @@ public sealed class NtrTaskSystem : EntitySystem
     {
         var stamps = new HashSet<string>();
         foreach (var taskId in doc.Tasks)
-        {
             if (_prototypes.TryIndex(taskId, out var task))
                 stamps.UnionWith(task.Entries.SelectMany(e => e.Stamps));
-        }
+
         return stamps;
     }
 
@@ -452,7 +453,8 @@ public sealed class NtrTaskSystem : EntitySystem
         {
             var available = GetAvailableTasks(db);
             var task = PickWeightedTask(available);
-            if (task == null || !TryAddTask(uid, task, db))
+            if (task == null
+                || !TryAddTask(uid, task, db))
                 break;
         }
 
@@ -461,9 +463,9 @@ public sealed class NtrTaskSystem : EntitySystem
 
     public bool TryAddTask(EntityUid uid, NtrTaskPrototype task, NtrTaskDatabaseComponent? db = null)
     {
-        if (!Resolve(uid, ref db) || db.Tasks.Count >= db.MaxTasks)
-            return false;
-        if (string.IsNullOrEmpty(task.ID))
+        if (!Resolve(uid, ref db)
+            || db.Tasks.Count >= db.MaxTasks
+            || string.IsNullOrEmpty(task.ID))
             return false;
 
         _nameIdentifier.GenerateUniqueName(uid, NameIdentifierGroup, out var id);

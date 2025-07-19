@@ -25,20 +25,18 @@ namespace Content.Goobstation.Server.NTR.Documents
         {
             SubscribeLocalEvent<RandomDocumentComponent, MapInitEvent>(OnDocumentInit);
         }
+
         private void OnDocumentInit(EntityUid uid, RandomDocumentComponent component, MapInitEvent args)
         {
             var text = GenerateDocument(component.DocumentType);
             if (TryComp<PaperComponent>(uid, out var paperComp))
-            {
                 _paper.SetContent((uid, paperComp), text);
-            }
         }
 
         private string GenerateDocument(ProtoId<DocumentTypePrototype> docType)
         {
-            if (string.IsNullOrEmpty(docType.Id)) // i hate this
-                return string.Empty;
-            if (!_proto.TryIndex(docType, out var docProto))
+            if (string.IsNullOrEmpty(docType.Id) // i hate this
+                || !_proto.TryIndex(docType, out var docProto))
                 return string.Empty;
 
             var curDate = DateTime.Now.AddYears(1000);
