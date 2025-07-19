@@ -37,7 +37,7 @@
     Nitrogen:
       amount: 1
   products:
-    Cryostylane: 1  
+    Cryostylane: 1
 
 - type: reaction
   id: CryostylaneOxygenCooling
