@@ -13,7 +13,7 @@ interaction-Hug-success-others-popup = {THE($user)} hugs {THE($target)}.
 interaction-Pet-name = Pet
 interaction-Pet-description = Pet your co-worker to ease their stress.
 interaction-Pet-success-self-popup = You pet {THE($target)} on {POSS-ADJ($target)} head.
-interaction-Pet-success-target-popup = {THE($user)} pets you on {POSS-ADJ($target)} head.
+interaction-Pet-success-target-popup = {THE($user)} pets you on your head.
 interaction-Pet-success-others-popup = {THE($user)} pets {THE($target)}.
 
 interaction-KnockOn-name = Knock
