@@ -31,6 +31,7 @@
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
@@ -734,6 +735,22 @@
   - !type:BuyerJobCondition
     whitelist:
     - SalvageSpecialist
+
+- type: listing
+  id: UplinkWeaponFakeTaiwanPond
+  name: uplink-fake-taiwan-pond-bundle-name
+  description: uplink-fake-taiwan-pond-bundle-desc
+  icon: { sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelClownFilledFakeTaiwanPond
+  cost:
+    Telecrystal: 100
+  categories:
+    - UplinkJob
+  conditions:
+    - !type:BuyerJobCondition
+      whitelist:
+        - Clown
+
 
 # chemicals
 
