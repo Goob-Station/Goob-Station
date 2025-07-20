@@ -26,7 +26,7 @@ def get_text_files() -> Iterable[str]:
         stdout=subprocess.PIPE)
 
     for x in process.stdout.splitlines():
-        yield x.strip()
+        yield x.strip().strip('"')
 
 def is_file_crlf(path: str) -> bool:
     # https://stackoverflow.com/a/29697732/4678631
