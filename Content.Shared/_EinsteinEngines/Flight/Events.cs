@@ -31,6 +31,9 @@ public sealed class FlightEvent : EntityEventArgs
     }
 }
 
+[ByRefEvent]
+public sealed class FlightAttemptEvent : CancellableEntityEventArgs {}
+
 [Serializable, NetSerializable]
 public sealed class ToggleFlightVisualsEvent : EntityEventArgs
 {

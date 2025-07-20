@@ -298,6 +298,9 @@ public abstract partial class SharedMoverController : VirtualController
         // If we're not the target of a relay then handle lerp data.
         if (relaySource == null)
         {
+            if (TileMovementQuery.HasComponent(uid)) // Goobstation Change
+                TryUpdateRelative(uid, mover, xform);
+
             // Update relative movement
             if (mover.LerpTarget < Timing.CurTime)
             {
@@ -372,6 +375,7 @@ public abstract partial class SharedMoverController : VirtualController
             {
                 tileMovement.WasWeightlessLastTick = weightless;
                 tileMovement.SlideActive = false;
+                tileMovement.FailureSlideActive = false;
             }
         }
 
@@ -889,7 +893,7 @@ public abstract partial class SharedMoverController : VirtualController
                     }
                     // Otherwise if we failed to reach the destination, begin a "failure slide" back to the
                     // original position.
-                    else if(!tileMovement.FailureSlideActive && !targetTransform.LocalPosition.EqualsApprox(tileMovement.Destination, 0.04))
+                    else if (!tileMovement.FailureSlideActive && !targetTransform.LocalPosition.EqualsApprox(tileMovement.Destination, 0.04))
                     {
                         InitializeSlideToTarget(physicsUid, tileMovement, targetTransform.LocalPosition, MoveButtons.None);
                         UpdateSlide(physicsUid, physicsUid, tileMovement, inputMover);

@@ -29,6 +29,7 @@
 using System.Linq;
 using Content.Goobstation.Common.CCVar; // Goob Edit
 using Content.Goobstation.Common.Mech; // Goobstation
+using Content.Shared._vg.TileMovement; // Goobstation
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -172,6 +173,9 @@ public abstract class SharedMechSystem : EntitySystem
 
         var rider = EnsureComp<MechPilotComponent>(pilot);
 
+        if (HasComp<TileMovementComponent>(pilot)) // Goob change - Prevent mech jank.
+            EnsureComp<TileMovementComponent>(mech);
+
         // Warning: this bypasses most normal interaction blocking components on the user, like drone laws and the like.
         var irelay = EnsureComp<InteractionRelayComponent>(pilot);
 
@@ -191,6 +195,9 @@ public abstract class SharedMechSystem : EntitySystem
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
     {
+        if (HasComp<TileMovementComponent>(mech)) // Goob change - Prevent mech jank.
+            RemComp<TileMovementComponent>(mech);
+
         if (!RemComp<MechPilotComponent>(pilot))
             return;
         RemComp<RelayInputMoverComponent>(pilot);

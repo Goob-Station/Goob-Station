@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._vg.TileMovement;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Actions;
@@ -243,6 +244,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             }
         }
 
+        if (HasComp<TileMovementComponent>(driver))
+            EnsureComp<TileMovementComponent>(vehicle);
+
         _mover.SetRelay(driver, vehicle);
     }
 
@@ -268,6 +272,9 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         if (TryComp<AccessComponent>(vehicle, out var accessComp))
             accessComp.Tags.Clear();
+
+        if (HasComp<TileMovementComponent>(vehicle))
+            RemComp<TileMovementComponent>(vehicle);
     }
 
     private void OnItemSlotEject(EntityUid uid, VehicleComponent comp, ref ItemSlotEjectAttemptEvent args)

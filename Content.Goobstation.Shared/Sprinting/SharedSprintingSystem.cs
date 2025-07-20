@@ -41,13 +41,15 @@ public abstract class SharedSprintingSystem : EntitySystem
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.Sprint, new SprintInputCmdHandler(this))
             .Register<SharedSprintingSystem>();
-        SubscribeLocalEvent<SprinterComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
-        SubscribeLocalEvent<SprinterComponent, KnockedDownEvent>(OnKnockedDown);
-        SubscribeLocalEvent<SprinterComponent, StunnedEvent>(OnStunned);
-        SubscribeLocalEvent<SprinterComponent, DownedEvent>(OnDowned);
-        SubscribeLocalEvent<SprinterComponent, SleepStateChangedEvent>(OnSleep);
         SubscribeLocalEvent<SprinterComponent, SprintToggleEvent>(OnSprintToggle);
+        SubscribeLocalEvent<SprinterComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
+        SubscribeLocalEvent<SprinterComponent, SleepStateChangedEvent>(OnSleep);
         SubscribeLocalEvent<SprinterComponent, ToggleWalkEvent>(OnToggleWalk);
+        SubscribeLocalEvent<SprinterComponent, KnockedDownEvent>(OnSprintDisablingEvent);
+        SubscribeLocalEvent<SprinterComponent, StunnedEvent>(OnSprintDisablingEvent);
+        SubscribeLocalEvent<SprinterComponent, DownedEvent>(OnSprintDisablingEvent);
+        SubscribeLocalEvent<CuffableComponent, SprintAttemptEvent>(OnCuffableSprintAttempt);
+        SubscribeLocalEvent<StandingStateComponent, SprintAttemptEvent>(OnStandingStateSprintAttempt);
     }
 
     #region Core Functions
@@ -101,14 +103,17 @@ public abstract class SharedSprintingSystem : EntitySystem
 
     private void ToggleSprint(EntityUid uid, SprinterComponent component, bool isSprinting, bool gracefulStop = true)
     {
+        // Breaking these into two separate if's for better readability
+        if (isSprinting == component.IsSprinting)
+            return;
+
+
         if (isSprinting
             && (!CanSprint(uid, component)
             || _timing.CurTime - component.LastSprint < component.TimeBetweenSprints))
             return;
 
-        if (isSprinting != component.IsSprinting)
-            component.LastSprint = _timing.CurTime;
-
+        component.LastSprint = _timing.CurTime;
         component.IsSprinting = isSprinting;
 
         if (isSprinting)
@@ -121,7 +126,7 @@ public abstract class SharedSprintingSystem : EntitySystem
             _damageable.TryChangeDamage(uid, component.SprintDamageSpecifier);
 
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
-        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, isSprinting, false, "sprint");
+        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, isSprinting, false, component.StaminaDrainKey);
         Dirty(uid, component);
     }
 
@@ -131,27 +136,40 @@ public abstract class SharedSprintingSystem : EntitySystem
 
     private bool CanSprint(EntityUid uid, SprinterComponent component)
     {
-        if (TryComp<CuffableComponent>(uid, out var cuffableComp) && !cuffableComp.CanStillInteract)
-        {
-            _popupSystem.PopupClient(Loc.GetString("no-sprint-while-restrained"), uid, uid, PopupType.Medium);
-            return false;
-        }
-
-        if (HasComp<StandingStateComponent>(uid) && _standing.IsDown(uid))
-        {
-            _popupSystem.PopupClient(Loc.GetString("no-sprint-while-lying"), uid, uid, PopupType.Medium);
-            return false;
-        }
-
+        // Awaiting on a wizden PR that refactors gravity from whatever the fuck this is.
         if (_gravity.IsWeightless(uid))
         {
             _popupSystem.PopupClient(Loc.GetString("no-sprint-while-weightless"), uid, uid, PopupType.Medium);
             return false;
         }
 
-        return true;
+        var ev = new SprintAttemptEvent();
+        RaiseLocalEvent(uid, ref ev);
+
+        return !ev.Cancelled;
     }
 
+    private void OnCuffableSprintAttempt(EntityUid uid, CuffableComponent component, ref SprintAttemptEvent args)
+    {
+        if (component.CanStillInteract)
+            return;
+
+        _popupSystem.PopupClient(Loc.GetString("no-sprint-while-restrained"), uid, uid, PopupType.Medium);
+        args.Cancel();
+    }
+
+    private void OnStandingStateSprintAttempt(EntityUid uid, StandingStateComponent component, ref SprintAttemptEvent args)
+    {
+        if (!_standing.IsDown(uid, component))
+            return;
+
+        _popupSystem.PopupClient(Loc.GetString("no-sprint-while-lying"), uid, uid, PopupType.Medium);
+        args.Cancel();
+    }
+
+    #endregion
+
+    #region Misc.Handlers
     private void OnMobStateChangedEvent(EntityUid uid, SprinterComponent component, MobStateChangedEvent args)
     {
         if (!component.IsSprinting
@@ -161,30 +179,6 @@ public abstract class SharedSprintingSystem : EntitySystem
         ToggleSprint(args.Target, component, false, gracefulStop: false);
     }
 
-    private void OnKnockedDown(EntityUid uid, SprinterComponent component, ref KnockedDownEvent args)
-    {
-        if (!component.IsSprinting)
-            return;
-
-        ToggleSprint(uid, component, false, gracefulStop: false);
-    }
-
-    private void OnStunned(EntityUid uid, SprinterComponent component, ref StunnedEvent args)
-    {
-        if (!component.IsSprinting)
-            return;
-
-        ToggleSprint(uid, component, false, gracefulStop: false);
-    }
-
-    private void OnDowned(EntityUid uid, SprinterComponent component, ref DownedEvent args)
-    {
-        if (!component.IsSprinting)
-            return;
-
-        ToggleSprint(uid, component, false, gracefulStop: false);
-    }
-
     private void OnSleep(EntityUid uid, SprinterComponent component, ref SleepStateChangedEvent args)
     {
         if (!component.IsSprinting
@@ -192,14 +186,17 @@ public abstract class SharedSprintingSystem : EntitySystem
             return;
 
         ToggleSprint(uid, component, false, gracefulStop: false);
-
-        if (!TryComp<StaminaComponent>(uid, out var stamina))
-            return;
-
-        Dirty(uid, stamina);
     }
 
     private void OnToggleWalk(EntityUid uid, SprinterComponent component, ref ToggleWalkEvent args)
+    {
+        if (!component.IsSprinting)
+            return;
+
+        ToggleSprint(uid, component, false);
+    }
+
+    private void OnSprintDisablingEvent<T>(EntityUid uid, SprinterComponent component, ref T args) where T : notnull
     {
         if (!component.IsSprinting)
             return;

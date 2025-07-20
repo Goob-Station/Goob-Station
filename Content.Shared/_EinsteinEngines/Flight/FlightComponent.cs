@@ -40,6 +40,12 @@ public sealed partial class FlightComponent : Component
     public float StaminaDrainRate = 6.0f;
 
     /// <summary>
+    ///     String key to identify the stamina drain within the dictionary.
+    /// </summary>
+    [DataField]
+    public string StaminaDrainKey = "flight";
+
+    /// <summary>
     ///     DoAfter delay until the user becomes weightless.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -110,6 +116,12 @@ public sealed partial class FlightComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public string AnimationKey = "default";
+
+    /// <summary>
+    ///     Does the flight use a different animation when sprinting?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool UseSprintAnimation = false;
 
     /// <summary>
     ///     Time between sounds being played

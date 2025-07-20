@@ -55,10 +55,13 @@ public abstract class SharedFlightSystem : EntitySystem
         SubscribeLocalEvent<FlightComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<FlightComponent, ToggleFlightEvent>(OnToggleFlight);
         SubscribeLocalEvent<FlightComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessMoveSpeed);
+        SubscribeLocalEvent<CuffableComponent, FlightAttemptEvent>(OnCuffableFlightAttempt);
+        SubscribeLocalEvent<StandingStateComponent, FlightAttemptEvent>(OnStandingStateFlightAttempt);
+        SubscribeLocalEvent<ZombieComponent, FlightAttemptEvent>(OnZombieFlightAttempt);
         SubscribeLocalEvent<FlightComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
-        SubscribeLocalEvent<FlightComponent, EntityZombifiedEvent>(OnZombified);
-        SubscribeLocalEvent<FlightComponent, KnockedDownEvent>(OnKnockedDown);
-        SubscribeLocalEvent<FlightComponent, StunnedEvent>(OnStunned);
+        SubscribeLocalEvent<FlightComponent, EntityZombifiedEvent>(OnFlightDisablingEvent);
+        SubscribeLocalEvent<FlightComponent, KnockedDownEvent>(OnFlightDisablingEvent);
+        SubscribeLocalEvent<FlightComponent, StunnedEvent>(OnFlightDisablingEvent);
         SubscribeLocalEvent<FlightComponent, DownedEvent>(OnDowned);
         SubscribeLocalEvent<FlightComponent, SleepStateChangedEvent>(OnSleep);
         SubscribeLocalEvent<FlightComponent, AttemptClimbEvent>(OnAttemptClimb);
@@ -104,7 +107,7 @@ public abstract class SharedFlightSystem : EntitySystem
         component.TimeUntilFlap = 0f;
         _actionsSystem.SetToggled(component.ToggleActionEntity, component.On);
         RaiseLocalEvent(uid, new FlightEvent(uid, component.On, component.IsAnimated));
-        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false, "flight");
+        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false, component.StaminaDrainKey);
         _movementSpeed.RefreshWeightlessModifiers(uid);
         ToggleCollisionMasks(uid, component);
         UpdateHands(uid, active);
@@ -208,10 +211,7 @@ public abstract class SharedFlightSystem : EntitySystem
             EnsureComp<UnremoveableComponent>(virtItem2.Value);
     }
 
-    private void FreeHands(EntityUid uid)
-    {
-        _virtualItem.DeleteInHandsMatching(uid, uid);
-    }
+    private void FreeHands(EntityUid uid) => _virtualItem.DeleteInHandsMatching(uid, uid);
 
     private void OnRefreshWeightlessMoveSpeed(EntityUid uid, FlightComponent component, ref RefreshWeightlessModifiersEvent args)
     {
@@ -228,25 +228,39 @@ public abstract class SharedFlightSystem : EntitySystem
 
     private bool CanFly(EntityUid uid, FlightComponent component)
     {
-        if (TryComp<CuffableComponent>(uid, out var cuffableComp) && !cuffableComp.CanStillInteract)
-        {
-            _popupSystem.PopupClient(Loc.GetString("no-flight-while-restrained"), uid, uid, PopupType.Medium);
-            return false;
-        }
+        var ev = new FlightAttemptEvent();
+        RaiseLocalEvent(uid, ref ev);
 
-        if (HasComp<ZombieComponent>(uid))
-        {
-            _popupSystem.PopupClient(Loc.GetString("no-flight-while-zombified"), uid, uid, PopupType.Medium);
-            return false;
-        }
-
-        if (HasComp<StandingStateComponent>(uid) && _standing.IsDown(uid))
-        {
-            _popupSystem.PopupClient(Loc.GetString("no-flight-while-lying"), uid, uid, PopupType.Medium);
-            return false;
-        }
-        return true;
+        return !ev.Cancelled;
     }
+
+    private void OnCuffableFlightAttempt(EntityUid uid, CuffableComponent component, ref FlightAttemptEvent args)
+    {
+        if (component.CanStillInteract)
+            return;
+
+        _popupSystem.PopupClient(Loc.GetString("no-flight-while-restrained"), uid, uid, PopupType.Medium);
+        args.Cancel();
+    }
+
+    private void OnZombieFlightAttempt(EntityUid uid, ZombieComponent component, ref FlightAttemptEvent args)
+    {
+        _popupSystem.PopupClient(Loc.GetString("no-flight-while-zombified"), uid, uid, PopupType.Medium);
+        args.Cancel();
+    }
+
+    private void OnStandingStateFlightAttempt(EntityUid uid, StandingStateComponent component, ref FlightAttemptEvent args)
+    {
+        if (!_standing.IsDown(uid, component))
+            return;
+
+        _popupSystem.PopupClient(Loc.GetString("no-flight-while-lying"), uid, uid, PopupType.Medium);
+        args.Cancel();
+    }
+
+    #endregion
+
+    #region Misc.Handlers
     private void OnMobStateChangedEvent(EntityUid uid, FlightComponent component, MobStateChangedEvent args)
     {
         if (!component.On
@@ -255,29 +269,10 @@ public abstract class SharedFlightSystem : EntitySystem
 
         ToggleActive(args.Target, false, component);
     }
-
-    private void OnZombified(EntityUid uid, FlightComponent component, ref EntityZombifiedEvent args)
+    private void OnSleep(EntityUid uid, FlightComponent component, ref SleepStateChangedEvent args)
     {
-        if (!component.On)
-            return;
-
-        ToggleActive(args.Target, false, component);
-        if (!TryComp<StaminaComponent>(uid, out var stamina))
-            return;
-        Dirty(uid, stamina);
-    }
-
-    private void OnKnockedDown(EntityUid uid, FlightComponent component, ref KnockedDownEvent args)
-    {
-        if (!component.On)
-            return;
-
-        ToggleActive(uid, false, component);
-    }
-
-    private void OnStunned(EntityUid uid, FlightComponent component, ref StunnedEvent args)
-    {
-        if (!component.On)
+        if (!component.On
+            || !args.FellAsleep)
             return;
 
         ToggleActive(uid, false, component);
@@ -293,25 +288,20 @@ public abstract class SharedFlightSystem : EntitySystem
         RaiseNetworkEvent(new ToggleFlightVisualsEvent(GetNetEntity(uid), false, component.IsAnimated));
     }
 
-    private void OnSleep(EntityUid uid, FlightComponent component, ref SleepStateChangedEvent args)
+    private void OnFlightDisablingEvent<T>(EntityUid uid, FlightComponent component, ref T args) where T : notnull
     {
-        if (!component.On
-            || !args.FellAsleep)
+        if (!component.On)
             return;
 
         ToggleActive(uid, false, component);
-        if (!TryComp<StaminaComponent>(uid, out var stamina))
-            return;
-
-        Dirty(uid, stamina);
     }
 
-    private void OnAttemptClimb(EntityUid uid,
-        FlightComponent component,
-        AttemptClimbEvent args)
+    private void OnAttemptClimb(EntityUid uid, FlightComponent component, AttemptClimbEvent args)
     {
-        if (component.On)
-            args.Cancelled = true;
+        if (!component.On)
+            return;
+
+        args.Cancelled = true;
     }
 
     #endregion

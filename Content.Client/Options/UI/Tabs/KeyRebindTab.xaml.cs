@@ -116,18 +116,6 @@ namespace Content.Client.Options.UI.Tabs
             }
         }
 
-        private void InitToggleSprint()
-        {
-            if (_cfg.GetCVar(GoobCVars.ToggleSprint))
-            {
-                ToggleFunctions.Add(ContentKeyFunctions.Sprint);
-            }
-            else
-            {
-                ToggleFunctions.Remove(ContentKeyFunctions.Sprint);
-            }
-        }
-
         private void HandleToggleWalk(BaseButton.ButtonToggledEventArgs args)
         {
             _cfg.SetCVar(CCVars.ToggleWalk, args.Pressed);

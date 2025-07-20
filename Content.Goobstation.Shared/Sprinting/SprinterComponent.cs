@@ -29,6 +29,9 @@ public sealed partial class SprinterComponent : Component
     public TimeSpan LastSprint = TimeSpan.Zero;
 
     [DataField]
+    public string StaminaDrainKey = "sprint";
+
+    [DataField]
     public EntProtoId SprintAnimation = "SprintAnimation";
 
     [ViewVariables]
@@ -65,9 +68,7 @@ public sealed class SprintToggleEvent : EntityEventArgs
 }
 
 [Serializable, NetSerializable]
-public sealed class SprintStartEvent : EntityEventArgs
-{
-    public SprintStartEvent()
-    {
-    }
-}
+public sealed class SprintStartEvent : EntityEventArgs {}
+
+[ByRefEvent]
+public sealed class SprintAttemptEvent : CancellableEntityEventArgs {}
