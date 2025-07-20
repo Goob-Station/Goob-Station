@@ -79,13 +79,15 @@
   effectDelayed: null
   hideByRequirement: true
   requirement:
-    - !type:MobStateRequirement
-      allowedStates: [Alive, Critical]
-    - !type:StandingStateRequirement
-      allowLaying: true
-      allowKnockedDown: true
-      allowStanding: true
-      allowSleep: false
+    !type:ComplexRequirement
+    requirements:
+      - !type:MobStateRequirement
+        allowedStates: [Alive, Critical]
+      - !type:StandingStateRequirement
+        allowStanding: true
+        allowLaying: true
+        allowKnockedDown: true
+        allowSleep: false
   action:
     !type:ComplexAction
     actions:
