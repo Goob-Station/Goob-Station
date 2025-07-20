@@ -247,7 +247,7 @@
   id: Nukeops
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 15 # Pirate
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
   - type: AntagSelection
@@ -380,7 +380,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 10 # Pirate
     chaosScore: 1000 # Goobstation
   - type: RevolutionaryRule
   - type: AntagSelection
@@ -469,7 +469,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 15 # Pirate
     delay:
       min: 600
       max: 900

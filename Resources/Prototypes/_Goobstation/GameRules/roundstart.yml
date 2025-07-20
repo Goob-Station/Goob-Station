@@ -34,7 +34,7 @@
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 10 # Pirate
     chaosScore: 800
   - type: AntagRandomObjectives
     sets:
@@ -72,7 +72,7 @@
     - groups: CorporateObjectiveGroups
     maxDifficulty: 8 # Very rare antag so they should get a lot of objectives
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 15 # Pirate
     delay:
       min: 465
       max: 665 # Delay is so the heads help their department get set up.
@@ -251,7 +251,7 @@
   components:
   - type: BlobRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 10 # Pirate
     chaosScore: 1000
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -375,7 +375,7 @@
   - type: DevilRule
   - type: GameRule
     chaosScore: 350 # low since they tend to revive people and stuff
-    minPlayers: 15
+    minPlayers: 7 # Pirate
   - type: AntagObjectives
     objectives:
     - DevilContractObjective
