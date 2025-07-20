@@ -178,13 +178,9 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
             return;
 
         var scroll = SupermattersTable.Parent as ScrollContainer;
-        if (scroll == null)
-            return;
-
-        if (!TryGetVerticalScrollbar(scroll, out var vScrollbar))
-            return;
-
-        if (!TryGetNextScrollPosition(out float? nextScrollPosition))
+        if (scroll == null
+            || !TryGetVerticalScrollbar(scroll, out var vScrollbar)
+            || !TryGetNextScrollPosition(out float? nextScrollPosition))
             return;
 
         vScrollbar.ValueTarget = nextScrollPosition.Value;
