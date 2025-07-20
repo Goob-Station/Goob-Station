@@ -245,20 +245,6 @@ public sealed partial class NPCCombatSystem
 
             break;
 
-            // Goobstation
-            void UpdatePointerLineNoTarget()
-            {
-                if (TryComp(gunUid, out LaserPointerComponent? pointer) && TryComp(gunUid, out WieldableComponent? wieldable))
-                {
-                    _pointer.AddOrRemoveLine(GetNetEntity(gunUid),
-                        pointer,
-                        wieldable,
-                        _xformQuery.Comp(gunUid),
-                        null,
-                        null);
-                }
-            }
-
             void UpdatePointerLine()
             {
                 if (TryComp(gunUid, out LaserPointerComponent? pointer) && TryComp(gunUid, out WieldableComponent? wieldable))
