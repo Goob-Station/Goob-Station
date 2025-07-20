@@ -1,0 +1,31 @@
+# Head
+- type: loadout
+  id: AdminAssistantHead
+  equipment:
+    head: ClothingHeadEnvirohelmAdminAssistant
+# Neck
+# Ears
+- type: loadout
+  id: AdminAssistantHeadset
+  equipment:
+    ears: ClothingHeadsetAdminAssist
+- type: loadout
+  id: AdminAssistantHeadsetAlt
+  equipment:
+    neck: ClothingHeadsetAltAdminAssist
+# Uniform
+- type: loadout
+  id: AdminAssistantJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAdminAssistant
+- type: loadout
+  id: AdminAssistantJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtAdminAssistant
+# Back
+# OuterClothing
+# Gloves
+# Shoes
+# ID
+# Eyes
+# Belt
