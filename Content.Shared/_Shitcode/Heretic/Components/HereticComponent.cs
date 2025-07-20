@@ -88,7 +88,7 @@ public sealed partial class HereticComponent : Component
     ///     Used to prevent double casting mansus grasp.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid MansusGrasp = EntityUid.Invalid;
+    public EntityUid? MansusGrasp;
 
     [DataField]
     public List<EntityUid> OurBlades = new();

@@ -22,6 +22,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.EntitySystems;
@@ -77,6 +78,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Server.Heretic.Components;
 using Content.Shared.Chat;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
@@ -89,11 +91,15 @@ using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Goobstation.Server.Heretic.Abilities;
 
+/// <summary>
+/// Todo: Rework paths into independent protos.
+/// Using strings and hardcoding is fucking AWFUL.
+/// </summary>
 public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 {
-    // keeping track of all systems in a single file
+    // *starwars opening text*
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -146,18 +152,17 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         var list = new List<EntityUid>();
         var lookup = _lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
 
-        foreach (var look in lookup)
+        foreach (var nearbyEnt in lookup)
         {
             // ignore heretics with the same path*, affect everyone else
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
+            if (TryComp<HereticComponent>(nearbyEnt, out var heretic) && heretic.CurrentPath == ent.Comp.CurrentPath
+            || HasComp<GhoulComponent>(nearbyEnt)
+            || !HasComp<StatusEffectsComponent>(nearbyEnt))
                 continue;
 
-            if (!HasComp<StatusEffectsComponent>(look))
-                continue;
-
-            list.Add(look);
+            list.Add(nearbyEnt);
         }
+
         return list;
     }
 
@@ -184,9 +189,10 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
     protected override void SpeakAbility(EntityUid ent, HereticActionComponent actionComp)
     {
-        // shout the spell out
-        if (!string.IsNullOrWhiteSpace(actionComp.MessageLoc))
-            _chat.TrySendInGameICMessage(ent, Loc.GetString(actionComp.MessageLoc!), InGameICChatType.Speak, false);
+        if (string.IsNullOrWhiteSpace(actionComp.MessageLoc))
+            return;
+
+        _chat.TrySendInGameICMessage(ent, Loc.GetString(actionComp.MessageLoc), InGameICChatType.Speak, false);
     }
 
     private void OnStore(Entity<HereticComponent> ent, ref EventHereticOpenStore args)
@@ -201,42 +207,43 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (ent.Comp.MansusGrasp != EntityUid.Invalid)
+        // If the grasp is already out, delete it. Otherwise, we should spawn one.
+        if (ent.Comp.MansusGrasp != null)
         {
-            if(!TryComp<HandsComponent>(ent, out var handsComp))
+            if (!TryComp<HandsComponent>(ent, out var handsComp))
                 return;
+
             foreach (var hand in handsComp.Hands.Values)
             {
-                if (hand.HeldEntity == null)
-                    continue;
-                if (HasComp<MansusGraspComponent>(hand.HeldEntity))
+                if (hand.HeldEntity != null
+                && HasComp<MansusGraspComponent>(hand.HeldEntity))
                     QueueDel(hand.HeldEntity);
             }
-            ent.Comp.MansusGrasp = EntityUid.Invalid;
+
+            ent.Comp.MansusGrasp = null;
             return;
         }
 
-        if (!_hands.TryGetEmptyHand(ent, out var emptyHand))
+        // Empowered blades - infuse all of our blades that are currently in our inventory
+        if (!_hands.TryGetEmptyHand(ent, out var emptyHand)
+            || ent.Comp.CurrentPath != "Blade"
+            || ent.Comp.PathStage < 7) // todo: replace with var instead of hardcoding
         {
-            // Empowered blades - infuse all of our blades that are currently in our inventory
-            if (ent.Comp.CurrentPath == "Blade" && ent.Comp.PathStage >= 7)
-            {
-                if (!InfuseOurBlades())
-                    return;
+            if (!InfuseOurBlades())
+                return;
 
-                _actions.SetCooldown(args.Action, MansusGraspSystem.DefaultCooldown);
-                _mansusGrasp.InvokeGrasp(ent, null);
-            }
+            _actions.SetCooldown(args.Action, MansusGraspSystem.DefaultCooldown);
+            _mansusGrasp.InvokeGrasp(ent, null);
 
             return;
         }
 
-        var st = Spawn(GetMansusGraspProto(ent), Transform(ent).Coordinates);
+        var grasp = Spawn(GetMansusGraspProto(ent), Transform(ent).Coordinates);
 
-        if (!_hands.TryPickup(ent, st, emptyHand, animate: false))
+        if (!_hands.TryPickup(ent, grasp, emptyHand, animate: false))
         {
             Popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
-            QueueDel(st);
+            QueueDel(grasp);
             return;
         }
 
@@ -253,22 +260,14 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 containerEnt = container.Owner;
 
             var success = false;
-            foreach (var blade in ent.Comp.OurBlades)
+            foreach (var blade in ent.Comp.OurBlades
+                         .Where(blade => !TerminatingOrDeleted(blade))
+                         .Where(blade => _tag.HasTag(blade, "HereticBladeBlade"))) // Todo : De-hardcode this.
             {
-                if (!EntityManager.EntityExists(blade))
-                    continue;
-
-                if (!_tag.HasTag(blade, "HereticBladeBlade"))
-                    continue;
-
-                if (TryComp(blade, out MansusInfusedComponent? infused) &&
-                    infused.AvailableCharges >= infused.MaxCharges)
-                    continue;
-
-                if (!_container.TryGetOuterContainer(blade, xformQuery.Comp(blade), out var bladeContainer, xformQuery))
-                    continue;
-
-                if (bladeContainer.Owner != containerEnt)
+                if (TryComp<MansusInfusedComponent>(blade, out var infused)
+                    && infused.AvailableCharges >= infused.MaxCharges
+                    || !_container.TryGetOuterContainer(blade, xformQuery.Comp(blade), out var bladeContainer, xformQuery)
+                    || bladeContainer.Owner != containerEnt)
                     continue;
 
                 var newInfused = EnsureComp<MansusInfusedComponent>(blade);

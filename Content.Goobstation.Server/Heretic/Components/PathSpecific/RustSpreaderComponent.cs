@@ -6,14 +6,20 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server.Heretic.Components;
+using Content.Shared.Spreader;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Server.Heretic.Components.PathSpecific;
 
 [RegisterComponent]
-public sealed partial class ChangeUseDelayOnAscensionComponent : Component
+public sealed partial class RustSpreaderComponent : Component
 {
-    [DataField(required: true)]
-    public TimeSpan NewUseDelay;
+    [DataField]
+    public ProtoId<EdgeSpreaderPrototype> SpreaderProto = "Rust";
 
     [DataField]
-    public string? RequiredPath;
+    public float LookupRange = 0.1f;
+
+    [DataField]
+    public EntProtoId TileRune = "TileHereticRustRune";
 }

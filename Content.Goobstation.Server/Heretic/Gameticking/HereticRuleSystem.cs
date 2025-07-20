@@ -13,24 +13,20 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Antag;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared.Heretic;
-using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
-using Content.Shared.Store;
 using Content.Shared.Store.Components;
-using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
 using Content.Server.Station.Components;
 using Content.Server._Goobstation.Objectives.Components;
+using Content.Server.GameTicking.Rules;
 
-namespace Content.Server.GameTicking.Rules;
+namespace Content.Goobstation.Server.Heretic.GameTicking;
 
 public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
 {
@@ -40,20 +36,6 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
-
-    public static readonly SoundSpecifier BriefingSound =
-        new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
-
-    public static readonly SoundSpecifier BriefingSoundIntense =
-        new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain_intense.ogg");
-
-    public static readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
-
-    public static readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
-
-    public static readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
-
-    static EntProtoId MindRole = "MindRoleHeretic";
 
     public override void Initialize()
     {
@@ -87,30 +69,27 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, MindRole.Id, mind, true);
+        _role.MindAddRole(mindId, rule.MindRole.Id, mind, true);
 
-        // briefing
-        if (HasComp<MetaDataComponent>(target))
-        {
-            var briefingShort = Loc.GetString("heretic-role-greeting-short");
+        var briefingShort = Loc.GetString("heretic-role-greeting-short");
 
-            _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting-fluff"), Color.MediumPurple, null);
-            _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting"), Color.Red, BriefingSound);
+        _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting-fluff"), Color.MediumPurple, null);
+        _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting"), Color.Red, rule.BriefingSound);
 
-            if (_role.MindHasRole<HereticRoleComponent>(mindId, out var mr))
-                AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
-        }
-        _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
-        _npcFaction.AddFaction(target, HereticFactionId);
+        if (_role.MindHasRole<HereticRoleComponent>(mindId, out var mr))
+            AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
+
+        _npcFaction.RemoveFaction(target, rule.NanotrasenFactionId, false);
+        _npcFaction.AddFaction(target, rule.HereticFactionId);
 
         EnsureComp<HereticComponent>(target);
 
-        // add store
         var store = EnsureComp<StoreComponent>(target);
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
-        store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 2);
+
+        store.CurrencyWhitelist.Add(rule.Currency);
+        store.Balance.Add(rule.Currency, rule.StartingPoints.Next(_rand));
 
         rule.Minds.Add(mindId);
 
@@ -124,27 +103,27 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
         var mostKnowledge = 0f;
         var mostKnowledgeName = string.Empty;
 
-        foreach (var heretic in EntityQuery<HereticComponent>())
+        var query = EntityQueryEnumerator<HereticComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            if (!_mind.TryGetMind(heretic.Owner, out var mindId, out var mind))
+            if (!_mind.TryGetMind(uid, out var mindId, out var mind))
                 continue;
 
-            var name = _objective.GetTitle((mindId, mind), Name(heretic.Owner));
+            var name = _objective.GetTitle((mindId, mind), Name(uid));
             if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
             {
                 if (objective.Researched > mostKnowledge)
                     mostKnowledge = objective.Researched;
+
                 mostKnowledgeName = name;
             }
-
-            var message =
-                $"roundend-prepend-heretic-ascension-{(heretic.Ascended ? "success" : heretic.CanAscend ? "fail" : "fail-owls")}";
+            var message = $"roundend-prepend-heretic-ascension-{(comp.Ascended ? "success" : comp.CanAscend ? "fail" : "fail-owls")}";
             var str = Loc.GetString(message, ("name", name));
+
             sb.AppendLine(str);
         }
 
         sb.AppendLine("\n" + Loc.GetString("roundend-prepend-heretic-knowledge-named", ("name", mostKnowledgeName), ("number", mostKnowledge)));
-
         args.Text = sb.ToString();
     }
 }

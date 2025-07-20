@@ -12,17 +12,30 @@
 
 using Robust.Shared.Audio;
 
-namespace Content.Server.Heretic.Components.PathSpecific;
+namespace Content.Goobstation.Server.Heretic.Components.PathSpecific;
 
+/// <summary>
+/// This marks an ascended void heretic.
+/// </summary>
 [RegisterComponent]
 public sealed partial class AristocratComponent : Component
 {
-    [DataField] public float UpdateDelay = 0.1f;
-    [DataField] public float Range = 10f;
+    [DataField]
+    public SoundSpecifier VoidsEmbrace = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/VoidsEmbrace.ogg");
 
+    [DataField]
+    public float UpdateDelay = 0.1f;
+
+    [DataField]
+    public float Range = 10f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
     public int UpdateStep = 0;
+
+    [ViewVariables(VVAccess.ReadOnly)]
     public float UpdateTimer = 0f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
     public bool HasDied = false;
 
-    public SoundSpecifier VoidsEmbrace = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/VoidsEmbrace.ogg");
 }

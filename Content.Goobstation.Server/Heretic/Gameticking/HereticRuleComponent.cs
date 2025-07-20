@@ -10,11 +10,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.GameTicking.Rules;
 using Content.Shared.Destructible.Thresholds;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Store;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.GameTicking.Rules.Components;
+namespace Content.Goobstation.Server.Heretic.GameTicking;
 
 [RegisterComponent, Access(typeof(HereticRuleSystem))]
 public sealed partial class HereticRuleComponent : Component
@@ -23,12 +26,35 @@ public sealed partial class HereticRuleComponent : Component
     public MinMax RealityShiftPerHeretic = new(3, 4);
 
     [DataField]
+    public MinMax StartingPoints = new(2, 3);
+
+    [DataField]
     public EntProtoId RealityShift = "EldritchInfluence";
 
-    public readonly List<EntityUid> Minds = new();
+    [DataField]
+    public ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
-    public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
-    {
+    [DataField]
+    public ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+
+    [DataField]
+    public ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
+
+    [DataField]
+    public EntProtoId MindRole = "MindRoleHeretic";
+
+    [DataField]
+    public SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
+
+    [DataField]
+    public SoundSpecifier BriefingSoundIntense = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain_intense.ogg");
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public readonly List<EntityUid> Minds = [];
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories =
+    [
         "HereticPathAsh",
         //"HereticPathLock",
         "HereticPathFlesh",
@@ -36,5 +62,5 @@ public sealed partial class HereticRuleComponent : Component
         "HereticPathVoid",
         "HereticPathRust",
         "HereticPathSide",
-    };
+    ];
 }

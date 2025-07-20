@@ -13,7 +13,7 @@ using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 
-namespace Content.Server.Heretic.Components;
+namespace Content.Goobstation.Server.Heretic.Components;
 
 [RegisterComponent, Access(typeof(MansusGraspSystem))]
 public sealed partial class MansusGraspComponent : Component

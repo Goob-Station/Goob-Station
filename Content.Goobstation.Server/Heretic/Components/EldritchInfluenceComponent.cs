@@ -12,10 +12,14 @@
 
 using Content.Server.Heretic.EntitySystems;
 
-namespace Content.Server.Heretic.Components;
+namespace Content.Goobstation.Server.Heretic.Components;
 
 [RegisterComponent, Access(typeof(EldritchInfluenceSystem))]
 public sealed partial class EldritchInfluenceComponent : Component
 {
-    [DataField] public bool Spent = false;
+    [DataField]
+    public bool Spent;
+
+    [DataField]
+    public int Points = 1;
 }
