@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseItem
+  id: SanabiImage
+  name: ПРОЛКЯТИЕ 220!
+  components:
+  - type: Sprite
+    state: curse
+    sprite: _Goobstation/Effects/sanabi.rsi
+    shader: unshaded
+    drawdepth: Overlays
+    scale: 0.3, 0.3 #0.3 for 32x32
+  - type: PointLight
+    radius: 2
+    energy: 5
+    color: "#ffffff"
+    netsync: false
+  - type: LightFade
+    duration: 0.6
+  - type: FadingTimedDespawn
+    lifetime: 0.15
+    fadeOutTime: 0.5
+  - type: StaticPrice
+    price: 220
