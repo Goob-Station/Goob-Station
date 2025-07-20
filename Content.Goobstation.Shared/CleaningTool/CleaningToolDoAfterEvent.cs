@@ -18,10 +18,6 @@ public sealed partial class CleaningToolDoAfterEvent : DoAfterEvent
     [DataField]
     public HashSet<(uint Index, Decal Decal)> Decals = default!;
 
-    private CleaningToolDoAfterEvent()
-    {
-    }
-
     public CleaningToolDoAfterEvent(List<NetEntity> entities, HashSet<(uint Index, Decal Decal)> decals)
     {
         Entities = entities;
