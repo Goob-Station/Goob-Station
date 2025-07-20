@@ -1,6 +1,6 @@
 - type: entity
   id: SpawnPointGhostIfrit
-  name: ghost role spawn point
+  name: "точка народження гост-ролі"
   suffix: Ifrit
   parent: MarkerBase
   categories: [ HideSpawnMenu ]

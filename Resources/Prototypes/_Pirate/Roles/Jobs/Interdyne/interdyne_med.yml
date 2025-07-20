@@ -1,7 +1,7 @@
 - type: job
   id: InterdyneMed
-  name: job-name-interdyne-med
-  description: job-description-interdyne-med
+  name: "медик Interdyne"
+  description: "надавайте медичну допомогу персоналу Interdyne, щоб підтримувати їх у бойовій готовності"
   icon: "JobIconInterdyneMed"
   canBeAntag: false
   playTimeTracker: JobInterdyneMed

@@ -30,7 +30,7 @@
   parent: [ BaseSimpleMob, MobCombat ]
   id: BaseMobArgocyte
   suffix: AI
-  description: A dangerous alien found on the wrong side of planets, known for their propensity for munching on ruins.
+  description: "Небезпечний інопланетянин, що опинився на протилежному боці планет, відомий своєю схильністю до поїдання руїн."
   abstract: true
   components:
   - type: NpcFactionMember
@@ -86,8 +86,8 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteSlurva
-  name: slurva
-  description: A pathetic creature, incapable of doing much.
+  name: "слизь"
+  description: "Жалюгідна істота, ні на що не здатна."
   components:
   - type: Sprite
     layers:
@@ -121,7 +121,7 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteBarrier
-  name: barrier
+  name: "бар'єр"
   components:
   - type: Sprite
     layers:
@@ -163,8 +163,8 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteSkitter
-  name: skitter
-  description: A devious little alien... Make sure they don't run off with your rations!
+  name: "скіттер"
+  description: "Хитрий маленький прибулець... Дивись, щоб вони не втекли з твоїми пайками!"
   components:
   - type: Sprite
     layers:
@@ -203,8 +203,8 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteSwiper
-  name: swiper
-  description: Where did that stack of steel go?
+  name: "прибиральник"
+  description: "Куди подівся той штабель сталі?"
   components:
   - type: Sprite
     layers:
@@ -230,7 +230,7 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteMolder
-  name: molder
+  name: "формувальник"
   components:
   - type: Sprite
     layers:
@@ -257,7 +257,7 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocytePouncer
-  name: pouncer
+  name: "вибивач"
   components:
   - type: Sprite
     layers:
@@ -286,7 +286,7 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteGlider
-  name: glider
+  name: "планер"
   components:
   - type: Sprite
     layers:
@@ -318,7 +318,7 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteHarvester
-  name: harvester
+  name: "комбайн"
   components:
   - type: Sprite
     layers:
@@ -348,8 +348,8 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteCrawler
-  name: crawler
-  description: Deadly, pack-animals that maul unsuspecting travelers.
+  name: "гусениця"
+  description: "Смертоносні зграйні тварини, які шматують нічого не підозрюючих мандрівників."
   components:
   - type: Sprite
     layers:
@@ -382,7 +382,7 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteEnforcer
-  name: enforcer
+  name: "примусовий виконавець"
   components:
   - type: Sprite
     layers:
@@ -415,7 +415,7 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteFounder
-  name: founder
+  name: "засновник"
   components:
   - type: Sprite
     sprite: Mobs/Aliens/Argocyte/argocyte_large.rsi
@@ -461,7 +461,7 @@
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteLeviathing
-  name: leviathing
+  name: "лев'яча шкіра"
   components:
   - type: Sprite
     sprite: Mobs/Aliens/Argocyte/argocyte_large.rsi

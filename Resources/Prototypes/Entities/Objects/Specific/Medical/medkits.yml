@@ -25,8 +25,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: first aid kit
-  description: It's an emergency medical kit for those serious boo-boos.
+  name: "аптечка першої допомоги"
+  description: "Це аптечка для екстреної медичної допомоги на випадок серйозних неприємностей."
   parent: BaseStorageItem
   id: Medkit
   components:
@@ -49,8 +49,8 @@
     - Medkit
 
 - type: entity
-  name: burn treatment kit
-  description: "A specialized medical kit for when the toxins lab spontaneously burns down."
+  name: "набір для лікування опіків"
+  description: "Спеціалізований медичний набір на випадок раптового загоряння токсикологічної лабораторії."
   parent: Medkit
   id: MedkitBurn
   components:
@@ -60,8 +60,8 @@
     heldPrefix: burnkit
 
 - type: entity
-  name: toxin treatment kit
-  description: "Used to treat toxic blood content."
+  name: "набір для обробки токсинів"
+  description: "Використовується для лікування токсичного вмісту крові."
   parent: Medkit
   id: MedkitToxin
   components:
@@ -71,8 +71,8 @@
     heldPrefix: toxinkit
 
 - type: entity
-  name: oxygen deprivation treatment kit
-  description: "A box full of oxygen goodies."
+  name: "набір для лікування кисневого голодування"
+  description: "Коробка, повна кисневих смаколиків."
   parent: Medkit
   id: MedkitO2
   components:
@@ -82,8 +82,8 @@
     heldPrefix: o2kit
 
 - type: entity
-  name: brute trauma treatment kit
-  description: "A first aid kit for when you get toolboxed."
+  name: "аптечка для надання допомоги при грубій травмі"
+  description: "Аптечка на випадок, якщо ви отримаєте травму інструментом."
   parent: Medkit
   id: MedkitBrute
   components:
@@ -93,8 +93,8 @@
     heldPrefix: brutekit
 
 - type: entity
-  name: advanced first aid kit
-  description: "An advanced kit to help deal with advanced wounds."
+  name: "вдосконалена аптечка першої допомоги"
+  description: "Удосконалений набір для лікування глибоких ран."
   parent: Medkit
   id: MedkitAdvanced
   components:
@@ -108,8 +108,8 @@
     - 0,0,5,1
 
 - type: entity
-  name: radiation treatment kit
-  description: "If you took your Rad-X you wouldn't need this."
+  name: "набір для променевої терапії"
+  description: "Якби ви взяли з собою Rad-X, вам би це не знадобилося."
   parent: Medkit
   id: MedkitRadiation
   components:
@@ -119,8 +119,8 @@
     heldPrefix: radkit
 
 - type: entity
-  name: combat medical kit
-  description: "For the big weapons among us."
+  name: "бойова медична аптечка"
+  description: "Для великої зброї серед нас."
   parent: Medkit
   id: MedkitCombat
   components:

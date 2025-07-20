@@ -6,8 +6,8 @@
 - type: entity
   parent: [ ClothingBackpack, BaseMajorContraband ]
   id: ClothingBackpackAbductor
-  name: alien backpack
-  description: An ordinary backpack woven from a durable fiber.
+  name: "інопланетний рюкзак"
+  description: "Звичайний рюкзак, витканий з міцного волокна."
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/Back/Backpacks/abductor.rsi

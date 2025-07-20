@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolMindbreaker
-  name: ammunition box (.35 mindbreaker)
-  description: A cardboard box of .35 auto rounds.
+  name: "коробка з набоями (.35 mindbreaker)"
+  description: "Картонна коробка з набоями калібру .35 auto."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolMindbreaker

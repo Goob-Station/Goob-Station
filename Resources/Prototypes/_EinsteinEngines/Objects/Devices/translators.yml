@@ -3,8 +3,8 @@
   categories: [ HideSpawnMenu ]
   id: TranslatorUnpowered
   parent: BaseItem
-  name: translator
-  description: Translates speech.
+  name: "перекладач"
+  description: "Перекладає мову."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Devices/translator.rsi
@@ -56,15 +56,15 @@
   categories: [ HideSpawnMenu ]
   id: TranslatorForeigner
   parent: [ PowerCellSlotHighItem, TranslatorPoweredBase ]
-  name: foreigner's translator
-  description: A special-issue translator that helps foreigner's speak and understand this station's primary language.
+  name: "перекладач іноземців"
+  description: "Спеціальний перекладач, який допомагає іноземцям говорити і розуміти основну мову цієї станції."
 
 
 - type: entity
   id: CanilunztTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Canilunzt translator
-  description: Translates speech between Canilunzt and Galactic Common, allowing your local yeepers to communicate with the locals and vice versa!
+  name: "Перекладач Canilunzt"
+  description: "Перекладає мову між Canilunzt і Galactic Common, дозволяючи вашим місцевим юзерам спілкуватися з місцевими і навпаки!"
   components:
   - type: HandheldTranslator
     spoken:
@@ -80,8 +80,8 @@
 - type: entity
   id: BubblishTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Bubblish translator
-  description: Translates speech between Bubblish and Galactic Common, helping communicate with slimes and slime people.
+  name: "Перекладач Bubblish"
+  description: "Перекладає мову з баблішської на галактичну, допомагаючи спілкуватися зі слимаками та людьми-слимаками."
   components:
   - type: HandheldTranslator
     spoken:
@@ -97,8 +97,8 @@
 - type: entity
   id: NekomimeticTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Nekomimetic translator
-  description: Translates speech between Nekomimetic and Galactic Common, enabling you to communicate with your pet cats.
+  name: "Неміметичний перекладач"
+  description: "Перекладає мову з Некоміметичної на Галактичну загальну, дозволяючи вам спілкуватися з вашими домашніми котами."
   components:
   - type: HandheldTranslator
     spoken:
@@ -114,8 +114,8 @@
 - type: entity
   id: DraconicTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Sinta'Unathi translator
-  description: Translates speech between Sinta'Unathi and Tau-Ceti Basic, making it easier to understand your local Unathi.
+  name: "Перекладач синта-унаті"
+  description: "Перекладає мову з синта-унаті на тау-сеті базову, полегшуючи розуміння вашої місцевої унаті."
   components:
   - type: HandheldTranslator
     spoken:
@@ -131,8 +131,8 @@
 - type: entity
   id: SolCommonTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Sol Common translator
-  description: Translates speech between Sol Common and Galactic Common. Like a true Earthman!
+  name: "Сол Спільний перекладач"
+  description: "Перекладає мову з сол-спільної на галактичну. Як справжній землянин!"
   components:
   - type: HandheldTranslator
     spoken:
@@ -148,8 +148,8 @@
 - type: entity
   id: NovuNedericTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Novu-Nederic translator
-  description: Translates speech between Novu-Nederic and Galactic Common. Like a true Earthman!
+  name: "перекладач нову-недерік"
+  description: "Перекладає мову між нову-недерік і галактичною спільною. Як справжній землянин!"
   components:
   - type: HandheldTranslator
     spoken:
@@ -165,8 +165,8 @@
 - type: entity
   id: RootSpeakTranslator
   parent: [ TranslatorPoweredBase ]
-  name: RootSpeak translator
-  description: Translates speech between RootSpeak and Galactic Common. You may now speak for the trees.
+  name: "Перекладач RootSpeak"
+  description: "Перекладає мову між RootSpeak та Galactic Common. Тепер ви можете говорити від імені дерев."
   components:
   - type: HandheldTranslator
     spoken:
@@ -182,8 +182,8 @@
 - type: entity
   id: MofficTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Moffic translator
-  description: Translates speech between Moffic and Galactic Common, helping you understand the buzzes of your pet mothroach!
+  name: "Moffic перекладач"
+  description: "Перекладає мову між Moffic та Galactic Common, допомагаючи вам зрозуміти дзижчання вашого домашнього таргана!"
   components:
   - type: HandheldTranslator
     spoken:
@@ -199,8 +199,8 @@
 - type: entity
   id: XenoTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Xeno translator
-  description: Translates speech between Xeno and Galactic Common. This will probably not help you survive an encounter, though.
+  name: "Ксеноперекладач"
+  description: "Перекладає мову між Ксено та галактичною мовою. Однак це, мабуть, не допоможе вам вижити під час сутички."
   components:
   - type: HandheldTranslator
     spoken:
@@ -215,8 +215,8 @@
 - type: entity
   id: AnimalTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Animal translator
-  description: Translates all the cutes noises that most animals make into a more understandable form!
+  name: "Перекладач тварин"
+  description: "Перекладає всі милі звуки, які видає більшість тварин, у більш зрозумілу форму!"
   components:
   - type: HandheldTranslator
     understood:
@@ -242,8 +242,8 @@
 - type: entity
   id: ValyrianStandardTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Valyrian Standard translator
-  description: Translates speech between Valyrian Standard and Tau-Ceti Basic. For talking to Harpies!
+  name: "Перекладач валірійського стандарту"
+  description: "Перекладає мову з валірійської стандартної на тау-цеті базову. За розмову з гарпіями!"
   components:
   - type: HandheldTranslator
     spoken:
@@ -259,8 +259,8 @@
 - type: entity
   id: AzazibaTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Azaziba translator
-  description: Translates speech between Unathi and Azaziba. For Unathi to speak the Archaic form of their native tongue! # Intended for Admins Only, this item is for lore reasons not obtainable.
+  name: "перекладач Азазіба"
+  description: "Перекладає мову між унаті та азазіба. Щоб унати говорили архаїчною формою своєї рідної мови!" # Intended for Admins Only, this item is for lore reasons not obtainable.
   components:
   - type: HandheldTranslator
     spoken:
@@ -276,8 +276,8 @@
 - type: entity
   id: ChittinTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Chittin translator
-  description: Translates speech between Chittin and Tau-Ceti Basic. For talking to Chitinids!
+  name: "Перекладач читтин"
+  description: "Перекладає мову між Хіттіном і Тау-Сеті Базовою. Для спілкування з хітинідами!"
   components:
   - type: HandheldTranslator
     spoken:
@@ -293,8 +293,8 @@
 - type: entity
   id: SiikMaasTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Siik'maas translator
-  description: Translates speech between Siik'maas and Tau-Ceti Basic. For talking to Tajara!
+  name: "Перекладач Сіік'маас"
+  description: "Перекладає мовлення між сіік'маас та тау-цеті базовою. За розмову з Таджарою!"
   components:
   - type: HandheldTranslator
     spoken:
@@ -310,8 +310,8 @@
 - type: entity
   id: MarishTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Marish translator
-  description: Translates speech between Marish and Tau-Ceti Basic. For talking to Shadowkin!
+  name: "Перекладач з маріш"
+  description: "Перекладає мову між маріш та Тау-Кітіанською базовою. Для розмов з Тінеродними!"
   components:
   - type: HandheldTranslator
     spoken:

@@ -167,8 +167,8 @@
     - HandGrenade
 
 - type: entity
-  name: explosive grenade
-  description: Grenade that creates a small but devastating explosion.
+  name: "розривна граната"
+  description: "Граната, що створює невеликий, але руйнівний вибух."
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: ExGrenade
   components:
@@ -188,8 +188,8 @@
     beepInterval: 2 # 2 beeps total (at 0 and 2)
 
 - type: entity
-  name: flashbang
-  description: Eeeeeeeeeeeeeeeeeeeeee.
+  name: "світлошумова граната"
+  description: "Ііііііііііііііііііііііііі."
   parent: [ GrenadeBase, BaseSecurityContraband ]
   id: GrenadeFlashBang
   components:
@@ -234,8 +234,8 @@
 #The explosive values for these are pretty god damn mediocre, but SS14's explosion system is hard to understand - this is a good enough approximation of how it was in SS13.
 #Ideally, there should be a weak radius around the bomb outside of its gibbing / spacing range capable of dealing fair damage to players / structures.
 - type: entity
-  name: syndicate minibomb
-  description: A syndicate-manufactured explosive used to stow destruction and cause chaos.
+  name: "синдикатська міні-бомба"
+  description: "Вироблена синдикатом вибухівка, що використовується для руйнування та створення хаосу."
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: SyndieMiniBomb
   components:
@@ -273,8 +273,8 @@
         volume: 12
 
 - type: entity
-  name: self destruct
-  description: Go out on your own terms!
+  name: "самознищення"
+  description: "Ідіть на своїх умовах!"
   parent: GrenadeBase
   id: SelfDestructSeq
   categories: [ HideSpawnMenu ]
@@ -297,8 +297,8 @@
 
 
 - type: entity
-  name: supermatter grenade
-  description: Grenade that simulates delamination of the supermatter engine, pulling things in a heap and exploding after some time.
+  name: "граната з надматерії"
+  description: "Граната, яка імітує розшарування двигуна надматерії, стягуючи речі в купу і вибухаючи через деякий час."
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: SupermatterGrenade
   components:
@@ -360,8 +360,8 @@
       - type: ExplodeOnTrigger
 
 - type: entity
-  name: whitehole grenade
-  description: Grenade that repulses everything around for some time.
+  name: "світлодірова граната"
+  description: "Граната, яка на деякий час відбиває все навколо."
   parent: SupermatterGrenade
   id: WhiteholeGrenade
   components:
@@ -407,8 +407,8 @@
       - type: DeleteOnTrigger
 
 - type: entity
-  name: the nuclear option
-  description: Please don't throw it, think of the children.
+  name: "ядерний варіант"
+  description: "Будь ласка, не кидайте його, подумайте про дітей."
   parent: GrenadeBase
   id: NuclearGrenade
   components:
@@ -437,8 +437,8 @@
       path: /Audio/Effects/countdown.ogg
 
 - type: entity
-  name: modular grenade
-  description: A grenade casing. Requires a trigger and a payload.
+  name: "модульна граната"
+  description: "Корпус від гранати. Потрібен спусковий гачок і заряд."
   parent: BaseItem
   id: ModularGrenade
   components:
@@ -485,8 +485,8 @@
     price: 75
 
 - type: entity
-  name: EMP grenade
-  description: A grenade designed to wreak havoc on electronic systems.
+  name: "ЕМР-граната"
+  description: "Граната, призначена для виведення з ладу електронних систем."
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: EmpGrenade
   components:
@@ -502,8 +502,8 @@
       path: /Audio/Effects/countdown.ogg
 
 - type: entity
-  name: holy hand grenade
-  description: O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy.
+  name: "свята ручна граната"
+  description: "Господи, благослови цю ручну гранату Твою, щоб нею Ти міг рознести ворогів Твоїх на дрібні шматочки, по милості Твоїй."
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: HolyHandGrenade
   components:
@@ -529,8 +529,8 @@
 - type: entity
   parent: [ GrenadeBase, BaseSecurityContraband ]
   id: SmokeGrenade
-  name: smoke grenade
-  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  name: "димова шашка"
+  description: "Тактична граната, яка при використанні випускає велику, довготривалу хмару диму."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -547,8 +547,8 @@
 - type: entity
   parent: [ BaseCivilianContraband, SmokeGrenade ]
   id: CleanerGrenade
-  name: cleanade
-  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  name: "чистяча граната"
+  description: "Спеціальна граната для прибиральників, що випускає велику хмару піни космічного очищувача."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/janitor.rsi
@@ -564,8 +564,8 @@
 - type: entity
   parent: SmokeGrenade
   id: TearGasGrenade
-  name: tear gas grenade
-  description: A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out.
+  name: "граната зі сльозогінним газом"
+  description: "Граната зі сльозогінним газом для боротьби з масовими заворушеннями. Викликає роздратування, біль і викликає сльози на очах."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/tear_gas.rsi
@@ -580,8 +580,8 @@
 - type: entity
   parent: [ BaseEngineeringContraband, SmokeGrenade ]
   id: MetalFoamGrenade
-  name: metal foam grenade
-  description: An emergency tool used for patching hull breaches with special quick-set metal foam. Almost as good as real floors!
+  name: "граната з металевою піною"
+  description: "Аварійний інструмент, що використовується для латання пробоїн в корпусі за допомогою спеціальної швидкотвердіючої металевої піни. Майже так само добре, як справжня підлога!"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/metalfoam.rsi
@@ -597,8 +597,8 @@
 - type: entity
   parent: [ BaseEngineeringContraband, GrenadeBase ] # Prevent inheriting DeleteOnTrigger from SmokeGrenade
   id: AirGrenade
-  name: air grenade
-  description: A special solid state chemical grenade used for quickly releasing standard air into a spaced area. Fills up to 30 tiles!
+  name: "повітряна граната"
+  description: "Спеціальна твердотільна хімічна граната, що використовується для швидкого випуску стандартного повітря в розгерметизовану зону. Заповнює до 30 клітинок!"
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/airboom.rsi
@@ -629,8 +629,8 @@
 # Non-explosive "dummy" grenades to use as a distraction.
 
 - type: entity
-  name: trick grenade
-  description: All the grenade without any of the boom.
+  name: "граната-обманка"
+  description: "Гранате без бабаху."
   parent: GrenadeBase
   id: GrenadeDummy
   components:
@@ -648,8 +648,8 @@
       path: /Audio/Effects/countdown.ogg
 
 - type: entity
-  name: syndicate trickybomb
-  description: A syndicate-manufactured explosive used to make an excellent distraction.
+  name: "відволікаюча бомба синдикату"
+  description: "Вибухівка, виготовлена синдикатом, стала чудовим відволікаючим маневром."
   parent: [GrenadeDummy, BaseSyndicateContraband]
   id: SyndieTrickyBomb
   components:

@@ -11,8 +11,8 @@
 
 - type: entity
   id: HereticFireAA # AA in ash ascension
-  name: fire
-  description: Damn that's hot.
+  name: "вогонь єретика"
+  description: "Чорт, як гаряче."
   placement:
     mode: SnapgridCenter
     snap:
@@ -60,8 +60,8 @@
 
 - type: entity
   id: TileHereticVoid
-  name: void
-  description: Damn that's cold.
+  name: "порожнеча єретика"
+  description: "Чорт, як холодно."
   placement:
     mode: SnapgridCenter
     snap:
@@ -105,8 +105,8 @@
 
 - type: entity
   id: TileHereticRustRune
-  name: rune
-  description: Rusty...
+  name: "руна"
+  description: "Іржава..."
   components:
   - type: Sprite
     drawdepth: FloorEffects
@@ -143,8 +143,8 @@
 
 - type: entity
   id: HereticRustAscensionSpreader
-  name: rust
-  description: It grows...
+  name: "іржа"
+  description: "Вона росте..."
   categories: [ HideSpawnMenu ]
   components:
   - type: Transform
