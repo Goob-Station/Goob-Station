@@ -95,7 +95,7 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
             Add(ent.Owner);
     }
 
-    private void Add(EntityUid uid)
+    public void Add(EntityUid uid)
     {
         if (!_meowTracker.TryGetValue(uid, out var count))
             count = 0;

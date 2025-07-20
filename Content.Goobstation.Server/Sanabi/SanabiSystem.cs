@@ -10,6 +10,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.Security;
 using Robust.Shared.Physics.Systems;
+using Content.Goobstation.Server.MisandryBox;
 
 namespace Content.Goobstation.Server.Sanabi.Systems;
 
@@ -21,6 +22,7 @@ public sealed class SanabiSystem : EntitySystem
     [Dependency] StationRecordsSystem _records = default!;
     [Dependency] StationSystem _stationSystem = default!;
     [Dependency] SharedJointSystem _jointSystem = default!;
+    [Dependency] CatEmoteSpamCountermeasureSystem _C_RAM = default!;
 
     private static List<string> _sanabiPrefixes = new() { "ПРОКЛЯТИЕ 220", "ПРОКЛЯТИЕ САНАБИ", "ПРОКЛЯТИЕ SANABI", "САНАБИ", "CURSE OF 220", "CURSE OF SANABI", "SANABI" };
 
@@ -50,6 +52,7 @@ public sealed class SanabiSystem : EntitySystem
         _audioSystem.PlayEntity(_audioSystem.ResolveSound(_sanabiSound), Filter.Broadcast(), sender, recordReplay: true);
 
         _jointSystem.CreateDistanceJoint(sanabiEntity, sender, minimumDistance: 0);
+        _C_RAM.Add(sender);
 
         if (_stationSystem.GetStationInMap(_transformSystem.GetMapId(sanabiCoords)) is not { } station)
             return;
