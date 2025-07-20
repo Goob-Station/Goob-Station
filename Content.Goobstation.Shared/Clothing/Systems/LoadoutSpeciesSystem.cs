@@ -46,7 +46,6 @@ public sealed class LoadoutSpeciesSystem : EntitySystem
             if (_inventory.TryGetSlotEntity(uid, slot, out var oldItem))
             {
                 EntityManager.DeleteEntity(oldItem.Value);
-                _inventory.SpawnItemInSlot(uid, slot, protoId);
             }
             _inventory.SpawnItemInSlot(uid, slot, protoId);
         }

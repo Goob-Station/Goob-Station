@@ -157,6 +157,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
     equippedPrefix: gauntlet
@@ -166,6 +167,7 @@
   - type: Item
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
     heldPrefix: gauntlet
+    storedRotation: -90
   - type: ClothingGrantComponent
     component:
     - type: Prying
@@ -247,21 +249,53 @@
   - type: Unremoveable
 
 - type: entity
-  parent: [ClothingHandsGlovesDeathsquad, ClothingShoesBootsMagDeathsquad]
+  parent: [ClothingHandsGlovesDeathsquad, BaseCentcommContraband, ClothingShoesBootsMagAdv] # Can't parent deathsquadboots or jetpack cause UninitializedSaveTest fails
   id: ClothingHandsGlovesDeathsquadGyro # For species that cant wear shoes
   name: mk-3.1 "redactor" power gloves  # 3.1
   description: A pair of highly-advanced gauntlets capable of ripping open doors. Its retractable claws are laced with a potent neurotoxin. This version includes gyroscopic thrusters!
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
     equippedPrefix: gauntlet
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-pitch-black
   - type: Item
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
     heldPrefix: gauntlet
   - type: Magboots
     slot: gloves
+  - type: ToggleClothingPrefix
+    prefixOn: claws
+    prefixOff: gauntlet
+  - type: ItemTogglePrefix
+    prefixOn: claws
+    prefixOff: gauntlet
+  - type: ClothingSpeedModifier
+    walkModifier: 1.10
+    sprintModifier: 1.10
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 2
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: UseDelay
+    delays:
+      gasTank:
+        length: 1.0
+  - type: Jetpack
+    moleUsage: 0.00085
 
 - type: entity
   parent: ClothingHandsGlovesDeathsquadGyro

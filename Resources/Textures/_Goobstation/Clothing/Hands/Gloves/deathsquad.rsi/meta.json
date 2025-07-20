@@ -30,11 +30,11 @@
             "directions": 4
         },
         {
-            "name": "gauntlet-inhand-left",
+            "name": "inhand-left",
             "directions": 4
         },
         {
-            "name": "gauntlet-inhand-right",
+            "name": "inhand-right",
             "directions": 4
         }
     ]
