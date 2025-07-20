@@ -20,7 +20,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Lavaland.Aggression;
 using Content.Server.Administration.Systems;
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Megafauna;
@@ -46,7 +45,6 @@ public sealed class MegafaunaSystem : SharedMegafaunaSystem
         SubscribeLocalEvent<MegafaunaAiComponent, MegafaunaStartupEvent>(OnMegafaunaStartup);
         SubscribeLocalEvent<MegafaunaAiComponent, MegafaunaShutdownEvent>(OnMegafaunaShutdown);
     }
-
 
     public override void Update(float frameTime)
     {

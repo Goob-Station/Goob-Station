@@ -3,7 +3,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Alert;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Movement;
 
@@ -14,5 +16,5 @@ public sealed partial class HierophantBeatComponent : Component
     public float MovementSpeedBuff = 1.25f;
 
     [DataField]
-    public string HierophantBeatAlertKey = "HierophantBeat";
+    public ProtoId<AlertPrototype> HierophantBeatAlertId = "HierophantBeat";
 }

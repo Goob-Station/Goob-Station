@@ -20,10 +20,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
-using Content.Shared.Mobs.Components;
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Damage;
@@ -31,17 +33,26 @@ namespace Content.Shared._Lavaland.Damage;
 /// <summary>
 ///     We have to use it's own system even for the damage field because WIZDEN SYSTEMS FUCKING SUUUUUUUUUUUCKKKKKKKKKKKKKKK
 /// </summary>
-public abstract class SharedDamageSquareSystem : EntitySystem
+public sealed class DamageSquareSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
+
+    private EntityQuery<DamageableComponent> _damageQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<DamageSquareComponent, ComponentStartup>(OnMapInit);
+        SubscribeLocalEvent<DamageImmunityFramesComponent, BeforeDamageChangedEvent>(BeforeDamage);
+
+        _damageQuery = GetEntityQuery<DamageableComponent>();
     }
 
     public override void Update(float frameTime)
@@ -62,47 +73,53 @@ public abstract class SharedDamageSquareSystem : EntitySystem
     }
 
     private void OnMapInit(Entity<DamageSquareComponent> ent, ref ComponentStartup args)
+        => ent.Comp.DamageTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.DamageDelay);
+
+    private void BeforeDamage(Entity<DamageImmunityFramesComponent> ent, ref BeforeDamageChangedEvent args)
     {
-        ent.Comp.DamageTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.DamageDelay);
+        if (args.CanBeCancelled
+            && HasImmunity((ent.Owner, ent.Comp)))
+            args.Cancelled = true;
     }
 
     private void Damage(Entity<DamageSquareComponent> field)
     {
         var xform = Transform(field);
         if (xform.GridUid == null)
+        {
+            RemComp(field, field.Comp);
             return;
+        }
 
         var grid = xform.GridUid.Value;
         var tile = _map.GetTileRef(grid, Comp<MapGridComponent>(grid), xform.Coordinates);
 
-        var lookup = _lookup.GetLocalEntitiesIntersecting(tile, 0f, LookupFlags.Uncontained)
-            .Where(HasComp<MobStateComponent>)
-            .ToList();
+        var lookup = _lookup.GetLocalEntitiesIntersecting(tile, 0f, LookupFlags.Uncontained);
 
-        foreach (var entity in lookup)
+        foreach (var target in lookup)
         {
-            if (!TryComp<DamageableComponent>(entity, out var dmg))
+            if (!_damageQuery.TryComp(target, out var damageable)
+                || HasImmunity(target)
+                || _whitelist.IsWhitelistFail(field.Comp.DamageWhitelist, target)
+                || _whitelist.IsBlacklistPass(field.Comp.DamageBlacklist, target))
                 continue;
 
-            if (TryComp<DamageSquareImmunityComponent>(entity, out var immunity))
-            {
-                if (immunity.HasImmunityUntil > _timing.CurTime || immunity.IsImmune)
-                    continue;
+            _audio.PlayPredicted(field.Comp.Sound, target, target);
+            if (_net.IsServer) // One must imagine DamageableSystem prediction.
+                _damage.TryChangeDamage(target, field.Comp.Damage, damageable: damageable, origin: field.Owner, targetPart: TargetBodyPart.All);
 
-                RemComp(entity, immunity);
-            }
-
-            // Do the damage and audio only on server side because shitcode.
-            // But it works trust
-            DoDamage(field, (entity, dmg));
-
-            // Immunity frames
-            EnsureComp<DamageSquareImmunityComponent>(entity).HasImmunityUntil =
+            EnsureComp<DamageImmunityFramesComponent>(target).HasImmunityUntil =
                 _timing.CurTime + TimeSpan.FromSeconds(field.Comp.ImmunityTime);
         }
 
         RemComp(field, field.Comp);
     }
 
-    protected abstract void DoDamage(Entity<DamageSquareComponent> field, Entity<DamageableComponent> entity);
+    private bool HasImmunity(Entity<DamageImmunityFramesComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return false;
+
+        return ent.Comp.HasImmunityUntil > _timing.CurTime;
+    }
 }

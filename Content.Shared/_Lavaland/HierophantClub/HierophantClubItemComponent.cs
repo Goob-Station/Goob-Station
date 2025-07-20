@@ -22,6 +22,7 @@
 using Content.Shared._Lavaland.Tile.Shapes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.HierophantClub;
@@ -29,32 +30,11 @@ namespace Content.Shared._Lavaland.HierophantClub;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HierophantClubItemComponent : Component
 {
-    [DataField]
-    public EntProtoId CreateCrossActionId = "ActionHierophantSpawnCross";
-
-    [DataField]
-    public EntProtoId PlaceMarkerActionId = "ActionHierophantPlaceMarker";
-
-    [DataField]
-    public EntProtoId TeleportToMarkerActionId = "ActionHierophantTeleport";
-
-    [DataField]
-    public EntProtoId ToggleTileMovementActionId = "ActionHierophantTileMovement";
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? TeleportMarker;
 
     [ViewVariables, AutoNetworkedField]
-    public EntityUid? CreateCrossActionEntity;
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? PlaceMarkerActionEntity;
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? TeleportToMarkerActionEntity;
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? ToggleTileMovementActionEntity;
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? TeleportMarker;
+    public EntityCoordinates? TeleportCoordinates;
 
     [DataField]
     public EntProtoId TeleportMarkerPrototype = "LavalandHierophantClubTeleportMarker";
@@ -65,10 +45,10 @@ public sealed partial class HierophantClubItemComponent : Component
     [DataField]
     public int CrossRange = 5;
 
-    [DataField]
+    [DataField(required: true)]
     public TileShape CrossAttackShape;
 
-    [DataField]
+    [DataField(required: true)]
     public TileShape BlinkShape;
 
     [DataField]

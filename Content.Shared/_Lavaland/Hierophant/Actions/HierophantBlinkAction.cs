@@ -16,7 +16,7 @@ public sealed partial class HierophantBlinkAction : MegafaunaActionSelector
     [DataField]
     public EntProtoId DamageTile = "LavalandHierophantSquare";
 
-    [DataField]
+    [DataField(required: true)]
     public TileShape TeleportShape;
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
@@ -25,11 +25,7 @@ public sealed partial class HierophantBlinkAction : MegafaunaActionSelector
         var uid = args.BossEntity;
         var hieroSystem = entMan.System<HierophantSystem>();
 
-        if (args.AiComponent.CurrentTarget != null)
-            hieroSystem.BlinkToTarget(uid, DamageTile, TeleportShape, args.AiComponent.CurrentTarget.Value);
-        else
-            hieroSystem.BlinkRandom(uid, DamageTile, TeleportShape);
-
+        hieroSystem.TryBlink(uid, DamageTile, TeleportShape, args.AiComponent.CurrentTarget);
         return DelaySelector.Get(args);
     }
 }

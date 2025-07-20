@@ -20,26 +20,27 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Lavaland.Tile.Shapes;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+
 namespace Content.Shared._Lavaland.Hierophant.Components;
 
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HierophantBossComponent : Component
 {
     /// <summary>
     /// Connected field generator, will try to teleport here when it's inactive.
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? ConnectedFieldGenerator;
 
-    /// <summary>
-    /// How long it takes for a hierophant tile to make damage.
-    /// </summary>
     [DataField]
-    public float TileDamageDelay = 0.6f;
+    public EntProtoId DamageTile = "LavalandHierophantSquare";
+
+    [DataField(required: true)]
+    public TileShape TeleportShape;
 
     [DataField]
     public TimeSpan ArenaReturnDelay = TimeSpan.FromSeconds(10f);
-
-    [ViewVariables, AutoPausedField]
-    public TimeSpan? ArenaReturnTime;
 }

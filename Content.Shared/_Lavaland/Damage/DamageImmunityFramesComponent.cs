@@ -20,26 +20,21 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Damage;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameStates;
 
-namespace Content.Server._Lavaland.Damage;
+namespace Content.Shared._Lavaland.Damage;
 
-public sealed class DamageSquareSystem : SharedDamageSquareSystem
+/// <summary>
+/// Actor having this component will not get damaged by damage squares.
+/// </summary>
+/// <remarks>
+/// TODO: cool shader for this fella
+/// Also, maybe we should move this thing to DamageableSystem if it ever gets predictions
+/// </remarks>
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState, AutoGenerateComponentPause]
+public sealed partial class DamageImmunityFramesComponent : Component
 {
-    [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly SharedAudioSystem _aud = default!;
-
-    protected override void DoDamage(Entity<DamageSquareComponent> field, Entity<DamageableComponent> entity)
-    {
-        // Damage
-        _dmg.TryChangeDamage(entity, field.Comp.Damage, damageable: entity.Comp, targetPart: TargetBodyPart.All);
-
-        // Sound
-        if (field.Comp.Sound != null)
-            _aud.PlayEntity(field.Comp.Sound, entity, entity, AudioParams.Default.WithVolume(-3f));
-    }
+    [DataField, AutoNetworkedField, AutoPausedField]
+    public TimeSpan HasImmunityUntil = TimeSpan.Zero;
 }

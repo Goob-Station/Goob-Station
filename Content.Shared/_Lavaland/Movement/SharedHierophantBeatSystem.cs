@@ -5,8 +5,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Movement;
 
-public abstract class SharedHierophantBeatSystem : EntitySystem
+public sealed class HierophantBeatSystem : EntitySystem
 {
+    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -19,22 +21,15 @@ public abstract class SharedHierophantBeatSystem : EntitySystem
     private void OnStartup(EntityUid uid, HierophantBeatComponent component, ref ComponentStartup args)
     {
         EnsureComp<TileMovementComponent>(uid);
-        ShowAlert(uid, component.HierophantBeatAlertKey);
+        _alertsSystem.ShowAlert(uid, component.HierophantBeatAlertId);
     }
 
     private void OnRemove(EntityUid uid, HierophantBeatComponent component, ref ComponentRemove args)
     {
-        if (TerminatingOrDeleted(uid))
-            return;
-
         RemComp<TileMovementComponent>(uid);
-        ClearAlert(uid, component.HierophantBeatAlertKey);
+        _alertsSystem.ClearAlert(uid, component.HierophantBeatAlertId);
     }
 
     private void OnRefreshSpeed(EntityUid uid, HierophantBeatComponent component, ref RefreshMovementSpeedModifiersEvent args)
         => args.ModifySpeed(component.MovementSpeedBuff, component.MovementSpeedBuff);
-
-    protected virtual void ShowAlert(EntityUid uid, ProtoId<AlertPrototype> alertId) { }
-
-    protected virtual void ClearAlert(EntityUid uid, ProtoId<AlertPrototype> alertId) { }
 }

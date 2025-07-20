@@ -3,22 +3,30 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 
 namespace Content.Shared._Lavaland.Hierophant.Components;
 
 /// <summary>
 /// Signifies that this entity is being blink-teleported to some spot.
+/// TODO: cool shader for this fella
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class HierophantActiveBlinkComponent : Component
 {
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField, AutoNetworkedField]
     public TimeSpan BlinkDelay = TimeSpan.FromSeconds(0.9f);
 
-    [ViewVariables, AutoPausedField]
-    public TimeSpan? DefaultBlinkTime;
+    [DataField]
+    public SoundSpecifier? Sound;
 
     [ViewVariables]
-    public EntityUid? BlinkDummy;
+    [AutoNetworkedField, AutoPausedField]
+    public TimeSpan? BlinkTime;
+
+    [ViewVariables]
+    public EntityCoordinates Coordinates;
 }

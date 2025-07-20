@@ -37,7 +37,7 @@ public sealed partial class MegafaunaFieldGeneratorComponent : Component
     [ViewVariables]
     public List<EntityUid> Walls = new();
 
-    [DataField]
+    [DataField(required: true)]
     public TileShape WallShape;
 
     [DataField]

@@ -20,7 +20,7 @@ public abstract class SharedBossMusicSystem : EntitySystem
         StartBossMusic(source.Comp.SoundId);
     }
 
-    public abstract void StartBossMusic(ProtoId<BossMusicPrototype> music);
+    public virtual void StartBossMusic(ProtoId<BossMusicPrototype> music) { }
 
-    public abstract void EndAllMusic();
+    public virtual void EndAllMusic() { }
 }

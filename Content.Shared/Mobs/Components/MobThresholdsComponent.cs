@@ -57,6 +57,13 @@ public sealed partial class MobThresholdsComponent : Component
     /// </summary>
     [DataField("allowRevives")]
     public bool AllowRevives;
+
+    /// <summary>
+    /// Lavaland Change
+    /// Stores a copy of unmodified Thresholds to scale them properly
+    /// </summary>
+    [ViewVariables]
+    public SortedDictionary<FixedPoint2, MobState> OriginalThresholds = new();
 }
 
 [Serializable, NetSerializable]

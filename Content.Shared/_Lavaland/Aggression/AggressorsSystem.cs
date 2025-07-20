@@ -20,19 +20,24 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared._Lavaland.Components;
 using Content.Shared.Damage;
-using Content.Shared.Destructible;
 using Content.Shared.Mobs;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 
 namespace Content.Shared._Lavaland.Aggression;
 
-public abstract class SharedAggressorsSystem : EntitySystem
+public sealed class AggressorsSystem : EntitySystem
 {
     [Dependency] private readonly SharedBossMusicSystem _bossMusic = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
+    private EntityQuery<TransformComponent> _xformQuery;
 
     public override void Initialize()
     {
@@ -42,17 +47,69 @@ public abstract class SharedAggressorsSystem : EntitySystem
         SubscribeLocalEvent<AggressiveComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<AggressiveComponent, EntityTerminatingEvent>(OnDeleted);
         SubscribeLocalEvent<AggressiveComponent, MobStateChangedEvent>(OnStateChange);
+
         SubscribeLocalEvent<AggressiveComponent, ComponentGetState>(OnAgressiveGetState);
+        SubscribeLocalEvent<AggressiveComponent, ComponentHandleState>(HandleComponentState);
 
         SubscribeLocalEvent<AggressorComponent, MobStateChangedEvent>(OnAggressorStateChange);
         SubscribeLocalEvent<AggressorComponent, EntityTerminatingEvent>(OnAggressorDeleted);
         SubscribeLocalEvent<AggressorComponent, ComponentRemove>(OnAggressorRemoved);
+
+        _xformQuery = GetEntityQuery<TransformComponent>();
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        // All who are aggressive check their aggressors, and remove them if they are too far away.
+        var query = EntityQueryEnumerator<AggressiveComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var aggressive, out var xform))
+        {
+            if (aggressive.ForgiveRange == null)
+                continue;
+
+            aggressive.Accumulator += frameTime;
+
+            if (aggressive.Accumulator < aggressive.UpdateFrequency)
+                continue;
+
+            aggressive.Accumulator = 0f;
+
+            foreach (var aggressor in aggressive.Aggressors)
+            {
+                if (!_xformQuery.TryComp(aggressor, out var aggroXform))
+                    continue;
+
+                var aggroPos = _xform.GetWorldPosition(aggroXform);
+                var aggressivePos = _xform.GetWorldPosition(xform);
+                var distance = (aggressivePos - aggroPos).Length();
+
+                if (distance > aggressive.ForgiveRange
+                    || xform.MapID != aggroXform.MapID)
+                    RemoveAggressor((uid, aggressive), aggressor);
+            }
+        }
     }
 
     #region Event Handling
 
     private void OnAgressiveGetState(EntityUid uid, AggressiveComponent component, ref ComponentGetState args) =>
         args.State = new AggressiveComponentState(GetNetEntitySet(component.Aggressors));
+
+    private void HandleComponentState(Entity<AggressiveComponent> ent, ref ComponentHandleState args)
+    {
+        if (args.Current is not AggressiveComponentState state)
+            return;
+
+        foreach (var netEntity in state.Aggressors)
+        {
+            if (!TryGetEntity(netEntity, out var aggressor))
+                return;
+
+            AddAggressor(ent, aggressor.Value);
+        }
+    }
 
     private void OnBeforeDamageChanged(Entity<AggressiveComponent> ent, ref BeforeDamageChangedEvent args)
     {
@@ -71,10 +128,14 @@ public abstract class SharedAggressorsSystem : EntitySystem
         AddAggressor(ent, aggro.Value);
     }
 
+    private void OnDeleted(Entity<AggressiveComponent> ent, ref EntityTerminatingEvent args)
+        => RemoveAllAggressors(ent);
+
+    private void OnStateChange(Entity<AggressiveComponent> ent, ref MobStateChangedEvent args)
+        => RemoveAllAggressors(ent);
+
     private void OnAggressorRemoved(Entity<AggressorComponent> ent, ref ComponentRemove args)
-    {
-        _bossMusic.EndAllMusic(); // Stop the music if we no longer get attacked by anyone.
-    }
+        => _bossMusic.EndAllMusic(); // Stop the music if we no longer get attacked by anyone.
 
     private void OnAggressorStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
     {
@@ -83,19 +144,8 @@ public abstract class SharedAggressorsSystem : EntitySystem
     }
 
     private void OnAggressorDeleted(Entity<AggressorComponent> ent, ref EntityTerminatingEvent args)
-    {
-        CleanAggressions((ent.Owner, ent.Comp));
-    }
+        => CleanAggressions((ent.Owner, ent.Comp));
 
-    private void OnDeleted(Entity<AggressiveComponent> ent, ref EntityTerminatingEvent args)
-    {
-        RemoveAllAggressors(ent);
-    }
-
-    private void OnStateChange(Entity<AggressiveComponent> ent, ref MobStateChangedEvent args)
-    {
-        RemoveAllAggressors(ent);
-    }
 
     #endregion
 
@@ -139,6 +189,17 @@ public abstract class SharedAggressorsSystem : EntitySystem
         }
 
         ent.Comp.Aggressors.Clear();
+    }
+
+    public bool TryPickTarget(Entity<AggressiveComponent?> ent, [NotNullWhen(true)] out EntityUid? target)
+    {
+        target = null;
+        if (!Resolve(ent.Owner, ref ent.Comp)
+            || ent.Comp.Aggressors.Count == 0)
+            return false;
+
+        target = _random.Pick(ent.Comp.Aggressors);
+        return true;
     }
 
     #endregion

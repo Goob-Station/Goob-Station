@@ -32,6 +32,8 @@ using Content.Shared._Lavaland.Hierophant.Components;
 using Content.Shared._Lavaland.Megafauna;
 using Content.Shared._Lavaland.Tile;
 using Content.Shared._Lavaland.Tile.Shapes;
+using Content.Shared.Coordinates.Helpers;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -47,11 +49,11 @@ public sealed class HierophantSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<HierophantBossComponent, MegafaunaShutdownEvent>(OnHierophantDeinit);
     }
 
@@ -61,51 +63,53 @@ public sealed class HierophantSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var curTime = _timing.CurTime;
-        var query = EntityQueryEnumerator<HierophantBossComponent>();
-        while (query.MoveNext(out var uid, out var hiero))
-        {
-            if (hiero.ArenaReturnTime == null
-                || !(hiero.ArenaReturnTime > curTime)
-                || hiero.ConnectedFieldGenerator == null
-                || TerminatingOrDeleted(hiero.ConnectedFieldGenerator))
-                continue;
-
-            var field = hiero.ConnectedFieldGenerator.Value;
-            var position = _xform.GetMapCoordinates(field);
-            _xform.SetMapCoordinates(uid, position);
-            hiero.ArenaReturnTime = null;
-        }
-
         var blinkQuery = EntityQueryEnumerator<HierophantActiveBlinkComponent>();
         while (blinkQuery.MoveNext(out var uid, out var blink))
         {
-            if (blink.DefaultBlinkTime == null
-                || !(blink.DefaultBlinkTime > curTime)
-                || blink.BlinkDummy == null
-                || TerminatingOrDeleted(blink.BlinkDummy))
+            if (blink.BlinkTime == null
+                || _timing.CurTime < blink.BlinkTime)
                 continue;
 
-            _xform.SetCoordinates(uid, Transform(blink.BlinkDummy.Value).Coordinates);
-            PredictedQueueDel(blink.BlinkDummy.Value);
+            _xform.SetCoordinates(uid, blink.Coordinates);
+            _audio.PlayPredicted(blink.Sound ?? _defaultBlinkSound, blink.Coordinates, uid);
             RemComp(uid, blink);
+        }
+
+        var immuneQuery = EntityQueryEnumerator<HierophantImmuneComponent>();
+        while (immuneQuery.MoveNext(out var uid, out var immune))
+        {
+            if (immune.EndTime != null
+                && _timing.CurTime > immune.EndTime)
+                RemComp(uid, immune);
         }
     }
 
     private void OnHierophantDeinit(Entity<HierophantBossComponent> ent, ref MegafaunaShutdownEvent args)
-        => ent.Comp.ArenaReturnTime = _timing.CurTime + ent.Comp.ArenaReturnDelay;
+    {
+        if (ent.Comp.ConnectedFieldGenerator == null)
+            return;
+
+        var coords = Transform(ent.Comp.ConnectedFieldGenerator.Value).Coordinates;
+        Blink(ent.Owner, ent.Comp.DamageTile, ent.Comp.TeleportShape, coords, ent.Comp.ArenaReturnDelay);
+    }
 
     public void SpawnChasers(EntityUid uid, EntProtoId tileId, float speed = 3f, int maxSteps = 20, EntityUid? target = null, int amount = 1)
     {
+        if (_net.IsClient)
+            return; // Spawn prediction for now doesn't work properly
+
+        // Always should be snapped to the center of the tile
+        var coords = Transform(uid).Coordinates.SnapToGrid(EntityManager, _mapMan);
+
         for (int i = 0; i < amount; i++)
         {
-            var chaser = PredictedSpawnAtPosition(tileId, Transform(uid).Coordinates);
+            var chaser = SpawnAtPosition(tileId, coords);
             if (!TryComp<HierophantChaserComponent>(chaser, out var chasercomp))
                 continue;
 
             chasercomp.Target = target;
-            chasercomp.MaxSteps *= maxSteps;
-            chasercomp.Speed += speed;
+            chasercomp.MaxSteps = maxSteps;
+            chasercomp.Speed = speed;
         }
     }
 
@@ -117,17 +121,13 @@ public sealed class HierophantSystem : EntitySystem
         TimeSpan? duration = null,
         SoundSpecifier? sound = null)
     {
-        var dummy = PredictedSpawnAtPosition(null, coords);
-        _tile.SpawnTileShape(shape, dummy, damageBoxId, out _);
-        _tile.SpawnTileShape(shape, dummy, damageBoxId, out _);
-
-        // TODO add cool shaders on clientside
-        _audio.PlayPvs(sound ?? _defaultBlinkSound,
-            Transform(ent).Coordinates,
-            AudioParams.Default.WithMaxDistance(12f));
+        _tile.SpawnTileShape(shape, coords, damageBoxId, out _);
+        _tile.SpawnTileShape(shape, coords, damageBoxId, out _);
 
         var blinkComp = EnsureComp<HierophantActiveBlinkComponent>(ent);
-        blinkComp.DefaultBlinkTime = _timing.CurTime + duration ?? blinkComp.DefaultBlinkTime;
+        blinkComp.BlinkTime = _timing.CurTime + duration ?? blinkComp.BlinkDelay;
+        blinkComp.Coordinates = coords;
+        blinkComp.Sound = sound;
     }
 
     public void BlinkToTarget(
@@ -137,12 +137,13 @@ public sealed class HierophantSystem : EntitySystem
         EntityUid target,
         TimeSpan? duration = null,
         SoundSpecifier? sound = null)
-        => Blink(ent, damageBoxId, shape, Transform(ent).Coordinates, duration);
+        => Blink(ent, damageBoxId, shape, Transform(target).Coordinates, duration, sound);
 
     public void BlinkRandom(
         EntityUid uid,
         EntProtoId damageBoxId,
         TileShape shape,
+        TimeSpan? duration = null,
         SoundSpecifier? sound = null)
     {
         var xform = Transform(uid);
@@ -162,6 +163,24 @@ public sealed class HierophantSystem : EntitySystem
                 newPos = position;
         }
 
-        Blink(uid, damageBoxId, shape, newPos);
+        Blink(uid, damageBoxId, shape, newPos, duration, sound);
+    }
+
+    /// <summary>
+    /// Tries to Blink to some target, and fallbacks to blinking
+    /// in a random direction if target is null.
+    /// </summary>
+    public void TryBlink(
+        EntityUid ent,
+        EntProtoId damageBoxId,
+        TileShape shape,
+        EntityUid? target,
+        TimeSpan? duration = null,
+        SoundSpecifier? sound = null)
+    {
+        if (target != null)
+            BlinkToTarget(ent, damageBoxId, shape, target.Value, duration, sound);
+        else
+            BlinkRandom(ent, damageBoxId, shape);
     }
 }

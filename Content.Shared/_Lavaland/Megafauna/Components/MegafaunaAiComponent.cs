@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Lavaland.Megafauna.Actions;
 using Robust.Shared.GameStates;
 
@@ -43,14 +42,8 @@ public sealed partial class MegafaunaAiComponent : Component
     [DataField]
     public bool RejuvenateOnShutdown = true;
 
-    /// <summary>
-    /// Total HP of a boss. Gets set to Dead MobThreshold when megafauna initializes.
-    /// </summary>
-    [ViewVariables, AutoNetworkedField]
-    public FixedPoint2 BaseTotalHp = 1;
-
     [DataField, AutoNetworkedField]
-    public float MinAttackCooldown = 0.099f;
+    public float MinAttackCooldown = 0.1f;
 
     [DataField, AutoNetworkedField]
     public float MaxAttackCooldown = 5f;

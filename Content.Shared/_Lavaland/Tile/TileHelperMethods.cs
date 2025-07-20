@@ -22,11 +22,10 @@ public static class TileHelperMethods
     {
         var refs = new List<Vector2i>();
         var bottomLeft = center + new Vector2i(-range, -range);
-        var diameter = range * 2;
 
-        for (int y = 0; y < diameter; y++)
+        for (int y = 0; y < range; y++)
         {
-            for (int x = 0; x < diameter; x++)
+            for (int x = 0; x < range; x++)
             {
                 refs.Add(bottomLeft + new Vector2i(x, y));
             }

@@ -45,6 +45,18 @@
       types:
         Blunt: 15
         Heat: 5
+  - type: ActionGrant
+    actions:
+    - ActionHierophantSpawnCross
+    - ActionHierophantPlaceMarker
+    - ActionHierophantTeleport
+    - ActionHierophantTileMovement
+  - type: ItemActionGrant
+    actions:
+    - ActionHierophantSpawnCross
+    - ActionHierophantPlaceMarker
+    - ActionHierophantTeleport
+    - ActionHierophantTileMovement
   - type: HierophantClubItem
     crossAttackShape: !type:NestedTileShape
       id: QueenCross

@@ -84,9 +84,11 @@
   - type: BossMusic
     soundId: Hierophant
   - type: Fauna
-  - type: DamageSquareImmunity
-    isImmune: true
   - type: HierophantBoss
+    teleportShape: !type:NestedTileShape
+      id: BoxFilled
+      size: 3
+  - type: HierophantImmune
   - type: SpawnLootOnDeath
     loot: LavalandHierophantClub
   - type: MegafaunaAi
