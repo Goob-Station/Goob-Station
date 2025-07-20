@@ -64,20 +64,14 @@ public abstract class SharedSprintingSystem : EntitySystem
 
     #region Core Functions
 
-    private sealed class SprintInputCmdHandler : InputCmdHandler
+    private sealed class SprintInputCmdHandler(SharedSprintingSystem system) : InputCmdHandler
     {
-        private SharedSprintingSystem _system;
-
-        public SprintInputCmdHandler(SharedSprintingSystem system)
-        {
-            _system = system;
-        }
-
         public override bool HandleCmdMessage(IEntityManager entManager, ICommonSession? session, IFullInputCmdMessage message)
         {
-            if (session?.AttachedEntity == null) return false;
+            if (session?.AttachedEntity == null)
+                return false;
 
-            _system.HandleSprintInput(session, message);
+            system.HandleSprintInput(session, message);
             return false;
         }
     }

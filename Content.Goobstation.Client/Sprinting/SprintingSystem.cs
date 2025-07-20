@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
@@ -43,9 +44,9 @@ public sealed class SprintingSystem : SharedSprintingSystem
                 KeyFrames =
                 {
                     new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId("sprint_cloud_small"), 0f),
-                }
-            }
-        }
+                },
+            },
+        },
     };
     public override void Initialize()
     {
