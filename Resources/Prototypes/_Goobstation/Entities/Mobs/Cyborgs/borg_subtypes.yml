@@ -264,6 +264,54 @@
 # Security subtypes
 - type: borgSubtype
   parentBorgType: security
+  id: security_hound
+  spritePath: _Goobstation/Mobs/Silicon/Security/hound.rsi
+  dummyPrototype: BorgChassisSecHound
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_basic
+  spritePath: _Goobstation/Mobs/Silicon/Security/basic.rsi
+  dummyPrototype: BorgChassisSecBasic
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_blackknight
+  spritePath: _Goobstation/Mobs/Silicon/Security/blackknight.rsi
+  dummyPrototype: BorgChassisSecBlackKnight
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_cricket
+  spritePath: _Goobstation/Mobs/Silicon/Security/cricket.rsi
+  dummyPrototype: BorgChassisSecCricket
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_heavy
+  spritePath: _Goobstation/Mobs/Silicon/Security/heavy.rsi
+  dummyPrototype: BorgChassisSecHeavy
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_noble
+  spritePath: _Goobstation/Mobs/Silicon/Security/noble.rsi
+  dummyPrototype: BorgChassisSecNoble
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_redknight
+  spritePath: _Goobstation/Mobs/Silicon/Security/redknight.rsi
+  dummyPrototype: BorgChassisSecRedKnight
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_standard
+  spritePath: _Goobstation/Mobs/Silicon/Security/standard.rsi
+  dummyPrototype: BorgChassisSecStandard
+
+- type: borgSubtype
+  parentBorgType: security
   id: security_peace_keeper
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisPeaceKeeper

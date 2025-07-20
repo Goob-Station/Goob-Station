@@ -457,9 +457,82 @@
     selectedBorgType: security
 
 - type: entity
+  id: BorgChassisSecHound
+  parent: BorgSecurityChassis
+  name: security hound cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: security_hound
+
+- type: entity
+  id: BorgChassisSecBasic
+  parent: BorgSecurityChassis
+  name: basic security cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: security_basic
+
+- type: entity
+  id: BorgChassisSecBlackKnight
+  parent: BorgSecurityChassis
+  name: black knight cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: security_blackknight
+
+- type: entity
+  id: BorgChassisSecCricket
+  parent: BorgSecurityChassis
+  name: cricket security cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: security_cricket
+
+- type: entity
+  id: BorgChassisSecHeavy
+  parent: BorgSecurityChassis
+  name: heavy security cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: security_heavy
+
+- type: entity
+  id: BorgChassisSecNoble
+  parent: BorgSecurityChassis
+  name: noble security cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: security_noble
+
+- type: entity
+  id: BorgChassisSecRedKnight
+  parent: BorgSecurityChassis
+  name: red knight cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: security_redknight
+
+- type: entity
+  id: BorgChassisSecStandard
+  parent: BorgSecurityChassis
+  name: standard security cyborg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: security_standard
+
+- type: entity
   id: BorgChassisPeaceKeeper
   parent: BorgSecurityChassis
   name: peace keeper cyborg
+  categories: [ HideSpawnMenu ]
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: security_peace_keeper

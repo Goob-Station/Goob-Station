@@ -2,7 +2,7 @@
 - type: borgType
   id: security
 
-  dummyPrototype: BorgChassisPeaceKeeper
+  dummyPrototype: BorgChassisSecHound
 
   # Functional
   extraModuleCount: 3

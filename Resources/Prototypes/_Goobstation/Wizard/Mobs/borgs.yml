@@ -91,3 +91,14 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
+
+- type: entity
+  id: PlayerBorgSecurity
+  parent: BorgChassisSecHound
+  suffix: Battery, Module
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
