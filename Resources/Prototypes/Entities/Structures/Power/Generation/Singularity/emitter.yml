@@ -63,14 +63,14 @@
   - type: Sprite
     sprite: Structures/Power/Generation/Singularity/emitter.rsi
     layers:
-    - state: emitter # Corvax-Resprite
+    - state: emitter # CorvaxGoob-Resprite
     - state: beam
       shader: unshaded
       visible: false
       map: ["enum.EmitterVisualLayers.Lights"]
-    - state: unlocked # Corvax-Resprite
+    - state: unlocked # CorvaxGoob-Resprite
       shader: unshaded
-      # visible: false # Corvax-Resprite
+      # visible: false # CorvaxGoob-Resprite
       map: ["enum.LockVisualLayers.Lock"]
   - type: Emitter
   - type: Gun

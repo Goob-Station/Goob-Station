@@ -232,7 +232,7 @@
     - DoorBumpOpener
     - FootstepSound
     - Gygax
-  - type: PointLight # Corvax-Next mech-light
+  - type: PointLight # CorvaxGoob mech-light
     color: green
 
 - type: entity
@@ -300,7 +300,7 @@
     - DoorBumpOpener
     - FootstepSound
     - Durand
-  - type: PointLight # Corvax-Next mech-light
+  - type: PointLight # CorvaxGoob-mech-light
     color: green
 
 - type: entity
@@ -366,7 +366,7 @@
     doAfterDelay: 15
   - type: StaticPrice
     price: 15000 # Some respect if you steal one of these.
-  - type: PointLight # Corvax-Next mech-light
+  - type: PointLight # CorvaxGoob mech-light
     color: green
 
 - type: entity
@@ -442,7 +442,7 @@
     doAfterDelay: 20
   - type: StaticPrice
     price: 30000 # My respects if you manage to steal one of these.
-  - type: PointLight # Corvax-Next mech-light
+  - type: PointLight # CorvaxGoob mech-light
     color: red
 
 - type: entity
@@ -521,7 +521,7 @@
     doAfterDelay: 20
   - type: StaticPrice
     price: 15000 # Some respect if you steal one of these.
-  - type: PointLight # Corvax-Next mech-light
+  - type: PointLight # CorvaxGoob mech-light
     color: red
 
 - type: entity
@@ -597,7 +597,7 @@
     doAfterDelay: 25
   - type: StaticPrice
     price: 30000 # Some respect if you steal one of these.
-  - type: PointLight # Corvax-Next mech-light
+  - type: PointLight # CorvaxGoob mech-light
     color: red
 
 - type: entity

@@ -111,7 +111,7 @@ public sealed class AirlockSystem : SharedAirlockSystem
                 ||  state == DoorState.Opening
                 ||  state == DoorState.Denying
                 || (state == DoorState.Open && comp.OpenUnlitVisible)
-                || (state == DoorState.Closed && comp.OpenUnlitVisible)) // Corvax-Resprite-Airlocks-Edit
+                || (state == DoorState.Closed && comp.OpenUnlitVisible)) // CorvaxGoob-Resprite-Airlocks-Edit
                     && !boltedVisible && !emergencyLightsVisible;
         }
 

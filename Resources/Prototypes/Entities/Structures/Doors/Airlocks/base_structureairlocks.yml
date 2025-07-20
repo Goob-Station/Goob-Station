@@ -167,7 +167,7 @@
     fuel: 5
     time: 3
   - type: Airlock
-    openUnlitVisible: true # Corvax-Resprite-Airlocks
+    openUnlitVisible: true # CorvaxGoob-Resprite-Airlocks
   - type: NavMapDoor
   - type: DoorBolt
   - type: Appearance
@@ -241,7 +241,7 @@
     - board
   - type: PlacementReplacement
     key: walls
-  - type: IconSmooth
+  - type: IconSmooth # CorvaxGoob-Resprites
     key: walls
     mode: NoSprite
   - type: PaintableAirlock
@@ -257,6 +257,14 @@
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
   - type: PryUnpowered
   - type: BlockWeather
+  - type: GuideHelp
+    guides:
+    - Airlocks
+    - WirePanels
+    - Networking
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 75
+    damagePenalty: 0.2
   placement:
     mode: SnapgridCenter
 
@@ -303,7 +311,7 @@
     node: glassAirlock
   - type: PaintableAirlock
     group: Glass
-  - type: RadiationBlocker
+  - type: RadiationBlocker # CorvaxGoob
     resistance: 2
   - type: Tag
     tags:
