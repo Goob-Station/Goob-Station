@@ -178,25 +178,25 @@
 
 - type: lavalandGridRuin
   id: Stash1
-  name: lavaland-ruin-stash1
+  name: lavaland-ruin-stash
   path: /Maps/_Lavaland/Lavaland/ruin_stash_1.yml
   priority: 23
 
 - type: lavalandGridRuin
   id: Stash2
-  name: lavaland-ruin-stash2
+  name: lavaland-ruin-stash
   path: /Maps/_Lavaland/Lavaland/ruin_stash_2.yml
   priority: 23
 
 - type: lavalandGridRuin
   id: Stash3
-  name: lavaland-ruin-stash3
+  name: lavaland-ruin-stash
   path: /Maps/_Lavaland/Lavaland/ruin_stash_3.yml
   priority: 23
 
 - type: lavalandGridRuin
   id: Stash4
-  name: lavaland-ruin-stash4
+  name: lavaland-ruin-stash
   path: /Maps/_Lavaland/Lavaland/ruin_stash_4.yml
   priority: 23
 

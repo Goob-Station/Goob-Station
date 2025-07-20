@@ -2282,8 +2282,6 @@ entities:
       pos: -0.5,-18.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 16
   - uid: 68
