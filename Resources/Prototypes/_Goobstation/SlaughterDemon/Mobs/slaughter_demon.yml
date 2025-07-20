@@ -15,9 +15,27 @@
   - type: Sprite
     sprite: _Goobstation/SlaughterDemon/demon.rsi
     state: daemon
+  - type: Stamina
+    critThreshold: 150
+  - type: NightVision
+    color: "#AA4A44"
+    activateSound: null
+    deactivateSound: null
+  - type: Insulated
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: SlaughterDemon
+  - type: StatusEffects # Overwriting basesimplemob to remove flash
+    allowed:
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - RadiationProtection
+    - Drowsiness
+    - Adrenaline
   - type: MobMover
   - type: InputMover
   - type: Input

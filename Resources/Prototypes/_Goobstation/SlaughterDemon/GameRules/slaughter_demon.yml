@@ -91,18 +91,19 @@
   - type: AntagSpawner
     prototype: MobLesserSlaughterDemon
   - type: StationEvent
-    weight: 2
-    earliestStart: 75
-    minimumPlayers: 40
+    weight: 5.5
+    earliestStart: 50
+    minimumPlayers: 35
     duration: null
     maxOccurrences: 1
-    chaos: # todo: adjust all this
-      Hostile: 300
-      Medical: 300
-      Death: 300
+    chaos:
+      Hostile: 200
+      Friend: 40
+      Medical: 200
+      Death: 200
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 800
+    chaosScore: 900
   - type: Tag
     tags:
     - MidroundAntag
