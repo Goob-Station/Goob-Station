@@ -1,0 +1,63 @@
+- type: entity
+  parent: BaseMedicalPDA
+  id: SurgeonPDA
+  name: surgeon PDA
+  description: Shiny and sterile.
+  components:
+  - type: Pda
+    id: SurgeonIDCard
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#5db8be"
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-surgeon
+  - type: Icon
+    sprite: _CorvaxGoob/Objects/Devices/pda.rsi
+    state: pda-surgeon
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Devices/pda.rsi
+    state: pda-surgeon
+  - type: GuideHelp
+    guides:
+    - Medical Doctor
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: WardenHelperPDA
+  name: warden assistant PDA
+  description: The OS appears to have been jailbroken.
+  components:
+  - type: Pda
+    id: WardenHelperIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-warden
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentVColor: "#949137"
+  - type: Icon
+    state: pda-warden
+
+- type: entity
+  parent: BaseSecurityPDA
+  id: PilotPDA
+  name: pilot PDA
+  description: Нas protection from cosmic radiation.
+  components:
+    - type: Pda
+      id: PilotIDCard
+    - type: Appearance
+      appearanceDataInit:
+        enum.PdaVisuals.PdaType:
+          !type:String
+          pda-seniorofficer
+    - type: PdaBorderColor
+      borderColor: "#A32D26"
+      accentVColor: "#DFDFDF"
+    - type: Icon
+      state: pda-seniorofficer

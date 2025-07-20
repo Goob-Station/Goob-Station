@@ -1,0 +1,54 @@
+# pins
+- type: loadout
+  id: ClothingNeckAtharaPin
+  storage:
+    back:
+    - ClothingNeckAtharaPin
+
+- type: loadout
+  id: ClothingNeckCorvaxPin
+  storage:
+    back:
+    - ClothingNeckCorvaxPin
+
+- type: loadout
+  id: ClothingNeckEchoPin
+  storage:
+    back:
+    - ClothingNeckEchoPin
+
+- type: loadout
+  id: ClothingNeckElysiumPin
+  storage:
+    back:
+    - ClothingNeckElysiumPin
+
+- type: loadout
+  id: ClothingNeckMainPin
+  storage:
+    back:
+    - ClothingNeckMainPin
+
+- type: loadout
+  id: ClothingNeckNebulaPin
+  storage:
+    back:
+    - ClothingNeckNebulaPin
+
+- type: loadout
+  id: ClothingNeckNovaPin
+  storage:
+    back:
+    - ClothingNeckNovaPin
+
+- type: loadout
+  id: ClothingNeckSolarisPin
+  storage:
+    back:
+    - ClothingNeckSolarisPin
+
+- type: loadout
+  id: ClothingNeckWhiteListPin
+  storage:
+    back:
+    - ClothingNeckWhiteListPin

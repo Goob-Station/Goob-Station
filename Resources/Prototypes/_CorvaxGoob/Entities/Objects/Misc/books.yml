@@ -1,0 +1,372 @@
+- type: entity
+  parent: BookBase
+  id: BookLoreBase
+  abstract: true
+  name: Лорные книги
+  description: Данные книги содержат в себе лор Корвакса.
+  components:
+    - type: Sprite
+      sprite: _CorvaxGoob/Objects/Misc/books.rsi
+      layers:
+      - state: book_expensive_crystal
+
+- type: entity
+  parent: BookLoreBase
+  id: BookExpensiveCrystal
+  name: Кристаллы особой ценности
+  description: Данная книга рассказывает о материалах, которые в обиходе было принято называть Блюспейс и Редспейс кристаллами.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_expensive_crystal
+    - type: Paper
+      content: book-expensive-crystal-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookClones
+  name: Туртельский Кризис
+  description: Данная книга рассказывает о восстании, которое устроили клоны в борьбе за равные права.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_clones
+    - type: Paper
+      content: book-clones-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookDAM
+  name: Двигатель Антиматерии
+  description: Данная книга рассказывает о сути работы одного из самых распространённых источников электроэнергии на объектах НТ.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_DAM
+    - type: Paper
+      content: book-dam-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookFaks
+  name: Факс
+  description: Данная книга рассказывает о принципе работы Факса дальней связи.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_faks
+    - type: Paper
+      content: book-faks-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookFamalis
+  name: Семьи Межпланетарного Братства
+  description: Данная книга рассказывает о самых крупных мафиозных кланах Галактики.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_famalis
+    - type: Paper
+      content: book-famalis-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookGrav
+  name: Генератор искуственной Гравитации
+  description: Данная книга рассказывает о принципе работы Генераторов искусственной гравитации.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_grav
+    - type: Paper
+      content: book-grav-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookHalifat
+  name: Нормы Космоислами и шесть стрел
+  description: Данная книга рассказывает о савокупности религиозных и светских догм, которые практикуются в государсвенном устройстве Халифатского Божественного Конгломирата.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_halifat
+    - type: Paper
+      content: book-halifat-contents
+
+
+- type: entity
+  parent: BookLoreBase
+  id: BookRedspace
+  name: Редспейс
+  description: Данная книга рассказывает о сути редспейса.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_redspace
+    - type: Paper
+      content: book-redspace-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookShips
+  name: Классификация кораблей ОПЗ
+  description: Данная книга показывает классификацию флотов в ОПЗ.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_ships
+    - type: Paper
+      content: book-ships-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookZP
+  name: Зарплатная система НТ
+  description: Данная книга рассказывает о том, как сотрудники проекта "Космическая станция 14" получают зарплату.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_zp
+    - type: Paper
+      content: book-zp-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookUSSP
+  name: Политическая система СССП
+  description: Что там у них делается в этом их социализма...
+  components:
+    - type: Sprite
+      layers:
+      - state: book_polit_USSP
+    - type: Paper
+      content: book-ussp-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookMirt
+  name: Культурный столп Империи Миртана
+  description: Может быть, если поняти их культуру, то можно и налажить связи?
+  components:
+    - type: Sprite
+      layers:
+      - state: book_cult_mirt
+    - type: Paper
+      content: book-mirt-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookGior
+  name: ГИОР
+  description: Что такое Глобальная инициатива Объединённых Рас
+  components:
+    - type: Sprite
+      layers:
+      - state: book_gior
+    - type: Paper
+      content: book-gior-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookSNK
+  name: Внешняя политика СНК
+  description: Да, они наши враги, но стоит осознавать, кто за, а кто против них
+  components:
+    - type: Sprite
+      layers:
+      - state: book_snk
+    - type: Paper
+      content: book-snk-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookUmpor
+  name: Внешняя политика Умпорской Федерации
+  description: Наши соседи, что стараются улучшить взаимоотношения с нами. А как к ним относятся другие?
+  components:
+    - type: Sprite
+      layers:
+      - state: book_umpor
+    - type: Paper
+      content: book-umpor-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookNooc
+  name: Классовая структура Ноократии Эранта
+  description: Она наши соседи. Они наши коллги. Нужно понимать что там у них и как устроено... А то ещё оскорбишь кого...
+  components:
+    - type: Sprite
+      layers:
+      - state: book_nooc
+    - type: Paper
+      content: book-nooc-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookNakamura
+  name: Накамура Инжениринг
+  description: Чем занимаются в корпорации Большой Пятёрки накамура Инжениринг
+  components:
+    - type: Sprite
+      layers:
+      - state: book_nakamura
+    - type: Paper
+      content: book-nakamura-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookVitz
+  name: Космофлот корпорации Витезтви
+  description: Как комплектуются базовые соединение космофлота корпорации Большой Пятёрки Витезтви
+  components:
+    - type: Sprite
+      layers:
+      - state: book_vitz
+    - type: Paper
+      content: book-vitz-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookGefest
+  name: Компания Гефест
+  description: Немного фактов о корпорации Большой Пятёрки Гефест
+  components:
+    - type: Sprite
+      layers:
+      - state: book_gefest
+    - type: Paper
+      content: book-gefest-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookConarex
+  name: История компании Конарекс
+  description: Она и есть. История главного конкурента Космологистики в отрасли
+  components:
+    - type: Sprite
+      layers:
+      - state: book_conarex
+    - type: Paper
+      content: book-conarex-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookPetr
+  name: Идеи, цели и культруа Петрищевцев
+  description: Стоит прочитать дабы понять какими же глупыми идеалистами являются эти экстремисты-революционеры
+  components:
+    - type: Sprite
+      layers:
+      - state: book_petr
+    - type: Paper
+      content: book-petr-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookSaibasan
+  name: Активы компании Саибасан
+  description: рассказывается о том, где можно поработать в известнейшем поставщике электронных компонентов
+  components:
+    - type: Sprite
+      layers:
+      - state: book_saibasan
+    - type: Paper
+      content: book-saibasan-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookUnath1
+  name: Культура унатхов (ч.1)
+  description: Первая часть великолепного ислледования этой замечательной расы
+  components:
+    - type: Sprite
+      layers:
+      - state: book_unath_1
+    - type: Paper
+      content: book-unath-ptone-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookUnath2
+  name: Культура унатхов (ч.2)
+  description: Вторая часть великолепного ислледования этой прекрасной расы
+  components:
+    - type: Sprite
+      layers:
+      - state: book_unath_2
+    - type: Paper
+      content: book-unath-ptwo-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookDione
+  name: Особенности биологического строения дион
+  description: Рассказ о необычном строении желудка, лёгких и мозга и их переплетение с растенеевидным телом
+  components:
+    - type: Sprite
+      layers:
+      - state: book_dione
+    - type: Paper
+      content: book-dione-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookBSS
+  name: Суть Блюспейс-Скачков
+  description: Объяснение механизма Блюспейс скачков, что позволяют нашим космическим кораблям преодалевать немыслимые рассстояния за крохотное время.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_BSS
+    - type: Paper
+      content: book-bss-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookScaf
+  name: Устройство скафандров утилизаторов
+  description: Тут повествуется о слоистой системе покрытий скафандров, что делают их такими прочными и безопасными
+  components:
+    - type: Sprite
+      layers:
+      - state: book_scaf
+    - type: Paper
+      content: book-scaf-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookMBS1
+  name: Блюспейс-маяки (ч.1)
+  description: Как развивалась БС-технология дальних полётов? Как понять куда ты попадёшь? Об это рассказвается в данной книге.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_MBS1
+    - type: Paper
+      content: book-mbsone-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookMBS2
+  name: Блюспейс-маяки (ч.2)
+  description: Как развивалась БС-технология дальних полётов? Как понять куда ты попадёшь? Об это рассказвается в данной книге.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_MBS2
+    - type: Paper
+      content: book-mbstwo-contents
+
+- type: entity
+  parent: BookLoreBase
+  id: BookImplants
+  name: Устройство имплантов НТ
+  description: Тут описаны принципы действия стандартный имплантов корпорации НаноТрейзен массового производства.
+  components:
+    - type: Sprite
+      layers:
+      - state: book_implant
+    - type: Paper
+      content: book-implants-contents

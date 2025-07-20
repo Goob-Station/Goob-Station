@@ -91,6 +91,7 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Construction.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
 using Content.Shared.Construction.EntitySystems;
@@ -378,7 +379,9 @@ namespace Content.Server.Construction
                     {
                         var doAfterEv = new ConstructionInteractDoAfterEvent(EntityManager, interactUsing);
 
-                        var doAfterEventArgs = new DoAfterArgs(EntityManager, interactUsing.User, step.DoAfter, doAfterEv, uid, uid, interactUsing.Used)
+                        var delay = step.DoAfter * (user is not null && !_skills.HasSkill(user.Value, Skills.AdvancedBuilding) && IsAdvancedMaterial(insert) ? DelayModifierWithoutSkill : 1); // CorvaxGoob-Skills
+
+                        var doAfterEventArgs = new DoAfterArgs(EntityManager, interactUsing.User, delay, doAfterEv, uid, uid, interactUsing.Used) // CorvaxGoob-Skills
                         {
                             BreakOnDamage = false,
                             BreakOnMove = true,
@@ -455,11 +458,18 @@ namespace Content.Server.Construction
                     if (doAfterState == DoAfterState.Completed)
                         return  HandleResult.True;
 
+                    // CorvaxGoob-Skills-Start
+                    var delay = toolInsertStep.DoAfter;
+
+                    if (user is not null && !_skills.HasSkill(user.Value, Skills.AdvancedBuilding) && IsAdvancedConstruction(uid))
+                        delay = Math.Max(DelayModifierWithoutSkill, delay * DelayModifierWithoutSkill);
+                    // CorvaxGoob-Skills-End
+
                     var result  = _toolSystem.UseTool(
                         interactUsing.Used,
                         interactUsing.User,
                         uid,
-                        TimeSpan.FromSeconds(toolInsertStep.DoAfter),
+                        TimeSpan.FromSeconds(delay), // CorvaxGoob-Skills
                         new [] { toolInsertStep.Tool },
                         new ConstructionInteractDoAfterEvent(EntityManager, interactUsing),
                         out var doAfter,

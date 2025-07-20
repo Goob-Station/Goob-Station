@@ -1,0 +1,14 @@
+- type: latheRecipePack
+  id: CorvaxClothing
+  recipes:
+  - ClothingHeadHatCapHoS
+  - ClothingHeadHatBeretSecurityMedic
+  - ClothingHeadHatCapWardenAlt
+  - ClothingUniformJumpsuitCapTurtleneck
+  - ClothingUniformJumpskirtCapTurtleneck
+  - ClothingUniformJumpsuitHoSBlack
+  - ClothingUniformJumpskirtHoSBlack
+  - ClothingUniformJumpsuitHoPTurtleneck
+  - ClothingUniformJumpskirtHoPTurtleneck
+  - ClothingUniformJumpsuitRDClassical
+  - ClothingUniformJumpskirtRDClassical

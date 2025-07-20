@@ -1,0 +1,7 @@
+- type: barSign
+  id: AlcoholicSign
+  name: barsign-prototype-name-alcoholic
+  icon:
+    sprite: _CorvaxGoob/Structures/Wallmounts/barsign.rsi
+    state: alcoholic
+  description: barsign-prototype-description-alcoholic

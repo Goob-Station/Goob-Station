@@ -181,7 +181,7 @@
     sprite: Objects/Fun/dice.rsi
     state: d6_6
   product: CrateFunBoardGames
-  cost: 1500
+  cost: 2000 # CorvaxGoob Inflation
   category: cargoproduct-category-name-fun
   group: market
 

@@ -77,6 +77,42 @@
       - id: BookTruth
       - id: BookWatched
       - id: BookWorld
+    # CorvaxGoob-Lore-Start
+    - !type:GroupSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 2
+      children:
+        - id: BookExpensiveCrystal
+        - id: BookClones
+        - id: BookDAM
+        - id: BookFaks
+        - id: BookFamalis
+        - id: BookGrav
+        - id: BookHalifat
+        - id: BookRedspace
+        - id: BookShips
+        - id: BookZP
+        - id: BookUSSP
+        - id: BookMirt
+        - id: BookGior
+        - id: BookSNK
+        - id: BookUmpor
+        - id: BookNooc
+        - id: BookNakamura
+        - id: BookVitz
+        - id: BookGefest
+        - id: BookConarex
+        - id: BookPetr
+        - id: BookSaibasan
+        - id: BookUnath1
+        - id: BookUnath2
+        - id: BookDione
+        - id: BookBSS
+        - id: BookScaf
+        - id: BookMBS1
+        - id: BookMBS2
+        - id: BookImplants
+    # CorvaxGoob-Lore-End
 
 - type: entity
   id: BookshelfFilled

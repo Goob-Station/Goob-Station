@@ -1,0 +1,90 @@
+- type: entity
+  parent: BaseStorageItem
+  id: CarcBagBase
+  name: "bag"
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/bag.rsi
+    state: classic
+  - type: Item
+    size: Small
+  - type: Clothing
+    slots: [belt]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 50
+  - type: StaticPrice
+    price: 20
+  - type: Storage
+    grid:
+    - 0,0,7,1
+    - 2,2,5,2
+    - 1,3,6,4
+    - 0,5,7,9
+    quickInsert: true
+    areaInsert: true
+    maxItemSize: Tiny
+    whitelist:
+      tags:
+        - CarcTile
+
+- type: entity
+  parent: CarcBagBase
+  id: CarcBagClassic
+  name: "tilebag"
+  description: "Blue bag for play and store Spacessonne tiles."
+  suffix: "Classic, Filled"
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/bag.rsi
+    state: classic
+  - type: StorageFill
+    contents:
+      - id: CarcTileCCCCLS
+      - id: CarcTileCCCFL
+        amount: 3
+      - id: CarcTileCCCRL
+      - id: CarcTileCCCRLS
+        amount: 2
+      - id: CarcTileCCFF
+        amount: 2
+      - id: CarcTileCCFFL
+        amount: 3
+      - id: CarcTileCCFFLS
+        amount: 2
+      - id: CarcTileCCRRL
+        amount: 2
+      - id: CarcTileCCRRLS
+        amount: 3
+      - id: CarcTileCFCF
+        amount: 3
+      - id: CarcTileCFCFL
+      - id: CarcTileCFCFLS
+        amount: 2
+      - id: CarcTileCFRR
+        amount: 3
+      - id: CarcTileCRCR
+      - id: CarcTileStart
+      - id: CarcTileCRFR
+        amount: 3
+      - id: CarcTileCRRF
+        amount: 3
+      - id: CarcTileCRRR
+        amount: 3
+      - id: CarcTileFFFF
+        amount: 4
+      - id: CarcTileRFFF
+        amount: 2
+      - id: CarcTileRFRF
+        amount: 8
+      - id: CarcTileRRFF
+        amount: 9
+      - id: CarcTileRRRF
+        amount: 4
+      - id: CarcTileRRRR
+        amount: 3
+      - id: CarcTileCFFF
+        amount: 3

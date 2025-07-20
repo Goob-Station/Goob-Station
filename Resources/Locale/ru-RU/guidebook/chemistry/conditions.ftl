@@ -64,4 +64,13 @@ reagent-effect-condition-guidebook-blood-reagent-threshold =
                 [0] there's at most { NATURALFIXED($max, 2) }u of { $reagent }
                *[other] there's between { NATURALFIXED($min, 2) }u and { NATURALFIXED($max, 2) }u of { $reagent }
             }
+reagent-effect-condition-guidebook-breathing =
+    the metabolizer is { $isBreathing ->
+        [true] breathing normally
+       *[false] suffocating
+    }
+reagent-effect-condition-guidebook-internals =
+    the metabolizer is { $usingInternals ->
+        [true] using internals
+       *[false] breathing atmospheric air
     }

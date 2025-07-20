@@ -58,7 +58,7 @@
   id: EngineSingularityEmitter
   icon:
     sprite: Structures/Power/Generation/Singularity/emitter.rsi
-    state: emitter2
+    state: emitter # CorvaxGoob-Resprite
   product: CrateEngineeringSingularityEmitter
   cost: 500 # Goobstation - Make emitters and containment generators cheaper
   category: cargoproduct-category-name-engineering

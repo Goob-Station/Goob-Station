@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432, Floodlight inhand sprites by onesch",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/e1142f20f5e4661cb6845cfcf2dd69f864d67432, directional sprites by SonicDC#9046, Floodlight inhand sprites by onesch",
   "size": {
     "x": 32,
     "y": 32
@@ -9,11 +9,11 @@
   "states": [
     {
         "name": "bananalamp",
-        "directions": 4
+		"directions": 4
     },
     {
         "name": "bananalamp_on",
-        "directions": 4
+		"directions": 4
     },
     {
       "name": "floodlight"

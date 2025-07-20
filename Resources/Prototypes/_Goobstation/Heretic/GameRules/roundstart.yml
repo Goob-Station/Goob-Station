@@ -41,6 +41,15 @@
       components:
       - type: WeakToHoly
       - type: CanEnchant
+      - type: CanChokeGrab # CorvaxGoob-Grab
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
   - type: Tag
     tags:
       - RoundstartAntag
@@ -71,6 +80,15 @@
       components:
       - type: WeakToHoly
       - type: CanEnchant
+      - type: CanChokeGrab # CorvaxGoob-Grab
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
   - type: Tag
     tags:
       - CalmAntag

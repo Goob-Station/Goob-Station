@@ -225,6 +225,11 @@ reagent-effect-guidebook-drunk =
         [1] Вызывает
        *[other] вызывают
     } опьянение
+reagent-effect-guidebook-emote =
+    { $chance ->
+        [1] Заставляет
+       *[other] заставляют
+    } употребившего [bold][color=white]{ $emote }[/color][/bold]
 reagent-effect-guidebook-electrocute =
     { $chance ->
         [1] Бьёт током
@@ -334,6 +339,11 @@ reagent-effect-guidebook-area-reaction =
         [few] секунды
        *[other] секунд
     }
+reagent-effect-guidebook-artifact-unlock =
+    { $chance ->
+        [1] Пытается
+       *[other] пытаются
+    } разблокировать артефакт.
 reagent-effect-guidebook-add-to-solution-reaction =
     { $chance ->
         [1] Заставляет
@@ -378,15 +388,15 @@ reagent-effect-guidebook-add-to-chemicals =
     { $chance ->
         [1]
             { $deltasign ->
-                [1] Adds
-               *[-1] Removes
+                [1] Добавляет
+               *[-1] удаляет
             }
        *[other]
             { $deltasign ->
-                [1] add
-               *[-1] remove
+                [1] добавляют
+               *[-1] удаляют
             }
-    } { NATURALFIXED($amount, 2) }u of { $reagent } { $deltasign ->
-        [1] to
-       *[-1] from
-    } the solution
+    } { NATURALFIXED($amount, 2) }u { $reagent } { $deltasign ->
+        [1] в
+       *[-1] из
+    } ёмкости

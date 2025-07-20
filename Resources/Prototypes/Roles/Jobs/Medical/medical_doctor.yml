@@ -99,6 +99,10 @@
     components:
     - type: SurgerySpeedModifier
       speedModifier: 1.5
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - Surgery
+      - MedicalEquipment
 
 
 - type: startingGear

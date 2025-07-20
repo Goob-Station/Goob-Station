@@ -521,6 +521,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    requiresSkill: true # CorvaxGoob-Skills
   - type: HitscanBatteryAmmoProvider
     proto: Pulse
     fireCost: 200
@@ -574,6 +575,7 @@
     fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    requiresSkill: true # CorvaxGoob-Skills
   - type: HitscanBatteryAmmoProvider
     proto: HeavyPulse # Goobstation - Start
     fireCost: 100
@@ -1074,6 +1076,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    requiresSkill: true # CorvaxGoob-Skills
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
     fireCost: 150

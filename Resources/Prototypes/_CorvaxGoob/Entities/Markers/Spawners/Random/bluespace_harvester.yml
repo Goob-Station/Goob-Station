@@ -1,0 +1,724 @@
+# Branchs
+- type: entity
+  id: RandomHarvesterDestructionLoot
+  name: random harvester biological loot spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _CorvaxGoob/Bluespace/harvester.rsi
+      state: tap_5
+  - type: RandomSpawner
+    prototypes:
+    - CrateHarvesterWeaponLaser
+    - CrateHarvesterWeaponShotgun
+    - CrateHarvesterWeaponRifle
+    - CrateHarvesterWeaponLight
+    - CrateHarvesterWeaponDisabler
+    - CrateHarvesterBomb
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - CrateHarvesterTurretSyndicate # Death
+    - CrateHarvesterWeaponElite
+    rareChance: 0.1
+
+- type: entity
+  id: RandomHarvesterIndustrialLoot
+  name: random harvester industrial loot spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _CorvaxGoob/Bluespace/harvester.rsi
+      state: tap_5
+  - type: RandomSpawner
+    prototypes:
+    - CrateHarvesterMaterials
+    - CrateHarvesterPowerCell
+    - CrateHarvesterBeer
+    - CrateHarvesterTools
+    - RandomHarvesterBackpackHolding
+    - CrateHarvesterAmeJar
+    - CrateHarvesterCircuitboard
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - CrateHarvesterSingularity # Death
+    - CrateHarvesterSingularityFake
+    rareChance: 0.1
+
+- type: entity
+  id: RandomHarvesterTechnologicalLoot
+  name: random harvester technological loot spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _CorvaxGoob/Bluespace/harvester.rsi
+      state: tap_5
+  - type: RandomSpawner
+    prototypes:
+    - CrateHarvesterAnomaly
+    - CrateHarvesterArtifact
+    - CrateHarvesterTechnologyDisk
+    - CrateHarvesterResearchDisk
+    - CrateHarvesterAnomalyKit
+    - CrateHarvesterEncryptionKey
+    - CrateHarvesterBorg
+    - CrateHarvesterMech
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - CrateHarvesterReagentSlime # Death
+    - CrateHarvesterReagentPointSource
+    rareChance: 0.1
+
+- type: entity
+  id: RandomHarvesterBiologicalLoot
+  name: random harvester biological loot spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _CorvaxGoob/Bluespace/harvester.rsi
+      state: tap_5
+  - type: RandomSpawner
+    prototypes:
+    - CrateHarvesterImplanter
+    - CrateHarvesterInjection
+    - CrateHarvesterMedkit
+    - CrateHarvesterSeeds
+    rarePrototypes:
+    - CrateHarvesterRomerol # Death
+    - CrateHarvesterDoctorsDelight
+    chance: 1.0
+    offset: 0.0
+    rareChance: 0.05
+
+# Industrial
+- type: entity
+  id: RandomHarvesterMaterials
+  name: random harvester materials spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Materials/Sheets/other.rsi
+      state: plasma_3
+  - type: RandomSpawner
+    prototypes:
+    - SheetPlastic
+    - SheetSteel
+    - SheetPlasteel
+    - SheetGlass
+    - SheetRGlass
+    - SheetPGlass
+    - SheetRPGlass
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - IngotSilver
+    - IngotGold
+    - SheetUranium
+    - SheetUGlass
+    - SheetRUGlass
+    - MaterialSheetMeat
+    rareChance: 0.4
+
+- type: entity
+  id: RandomHarvesterPowerCell
+  name: random harvester power cell spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Power/power_cells.rsi
+      state: hyper
+  - type: RandomSpawner
+    prototypes:
+    - PowerCellMediumPrinted
+    - PowerCellHigh
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - PowerCellAntiqueProto
+    - PowerCellHigh
+    rareChance: 0.1
+
+- type: entity
+  id: RandomHarvesterBeer
+  name: random harvester beer spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Consumable/Drinks/beer.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - DrinkBeerBottleFull
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - DrinkSingulo
+    rareChance: 0.05
+
+- type: entity
+  id: RandomHarvesterTools
+  name: random harvester tools spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Tools/drill.rsi
+      state: drill_screw
+  - type: RandomSpawner
+    prototypes:
+    - WelderExperimental
+    - PowerDrill
+    - JawsOfLife
+    - RCD
+    - RPD
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - RCDRecharging
+    - AccessConfigurator
+    rareChance: 0.075
+
+- type: entity
+  id: RandomHarvesterBackpackHolding
+  name: random harvester backpack holding spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Clothing/Back/Backpacks/holding.rsi
+      state: holding
+  - type: RandomSpawner
+    prototypes:
+    - ClothingBackpackSatchelHolding
+    - ClothingBackpackDuffelHolding
+    - ClothingBackpackHolding
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - ClosetBluespace
+    - ClosetBluespaceUnstable
+    rareChance: 0.3
+
+- type: entity
+  id: RandomHarvesterCircuitboard
+  name: random harvester circuitboard spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/module.rsi
+      state: cpuboard
+  - type: RandomSpawner
+    prototypes:
+    - SecurityTechFabCircuitboard
+    - MedicalTechFabCircuitboard
+    - TelecomServerCircuitboard
+    - AmmoTechFabCircuitboard
+    - CargoBountyComputerCircuitboard
+    - CargoRequestComputerCircuitboard
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - ResearchAndDevelopmentServerMachineCircuitboard
+    - IDComputerCircuitboard
+    - CommsComputerCircuitboard
+    - BodyScannerComputerCircuitboard
+    - CloningConsoleComputerCircuitboard
+    - CloningPodMachineCircuitboard
+    rareChance: 0.2
+
+# Technological
+- type: entity
+  id: RandomHarvesterTechnologyDisk
+  name: random harvester technology disk spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/module.rsi
+      state: datadisk_label
+  - type: RandomSpawner
+    prototypes:
+    - TechnologyDisk
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - TechnologyDiskRare
+    rareChance: 0.3
+
+- type: entity
+  id: RandomHarvesterResearchDisk
+  name: random harvester research disk spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Research/researchdisk.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - ResearchDisk5000
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - ResearchDisk10000
+    rareChance: 0.3
+
+- type: entity
+  id: RandomHarvesterAnomalyKit
+  name: random harvester anomaly kit spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
+      state: base
+  - type: RandomSpawner
+    prototypes:
+    - AnomalyScanner
+    - WeaponPistolCHIMP
+    - AnomalyLocator
+    - AnomalyLocatorWide
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - WeaponPistolCHIMPUpgraded
+    rareChance: 0.3
+
+- type: entity
+  id: RandomHarvesterEncryptionKey
+  name: random harvester encryption key spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Devices/encryption_keys.rsi
+      state: crypt_gold
+  - type: RandomSpawner
+    prototypes:
+    - BoxEncryptionKeyService
+    - BoxEncryptionKeySecurity
+    - BoxEncryptionKeyScience
+    - BoxEncryptionKeyRobo
+    - BoxEncryptionKeyPassenger
+    - BoxEncryptionKeyMedical
+    - BoxEncryptionKeyMedicalScience
+    - BoxEncryptionKeyEngineering
+    - BoxEncryptionKeyCargo
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - EncryptionKeyStationMaster
+    - EncryptionKeyCentCom
+    - EncryptionKeySyndie
+    - EncryptionKeyBinary
+    rareChance: 0.03
+
+- type: entity
+  id: RandomHarvesterBorg
+  name: random harvester borg spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: engineer
+  - type: RandomSpawner
+    prototypes:
+    - BorgChassisMining
+    - BorgChassisEngineer
+    - BorgChassisJanitor
+    - BorgChassisService
+    - BorgChassisMedical
+    chance: 1.0
+    offset: 0.0
+
+- type: entity
+  id: RandomHarvesterMech
+  name: random harvester mech spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Mech/mecha.rsi
+      state: ripley-open
+  - type: RandomSpawner
+    prototypes:
+    - MechHamtrBattery
+    - MechHonkerBattery
+    - MechRipley
+    chance: 1.0
+    offset: 0.0
+
+# Biological
+- type: entity
+  id: RandomHarvesterInjection
+  name: random harvester injection spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Chemistry/syringe.rsi
+      state: syringe_base0
+  - type: RandomSpawner
+    prototypes:
+    - BluespaceBeaker
+    - SyringeBluespace
+    - AnomalyCoreBluespace
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - Hypospray
+    - HypopenBox
+    rareChance: 0.03
+
+- type: entity
+  id: RandomHarvesterImplanter
+  name: random harvester implanter spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Medical/implanter.rsi
+      state: implanter0
+  - type: RandomSpawner
+    prototypes:
+    - BikeHornImplanter
+    - LightImplanter
+    - MindShieldImplanter
+    - SadTromboneImplanter
+    - TrackingImplanter
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - MacroBombImplanter
+    - MicroBombImplanter
+    - StorageImplanter
+    - EmpImplanter
+    - FreedomImplanter
+    - DeathRattleImplanter
+    - UplinkImplanter
+    - DnaScramblerImplanter
+    rareChance: 0.01
+
+- type: entity
+  id: RandomHarvesterMedkit
+  name: random harvester medkit spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Medical/firstaidkits.rsi
+      state: blackkit
+  - type: RandomSpawner
+    prototypes:
+    - MedkitOxygenFilled
+    - MedkitAdvancedFilled
+    - MedkitBruteFilled
+    - MedkitBurnFilled
+    - MedkitRadiationFilled
+    - MedkitToxinFilled
+    - MedkitCombatFilled
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - StimkitFilled
+    rareChance: 0.01
+
+- type: entity
+  id: RandomHarvesterSeeds
+  name: random harvester seeds spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Hydroponics/blood_tomato.rsi
+      state: seed
+  - type: RandomSpawner
+    prototypes:
+    - CrateHydroponicsSeeds
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - CrateHydroponicsSeedsExotic
+    - CrateHydroponicsSeedsMedicinal
+    rareChance: 0.5
+
+- type: entity
+  id: RandomHarvesterDoctorsDelight
+  name: random harvester doctors delight spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Consumable/Drinks/doctorsdelightglass.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - DrinkDoctorsDelightGlass
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - ChemistryBottleOmnizine
+    rareChance: 0.2
+
+# Destruction Loot
+- type: entity
+  id: RandomHarvesterWeaponLaser
+  name: random harvester weapon laser spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - WeaponLaserCarbine
+    - WeaponLaserCannon
+    - WeaponMakeshiftLaser
+    - WeaponLaserGun
+    - WeaponXrayCannon
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - WeaponAdvancedLaser
+    rareChance: 0.2
+
+- type: entity
+  id: RandomHarvesterWeaponShotgun
+  name: random harvester weapon Shotgun spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - WeaponShotgunEnforcer
+    - WeaponShotgunKammerer
+    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunImprovised
+    - WeaponProtoKineticShotgun
+    - WeaponShotgunSawn
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - WeaponShotgunBulldog
+    rareChance: 0.05
+
+- type: entity
+  id: RandomHarvesterWeaponRifle
+  name: random harvester weapon rifle spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - WeaponRifleLecter
+    - WeaponSubMachineGunWt550
+    - WeaponPistolFlintlock
+    - WeaponSniperMosin
+    - Musket
+    - WeaponSubMachineGunDrozd
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - WeaponRifleAk
+    - WeaponSubMachineGunC20r
+    rareChance: 0.05
+
+- type: entity
+  id: RandomHarvesterWeaponLight
+  name: random harvester weapon light spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - WeaponRevolverInspector
+    - WeaponRevolverMateba
+    - WeaponPistolMk58
+    - WeaponRevolverPirate
+    - WeaponPistolFlintlock
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - WeaponRevolverDeckard
+    - WeaponRevolverPython
+    - WeaponPistolCobra
+    - WeaponPistolViper
+    rareChance: 0.05
+
+- type: entity
+  id: RandomHarvesterWeaponDisabler
+  name: random harvester weapon disabler spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - Stunbaton
+    - WeaponDisabler
+    - WeaponDisablerSMG
+    - WeaponDisablerPractice
+    - TelescopicBaton
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - WeaponTaser
+    - Stunprod
+    rareChance: 0.05
+
+- type: entity
+  id: RandomHarvesterWeaponElite
+  name: random harvester weapon elite spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - WeaponLaserCannon
+    - WeaponLaserSvalinn
+    - WeaponPulsePistol
+    - WeaponAdvancedLaser
+    - WeaponLightMachineGunL6
+    - WeaponSniperHristov
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - WeaponPulseRifle
+    - WeaponPulseCarbine
+    - WeaponMinigun
+    - WeaponLauncherMultipleRocket
+    rareChance: 0.05
+
+- type: entity
+  id: RandomHarvesterBomb
+  name: random harvester bomb spawner
+  suffix: Bluespace Harvester, DO NOT MAP
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - ExGrenade
+    - GrenadeFlashBang
+    - TrainingBomb
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - SyndicateBomb
+    - SyndieMiniBomb
+    - HolyHandGrenade
+    - C4
+    - EmpGrenade
+    rareChance: 0.05

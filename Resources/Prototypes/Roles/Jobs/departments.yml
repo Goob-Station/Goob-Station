@@ -214,6 +214,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+  - Surgeon # Corvax-Next-Surgeon
 
 - type: department
   id: Security
@@ -228,6 +229,8 @@
   - Detective
   - Warden
   - Brigmedic # Goob
+  - Pilot # Corvax-Pilot
+  - WardenHelper # Corvax-Next-WardenHelper
 
 - type: department
   id: Science

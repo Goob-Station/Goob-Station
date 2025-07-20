@@ -1,0 +1,38 @@
+- type: entity
+  parent: IDCardStandard
+  id: PilotIDCard
+  name: pilot ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - sprite: _CorvaxGoob/Objects/Misc/id_cards.rsi
+          state: idpilot
+    - type: PresetIdCard
+      job: Pilot
+
+- type: entity
+  parent: IDCardStandard
+  id: SurgeonIDCard
+  name: surgeon ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: _CorvaxGoob/Objects/Misc/id_cards.rsi
+      state: idsurgeon
+  - type: PresetIdCard
+    job: Surgeon
+
+- type: entity
+  parent: IDCardStandard
+  id: WardenHelperIDCard
+  name: warden assistant ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - sprite: _CorvaxGoob/Objects/Misc/id_cards.rsi
+          state: idwardenhelper
+    - type: PresetIdCard
+      job: WardenHelper
