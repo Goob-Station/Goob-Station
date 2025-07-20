@@ -67,10 +67,8 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
 
     public void UpdateUI(SupermatterConsoleEntry[] supermatters, SupermatterFocusData? focusData)
     {
-        if (_owner == null)
-            return;
-
-        if (!_entManager.TryGetComponent<SupermatterConsoleComponent>(_owner.Value, out var console))
+        if (_owner == null
+            || !_entManager.TryGetComponent<SupermatterConsoleComponent>(_owner.Value, out var console))
             return;
 
         if (_trackedEntity != focusData?.NetEntity)
