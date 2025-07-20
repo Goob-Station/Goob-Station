@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from /tg/station at commit b2b97539fcafe46e96eba6664cc610863d0f21ba",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bluespace",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+		  0.1,
+          0.1,
+          0.1,
+          0.1,
+		  0.1,
+          0.1,
+          0.1,
+          0.1,
+		  0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
