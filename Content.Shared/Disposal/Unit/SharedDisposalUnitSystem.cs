@@ -594,6 +594,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
     public void DoInsertDisposalUnit(EntityUid uid,
         EntityUid toInsert,
         EntityUid user,
+        bool playSound = true, // Goobstation
         DisposalUnitComponent? disposal = null)
     {
         if (!Resolve(uid, ref disposal))
@@ -603,16 +604,18 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
             return;
 
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user):player} inserted {ToPrettyString(toInsert)} into {ToPrettyString(uid)}");
-        AfterInsert(uid, disposal, toInsert, user);
+        AfterInsert(uid, disposal, toInsert, user, playSound: playSound); // Goobstation
     }
 
     public virtual void AfterInsert(EntityUid uid,
         DisposalUnitComponent component,
         EntityUid inserted,
         EntityUid? user = null,
-        bool doInsert = false)
+        bool doInsert = false,
+        bool playSound = true) // Goobstation - Loud ass fucking disposals.
     {
-        Audio.PlayPredicted(component.InsertSound, uid, user: user);
+        if (playSound) // Goobstation
+            Audio.PlayPredicted(component.InsertSound, uid, user: user);
         if (doInsert && !Containers.Insert(inserted, component.Container))
             return;
 

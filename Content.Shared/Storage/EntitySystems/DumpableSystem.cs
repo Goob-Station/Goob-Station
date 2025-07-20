@@ -258,7 +258,7 @@ public sealed class DumpableSystem : EntitySystem
 
             foreach (var entity in dumpQueue)
             {
-                _disposalUnitSystem.DoInsertDisposalUnit(target.Value, entity, user);
+                _disposalUnitSystem.DoInsertDisposalUnit(target.Value, entity, user, false); // Goobstation - SHUT UP!!!!
             }
         }
         else if (HasComp<PlaceableSurfaceComponent>(target))
