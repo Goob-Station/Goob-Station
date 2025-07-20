@@ -13,7 +13,7 @@
   components:
   - type: CosmicCultRule
   - type: GameRule
-    minPlayers: 25
+    minPlayers: 15 # Pirate
     chaosScore: 1200
     delay:
       min: 60
