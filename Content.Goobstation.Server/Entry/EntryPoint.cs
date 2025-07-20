@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -10,6 +11,8 @@ using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Server.Voice;
 using Content.Goobstation.Common.JoinQueue;
 using Content.Goobstation.Common.MisandryBox;
+using Content.Goobstation.Common.ServerCurrency;
+using Content.Goobstation.Server.ServerCurrency;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
 using Robust.Shared.Timing;
@@ -19,6 +22,7 @@ namespace Content.Goobstation.Server.Entry;
 public sealed class EntryPoint : GameServer
 {
     private IVoiceChatServerManager _voiceManager = default!;
+    private ICommonCurrencyManager _curr = default!;
 
     public override void Init()
     {
@@ -32,6 +36,9 @@ public sealed class EntryPoint : GameServer
 
         IoCManager.Resolve<IJoinQueueManager>().Initialize();
         IoCManager.Resolve<ISpiderManager>().Initialize();
+
+        _curr = IoCManager.Resolve<ICommonCurrencyManager>(); // Goobstation
+        _curr.Initialize(); // Goobstation
     }
 
     public override void PostInit()
@@ -50,5 +57,12 @@ public sealed class EntryPoint : GameServer
                 break;
 
         }
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        _curr.Shutdown(); // Goobstation
     }
 }
