@@ -47,6 +47,7 @@ marking-HumanHairQueenBee = Queen Bee
 marking-HumanHairSaggedMohawk = Sagged Mohawk
 marking-HumanHairSharpMohawk = Sharp Mohawk
 marking-HumanHairShortAndPoofy = Short & Poofy
+marking-HumanHairPoofed = Poofed
 marking-HumanHairShortCurls = Short Curls
 marking-HumanHairShoulderLengthBraid = Shoulder Length Braid
 marking-HumanHairSideSpike = Side Spike

@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
@@ -18,7 +19,6 @@
   - type: Tag
     tags:
     - Organ
-    # not meat
 
 # Eyes
 
@@ -39,9 +39,14 @@
       Normal: 21
       Damaged: 11
       Destroyed: 0
+    slotId: eyes
     onAdd:
     - type: FlashImmunity
     - type: EyeProtection
+  - type: Tag
+    tags:
+    - Eyes
+  - type: Eyes
 
 - type: entity
   parent: BasicCyberneticEyes
