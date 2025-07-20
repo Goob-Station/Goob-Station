@@ -12723,3 +12723,9 @@ Entries:
       message: Brizby/Baldzby plushie (sprites made by Zethine)
   id: 1403
   time: '2025-07-19T04:53:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: The nukie base now gets a magic mirror.
+  id: 1404
+  time: '2025-07-20T16:54:45.0000000+00:00'
