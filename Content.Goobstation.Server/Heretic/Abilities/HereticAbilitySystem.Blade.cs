@@ -21,7 +21,7 @@ using Content.Shared.CombatMode.Pacification;
 using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components; // Shitmed Change
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Goobstation.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {

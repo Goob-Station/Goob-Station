@@ -28,7 +28,7 @@ using Content.Goobstation.Shared.Body.Components;
 using Content.Goobstation.Shared.Temperature.Components;
 using Content.Goobstation.Shared.Atmos.Components;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Goobstation.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {

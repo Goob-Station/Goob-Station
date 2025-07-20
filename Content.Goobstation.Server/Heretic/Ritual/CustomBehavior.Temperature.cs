@@ -11,19 +11,21 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Heretic.Prototypes;
 
-namespace Content.Server.Heretic.Ritual;
+namespace Content.Goobstation.Server.Heretic.Ritual;
 
 [Virtual] public sealed partial class RitualTemperatureBehavior : RitualCustomBehavior
 {
     /// <summary>
     ///     Min temp in celsius
     /// </summary>
-    [DataField] public float MinThreshold = 0f;
+    [DataField]
+    public float MinThreshold;
 
     /// <summary>
     ///     Max temp in celsius
     /// </summary>
-    [DataField] public float MaxThreshold = float.PositiveInfinity;
+    [DataField]
+    public float MaxThreshold = float.PositiveInfinity;
 
     private AtmosphereSystem _atmos = default!;
 
@@ -35,7 +37,8 @@ namespace Content.Server.Heretic.Ritual;
 
         var mix = _atmos.GetTileMixture(args.Platform);
 
-        if (mix == null || mix.TotalMoles == 0) // just accept space as it is
+        if (mix == null
+            || mix.TotalMoles == 0) // just accept space as it is
             return true;
 
         if (mix.Temperature > Atmospherics.T0C + MaxThreshold)
@@ -43,6 +46,7 @@ namespace Content.Server.Heretic.Ritual;
             outstr = Loc.GetString("heretic-ritual-fail-temperature-hot");
             return false;
         }
+
         if (mix.Temperature > Atmospherics.T0C + MinThreshold)
         {
             outstr = Loc.GetString("heretic-ritual-fail-temperature-cold");

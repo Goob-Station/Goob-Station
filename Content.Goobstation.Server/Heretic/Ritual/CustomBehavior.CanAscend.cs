@@ -1,7 +1,7 @@
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 
-namespace Content.Server.Heretic.Ritual;
+namespace Content.Goobstation.Server.Heretic.Ritual;
 
 public sealed partial class RitualCanAscend : RitualCustomBehavior
 {

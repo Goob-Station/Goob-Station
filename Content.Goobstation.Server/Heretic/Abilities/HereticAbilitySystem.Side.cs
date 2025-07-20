@@ -12,7 +12,7 @@ using Content.Server.Body.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Goobstation.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {

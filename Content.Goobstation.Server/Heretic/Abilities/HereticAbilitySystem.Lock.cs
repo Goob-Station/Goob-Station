@@ -11,7 +11,7 @@
 
 using Content.Shared.Heretic;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Goobstation.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {

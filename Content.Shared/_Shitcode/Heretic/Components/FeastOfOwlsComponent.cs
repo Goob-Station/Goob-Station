@@ -25,4 +25,7 @@ public sealed partial class FeastOfOwlsComponent : Component
 
     [DataField]
     public SoundSpecifier KnowledgeGainSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/eatfood.ogg");
+
+    [DataField]
+    public SoundSpecifier BriefingSoundIntense = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain_intense.ogg");
 }

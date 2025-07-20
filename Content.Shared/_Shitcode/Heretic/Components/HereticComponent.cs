@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Dataset;
+using Content.Shared.Eye;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
@@ -25,8 +26,8 @@ namespace Content.Shared.Heretic;
 public sealed partial class HereticComponent : Component
 {
     [DataField]
-    public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
-    {
+    public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge =
+    [
         "BreakOfDawn",
         "HeartbeatOfMansus",
         "AmberFocus",
@@ -35,10 +36,10 @@ public sealed partial class HereticComponent : Component
         "CloakOfShadow",
         "Reminiscence",
         "FeastOfOwls",
-    };
+    ];
 
     [DataField, AutoNetworkedField]
-    public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
+    public List<ProtoId<HereticRitualPrototype>> KnownRituals = [];
 
     [DataField]
     public ProtoId<HereticRitualPrototype>? ChosenRitual;
@@ -47,7 +48,7 @@ public sealed partial class HereticComponent : Component
     ///     Contains the list of targets that are eligible for sacrifice.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<SacrificeTargetData> SacrificeTargets = new();
+    public List<SacrificeTargetData> SacrificeTargets = [];
 
     /// <summary>
     ///     How much targets can a heretic have?
@@ -82,7 +83,7 @@ public sealed partial class HereticComponent : Component
     ///     Required tags for ritual of knowledge
     /// </summary>
     [DataField(serverOnly: true), NonSerialized]
-    public HashSet<ProtoId<TagPrototype>> KnowledgeRequiredTags = new();
+    public HashSet<ProtoId<TagPrototype>> KnowledgeRequiredTags = [];
 
     /// <summary>
     ///     Used to prevent double casting mansus grasp.
@@ -91,17 +92,31 @@ public sealed partial class HereticComponent : Component
     public EntityUid? MansusGrasp;
 
     [DataField]
-    public List<EntityUid> OurBlades = new();
+    public List<EntityUid?> OurBlades;
 
+    [ViewVariables(VVAccess.ReadOnly)]
     public int MaxBlades => CurrentPath switch
     {
         "Blade" => 4,
         _ => 2,
     };
+
+    [DataField]
+    public EntProtoId RuneDrawAnimationProto = "HereticRuneRitualDrawAnimation";
+
+    [DataField]
+    public HashSet<ProtoId<TagPrototype>> ValidDrawingUtensilTags =
+    [
+        "Write",
+        "Pen",
+    ];
+
+    [DataField]
+    public int EyeVisibilityFlagsValue = (int) VisibilityFlags.EldritchInfluence + (int) VisibilityFlags.EldritchInfluenceSpent;
 }
 
 [DataDefinition, Serializable, NetSerializable]
-public sealed partial class SacrificeTargetData
+public sealed partial class SacrificeTargetData // todo: cache a picture of the ent at roundstart to stop metagaming and pvs errors
 {
     [DataField]
     public NetEntity Entity;

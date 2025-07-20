@@ -46,9 +46,6 @@ public sealed partial class HereticRuleComponent : Component
     [DataField]
     public SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
 
-    [DataField]
-    public SoundSpecifier BriefingSoundIntense = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain_intense.ogg");
-
     [ViewVariables(VVAccess.ReadOnly)]
     public readonly List<EntityUid> Minds = [];
 

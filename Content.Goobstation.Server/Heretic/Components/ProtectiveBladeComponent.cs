@@ -7,6 +7,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Server.Heretic.Components;
 
 /// <summary>
@@ -20,4 +23,13 @@ public sealed partial class ProtectiveBladeComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float Timer = 60f;
+
+    [DataField]
+    public EntProtoId BladeProjectilePrototype = "HereticProtectiveBladeProjectile";
+
+    [DataField]
+    public SoundSpecifier BladeAppearSound = new SoundPathSpecifier("/Audio/Items/unsheath.ogg");
+
+    [DataField]
+    public SoundSpecifier BladeBlockSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/parry.ogg");
 }

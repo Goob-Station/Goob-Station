@@ -6,7 +6,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using YamlDotNet.Core.Tokens;
 
 namespace Content.Server.Heretic.Components.PathSpecific;
 
@@ -23,8 +25,11 @@ public sealed partial class RustGraspComponent : Component
     public float CatwalkDelayMultiplier = 0.15f;
 
     [DataField]
-    public string Delay = "rust";
+    public string DelayId = "rust";
 
     [DataField]
     public EntProtoId TileRune = "TileHereticRustRune";
+
+    [DataField]
+    public ProtoId<TagPrototype> CatwalkTag = "Catwalk";
 }

@@ -79,6 +79,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Heretic.Components;
+using Content.Goobstation.Server.Heretic.EntitySystems;
 using Content.Shared.Chat;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
@@ -279,20 +280,16 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         }
     }
 
+    // todo: delete this slop
     private string GetMansusGraspProto(Entity<HereticComponent> ent)
     {
-        if (ent.Comp is { CurrentPath: "Rust", PathStage: >= 2 })
-            return "TouchSpellMansusRust";
-
-        return "TouchSpellMansus";
+        return ent.Comp is { CurrentPath: "Rust", PathStage: >= 2 } ? "TouchSpellMansusRust" : "TouchSpellMansus";
     }
 
     private void OnLivingHeart(Entity<HereticComponent> ent, ref EventHereticLivingHeart args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
-        if (!TryComp<UserInterfaceComponent>(ent, out var uic))
+        if (!TryUseAbility(ent, args)
+            || !TryComp<UserInterfaceComponent>(ent, out var interfaceComp))
             return;
 
         if (ent.Comp.SacrificeTargets.Count == 0)
@@ -302,7 +299,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             return;
         }
 
-        _ui.OpenUi((ent, uic), HereticLivingHeartKey.Key, ent);
+        _ui.OpenUi((ent, interfaceComp), HereticLivingHeartKey.Key, ent);
         args.Handled = true;
     }
     private void OnLivingHeartActivate(Entity<HereticComponent> ent, ref EventHereticLivingHeartActivate args)
@@ -310,11 +307,10 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         var loc = string.Empty;
 
         var target = GetEntity(args.Target);
-        if (target == null)
+        if (target == null
+            || !TryComp<MobStateComponent>(target, out var mobstate))
             return;
 
-        if (!TryComp<MobStateComponent>(target, out var mobstate))
-            return;
         var state = mobstate.CurrentState;
         var locstate = state.ToString().ToLower();
 

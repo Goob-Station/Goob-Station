@@ -2,46 +2,44 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
+using Content.Server.Atmos.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic.Prototypes;
-using System.Linq;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server.Heretic.Ritual;
+namespace Content.Goobstation.Server.Heretic.Ritual;
 
-public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior
+public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
 {
+    private List<EntityUid> _burningEntities = [];
+
+    // check for burning corpses
     public override bool Execute(RitualData args, out string? outstr)
     {
         if (!base.Execute(args, out outstr))
             return false;
 
-        var _body = args.EntityManager.System<SharedBodySystem>();
-
-        var beheadedBodies = new List<EntityUid>();
-        foreach (var uid in uids)
+        for (var i = 0; i < Max; i++)
         {
-            if (_body.GetBodyChildrenOfType(uid, BodyPartType.Head).Count() == 0)
-                beheadedBodies.Add(uid);
+            if (args.EntityManager.TryGetComponent<FlammableComponent>(Entities[i], out var flam))
+                if (flam.OnFire)
+                    _burningEntities.Add(Entities[i]);
         }
 
-        if (beheadedBodies.Count < Min)
+        if (_burningEntities.Count < Min)
         {
-            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-blade");
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ash");
             return false;
         }
 
         outstr = null;
         return true;
-    }
-
-    public override void Finalize(RitualData args)
-    {
-        base.Finalize(args);
     }
 }

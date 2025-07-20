@@ -3,7 +3,7 @@ using Content.Shared.Heretic.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Heretic.Ritual;
+namespace Content.Goobstation.Server.Heretic.Ritual;
 
 public sealed partial class RitualCreateBladeBehavior : RitualCustomBehavior
 {
@@ -40,8 +40,6 @@ public sealed partial class RitualCreateBladeBehavior : RitualCustomBehavior
         heretic.OurBlades.Add(blade);
     }
 
-    private void RefreshBlades(HereticComponent comp, IEntityManager entMan)
-    {
+    private static void RefreshBlades(HereticComponent comp, IEntityManager entMan) =>
         comp.OurBlades.RemoveAll(x => !entMan.EntityExists(x));
-    }
 }

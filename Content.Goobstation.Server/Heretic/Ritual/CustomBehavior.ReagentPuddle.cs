@@ -13,15 +13,16 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Heretic.Ritual;
+namespace Content.Goobstation.Server.Heretic.Ritual;
 
 public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 {
-    protected EntityLookupSystem _lookup = default!;
+    [DataField]
+    public ProtoId<ReagentPrototype>? Reagent;
 
-    [DataField] public ProtoId<ReagentPrototype>? Reagent;
+    private EntityLookupSystem _lookup = default!;
 
-    private List<EntityUid> uids = new();
+    private List<EntityUid> _entities = [];
 
     public override bool Execute(RitualData args, out string? outstr)
     {
@@ -36,10 +37,8 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
         foreach (var ent in lookup)
         {
-            if (!args.EntityManager.TryGetComponent<PuddleComponent>(ent, out var puddle))
-                continue;
-
-            if (puddle.Solution == null)
+            if (!args.EntityManager.TryGetComponent<PuddleComponent>(ent, out var puddle)
+                || puddle.Solution == null)
                 continue;
 
             var soln = puddle.Solution.Value;
@@ -47,10 +46,10 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
             if (!soln.Comp.Solution.ContainsPrototype(Reagent))
                 continue;
 
-            uids.Add(ent);
+            _entities.Add(ent);
         }
 
-        if (uids.Count == 0)
+        if (_entities.Count == 0)
         {
             outstr = Loc.GetString("heretic-ritual-fail-reagentpuddle", ("reagentname", Reagent!));
             return false;
@@ -61,8 +60,9 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        foreach (var uid in uids)
+        foreach (var uid in _entities)
             args.EntityManager.QueueDeleteEntity(uid);
-        uids = new();
+
+        _entities.Clear();
     }
 }

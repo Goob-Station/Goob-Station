@@ -10,7 +10,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Heretic.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Follower;
@@ -21,8 +20,9 @@ using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Server.Heretic.Abilities;
+using Content.Goobstation.Server.Heretic.Components;
 using Content.Server.Buckle.Systems;
-using Content.Server.Heretic.Abilities;
 using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Damage.Components;
@@ -33,15 +33,9 @@ using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Reflect;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Server.Heretic.EntitySystems;
-
-public sealed partial class ProtectiveBladeUsedEvent : EntityEventArgs
-{
-    public Entity<ProtectiveBladeComponent>? Used = null;
-}
+namespace Content.Goobstation.Server.Heretic.EntitySystems;
 
 public sealed partial class ProtectiveBladeSystem : EntitySystem
 {
@@ -57,10 +51,6 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public static readonly EntProtoId BladePrototype = "HereticProtectiveBlade";
-    public static readonly EntProtoId BladeProjecilePrototype = "HereticProtectiveBladeProjectile";
-    public static readonly SoundSpecifier BladeAppearSound = new SoundPathSpecifier("/Audio/Items/unsheath.ogg");
-    public static readonly SoundSpecifier BladeBlockSound =
-        new SoundPathSpecifier("/Audio/_Goobstation/Heretic/parry.ogg");
 
     public override void Initialize()
     {
@@ -81,7 +71,8 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
 
     private void OnHereticInteract(Entity<HereticComponent> ent, ref InteractHandEvent args)
     {
-        if (args.Handled || args.User != ent.Owner)
+        if (args.Handled
+            || args.User != ent.Owner)
             return;
 
         if (TryThrowProtectiveBlade(ent, null))
@@ -90,10 +81,8 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
 
     private void OnProjectileReflectAttempt(Entity<HereticComponent> ent, ref ProjectileReflectAttemptEvent args)
     {
-        if (args.Cancelled)
-            return;
-
-        if (!TryComp<ReflectComponent>(ent, out var reflect))
+        if (args.Cancelled
+            || !TryComp<ReflectComponent>(ent, out var reflect))
             return;
 
         foreach (var blade in GetBlades(ent))
@@ -109,10 +98,8 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
 
     private void OnHitscanReflectAttempt(Entity<HereticComponent> ent, ref HitScanReflectAttemptEvent args)
     {
-        if (args.Reflected)
-            return;
-
-        if (!TryComp<ReflectComponent>(ent, out var reflect))
+        if (args.Reflected
+            || !TryComp<ReflectComponent>(ent, out var reflect))
             return;
 
         foreach (var blade in GetBlades(ent))
@@ -147,7 +134,7 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
         var blade = blades[0];
         RemoveProtectiveBlade(blade);
 
-        _audio.PlayPvs(BladeBlockSound, ent);
+        _audio.PlayPvs(blade.Comp.BladeBlockSound, ent);
 
         args.Cancel();
     }
@@ -156,26 +143,23 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var eqe = EntityQueryEnumerator<ProtectiveBladeComponent>();
-        while (eqe.MoveNext(out var uid, out var pbc))
+        var query = EntityQueryEnumerator<ProtectiveBladeComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            pbc.Timer -= frameTime;
+            comp.Timer -= frameTime;
 
-            if (pbc.Timer <= 0)
-            {
-                RemoveProtectiveBlade((uid, pbc));
-            }
+            if (comp.Timer <= 0)
+                RemoveProtectiveBlade((uid, comp));
         }
     }
 
-    private void OnInit(Entity<ProtectiveBladeComponent> ent, ref ComponentInit args)
-    {
+    private static void OnInit(Entity<ProtectiveBladeComponent> ent, ref ComponentInit args) =>
         ent.Comp.Timer = ent.Comp.Lifetime;
-    }
 
     private void OnTakeDamage(Entity<HereticComponent> ent, ref BeforeDamageChangedEvent args)
     {
-        if (args.Cancelled || args.Damage.GetTotal() < 5f)
+        if (args.Cancelled
+            || args.Damage.GetTotal() < 5f)
             return;
 
         var blades = GetBlades(ent);
@@ -185,14 +169,15 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
         var blade = blades[0];
         RemoveProtectiveBlade(blade);
 
-        _audio.PlayPvs(BladeBlockSound, ent);
+        _audio.PlayPvs(blade.Comp.BladeBlockSound, ent);
 
         args.Cancelled = true;
     }
 
     private void OnInteract(Entity<ProtectiveBladeComponent> ent, ref InteractHandEvent args)
     {
-        if (!TryComp<FollowerComponent>(ent, out var follower) || follower.Following != args.User)
+        if (!TryComp<FollowerComponent>(ent, out var follower)
+            || follower.Following != args.User)
             return;
 
         if (TryThrowProtectiveBlade(args.User, ent))
@@ -219,9 +204,9 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
         var pos = _xform.GetWorldPosition(origin);
 
         var lookup = _lookup.GetEntitiesInRange(origin, range, flags: LookupFlags.Dynamic)
-            .Where(e => e != origin && _mobState.IsAlive(e) && _interaction.InRangeUnobstructed(
+            .Where(ent => ent != origin && _mobState.IsAlive(ent) && _interaction.InRangeUnobstructed(
                 origin,
-                e,
+                ent,
                 range,
                 CollisionGroup.BulletImpassable,
                 x => TryComp(x, out RequireProjectileTargetComponent? requireTargetComp) && requireTargetComp.Active));
@@ -244,66 +229,59 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
 
     public void AddProtectiveBlade(EntityUid ent, bool playSound = true)
     {
-        var pblade = Spawn(BladePrototype, Transform(ent).Coordinates);
-        _follow.StartFollowingEntity(pblade, ent);
-        if (playSound)
-            _audio.PlayPvs(BladeAppearSound, ent);
+        var blade = Spawn(BladePrototype, Transform(ent).Coordinates);
+        _follow.StartFollowingEntity(blade, ent);
 
-        /* Upstream removed this, but they randomise the start point so it's w/e
-        if (TryComp<OrbitVisualsComponent>(pblade, out var vorbit))
-        {
-            // test scenario: 4 blades are currently following our heretic.
-            // making each one somewhat distinct from each other
-            vorbit.Orbit = GetBlades(ent).Count / 5;
-        }
-        */
+        if (TryComp<ProtectiveBladeComponent>(blade, out var bladeComp)
+            && playSound)
+            _audio.PlayPvs(bladeComp.BladeAppearSound, ent);
     }
     public void RemoveProtectiveBlade(Entity<ProtectiveBladeComponent> blade)
     {
         if (!TryComp<FollowerComponent>(blade, out var follower))
             return;
 
-        var ev = new ProtectiveBladeUsedEvent() { Used = blade };
+        var ev = new ProtectiveBladeUsedEvent { Used = blade };
         RaiseLocalEvent(follower.Following, ev);
 
         QueueDel(blade);
     }
 
-    public bool TryThrowProtectiveBlade(EntityUid origin, Entity<ProtectiveBladeComponent>? pblade, EntityUid? target = null)
+    public bool TryThrowProtectiveBlade(EntityUid origin, Entity<ProtectiveBladeComponent>? bladeNullable, EntityUid? specifiedTarget = null)
     {
         if (HasComp<BlockProtectiveBladeShootComponent>(origin))
             return false;
 
-        if (pblade == null)
+        if (bladeNullable is not { } blade)
         {
             var blades = GetBlades(origin);
             if (blades.Count == 0)
                 return false;
 
-            pblade = blades[0];
+            blade = blades[0];
         }
 
-        _follow.StopFollowingEntity(origin, pblade.Value);
+        _follow.StopFollowingEntity(origin, blade);
 
-        var tgt = target ?? GetNearestTarget(origin);
+        var targetNullable = specifiedTarget ?? GetNearestTarget(origin);
 
-        if (tgt == null)
+        if (targetNullable is not { } target)
         {
             _popup.PopupEntity(Loc.GetString("heretic-protective-blade-component-no-targets"), origin, origin);
             return false;
         }
 
         var pos = _xform.GetWorldPosition(origin);
-        var direction = _xform.GetWorldPosition(tgt.Value) - pos;
+        var direction = _xform.GetWorldPosition(target) - pos;
 
-        var proj = Spawn(BladeProjecilePrototype, Transform(origin).Coordinates);
-        _gun.ShootProjectile(proj, direction, Vector2.Zero, origin, origin);
-        _gun.SetTarget(proj, tgt.Value, out _);
+        var projectile = Spawn(blade.Comp.BladeProjectilePrototype, Transform(origin).Coordinates);
+        _gun.ShootProjectile(projectile, direction, Vector2.Zero, origin, origin);
+        _gun.SetTarget(projectile, target, out _);
 
-        var ev = new ProtectiveBladeUsedEvent() { Used = pblade.Value };
+        var ev = new ProtectiveBladeUsedEvent { Used = blade };
         RaiseLocalEvent(origin, ev);
 
-        QueueDel(pblade.Value);
+        QueueDel(blade);
 
         _status.TryAddStatusEffect<BlockProtectiveBladeShootComponent>(origin,
             "BlockProtectiveBladeShoot",
@@ -316,7 +294,13 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
     public void ThrowProtectiveBlade(EntityUid origin, EntityUid? target = null)
     {
         var blades = GetBlades(origin);
+
         if (blades.Count > 0)
             TryThrowProtectiveBlade(origin, blades[0], target);
+    }
+
+    public sealed class ProtectiveBladeUsedEvent : EntityEventArgs
+    {
+        public Entity<ProtectiveBladeComponent>? Used;
     }
 }

@@ -30,10 +30,13 @@ using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Goobstation.Server.Heretic.Components;
+using Content.Goobstation.Server.Heretic.GameTicking;
 using Content.Goobstation.Shared.Enchanting.Components;
 using Content.Goobstation.Shared.Religion;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Actions;
+using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
@@ -47,7 +50,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Goobstation.Server.Heretic.EntitySystems;
 
 public sealed class HereticSystem : EntitySystem
 {
@@ -95,11 +98,9 @@ public sealed class HereticSystem : EntitySystem
 
         _timer = 0f;
 
-        foreach (var heretic in EntityQuery<HereticComponent>())
-        {
-            // passive point gain every 20 minutes
-            UpdateKnowledge(heretic.Owner, heretic, 1f);
-        }
+        var query = EntityQueryEnumerator<HereticComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+            UpdateKnowledge(uid, comp, 1f);
     }
 
     public void UpdateKnowledge(EntityUid uid, HereticComponent comp, float amount, StoreComponent? store = null)
@@ -117,7 +118,8 @@ public sealed class HereticSystem : EntitySystem
 
     public HashSet<ProtoId<TagPrototype>>? TryGetRequiredKnowledgeTags(Entity<HereticComponent> ent)
     {
-        if (ent.Comp.KnowledgeRequiredTags.Count > 0 || GenerateRequiredKnowledgeTags(ent))
+        if (ent.Comp.KnowledgeRequiredTags.Count > 0
+            || GenerateRequiredKnowledgeTags(ent))
             return ent.Comp.KnowledgeRequiredTags;
 
         return null;
@@ -127,20 +129,17 @@ public sealed class HereticSystem : EntitySystem
     {
         ent.Comp.KnowledgeRequiredTags.Clear();
         var dataset = _proto.Index(ent.Comp.KnowledgeDataset);
+
         for (var i = 0; i < 4; i++)
-        {
             ent.Comp.KnowledgeRequiredTags.Add(_rand.Pick(dataset));
-        }
 
         return ent.Comp.KnowledgeRequiredTags.Count > 0;
     }
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
-        var eyeVisVal = ((int)VisibilityFlags.EldritchInfluence) + ((int)VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
-        // add influence layer
-        if (TryComp<EyeComponent>(ent, out var eye)) // As a result, I'm afraid its complete shitcode however it's working shitcode.
-            _eye.SetVisibilityMask(ent, eye.VisibilityMask | eyeVisVal); 
+        if (TryComp<EyeComponent>(ent, out var eye))
+            _eye.SetVisibilityMask(ent, eye.VisibilityMask | ent.Comp.EyeVisibilityFlagsValue);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
@@ -163,6 +162,8 @@ public sealed class HereticSystem : EntitySystem
     {
         // welcome to my linq smorgasbord of doom
         // have fun figuring that out
+        //
+        // fuck you, this code is evil :(
 
         var targets = _antag.GetAliveConnectedPlayers(_playerMan.Sessions)
             .Where(IsSessionValid)
@@ -171,24 +172,24 @@ public sealed class HereticSystem : EntitySystem
 
         var pickedTargets = new List<EntityUid>();
 
-        var predicates = new List<Func<EntityUid, bool>>();
-
-        // pick one command staff
-        predicates.Add(HasComp<CommandStaffComponent>);
-        // pick one security staff
-        predicates.Add(HasComp<SecurityStaffComponent>);
+        var predicates = new List<Func<EntityUid, bool>>
+        {
+            // pick one command staff
+            HasComp<CommandStaffComponent>,
+            // pick one security staff
+            HasComp<SecurityStaffComponent>,
+        };
 
         // add more predicates here
-
-        foreach (var predicate in predicates)
+        // LINQ HELL!!! //
+        foreach (var picked in from predicate in predicates
+                 select targets
+                     .Where(predicate)
+                     .ToList()
+                 into list
+                 where list.Count != 0
+                 select _rand.Pick(list))
         {
-            var list = targets.Where(predicate).ToList();
-
-            if (list.Count == 0)
-                continue;
-
-            // pick and take
-            var picked = _rand.Pick(list);
             targets.Remove(picked);
             pickedTargets.Add(picked);
         }
@@ -224,10 +225,10 @@ public sealed class HereticSystem : EntitySystem
 
     private SacrificeTargetData? GetData(EntityUid uid)
     {
-        if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid))
-            return null;
-
-        if (!_mind.TryGetMind(uid, out var mind, out _) || !_job.MindTryGetJobId(mind, out var jobId) || jobId == null)
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid)
+            || !_mind.TryGetMind(uid, out var mind, out _)
+            || !_job.MindTryGetJobId(mind, out var jobId)
+            || jobId == null)
             return null;
 
         var hair = (HairStyles.DefaultHairStyle, humanoid.CachedHairColor ?? Color.Black);
@@ -283,13 +284,13 @@ public sealed class HereticSystem : EntitySystem
 
         foreach (var (action, _) in _actions.GetActions(ent))
         {
-            if (TryComp(action, out ChangeUseDelayOnAscensionComponent? changeUseDelay) &&
-                (changeUseDelay.RequiredPath == null || changeUseDelay.RequiredPath == ent.Comp.CurrentPath))
+            if (TryComp<ChangeUseDelayOnAscensionComponent>(action, out var changeUseDelay)
+                && (changeUseDelay.RequiredPath == null || changeUseDelay.RequiredPath == ent.Comp.CurrentPath))
                 _actions.SetUseDelay(action, changeUseDelay.NewUseDelay);
         }
 
         var pathLoc = ent.Comp.CurrentPath.ToLower();
-        var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
+        var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg"); // todo: this will need to be refactored post turning paths into protos
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
     }
 

@@ -12,7 +12,7 @@ using Content.Shared.Heretic.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Heretic.Ritual;
+namespace Content.Goobstation.Server.Heretic.Ritual;
 
 public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior
 {
@@ -27,9 +27,9 @@ public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior
         var targets = new List<EntityUid>();
         for (var i = 0; i < Max; i++)
         {
-            if (args.EntityManager.HasComponent<RottingComponent>(uids[i]) ||
-                args.EntityManager.HasComponent<SiliconComponent>(uids[i]))
-                targets.Add(uids[i]);
+            if (args.EntityManager.HasComponent<RottingComponent>(Entities[i]) ||
+                args.EntityManager.HasComponent<SiliconComponent>(Entities[i]))
+                targets.Add(Entities[i]);
         }
 
         if (targets.Count < Min)

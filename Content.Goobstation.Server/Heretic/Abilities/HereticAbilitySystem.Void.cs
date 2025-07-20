@@ -29,7 +29,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using System.Linq;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Goobstation.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {

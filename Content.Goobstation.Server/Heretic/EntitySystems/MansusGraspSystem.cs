@@ -20,11 +20,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Goobstation.Server.Heretic.Abilities;
+using Content.Goobstation.Server.Heretic.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Heretic.Abilities;
-using Content.Server.Heretic.Components;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
@@ -48,7 +47,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Goobstation.Server.Heretic.EntitySystems;
 
 public sealed class MansusGraspSystem : SharedMansusGraspSystem
 {
@@ -99,19 +98,25 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             args.Cancel();
     }
 
-    private void OnRustInteract(EntityUid uid, RustGraspComponent comp, AfterInteractEvent args)
+    private void OnRustInteract(Entity<RustGraspComponent> rustGrasp, ref AfterInteractEvent args)
     {
         if (args.Handled)
             return;
 
-        if (!args.CanReach || !TryComp<HereticComponent>(args.User, out var heretic) ||
-            !TryComp(uid, out UseDelayComponent? delay) || _delay.IsDelayed((uid, delay), comp.Delay) ||
-            !TryComp(uid, out MansusGraspComponent? grasp))
+        if (!args.CanReach
+            || !TryComp<HereticComponent>(args.User, out var heretic)
+            || !TryComp<UseDelayComponent>(rustGrasp, out var delay)
+            || !TryComp<MansusGraspComponent>(rustGrasp, out var graspComponent)
+            || _delay.IsDelayed((rustGrasp.Owner, delay), rustGrasp.Comp.DelayId))
             return;
 
-        if (args.Target == null || _whitelist.IsBlacklistPass(grasp.Blacklist, args.Target.Value))
+        if (args.Target == null
+            || _whitelist.IsBlacklistPass(graspComponent.Blacklist, args.Target.Value)
+            || !TryRustCoordinates(rustGrasp.Comp, args.ClickLocation))
         {
-            RustTile();
+            ResetDelay(heretic, rustGrasp);
+            InvokeGrasp(args.User, (rustGrasp, graspComponent));
+
             return;
         }
 
@@ -122,18 +127,18 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
                 return;
 
             args.Handled = true;
-            InvokeGrasp(args.User, (uid, grasp));
-            ResetDelay();
+            InvokeGrasp(args.User, (rustGrasp.Owner, graspComponent));
+            ResetDelay(heretic, rustGrasp);
             Del(args.Target);
             return;
         }
 
         // Death to catwalks
-        if (_tag.HasTag(args.Target.Value, "Catwalk"))
+        if (_tag.HasTag(args.Target.Value, rustGrasp.Comp.CatwalkTag))
         {
             args.Handled = true;
-            InvokeGrasp(args.User, (uid, grasp));
-            ResetDelay(comp.CatwalkDelayMultiplier);
+            InvokeGrasp(args.User, (rustGrasp, graspComponent));
+            ResetDelay(heretic, rustGrasp, rustGrasp.Comp.CatwalkDelayMultiplier);
             Del(args.Target);
             return;
         }
@@ -142,68 +147,32 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             return;
 
         args.Handled = true;
-        InvokeGrasp(args.User, (uid, grasp));
-        ResetDelay();
-
-        return;
-
-        void RustTile()
-        {
-            if (!args.ClickLocation.IsValid(EntityManager))
-                return;
-
-            if (!_mapManager.TryFindGridAt(_transform.ToMapCoordinates(args.ClickLocation), out var gridUid, out var mapGrid))
-                return;
-
-            var tileRef = _mapSystem.GetTileRef(gridUid, mapGrid, args.ClickLocation);
-            var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
-
-            if (!_ability.CanRustTile(tileDef))
-                return;
-
-            args.Handled = true;
-            ResetDelay();
-            InvokeGrasp(args.User, (uid, grasp));
-
-            _ability.MakeRustTile(gridUid, mapGrid, tileRef, comp.TileRune);
-        }
-
-        void ResetDelay(float multiplier = 1f)
-        {
-            // Less delay the higher the path stage is
-            var length = float.Lerp(comp.MaxUseDelay, comp.MinUseDelay, heretic.PathStage / 10f) * multiplier;
-            _delay.SetLength((uid, delay), TimeSpan.FromSeconds(length), comp.Delay);
-            _delay.TryResetDelay((uid, delay), false, comp.Delay);
-        }
+        InvokeGrasp(args.User, (rustGrasp.Owner, graspComponent));
+        ResetDelay(heretic, rustGrasp);
     }
 
-    private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
+    private void OnAfterInteract(Entity<MansusGraspComponent> grasp, ref AfterInteractEvent args)
     {
-        if (!args.CanReach)
+        if (!args.CanReach
+            || args.Target is not { } target
+            || args.Target == args.User)
             return;
-
-        if (args.Target == null || args.Target == args.User)
-            return;
-
-        var (uid, comp) = ent;
 
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
         {
-            QueueDel(uid);
+            QueueDel(grasp);
             args.Handled = true;
             return;
         }
 
-        var target = args.Target.Value;
-
-        if (TryComp<HereticComponent>(target, out var th) && th.CurrentPath == ent.Comp.Path)
-            return;
-
-        if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
+        if (TryComp<HereticComponent>(target, out var targetHeretic)
+            && targetHeretic.CurrentPath == grasp.Comp.Path // Don't affect same path heretics.
+            && _whitelist.IsBlacklistPass(grasp.Comp.Blacklist, target)) // Don't affect blacklisted.
             return;
 
         var beforeEvent = new BeforeHarmfulActionEvent(args.User, HarmfulActionType.MansusGrasp);
         RaiseLocalEvent(target, beforeEvent);
+
         var cancelled = beforeEvent.Cancelled;
         if (!cancelled)
         {
@@ -214,34 +183,34 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         if (cancelled)
         {
-            _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
-            hereticComp.MansusGrasp = EntityUid.Invalid;
-            InvokeGrasp(args.User, ent);
-            QueueDel(ent);
+            _actions.SetCooldown(hereticComp.MansusGrasp, grasp.Comp.CooldownAfterUse);
+            hereticComp.MansusGrasp = null;
+            InvokeGrasp(args.User, grasp);
+            QueueDel(grasp);
             args.Handled = true;
             return;
         }
 
         // upgraded grasp
-        if (!TryApplyGraspEffectAndMark(args.User, hereticComp, target, ent))
+        if (!TryApplyGraspEffectAndMark(args.User, hereticComp, target, grasp))
             return;
 
-        if (TryComp(target, out StatusEffectsComponent? status))
+        if (TryComp<StatusEffectsComponent>(target, out var status))
         {
-            _stun.KnockdownOrStun(target, comp.KnockdownTime, true, status);
-            _stamina.TakeStaminaDamage(target, comp.StaminaDamage);
-            _language.DoRatvarian(target, comp.SpeechTime, true, status);
+            _stun.KnockdownOrStun(target, grasp.Comp.KnockdownTime, true, status);
+            _stamina.TakeStaminaDamage(target, grasp.Comp.StaminaDamage);
+            _language.DoRatvarian(target, grasp.Comp.SpeechTime, true, status);
             _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(target,
                 "MansusGraspAffected",
-                ent.Comp.AffectedTime,
+                grasp.Comp.AffectedTime,
                 true,
                 status);
         }
 
-        _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
+        _actions.SetCooldown(hereticComp.MansusGrasp, grasp.Comp.CooldownAfterUse);
         hereticComp.MansusGrasp = EntityUid.Invalid;
-        InvokeGrasp(args.User, ent);
-        QueueDel(ent);
+        InvokeGrasp(args.User, grasp);
+        QueueDel(grasp);
         args.Handled = true;
     }
 
@@ -265,22 +234,23 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             || HasComp<ActiveDoAfterComponent>(args.User)) // prevent rune shittery
             return;
 
-        var runeProto = "HereticRuneRitualDrawAnimation";
+        var runeProto = heretic.RuneDrawAnimationProto;
         float time = 14;
 
-        if (TryComp(ent, out TransmutationRuneScriberComponent? scriber)) // if it is special rune scriber
+        if (TryComp(ent, out TransmutationRuneScriberComponent? scriber)) // Used for the Codex Cicatrix.
         {
             runeProto = scriber.RuneDrawingEntity;
             time = scriber.Time;
         }
-        else if (heretic.MansusGrasp == EntityUid.Invalid // no grasp - not special
-                 || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
+        else if (heretic.MansusGrasp == null
+                 || !tags.SetEquals(heretic.ValidDrawingUtensilTags))
             return;
 
         args.Handled = true;
 
-        // remove our rune if clicked
-        if (args.Target != null && HasComp<HereticRitualRuneComponent>(args.Target))
+        // Remove our rune if clicked/
+        if (args.Target != null
+            && HasComp<HereticRitualRuneComponent>(args.Target))
         {
             // todo: add more fluff
             QueueDel(args.Target);
@@ -290,7 +260,13 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         // spawn our rune
         var rune = Spawn(runeProto, args.ClickLocation);
         _transform.AttachToGridOrMap(rune);
-        var dargs = new DoAfterArgs(EntityManager, args.User, time, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
+
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            args.User,
+            time,
+            new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation),
+            args.User)
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
@@ -298,14 +274,45 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
             CancelDuplicate = false,
             MultiplyDelay = false,
         };
-        _doAfter.TryStartDoAfter(dargs);
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
     }
     private void OnRitualRuneDoAfter(Entity<HereticComponent> ent, ref DrawRitualRuneDoAfterEvent ev)
     {
-        // delete the animation rune regardless
         QueueDel(ev.RitualRune);
 
         if (!ev.Cancelled)
             _transform.AttachToGridOrMap(Spawn("HereticRuneRitual", ev.Coords));
     }
+
+    #region Helpers
+
+    private bool TryRustCoordinates(RustGraspComponent grasp, EntityCoordinates target)
+    {
+        if (!target.IsValid(EntityManager)
+            || !_mapManager.TryFindGridAt(_transform.ToMapCoordinates(target), out var gridUid, out var mapGrid))
+            return false;
+
+        var tileRef = _mapSystem.GetTileRef(gridUid, mapGrid, target);
+        var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
+
+        if (!_ability.CanRustTile(tileDef))
+            return false;
+
+        _ability.MakeRustTile(gridUid, mapGrid, tileRef, grasp.TileRune);
+        return true;
+    }
+
+    private void ResetDelay(HereticComponent heretic, Entity<RustGraspComponent> grasp, float multiplier = 1f, UseDelayComponent? useDelay = null)
+    {
+        if (!Resolve(grasp, ref useDelay))
+            return;
+
+        // Less delay the higher the path stage is
+        var length = float.Lerp(grasp.Comp.MaxUseDelay, grasp.Comp.MinUseDelay, heretic.PathStage / 10f) * multiplier;
+        _delay.SetLength((grasp, useDelay), TimeSpan.FromSeconds(length), grasp.Comp.DelayId);
+        _delay.TryResetDelay((grasp, useDelay), false, grasp.Comp.DelayId);
+    }
+
+    #endregion
 }

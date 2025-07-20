@@ -19,17 +19,19 @@ using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Server.Containers;
 
-namespace Content.Server.Heretic.Ritual;
+namespace Content.Goobstation.Server.Heretic.Ritual;
 
 public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 {
-    private HashSet<ProtoId<TagPrototype>> _missingTags = new();
-    private List<EntityUid> _toDelete = new();
+    private HashSet<ProtoId<TagPrototype>> _missingTags = [];
+    private List<EntityUid> _toDelete = [];
 
     private EntityLookupSystem _lookup = default!;
     private HereticSystem _heretic = default!;
     private TagSystem _tag = default!;
     private ContainerSystem _container = default!;
+
+    private const int KnowledgeGranted = 5;
 
     // this is basically a ripoff from hereticritualsystem
     public override bool Execute(RitualData args, out string? outstr)
@@ -54,48 +56,42 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         _toDelete.Clear();
         _missingTags.Clear();
         _missingTags.UnionWith(requiredTags);
-        foreach (var look in lookup)
+        foreach (var ent in lookup)
         {
-            if (!args.EntityManager.TryGetComponent<TagComponent>(look, out var tags))
-                continue;
-
-            if (_container.IsEntityInContainer(look))
+            if (!args.EntityManager.TryGetComponent<TagComponent>(ent, out var tags)
+                || _container.IsEntityInContainer(ent))
                 continue;
 
             _missingTags.RemoveWhere(tag =>
             {
-                if (_tag.HasTag(tags, tag))
-                {
-                    _toDelete.Add(look);
-                    return true;
-                }
+                if (!_tag.HasTag(tags, tag))
+                    return false;
 
-                return false;
+                _toDelete.Add(ent);
+                return true;
+
             });
         }
 
-        if (_missingTags.Count > 0)
-        {
-            var missing = string.Join(", ", _missingTags);
-            outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", missing));
-            return false;
-        }
+        if (_missingTags.Count <= 0)
+            return true;
 
-        return true;
+        var missing = string.Join(", ", _missingTags);
+        outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", missing));
+        return false;
     }
 
     public override void Finalize(RitualData args)
     {
         foreach (var ent in _toDelete)
-        {
             args.EntityManager.QueueDeleteEntity(ent);
-        }
+
         _toDelete.Clear();
 
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
             return;
 
-        _heretic.UpdateKnowledge(args.Performer, hereticComp, 5);
+        _heretic.UpdateKnowledge(args.Performer, hereticComp, KnowledgeGranted);
         hereticComp.ChosenRitual = null;
         hereticComp.KnowledgeRequiredTags.Clear();
         hereticComp.KnownRituals.Remove(args.RitualId);

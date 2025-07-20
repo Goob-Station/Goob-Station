@@ -1,22 +1,23 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Server.GameObjects;
 
-namespace Content.Server.Heretic.Ritual;
+namespace Content.Goobstation.Server.Heretic.Ritual;
 
 public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
 {
-    public override bool Execute(RitualData args, out string? outstr)
+    public override bool Execute(RitualData args, [NotNullWhen(true)] out string? outstr)
     {
         outstr = null;
 
         var entMan = args.EntityManager;
-        if (!entMan.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return false;
-
         var transform = entMan.System<TransformSystem>();
-        if (GetLostBlade(args.Platform, args.Performer, heretic, args.EntityManager, transform) != null)
-            return true;
+
+        if (!entMan.TryGetComponent(args.Performer, out HereticComponent? heretic)
+            || GetLostBlade(args.Platform, args.Performer, heretic, args.EntityManager, transform) == null)
+            return false;
 
         outstr = Loc.GetString("heretic-ritual-fail-no-lost-blades");
         return false;
@@ -25,11 +26,9 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
     public override void Finalize(RitualData args)
     {
         var entMan = args.EntityManager;
-        if (!entMan.TryGetComponent(args.Performer, out HereticComponent? heretic))
-            return;
-
         var transform = entMan.System<TransformSystem>();
-        if (GetLostBlade(args.Platform, args.Performer, heretic, args.EntityManager, transform) is not { } blade)
+        if (!entMan.TryGetComponent(args.Performer, out HereticComponent? heretic)
+            || GetLostBlade(args.Platform, args.Performer, heretic, args.EntityManager, transform) is not { } blade)
             return;
 
         transform.AttachToGridOrMap(blade);
@@ -45,21 +44,17 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
         var originCoords = transform.GetMapCoordinates(origin);
         var hereticCoords = transform.GetMapCoordinates(heretic);
 
+        // Not on the same map, cancel.
         if (originCoords.MapId != hereticCoords.MapId)
             return null;
 
         var dist = (originCoords.Position - hereticCoords.Position).Length();
-
         var range = MathF.Max(1.5f, dist + 0.5f);
 
-        foreach (var blade in comp.OurBlades)
+        foreach (var blade in comp.OurBlades
+                     .Where(entMan.EntityExists)
+                     .Where(blade => !originCoords.InRange(transform.GetMapCoordinates(blade), range)))
         {
-            if (!entMan.EntityExists(blade))
-                continue;
-
-            if (originCoords.InRange(transform.GetMapCoordinates(blade), range))
-                continue;
-
             return blade;
         }
 

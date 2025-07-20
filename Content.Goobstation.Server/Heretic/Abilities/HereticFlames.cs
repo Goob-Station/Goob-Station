@@ -11,7 +11,7 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Goobstation.Server.Heretic.Abilities;
 
 [RegisterComponent]
 public sealed partial class HereticFlamesComponent : Component
