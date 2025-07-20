@@ -622,7 +622,7 @@
       collection: MaleSneezes
     Cough:
       collection: MaleCoughs
-      
+
 - type: emoteSounds
   id: FemaleMoth
   params:
