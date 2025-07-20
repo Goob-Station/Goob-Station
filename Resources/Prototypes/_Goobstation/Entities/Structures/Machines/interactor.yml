@@ -130,5 +130,5 @@
     range: 5
   # Power
   - type: ApcPowerReceiver
-    powerLoad: 3500
+    powerLoad: 750
   - type: PowerSwitch

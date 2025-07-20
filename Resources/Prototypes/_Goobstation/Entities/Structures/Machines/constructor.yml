@@ -43,4 +43,4 @@
     - Failed
   # Power
   - type: ApcPowerReceiver
-    powerLoad: 6000
+    powerLoad: 1000

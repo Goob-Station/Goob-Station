@@ -147,13 +147,13 @@ public sealed partial class RoboticArmComponent : Component
     /// Power used when idle.
     /// </summary>
     [DataField]
-    public float IdlePowerDraw = 50f;
+    public float IdlePowerDraw = 100f;
 
     /// <summary>
     /// Power used when moving items.
     /// </summary>
     [DataField]
-    public float MovingPowerDraw = 3000f;
+    public float MovingPowerDraw = 500f;
 
     #endregion
 }
