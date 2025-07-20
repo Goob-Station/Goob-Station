@@ -65,6 +65,9 @@
           sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
           state: combat-icon
         components:
+        - type: ClothingSpeedModifier #Pirate
+          walkModifier: 0.9 #Pirate
+          sprintModifier: 0.9 #Pirate
         - type: Armor
           traumaDeductions:
             Dismemberment: 0.4
