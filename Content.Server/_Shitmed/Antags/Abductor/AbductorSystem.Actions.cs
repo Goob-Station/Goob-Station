@@ -59,6 +59,8 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
         var doAfter = new DoAfterArgs(EntityManager, ev.Performer, TimeSpan.FromSeconds(3), new AbductorReturnDoAfterEvent(), ev.Performer)
         {
+            BreakOnMove = true, // Pirate
+            BreakOnDamage = true, // Pirate
             MultiplyDelay = false,
         };
         _doAfter.TryStartDoAfter(doAfter);
