@@ -1,0 +1,9 @@
+- type: entity
+  id: ActionCalloutHumanHarm
+  name: Human Harm
+  description: WEE WOO WEE WOO. HUMAN HARM!
+  components:
+  - type: InstantAction
+    icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
+    event: !type:CalloutActionEvent
+    useDelay: 30 # 30 Seconds

@@ -445,3 +445,21 @@
   components:
   - type: BorgSwitchableSubtype
     borgSubtype: service_rover
+
+# Security
+
+- type: entity
+  abstract: true
+  parent: BorgChassisSelectable
+  id: BorgSecurityChassis
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: security
+
+- type: entity
+  id: BorgChassisPeaceKeeper
+  parent: BorgSecurityChassis
+  name: peace keeper cyborg
+  components:
+  - type: BorgSwitchableSubtype
+    borgSubtype: security_peace_keeper

@@ -260,3 +260,10 @@
   id: service_rover
   spritePath: _Goobstation/Mobs/Silicon/Service/rover.rsi
   dummyPrototype: BorgChassisServiceRover
+
+# Security subtypes
+- type: borgSubtype
+  parentBorgType: security
+  id: security_peace_keeper
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisPeaceKeeper

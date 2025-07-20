@@ -1,0 +1,33 @@
+# Sec borg
+- type: borgType
+  id: security
+
+  dummyPrototype: BorgChassisPeaceKeeper
+
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleSecurity
+
+  defaultModules:
+  - BorgModuleSecurity
+
+  radioChannels:
+  - Science
+  - Security
+
+  addComponents:
+  - type: Callout
+    calloutAction: ActionCalloutHumanHarm
+    calloutString: callout-human-harm
+    calloutSpecifier:
+      collection: HumanHarm
+  - type: FlashImmunity # Otherwise they'd have issues going into/from security
+  
+  inventoryTemplateId: borgShort
+  spriteBodyState: sec
+  spriteHasMindState: sec_e
+  spriteNoMindState: sec_e_r
+  spriteToggleLightState: sec_l

@@ -216,3 +216,39 @@
               setItemSwitch: off
           soundStateActivate:
             path: /Audio/_Goobstation/Misc/umbrella.ogg
+
+# Secborg
+
+- type: entity
+  id: StunBatonBorg
+  parent: Stunbaton
+  name: Recharging Cyborg Baton
+  suffix: "Secborg"
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 12
+  - type: Battery # Half the charge capacity but slowly recharges
+    maxCharge: 500
+    startingCharge: 500
+
+- type: entity
+  id: ZiptieDispensor
+  name: Ziptie Dispensor
+  parent: BaseItem
+  suffix: "Secborg"
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/zipties.rsi
+    state: cuff
+  - type: CuffsOnHit
+    duration: 3.5
+    proto: Cablecuffs
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Items/Handcuffs/ziptie_start.ogg
+  - type: UseDelay
+    delay: 3

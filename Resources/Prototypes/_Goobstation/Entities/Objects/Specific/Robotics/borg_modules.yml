@@ -66,3 +66,24 @@
         - PressureDamageChange
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
+
+- type: entity
+  id: BorgModuleSecurity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: security cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: security
+    - state: icon-security
+      sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    moduleId: Security
+    items:
+    - StunBatonBorg
+    - ZiptieDispensor
+    - HoloprojectorSecurity
+    - BorgFireExtinguisher
+    - CrowbarRed
+  - type: BorgModuleIcon
+    icon: { sprite: Objects/Weapons/Melee/stunbaton.rsi, state: stunbaton_off }
