@@ -23,11 +23,8 @@ public sealed partial class EntityWhitelistRequirement : InteractionRequirement
 
     public override bool IsMet(InteractionArgs args, InteractionVerbPrototype proto, InteractionAction.VerbDependencies deps)
     {
-        //return Whitelist.IsValid(args.Target) && !Blacklist.IsValid(args.Target);
-        //TODO: The shittiest hack I have ever done just to make this work.
-        //      If this ever makes it into the PR/codebase @radsammyt on discord
-        //      and suplex him in-game on every fucking table. no. seriously.
-        return true;
+        return deps.WhitelistSystem.IsValid(Whitelist, args.Target) &&
+               !deps.WhitelistSystem.IsValid(Blacklist, args.Target);
     }
 }
 
