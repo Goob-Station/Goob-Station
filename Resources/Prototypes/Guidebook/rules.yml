@@ -19,7 +19,7 @@
   id: DefaultRuleset
   name: guide-entry-rules
   priority: 60
-  text: "/ServerInfo/Guidebook/ServerRules/DefaultRules.xml"
+  text: "/ServerInfo/_COrvaxGoob/Guidebook/ServerRules/MrpRuleset.xml"
   children:
   - CoreRules
   - RoleplayRules
