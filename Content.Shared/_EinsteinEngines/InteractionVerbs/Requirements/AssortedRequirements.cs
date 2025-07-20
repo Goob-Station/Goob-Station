@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
@@ -51,10 +52,12 @@ public sealed partial class MobStateRequirement : InvertableInteractionRequireme
 [Serializable, NetSerializable]
 public sealed partial class StandingStateRequirement : InteractionRequirement
 {
-    [DataField] public bool AllowStanding, AllowLaying, AllowKnockedDown;
+    [DataField] public bool AllowStanding, AllowLaying, AllowKnockedDown, AllowSleep;
 
     public override bool IsMet(InteractionArgs args, InteractionVerbPrototype proto, InteractionAction.VerbDependencies deps)
     {
+        if (deps.EntMan.HasComponent<SleepingComponent>(args.Target) && !AllowSleep)
+            return false;
         if (deps.EntMan.HasComponent<KnockedDownComponent>(args.Target))
             return AllowKnockedDown;
 

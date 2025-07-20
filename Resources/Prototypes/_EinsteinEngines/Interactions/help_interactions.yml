@@ -24,12 +24,11 @@
     !type:StandingStateRequirement
     allowLaying: true
     allowKnockedDown: true
+    allowSleep: false
   action:
     !type:ComplexAction
     requireAll: false
     actions:
-    - !type:ToggleSleepingAction
-      wakeUp: true
     - !type:ChangeStandingStateAction
       makeStanding: true
     - !type:ModifyStatusEffectAction
@@ -63,6 +62,7 @@
       - !type:StandingStateRequirement
         allowLaying: true
         allowKnockedDown: true
+        allowSleep: false
       - !type:MobStateRequirement
         allowedStates: [Alive, Critical]
   action:
@@ -79,8 +79,13 @@
   effectDelayed: null
   hideByRequirement: true
   requirement:
-    !type:MobStateRequirement
-    allowedStates: [Alive, Critical]
+    - !type:MobStateRequirement
+      allowedStates: [Alive, Critical]
+    - !type:StandingStateRequirement
+      allowLaying: true
+      allowKnockedDown: true
+      allowStanding: true
+      allowSleep: false
   action:
     !type:ComplexAction
     actions:
