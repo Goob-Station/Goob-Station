@@ -58,7 +58,7 @@
     Stash2: 2
     Stash3: 2
     Stash4: 2
-    #WIZDEN RUINS (only peak ones, rest are trash)
+#WIZDEN RUINS (only peak ones, rest are trash)
     CargoWreck: 1
     Murder: 1
     EscapePod: 2
@@ -68,4 +68,3 @@
     Temple: 1
   dungeonRuins:
     CommonRuin5x5: 60
-# END OF WIZDEN
