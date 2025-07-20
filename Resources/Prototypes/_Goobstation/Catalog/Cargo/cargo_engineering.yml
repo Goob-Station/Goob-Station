@@ -12,3 +12,13 @@
   cost: 5000
   category: cargoproduct-category-name-engineering
   group: market
+
+- type: cargoProduct
+  id: EngineTEGKit
+  icon:
+    sprite: Structures/Power/Generation/teg.rsi
+    state: static
+  product: CrateEngineeringTEGKit
+  cost: 8000
+  category: cargoproduct-category-name-engineering
+  group: market

@@ -11,3 +11,18 @@
   - type: StorageFill
     contents:
     - id: MachinePowerTransmissionLaserFlatpack
+
+- type: entity
+  id: CrateEngineeringTEGKit
+  parent: CrateEngineeringSecure
+  name: TEG construction kit crate
+  description: A 'build your own TEG' kit. Some assembly required.
+  components:
+  - type: StorageFill
+    contents:
+      - id: TegCirculatorPartFlatpack
+      - id: TegCirculatorPartFlatpack
+      - id: TegCenterPartFlatpack
+      - id: GasAnalyzer
+      - id: SheetSteel
+        amount: 1
