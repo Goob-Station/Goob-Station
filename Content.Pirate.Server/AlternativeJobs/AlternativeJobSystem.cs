@@ -14,8 +14,6 @@ namespace Content.Pirate.Server.AlternativeJobs;
 public sealed class AlternativeJobSystem : EntitySystem, IAlternativeJobSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedIdCardSystem _idCardSystem = default!;
-    [Dependency] private readonly CrewManifestSystem _crewManifestSystem = default!;
 
     public override void Initialize()
     {
@@ -29,7 +27,8 @@ public sealed class AlternativeJobSystem : EntitySystem, IAlternativeJobSystem
         if (args.JobId is null) return;
         if (args.Profile is null) return;
         // Check player for idCard
-        if (!_idCardSystem.TryFindIdCard(uid, out var idCard)) return;
+        var idCardSystem = EntityManager.System<SharedIdCardSystem>();
+        if (!idCardSystem.TryFindIdCard(uid, out var idCard)) return;
         // Check card for component just in case
         if (!TryComp<IdCardComponent>(idCard, out var idCardComp)) return;
         if (!idCardComp.Initialized)
@@ -39,8 +38,7 @@ public sealed class AlternativeJobSystem : EntitySystem, IAlternativeJobSystem
         if (!TryGetAlternativeJob(args.JobId, args.Profile, out var alternativeJobPrototype)) return;
         if (TryComp<PresetIdCardComponent>(idCard, out var presetIdCardComp)) { presetIdCardComp.JobName = alternativeJobPrototype.LocalizedJobName; }
         var newIcon = _prototypeManager.Index<JobIconPrototype>(alternativeJobPrototype.JobIconProtoId ?? idCardComp.JobIcon);
-        // _idCardSystem.TryChangeJobIcon(idCard, newIcon, idCardComp);
-        _idCardSystem.TryChangeJobTitle(idCard, alternativeJobPrototype.LocalizedJobName, idCardComp);
+        idCardSystem.TryChangeJobTitle(idCard, alternativeJobPrototype.LocalizedJobName, idCardComp);
         idCardComp.JobIcon = newIcon.ID;
         idCardComp.LocalizedJobTitle = alternativeJobPrototype.LocalizedJobName;
         // Change job title on id card
