@@ -10,6 +10,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
@@ -20,6 +21,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
@@ -49,6 +51,7 @@ public abstract class SharedSprintingSystem : EntitySystem
             .Register<SharedSprintingSystem>();
         SubscribeLocalEvent<SprinterComponent, SprintToggleEvent>(OnSprintToggle);
         SubscribeLocalEvent<SprinterComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
+        SubscribeLocalEvent<SprinterComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<SprinterComponent, SleepStateChangedEvent>(OnSleep);
         SubscribeLocalEvent<SprinterComponent, ToggleWalkEvent>(OnToggleWalk);
         SubscribeLocalEvent<SprinterComponent, KnockedDownEvent>(OnSprintDisablingEvent);
@@ -56,6 +59,7 @@ public abstract class SharedSprintingSystem : EntitySystem
         SubscribeLocalEvent<SprinterComponent, DownedEvent>(OnSprintDisablingEvent);
         SubscribeLocalEvent<CuffableComponent, SprintAttemptEvent>(OnCuffableSprintAttempt);
         SubscribeLocalEvent<StandingStateComponent, SprintAttemptEvent>(OnStandingStateSprintAttempt);
+        SubscribeLocalEvent<SprinterComponent, EntityZombifiedEvent>(OnZombified);
     }
 
     #region Core Functions
@@ -77,10 +81,32 @@ public abstract class SharedSprintingSystem : EntitySystem
             return false;
         }
     }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        // We dont add it to the EQE since the comp might get added as this runs.
+        var query = EntityQueryEnumerator<SprinterComponent, StaminaModifierComponent>();
+        while (query.MoveNext(out var uid, out var sprinterComp, out var staminaComp))
+        {
+            if (!sprinterComp.IsSprinting
+                || !sprinterComp.ScaleWithStamina
+                || staminaComp.Modifier <= 1f)
+                continue;
+
+            _staminaSystem.ModifyStaminaDrain(uid,
+                sprinterComp.StaminaDrainKey,
+                sprinterComp.StaminaDrainRate * staminaComp.Modifier * sprinterComp.StaminaDrainMultiplier);
+        }
+    }
+
     private void OnRefreshSpeed(Entity<SprinterComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
-        if (ent.Comp.IsSprinting)
-            args.ModifySpeed(1.5f);
+        if (!ent.Comp.IsSprinting)
+            return;
+
+        args.ModifySpeed(ent.Comp.SprintSpeedMultiplier);
     }
 
     private void HandleSprintInput(ICommonSession? session, IFullInputCmdMessage message)
@@ -132,7 +158,7 @@ public abstract class SharedSprintingSystem : EntitySystem
             _damageable.TryChangeDamage(uid, component.SprintDamageSpecifier);
 
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
-        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, isSprinting, false, component.StaminaDrainKey);
+        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, isSprinting, true, component.StaminaDrainKey);
         Dirty(uid, component);
     }
 
@@ -176,6 +202,15 @@ public abstract class SharedSprintingSystem : EntitySystem
     #endregion
 
     #region Misc.Handlers
+    private void OnBeforeStaminaDamage(EntityUid uid, SprinterComponent component, ref BeforeStaminaDamageEvent args)
+    {
+        if (!component.IsSprinting
+            || args.Value > 0)
+            return;
+
+        args.Value *= component.StaminaRegenMultiplier;
+    }
+
     private void OnMobStateChangedEvent(EntityUid uid, SprinterComponent component, MobStateChangedEvent args)
     {
         if (!component.IsSprinting
@@ -209,6 +244,8 @@ public abstract class SharedSprintingSystem : EntitySystem
 
         ToggleSprint(uid, component, false, gracefulStop: false);
     }
+    private void OnZombified(EntityUid uid, SprinterComponent component, ref EntityZombifiedEvent args) =>
+        component.SprintSpeedMultiplier *= 0.5f; // We dont want super fast zombies do we?
 
     #endregion
 }

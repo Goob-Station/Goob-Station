@@ -36,4 +36,4 @@
     factions:
     - NanoTrasen
   - type: Sprinter # funny feet make you unable to run for long, fly instead.
-    staminaDrainRate: 20
+    staminaDrainRate: 15

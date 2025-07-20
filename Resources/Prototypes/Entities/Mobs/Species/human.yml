@@ -149,7 +149,7 @@
   - type: ReplacementAccent
     accent: valid
   - type: Sprinter # human major
-    staminaDrainRate: 13
+    staminaDrainRate: 9
 
 
 - type: entity

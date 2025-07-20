@@ -15,7 +15,9 @@ using Content.Shared.Actions;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -45,7 +47,7 @@ public abstract class SharedFlightSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -55,6 +57,7 @@ public abstract class SharedFlightSystem : EntitySystem
         SubscribeLocalEvent<FlightComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<FlightComponent, ToggleFlightEvent>(OnToggleFlight);
         SubscribeLocalEvent<FlightComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessMoveSpeed);
+        SubscribeLocalEvent<FlightComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<CuffableComponent, FlightAttemptEvent>(OnCuffableFlightAttempt);
         SubscribeLocalEvent<StandingStateComponent, FlightAttemptEvent>(OnStandingStateFlightAttempt);
         SubscribeLocalEvent<ZombieComponent, FlightAttemptEvent>(OnZombieFlightAttempt);
@@ -79,12 +82,17 @@ public abstract class SharedFlightSystem : EntitySystem
 
             component.TimeUntilFlap -= frameTime;
 
-            if (component.TimeUntilFlap > 0f)
-                continue;
+            if (component.TimeUntilFlap <= 0f)
+            {
+                _audio.PlayPredicted(component.FlapSound, uid, uid);
+                component.TimeUntilFlap = component.FlapInterval;
+            }
 
-            _audio.PlayPredicted(component.FlapSound, uid, uid);
-            component.TimeUntilFlap = component.FlapInterval;
-
+            // We make it 0.7f to compensate by how comparatively lame it is vs sprinting while on stimulants as another species.
+            if (TryComp<StaminaModifierComponent>(uid, out var staminaComp))
+                _staminaSystem.ModifyStaminaDrain(uid,
+                    component.StaminaDrainKey,
+                    component.StaminaDrainRate * staminaComp.Modifier * component.StaminaDrainMultiplier);
         }
     }
 
@@ -101,7 +109,7 @@ public abstract class SharedFlightSystem : EntitySystem
             ToggleActive(uid, false, component);
     }
 
-    public void ToggleActive(EntityUid uid, bool active, FlightComponent component)
+    public void ToggleActive(EntityUid uid, bool active, FlightComponent component, bool gracefulStop = true)
     {
         component.On = active;
         component.TimeUntilFlap = 0f;
@@ -111,6 +119,10 @@ public abstract class SharedFlightSystem : EntitySystem
         _movementSpeed.RefreshWeightlessModifiers(uid);
         ToggleCollisionMasks(uid, component);
         UpdateHands(uid, active);
+
+        if (component.CanFail && !gracefulStop)
+            _damageable.TryChangeDamage(uid, component.FailDamageSpecifier);
+
         Dirty(uid, component);
     }
 
@@ -222,6 +234,15 @@ public abstract class SharedFlightSystem : EntitySystem
         args.ModifyFriction(component.FrictionModifier, component.FrictionNoInputModifier);
     }
 
+    private void OnBeforeStaminaDamage(EntityUid uid, FlightComponent component, ref BeforeStaminaDamageEvent args)
+    {
+        if (!component.On
+            || args.Value > 0)
+            return;
+
+        args.Value *= component.StaminaRegenMultiplier;
+    }
+
     #endregion
 
     #region Conditionals
@@ -267,7 +288,7 @@ public abstract class SharedFlightSystem : EntitySystem
             || args.NewMobState is MobState.Critical or MobState.Dead)
             return;
 
-        ToggleActive(args.Target, false, component);
+        ToggleActive(args.Target, false, component, gracefulStop: false);
     }
     private void OnSleep(EntityUid uid, FlightComponent component, ref SleepStateChangedEvent args)
     {
@@ -275,7 +296,7 @@ public abstract class SharedFlightSystem : EntitySystem
             || !args.FellAsleep)
             return;
 
-        ToggleActive(uid, false, component);
+        ToggleActive(uid, false, component, gracefulStop: false);
     }
 
     private void OnDowned(EntityUid uid, FlightComponent component, ref DownedEvent args)
@@ -283,7 +304,7 @@ public abstract class SharedFlightSystem : EntitySystem
         if (!component.On)
             return;
 
-        ToggleActive(uid, false, component);
+        ToggleActive(uid, false, component, gracefulStop: false);
         // We need this crap because standingsys only raises shit on server lmao
         RaiseNetworkEvent(new ToggleFlightVisualsEvent(GetNetEntity(uid), false, component.IsAnimated));
     }
@@ -293,7 +314,7 @@ public abstract class SharedFlightSystem : EntitySystem
         if (!component.On)
             return;
 
-        ToggleActive(uid, false, component);
+        ToggleActive(uid, false, component, gracefulStop: false);
     }
 
     private void OnAttemptClimb(EntityUid uid, FlightComponent component, AttemptClimbEvent args)

@@ -352,7 +352,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
     // goob edit - stunmeta
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
-        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false)
+        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null,
+        bool immediate = true, bool applyResistances = false, bool ignoreDrains = true)
     {
         if (!Resolve(uid, ref component, false)
         || value == 0) // no damage???
@@ -455,6 +456,17 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         }
 
         Dirty(target, stamina);
+    }
+
+    public void ModifyStaminaDrain(EntityUid target, string key, float newValue, StaminaComponent? component = null)
+    {
+        if (!Resolve(target, ref component, false))
+            return;
+
+        if (component.ActiveDrains.ContainsKey(key))
+            component.ActiveDrains[key] = (newValue, component.ActiveDrains[key].Item2, component.ActiveDrains[key].Item3);
+
+        Dirty(target, component);
     }
 
     public override void Update(float frameTime)
