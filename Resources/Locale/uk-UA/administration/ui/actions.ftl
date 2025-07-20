@@ -1,4 +1,4 @@
-admin-player-actions-bans = Список Банів
+admin-player-actions-bans = Бани
 admin-player-actions-notes = Замітки
 admin-player-actions-kick = Кікнути
 admin-player-actions-ban = Забанити
