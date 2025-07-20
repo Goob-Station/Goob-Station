@@ -365,6 +365,9 @@
   id: BorgModuleSyndicateAssault
 
 - type: Tag
+  id: BorgModuleSecurity
+
+- type: Tag
   id: Bot
 
 - type: Tag

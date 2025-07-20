@@ -239,8 +239,8 @@
     startingCharge: 500
 
 - type: entity
-  id: ZiptieDispensor
-  name: Ziptie Dispensor
+  id: ZiptieDispenser
+  name: Ziptie Dispenser
   parent: BaseItem
   suffix: "Secborg"
   components:

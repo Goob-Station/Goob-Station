@@ -82,7 +82,7 @@
     moduleId: Security
     items:
     - StunBatonBorg
-    - ZiptieDispensor
+    - ZiptieDispenser
     - HoloprojectorSecurity
     - BorgFireExtinguisher
     - CrowbarRed
