@@ -3,12 +3,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
 using Content.Goobstation.Common.Footprints;
 using Content.Goobstation.Shared.CleaningTool;
+using Content.Server.Decals;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
+using Content.Shared.Decals;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Maps;
+using Content.Shared.Tiles;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 
 namespace Content.Goobstation.Server.CleaningTool;
 
@@ -18,6 +25,9 @@ public sealed class CleaningToolSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly DecalSystem _decal = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -36,29 +46,42 @@ public sealed class CleaningToolSystem : EntitySystem
 
         var user = args.User;
         var foundEntities = new HashSet<EntityUid>();
+        var foundDecals = new HashSet<(uint Index, Decal Decal)>();
+        var gridUid = _transform.GetGrid(args.ClickLocation);
 
         _lookup.GetEntitiesInRange(args.ClickLocation,
             cleaningTool.Comp.Radius,
             foundEntities);
 
+        if (TryComp<MapGridComponent>(gridUid, out var mapgrid))
+        {
+            var tileRef =  _map.GetTileRef(gridUid.Value, mapgrid, args.ClickLocation);
+            foundDecals =_decal.GetDecalsIntersecting(tileRef.GridUid, _lookup.GetLocalBounds(tileRef, mapgrid.TileSize).Enlarged(0.5f).Translated(new Vector2(-0.5f, -0.5f)));
+        }
+
         foundEntities.RemoveWhere(ent =>
             !_interaction.InRangeUnobstructed(user, ent, cleaningTool.Comp.Radius)
             || !HasComp<FootprintComponent>(ent));
 
-        if (foundEntities.Count == 0)
+        foundDecals.RemoveWhere(decal =>
+            !decal.Decal.Cleanable);
+
+        if (foundEntities.Count == 0
+            && foundDecals.Count == 0)
             return;
 
-        args.Handled = TryStartCleaning(cleaningTool, args.User, foundEntities);
+        args.Handled = TryStartCleaning(cleaningTool, args.User, foundEntities, foundDecals);
     }
 
     private bool TryStartCleaning(Entity<CleaningToolComponent> cleaningTool,
         EntityUid user,
-        HashSet<EntityUid> targets)
+        HashSet<EntityUid> targets,
+        HashSet<(uint Index, Decal Decal)> decals)
     {
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
             cleaningTool.Comp.CleanDelay,
-            new CleaningToolDoAfterEvent(GetNetEntityList(targets)),
+            new CleaningToolDoAfterEvent(GetNetEntityList(targets), decals),
             cleaningTool,
             used: cleaningTool)
         {
@@ -82,6 +105,14 @@ public sealed class CleaningToolSystem : EntitySystem
         {
             Spawn(cleaningTool.Comp.SparkleProto, Transform(ent).Coordinates);
             Del(ent);
+        }
+
+        foreach (var (index, _) in args.Decals)
+        {
+            var gridNullable = Transform(cleaningTool).GridUid;
+
+            if (gridNullable is {} grid)
+                _decal.RemoveDecal(grid, index);
         }
 
     }
