@@ -36,6 +36,32 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
 {
     private static readonly Dictionary<string, string> ShorthandToEmote = new()
     {
+        // CorvaxGoob-Localization-Start
+        { "хд", "chatsan-laughs" },
+        { "о-о", "chatsan-wide-eyed" }, // cyrillic о
+        { "о.о", "chatsan-wide-eyed" }, // cyrillic о
+        { "0_о", "chatsan-wide-eyed" }, // cyrillic о
+        { "о/", "chatsan-waves" }, // cyrillic о
+        { "о7", "chatsan-salutes" }, // cyrillic о
+        { "0_o", "chatsan-wide-eyed" },
+        { "лмао", "chatsan-laughs" },
+        { "рофл", "chatsan-laughs" },
+        { "яхз", "chatsan-shrugs" },
+        { ":0", "chatsan-surprised" },
+        { ":р", "chatsan-stick-out-tongue" }, // cyrillic р
+        { "кек", "chatsan-laughs" },
+        { "T_T", "chatsan-cries" },
+        { "Т_Т", "chatsan-cries" }, // cyrillic T
+        { "=_(", "chatsan-cries" },
+        { "!с", "chatsan-laughs" },
+        { "!в", "chatsan-sighs" },
+        { "!х", "chatsan-claps" },
+        { "!щ", "chatsan-snaps" },
+        { "))", "chatsan-smiles-widely" },
+        { ")", "chatsan-smiles" },
+        { "((", "chatsan-frowns-deeply" },
+        { "(", "chatsan-frowns" },
+        // CorvaxGoob-Localization-End
         { ":)", "chatsan-smiles" },
         { ":]", "chatsan-smiles" },
         { "=)", "chatsan-smiles" },

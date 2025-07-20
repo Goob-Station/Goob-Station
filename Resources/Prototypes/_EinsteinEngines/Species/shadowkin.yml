@@ -1,7 +1,7 @@
 - type: species
   id: Shadowkin
   name: species-name-shadowkin
-  roundStart: true
+  roundStart: false # CorvaxGoob Temporary hidden
   prototype: MobShadowkin
   sprites: MobShadowkinSprites
   defaultSkinTone: "#FFFFFF"

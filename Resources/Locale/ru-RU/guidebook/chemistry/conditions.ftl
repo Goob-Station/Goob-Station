@@ -26,7 +26,7 @@ reagent-effect-condition-guidebook-reagent-threshold =
             }
     }
 reagent-effect-condition-guidebook-mob-state-condition = пациент в { $state }
-reagent-effect-condition-guidebook-job-condition = должность цели - { $job }
+reagent-effect-condition-guidebook-job-condition = должность цели — { $job }
 reagent-effect-condition-guidebook-solution-temperature =
     температура раствора составляет { $max ->
         [2147483648] не менее { NATURALFIXED($min, 2) }k
@@ -56,21 +56,13 @@ reagent-effect-condition-guidebook-has-tag =
        *[false] имеет
     } метку { $tag }
 reagent-effect-condition-guidebook-this-reagent = этот реагент
-reagent-effect-condition-guidebook-blood-reagent-threshold =
-    { $max ->
-        [2147483648] there's at least { NATURALFIXED($min, 2) }u of { $reagent }
-       *[other]
-            { $min ->
-                [0] there's at most { NATURALFIXED($max, 2) }u of { $reagent }
-               *[other] there's between { NATURALFIXED($min, 2) }u and { NATURALFIXED($max, 2) }u of { $reagent }
-            }
 reagent-effect-condition-guidebook-breathing =
-    the metabolizer is { $isBreathing ->
-        [true] breathing normally
-       *[false] suffocating
+    цель { $isBreathing ->
+        [true] дышит нормально
+       *[false] задыхается
     }
 reagent-effect-condition-guidebook-internals =
-    the metabolizer is { $usingInternals ->
-        [true] using internals
-       *[false] breathing atmospheric air
+    цель { $usingInternals ->
+        [true] использует дыхательную маску
+       *[false] дышит атмосферным газом
     }
