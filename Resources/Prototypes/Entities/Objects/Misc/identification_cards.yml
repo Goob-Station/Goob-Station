@@ -341,13 +341,13 @@
   components:
   - type: Sprite
     layers:
-    - state: chemist # Goobstation - Chemist card
+    # - state: chemist # Goobstation - Chemist card. Commented by CorvaxGoob-Resprite
     - state: idchemist
   - type: PresetIdCard
     job: Chemist
-  - type: Item # Goobstation - Chemist card
-    heldPrefix: chemist
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+  # - type: Item # Goobstation - Chemist card Commented by CorvaxGoob-Resprite
+    # heldPrefix: chemist
+    # sprite: _Goobstation/Objects/Misc/id_cards.rsi
 
 - type: entity
   parent: IDCardStandard
