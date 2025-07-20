@@ -43,9 +43,9 @@ public sealed class SprintingSystem : SharedSprintingSystem
                 KeyFrames =
                 {
                     new AnimationTrackSpriteFlick.KeyFrame(new RSI.StateId("sprint_cloud_small"), 0f),
-                }
-            }
-        }
+                },
+            },
+        },
     };
     public override void Initialize()
     {

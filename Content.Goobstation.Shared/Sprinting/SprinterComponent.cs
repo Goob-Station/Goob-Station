@@ -63,18 +63,13 @@ public sealed partial class SprinterComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class SprintToggleEvent : EntityEventArgs
+public sealed class SprintToggleEvent(bool isSprinting) : EntityEventArgs
 {
-    public bool IsSprinting = false;
-
-    public SprintToggleEvent(bool isSprinting)
-    {
-        IsSprinting = isSprinting;
-    }
+    public bool IsSprinting = isSprinting;
 }
 
 [Serializable, NetSerializable]
-public sealed class SprintStartEvent : EntityEventArgs {}
+public sealed class SprintStartEvent : EntityEventArgs;
 
 [ByRefEvent]
-public sealed class SprintAttemptEvent : CancellableEntityEventArgs {}
+public sealed class SprintAttemptEvent : CancellableEntityEventArgs;
