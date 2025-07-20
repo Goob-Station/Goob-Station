@@ -219,7 +219,8 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
             return false;
 
         var container = scroll.Children.ElementAt(0) as BoxContainer;
-        if (container == null || container.Children.Count() == 0)
+        if (container == null 
+        || container.Children.Count() == 0)
             return false;
 
         // Exit if the heights of the children haven't been initialized yet
