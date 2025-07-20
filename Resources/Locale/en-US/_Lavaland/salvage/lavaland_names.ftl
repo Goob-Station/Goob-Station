@@ -28,7 +28,7 @@ lavaland-ruin-hierophant = Interdimensional signal
 lavaland-ruin-abductor = Alien signal
 lavaland-ruin-cult = Cosmic signal
 lavaland-ruin-flesh = Flesh cave
-lavaland-ruin-flora - Flora cave
+lavaland-ruin-flora = Flora cave
 lavaland-ruin-ice = Ice cave
 lavaland-ruin-rock = Rock cave
 lavaland-ruin-slime = Slime cave
