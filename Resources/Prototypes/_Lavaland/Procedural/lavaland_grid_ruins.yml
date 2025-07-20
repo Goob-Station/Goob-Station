@@ -226,7 +226,7 @@
   priority: 27
 
 - type: lavalandGridRuin
-  id: Generator 
+  id: Generator
   name: lavaland-ruin-generator
   path: /Maps/Lavaland/generator_scrapyard.yml
   priority: 28
@@ -242,4 +242,4 @@
   name: lavaland-ruin-temple
   path: /Maps/Lavaland/temple.yml
   priority: 30
-  #END OF WIZDEN.
+  #END OF WIZDEN
