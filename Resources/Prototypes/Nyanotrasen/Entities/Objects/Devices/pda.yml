@@ -12,7 +12,7 @@
 
 - type: entity
   parent: BasePDA
-  id: PrisonGuardPDA
+  id: BaseSecurityPDA
   name: prison guard PDA
   description: Red to hide the stains of prisoner blood.
   components:
@@ -22,8 +22,6 @@
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#DFDFDF"
-  - type: Icon
-    state: pda-security
 
 - type: entity
   parent: BoxerPDA

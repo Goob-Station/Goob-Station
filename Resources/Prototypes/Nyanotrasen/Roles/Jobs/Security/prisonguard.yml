@@ -2,7 +2,7 @@
   id: PrisonGuard
   name: job-name-guard
   description: job-description-guard
-  playTimeTracker: JobSecurityOfficer
+  playTimeTracker: JobPrisonGuard
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000
@@ -17,6 +17,9 @@
   - Security
   - Brig
   - Maintenance
+
+- type: playTimeTracker
+  id: JobPrisonGuard
 
 - type: startingGear
   id: PrisonGuardGear

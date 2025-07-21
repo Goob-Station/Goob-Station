@@ -2,7 +2,7 @@
   id: MartialArtist
   name: job-name-martialartist
   description: job-description-martialartist
-  playTimeTracker: JobBoxer
+  playTimeTracker: JobMartialArtist
   startingGear: MartialArtistGear
   icon: "JobIconMartialArtist"
   supervisors: job-supervisors-hop
@@ -12,15 +12,9 @@
   - Service
   extendedAccess:
   - Maintenance
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: Boxer
-      modifiers:
-        coefficients: # These only apply to unarmed
-          Blunt: 1.5
-          Slash: 1.5
-          Piercing: 1.5
+
+- type: playTimeTracker
+  id: JobMartialArtist
 
 - type: startingGear
   id: MartialArtistGear
