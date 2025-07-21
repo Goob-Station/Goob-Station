@@ -158,7 +158,7 @@ public sealed partial class PhraseObfuscation : ReplacementObfuscation
             }
 
             var length = i - sentenceBeginIndex;
-            if (length > 0)
+            if (length >= 0)
             {
                 var newLength = (int) Math.Clamp(Math.Pow(length, Proportion) - 1, MinPhrases, MaxPhrases);
 

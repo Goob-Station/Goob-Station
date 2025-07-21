@@ -101,8 +101,7 @@
   - type: LanguageKnowledge
     speaks:
     - Bingle
-    understands:
-    - Bingle
+    understands: []
   - type: CollectiveMind
     defaultChannel: Binglemind
     respectAccents: true
