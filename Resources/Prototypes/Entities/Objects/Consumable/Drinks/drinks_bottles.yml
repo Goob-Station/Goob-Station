@@ -857,6 +857,9 @@
   - type: Label
     currentLabel: reagent-name-water
   - type: Sealable
+  - type: Tag # Goobstation
+    tags:
+    - DrinkBottle
 
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassSmallBaseFull]
