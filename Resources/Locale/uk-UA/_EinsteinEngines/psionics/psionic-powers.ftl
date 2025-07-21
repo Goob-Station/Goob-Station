@@ -160,17 +160,10 @@ summon-remilia-power-description = Покличте свою вірну знай
 psionic-familiar-cant-attack-master = Я пов'язаний з моїм Вчителем, я не можу заподіяти їм шкоди.
 psionic-familiar-despawn-text = {CAPITALIZE($entity)} повертається звідти, звідки прийшла!
 ghost-role-information-familiar-name = Псіо Фамільяр
-<<<<<<< HEAD
-# ghost-role-information-familiar-description = Міжпросторова істота, пов'язана з волею Псіона.
-# ghost-role-information-familiar-rules = Слухайся того, хто тебе покликав. Не дійте проти інтересів свого Вчителя. Ти помреш за свого Вчителя, якщо це буде потрібно
+ghost-role-information-familiar-description = Міжпросторова істота, пов'язана з волею Псіона.
+# ghost-role-information-familiar-rules = Слухайся того, хто тебе покликав. Не дійте проти інтересів свого Вчителя. Ти помреш за свого Вчителя, якщо це буде потрібно this now in ghost/roles/ghost-role-component
 darkswap-power-initialization-feedback = На якусь мить я відчуваю, що здатен розривати кордони. Поступово занурюючись у тінь і темряву, готовий до подорожі в найтемніші місця...
 hard-mindbreaking-feedback = Особистість вашого персонажа було знищено. Якщо ви хочете продовжити гру, спробуйте відродитися як новий персонаж.
-=======
-ghost-role-information-familiar-description = Міжпросторова істота, пов'язана з волею Псіона.
-ghost-role-information-familiar-rules = Слухайся того, хто тебе покликав. Не дійте проти інтересів свого Вчителя. Ти помреш за свого Вчителя, якщо це буде потрібно
-# darkswap-power-initialization-feedback = На якусь мить я відчуваю, що здатен розривати кордони. Поступово занурюючись у тінь і темряву, готовий до подорожі в найтемніші місця...
-# hard-mindbreaking-feedback = Особистість вашого персонажа було знищено. Якщо ви хочете продовжити гру, спробуйте відродитися як новий персонаж.
->>>>>>> 46592f3e346e0f37e5d70114d6f4f28eb17d587e
 
 # Assay Power
 assay-begin = Повітря навколо {CAPITALIZE($entity)} починає ледь помітно мерехтіти
