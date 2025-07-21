@@ -111,7 +111,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Hacky for the stress test so don't even consider adding to this
 - type: entity
-  name: burrower
+  name: Burrower
   id: MobXeno
   parent: SimpleSpaceMobBase
   description: They mostly come at night. Mostly.
@@ -232,6 +232,11 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
   - type: ThermalVision
     lightRadius: 15
     color: "#808080"
@@ -309,7 +314,7 @@
         - MobLayer
 
 - type: entity
-  name: queen
+  name: Queen
   parent: MobXeno
   id: MobXenoQueen
   components:
@@ -346,6 +351,13 @@
   - type: Tag
     tags:
     - CannotSuicide
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - Xeno
+    understands:
+    - TauCetiBasic
+    - Xeno
 
 - type: entity
   name: ravager
