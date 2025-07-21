@@ -1,21 +1,18 @@
 # Command
 - type: loadoutGroup
-  id: AdminAssistantHead
-  name: loadout-group-admin-assistant-head
-  loadouts:
-  - AdminAssistantHead
-- type: loadoutGroup
   id: AdminAssistantJumpsuit
   name: loadout-group-admin-assistant-jumpsuit
   loadouts:
   - AdminAssistantJumpsuit
   - AdminAssistantJumpskirt
+
 - type: loadoutGroup
   id: AdminAssistantHeadset
   name: loadout-group-admin-assistant-headset
   loadouts:
   - AdminAssistantHeadset
   - AdminAssistantHeadsetAlt
+
 # Sience
 - type: loadoutGroup
   id: MantisHead

@@ -1,8 +1,4 @@
 # Head
-- type: loadout
-  id: AdminAssistantHead
-  equipment:
-    head: ClothingHeadEnvirohelmAdminAssistant
 # Neck
 # Ears
 - type: loadout
@@ -12,7 +8,7 @@
 - type: loadout
   id: AdminAssistantHeadsetAlt
   equipment:
-    neck: ClothingHeadsetAltAdminAssist
+    ears: ClothingHeadsetAltAdminAssist
 # Uniform
 - type: loadout
   id: AdminAssistantJumpsuit

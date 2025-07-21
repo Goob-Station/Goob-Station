@@ -15,14 +15,12 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
-- type: loadout
+- type: roleLoadout
   id: JobAdminAssistant
   groups:
   - GroupTankHarness
   - AdminAssistantHeadset
   - AdminAssistantJumpsuit
-  - AdminAssistantJumpskirt
-  - AdminAssistantHead
   - CommonBackpack
   - Glasses
   - Survival

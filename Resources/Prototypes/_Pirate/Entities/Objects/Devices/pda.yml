@@ -18,7 +18,6 @@
       visible: false
   - type: Pda
     id: AdminAssistantIDCard
-    state: pda-lawyer
     penSlot:
       startingItem: LuxuryPen
       priority: -1
