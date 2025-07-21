@@ -129,8 +129,12 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 allHeads.Add(person);
         }
 
+        // cancel if no command staff
         if (allHeads.Count == 0)
-            allHeads = allHumans; // fallback to non-head target
+        {
+            args.Cancelled = true;
+            return;
+        }
 
         _target.SetTarget(ent.Owner, _random.Pick(allHeads), target);
     }
