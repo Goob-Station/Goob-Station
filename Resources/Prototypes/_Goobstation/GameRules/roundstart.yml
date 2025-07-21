@@ -90,6 +90,9 @@
       whitelist:
         components:
         - CommandStaff
+      blacklist:
+        components:
+        - Condemned # Stops the NTR from rolling it
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
