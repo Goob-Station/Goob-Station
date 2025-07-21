@@ -149,13 +149,15 @@ public abstract partial class SharedDoorSystem
     {
         // Can't bolt interact with powered door
         if (args.Handled ||
-            entity.Comp.Powered ||
+            entity.Comp.Powered && !entity.Comp.BoltWireCut ||
             !TryComp(args.Used, out ToolComponent? toolComp) ||
             !_toolsSystem.HasQuality(args.Used, entity.Comp.UnboltToolQuality) ||
             !_sharedWiresSystem.IsPanelOpen(entity.Owner))
         return;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, entity.Comp.ManualUnboltTime, new ManualBoltingDoAfterEvent(), entity, entity);
+        var efficientToolTime = entity.Comp.ManualUnboltTime / toolComp.SpeedModifier;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, efficientToolTime, new ManualBoltingDoAfterEvent(), entity, entity);
 
         if (_doAfterSystem.TryStartDoAfter(doAfterArgs))
         {
@@ -166,7 +168,7 @@ public abstract partial class SharedDoorSystem
 
     public void OnManualBolting(Entity<DoorBoltComponent> entity, ref ManualBoltingDoAfterEvent args)
     {
-        if (args.Cancelled || entity.Comp.Powered)
+        if (args.Cancelled || entity.Comp.Powered && !entity.Comp.BoltWireCut)
             return;
 
         TrySetBoltDown(entity, !entity.Comp.BoltsDown, args.User, true, false);
