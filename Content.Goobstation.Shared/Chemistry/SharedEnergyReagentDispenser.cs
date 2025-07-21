@@ -117,30 +117,29 @@ namespace Content.Goobstation.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
-    public sealed class EnergyReagentDispenserBoundUserInterfaceState : BoundUserInterfaceState
+    public sealed class EnergyReagentDispenserBoundUserInterfaceState(
+        ContainerInfo? outputContainer,
+        NetEntity? outputContainerEntity,
+        List<EnergyReagentInventoryItem> inventory,
+        EnergyReagentDispenserDispenseAmount selectedDispenseAmount,
+        float batteryCharge,
+        float batteryMaxCharge,
+        float currentReceivingEnergy)
+        : BoundUserInterfaceState
     {
-        public readonly ContainerInfo? OutputContainer;
+        public readonly ContainerInfo? OutputContainer = outputContainer;
 
-        public readonly NetEntity? OutputContainerEntity;
+        public readonly NetEntity? OutputContainerEntity = outputContainerEntity;
 
         /// <summary>
         /// A list of the reagents which this dispenser can dispense.
         /// </summary>
-        public readonly List<EnergyReagentInventoryItem> Inventory;
+        public readonly List<EnergyReagentInventoryItem> Inventory = inventory;
 
-        public readonly EnergyReagentDispenserDispenseAmount SelectedDispenseAmount;
-        public readonly float BatteryCharge;
-        public readonly float BatteryMaxCharge;
-
-        public EnergyReagentDispenserBoundUserInterfaceState(ContainerInfo? outputContainer, NetEntity? outputContainerEntity, List<EnergyReagentInventoryItem> inventory, EnergyReagentDispenserDispenseAmount selectedDispenseAmount, float batteryCharge, float batteryMaxCharge)
-        {
-            OutputContainer = outputContainer;
-            OutputContainerEntity = outputContainerEntity;
-            Inventory = inventory;
-            SelectedDispenseAmount = selectedDispenseAmount;
-            BatteryCharge = batteryCharge;
-            BatteryMaxCharge = batteryMaxCharge;
-        }
+        public readonly EnergyReagentDispenserDispenseAmount SelectedDispenseAmount = selectedDispenseAmount;
+        public readonly float BatteryCharge = batteryCharge;
+        public readonly float BatteryMaxCharge = batteryMaxCharge;
+        public readonly float CurrentReceivingEnergy = currentReceivingEnergy;
     }
 
     [Serializable, NetSerializable]
