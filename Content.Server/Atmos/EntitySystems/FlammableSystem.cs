@@ -460,6 +460,7 @@ namespace Content.Server.Atmos.EntitySystems
             RaiseLocalEvent(uid, ref extinguished);
 
             UpdateAppearance(uid, flammable);
+            _alertsSystem.ClearAlert(uid, flammable.FireAlert); // Goob Edit - Fix Fire Alert
         }
                                           // Goobstation - now nullable
         public void Ignite(EntityUid uid, EntityUid? ignitionSource = null, FlammableComponent? flammable = null,
