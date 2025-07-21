@@ -10,12 +10,14 @@ public sealed partial class AllMegafaunaAction : MegafaunaActionSelector
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
-        var totalDelay = 0f;
+        var maxDelay = FailDelay;
         foreach (var child in Children)
         {
-            totalDelay += child.Invoke(args, IsSequence, Counter);
+            var delay = child.Invoke(args, IsSequence, Counter);
+            if (delay > maxDelay)
+                maxDelay = delay;
         }
 
-        return totalDelay;
+        return maxDelay;
     }
 }

@@ -45,7 +45,7 @@ public sealed partial class HierophantChaserComponent : Component
     public float BaseCooldown = 1f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float CooldownTimer = 1f; // = BaseCooldown
+    public float CooldownTimer;
 
     [DataField(required: true)]
     public EntProtoId SpawnPrototype;

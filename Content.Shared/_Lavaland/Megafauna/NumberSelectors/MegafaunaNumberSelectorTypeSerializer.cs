@@ -40,7 +40,7 @@ public sealed class MegafaunaNumberSelectorTypeSerializer :
     {
         var type = typeof(MegafaunaNumberSelector);
 
-        if (int.TryParse(node.Value, out var result))
+        if (float.TryParse(node.Value, out var result))
             return new MegafaunaConstantNumberSelector(result);
 
         if (VectorSerializerUtility.TryParseArgs(node.Value, 2, out var args))

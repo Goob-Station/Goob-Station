@@ -23,8 +23,7 @@ public sealed class SpawnOnDeathSystem : EntitySystem
 
     private void OnDropAttacked(EntityUid uid, SpawnLootOnDeathComponent comp, ref AttackedEvent args)
     {
-        if (_whitelist.IsWhitelistFail(comp.SpecialWeaponWhitelist, args.Used))
-            comp.DoSpecialLoot = false; // it's over...
+        comp.DoSpecialLoot = _whitelist.IsWhitelistPassOrNull(comp.SpecialWeaponWhitelist, args.Used);
     }
 
     private void OnDropKilled(EntityUid uid, SpawnLootOnDeathComponent comp, ref MobStateChangedEvent args)

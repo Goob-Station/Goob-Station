@@ -49,7 +49,7 @@ public sealed partial class SpawnLootOnDeathComponent : Component
     /// the mob doesn't drop special loot and fallbacks to normal loot instead.
     /// </summary>
     [DataField("weaponWhitelist")]
-    public EntityWhitelist SpecialWeaponWhitelist = new() { Components = new []{"MegafaunaWeaponLooter"}};
+    public EntityWhitelist? SpecialWeaponWhitelist; // MegafaunaWeaponLooter
 
     /// <summary>
     /// Should it delete itself after being killed?

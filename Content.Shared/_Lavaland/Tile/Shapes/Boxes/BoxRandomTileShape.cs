@@ -27,6 +27,6 @@ public sealed partial class BoxRandomTileShape : TileShape
         if (RemoveAmount != null)
             return TileHelperMethods.MakeBoxCountRandom(Offset, Size, rand, RemoveAmount.Value);
 
-        return new List<Vector2i>();
+        return TileHelperMethods.MakeBoxFilled(Offset, Size);
     }
 }

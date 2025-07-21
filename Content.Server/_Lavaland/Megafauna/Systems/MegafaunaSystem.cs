@@ -77,8 +77,8 @@ public sealed class MegafaunaSystem : SharedMegafaunaSystem
                 ai.ActionSchedule.TryAdd(nextAction, ai.Selector);
 
                 // Pick new target
-                _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
                 ai.PreviousTarget = ai.CurrentTarget;
+                _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
             }
         }
     }

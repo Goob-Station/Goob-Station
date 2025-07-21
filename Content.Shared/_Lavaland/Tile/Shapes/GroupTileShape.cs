@@ -33,7 +33,7 @@ public sealed partial class GroupTileShape : TileShape
             result.AddRange(child.GetShape(rand, proto, offset ?? Offset, size ?? Size));
         }
 
-        return result.ToHashSet().ToList();
+        return result.Distinct().ToList();
     }
 }
 

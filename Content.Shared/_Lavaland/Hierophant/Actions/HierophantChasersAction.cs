@@ -13,13 +13,13 @@ namespace Content.Shared._Lavaland.Hierophant.Actions;
 
 public sealed partial class HierophantChasersAction : MegafaunaActionSelector
 {
-    [DataField]
+    [DataField(required: true)]
     public MegafaunaNumberSelector SpeedSelector;
 
-    [DataField]
+    [DataField(required: true)]
     public MegafaunaNumberSelector StepsSelector;
 
-    [DataField]
+    [DataField(required: true)]
     public MegafaunaNumberSelector AmountSelector;
 
     [DataField]

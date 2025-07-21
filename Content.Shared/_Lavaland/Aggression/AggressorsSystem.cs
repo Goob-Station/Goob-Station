@@ -105,7 +105,7 @@ public sealed class AggressorsSystem : EntitySystem
         foreach (var netEntity in state.Aggressors)
         {
             if (!TryGetEntity(netEntity, out var aggressor))
-                return;
+                continue;
 
             AddAggressor(ent, aggressor.Value);
         }

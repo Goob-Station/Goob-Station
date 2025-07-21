@@ -34,9 +34,10 @@ public sealed partial class AngerNumberSelector : MegafaunaNumberSelector
         switch (ScaleFormula)
         {
             case NumberGrowthFormula.Linear:
-                var k = Inverse ? Range.X - Range.Y : Range.Y - Range.X;
-                var b = Inverse ? Range.X * maxAnger : 0;
-                return anger * (k / maxAnger) + b;
+                var progress = anger / maxAnger;
+                return Inverse
+                    ? Range.Y + (Range.X - Range.Y) * (1f - progress)
+                    : Range.X + (Range.Y - Range.X) * progress;
             case NumberGrowthFormula.Exponent:
                 return Range.X;
             case NumberGrowthFormula.Sqrt:

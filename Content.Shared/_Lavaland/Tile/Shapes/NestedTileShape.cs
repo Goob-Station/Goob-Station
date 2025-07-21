@@ -3,7 +3,7 @@
 namespace Content.Shared._Lavaland.Tile.Shapes;
 
 /// <summary>
-/// Shape that covers a ProtoId containing other shapes.
+/// Shape that references a ProtoId containing some other shape.
 /// </summary>
 public sealed partial class NestedTileShape : TileShape
 {

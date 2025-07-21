@@ -18,8 +18,6 @@ public sealed partial class MegafaunaRangeNumberSelector : MegafaunaNumberSelect
 
     public override float Get(MegafaunaCalculationBaseArgs args)
     {
-        // rand.Next() is inclusive on the first number and exclusive on the second number,
-        // so we add 1 to the second number.
-        return args.Random.NextFloat(Range.X, Range.Y + 1);
+        return args.Random.NextFloat(Range.X, Range.Y);
     }
 }

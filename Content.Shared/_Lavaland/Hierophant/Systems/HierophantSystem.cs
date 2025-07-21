@@ -121,7 +121,7 @@ public sealed class HierophantSystem : EntitySystem
         TimeSpan? duration = null,
         SoundSpecifier? sound = null)
     {
-        _tile.SpawnTileShape(shape, coords, damageBoxId, out _);
+        _tile.SpawnTileShape(shape, Transform(ent).Coordinates, damageBoxId, out _);
         _tile.SpawnTileShape(shape, coords, damageBoxId, out _);
 
         var blinkComp = EnsureComp<HierophantActiveBlinkComponent>(ent);
@@ -150,7 +150,7 @@ public sealed class HierophantSystem : EntitySystem
         if (xform.GridUid == null)
             return;
 
-        var newPos = new EntityCoordinates();
+        EntityCoordinates? newPos = null;
         for (var i = 0; i < 20; i++)
         {
             var randomVector = _random.NextVector2(4f, 4f);
@@ -163,7 +163,8 @@ public sealed class HierophantSystem : EntitySystem
                 newPos = position;
         }
 
-        Blink(uid, damageBoxId, shape, newPos, duration, sound);
+        newPos ??= xform.Coordinates;
+        Blink(uid, damageBoxId, shape, newPos.Value, duration, sound);
     }
 
     /// <summary>

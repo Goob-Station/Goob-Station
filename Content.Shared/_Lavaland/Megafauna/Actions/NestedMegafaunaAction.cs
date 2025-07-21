@@ -3,7 +3,7 @@
 namespace Content.Shared._Lavaland.Megafauna.Actions;
 
 /// <summary>
-/// Shape that covers a ProtoId containing other shapes.
+/// Action that references a ProtoId containing other megafauna actions.
 /// </summary>
 public sealed partial class NestedMegafaunaAction : MegafaunaActionSelector
 {

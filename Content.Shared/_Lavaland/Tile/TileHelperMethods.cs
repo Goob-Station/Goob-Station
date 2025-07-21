@@ -38,10 +38,10 @@ public static class TileHelperMethods
 
     public static List<Vector2i> MakeBox(Vector2i center, int range, bool hollow)
     {
-        return hollow ? MakeBoxHollow(center, range) : MakeBox(center, range);
+        return hollow ? MakeBoxHollow(center, range) : MakeBoxFilled(center, range);
     }
 
-    public static List<Vector2i> MakeBox(Vector2i center, int range)
+    public static List<Vector2i> MakeBoxFilled(Vector2i center, int range)
     {
         var refs = new List<Vector2i>();
         var bottomLeft = center + new Vector2i(-range, -range);
@@ -87,7 +87,7 @@ public static class TileHelperMethods
     /// </summary>
     public static List<Vector2i> MakeBoxChanceRandom(Vector2i center, int range, System.Random random, float filledSquareChance = 0.3f)
     {
-        var refs = MakeBox(center, range);
+        var refs = MakeBoxFilled(center, range);
         var refsTemp = new List<Vector2i>(refs);
         foreach (var tile in refsTemp)
         {
@@ -103,14 +103,13 @@ public static class TileHelperMethods
     /// </summary>
     public static List<Vector2i> MakeBoxCountRandom(Vector2i center, int range, System.Random random, int removeAmount)
     {
-        var refs = MakeBox(center, range);
-        var refsTemp = new List<Vector2i>(refs);
+        var refs = MakeBoxFilled(center, range);
         for (int i = 0; i < removeAmount; i++)
         {
             if (refs.Count == 0)
                 return refs;
 
-            refs.Remove(random.Pick(refsTemp));
+            refs.Remove(random.Pick(refs));
         }
 
         return refs;

@@ -7,7 +7,7 @@ namespace Content.Shared._Lavaland.Megafauna.Actions;
 /// </summary>
 public sealed partial class SequenceMegafaunaAction : MegafaunaActionSelector
 {
-    [DataField]
+    [DataField(required: true)]
     public MegafaunaActionSelector Selector;
 
     /// <summary>

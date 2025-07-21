@@ -22,8 +22,6 @@ namespace Content.Shared._Lavaland.Megafauna.Actions;
 [MeansImplicitUse]
 public abstract partial class MegafaunaActionSelector
 {
-    public virtual string Name => GetType().Name;
-
     /// <summary>
     /// A weight used to pick between actions.
     /// </summary>
