@@ -21,5 +21,6 @@
     batteryRechargeRate: 20
     batteryRechargeEfficiency: 0.0
   - type: EnergyReagentDispenser #Keep on bottom for view's sake, format is reagentProto: Cost
-    Carbon: 5
-    Aluminum: 5
+    reagents:
+      Carbon: 5
+      Aluminium: 5
