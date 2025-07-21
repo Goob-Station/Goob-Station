@@ -4,10 +4,9 @@
   name: prison guard ID card
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: nyanoprisonguard
+    - state: idguard
   - type: PresetIdCard
     job: PrisonGuard
 
@@ -17,10 +16,8 @@
   name: martial artist ID card
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Misc/id_cards.rsi
     layers:
     - state: default
-    - state: nyanomartialartist
+    - state: idmartialartist
   - type: PresetIdCard
     job: MartialArtist
-g
