@@ -30,10 +30,9 @@
 - type: megafaunaAction
   id: HierophantBox
   action: !type:SpawnPatternAction
+    spawnId: LavalandHierophantSquare
     shape: !type:NestedTileShape
       id: BoxHollow
-    shapeOperator: !type:TileShapeSizeOperator
-    spawnId: LavalandHierophantSquare
 
 - type: megafaunaAction
   id: HierophantRookCross
