@@ -21,12 +21,6 @@
                            StyleClasses="LabelSubText"
                            Margin="0 -5 0 0" />
                 </BoxContainer>
-                <Label Name="PowerCostLabel"
-                       Text="0W"
-                       StyleClasses="LabelSubText"
-                       Margin="0 0 5 0"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"/>
             </BoxContainer>
         </Button>
     </BoxContainer>
