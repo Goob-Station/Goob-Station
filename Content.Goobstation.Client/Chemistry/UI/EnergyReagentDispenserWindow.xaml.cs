@@ -55,6 +55,10 @@ namespace Content.Goobstation.Client.Chemistry.UI
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+
+        private float _batteryCharge;
+        private float _batteryMaxCharge;
+        private float _currentReceiving;
         public event Action<string>? OnDispenseReagentButtonPressed;
         /// <summary>
         /// Create and initialize the dispenser UI client-side. Creates the basic layout,
@@ -94,9 +98,13 @@ namespace Content.Goobstation.Client.Chemistry.UI
             if (message is not EnergyReagentDispenserBoundUserInterfaceState state)
                 return;
 
+            _batteryMaxCharge = state.BatteryMaxCharge;
+            _batteryCharge = state.BatteryCharge;
+            _currentReceiving = state.CurrentReceivingEnergy;
+
             UpdateContainerInfo(state);
             UpdateReagentsList(state.Inventory);
-            UpdateBatteryPercent(state.BatteryCharge, state.BatteryMaxCharge);
+            UpdateBatteryPercent();
 
             _entityManager.TryGetEntity(state.OutputContainerEntity, out var outputContainerEnt);
             View.SetEntity(outputContainerEnt);
@@ -109,13 +117,13 @@ namespace Content.Goobstation.Client.Chemistry.UI
 
         }
 
-        public void UpdateBatteryPercent(float batteryCharge, float batteryMaxCharge)
+        private void UpdateBatteryPercent()
         {
-            var batteryPercent = batteryMaxCharge > 0
-                ? batteryCharge / batteryMaxCharge * 100
+            var batteryPercent = _batteryMaxCharge > 0
+                ? _batteryCharge / _batteryMaxCharge * 100
                 : 0;
 
-            BatteryStatusLabel.Text = $"{batteryCharge:F0}/{batteryMaxCharge:F0} ({batteryPercent:F0}%)";
+            BatteryStatusLabel.Text = $"{_batteryCharge:F0}/{_batteryMaxCharge:F0} ({batteryPercent:F0}%)";
             BatteryStatusLabel.StyleClasses.Clear();
             BatteryStatusLabel.StyleClasses.Add(batteryPercent switch
             {
@@ -150,8 +158,8 @@ namespace Content.Goobstation.Client.Chemistry.UI
             foreach (var (reagent, quantity) in state.OutputContainer.Reagents!)
             {
                 // Try get to the prototype for the given reagent. This gives us its name.
-                var localizedName = _prototypeManager.TryIndex(reagent.Prototype, out ReagentPrototype? p)
-                    ? p.LocalizedName
+                var localizedName = _prototypeManager.TryIndex(reagent.Prototype, out ReagentPrototype? proto)
+                    ? proto.LocalizedName
                     : Loc.GetString("reagent-dispenser-window-reagent-name-not-found-text");
 
                 var nameLabel = new Label { Text = $"{localizedName}: " };
@@ -168,9 +176,17 @@ namespace Content.Goobstation.Client.Chemistry.UI
                     {
                         nameLabel,
                         quantityLabel,
-                    }
+                    },
                 });
             }
+        }
+
+        protected override void FrameUpdate(FrameEventArgs args)
+        {
+            base.FrameUpdate(args);
+
+            _batteryCharge += _currentReceiving * args.DeltaSeconds;
+            UpdateBatteryPercent();
         }
     }
 }

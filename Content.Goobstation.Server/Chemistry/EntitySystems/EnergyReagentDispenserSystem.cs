@@ -54,6 +54,7 @@ using Content.Server.Power.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Power.Components;
 
 namespace Content.Goobstation.Server.Chemistry.EntitySystems
 {
@@ -66,11 +67,9 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
     {
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-        [Dependency] private readonly SolutionTransferSystem _solutionTransferSystem = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly BatterySystem _battery = default!;
 
         public override void Initialize()
@@ -87,7 +86,6 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserDispenseReagentMessage>(OnDispenseReagentMessage);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, PowerChangedEvent>(OnPowerChanged);
-            SubscribeLocalEvent<EnergyReagentDispenserComponent, ChargeChangedEvent>(OnChargeChanged);
 
             SubscribeLocalEvent<EnergyReagentDispenserComponent, MapInitEvent>(OnMapInit, before: [typeof(ItemSlotsSystem)]);
         }
@@ -109,13 +107,18 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                 batteryMaxCharge = battery.MaxCharge;
             }
 
+            var currentReceivingEnergy = 0f;
+            if (TryComp<ApcPowerReceiverBatteryComponent>(reagentDispenser, out var apcPower))
+                currentReceivingEnergy = apcPower.BatteryRechargeRate;
+
             var state = new EnergyReagentDispenserBoundUserInterfaceState(
                 outputContainerInfo,
                 GetNetEntity(outputContainer),
                 inventory,
                 reagentDispenser.Comp.DispenseAmount,
                 batteryCharge,
-                batteryMaxCharge
+                batteryMaxCharge,
+                currentReceivingEnergy
             );
             _userInterfaceSystem.SetUiState(reagentDispenser.Owner, ReagentDispenserUiKey.Key, state);
         }
@@ -153,7 +156,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                 ));
             }
 
-            inventory.Sort((a, b) => a.ReagentLabel.CompareTo(b.ReagentLabel));
+            inventory.Sort((a, b) => string.Compare(a.ReagentLabel, b.ReagentLabel, StringComparison.Ordinal));
             return inventory;
         }
 
@@ -166,9 +169,6 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 
         private void OnPowerChanged(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref PowerChangedEvent args) =>
             UpdateUiState(reagentDispenser);
-
-        private void OnChargeChanged(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref ChargeChangedEvent args) =>
-            UpdateUiState(reagentDispenser); // This could pose performance issues. :shrug:
 
         private static float GetPowerCostForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
         {

@@ -3,6 +3,7 @@
   id: EnergyChemDispenser
   parent: ChemDispenserEmpty
   name: energy chem dispenser
+  suffix: energy
   description: A bluespace Chem Dispenser that uses station energy to synthesize Reagents. The future is here and now.
   components:
   - type: Machine
