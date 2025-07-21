@@ -1,0 +1,89 @@
+#Mark: uniform base
+
+- type: entity
+  abstract: true
+  parent: UnsensoredClothingUniformBase
+  id: N14ClothingUniformBase
+  components:
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: MaterialCloth1
+      amount: 3
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitCowboyBrown
+  name: brown cowboy apparel
+  description: Yeehaw, partner!
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/cowboybrown.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/cowboybrown.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitCowboyGrey
+  name: grey cowboy apparel
+  description: Yeehaw, partner!
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/cowboygrey.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/cowboygrey.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformDesertPantsFull
+  name: desert bdu
+  description: An old pair of beat up, Pre-War BDUs. These ones are emblazoned with desert patterns and it has been reinforced around the left knee. Comes with a white shirt.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/desertbdu.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/desertbdu.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformRangerBlue
+  name: blue ranger outfit
+  description: Simple rustic clothes for a big iron packin' lawman. A blue collar shirt with tan slacks.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/rangerblue.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/rangerblue.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformRangerVeteran
+  name: ranger flannel outfit
+  description: Simple rustic clothes for any big iron packin' Ranger.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/rangerveteran.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/rangerveteran.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformRangerVeteranBlack
+  name: black ranger flannel outfit
+  description: "A black flannel on top of a pair of slim-fitting pre-war jeans that were kept in excellent condition. The back leather panel is worn out but you can barely read: '512'."
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/rangerveteranblack.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/rangerveteranblack.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformRangerVeteranRed
+  name: Thaxton's ranger flannel outfit
+  description: A simple outfit for a burly, big iron packin' lawman. A golden belt-buckle in the rough shape of a medallion is proudly presented atop a leather gunbelt.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/rangerveteranred.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/rangerveteranred.rsi

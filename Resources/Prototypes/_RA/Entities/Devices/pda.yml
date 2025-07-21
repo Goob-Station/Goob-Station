@@ -1,0 +1,15 @@
+- type: entity
+  parent: BasePDA
+  id: OffdutyPDA
+  name: off-duty crew PDA
+  description: This thing is shiny! There's a little white star on the bottom right of it.
+  components:
+  - type: Pda
+    id: OffdutyIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-offduty
+  - type: PdaBorderColor
+    borderColor: "#717059"

@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseBullet
+  id: N14Bullet45-70
+  name: bullet (.45-70 gov't)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 35
+        Blunt: 5

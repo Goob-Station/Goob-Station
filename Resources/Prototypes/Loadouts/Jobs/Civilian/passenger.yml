@@ -290,3 +290,18 @@
   id: ServiceMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryService
+
+# RA - Off duty crew PDA stuff
+
+- type: loadout
+  id: PassengerPDA
+  equipment:
+    id: PassengerPDA
+
+- type: loadout
+  id: OffdutyPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
+  equipment:
+    id: OffdutyPDA

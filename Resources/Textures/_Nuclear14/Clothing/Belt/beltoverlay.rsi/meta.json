@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from multiple ss13 forks",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ranger-sequoia"
+    },
+    {
+      "name": "hunter-revolver"
+    },
+    {
+      "name": "magnum"
+    },
+    {
+      "name": "10mmrevolver"
+    },
+    {
+      "name": "9mmrevolver"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# Military
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: N14ClothingBackpackSatchelMilitary
+  name: military satchel
+  description: A tough satchel used by the military.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Satchels/military.rsi
+    
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: N14ClothingBackpackSatchelNCR
+  name: NCR satchel
+  description: A tough satchel used by the RAR.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Satchels/satchelncr.rsi

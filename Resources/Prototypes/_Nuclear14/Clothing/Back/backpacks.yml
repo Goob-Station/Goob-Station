@@ -1,0 +1,18 @@
+# Military 
+- type: entity
+  parent: ClothingBackpack
+  id: N14ClothingBackpackMilitary
+  name: military backpack
+  description: A hard-wearing backpack worn by soldiers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Backpacks/military.rsi
+    
+- type: entity
+  parent: ClothingBackpack
+  id: N14ClothingBackpackNCR
+  name: RAR backpack
+  description: A hard-wearing backpack worn by the RAR.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Backpacks/backpackncr.rsi

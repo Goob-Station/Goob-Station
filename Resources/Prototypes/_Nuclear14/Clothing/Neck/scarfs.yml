@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: N14ClothingNeckPatriotScarf
+  name: patriot scarf
+  description: A short but very patriotic scarf.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Bandanas/patriotscarf.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Neck/Bandanas/patriotscarf.rsi

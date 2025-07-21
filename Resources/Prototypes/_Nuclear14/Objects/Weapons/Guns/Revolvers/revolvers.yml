@@ -1,0 +1,54 @@
+- type: entity
+  name: hunting revolver
+  parent: BaseWeaponRevolver
+  id: N14WeaponRevolver45-70Hunter
+  description: A heavy revolver with a long barrel designed to hunt small animals, but it also works for people. Uses .45-70 gov't ammo.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/hunt_revolver.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/hunt_revolver.rsi
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - N14Cartridge45-70
+        - SpeedLoader45-70
+    proto: N14Bullet45-70
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: StaticPrice
+    price: 90
+
+- type: entity
+  name: ranger sequoia
+  parent: BaseWeaponRevolver
+  id: N14WeaponRevolver45-70RangerSequoia
+  description: 20 years of suffering for a, albeit beautiful, glorified six-shooter. Undeniably worth it. Uses .45-70 gov't ammo.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/ranger_sequoia.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/ranger_sequoia.rsi
+  - type: Gun
+    fireRate: 2
+    resetOnHandSelected: false
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - N14Cartridge45-70
+        - SpeedLoader45-70
+    proto: N14Cartridge45-70
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: StaticPrice
+    price: 90

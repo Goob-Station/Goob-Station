@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatNCRBeretOfficer
+  name: NCR Officer beret
+  description: An olive beret worn by NCR Officers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetofficer.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetofficer.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatNCRBeretRecon
+  name: NCR recon beret
+  description: An crimson beret worn by NCR Recon Units.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetrecon.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetrecon.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatRanger
+  name: ranger hat
+  description: A cool cowboy hat made by the NCR for the Rangers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhat.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatRangerB
+  name: ranger hat
+  description: An NCR ranger hat, standard issue amongst all but the most elite rangers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatB.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatB.rsi

@@ -17,7 +17,7 @@
 
 - type: entity
   id: BlueshieldUndeterminedWeapon
-  name: blueshield sets pack
+  name: ranger sets pack
   description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
@@ -31,12 +31,13 @@
     - BSOCQCSet
     - BSOChesterSet
     - BSOSyringeSet
+    - RARRangerWeapons
     maxSelectedSets: 2
 
 
 - type: entity
   id: BlueshieldUndeterminedHardsuit
-  name: blueshield hardsuit pack
+  name: ranger hardsuit pack
   description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:

@@ -44,6 +44,62 @@
   equipment:
     head: ClothingHeadHatUshankaBlueshield
 
+# RA - N14 items ported for Ranger job
+- type: loadout
+  id: RedAstraRangerReconBeret
+  equipment:
+    head: N14ClothingHeadHatNCRBeretRecon
+
+- type: loadout
+  id: RedAstraRangerCowboyHatA
+  equipment:
+    head: N14ClothingHeadHatRanger
+
+- type: loadout
+  id: RedAstraRangerCowboyHatB
+  equipment:
+    head: N14ClothingHeadHatRangerB
+
+- type: loadout
+  id: RedAstraRangerHelmet
+  equipment:
+    head: N14ClothingHeadHatRangerHelmet
+
+- type: loadout
+  id: RedAstraRangerHelmetOld
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetOld
+
+- type: loadout
+  id: RedAstraRangerHelmetDesertRanger
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetDesert
+
+- type: loadout
+  id: RedAstraRangerHelmetSpider
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetPrice
+
+- type: loadout
+  id: RedAstraRangerHelmetElite
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetElite
+
+- type: loadout
+  id: RedAstraRangerHelmetEliteOld
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetEliteOld
+
+- type: loadout
+  id: RedAstraRangerHelmetFox
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetFox
+
+- type: loadout
+  id: RedAstraRangerHelmetModified
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetModif
+
 # Jumpsuits
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldSkirt
@@ -59,6 +115,42 @@
   id: BlueshieldOfficerInnerBlueshieldShirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
+
+# RA
+- type: loadout
+  id: RedAstraRangerUniformCowboyBrown
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCowboyBrown
+
+- type: loadout
+  id: RedAstraRangerUniformCowboyGrey
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCowboyGrey
+
+- type: loadout
+  id: RedAstraRangerUniformDesertBDU
+  equipment:
+    jumpsuit: N14ClothingUniformDesertPantsFull
+
+- type: loadout
+  id: RedAstraRangerUniformRangerBlue
+  equipment:
+    jumpsuit: N14ClothingUniformRangerBlue
+
+- type: loadout
+  id: RedAstraRangerUniformRangerFlannel
+  equipment:
+    jumpsuit: N14ClothingUniformRangerVeteran
+
+- type: loadout
+  id: RedAstraRangerUniformRangerFlannelBlack
+  equipment:
+    jumpsuit: N14ClothingUniformRangerVeteranBlack
+
+- type: loadout
+  id: RedAstraRangerUniformThaxton
+  equipment:
+    jumpsuit: N14ClothingUniformRangerVeteranRed
 
 # Outer
 - type: loadout
@@ -80,6 +172,51 @@
   id: BlueshieldOfficerOuterWinterBlueshield
   equipment:
     outerClothing: ClothingOuterWinterBlueshield
+# RA
+- type: loadout
+  id: RedAstraRangerArmorPatrol
+  equipment:
+    outerClothing: N14ClothingOuterRangerArmor
+
+- type: loadout
+  id: RedAstraRangerArmorCustomized
+  equipment:
+    outerClothing: N14ClothingOuterRangerArmorB
+
+- type: loadout
+  id: RedAstraRangerArmorRecon
+  equipment:
+    outerClothing: N14ClothingOuterRangerDuster
+
+- type: loadout
+  id: RedAstraRangerArmorCoat
+  equipment:
+    outerClothing: N14ClothingOuterRangerCoat
+
+- type: loadout
+  id: RedAstraRangerArmorCombat
+  equipment:
+    outerClothing: N14ClothingOuterRangerCombat
+
+- type: loadout
+  id: RedAstraRangerArmorFox
+  equipment:
+    outerClothing: N14ClothingOuterRangerFox
+
+- type: loadout
+  id: RedAstraRangerArmorWeathered
+  equipment:
+    outerClothing: N14ClothingOuterRangerWeathered
+
+- type: loadout
+  id: RedAstraRangerArmorElite
+  equipment:
+    outerClothing: N14ClothingOuterRangerElite
+
+- type: loadout
+  id: RedAstraRangerArmorSpider
+  equipment:
+    outerClothing: N14ClothingOuterRangerPrice
 
 # Neck
 - type: loadout
@@ -90,6 +227,11 @@
   equipment:
     neck: ClothingNeckMantleBlueshield
 
+- type: loadout
+  id: RedAstraRangerNeckPoncho
+  equipment:
+    neck: N14ClothingNeckCloakRangerPoncho
+
 # Mask
 - type: loadout
   id: BlueshieldOfficerMaskLollypop
@@ -98,6 +240,41 @@
     proto: SeniorBlueshieldOfficer
   equipment:
     mask: FoodSnackLollypopBlueshield
+
+- type: loadout
+  id: RedAstraRangerMaskCombat
+  equipment:
+    mask: ClothingMaskGasCombat
+
+- type: loadout
+  id: RedAstraRangerMaskRiot
+  equipment:
+    mask: ClothingMaskGasRiot
+
+- type: loadout
+  id: RedAstraRangerMaskDesert
+  equipment:
+    mask: ClothingMaskGasRangerDesert
+
+- type: loadout
+  id: RedAstraRangerMaskWeathered
+  equipment:
+    mask: ClothingMaskGasRangerWeathered
+
+- type: loadout
+  id: RedAstraRangerMaskSpider
+  equipment:
+    mask: ClothingMaskGasRangerPrice
+
+- type: loadout
+  id: RedAstraRangerMaskElite
+  equipment:
+    mask: ClothingMaskGasRangerElite
+
+- type: loadout
+  id: RedAstraRangerMaskModified
+  equipment:
+    mask: ClothingMaskGasRangerModif
 
 # Back
 - type: loadout
@@ -119,6 +296,26 @@
   id: BlueshieldOfficerMessenger
   equipment:
     back: ClothingBackpackMessengerBlueshield
+# RA
+- type: loadout
+  id: RedAstraRangerBackpack
+  equipment:
+    back: N14ClothingBackpackMilitary
+
+- type: loadout
+  id: RedAstraRangerBackpackNCR
+  equipment:
+    back: N14ClothingBackpackNCR
+
+- type: loadout
+  id: RedAstraRangerSatchel
+  equipment:
+    back: N14ClothingBackpackSatchelMilitary
+
+- type: loadout
+  id: RedAstraRangerSatchelNCR
+  equipment:
+    back: N14ClothingBackpackSatchelNCR
 
 # Shoes
 - type: loadout

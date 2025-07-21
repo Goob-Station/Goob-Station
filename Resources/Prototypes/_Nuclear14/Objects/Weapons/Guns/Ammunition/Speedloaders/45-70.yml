@@ -1,0 +1,26 @@
+- type: entity
+  id: N14BaseSpeedLoader45-70
+  name: "speed loader (45-70 gov)"
+  parent: BaseSpeedLoaderMagnum
+  components:
+  - type: Tag
+    tags:
+      - SpeedLoader45-70
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - N14Cartridge45-70
+    capacity: 6
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Speedloaders/45_70loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
