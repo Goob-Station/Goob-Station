@@ -284,7 +284,9 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             _ui.SetUiState(component.MonumentInGame.Owner, MonumentKey.Key, new MonumentBuiState(component.MonumentInGame.Comp)); //not sure if this is needed but I'll be safe
         }
         //Goobstation: recalls shuttle upon reaching tier 2
-        if (component.CurrentTier >= 2 && _roundEnd.ExpectedCountdownEnd != null)
+        if (component.CurrentTier >= 2
+            && _roundEnd.ExpectedCountdownEnd != null
+            && CultistsAlive()) // Check for cultists alive (prevent infinite recall)
         {
             foreach (var station in _station.GetStations())
             {
