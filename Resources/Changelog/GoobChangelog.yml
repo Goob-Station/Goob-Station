@@ -12729,3 +12729,9 @@ Entries:
       message: The nukie base now gets a magic mirror.
   id: 1404
   time: '2025-07-20T16:54:45.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Ian Suit should work now.
+  id: 1405
+  time: '2025-07-21T18:22:34.0000000+00:00'
