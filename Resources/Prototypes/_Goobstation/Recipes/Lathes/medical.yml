@@ -80,7 +80,7 @@
     Gold: 100
 
 - type: latheRecipe
-  id: latheRecipe
+  id: DefibrillatorCompact
   result: DefibrillatorCompactEmpty
   completetime: 5
   materials:
