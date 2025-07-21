@@ -12743,3 +12743,9 @@ Entries:
       message: Reinforced Plasma Windows are no longer walls
   id: 1406
   time: '2025-07-21T18:48:21.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Removed nukie magic mirror
+  id: 1407
+  time: '2025-07-21T18:52:29.0000000+00:00'
