@@ -71,8 +71,11 @@ public sealed class RechargeableBlockingSystem : EntitySystem
         if (!component.Discharged)
             return;
 
-        args.Popup = Loc.GetString("rechargeable-blocking-remaining-time-popup",
-            ("remainingTime", GetRemainingTime(uid)));
+        if (HasComp<BatterySelfRechargerComponent>(uid))
+            args.Popup = Loc.GetString("rechargeable-blocking-remaining-time-popup", ("remainingTime", GetRemainingTime(uid)));
+        else
+            args.Popup = Loc.GetString("rechargeable-blocking-not-enough-charge-popup");
+
         args.Cancelled = true;
     }
     private void OnChargeChanged(EntityUid uid, RechargeableBlockingComponent component, ChargeChangedEvent args)
@@ -101,11 +104,11 @@ public sealed class RechargeableBlockingSystem : EntitySystem
             return;
         }
 
-        if (battery.CurrentCharge < battery.MaxCharge)
+        if (MathF.Round(battery.CurrentCharge / battery.MaxCharge, 2) < component.RechargePercentage)
             return;
 
         component.Discharged = false;
         if (TryComp(uid, out recharger))
-                recharger.AutoRechargeRate = component.ChargedRechargeRate;
+            recharger.AutoRechargeRate = component.ChargedRechargeRate;
     }
 }

@@ -15,6 +15,10 @@ public sealed partial class RechargeableBlockingComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float ChargedRechargeRate = 2f;
 
+    // Percentage of maxCharge to be able to activate item again.
+    [DataField]
+    public float RechargePercentage = 0.1f;
+
     [ViewVariables]
     public bool Discharged;
 }
