@@ -12761,3 +12761,9 @@ Entries:
       message: Fixed power cells charge visuals.
   id: 1409
   time: '2025-07-21T18:55:40.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Mobs won't be able to leave footprints without gravity.
+  id: 1410
+  time: '2025-07-21T18:57:06.0000000+00:00'
