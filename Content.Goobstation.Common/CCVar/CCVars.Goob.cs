@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ducks <97200673+TwoDucksOnnaPlane@users.noreply.github.com>
@@ -20,10 +21,13 @@
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Sara Aldrete's Top Guy <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
@@ -128,7 +132,7 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MaxDrunkTime =
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
-    #region Player Listener
+    #region MisandryBox
 
     /// <summary>
     ///     Enable Dorm Notifier
@@ -176,7 +180,15 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> PlayerRageQuitDiscordWebhook =
         CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
-    #endregion PlayerListener
+    /// <summary>
+    /// User has opted in to adopt a spider friend!
+    /// Will persist across goob codebases that support spiders
+    /// Will be set if client receives a permanent spider msg.
+    /// </summary>
+    public static readonly CVarDef<bool> SpiderFriend =
+        CVarDef.Create("spider.enable", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion MisandryBox
 
     #region Discord AHelp Reply System
 
@@ -271,19 +283,31 @@ public sealed partial class GoobCVars
     #region Goobcoins
 
     public static readonly CVarDef<int> GoobcoinsPerPlayer =
-        CVarDef.Create("goob.coins_per_player", 10, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.per_player", 10, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinsPerGreentext =
-        CVarDef.Create("goob.coins_per_greentext", 5, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.per_greentext", 5, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
-        CVarDef.Create("goob.coins_non_antag_multiplier", 1, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.non_antag_multiplier", 1, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinServerMultiplier =
-        CVarDef.Create("goob.coins_server_multiplier", 1, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.server_multiplier", 1, CVar.SERVERONLY);
 
     public static readonly CVarDef<int> GoobcoinMinPlayers =
-        CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
+        CVarDef.Create("servercurrency.min_players", 5, CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> GoobcoinUseLowpopMultiplier =
+        CVarDef.Create("servercurrency.use_lowpop_multiplier", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<double> GoobcoinLowpopMultiplierStrength =
+        CVarDef.Create("servercurrency.lowpop_multiplier_strength", 1.0, CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> GoobcoinUseShortRoundPenalty =
+        CVarDef.Create("servercurrency.use_shortround_penalty", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GoobcoinShortRoundPenaltyTargetMinutes =
+        CVarDef.Create("servercurrency.shortround_penalty_target_minutes", 90, CVar.SERVERONLY);
 
     #endregion
 

@@ -336,8 +336,6 @@
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
     - id: MachinePowerTransmissionLaserFlatpack
-    - id: WeaponNailgun
-    - id: MagazineNailgun
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
