@@ -192,6 +192,10 @@ public sealed partial class TemperatureSystem
 
     private void EnqueueDamage(Entity<TemperatureDamageComponent> ent, ref OnTemperatureChangeEvent args)
     {
+        // Begin DeltaV Additions - cosmic cult temperature immunity
+        if (_immuneQuery.HasComp(ent))
+            return;
+        // End DeltaV Additions
         if (ShouldUpdateDamage.Add(ent) && !ent.Comp.TakingDamage)
             ent.Comp.LastUpdate = _gameTiming.CurTime;
     }

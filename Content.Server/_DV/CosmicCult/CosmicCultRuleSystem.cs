@@ -59,7 +59,6 @@ using Content.Shared.Parallax;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Stunnable;
-using Content.Shared.Temperature.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;

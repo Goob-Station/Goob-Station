@@ -16,7 +16,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._DV.CosmicCult.EntitySystems;
