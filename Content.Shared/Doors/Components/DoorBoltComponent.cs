@@ -64,7 +64,7 @@ public sealed partial class DoorBoltComponent : Component
     public bool Powered;
 
     /// <summary>
-    /// Goobstation - Tool that used to bolt unpowered door
+    /// Goobstation - Tool that used to bolt interact with unpowered door
     /// </summary>
     [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
     public string UnboltToolQuality = "Anchoring";

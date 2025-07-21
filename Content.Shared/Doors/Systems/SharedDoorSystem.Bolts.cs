@@ -159,7 +159,6 @@ public abstract partial class SharedDoorSystem
         return;
 
         var efficientToolTime = entity.Comp.ManualUnboltTime / toolComp.SpeedModifier;
-
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, efficientToolTime, new ManualBoltingDoAfterEvent(), entity, entity);
 
         if (_doAfterSystem.TryStartDoAfter(doAfterArgs))

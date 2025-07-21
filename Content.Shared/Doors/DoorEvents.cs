@@ -106,5 +106,4 @@ namespace Content.Shared.Doors
     /// </summary>
     [Serializable, NetSerializable]
     public sealed partial class ManualBoltingDoAfterEvent : SimpleDoAfterEvent;
-
 }

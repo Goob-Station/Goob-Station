@@ -104,7 +104,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     [Dependency] private readonly SharedToolSystem _toolsSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedWiresSystem _sharedWiresSystem = default!;
-    // Goobstation - End
+    // Goobstation - End - Manual unbolting
 
     [ValidatePrototypeId<TagPrototype>]
     public const string DoorBumpTag = "DoorBumpOpener";
