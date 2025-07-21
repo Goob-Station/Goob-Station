@@ -91,6 +91,7 @@
   - type: HierophantImmune
   - type: SpawnLootOnDeath
     loot: LavalandHierophantClub
+    deleteOnDeath: true
   - type: MegafaunaAi
     selector: !type:NestedMegafaunaAction
       id: Hierophant

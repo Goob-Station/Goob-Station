@@ -1,5 +1,6 @@
 ﻿using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Shared.Mobs;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems;
@@ -14,6 +15,7 @@ public abstract class SharedMegafaunaSystem : EntitySystem
 
         SubscribeLocalEvent<MegafaunaAiComponent, AggressorAddedEvent>(OnAggressorAdded);
         SubscribeLocalEvent<MegafaunaAiComponent, AggressorRemovedEvent>(OnAggressorRemoved);
+        SubscribeLocalEvent<MegafaunaAiComponent, MobStateChangedEvent>(OnStateChanged);
     }
 
     private void OnAggressorAdded(Entity<MegafaunaAiComponent> ent, ref AggressorAddedEvent args)
@@ -33,6 +35,16 @@ public abstract class SharedMegafaunaSystem : EntitySystem
             return;
 
         RaiseLocalEvent(ent, new MegafaunaShutdownEvent());
+        ent.Comp.Active = false;
+    }
+
+    private void OnStateChanged(Entity<MegafaunaAiComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (!ent.Comp.Active)
+            return;
+
+        RaiseLocalEvent(ent, new MegafaunaShutdownEvent()); // Proper cleanup
+        RaiseLocalEvent(ent, new MegafaunaKilledEvent()); // Specific handling
         ent.Comp.Active = false;
     }
 }

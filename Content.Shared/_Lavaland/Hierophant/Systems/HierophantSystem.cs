@@ -70,7 +70,7 @@ public sealed class HierophantSystem : EntitySystem
                 || _timing.CurTime < blink.BlinkTime)
                 continue;
 
-            _xform.SetCoordinates(uid, blink.Coordinates);
+            _xform.SetCoordinates(uid, blink.Coordinates.SnapToGrid(EntityManager, _mapMan));
             _audio.PlayPredicted(blink.Sound ?? _defaultBlinkSound, blink.Coordinates, uid);
             RemComp(uid, blink);
         }

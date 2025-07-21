@@ -54,7 +54,7 @@ public sealed class AngerSystem : EntitySystem
 
         var maxUnscaledHp = anger.HpAgressionLimit ?? anger.TotalHp;
         var newMinAnger = Math.Max((float) (damage.TotalDamage / (maxUnscaledHp * healthMultiplier)), 0f);
-        anger.MinAnger = newMinAnger * angerMultiplier;
+        anger.MinAnger = Math.Min(newMinAnger * angerMultiplier, anger.MaxAnger);
         anger.CurrentAnger = Math.Clamp(anger.CurrentAnger, anger.MinAnger, anger.MaxAnger);
     }
 
