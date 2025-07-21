@@ -74,7 +74,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
 
     private void OnUnequip(Entity<BlobPodComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if(args.Container.ID != "head")
+        if (args.Container.ID != "head")
             return;
 
         if (!HasComp<HumanoidAppearanceComponent>(args.Container.Owner) || !HasComp<ZombieBlobComponent>(args.Container.Owner))
