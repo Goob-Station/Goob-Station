@@ -591,6 +591,7 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  - JanitorHeadSenior # Goobstation
 
 - type: loadoutGroup
   id: JanitorJumpsuit
