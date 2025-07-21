@@ -18,7 +18,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
-                      xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
                       xmlns:ui="clr-namespace:Content.Client.Chemistry.UI;assembly=Content.Client"
                       Title="{Loc 'reagent-dispenser-bound-user-interface-title'}"
                       MinSize="600 300"
@@ -97,3 +96,4 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         </SplitContainer>
     </BoxContainer>
 </controls:FancyWindow>
+

@@ -87,14 +87,13 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserDispenseReagentMessage>(OnDispenseReagentMessage);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, EnergyReagentDispenserClearContainerSolutionMessage>(OnClearContainerSolutionMessage);
             SubscribeLocalEvent<EnergyReagentDispenserComponent, PowerChangedEvent>(OnPowerChanged);
+            SubscribeLocalEvent<EnergyReagentDispenserComponent, ChargeChangedEvent>(OnChargeChanged);
 
-            SubscribeLocalEvent<EnergyReagentDispenserComponent, MapInitEvent>(OnMapInit, before: new[]{typeof(ItemSlotsSystem)});
+            SubscribeLocalEvent<EnergyReagentDispenserComponent, MapInitEvent>(OnMapInit, before: [typeof(ItemSlotsSystem)]);
         }
 
-        private void SubscribeUpdateUiState<T>(Entity<EnergyReagentDispenserComponent> ent, ref T ev)
-        {
+        private void SubscribeUpdateUiState<T>(Entity<EnergyReagentDispenserComponent> ent, ref T ev) =>
             UpdateUiState(ent);
-        }
 
         private void UpdateUiState(Entity<EnergyReagentDispenserComponent> reagentDispenser)
         {
@@ -130,7 +129,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             {
                 return new ContainerInfo(Name(container.Value), solution.Volume, solution.MaxVolume)
                 {
-                    Reagents = solution.Contents
+                    Reagents = solution.Contents,
                 };
             }
 
@@ -165,23 +164,24 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             ClickSound(reagentDispenser);
         }
 
-        private void OnPowerChanged(EntityUid uid, EnergyReagentDispenserComponent component, ref PowerChangedEvent args)
-        {
-            UpdateUiState((uid, component));
-        }
+        private void OnPowerChanged(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref PowerChangedEvent args) =>
+            UpdateUiState(reagentDispenser);
 
-        private float GetPowerCostForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
+        private void OnChargeChanged(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref ChargeChangedEvent args) =>
+            UpdateUiState(reagentDispenser); // This could pose performance issues. :shrug:
+
+        private static float GetPowerCostForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
         {
             return comp.Reagents.TryGetValue(reagentId, out var cost)
                 ? cost * amount
                 : float.MaxValue;
-
         }
 
         private void OnDispenseReagentMessage(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref EnergyReagentDispenserDispenseReagentMessage message)
         {
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedEnergyReagentDispenser.OutputSlotName);
-            if (outputContainer is not { Valid: true } || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var solution, out _))
+            if (outputContainer is not { Valid: true }
+                || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var solution, out _))
                 return;
 
             if (!TryComp<BatteryComponent>(reagentDispenser, out var battery))
@@ -198,18 +198,19 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 
 
             var sol = new Solution(message.ReagentId, amount);
-            if (solution.HasValue && _solutionContainerSystem.TryAddSolution(solution.Value, sol))
-            {
-                _battery.SetCharge(reagentDispenser.Owner, battery.CurrentCharge - powerRequired);
-                ClickSound(reagentDispenser);
-                UpdateUiState(reagentDispenser);
-            }
+            if (!_solutionContainerSystem.TryAddSolution(solution.Value, sol))
+                return;
+
+            _battery.SetCharge(reagentDispenser.Owner, battery.CurrentCharge - powerRequired);
+            ClickSound(reagentDispenser);
+            UpdateUiState(reagentDispenser);
         }
 
         private void OnClearContainerSolutionMessage(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref EnergyReagentDispenserClearContainerSolutionMessage message)
         {
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedEnergyReagentDispenser.OutputSlotName);
-            if (outputContainer is not { Valid: true } || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var solution, out _))
+            if (outputContainer is not { Valid: true }
+                || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var solution, out _))
                 return;
 
             _solutionContainerSystem.RemoveAllSolution(solution.Value);
@@ -217,14 +218,10 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
             ClickSound(reagentDispenser);
         }
 
-        private void ClickSound(Entity<EnergyReagentDispenserComponent> reagentDispenser)
-        {
+        private void ClickSound(Entity<EnergyReagentDispenserComponent> reagentDispenser) =>
             _audioSystem.PlayPvs(reagentDispenser.Comp.ClickSound, reagentDispenser, AudioParams.Default.WithVolume(-2f));
-        }
 
-        private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args)
-        {
+        private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args) =>
             _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.BeakerSlot);
-        }
     }
 }
