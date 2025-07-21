@@ -97,8 +97,11 @@
   - type: Speech
     speechVerb: Bingle
     speechSounds: Slime
-  - type: ReplacementAccent # prevent talking
-    accent: bingle
+  - type: LanguageKnowledge
+    speaks:
+    - Bingle
+    understands:
+    - Bingle
   - type: CollectiveMind
     defaultChannel: Binglemind
     respectAccents: true

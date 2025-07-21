@@ -1,0 +1,17 @@
+- type: language
+  id: Bingle
+  speech:
+    fontId: Eatday
+    color: "#33528d"
+  obfuscation:
+    !type:PhraseObfuscation
+    proportion: 0.66
+    minSyllables: 1
+    maxSyllables: 6
+    replacement:
+    - Bingle
+    - Bongle
+    - BINGLE
+    - Bong
+    - Bing
+    - BONGLE
