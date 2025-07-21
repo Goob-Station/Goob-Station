@@ -78,6 +78,8 @@
       whitelist:
         components:
         - EngineeringStaff
+  - type: Reflective
+    reflective: NonEnergy
 
 - type: entity
   name: nail (armor-piercing)
