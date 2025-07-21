@@ -1,33 +1,16 @@
 - type: entity
   parent: ClothingBeltStorageBase
-  id: N14ClothingBeltStorageBase
-  name: Abstract Belt
-  description: You shouldn't be seeing this.
-  abstract: true
-  components:
-  - type: Storage
-    whitelist:
-      tags:
-        - CigPack
-      components:
-        - BallisticAmmoProvider
-        - CartridgeAmmo
-
-- type: entity
-  parent: N14ClothingBeltStorageBase
   id: ClothingBeltRevolver
   name: revolver holster
   description: Can hold a revolver and speedloaders.
   components:
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,7,1
   - type: Sprite
     sprite: _Nuclear14/Clothing/Belt/revolverholster.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Belt/revolverholster.rsi
-  - type: Storage
-    whitelist:
-      tags:
-        - Sidearm
-        - SpeedLoader45-70
-      components:
-        - BallisticAmmoProvider
   - type: Appearance
