@@ -75093,17 +75093,6 @@ entities:
       - 15759
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 2769
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -52.5,-14.5
-      parent: 2
-    - type: DeviceNetwork
-      configurators:
-      - invalid
-      deviceLists:
-      - 14734
   - uid: 5321
     components:
     - type: Transform
