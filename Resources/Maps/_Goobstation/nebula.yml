@@ -7354,7 +7354,6 @@ entities:
     - type: DeviceList
       devices:
       - 14258
-      - 2769
       - 14728
   - uid: 14735
     components:
