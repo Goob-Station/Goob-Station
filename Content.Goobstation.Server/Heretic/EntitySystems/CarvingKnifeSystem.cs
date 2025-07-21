@@ -34,7 +34,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Goobstation.Server.Heretic.EntitySystems;
 
 public sealed class CarvingKnifeSystem : EntitySystem
 {
@@ -55,6 +55,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
+    private const LookupFlags Flags = LookupFlags.Static | LookupFlags.Sundries | LookupFlags.Sensors;
     private static readonly ProtoId<TagPrototype> CarvingTag = "HereticCarving";
 
     public override void Initialize()
@@ -74,20 +75,17 @@ public sealed class CarvingKnifeSystem : EntitySystem
         SubscribeLocalEvent<MadCarvingComponent, TrapTriggeredEvent>(OnMadTriggered);
     }
 
+    private void OnMapInit(Entity<CarvingKnifeComponent> ent, ref MapInitEvent args) =>
+        _actions.AddAction(ent.Owner, ref ent.Comp.RunebreakActionEntity, ent.Comp.RunebreakAction);
+
     private void OnGetItemActions(Entity<CarvingKnifeComponent> ent, ref GetItemActionsEvent args)
     {
-        if (!args.InHands)
-            return;
-
-        if (!HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
+        if (!args.InHands
+            || !HasComp<HereticComponent>(args.User)
+            && !HasComp<GhoulComponent>(args.User))
             return;
 
         args.AddAction(ent.Comp.RunebreakActionEntity);
-    }
-
-    private void OnMapInit(Entity<CarvingKnifeComponent> ent, ref MapInitEvent args)
-    {
-        _actions.AddAction(ent.Owner, ref ent.Comp.RunebreakActionEntity, ent.Comp.RunebreakAction);
     }
 
     private void OnMadTriggered(Entity<MadCarvingComponent> ent, ref TrapTriggeredEvent args)
@@ -112,15 +110,14 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private void OnAlertTriggered(Entity<AlertCarvingComponent> ent, ref TrapTriggeredEvent args)
     {
-        if (args.Victim == ent.Comp.User)
-            return;
-
-        if (!TryComp(ent.Comp.User, out ActorComponent? actor))
+        if (args.Victim == ent.Comp.User
+            || !TryComp<ActorComponent>(ent.Comp.User, out var actor))
             return;
 
         var message = Loc.GetString("alert-carving-trigger-message",
             ("victim", args.Victim),
             ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(ent.Owner))));
+
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
         _chatManager.ChatMessageToOne(ChatChannel.Server,
             message,
@@ -134,25 +131,21 @@ public sealed class CarvingKnifeSystem : EntitySystem
     private void OnDeleteCarvings(Entity<CarvingKnifeComponent> ent, ref DeleteAllCarvingsEvent args)
     {
         args.Handled = true;
-
         _popup.PopupEntity(Loc.GetString("carving-knife-comp-runes-deleted"), args.Performer, args.Performer);
 
         foreach (var rune in ent.Comp.DrawnRunes.Where(Exists))
-        {
             QueueDel(rune);
-        }
 
         ent.Comp.DrawnRunes.Clear();
     }
 
-    private void OnRuneCarved(Entity<AlertCarvingComponent> ent, ref RuneCarvedEvent args)
-    {
+    private void OnRuneCarved(Entity<AlertCarvingComponent> ent, ref RuneCarvedEvent args) =>
         ent.Comp.User = args.User;
-    }
 
     private void OnExamine(Entity<CarvingKnifeComponent> ent, ref ExaminedEvent args)
     {
-        if (!HasComp<HereticComponent>(args.Examiner) && !HasComp<GhoulComponent>(args.Examiner))
+        if (!HasComp<HereticComponent>(args.Examiner)
+            && !HasComp<GhoulComponent>(args.Examiner))
             return;
 
         UpdateRunes(ent);
@@ -163,10 +156,10 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private void OnAfterInteract(Entity<CarvingKnifeComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target == null || !_tag.HasTag(args.Target.Value, CarvingTag))
-            return;
-
-        if (!HasComp<HereticComponent>(args.User) && !HasComp<GhoulComponent>(args.User))
+        if (args.Target == null
+            || !_tag.HasTag(args.Target.Value, CarvingTag)
+            || !HasComp<HereticComponent>(args.User)
+            && !HasComp<GhoulComponent>(args.User))
             return;
 
         QueueDel(args.Target.Value);
@@ -177,38 +170,35 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private void OnCarveRune(Entity<CarvingKnifeComponent> ent, ref CarveRuneDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled)
+        if (args.Handled
+            || args.Cancelled)
             return;
 
         var coords = _transform.GetMapCoordinates(args.User);
 
-        if (!CanDrawRune(args.User, coords))
-            return;
-
-        if (CheckOtherCarvingsNearby(coords))
-            return;
-
-        if (!_prototype.TryIndex(args.Carving, out var index))
+        if (!CanDrawRune(args.User, coords)
+            || CheckOtherCarvingsNearby(coords)
+            || !_prototype.TryIndex(args.Carving, out var index))
             return;
 
         args.Handled = true;
-
         var rune = Spawn(index.ProtoId, coords);
+
         var ev = new RuneCarvedEvent(args.User);
         RaiseLocalEvent(rune, ref ev);
+
         ent.Comp.DrawnRunes.Add(rune);
 
-        if (!TryComp(rune, out WizardTrapComponent? trap) || !_mind.TryGetMind(args.User, out var mind, out _))
+        if (!TryComp<WizardTrapComponent>(rune, out var trap)
+            || !_mind.TryGetMind(args.User, out var mind, out _))
             return;
 
         trap.IgnoredMinds.Add(mind);
         Dirty(rune, trap);
     }
 
-    private void UpdateRunes(Entity<CarvingKnifeComponent> ent)
-    {
+    private void UpdateRunes(Entity<CarvingKnifeComponent> ent) =>
         ent.Comp.DrawnRunes.RemoveAll(x => !Exists(x));
-    }
 
     private bool CanDrawRune(EntityUid user, MapCoordinates mapCoords)
     {
@@ -223,25 +213,16 @@ public sealed class CarvingKnifeSystem : EntitySystem
 
     private bool CheckOtherCarvingsNearby(MapCoordinates coords)
     {
-        var flags = LookupFlags.Static | LookupFlags.Sundries | LookupFlags.Sensors;
-        var lookup = _lookup.GetEntitiesInRange(coords, 0.5f, flags);
-        foreach (var ent in lookup)
-        {
-            if (_tag.HasTag(ent, CarvingTag))
-                return true;
-        }
-
-        return false;
+        return _lookup.GetEntitiesInRange(coords, 0.5f, Flags).Any(ent => _tag.HasTag(ent, CarvingTag));
     }
 
     private void OnCarvingSelected(Entity<CarvingKnifeComponent> ent, ref RuneCarvingSelectedMessage args)
     {
         var (uid, comp) = ent;
 
-        if (!comp.Carvings.Contains(args.ProtoId))
-            return;
-
-        if (!HasComp<HereticComponent>(args.Actor) && !HasComp<GhoulComponent>(args.Actor))
+        if (!comp.Carvings.Contains(args.ProtoId)
+            || !HasComp<HereticComponent>(args.Actor)
+            && !HasComp<GhoulComponent>(args.Actor))
             return;
 
         UpdateRunes(ent);

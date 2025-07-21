@@ -3,10 +3,11 @@ using Content.Server.IdentityManagement;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Server.Heretic.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Goobstation.Server.Heretic.EntitySystems;
 
 public sealed class ShadowCloakSystem : SharedShadowCloakSystem
 {
@@ -31,7 +32,8 @@ public sealed class ShadowCloakSystem : SharedShadowCloakSystem
 
         var parent = Transform(ent).ParentUid;
 
-        if (args.User != parent || !HasComp<HereticComponent>(parent))
+        if (args.User != parent
+            || !HasComp<HereticComponent>(parent))
             return;
 
         if (_blade.TryThrowProtectiveBlade(parent, null))

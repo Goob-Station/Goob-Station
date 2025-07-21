@@ -1,3 +1,4 @@
+using Content.Goobstation.Server.Heretic.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Jittering;
 using Content.Server.Popups;
@@ -11,7 +12,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Goobstation.Server.Heretic.EntitySystems;
 
 public sealed class FeastOfOwlsSystem : EntitySystem
 {
@@ -60,7 +61,7 @@ public sealed class FeastOfOwlsSystem : EntitySystem
 
             _audio.PlayPvs(comp.KnowledgeGainSound, uid);
 
-            _popup.PopupEntity(Loc.GetString("feast-of-owls-knowledge-gaim-message"), uid, uid, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("feast-of-owls-knowledge-gain-message"), uid, uid, PopupType.LargeCaution);
 
             _heretic.UpdateKnowledge(uid, heretic, 1, store);
 

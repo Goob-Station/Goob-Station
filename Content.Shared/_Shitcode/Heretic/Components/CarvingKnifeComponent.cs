@@ -9,6 +9,7 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic.Prototypes;
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -20,10 +21,10 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class CarvingKnifeComponent : Component
 {
     [DataField]
-    public HashSet<ProtoId<RuneCarvingPrototype>> Carvings = new();
+    public HashSet<ProtoId<RuneCarvingPrototype>> Carvings = [];
 
     [DataField(serverOnly: true)]
-    public List<EntityUid> DrawnRunes = new();
+    public List<EntityUid> DrawnRunes = [];
 
     [DataField]
     public int MaxRuneAmount = 3;
@@ -39,6 +40,9 @@ public sealed partial class CarvingKnifeComponent : Component
 
     [DataField]
     public EntityUid? RunebreakActionEntity;
+
+    [DataField]
+    public ProtoId<TagPrototype> CarvingTag = "HereticCarving";
 }
 
 [Serializable, NetSerializable]

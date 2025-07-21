@@ -22,6 +22,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Goobstation.Server.Heretic.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Server.Body.Components;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
@@ -31,7 +32,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Goobstation.Server.Heretic.EntitySystems;
 
 public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
 {
