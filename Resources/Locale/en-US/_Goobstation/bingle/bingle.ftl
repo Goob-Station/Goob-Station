@@ -8,6 +8,8 @@ language-Bingle-name = Bingle
 language-Bingle-description =
     Bingle bongle dingle dangle yickity do yickity da ping pong lippy tappy too ta
 
+chat-language-Bingle-name = Bingle
+
 chat-speech-verb-name-bingle = Bingle
 bingle-verb-1 = Croaks
 bingle-verb-2 = Mumbles
