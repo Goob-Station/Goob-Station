@@ -24,6 +24,7 @@ public sealed partial class SequenceMegafaunaAction : MegafaunaActionSelector
         {
             var time = args.Timing.CurTime + TimeSpan.FromSeconds(delay * i);
             Selector.Counter = i;
+            Selector.IsSequence = IsSequence;
             args.AiComponent.ActionSchedule.Add(time, Selector);
         }
 

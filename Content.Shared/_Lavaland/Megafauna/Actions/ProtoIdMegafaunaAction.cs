@@ -15,6 +15,6 @@ public sealed partial class ProtoIdMegafaunaAction : MegafaunaActionSelector
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
-        return args.PrototypeMan.Index(Id).Action.Invoke(args, Counter);
+        return args.PrototypeMan.Index(Id).Action.Invoke(args, IsSequence, Counter);
     }
 }

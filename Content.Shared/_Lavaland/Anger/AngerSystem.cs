@@ -23,7 +23,6 @@ public sealed class AngerSystem : EntitySystem
 
         SubscribeLocalEvent<AngerComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<AngerComponent, DamageChangedEvent>(OnDamaged);
-        SubscribeLocalEvent<AngerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<AngerComponent, MegafaunaStartupEvent>(OnMegafaunaStartup);
         SubscribeLocalEvent<AngerComponent, MegafaunaShutdownEvent>(OnMegafaunaShutdown);
         SubscribeLocalEvent<AngerComponent, AggressorAddedEvent>(OnAggressorAdded);
@@ -53,7 +52,7 @@ public sealed class AngerSystem : EntitySystem
             healthMultiplier = (aggressive.Aggressors.Count - 1) * anger.HealthScalingFactor;
         }
 
-        var maxUnscaledHp = anger.HpAgressionLimit ?? anger.BaseTotalHp;
+        var maxUnscaledHp = anger.HpAgressionLimit ?? anger.TotalHp;
         var newMinAnger = Math.Max((float) (damage.TotalDamage / (maxUnscaledHp * healthMultiplier)), 0f);
         anger.MinAnger = newMinAnger * angerMultiplier;
         anger.CurrentAnger = Math.Clamp(anger.CurrentAnger, anger.MinAnger, anger.MaxAnger);
@@ -71,8 +70,8 @@ public sealed class AngerSystem : EntitySystem
             scalingMultiplier *= ent.Comp1.HealthScalingFactor;
 
         if (_threshold.TryGetDeadThreshold(ent, out var deadThreshold)
-            && deadThreshold < ent.Comp1.BaseTotalHp * scalingMultiplier)
-            _threshold.SetMobStateThreshold(ent, ent.Comp1.BaseTotalHp * scalingMultiplier, MobState.Dead);
+            && deadThreshold < ent.Comp1.TotalHp * scalingMultiplier)
+            _threshold.SetMobStateThreshold(ent, ent.Comp1.TotalHp * scalingMultiplier, MobState.Dead);
     }
 
     #region Event Handling
@@ -88,17 +87,6 @@ public sealed class AngerSystem : EntitySystem
 
     private void OnDamaged(Entity<AngerComponent> ent, ref DamageChangedEvent args)
         => UpdateAggression(ent.Owner);
-
-    private void OnStartup(Entity<AngerComponent> ent, ref ComponentStartup args)
-    {
-        if (!_threshold.TryGetDeadThreshold(ent.Owner, out var threshold))
-        {
-            Log.Error($"Megafauna {ToPrettyString(ent)} didn't have MobThresholdComponent when trying to startup a boss!");
-            return;
-        }
-
-        ent.Comp.BaseTotalHp = threshold.Value;
-    }
 
     private void OnMegafaunaStartup(Entity<AngerComponent> ent, ref MegafaunaStartupEvent args)
         => UpdateScaledThresholds(ent.Owner);

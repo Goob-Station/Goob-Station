@@ -101,6 +101,7 @@
       size: 11
   - type: MegafaunaAnchor
   - type: Anger
+    totalHp: 2500
   - type: MobPhases
     phaseThresholds:
       0:    1

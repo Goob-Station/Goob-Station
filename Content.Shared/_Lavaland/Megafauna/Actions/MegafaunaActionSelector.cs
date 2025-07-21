@@ -44,6 +44,14 @@ public abstract partial class MegafaunaActionSelector
     public int Counter;
 
     /// <summary>
+    /// If true, allows some actions to use the Counter variable in order to create sequence attacks
+    /// instead of just repeating the same attack multiple times.
+    /// Using this you can create more complex actions that are called with <see cref="SequenceMegafaunaAction"/>.
+    /// </summary>
+    [DataField]
+    public bool IsSequence;
+
+    /// <summary>
     /// A list of conditions that must evaluate to 'true' for the selector to apply.
     /// </summary>
     [DataField]
@@ -90,12 +98,14 @@ public abstract partial class MegafaunaActionSelector
         return success;
     }
 
-    public float Invoke(MegafaunaCalculationBaseArgs args, int? counter = null)
+    public float Invoke(MegafaunaCalculationBaseArgs args, bool? isSequence = null, int? counter = null)
     {
         if (!CheckConditions(args)
             || !args.Random.Prob(Prob))
             return FailDelay;
 
+        if (isSequence != null)
+            IsSequence = isSequence.Value;
         if (counter != null)
             Counter = counter.Value;
 

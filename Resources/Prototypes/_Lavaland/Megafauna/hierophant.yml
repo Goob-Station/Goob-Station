@@ -90,6 +90,7 @@
 - type: megafaunaAction
   id: HierophantCrossSequence
   action: !type:SequenceMegafaunaAction
+    isSequence: true
     selector: !type:NestedMegafaunaAction
       id: HierophantRandomCross
     delay: !type:MegafaunaRangeNumberSelector
@@ -100,6 +101,7 @@
 - type: megafaunaAction
   id: HierophantCrossSequenceHard
   action: !type:SequenceMegafaunaAction
+    isSequence: true
     selector: !type:NestedMegafaunaAction
       id: HierophantRandomCrossHard
     delay: !type:MegafaunaRangeNumberSelector

@@ -10,12 +10,12 @@ public sealed class MegafaunaAnchorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MegafaunaAnchorComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<MegafaunaAnchorComponent, MapInitEvent>(OnComponentStartup);
         SubscribeLocalEvent<MegafaunaAnchorComponent, MegafaunaStartupEvent>(OnStartup);
         SubscribeLocalEvent<MegafaunaAnchorComponent, MegafaunaShutdownEvent>(OnShutdown);
     }
 
-    private void OnComponentStartup(Entity<MegafaunaAnchorComponent> ent, ref ComponentStartup args)
+    private void OnComponentStartup(Entity<MegafaunaAnchorComponent> ent, ref MapInitEvent args)
     {
         _xform.AnchorEntity(ent.Owner);
         ent.Comp.Anchored = true;

@@ -24,6 +24,6 @@ public sealed partial class GroupMegafaunaAction : MegafaunaActionSelector
 
         var pick = SharedRandomExtensions.Pick(children, args.Random);
 
-        return pick.Invoke(args, Counter);
+        return pick.Invoke(args, IsSequence, Counter);
     }
 }

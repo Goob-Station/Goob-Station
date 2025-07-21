@@ -27,8 +27,8 @@ public sealed partial class AngerComponent : Component
     /// Gets set to Dead MobThreshold when megafauna
     /// initializes, and backwards when shutting down.
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
-    public FixedPoint2 BaseTotalHp = 1;
+    [DataField(required: true)]
+    public FixedPoint2 TotalHp = 1;
 
     [DataField]
     public float AngerScalingFactor = 1.2f;

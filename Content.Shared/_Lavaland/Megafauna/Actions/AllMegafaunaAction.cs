@@ -13,7 +13,7 @@ public sealed partial class AllMegafaunaAction : MegafaunaActionSelector
         var totalDelay = 0f;
         foreach (var child in Children)
         {
-            totalDelay += child.Invoke(args, Counter);
+            totalDelay += child.Invoke(args, IsSequence, Counter);
         }
 
         return totalDelay;

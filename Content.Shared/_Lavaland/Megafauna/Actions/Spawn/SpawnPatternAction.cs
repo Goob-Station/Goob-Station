@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Megafauna.Operators;
 using Content.Shared._Lavaland.Tile;
 using Content.Shared._Lavaland.Tile.Shapes;
 using JetBrains.Annotations;
@@ -18,10 +17,21 @@ public sealed partial class SpawnPatternAction : MegafaunaActionSelector
     public TileShape Shape;
 
     [DataField]
-    public TileShapeSizeOperator? ShapeOperator;
-
-    [DataField]
     public EntProtoId SpawnId;
+
+    /// <summary>
+    /// Is specified and this shape is a sequence, will add this amount to the size
+    /// of the shape by this amount when Counter goes up.
+    /// </summary>
+    [DataField]
+    public int? SequenceCounter;
+
+    /// <summary>
+    /// Is specified and this shape is a sequence, will offset center
+    /// of the shape by this vector when Counter goes up.
+    /// </summary>
+    [DataField]
+    public Vector2i? SequenceOffset;
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
@@ -29,10 +39,11 @@ public sealed partial class SpawnPatternAction : MegafaunaActionSelector
         var target = args.AiComponent.CurrentTarget ?? args.BossEntity;
 
         TileShape? modifiedShape = null;
-        if (ShapeOperator != null)
+        if (IsSequence)
         {
-            ShapeOperator.Shape = Shape;
-            modifiedShape = (TileShape) ShapeOperator.GetValue(Counter);
+            modifiedShape = Shape;
+            modifiedShape.Size += Counter + SequenceCounter ?? 0;
+            modifiedShape.Offset += SequenceOffset * Counter ?? Vector2i.Zero;
         }
 
         shapeSpawner.SpawnTileShape(modifiedShape ?? Shape, target, SpawnId, out _);

@@ -10,9 +10,32 @@ namespace Content.Shared._Lavaland.Tile;
 
 /// <summary>
 /// Some static helper methods that help to create some tile patterns with ease.
+/// Allows to reuse already written methods for generating shapes, so making new
+/// TileShape classes becomes much easier.
 /// </summary>
 public static class TileHelperMethods
 {
+    /// <summary>
+    /// Draws a simple line in a specified direction, adding Step vector Range
+    /// times, starting from the center and returning the result.
+    /// </summary>
+    public static List<Vector2i> MakeLine(Vector2i center, int range, Vector2i step)
+    {
+        var refs = new List<Vector2i> { center };
+
+        if (step == Vector2i.Zero)
+            return refs;
+
+        var curStep = new Vector2i(center.X, center.Y);
+        for (int i = 0; i < range; i++)
+        {
+            curStep += step;
+            refs.Add(curStep);
+        }
+
+        return refs;
+    }
+
     public static List<Vector2i> MakeBox(Vector2i center, int range, bool hollow)
     {
         return hollow ? MakeBoxHollow(center, range) : MakeBox(center, range);
