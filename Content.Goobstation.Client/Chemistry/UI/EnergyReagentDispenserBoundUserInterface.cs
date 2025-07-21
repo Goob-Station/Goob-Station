@@ -40,14 +40,11 @@ namespace Content.Goobstation.Client.Chemistry.UI
     /// Initializes a <see cref="ReagentDispenserWindow"/> and updates it when new server messages are received.
     /// </summary>
     [UsedImplicitly]
-    public sealed class EnergyReagentDispenserBoundUserInterface : BoundUserInterface
+    public sealed class EnergyReagentDispenserBoundUserInterface(EntityUid owner, Enum uiKey)
+        : BoundUserInterface(owner, uiKey)
     {
         [ViewVariables]
         private EnergyReagentDispenserWindow? _window;
-
-        public EnergyReagentDispenserBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-        {
-        }
 
         /// <summary>
         /// Called each time a dispenser UI instance is opened. Generates the dispenser window and fills it with
@@ -74,16 +71,14 @@ namespace Content.Goobstation.Client.Chemistry.UI
         /// <summary>
         /// Update the UI each time new state data is sent from the server.
         /// </summary>
-        /// <param name="state">
-        /// Data of the <see cref="ReagentDispenserComponent"/> that this UI represents.
-        /// Sent from the server.
-        /// </param>
-        protected override void UpdateState(BoundUserInterfaceState state)
+        protected override void UpdateState(BoundUserInterfaceState message)
         {
-            base.UpdateState(state);
+            base.UpdateState(message);
 
-            var castState = (EnergyReagentDispenserBoundUserInterfaceState) state;
-            _window?.UpdateState(castState); //Update window state
+            if (message is not EnergyReagentDispenserBoundUserInterfaceState state)
+                return;
+
+            _window?.UpdateState(state);
         }
     }
 }
