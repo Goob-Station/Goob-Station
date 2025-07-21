@@ -185,7 +185,7 @@ namespace Content.Goobstation.Client.Chemistry.UI
         {
             base.FrameUpdate(args);
 
-            _batteryCharge += _currentReceiving * args.DeltaSeconds;
+            _batteryCharge = Math.Clamp(_batteryCharge + _currentReceiving * args.DeltaSeconds, 0, _batteryMaxCharge);
             UpdateBatteryPercent();
         }
     }
