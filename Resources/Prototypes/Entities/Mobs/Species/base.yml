@@ -375,9 +375,6 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
-    - Stun
-    - Friction
-    - SlowedDown
     - Stutter
     - Electrocution
     - Drunk
