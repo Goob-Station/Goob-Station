@@ -23,5 +23,23 @@
     batteryRechargeEfficiency: 0.0
   - type: EnergyReagentDispenser #Keep on bottom for view's sake, format is reagentProto: Cost
     reagents:
-      Carbon: 5
       Aluminium: 5
+      Carbon: 5
+      Chlorine: 5
+      Copper: 5
+      Ethanol: 5
+      Fluorine: 5
+      Hydrogen: 5
+      Iodine: 5
+      Iron: 5
+      Lithium: 5
+      Mercury: 5
+      Nitrogen: 5
+      Oxygen: 5
+      Phosphorus: 5
+      Potassium: 5
+      Radium: 5
+      Silicon: 5
+      Sodium: 5
+      Sugar: 5
+      Sulfur: 5
