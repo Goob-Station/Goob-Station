@@ -1,8 +1,8 @@
 - type: entity
   id: DoorCosmicCult
   parent: BaseMaterialDoorNavMap
-  name: "лиховісний прохід"
-  description: "Дивна, тривожна споруда."
+  name: malign passageway
+  description: A strange, disquieting structure.
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/cosmicdoor.rsi

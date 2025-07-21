@@ -6,7 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "інжектор аномалій"
+  name: anomaly injector
   parent: MarkerBase
   id: BaseAnomalyInjector
   abstract: true

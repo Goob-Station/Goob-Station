@@ -18,7 +18,7 @@
   parent: MaterialBase
   id: MaterialNormality
   suffix: Full
-  name: "нормальний кристал"
+  name: normality crystal
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Materials/materials.rsi

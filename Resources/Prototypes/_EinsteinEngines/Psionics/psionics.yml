@@ -1,6 +1,6 @@
 - type: psionicPower
   id: DispelPower
-  name: "Розвіяти"
+  name: Dispel
   powerCategories:
     - Mentalic
   initializeFunctions:
@@ -31,7 +31,7 @@
 
 - type: psionicPower
   id: MassSleepPower
-  name: "Масовий сон"
+  name: Mass Sleep
   powerCategories:
     - Mentalic
   initializeFunctions:
@@ -60,7 +60,7 @@
 
 - type: psionicPower
   id: MindSwapPower
-  name: "Обмін думками"
+  name: Mind Swap
   powerCategories:
     - Mentalic
   initializeFunctions:
@@ -90,7 +90,7 @@
 
 - type: psionicPower
   id: NoosphericZapPower
-  name: "Noosphere Zap"
+  name: Noospheric Zap
   powerCategories:
     - Anomalist
     - Electrokinesis
@@ -121,7 +121,7 @@
 
 - type: psionicPower
   id: PyrokinesisPower
-  name: "Пірокінез"
+  name: Pyrokinesis
   powerCategories:
     - Anomalist
     - Pyrokinesis
@@ -153,7 +153,7 @@
 
 - type: psionicPower
   id: MetapsionicPower
-  name: "Метапсихічний імпульс"
+  name: Metapsionic Pulse
   powerCategories:
     - Mentalic
   initializeFunctions:
@@ -187,7 +187,7 @@
 
 - type: psionicPower
   id: PsionicRegenerationPower
-  name: "Псіонна регенерація"
+  name: Psionic Regeneration
   powerCategories:
     - Mentalic
   initializeFunctions:
@@ -218,7 +218,7 @@
 
 - type: psionicPower
   id: TelegnosisPower
-  name: "Телегнозис"
+  name: Telegnosis
   powerCategories:
     - Mentalic
   initializeFunctions:
@@ -302,7 +302,7 @@
 
 - type: psionicPower
   id: PsychognomyPower #i.e. reverse physiognomy
-  name: "Психогноміка" #psycho- + -gnomy. I reccomend starting with your language's equilvalent of "physiognomy" and working backwards. i.e. психо(г)номика
+  name: Psychognomy #psycho- + -gnomy. I reccomend starting with your language's equilvalent of "physiognomy" and working backwards. i.e. психо(г)номика
   powerCategories:
     - Mentalic
   initializeFunctions:
@@ -324,7 +324,7 @@
 
 - type: psionicPower
   id: TelepathyPower
-  name: "Телепатія"
+  name: Telepathy
   powerCategories:
     - Mentalic
   initializeFunctions:
@@ -356,7 +356,7 @@
 
 - type: psionicPower
   id: HealingWordPower
-  name: "Зцілювальне слово"
+  name: HealingWord
   powerCategories:
     - Anomalist
     - Life
@@ -387,7 +387,7 @@
 
 - type: psionicPower
   id: RevivifyPower
-  name: "Відродити"
+  name: Revivify
   powerCategories:
     - Anomalist
     - Life
@@ -413,7 +413,7 @@
 
 - type: psionicPower
   id: LowAmplification
-  name: "LowAmplification (низький рівень підсилення)"
+  name: LowAmplification
   powerCategories:
     - Passive
   initializeFunctions:
@@ -425,7 +425,7 @@
 
 - type: psionicPower
   id: HighAmplification
-  name: "HighAmplification (Високе підсилення)"
+  name: HighAmplification
   powerCategories:
     - Passive
   initializeFunctions:
@@ -437,7 +437,7 @@
 
 - type: psionicPower
   id: PowerOverwhelming
-  name: "PowerOverwhelming (Переважна сила)"
+  name: PowerOverwhelming
   powerCategories:
     - Passive
     - Dangerous
@@ -458,7 +458,7 @@
 
 - type: psionicPower
   id: LowDampening
-  name: "Низьке зволоження"
+  name: LowDampening
   powerCategories:
     - Passive
   initializeFunctions:
@@ -470,7 +470,7 @@
 
 - type: psionicPower
   id: HighDampening
-  name: "Високе зволоження"
+  name: HighDampening
   powerCategories:
     - Passive
   initializeFunctions:
@@ -482,7 +482,7 @@
 
 - type: psionicPower
   id: ShadeskipPower
-  name: "Шейдскіп"
+  name: Shadeskip
   powerCategories:
     - Anomalist
     - Shadow
@@ -516,7 +516,7 @@
 
 - type: psionicPower
   id: TelekineticPulsePower
-  name: "Телекінетичний імпульс"
+  name: Telekinetic Pulse
   powerCategories:
     - Anomalist
     - Kinetic
@@ -553,7 +553,7 @@
 
 - type: psionicPower
   id: DarkSwapPower
-  name: "Темний обмін"
+  name: DarkSwap
   powerCategories:
     - Anomalist
     - Shadow
@@ -578,7 +578,7 @@
 
 - type: psionicPower
   id: PyrokineticFlare
-  name: "Пірокінетичний спалах"
+  name: Pyrokinetic Flare
   powerCategories:
     - Anomalist
     - Pyrokinetic
@@ -618,7 +618,7 @@
 
 - type: psionicPower
   id: SummonImpPower
-  name: "Викликати демона"
+  name: Summon Imp
   powerCategories:
     - Anomalist
     - Pyrokinetic
@@ -651,7 +651,7 @@
 
 - type: psionicPower
   id: SummonRemiliaPower
-  name: "Викличте Ремілію"
+  name: Summon Remilia
   powerCategories:
     - Mentalic
     - Unique
@@ -670,7 +670,7 @@
 
 - type: psionicPower
   id: AssayPower
-  name: "Аналіз"
+  name: Assay
   powerCategories:
     - Mentalic
   initializeFunctions:
@@ -692,7 +692,7 @@
 
 - type: psionicPower
   id: AnoigoPower
-  name: "Анойго"
+  name: Anoigo
   powerCategories:
   - Kinetic
   initializeFunctions:

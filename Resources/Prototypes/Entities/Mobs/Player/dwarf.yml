@@ -23,6 +23,6 @@
 
 - type: entity
   save: false
-  name: "Уріст МакХендс, Дворф"
+  name: Urist McHands The Dwarf
   parent: BaseMobDwarf
   id: MobDwarf
