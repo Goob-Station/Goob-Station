@@ -5,7 +5,7 @@
   description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
   components:
   - type: Sprite
-    sprite: Objects/Devices/pda.rsi
+    sprite: _Pirate/Objects/Devices/pda.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
