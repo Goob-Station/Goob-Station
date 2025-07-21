@@ -205,18 +205,18 @@
 
 ## warden
 
-- type: entity
-  parent: BaseCorporateStealObjective
-  id: CorporateEnergyShotgunStealObjective
-  components:
-  - type: Objective
-    # Warden will have this on them a lot of the time so..
-    difficulty: 3
-  - type: NotJobRequirement
-    job: Warden # Goob edit
-  - type: StealCondition
-    stealGroup: WeaponEnergyShotgun
-    owner: job-name-warden # Goob edit
+#- type: entity
+#  parent: BaseCorporateStealObjective
+#  id: CorporateEnergyShotgunStealObjective
+#  components:
+#  - type: Objective
+#    # Warden will have this on them a lot of the time so..
+#    difficulty: 3
+#  - type: NotJobRequirement
+#    job: Warden # Goob edit
+#  - type: StealCondition
+#    stealGroup: WeaponEnergyShotgun
+#    owner: job-name-warden # Goob edit
 
 ## ce
 
