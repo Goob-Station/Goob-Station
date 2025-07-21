@@ -23,6 +23,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Server.Gravity;
 
 namespace Content.Goobstation.Server.Footprints;
 
@@ -32,6 +33,7 @@ public sealed class FootprintSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public static readonly FixedPoint2 MaxFootprintVolumeOnTile = 50;
@@ -64,10 +66,7 @@ public sealed class FootprintSystem : EntitySystem
             && noFootprints.Enabled)
             return;
 
-        if (!e.OldPosition.IsValid(EntityManager))
-            return;
-
-        if (!e.NewPosition.IsValid(EntityManager))
+        if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
             return;
 
         var oldPosition = _transform.ToMapCoordinates(e.OldPosition).Position;
