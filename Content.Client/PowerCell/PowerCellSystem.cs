@@ -65,7 +65,8 @@ public sealed class PowerCellSystem : SharedPowerCellSystem
                 return;
             }
 
-            _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, false);
+            // Goobstation - Not sure why this was false, but i think it was wizden bug and it should be replaced with wizden code on upstream
+            _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, true);
             _sprite.LayerSetRsiState((uid, args.Sprite), PowerCellVisualLayers.Unshaded, $"o{level}");
         }
     }
