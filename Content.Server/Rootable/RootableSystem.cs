@@ -1,4 +1,8 @@
-﻿using Content.Server.Body.Components;
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;

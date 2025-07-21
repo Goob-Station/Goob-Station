@@ -1,4 +1,8 @@
-﻿using Content.Shared.Damage.Components;
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Damage.Components;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Coordinates;
