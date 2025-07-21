@@ -8,8 +8,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Prying.Components;
+using Content.Shared.Tools.Components;
+using Content.Shared.Wires;
 
 namespace Content.Shared.Doors.Systems;
 
@@ -24,6 +29,9 @@ public abstract partial class SharedDoorSystem
         SubscribeLocalEvent<DoorBoltComponent, BeforeDoorDeniedEvent>(OnBeforeDoorDenied);
         SubscribeLocalEvent<DoorBoltComponent, BeforePryEvent>(OnDoorPry);
         SubscribeLocalEvent<DoorBoltComponent, DoorStateChangedEvent>(OnStateChanged);
+
+        SubscribeLocalEvent<DoorBoltComponent, InteractUsingEvent>(OnInteractUsingEvent); // Goobstation - Unbolting unpowered door with wrench
+        SubscribeLocalEvent<DoorBoltComponent, ManualBoltingDoAfterEvent>(OnManualBolting);
     }
 
     private void OnDoorPry(EntityUid uid, DoorBoltComponent component, ref BeforePryEvent args)
@@ -94,10 +102,12 @@ public abstract partial class SharedDoorSystem
         Entity<DoorBoltComponent> ent,
         bool value,
         EntityUid? user = null,
-        bool predicted = false
+        bool predicted = false,
+        bool requirePower = true // Goobstation - Manual bolt interact with unpowered door
     )
     {
-        if (!_powerReceiver.IsPowered(ent.Owner))
+        // Goobstation - Power check
+        if (!_powerReceiver.IsPowered(ent.Owner) && requirePower)
             return false;
         if (ent.Comp.BoltsDown == value)
             return false;
@@ -133,4 +143,33 @@ public abstract partial class SharedDoorSystem
 
         return component.BoltsDown;
     }
+
+    // Goobstation - Start - Unbolting and bolting unpowered door with wrench
+    public void OnInteractUsingEvent(Entity<DoorBoltComponent> entity, ref InteractUsingEvent args)
+    {
+        // Can't bolt interact with powered door
+        if (args.Handled ||
+            entity.Comp.Powered ||
+            !TryComp(args.Used, out ToolComponent? toolComp) ||
+            !_toolsSystem.HasQuality(args.Used, entity.Comp.UnboltToolQuality) ||
+            !_sharedWiresSystem.IsPanelOpen(entity.Owner))
+        return;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, entity.Comp.ManualUnboltTime, new ManualBoltingDoAfterEvent(), entity, entity);
+
+        if (_doAfterSystem.TryStartDoAfter(doAfterArgs))
+        {
+            Audio.PlayPredicted(toolComp.UseSound, entity, args.User);
+            args.Handled = true;
+        }
+    }
+
+    public void OnManualBolting(Entity<DoorBoltComponent> entity, ref ManualBoltingDoAfterEvent args)
+    {
+        if (args.Cancelled || entity.Comp.Powered)
+            return;
+
+        TrySetBoltDown(entity, !entity.Comp.BoltsDown, args.User, true, false);
+    }
+    // Goobstation - End
 }

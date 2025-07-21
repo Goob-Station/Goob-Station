@@ -71,6 +71,8 @@ using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Map.Components;
+using Content.Shared.DoAfter;
+using Content.Shared.Wires;
 
 namespace Content.Shared.Doors.Systems;
 
@@ -94,6 +96,11 @@ public abstract partial class SharedDoorSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
 
+    // Goobstation - Start - Manual unbolting
+    [Dependency] private readonly SharedToolSystem _toolsSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedWiresSystem _sharedWiresSystem = default!;
+    // Goobstation - End
 
     [ValidatePrototypeId<TagPrototype>]
     public const string DoorBumpTag = "DoorBumpOpener";
