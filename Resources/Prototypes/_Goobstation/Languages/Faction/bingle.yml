@@ -6,8 +6,8 @@
   obfuscation:
     !type:PhraseObfuscation
     proportion: 0.66
-    minSyllables: 1
-    maxSyllables: 6
+    minPhrases: 1
+    maxPhrases: 6
     replacement:
     - Bingle
     - Bongle
