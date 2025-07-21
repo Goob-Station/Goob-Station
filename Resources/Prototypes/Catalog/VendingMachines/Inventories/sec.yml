@@ -76,3 +76,6 @@
     FoodDonutHomer: 12
     FoodBoxDonut: 2
     #box evidence
+  emaggedInventory: # Goobstation
+    SarinGasGrenade: 1
+    WeaponFlareGunSecurity: 2

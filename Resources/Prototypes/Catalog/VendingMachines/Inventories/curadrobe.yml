@@ -27,3 +27,5 @@
     ClothingHeadsetService: 2
   contrabandInventory:
     ToyFigurineLibrarian: 1
+  emaggedInventory: # Goobstation
+    SyndicatePersonalAI: 1

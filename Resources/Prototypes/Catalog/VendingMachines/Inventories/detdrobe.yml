@@ -58,3 +58,5 @@
     ClothingHeadsetSecurity: 2
   contrabandInventory:
     ToyFigurineDetective: 1
+  emaggedInventory: # Goobstation
+    CameraBug: 1
