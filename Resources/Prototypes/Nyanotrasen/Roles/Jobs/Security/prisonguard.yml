@@ -12,6 +12,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 9000 #2.5 hrs
   startingGear: PrisonGuardGear
 #  alwaysUseSpawner: true
   canBeAntag: false
