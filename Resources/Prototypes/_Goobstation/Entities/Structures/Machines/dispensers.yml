@@ -2,9 +2,9 @@
 - type: entity
   id: EnergyChemDispenser
   parent: ChemDispenserEmpty
-  name: energy chem dispenser
+  name: energy chemical dispenser
   suffix: energy
-  description: A bluespace Chem Dispenser that uses station energy to synthesize Reagents. The future is here and now.
+  description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
   components:
   - type: Machine
     board: EnergyChemDispenserMachineCircuitboard #If I forget to add one I'm a dumbass
