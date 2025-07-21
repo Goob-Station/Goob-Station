@@ -148,6 +148,8 @@
     clonedItemWhitelist:
       components:
       - Clothing
+    removedComponents:
+    - type: CanHostGuardian
     userBlacklist:
       components:
       - Zombie
