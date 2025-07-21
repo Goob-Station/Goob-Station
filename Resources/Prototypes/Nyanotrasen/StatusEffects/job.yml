@@ -4,12 +4,14 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+
 - type: jobIcon
   parent: JobIcon
   id: JobIconPrisonGuard
   icon:
     sprite: DeltaV/Interface/Misc/job_icons.rsi
     state: nyanoPrisonGuard
+  jobName: job-name-detective
 
 - type: jobIcon
   parent: JobIcon
@@ -17,3 +19,4 @@
   icon:
     sprite: DeltaV/Interface/Misc/job_icons.rsi
     state: nyanoMartialArtist
+  jobName: job-name-detective
