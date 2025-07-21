@@ -352,8 +352,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
     // goob edit - stunmeta
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
-        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null,
-        bool immediate = true, bool applyResistances = false, bool ignoreDrains = true)
+        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false)
     {
         if (!Resolve(uid, ref component, false)
         || value == 0) // no damage???
