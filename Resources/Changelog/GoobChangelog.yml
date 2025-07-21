@@ -12607,3 +12607,163 @@ Entries:
       message: The china lake bundle now also contains 2 40mm Slugs.
   id: 1389
   time: '2025-07-17T07:35:16.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: You can now make diagnostic glasses.
+  id: 1390
+  time: '2025-07-17T07:38:53.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Add
+      message: Horsepuncher now has a horse to punch!
+  id: 1391
+  time: '2025-07-17T07:40:13.0000000+00:00'
+- author: MarkerWicker
+  changes:
+    - type: Add
+      message: Players can now opt to "Run by default" in the control options.
+  id: 1392
+  time: '2025-07-17T07:42:43.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Tweak
+      message: mapping of Cluster Station
+  id: 1393
+  time: '2025-07-17T07:49:55.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Add
+      message: Added holopads, AI turrets and a TEG to Kettle.
+  id: 1394
+  time: '2025-07-17T07:50:23.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: Tweaked submarine chembay and added departmental request computers.
+  id: 1395
+  time: '2025-07-17T07:50:54.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Add
+      message: >-
+        Most if not all the markings that Impstation has, plus two glowing eye
+        markings because why not.
+    - type: Add
+      message: Markings can now be unshaded and glow.
+    - type: Tweak
+      message: Extra marking slots for most species.
+  id: 1396
+  time: '2025-07-17T07:52:18.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Add
+      message: departmental eco to Meta
+    - type: Add
+      message: brig med to meta
+    - type: Add
+      message: PTL to meta
+    - type: Add
+      message: CC office to meta
+    - type: Add
+      message: AI turrets to meta
+    - type: Add
+      message: Public lavaland to meta
+    - type: Add
+      message: genpop to meta
+    - type: Add
+      message: xenobio infrastrucute to meta
+    - type: Add
+      message: holopads to meta
+  id: 1397
+  time: '2025-07-17T07:54:30.0000000+00:00'
+- author: FloatingFeeling
+  changes:
+    - type: Tweak
+      message: The Nukie Outpost has been completely remapped.
+  id: 1398
+  time: '2025-07-17T07:55:15.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Rustwalker ai and more movespeed
+  id: 1399
+  time: '2025-07-17T08:02:09.0000000+00:00'
+- author: Timfa2112
+  changes:
+    - type: Tweak
+      message: You now earn increased Goobcoin on servers with fewer players
+    - type: Tweak
+      message: You now earn reduced Goobcoin when a round is ended prematurely
+  id: 1400
+  time: '2025-07-17T08:37:41.0000000+00:00'
+- author: IrisTheAmped
+  changes:
+    - type: Tweak
+      message: >-
+        Muzzled headrevs can no longer convert. Stop trying to bypass speeches
+        freaks.
+    - type: Tweak
+      message: Muted headrevs can no longer convert. No more bullshit silent converts.
+    - type: Remove
+      message: >-
+        Mimes can no longer roll headrev as muted people cannot convert new
+        revs.
+  id: 1401
+  time: '2025-07-18T01:29:19.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed polymorphs teleporting your brain.
+  id: 1402
+  time: '2025-07-18T06:25:39.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Brizby/Baldzby plushie (sprites made by Zethine)
+  id: 1403
+  time: '2025-07-19T04:53:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: The nukie base now gets a magic mirror.
+  id: 1404
+  time: '2025-07-20T16:54:45.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Ian Suit should work now.
+  id: 1405
+  time: '2025-07-21T18:22:34.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Genpop exit turnstile on Fland now actually works
+    - type: Fix
+      message: Reinforced Plasma Windows are no longer walls
+  id: 1406
+  time: '2025-07-21T18:48:21.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Removed nukie magic mirror
+  id: 1407
+  time: '2025-07-21T18:52:29.0000000+00:00'
+- author: Anti - Speciesm department
+  changes:
+    - type: Tweak
+      message: All species now can drag stuff without taking up a hand slot.
+  id: 1408
+  time: '2025-07-21T18:53:52.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed power cells charge visuals.
+  id: 1409
+  time: '2025-07-21T18:55:40.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Mobs won't be able to leave footprints without gravity.
+  id: 1410
+  time: '2025-07-21T18:57:06.0000000+00:00'

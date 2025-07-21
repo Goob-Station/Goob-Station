@@ -104,4 +104,4 @@
     price: 100
   - type: Construction
     graph: makeshiftstunprod
-    node: stunprod
+    node: msstunprod

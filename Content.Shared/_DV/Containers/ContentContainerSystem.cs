@@ -1,9 +1,11 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared.Body.Organ;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Containers;
 
@@ -13,8 +15,6 @@ public sealed class ContentContainerSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-
-    private List<EntityUid> _found = [];
 
     public override void Initialize()
     {
@@ -28,7 +28,7 @@ public sealed class ContentContainerSystem : EntitySystem
         // Recursively drop all entities with MindContainerComponent in all containers on the entity
         // This prevents players from being sent to null-space when carried by a polymorphing entity
         var stack = new Stack<EntityUid>();
-        _found.Clear();
+        var found = new List<EntityUid>(); // Goobstation - Fuck you deltanedas.
         stack.Push(ent);
 
         while (stack.Count > 0)
@@ -40,9 +40,10 @@ public sealed class ContentContainerSystem : EntitySystem
 
             foreach (var entity in _container.GetAllContainers(currentUid).SelectMany(container => container.ContainedEntities))
             {
-                if (HasComp<MindContainerComponent>(entity))
+                if (HasComp<MindContainerComponent>(entity)
+                    && !HasComp<OrganComponent>(entity)) // Goobstation - Dont teleport brains/other organs.
                 {
-                    _found.Add(entity);
+                    found.Add(entity);
                     continue;
                 }
 
@@ -51,7 +52,7 @@ public sealed class ContentContainerSystem : EntitySystem
             }
         }
 
-        foreach (var entity in _found)
+        foreach (var entity in found) // Goobstation - Fuck you deltanedas.
             _transform.AttachToGridOrMap(entity);
     }
 }
