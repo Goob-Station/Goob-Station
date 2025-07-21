@@ -34,6 +34,8 @@
     - RobotTalk
   - type: HarpySinger
     ShutUpDamageThreshold: 5 # Punch does 5 damage
+  - type: Puller
+    needsHands: false
   - type: Instrument
     allowPercussion: true
     allowProgramChange: true

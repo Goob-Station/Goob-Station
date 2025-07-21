@@ -451,6 +451,7 @@
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
   - type: Puller
+    needsHands: false
   - type: Speech
     speechSounds: Alto
   - type: DamageForceSay
