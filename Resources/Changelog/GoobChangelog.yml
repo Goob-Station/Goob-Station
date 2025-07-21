@@ -12735,3 +12735,11 @@ Entries:
       message: Ian Suit should work now.
   id: 1405
   time: '2025-07-21T18:22:34.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Genpop exit turnstile on Fland now actually works
+    - type: Fix
+      message: Reinforced Plasma Windows are no longer walls
+  id: 1406
+  time: '2025-07-21T18:48:21.0000000+00:00'
