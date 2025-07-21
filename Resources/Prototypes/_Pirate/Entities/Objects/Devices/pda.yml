@@ -25,8 +25,8 @@
         tags:
         - Write
   - type: Icon
-    sprite: Objects/Devices/pda.rsi
-    state: pda-lawyer
+    sprite: _Pirate/Objects/Devices/pda.rsi
+    state: pda-admin-assistant
   - type: CartridgeLoader
     preinstalled:
       - CrewManifestCartridge
