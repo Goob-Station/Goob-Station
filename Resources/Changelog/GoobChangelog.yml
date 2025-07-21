@@ -12749,3 +12749,9 @@ Entries:
       message: Removed nukie magic mirror
   id: 1407
   time: '2025-07-21T18:52:29.0000000+00:00'
+- author: Anti - Speciesm department
+  changes:
+    - type: Tweak
+      message: All species now can drag stuff without taking up a hand slot.
+  id: 1408
+  time: '2025-07-21T18:53:52.0000000+00:00'
