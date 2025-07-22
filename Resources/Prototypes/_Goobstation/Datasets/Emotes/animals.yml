@@ -1,5 +1,0 @@
-- type: weightedRandom
-  id: MonkeyEmotes
-  weights:
-    fuck: 0.5
-    hey: 0.5

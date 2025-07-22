@@ -46,17 +46,6 @@
             - !type:KeyExistsPrecondition
               key: IdleTime
 
-    # Goob edit - random emotes
-    - tasks:
-      - !type:HTNPrimitiveTask
-        operator: !type:PickRandomEmoteOperator
-          key: Emote
-
-      - !type:HTNPrimitiveTask
-        operator: !type:EmoteKeyOperator
-          key: Emote
-    # Goob edit end
-
 # Spin to a random rotation and idle.
 - type: htnCompound
   id: IdleSpinCompound
