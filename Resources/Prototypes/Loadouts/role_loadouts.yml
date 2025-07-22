@@ -85,7 +85,6 @@
 # SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
@@ -104,12 +103,15 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Phooooooooooooooooooooooooooooooosphate <184853112+Phooooooooooooooooooooooooooooooosphate@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -125,6 +127,7 @@
   - CaptainOuterClothing
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -139,13 +142,14 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 # Silicons
-#- type: roleLoadout
-#  id: JobBorg
-#  nameDataset: roleloadout doesn't support both so need to update that first.
-#  canCustomizeName: true
+- type: roleLoadout
+  id: JobBorg
+  nameDataset: NamesBorg
+  canCustomizeName: true
 
 - type: roleLoadout
   id: JobStationAi
@@ -167,6 +171,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -180,6 +185,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -191,6 +197,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -205,6 +212,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -216,6 +224,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -228,6 +237,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -243,6 +253,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -258,6 +269,7 @@
   - Survival
   - Trinkets
   - JanitorPlunger
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -271,10 +283,12 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobClown
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - ClownHead
@@ -285,9 +299,11 @@
   - Glasses
   - SurvivalClown
   - Trinkets
+  - Animals
 
 - type: roleLoadout
   id: JobMime
+  canCustomizeName: true
   groups:
   - GroupTankHarness
   - MimeHead
@@ -299,6 +315,7 @@
   - Glasses
   - SurvivalMime
   - Trinkets
+  - Animals
 
 - type: roleLoadout
   id: JobMusician
@@ -311,6 +328,7 @@
   - Survival
   - Trinkets
   - Instruments
+  - Animals
   - GroupSpeciesBreathTool
 
 # Cargo
@@ -327,6 +345,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -341,6 +360,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -354,6 +374,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -369,6 +390,7 @@
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -379,6 +401,7 @@
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -393,6 +416,7 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -406,6 +430,7 @@
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 # Science
@@ -423,6 +448,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -440,6 +466,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -451,6 +478,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 # Security
@@ -461,12 +489,14 @@
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - HeadofSecurityShoes # Goobstation edit
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
+  - Animals
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -475,6 +505,7 @@
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SecurityNeck
   - SecurityBelt
   - WardenOuterClothing
@@ -482,6 +513,7 @@
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
+  - Animals
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -490,6 +522,7 @@
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SecurityOuterClothing
   - SecurityShoes
   - SecurityNeck
@@ -498,6 +531,7 @@
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
+  - Animals
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -512,6 +546,7 @@
   - SurvivalSecurity
   - Trinkets
   - SecurityStar
+  - Animals
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -519,10 +554,12 @@
   groups:
   - SecurityCadetJumpsuit
   - SecurityBackpack
+  - SecurityMelee # Goobstation
   - SurvivalSecurity
   - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolSecurity
 
 # Medical
@@ -538,9 +575,10 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -555,9 +593,10 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -566,9 +605,10 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -584,6 +624,7 @@
   - MedicalShoes
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -597,9 +638,10 @@
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Glasses
+  - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - Animals
   - GroupSpeciesBreathToolMedical
 
 # Wildcards
@@ -611,6 +653,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -623,6 +666,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 
@@ -635,6 +679,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -647,6 +692,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

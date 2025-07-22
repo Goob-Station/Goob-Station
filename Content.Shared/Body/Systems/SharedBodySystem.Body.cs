@@ -450,27 +450,13 @@ public partial class SharedBodySystem
     {
         var gibs = new HashSet<EntityUid>();
 
-        if (!Resolve(partId, ref part, logMissing: false))
+        if (!Resolve(partId, ref part, logMissing: false)
+            || part.Body is not null)
             return gibs;
-
-        if (part.Body is { } bodyEnt)
-        {
-            if (IsPartRoot(bodyEnt, partId, part: part))
-                return gibs;
-
-            DropSlotContents((partId, part));
-            foreach (var organ in GetPartOrgans(partId, part))
-            {
-                _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
-                    ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse * splatModifier,
-                    launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
-            }
-        }
 
         _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Drop, ref gibs,
                 playAudio: true, launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
                 launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
-
 
         if (HasComp<InventoryComponent>(partId))
         {

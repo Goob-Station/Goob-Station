@@ -33,6 +33,9 @@ ghost-role-information-lootbug-description = Try not to be butchered by tiders.
 ghost-role-information-homunculus-name = homunculus
 ghost-role-information-homunculus-description = Obey the one who has created you, if there are nowhere to be found, do as you will.
 
+ghost-role-information-huborg-name = Urist McBorg
+ghost-role-information-huborg-description = You are a disgusting abomination of a cyborg.
+
 ghost-role-information-c4-name = Composition C-4
 ghost-role-information-c4-description = Assist your user with bombing things.
 
@@ -63,6 +66,9 @@ ghost-role-information-inspector-description = Perform inspections on the statio
 
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 
+ghost-role-information-trevor-name = Trevor
+ghost-role-information-trevor-description = Securities trusted battle steed.
+
 # Half Life
 
 ghost-role-information-Gman-name = The G-Man
@@ -79,6 +85,10 @@ ghost-role-information-alien-tourist-description = Look around the station. Glor
 ghost-role-information-conquest-name = Conquest
 ghost-role-information-conquest-description = This station was given orders, they were given time. They were given more leeway than most.
 ghost-role-information-conquest-rules = Prepare this station for the arrival of the Viltrum Empire.
+
+# Justice Persona Role
+justice-role-name = Justice Persona
+justice-role-description = Help the HOS carry out arrests by shouting phrases for them while they deliver Justice.
 
 # Token Roles
 

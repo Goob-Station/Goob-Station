@@ -1,0 +1,130 @@
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: nail
+  parent: BaseItem
+  description: A tiny metal stick. It is probably used to fix walls.
+  id: Nail
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Engineering/nail.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: ProjectileDamageWhitelist
+    damage:
+      types:
+        Blunt: -8
+        Slash: -8
+        Piercing: -8
+        Heat: -8
+        Shock: -8
+        Structural: -8
+    ignoreResistances: true
+    whitelist:
+      tags:
+      - Wall # TODO: more types of nails for different structures
+  - type: MeleeWeapon
+    canHeavyAttack: false # How can you swing a nail
+    damage:
+      types:
+        Piercing: 12
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+  - type: Projectile
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Piercing: 3
+      armorPenetration: -1.75 # Very shitty against armor. Pro tip: target unarmored body parts
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.3,0.1,0.3"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: CartridgeAmmo # Total goida. This is needed to examine the damage. TODO: just make bullets themselves examinable
+    proto: Nail
+    deleteOnSpawn: true
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - Nail
+    - Trash
+  - type: Multihit # You hit with the nail first and then with the hammer, makes sense right?
+    multihitWhitelist:
+      tags:
+      - Hammer
+    conditions:
+    - !type:MultihitUserWhitelistEvent
+      whitelist:
+        components:
+        - EngineeringStaff
+
+- type: entity
+  name: nail (armor-piercing)
+  parent: [ Nail, BaseSyndicateContraband ]
+  description: A heavy nail designed to pierce through hard surfaces. Looks just like a regular nail, until it suddenly kills you.
+  id: NailArmorPiercing
+  components:
+  - type: CartridgeAmmo
+    proto: NailArmorPiercing
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 3
+      armorPenetration: 0.65
+  - type: ProjectileDamageWhitelist
+    damage: # Slightly worse for repairs
+      types:
+        Blunt: -6
+        Slash: -6
+        Piercing: -6
+        Heat: -6
+        Shock: -6
+        Structural: -6
+
+- type: entity
+  parent: BaseItem
+  id: MagazineBoxNail
+  name: nail box
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - Nail
+    proto: Nail
+    capacity: 80
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Engineering/nail_box.rsi
+    state: icon
+
+- type: entity
+  parent: [ MagazineBoxNail, BaseSyndicateContraband ]
+  id: MagazineBoxNailArmorPiercing
+  name: nail box (armor-piercing)
+  components:
+  - type: BallisticAmmoProvider
+    proto: NailArmorPiercing

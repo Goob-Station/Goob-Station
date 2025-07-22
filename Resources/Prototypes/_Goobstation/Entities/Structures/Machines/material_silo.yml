@@ -36,6 +36,9 @@
   - type: MaterialStorage
     ignoreColor: true
   - type: Silo
+  - type: DeviceLinkSink
+    ports:
+      - FillbotAnyItem
 
 - type: entity
   id: BaseSiloUtilizer
@@ -47,6 +50,7 @@
     range: 1000
   - type: DeviceLinkSink
     ports:
+      - FillbotAnyItem
       - MaterialSiloUtilizer
   - type: SiloUtilizer
   - type: MaterialStorage

@@ -79,5 +79,5 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 1.5
     knockdownTimeDelta: -1.5
-  - type: StaminaDamageResistance
-    coefficient: 0.7
+  - type: StaminaResistance
+    damageCoefficient: 0.7

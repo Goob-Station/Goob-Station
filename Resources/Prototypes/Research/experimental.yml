@@ -57,7 +57,6 @@
   - AnomalyScanner
   - AnomalyLocator
   - AnomalyLocatorWide
-  - BorgModuleAnomaly
   - APECircuitboard
   - AnomalyVesselCircuitboard
   # Goobstation R&D Console rework start
@@ -77,7 +76,6 @@
   cost: 5000
   recipeUnlocks:
   - NodeScanner
-  - BorgModuleArtifact
   - AnalysisComputerCircuitboard
   - ArtifactAnalyzerMachineCircuitboard
   # Goobstation R&D Console rework start
@@ -192,8 +190,6 @@
   - AlternativeResearch
   # Goobstation R&D Console rework end
 
-# Tier 3
-
 - type: technology
   id: GravityManipulation
   name: research-technology-gravity-manipulation
@@ -201,8 +197,8 @@
     sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
     state: base
   discipline: Experimental
-  tier: 3
-  cost: 15000 # Goobstation 10000 -> 15000
+  tier: 2
+  cost: 10000
   recipeUnlocks:
     - WeaponForceGun
     - WeaponTetherGun
@@ -212,6 +208,8 @@
   - AbnormalArtifactManipulation
   - AnomalyCoreHarnessing
   # Goobstation R&D Console rework end
+
+# Tier 3
 
 - type: technology
   id: QuantumLeaping
@@ -226,6 +224,23 @@
   - DeviceQuantumSpinInverter
   # Goobstation R&D Console rework start
   position: -5,2
+  technologyPrerequisites:
+  - GravityManipulation
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: BluespaceTimeManipulation
+  name: research-technology-bluespace-time-manipulation
+  icon:
+    sprite: Objects/Devices/desynchronizer.rsi
+    state: icon
+  discipline: Experimental
+  tier: 3
+  cost: 15000 # Goob 10000 -> 150000
+  recipeUnlocks:
+  - DeviceDesynchronizer
+  # Goobstation R&D Console rework start
+  position: -5,3
   technologyPrerequisites:
   - GravityManipulation
   # Goobstation R&D Console rework end

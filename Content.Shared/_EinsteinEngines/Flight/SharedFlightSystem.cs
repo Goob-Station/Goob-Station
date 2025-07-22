@@ -4,6 +4,9 @@
 // SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -21,7 +24,7 @@ public abstract class SharedFlightSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-    [Dependency] private readonly StaminaSystem _staminaSystem = default!;
+    [Dependency] private readonly SharedStaminaSystem _staminaSystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
 
@@ -31,7 +34,7 @@ public abstract class SharedFlightSystem : EntitySystem
 
         SubscribeLocalEvent<FlightComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<FlightComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<FlightComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
+        SubscribeLocalEvent<FlightComponent, RefreshWeightlessModifiersEvent>(OnRefreshWeightlessMoveSpeed);
     }
 
     #region Core Functions
@@ -54,7 +57,7 @@ public abstract class SharedFlightSystem : EntitySystem
         _actionsSystem.SetToggled(component.ToggleActionEntity, component.On);
         RaiseNetworkEvent(new FlightEvent(GetNetEntity(uid), component.On, component.IsAnimated));
         _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false);
-        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _movementSpeed.RefreshWeightlessModifiers(uid);
         UpdateHands(uid, active);
         Dirty(uid, component);
     }
@@ -102,12 +105,12 @@ public abstract class SharedFlightSystem : EntitySystem
         _virtualItem.DeleteInHandsMatching(uid, uid);
     }
 
-    private void OnRefreshMoveSpeed(EntityUid uid, FlightComponent component, RefreshMovementSpeedModifiersEvent args)
+    private void OnRefreshWeightlessMoveSpeed(EntityUid uid, FlightComponent component, ref RefreshWeightlessModifiersEvent args)
     {
         if (!component.On)
             return;
 
-        args.ModifySpeed(component.SpeedModifier, component.SpeedModifier);
+        args.ModifyAcceleration(component.SpeedModifier);
     }
 
     #endregion

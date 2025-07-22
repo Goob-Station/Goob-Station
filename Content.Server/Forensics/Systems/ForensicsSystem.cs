@@ -72,18 +72,23 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._EinsteinEngines.Forensics.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
@@ -105,6 +110,8 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
+using Content.Shared.Hands.Components;
+using Content.Shared.Inventory.Events;
 
 namespace Content.Server.Forensics
 {
@@ -118,10 +125,12 @@ namespace Content.Server.Forensics
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
+            SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
             SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit, after: new[] { typeof(BloodstreamSystem) });
+            SubscribeLocalEvent<ScentComponent, DidEquipEvent>(OnEquip); // Einstein Engines
             // The solution entities are spawned on MapInit as well, so we have to wait for that to be able to set the DNA in the bloodstream correctly without ResolveSolution failing
             SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit, after: new[] { typeof(BloodstreamSystem) });
+            SubscribeLocalEvent<ScentComponent, MapInitEvent>(OnScentInit, after: new[] { typeof(BloodstreamSystem) }); // Einstein Engines
 
             SubscribeLocalEvent<ForensicsComponent, BeingGibbedEvent>(OnBeingGibbed);
             SubscribeLocalEvent<ForensicsComponent, MeleeHitEvent>(OnMeleeHit);
@@ -146,9 +155,14 @@ namespace Content.Server.Forensics
             }
         }
 
-        private void OnInteract(EntityUid uid, FingerprintComponent component, ContactInteractionEvent args)
+        private void OnInteract(EntityUid uid, HandsComponent component, ContactInteractionEvent args)
         {
             ApplyEvidence(uid, args.Other);
+        }
+
+        private void OnEquip(EntityUid uid, ScentComponent component, DidEquipEvent args) // Einstein Engines
+        {
+            ApplyScent(uid, args.Equipment);
         }
 
         private void OnFingerprintInit(Entity<FingerprintComponent> ent, ref MapInitEvent args)
@@ -167,6 +181,17 @@ namespace Content.Server.Forensics
                 var ev = new GenerateDnaEvent { Owner = ent.Owner, DNA = ent.Comp.DNA };
                 RaiseLocalEvent(ent.Owner, ref ev);
             }
+
+        }
+
+        private void OnScentInit(EntityUid uid, ScentComponent component, MapInitEvent args) // Einstein Engines
+        {
+            component.Scent = GenerateFingerprint(length: 5);
+
+            var updatecomp = EnsureComp<ForensicsComponent>(uid);
+            updatecomp.Scent = component.Scent;
+
+            Dirty(uid, updatecomp);
         }
 
         private void OnBeingGibbed(EntityUid uid, ForensicsComponent component, BeingGibbedEvent args)
@@ -181,6 +206,7 @@ namespace Content.Server.Forensics
                 var partComp = EnsureComp<ForensicsComponent>(part);
                 partComp.DNAs.Add(dna);
                 partComp.CanDnaBeCleaned = false;
+                Dirty(part, partComp); // Einstein Engines
             }
         }
 
@@ -196,11 +222,13 @@ namespace Content.Server.Forensics
                         component.DNAs.Add(hitEntityComp.DNA);
                 }
             }
+            Dirty(uid, component); // Einstein Engines
         }
 
         private void OnRehydrated(Entity<ForensicsComponent> ent, ref GotRehydratedEvent args)
         {
             CopyForensicsFrom(ent.Comp, args.Target);
+            Dirty(args.Target, ent.Comp); // Einstein Engines
         }
 
         /// <summary>
@@ -310,6 +338,9 @@ namespace Content.Server.Forensics
             if (hasRemovableDNA || totalPrintsAndFibers > 0)
             {
                 var cleanDelay = cleanForensicsEntity.Comp.CleanDelay;
+                if (HasComp<ScentComponent>(target)) // EinsteinEngines
+                    cleanDelay += 30;
+
                 var doAfterArgs = new DoAfterArgs(EntityManager, user, cleanDelay, new CleanForensicsDoAfterEvent(), cleanForensicsEntity, target: target, used: cleanForensicsEntity)
                 {
                     NeedHand = true,
@@ -343,6 +374,7 @@ namespace Content.Server.Forensics
 
             targetComp.Fibers = new();
             targetComp.Fingerprints = new();
+            targetComp.Scent = string.Empty;
 
             if (targetComp.CanDnaBeCleaned)
                 targetComp.DNAs = new();
@@ -353,11 +385,35 @@ namespace Content.Server.Forensics
 
             if (TryComp<ResidueComponent>(args.Used, out var residue))
                 targetComp.Residues.Add(string.IsNullOrEmpty(residue.ResidueColor) ? Loc.GetString("forensic-residue", ("adjective", residue.ResidueAdjective)) : Loc.GetString("forensic-residue-colored", ("color", residue.ResidueColor), ("adjective", residue.ResidueAdjective)));
+
+            if (TryComp<ScentComponent>(args.Target, out var scentComp)) // Einstein Engines - Start
+            {
+                var generatedscent = GenerateFingerprint(length: 5);
+                scentComp.Scent = generatedscent;
+                targetComp.Scent = generatedscent;
+
+                if (args.Target is { Valid: true } target
+                    && _inventory.TryGetSlots(target, out var slotDefinitions))
+                    foreach (var slot in slotDefinitions)
+                    {
+                        if (!_inventory.TryGetSlotEntity(target, slot.Name, out var slotEnt))
+                            continue;
+
+                        EnsureComp<ForensicsComponent>(slotEnt.Value, out var recipientComp);
+                        recipientComp.Scent = generatedscent;
+
+                        Dirty(slotEnt.Value, recipientComp);
+                    }
+            }
+
+            if (args.Target is { Valid: true } targetuid)
+                Dirty(targetuid, targetComp); // Einstein Engines - End
+
         }
 
-        public string GenerateFingerprint()
+        public string GenerateFingerprint(int length = 16) // Einstein Engines - Length
         {
-            var fingerprint = new byte[16];
+            var fingerprint = new byte[Math.Clamp(length, 0, 255)]; // Einstein Engins
             _random.NextBytes(fingerprint);
             return Convert.ToHexString(fingerprint);
         }
@@ -385,12 +441,22 @@ namespace Content.Server.Forensics
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && !string.IsNullOrEmpty(fiber.FiberMaterial))
                     component.Fibers.Add(string.IsNullOrEmpty(fiber.FiberColor) ? Loc.GetString("forensic-fibers", ("material", fiber.FiberMaterial)) : Loc.GetString("forensic-fibers-colored", ("color", fiber.FiberColor), ("material", fiber.FiberMaterial)));
-
-                if (HasComp<FingerprintMaskComponent>(gloves))
-                    return;
             }
-            if (TryComp<FingerprintComponent>(user, out var fingerprint))
+
+            if (TryComp<FingerprintComponent>(user, out var fingerprint) && CanAccessFingerprint(user, out _))
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
+        }
+
+        private void ApplyScent(EntityUid user, EntityUid target) // Einstein Engines
+        {
+            if (HasComp<ScentComponent>(target))
+                return;
+
+            var component = EnsureComp<ForensicsComponent>(target);
+            if (TryComp<ScentComponent>(user, out var scent))
+                component.Scent = scent.Scent;
+
+            Dirty(target, component);
         }
 
         private void OnTransferDnaEvent(EntityUid uid, DnaComponent component, ref TransferDnaEvent args)
@@ -448,6 +514,23 @@ namespace Content.Server.Forensics
                 recipientComp.DNAs.Add(donorComp.DNA);
                 recipientComp.CanDnaBeCleaned = canDnaBeCleaned;
             }
+        }
+
+        /// <summary>
+        /// Checks if there's a way to access the fingerprint of the target entity.
+        /// </summary>
+        /// <param name="target">The entity with the fingerprint</param>
+        /// <param name="blocker">The entity that blocked accessing the fingerprint</param>
+        public bool CanAccessFingerprint(EntityUid target, out EntityUid? blocker)
+        {
+            var ev = new TryAccessFingerprintEvent();
+
+            RaiseLocalEvent(target, ev);
+            if (!ev.Cancelled && TryComp<InventoryComponent>(target, out var inv))
+                _inventory.RelayEvent((target, inv), ev);
+
+            blocker = ev.Blocker;
+            return !ev.Cancelled;
         }
 
         #endregion
