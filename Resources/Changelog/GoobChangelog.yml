@@ -12147,3 +12147,53 @@ Entries:
       message: Плюшева іграшка Брізбі/Болдзбі (спрайти від Zethine)
   id: 1403
   time: '2025-07-19T04:53:33.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: На базі ядерних оперативників тепер є магічне дзеркало.
+  id: 1404
+  time: '2025-07-20T16:54:45.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Костюм Іана тепер повинен працювати.
+  id: 1405
+  time: '2025-07-21T18:22:34.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Турнікет для виходу загального населення на Fland тепер справді працює.
+    - type: Fix
+      message: Укріплені плазмові вікна більше не є стінами.
+  id: 1406
+  time: '2025-07-21T18:48:21.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Видалено магічне дзеркало ядерних оперативників.
+  id: 1407
+  time: '2025-07-21T18:52:29.0000000+00:00'
+- author: Anti - Speciesm department
+  changes:
+    - type: Tweak
+      message: Тепер усі раси можуть перетягувати предмети, не займаючи слот руки.
+  id: 1408
+  time: '2025-07-21T18:53:52.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Виправлено візуальне відображення заряду батарей.
+  id: 1409
+  time: '2025-07-21T18:55:40.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Моби не зможуть залишати сліди за відсутності гравітації.
+  id: 1410
+  time: '2025-07-21T18:57:06.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Покращено механіку скручування шиї.
+  id: 1411
+  time: '2025-07-22T00:08:27.0000000+00:00'
