@@ -8,40 +8,46 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 job-name-futureagent = Агент будущего
-job-name-salvagediver = Salvage Diver
-job-name-ntr = Представитель ЦК
+job-name-salvagediver = Спасатель
+job-name-ntr = Представитель Нанотрейзен
 job-name-bs = Офицер Синего Щита
-job-name-overall = Комбинезон
-job-name-exec = Исполнительный доступ
+job-name-overall = Общее
+job-name-exec = Служебный доступ
 
 # Navy Stuff
 
-job-name-navyofficer = Офицер ВМФ
-job-name-navy-officer-undercover = Секретный офицер ВМФ
-job-name-navycaptain = Капитан ВМФ
-job-name-diplomat = Представитель Центрального Командования
-job-name-inspector = Инспектор Центрального Командования
+job-name-navyofficer = Офицер ЦекнтКом
+job-name-navy-officer-undercover = Офицер под прикрытием
+job-name-navycaptain = Капитан ВКФ
+job-name-diplomat = Дипломат Нанотрейзен
+job-name-inspector = Инспектор ЦК
 job-name-nct = Наставник ЦК
+
+# Syndicate
+
+job-name-highcommander = Офицер Синдиката
 
 # Half Life
 
 job-name-hecu = Агент HECU
-job-name-gman = Джи-Мэн
+job-name-gman = Г-Мэн
 
 # Misc
 
 job-name-conquest = Конквест
+job-name-mercenarycaptain = Капитан Наёмников
 
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
 JobBlueshieldOfficer = Офицер Синего Щита
-JobNanotrasenRepresentative = Представитель Корпорации
+JobNanotrasenRepresentative = Представитель Нанотрейзен
 JobNanotrasenCareerTrainer = Наставник ЦК
 JobHecuOperative = Агент HECU
-JobNavyOfficer = Офицер ВМФ
-JobNavyOfficerUndercover = Секретный офицер ВМФ
-JobNavyCaptain = Капитан ВМФ
-JobDiplomat = Представитель Центрального Командования
-JobGovernmentMan = Джи-Мэн
+JobNavyOfficer = Офицер ЦК
+JobNavyOfficerUndercover = Офицер под прикрытием
+JobNavyCaptain = Капитан ВКФ
+JobDiplomat = Дипломат Нанотрейзен
+JobGovernmentMan = Г-Мэн
 JobConquest = Конквест
-JobInspector = Инспектор Центрального Командования
+JobInspector = Инспектор ЦК
+JobMercenaryCaptain = Капитан Наёмников

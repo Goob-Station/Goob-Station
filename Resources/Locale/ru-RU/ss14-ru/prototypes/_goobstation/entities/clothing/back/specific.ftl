@@ -9,5 +9,5 @@ ent-ClothingBackpackStasisBatteryUnremoveableFilled = { ent-ClothingBackpackStas
 ent-ClothingBackpackMercFilledHECU = { ent-ClothingBackpackMerc }
     .suffix = Заполненный, HECU
     .desc = { ent-ClothingBackpackMerc.desc }
-ent-ClothingBackpackDuffelGman = странный сумка-даффл
-    .desc = Странная, невынимаемая сумка, способная содержать абсурдное количество предметов. Кажется невидимой для невооружённого глаза.
+ent-ClothingBackpackDuffelGman = странный вещмешок
+    .desc = Странная, неснимаемая сумка, способная содержать абсурдное количество предметов. Кажется невидимой для невооружённого глаза.

@@ -143,35 +143,68 @@ selectable-set-ert-pulse-description =
 
 # Выбор костюмов
 
-selectable-set-paramedic-voidsuit-name = медпунктовый боевой костюм
+selectable-set-paramedic-voidsuit-name = пустотный скафандр парамедика
 selectable-set-paramedic-voidsuit-desc =
-    Легкий костюм с минимальной защитой,
-    но с высокой скоростью передвижения.
-selectable-set-paramedic-modsuit-name = санитарный хардсьют
+    Пустотный скафандр, 
+    предназначенный для парамедиков.
+
+selectable-set-paramedic-modsuit-name = скафандр MOD «Санитар»
 selectable-set-paramedic-modsuit-desc =
-    Модульный хардсьют с усиленной защитой,
+    Модульный скафандр с усиленной защитой,
     чтобы выдержать хотя бы несколько выстрелов.
-selectable-set-security-voidsuit-name = охранный боевой костюм
+
+selectable-set-security-voidsuit-name = пустотный скафандр службы безопасности
 selectable-set-security-voidsuit-desc =
-    Легкий боевой костюм с встроенным защитным панцирем,
-    обеспечивающий среднюю защиту и мобильность для операций низкой интенсивности.
-selectable-set-security-modsuit-name = охранный хардсьют «солдат»
+    Специальный костюм, защищающий от опасной среды с низким давлением. 
+    Имеет дополнительный слой брони.
+
+selectable-set-security-modsuit-name = скафандр MOD «Солдат»
 selectable-set-security-modsuit-desc =
-    Модульный хардсьют с керамическими вставками,
+    Модульный скафандр с керамическими вставками,
     обеспечивающий большую защиту по сравнению с боевым костюмом,
-    но с меньшей мобильностью.
-selectable-set-headofsecurity-voidsuit-name = боевой костюм главы охраны
+    но меньшей мобильностью.
+
+selectable-set-headofsecurity-voidsuit-name = скафандр главы службы безопасности
 selectable-set-headofsecurity-voidsuit-desc =
     Легкий боевой костюм с вырезами в неважных местах,
     слегка увеличивающий защиту жизненно важных органов
-    и повышающий мобильность по сравнению с обычным охранным костюмом.
-selectable-set-headofsecurity-modsuit-name = хардсьют главы охраны «булварк»
+    и повышающий мобильность по сравнению с обычным охранным скафандром.
+
+selectable-set-headofsecurity-modsuit-name = скафандр MOD «Бастион»
 selectable-set-headofsecurity-modsuit-desc =
-    Модульный хардсьют с дорогой пластитановой броней для главы охраны.
+    Модульный скафандр с дорогой пластитановой броней для главы охраны.
     Оснащён ручным внутривенным стимулятором.
-selectable-set-engineering-voidsuit-name = инженерный боевой костюм
-selectable-set-engineering-voidsuit-desc = Легкий боевой костюм для ремонтных работ низкой интенсивности.
-selectable-set-engineering-modsuit-name = инженерный хардсьют «саппер»
+
+selectable-set-engineering-voidsuit-name = скафандр инженера
+selectable-set-engineering-voidsuit-desc = 
+    Специальный костюм, защищающий от опасной среды с низким давлением. 
+    Имеет радиационную защиту.
+
+selectable-set-engineering-modsuit-name = скафандр MOD «Сапёр»
 selectable-set-engineering-modsuit-desc =
-    Модульный хардсьют с усиленной взрывозащитой и заменённым большим уязвимым визором
+    Модульный скафандр с усиленной взрывозащитой и заменённым большим уязвимым визором
     на внешние камеры для лучшей защиты от взрывов и других угроз.
+
+selectable-set-captain-voidsuit-name = бронескафандр капитана
+selectable-set-captain-voidsuit-desc =
+    Легкий скафандр капитана, сшитый по индивидуальному заказу для официальных мероприятий, с легкой
+    броней для защиты во время спокойной смены, но при этом сохраняющий
+    обычные возможности для выхода в открытый космос.
+
+selectable-set-captain-modsuit-name = скафандр MOD «Магнат»
+selectable-set-captain-modsuit-desc =
+    Модульный скафандр, идеально отполированный, декорированный и бронированный как лучший из
+    лучших, оснащен специальным покрытием, охлаждающей жидкостью и бриллиантами, 
+    благодаря которым даже в самые трудные времена лидерство покажется вам сущим пустяком.
+
+selectable-set-research-director-voidsuit-name = экспериментальный исследовательский скафандр
+selectable-set-research-director-voidsuit-desc =
+    Легкий скафандр руководителя исследований, приспособленный для экспериментов, с легкой
+    броней для защиты от проникновения ассистентов, но при этом сохраняющий
+    обычные возможности для выхода в открытый космос.
+
+selectable-set-research-director-modsuit-name = скафандр MOD «Минерва»
+selectable-set-research-director-modsuit-desc =
+    Модульный скафандр идеально подходит для того, чтобы превратить вас в исследовательский танк,
+    даже самые опасные эксперименты не причинят вам вреда,
+    а самый худший из ассистентов дважды подумает, прежде чем вломиться в НИО.

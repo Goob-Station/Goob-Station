@@ -1,8 +1,8 @@
-ent-HyperFlash = hypercharged flash
-    .desc = An ultrabright flashbulb with a trigger. This one seems to be much more potent than an ordinary one.
+ent-HyperFlash = сверхзаряженная вспышка
+    .desc = Сверхяркая фотовспышка со спусковым механизмом. Эта лампа, по-видимому, гораздо более мощная, чем обычная.
     .suffix = DO NOT MAP
-ent-EnergyVortex = energy vortex
+ent-EnergyVortex = энергетический вихрь
     .desc = { "" }
-ent-PepperSpray = pepperspray
-    .desc = A small 50u canister of Oleoresin Capsaicin. Capable of blinding and stunning targets who aren't wearing protective gear.
-    .suffix = Filled
+ent-PepperSpray = перцовый балончик
+    .desc = Небольшая 50-граммовый балончик с живичным капсаицином. Способен ослеплять и оглушать цели, на которых нет защитного снаряжения.
+    .suffix = Заполненный
