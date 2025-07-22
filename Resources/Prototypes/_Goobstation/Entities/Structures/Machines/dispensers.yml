@@ -20,7 +20,7 @@
     maxCharge: 1000
     startingCharge: 0
   - type: ApcPowerReceiverBattery
-    idleLoad: 5
+    idleLoad: 65
     batteryRechargeRate: 20
     batteryRechargeEfficiency: 1.0
   - type: EnergyReagentDispenser #Keep on bottom for view's sake, format is reagentProto: Cost
