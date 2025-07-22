@@ -4,9 +4,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.SlaughterDemon;
+using Content.Server.Administration.Systems;
 using Content.Server.Body.Components;
-using Content.Server.Polymorph.Components;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Polymorph;
 using Robust.Server.Audio;
@@ -23,6 +24,8 @@ public sealed class SlaughterDemonSystem : EntitySystem
     [Dependency] private readonly SlaughterDevourSystem _slaughterDevour = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -64,8 +67,7 @@ public sealed class SlaughterDemonSystem : EntitySystem
 
     private void OnPolymorph(Entity<SlaughterDemonComponent> ent, ref PolymorphedEvent args)
     {
-        if (!TryComp<SlaughterDevourComponent>(args.NewEntity, out var component)
-            || !ent.Comp.IsLaughter)
+        if (!TryComp<SlaughterDevourComponent>(args.NewEntity, out var component))
             return;
 
         foreach (var entity in ent.Comp.ConsumedMobs)
@@ -98,14 +100,10 @@ public sealed class SlaughterDemonSystem : EntitySystem
         if (!TryComp<SlaughterDevourComponent>(demonUid, out var slaughterDevour))
             return;
 
-        if (ent.Comp.IsLaughter)
-        {
-            _container.Insert(pullingEnt, slaughterDevour.Container);
-        }
-        else
-        {
-            QueueDel(pullingEnt);
-        }
+        _container.Insert(pullingEnt, slaughterDevour.Container);
+
+        // Kill them for sure, just in case
+        _mobState.ChangeMobState(pullingEnt, MobState.Dead);
 
         _audio.PlayPvs(slaughterDevour.FeastSound, args.PreviousCoordinates);
 
@@ -138,10 +136,21 @@ public sealed class SlaughterDemonSystem : EntitySystem
 
     private void OnGib(Entity<SlaughterDemonComponent> ent, ref BeingGibbedEvent args)
     {
-        if (!ent.Comp.IsLaughter
-            || !TryComp<SlaughterDevourComponent>(ent.Owner, out var devour))
+        if (!TryComp<SlaughterDevourComponent>(ent.Owner, out var devour))
             return;
 
         _container.EmptyContainer(devour.Container);
+
+        // heal them if they were in the laughter demon
+        if (!ent.Comp.IsLaughter)
+            return;
+
+        foreach (var entity in ent.Comp.ConsumedMobs)
+        {
+            if (entity == null)
+                continue;
+
+            _rejuvenate.PerformRejuvenate(entity.Value);
+        }
     }
 }

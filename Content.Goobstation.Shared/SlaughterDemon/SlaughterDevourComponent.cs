@@ -23,6 +23,7 @@ public sealed partial class SlaughterDevourComponent : Component
     {
         DamageDict = new()
         {
+            { "Brute", -1000 },
             { "Blunt", -1000 },
             { "Slash", -1000 },
             { "Piercing", -1000 },
@@ -40,6 +41,7 @@ public sealed partial class SlaughterDevourComponent : Component
     {
         DamageDict = new()
         {
+            { "Brute", -50 },
             { "Blunt", -50 },
             { "Slash", -50 },
             { "Piercing", -50 },
@@ -57,6 +59,7 @@ public sealed partial class SlaughterDevourComponent : Component
     {
         DamageDict = new()
         {
+            { "Brute", -25 },
             { "Blunt", -25 },
             { "Slash", -25 },
             { "Piercing", -25 },
