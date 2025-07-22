@@ -29,7 +29,7 @@ namespace Content.Goobstation.Shared.Chemistry
     /// </summary>
     public sealed class SharedEnergyReagentDispenser
     {
-        public const string OutputSlotName = "beakerSlot";
+        public const string OutputSlotName = "energyBeakerSlot";
     }
 
     [Serializable, NetSerializable]
