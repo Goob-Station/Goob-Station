@@ -130,7 +130,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: SMGDrop
-  # Goobstation edit start
+  # Goobstation edit end
   - type: Multishot # Goobstation V
   - type: AltFireMelee
     attackType: Heavy

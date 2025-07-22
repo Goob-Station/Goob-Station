@@ -132,7 +132,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: RiflesDrop
-  # Goobstation edit start
+  # Goobstation edit end
 
 - type: entity
   name: L6 SAW

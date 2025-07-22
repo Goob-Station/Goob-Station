@@ -120,7 +120,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: SnipersDrop
-  # Goobstation edit start
+  # Goobstation edit end
 
 - type: entity
   name: minigun

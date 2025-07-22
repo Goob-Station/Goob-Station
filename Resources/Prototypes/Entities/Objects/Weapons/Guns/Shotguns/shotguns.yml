@@ -123,7 +123,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: ShotgunsDrop
-  # Goobstation edit start
+  # Goobstation edit end
   - type: AltFireMelee # Goobstation V
     attackType: Heavy
   - type: MeleeWeapon

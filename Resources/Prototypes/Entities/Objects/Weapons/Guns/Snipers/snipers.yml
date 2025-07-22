@@ -117,7 +117,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: SnipersDrop
-  # Goobstation edit start
+  # Goobstation edit end
   - type: MeleeWeapon # Goobstation V
     damage:
       types:

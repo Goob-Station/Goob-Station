@@ -186,7 +186,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: LasersDrop
-  # Goobstation edit start
+  # Goobstation edit end
   - type: AlwaysHot # Goobstation V
   - type: MeleeWeapon
     damage:

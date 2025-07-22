@@ -181,7 +181,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: PistolsDrop
-  # Goobstation edit start
+  # Goobstation edit end
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
