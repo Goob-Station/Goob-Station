@@ -36,6 +36,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Server.Chemistry.Components;
 using Content.Goobstation.Shared.Chemistry;
 using Content.Shared.Chemistry;
@@ -95,6 +96,9 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 
         private void SubscribeUpdateUiState<T>(Entity<EnergyReagentDispenserComponent> ent, ref T ev) =>
             UpdateUiState(ent);
+
+        private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args) =>
+            _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.BeakerSlot);
 
         private void UpdateUiState(Entity<EnergyReagentDispenserComponent> reagentDispenser)
         {
@@ -173,13 +177,6 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
         private void OnPowerChanged(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref PowerChangedEvent args) =>
             UpdateUiState(reagentDispenser);
 
-        private static float GetPowerCostForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
-        {
-            return comp.Reagents.TryGetValue(reagentId, out var cost)
-                ? cost * amount
-                : float.MaxValue;
-        }
-
         private void OnDispenseReagentMessage(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref EnergyReagentDispenserDispenseReagentMessage message)
         {
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedEnergyReagentDispenser.OutputSlotName);
@@ -211,10 +208,14 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 
         private void OnClearContainerSolutionMessage(Entity<EnergyReagentDispenserComponent> reagentDispenser, ref EnergyReagentDispenserClearContainerSolutionMessage message)
         {
-            var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedEnergyReagentDispenser.OutputSlotName);
-            if (outputContainer is not { Valid: true }
-                || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var solution, out _))
+            var outputContainerNullable = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedEnergyReagentDispenser.OutputSlotName);
+            if (outputContainerNullable is not { Valid: true } outputContainer
+                || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer, out var solution, out var soln))
                 return;
+
+            var refundedPower = soln.Sum(reagent => GetPowerCostForReagent(reagent.Reagent.Prototype, (int) reagent.Quantity, reagentDispenser));
+            if (refundedPower > 0)
+                _battery.AddCharge(reagentDispenser, refundedPower);
 
             _solutionContainerSystem.RemoveAllSolution(solution.Value);
             UpdateUiState(reagentDispenser);
@@ -224,7 +225,11 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
         private void ClickSound(Entity<EnergyReagentDispenserComponent> reagentDispenser) =>
             _audioSystem.PlayPvs(reagentDispenser.Comp.ClickSound, reagentDispenser, AudioParams.Default.WithVolume(-2f));
 
-        private void OnMapInit(Entity<EnergyReagentDispenserComponent> entity, ref MapInitEvent args) =>
-            _itemSlotsSystem.AddItemSlot(entity.Owner, SharedEnergyReagentDispenser.OutputSlotName, entity.Comp.BeakerSlot);
+        private static float GetPowerCostForReagent(string reagentId, int amount, EnergyReagentDispenserComponent comp)
+        {
+            return comp.Reagents.TryGetValue(reagentId, out var cost)
+                ? cost * amount
+                : float.MaxValue;
+        }
     }
 }
