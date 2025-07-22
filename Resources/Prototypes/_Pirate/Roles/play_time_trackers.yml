@@ -3,24 +3,27 @@
 
 - type: playTimeTracker
   id: JobCaptainInterdyne
-  
+
 - type: playTimeTracker
   id: JobInterdyneDeputy
-  
+
 - type: playTimeTracker
   id: JobInterdyneSecure
-  
+
 - type: playTimeTracker
   id: JobInterdyneShaftMiners
-  
+
 - type: playTimeTracker
   id: JobInterdyneEngineer
- 
+
 - type: playTimeTracker
   id: JobInterdyneMed
-  
+
 - type: playTimeTracker
   id: JobInterdynePilot
-  
+
 - type: playTimeTracker
   id: JobInterdyneService
+
+- type: playTimeTracker
+  id: JobAdminAssistant
