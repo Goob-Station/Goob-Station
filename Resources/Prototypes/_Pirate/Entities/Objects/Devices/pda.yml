@@ -1,8 +1,8 @@
 - type: entity
   parent: BasePDA
   id: AdminAssistantPDA
-  name: "адміністративний асистент КПК"
-  description: "По краях - каракулі ручкою, і на ній приклеєно кілька липких записок."
+  name: administrative assistant PDA
+  description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Devices/pda.rsi

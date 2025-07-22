@@ -14,8 +14,8 @@
 - type: entity
   parent: BaseItem
   id: AppraisalTool
-  name: "інструмент оцінки"
-  description: "Найкращий друг бінкаунтера, з квантовим зв'язком з галактичним ринком і здатністю оцінити навіть найскладніші предмети. Він також покаже вам, чи містить ящик завершену нагороду."
+  name: appraisal tool
+  description: A beancounter's best friend, with a quantum connection to the galactic market and the ability to appraise even the toughest items. It will also tell you if a crate contains a completed bounty.
   components:
   - type: Sprite
     sprite: Objects/Tools/appraisal-tool.rsi

@@ -23,10 +23,10 @@
 # Goob edit - energy bola
 
 - type: entity
-  name: "бола"
+  name: bola
   parent: [BaseItem, BaseSecurityContraband]
   id: BaseBola
-  description: "З'єднані разом за допомогою запасних наручників та металу."
+  description: Linked together with some spare cuffs and metal.
   abstract: true
   components:
   - type: Item
@@ -55,7 +55,7 @@
     dropCancelDelay: 0.005
 
 - type: entity
-  name: "бола"
+  name: bola
   parent: BaseBola
   id: Bola
   components:
@@ -92,8 +92,8 @@
         Blunt: 15
 
 - type: entity
-  name: "енергетична бола"
-  description: "Спеціалізована бола з твердого світла, призначена для захоплення втікачів-злочинців та допомоги в арештах."
+  name: energy bola
+  description: A specialized hardlight bola designed to ensnare fleeing criminals and aid in arrests.
   parent: BaseBola
   id: BolaEnergy
   components:
