@@ -56,7 +56,6 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: ItemSlots
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
