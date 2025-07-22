@@ -7,7 +7,7 @@
   description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
   components:
   - type: Machine
-    board: EnergyChemDispenserMachineCircuitboard #If I forget to add one I'm a dumbass
+    board: EnergyChemDispenserMachineCircuitboard
   - type: ActivatableUI
     key: enum.EnergyReagentDispenserUiKey.Key
   - type: UserInterface
