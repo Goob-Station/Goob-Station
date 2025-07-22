@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -8,12 +9,14 @@ using Content.Shared.Nyanotrasen.Holograms;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
 public abstract class SharedCloneProjectorSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -37,7 +40,8 @@ public abstract class SharedCloneProjectorSystem : EntitySystem
         // Don't be a shitter.
         foreach (var hitEntity in args.HitEntities)
         {
-            if (hitEntity != host)
+            if (hitEntity != host
+                || !_container.IsEntityOrParentInContainer(clone))
                 continue;
 
             args.BonusDamage = -args.BaseDamage;
@@ -46,6 +50,10 @@ public abstract class SharedCloneProjectorSystem : EntitySystem
 
     private void OnShotAttempted(Entity<HolographicCloneComponent> ent, ref ShotAttemptedEvent args)
     {
+        if (ent.Comp.HostProjector is not { } hostProjector
+            || !hostProjector.Comp.RestrictRangedWeapons)
+            return;
+
         _popupSystem.PopupClient(Loc.GetString("gun-disabled"), ent, ent);
         args.Cancel();
     }

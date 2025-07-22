@@ -39,15 +39,23 @@
 // SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -61,6 +69,7 @@ using Content.Server.EUI;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Humanoid;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Chat; // Einstein Engines - Languages
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Database;
@@ -78,6 +87,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 
 namespace Content.Server.Cloning;
 
@@ -87,7 +97,6 @@ namespace Content.Server.Cloning;
 /// </summary>
 public sealed partial class CloningSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -114,7 +123,7 @@ public sealed partial class CloningSystem : EntitySystem
         if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
 
-        if (HasComp<UncloneableComponent>(original) && !settings.ForceCloning) // Goob: enable forcecloning bypass for antagctrl admemes on vox/ipc
+        if (HasComp<UncloneableComponent>(original) && !HasComp<SiliconComponent>(original) && !settings.ForceCloning) // Goob: enable forcecloning bypass for antagctrl admemes on vox/ipc - Also goob, no cloning Silicons.
             return false; // Goobstation: Don't clone IPCs and voxes. It could be argued it should be in the CloningPodSystem instead
 
         var attemptEv = new CloningAttemptEvent(settings);
@@ -170,7 +179,7 @@ public sealed partial class CloningSystem : EntitySystem
 
         foreach (var componentName in componentsToCopy)
         {
-            if (!_componentFactory.TryGetRegistration(componentName, out var componentRegistration))
+            if (!Factory.TryGetRegistration(componentName, out var componentRegistration))
             {
                 Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
                 continue;
@@ -186,7 +195,7 @@ public sealed partial class CloningSystem : EntitySystem
 
         foreach (var componentName in componentsToEvent)
         {
-            if (!_componentFactory.TryGetRegistration(componentName, out var componentRegistration))
+            if (!Factory.TryGetRegistration(componentName, out var componentRegistration))
             {
                 Log.Error($"Tried to use invalid component registration for cloning: {componentName}");
                 continue;

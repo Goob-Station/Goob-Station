@@ -17,6 +17,7 @@
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -36,6 +37,7 @@ using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Shared.Flashbang;
@@ -73,7 +75,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -81,6 +82,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
+using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -92,6 +94,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
@@ -103,8 +106,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
-using Content.Shared.Medical;
-using Content.Shared.Rejuvenate;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -122,6 +123,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
@@ -170,6 +172,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChangelingIdentityComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<ChangelingIdentityComponent, UpdateMobStateEvent>(OnUpdateMobState);
         SubscribeLocalEvent<ChangelingIdentityComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<ChangelingIdentityComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<ChangelingIdentityComponent, TargetBeforeDefibrillatorZapsEvent>(OnDefibZap);
@@ -453,10 +456,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         var target = action.Target;
 
-        // can't get his dna if he doesn't have it!
-        if (!HasComp<AbsorbableComponent>(target) || HasComp<AbsorbedComponent>(target))
+        // can't sting a dried out husk
+        if (HasComp<AbsorbedComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("changeling-sting-fail"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-hollow"), uid, uid);
             return false;
         }
 
@@ -576,12 +579,18 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         || !TryComp<MetaDataComponent>(target, out var metadata)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
-            return false;
-
-        foreach (var storedDNA in comp.AbsorbedDNA)
         {
-            if (storedDNA.DNA != null && storedDNA.DNA == dna.DNA)
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail-lesser"), uid, uid);
+            return false;
+        }
+
+        foreach (var storedDNA in comp.AbsorbedHistory)
+        {
+            if (storedDNA.DNA != null && storedDNA.DNA == dna.DNA) // the dna NEEDS to be unique
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail-duplicate"), uid, uid);
                 return false;
+            }
         }
 
         var data = new TransformData
@@ -606,6 +615,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
         else
         {
+            comp.AbsorbedHistory.Add(data); // so we can't just come back and sting them again
+
             comp.AbsorbedDNA.Add(data);
             comp.TotalStolenDNA++;
         }
@@ -615,7 +626,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private ChangelingIdentityComponent? CopyChangelingComponent(EntityUid target, ChangelingIdentityComponent comp)
     {
+        EnsureComp<ChangelingComponent>(target);
+
         var newComp = EnsureComp<ChangelingIdentityComponent>(target);
+        newComp.AbsorbedHistory = comp.AbsorbedHistory;
         newComp.AbsorbedDNA = comp.AbsorbedDNA;
         newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
 
@@ -821,38 +835,35 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             RemoveAllChangelingEquipment(uid, comp);
     }
 
+    private void OnUpdateMobState(Entity<ChangelingIdentityComponent> ent, ref UpdateMobStateEvent args)
+    {
+        if (ent.Comp.IsInStasis)
+            args.State = MobState.Dead;
+    }
+
     private void OnDamageChange(Entity<ChangelingIdentityComponent> ent, ref DamageChangedEvent args)
     {
-        var target = args.Damageable;
-
-        if (!ent.Comp.IsInStasis)
-        {
-            var lowestStasisTime = ent.Comp.DefaultStasisTime;
-            var highestStasisTime = ent.Comp.MaxStasisTime; // 1.5 minutes
-            var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 2 minutes
-            var catastrophicDamage = 200f; // 100% dead
-
-            var damageTaken = float.Round(target.TotalDamage.Float()) / 2;
-            var damageToTime = MathF.Min(damageTaken, highestStasisTime);
-
-            var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
-
-            if (damageTaken < catastrophicDamage)
-                ent.Comp.StasisTime = newStasisTime;
-            else
-                ent.Comp.StasisTime = catastrophicStasisTime;
-        }
-
-        if (!TryComp<MobStateComponent>(ent, out var mobState))
+        if (ent.Comp.IsInStasis
+            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Dead, out var maxThreshold)
+            || !_mobThreshold.TryGetThresholdForState(ent, MobState.Critical, out var critThreshold))
             return;
 
-        if (mobState.CurrentState != MobState.Dead)
-            return;
+        var lowestStasisTime = ent.Comp.DefaultStasisTime; // 15 sec
+        var highestStasisTime = ent.Comp.MaxStasisTime; // 45 sec
+        var catastrophicStasisTime = ent.Comp.CatastrophicStasisTime; // 1 min
 
-        if (!args.DamageIncreased)
-            return;
+        var damage = args.Damageable;
+        var damageTaken = damage.TotalDamage;
 
-        target.Damage.ClampMax(200); // we never die. UNLESS??
+        var damageScaled = float.Round((float) (damageTaken / critThreshold.Value * highestStasisTime));
+
+        var damageToTime = MathF.Min(damageScaled, highestStasisTime);
+        var newStasisTime = MathF.Max(lowestStasisTime, damageToTime);
+
+        if (damageTaken < maxThreshold)
+            ent.Comp.StasisTime = newStasisTime;
+        else
+            ent.Comp.StasisTime = catastrophicStasisTime;
     }
 
     private void OnComponentRemove(Entity<ChangelingIdentityComponent> ent, ref ComponentRemove args)
@@ -876,6 +887,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         {
             ent.Comp.IsInStasis = false;
             ent.Comp.StasisTime = ent.Comp.DefaultStasisTime;
+
+            _mobState.UpdateMobState(ent);
         }
         else
         {

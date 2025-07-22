@@ -15,6 +15,7 @@ using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Body.Components;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -71,8 +72,9 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
         SubscribeLocalEvent<HisGraceComponent, HisGraceHungerChangedEvent>(UpdateHungerState);
 
+        SubscribeLocalEvent<HisGraceUserComponent, MapInitEvent>(OnUserInit);
+        SubscribeLocalEvent<HisGraceUserComponent, ComponentRemove>(OnUserRemoved);
         SubscribeLocalEvent<HisGraceUserComponent, RefreshMovementSpeedModifiersEvent>(OnModifierRefresh);
-        SubscribeLocalEvent<HisGraceUserComponent, AttackedEvent>(OnAttacked);
     }
 
     private void OnInit(Entity<HisGraceComponent> hisGrace, ref MapInitEvent args)
@@ -88,30 +90,33 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         Dirty(hisGrace, melee);
     }
 
+    private void OnUserInit(Entity<HisGraceUserComponent> user, ref MapInitEvent args)
+    {
+        if (!TryComp<StaminaComponent>(user, out var stamina))
+            return;
+
+        user.Comp.BaseStamCritThreshold = stamina.CritThreshold;
+        stamina.CritThreshold = user.Comp.HoldingStamCritThreshold;
+
+        Dirty(user, stamina);
+    }
+
+    private void OnUserRemoved(Entity<HisGraceUserComponent> user, ref ComponentRemove args)
+    {
+        if (TryComp<StaminaComponent>(user, out var stamina))
+            stamina.CritThreshold = user.Comp.BaseStamCritThreshold;
+    }
+
     private void OnEquipped(Entity<HisGraceComponent> hisGrace, ref GotEquippedHandEvent args)
     {
         hisGrace.Comp.IsHeld = true;
         hisGrace.Comp.Holder = args.User;
-
-        // no holding a dormant toolbox for infinite stam you goober
-        if (!TryComp<StaminaComponent>(args.User, out var stamina)
-            || hisGrace.Comp.CurrentState == HisGraceState.Dormant)
-            return;
-
-        hisGrace.Comp.BaseStamCritThreshold = stamina.CritThreshold;
-        stamina.CritThreshold = hisGrace.Comp.HoldingStamCritThreshold;
-
-        Dirty(args.User, stamina);
-
     }
 
     private void OnUnequipped(EntityUid uid, HisGraceComponent component, ref GotUnequippedHandEvent args)
     {
         component.IsHeld = false;
         component.Holder = null;
-
-        if (TryComp<StaminaComponent>(args.User, out var stamina))
-            stamina.CritThreshold = component.BaseStamCritThreshold;
     }
 
     private void OnMeleeHit(Entity<HisGraceComponent> hisGrace, ref MeleeHitEvent args)
@@ -120,25 +125,18 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             TryDevour(hisGrace, hitEntity);
     }
 
-    private void OnAttacked(Entity<HisGraceUserComponent> ent, ref AttackedEvent args)
-    {
-        if (!TryComp<HisGraceComponent>(ent.Comp.HisGrace, out var hisGrace))
-            return;
-
-        // awaiting avius martial art thingy, damage modifier sets are malicious.
-        /*
-        if (hisGrace.CurrentState == HisGraceState.Ascended)
-            args.Damage *= ent.Comp.AscensionDamageCoefficient
-        else
-            args.Damage *= ent.Comp.DefaultDamageCoefficient
-        */
-    }
-
     private void OnModifierRefresh(Entity<HisGraceUserComponent> hisGrace, ref RefreshMovementSpeedModifiersEvent args) =>
         args.ModifySpeed(hisGrace.Comp.SpeedMultiplier);
 
-    private void UpdateSpeedMultiplier(HisGraceUserComponent userComp, float bonus) =>
+    private void UpdateSpeedMultiplier(HisGraceComponent hisGrace, float bonus)
+    {
+        if (hisGrace.User is not { } user
+        || !TryComp<HisGraceUserComponent>(user, out var userComp))
+            return;
+
         userComp.SpeedMultiplier = userComp.BaseSpeedMultiplier + bonus;
+    }
+
 
     private void OnUse(Entity<HisGraceComponent> hisGrace, ref UseInHandEvent args)
     {
@@ -147,12 +145,12 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
         hisGrace.Comp.User = args.User;
         EnsureComp<HisGraceUserComponent>(args.User).HisGrace = hisGrace;
-        _speedModifier.RefreshMovementSpeedModifiers(args.User);
 
         var popUp = Loc.GetString("hisgrace-use-start");
         _popup.PopupEntity(popUp, args.User, args.User, PopupType.MediumCaution);
 
         ChangeState(hisGrace, HisGraceState.Peckish);
+        SetUnremovable(hisGrace, true);
     }
 
     private void OnEntityConsumed(Entity<HisGraceComponent> hisGrace, ref HisGraceEntityConsumedEvent args)
@@ -174,8 +172,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private void OnStateChanged(Entity<HisGraceComponent> hisGrace, ref HisGraceStateChangedEvent args)
     {
-        if (hisGrace.Comp.User is not { } user
-            || !TryComp<HisGraceUserComponent>(user, out var userComp))
+        if (hisGrace.Comp.User is not { } user)
             return;
 
         _speedModifier.RefreshMovementSpeedModifiers(user);
@@ -184,7 +181,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             return;
 
         ShowHungerChangePopup(hisGrace, args);
-        HandleHungerState(hisGrace, user, userComp, args.NewState);
+        HandleHungerState(hisGrace, user, args.NewState);
     }
 
     private bool HandleAscendedState(Entity<HisGraceComponent> hisGrace, HisGraceStateChangedEvent args)
@@ -216,7 +213,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         _popup.PopupEntity(Loc.GetString(messageKey), uid, popupType);
     }
 
-    private void HandleHungerState(Entity<HisGraceComponent> hisGrace, EntityUid user, HisGraceUserComponent userComp, HisGraceState newState)
+    private void HandleHungerState(Entity<HisGraceComponent> hisGrace, EntityUid user, HisGraceState newState)
     {
         switch (newState)
         {
@@ -224,11 +221,11 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
                 HandleDormantState(hisGrace);
                 break;
             case HisGraceState.Peckish:
-                HandlePeckishState(hisGrace, userComp);
+                HandlePeckishState(hisGrace);
                 break;
             case HisGraceState.Ravenous:
             case HisGraceState.Starving:
-                HandleRavenousState(hisGrace, userComp);
+                HandleRavenousState(hisGrace);
                 break;
             case HisGraceState.Death:
                 HandleDeathState(hisGrace, user);
@@ -243,17 +240,11 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         ReleaseContainedEntities(hisGrace);
     }
 
-    private void HandlePeckishState(Entity<HisGraceComponent> hisGrace, HisGraceUserComponent userComp)
-    {
-        SetUnremovable(hisGrace, false);
-        UpdateSpeedMultiplier(userComp, hisGrace.Comp.SpeedAddition);
-    }
+    private void HandlePeckishState(Entity<HisGraceComponent> hisGrace) =>
+        UpdateSpeedMultiplier(hisGrace, hisGrace.Comp.SpeedAddition);
 
-    private void HandleRavenousState(Entity<HisGraceComponent> hisGrace, HisGraceUserComponent userComp)
-    {
-        SetUnremovable(hisGrace, true);
-        UpdateSpeedMultiplier(userComp, hisGrace.Comp.SpeedAddition * 2);
-    }
+    private void HandleRavenousState(Entity<HisGraceComponent> hisGrace) =>
+        UpdateSpeedMultiplier(hisGrace, hisGrace.Comp.SpeedAddition * hisGrace.Comp.SpeedIncrementMultiplier);
 
     private void HandleDeathState(Entity<HisGraceComponent> hisGrace, EntityUid user)
     {
@@ -267,6 +258,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         _popup.PopupEntity(popup, user, user, PopupType.LargeCaution);
 
         ChangeState(hisGrace, HisGraceState.Dormant);
+        RemComp<HisGraceUserComponent>(user);
     }
 
 
@@ -301,6 +293,25 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         HandleUserDistance(hisGrace, user);
         HandleGroundAttacks(hisGrace, melee, xform);
         ProcessHungerTick(hisGrace, user);
+
+        // do healing
+        _damageable.TryChangeDamage(user,
+            hisGrace.Comp.Healing,
+            true,
+            false,
+            targetPart: TargetBodyPart.All,
+            splitDamage: SplitDamageBehavior.SplitEnsureAll,
+            ignoreBlockers: true);
+
+        // revive if dead
+        if (_state.IsDead(user)
+            && _threshold.TryGetDeadThreshold(user, out var deadThreshold)
+            && TryComp<DamageableComponent>(user, out var damageable)
+            && damageable.TotalDamage < deadThreshold
+            && hisGrace.Comp.IsHeld)
+        {
+            _state.ChangeMobState(user, MobState.Critical);
+        }
 
         hisGrace.Comp.NextTick = _timing.CurTime + hisGrace.Comp.TickDelay;
     }
@@ -366,8 +377,6 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     // increases hunger and heals user every tick
     private void ProcessHungerTick(Entity<HisGraceComponent> hisGrace, EntityUid user)
     {
-        _damageable.TryChangeDamage(user, hisGrace.Comp.Healing);
-
         hisGrace.Comp.Hunger += hisGrace.Comp.HungerIncrement;
 
         var ev = new HisGraceHungerChangedEvent();
@@ -391,6 +400,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         EnsureComp<PressureImmunityComponent>(user);
         EnsureComp<BreathingImmunityComponent>(user);
 
+        UpdateSpeedMultiplier(comp, comp.SpeedAddition * comp.SpeedIncrementMultiplier * comp.SpeedIncrementMultiplier);
+
         // le funny ascension
         _chat.DispatchGlobalAnnouncement(Loc.GetString("hisgrace-ascension-announcement"), Name(user), true, comp.AscendSound, Color.PaleGoldenrod);
     }
@@ -398,10 +409,10 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     private void ChangeState(Entity<HisGraceComponent> hisGrace, HisGraceState newState)
     {
         // self explanatory
-        var oldstate = hisGrace.Comp.CurrentState;
+        var oldState = hisGrace.Comp.CurrentState;
         hisGrace.Comp.CurrentState = newState;
 
-        var ev = new HisGraceStateChangedEvent(newState, oldstate);
+        var ev = new HisGraceStateChangedEvent(newState, oldState);
         RaiseLocalEvent(hisGrace, ref ev);
     }
 
@@ -411,7 +422,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             || !_containerSystem.Insert(target, hisGrace.Comp.Stomach) )
             return false;
 
-        // Hunger gained from eating an entity is 20% of their
+        // Hunger gained from eating an entity is 20% of their crit state.
         hisGrace.Comp.Hunger -= GetHungerValue(target, hisGrace).Value;
 
         var devourPopup = Loc.GetString("hisgrace-devour", ("target", Name(target)));
@@ -425,7 +436,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             var ev = new HisGraceEntityConsumedEvent();
             RaiseLocalEvent(hisGrace, ref ev);
         }
-    
+
         return true;
     }
 
@@ -443,7 +454,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     {
         if (enabled)
         {
-            EnsureComp<UnremoveableComponent>(uid);
+            EnsureComp<UnremoveableComponent>(uid).DeleteOnDrop = false;
             EnsureComp<JitteringComponent>(uid);
         }
         else

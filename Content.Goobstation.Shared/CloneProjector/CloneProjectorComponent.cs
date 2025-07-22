@@ -1,8 +1,10 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Whitelist;
@@ -36,6 +38,24 @@ public sealed partial class CloneProjectorComponent : Component
     [DataField]
     public TimeSpan StunDuration = TimeSpan.FromSeconds(8);
 
+    /// <summary>
+    /// Should the host be stunned when the clone is destroyed?
+    /// </summary>
+    [DataField]
+    public bool DoStun = true;
+
+    /// <summary>
+    ///  How much damage does the host take when the clone is destroyed?
+    /// </summary>
+    [DataField]
+    public DamageSpecifier DamageOnDestroyed = new();
+
+    /// <summary>
+    /// Should the clone be prevented from using ranged weapons?
+    /// </summary>
+    [DataField]
+    public bool RestrictRangedWeapons = true;
+
     [DataField]
     public ComponentRegistry? AddedComponents;
 
@@ -53,6 +73,12 @@ public sealed partial class CloneProjectorComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? ClonedItemWhitelist;
+
+    /// <summary>
+    /// If the entity using this projector matches the whitelist, prevent use.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? UserBlacklist;
 
     [DataField]
     public ProtoId<DamageModifierSetPrototype> CloneDamageModifierSet ="LivingLight";
@@ -77,6 +103,15 @@ public sealed partial class CloneProjectorComponent : Component
 
     [DataField]
     public LocId UnequippedMessage = "gemini-projector-removed";
+
+    [DataField]
+    public LocId GhostRoleName = "ghost-role-information-gemini-clone-name";
+
+    [DataField]
+    public LocId GhostRoleDescription = "ghost-role-information-gemini-clone-description";
+
+    [DataField]
+    public LocId GhostRoleRules = "ghost-role-information-familiar-rules";
 
     /// <summary>
     /// How much the strip time should be increased by.

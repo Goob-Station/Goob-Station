@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <bapt.buriot@gmail.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
@@ -128,8 +130,8 @@
   name: selectable-set-syndicate-spy-name
   description: selectable-set-syndicate-spy-description
   sprite:
-    sprite: Objects/Devices/jammer.rsi
-    state: jammer
+    sprite: Clothing/Mask/gas.rsi
+    state: icon
   content:
   - EncryptionKeySyndie
   - ClothingHandsChameleonThief
@@ -137,7 +139,8 @@
   - ClothingMaskGasVoiceChameleon
   - AgentIDCard
   - HypopenBox
-  - RadioJammer
+  - ChemistryBottleNocturine
+  - CameraBug
   - StealthBox
   - SyndicateJawsOfLife
 
@@ -156,7 +159,7 @@
   - MagazinePistolCaselessRifle
   - CQCManual
   - ClothingOuterArmourInvisibleSyndie
-  - ClothingShoesChameleonNoSlips
+  - ClothingShoesBootsJack
   - CigPackSyndicate
   - MedkitCombatFilled
   - ClothingEyesGlassesSunglasses
@@ -172,7 +175,7 @@
     state: icon
   content:
   - RadioImplanter
-  - EmpImplanter
+  - NutrimentImplanter
   - ScramImplanter
   - FreedomImplanter
   - SmokeImplanter
@@ -194,9 +197,9 @@
   - AntimovCircuitBoard
   - AccessBreaker
   - Emag
-  - CameraBug
+  - RadioJammer
   - ToolboxSyndicateFilled
-  - ClothingUniformJumpsuitAtmosSyndie
+  - ExperimentalSyndicateTeleporter
   - ClothingEyesGlassesOutlawGlasses
   - BinaryImplanter
 
@@ -211,8 +214,7 @@
   - EncryptionKeySyndie
   - EnergySwordDouble
   - StimkitFilled
-  - DrinkSpaceGlue
-  - ClothingShoesBootsJack
+  - ClothingShoesChameleonNoSlips
   - ClothingOuterArmorCloakSith # this is armor
 
 - type: selectableSet
@@ -290,12 +292,46 @@
     - DehydratedSpaceCarp # 3
     - DehydratedSpaceCarp # 4
     - DehydratedSpaceCarp # 5
-    - DehydratedSpaceCarp # 6
-    - DehydratedSpaceCarp # 7
-    - DehydratedSpaceCarp # 8
-    - DehydratedSpaceCarp # 9
-    - DehydratedSpaceCarp # 10
+    - DehydratedHolocarp # 1
+    - DehydratedHolocarp # 2
+    - DehydratedHolocarp # 3
+    - DehydratedHolocarp # 4
+    - DehydratedHolocarp # 5
+    - ClothingOuterHardsuitCarp
     - FireExtinguisher
+
+- type: selectableSet
+  id: SyndicateSusSet
+  name: selectable-set-syndicate-sus-name
+  description: selectable-set-syndicate-sus-description
+  sprite:
+    sprite: _White/Objects/Weapons/Melee/Daggers/betrayal_knife.rsi
+    state: icon
+  content:
+  - EncryptionKeySyndie
+  - BetrayalKnife
+  - MiniatureEnergyCrossbow
+  - ClothingUniformJumpsuitAtmosSyndieAdvanced
+  - ClothingBackpackDuffelSyndicateStealthHardsuitBundle
+
+#- type: selectableSet
+#  id: SyndicateBuilderSet
+#  name: selectable-set-syndicate-builder-name
+#  description: selectable-set-syndicate-builder-description
+#  sprite:
+#    sprite: _Goobstation/Structures/Machines/tc_printer.rsi
+#    state: display
+#  content:
+#  - EncryptionKeySyndie
+#  - TCminerFlatpack
+#  - Multitool
+#  - ToolboxElectricalTurretFilled
+#  - ToolboxElectricalTurret
+#  - SheetSteel # 30
+#  - SheetSteel # 60
+#  - SheetPlasteel # 30
+#  - SheetPlasteel # 60
+#  - PowerCellSmall
 
 # Blueshield officer
 
@@ -321,11 +357,11 @@
 
 - type: selectableSet
   id: BSOCQCSet
-  name: selectable-set-blueshield-cqc-name
-  description: selectable-set-blueshield-cqc-description
+  name: selectable-set-blueshield-dragon-name
+  description: selectable-set-blueshield-dragon-description
   sprite:
-    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
-    state: icon-alt
+    sprite: _Goobstation/Objects/Misc/martial_arts.rsi
+    state: dragon
   content:
     - BSOManual
 

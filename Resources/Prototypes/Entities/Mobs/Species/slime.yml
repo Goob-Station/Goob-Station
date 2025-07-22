@@ -78,7 +78,6 @@
   # they like eat it idk lol
   - type: Storage
     clickInsert: false
-    openOnActivate: false
     grid:
     - 0,0,1,2
     maxItemSize: Large
@@ -119,6 +118,13 @@
       Male: MaleSlime
       Female: FemaleSlime
       Unsexed: MaleSlime
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - Bubblish
+    understands:
+    - TauCetiBasic
+    - Bubblish
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime

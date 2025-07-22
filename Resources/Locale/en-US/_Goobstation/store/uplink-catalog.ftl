@@ -98,7 +98,7 @@ uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
 uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
 
 uplink-WSPR-name = WSPR
-uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets, which do more damage to flesh but fair worse against armour.
+uplink-WSPR-desc = This rifle operates silently and uses 9.5mm caseless magnum hollow-point bullets, which are more effective against flesh but less effective against armor.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
@@ -112,7 +112,10 @@ uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 uplink-m90-name = M-90
 uplink-m90-desc = An M-90 combat rifle.
 
-uplink-syndicate-disabler-name = syndicate disabler
+uplink-estoc-name = Estoc
+uplink-estoc-desc = A designated assault rifle, fitted with a mid-range optic for longer-range combat.
+
+uplink-syndicate-disabler-name = Syndicate Disabler
 uplink-syndicate-disabler-desc = An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
 
 uplink-dualetta-bundle-name = Dualetta Bundle
@@ -231,6 +234,9 @@ uplink-lollypop-bundle-desc = Contains 9 completely random lollypops. What could
 uplink-lollypop-bundle-big-name = Donk Co. Candy Bundle
 uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What could they contain?
 
+uplink-medical-beam-gun-name = Medical Beam Gun
+uplink-medical-beam-gun-desc = Heal your teammates with this new device! Runs on internal battery, and automatically recharges after discharging. You can heal only one teammate at once.
+
 uplink-advanced-combat-medipen-name = Advanced Combat Medipen
 uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing chemicals that will rapidly heal most types of damage taken in a fight.
 
@@ -291,10 +297,13 @@ uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy 
 # Martial Arts
 
 uplink-cqc-name = CQC Manual
-uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. Does not restrict weapon usage. Your disarms will inflict some stamina damage while making people temporarily slur their words, your grabs will immobilize for a second making it easier to reinforce them, your harm attacks will deal moderate stamina damage, and you will get a set of combos that allow you to efficiently knockdown, disarm or stun your opponent. You can find more information on CQC and its combos here.
+uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. CQC is primarily an aggressive fighting style that focuses on dealing stamina damage to targets - designed to quickly subdue opponents and overpower them with pressure technique and crushing blows.
+
+uplink-capoeira-name = Capoeira Manual
+uplink-capoeira-desc = A manual that teaches a single user Capoeira before self-destructing. Capoeira focuses on swift attacks that link into flowing combos, with each move faster and harder than the last one, fueled by relentless momentum.
 
 uplink-sleeping-carp-name = Way of the Sleeping Carp Scroll
-uplink-sleeping-carp-desc = This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
+uplink-sleeping-carp-desc = This single-use scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
 
 
 # Misc
@@ -313,9 +322,6 @@ uplink-undetermined-bundle-desc = This crate comes with three random bundles and
 
 uplink-energy-pickaxe-name = Energy Pickaxe
 uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
-
-uplink-tcminer-name = Telecrystal miner
-uplink-tcminer-desc = Contains a flatpack with telecrystal miner, A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered. Requires 10kW of energy and a connection to the primary station's grid. Multitool not included.
 
 uplink-bloodred-casette-name = Bloodred Casette Player
 uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!

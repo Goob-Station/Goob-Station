@@ -99,6 +99,9 @@
 uplink-pistol-viper-name = Viper
 uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses pistol magazines (.35 auto).
 
+uplink-estoc-bundle-name = Estoc DMR
+uplink-estoc-bundle-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat. Bundled with two rifle magazines (.20 rifle).
+
 uplink-revolver-python-name = Python
 uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with armor-piercing rounds. Uses .45 magnum.
 
@@ -355,6 +358,9 @@ uplink-surplus-bundle-desc = Contains 250 telecrystals worth of completely rando
 
 uplink-super-surplus-bundle-name = Super Surplus Crate
 uplink-super-surplus-bundle-desc = Contains 625 telecrystals worth of completely random Syndicate items.
+
+uplink-starter-kit-name = Basic Operative Bundle
+uplink-starter-kit-desc = Contains 200 telecrystals of basic operative gear. For those operatives who just don't know what they should buy.
 
 # Tools
 uplink-toolbox-name = Toolbox
