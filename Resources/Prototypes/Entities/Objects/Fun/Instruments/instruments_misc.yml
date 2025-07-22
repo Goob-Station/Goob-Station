@@ -70,9 +70,13 @@
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/phone_pickup.ogg
+      params:
+        volume: -2
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/_Goobstation/Items/handling/phone_drop.ogg
+      params:
+        volume: -2
   # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
@@ -206,7 +210,7 @@
     verbImage: null
 
    #Goobstation
-- type: entity 
+- type: entity
   parent: [BaseHandheldInstrument, Clothing, BaseSyndicateContraband]
   id: BloodredCasette
   name: bloodred casette player

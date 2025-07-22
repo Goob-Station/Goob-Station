@@ -31,12 +31,18 @@
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/cloth_pickup.ogg
+      params:
+        volume: -4
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/_Goobstation/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
   # Goobstation edit end
   - type: Sprite
     state: icon

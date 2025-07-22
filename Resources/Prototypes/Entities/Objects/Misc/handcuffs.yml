@@ -113,9 +113,13 @@
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/other/Handcuffs/pickup.ogg
+      params:
+        volume: -4
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/_Goobstation/Items/other/Handcuffs/drop.ogg
+      params:
+        volume: -4
   # Goobstation edit end
   - type: Item
     size: Small

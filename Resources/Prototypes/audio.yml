@@ -30,7 +30,7 @@
   id: Holy
   sound:
     params:
-      volume: -6
+      volume: -8
     collection: AmbienceHoly
   rules: NearPrayable
   priority: 4
