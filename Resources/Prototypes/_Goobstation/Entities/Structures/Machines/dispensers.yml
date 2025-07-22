@@ -1,11 +1,71 @@
 
 - type: entity
   id: EnergyChemDispenser
-  parent: ChemDispenserEmpty
+  parent: SmallConstructibleMachine
   name: energy chemical dispenser
   suffix: energy
   description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
+  placement:
+    mode: SnapgridCenter
   components:
+  - type: Sprite
+    sprite: Structures/dispensers.rsi
+    state: industrial-working
+    snapCardinals: true
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25, -0.4, 0.25, 0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: Anchorable
+  - type: Pullable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      beakerSlot: !type:ContainerSlot
+      storagebase: !type:Container
+  - type: StaticPrice
+    price: 1000
+  - type: WiresPanel
+  - type: GuideHelp
+    guides:
+    - Chemicals
+    - Chemist
+  - type: StealTarget
+    stealGroup: ChemDispenser
   - type: Machine
     board: EnergyChemDispenserMachineCircuitboard
   - type: ActivatableUI
@@ -24,6 +84,11 @@
     batteryRechargeRate: 20
     batteryRechargeEfficiency: 1.0
   - type: EnergyReagentDispenser #Keep on bottom for view's sake, format is reagentProto: Cost
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
     reagents:
       Aluminium: 5
       Carbon: 3
