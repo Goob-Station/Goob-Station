@@ -9,11 +9,11 @@ particle-accelerator-control-menu-alarm-control = СИЛА ЧАСТИНОК
 particle-accelerator-control-menu-scan-parts-button = Сканувати Деталі
 particle-accelerator-control-menu-check-containment-field-warning = Перед початком роботи переконайтеся, що поле утримання активне
 particle-accelerator-control-menu-foo-bar-baz = ФУ-БАР-БАЗ
-particle-accelerator-control-menu-status-label = Статус: {$status}
+particle-accelerator-control-menu-status-label = Статус:
 particle-accelerator-control-menu-status-operational = Робочий
 particle-accelerator-control-menu-status-incomplete = Незавершений
 particle-accelerator-control-menu-draw-not-available = Тяга: Н/В
-particle-accelerator-control-menu-draw = Тяга: {$watts}/{$lastReceive}
+particle-accelerator-control-menu-draw = Тяга:
 particle-accelerator-control-menu-alarm-control-1 = [bold][color=red]ПОТУЖНІСТЬ ЧАСТИНОК[/bold][/color]
 particle-accelerator-control-menu-alarm-control-2 = [bold][color=red]ЗБІЙ ОБМЕЖУВАЧА[/bold][/color]
 particle-accelerator-control-menu-status-unknown = [font="Monospace"][color=red]Невідомо[/color][/bold]
