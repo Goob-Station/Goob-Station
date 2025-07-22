@@ -15,31 +15,31 @@
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
   - type: Battery
-    maxCharge: 2000
+    maxCharge: 1000
     startingCharge: 0
   - type: ApcPowerReceiverBattery
     idleLoad: 5
     batteryRechargeRate: 20
-    batteryRechargeEfficiency: 0.0
+    batteryRechargeEfficiency: 1.0
   - type: EnergyReagentDispenser #Keep on bottom for view's sake, format is reagentProto: Cost
     reagents:
       Aluminium: 5
-      Carbon: 5
+      Carbon: 3
       Chlorine: 5
       Copper: 5
-      Ethanol: 5
-      Fluorine: 5
-      Hydrogen: 5
-      Iodine: 5
+      Ethanol: 8
+      Fluorine: 8
+      Hydrogen: 3
+      Iodine: 8
       Iron: 5
-      Lithium: 5
-      Mercury: 5
-      Nitrogen: 5
-      Oxygen: 5
+      Lithium: 12
+      Mercury: 12
+      Nitrogen: 3
+      Oxygen: 3
       Phosphorus: 5
-      Potassium: 5
-      Radium: 5
-      Silicon: 5
+      Potassium: 12
+      Radium: 15
+      Silicon: 3
       Sodium: 5
       Sugar: 5
       Sulfur: 5
