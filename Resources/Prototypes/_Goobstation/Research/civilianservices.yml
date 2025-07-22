@@ -77,7 +77,7 @@
   recipeUnlocks:
   - MechEquipmentHonkerBananaMortar
   - MechEquipmentHonkerMousetrapMortar
-  position: 0,6
+  position: 0,7
   technologyPrerequisites:
   - HONKMech
 
