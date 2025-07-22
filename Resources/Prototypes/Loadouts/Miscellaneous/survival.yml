@@ -188,6 +188,17 @@
     - Dwarf
     - Human
     - Reptilian
+    # Goobstation - Custom Races
+    - Vulpkanin
+    - Felinid
+    - Harpy
+    - Gingerbread
+    - Rodentia
+    - Yowie
+    - Oni
+    - Resomi
+    - Tajaran
+    - Shadowkin
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth
@@ -221,7 +232,7 @@
     proto: OxygenBreatherMimeMoth
   storage:
     back:
-    - BoxMimeMoth
+    - BoxMimeMothSlots # Goobstation - Slots Bases Survival Boxes
 
 # Engineering / Extended
 - type: loadout

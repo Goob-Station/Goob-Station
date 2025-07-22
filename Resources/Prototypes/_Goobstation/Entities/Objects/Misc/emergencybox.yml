@@ -463,6 +463,28 @@
 
 - type: entity
   parent: BoxSurvivalSlots
+  id: BoxMimeMothSlots
+  suffix: Mime, Emergency Moth
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodBreadBaguetteCotton
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlots
   id: BoxMimeSlotsNitrogen
   suffix: Mime, Emergency N2
   components:
