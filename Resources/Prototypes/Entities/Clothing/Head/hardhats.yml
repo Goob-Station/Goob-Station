@@ -35,14 +35,6 @@
   id: ClothingHeadHatHardhatBase
   abstract: true
   components:
-  # Goobstation edit start
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/_Goobstation/Items/handling/helmet_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound:
-      path: /Audio/_Goobstation/Items/handling/helmet_drop.ogg
-  # Goobstation edit end
   - type: Sprite
     layers:
     - state: icon
