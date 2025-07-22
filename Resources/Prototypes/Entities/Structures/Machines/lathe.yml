@@ -337,12 +337,14 @@
       input: AutomationSlotMaterials
       output: null
   - type: SpamEmitSound # Goobstation - random lathe sounds
-    minInterval: 180
-    maxInterval: 480
+    minInterval: 300
+    maxInterval: 900
     sound:
       collection: RandomLatheSounds
       params:
-        volume: -7 # Ambient
+        volume: -12 # Ambient
+        maxDistance: 10
+        variation: 0.05
   - type: SpamEmitSoundRequirePower # Goobstation
 
 # a lathe that can be sped up with space lube / slowed down with glue
