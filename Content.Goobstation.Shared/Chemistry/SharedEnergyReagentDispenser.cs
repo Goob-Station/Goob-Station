@@ -78,14 +78,9 @@ namespace Content.Goobstation.Shared.Chemistry
     }
 
     [Serializable, NetSerializable]
-    public sealed class EnergyReagentDispenserDispenseReagentMessage : BoundUserInterfaceMessage
+    public sealed class EnergyReagentDispenserDispenseReagentMessage(string reagentId) : BoundUserInterfaceMessage
     {
-        public readonly string ReagentId;
-
-        public EnergyReagentDispenserDispenseReagentMessage(string reagentId)
-        {
-            ReagentId = reagentId;
-        }
+        public readonly string ReagentId = reagentId;
     }
 
     [Serializable, NetSerializable]
