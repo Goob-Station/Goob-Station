@@ -32,6 +32,7 @@
   - LedLightBulb
   - DimLightBulb
   - WarmLightBulb
+  - FloodlightEmpty # Corvax-Goob-Floodlight
 
 - type: latheRecipePack
   id: PowerCellsStatic
