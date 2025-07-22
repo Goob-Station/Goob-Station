@@ -252,6 +252,16 @@
         - StationAiHeld
       mindRoles:
       - MindRoleMalfAI
+      components:
+      - type: UserInterface
+        interfaces:
+          enum.StoreUiKey.Key:
+            type: StoreBoundUserInterface
+      - type: Store
+        categories:
+        - MalfAIAbilities
+        currencyWhitelist:
+        - ProcessingPower
   # - type: AntagObjectives - TODO
   #   objectives:
   - type: Tag

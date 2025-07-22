@@ -1,0 +1,12 @@
+- type: listing
+  id: MachineOverload
+  name: malf-ai-overload-name
+  description: malf-ai-overload-desc
+  productAction: ActionMalfAIOverload
+  cost:
+    ProcessingPower: 10
+  categories:
+  - MalfAIAbilities
+  # conditions:
+  # - !type:ListingLimitedStockCondition
+  #   stock: 1

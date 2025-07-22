@@ -3,6 +3,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Station AI
 - type: entity
   id: ActionOpenCameraWarpMenu
   name: Jump to camera
@@ -14,6 +15,34 @@
     priority: -9
     itemIconStyle: BigAction
     event: !type:ToggleCameraWarpScreenEvent
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: camera_jump
+
+# Malf AI
+- type: entity
+  id: ActionMalfAIShop
+  name: View Modules
+  description: Spend processing power on modules.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:MalfAIOpenShopAction
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: camera_jump
+
+- type: entity
+  id: ActionMalfAIOverload
+  name: Machine Overload
+  description: Overload the selected machine, causing it to blow up after a five second warm up.
+  components:
+  - type: EntityTargetAction
+    checkCanInteract: false
+    useDelay: 10
+    itemIconStyle: BigAction
+    event: !type:MachineOverloadActionEvent
     icon:
       sprite: Interface/Actions/actions_ai.rsi
       state: camera_jump

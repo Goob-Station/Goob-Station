@@ -29,7 +29,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Silicon.MalfAI;
+using Content.Goobstation.Shared.Silicon.MalfAI.Components;
 using Content.Server.Emp;
 using Content.Server.Popups;
 using Content.Server.Power.Components;

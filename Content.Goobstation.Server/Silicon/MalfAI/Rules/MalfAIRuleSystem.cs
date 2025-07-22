@@ -1,4 +1,4 @@
-using Content.Goobstation.Shared.Silicon.MalfAI;
+using Content.Goobstation.Shared.Silicon.MalfAI.Components;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 

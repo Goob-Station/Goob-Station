@@ -1,10 +1,12 @@
+using Content.Goobstation.Shared.Silicon.MalfAI.Components;
+using Content.Goobstation.Shared.Silicon.MalfAI.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Silicon.MalfAI;
 
-public sealed class SharedMalfStationAISystem : EntitySystem
+public abstract class SharedMalfStationAISystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
@@ -27,7 +29,7 @@ public sealed class SharedMalfStationAISystem : EntitySystem
         var verb = new AlternativeVerb
         {
             Priority = 1,
-            Act = () => StartHackDoAfter(hackable, malfEntity),
+            Act = () => StartHackDoAfter(hackable, new Entity<MalfStationAIComponent>(malfEntity, malf)),
             Text = Loc.GetString("malf-ai-hack-verb-text"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/open.svg.192dpi.png"))
         };
@@ -35,20 +37,28 @@ public sealed class SharedMalfStationAISystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    private void StartHackDoAfter(Entity<MalfStationAIHackableComponent> hackable, EntityUid malfEntity)
+    private void StartHackDoAfter(Entity<MalfStationAIHackableComponent> hackable, Entity<MalfStationAIComponent> malfEntity)
     {
-        var doAfterArgs = new DoAfterArgs(EntityManager, malfEntity, 10, new HackDoAfterEvent(), malfEntity, hackable);
+        if (_doAfter.IsRunning(malfEntity.Comp.HackDoAfterID))
+            return;
 
-        _doAfter.TryStartDoAfter(doAfterArgs);
+        var doAfterArgs = new DoAfterArgs(EntityManager, malfEntity, hackable.Comp.SecondsToHack, new HackDoAfterEvent(), malfEntity, hackable);
+
+        if (!_doAfter.TryStartDoAfter(doAfterArgs, out var id))
+            return;
+
+        malfEntity.Comp.HackDoAfterID = id;
     }
 
     private void OnHackDoAfterComplete(Entity<MalfStationAIComponent> ent, ref HackDoAfterEvent args)
     {
-        if (!args.Used.HasValue)
+        if (!TryComp<MalfStationAIHackableComponent>(args.Target, out var hackable))
             return;
 
-        var ev = new OnHackedEvent(args.Used.Value, ent.Owner);
+        hackable.Hacked = true;
 
-        RaiseLocalEvent(ref ev);
+        var ev = new OnHackedEvent(ent);
+
+        RaiseLocalEvent(args.Target.Value, ref ev);
     }
 }
