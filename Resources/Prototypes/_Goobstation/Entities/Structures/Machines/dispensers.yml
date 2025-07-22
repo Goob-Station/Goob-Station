@@ -8,9 +8,11 @@
   components:
   - type: Machine
     board: EnergyChemDispenserMachineCircuitboard #If I forget to add one I'm a dumbass
+  - type: ActivatableUI
+    key: enum.EnergyReagentDispenserUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.ReagentDispenserUiKey.Key:
+      enum.EnergyReagentDispenserUiKey.Key:
         type: EnergyReagentDispenserBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface

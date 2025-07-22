@@ -120,7 +120,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
                 batteryMaxCharge,
                 currentReceivingEnergy
             );
-            _userInterfaceSystem.SetUiState(reagentDispenser.Owner, ReagentDispenserUiKey.Key, state);
+            _userInterfaceSystem.SetUiState(reagentDispenser.Owner, EnergyReagentDispenserUiKey.Key, state);
         }
 
         private ContainerInfo? BuildOutputContainerInfo(EntityUid? container)
