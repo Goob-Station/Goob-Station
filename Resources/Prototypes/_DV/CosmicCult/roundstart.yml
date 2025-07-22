@@ -37,7 +37,6 @@
         - AntagImmune
         - BibleUser
       components:
-      - type: NotCommandRequirement
       - type: CosmicCult
       - type: WeakToHoly # GOOBSTATION
       mindRoles:
