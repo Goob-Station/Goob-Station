@@ -136,7 +136,6 @@
     sound:
       path: /Audio/_Goobstation/Items/handling/helmet_drop.ogg
   # Goobstation edit end
-  - type: Armor
   - type: Tag
     tags:
     - WhitelistChameleon
