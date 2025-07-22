@@ -9,6 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.Heretic.Components;
 using Content.Server.Heretic.Components;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Heretic.Components;
@@ -16,7 +17,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Goobstation.Server.Heretic.EntitySystems;
 
 public sealed class EldritchInfluenceSystem : EntitySystem
 {
@@ -41,8 +42,14 @@ public sealed class EldritchInfluenceSystem : EntitySystem
             ? (drainer.Time, drainer.Hidden)
             : (10f, true);
 
-        var doAfter = new EldritchInfluenceDoAfterEvent();
-        var dargs = new DoAfterArgs(EntityManager, user, time, doAfter, influence, influence, used)
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            user,
+            time,
+            new EldritchInfluenceDoAfterEvent(),
+            influence,
+            influence,
+            used)
         {
             NeedHand = true,
             BreakOnDropItem = true,
@@ -52,8 +59,9 @@ public sealed class EldritchInfluenceSystem : EntitySystem
             MultiplyDelay = false,
             Hidden = hidden,
         };
+
         _popup.PopupEntity(Loc.GetString("heretic-influence-start"), influence, user);
-        return _doafter.TryStartDoAfter(dargs);
+        return _doafter.TryStartDoAfter(doAfterArgs);
     }
 
     private void OnInteract(Entity<EldritchInfluenceComponent> ent, ref InteractHandEvent args)
@@ -75,7 +83,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
     private void OnDoAfter(Entity<EldritchInfluenceComponent> ent, ref EldritchInfluenceDoAfterEvent args)
     {
         if (args.Cancelled
-        || args.Target == null
+        || args.Target is not { } target
         || !TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
@@ -85,7 +93,7 @@ public sealed class EldritchInfluenceSystem : EntitySystem
 
         _heretic.UpdateKnowledge(args.User, heretic, knowledge);
 
-        Spawn("EldritchInfluenceIntermediate", Transform(args.Target.Value).Coordinates);
-        QueueDel(args.Target);
+        Spawn("EldritchInfluenceIntermediate", Transform(target).Coordinates);
+        QueueDel(target);
     }
 }

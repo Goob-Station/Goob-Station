@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.Heretic.EntitySystems;
 using Content.Server.Heretic.EntitySystems;
 
 namespace Content.Goobstation.Server.Heretic.Components;
@@ -19,7 +20,4 @@ public sealed partial class EldritchInfluenceComponent : Component
 {
     [DataField]
     public bool Spent;
-
-    [DataField]
-    public int Points = 1;
 }
