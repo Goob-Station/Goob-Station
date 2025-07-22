@@ -435,6 +435,7 @@
     - SecurityAmmoStaticGoob
     - SyndicateAmmoLightStatic
     - ScienceExplosives
+    - BorgModulesDV
   - type: BlueprintReceiver
     whitelist:
       tags:
