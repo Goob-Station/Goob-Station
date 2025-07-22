@@ -317,7 +317,7 @@
   id: Psychomantic
   speech:
     color: "#C29EFF" # a nice psychic purple, a bit lighter than Ya'ssa
-    # fontId: Megrim # Experimental and alien, but still hopefully clean enough to read #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
+    fontId: RubikPuddles # Pirate cool font
     speechVerbOverrides:
     - chat-speech-verb-Psychomantic-1
     - chat-speech-verb-Psychomantic-2

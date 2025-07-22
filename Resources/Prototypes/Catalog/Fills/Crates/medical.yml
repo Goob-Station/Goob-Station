@@ -98,6 +98,11 @@
       - id: MedicalStitches
       - id: BoxLatexGloves
       - id: BoxSterileMask
+      # Pirate Change
+      - id: NitrousOxideCanister
+        amount: 2
+      - id: ClothingMaskBreathMedical
+        amount: 2
 
 - type: entity
   id: CrateMedicalScrubs

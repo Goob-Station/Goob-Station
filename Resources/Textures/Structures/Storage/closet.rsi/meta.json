@@ -600,6 +600,15 @@
         },
         {
             "name": "representative_door"
+        },
+        {
+            "name": "bartender"
+        },
+        {
+            "name": "bartender_door"
+        },
+        {
+            "name": "bartender_open"
         }
     ]
 }
