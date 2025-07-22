@@ -27,3 +27,16 @@
     stateBaseClosed: interdyne_command
     stateDoorOpen: interdyne_command_open
     stateDoorClosed: interdyne_command_door
+
+- type: entity
+  id: LockerBartender
+  parent: LockerBase
+  name: Шафка бармена
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: bartender
+    stateDoorOpen: bartender_open
+    stateDoorClosed: bartender_door
+  - type: AccessReader
+    access: [ [ "Bar" ] ]

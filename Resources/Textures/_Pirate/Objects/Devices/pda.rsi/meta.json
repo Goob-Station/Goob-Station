@@ -21,6 +21,9 @@
       "name": "light_overlay"
     },
     {
+      "name": "pda"
+    },
+    {
       "name": "pda-admin-assistant"
     }
   ]

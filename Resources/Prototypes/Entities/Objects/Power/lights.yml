@@ -594,9 +594,10 @@
   id: LightBulbCrystalBlack
   components:
   - type: LightBulb
-    color: "#363636"
-    lightEnergy: 1
-    lightRadius: 8
+    color: "#5D0CED"
+    lightEnergy: 1.1
+    lightRadius: 10
+    lightSoftness: 1
   - type: Construction
     graph: BlackLightBulb
     node: icon

@@ -1,3 +1,6 @@
+# Cargo
+job-alternative-name-mailman = Поштар
+
 # Civilian
 job-alternative-name-flora-engineer = Флора-інженер
 job-alternative-name-prankster = Пранкер
@@ -9,6 +12,8 @@ job-alternative-name-command-officer = Офіцер командування
 job-alternative-name-station-director = Директор станції
 job-alternative-name-notarius = Нотаріус
 job-alternative-name-sherif = Шериф
+job-alternative-name-command-maid = Покоївка мостика
+job-alternative-name-secretary = Секретар
 
 # Engineering
 job-alternative-name-teg-specialist = Спеціаліст з ТЕГ-двигунів
