@@ -48,7 +48,7 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 namespace Content.Goobstation.Client.Chemistry.UI
 {
     /// <summary>
-    /// Client-side UI used to control a <see cref="ReagentDispenserComponent"/>.
+    /// Client-side UI used to control a <see cref="EnergyReagentDispenserComponent"/>.
     /// </summary>
     [GenerateTypedNameReferences]
     public sealed partial class EnergyReagentDispenserWindow : FancyWindow

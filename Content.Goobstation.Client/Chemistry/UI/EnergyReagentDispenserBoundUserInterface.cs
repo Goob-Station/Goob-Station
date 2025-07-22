@@ -37,7 +37,7 @@ using Robust.Client.UserInterface;
 namespace Content.Goobstation.Client.Chemistry.UI
 {
     /// <summary>
-    /// Initializes a <see cref="ReagentDispenserWindow"/> and updates it when new server messages are received.
+    /// Initializes a <see cref="EnergyReagentDispenserWindow"/> and updates it when new server messages are received.
     /// </summary>
     [UsedImplicitly]
     public sealed class EnergyReagentDispenserBoundUserInterface(EntityUid owner, Enum uiKey)

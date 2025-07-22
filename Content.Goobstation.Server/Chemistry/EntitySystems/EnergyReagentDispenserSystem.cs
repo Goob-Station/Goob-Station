@@ -60,7 +60,7 @@ namespace Content.Goobstation.Server.Chemistry.EntitySystems
 {
     /// <summary>
     /// Contains all the server-side logic for reagent dispensers.
-    /// <seealso cref="ReagentDispenserComponent"/>
+    /// <seealso cref="EnergyReagentDispenserComponent"/>
     /// </summary>
     [UsedImplicitly]
     public sealed class EnergyReagentDispenserSystem : EntitySystem
