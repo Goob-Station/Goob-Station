@@ -2,8 +2,8 @@
   parent: [BaseGuidebook, BaseMagicalContraband]
   id: GuidebookCodexUmbra
   suffix: guidebook
-  name: Codex Umbra
-  description: An old book tightly wound in dark leather. It details various contracts and their effects.
+  name: "Кодекс Умбра"
+  description: "Стара книга, щільно обгорнута темною шкірою. Вона детально описує різні контракти та їхні ефекти."
   components:
   - type: Sprite # Change to a unique one
     layers:

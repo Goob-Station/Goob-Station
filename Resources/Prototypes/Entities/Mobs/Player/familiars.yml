@@ -70,7 +70,7 @@
   name: "Ремілія"
   parent: BaseMobPsionicFamiliar
   id: MobBatRemilia
-  description: The chaplain's familiar. Likes fruit.
+  description: "Фамільяр капелана. Любить фрукти."
   components:
   - type: GhostRole
     makeSentient: true
@@ -112,10 +112,10 @@
     powersToAdd:
       - TelepathyPower
 - type: entity
-  name: Cerberus
+  name: "Цербер"
   parent: MobCorgiNarsi
   id: MobCorgiCerberus
-  description: This pupper is not wholesome.
+  description: "Це цуценя не є милим."
   components:
   - type: GhostRole
     makeSentient: true

@@ -154,10 +154,10 @@
       - Lead
 
 - type: entity
-  name: strange pill
+  name: "дивна пігулка"
   parent: Pill
   id: StrangePill
-  description: This unusual pill bears no markings. There's no telling what it contains.
+  description: "Ця незвичайна пігулка не має жодного маркування. Невідомо, що в ній міститься."
   components:
   - type: SolutionContainerManager
     solutions:

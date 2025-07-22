@@ -34,7 +34,7 @@
 
 - type: entity
   id: PlasmaWindow
-  name: plasma window
+  name: "плазмове вікно"
   parent: WindowRCDResistant
   components:
   - type: Sprite
@@ -95,8 +95,8 @@
 - type: entity
   id: PlasmaWindowDirectional
   parent: WindowDirectionalRCDResistant
-  name: directional plasma window
-  description: Don't smudge up the glass down there.
+  name: "спрямоване плазмове вікно"
+  description: "Прозоре і міцне, з фіолетовим відтінком."
   placement:
     mode: SnapgridCenter
     snap:

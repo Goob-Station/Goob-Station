@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: ore bag of holding
+  name: "рудний мішок утримання"
   id: OreBagOfHolding
   parent: OreBag
-  description: A robust bag of holding for salvage billionaires and rich miners alike to carry large amounts of ore. Magnetises any nearby ores when attached to a belt.
+  description: "Міцний мішок для перевезення великої кількості руди, який підійде як мільярдерам-утилізаторам, так і багатим шахтарям. Прикріплена до пояса, притягує руду, що лежить поруч."
   components:
   - type: MagnetPickup
     range: 2

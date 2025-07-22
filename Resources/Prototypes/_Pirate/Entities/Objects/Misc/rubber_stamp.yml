@@ -1,5 +1,5 @@
 - type: entity
-  name: administrative assistant rubber stamp
+  name: "адміністративний асистент гумова печатка"
   parent: RubberStampBase
   id: RubberStampAdminAssistant
   suffix: DO NOT MAP

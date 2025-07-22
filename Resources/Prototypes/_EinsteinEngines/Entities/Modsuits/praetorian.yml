@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitPraetorian
-  name: Praetorian hardsuit control unit # Goob edit
-  description: The main controller for a Praetorian hardsuit. # Goob edit
+  name: "блок керування преторіанським скафандром" # Goob edit
+  description: "Основний контролер для преторіанського скафандра." # Goob edit
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
@@ -55,8 +55,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsPraetorian
-  name: Praetorian hardsuit gauntlets # Goob edit
-  description: A pair of gauntlets made for the Praetorian hardsuit. # Goob edit
+  name: "преторіанські рукавиці від скафандру" # Goob edit
+  description: "Пара рукавиць, створених для преторіанського скафандра." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -72,8 +72,8 @@
 - type: entity
   parent: ClothingModsuitHelmetStandard
   id: ClothingModsuitHelmetPraetorian
-  name: Praetorian hardsuit helmet # Goob edit
-  description: A state-of-the-art helmet designed by NanoTrasen for the Praetorian hardsuit. # Goob edit
+  name: "преторіанський шолом від скафандру" # Goob edit
+  description: "Сучасний шолом, розроблений NanoTrasen для преторіанського скафандра." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Clothing
@@ -119,8 +119,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplatePraetorian
-  name: Praetorian hardsuit chestplate # Goob edit
-  description: A state of the art chestplate designed by NanoTrasen for the Praetorian hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
+  name: "преторіанський нагрудник від скафандру" # Goob edit
+  description: "Сучасний нагрудник, розроблений NanoTrasen для преторіанського скафандра. Він включає силові сервоприводи для зменшення навантаження від обладнання." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -162,8 +162,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsPraetorian
-  name: Praetorian hardsuit boots # Goob edit
-  description: A state-of-the-art pair of magboots for the Praetorian hardsuit. # Goob edit
+  name: "преторіанські черевики від скафандру" # Goob edit
+  description: "Сучасна пара магнітних черевиків для преторіанського скафандра." # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

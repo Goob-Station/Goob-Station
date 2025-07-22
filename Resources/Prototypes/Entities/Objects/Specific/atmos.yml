@@ -21,10 +21,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: gas analyzer
+  name: "газоаналізатор"
   parent: BaseItem
   id: GasAnalyzer
-  description: A hand-held environmental scanner which reports current gas levels.
+  description: "Ручний екологічний сканер, який повідомляє про поточний рівень загазованості."
   components:
   - type: Sprite
     sprite: Objects/Specific/Atmos/gasanalyzer.rsi

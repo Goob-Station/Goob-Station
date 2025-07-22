@@ -6,7 +6,7 @@
 
 - type: entity
   id: BaseClockworkWindoor
-  name: clockwork windoor
+  name: "годинниковий механізм на дверях"
   parent: BaseWindoor
   abstract: true
   components:

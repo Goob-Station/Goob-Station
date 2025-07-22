@@ -14,8 +14,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkVisualizerTestCut
-  name: solution container vis cut-out
-  description: A stainless steel insulated pitcher. Everyone's best friend in the morning.
+  name: "контейнер для розчину з вирізом"
+  description: "Ізольований глечик з нержавіючої сталі. Найкращий друг кожного вранці."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -42,8 +42,8 @@
 - type: entity
   parent: DrinkBaseCup
   id: DrinkVisualizerTestNot
-  name: solution container vis cut-not
-  description: A stainless steel insulated pitcher. Everyone's best friend in the morning.
+  name: "контейнер для розчину vis cut-not"
+  description: "Ізольований глечик з нержавіючої сталі. Найкращий друг кожного вранці."
   components:
   - type: SolutionContainerManager
     solutions:

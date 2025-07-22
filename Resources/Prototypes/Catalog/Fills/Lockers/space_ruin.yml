@@ -5,7 +5,7 @@
 #Old AI sat voidsuits
 - type: entity
   id: LockerOldAISat
-  name: closet
+  name: "шафа"
   suffix: NTSRA voidsuit locker
   parent: LockerSyndicate
   components:

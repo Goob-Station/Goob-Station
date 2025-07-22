@@ -1,7 +1,7 @@
 - type: job
   id: CaptainInterdyne
-  name: job-name-captain-interdyne
-  description: job-description-captain-interdyne
+  name: "офіцер Interdyne"
+  description: "керуйте операціями Interdyne, забезпечуючи виконання контрактів та безпеку персоналу"
   icon: "JobIconCaptainInterdyne"
   canBeAntag: false
   playTimeTracker: JobCaptainInterdyne

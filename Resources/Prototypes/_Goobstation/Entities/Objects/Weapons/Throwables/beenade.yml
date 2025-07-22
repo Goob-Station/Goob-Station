@@ -10,8 +10,8 @@
 - type: entity
   parent: [GrenadeBase, BaseSyndicateContraband]
   id: BeeGrenade
-  name: Beenade
-  description: Not the bees!!!
+  name: "Бджолоната"
+  description: "Тільки не бджоли!!!"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
