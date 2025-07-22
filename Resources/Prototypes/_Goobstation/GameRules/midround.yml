@@ -219,3 +219,41 @@
   - type: Tag
     tags:
       - MidroundAntag
+
+- type: entity
+  parent: BaseGameRule
+  id: MalfAIMidround
+  components:
+  - type: StationEvent
+    weight: 2
+    earliestStart: 75
+    minimumPlayers: 30
+    duration: null
+    maxOccurrences: 1
+    chaos:
+      Hostile: 300
+      Medical: 300
+      Death: 300
+    eventType: HostilesSpawn
+  - type: MalfAIRule
+  - type: GameRule
+    chaosScore: 1000
+    minPlayers: 30
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    definitions:
+    - prefRoles: [ MalfunctionalAI ]
+      max: 1
+      playerRatio: 20
+      allowNonHumans: true
+      lateJoinAdditional: true
+      whitelist:
+        components:
+        - StationAiHeld
+      mindRoles:
+      - MindRoleMalfAI
+  # - type: AntagObjectives - TODO
+  #   objectives:
+  - type: Tag
+    tags:
+    - MidroundAntag

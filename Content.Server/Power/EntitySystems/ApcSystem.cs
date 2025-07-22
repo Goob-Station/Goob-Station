@@ -29,6 +29,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Silicon.MalfAI;
 using Content.Server.Emp;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -160,7 +161,13 @@ public sealed class ApcSystem : EntitySystem
 
         if (apc.LastChargeStateTime == null || apc.LastChargeStateTime + ApcComponent.VisualsChangeDelay < _gameTiming.CurTime)
         {
-            var newState = CalcChargeState(uid, battery.NetworkBattery);
+            // Goobstation edit start
+            var hacked = TryComp<MalfStationAIHackableComponent>(uid, out var hackComp) && hackComp.Hacked;
+
+            // var newState = CalcChargeState(uid, battery.NetworkBattery);
+            var newState = hacked ? ApcChargeState.Emag : CalcChargeState(uid, battery.NetworkBattery);
+            // Goobstation edit end
+
             if (newState != apc.LastChargeState)
             {
                 apc.LastChargeState = newState;
