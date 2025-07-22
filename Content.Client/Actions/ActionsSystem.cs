@@ -495,9 +495,13 @@ namespace Content.Client.Actions
 
         private void OnEntityTargetAttempt(Entity<EntityTargetActionComponent> ent, ref ActionTargetAttemptEvent args)
         {
-            // Goob edit start
             if (args.Handled)
                 return;
+
+            args.Handled = true;
+
+            if (args.Input.EntityUid is not { Valid: true } entity)
+            // Goob edit start todo marty ???
 
             var entity = args.Input.EntityUid;
             if (!HasComp<LockOnMarkActionComponent>(ent) || !Exists(_mark.Target))
@@ -519,8 +523,6 @@ namespace Content.Client.Actions
                 DebugTools.Assert(HasComp<WorldTargetActionComponent>(ent), $"Action {ToPrettyString(ent)} requires WorldTargetActionComponent for entity-world targeting");
                 return;
             }
-
-            args.Handled = true;
 
             var action = args.Action;
             var user = args.User;
