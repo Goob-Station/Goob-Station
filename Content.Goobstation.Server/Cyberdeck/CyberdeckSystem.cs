@@ -15,7 +15,6 @@ using Content.Server.Light.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.VendingMachines;
-using Content.Shared.Alert;
 using Content.Shared.Atmos.Monitor.Components;
 using Content.Shared.Charges.Components;
 using Content.Shared.Chat;
@@ -33,7 +32,6 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 {
     // Imagine a world where all of these systems are predicted...
     [Dependency] private readonly AirAlarmSystem _airAlarm = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly ApcSystem _apcSystem = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
@@ -83,13 +81,6 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
 
     private void OnBatteryHacked(Entity<BatteryComponent> ent, ref CyberdeckHackDeviceEvent args)
     {
-        // Less than 150W does nothing, just silently drains all remaining battery
-        if (ent.Comp.CurrentCharge < 150f)
-        {
-            _battery.SetCharge(ent.Owner, 0f, ent.Comp);
-            return;
-        }
-
         var mass = 60.0f; // This is probably something wall-mount if it doesn't have any physics
         if (TryComp(ent.Owner, out PhysicsComponent? physics))
             mass = physics.FixturesMass;
@@ -104,6 +95,13 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
         // a powercell will hit ~1.1 tile radius, SMES ~6.1, and an extreme case is ~16 tiles.
         var radius = percentage * MathF.Sqrt(mass) / 2;
         var duration = percentage * 10; // 0-10 seconds
+
+        // Less than 5% does nothing, just silently drains all remaining battery
+        if (percentage < 0.05f)
+        {
+            _battery.SetCharge(ent.Owner, 0f, ent.Comp);
+            return;
+        }
 
         // bazillions IPC must die
         _emp.EmpPulse(mapPos, radius, ent.Comp.CurrentCharge, duration);
@@ -163,19 +161,5 @@ public sealed class CyberdeckSystem : SharedCyberdeckSystem
             session.Channel);
 
         args.Handled = true;
-    }
-
-    /// <inheritdoc/>
-    protected override void UpdateAlert(Entity<CyberdeckUserComponent> ent, bool doClear = false)
-    {
-        if (doClear || ent.Comp.ProviderEntity == null)
-        {
-            _alerts.ClearAlert(ent.Owner, ent.Comp.AlertId);
-            return;
-        }
-
-        var charges = Charges.GetCurrentCharges(ent.Comp.ProviderEntity.Value);
-        var severity = (short) Math.Clamp(charges, 0, 8);
-        _alerts.ShowAlert(ent.Owner, ent.Comp.AlertId, severity);
     }
 }

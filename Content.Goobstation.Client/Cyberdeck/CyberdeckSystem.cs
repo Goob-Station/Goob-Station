@@ -3,8 +3,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Client.Chat.Managers;
 using Content.Goobstation.Common.Cyberdeck.Components;
 using Content.Goobstation.Shared.Cyberdeck;
+using Content.Shared.Charges.Components;
+using Content.Shared.Chat;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;

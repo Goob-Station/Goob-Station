@@ -323,10 +323,11 @@ public partial class SharedBodySystem
     /// <returns>Whether any were found.</returns>
     public bool TryGetBodyOrganEntityComps<T>(
         Entity<BodyComponent?> entity,
-        [NotNullWhen(true)] out List<Entity<T, OrganComponent>>? comps)
+        [NotNullWhen(true)] out List<Entity<T, OrganComponent>>? comps,
+        bool errorIfMissing = true)
         where T : IComponent
     {
-        if (!Resolve(entity.Owner, ref entity.Comp))
+        if (!Resolve(entity.Owner, ref entity.Comp, errorIfMissing))
         {
             comps = null;
             return false;

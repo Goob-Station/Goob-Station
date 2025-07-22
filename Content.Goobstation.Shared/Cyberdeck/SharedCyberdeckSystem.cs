@@ -11,6 +11,7 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
+using Content.Shared.Alert;
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
@@ -38,6 +39,7 @@ namespace Content.Goobstation.Shared.Cyberdeck;
 
 public abstract class SharedCyberdeckSystem : EntitySystem
 {
+    [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
     [Dependency] protected readonly SharedChargesSystem Charges = default!;
@@ -52,7 +54,6 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
-
     [Dependency] private readonly INetManager _net = default!;
 
     private EntityQuery<HandsComponent> _handsQuery;
@@ -100,7 +101,7 @@ public abstract class SharedCyberdeckSystem : EntitySystem
         _actions.AddAction(uid, ref component.HackAction, component.HackActionId);
         _actions.AddAction(uid, ref component.VisionAction, component.VisionActionId);
 
-        if (!_body.TryGetBodyOrganEntityComps<CyberdeckSourceComponent>(uid, out var organs)
+        if (!_body.TryGetBodyOrganEntityComps<CyberdeckSourceComponent>(uid, out var organs, false)
             || organs.Count == 0)
             return;
 
@@ -422,21 +423,20 @@ public abstract class SharedCyberdeckSystem : EntitySystem
 
         // Now everything becomes tricky.
         // To make everything work smoothly enough, we need to store the projection entity somewhere.
-        // That means that there are 3 possible scenarios:
+        // That means that there are 2 possible scenarios:
         // 1. Projection entity is already stored on a paused map, and we know that it exist
-        // 2. Same as 1 but we for some reason think that it's deleted
-        // 3. Projection entity doesn't exist
+        // 2. Projection entity doesn't exist
 
         // Only in the first case we can actually do something.
 
-        // Handle case 3 (projection doesn't exist)
-        if (user.Comp.ProjectionEntity == null)
+        // Handle second case (projection doesn't exist)
+        if (user.Comp.ProjectionEntity == null
+            || TerminatingOrDeleted(user.Comp.ProjectionEntity))
         {
             if (_net.IsClient)
                 return;
 
             var newProjection = Spawn(user.Comp.ProjectionEntityId, MapCoordinates.Nullspace);
-            SetPaused(newProjection, true);
             var projectionComp = EnsureComp<CyberdeckProjectionComponent>(newProjection);
 
             projectionComp.RemoteEntity = user.Owner;
@@ -446,29 +446,10 @@ public abstract class SharedCyberdeckSystem : EntitySystem
             Dirty(newProjection, projectionComp);
         }
 
-        // Client thinks that projection is not null, but is deleted.
-        // This normally shouldn't happen, but if it is what it is then we need to cope with what we have.
-        if (TerminatingOrDeleted(user.Comp.ProjectionEntity)
-            && _net.IsClient)
-        {
-            Log.Warning($"Cyberdeck Projection was invalid on client-side for user {ToPrettyString(user.Owner)}," +
-                        $" and at the same time it's not null, which shouldn't normally happen. This can cause problems with Cyberdeck prediction.");
-            return;
-        }
-
-        // If it's deleted on a server, then something is really messed up...
-        if (TerminatingOrDeleted(user.Comp.ProjectionEntity)
-            && _net.IsServer)
-        {
-            Log.Error($"Failed to create Cyberdeck projection for user {ToPrettyString(user.Owner)}, or it was deleted incorrectly at some time!");
-            return;
-        }
-
         // Handle the standard case, when we just need to pull an existing entity from Nullspace
-        var projection = user.Comp.ProjectionEntity!.Value; // If it's null then we're cooked already
+        var projection = user.Comp.ProjectionEntity.Value;
         var position = Transform(user).Coordinates;
 
-        SetPaused(projection, false);
         Xform.SetCoordinates(projection, position);
 
         if (TryComp(user, out EyeComponent? eyeComp))
@@ -569,5 +550,16 @@ public abstract class SharedCyberdeckSystem : EntitySystem
     /// </summary>
     /// <param name="ent">A user to apply the alert.</param>
     /// <param name="doClear">If true, will just remove the alert entirely, until it gets updated again.</param>
-    protected virtual void UpdateAlert(Entity<CyberdeckUserComponent> ent, bool doClear = false) { }
+    private void UpdateAlert(Entity<CyberdeckUserComponent> ent, bool doClear = false)
+    {
+        if (doClear || ent.Comp.ProviderEntity == null)
+        {
+            _alerts.ClearAlert(ent.Owner, ent.Comp.AlertId);
+            return;
+        }
+
+        var charges = Charges.GetCurrentCharges(ent.Comp.ProviderEntity.Value);
+        var severity = (short) Math.Clamp(charges, 0, 8);
+        _alerts.ShowAlert(ent.Owner, ent.Comp.AlertId, severity);
+    }
 }
