@@ -110,16 +110,43 @@
     Drink:
       effects:
       - !type:SatiateThirst
-        factor: 1.0
+        factor: 0.5
         conditions:
           - !type:OrganType
             type: Human
             shouldHave: false
+      - !type:SatiateHunger
+        factor: 0.5
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Water
+        amount: 0.3
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Protein
+        amount: 0.25 # See below
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Omnizine
+        amount: 0.3
     Food:
       effects:
         - !type:AdjustReagent
           reagent: UncookedAnimalProteins
-          amount: 0.1
+          amount: 0.125 # 0.25 proteins for 1u of blood - restores 0.75 hunger, adds 0.25 blood per unit
+          conditions:
+          - !type:OrganType
+            type: Vampiric
+            shouldHave: false
     Medicine:
       effects:
       - !type:HealthChange

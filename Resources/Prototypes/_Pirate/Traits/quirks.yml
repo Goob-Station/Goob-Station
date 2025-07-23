@@ -97,3 +97,30 @@
   components:
     - type: LightStep
 #endregion
+
+#region Other
+- type: trait
+  id: Vampirism
+  name: trait-vampirism-name
+  description: trait-vampirism-desc
+  category: Quirks
+  cost: 3
+  components:
+  - type: Vampirism
+    succDelay: 3
+    specialDigestible: # Vampires cannot eat food chat is that real
+      tags:
+      - Pill
+      - Crayon
+      - Paper
+
+- type: trait
+  id: BloodDeficiency
+  name: trait-vampiric-blood-deficiency-name
+  description: trait-vampiric-blood-deficiency-desc
+  category: Quirks
+  cost: -4
+  components:
+    - type: BloodDeficiency # By default, start taking bloodloss damage at around ~21.4 minutes,
+      bloodLossPercentage: 0.0002333333  # then become crit ~10 minutes
+#endregion
