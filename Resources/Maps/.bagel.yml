@@ -60633,7 +60633,7 @@ entities:
     - type: Transform
       pos: -19.84328,-13.204234
       parent: 60
-- proto: ChemDispenser
+- proto: EnergyChemDispenser
   entities:
   - uid: 2520
     components:
