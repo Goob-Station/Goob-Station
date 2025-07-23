@@ -7,8 +7,8 @@
 - type: entity
   parent: PersonalAI
   id: GoldPersonalAI
-  name: "золотий розкішний персональний ШІ-пристрій"
-  description: "Ваш електронний приятель, з яким весело, тепер на 200% більше блиску!"
+  name: golden deluxe personal ai device
+  description: Your electronic pal who's fun to be with, now with 200% more shine!
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/goldpai.rsi

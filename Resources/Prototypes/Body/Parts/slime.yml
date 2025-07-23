@@ -29,7 +29,7 @@
 - type: entity
   id: PartSlime
   parent: [BaseItem, BasePart]
-  name: "слизова частина тіла "
+  name: "slime body part"
   abstract: true
   components: # Shitmed Change
   - type: Sprite
@@ -50,7 +50,7 @@
 
 - type: entity
   id: ChestSlime
-  name: "груди слизу"
+  name: "slime chest"
   parent: [PartSlime, BaseChest]
   components:
     - type: Sprite
@@ -59,7 +59,7 @@
 
 - type: entity
   id: GroinSlime
-  name: "пах слизу"
+  name: "slime groin"
   parent: [PartSlime, BaseGroin]
   components:
     - type: Sprite
@@ -68,45 +68,45 @@
 
 - type: entity
   id: HeadSlime
-  name: "слизова голова "
+  name: "slime head"
   parent: [PartSlime, BaseHead]
 
 - type: entity
   id: LeftArmSlime
-  name: "ліва рука слизу"
+  name: "left slime arm"
   parent: [PartSlime, BaseLeftArm]
 
 - type: entity
   id: RightArmSlime
-  name: "права рука слизу"
+  name: "right slime arm"
   parent: [PartSlime, BaseRightArm]
 
 - type: entity
   id: LeftHandSlime
-  name: "ліва долоня слизу"
+  name: "left slime hand"
   parent: [PartSlime, BaseLeftHand]
 
 - type: entity
   id: RightHandSlime
-  name: "права долоня слизу"
+  name: "right slime hand"
   parent: [PartSlime, BaseRightHand]
 
 - type: entity
   id: LeftLegSlime
-  name: "ліва нога слизу"
+  name: "left slime leg"
   parent: [PartSlime, BaseLeftLeg]
 
 - type: entity
   id: RightLegSlime
-  name: "права нога слизу"
+  name: "right slime leg"
   parent: [PartSlime, BaseRightLeg]
 
 - type: entity
   id: LeftFootSlime
-  name: "ліва стопа слизу"
+  name: "left slime foot"
   parent: [PartSlime, BaseLeftFoot]
 
 - type: entity
   id: RightFootSlime
-  name: "права стопа слизу"
+  name: "right slime foot"
   parent: [PartSlime, BaseRightFoot]

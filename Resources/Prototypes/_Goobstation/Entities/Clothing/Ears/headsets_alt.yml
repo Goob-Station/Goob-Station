@@ -18,8 +18,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetChronolegioneer
-  name: "футуристична накладна гарнітура"
-  description: "Гарнітура з майбутнього, яка може приймати більшість частот радіостанцій."
+  name: futuristic over-ear headset
+  description: A headset from the future that can pick up most station frequencies.
   components:
   - type: ContainerFill
     containers:
@@ -40,8 +40,8 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseSecurityContraband]
   id: ClothingHeadsetAltWarden
-  name: "навушники наглядача"
-  description: "Оновлений, модульний інтерком, що дозволяє швидко спілкуватися з командним персоналом."
+  name: warden's over-ear headset
+  description: An updated, modular intercom, allowing for rapid communication with command personnel.
   components:
   - type: ContainerFill
     containers:
@@ -57,7 +57,7 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCentcommContraband]
   id: ClothingHeadsetDeathsquad
-  name: "навушники загону смерті"
+  name: deathsquad over-ear headset
   components:
   - type: ContainerFill
     containers:
@@ -74,7 +74,7 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseSecurityContraband]
   id: ClothingHeadsetAltSecurityRegular
-  name: "гарнітура служби безпеки"
+  name: security over-ear headset
   components:
   - type: ContainerFill
     containers:
@@ -89,7 +89,7 @@
 - type: entity
   parent: [ClothingHeadsetAlt, BaseCentcommContraband]
   id: ClothingHeadsetAltBlueshield
-  name: "навушники офіцера синього щита"
+  name: blueshield officers over-ear headset
   components:
   - type: ContainerFill
     containers:

@@ -8,8 +8,8 @@
 - type: entity
   id: SentientSlimesCore
   parent: [BaseItem, OrganHumanBrain]
-  name: "розумне ядро слизу"
-  description: "Джерело неймовірної, нескінченної липкості."
+  name: sentient slimes core
+  description: "The source of incredible, unending gooeyness."
   components:
     - type: Sprite
       sprite: Mobs/Species/Slime/organs.rsi
@@ -43,8 +43,8 @@
 - type: entity
   id: OrganSlimesLungs
   parent: BaseHumanOrgan
-  name: "слаймові газові мішечки"
-  description: "Збирають азот, який клітини слизу використовують для підтримки життєдіяльності."
+  name: slimes gas sacs
+  description: "Collects nitrogen, which slime cells use for maintenance."
   components:
     - type: Sprite
       sprite: Mobs/Species/Slime/organs.rsi
