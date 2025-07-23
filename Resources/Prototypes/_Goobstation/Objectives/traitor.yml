@@ -317,7 +317,7 @@
     unique: true
     difficulty: 2
     icon:
-      sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi/icon.png
+      sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi
       state: icon
   - type: AutoCompleteCondition
 
