@@ -253,6 +253,6 @@
   weights:
     SerialKillerGimmickObjective: 1
     SabotageGimmickObjective: 1
-    HeistGimmickObjective: 1 
-    AccompliceGimmickObjective: 1 
+    HeistGimmickObjective: 1
+    AccompliceGimmickObjective: 1
     TakeoverGimmickObjective: 1
