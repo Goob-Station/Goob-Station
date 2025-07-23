@@ -1078,11 +1078,11 @@
         Radiation: 0.1
         Caustic: 0.1
       flatReductions:
-        Blunt: 5
-        Slash: 5
-        Piercing: 5
-        Heat: 5
-        Radiation: 2
+        Blunt: 8
+        Slash: 8
+        Piercing: 8
+        Heat: 8
+        Radiation: 4
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
     protectionRange: 0
