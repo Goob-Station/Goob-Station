@@ -335,7 +335,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 5
+    maxDifficulty: 3 # Goob - Around 3 objectives give or take for difficulty
 
 # Goobstation - order swapped since admin verbs use .Last() for some reason
 # TODO: Fix that
