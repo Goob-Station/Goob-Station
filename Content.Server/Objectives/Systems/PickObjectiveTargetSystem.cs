@@ -131,7 +131,7 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 allHeads.Add(person);
         }
 
-        // cancel if no command staff
+        // Goobstation - Cancel if there is no command staff
         if (allHeads.Count == 0)
         {
             args.Cancelled = true;
