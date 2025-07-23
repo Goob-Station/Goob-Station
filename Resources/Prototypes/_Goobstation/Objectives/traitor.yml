@@ -295,7 +295,7 @@
 - type: entity
   parent: [BaseTraitorObjective]
   id: SabotageGimmickObjective
-  name: Create as much chaos as possible by sabotage.
+  name: Create as much chaos as possible by sabotage
   description: Your employers want chaos? Chaos is what they get. Avoid being caught. This objective is not tracked and will automatically succeed, but has to be followed in some form.
   components:
   - type: Objective
@@ -309,7 +309,7 @@
 - type: entity
   parent: [BaseTraitorObjective]
   id: HeistGimmickObjective
-  name: Attempt a massive heist or steal as much from the crewmembers.
+  name: Attempt a massive heist or steal as much from the crewmembers
   description: Armory? Vault? Bank Accounts? Crew Belongings? The choice is yours. This objective is not tracked and will automatically succeed, but has to be followed in some form.
   components:
   - type: Objective
@@ -323,7 +323,7 @@
 - type: entity
   parent: [BaseTraitorObjective]
   id: AccompliceGimmickObjective
-  name: Become an Accomplice to other threats to the station by helping all enemies of the corporation, agent or not.
+  name: Become an Accomplice to other threats to the station by helping all enemies of the corporation, agent or not
   description: Maybe some stranger allies can be of use. The enemy of your enemy is our friend, agent. This objective is not tracked and will automatically succeed, but has to be followed in some form.
   components:
   - type: Objective
