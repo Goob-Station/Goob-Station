@@ -72,3 +72,17 @@
   - type: ConditionalSpawner
     prototypes:
     - MobLivingCurse
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCarpNukie
+  name: Cayenne Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: icon
+      sprite: Mobs/Aliens/Carps/space.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCarpNukie

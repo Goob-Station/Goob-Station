@@ -36,3 +36,117 @@
       defaultChannel: Dragonmind
       channels:
       - Dragonmind
+
+- type: entity
+  name: Cayenne
+  id: BaseMobCarpNukie
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  description: It's an adorable space carp. Pet of Nuclear Operatives.
+  abstract: true
+  components:
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+      blackboard:
+        NavSmash: !type:Bool
+          true
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+      - Dragon
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: Mobs/Aliens/Carps/space.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+    - type: CombatMode
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.40
+          density: 80
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
+    - type: MobState
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        40: Dead
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 3.5
+    - type: Stamina
+      critThreshold: 100
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: alive
+          BaseUnshaded: mouth
+        Dead:
+          Base: dead
+          BaseUnshaded: dead_mouth
+    - type: Butcherable
+      spawned:
+        - id: FoodMeatFish
+          amount: 2
+        - id: MaterialToothSpaceCarp1
+          amount: 1
+          maxAmount: 4
+    - type: MeleeWeapon
+      altDisarm: false
+      angle: 0
+      animation: WeaponArcBite
+      soundHit:
+        path: /Audio/Effects/bite.ogg
+      damage:
+        types:
+          Blunt: 5
+          Slash: 7
+    - type: TypingIndicator
+      proto: alien
+    - type: Tag
+      tags:
+        - Carp
+        - DoorBumpOpener
+    - type: ReplacementAccent
+      accent: genericAggressive
+    - type: Speech
+      speechVerb: LargeMob
+    - type: InteractionPopup
+      interactSuccessString: petting-success-carp
+      interactFailureString: petting-failure-carp
+      interactFailureSound:
+        path: /Audio/Effects/bite.ogg
+    - type: Body # Shitmed: Special carp organs
+      prototype: Carp
+    - type: NightVision # Goobstation - Nigthvision
+      color: "#808080"
+      activateSound: null
+      deactivateSound: null
+    - type: Fauna # Lavaland Change
+
+- type: entity
+  parent: BaseMobCarpNukie
+  id: MobCarpNukie
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: mouth
+      shader: unshaded
+  - type: RandomSprite
+    available:
+    - enum.DamageStateVisualLayers.Base:
+        alive: Rainbow
+      enum.DamageStateVisualLayers.BaseUnshaded:
+        mouth: ""
