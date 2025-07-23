@@ -60,8 +60,9 @@ public sealed class RuleGridsSystem : GameRuleSystem<RuleGridsComponent>
         var query = EntityQueryEnumerator<SpawnPointComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var xform))
         {
-            if (xform.MapID != ent.Comp.Map)
-                continue;
+            // Goobstation - Map checked was removed because some rules with shuttle (like abductors) was broken after shuttle FTL. Should not affect rules critically.
+            /*if (xform.MapID != ent.Comp.Map)
+                continue;*/
 
             if (xform.GridUid is not {} grid || !ent.Comp.MapGrids.Contains(grid))
                 continue;
