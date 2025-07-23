@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
+// SPDX-FileCopyrightText: 2025 McBosserson <mcbosserson@hotmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SoundingExpert <204983230+SoundingExpert@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 john git <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
@@ -73,7 +75,14 @@ public sealed partial class PTLSystem : EntitySystem
 
         while (eqe.MoveNext(out var uid, out var ptl))
         {
-            if (!ptl.Active) continue;
+            if (_time.CurTime > ptl.RadDecayTimer)
+            {
+                ptl.RadDecayTimer = _time.CurTime + TimeSpan.FromSeconds(1);
+                DecayRad((uid, ptl));
+            }
+
+            if (!ptl.Active)
+                continue;
 
             if (_time.CurTime > ptl.NextShotAt)
             {
@@ -81,6 +90,13 @@ public sealed partial class PTLSystem : EntitySystem
                 Tick((uid, ptl));
             }
         }
+    }
+
+    private void DecayRad(Entity<PTLComponent> ent)
+    {
+        if (TryComp<RadiationSourceComponent>(ent, out var rad)
+            && rad.Intensity > 0)
+            rad.Intensity -= rad.Intensity * 0.2f + .1f;
     }
 
     private void Tick(Entity<PTLComponent> ent)
@@ -101,7 +117,8 @@ public sealed partial class PTLSystem : EntitySystem
         // some random formula i found in bounty thread i popped it into desmos i think it looks good
         var spesos = (int) (charge * 500 / (Math.Log(charge * 5) + 1));
 
-        if (charge <= 0 || !double.IsFinite(spesos) || spesos < 0) return;
+        if (charge <= 0 || !double.IsFinite(spesos) || spesos < 0)
+            return;
 
         // scale damage from energy
         if (TryComp<HitscanBatteryAmmoProviderComponent>(ent, out var hitscan))
@@ -128,15 +145,12 @@ public sealed partial class PTLSystem : EntitySystem
         }
 
         // EVIL behavior......
-        if (charge >= ent.Comp1.PowerEvilThreshold)
-        {
-            var evil = (float) (charge / ent.Comp1.PowerEvilThreshold);
+        var evil = (float) (charge * ent.Comp1.EvilMultiplier);
 
-            if (TryComp<RadiationSourceComponent>(ent, out var rad))
-                rad.Intensity = evil;
+        if (TryComp<RadiationSourceComponent>(ent, out var rad))
+            rad.Intensity = evil;
 
-            _flash.FlashArea((ent, null), ent, evil, evil);
-        }
+        _flash.FlashArea((ent, null), ent, evil/2, evil/2);
 
         ent.Comp1.SpesosHeld += spesos;
     }
@@ -158,7 +172,7 @@ public sealed partial class PTLSystem : EntitySystem
 
         if (_tag.HasTag(held, _tagScrewdriver))
         {
-            var delay = ent.Comp.ShootDelay + 1;
+            var delay = ent.Comp.ShootDelay + ent.Comp.ShootDelayIncrement;
             if (delay > ent.Comp.ShootDelayThreshold.Max)
                 delay = ent.Comp.ShootDelayThreshold.Min;
             ent.Comp.ShootDelay = delay;
