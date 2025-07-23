@@ -676,7 +676,7 @@ namespace Content.Shared.Damage
                     parts.AddRange(organicParts);
 
                     goto case SplitDamageBehavior.SplitEnsureAll;
-                case SplitDamageBehavior.SplitEnsureAllDamageAndOrganic:
+                case SplitDamageBehavior.SplitEnsureAllDamagedAndOrganic:
                     var compatableParts = parts.Where(part =>
                         part.Damageable.TotalDamage > FixedPoint2.Zero &&
                         part.Component.PartComposition == BodyPartComposition.Organic).ToList();
