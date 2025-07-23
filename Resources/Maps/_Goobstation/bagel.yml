@@ -58183,7 +58183,7 @@ entities:
     - type: Transform
       pos: -4.522826,-34.278484
       parent: 2
-- proto: ChemDispenser
+- proto: EnergyChemDispenser
   entities:
   - uid: 9100
     components:
