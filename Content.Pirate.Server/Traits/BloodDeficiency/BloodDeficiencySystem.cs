@@ -1,7 +1,7 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Events;
 using Content.Pirate.Server.Traits.BloodDeficiency.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Pirate.Server.Traits.BloodDeficiency.Systems;
 

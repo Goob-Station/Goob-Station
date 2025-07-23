@@ -116,8 +116,8 @@
 
 - type: trait
   id: BloodDeficiency
-  name: trait-vampiric-metabolizer-name
-  description: trait-vampiric-metabolizer-desc
+  name: trait-vampiric-blood-deficiency-name
+  description: trait-vampiric-blood-deficiency-desc
   category: Quirks
   cost: -4
   components:

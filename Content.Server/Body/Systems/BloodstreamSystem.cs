@@ -163,6 +163,10 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.CCVar;
 using Robust.Shared.Configuration;
+//PIRATE
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Server.Body.Events;
 
 namespace Content.Server.Body.Systems;
 
@@ -186,7 +190,11 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
-    // Shitmed Change End
+    // Shitmed Change end
+    // Pirate Change start
+    [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private readonly ThirstSystem _thirst = default!;
+    // Pirate Change end
     public override void Initialize()
     {
         base.Initialize();
@@ -270,7 +278,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
             // Adds blood to their blood level if it is below the maximum; Blood regeneration. Must be alive.
             if (bloodSolution.Volume < bloodSolution.MaxVolume && !_mobStateSystem.IsDead(uid))
             {
-                TryModifyBloodLevel(uid, bloodstream.BloodRefreshAmount, bloodstream);
+                TryDoNaturalRegeneration((uid, bloodstream), bloodSolution); // PIRATE
             }
 
             // Sync bleeding amount from wounds if body exists
@@ -340,7 +348,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
                 _drunkSystem.TryApplyDrunkenness(
                     uid,
-                    (float) bloodstream.UpdateInterval.TotalSeconds * 2,
+                    (float)bloodstream.UpdateInterval.TotalSeconds * 2,
                     applySlur: false);
                 _stutteringSystem.DoStutter(uid, bloodstream.UpdateInterval * 2, refresh: false);
 
@@ -384,7 +392,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
 
             var missingBlood = bloodstream.BloodMaxVolume - bloodstream.BloodSolution.Value.Comp.Solution.Volume;
 
-            bloodstream.BleedAmount = (float) total / 4;
+            bloodstream.BleedAmount = (float)total / 4;
             if (!_consciousness.SetConsciousnessModifier(
                     uid,
                     nerveSys.Value,
@@ -633,7 +641,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
             _alertsSystem.ClearAlert(uid, component.BleedingAlert);
         else
         {
-            var severity = (short) Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
+            var severity = (short)Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
             _alertsSystem.ShowAlert(uid, component.BleedingAlert, severity);
         }
 
@@ -658,7 +666,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
             _alertsSystem.ClearAlert(uid, component.BleedingAlert);
         else
         {
-            var severity = (short) Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
+            var severity = (short)Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
             _alertsSystem.ShowAlert(uid, component.BleedingAlert, severity);
         }
 
@@ -772,5 +780,37 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         // Convert severity change to bleed amount (using similar logic as in SharedBloodstreamSystem)
         var bleedChange = deltaBleed * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
         TryModifyBleedAmount(ent, bleedChange.Float(), ent);
+    }
+
+    // PIRATE from now and until the end of the file
+    /// <summary>
+    ///     Tries to apply natural blood regeneration/loss to the entity. Returns true if succesful.
+    /// </summary>
+    private bool TryDoNaturalRegeneration(Entity<BloodstreamComponent> ent, Solution bloodSolution)
+    {
+        var ev = new NaturalBloodRegenerationAttemptEvent { Amount = ent.Comp.BloodRefreshAmount };
+        RaiseLocalEvent(ent, ref ev);
+
+        if (ev.Cancelled || (ev.Amount > 0 && bloodSolution.Volume >= bloodSolution.MaxVolume))
+            return false;
+
+        var usedHunger = ev.Amount * ent.Comp.BloodRegenerationHunger;
+        var usedThirst = ev.Amount * ent.Comp.BloodRegenerationThirst;
+
+        // First, check if the entity has enough hunger/thirst
+        var hungerComp = CompOrNull<HungerComponent>(ent);
+        var thirstComp = CompOrNull<ThirstComponent>(ent);
+        if (usedHunger > 0 && hungerComp is not null && (_hunger.GetHunger(hungerComp) < usedHunger || hungerComp.CurrentThreshold <= HungerThreshold.Starving)
+            || usedThirst > 0 && thirstComp is not null && (thirstComp.CurrentThirst < usedThirst || thirstComp.CurrentThirstThreshold <= ThirstThreshold.Parched))
+            return false;
+
+        // Then actually expend hunger and thirst (if necessary) and regenerate blood.
+        if (usedHunger > 0 && hungerComp is not null)
+            _hunger.ModifyHunger(ent, (float)-usedHunger, hungerComp);
+
+        if (usedThirst > 0 && thirstComp is not null)
+            _thirst.ModifyThirst(ent, thirstComp, (float)-usedThirst);
+
+        return TryModifyBloodLevel(ent, ev.Amount, ent.Comp);
     }
 }
