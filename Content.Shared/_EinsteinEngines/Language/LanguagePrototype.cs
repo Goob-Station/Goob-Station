@@ -59,6 +59,9 @@ public sealed partial class SpeechOverrideInfo
     public string? FontId;
 
     [DataField]
+    public bool UnsupportedBoldFont = false; // Goob Edit - Bolded Fonts
+
+    [DataField]
     public int? FontSize;
 
     [DataField]

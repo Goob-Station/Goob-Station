@@ -5,6 +5,7 @@
   speech:
     color: "#8282fbaa"
     fontId: NotoSansSC
+    unsupportedBoldFont: true
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
