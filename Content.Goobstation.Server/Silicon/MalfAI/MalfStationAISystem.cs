@@ -9,7 +9,7 @@ using Content.Shared.Store.Components;
 
 namespace Content.Goobstation.Server.Silicon.MalfAI;
 
-public sealed class MalfStationAISystem : SharedMalfStationAISystem
+public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
 {
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
@@ -20,19 +20,25 @@ public sealed class MalfStationAISystem : SharedMalfStationAISystem
 
         SubscribeLocalEvent<MalfStationAIComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MalfStationAIComponent, MalfAIOpenShopAction>(OnToggleShop);
+        SubscribeLocalEvent<MalfStationAIComponent, OnAboutToUseCostlyAbility>(OnBudgetCheck);
         SubscribeLocalEvent<ApcComponent, OnHackedEvent>(OnAPCHacked);
+
+        InitializeActions();
     }
 
-    private void OnStartup(Entity<MalfStationAIComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<MalfStationAIComponent> entity, ref ComponentStartup args)
     {
-        _actions.AddAction(ent, ent.Comp.MalfAIToggleShopAction);
+        _actions.AddAction(entity, entity.Comp.MalfAIToggleShopAction);
+
+        // Add the starting amount of processing power to the store balance.
+        AddProcessingPower(entity, entity.Comp.StartingProcessingPower);
     }
 
-    private void OnToggleShop(Entity<MalfStationAIComponent> ent, ref MalfAIOpenShopAction args)
+    private void OnToggleShop(Entity<MalfStationAIComponent> entity, ref MalfAIOpenShopAction args)
     {
-        if (!TryComp<StoreComponent>(ent, out var store))
+        if (!TryComp<StoreComponent>(entity, out var store))
             return;
-        _store.ToggleUi(ent, ent, store);
+        _store.ToggleUi(entity, entity, store);
     }
 
     public void AddProcessingPower(Entity<MalfStationAIComponent> entity, FixedPoint2 amount)
@@ -44,6 +50,33 @@ public sealed class MalfStationAISystem : SharedMalfStationAISystem
             return;
 
         _store.UpdateUserInterface(entity, entity, store);
+    }
+
+    private void OnBudgetCheck(Entity<MalfStationAIComponent> ent, ref OnAboutToUseCostlyAbility args)
+    {
+        args.Cancelled = !TryRemoveProcessingPower(ent, args.Cost);
+    }
+
+    public bool TryRemoveProcessingPower(Entity<MalfStationAIComponent> entity, FixedPoint2 amount)
+    {
+        // There is no method in the store class for
+        // removing currency that I know of and I don't
+        // want to touch store code so here this goes.
+
+        if (!TryComp<StoreComponent>(entity, out var store))
+            return false;
+
+        if (!store.Balance.ContainsKey(entity.Comp.ProcessingPowerPrototype))
+            return false;
+
+        if (store.Balance[entity.Comp.ProcessingPowerPrototype] < amount)
+            return false;
+
+        store.Balance[entity.Comp.ProcessingPowerPrototype] -= amount;
+
+        _store.UpdateUserInterface(entity, entity, store);
+
+        return true;
     }
 
     private void OnAPCHacked(Entity<ApcComponent> ent, ref OnHackedEvent args)

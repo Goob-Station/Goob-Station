@@ -6,7 +6,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Silicon.MalfAI;
 
-public abstract class SharedMalfStationAISystem : EntitySystem
+public abstract partial class SharedMalfStationAISystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
@@ -31,7 +31,7 @@ public abstract class SharedMalfStationAISystem : EntitySystem
             Priority = 1,
             Act = () => StartHackDoAfter(hackable, new Entity<MalfStationAIComponent>(malfEntity, malf)),
             Text = Loc.GetString("malf-ai-hack-verb-text"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/open.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/unlock.svg.192dpi.png"))
         };
 
         args.Verbs.Add(verb);
@@ -40,9 +40,11 @@ public abstract class SharedMalfStationAISystem : EntitySystem
     private void StartHackDoAfter(Entity<MalfStationAIHackableComponent> hackable, Entity<MalfStationAIComponent> malfEntity)
     {
         if (_doAfter.IsRunning(malfEntity.Comp.HackDoAfterID))
-            return;
+            _doAfter.Cancel(malfEntity.Comp.HackDoAfterID);
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, malfEntity, hackable.Comp.SecondsToHack, new HackDoAfterEvent(), malfEntity, hackable);
+        EnsureComp<DoAfterComponent>(hackable);
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, hackable, hackable.Comp.SecondsToHack, new HackDoAfterEvent(), malfEntity, hackable, showTo: malfEntity);
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out var id))
             return;
@@ -52,6 +54,9 @@ public abstract class SharedMalfStationAISystem : EntitySystem
 
     private void OnHackDoAfterComplete(Entity<MalfStationAIComponent> ent, ref HackDoAfterEvent args)
     {
+        if (args.Cancelled)
+            return;
+
         if (!TryComp<MalfStationAIHackableComponent>(args.Target, out var hackable))
             return;
 

@@ -253,10 +253,6 @@
       mindRoles:
       - MindRoleMalfAI
       components:
-      - type: UserInterface
-        interfaces:
-          enum.StoreUiKey.Key:
-            type: StoreBoundUserInterface
       - type: Store
         categories:
         - MalfAIAbilities

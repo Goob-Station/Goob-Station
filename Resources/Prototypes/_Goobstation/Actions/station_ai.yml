@@ -30,8 +30,8 @@
     itemIconStyle: BigAction
     event: !type:MalfAIOpenShopAction
     icon:
-      sprite: Interface/Actions/actions_ai.rsi
-      state: camera_jump
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: modules_menu
 
 - type: entity
   id: ActionMalfAIOverload
@@ -44,5 +44,11 @@
     itemIconStyle: BigAction
     event: !type:MachineOverloadActionEvent
     icon:
-      sprite: Interface/Actions/actions_ai.rsi
-      state: camera_jump
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: overload_machine
+  - type: Explosive # Powerful explosion in a small radius. Breaks underplating.
+    explosionType: Default
+    totalIntensity: 60
+    intensitySlope: 3
+    maxIntensity: 30
+    canCreateVacuum: true

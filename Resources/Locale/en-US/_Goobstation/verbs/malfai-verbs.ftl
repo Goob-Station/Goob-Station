@@ -1,0 +1,1 @@
+malf-ai-hack-verb-text = Hack
