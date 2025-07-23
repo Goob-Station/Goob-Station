@@ -108,6 +108,8 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
+    TraitorGimmickObjectivesMinor: 0.15 # Goobstation - intended as 1 agent per every 8 or so really
+    TraitorGimmickObjectivesMajor: 0.05 # Goobstation - Basically passes to pull off larger antag plays in reality so pretty rare
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
@@ -228,3 +230,28 @@
   weights:
     EscapeThiefShuttleObjective: 1
 #Changeling, crew, wizard, when you code it...
+
+# Goob
+
+- type: weightedRandom
+  id: TraitorGimmickObjectivesMinor
+  weights:
+    TresspassGimmickObjective: 1
+    MasqueradeGimmickObjective: 1
+    TrustedGimmickObjective: 1
+    HackerGimmickObjective: 1
+    StalkerGimmickObjective: 1
+    LivingHellGimmickObjective: 1
+    FrameGimmickObjective: 1
+    HazardGimmickObjective: 1
+    PromotedGimmickObjective: 1
+    AllegianceGimmickObjective: 1
+
+- type: weightedRandom
+  id: TraitorGimmickObjectivesMajor
+  weights:
+    SerialKillerGimmickObjective: 1
+    SabotageGimmickObjective: 1
+    HeistGimmickObjective: 1 
+    AccompliceGimmickObjective: 1 
+    TakeoverGimmickObjective: 1
