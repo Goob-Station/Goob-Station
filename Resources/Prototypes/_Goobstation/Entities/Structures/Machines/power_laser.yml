@@ -74,6 +74,7 @@
     fireCost: 1000
   - type: Physics
     bodyType: Static
+  - type: Rotatable # or people end up trying to rotate it by edging on solid ents in space, which never works
   - type: Fixtures
     fixtures:
       fix1:
