@@ -9,8 +9,8 @@
 
 - type: entity
   id: ActionFlashRune
-  name: Flash Rune
-  description: Summons a rune that flashes if used.
+  name: "Руна Спалаху"
+  description: "Викликає руну, яка спалахне при використанні."
   components:
   - type: InstantAction
     useDelay: 10
@@ -23,8 +23,8 @@
 
 - type: entity
   id: ActionExplosionRune
-  name: Explosion Rune
-  description: Summons a rune that explodes if used.
+  name: "Руна Вибуху"
+  description: "Викликає руну, яка вибухає при використанні."
   components:
   - type: InstantAction
     useDelay: 20
@@ -37,8 +37,8 @@
 
 - type: entity
   id: ActionIgniteRune
-  name: Ignite Rune
-  description: Summons a rune that ignites if used.
+  name: "Руна Запалення"
+  description: "Викликає руну, яка запалюється при використанні."
   components:
   - type: InstantAction
     useDelay: 15
@@ -51,8 +51,8 @@
 
 - type: entity
   id: ActionStunRune
-  name: Stun Rune
-  description: Summons a rune that stuns if used.
+  name: "Руна Оглушення"
+  description: "Викликає руну, яка оглушує при використанні."
   components:
   - type: InstantAction
     useDelay: 10

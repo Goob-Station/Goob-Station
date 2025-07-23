@@ -8,8 +8,8 @@
 - type: entity
   id: FishingRod
   parent: BaseItem
-  name: fishing rod
-  description: It's time to go fishing!
+  name: "вудка"
+  description: "Час іти на риболовлю!"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/fishing_rod.rsi
@@ -32,8 +32,8 @@
   id: FishingRodGoon
   suffix: Goon
   parent: FishingRod
-  name: fishing rod
-  description: It's time to go fishing!
+  name: "вудка"
+  description: "Час іти на риболовлю!"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/goon_rod.rsi
@@ -46,8 +46,8 @@
 - type: entity
   id: FishingRodMakeshift
   parent: FishingRod
-  name: makeshift fishing rod
-  description: Probably would be hard to catch a fish using that.
+  name: "саморобна вудка"
+  description: "Мабуть, важко буде зловити рибу на таку."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/makeshift_rod.rsi
@@ -66,8 +66,8 @@
 - type: entity
   id: FishingRodGolden
   parent: FishingRod
-  name: golden fishing rod
-  description: Finally, you caught 250 fishes. Here's your trophey.
+  name: "золота вудка"
+  description: "Нарешті, ти зловив 250 рибин. Ось твій трофей."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Fishing/golden_rod.rsi
@@ -88,8 +88,8 @@
 - type: entity
   id: FishingLure
   parent: BaseItem
-  name: fishing lure
-  description: fish come here
+  name: "рибальська приманка"
+  description: "рибо, йди сюди"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -104,8 +104,8 @@
 - type: entity
   id: FishingLureMakeshift
   parent: FishingLure
-  name: fishing lure
-  description: fish come here
+  name: "рибальська приманка"
+  description: "рибо, йди сюди"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

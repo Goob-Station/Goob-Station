@@ -16,8 +16,8 @@
 
 - type: entity
   id: Supermatter
-  name: supermatter crystal
-  description: A strangely translucent and iridescent crystal.
+  name: "кристал надматерії"
+  description: "Дивно прозорий і переливчастий кристал."
   placement:
     mode: SnapgridCenter
   components:

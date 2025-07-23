@@ -112,8 +112,8 @@
 - type: entity
   parent: BaseItem
   id: PersonalAI
-  name: personal ai device
-  description: Your electronic pal who's fun to be with!
+  name: "персональний ШІ-помічник"
+  description: "Ваш електронний друг, з яким весело проводити час!"
   components:
   - type: Instrument
     allowPercussion: false
@@ -257,8 +257,8 @@
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
   id: SyndicatePersonalAI
-  name: syndicate personal ai device
-  description: Your Syndicate pal who's fun to be with!
+  name: "синдикат персональний ШІ-помічник"
+  description: "Твій друг із Синдикату, з яким весело проводити час!"
   components:
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
@@ -293,8 +293,8 @@
 - type: entity
   parent: PersonalAI
   id: PotatoAI
-  name: potato artificial intelligence
-  description: It's a potato. You forced it to be sentient, you monster.
+  name: "штучний інтелект картоплі"
+  description: "Картопля є ідеальним джерелом енергії для цього чіпсу."
   components:
   - type: Sprite
     sprite: Objects/Fun/pai.rsi
@@ -323,8 +323,8 @@
 
 - type: entity
   id: ActionPAIOpenShop
-  name: Software Catalog
-  description: Install new software to assist your owner.
+  name: "Каталог програм"
+  description: "Встановіть нове програмне забезпечення для допомоги вашому власнику."
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -334,8 +334,8 @@
 
 - type: entity
   id: ActionPAIMassScanner
-  name: Mass Scanner
-  description: View a mass scanner interface.
+  name: "Масовий сканер"
+  description: "Переглянути інтерфейс масового сканера."
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -347,8 +347,8 @@
 
 - type: entity
   id: ActionPAIPlayMidi
-  name: Play MIDI
-  description: Open your portable MIDI interface to soothe your owner.
+  name: "Відтворення MIDI"
+  description: "Відкрийте свій портативний MIDI-інтерфейс, щоб заспокоїти власника."
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -360,8 +360,8 @@
 
 - type: entity
   id: ActionPAIOpenMap
-  name: Open Map
-  description: Open your map interface and guide your owner.
+  name: "Відкрити мапу"
+  description: "Відкрийте інтерфейс карти та допоможіть власнику."
   components:
     - type: InstantAction
       checkCanInteract: false
