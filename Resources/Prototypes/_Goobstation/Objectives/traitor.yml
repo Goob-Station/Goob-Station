@@ -247,7 +247,7 @@
       difficulty: 0.5
       unique: true
       icon:
-        sprite: Objects/Tools/wirecutters.rsi
+        sprite: Objects/Tools/scissors.rsi
         state: icon
     - type: AutoCompleteCondition
 
@@ -277,7 +277,7 @@
     unique: true
     difficulty: 2
     icon:
-      sprite: Objects/Weapons/Guns/Melee/cleaver.rsi
+      sprite: Objects/Weapons/Melee/cleaver.rsi
       state: butch
   - type: AutoCompleteCondition
 
