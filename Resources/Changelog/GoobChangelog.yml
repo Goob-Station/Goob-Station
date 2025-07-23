@@ -12779,3 +12779,9 @@ Entries:
       message: Gemini cannot be injected with holoparasite anymore.
   id: 1412
   time: '2025-07-23T18:07:28.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Nails projectiles can be reflected now.
+  id: 1413
+  time: '2025-07-23T18:09:11.0000000+00:00'
