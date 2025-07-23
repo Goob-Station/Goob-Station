@@ -285,6 +285,7 @@
   id: SerialKillerGimmickObjective
   name: Become an infamous serial killer
   description: Your employers have low expectations, but they can be higher if the body count is higher and you evade capture. This objective is not tracked and will automatically succeed, but has to be followed in some form.
+  components:
   - type: Objective
     unique: true
     difficulty: 2
