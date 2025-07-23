@@ -310,7 +310,7 @@
 - type: entity
   parent: [BaseTraitorObjective]
   id: HeistGimmickObjective
-  name: Attempt a massive heist or steal as much from the crewmembers
+  name: Attempt a massive heist or steal as much from the crewmembers as possible
   description: Armory? Vault? Bank Accounts? Crew Belongings? The choice is yours. This objective is not tracked and will automatically succeed, but has to be followed in some form.
   components:
   - type: Objective
