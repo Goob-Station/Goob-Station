@@ -9,7 +9,7 @@
 // SPDX-FileCopyrightText: 2024 Baa <9057997+Baa14453@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Bakke <luringens@protonmail.com>
 // SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>makesen
 // SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
@@ -353,6 +353,8 @@ public sealed partial class PolymorphSystem : EntitySystem
         }
         var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
+        _mindSystem.MakeSentient(child);
+        //todo marty start here
         MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
         // Goob edit end
 

@@ -33,31 +33,33 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Speech;
 using Robust.Shared.Console;
 
-namespace Content.Server.Mind.Commands
+namespace Content.Server.Mind.Commands;
+
+[AdminCommand(AdminFlags.Admin)]
+public sealed class MakeSentientCommand : LocalizedEntityCommands
 {
-    [AdminCommand(AdminFlags.Admin)]
-    public sealed class MakeSentientCommand : IConsoleCommand
+    [Dependency] private readonly MindSystem _mindSystem = default!;
+    [Dependency] private readonly IEntityManager _entManager = default!; // todo marty this shit
+
+    public override string Command => "makesentient";
+
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        [Dependency] private readonly IEntityManager _entManager = default!;
-
-        public string Command => "makesentient";
-        public string Description => "Makes an entity sentient (able to be controlled by a player)";
-        public string Help => "makesentient <entity id>";
-
-        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        if (args.Length != 1)
         {
-            if (args.Length != 1)
-            {
-                shell.WriteLine("Wrong number of arguments.");
-                return;
-            }
+            shell.WriteLine(Loc.GetString("shell-need-exactly-one-argument"));
+            return;
+        }
 
-            if (!NetEntity.TryParse(args[0], out var entNet) || !_entManager.TryGetEntity(entNet, out var entId))
-            {
-                shell.WriteLine("Invalid argument.");
-                return;
-            }
+        if (!NetEntity.TryParse(args[0], out var entNet) || !EntityManager.TryGetEntity(entNet, out var entId) || !EntityManager.EntityExists(entId))
+        {
+            shell.WriteLine(Loc.GetString("shell-could-not-find-entity-with-uid", ("uid", args[0])));
+            return;
+        }
 
+        _mindSystem.MakeSentient(entId.Value);
+
+        //todo marty start
             if (!_entManager.EntityExists(entId))
             {
                 shell.WriteLine("Invalid entity specified!");
@@ -95,5 +97,5 @@ namespace Content.Server.Mind.Commands
 
             entityManager.EnsureComponent<ExaminerComponent>(uid);
         }
-    }
+
 }
