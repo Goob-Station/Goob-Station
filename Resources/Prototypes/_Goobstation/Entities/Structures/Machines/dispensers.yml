@@ -37,6 +37,7 @@
         layer:
         - MachineLayer
   - type: ApcPowerReceiver
+    powerLoad: 65
   - type: ExtensionCableReceiver
   - type: Anchorable
   - type: Pullable
