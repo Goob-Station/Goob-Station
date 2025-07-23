@@ -135,15 +135,15 @@
 
 - type: entity
   parent: [BaseTraitorObjective]
-  id: TresspassGimmickObjective
+  id: TrespassGimmickObjective
   name: Gain access to the entire station
-  description: Attempt to Tresspass and gain as much access as possible for yourself and any lucky crew. This objective is not tracked and will automatically succeed, so just have fun with it!
+  description: Attempt to Trespass and gain as much access as possible for yourself and any lucky crew. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
   - type: Objective
     unique: true
     difficulty: 0.5
     icon:
-      sprite: Objects/Tools/acess_breaker.rsi
+      sprite: Objects/Tools/access_breaker.rsi
       state: icon
   - type: AutoCompleteCondition
 
