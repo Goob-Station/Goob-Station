@@ -9,11 +9,11 @@ using Content.Shared.Mind;
 
 namespace Content.Server.Objectives.Systems;
 
-// Automatically assign an objective as complete.
-
+/// <summary>
+/// An objective that automatically completes itself.
+/// </summary>
 public sealed class AutoCompleteConditionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -22,8 +22,6 @@ public sealed class AutoCompleteConditionSystem : EntitySystem
         SubscribeLocalEvent<AutoCompleteConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
     }
 
-    private void OnGetProgress(EntityUid uid, AutoCompleteConditionComponent comp, ref ObjectiveGetProgressEvent args)
-    {
+    private void OnGetProgress(Entity<AutoCompleteConditionComponent> ent, ref ObjectiveGetProgressEvent args) =>
         args.Progress = 1f;
-    }
 }

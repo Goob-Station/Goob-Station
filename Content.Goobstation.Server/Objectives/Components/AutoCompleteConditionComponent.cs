@@ -12,6 +12,4 @@ namespace Content.Server.Objectives.Components;
 /// An objective that automatically completes itself.
 /// </summary>
 [RegisterComponent, Access(typeof(AutoCompleteConditionSystem))]
-public sealed partial class AutoCompleteConditionComponent : Component
-{
-}
+public sealed partial class AutoCompleteConditionComponent : Component;
