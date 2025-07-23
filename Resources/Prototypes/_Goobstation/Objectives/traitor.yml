@@ -265,19 +265,6 @@
         state: pda-captain
     - type: AutoCompleteCondition
 
-- type: entity
-  parent: [BaseTraitorObjective]
-  id: AllegianceGimmickObjective
-  name: Prove your loyalty by strictly following your faction rules
-  description: Show your allegiance on the field! Support faction allies, sabotage enemies and ignore the inbetween while obeying the rules. This objective is not tracked and will automatically succeed, so just have fun with it!
-  components:
-    - type: Objective
-      difficulty: 0.5
-      unique: true
-      icon:
-        sprite: Objects/Misc/bureaucracy.rsi/syndicate_card.png
-    - type: AutoCompleteCondition
-
 # Major Gimmick - Basically extra-antag passes being real, 2 to leave some space for an M / Lower theft for those that are gonna be lame with them.
 
 - type: entity
