@@ -696,6 +696,8 @@
         Slash: 0.75
         Piercing: 0.75
         Heat: 0.75
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono # Because it's cool and based
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
 

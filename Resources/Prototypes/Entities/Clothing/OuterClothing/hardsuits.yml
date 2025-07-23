@@ -1364,6 +1364,12 @@
         Cellular: 0.1
         Radiation: 0.1
         Caustic: 0.1
+      flatReductions:
+        Blunt: 5
+        Slash: 5
+        Piercing: 5
+        Heat: 5
+        Radiation: 2
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

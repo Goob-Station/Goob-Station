@@ -207,6 +207,7 @@
             soundHit:
               path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
             canWideSwing: false
+          - type: GrabbingItem
           - type: StaminaDamageOnHit
             damage: 45
             overtime: 80
