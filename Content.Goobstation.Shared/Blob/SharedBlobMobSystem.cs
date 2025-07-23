@@ -38,7 +38,7 @@ public abstract class SharedBlobMobSystem : EntitySystem
         _tileQuery = GetEntityQuery<BlobTileComponent>();
         _mobQuery = GetEntityQuery<BlobMobComponent>();
 
-        SubscribeLocalEvent<BlobSpeakComponent, GetDefaultRadioChannelEvent>(OnGetDefaultRadioChannel);
+        // SubscribeLocalEvent<BlobSpeakComponent, GetDefaultRadioChannelEvent>(OnGetDefaultRadioChannel);
     }
 
     private void OnGetDefaultRadioChannel(Entity<BlobSpeakComponent> ent, ref GetDefaultRadioChannelEvent args)
