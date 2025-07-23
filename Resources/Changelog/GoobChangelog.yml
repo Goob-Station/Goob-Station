@@ -12791,3 +12791,9 @@ Entries:
       message: Fixed collective mind message repeat for message source
   id: 1414
   time: '2025-07-23T18:10:12.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: All Abductors should have Agent IDs now.
+  id: 1415
+  time: '2025-07-23T18:13:53.0000000+00:00'
