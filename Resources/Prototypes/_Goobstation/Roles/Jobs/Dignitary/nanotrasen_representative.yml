@@ -97,10 +97,37 @@
   description: "Represent NT, Send reports back to them on the station's situation, Inform the heads of anything CentCom orders them to do."
   playTimeTracker: JobNanotrasenRepresentative
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 180000  #50 hours
-    - !type:AgeRequirement
+ - !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 32400000 #9001 hrs OVER 9000!!!!
+ - !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 32400000 #9001 hrs OVER 9000!!!!
+  - !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 32400000 #9001 hrs OVER 9000!!!!
+  - !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 32400000 #9001 hrs OVER 9000!!!!
+  - !type:RoleTimeRequirement
+      role: JobHeadOfPersonnel
+      time: 32400000 #9001 hrs OVER 9000!!!!
+  - !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 32400000 #9001 hrs OVER 9000!!!!
+ - !type:RoleTimeRequirement
+      role: JobChiefEngineer
+      time: 32400000 #9001 hrs OVER 9000!!!!
+  - !type:RoleTimeRequirement
+      role:  JobBlueshieldOfficer
+      time: 32400000 #9001 hrs OVER 9000!!!!
+  - !type:RoleTimeRequirement
+      role: JobBartender
+      time: 32400000 #9001 hrs OVER 9000!!!!
+  - !type:RoleTimeRequirement
+      role: JobLibrarian
+      time: 32400000 #9001 hrs OVER 9000!!!!
+  - !type:AgeRequirement
       requiredAge: 21
   weight: 20
   startingGear: NanotrasenRepresentativeGear
