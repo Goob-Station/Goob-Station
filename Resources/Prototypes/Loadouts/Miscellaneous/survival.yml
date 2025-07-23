@@ -377,3 +377,35 @@
     proto: EffectSpeciesVox
   equipment:
     mask: ClothingMaskGasSecurity
+
+- type: loadout
+  id: LoadoutClothingMaskAuralis
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskAuralis
+
+- type: loadout
+  id: LoadoutClothingMaskVoxSpecial
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskGasHalf
+
+- type: loadout
+  id: LoadoutClothingMaskEnforcer
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskEnforcer
+
+- type: loadout
+  id: LoadoutSpeciesBreathToolMerc
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskGasMerc

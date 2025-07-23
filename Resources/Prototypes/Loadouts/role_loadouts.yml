@@ -740,7 +740,7 @@
   - Trinkets
   - Keycards
   - Animals
-  - GroupSpeciesBreathTool
+  - GroupSpeciesBreathToolMerc #redastra
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
