@@ -12,11 +12,8 @@
       canTargetSelf: false
       interactOnMiss: false
       icon: Interface/Actions/manifest.png
-      state: icon
       event: !type:SetTargetGhostActionEvent {}
       checkCanInteract: false
-      showOnHotbar: true
-      showOnActionWheel: true
       itemIconStyle: NoItem
 
 
@@ -24,16 +21,13 @@
   id: ActionClearTargetGhost
   name: "Відпустити зв'язок"
   description: "Забути про обрану істоту та повернутись у тінь."
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
       icon: Interface/Actions/blight.png
-      state: freedom
       useDelay: 1
       event: !type:ClearTargetGhostActionEvent
       priority: 0
-      showOnHotbar: true
-      showOnActionWheel: true
       raiseOnUser: true
 
 
@@ -41,7 +35,7 @@
   id: ActionToggleGhostForm
   name: "Змінити сутність"
   description: "Перетворися на духа чи повернись у свою тілесну форму."
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
       icon: Interface/Actions/eyeopen.png
@@ -49,8 +43,6 @@
       useDelay: 1
       event: !type:ToggleGhostFormActionEvent
       priority: 0
-      showOnHotbar: true
-      showOnActionWheel: true
       raiseOnUser: true
 
 
@@ -58,12 +50,10 @@
   id: ActionGhostBlink
   name: "Мерехтіння духа"
   description: "Перемістись на невелику відстань, розчиняючись у повітрі."
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
       icon: _Goobstation/Wizard/Icons/spellblade.rsi/blink.png
       useDelay: 3
       event: !type:GhostBlinkActionEvent
-      showOnHotbar: true
-      showOnActionWheel: true
       raiseOnUser: true

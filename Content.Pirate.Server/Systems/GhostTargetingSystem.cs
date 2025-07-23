@@ -112,12 +112,6 @@ namespace Content.Pirate.Server.Systems
                 }
             }
 
-            foreach (var ent in ghost.Comp.ActionEntities)
-            {
-                var comps = EntityManager.GetComponents(ent);
-                var compNames = string.Join(", ", comps.Select(c => c.GetType().Name));
-            }
-
             // EyeComponent: якщо вже є ціль, одразу оновити маску видимості
             var ghostLayer = (int)Content.Shared.Eye.VisibilityFlags.TargetingGhost;
             if (ghost.Comp.Target != NetEntity.Invalid)

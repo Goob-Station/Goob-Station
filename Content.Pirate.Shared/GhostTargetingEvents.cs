@@ -1,10 +1,4 @@
-using Robust.Shared.GameObjects;
 using Content.Shared.Actions;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
-using Robust.Shared.Network;
-using Robust.Shared.Utility;
-using System;
 
 namespace Content.Pirate.Shared
 {

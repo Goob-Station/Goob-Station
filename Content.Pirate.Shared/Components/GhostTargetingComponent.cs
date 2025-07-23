@@ -16,7 +16,6 @@ namespace Content.Pirate.Shared.Components
         public List<int>? OldFixtureLayers { get; set; }
 
         // --- Основна інформація ---
-        public static string Name => "GhostTargeting";
         [ViewVariables]
         public bool IsGhost { get; set; } = false;
         [ViewVariables]
