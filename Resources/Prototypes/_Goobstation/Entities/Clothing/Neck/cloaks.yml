@@ -53,3 +53,12 @@
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloakalt.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloakalt.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSanabi
+  name: sanabi cloak
+  description: When you're wearing this, you can feel strong aura, feels like you had became a combat bot...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi
