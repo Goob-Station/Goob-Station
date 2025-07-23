@@ -277,28 +277,26 @@
 #    - !type:RemovePsionicStatSources
 #    - !type:RemoveAssayFeedback
 #      assayFeedback: psionic-invisibility-power-metapsionic-feedback
-#
-#- type: psionicPower
-#  id: XenoglossyPower
-#  name: Xenoglossy
-#  powerCategories:
-#    - Mentalic
-#  initializeFunctions:
-#    - !type:AddPsionicPowerComponents
-#      components:
-#        - type: UniversalLanguageSpeaker
-#    - !type:PsionicFeedbackPopup
-#    - !type:PsionicFeedbackSelfChat
-#      feedbackMessage: xenoglossy-power-initialization-feedback
-#    - !type:AddPsionicAssayFeedback
-#      assayFeedback: psionic-language-power-feedback
-#  removalFunctions:
-#    - !type:RemovePsionicPowerComponents
-#      components:
-#        - type: Telepathy
-#    - !type:RemoveAssayFeedback
-#      assayFeedback: psionic-language-power-feedback
-#  powerSlotCost: 0
+
+- type: psionicPower
+  id: XenoglossyPower
+  name: Xenoglossy
+  initializeFunctions:
+    - !type:AddPsionicPowerComponents
+      components:
+        - type: UniversalLanguageSpeaker
+    - !type:PsionicFeedbackPopup
+    - !type:PsionicFeedbackSelfChat
+      feedbackMessage: xenoglossy-power-initialization-feedback
+    - !type:AddPsionicAssayFeedback
+      assayFeedback: psionic-language-power-feedback
+  removalFunctions:
+    - !type:RemovePsionicPowerComponents
+      components:
+        - type: Telepathy
+    - !type:RemoveAssayFeedback
+      assayFeedback: psionic-language-power-feedback
+  powerSlotCost: 0
 
 - type: psionicPower
   id: PsychognomyPower #i.e. reverse physiognomy

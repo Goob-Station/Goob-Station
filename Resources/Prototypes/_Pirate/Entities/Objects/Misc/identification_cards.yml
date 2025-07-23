@@ -31,7 +31,7 @@
       heldPrefix: silver
     - type: PresetIdCard
       job: CaptainInterdyne
-      
+
 - type: entity
   parent: IDCardStandard
   id: InterdyneDeputyIDCard
@@ -66,7 +66,7 @@
       heldPrefix: default
     - type: PresetIdCard
       job: InterdyneEngineer
-      
+
 - type: entity
   parent: IDCardStandard
   id: InterdyneMedIDCard
@@ -83,7 +83,7 @@
       heldPrefix: default
     - type: PresetIdCard
       job: InterdyneMed
-      
+
 - type: entity
   parent: IDCardStandard
   id: InterdynePilotIDCard
@@ -117,7 +117,7 @@
       heldPrefix: default
     - type: PresetIdCard
       job: InterdyneSecure
-      
+
 - type: entity
   parent: IDCardStandard
   id: InterdyneServiceIDCard
@@ -134,7 +134,7 @@
       heldPrefix: default
     - type: PresetIdCard
       job: InterdyneService
-      
+
 - type: entity
   parent: IDCardStandard
   id: InterdyneShaftMinersIDCard
@@ -151,3 +151,18 @@
       heldPrefix: default
     - type: PresetIdCard
       job: InterdyneShaftMiners
+
+- type: entity
+  parent: IDCardStandard
+  id: AdminAssistantIDCard
+  name: administrative assistant ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - sprite: _Pirate/Objects/Misc/id_cards.rsi
+      state: idadminassistant
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: AdministrativeAssistant
