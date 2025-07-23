@@ -54,7 +54,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Body.Components
 {
-    [RegisterComponent, Access(typeof(SharedBloodstreamSystem), typeof(ReactionMixerSystem))]
+    [RegisterComponent, Access(Other = AccessPermissions.ReadWriteExecute)] // Pirate shitcode with access
     public sealed partial class BloodstreamComponent : Component
     {
         public static string DefaultChemicalsSolutionName = "chemicals";

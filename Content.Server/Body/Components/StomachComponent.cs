@@ -60,6 +60,7 @@ namespace Content.Server.Body.Components
         ///     A whitelist for what special-digestible-required foods this stomach is capable of eating.
         /// </summary>
         [DataField]
+        [Access(Other = AccessPermissions.ReadWriteExecute)]
         public EntityWhitelist? SpecialDigestible = null;
 
         /// <summary>
