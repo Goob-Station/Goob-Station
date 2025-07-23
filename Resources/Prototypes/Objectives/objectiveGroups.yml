@@ -237,7 +237,7 @@
 - type: weightedRandom
   id: TraitorGimmickObjectivesMinor
   weights:
-    TresspassGimmickObjective: 1
+    TrespassGimmickObjective: 1
     MasqueradeGimmickObjective: 1
     TrustedGimmickObjective: 1
     HackerGimmickObjective: 1
