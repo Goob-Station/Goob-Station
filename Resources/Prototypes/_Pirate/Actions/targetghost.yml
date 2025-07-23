@@ -1,0 +1,59 @@
+- type: entity
+  id: ActionTargetGhost
+  name: "Обрати того, хто побачить"
+  description: "Сконцентруйся на істоті, щоб вона змогла тебе побачити."
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      useDelay: 5
+      whitelist:
+        components:
+        - Eye
+      canTargetSelf: false
+      interactOnMiss: false
+      icon: Interface/Actions/manifest.png
+      event: !type:SetTargetGhostActionEvent {}
+      checkCanInteract: false
+      itemIconStyle: NoItem
+
+
+- type: entity
+  id: ActionClearTargetGhost
+  name: "Відпустити зв'язок"
+  description: "Забути про обрану істоту та повернутись у тінь."
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: Interface/Actions/blight.png
+      useDelay: 1
+      event: !type:ClearTargetGhostActionEvent
+      priority: 0
+      raiseOnUser: true
+
+
+- type: entity
+  id: ActionToggleGhostForm
+  name: "Змінити сутність"
+  description: "Перетворися на духа чи повернись у свою тілесну форму."
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: Interface/Actions/eyeopen.png
+      iconOn: Interface/Actions/eyeclose.png
+      useDelay: 1
+      event: !type:ToggleGhostFormActionEvent
+      priority: 0
+      raiseOnUser: true
+
+
+- type: entity
+  id: ActionGhostBlink
+  name: "Мерехтіння духа"
+  description: "Перемістись на невелику відстань, розчиняючись у повітрі."
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: _Goobstation/Wizard/Icons/spellblade.rsi/blink.png
+      useDelay: 3
+      event: !type:GhostBlinkActionEvent
+      raiseOnUser: true

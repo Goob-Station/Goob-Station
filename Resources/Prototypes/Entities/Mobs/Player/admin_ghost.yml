@@ -252,6 +252,7 @@
       - Normal
       - CosmicCultMonument # DeltaV - Cosmic Cult
       - Abductor
+      - TargetingGhost # Pirate, so they can see
 
 - type: entity
   id: ActionAGhostShowSolar
