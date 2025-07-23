@@ -240,7 +240,8 @@ public sealed partial class ClimbSystem : VirtualController
         if (args.Handled)
             return;
 
-        TryClimb(args.User, args.Dragged, uid, out _, component);
+        // Goobstation - DragnDrop climbing fix after GoobDragDropSystem
+        args.Handled = TryClimb(args.User, args.Dragged, uid, out _, component);
     }
 
     public bool TryClimb(

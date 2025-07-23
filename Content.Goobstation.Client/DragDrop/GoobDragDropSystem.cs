@@ -7,6 +7,7 @@
 using Content.Client.Construction;
 using Content.Goobstation.Client.Construction;
 using Content.Goobstation.Shared.DragDrop;
+using Content.Shared.Climbing.Systems;
 using Content.Shared.DragDrop;
 using Content.Shared.Interaction;
 using Robust.Shared.Timing;
@@ -22,13 +23,13 @@ public sealed partial class GoobDragDropSystem : SharedGoobDragDropSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ConstructionComponent, DragDropTargetEvent>(OnDragDropConstruction);
+        SubscribeLocalEvent<ConstructionComponent, DragDropTargetEvent>(OnDragDropConstruction, after: [typeof(ClimbSystem)]);
         SubscribeLocalEvent<ConstructionComponent, CanDropTargetEvent>(CanDropTargetConstruction);
 
-        SubscribeLocalEvent<DragDropTargetableComponent, DragDropTargetEvent>(OnDragDropTargetable);
+        SubscribeLocalEvent<DragDropTargetableComponent, DragDropTargetEvent>(OnDragDropTargetable, after: [typeof(ClimbSystem)]);
         SubscribeLocalEvent<DragDropTargetableComponent, CanDropTargetEvent>(CanDropTargetTargetable);
 
-        SubscribeLocalEvent<ConstructionGhostComponent, DragDropTargetEvent>(OnDragDropGhost);
+        SubscribeLocalEvent<ConstructionGhostComponent, DragDropTargetEvent>(OnDragDropGhost, after: [typeof(ClimbSystem)]);
         SubscribeLocalEvent<ConstructionGhostComponent, CanDropTargetEvent>(CanDropTargetGhost);
     }
 
