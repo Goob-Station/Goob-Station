@@ -7,8 +7,9 @@ using Content.Server.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;
 
-// Automatically an assign objective as complete.
-
+/// <summary>
+/// An objective that automatically completes itself.
+/// </summary>
 [RegisterComponent, Access(typeof(AutoCompleteConditionSystem))]
 public sealed partial class AutoCompleteConditionComponent : Component
 {
