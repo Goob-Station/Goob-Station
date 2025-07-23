@@ -1,21 +1,16 @@
-using Content.Shared._Shitcode.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
-using Content.Shared.Tag;
 using Content.Shared.Throwing;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
+namespace Content.Goobstation.Shared.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem : EntitySystem
 {
@@ -70,14 +65,9 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
     protected bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
-        if (args.Handled)
-            return false;
-
-        // No using abilities while charging
-        if (HasComp<RustChargeComponent>(ent))
-            return false;
-
-        if (!TryComp<HereticActionComponent>(args.Action, out var actionComp))
+        if (args.Handled
+            || HasComp<RustChargeComponent>(ent)
+            || !TryComp<HereticActionComponent>(args.Action, out var actionComp))
             return false;
 
         // check if any magic items are worn

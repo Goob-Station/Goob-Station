@@ -18,8 +18,7 @@ namespace Content.Goobstation.Shared.Heretic.Systems;
 
 public abstract class SharedVoidCurseSystem : EntitySystem
 {
-    [Dependency]
-    private readonly MovementSpeedModifierSystem _modifier = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
 
     public override void Initialize()
     {
@@ -40,7 +39,9 @@ public abstract class SharedVoidCurseSystem : EntitySystem
 
     private void OnTemperatureChangeAttempt(Entity<VoidCurseComponent> ent, ref TemperatureChangeAttemptEvent args)
     {
-        if (!args.Cancelled && ent.Comp.Stacks >= ent.Comp.MaxStacks && args.CurrentTemperature > args.LastTemperature)
+        if (!args.Cancelled
+            && ent.Comp.Stacks >= ent.Comp.MaxStacks
+            && args.CurrentTemperature > args.LastTemperature)
             args.Cancel();
     }
 

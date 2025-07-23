@@ -8,15 +8,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Goobstation.Common.Heretic;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
-using Content.Shared.Heretic;
 using Content.Shared.Inventory;
-using Content.Shared.Inventory.Events;
 using Robust.Shared.Network;
 
-namespace Content.Shared._Goobstation.Heretic.Systems;
+namespace Content.Goobstation.Shared.Heretic.Systems;
 
 public abstract class SharedVoidCloakSystem : EntitySystem
 {
@@ -34,7 +33,7 @@ public abstract class SharedVoidCloakSystem : EntitySystem
         SubscribeLocalEvent<VoidCloakComponent, InventoryRelayedEvent<CheckMagicItemEvent>>(OnCheckMagicItem);
     }
 
-    private void OnCheckMagicItem(Entity<VoidCloakComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
+    private static void OnCheckMagicItem(Entity<VoidCloakComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
     {
         if (!ent.Comp.Transparent)
             args.Args.Handled = true;
@@ -42,13 +41,9 @@ public abstract class SharedVoidCloakSystem : EntitySystem
 
     private void OnTerminating(Entity<VoidCloakHoodComponent> ent, ref EntityTerminatingEvent args)
     {
-        if (!TryComp(ent, out AttachedClothingComponent? attached))
-            return;
-
-        if (TerminatingOrDeleted(attached.AttachedUid))
-            return;
-
-        if (!TryComp(attached.AttachedUid, out VoidCloakComponent? comp))
+        if (!TryComp(ent, out AttachedClothingComponent? attached)
+            || TerminatingOrDeleted(attached.AttachedUid)
+            || !TryComp(attached.AttachedUid, out VoidCloakComponent? comp))
             return;
 
         MakeCloakVisible(attached.AttachedUid, comp);
@@ -56,13 +51,9 @@ public abstract class SharedVoidCloakSystem : EntitySystem
 
     private void OnEntParentChanged(Entity<VoidCloakHoodComponent> ent, ref EntParentChangedMessage args)
     {
-        if (!TryComp(ent, out AttachedClothingComponent? attached))
-            return;
-
-        if (TerminatingOrDeleted(attached.AttachedUid))
-            return;
-
-        if (!TryComp(attached.AttachedUid, out VoidCloakComponent? comp))
+        if (!TryComp(ent, out AttachedClothingComponent? attached)
+            || TerminatingOrDeleted(attached.AttachedUid)
+            || !TryComp(attached.AttachedUid, out VoidCloakComponent? comp))
             return;
 
         if (args.Transform.ParentUid == attached.AttachedUid) // If we unequip hood (new parent is cloak)

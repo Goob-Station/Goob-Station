@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Heretic.Prototypes;
+using Content.Goobstation.Shared.Heretic.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 

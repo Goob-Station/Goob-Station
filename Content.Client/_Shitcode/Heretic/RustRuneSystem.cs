@@ -10,11 +10,10 @@
 
 using System.Numerics;
 using Content.Client.IconSmoothing;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared.Tag;
 using Robust.Client.GameObjects;
 using Robust.Shared.Graphics.RSI;
-using Robust.Shared.Utility;
 
 namespace Content.Client._Shitcode.Heretic;
 
@@ -37,10 +36,11 @@ public sealed class RustRuneSystem : EntitySystem
 
     private void OnAppearanceChange(Entity<SpriteRandomOffsetComponent> ent, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null || !args.AppearanceData.TryGetValue(OffsetVisuals.Offset, out var offset))
+        if (args.Sprite == null
+            || !args.AppearanceData.TryGetValue(OffsetVisuals.Offset, out var offset))
             return;
 
-        args.Sprite.Offset = (Vector2) offset;
+        args.Sprite.Offset = (Vector2) offset; // todo: slop
     }
 
     private void OnIconSmoothInit(Entity<RustRuneComponent> ent, ref IconSmoothCornersInitializedEvent args)
@@ -86,7 +86,7 @@ public sealed class RustRuneSystem : EntitySystem
 
     private void RemoveLayers(SpriteComponent sprite)
     {
-        if (sprite.LayerMapTryGet(RustRuneKey.Rune, out var rune))
+        if (sprite.LayerMapTryGet(RustRuneKey.Rune, out var rune)) // todo: slop slop slop
             sprite.RemoveLayer(rune);
 
         if (sprite.LayerMapTryGet(RustRuneKey.Overlay, out var overlay))

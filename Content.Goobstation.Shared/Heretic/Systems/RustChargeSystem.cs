@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitcode.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Interaction.Events;
@@ -18,7 +18,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Shared._Shitcode.Heretic.Systems;
+namespace Content.Goobstation.Shared.Heretic.Systems;
 
 public sealed class RustChargeSystem : EntitySystem
 {
@@ -51,21 +51,17 @@ public sealed class RustChargeSystem : EntitySystem
         RemCompDeferred<RustObjectsInRadiusComponent>(ent);
     }
 
-    private void OnBeforeRustChargeStatusEffect(Entity<RustChargeComponent> ent, ref BeforeStatusEffectAddedEvent args)
+    private static void OnBeforeRustChargeStatusEffect(Entity<RustChargeComponent> ent, ref BeforeStatusEffectAddedEvent args)
     {
         if (args.Key == "KnockedDown")
             args.Cancelled = true;
     }
 
-    private void OnInteractAttempt(Entity<RustChargeComponent> ent, ref InteractionAttemptEvent args)
-    {
+    private static void OnInteractAttempt(Entity<RustChargeComponent> ent, ref InteractionAttemptEvent args) =>
         args.Cancelled = true;
-    }
 
-    private void OnDownAttempt(Entity<RustChargeComponent> ent, ref DownAttemptEvent args)
-    {
+    private static void OnDownAttempt(Entity<RustChargeComponent> ent, ref DownAttemptEvent args) =>
         args.Cancel();
-    }
 
     private void OnPreventCollide(Entity<RustChargeComponent> ent, ref PreventCollideEvent args)
     {
@@ -74,20 +70,17 @@ public sealed class RustChargeSystem : EntitySystem
 
         var other = args.OtherEntity;
 
-        if (!HasComp<DamageableComponent>(other) || _tag.HasTag(other, "IgnoreImmovableRod") ||
-            ent.Comp.DamagedEntities.Contains(other))
+        if (!HasComp<DamageableComponent>(other)
+            || _tag.HasTag(other, "IgnoreImmovableRod")
+            || ent.Comp.DamagedEntities.Contains(other))
             args.Cancelled = true;
     }
 
-    private void OnStopThrow(Entity<RustChargeComponent> ent, ref StopThrowEvent args)
-    {
+    private void OnStopThrow(Entity<RustChargeComponent> ent, ref StopThrowEvent args) =>
         RemCompDeferred(ent.Owner, ent.Comp);
-    }
 
-    private void OnLand(Entity<RustChargeComponent> ent, ref LandEvent args)
-    {
+    private void OnLand(Entity<RustChargeComponent> ent, ref LandEvent args) =>
         RemCompDeferred(ent.Owner, ent.Comp);
-    }
 
     private void OnCollide(Entity<RustChargeComponent> ent, ref StartCollideEvent args)
     {
@@ -104,7 +97,8 @@ public sealed class RustChargeSystem : EntitySystem
         ent.Comp.DamagedEntities.Add(other);
 
         // I would check for DamageableComponent but it is in server for whatever reason, also prevent collide handles that
-        if (!TryComp(other, out DamageableComponent? damageable) || _tag.HasTag(other, "IgnoreImmovableRod"))
+        if (!TryComp(other, out DamageableComponent? damageable)
+            || _tag.HasTag(other, "IgnoreImmovableRod"))
             return;
 
         // Damage mobs

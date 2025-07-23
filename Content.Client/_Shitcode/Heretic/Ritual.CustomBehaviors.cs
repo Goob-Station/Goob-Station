@@ -11,7 +11,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Heretic.Prototypes;
+
+using Content.Goobstation.Shared.Heretic.Prototypes;
 
 namespace Content.Client._Shitcode.Heretic;
 
@@ -19,12 +20,16 @@ namespace Content.Client._Shitcode.Heretic;
 // make sure they stay up in sync with the server counterpart.
 // regards.
 // - john
+// ok bro
+// - sol
 
-public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior { }
-public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior { }
-public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior { }
+public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior;
 
-public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior { }
+public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior;
+
+public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior;
+
+public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior;
 
 [Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {

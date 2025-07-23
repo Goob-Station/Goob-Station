@@ -8,7 +8,7 @@
 
 using System.Linq;
 using Content.Goobstation.Common.Religion;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Administration;
@@ -17,7 +17,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.CombatMode;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffect;
@@ -33,7 +32,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Heretic.Systems;
+namespace Content.Goobstation.Shared.Heretic.Systems;
 
 public abstract class SharedEntropicPlumeSystem : EntitySystem
 {
@@ -63,20 +62,17 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
 
     private void OnStartCollide(Entity<EntropicPlumeComponent> ent, ref StartCollideEvent args)
     {
-        if (ent.Comp.AffectedEntities.Contains(args.OtherEntity))
-            return;
-
-        if (!HasComp<MobStateComponent>(args.OtherEntity) || HasComp<HereticComponent>(args.OtherEntity) ||
-            HasComp<GhoulComponent>(args.OtherEntity))
-            return;
-
-        if (_inventory.GetHandOrInventoryEntities(args.OtherEntity, SlotFlags.WITHOUT_POCKET)
-            .Any(item => HasComp<DivineInterventionComponent>(item)))
+        if (ent.Comp.AffectedEntities.Contains(args.OtherEntity)
+            || !HasComp<MobStateComponent>(args.OtherEntity)
+            || HasComp<HereticComponent>(args.OtherEntity)
+            || HasComp<GhoulComponent>(args.OtherEntity)
+            || _inventory.GetHandOrInventoryEntities(args.OtherEntity, SlotFlags.WITHOUT_POCKET)
+                .Any(HasComp<DivineInterventionComponent>))
             return;
 
         ent.Comp.AffectedEntities.Add(args.OtherEntity);
 
-        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(args.OtherEntity,
+        _status.TryAddStatusEffect<TemporaryBlindnessComponent>(args.OtherEntity, // todo: fix this when upstream statuses are here
             "TemporaryBlindness",
             TimeSpan.FromSeconds(ent.Comp.Duration),
             true);
@@ -86,9 +82,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
 
         var solution = new Solution();
         foreach (var reagent in ent.Comp.Reagents)
-        {
             solution.AddReagent(reagent.Key, reagent.Value);
-        }
 
         if (!_solution.TryGetInjectableSolution(args.OtherEntity, out var targetSolution, out _))
             return;
@@ -100,7 +94,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var rand = new System.Random((int) _timing.CurTick.Value);
+        var rand = new Random((int) _timing.CurTick.Value);
         var query = EntityQueryEnumerator<EntropicPlumeAffectedComponent, MobStateComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var affected, out var mobState, out var xform))
         {
@@ -125,17 +119,13 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
 
                 var curTime = _timing.CurTime;
 
-                if (curTime < affected.NextAttack)
-                    return;
-
-                if (!TryComp(uid, out CombatModeComponent? combat))
-                    return;
-
-                if (_mobState.IsIncapacitated(uid, mobState))
-                    return;
-
-                if (HasComp<StunnedComponent>(uid) || HasComp<FrozenComponent>(uid) ||
-                    HasComp<AdminFrozenComponent>(uid) || HasComp<IceCubeComponent>(uid))
+                if (curTime < affected.NextAttack
+                    || !TryComp(uid, out CombatModeComponent? combat)
+                    || _mobState.IsIncapacitated(uid, mobState)
+                    || HasComp<StunnedComponent>(uid)
+                    || HasComp<FrozenComponent>(uid)
+                    || HasComp<AdminFrozenComponent>(uid)
+                    || HasComp<IceCubeComponent>(uid))
                     return;
 
                 _gun.TryGetGun(uid, out var gun, out var gunComp);
@@ -199,20 +189,14 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
 
     private List<EntityUid> FindPotentialTargets(Entity<TransformComponent> attacker, float range)
     {
-        List<EntityUid> result = new();
         var ents = _lookup.GetEntitiesInRange<MobStateComponent>(attacker.Comp.Coordinates, range, LookupFlags.Dynamic);
-        foreach (var ent in ents)
-        {
-            if (ent.Owner == attacker.Owner)
-                continue;
 
-            if (HasComp<HereticComponent>(ent.Owner) || HasComp<GhoulComponent>(ent.Owner))
-                continue;
-
-            if (_examine.InRangeUnOccluded(attacker, ent, range + 1f))
-                result.Add(ent);
-        }
-
-        return result;
+        // I'M LINQING ITTTTTT - sol
+        return (from ent in ents
+            where ent.Owner != attacker.Owner
+            where !HasComp<HereticComponent>(ent.Owner) && !HasComp<GhoulComponent>(ent.Owner)
+            where _examine.InRangeUnOccluded(attacker, ent, range + 1f)
+            select ent).Select(ent => (EntityUid) ent)
+            .ToList();
     }
 }

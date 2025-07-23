@@ -61,7 +61,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Gameplay;
 using Content.Goobstation.Common.Weapons.MeleeDash;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._White.Blink;
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;

@@ -8,8 +8,8 @@
 
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared.Heretic.Prototypes;
+using Content.Goobstation.Shared.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Prototypes;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;

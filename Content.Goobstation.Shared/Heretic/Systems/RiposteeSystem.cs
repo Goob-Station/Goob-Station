@@ -10,7 +10,7 @@
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Heretic.Components;
-using Content.Shared._Shitcode.Heretic.Systems.Abilities;
+using Content.Goobstation.Shared.Heretic.Systems.Abilities;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands.EntitySystems;

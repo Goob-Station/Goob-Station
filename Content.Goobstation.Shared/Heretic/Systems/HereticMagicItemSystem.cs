@@ -7,11 +7,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 
-namespace Content.Shared.Heretic.Systems;
+namespace Content.Goobstation.Shared.Heretic.Systems;
 
 public sealed partial class HereticMagicItemSystem : EntitySystem
 {
@@ -25,11 +26,11 @@ public sealed partial class HereticMagicItemSystem : EntitySystem
         SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
     }
 
-    private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref CheckMagicItemEvent args)
+    private static void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref CheckMagicItemEvent args)
         => args.Handled = true;
-    private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref HeldRelayedEvent<CheckMagicItemEvent> args)
+    private static void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref HeldRelayedEvent<CheckMagicItemEvent> args)
         => args.Args.Handled = true;
-    private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
+    private static void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
         => args.Args.Handled = true;
 
     private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)

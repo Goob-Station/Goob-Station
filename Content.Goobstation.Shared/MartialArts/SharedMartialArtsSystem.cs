@@ -22,9 +22,9 @@
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.Stealth;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
@@ -492,7 +492,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             case MartialArtsForms.CloseQuartersCombat:
                 var riposte = EnsureComp<RiposteeComponent>(user);
                 riposte.Data.TryAdd("CQC",
-                    new(0.1f,
+                    new RiposteData(0.1f,
                     false,
                     null,
                     true,

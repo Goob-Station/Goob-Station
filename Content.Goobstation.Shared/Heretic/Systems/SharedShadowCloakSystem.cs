@@ -1,7 +1,7 @@
 using Content.Goobstation.Common.Identity;
 using Content.Goobstation.Common.Projectiles;
 using Content.Goobstation.Common.Speech;
-using Content.Shared._Shitcode.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
@@ -20,7 +20,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Shitcode.Heretic.Systems;
+namespace Content.Goobstation.Shared.Heretic.Systems;
 
 public abstract class SharedShadowCloakSystem : EntitySystem
 {
@@ -123,18 +123,15 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
     private void OnDamageChanged(Entity<ShadowCloakedComponent> ent, ref DamageChangedEvent args)
     {
-        if (_net.IsClient)
-            return;
-
-        if (!args.DamageIncreased || args.DamageDelta == null)
+        if (_net.IsClient
+            || !args.DamageIncreased
+            || args.DamageDelta == null)
             return;
 
         ent.Comp.SustainedDamage += args.DamageDelta.GetTotal();
 
-        if (ent.Comp.SustainedDamage < ent.Comp.DamageBeforeReveal)
-            return;
-
-        if (!_random.Prob(Math.Clamp(ent.Comp.SustainedDamage.Float() / 100f, 0f, 1f)))
+        if (ent.Comp.SustainedDamage < ent.Comp.DamageBeforeReveal
+            || !_random.Prob(Math.Clamp(ent.Comp.SustainedDamage.Float() / 100f, 0f, 1f)))
             return;
 
         if (ent.Comp.DebuffOnEarlyReveal)
@@ -158,12 +155,10 @@ public abstract class SharedShadowCloakSystem : EntitySystem
             QueueDel(ent);
     }
 
-    private void OnGetDoAfterSpeed(Entity<ShadowCloakedComponent> ent, ref GetDoAfterDelayMultiplierEvent args)
-    {
+    private static void OnGetDoAfterSpeed(Entity<ShadowCloakedComponent> ent, ref GetDoAfterDelayMultiplierEvent args) =>
         args.Multiplier *= ent.Comp.DoAfterSlowdown;
-    }
 
-    private void OnRefreshMoveSpeed(Entity<ShadowCloakedComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    private static void OnRefreshMoveSpeed(Entity<ShadowCloakedComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         var (walk, sprint) = ent.Comp.MoveSpeedModifiers;
         args.ModifySpeed(walk, sprint);
@@ -201,7 +196,8 @@ public abstract class SharedShadowCloakSystem : EntitySystem
             return;
         }
 
-        if (_net.IsClient || HasComp<ShadowCloakedComponent>(args.Transform.ParentUid))
+        if (_net.IsClient
+            || HasComp<ShadowCloakedComponent>(args.Transform.ParentUid))
             return;
 
         if (TerminatingOrDeleted(args.OldParent) || !HasComp<ShadowCloakedComponent>(args.OldParent))
@@ -234,7 +230,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
         var shadowCloakQuery = GetEntityQuery<ShadowCloakEntityComponent>();
         var children = xform.ChildEnumerator;
-        List<Entity<ShadowCloakEntityComponent>> toDelete = new();
+        List<Entity<ShadowCloakEntityComponent>> toDelete = [];
         while (children.MoveNext(out var child))
         {
             if (shadowCloakQuery.TryComp(child, out var comp))
@@ -242,9 +238,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         }
 
         foreach (var child in toDelete)
-        {
             AttemptDeleteShadowCloakEntity(child);
-        }
 
         if (_net.IsClient)
             return;

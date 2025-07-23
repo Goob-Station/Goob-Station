@@ -11,9 +11,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Heretic.Prototypes;
 using Content.Shared.Dataset;
 using Content.Shared.Eye;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Tag;

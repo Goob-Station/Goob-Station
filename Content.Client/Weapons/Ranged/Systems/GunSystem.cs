@@ -39,7 +39,6 @@ using Content.Client.Animations;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
 using Content.Shared.Mech.Components; // Goobstation

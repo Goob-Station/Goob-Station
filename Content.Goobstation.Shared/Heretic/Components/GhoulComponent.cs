@@ -24,12 +24,14 @@ public sealed partial class GhoulComponent : Component
     /// <summary>
     ///     Indicates who ghouled the entity.
     /// </summary>
-    [DataField, AutoNetworkedField] public NetEntity? BoundHeretic;
+    [DataField, AutoNetworkedField]
+    public NetEntity? BoundHeretic;
 
     /// <summary>
     ///     Total health for ghouls.
     /// </summary>
-    [DataField] public FixedPoint2 TotalHealth = 50;
+    [DataField]
+    public FixedPoint2 TotalHealth = 50;
 
     /// <summary>
     ///     Whether ghoul should be given a bloody blade
@@ -48,6 +50,7 @@ public sealed partial class GhoulComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> MasterIcon { get; set; } = "GhoulHereticMaster";
+
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> GhoulIcon { get; set; } = "GhoulFaction";
 }

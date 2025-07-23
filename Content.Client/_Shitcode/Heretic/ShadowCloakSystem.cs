@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared._Shitcode.Heretic.Systems;
+using Content.Goobstation.Shared.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Systems;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._Shitcode.Heretic;
@@ -19,7 +19,7 @@ public sealed class ShadowCloakSystem : SharedShadowCloakSystem
             return;
 
         ent.Comp.WasVisible = sprite.Visible;
-        sprite.Visible = false;
+        sprite.Visible = false; // todo: SLOP!!!
     }
 
     protected override void Shutdown(Entity<ShadowCloakedComponent> ent)

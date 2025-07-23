@@ -1,8 +1,7 @@
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
@@ -14,7 +13,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
-namespace Content.Shared._Shitcode.Heretic.Systems;
+namespace Content.Goobstation.Shared.Heretic.Systems;
 
 public sealed class InfusedItemSystem : EntitySystem
 {
@@ -40,16 +39,15 @@ public sealed class InfusedItemSystem : EntitySystem
         SubscribeLocalEvent<MansusInfusedComponent, ComponentShutdown>(OnInfusedShutdown);
     }
 
-    private void OnInfusedExamine(Entity<MansusInfusedComponent> ent, ref ExaminedEvent args)
-    {
+    private void OnInfusedExamine(Entity<MansusInfusedComponent> ent, ref ExaminedEvent args) =>
         args.PushMarkup(Loc.GetString("mansus-infused-item-examine"));
-    }
 
     private void OnInfusedInteract(Entity<MansusInfusedComponent> ent, ref InteractHandEvent args)
     {
         var target = args.User;
 
-        if (HasComp<HereticComponent>(target) || HasComp<GhoulComponent>(target))
+        if (HasComp<HereticComponent>(target)
+            || HasComp<GhoulComponent>(target))
             return;
 
         if (HasComp<StatusEffectsComponent>(target))
@@ -67,25 +65,20 @@ public sealed class InfusedItemSystem : EntitySystem
 
     private void OnInfusedMeleeHit(Entity<MansusInfusedComponent> ent, ref MeleeHitEvent args)
     {
-        if (!args.IsHit || args.HitEntities.Count == 0)
-            return;
-
-        if (!TryComp(args.User, out HereticComponent? heretic))
+        if (!args.IsHit
+            || args.HitEntities.Count == 0
+            || !TryComp(args.User, out HereticComponent? heretic))
             return;
 
         var success = false;
         foreach (var target in args.HitEntities)
         {
-            if (target == args.User)
-                continue;
-
-            if (!HasComp<StatusEffectsComponent>(target) && !HasComp<MobStateComponent>(target))
-                continue;
-
-            if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == heretic.CurrentPath))
-                continue;
-
-            if (!_grasp.TryApplyGraspEffectAndMark(args.User, heretic, target, null))
+            if (target == args.User
+                || !HasComp<StatusEffectsComponent>(target)
+                && !HasComp<MobStateComponent>(target)
+                || TryComp<HereticComponent>(target, out var targetHeretic)
+                && targetHeretic.CurrentPath == heretic.CurrentPath
+                || !_grasp.TryApplyGraspEffectAndMark(args.User, heretic, target, null))
                 continue;
 
             success = true;

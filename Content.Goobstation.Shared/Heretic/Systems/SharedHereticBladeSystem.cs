@@ -15,13 +15,11 @@
 
 using System.Linq;
 using System.Text;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -30,7 +28,7 @@ using Content.Shared.Teleportation;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Shared._Shitcode.Heretic.Systems;
+namespace Content.Goobstation.Shared.Heretic.Systems;
 
 public abstract class SharedHereticBladeSystem : EntitySystem
 {
@@ -56,7 +54,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return;
 
-        switch (hereticComp.CurrentPath)
+        switch (hereticComp.CurrentPath) // todo: delete this fucking slop
         {
             case "Ash":
                 ApplyAshBladeEffect(target);
@@ -138,23 +136,22 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
     private void OnMeleeHit(Entity<HereticBladeComponent> ent, ref MeleeHitEvent args)
     {
-        if (!args.IsHit || string.IsNullOrWhiteSpace(ent.Comp.Path))
+        if (!args.IsHit
+            || string.IsNullOrWhiteSpace(ent.Comp.Path))
             return;
 
         if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
             args.BonusDamage += args.BaseDamage * 0.5f; // "ghouls can use bloody blades effectively... so real..."
 
-        if (!TryComp<HereticComponent>(args.User, out var hereticComp))
-            return;
-
-        if (ent.Comp.Path != hereticComp.CurrentPath)
+        if (!TryComp<HereticComponent>(args.User, out var hereticComp)
+            || ent.Comp.Path != hereticComp.CurrentPath)
             return;
 
         if (hereticComp.PathStage >= 7)
         {
             switch (hereticComp.CurrentPath)
             {
-                case "Rust":
+                case "Rust": // todo: skin john
                     args.BonusDamage += new DamageSpecifier
                     {
                         DamageDict =
@@ -197,18 +194,20 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         }
 
         // blade path exclusive.
-        if (HasComp<SilverMaelstromComponent>(args.User))
-        {
-            args.BonusDamage += args.BaseDamage * 0.5f;
-            if (aliveMobsCount > 0 && TryComp<DamageableComponent>(args.User, out var dmg))
-            {
-                var baseHeal = args.BaseDamage.GetTotal();
-                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal / 2f : baseHeal / 4f;
-                bonusHeal *= aliveMobsCount;
+        if (!HasComp<SilverMaelstromComponent>(args.User))
+            return;
 
-                _sanguine.LifeSteal(args.User, bonusHeal, dmg);
-            }
-        }
+        args.BonusDamage += args.BaseDamage * 0.5f;
+
+        if (aliveMobsCount <= 0
+            || !TryComp<DamageableComponent>(args.User, out var dmg))
+            return;
+
+        var baseHeal = args.BaseDamage.GetTotal();
+        var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal / 2f : baseHeal / 4f;
+        bonusHeal *= aliveMobsCount;
+
+        _sanguine.LifeSteal(args.User, bonusHeal, dmg);
     }
 
     protected virtual void ApplyAshBladeEffect(EntityUid target) { }

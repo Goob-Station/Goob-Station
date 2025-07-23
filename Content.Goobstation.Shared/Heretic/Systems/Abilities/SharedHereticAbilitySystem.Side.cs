@@ -1,9 +1,8 @@
-using Content.Shared._Shitcode.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared.Hands.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Projectiles;
 
-namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
+namespace Content.Goobstation.Shared.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem
 {
@@ -15,13 +14,9 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnIceSpear(Entity<HereticComponent> ent, ref EventHereticIceSpear args)
     {
-        if (!TryComp(args.Action, out IceSpearActionComponent? spearAction))
-            return;
-
-        if (!TryComp(ent, out HandsComponent? hands))
-            return;
-
-        if (!TryUseAbility(ent, args))
+        if (!TryComp(args.Action, out IceSpearActionComponent? spearAction)
+            || !TryComp(ent, out HandsComponent? hands)
+            || !TryUseAbility(ent, args))
             return;
 
         args.Handled = true;
@@ -34,8 +29,10 @@ public abstract partial class SharedHereticAbilitySystem
             var spear = spearAction.CreatedSpear.Value;
 
             // TODO: When heretic spells are made the way wizard spell works don't handle this action if we can't pick it up.
+            // TODO: Kill yourself
             // It is handled now because it always speaks invocation no matter what.
-            if (_hands.IsHolding((ent.Owner, hands), spear) || !_hands.TryGetEmptyHand(ent, out var hand, hands))
+            if (_hands.IsHolding((ent.Owner, hands), spear)
+                || !_hands.TryGetEmptyHand(ent, out var hand, hands))
                 return;
 
             if (TryComp(spear, out EmbeddableProjectileComponent? embeddable) && embeddable.EmbeddedIntoUid != null)
@@ -60,7 +57,8 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnRustCharge(Entity<HereticComponent> ent, ref EventHereticRustCharge args)
     {
-        if (!args.Target.IsValid(EntityManager) || !TryUseAbility(ent, args))
+        if (!args.Target.IsValid(EntityManager)
+            || !TryUseAbility(ent, args))
             return;
 
         var xform = Transform(ent);

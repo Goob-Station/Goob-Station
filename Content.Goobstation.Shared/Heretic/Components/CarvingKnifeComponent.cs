@@ -6,9 +6,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Heretic.Prototypes;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

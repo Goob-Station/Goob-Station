@@ -9,10 +9,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Numerics;
 using Content.Client.Lobby;
 using Content.Client.UserInterface.Controls;
-using Content.Shared.Heretic;
+using Content.Goobstation.Shared.Heretic.Components;
 using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
@@ -58,7 +59,8 @@ public sealed class LivingHeartMenu : RadialMenu
 
         foreach (var target in heretic.SacrificeTargets)
         {
-            if (!_ent.TryGetEntity(target.Entity, out var ent) || !_ent.EntityExists(ent))
+            if (!_ent.TryGetEntity(target.Entity, out var ent)
+                || !_ent.EntityExists(ent))
                 ent = _controller.LoadProfileEntity(target.Profile, _prot.Index(target.Job), true);
 
             var button = new EmbeddedEntityMenuButton
@@ -85,15 +87,8 @@ public sealed class LivingHeartMenu : RadialMenu
 
     private void AddAction(RadialContainer main)
     {
-        if (main == null)
-            return;
-
-        foreach (var child in main.Children)
+        foreach (var castChild in main.Children.OfType<EmbeddedEntityMenuButton>())
         {
-            var castChild = child as EmbeddedEntityMenuButton;
-            if (castChild == null)
-                continue;
-
             castChild.OnButtonUp += _ =>
             {
                 SendActivateMessageAction?.Invoke(castChild.NetEntity);

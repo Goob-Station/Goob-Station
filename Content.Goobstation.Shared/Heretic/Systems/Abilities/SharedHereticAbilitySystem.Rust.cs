@@ -1,9 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared.Actions.Events;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Electrocution;
 using Content.Shared.Explosion;
 using Content.Shared.Maps;
@@ -12,7 +10,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
 
-namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
+namespace Content.Goobstation.Shared.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem
 {
@@ -39,10 +37,9 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnBeforeHarmfulAction(Entity<RustbringerComponent> ent, ref BeforeHarmfulActionEvent args)
     {
-        if (args.Cancelled || args.Type == HarmfulActionType.Harm)
-            return;
-
-        if (!IsTileRust(Transform(ent).Coordinates, out _))
+        if (args.Cancelled
+            || args.Type == HarmfulActionType.Harm
+            || !IsTileRust(Transform(ent).Coordinates, out _))
             return;
 
         args.Cancel();
@@ -74,10 +71,8 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnBeforeStatusEffect(Entity<RustbringerComponent> ent, ref BeforeStatusEffectAddedEvent args)
     {
-        if (!IsTileRust(Transform(ent).Coordinates, out _))
-            return;
-
-        if (args.Key is not ("KnockedDown" or "Stun"))
+        if (!IsTileRust(Transform(ent).Coordinates, out _)
+            || args.Key is not ("KnockedDown" or "Stun"))
             return;
 
         args.Cancelled = true;

@@ -161,7 +161,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                 break;
             }
 
-            case "Rust":
+            case "Rust": // todo: burn this entire method to the ground
             {
                 if (TryComp(target, out StationAiHolderComponent? aiHolder)) // Kill AI
                     QueueDel(aiHolder.Slot.ContainerSlot?.ContainedEntity);

@@ -4,9 +4,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
@@ -44,10 +44,12 @@ public sealed class MultihitSystem : EntitySystem
             : _whitelist.IsWhitelistPass(ev.Whitelist, ev.User);
     }
 
-    private void HereticCheck(Entity<HereticComponent> ent, ref MultihitUserHereticEvent args)
+    private static void HereticCheck(Entity<HereticComponent> ent, ref MultihitUserHereticEvent args)
     {
-        args.Handled = (args.RequiredPath == null || ent.Comp.CurrentPath == args.RequiredPath) &&
-                       ent.Comp.PathStage >= args.MinPathStage;
+        args.Handled =
+            (args.RequiredPath == null
+             || ent.Comp.CurrentPath == args.RequiredPath)
+            && ent.Comp.PathStage >= args.MinPathStage;
     }
 
     private void OnHit(EntityUid uid, MultihitComponent component, MeleeHitEvent args)
