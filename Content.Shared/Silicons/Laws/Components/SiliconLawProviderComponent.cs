@@ -12,6 +12,7 @@
 
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
+using Content.Shared.Random; // Ronstation - modification.
 
 namespace Content.Shared.Silicons.Laws.Components;
 
@@ -24,8 +25,16 @@ public sealed partial class SiliconLawProviderComponent : Component
     /// <summary>
     /// The id of the lawset that is being provided.
     /// </summary>
-    [DataField(required: true)]
+    [DataField] // Ronstation - modification.
     public ProtoId<SiliconLawsetPrototype> Laws = string.Empty;
+
+    // Ronstation - start of modifications.
+    /// <summary>
+    /// Weighted list of lawsets, superseeds Laws 
+    /// </summary>
+    [DataField]
+    public ProtoId<WeightedRandomPrototype> WeightedLaws = string.Empty;
+    // Ronstation - end of modifications.
 
     /// <summary>
     /// Lawset created from the prototype id.
