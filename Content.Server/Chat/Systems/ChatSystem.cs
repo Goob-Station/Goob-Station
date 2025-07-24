@@ -598,7 +598,8 @@ public sealed partial class ChatSystem : SharedChatSystem
                             && membership.WebId == sourceMembership.WebId;
 
             if (inSameWeb // Goobstation - Collective Webs
-                || collectMindComp.HearAll)
+                || collectMindComp.HearAll
+                && uid != source)
             {
                 if (collectMindComp.SeeAllNames)
                     clientsSeeNames.AddPlayer(actorComp.PlayerSession);
@@ -606,7 +607,6 @@ public sealed partial class ChatSystem : SharedChatSystem
                     clients.AddPlayer(actorComp.PlayerSession);
             }
         }
-
         var number = $"{sourceMembership.MemberId}"; // Goobstation - Collective webs
 
         var admins = _adminManager.ActiveAdmins
@@ -1134,7 +1134,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     // Einstein Engines - Language begin
-       /// <summary>
+    /// <summary>
     ///     Wraps a message sent by the specified entity into an "x says y" string.
     /// </summary>
     public string WrapPublicMessage(EntityUid source, string name, string message, LanguagePrototype? language = null)
