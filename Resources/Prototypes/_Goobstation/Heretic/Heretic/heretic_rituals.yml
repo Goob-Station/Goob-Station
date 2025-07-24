@@ -69,8 +69,8 @@
 
 - type: hereticRitual
   id: Reminiscence
-  locName: heretic-ritual-basic-remeniscence
-  locDesc: heretic-ritual-basic-remeniscence-desc
+  locName: heretic-ritual-basic-reminiscence
+  locDesc: heretic-ritual-basic-reminiscence-desc
   icon:
     sprite: _Goobstation/Heretic/Blades/eldritch_blade.rsi
     state: icon
