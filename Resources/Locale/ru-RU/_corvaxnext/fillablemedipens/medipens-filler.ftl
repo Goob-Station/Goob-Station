@@ -3,7 +3,7 @@ medipen-refiller-window-no-medipen-contaner-loaded-text = Медипен не в
 medipen-refiller-window-label-text = Этикетка
 medipen-refiller-window-apply = Применить
 medipen-refiller-window-no-container-loaded-text = Контейнер не загружен
-medipen-refiller-window-filling-text = Заполнитель
+medipen-refiller-window-filling-text = Заполнение:
 medipen-refiller-window-dose-label = Дозировка
 medipen-refiller-window-fill-button = Заполнить
 

@@ -99,7 +99,6 @@
     solutionName: pen
     fillBaseName: microstimpen_solution-
     changeColor: true
-    size: Tiny
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
