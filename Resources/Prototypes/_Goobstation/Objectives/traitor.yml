@@ -135,204 +135,176 @@
 
 - type: entity
   parent: [BaseTraitorObjective]
+  id: BaseTraitorGimmickObjective
+  - type: Objective
+    unique: true
+    difficulty: 0.5
+  - type: AutoCompleteCondition
+
+
+- type: entity
+  parent: [BaseTraitorGimmickObjective]
   id: TrespassGimmickObjective
   name: Gain access to the entire station
   description: Attempt to Trespass and gain as much access as possible for yourself and any lucky crew. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
   - type: Objective
-    unique: true
-    difficulty: 0.5
     icon:
       sprite: Objects/Tools/access_breaker.rsi
       state: icon
-  - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickObjective]
   id: MasqueradeGimmickObjective
   name: Eliminate those that have their black market connections revealed.
   description: Maybe vampires were on to something with the Masquerade. Enforce a Black Market Masquerade by eliminating revealed agents. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
   - type: Objective
-    unique: true
-    difficulty: 0.5
     icon:
       sprite: Clothing/Head/Hats/brownfedora.rsi
       state: icon
-  - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickObjective]
   id: TrustedGimmickObjective
   name: Become a Trusted Ally of Security
   description: Try to become a trusted ally of the security team while secretly committing crimes. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
   - type: Objective
-    unique: true
-    difficulty: 0.5
     icon:
       sprite: Clothing/Head/Helmets/security.rsi
       state: icon
-  - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickObjective]
   id: HackerGimmickObjective
   name: Hack Station Equipment
   description: Hack and mess around with station equipment as much as possible. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
     - type: Objective
-      difficulty: 0.5
-      unique: true
       icon:
         sprite: Objects/Tools/emag.rsi
         state: icon
-    - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickObjective]
   id: StalkerGimmickObjective
   description: Contacts in a certain intelligence agency want details on how they act once you are recovered. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
     - type: Objective
-      difficulty: 0.5
-      unique: true
       icon:
         sprite: Objects/Tools/binoculars.rsi
         state: icon
     - type: TargetObjective
       title: objective-condition-stalk-person-title
     - type: PickRandomPerson
-    - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickObjective]
   id: LivingHellGimmickObjective
   description: Some old partner or friend of the target wants revenge. Harass, Antagonise, Bully and Torture them. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
     - type: Objective
-      difficulty: 0.5
-      unique: true
       icon:
         sprite: Objects/Tools/welder.rsi
         state: icon
     - type: TargetObjective
       title: objective-condition-harass-person-title
     - type: PickRandomPerson
-    - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickObjective]
   id: FrameGimmickObjective
   description: The target must be discredited at all costs, frame them with something major! This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
     - type: Objective
-      difficulty: 0.5
-      unique: true
       icon:
         sprite: Objects/Misc/handcuffs.rsi
         state: handcuff
     - type: TargetObjective
       title: objective-condition-frame-person-title
     - type: PickRandomPerson
-    - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickObjective]
   id: HazardGimmickObjective
   name: Place hazards around the station that cause harm or even death
   description: Make the station more dangerous with traps and hazards. This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
     - type: Objective
-      difficulty: 0.5
-      unique: true
       icon:
         sprite: Objects/Tools/scissors.rsi
         state: icon
-    - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickObjective]
   id: PromotedGimmickObjective
   name: Get a better job via promotion
   description: You could use a better paycheck, and your employer prefers further infiltration. A win for all! This objective is not tracked and will automatically succeed, so just have fun with it!
   components:
     - type: Objective
-      difficulty: 0.5
-      unique: true
       icon:
         sprite: Objects/Devices/pda.rsi
         state: pda-captain
-    - type: AutoCompleteCondition
 
 # Major Gimmick - Basically extra-antag passes being real, 2 to leave some space for an M / Lower theft for those that are gonna be lame with them.
+- type: entity
+  parent: [BaseTraitorGimmickObjective]
+  id: BaseTraitorGimmickMajor
+  - type: Objective
+    difficulty: 2
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickMajor]
   id: SerialKillerGimmickObjective
   name: Become an infamous serial killer
   description: Your employers have low expectations, but they can be higher if the body count is higher and you evade capture. This objective is not tracked and will automatically succeed, but has to be followed in some form.
   components:
   - type: Objective
-    unique: true
-    difficulty: 2
     icon:
       sprite: Objects/Weapons/Melee/cleaver.rsi
       state: butch
-  - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickMajor]
   id: SabotageGimmickObjective
   name: Create as much chaos as possible by sabotage
   description: Your employers want chaos? Chaos is what they get. Avoid being caught. This objective is not tracked and will automatically succeed, but has to be followed in some form.
   components:
   - type: Objective
-    unique: true
-    difficulty: 2
     icon:
       sprite: Objects/Weapons/Bombs/c4.rsi
       state: icon
-  - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickMajor]
   id: HeistGimmickObjective
   name: Attempt a massive heist or steal as much from the crewmembers as possible
   description: Armory? Vault? Bank Accounts? Crew Belongings? The choice is yours. This objective is not tracked and will automatically succeed, but has to be followed in some form.
   components:
   - type: Objective
-    unique: true
-    difficulty: 2
     icon:
       sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi
       state: icon
-  - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickMajor]
   id: AccompliceGimmickObjective
   name: Become an Accomplice to other threats to the station by helping all enemies of the corporation, agent or not
   description: Maybe some stranger allies can be of use. The enemy of your enemy is our friend, agent. This objective is not tracked and will automatically succeed, but has to be followed in some form.
   components:
   - type: Objective
-    unique: true
-    difficulty: 2
     icon:
       sprite: Objects/Weapons/Melee/armblade.rsi
       state: icon
-  - type: AutoCompleteCondition
 
 - type: entity
-  parent: [BaseTraitorObjective]
+  parent: [BaseTraitorGimmickMajor]
   id: TakeoverGimmickObjective
   name: Take control of the station for your faction
   description: Mindslaves? Replacement? Threats? Force? Anything is on the table. Make them kneel to us! This objective is not tracked and will automatically succeed, but has to be followed in some form.
   components:
   - type: Objective
-    unique: true
-    difficulty: 2
     icon:
       sprite: Objects/Devices/declaration_of_war.rsi
       state: declarator
-  - type: AutoCompleteCondition
