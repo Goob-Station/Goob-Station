@@ -7,14 +7,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: damageModifierSet
-  id: Oni
-  coefficients:
-    Blunt: 0.85
-    Slash: 0.85
-    Piercing: 0.85
-  ignoreArmorPierceFlags: All # Goobstation
-
-- type: damageModifierSet
   id: Felinid
   coefficients:
     Blunt: 1.15
