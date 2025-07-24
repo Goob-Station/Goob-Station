@@ -13,7 +13,7 @@
 - type: vendingMachineInventory
   id: ChemVendInventory
   startingInventory:
-    Jug: 4
+    Jug: 8 #Goob edit - Energy Chem
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1
