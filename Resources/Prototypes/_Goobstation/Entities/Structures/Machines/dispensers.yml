@@ -96,9 +96,9 @@
         components:
         - FitsInDispenser
     reagents:
-      Aluminium: 5
+      Aluminium: 8
       Carbon: 3
-      Chlorine: 5
+      Chlorine: 8
       Copper: 5
       Ethanol: 8
       Fluorine: 8
@@ -110,7 +110,7 @@
       Nitrogen: 3
       Oxygen: 3
       Phosphorus: 5
-      Potassium: 12
+      Potassium: 8
       Radium: 15
       Silicon: 3
       Sodium: 5
