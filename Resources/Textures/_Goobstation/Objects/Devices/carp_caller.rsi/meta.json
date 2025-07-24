@@ -8,13 +8,19 @@
   },
   "states": [
     {
-      "name": "unpowered"
+      "name": "base"
 	},
 	{
-	  "name": "lights"
+	  "name": "lights_top"
 	},
 	{
-	  "name": "powered",
+	  "name": "lights_bottom"
+	},
+	{
+	  "name": "thumper_unpowered"
+	},
+	{
+	  "name": "thumper",
       "delays": [
         [
           0.6,
