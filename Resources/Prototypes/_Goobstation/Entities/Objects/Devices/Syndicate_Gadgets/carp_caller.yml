@@ -1,0 +1,54 @@
+- type: entity
+  id: CarpCaller
+  parent: [BaseMachinePowered, BaseSyndicateContraband]
+  name: carp caller
+  description: A syndicate device that seems interesting to wild space carp.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/carp_caller.rsi
+    layers:
+    - state: unpowered
+      visible: false
+    - state: powered
+    - state: lights
+      shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        unpowered:
+          True: { visible: false }
+          False: { visible: true }
+        powered:
+          True: { visible: true }
+          False: { visible: false }
+        lights:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    size: Large # can put in bag
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.40,-0.40,0.40,0.40"
+        density: 80
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: MobCaller
+    spawnProto: MobCarpCaller
+    maxAlive: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ApcPowerReceiver
+    powerLoad: 2000
+  - type: StaticPrice
+    price: 4000
