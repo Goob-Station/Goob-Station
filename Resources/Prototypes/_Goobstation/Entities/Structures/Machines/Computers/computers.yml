@@ -34,7 +34,5 @@
           tags:
           - Paper
           - Vial
-  - type: ContainerContainer
-    containers:
-      documentSlot:
-        type: ContainerSlot
+  - type: Container
+    id: documentSlot

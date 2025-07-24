@@ -39,10 +39,8 @@
           path: /Audio/Machines/id_insert.ogg
   - type: NtrClientAccount
   - type: Speech
-  - type: ContainerContainer
-    containers:
-      CorporateOverrideSlot:
-        type: ContainerSlot
+  - type: Container
+    id: CorporateOverrideSlot
 
 - type: entity
   id: ExecutiveBriefcaseDebug
