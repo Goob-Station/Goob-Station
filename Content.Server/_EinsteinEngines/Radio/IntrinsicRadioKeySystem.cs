@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Radio.Components;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._EinsteinEngines.Radio;

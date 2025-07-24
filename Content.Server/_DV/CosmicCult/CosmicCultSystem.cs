@@ -23,6 +23,7 @@ using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
+using Content.Server._EE.Radio;
 using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -43,7 +44,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
-using Content.Server.Radio.Components;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Radio.Components;
 
@@ -77,6 +77,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private readonly ResPath _mapPath = new("Maps/_DV/Nonstations/cosmicvoid.yml");
     private static readonly EntProtoId CosmicEchoVfx = "CosmicEchoVfx";
     private static readonly ProtoId<StatusEffectPrototype> EntropicDegen = "EntropicDegen";
+    private static readonly ProtoId<RadioChannelPrototype> CosmicRadio = "CosmicRadio";
     private static readonly ProtoId<StatusEffectPrototype> EntropicDegenNonCultist = "EntropicDegenNonCultist"; // Goobstation change. For non-cultist equipment debuff
 
     public override void Initialize()
@@ -106,6 +107,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<CosmicEmpoweredSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnCosmicEmpoweredMove);
 
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
+
+        SubscribeLocalEvent<CosmicCultComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChangedCult, after: new[] { typeof(IntrinsicRadioKeySystem) });
 
         SubscribeLocalEvent<CosmicSubtleMarkComponent, ExaminedEvent>(OnSubtleMarkExamined);
         SubscribeLocalEvent<CosmicCultComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChangedCult, after: new[] { typeof(IntrinsicRadioKeySystem) });
@@ -284,5 +287,22 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     // Goob end
 
     #endregion
+
+    /// <summary>
+    /// Edge Case to handle IPCs losing astral murmur after panel operations.
+    /// </summary>
+    private void OnTransmitterChannelsChangedCult(EntityUid uid, CosmicCultComponent component, EncryptionChannelsChangedEvent args)
+    {
+        if (!TryComp<IntrinsicRadioTransmitterComponent>(uid, out IntrinsicRadioTransmitterComponent? transmitter) || !TryComp<ActiveRadioComponent>(uid, out ActiveRadioComponent? activeRadio))
+            return;
+
+        if (transmitter.Channels.Contains(CosmicRadio) && activeRadio.Channels.Contains(CosmicRadio))
+            return;
+
+        transmitter.Channels.Add(CosmicRadio);
+        activeRadio.Channels.Add(CosmicRadio);
+
+
+    }
 
 }
