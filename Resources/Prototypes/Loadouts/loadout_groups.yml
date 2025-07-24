@@ -1648,6 +1648,8 @@
   hidden: false # red astra change for vox masks
   loadouts:
   - LoadoutSpeciesBreathTool
+  - LoadoutClothingMaskAuralis # redastra
+  - LoadoutClothingMaskVoxSpecial # redastra
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMedical
@@ -1657,6 +1659,8 @@
   hidden: false # red astra change for vox masks
   loadouts:
   - LoadoutSpeciesBreathToolMedical
+  - LoadoutClothingMaskAuralis # redastra
+  - LoadoutClothingMaskVoxSpecial # redastra
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolSecurity
@@ -1666,6 +1670,9 @@
   hidden: false # red astra change for vox masks
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
+  - LoadoutClothingMaskAuralis # redastra
+  - LoadoutClothingMaskVoxSpecial # redastra
+  - LoadoutClothingMaskEnforcer # redastra
 
 # Merc stuff 
 
@@ -1723,6 +1730,18 @@
   loadouts:
   - MercenaryRig
   - MercenaryHolster
+
+- type: loadoutGroup
+  id: GroupSpeciesBreathToolMerc
+  name: loadout-group-breath-tool
+  minLimit: 1
+  maxLimit: 1
+  hidden: false # red astra change for vox masks
+  loadouts:
+  - LoadoutSpeciesBreathToolMerc
+  - LoadoutClothingMaskAuralis # redastra
+  - LoadoutClothingMaskVoxSpecial # redastra
+  - LoadoutClothingMaskEnforcer # redastra
 
 - type: loadoutGroup
   id: Keycards

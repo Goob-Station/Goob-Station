@@ -1,0 +1,33 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskAuralis
+  name: auralis worship mask
+  description: An Auralis worship mask frequently worn by vox zealots going on holy wars. Its unsure if the black tears mean something possitive or not.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Mask/voxcorpsepaint.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Mask/voxcorpsepaint.rsi
+  - type: Tag
+    tags: []
+  - type: BreathMask
+  - type: IdentityBlocker
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: [ClothingMaskGasSecurity, BaseSecurityContraband]
+  id: ClothingMaskEnforcer
+  name: enforcer gasmask
+  description: The mask of the dreaded Shoal Enforcers.
+  components:
+  - type: Sprite
+    sprite: _Harmony/Clothing/Mask/enforcer.rsi
+  - type: Clothing
+    sprite: _Harmony/Clothing/Mask/enforcer.rsi
+  - type: Tag
+    tags: []
+  - type: HideLayerClothing
+    slots:
+    - Snout
