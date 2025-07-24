@@ -83,8 +83,8 @@
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
   - type: Battery
-    maxCharge: 3000
-    startingCharge: 3000
+    maxCharge: 1500
+    startingCharge: 1500
   - type: ApcPowerReceiverBattery
     idleLoad: 65
     batteryRechargeRate: 30
@@ -98,10 +98,10 @@
     reagents:
       Aluminium: 8
       Carbon: 3
-      Chlorine: 8
+      Chlorine: 12
       Copper: 5
       Ethanol: 8
-      Fluorine: 8
+      Fluorine: 12
       Hydrogen: 3
       Iodine: 8
       Iron: 5
