@@ -140,7 +140,7 @@ public sealed class HereticSystem : EntitySystem
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
-        var eyeVisVal = ((int) VisibilityFlags.EldritchInfluence) + ((int) VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
+        var eyeVisVal = ((int) VisibilityFlags.EldritchInfluence) | ((int) VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
         // add influence layer
         if (TryComp<EyeComponent>(ent, out var eye)) // As a result, I'm afraid its complete shitcode however it's working shitcode.
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | eyeVisVal);
@@ -154,8 +154,8 @@ public sealed class HereticSystem : EntitySystem
 
     private void OnGetVisMask(Entity<HereticComponent> uid, ref GetVisMaskEvent args)
     {
-        var eyeVisVal = ((int) VisibilityFlags.EldritchInfluence) + ((int) VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
-        args.VisibilityMask += eyeVisVal;
+        var eyeVisVal = ((int) VisibilityFlags.EldritchInfluence) | ((int) VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
+        args.VisibilityMask |= eyeVisVal;
     }
 
     #region Internal events (target reroll, ascension, etc.)
