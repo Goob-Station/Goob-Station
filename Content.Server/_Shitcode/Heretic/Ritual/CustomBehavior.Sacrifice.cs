@@ -123,7 +123,7 @@ namespace Content.Server.Heretic.Ritual;
 
             var (isCommand, isSec) = IsCommandOrSec(uids[i], args.EntityManager);
             var isHeretic = args.EntityManager.HasComponent<HereticComponent>(uids[i]);
-            var knowledgeGain = heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uids[i]))
+            var knowledgeGain = isHeretic || heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uids[i]))
                 ? isCommand || isSec || isHeretic ? 3f : 2f
                 : 0f;
 
