@@ -154,7 +154,7 @@ public sealed class HereticSystem : EntitySystem
     private void OnGetVisMask(Entity<HereticComponent> uid, ref GetVisMaskEvent args)
     {
         var eyeVisVal = ((int) VisibilityFlags.EldritchInfluence) + ((int) VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
-        args.VisibilityMask |= eyeVisVal;
+        args.VisibilityMask += eyeVisVal;
     }
 
     #region Internal events (target reroll, ascension, etc.)
