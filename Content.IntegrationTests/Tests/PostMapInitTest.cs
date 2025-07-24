@@ -75,6 +75,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 Deerstop <edainturner@gmail.com>
 // SPDX-FileCopyrightText: 2025 ElectroJr <leonsfriedrich@gmail.com>
 // SPDX-FileCopyrightText: 2025 Emisse <99158783+Emisse@users.noreply.github.com>
