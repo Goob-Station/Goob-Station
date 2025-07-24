@@ -14,9 +14,13 @@
     layers:
     - state: unpowered
       visible: false
+      map: ["unpowered"]
     - state: powered
+      map: ["powered"]
     - state: lights
       shader: unshaded
+      map: ["lights"]
+  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
