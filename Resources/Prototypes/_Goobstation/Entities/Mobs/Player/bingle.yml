@@ -32,7 +32,7 @@
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
     raffle:
-      settings: default
+      settings: short
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
