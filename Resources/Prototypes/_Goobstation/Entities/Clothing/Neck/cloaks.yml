@@ -58,8 +58,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakSanabi
-  name: sanabi cloak
-  description: When you're wearing this, you can feel strong aura, feels like you had became a combat bot...
+  name: brigadier general cloak
+  description: A tattered, yet imposing cloak, worn by elite warriors.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/sanabi.rsi
