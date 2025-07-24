@@ -175,7 +175,6 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
             // Goobstation maps/map versions; it's kinda a big TODO rn
             "/Maps/_Goobstation/bagel.yml",
-            "/Maps/_Goobstation/barratry.yml",
             "/Maps/_Goobstation/cluster.yml",
             "/Maps/_Goobstation/amber.yml",
             "/Maps/_Goobstation/kettle.yml",
@@ -220,7 +219,6 @@ namespace Content.IntegrationTests.Tests
             "FlandHighPop", // Goobstation - add highpop maps
             "OriginHighPop",
             "OasisHighPop",
-            "Barratry", // Goobstation - add Barratry
             "Kettle", // Goobstation - add Kettle
             "Submarine", // Goobstation - add Submarine
             "Lambda", // Goobstation - add Lambda
