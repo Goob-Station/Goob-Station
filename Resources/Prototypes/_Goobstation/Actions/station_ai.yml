@@ -35,8 +35,8 @@
 
 - type: entity
   id: ActionMalfAIOverload
-  name: Machine Overload
-  description: Overload the selected machine, causing it to blow up after a five second warm up.
+  name: malf-ai-overload-name
+  description: malf-ai-overload-desc
   components:
   - type: EntityTargetAction
     checkCanInteract: false
@@ -52,3 +52,58 @@
     intensitySlope: 3
     maxIntensity: 30
     canCreateVacuum: true
+  - type: LimitedCharges
+    maxCharges: 2
+    lastCharges: 2
+    removeActionOnNoCharges: true
+
+- type: entity
+  id: ActionMalfAILockdown
+  name: malf-ai-lockdown-name
+  description: malf-ai-lockdown-desc
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:HostileLockdownActionEvent
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: lockdown
+  - type: LimitedCharges
+    maxCharges: 1
+    lastCharges: 1
+    removeActionOnNoCharges: true
+
+- type: entity
+  id: ActionMalfAIUpgradeCameras
+  name: malf-ai-upgrade-cams-name
+  description: malf-ai-upgrade-cams-desc
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:UpgradeCamerasActionEvent
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: reactivate_cameras
+  - type: LimitedCharges
+    maxCharges: 1
+    lastCharges: 1
+    removeActionOnNoCharges: true
+
+- type: entity
+  id: ActionMalfAIReactivateCamera
+  name: malf-ai-reactivate-cam-name
+  description: malf-ai-reactivate-cam-desc
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:ReactivateCameraActionEvent
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: reactivate_cameras
+  - type: LimitedCharges
+    maxCharges: 30
+    lastCharges: 30
+    removeActionOnNoCharges: true

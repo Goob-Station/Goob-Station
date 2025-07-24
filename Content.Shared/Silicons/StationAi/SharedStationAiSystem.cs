@@ -595,6 +595,17 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    /// Goobstation - Malf AI
+    /// </summary>
+    /// <param name="ent"></param>
+    public void SetVisionOcclusion(Entity<StationAiVisionComponent> ent, bool occluded)
+    {
+        ent.Comp.Occluded = occluded;
+
+        Dirty(ent);
+    }
+
     public virtual bool SetWhitelistEnabled(Entity<StationAiWhitelistComponent> entity, bool value, bool announce = false)
     {
         if (entity.Comp.Enabled == value)

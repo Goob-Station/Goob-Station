@@ -14,14 +14,13 @@ public readonly struct OnHackedEvent(Entity<MalfStationAIComponent> hacker)
     public readonly Entity<MalfStationAIComponent> HackerEntity = hacker;
 };
 
-[ByRefEvent]
-public struct OnAboutToUseCostlyAbility(int cost)
-{
-    public readonly int Cost = cost;
-
-    public bool Cancelled = false;
-}
-
 public sealed partial class MalfAIOpenShopAction : InstantActionEvent;
-
+public sealed partial class HostileLockdownActionEvent : InstantActionEvent;
+public sealed partial class DoomsDayActionEvent : InstantActionEvent;
+public sealed partial class TurretUpgradeActionEvent : InstantActionEvent;
+public sealed partial class DestoryRCDsActionEvent : InstantActionEvent;
+public sealed partial class BlackoutActionEvent : InstantActionEvent;
+public sealed partial class ReactivateCameraActionEvent : InstantActionEvent;
+public sealed partial class UpgradeCamerasActionEvent : InstantActionEvent;
 public sealed partial class MachineOverloadActionEvent : EntityTargetActionEvent;
+public sealed partial class MakeRoboticFactoryActionEvent : EntityTargetActionEvent;

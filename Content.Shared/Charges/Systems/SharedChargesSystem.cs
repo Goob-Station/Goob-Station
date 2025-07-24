@@ -17,12 +17,14 @@ using Content.Shared.Examine;
 using JetBrains.Annotations;
 using Robust.Shared.Timing;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Actions;
 
 namespace Content.Shared.Charges.Systems;
 
 public abstract class SharedChargesSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!; // Goobstation edit.
 
     /*
      * Despite what a bunch of systems do you don't need to continuously tick linear number updates and can just derive it easily.
@@ -35,7 +37,7 @@ public abstract class SharedChargesSystem : EntitySystem
         SubscribeLocalEvent<LimitedChargesComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<LimitedChargesComponent, ActionAttemptEvent>(OnChargesAttempt);
-        SubscribeLocalEvent<LimitedChargesComponent, MapInitEvent>(OnChargesMapInit);
+        SubscribeLocalEvent<LimitedChargesComponent, ComponentStartup>(OnChargesStartup); // Goobstation - changes from map init to component startup
         SubscribeLocalEvent<LimitedChargesComponent, ActionPerformedEvent>(OnChargesPerformed);
     }
 
@@ -78,9 +80,18 @@ public abstract class SharedChargesSystem : EntitySystem
     private void OnChargesPerformed(Entity<LimitedChargesComponent> ent, ref ActionPerformedEvent args)
     {
         AddCharges((ent.Owner, ent.Comp), -1);
+
+        // Goobstation edit start.
+
+        if (!ent.Comp.RemoveActionOnNoCharges || GetCurrentCharges((ent.Owner, ent.Comp)) > 0)
+            return;
+
+        _actions.RemoveAction(ent);
+
+        // Goobstation edit end
     }
 
-    private void OnChargesMapInit(Entity<LimitedChargesComponent> ent, ref MapInitEvent args)
+    private void OnChargesStartup(Entity<LimitedChargesComponent> ent, ref ComponentStartup args)
     {
         // If nothing specified use max.
         if (ent.Comp.LastCharges == 0)

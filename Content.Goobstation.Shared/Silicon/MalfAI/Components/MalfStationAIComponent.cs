@@ -25,6 +25,12 @@ public sealed partial class MalfStationAIComponent : Component
     public string ProcessingPowerPrototype = "ProcessingPower";
 
     /// <summary>
+    /// The radius in which a camera will be repaired when the <see cref="RepairCameraActionEvent" /> is fired.
+    /// </summary>
+    [DataField]
+    public int CameraRepairRadius = 5;
+
+    /// <summary>
     /// The reward for hacking an APC.
     /// </summary>
     [DataField]

@@ -4,9 +4,39 @@
   description: malf-ai-overload-desc
   productAction: ActionMalfAIOverload
   cost:
-    ProcessingPower: 10
+    ProcessingPower: 20
+  categories:
+  - MalfAIAbilities
+
+- type: listing
+  id: HostileLockdown
+  name: malf-ai-lockdown-name
+  description: malf-ai-lockdown-desc
+  productAction: ActionMalfAILockdown
+  cost:
+    ProcessingPower: 30
+  categories:
+  - MalfAIAbilities
+
+- type: listing
+  id: UpgradeCameras
+  name: malf-ai-upgrade-cams-name
+  description: malf-ai-upgrade-cams-desc
+  productAction: ActionMalfAIUpgradeCameras
+  cost:
+    ProcessingPower: 35
   categories:
   - MalfAIAbilities
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: ReactivateCamera
+  name: malf-ai-reactivate-cam-name
+  description: malf-ai-reactivate-cam-desc
+  productAction: ActionMalfAIReactivateCamera
+  cost:
+    ProcessingPower: 10
+  categories:
+  - MalfAIAbilities

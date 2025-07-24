@@ -20,7 +20,6 @@ public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
 
         SubscribeLocalEvent<MalfStationAIComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MalfStationAIComponent, MalfAIOpenShopAction>(OnToggleShop);
-        SubscribeLocalEvent<MalfStationAIComponent, OnAboutToUseCostlyAbility>(OnBudgetCheck);
         SubscribeLocalEvent<ApcComponent, OnHackedEvent>(OnAPCHacked);
 
         InitializeActions();
@@ -50,11 +49,6 @@ public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
             return;
 
         _store.UpdateUserInterface(entity, entity, store);
-    }
-
-    private void OnBudgetCheck(Entity<MalfStationAIComponent> ent, ref OnAboutToUseCostlyAbility args)
-    {
-        args.Cancelled = !TryRemoveProcessingPower(ent, args.Cost);
     }
 
     public bool TryRemoveProcessingPower(Entity<MalfStationAIComponent> entity, FixedPoint2 amount)

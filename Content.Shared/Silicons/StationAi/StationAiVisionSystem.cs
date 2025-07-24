@@ -337,7 +337,10 @@ public sealed class StationAiVisionSystem : EntitySystem
 
             // Fastpath just get tiles in range.
             // Either xray-vision or system is doing a quick-and-dirty check.
-            if (!seed.Comp.Occluded || System.FastPath)
+            //  Goobstation change, removed !seed.Comp.Occluded condition. Also quick note: This does NOT work for 
+            //  "xray" vision for reasons beyond my mortal comprehension. 
+            //  So I've moved the condition check to the meat of this method and now it works the way I think it was intended to.
+            if (System.FastPath)
             {
                 var squircles = Maps.GetLocalTilesIntersecting(Grid.Owner,
                     Grid.Comp,
@@ -401,7 +404,8 @@ public sealed class StationAiVisionSystem : EntitySystem
 
                     if (maxDelta == d + 1 && System.CheckNeighborsVis(vis2, tile, d))
                     {
-                        vis2[tile] = (System._opaque.Contains(tile) ? -1 : d + 1);
+                        // Goobstation change, added seed.Comp.Occluded condition
+                        vis2[tile] = seed.Comp.Occluded && System._opaque.Contains(tile) ? -1 : d + 1;
                     }
                 }
             }
@@ -415,7 +419,8 @@ public sealed class StationAiVisionSystem : EntitySystem
 
                     if (sumDelta == d + 1 && System.CheckNeighborsVis(vis1, tile, d))
                     {
-                        if (System._opaque.Contains(tile))
+                        // Goobstation change, added seed.Comp.Occluded condition
+                        if (seed.Comp.Occluded && System._opaque.Contains(tile))
                         {
                             vis1[tile] = -1;
                         }

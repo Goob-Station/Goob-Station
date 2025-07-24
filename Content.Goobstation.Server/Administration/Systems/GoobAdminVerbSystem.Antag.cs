@@ -11,12 +11,14 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
+using Content.Goobstation.Server.Silicon.MalfAI.Rules;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -32,6 +34,26 @@ public sealed partial class GoobAdminVerbSystem
     {
         if (!AntagVerbAllowed(args, out var targetPlayer))
             return;
+
+        // Malf AI
+        if (HasComp<StationAiHolderComponent>(args.Target))
+        {
+            Verb verb = new()
+            {
+                Text = Loc.GetString("admin-verb-text-make-malf"),
+                Category = VerbCategory.Antag,
+                Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Interface/Actions/actions_malfai.rsi"), "modules_menu"),
+                Act = () =>
+                {
+                    _antag.ForceMakeAntag<MalfAIRuleComponent>(targetPlayer, "MalfAIMidround");
+                },
+                Impact = LogImpact.High,
+                Message = Loc.GetString("admin-verb-make-malf"),
+            };
+
+            args.Verbs.Add(verb);
+            return;
+        }
 
         // Changelings
         Verb ling = new()
@@ -93,6 +115,18 @@ public sealed partial class GoobAdminVerbSystem
 
         if (!_admin.HasAdminFlag(player, AdminFlags.Fun))
             return false;
+
+        if
+        (
+            TryComp<StationAiHolderComponent>(args.Target, out var aiHolder)
+            && aiHolder.Slot.ContainerSlot != null
+            && aiHolder.Slot.ContainerSlot.ContainedEntities.Count != 0
+            && TryComp<ActorComponent>(aiHolder.Slot.ContainerSlot.ContainedEntities[0], out var aiActor)
+        )
+        {
+            target = aiActor.PlayerSession;
+            return true;
+        }
 
         if (!HasComp<MindContainerComponent>(args.Target) || !TryComp<ActorComponent>(args.Target, out var targetActor))
             return false;
