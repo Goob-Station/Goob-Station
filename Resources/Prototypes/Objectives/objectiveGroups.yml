@@ -231,28 +231,3 @@
   weights:
     EscapeThiefShuttleObjective: 1
 #Changeling, crew, wizard, when you code it...
-
-# Goob
-
-- type: weightedRandom
-  id: TraitorGimmickObjectivesMinor
-  weights:
-    TrespassGimmickObjective: 1
-    MasqueradeGimmickObjective: 1
-    TrustedGimmickObjective: 1
-    HackerGimmickObjective: 1
-    StalkerGimmickObjective: 1
-    LivingHellGimmickObjective: 1
-    FrameGimmickObjective: 1
-    HazardGimmickObjective: 1
-    PromotedGimmickObjective: 1
-    AllegianceGimmickObjective: 1
-
-- type: weightedRandom
-  id: TraitorGimmickObjectivesMajor
-  weights:
-    SerialKillerGimmickObjective: 1
-    SabotageGimmickObjective: 1
-    HeistGimmickObjective: 1
-    AccompliceGimmickObjective: 1
-    TakeoverGimmickObjective: 1
