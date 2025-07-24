@@ -43,7 +43,6 @@
     - BluespaceLifelineImplanter
     - DefibrillatorCompact # wow personal doctor for NTR
     - SecHypo
-    - WeaponShotgunSawnEmpty # wild west style
   inhand:
     - MedkitCombatFilled
 

@@ -13,6 +13,19 @@
   - type: ActivatableUI
     key: enum.NtrTaskUiKey.Key
   - type: NtrTaskConsole
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - map: [ "computerLayerBody" ]
+      state: computer
+    - map: [ "computerLayerKeyboard" ]
+      state: generic_keyboard
+    - map: [ "computerLayerScreen" ]
+      state: nanotrasen
+    - map: [ "computerLayerKeys" ]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: ItemSlots
     slots:
       documentSlot:
