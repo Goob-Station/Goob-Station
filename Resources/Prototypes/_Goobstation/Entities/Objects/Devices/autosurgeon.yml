@@ -103,3 +103,13 @@
     targetBodyPart: Chest
     targetOrgan: Skibidi
     newPartProto: OrganHeartSandevistan
+
+- type: entity
+  parent: BaseAutosurgeonSyndicate
+  id: AutosurgeonCyberdeck
+  name: syndicate autosurgeon (cyberdeck)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Head
+    targetOrgan: Eyes
+    newPartProto: OrganCyberdeckEyes

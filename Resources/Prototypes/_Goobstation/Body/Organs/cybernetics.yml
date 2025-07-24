@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [BasicCyberneticEyes, BaseSyndicateContraband]
+  id: OrganCyberdeckEyes
+  name: cyberdeck eyes
+  description: A pair of cybernetic eyes with integrated hacking programs, that gives its user new abilities.
+  components:
+  - type: CyberdeckSource
+  - type: LimitedCharges
+    maxCharges: 8
+  - type: AutoRecharge
+    rechargeDuration: 15
+  - type: Organ
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 11
+      Destroyed: 0
+    onAdd:
+    - type: CyberdeckUser

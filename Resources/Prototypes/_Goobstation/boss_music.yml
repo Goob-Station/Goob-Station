@@ -1,0 +1,7 @@
+- type: bossMusic
+  id: CyberdeckDiveLoop
+  fadeIn: true
+  fadeInTime: 8
+  positionOnEnd: 0
+  sound:
+    path: /Audio/_Goobstation/Effects/Cyberdeck/dive_loop.ogg
