@@ -127,6 +127,8 @@ ntr-executive-tier-5-name = Rare machine boards
 ntr-console-insert-deny = Wrong!
 ntr-console-insert-accept = Correct!
 
+ntr-console-insert-deny-stamps = Invalid stamps.
+
 ntr-bounty-console-reward-label = Reward: [color=limegreen]{$reward} loyalty points[/color]
 ntr-bounty-console-manifest-entry =
     { $amount ->
@@ -136,7 +138,7 @@ ntr-bounty-console-manifest-entry =
 
 ntr-bounty-console-flavor-left = Bounties approved by Central Command. Bribes not included. Probably.
 
-ntr-console-spam-penalty = Penalty applied: -4 NT points for submitting spam!
+ntr-console-task-fail = Task failed.
 ntr-console-reagent-fail = Not enough reagents to complete the task!
 
 # experimental

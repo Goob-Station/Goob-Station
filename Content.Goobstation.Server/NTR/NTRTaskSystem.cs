@@ -210,7 +210,7 @@ public sealed class NtrTaskSystem : EntitySystem
         _audio.PlayPvs(component.DenySound, uid);
 
         if (Exists(args.User))
-            _popup.PopupEntity(_loc.GetString("ntr-console-spam-penalty"), uid, args.User);
+            _popup.PopupEntity(_loc.GetString("ntr-console-task-fail"), uid, args.User);
     }
 
     private void HandleTaskOutcome(EntityUid console, EntityUid station, NtrTaskData taskData, bool success)
@@ -298,7 +298,7 @@ public sealed class NtrTaskSystem : EntitySystem
 
         if (!ValidateDocumentStamps(item))
         {
-            _popup.PopupEntity(_loc.GetString("ntr-console-insert-deny"), console);
+            _popup.PopupEntity(_loc.GetString("ntr-console-insert-deny-stamps"), console);
             _audio.PlayPvs(component.DenySound, console);
             return true;
         }
