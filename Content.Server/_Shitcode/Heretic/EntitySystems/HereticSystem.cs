@@ -71,7 +71,7 @@ public sealed class HereticSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticComponent, ComponentInit>(OnCompInit);
-
+        SubscribeLocalEvent<HereticComponent, GetVisMaskEvent>(OnGetVisMask);
         SubscribeLocalEvent<HereticComponent, EventHereticUpdateTargets>(OnUpdateTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
@@ -137,16 +137,22 @@ public sealed class HereticSystem : EntitySystem
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
-        var eyeVisVal = ((int)VisibilityFlags.EldritchInfluence) + ((int)VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
+        var eyeVisVal = ((int) VisibilityFlags.EldritchInfluence) + ((int) VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
         // add influence layer
         if (TryComp<EyeComponent>(ent, out var eye)) // As a result, I'm afraid its complete shitcode however it's working shitcode.
-            _eye.SetVisibilityMask(ent, eye.VisibilityMask | eyeVisVal); 
+            _eye.SetVisibilityMask(ent, eye.VisibilityMask | eyeVisVal);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
 
         GenerateRequiredKnowledgeTags(ent);
         RaiseLocalEvent(ent, new EventHereticRerollTargets());
+    }
+
+    private void OnGetVisMask(Entity<HereticComponent> uid, ref GetVisMaskEvent args)
+    {
+        var eyeVisVal = ((int) VisibilityFlags.EldritchInfluence) + ((int) VisibilityFlags.EldritchInfluenceSpent); // Splitting the visibility layer in 2 and then adding the values for heretics is the only way I thought of doing this
+        args.VisibilityMask |= eyeVisVal;
     }
 
     #region Internal events (target reroll, ascension, etc.)
