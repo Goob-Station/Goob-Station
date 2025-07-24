@@ -1,0 +1,101 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: MedipenRefiller
+  name: medipen refiller machine
+  description: Fills in and repaints medipens.
+  components:
+  - type: Sprite
+    sprite: _CorvaxNext/Structures/Machines/medipen_refiller.rsi
+    noRot: true
+    layers:
+    - state: icon
+    - state: active
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Appearance
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+     - machine_board
+     - machine_parts
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - medipenSlot
+    - beakerSlot
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ItemSlots
+    slots:
+      medipenSlot:
+        priority: 1
+        whitelist:
+          components:
+            - Medipen
+        blacklist:
+          tags:
+            - Trash # so we don't want to put used medipens, right?
+      beakerSlot:
+        whitelist:
+          components:
+          - FitsInDispenser
+        blacklist:
+          components:
+            - Medipen
+  - type: GuideHelp
+    guides:
+    - Chemicals
+    - Chemist
+  - type: ActivatableUI
+    key: enum.MedipenRefillerUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.MedipenRefillerUiKey.Key:
+        type: MedipenRefillerUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 250
+  - type: Machine
+    board: MachineMedipenRefillerCircuitboard
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      beakerSlot: !type:ContainerSlot
+      outputSlot: !type:ContainerSlot
+  - type: MedipenRefiller

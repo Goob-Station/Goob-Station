@@ -1,0 +1,63 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+            Title="{Loc 'medipen-refiller-window-title'}"
+            MinSize="700 414">
+
+    <BoxContainer Orientation="Horizontal" Margin="8 8">
+        <BoxContainer Orientation="Vertical">
+            <BoxContainer Orientation="Vertical">
+                <PanelContainer SetSize="200 200" MaxSize="200 200">
+                    <SpriteView Name="MedipenPreview" Access="Public"
+                            Margin="10 0 0 0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            OverrideDirection="South"
+                            Scale="5 5">
+                    </SpriteView>
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+                    <Label Name="MedipenNotInsertedText" Text="{Loc 'medipen-refiller-window-no-medipen-contaner-loaded-text'}" Align="Center"/>
+                </PanelContainer>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" Margin="3">
+                <LineEdit Name="LabelLineEdit" Access="Public" SetWidth="200" Margin="5" PlaceHolder="{Loc 'medipen-refiller-window-label-text'}"/>
+                <ColorSelectorSliders Name="ColorPicker" Access="Public">
+                    <Button SetSize="130 28" Access="Public" Name="ApplySettingsButton" Text="{Loc 'medipen-refiller-window-apply'}" Margin="80 -88 0 0"/>
+                </ColorSelectorSliders>
+            </BoxContainer>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 8 8">
+            <BoxContainer Orientation="Vertical">
+                <PanelContainer MinSize="0 200">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+                    <ScrollContainer HorizontalExpand="True" MinSize="0 100">
+                        <BoxContainer Name="InputContainerInfo" Orientation="Vertical" Margin="4" HorizontalExpand="True">
+                            <Label Text="{Loc 'medipen-refiller-window-no-container-loaded-text'}" />
+                        </BoxContainer>
+                    </ScrollContainer>
+                </PanelContainer>
+                <PanelContainer MinSize="0 110" Margin="0 8">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    </PanelContainer.PanelOverride>
+                    <ScrollContainer HorizontalExpand="True" MinSize="0 100">
+                        <BoxContainer Name="MedipenContainerInfo" Orientation="Vertical" Margin="4" HorizontalExpand="True">
+                            <Label Text="{Loc 'medipen-refiller-window-no-medipen-contaner-loaded-text'}" />
+                        </BoxContainer>
+                    </ScrollContainer>
+                </PanelContainer>
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 0">
+                    <Label Text="{Loc 'medipen-refiller-window-filling-text'}:" />
+                    <Control HorizontalExpand="True" MinSize="20 0" />
+                    <Label Text="{Loc 'medipen-refiller-window-dose-label'}" Margin="5 0 0 0" StyleClasses="LabelSecondaryColor" />
+                    <LineEdit MinSize="100 0" Name="MedipenDosage" Access="Public"/>
+                    <Button MinSize="80 0" Name="FillMedipenButton" Access="Public" Margin="5 0 0 0" Text="{Loc 'medipen-refiller-window-fill-button'}" />
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -1,0 +1,113 @@
+- type: entity
+  name: chemical medipen
+  parent: BaseItem
+  description: A medipen that can be filled in a medipen filling machine.
+  id: FillableMedipen
+  components:
+  - type: Sprite
+    sprite: _CorvaxNext/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: medipen
+      map: ["enum.MedipenVisualLayer.Fill"]
+    - state: medipen_visual
+      map: ["enum.MedipenColorLayer.Fill"]
+    - state: medipen_solution-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+    - state: medipen_empty
+      map: ["enum.MedipenVisualLayer.Empty"]
+      visible: false
+    - state: medipen_empty_visual
+      map: ["enum.MedipenColorLayer.Empty"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.MedipenVisualLayer.Fill:
+        enum.MedipenVisualLayer.Fill:
+          False: { visible: false }
+          True: { visible: true }
+        enum.MedipenColorLayer.Fill:
+          False: { visible: false }
+          True: { visible: true }
+        enum.MedipenVisualLayer.Empty:
+          False: { visible: true }
+          True: { visible: false }
+        enum.MedipenColorLayer.Empty:
+          False: { visible: true }
+          True: { visible: false }
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    solutionName: pen
+    fillBaseName: medipen_solution-
+    changeColor: true
+  - type: Medipen
+  - type: Item
+    sprite: _CorvaxNext/Objects/Specific/Medical/medipen.rsi
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+      - state: base-colorB-inhand-left
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+      - state: base-colorB-inhand-right
+    size: Tiny
+  - type: ExaminableSolution
+    solution: pen
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15 # recommend to use same value of transfer amount and maximum solution volume
+    onlyAffectsMobs: true
+    injectOnly: true
+  - type: Appearance
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+  - type: SpaceGarbage
+  - type: StaticPrice
+    price: 150
+  - type: SolutionContainerManager # using for containing mixture and definition medipen's max volume
+    solutions:
+      pen:
+        maxVol: 15
+
+- type: entity
+  name: chemical microstimpen
+  parent: FillableMedipen
+  description: Fillable version of medipen.
+  id: FillableMicrostimpen
+  components:
+  - type: Sprite
+    sprite: _CorvaxNext/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: microstimpen
+      map: ["enum.MedipenVisualLayer.Fill"]
+    - state: microstimpen_visual
+      map: ["enum.MedipenColorLayer.Fill"]
+    - state: microstimpen_solution-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+    - state: microstimpen_empty
+      map: ["enum.MedipenVisualLayer.Empty"]
+      visible: false
+    - state: microstimpen_empty_visual
+      map: ["enum.MedipenColorLayer.Empty"]
+      visible: false
+  - type: Medipen
+    label: component-microstimpen-default-label
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    solutionName: pen
+    fillBaseName: microstimpen_solution-
+    changeColor: true
+    size: Tiny
+  - type: ExaminableSolution
+    solution: pen
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 15
+    onlyAffectsMobs: true
+    injectOnly: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10

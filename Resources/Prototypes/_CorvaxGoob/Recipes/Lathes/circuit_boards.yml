@@ -57,3 +57,8 @@
   parent: BaseCircuitboardRecipe
   id: NutimovCircuitBoard
   result: NutimovCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: MachineMedipenRefillerCircuitboard
+  result: MachineMedipenRefillerCircuitboard

@@ -202,6 +202,11 @@ public sealed class HypospraySystem : EntitySystem
         var ev = new TransferDnaEvent { Donor = target, Recipient = uid };
         RaiseLocalEvent(target, ref ev);
 
+        // Corvax-Next-RefillableMedipens-Start
+        var injectEvent = new AfterHyposprayInjectsTargetEvent(user, entity.Owner, target);
+        RaiseLocalEvent(entity, injectEvent);
+        // Corvax-Next-RefillableMedipens-End
+
         // same LogType as syringes...
         _adminLogger.Add(LogType.ForceFeed, $"{EntityManager.ToPrettyString(user):user} injected {EntityManager.ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {EntityManager.ToPrettyString(uid):using}");
 
