@@ -1,0 +1,12 @@
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_standard
+  spritePath: _DV/Mobs/Silicon/chassis.rsi
+  dummyPrototype: security
+
+- type: borgSubtype
+  parentBorgType: security
+  id: security_peace_keeper
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisPeaceKeeper
