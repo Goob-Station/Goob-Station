@@ -210,7 +210,7 @@ public sealed class NtrTaskSystem : EntitySystem
         _audio.PlayPvs(component.DenySound, uid);
 
         if (Exists(args.User))
-            _popup.PopupEntity(_loc.GetString("ntr-console-task-fail"), uid, args.User);
+            _popup.PopupEntity(_loc.GetString("ntr-console-task-fail-insert"), uid, args.User);
     }
 
     private void HandleTaskOutcome(EntityUid console, EntityUid station, NtrTaskData taskData, bool success)

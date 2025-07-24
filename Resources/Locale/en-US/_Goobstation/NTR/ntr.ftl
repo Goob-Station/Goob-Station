@@ -138,7 +138,7 @@ ntr-bounty-console-manifest-entry =
 
 ntr-bounty-console-flavor-left = Bounties approved by Central Command. Bribes not included. Probably.
 
-ntr-console-task-fail = Task failed.
+ntr-console-task-fail-insert = Task failed.
 ntr-console-reagent-fail = Not enough reagents to complete the task!
 
 # experimental
