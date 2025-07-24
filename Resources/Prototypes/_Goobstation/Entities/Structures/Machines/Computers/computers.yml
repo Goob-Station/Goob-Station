@@ -38,6 +38,3 @@
     containers:
       documentSlot:
         type: ContainerSlot
-        showEnts: false
-        occludes: true
-        ent: null

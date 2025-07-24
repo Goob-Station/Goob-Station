@@ -43,9 +43,6 @@
     containers:
       CorporateOverrideSlot:
         type: ContainerSlot
-        showEnts: false
-        occludes: true
-        ent: null
 
 - type: entity
   id: ExecutiveBriefcaseDebug
