@@ -12,6 +12,7 @@
   - type: Sprite
     sprite: Markers/cross.rsi
     state: red
+    drawdepth: FloorObjects
   - type: Marker
 
 - type: entity
@@ -21,6 +22,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/DropPod/marker.rsi
     state: marker_ping
+    drawdepth: FloorObjects
   - type: TimedDespawn
     lifetime: 1.75
   - type: SpawnOnTrigger
@@ -39,6 +41,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/DropPod/marker.rsi
     state: marker
+    drawdepth: FloorObjects
   - type: TimedDespawn
     lifetime: 2
   - type: SpawnOnTrigger
@@ -66,6 +69,7 @@
     sprite: _Goobstation/Objects/Specific/DropPod/landingpod.rsi
     state: landing
     offset: -1.7, 4.3
+    drawdepth: FloorObjects
   - type: TimedDespawn
     lifetime: 1.8
   - type: SpawnOnDespawn
@@ -86,6 +90,7 @@
     offset: 0, 0.25
     sprite: _Goobstation/Objects/Specific/DropPod/supplypod.rsi
     state: landed
+    drawdepth: FloorObjects
   - type: TimedDespawn
     lifetime: 6
   - type: SpawnOnDespawn
@@ -102,6 +107,7 @@
     offset: 0, 0.25
     sprite: _Goobstation/Objects/Specific/DropPod/supplypod.rsi
     state: landed-opened
+    drawdepth: FloorObjects
   - type: TimedDespawn
     lifetime: 20
   - type: SpawnOnDespawn
