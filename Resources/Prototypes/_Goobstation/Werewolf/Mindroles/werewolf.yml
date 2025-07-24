@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleWerewolf
+  name: Werewolf Role
+  components:
+  - type: MindRole
+    antagPrototype: Werewolf
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+    subtype: role-subtype-werewolf
+  - type: WerewolfRole

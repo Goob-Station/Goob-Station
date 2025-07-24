@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseGameRule
+  id: Werewolf
+  components:
+  - type: WerewolfRule
+  - type: GameRule
+    chaosScore: 350 # todo: adjust this
+    minPlayers: 15
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: werewolf-roundend-name
+    definitions:
+    - prefRoles: [ Werewolf ]
+      max: 1
+      playerRatio: 20
+      # jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster ]
+      mindRoles:
+      - MindRoleWerewolf
+  - type: Tag
+    tags:
+    - RoundstartAntag
