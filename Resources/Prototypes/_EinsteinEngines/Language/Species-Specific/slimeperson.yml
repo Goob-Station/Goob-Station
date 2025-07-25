@@ -1,16 +1,16 @@
 # Spoken by slime race and slimes.
-# TODO: Replace this with a much better language.
+# Derived from Basque Language - Goob
 - type: language
   id: Bubblish
   isVisibleLanguage: true
   speech:
-    color: "#24D186" # Goob Edit - Original "#00a3e2dd"
+    color: "#24d1b9" # Goob Edit - Original "#00a3e2dd"
     fontId: SourGummy # Goob Edit - Different Font
-    fontSize: 13 # Goob Edit - Increased by 1 to account for slight size difference.
+    fontSize: 13 # Goob Edit - Increased by 1 to account for slight font size difference.
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
-    maxSyllables: 3
+    maxSyllables: 5 # Goob Edit - Make it more chaotic.
     replacement:
     - blob
     - plop
@@ -26,3 +26,47 @@
     - gwup
     - gwip
     - glorp
+    # Basque
+    - ez
+    - txa
+    - zun
+    - gor
+    - itz
+    - jar
+    - eus
+    - bak
+    - ber
+    - lur
+    - ko
+    - ur
+    - xa
+    - aiz
+    - zoa
+    - etxea
+    - jarrai
+    - kide
+    - gunea
+    - herria
+    - lana
+    - zarra
+    - buru
+    - aldia
+    - leku
+    - ondo
+    - egi
+    - zain
+    - keta
+    - itz
+    - txu
+    - rru
+    - ska
+    - zoa
+    - zai
+    - ñu
+    - lku
+    - xar
+    - nka
+    - doi
+    - zku
+    - eko
+    - oa
