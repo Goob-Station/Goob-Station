@@ -12729,3 +12729,79 @@ Entries:
       message: The nukie base now gets a magic mirror.
   id: 1404
   time: '2025-07-20T16:54:45.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Ian Suit should work now.
+  id: 1405
+  time: '2025-07-21T18:22:34.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Genpop exit turnstile on Fland now actually works
+    - type: Fix
+      message: Reinforced Plasma Windows are no longer walls
+  id: 1406
+  time: '2025-07-21T18:48:21.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Removed nukie magic mirror
+  id: 1407
+  time: '2025-07-21T18:52:29.0000000+00:00'
+- author: Anti - Speciesm department
+  changes:
+    - type: Tweak
+      message: All species now can drag stuff without taking up a hand slot.
+  id: 1408
+  time: '2025-07-21T18:53:52.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed power cells charge visuals.
+  id: 1409
+  time: '2025-07-21T18:55:40.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Mobs won't be able to leave footprints without gravity.
+  id: 1410
+  time: '2025-07-21T18:57:06.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Unslopped how necksnapping works.
+  id: 1411
+  time: '2025-07-22T00:08:27.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Gemini cannot be injected with holoparasite anymore.
+  id: 1412
+  time: '2025-07-23T18:07:28.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Nails projectiles can be reflected now.
+  id: 1413
+  time: '2025-07-23T18:09:11.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed collective mind message repeat for message source
+  id: 1414
+  time: '2025-07-23T18:10:12.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: All Abductors should have Agent IDs now.
+  id: 1415
+  time: '2025-07-23T18:13:53.0000000+00:00'
+- author: router
+  changes:
+    - type: Fix
+      message: >-
+        Power Transmission Lasers no longer have weights of small cargo ships,
+        and can now be safely manipulated.
+  id: 1416
+  time: '2025-07-24T03:35:09.0000000+00:00'
