@@ -5,7 +5,8 @@
   isVisibleLanguage: true
   speech:
     color: "#24D186" # Goob Edit - Original "#00a3e2dd"
-    fontId: SourGummy # Goob Change
+    fontId: SourGummy # Goob Edit - Different Font
+    fontSize: 13 # Goob Edit - Increased by 1 to account for slight size difference.
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -13,7 +14,15 @@
     replacement:
     - blob
     - plop
+    - plip
+    - pip
     - pop
     - bop
     - boop
     - gurgle
+    - glop
+    - glip
+    - gloop
+    - gwup
+    - gwip
+    - glorp
