@@ -21,12 +21,22 @@ public sealed class FoldableClothingSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
+        SubscribeLocalEvent<FoldableClothingComponent, MapInitEvent>(OnMapInit); // Goob - #3632
         SubscribeLocalEvent<FoldableClothingComponent, FoldAttemptEvent>(OnFoldAttempt);
         SubscribeLocalEvent<FoldableClothingComponent, FoldedEvent>(OnFolded,
             after: [typeof(MaskSystem)]); // Mask system also modifies clothing / equipment RSI state prefixes.
     }
 
+    // Goobstation Start - #3632
+    private void OnMapInit(Entity<FoldableClothingComponent> ent, ref MapInitEvent args)
+    {
+        if (ent.Comp.FoldedHideLayers != null || ent.Comp.UnfoldedHideLayers != null)
+        {
+            var hideLayer = EnsureComp<HideLayerClothingComponent>(ent.Owner);
+            hideLayer.Slots = ent.Comp.UnfoldedHideLayers;
+        }
+    }
+    // Goobstation end
     private void OnFoldAttempt(Entity<FoldableClothingComponent> ent, ref FoldAttemptEvent args)
     {
         if (args.Cancelled)

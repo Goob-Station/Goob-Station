@@ -131,10 +131,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: HideLayerClothing
-    layers:
-      HeadTop : HEAD
-      HeadSide : HEAD
+  #- type: HideLayerClothing
+  #  layers:
+  #    HeadTop : HEAD
+  #    HeadSide : HEAD
 
 - type: entity
   parent: [ClothingHeadHelmetBase, BaseFoldable]
@@ -363,7 +363,7 @@
 
 #Space Ninja Helmet
 - type: entity
-  parent: [ClothingHeadEVAHelmetBase, BaseMajorContraband, ClothingHeadHelmetBaseFoldable] # Goob - ClothingHeadHelmetBaseFoldable
+  parent: [ClothingHeadEVAHelmetBase, BaseMajorContraband] # Goob - ClothingHeadHelmetBaseFoldable
   id: ClothingHeadHelmetSpaceNinja
   name: space ninja helmet
   description: What may appear to be a simple black garment is in fact a highly sophisticated nano-weave helmet. Standard issue ninja gear.
@@ -377,21 +377,10 @@
     - WhitelistChameleon
   - type: IngestionBlocker
   - type: IdentityBlocker
-  #- type: HideLayerClothing  # Goobstation Start
-  #  layers:
-  #    Hair: HEAD
-  #   Snout: HEAD
-  - type: FoldableClothing
-    foldedEquippedPrefix: ""
-    foldedSlots:
-    - HEAD
-    unfoldedSlots:
-    - HEAD
-    unfoldedHideLayers:
-    - Hair
-    - Snout
-    foldedHideLayers:
-    - Snout     # Goobstation End
+  - type: HideLayerClothing  # Goobstation Start
+    layers:
+      Hair: HEAD
+      Snout: HEAD
   - type: Armor # Goobstation
     coverage:
     - Head

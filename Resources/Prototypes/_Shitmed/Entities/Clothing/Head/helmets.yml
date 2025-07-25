@@ -28,3 +28,7 @@
   - type: Clothing
     sprite: _Shitmed/Clothing/Head/Helmets/abductor.rsi
   - type: EyeProtection
+  - type: HideLayerClothing
+    layers:
+      HeadTop : HEAD
+      HeadSide : HEAD

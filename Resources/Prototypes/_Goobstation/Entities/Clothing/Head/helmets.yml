@@ -13,11 +13,27 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingHeadHelmetRaid
+  parent: [BaseSyndicateContraband, ClothingHeadHelmetBase]
   id: ClothingHeadHelmetHelldiver
   name: salvage NT-01 tactical helmet
   description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
   components:
+  - type: Armor
+    coverage:
+    - Head
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.35
+        Caustic: 0.35
   - type: BreathMask
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
@@ -49,6 +65,10 @@
         Shock: 0.7
         Radiation: 0.01
         Caustic: 0.5
+  - type: HideLayerClothing
+    layers:
+      HeadTop : HEAD
+      HeadSide : HEAD
 
 - type: entity
   parent: ClothingHeadHelmetBasic
