@@ -20,11 +20,11 @@
   source: "https://github.com/goonstation/goonstation"
 
 - files: ["ErrorBeep2.wav"]
-  license: "Attribution 4.0"
+  license: "CC-BY-4.0"
   copyright: "Error 2 by qubodup at freesound.org"
   source: "https://freesound.org/s/722376/"
 
 - files: ["MaxTempAlertCut.wav & MaxTempAlert.wav"]
-  license: "Creative Commons 0"
+  license: "CC0-1.0"
   copyright: "MaxTempAlert by CompleteMelody at freesound.org - MaxTempAlertCut is minor edit"
   source: "https://freesound.org/s/742645/"
