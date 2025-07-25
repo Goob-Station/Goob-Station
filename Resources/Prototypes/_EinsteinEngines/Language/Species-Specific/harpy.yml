@@ -6,7 +6,7 @@
   speech:
     fontId: Delius # Goob Edit - Different Font
     fontSize: 13 # Goob Edit - Increased by 1 to account for slight size difference.
-    color: "#229456" # Goob Edit - Original "#008ecc"
+    color: "#46ce83" # Goob Edit - Original "#008ecc"
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2
