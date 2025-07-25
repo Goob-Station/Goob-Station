@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Radio;
@@ -47,4 +48,13 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// </summary>
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
+
+    /// <summary>
+    /// Whitelist for entities that can send or receive this radio channel messages
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? SendWhitelist = null;
+
+    [DataField]
+    public EntityWhitelist? ReceiveWhitelist = null;
 }
