@@ -7,6 +7,7 @@
     tags:
       - SpeedLoader45-70
   - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70
     whitelist:
       tags:
         - N14Cartridge45-70

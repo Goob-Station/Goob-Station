@@ -13,6 +13,8 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_corona.yml
         - type: StationJobs
           availableJobs:
             #service

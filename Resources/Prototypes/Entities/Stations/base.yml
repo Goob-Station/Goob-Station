@@ -114,6 +114,8 @@
   components:
     - type: StationCargoShuttle
       path: /Maps/Shuttles/cargo.yml
+#    - type: StationXithShuttle
+#      path: /Maps/Shuttles/shepship.yml
     - type: GridSpawn
       groups:
         trade: !type:GridSpawnGroup
@@ -123,6 +125,15 @@
           paths:
             - /Maps/Shuttles/trading_outpost.yml
           nameDataset: TradeStationNames
+        ranch: !type:GridSpawnGroup
+          paths:
+            - /Maps/Shuttles/rangerranch.yml
+          nameDataset: RangerRanchNames
+        shepshuttle: !type:GridSpawnGroup
+          paths:
+            - /Maps/Shuttles/shepship.yml
+          nameDataset: ShepShipNames
+
         # Spawn last
         ruins: !type:GridSpawnGroup
           hide: true
