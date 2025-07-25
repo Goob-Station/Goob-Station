@@ -254,9 +254,7 @@ public sealed class RadioSystem : EntitySystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
 
-        var wrapId = (speech.Bold && !language.SpeechOverride.UnsupportedBoldFont) ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap";
-
-        return Loc.GetString(wrapId,
+        return Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
             ("color", channel.Color),
             ("languageColor", languageColor),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),

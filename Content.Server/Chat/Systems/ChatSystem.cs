@@ -1144,8 +1144,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     public string WrapMessage(LocId wrapId, InGameICChatType chatType, EntityUid source, string entityName, string message, LanguagePrototype? language)
     {
         language ??= _language.GetLanguage(source);
-
-        wrapId = language.SpeechOverride.UnsupportedBoldFont ? "chat-manager-entity-say-wrap-message" : wrapId; // Goob Edit - Unsupported Bold Fonts
         if (language.SpeechOverride.MessageWrapOverrides.TryGetValue(chatType, out var wrapOverride))
             wrapId = wrapOverride;
 
