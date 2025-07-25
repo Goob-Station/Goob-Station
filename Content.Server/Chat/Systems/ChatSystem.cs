@@ -589,7 +589,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (_mobStateSystem.IsDead(uid))
                 continue;
 
-            if (collectMindComp.Minds.ContainsKey(collectiveMind.ID) || collectMindComp.HearAll)
+            if ((collectMindComp.Minds.ContainsKey(collectiveMind.ID) || collectMindComp.HearAll) && uid != source)
             {
                 if (collectMindComp.SeeAllNames)
                     clientsSeeNames.AddPlayer(actorComp.PlayerSession);
@@ -598,7 +598,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
         }
 
-        var Number = $"{sourseCollectiveMindComp.Minds[collectiveMind.ID]}";
+        var number = $"{sourseCollectiveMindComp.Minds[collectiveMind.ID]}";
 
         var admins = _adminManager.ActiveAdmins
             .Select(p => p.Channel);
@@ -606,7 +606,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
             ("message", message),
             ("channel", collectiveMind.LocalizedName),
-            ("number", Number));
+            ("number", number));
         string namedMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-named",
             ("source", source),
             ("message", message),
@@ -615,7 +615,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("source", source),
             ("message", message),
             ("channel", collectiveMind.LocalizedName),
-            ("number", Number));
+            ("number", number));
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"CollectiveMind chat from {ToPrettyString(source):Player}: {message}");
 
@@ -1125,7 +1125,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     // Einstein Engines - Language begin
-       /// <summary>
+    /// <summary>
     ///     Wraps a message sent by the specified entity into an "x says y" string.
     /// </summary>
     public string WrapPublicMessage(EntityUid source, string name, string message, LanguagePrototype? language = null)
