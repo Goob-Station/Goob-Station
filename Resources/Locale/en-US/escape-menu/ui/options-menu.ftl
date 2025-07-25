@@ -181,6 +181,7 @@ ui-options-header-general = General
 
 ui-options-hotkey-keymap = Use US QWERTY Keys
 ui-options-hotkey-toggle-walk = Toggle Walk
+ui-options-hotkey-default-walk = Walk by default
 
 ui-options-function-move-up = Move Up
 ui-options-function-move-left = Move Left
