@@ -28,5 +28,5 @@ public sealed class ShadowCloakSystem : SharedShadowCloakSystem
 
         if (TryComp(ent, out SpriteComponent? sprite))
             sprite.Visible = ent.Comp.WasVisible;
-    }
+
 }
