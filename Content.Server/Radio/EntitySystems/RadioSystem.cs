@@ -259,7 +259,7 @@ public sealed class RadioSystem : EntitySystem
         var boldId = language.SpeechOverride.BoldFontId ?? speech.FontId;
         if (language.SpeechOverride.BoldFontId == null && language.SpeechOverride.FontId != null)
             boldId = language.SpeechOverride.FontId;
-        // Gobstation Edit - end
+        // Goobstation Edit - end
 
         return Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
             ("color", channel.Color),

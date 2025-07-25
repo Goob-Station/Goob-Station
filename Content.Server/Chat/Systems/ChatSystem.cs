@@ -1162,7 +1162,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var boldId = language.SpeechOverride.BoldFontId ?? speech.FontId;
         if (language.SpeechOverride.BoldFontId == null && language.SpeechOverride.FontId != null)
             boldId = language.SpeechOverride.FontId;
-        // Gobstation Edit - end
+        // Goobstation Edit - end
 
         return Loc.GetString(wrapId,
             ("color", color),
