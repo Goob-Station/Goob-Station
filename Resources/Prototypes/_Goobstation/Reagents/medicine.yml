@@ -589,11 +589,6 @@
         damage:
           groups:
             Brute: -1 # intentionally slow
-      - !type:HealthChange
-        damage:
-          types:
-            Radiation: 0.01 # very slight side effect
-        conditions:
         - !type:OrganType
           type: Yowie
           shouldHave: false
