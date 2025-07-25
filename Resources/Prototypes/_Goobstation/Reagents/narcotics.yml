@@ -313,9 +313,6 @@
     Poison:
       metabolismRate: 0.5
       effects:
-      - !type:OrganType
-        type: Yowie
-        shouldHave: false
       - !type:HealthChange # intentionally no yowie conditions (why was this removed)
         damage:
           groups:
@@ -327,13 +324,6 @@
             Radiation: -0.5
             Poison: -0.5
             Asphyxiation: 0.5
-        conditions:
-      - !type:Emote
-        emote: Gasp
-        probability: 0.1
-        conditions:
-        - !type:OrganType
-          type: Yowie
 
 - type: reagent
   id: MouseBites
