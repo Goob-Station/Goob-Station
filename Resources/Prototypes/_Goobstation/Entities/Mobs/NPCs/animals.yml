@@ -181,6 +181,12 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Moffic
+    understands:
+    - Moffic
+    - TauCetiBasic # Needs to understand your nukie ops.
 
 - type: entity
   name: syndie bee
