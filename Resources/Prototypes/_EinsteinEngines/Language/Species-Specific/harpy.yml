@@ -4,8 +4,8 @@
   id: ValyrianStandard
   isVisibleLanguage: true
   speech:
-    # fontId: Cambria #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
-    color: "#008ecc"
+    fontId: Cambria
+    color: "#229456" # Goob Edit - Original "#008ecc"
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2
