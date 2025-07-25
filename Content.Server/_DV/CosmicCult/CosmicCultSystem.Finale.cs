@@ -1,4 +1,6 @@
 using Content.Server._DV.CosmicCult.Components;
+using Content.Server.RoundEnd;
+using Content.Server.Shuttles.Systems;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Audio;
@@ -12,6 +14,9 @@ namespace Content.Server._DV.CosmicCult;
 
 public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 {
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly EmergencyShuttleSystem _evac = default!;
+
     /// <summary>
     ///     Used to calculate when the finale song should start playing
     /// </summary>
@@ -40,7 +45,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             _doAfter.TryStartDoAfter(doargs);
             args.Handled = true;
         }
-        else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.Occupied && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
+        else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.Occupied && !ent.Comp.FinaleActive && ent.Comp.CurrentState == FinaleState.ReadyFinale)
         {
             ent.Comp.Occupied = true;
             var doargs = new DoAfterArgs(EntityManager,

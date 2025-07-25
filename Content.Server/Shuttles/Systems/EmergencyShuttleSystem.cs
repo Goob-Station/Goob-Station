@@ -82,6 +82,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
+using Content.Server._DV.Shuttles.Events; // DeltaV
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -507,6 +508,8 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
 
         _consoleAccumulator = ConfigManager.GetCVar(CCVars.EmergencyShuttleDockTime);
         EmergencyShuttleArrived = true;
+
+        RaiseLocalEvent(new EvacShuttleDockedEvent()); // DeltaV
 
         var query = AllEntityQuery<StationEmergencyShuttleComponent>();
 

@@ -19,7 +19,7 @@ using Content.Shared._DV.CCVars;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult.Prototypes;
-using Content.Shared._DV.CustomObjectiveSummary;
+using Content.Server._DV.Shuttles.Events;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
@@ -62,7 +62,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EvacShuttleLeftEvent>(OnShuttleEvac); // for no more finale once the evac shuttle leaves
+        SubscribeLocalEvent<EvacShuttleDockedEvent>(OnEvacDocked); // for no more finale once the evac shuttle docks
         SubscribeLocalEvent<MonumentComponent, InteractUsingEvent>(OnInfuseHeldEntropy);
         SubscribeLocalEvent<MonumentComponent, ActivateInWorldEvent>(OnInfuseEntropy);
     }
@@ -141,23 +141,12 @@ public sealed class MonumentSystem : SharedMonumentSystem
     /// <summary>
     /// on shuttle evac, disable the monument's UI, disable it from being activated, and stop the finale music if it was playing
     /// </summary>
-    private void OnShuttleEvac(EvacShuttleLeftEvent args)
+    private void OnEvacDocked(EvacShuttleDockedEvent args)
     {
         var evacQuery = EntityQueryEnumerator<MonumentComponent, CosmicFinaleComponent>();
         while (evacQuery.MoveNext(out var ent, out var monuComp, out var finaleComp))
         {
-            Disable((ent, monuComp));
-            finaleComp.Occupied = true;
-            _sound.StopStationEventMusic(ent, StationEventMusicType.CosmicCult);
-            if (TryComp<ActivatableUIComponent>(ent, out var uiComp))
-            {
-                if (TryComp<UserInterfaceComponent>(ent, out var uiComp2)) //close the UI for everyone who has it open
-                {
-                    _ui.CloseUi((ent, uiComp2), MonumentKey.Key);
-                }
-
-                uiComp.Key = null; //kazne called this the laziest way to disable a UI ever
-            }
+            finaleComp.CurrentState = FinaleState.Unreachable;
         }
 
     }
