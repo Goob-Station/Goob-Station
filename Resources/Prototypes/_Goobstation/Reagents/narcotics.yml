@@ -312,9 +312,6 @@
       metabolismRate: 0.25 # placeholder until addictions, change to 0.5 after
       effects:
       - !type:ResetNarcolepsy
-    Poison:
-      metabolismRate: 0.25
-      effects:
       - !type:HealthChange # intentionally no yowie conditions (why was this removed)
         damage:
           groups:
@@ -325,7 +322,7 @@
             Cold: -0.5
             Radiation: -0.5
             Poison: -0.5
-            Asphyxiation: 2
+            Asphyxiation: 0.5
 
 - type: reagent
   id: MouseBites
