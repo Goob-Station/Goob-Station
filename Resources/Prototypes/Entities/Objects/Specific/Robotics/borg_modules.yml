@@ -633,6 +633,15 @@
     # - Shovel # Goobstation
     - MineralScannerUnpowered
     - BorgOreBag
+  # Goob start
+  - type: DroppableBorgModule
+    moduleId: Mining
+    items:
+    - id: WeaponProtoKineticAccelerator
+      whitelist:
+        components:
+        - PressureDamageChange
+  # Goob end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: mining-module }
 
@@ -653,6 +662,15 @@
     - Shovel
     - AdvancedMineralScannerUnpowered
     - OreBagOfHolding
+  # Goob start
+  - type: DroppableBorgModule
+    moduleId: AdvancedMining
+    items:
+    - id: WeaponProtoKineticAccelerator
+      whitelist:
+        components:
+        - PressureDamageChange
+  # Goob end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-mining-module }
 
