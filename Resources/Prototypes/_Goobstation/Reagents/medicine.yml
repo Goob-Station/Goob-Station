@@ -356,6 +356,7 @@
   physicalDesc: reagent-physical-desc-alkaline
   flavor: medicine
   color: "#97e239"
+  worksOnTheDead: true
   plantMetabolism:
     - !type:PlantAdjustToxins
       amount: -30
@@ -403,6 +404,7 @@
   physicalDesc: reagent-physical-desc-nondescript
   flavor: medicine
   color: "#e1d758"
+  worksOnTheDead: true
   metabolisms:
     Medicine:
       metabolismRate: 3
