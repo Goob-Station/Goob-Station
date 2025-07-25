@@ -540,9 +540,9 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -36
-            Piercing: -30
-            Blunt: -24
+            Slash: -30
+            Piercing: -24
+            Blunt: -18
       - !type:AdjustReagent
         reagent: Bozaide
         amount: 3
@@ -581,12 +581,12 @@
   color: "#65583b"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.2
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1 # intentionally slow
+            Brute: -3 # intentionally slow
       - !type:HealthChange
         damage:
           types:
