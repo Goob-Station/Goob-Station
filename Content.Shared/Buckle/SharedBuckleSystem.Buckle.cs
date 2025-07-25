@@ -274,8 +274,8 @@ public abstract partial class SharedBuckleSystem
     }
 
     private void OnBuckleUpdateCanMove(EntityUid uid, BuckleComponent component, UpdateCanMoveEvent args)
-    {
-        if (component.Buckled)
+    {                            // Goobstation
+        if (component.Buckled && TryComp<StrapComponent>(component.BuckledTo, out var strap) && strap.BlockMovement)
             args.Cancel();
     }
 

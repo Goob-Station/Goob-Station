@@ -24,6 +24,7 @@
     renderOver: East, SouthEast, South, SouthWest, West
   - type: Strap
     position: Stand
+    blockMovement: false
   - type: Appearance
   - type: AmbientSound
     sound: "/Audio/Effects/Vehicle/vehicleengineidle.ogg"
@@ -74,8 +75,8 @@
         sound:
           collection: MetalBreak
   - type: MovementSpeedModifier
-    acceleration: 8
-    friction: 5 # wheels dont stop instantly
+    baseAcceleration: 8
+    baseFriction: 0.2 # wheels dont stop instantly
     baseSprintSpeed: 6
     baseWalkSpeed: 4.5 # default walking speed
   - type: ItemSlots
