@@ -1,0 +1,8 @@
+- type: damageModifierSet
+  id: Werewolf
+  coefficients:
+    Brute: 0.7
+    Slash: 0.7
+    Cold: 0.5
+    Bloodloss: 0.5
+    Holy: 1.8

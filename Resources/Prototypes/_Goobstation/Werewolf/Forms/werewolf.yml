@@ -1,0 +1,16 @@
+# The werewolf forms
+# todo: use locale for names
+- type: werewolfForm
+  id: BaseWerewolfForm
+  abstract: true
+  configuration:
+    furColor: "#0000FF"
+    entity: BaseMobWerewolf
+
+- type: werewolfForm
+  id: DefaultFormWerewolf
+  parent: BaseWerewolfForm
+  configuration:
+    furColor: "#00008B"
+    entity: BaseMobWerewolf
+    name: Werewolf (No Mutations)

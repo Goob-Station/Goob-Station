@@ -16,6 +16,15 @@
       # jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster ]
       mindRoles:
       - MindRoleWerewolf
+      components:
+      - type: ActionGrant
+        actions:
+        - ActionTransformWerewolf
+        - ActionOpenMutationShop
+      - type: WerewolfTransform
+        currentWerewolfForm: DefaultFormWerewolf
+        unlockedWerewolfForms:
+        - DefaultFormWerewolf
   - type: Tag
     tags:
     - RoundstartAntag

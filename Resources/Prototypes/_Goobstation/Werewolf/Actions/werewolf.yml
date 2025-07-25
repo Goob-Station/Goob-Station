@@ -1,0 +1,26 @@
+- type: entity
+  id: ActionTransformWerewolf
+  name: Werewolf Transform.
+  description: Transforms you into a werewolf instantly.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
+      state: absorb_dna
+    event: !type:WerewolfTransformEvent
+# todo: add confirmable action
+
+- type: entity
+  id: ActionOpenMutationShop
+  name: Open Mutation Shop.
+  description: Opens the mutation shop.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
+      state: evolution_menu
+    event: !type:OpenMutationShopEvent

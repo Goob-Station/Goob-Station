@@ -1,0 +1,17 @@
+- type: entity
+  id: BaseMobWerewolf
+  name: Werewolf
+  parent: BaseMobSpeciesOrganic
+  components:
+  - type: Hunger
+  - type: HumanoidAppearance
+    species: SlimePerson # add werewolf
+  - type: Body
+    prototype: Slime # add werewolf
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Werewolf
+  - type: Bloodstream
+    bloodReagent: Blood
+
