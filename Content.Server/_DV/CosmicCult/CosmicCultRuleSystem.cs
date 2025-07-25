@@ -288,7 +288,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         //Goobstation: recalls shuttle upon reaching tier 2
         if (component.CurrentTier >= 2
             && _roundEnd.ExpectedCountdownEnd != null
-            && CultistsAlive()) // Check for cultists alive (prevent infinite recall)
+            && CultistsAlive()) // Goobstation - Check for cultists alive (prevent infinite recall)
         {
             foreach (var station in _station.GetStations())
             {
