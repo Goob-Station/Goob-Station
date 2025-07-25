@@ -46,7 +46,6 @@
   components:
     - type: InputMover
     - type: MobMover
-    - type: Job
     - type: HTN
       rootTask:
         task: SimpleHostileCompound
