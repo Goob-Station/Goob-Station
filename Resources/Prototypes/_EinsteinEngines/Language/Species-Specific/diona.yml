@@ -4,7 +4,7 @@
   id: RootSpeak
   isVisibleLanguage: true
   speech:
-    color: "#ce5e14dd"
+    color: "#a64e14dd" # Goob Edit - More uniqueness from Novu-Nederic
     # fontId: Noganas #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
   obfuscation:
     !type:SyllableObfuscation
