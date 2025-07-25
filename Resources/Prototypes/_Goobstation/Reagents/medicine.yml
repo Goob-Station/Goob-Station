@@ -542,9 +542,9 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -24
-            Piercing: -24
-            Blunt: -24
+            Slash: -30
+            Piercing: -30
+            Blunt: -30
       - !type:AdjustReagent
         reagent: Bozaide
         amount: 3
@@ -583,16 +583,16 @@
   color: "#65583b"
   metabolisms:
     Medicine:
-      metabolismRate: 0.2
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: -3 # intentionally slow
+            Brute: -1 # intentionally slow
       - !type:HealthChange
         damage:
           types:
-            Radiation: 0.05 # very slight side effect
+            Radiation: 0.01 # very slight side effect
         conditions:
         - !type:OrganType
           type: Yowie
