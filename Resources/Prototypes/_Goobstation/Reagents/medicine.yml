@@ -385,18 +385,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 6
-      - !type:AdjustReagent
-        amount: -25
-        reagent: Syriniver
-      - !type:AdjustReagent
-        amount: -50
-        reagent: Ebifin
-      - !type:AdjustReagent
-        amount: -25
-        reagent: ProcenylLazide
-      - !type:AdjustReagent
-        amount: -25
-        reagent: Aluite
 
 - type: reagent
   id: Musiver
@@ -470,18 +458,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 4
-      - !type:AdjustReagent
-        amount: -25
-        reagent: Syriniver
-      - !type:AdjustReagent
-        amount: -50
-        reagent: Ebifin
-      - !type:AdjustReagent
-        amount: -25
-        reagent: ProcenylLazide
-      - !type:AdjustReagent
-        amount: -25
-        reagent: Aluite
 
 - type: reagent
   id: Tehifin
@@ -560,18 +536,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 6
-      - !type:AdjustReagent
-        amount: -25
-        reagent: Syriniver
-      - !type:AdjustReagent
-        amount: -50
-        reagent: Ebifin
-      - !type:AdjustReagent
-        amount: -25
-        reagent: ProcenylLazide
-      - !type:AdjustReagent
-        amount: -25
-        reagent: Aluite
 
 - type: reagent
   id: Bozaide
