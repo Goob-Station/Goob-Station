@@ -409,7 +409,7 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
+          groups:
             Toxin: -2
       - !type:ChemCleanBloodstream
         cleanseRate: 6 # POWERFUL cleansing effect
