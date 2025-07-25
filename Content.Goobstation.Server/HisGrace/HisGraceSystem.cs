@@ -190,7 +190,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             || args.OldState == HisGraceState.Ascended)
             return false;
 
-        EnsureComp<UnremoveableComponent>(hisGrace);
+        SetUnremovable(hisGrace, true);
+
         DoAscension(hisGrace);
         DoAscensionVisuals(hisGrace, "ascended");
         return true;
@@ -454,7 +455,11 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     {
         if (enabled)
         {
-            EnsureComp<UnremoveableComponent>(uid).DeleteOnDrop = false;
+            var unremove = EnsureComp<UnremoveableComponent>(uid);
+
+            unremove.DeleteOnDrop = false;
+            unremove.PreventContainerRemoval = false;
+
             EnsureComp<JitteringComponent>(uid);
         }
         else

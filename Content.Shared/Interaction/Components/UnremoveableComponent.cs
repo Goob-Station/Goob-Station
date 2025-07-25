@@ -20,5 +20,12 @@ namespace Content.Shared.Interaction.Components
         /// </summary>
         [DataField("deleteOnDrop")]
         public bool DeleteOnDrop = true;
+
+        /// <summary>
+        /// Prevents the item from being removed from most containers.
+        /// You MUST set this to false if you want to set delete on drop to true. - Goobstation
+        /// </summary>
+        [DataField]
+        public bool PreventContainerRemoval = true;
     }
 }

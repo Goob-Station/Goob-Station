@@ -344,9 +344,12 @@ namespace Content.Shared.Interaction
         /// <summary>
         ///     Prevents an item with the Unremovable component from being removed from a container by almost any means
         /// </summary>
+        ///
+        ///
         private void OnRemoveAttempt(EntityUid uid, UnremoveableComponent item, ContainerGettingRemovedAttemptEvent args)
         {
-            args.Cancel();
+            if (item.PreventContainerRemoval) // Goobstation - Otherwise, woundmed breaks this.
+                args.Cancel();
         }
 
         /// <summary>
