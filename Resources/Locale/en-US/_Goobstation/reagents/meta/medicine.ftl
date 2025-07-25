@@ -85,7 +85,7 @@ reagent-name-procenyl-lazide = procenyl lazide
 reagent-desc-procenyl-lazide = Somewhat strong brute medicine with low overdose threshold, needs to be crystalized at low temperatures and separated out from its precursor solution.
 
 reagent-name-bozaide = bozaide
-reagent-desc-bozaide = Slow acting brute medicine, deals low amounts of radiation damage.
+reagent-desc-bozaide = A passive, slow acting brute medication that acts as a catalyst for natural tissue regeneration.
 
 reagent-name-genecide = genecide
 reagent-desc-genecide = Blows genetic damage away, literally. Make sure to monitor patients taking it.

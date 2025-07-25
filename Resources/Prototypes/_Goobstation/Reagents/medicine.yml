@@ -589,9 +589,6 @@
         damage:
           groups:
             Brute: -1 # intentionally slow
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
