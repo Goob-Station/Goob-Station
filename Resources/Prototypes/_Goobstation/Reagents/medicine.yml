@@ -409,7 +409,7 @@
   worksOnTheDead: true
   metabolisms:
     Medicine:
-      metabolismRate: 0.25
+      metabolismRate: 0.5
       effects:
       - !type:HealthChange
         damage:
