@@ -542,9 +542,9 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -30
-            Piercing: -24
-            Blunt: -18
+            Slash: -24
+            Piercing: -18
+            Blunt: -12
       - !type:AdjustReagent
         reagent: Bozaide
         amount: 3
