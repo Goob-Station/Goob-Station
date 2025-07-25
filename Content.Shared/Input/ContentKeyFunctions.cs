@@ -116,6 +116,13 @@
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
+// SPDX-FileCopyrightText: 2025 poemota <142114334+poeMota@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -264,6 +271,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction MappingUnselect = "MappingUnselect";
         public static readonly BoundKeyFunction SaveMap = "SaveMap";
         public static readonly BoundKeyFunction MappingEnablePick = "MappingEnablePick";
+        public static readonly BoundKeyFunction MappingEnableDecalPick = "MappingEnableDecalPick"; //Reserve - Wizden mapping editor
         public static readonly BoundKeyFunction MappingEnableDelete = "MappingEnableDelete";
         public static readonly BoundKeyFunction MappingPick = "MappingPick";
         public static readonly BoundKeyFunction MappingRemoveDecal = "MappingRemoveDecal";

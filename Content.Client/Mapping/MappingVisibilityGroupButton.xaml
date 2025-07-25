@@ -1,0 +1,9 @@
+<!-- Reserve - File heavily edited by PR: Mapping editor
+    See https://github.com/space-wizards/space-station-14/pull/34302
+    and https://github.com/Reserve-Station/Reserve-Station/pull/82 for more details. -->
+
+<mapping:MappingVisibilityGroupButton
+    xmlns="https://spacestation14.io"
+    xmlns:mapping="clr-namespace:Content.Client.Mapping"
+    HorizontalExpand="True" SetHeight="50" ToggleMode="True"
+    StyleIdentifier="OpenRight" Margin="0 3 0 0" />

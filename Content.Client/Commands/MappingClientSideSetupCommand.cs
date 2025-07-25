@@ -74,8 +74,12 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
+// SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
+// SPDX-FileCopyrightText: 2025 poemota <142114334+poeMota@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -104,7 +108,8 @@ internal sealed class MappingClientSideSetupCommand : LocalizedCommands
             _entitySystemManager.GetEntitySystem<MarkerSystem>().MarkersVisible = true;
             _lightManager.Enabled = false;
             shell.ExecuteCommand("showsubfloor");
-            _entitySystemManager.GetEntitySystem<ActionsSystem>().LoadActionAssignments("/mapping_actions.yml", false);
+            shell.ExecuteCommand("zoom 1,5"); //Reserve - Wizden mapping editor
+            shell.ExecuteCommand("scene MappingState"); //Reserve - Wizden mapping editor
         }
     }
 }

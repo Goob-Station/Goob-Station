@@ -27,7 +27,10 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -36,11 +39,15 @@
 // SPDX-FileCopyrightText: 2025 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 kamkoi <poiiiple1@gmail.com>
+// SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
+// SPDX-FileCopyrightText: 2025 poemota <142114334+poeMota@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 tetra <169831122+Foralemes@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+
+using Content.Client.Mapping;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -61,7 +68,7 @@ using Content.Client._RMC14.LinkAccount; // RMC - Patreon
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
 [UsedImplicitly]
-public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
+public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnStateEntered<MappingState>, IOnStateExited<MappingState> //Reserve - Wizden mapping editor
 {
     [Dependency] private readonly IClientConsoleHost _console = default!;
     [Dependency] private readonly IUriOpener _uri = default!;
@@ -184,6 +191,75 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
 
         CommandBinds.Unregister<EscapeUIController>();
     }
+
+    //Reserve - Wizden mapping editor begin
+    public void OnStateEntered(MappingState state)
+    {
+        _escapeWindow = UIManager.CreateWindow<Options.UI.EscapeMenu>();
+
+        _escapeWindow.OnClose += DeactivateButton;
+        _escapeWindow.OnOpen += ActivateButton;
+
+        _escapeWindow.ChangelogButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _changelog.ToggleWindow();
+        };
+
+        _escapeWindow.RulesButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _info.OpenWindow();
+        };
+
+        _escapeWindow.DisconnectButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _console.ExecuteCommand("disconnect");
+        };
+
+        _escapeWindow.OptionsButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _options.OpenWindow();
+        };
+
+        _escapeWindow.QuitButton.OnPressed += _ =>
+        {
+            CloseEscapeWindow();
+            _console.ExecuteCommand("quit");
+        };
+
+        _escapeWindow.WikiButton.OnPressed += _ =>
+        {
+            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
+        };
+
+        _escapeWindow.GuidebookButton.OnPressed += _ =>
+        {
+            _guidebook.ToggleGuidebook();
+        };
+
+        // Hide wiki button if we don't have a link for it.
+        _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
+
+        CommandBinds.Builder
+            .Bind(EngineKeyFunctions.EscapeMenu,
+                InputCmdHandler.FromDelegate(_ => ToggleWindow()))
+            .Register<EscapeUIController>();
+    }
+
+    public void OnStateExited(MappingState state)
+    {
+        if (_escapeWindow != null)
+        {
+            _escapeWindow.Dispose();
+            _escapeWindow = null;
+        }
+
+        CommandBinds.Unregister<EscapeUIController>();
+    }
+    //Reserve - Wizden mapping editor end
 
     private void EscapeButtonOnOnPressed(ButtonEventArgs obj)
     {

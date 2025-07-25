@@ -1,11 +1,22 @@
 # SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
 # SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 poemota <142114334+poeMota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
 #
 # SPDX-License-Identifier: MIT
 
 - type: decal
+  id: BrickTileWhite
+  parent: BrickTile
+  abstract: true
+
+- type: decal
   id: BrickTileWhiteBox
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -13,6 +24,7 @@
 
 - type: decal
   id: BrickTileWhiteCornerNe
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -20,6 +32,7 @@
 
 - type: decal
   id: BrickTileWhiteCornerSe
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -27,6 +40,7 @@
 
 - type: decal
   id: BrickTileWhiteCornerNw
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -34,6 +48,7 @@
 
 - type: decal
   id: BrickTileWhiteCornerSw
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -41,6 +56,7 @@
 
 - type: decal
   id: BrickTileWhiteInnerNe
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -48,6 +64,7 @@
 
 - type: decal
   id: BrickTileWhiteInnerSe
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -55,6 +72,7 @@
 
 - type: decal
   id: BrickTileWhiteInnerNw
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -62,6 +80,7 @@
 
 - type: decal
   id: BrickTileWhiteInnerSw
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -69,6 +88,7 @@
 
 - type: decal
   id: BrickTileWhiteEndN
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -76,6 +96,7 @@
 
 - type: decal
   id: BrickTileWhiteEndE
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -83,6 +104,7 @@
 
 - type: decal
   id: BrickTileWhiteEndS
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -90,6 +112,7 @@
 
 - type: decal
   id: BrickTileWhiteEndW
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -97,6 +120,7 @@
 
 - type: decal
   id: BrickTileWhiteLineN
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -104,6 +128,7 @@
 
 - type: decal
   id: BrickTileWhiteLineE
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -111,6 +136,7 @@
 
 - type: decal
   id: BrickTileWhiteLineS
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi
@@ -118,6 +144,7 @@
 
 - type: decal
   id: BrickTileWhiteLineW
+  parent: BrickTileWhite
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/bricktile.rsi

@@ -5,7 +5,13 @@
 # SPDX-License-Identifier: MIT
 
 - type: decal
+  id: MiniTileSteel
+  parent: MiniTile
+  abstract: true
+
+- type: decal
   id: MiniTileSteelBox
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -13,6 +19,7 @@
 
 - type: decal
   id: MiniTileSteelCornerNe
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -20,6 +27,7 @@
 
 - type: decal
   id: MiniTileSteelCornerSe
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -27,6 +35,7 @@
 
 - type: decal
   id: MiniTileSteelCornerNw
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -34,6 +43,7 @@
 
 - type: decal
   id: MiniTileSteelCornerSw
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -41,6 +51,7 @@
 
 - type: decal
   id: MiniTileSteelInnerNe
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -48,6 +59,7 @@
 
 - type: decal
   id: MiniTileSteelInnerSe
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -55,6 +67,7 @@
 
 - type: decal
   id: MiniTileSteelInnerNw
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -62,6 +75,7 @@
 
 - type: decal
   id: MiniTileSteelInnerSw
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -69,6 +83,7 @@
 
 - type: decal
   id: MiniTileSteelEndN
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -76,6 +91,7 @@
 
 - type: decal
   id: MiniTileSteelEndE
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -83,6 +99,7 @@
 
 - type: decal
   id: MiniTileSteelEndS
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -90,6 +107,7 @@
 
 - type: decal
   id: MiniTileSteelEndW
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -97,6 +115,7 @@
 
 - type: decal
   id: MiniTileSteelLineN
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -104,6 +123,7 @@
 
 - type: decal
   id: MiniTileSteelLineE
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -111,6 +131,7 @@
 
 - type: decal
   id: MiniTileSteelLineS
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi
@@ -118,6 +139,7 @@
 
 - type: decal
   id: MiniTileSteelLineW
+  parent: MiniTileSteel
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/minitile.rsi

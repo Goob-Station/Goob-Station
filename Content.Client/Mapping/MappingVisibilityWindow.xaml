@@ -1,0 +1,34 @@
+<!-- Reserve - File heavily edited by PR: Mapping editor
+    See https://github.com/space-wizards/space-station-14/pull/34302
+    and https://github.com/Reserve-Station/Reserve-Station/pull/82 for more details. -->
+
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:mapping="clr-namespace:Content.Client.Mapping"
+    Title="{Loc 'mapping-visibility-window-title'}"
+    Resizable="False"
+    MinWidth="250">
+    <BoxContainer Orientation="Vertical">
+        <!--WD EDIT START-->
+        <Label Text="{Loc 'mapping-visibility-panels-header'}" StyleClasses="LabelHeading"/>
+        <mapping:MappingVisibilityGroupButton Name="EntitiesPanel" Text="{Loc 'mapping-visibility-entities-panel'}" Access="Public"/>
+        <mapping:MappingVisibilityGroupButton Name="TilesPanel" Text="{Loc 'mapping-visibility-tiles-panel'}" Access="Public"/>
+        <mapping:MappingVisibilityGroupButton Name="DecalsPanel" Text="{Loc 'mapping-visibility-decals-panel'}" Access="Public"/>
+
+        <Control MinHeight="10"/>
+        <Label Text="{Loc 'mapping-visibility-layers-header'}" StyleClasses="LabelHeading"/>
+        <!--WD EDIT END-->
+        <mapping:MappingVisibilityGroupButton Name="Light" Text="{Loc 'mapping-visibility-light'}" Access="Public"/>
+        <mapping:MappingVisibilityButton Name="Fov" Text="{Loc 'mapping-visibility-fov'}" Access="Public"/>
+        <mapping:MappingVisibilityButton Name="Shadows" Text="{Loc 'mapping-visibility-shadows'}" Access="Public"/>
+        <mapping:MappingVisibilityGroupButton Name="Entities" Text="{Loc 'mapping-visibility-entities'}" Access="Public"/>
+        <mapping:MappingVisibilityButton Name="Markers" Text="{Loc 'mapping-visibility-markers'}" Access="Public"/>
+        <mapping:MappingVisibilityButton Name="Walls" Text="{Loc 'mapping-visibility-walls'}" Access="Public"/>
+        <mapping:MappingVisibilityButton Name="Airlocks" Text="{Loc 'mapping-visibility-airlocks'}" Access="Public"/>
+        <mapping:MappingVisibilityGroupButton Name="Decals" Text="{Loc 'mapping-visibility-decals'}" Access="Public"/>
+        <mapping:MappingVisibilityGroupButton Name="SubFloor" Text="{Loc 'mapping-visibility-subfloor'}" Access="Public"/>
+        <mapping:MappingVisibilityButton Name="Cables" Text="{Loc 'mapping-visibility-cables'}" Access="Public"/>
+        <mapping:MappingVisibilityButton Name="Disposal" Text="{Loc 'mapping-visibility-disposal'}" Access="Public"/>
+        <mapping:MappingVisibilityButton Name="Atmos" Text="{Loc 'mapping-visibility-atmos'}" Access="Public"/>
+    </BoxContainer>
+</DefaultWindow>

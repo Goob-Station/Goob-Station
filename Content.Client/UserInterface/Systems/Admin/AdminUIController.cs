@@ -18,7 +18,14 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
+// SPDX-FileCopyrightText: 2025 poeMota <142114334+poeMota@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 poemota <142114334+poeMota@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -30,6 +37,7 @@ using Content.Client.Administration.UI.Tabs.PanicBunkerTab;
 using Content.Client.Administration.UI.Tabs.PlayerTab;
 using Content.Client.Gameplay;
 using Content.Client.Lobby;
+using Content.Client.Mapping;
 using Content.Client.UserInterface.Controls;
 using Content.Client.Verbs.UI;
 using Content.Shared.Administration.Events;
@@ -50,6 +58,7 @@ namespace Content.Client.UserInterface.Systems.Admin;
 public sealed class AdminUIController : UIController,
     IOnStateEntered<GameplayState>,
     IOnStateEntered<LobbyState>,
+    IOnStateEntered<MappingState>, //Reserve - Wizden mapping editor
     IOnSystemChanged<AdminSystem>
 {
     [Dependency] private readonly IClientAdminManager _admin = default!;
@@ -91,6 +100,14 @@ public sealed class AdminUIController : UIController,
         EnsureWindow();
         AdminStatusUpdated();
     }
+
+    //Reserve - Wizden mapping editor begin
+    public void OnStateEntered(MappingState state)
+    {
+        EnsureWindow();
+        AdminStatusUpdated();
+    }
+    //Reserve - Wizden mapping editor end
 
     public void OnSystemLoaded(AdminSystem system)
     {
