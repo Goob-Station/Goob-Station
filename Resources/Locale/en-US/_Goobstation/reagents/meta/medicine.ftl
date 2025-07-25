@@ -31,10 +31,10 @@ reagent-name-tirimol = tirimol
 reagent-desc-tirimol = Strong depressant used in healing asphyxiation damage. Vastly decreases oxygen consumption at the cost of weakened muscles.
 
 reagent-name-syriniver = syriniver
-reagent-desc-syriniver = An experimental antipoison that repairs toxin-based cell failure regardless of whether the patient is alive, while purging any and all other foreign reagents from the bloodstream. Has a horribly low overdose and causes internal bleeding when injected even in trace quantities.
+reagent-desc-syriniver = An experimental antipoison that repairs toxin-based cell failure regardless of whether the patient is alive. Has a horribly low overdose and causes internal bleeding when injected even in trace quantities.
 
 reagent-name-musiver = musiver
-reagent-desc-musiver = Slower acting anti-poison medicine with uniquely tiny molecular footprint.
+reagent-desc-musiver = Fast-acting antitoxin deposited in the wake of Syriniver. Passively heals cell damage, while purging any and all other foreign reagents from the bloodstream.
 
 reagent-name-multiver = multiver
 reagent-desc-multiver = Drug purpose-built to cleanse dangerous chemical mixes. Can be used against simple poisonings, but it's recommended to mix it with other chemicals for higher efficiency.
