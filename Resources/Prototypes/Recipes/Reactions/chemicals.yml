@@ -368,7 +368,7 @@
     Oxygen:
       amount: 2
   products:
-    Stimulants: 1 # Goobstation edit
+    Stimulants: 2 # Goobstation edit
 
 - type: reaction
   id: Ephedrine

@@ -279,22 +279,10 @@
   color: "#75fff5"
   metabolisms:
     Narcotic:
-      metabolismRate: 1
+      metabolismRate: 0.5
       effects:
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Yowie
-        damage:
-          groups:
-            Brute: -1
-          types:
-            Heat: -0.5
-            Shock: -0.5
-            Cold: -0.5
-            Radiation: -0.5
       - !type:MovespeedModifier
-        walkSpeedModifier: 1.3
+        walkSpeedModifier: 1.3 # slower than dylometh due to being diluted - still overall stronger due to omni heal
         sprintSpeedModifier: 1.3
       - !type:GenericStatusEffect
         key: Stun
@@ -319,11 +307,11 @@
         component: DelayedKnockdown
         locale: reagent-effect-guidebook-remove-delayed-knockdown
     Medicine:
-      metabolismRate: 1
+      metabolismRate: 0.5
       effects:
       - !type:ResetNarcolepsy
     Poison:
-      metabolismRate: 1
+      metabolismRate: 0.5
       effects:
       - !type:HealthChange
         damage:
@@ -333,16 +321,18 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-      - !type:HealthChange
+      - !type:HealthChange # intentionally no yowie conditions (why was this removed)
         conditions:
         - !type:OrganType
-          type: Yowie
-          shouldHave: false
-        - !type:ReagentThreshold
-          min: 50
         damage:
+          groups:
+            Brute: -1
           types:
-            Poison: 3
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
+            Poison: -0.5
       - !type:Emote
         emote: Gasp
         probability: 0.1
