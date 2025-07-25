@@ -37,14 +37,26 @@ public sealed partial class MobCallerComponent : Component
     /// Amount of spawn directions to consider.
     /// </summary>
     [DataField]
-    public int SpawnDirections = 8;
+    public int SpawnDirections = 16;
 
     /// <summary>
-    /// Distance to check for occlusions.
-    /// Exists for performance reasons, as ideally we'd check up to MaxDistance.
+    /// Consider valid spawn directions to be those which have unoccluded space at most that many tiles away.
     /// </summary>
     [DataField]
     public float OcclusionDistance = 30f;
+
+    /// <summary>
+    /// Consider valid spawn directions to be those which have no grids besides our own for this much distance.
+    /// </summary>
+    [DataField]
+    public float GridOcclusionDistance = 120f;
+
+    /// <summary>
+    /// How thoroughly to check for grid occlusion.
+    /// Exists for performance reasons.
+    /// </summary>
+    [DataField]
+    public float GridOcclusionFidelity = 5f;
 
     /// <summary>
     /// Collision mask to check occlusion against.
@@ -79,14 +91,33 @@ public sealed partial class MobCallerComponent : Component
     /// <summary>
     /// Progress towards spawning the next entity.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public TimeSpan SpawnAccumulator = TimeSpan.FromSeconds(0);
 
     /// <summary>
     /// Entities spawned by us.
     /// Used to keep track of how many are alive.
-    /// Entities that are dead will be removed from this list.
+    /// Entities that are dead or don't exist anymore will be lazily removed from this list.
+    /// </summary>
+    [DataField]
+    public List<EntityUid> SpawnedEntities = new();
+
+    /// <summary>
+    /// Last time we did our raycast check on examine.
+    /// Exists so clients can't lag the server by spam-examining the entity.
     /// </summary>
     [ViewVariables]
-    public List<EntityUid> SpawnedEntities = new();
+    public TimeSpan LastExamineRaycast = TimeSpan.FromSeconds(0);
+
+    /// <summary>
+    /// Do our raycast check on examine no more frequently than this.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan ExamineRaycastSpacing = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Obstruction status to show if we last examined a short time ago.
+    /// </summary>
+    [ViewVariables]
+    public bool CachedExamineResult = false;
 }

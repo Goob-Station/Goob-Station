@@ -12,6 +12,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using System;
 using System.Linq;
 using System.Numerics;
@@ -24,6 +25,7 @@ public sealed partial class MobCallerSystem : EntitySystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly PowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -36,8 +38,20 @@ public sealed partial class MobCallerSystem : EntitySystem
 
     private void OnExamined(Entity<MobCallerComponent> ent, ref ExaminedEvent args)
     {
+        var occluded = false;
+        // prevent evil spam examine ddos even though GetSpawnDirections() takes 0.3ms or so worstcase
+        if (ent.Comp.LastExamineRaycast + ent.Comp.ExamineRaycastSpacing > _timing.CurTime)
+        {
+            occluded = ent.Comp.CachedExamineResult;
+        }
+        else
+        {
+            occluded = !(GetSpawnDirections((ent, ent.Comp, Transform(ent))).Any());
+            ent.Comp.CachedExamineResult = occluded;
+            ent.Comp.LastExamineRaycast = _timing.CurTime;
+        }
         // tell the user if we're not working due to not being exposed to space
-        if (GetSpawnDirections((ent, ent.Comp, Transform(ent))).Count == 0)
+        if (occluded)
             args.PushMarkup(Loc.GetString("mob-caller-occluded"));
     }
 
@@ -106,11 +120,43 @@ public sealed partial class MobCallerSystem : EntitySystem
         for (var i = 0; i < ent.Comp1.SpawnDirections; i++)
         {
             var dir = Angle.FromDegrees(360f * (float)i / ent.Comp1.SpawnDirections);
-
-            var ray = new CollisionRay(ent.Comp2.WorldPosition, dir.ToVec(), (int)ent.Comp1.OcclusionMask);
-            var rayCastResults = _physics.IntersectRay(ent.Comp2.MapID, ray, ent.Comp1.OcclusionDistance, ent);
-            if (!rayCastResults.Any())
+            if (CheckDir(dir))
                 candidates.Add(dir);
+
+            bool CheckDir(Angle dir)
+            {
+                // raycast forward up to GridOcclusionDistance with a step size of GridOcclusionFidelity
+                var stepVec = dir.ToVec();
+                var gridStepVec = stepVec * ent.Comp1.GridOcclusionFidelity;
+                var steps = (int)MathF.Ceiling(ent.Comp1.GridOcclusionDistance / ent.Comp1.GridOcclusionFidelity);
+                // in up to how many steps we have to find space
+                var spaceSteps = (int)MathF.Ceiling(ent.Comp1.OcclusionDistance / ent.Comp1.GridOcclusionFidelity);
+                var checkPos = ent.Comp2.WorldPosition;
+                var seenSpace = false;
+                for (var j = 0; j < steps; j++)
+                {
+                    checkPos += gridStepVec;
+
+                    var isFar = j >= spaceSteps;
+                    var hasGrid = _map.TryFindGridAt(new MapCoordinates(checkPos, ent.Comp2.MapID), out var gridUid, out _);
+                    seenSpace |= !hasGrid;
+
+                    // if there's another grid there or we seem to have found a large spaced gap in the parent grid, discard this direction
+                    if (hasGrid && (isFar || gridUid != ent.Comp2.ParentUid))
+                        return false;
+
+                    // ensure we see space at least once at most OcclusionDistance away
+                    if (isFar && !seenSpace)
+                        return false;
+                }
+
+                // we've found that there's continuous space in that direction beginning up to OcclusionDistance away
+                // now also check that there's no obstructions in that direction
+                var ray = new CollisionRay(ent.Comp2.WorldPosition, stepVec, (int)ent.Comp1.OcclusionMask);
+                var rayCastResults = _physics.IntersectRay(ent.Comp2.MapID, ray, ent.Comp1.OcclusionDistance, ent);
+
+                return !rayCastResults.Any();
+            }
         }
 
         return candidates;
