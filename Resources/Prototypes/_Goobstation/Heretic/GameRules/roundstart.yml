@@ -22,7 +22,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 11 # Pirate
+    minPlayers: 15
     chaosScore: 800
   - type: AntagObjectives
     objectives:
