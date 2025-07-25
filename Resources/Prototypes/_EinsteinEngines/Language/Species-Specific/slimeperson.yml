@@ -5,7 +5,7 @@
   isVisibleLanguage: true
   speech:
     color: "#24D186" # Goob Edit - Original "#00a3e2dd"
-    # fontId: RubikBubbles #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
+    fontId: SourGummy # Goob Change
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
