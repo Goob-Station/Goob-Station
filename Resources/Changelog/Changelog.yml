@@ -3926,3 +3926,11 @@
   id: 8806
   time: '2025-07-24T11:24:19.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39177
+- author: SlamBamActionman
+  changes:
+  - message: Potassium-water explosion damage scaling has been tweaked to be less
+      potent.
+    type: Tweak
+  id: 8807
+  time: '2025-07-25T16:04:27.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37924
