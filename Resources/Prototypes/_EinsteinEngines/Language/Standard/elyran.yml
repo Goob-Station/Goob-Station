@@ -3,7 +3,7 @@
   id: Elyran
   isVisibleLanguage: true
   speech:
-    color: "#8282fbaa"
+    color: "#c480e8aa" # Goob Edit - Separation from Sol Common, make more unique.
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

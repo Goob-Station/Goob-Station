@@ -3,7 +3,7 @@
   id: Freespeak
   isVisibleLanguage: true
   speech:
-    color: "#597d35"
+    color: "#91c756" # Goob Edit - Unique from Tradeband
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
