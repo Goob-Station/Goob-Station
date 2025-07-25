@@ -1158,13 +1158,19 @@ public sealed partial class ChatSystem : SharedChatSystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
 
+        // Goobstation Edit - Custom Bold Fonts begin
+        var boldId = language.SpeechOverride.BoldFontId ?? speech.FontId;
+        if (language.SpeechOverride.BoldFontId == null && language.SpeechOverride.FontId != null)
+            boldId = language.SpeechOverride.FontId;
+        // Gobstation Edit - end
+
         return Loc.GetString(wrapId,
             ("color", color),
             ("entityName", entityName),
             ("verb", Loc.GetString(verbId)),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
             ("fontSize", language.SpeechOverride.FontSize ?? speech.FontSize),
-            ("boldFontType", language.SpeechOverride.BoldFontId ?? speech.FontId), // Goob Edit - Custom Bold Fonts
+            ("boldFontType", boldId), // Goob Edit - Custom Bold Fonts
             ("message", message),
             ("language", languageDisplay));
     }
