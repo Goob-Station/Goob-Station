@@ -1,19 +1,12 @@
-using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace Content.Goobstation.Shared.Werewolf.Components;
 
 /// <summary>
 /// This is the main component of the werewolf
 /// </summary>
-[RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
-public sealed partial class WerewolfComponent : Component
-{
-    /// <summary>
-    /// The currency for buying werewolf forms.
-    /// Can be gained by eating humanoid organs.
-    /// </summary>
-    [AutoNetworkedField]
-    [DataField]
-    public int Fury;
-}
+[RegisterComponent]
+public sealed partial class WerewolfComponent : Component;
