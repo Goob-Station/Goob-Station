@@ -313,17 +313,10 @@
     Poison:
       metabolismRate: 0.5
       effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Asphyxiation: 0.5
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
+      - !type:OrganType
+        type: Yowie
+        shouldHave: false
       - !type:HealthChange # intentionally no yowie conditions (why was this removed)
-        conditions:
-        - !type:OrganType
         damage:
           groups:
             Brute: -1
@@ -333,6 +326,8 @@
             Cold: -0.5
             Radiation: -0.5
             Poison: -0.5
+            Asphyxiation: 0.5
+        conditions:
       - !type:Emote
         emote: Gasp
         probability: 0.1
