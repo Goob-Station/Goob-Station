@@ -31,9 +31,9 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Goobstation.Shared.Clothing.Systems;
 
@@ -68,15 +68,18 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         SubscribeLocalEvent<SealableClothingControlComponent, ClothingGotUnequippedEvent>(OnControlUnequip);
         SubscribeLocalEvent<SealableClothingControlComponent, ComponentRemove>(OnControlRemove);
         SubscribeLocalEvent<SealableClothingControlComponent, GetItemActionsEvent>(OnControlGetItemActions);
-        SubscribeLocalEvent<SealableClothingControlComponent, GetVerbsEvent<Verb>>(OnEquipmentVerb);
+        SubscribeLocalEvent<SealableClothingControlComponent, GetVerbsEvent<EquipmentVerb>>(OnEquipmentVerb);
         SubscribeLocalEvent<SealableClothingControlComponent, MapInitEvent>(OnControlMapInit);
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingDoAfterEvent>(OnSealClothingDoAfter);
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingEvent>(OnControlSealEvent);
-        //SubscribeLocalEvent<SealableClothingControlComponent, StartSealingProcessDoAfterEvent>(OnStartSealingDoAfter);
+        SubscribeLocalEvent<SealableClothingControlComponent, StartSealingProcessDoAfterEvent>(OnStartSealingDoAfter);
         SubscribeLocalEvent<SealableClothingControlComponent, ToggleClothingAttemptEvent>(OnToggleClothingAttempt);
         SubscribeLocalEvent<SealableClothingControlComponent, ToggledBackClothingFullUnequipAndInsertedEvent>(OnBackClothingUnequipped);
         SubscribeLocalEvent<SealableClothingControlComponent, BeingUnequippedAttemptEvent>(OnToggleableUnequipAttemptSealCheck);
         SubscribeLocalEvent<SealableClothingControlComponent, OnToggleableUnequipAttemptEvent>(OnToggleSanityChecker);
+        SubscribeLocalEvent<SealableClothingControlComponent, InventoryRelayedEvent<GetVerbsEvent<EquipmentVerb>>>(OnRelayedVerbRequest);
+
+
 
     }
 
@@ -97,7 +100,25 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     /// </summary>
     private void OnControlSealingComplete(Entity<SealableClothingControlComponent> control, ref ClothingControlSealCompleteEvent args)
     {
+        if (control.Comp.WearerEntity == null)
+            return;
+
         _componentTogglerSystem.ToggleComponent(control, args.IsSealed);
+
+        // I need to untoggleclothing but i cba to move this to goobmod common so im just forceunequipping the suit after unseal
+        if (!control.Comp.UnequipAfterUnseal)
+            return;
+        if (args.IsSealed)
+        {
+            control.Comp.UnequipAfterUnseal = false;
+            return;
+        }
+
+        var slot = control.Comp.RequiredControlSlot.ToString().ToLowerInvariant();
+        var wearer = control.Comp.WearerEntity;
+        _inventorySystem.TryUnequip(wearer.Value, wearer.Value, slot, force:true);
+        _inventorySystem.TryEquip(wearer.Value, wearer.Value, control, slot, force: true);
+        control.Comp.UnequipAfterUnseal = false;
     }
 
     /// <summary>
@@ -138,10 +159,15 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         args.AddAction(comp.SealActionEntity.Value);
     }
 
+
+    private void OnRelayedVerbRequest(Entity<SealableClothingControlComponent> control, ref InventoryRelayedEvent<GetVerbsEvent<EquipmentVerb>> args)
+    {
+        OnEquipmentVerb(control, ref args.Args);
+    }
     /// <summary>
     /// Adds unsealing verbs to sealing control allowing other users to unseal/seal clothing via stripping
     /// </summary>
-    private void OnEquipmentVerb(Entity<SealableClothingControlComponent> control, ref GetVerbsEvent<Verb> args)
+    private void OnEquipmentVerb(Entity<SealableClothingControlComponent> control, ref GetVerbsEvent<EquipmentVerb> args)
     {
         var (uid, comp) = control;
         var user = args.User;
@@ -153,40 +179,49 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         if (!_interactionSystem.InRangeUnobstructed(user, uid))
             return;
 
-        if (comp.WearerEntity == null ||
-            comp.WearerEntity != user && _actionBlockerSystem.CanInteract(comp.WearerEntity.Value, null))
+        if (comp.WearerEntity == null)
             return;
 
         var verbIcon = comp.IsCurrentlySealed ?
             new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/unlock.svg.192dpi.png")) :
             new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/lock.svg.192dpi.png"));
 
-        var verb = new Verb()
+        var verb = new EquipmentVerb()
         {
             Icon = verbIcon,
             Priority = 5,
             Text = Loc.GetString(comp.VerbText),
-            Act = () => TryStartSealToggleProcess(control, user)
         };
 
-        /* This should make as do after to start unsealing of suit with verb, but, for some reason i couldn't figure out, it ends with doAfter enumerator change exception
-         *  Would be nice if some can fix this, yet unsealing will be possible only on incapacitated wearers
         if (args.User == comp.WearerEntity)
         {
             verb.Act = () => TryStartSealToggleProcess(control);
         }
         else
         {
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, comp.NonWearerSealingTime, new StartSealingProcessDoAfterEvent(), uid)
-            {
-                RequireCanInteract = true,
-                BreakOnMove = true,
-                BlockDuplicate = true
-            };
-            verb.Act = () => _doAfterSystem.TryStartDoAfter(doAfterArgs);
-        }*/
+            verb.Act = () => StartSealDoAfter(user, control, comp.WearerEntity.Value);
+        }
 
         args.Verbs.Add(verb);
+    }
+    private void StartSealDoAfter(EntityUid user, Entity<SealableClothingControlComponent> control, EntityUid wearer)
+    {
+
+        var args = new DoAfterArgs(EntityManager, user, 4f, new StartSealingProcessDoAfterEvent(), control, wearer, control)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            DistanceThreshold = 2,
+        };
+
+        if (!_doAfterSystem.TryStartDoAfter(args))
+        {
+            return;
+        }
+
+        var popup = Loc.GetString("strippable-component-alert-owner-interact", ("user", Identity.Entity(user, EntityManager)), ("item", control));
+        _popupSystem.PopupEntity(popup, wearer, wearer, PopupType.Large);
+
     }
 
     /// <summary>
@@ -198,15 +233,13 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         _actionContainerSystem.EnsureAction(uid, ref comp.SealActionEntity, comp.SealAction);
     }
 
-    /* This should make as do after to start unsealing of suit with verb, but, for some reason i couldn't figure out, it ends with doAfter enumerator change exception
-     * Would be nice if some can fix this, yet unsealing will be possible only on incapacitated wearers
     private void OnStartSealingDoAfter(Entity<SealableClothingControlComponent> control, ref StartSealingProcessDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
-
-        TryStartSealToggleProcess(control);
-    }*/
+        // unless you have another way to do doafters inside doafters then yeah
+        Timer.Spawn(0, () => TryStartSealToggleProcess(control));
+    }
 
     /// <summary>
     /// Trying to start sealing on action. It'll notify wearer if process already started
@@ -274,7 +307,15 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     /// </summary>
     private void OnToggleClothingAttempt(Entity<SealableClothingControlComponent> control, ref ToggleClothingAttemptEvent args)
     {
+
         var (uid, comp) = control;
+        var wearer = control.Comp.WearerEntity;
+
+        if (wearer == null)
+        {
+            args.Cancel();
+            return;
+        }
 
         // Popup if currently sealing
         if (comp.IsInProcess)
@@ -282,24 +323,29 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             _popupSystem.PopupClient(Loc.GetString(comp.UnsealedInProcessToggleFailPopup), uid, args.User);
             _audioSystem.PlayPredicted(comp.FailSound, uid, args.User);
             args.Cancel();
-
             return;
         }
 
-        // Popup if sealed, but not in process
-        // fix: My brother in christ its unfun and unintutive to just be beeped at when trying to undo your suit
-        // Especially for others trying to undo it like medics
-        // if the suit is sealed and a full toggle happens assume we want to start unseal then full untoggle
+        var toggleStatus = _toggleableSystem.GetAttachedToggleStatus(wearer.Value, control, false);
+        if (!comp.IsCurrentlySealed && toggleStatus != ToggleableClothingAttachedStatus.AllToggled && wearer != args.User)
+        {
+            StartSealDoAfter(args.User, control, wearer.Value);
+        }
+
         if (comp.IsCurrentlySealed)
         {
-            _popupSystem.PopupClient(Loc.GetString(comp.CurrentlySealedToggleFailPopup), uid, args.User);
-            _audioSystem.PlayPredicted(comp.FailSound, uid, args.User);
+            if (wearer == args.User)
+            {
+                comp.UnequipAfterUnseal = true;
+                TryStartSealToggleProcess(control);
+                args.Cancel();
+                return;
+            }
+            comp.UnequipAfterUnseal = true;
+            StartSealDoAfter(args.User, control, wearer.Value);
             args.Cancel();
-
-            return;
         }
 
-        return;
     }
     #endregion
 
@@ -330,7 +376,6 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         // edge cases where a sealed part may be unequipped and you get stuck with a broke suit
         // Sealbreaker along with OnAttachedUnequip in Toggleableclothing should take care if a sealed part unequips
         // but we still let the user manually unseal as a fallback to an impossible situation
-        // MODSUIT TODO
         if (!comp.IsCurrentlySealed && _toggleableSystem.GetAttachedToggleStatus(user.Value, uid, false) != ToggleableClothingAttachedStatus.AllToggled)
         {
             _popupSystem.PopupClient(Loc.GetString(comp.ToggleFailedPopup), uid, user);
@@ -397,16 +442,17 @@ public abstract class SharedSealableClothingSystem : EntitySystem
                 }
             }
             comp.IsCurrentlySealed = allpartsSealed;
-            if (comp.IsCurrentlySealed && comp.WearerEntity != null) // if you gib or remove while sound plays it throws exception so yeah we DO CHECK IF NULL
-                _audioSystem.PlayEntity(comp.SealCompleteSound, comp.WearerEntity.Value, uid);
-            else if (comp.WearerEntity != null)
-                _audioSystem.PlayEntity(comp.UnsealCompleteSound, comp.WearerEntity.Value, uid);
-            else
+            // if you gib or remove while sound plays it throws exception so yeah we DO CHECK IF NULL
+            if (comp.WearerEntity == null)
                 return;
+            if (comp.IsCurrentlySealed)
+                _audioSystem.PlayEntity(comp.SealCompleteSound, comp.WearerEntity.Value, uid);
+            else
+                _audioSystem.PlayEntity(comp.UnsealCompleteSound, comp.WearerEntity.Value, uid);
+
 
             var ev = new ClothingControlSealCompleteEvent(comp.IsCurrentlySealed);
             RaiseLocalEvent(control, ref ev);
-
             _appearanceSystem.SetData(uid, SealableClothingVisuals.Sealed, comp.IsCurrentlySealed);
 
             Dirty(control);
@@ -432,14 +478,16 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             return;
         }
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, uid, sealableComponent.SealingTime, new SealClothingDoAfterEvent(), uid, target: processingPart, showTo: comp.WearerEntity)
+         var doAfterArgs = new DoAfterArgs(EntityManager, uid, sealableComponent.SealingTime, new SealClothingDoAfterEvent(), uid, target: processingPart, showTo: comp.WearerEntity)
         {
             NeedHand = false,
             RequireCanInteract = false,
         };
 
         // Checking for client here to skip first process popup spam that happens. Predicted popups don't work here because doafter starts on sealable control, not on player.
-        if (!_doAfterSystem.TryStartDoAfter(doAfterArgs) || _netManager.IsClient)
+        if (
+            !_doAfterSystem.TryStartDoAfter(doAfterArgs) ||
+            _netManager.IsClient)
             return;
 
         if (comp.WearerEntity == null) // dont just fucking assume the fucking entity will never be null what if a dev gibbs you at 3 in the fucking morning.
@@ -488,9 +536,12 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         if (!TryComp<SealableClothingControlComponent>(controlUid, out var comp))
             return;
 
+        if (!comp.IsInProcess && !comp.IsCurrentlySealed)
+            return;
+
+        comp.ProcessQueue.Clear();
         comp.IsCurrentlySealed = false;
         comp.IsInProcess = false;
-        comp.ProcessQueue.Clear();
         Dirty(controlUid, comp);
 
         _appearanceSystem.SetData(controlUid, SealableClothingVisuals.Sealed, false);
@@ -508,11 +559,10 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             Dirty(part, partSeal);
             _appearanceSystem.SetData(part, SealableClothingVisuals.Sealed, false);
         }
-        if (comp.WearerEntity != null)
-        {
-            _popupSystem.PopupEntity(Loc.GetString(comp.SealBrokenPopup), controlUid, comp.WearerEntity.Value, PopupType.LargeCaution);
-            _audioSystem.PlayPvs(comp.GenericSuitWarning, controlUid);
-        }
+        if (comp.WearerEntity == null)
+            return;
+        _popupSystem.PopupEntity(Loc.GetString(comp.SealBrokenPopup), controlUid, comp.WearerEntity.Value, PopupType.LargeCaution);
+        _audioSystem.PlayPvs(comp.GenericSuitWarning, controlUid);
     }
 
     private void OnToggleableUnequipAttemptSealCheck(Entity<SealableClothingControlComponent> toggleable, ref BeingUnequippedAttemptEvent args)

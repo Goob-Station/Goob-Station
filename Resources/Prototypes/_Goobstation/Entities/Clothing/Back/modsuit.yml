@@ -57,7 +57,7 @@
     damageCoefficient: 0.9
   - type: ToggleableClothing
     requiredSlot: back
-    blockUnequipWhenAttached: true
+    blockUnequipWhenAttached: false # easier to use and now its fixed
     replaceCurrentClothing: true
     clothingPrototypes:
       head: ClothingModsuitHelmetStandard

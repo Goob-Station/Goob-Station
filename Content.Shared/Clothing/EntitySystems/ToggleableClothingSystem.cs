@@ -194,7 +194,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
     {
         if (args.Cancelled)
             return;
-
         ToggleClothing(args.User, toggleable);
     }
 
@@ -266,14 +265,15 @@ public sealed class ToggleableClothingSystem : EntitySystem
                 if (comp.Container.Contains(partUid))
                     continue;
                 _inventorySystem.TryUnequip(args.Equipee, slot, force: true, triggerHandContact: true);
-
-                if (TryComp<AttachedClothingComponent>(partUid, out var partComp) && // unnecessary for gibbing behaviour fix
-                partComp.ClothingContainer != null &&                                // but this makes it so that if you unequip and there's items stored
-                partComp.ClothingContainer.ContainedEntity is EntityUid stored &&    // it doesn't just eat the items
+                // unnecessary for gibbing behaviour fix
+                // but this makes it so that if you unequip and there's items stored
+                // it doesn't just eat the items
+                if (TryComp<AttachedClothingComponent>(partUid, out var partComp) &&
+                partComp.ClothingContainer.ContainedEntity is EntityUid stored &&
                 !Deleted(stored))
                 {
                     _containerSystem.TryRemoveFromContainer(stored);             // pop it out
-                    _inventorySystem.TryEquip(args.Equipee, stored, slot,        // put it on
+                    _inventorySystem.TryEquip(args.Equipee, stored, slot,    // put it on
                         force: true, triggerHandContact: true);
                 }
                 _containerSystem.Insert(partUid, comp.Container); // instant insert we dont wait for OnAttachedUnequip
@@ -354,7 +354,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
     /// </summary>
     private void OnAttachedUnequip(Entity<AttachedClothingComponent> attached, ref GotUnequippedEvent args)
     {
-        Log.Info($"[AttachedUnequip] Function fired for attached UID: {attached.Owner}");
         var comp = attached.Comp;
 
         // Let containers worry about it.
@@ -512,11 +511,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
                 }
             }
         }
-        // Throw an event to run sanity check for modsuits in sealablesystem - TODO for later
-        /*
-        var ev = new OnToggleableUnequipAttemptEvent(toggleable, user, true);
-        RaiseLocalEvent(toggleable, ev);
-        */
     }
 
     private bool CanToggleClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable)
@@ -669,7 +663,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         {
             if (container.Contains(attached.Key)
                 && unequipping
-                || CheckEquipped(user, attached.Key, attached.Value) < EquipAbility.MissingSlot)
+                || CheckEquipped(Transform(toggleable).ParentUid, attached.Key, attached.Value) < EquipAbility.MissingSlot)
                 continue;
 
             toggledCount++;
@@ -797,19 +791,10 @@ public sealed class OnToggleableUnequipAttemptEvent : CancellableEntityEventArgs
 [ByRefEvent]
 public readonly record struct ToggledBackClothingFullUnequipAndInsertedEvent(
 
-    /// <summary>
-    /// EntityUid of the Toggleable Item.
-    /// </summary>
     EntityUid Toggleable,
 
-    /// <summary>
-    /// EntityUid of the Equipee if there is one.
-    /// </summary>
     EntityUid Equipee,
 
-    /// <summary>
-    /// List of parts unequipped.
-    /// </summary>
     List<(EntityUid Part, string Slot)> Parts
 );
 

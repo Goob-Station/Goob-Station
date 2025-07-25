@@ -72,6 +72,12 @@ public sealed partial class SealableClothingControlComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan NonWearerSealingTime = TimeSpan.FromSeconds(4);
 
+    /// <summary>
+    ///     if true; after ClothingControlSealCompleteEvent it will unToggle the control
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool UnequipAfterUnseal = false;
+
     #region Popups & Sounds
 
     [DataField]
