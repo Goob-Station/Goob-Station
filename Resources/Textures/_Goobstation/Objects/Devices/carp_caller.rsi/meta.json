@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "BasedUser@github, licensed CC-BY-SA-4.0 for all, except for space-wizards@github, funky-station@github, and their successor organizations - rights reserved",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+	},
+	{
+	  "name": "lights_top"
+	},
+	{
+	  "name": "lights_bottom"
+	},
+	{
+	  "name": "thumper_unpowered"
+	},
+	{
+	  "name": "thumper",
+      "delays": [
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}
