@@ -15,10 +15,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: t-ray scanner
+  name: "терагерцовий сканер"
   parent: BaseItem
   id: trayScanner
-  description: A high-tech scanning device that uses Terahertz Radiation to detect subfloor infrastructure.
+  description: "Високотехнологічний скануючий пристрій, який використовує терагерцове випромінювання для виявлення підлогової інфраструктури."
   components:
   - type: Sprite
     sprite: Objects/Tools/t-ray.rsi

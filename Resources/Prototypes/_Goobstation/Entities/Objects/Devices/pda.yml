@@ -21,8 +21,8 @@
 - type: entity
   parent: AdminPDA
   id: ChronoPDA
-  name: futuristic PDA
-  description: A powerful quantum computer disguised as a regular pda for disguise.
+  name: "футуристичний КПК"
+  description: "Потужний квантовий комп'ютер, замаскований під звичайний КПК для маскування."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
@@ -48,8 +48,8 @@
 - type: entity
   parent: AdminPDA
   id: GmanPDA
-  name: strange PDA
-  description: Your mind can't quite comprehend this.
+  name: "дивний КПК"
+  description: "Ваш розум не може цього осягнути."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi # todo - make a unique texture.
@@ -75,8 +75,8 @@
 - type: entity
   parent: SalvagePDA
   id: HelldiverPDA
-  name: salvage diver PDA
-  description: Smells like corpses of insects and androids.
+  name: "кПК сальваж-дайвера"
+  description: "Пахне трупами комах та андроїдів."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
@@ -100,8 +100,8 @@
 - type: entity
   parent: CentcomPDA
   id: HecuPDA
-  name: HECU PDA
-  description: Smells of gunpowder.
+  name: "КПК HECU"
+  description: "Пахне порохом."
   components:
   - type: Appearance
     appearanceDataInit:
@@ -121,8 +121,8 @@
 - type: entity
   parent: BaseMedicalPDA
   id: BlueshieldPDA
-  name: blueshield officer PDA
-  description: The silver shield of the Blueshield is engraved on the front.
+  name: "кПК офіцера синього щита"
+  description: "Срібний щит Синього Щита вигравіруваний на передній панелі."
   components:
   - type: Appearance
     appearanceDataInit:
@@ -143,8 +143,8 @@
 - type: entity
   parent: CentcomPDA
   id: DeathsquadPDA
-  name: deathsquad PDA
-  description: Rip and tear until it is done.
+  name: "кПК загону смерті"
+  description: "Рви та шматуй, доки не буде зроблено."
   components:
   - type: Appearance
     appearanceDataInit:
@@ -168,8 +168,8 @@
 - type: entity
   parent: CentcomPDA
   id: NanotrasenRepresentativePDA
-  name: nanotrasen representative's PDA
-  description: The devil's in the details.
+  name: "кПК представника Nanotrasen"
+  description: "Диявол криється в деталях."
   components:
   - type: Pda
     id: NanotrasenRepresentativeIDCard
@@ -177,8 +177,8 @@
 - type: entity
   parent: CentcomPDA
   id: TrainerPDA
-  name: nct's PDA
-  description: A standard-issue nanotrasen career trainer PDA.
+  name: "кПК тренера НТ"
+  description: "Стандартний КПК кар'єрного тренера Nanotrasen."
   components:
   - type: Pda
     id: NanotrasenCareerTrainerIDCard
@@ -186,8 +186,8 @@
 - type: entity
   parent: CentcomPDA
   id: NavyCaptainPDA
-  name: navy captain's PDA
-  description: The devil's in the details.
+  name: "кПК капітана флоту"
+  description: "Диявол криється в деталях."
   components:
   - type: Pda
     id: CentcomIDCardNavyCaptain
@@ -211,7 +211,7 @@
 - type: entity
   parent: NavyCaptainPDA
   id: NavyOfficerPDA
-  name: navy officer's PDA
+  name: "кПК офіцера флоту"
   components:
   - type: Pda
     id: CentcomIDCardNavyOfficer
@@ -219,7 +219,7 @@
 - type: entity
   parent: NavyCaptainPDA
   id: SpecialOperationsOfficerPDA
-  name: special operations officer's PDA
+  name: "кПК офіцера спецоперацій"
   components:
   - type: Pda
     id: CentcomIDCardSpecialOperationsOfficer
@@ -227,7 +227,7 @@
 - type: entity
   parent: NavyCaptainPDA
   id: DiplomatPDA
-  name: diplomat's PDA
+  name: "кПК дипломата"
   components:
   - type: Pda
     id: CentcomIDCardDiplomat
@@ -235,7 +235,7 @@
 - type: entity
   parent: NavyCaptainPDA
   id: InspectorPDA
-  name: auditor's PDA
+  name: "кПК аудитора"
   components:
   - type: Pda
     id: CentcomIDCardInspector
@@ -243,8 +243,8 @@
 - type: entity
   parent: SyndiPDA
   id: SyndiPDANukie
-  name: syndicate PDA
-  description: Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
+  name: "кПК синдикату"
+  description: "Гаразд, час стати продуктивним членом... о, круто, я поганець, час вбивати людей!"
   components:
   - type: Pda
     id: NukieAgentIDCard
@@ -252,8 +252,8 @@
 - type: entity
   parent: NavyCaptainPDA
   id: HighCommandPDA
-  name: high commander PDA
-  description: An ordinary syndicate PDA, adorned with gilded symbols. It's owner is clearly of a higher standing.
+  name: "кПК верховного командування"
+  description: "Звичайний КПК синдикату, прикрашений позолоченими символами. Його власник явно має вищий статус."
   components:
   - type: Appearance
     appearanceDataInit:

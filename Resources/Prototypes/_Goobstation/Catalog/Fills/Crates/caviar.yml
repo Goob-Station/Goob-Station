@@ -6,8 +6,8 @@
 - type: entity
   id: CrateFunBlackCaviar
   parent: CrateGenericSteel
-  name: Black caviar crate
-  description: Contains 5 tins of black caviar.
+  name: "Ящик з чорною ікрою"
+  description: "Містить 5 банок чорної ікри."
   components:
   - type: StorageFill
     contents:
@@ -17,8 +17,8 @@
 - type: entity
   id: CrateFunRedCaviar
   parent: CrateGenericSteel
-  name: Red caviar crate
-  description: Contains 5 tins of red caviar.
+  name: "Ящик з червоною ікрою"
+  description: "Містить 5 банок червоної ікри."
   components:
   - type: StorageFill
     contents:

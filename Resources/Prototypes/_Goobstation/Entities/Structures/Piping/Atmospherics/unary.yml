@@ -6,8 +6,8 @@
 - type: entity
   parent: HeatExchanger
   id: HeatExchangerInline
-  name: inline radiator
-  description: Transfers heat between the pipe and its surroundings. Doesn't need gas flow.
+  name: "вбудований радіатор"
+  description: "Передає тепло між трубою та навколишнім середовищем. Не потребує потоку газу."
   components:
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi

@@ -28,8 +28,8 @@
 - type: entity
   id: CrateSecurityArmor
   parent: CrateSecgear
-  name: armor crate
-  description: Contains three bulletproof vests. Requires Security access to open.
+  name: "ящик з бронею"
+  description: "Містить три куленепробивні жилети. Потребує доступу служби безпеки для відкриття."
   components:
   - type: StorageFill
     contents:
@@ -39,8 +39,8 @@
 - type: entity
   id: CrateSecurityHelmet
   parent: CrateSecgear
-  name: helmet crate
-  description: Contains three standard-issue brain buckets. Requires Security access to open.
+  name: "ящик з шоломами"
+  description: "Містить три стандартних відер для захисту мозку. Для відкриття потрібен доступ служби безпеки."
   components:
   - type: StorageFill
     contents:
@@ -50,8 +50,8 @@
 - type: entity
   id: CrateSecurityNonlethal
   parent: CrateSecgear
-  name: nonlethals crate
-  description: Contains a mix of disablers, stun batons, and flashes. Requires Security access to open.
+  name: "ящик з нелетальною зброєю"
+  description: "Містить суміш дизейблерів, електрошокових кийків та світлошумових гранат. Потребує доступу служби безпеки для відкриття."
   components:
   - type: StorageFill
     contents:
@@ -68,8 +68,8 @@
 - type: entity
   id: CrateSecuritySupplies
   parent: CrateSecgear
-  name: security supplies crate
-  description: Contains various supplies for the station's Security team. Requires Security access to open.
+  name: "ящик з припасами безпеки"
+  description: "Містить різні припаси для служби безпеки станції. Для відкриття потрібен доступ служби безпеки."
   components:
   - type: StorageFill
     contents:
@@ -82,8 +82,8 @@
 - type: entity
   id: CrateRestraints
   parent: CrateSecgear
-  name: restraints crate
-  description: Contains two boxes each of handcuffs and zipties. Requires Security access to open.
+  name: "ящик з наручниками та стяжками"
+  description: "Містить по дві коробки з наручниками та стяжками. Для відкриття потрібен доступ служби безпеки."
   components:
   - type: StorageFill
     contents:
@@ -95,8 +95,8 @@
 - type: entity
   id: CrateSecurityBiosuit
   parent: CrateSecgear
-  name: security bio suit crate
-  description: Contains 2 biohazard suits to ensure that no disease will distract you from your duties. Requires Security access to open.
+  name: "ящик з біокостюмами"
+  description: "Містить 2 костюми біозахисту, щоб жодна хвороба не відволікала вас від виконання ваших обов'язків. Для відкриття потрібен доступ служби безпеки."
   components:
   - type: StorageFill
     contents:
@@ -109,8 +109,8 @@
 
 - type: entity
   id: CrateSecurityTrackingMindshieldImplants
-  name: implanter crate
-  description: Contains 4 MindShield implants and 4 tracking implant. Requires Security access to open.
+  name: "ящик з імплантерами"
+  description: "Містить 4 імплантати MindShield та 4 імплантати для відстеження. Для відкриття потрібен доступ служби безпеки."
   parent: CrateSecgear
   components:
   - type: StorageFill
@@ -123,8 +123,8 @@
 - type: entity
   parent: CrateSecgear
   id: CrateSecNonlethalThrowables
-  name: nonlethal throwables crate
-  description: Contains one box each of flashbangs, stingers, tear gas grenades, and four bolas. Requires Security access to open.
+  name: "ящик з нелетальною метальною зброєю"
+  description: "Містить по одній коробці світлошумових, жалячих, сльозогінних гранат та чотири боласи. Для відкриття потрібен доступ служби безпеки."
   components:
   - type: StorageFill
     contents:

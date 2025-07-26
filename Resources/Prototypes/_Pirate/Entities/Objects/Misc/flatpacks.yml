@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseFlatpack
   id: PrinterDocFlatpack
-  name: document printer flatpack
-  description: A flatpack used for constructing a document printer.
+  name: "флетпак принтера документів"
+  description: "Флетпак, який використовується для побудови принтера документів."
   components:
   - type: Flatpack
     entity: PrinterDoc

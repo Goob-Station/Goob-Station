@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: syndicate footsoldier spawner
+  name: "спавнер солдату синдикату"
   id: SpawnMobSyndicateFootSoldier
   parent: MarkerBase
   components:
@@ -31,7 +31,7 @@
     - MobSyndicateFootsoldier
 
 - type: entity
-  name: syndicate shuttle pilot spawner
+  name: "спавнер пілота шатлу синдикату"
   id: SpawnMobSyndicateFootsoldierPilot
   parent: SpawnMobSyndicateFootSoldier
   components:

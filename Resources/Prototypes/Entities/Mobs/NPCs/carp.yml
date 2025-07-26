@@ -115,10 +115,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: space carp
+  name: "космічний короп"
   id: BaseMobCarp
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
-  description: It's a space carp.
+  description: "Це космічний короп."
   abstract: true
   components:
     - type: InputMover
@@ -228,10 +228,10 @@
         mouth: ""
 
 - type: entity
-  name: magicarp
+  name: "magicarp"
   parent: BaseMobCarp
   id: MobCarpMagic
-  description: Looks like some kind of fish. Might be magical.
+  description: "Схоже на якусь рибу. Може, чарівна."
   components:
     - type: Sprite
       sprite: Mobs/Aliens/Carps/magic.rsi
@@ -239,10 +239,10 @@
       proto: guardian
 
 - type: entity
-  name: holocarp
+  name: "голокарп"
   parent: BaseMobCarp
   id: MobCarpHolo
-  description: Carp made out of holographic energies. Sadly for you, it is very much real.
+  description: "Короп з голографічних енергій. На жаль для вас, це цілком реально."
   components:
     - type: Sprite
       sprite: Mobs/Aliens/Carps/holo.rsi
@@ -264,8 +264,8 @@
 - type: entity
   parent: MobCarp
   id: MobCarpRainbow
-  name: rainbow carp
-  description: Wow such a shiny fishie!
+  name: "райдужний короп"
+  description: "Ого, яка блискуча рибка!"
   components:
   - type: PointLight
     radius: 1.5
@@ -281,7 +281,7 @@
     - type: SalvageMobRestrictions
 
 - type: entity
-  name: space carp
+  name: "космічний короп"
   id: MobCarpDragon
   suffix: DragonBrood
   parent: MobCarp
@@ -329,10 +329,10 @@
         Slash: 6
 
 - type: entity
-  name: sharkminnow
+  name: "sharkminnow"
   parent: BaseMobCarp
   id: MobShark
-  description: A dangerous shark from the blackness of endless space, who loves to drink blood.
+  description: "Небезпечна акула з чорноти нескінченного космосу, яка любить пити кров."
   components:
     - type: Sprite
       sprite: Mobs/Aliens/Carps/sharkminnow.rsi

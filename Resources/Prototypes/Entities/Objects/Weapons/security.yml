@@ -136,10 +136,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: stun baton
+  name: "електрична дубинка"
   parent: [BaseItem, BaseSecurityContraband]
   id: Stunbaton
-  description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  description: "Електродубинка для виведення з ладу людей. Активно завдавати нею шкоди вважається поганим тоном."
   components:
   - type: Tag # goob edit
     tags:
@@ -243,10 +243,10 @@
     form: CorporateJudo # Goobstation - Martial Arts
 
 - type: entity
-  name: truncheon
+  name: "кийок"
   parent: [BaseItem, BaseSecurityContraband]
   id: Truncheon
-  description: A rigid, steel-studded baton, meant to harm.
+  description: "Жорсткий кийок зі сталевим наконечником, призначений для завдання шкоди."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/truncheon.rsi
@@ -281,11 +281,11 @@
     - Antagonists
 
 - type: entity
-  name: flash
+  name: "осліплювач"
   parent: [BaseItem, BaseSecurityScienceCommandContraband]
   id: Flash
   suffix: DO NOT MAP
-  description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out.
+  description: "Надзвичайно яскрава лампочка-спалах з кнопкою, яка викликає у жертви оглушення і втрату зору на мить. Після перегорання марна."
   components:
     # Goobstation edit start
     - type: EmitSoundOnPickup
@@ -338,7 +338,7 @@
       - Antagonists
 
 - type: entity
-  name: flash
+  name: "осліплювач"
   parent: Flash
   suffix: 2 charges
   id: SciFlash
@@ -347,10 +347,10 @@
       maxCharges: 2
 
 - type: entity
-  name: portable flasher
+  name: "портативний осліплювач"
   parent: [BaseMachine, BaseSecurityContraband]
   id: PortableFlasher
-  description: An ultrabright flashbulb with a proximity trigger, useful for making an area security-only.
+  description: "Надзвичайно яскрава лампочка-спалах із безконтактним тригером, корисна для забезпечення безпеки в зоні."
   components:
     - type: EmitSoundOnTrigger
       sound:

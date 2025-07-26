@@ -113,11 +113,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: basic
+  name: "основний"
   id: MobSpaceBasic
   parent: SimpleSpaceMobBase
   abstract: true
-  description: It looks friendly. Why don't you give it a hug?
+  description: "Виглядає дружелюбно. Чому б тобі не обійняти його?"
   components:
   - type: HTN
     rootTask:
@@ -183,10 +183,10 @@
     speechVerb: LargeMob
 
 - type: entity
-  name: space bear
+  name: "космічний ведмідь"
   id: MobBearSpace
   parent: MobSpaceBasic
-  description: It looks friendly. Why don't you give it a hug?
+  description: "Виглядає дружелюбно. Чому б тобі не обійняти його?"
   components:
   - type: Body # Shitmed Change
     prototype: SpaceBear
@@ -241,10 +241,10 @@
   - type: SalvageMobRestrictions
 
 - type: entity
-  name: space kangaroo
+  name: "космічний кенгуру"
   id: MobKangarooSpace
   parent: [MobSpaceBasic, StripableInventoryBase]
-  description: It looks friendly. Why don't you give it a hug?
+  description: "Виглядає дружелюбно. Чому б тобі не обійняти його?"
   components:
   - type: Body # Shitmed Change
     prototype: SpaceKangaroo
@@ -315,10 +315,10 @@
   - type: SalvageMobRestrictions
 
 - type: entity
-  name: space spider
+  name: "космічний павук"
   id: MobSpiderSpace
   parent: MobSpaceBasic
-  description: It's so glowing, it looks dangerous.
+  description: "Він так світиться, що виглядає небезпечно."
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Body # Shitmed Change
@@ -427,10 +427,10 @@
   - type: SalvageMobRestrictions
 
 - type: entity
-  name: space cobra
+  name: "космічна кобра"
   id: MobCobraSpace
   parent: MobSpaceBasic
-  description: Long fangs and a glowing hood, and the alluring look begs to come closer.
+  description: "Довгі ікла та сяючий капюшон, а звабливий погляд так і просить підійти ближче."
   components:
   - type: Body # Shitmed Change
     prototype: SpaceCobra
@@ -531,8 +531,8 @@
 - type: entity
   parent: SimpleSpaceMobBase
   id: MobSnail
-  name: snail
-  description: Revolting unless you're french.
+  name: "равлик"
+  description: "Огидно, якщо ти не француз."
   components:
   - type: Body
     prototype: Mouse
@@ -724,7 +724,7 @@
 - type: entity
   parent: MobSnail
   id: MobSnailMoth
-  name: Snoth
+  name: "Слимак"
   components:
   - type: Body
     prototype: Mothroach

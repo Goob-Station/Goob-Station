@@ -18,7 +18,7 @@
 
 - type: entity
   id: BaseSign
-  name: base sign
+  name: "основний знак"
   abstract: true
   placement:
     mode: SnapgridCenter
