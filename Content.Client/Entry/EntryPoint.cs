@@ -244,6 +244,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("wireLayout");
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
+            _prototypeManager.RegisterIgnore("stationGoal"); // Pirate - Port Station Goals
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
             _prototypeManager.RegisterIgnore("story"); // Goobstation
             _prototypeManager.RegisterIgnore("storyBeat"); // Goobstation
