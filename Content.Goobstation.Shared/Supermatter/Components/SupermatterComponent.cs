@@ -5,11 +5,13 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -17,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using Content.Goobstation.Shared.Supermatter.Systems;
+using Content.Goobstation.Shared.Supermatter.Monitor;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
 using Content.Shared.Whitelist;
@@ -74,6 +77,18 @@ public sealed partial class SupermatterComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float Power;
+
+    /// <summary>
+    /// EE Console Compatibility
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float Temperature;
+
+    /// <summary>
+    /// EE Console Compatibility
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float WasteMultiplier;
 
     /// <summary>
     /// The amount of damage we have currently
@@ -379,6 +394,10 @@ public sealed partial class SupermatterComponent : Component
         {Gas.Plasma, 0f},
         {Gas.Tritium, 0f},
         {Gas.WaterVapor, 0f},
+        {Gas.Frezon, 0f }, // EE Compatibility
+        {Gas.Ammonia, 0f }, // EE Compatibility
+        {Gas.NitrousOxide, 0f }, // EE Compatibility
+        {Gas.Nitrium, 0f }, // EE Compatibility
         {Gas.BZ, 0f}, // Assmos - /tg/ gases
         {Gas.Healium, 0f}, // Assmos - /tg/ gases
         {Gas.Pluoxium, 0f} // Assmos - /tg/ gases
@@ -398,12 +417,19 @@ public sealed partial class SupermatterComponent : Component
         [Gas.Frezon] = (TransmitModifier: 3f, HeatPenalty: -10f, PowerMixRatio: -1f),
         [Gas.Ammonia] = (TransmitModifier: 0f, HeatPenalty: .5f, PowerMixRatio: 1f),
         [Gas.NitrousOxide] = (TransmitModifier: 0f, HeatPenalty: -5f, PowerMixRatio: -1f),
+        [Gas.Nitrium] = (TransmitModifier: 0f, HeatPenalty: -5f, PowerMixRatio: -1f), // EE Gas compatibility (Need to Change)
         [Gas.BZ] = (TransmitModifier: 0f, HeatPenalty: 5f, PowerMixRatio: 1f), // Assmos - /tg/ gases
         [Gas.Healium] = (TransmitModifier: 2.4f, HeatPenalty: 4f, PowerMixRatio: 1f), // Assmos - /tg/ gases
         [Gas.Pluoxium] = (TransmitModifier: 0f, HeatPenalty: -2.5f, PowerMixRatio: -1f), // Assmos - /tg/ gases
     };
 
     #endregion SM Gas
+
+    #region EE
+
+    [DataField]
+    public SupermatterStatusType Status = SupermatterStatusType.Inactive;
+    #endregion EE
 }
 
 [Serializable, NetSerializable]
