@@ -102,6 +102,13 @@
       role: JobPassenger
       time: 72000 #20 hrs, fun mantle for the most experienced greytiders
 
+# Head # goob loadout rework addition
+
+- type: loadout
+  id: HeadbandBlack
+  equipment:
+    head: ClothingHeadBandBlack
+
 # Face
 - type: loadout
   id: PassengerFace
@@ -150,6 +157,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitAncient
 
+
 # Neck
 - type: loadout
   id: Mantle
@@ -180,6 +188,11 @@
   equipment:
     back: ClothingBackpackDuffel
 
+- type: loadout
+  id: LeatherSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
 # Gloves
 - type: loadout
   id: PassengerGloves
@@ -194,6 +207,16 @@
   id: PassengerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCoat
+
+- type: loadout
+  id: SuitWitchRobes
+  equipment:
+    outerClothing: ClothingOuterSuitWitchRobes
+
+- type: loadout
+  id: Bomber
+  equipment:
+    outerClothing: ClothingOuterCoatBomber
 
 # Shoes
 - type: loadout
@@ -290,3 +313,5 @@
   id: ServiceMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryService
+
+
