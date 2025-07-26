@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: damageModifierSet
+  id: Werewolf
+  coefficients:
+    Brute: 0.7
+    Slash: 0.7
+    Cold: 0.5
+    Bloodloss: 0.5
+    Holy: 1.8
