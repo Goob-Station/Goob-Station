@@ -33,6 +33,7 @@
     HydroponicsToolScythe: 4
     HydroponicsToolHatchet: 4
     Dropper: 4
+    PlantAnalyzer: 4 # Pirate
     PlantBag: 3
     PlantBGoneSpray: 20
     WeedSpray: 20
