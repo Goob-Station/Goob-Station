@@ -1,0 +1,32 @@
+- type: entity
+  parent: Paper
+  id: SheetPrinter
+  suffix: Full
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      SheetPrinter: 100
+  - type: Stack
+    stackType: SheetPrinter
+    baseLayer: base
+    layerStates:
+    - paper
+    - paper
+    - paper
+  - type: Sprite
+    state: paper
+    layers:
+    - state: paper
+      map: ["base"]
+  - type: Tag
+    tags:
+    - Document
+
+- type: entity
+  parent: SheetPrinter
+  id: SheetPrinter1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

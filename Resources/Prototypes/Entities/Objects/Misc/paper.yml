@@ -220,6 +220,12 @@
   - type: Construction
     graph: SpesosCounterfeit
     node: start
+  # Pirate Port Document Printer VVV
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      SheetPrinter: 100
+  # Pirate Port Document Printer ^^^
 
 - type: entity
   name: paper scrap
