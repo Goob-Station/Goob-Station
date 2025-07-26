@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 AffrayedHawk <144155004+AffrayedHawk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: CrayonRainbow
+  id: CrayonMagic
+  name: magic crayon
+  description: Specially blended with bluespace crystals and certified non-toxic.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Fun/magic_crayon.rsi
+    state: icon
+  - type: Item
+    sprite: _NF/Objects/Fun/magic_crayon.rsi
+    heldPrefix: icon
+  - type: Tag # Removing trash & recyclable
+    tags:
+    - Write
+    - Crayon
+  - type: Crayon
+    infiniteCharges: true
+  - type: FlavorProfile
+    flavors:
+    - chewy
+    - magical
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nothing
+          Quantity: 100
+  - type: Construction
+    graph: magic_crayon
+    node: magicCrayon
