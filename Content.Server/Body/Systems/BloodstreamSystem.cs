@@ -276,7 +276,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 continue;
 
             // Adds blood to their blood level if it is below the maximum; Blood regeneration. Must be alive.
-            if (bloodSolution.Volume < bloodSolution.MaxVolume && !_mobStateSystem.IsDead(uid))
+            if (!_mobStateSystem.IsDead(uid))
             {
                 TryDoNaturalRegeneration((uid, bloodstream), bloodSolution); // PIRATE
             }

@@ -28,7 +28,7 @@
 
 - type: alternativeJob
   id: AlternativeJobWaiter
-  jobName: Поштарjob-alternative-name-waiter
+  jobName: job-alternative-name-waiter
   jobDescription: job-description-service-worker
   parentJobId: ServiceWorker
 

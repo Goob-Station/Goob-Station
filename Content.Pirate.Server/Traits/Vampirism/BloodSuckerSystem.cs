@@ -53,6 +53,7 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
             SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
             SubscribeLocalEvent<BloodSuckedComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<BloodSuckerComponent, BloodSuckDoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<BloodSuckerComponent, MoveEvent>(OnBloodSuckerMoved);
         }
 
         private void AddSuccVerb(EntityUid uid, BloodSuckerComponent component, GetVerbsEvent<InnateVerb> args)
@@ -219,6 +220,22 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
             //    _solutionSystem.TryAddReagent(victim, injectable, bloodsuckerComp.InjectReagent, bloodsuckerComp.UnitsToInject, out var acceptedQuantity);
             //}
             return true;
+        }
+        private void OnBloodSuckerMoved(EntityUid uid, BloodSuckerComponent component, ref MoveEvent args)
+        {
+            // Cancel any ongoing blood sucking doafter when vampire moves
+            if (TryComp<DoAfterComponent>(uid, out var doAfterComp))
+            {
+                var toCancel = new List<ushort>();
+                foreach (var (id, doAfter) in doAfterComp.DoAfters)
+                {
+                    if (doAfter.Args.Event is BloodSuckDoAfterEvent)
+                        toCancel.Add(id);
+                }
+
+                foreach (var id in toCancel)
+                    _doAfter.Cancel(uid, id);
+            }
         }
     }
 }
