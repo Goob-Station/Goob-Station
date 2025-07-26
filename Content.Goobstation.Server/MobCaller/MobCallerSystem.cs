@@ -125,33 +125,22 @@ public sealed partial class MobCallerSystem : EntitySystem
 
             bool CheckDir(Angle dir)
             {
-                // raycast forward up to GridOcclusionDistance with a step size of GridOcclusionFidelity
                 var stepVec = dir.ToVec();
+
+                // raycast to ensure there's continuously space from OcclusionDistance to GridOcclusionDistance
                 var gridStepVec = stepVec * ent.Comp1.GridOcclusionFidelity;
-                var steps = (int)MathF.Ceiling(ent.Comp1.GridOcclusionDistance / ent.Comp1.GridOcclusionFidelity);
-                // in up to how many steps we have to find space
-                var spaceSteps = (int)MathF.Ceiling(ent.Comp1.OcclusionDistance / ent.Comp1.GridOcclusionFidelity);
-                var checkPos = ent.Comp2.WorldPosition;
-                var seenSpace = false;
+                var steps = (int)MathF.Ceiling((ent.Comp1.GridOcclusionDistance - ent.Comp1.OcclusionDistance) / ent.Comp1.GridOcclusionFidelity);
+                var checkPos = ent.Comp2.WorldPosition + stepVec * ent.Comp1.OcclusionDistance;
                 for (var j = 0; j < steps; j++)
                 {
+                    // space isn't continuous, discard direction
+                    if (_map.TryFindGridAt(new MapCoordinates(checkPos, ent.Comp2.MapID), out _, out _))
+                        return false;
+
                     checkPos += gridStepVec;
-
-                    var isFar = j >= spaceSteps;
-                    var hasGrid = _map.TryFindGridAt(new MapCoordinates(checkPos, ent.Comp2.MapID), out var gridUid, out _);
-                    seenSpace |= !hasGrid;
-
-                    // if there's another grid there or we seem to have found a large spaced gap in the parent grid, discard this direction
-                    if (hasGrid && (isFar || gridUid != ent.Comp2.ParentUid))
-                        return false;
-
-                    // ensure we see space at least once at most OcclusionDistance away
-                    if (isFar && !seenSpace)
-                        return false;
                 }
 
-                // we've found that there's continuous space in that direction beginning up to OcclusionDistance away
-                // now also check that there's no obstructions in that direction
+                // now also check that there's no obstructions in that direction before the continuous space
                 var ray = new CollisionRay(ent.Comp2.WorldPosition, stepVec, (int)ent.Comp1.OcclusionMask);
                 var rayCastResults = _physics.IntersectRay(ent.Comp2.MapID, ray, ent.Comp1.OcclusionDistance, ent);
 
