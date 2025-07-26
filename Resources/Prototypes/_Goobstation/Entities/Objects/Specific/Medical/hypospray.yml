@@ -509,3 +509,36 @@
     onlyAffectsMobs: false
   - type: UseDelay
     delay: 0.2
+
+# Blueshield officer's refilling hyposprays of dubious chemicals
+
+- type: entity
+  parent: [BaseItem, BaseCentcommContraband]
+  id: BlueshieldHypoProcenyl
+  name: combat brute hypospray
+  description: A self-refilling injector for rapid administration of procenyl lazide.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    state: hypo
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 5
+        reagents:
+        - ReagentId: ProcenylLazide
+          Quantity: 5
+  - type: SolutionRegeneration
+    solution: hypospray
+    generated:
+      reagents:
+      - ReagentId: ProcenylLazide
+        Quantity: 0.2
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 0.2
