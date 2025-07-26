@@ -164,6 +164,7 @@
     - category: Thirst
     - alertType: Magboots
     - alertType: Pacified
+    - alertType: Offer # Pirate - port EE item offesrs
     - alertType: ShadowCloak # Goobstation
     - alertType: DragonPower # Goobstation
     - category: Ninjutsu # Goobstation
