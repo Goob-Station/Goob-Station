@@ -1056,6 +1056,12 @@
     name: ghost-role-information-punpun-name
     description: ghost-role-information-punpun-description
     rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:RoleTimeRequirement
+      role: JobBartender
+      time: 180000 #50 hour
     mindRoles:
     - MindRoleGhostRoleNeutral
   - type: GhostTakeoverAvailable
