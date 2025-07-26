@@ -19,7 +19,7 @@ thief-role-greeting-animal =
 
 thief-role-greeting-equipment =
     You have a satchel of thieves'
-    tools and chameleon thieves' gloves.
+    tools and your light fingers.
     Choose your starting equipment,
     and do your work stealthily.
 
