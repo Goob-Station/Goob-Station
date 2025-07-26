@@ -1,0 +1,148 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ClothingLegsBase
+  name: ClothingLegsBase
+  description: Reduces damage and wounds to legs, slightly reduces movespeed.
+  components:
+  - type: Sprite
+    state: icon
+    sprite: _Goobstation/Clothing/Arms/arm_guards.rsi
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Arms/arm_guards.rsi
+    slots: [legs]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 25
+      Steel: 25
+  - type: StaticPrice
+    price: 20
+  - type: Armor
+    coverage:
+    - Leg
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+  - type: ClothingSpeedModifier
+    walkModifier: 0.97
+    sprintModifier: 0.97
+
+- type: entity
+  parent: [ClothingLegsBase,BaseSecurityContraband]
+  id: ClothingLegGuard
+  name: Leg Guards
+  components:
+  - type: Armor
+    coverage:
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/leg_guards.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/leg_guards.rsi
+
+- type: entity
+  parent: [ClothingLegsBase, BaseSecurityContraband]
+  id: ClothingLegsRiot
+  name: riot suit legs
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/riot.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/riot.rsi
+  - type: Armor
+    coverage:
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingLegsBase, BaseSecurityContraband]
+  id: ClothingLegsBulletproof
+  name: bulletproof suit legs
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/bulletproof.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/bulletproof.rsi
+  - type: Armor
+    coverage:
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.35
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingLegsBase, BaseSyndicateContraband]
+  id: ClothingLegsSyndicate
+  name: syndicate leg guards
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/syndicate.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/syndicate.rsi
+  - type: Armor
+    coverage:
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: ClothingLegsBase
+  id: ClothingLegsTemplar
+  name: templar leg guards
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Legs/templar.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Legs/templar.rsi
+  - type: Armor
+    coverage:
+    - Leg
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.1
+        Piercing: 0.65
+        Heat: 1.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
