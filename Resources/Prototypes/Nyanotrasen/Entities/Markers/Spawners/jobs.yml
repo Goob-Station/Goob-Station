@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2023 Fluffiest Floofers <thebluewulf@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: SpawnPointPrisoner
+  parent: SpawnPointJobBase
+  name: prisoner
+  components:
+  - type: SpawnPoint
+    job_id: Prisoner
+  - type: Sprite
+    sprite: DeltaV/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: nyanoprisoner
+
+- type: entity
+  id: SpawnPointPrisonGuard
+  parent: SpawnPointJobBase
+  name: prison guard
+  components:
+  - type: SpawnPoint
+    job_id: PrisonGuard
+  - type: Sprite
+    sprite: DeltaV/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: nyanoprisonguard
+
+- type: entity
+  id: SpawnPointMartialArtist
+  parent: SpawnPointJobBase
+  name: martial artist
+  components:
+  - type: SpawnPoint
+    job_id: MartialArtist
+  - type: Sprite
+    sprite: DeltaV/Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: nyanomartialartist

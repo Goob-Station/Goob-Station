@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "nyanoPrisonGuard, nyanoMartialArtist, nyanoGladiator made by Floofers",
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "nyanoPrisonGuard"
+        },
+        {
+            "name": "nyanoGladiator"
+        },
+        {
+            "name": "nyanoMartialArtist"
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: 2023 Fluffiest Floofers <thebluewulf@gmail.com>
+# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: job
+  id: PrisonGuard
+  name: job-name-guard
+  description: job-description-guard
+  playTimeTracker: JobPrisonGuard
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 9000 #2.5 hrs
+  startingGear: PrisonGuardGear
+#  alwaysUseSpawner: true
+  canBeAntag: false
+  icon: "JobIconPrisonGuard"
+  supervisors: job-supervisors-warden
+  setPreference: true
+#  whitelistRequired: true
+  access:
+  - Security
+  - Brig
+  - Maintenance
+
+- type: playTimeTracker
+  id: JobPrisonGuard
+
+- type: startingGear
+  id: PrisonGuardGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisonGuard
+    back: ClothingBackpackSecurityFilled
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesSecurity
+    head: ClothingHeadPrisonGuard
+    id: PrisonGuardPDA
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltSecurityFilled
+  innerclothingskirt: ClothingUniformJumpsuitPrisonGuard
+  satchel: ClothingBackpackSatchelSecurityFilled
+  duffelbag: ClothingBackpackDuffelSecurityFilled

@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/d917f4c2a088419d5c3aec7656b7ff8cebd1822e | nyanoprisonguard, nyanogladiator, nyanomartialartist made by Floofers",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "centcom"
+    },
+    {
+      "name": "default"
+    },
+    {
+      "name": "gold"
+    },
+    {
+      "name": "orange"
+    },
+    {
+      "name": "silver"
+    },
+    {
+      "name": "nyanoprisoner"
+    },
+    {
+      "name": "nyanogladiator"
+    },
+    {
+      "name": "nyanoprisonguard"
+    },
+    {
+      "name": "nyanomartialartist"
+    },
+    {
+      "name": "gold-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "gold-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "default-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "default-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "silver-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "silver-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "orange-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "orange-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-right",
+      "directions": 4
+    }
+  ]
+}
