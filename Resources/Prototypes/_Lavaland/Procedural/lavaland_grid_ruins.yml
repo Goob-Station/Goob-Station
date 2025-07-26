@@ -10,7 +10,7 @@
   path: /Maps/_Lavaland/Lavaland/ruin_hierophant_arena.yml
   priority: -1 # highest priority
   componentsToGrant:
-    - type: HierophantBeat
+  - type: HierophantBeat
 
 - type: lavalandGridRuin
   id: SyndicateBase
@@ -35,42 +35,49 @@
   name: lavaland-ruin-big-shuttle
   path: /Maps/_Lavaland/Lavaland/ruin_golem_shuttle.yml
   priority: 3
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: ToyShop
   name: lavaland-ruin-wooden
   path: /Maps/_Lavaland/Lavaland/ruin_toyshop.yml
   priority: 4
+  patchToPlanet: true 
 
 - type: lavalandGridRuin
   id: RougeAI
   name: lavaland-ruin-station
   path: /Maps/_Lavaland/Lavaland/ruin_rouge_ai.yml
   priority: 5
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: OwOLab
   name: lavaland-ruin-laboratory
   path: /Maps/_Lavaland/Lavaland/ruin_felenid_lab.yml
   priority: 6
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: VulpLab
   name: lavaland-ruin-laboratory
   path: /Maps/_Lavaland/Lavaland/ruin_vulp_lab.yml
   priority: 7
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: Chemistry
   name: lavaland-ruin-laboratory
   path: /Maps/_Lavaland/Lavaland/ruin_chemistry.yml
   priority: 8
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: Shelter
   name: lavaland-ruin-shelter
   path: /Maps/_Lavaland/Lavaland/ruin_shelter.yml
   priority: 9
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: MiningPost
@@ -83,12 +90,14 @@
   name: lavaland-ruin-shelter
   path: /Maps/_Lavaland/Lavaland/ruin_hermit.yml
   priority: 11
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: LavaLake
   name: lavaland-ruin-anomalous-landscape
   path: /Maps/_Lavaland/Lavaland/ruin_lavalake.yml
   priority: 12
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: SeedVault
@@ -101,27 +110,32 @@
   name: lavaland-ruin-seed-graveyard
   path: /Maps/_Lavaland/Lavaland/ruin_graveyard.yml
   priority: 14
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: WaffleCo
   name: lavaland-ruin-wooden
   path: /Maps/_Lavaland/Lavaland/ruin_wafflecohouse.yml
   priority: 15
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: ArrivalsBack
   name: lavaland-ruin-arrivals-shuttle
   path: /Maps/_Lavaland/Lavaland/ruin_arrivals_back.yml
   priority: 16
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: ArrivalsFront
   name: lavaland-ruin-arrivals-shuttle
   path: /Maps/_Lavaland/Lavaland/ruin_arrivals_front.yml
   priority: 17
+  patchToPlanet: true
 
 - type: lavalandGridRuin
   id: CargoDebris
   name: lavaland-ruin-cargo
   path: /Maps/_Lavaland/Lavaland/ruin_cargo_debris.yml
   priority: 18
+  patchToPlanet: true

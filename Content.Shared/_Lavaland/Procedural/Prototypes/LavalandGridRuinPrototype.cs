@@ -41,6 +41,9 @@ public sealed partial class LavalandGridRuinPrototype : IPrototype
     [DataField]
     public int SpawnAttemps = 8;
 
+    [DataField]
+    public bool PatchToPlanet;
+
     [DataField(required: true)]
     public int Priority = int.MinValue;
 

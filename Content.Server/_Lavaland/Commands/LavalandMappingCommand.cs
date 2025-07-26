@@ -80,7 +80,7 @@ public sealed class LavalandMappingCommand : IConsoleCommand
         }
 
         shell.WriteLine("Starting lavaland map...");
-        var lavalandSys = _entityManager.System<LavalandPlanetSystem>();
+        var lavalandSys = _entityManager.System<LavalandSystem>();
 
         if (lavalandSys.GetPreloaderEntity() == null)
             lavalandSys.EnsurePreloaderMap();
