@@ -11,6 +11,7 @@ using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.IdentityManagement;
 
 namespace Content.Goobstation.Server.Devil;
@@ -68,6 +69,9 @@ public sealed partial class DevilSystem
         Spawn(devil.Comp.JauntAnimationProto, Transform(devil).Coordinates);
         Spawn(devil.Comp.PentagramEffectProto, Transform(devil).Coordinates);
 
+        if (TryComp<CuffableComponent>(devil, out var cuffableComponent))
+            _container.EmptyContainer(cuffableComponent.Container, true);
+
         _poly.PolymorphEntity(devil, devil.Comp.JauntEntityProto);
     }
 
@@ -80,8 +84,11 @@ public sealed partial class DevilSystem
         {
             foreach (var item in _hands.EnumerateHeld(devil))
             {
-                if (HasComp<DevilGripComponent>(item))
-                    QueueDel(item);
+                if (!HasComp<DevilGripComponent>(item))
+                    continue;
+
+                QueueDel(item);
+                return;
             }
         }
 

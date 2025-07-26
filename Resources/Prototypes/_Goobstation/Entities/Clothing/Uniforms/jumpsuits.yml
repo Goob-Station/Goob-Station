@@ -13,6 +13,7 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -252,7 +253,7 @@
 
 
 - type: entity
-  parent: [ClothingUniformJumpsuitLawyerBlack, BaseMagicalContraband]
+  parent: ClothingUniformJumpsuitLawyerBlack # Not contraband. It's just a suit, dude :godo:
   id: ClothingUniformJumpsuitDevil
   name: devilish suit
   description: A stylish black suit made of materials not from this dimension. Warm to the touch.
@@ -261,6 +262,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
+  - type: CrematoriumImmune
   - type: Armor
     modifiers:
       coefficients:
