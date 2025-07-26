@@ -1,14 +1,22 @@
 ﻿using Content.Shared._Lavaland.Megafauna.NumberSelectors;
+using Content.Shared._Lavaland.Megafauna.Systems;
 
 namespace Content.Shared._Lavaland.Megafauna.Actions;
 
 /// <summary>
-/// Runs multiple megafauna actions with scheduled delay between them.
+/// Runs specified megafauna action multiple times with some delay.
 /// </summary>
 public sealed partial class SequenceMegafaunaAction : MegafaunaActionSelector
 {
     [DataField(required: true)]
     public MegafaunaActionSelector Selector;
+
+    /// <summary>
+    /// This delay specifies how often Selector is being added to the schedule.
+    /// It's a different thing from DelaySelector and should always
+    /// </summary>
+    [DataField("sequenceDelay",required: true)]
+    public MegafaunaNumberSelector BetweenSequenceDelay;
 
     /// <summary>
     /// Total amount of selectors to add.
@@ -18,19 +26,25 @@ public sealed partial class SequenceMegafaunaAction : MegafaunaActionSelector
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
+        var megafaunaSys = args.EntityManager.System<SharedMegafaunaSystem>();
+
         var rolls = Rolls.GetRounded(args);
-        var delay = DelaySelector.Get(args);
+        var delay = BetweenSequenceDelay.Get(args);
+
+        Selector.CopyFrom(this);
+        Selector.IsDeadEnd = true;
+
         for (int i = 0; i < rolls; i++)
         {
-            var time = args.Timing.CurTime + TimeSpan.FromSeconds(delay * i);
             Selector.Counter = i;
-            Selector.IsSequence = IsSequence;
-            args.AiComponent.ActionSchedule.Add(time, Selector);
+            megafaunaSys.AddMegafaunaAction(args.AiComponent, Selector, delay * (i + 1));
         }
+
+        Logger.Info($"Sequence Action spawned {Selector} with amount {rolls}");
 
         if (rolls == 0)
             return FailDelay;
 
-        return delay * rolls;
+        return DelaySelector.Get(args);
     }
 }

@@ -27,6 +27,6 @@ public sealed partial class HierophantActiveBlinkComponent : Component
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan? BlinkTime;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityCoordinates Coordinates;
 }

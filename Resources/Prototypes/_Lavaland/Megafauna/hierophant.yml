@@ -73,18 +73,21 @@
     - id: HierophantRookCross
     - id: HierophantBishopCross
     - id: HierophantQueenCross
-      weight: 0.5
+      weight: 0.8
 
 ## Sequence attacks
 - type: megafaunaAction
   id: HierophantBoxExpanding
   action: !type:SequenceMegafaunaAction
+    isSequence: true
     selector: !type:NestedMegafaunaAction
       id: HierophantBox
-    delay: !type:MegafaunaRangeNumberSelector
-      range: 0.8,1.0
+    sequenceDelay: !type:MegafaunaRangeNumberSelector
+      range: 0.4,0.8
+    delay: !type:MegafaunaConstantNumberSelector
+      value: 5.0
     rolls: !type:MegafaunaRangeNumberSelector
-      range: 3,8
+      range: 3,5
 
 - type: megafaunaAction
   id: HierophantCrossSequence
@@ -92,8 +95,10 @@
     isSequence: true
     selector: !type:NestedMegafaunaAction
       id: HierophantRandomCross
-    delay: !type:MegafaunaRangeNumberSelector
-      range: 1.2,1.6
+    sequenceDelay: !type:MegafaunaRangeNumberSelector
+      range: 0.8,1.0
+    delay: !type:MegafaunaConstantNumberSelector
+      value: 5.0
     rolls: !type:MegafaunaRangeNumberSelector
       range: 1,3
 
@@ -103,12 +108,14 @@
     isSequence: true
     selector: !type:NestedMegafaunaAction
       id: HierophantRandomCrossHard
-    delay: !type:MegafaunaRangeNumberSelector
-      range: 1.2,1.6
+    sequenceDelay: !type:MegafaunaRangeNumberSelector
+      range: 0.8,1.0
+    delay: !type:MegafaunaConstantNumberSelector
+      value: 5.0
     rolls: !type:MegafaunaRangeNumberSelector
       range: 2,4
 
-# OTHER
+# SPECIFIC
 
 - type: megafaunaAction
   id: HierophantSpawnChasers

@@ -38,8 +38,8 @@ public abstract partial class MegafaunaActionSelector
     /// Represents this attack's order from other attacks that are called via
     /// <see cref="SequenceMegafaunaAction"/>. Use this variable to make time-progressive actions.
     /// </summary>
-    [ViewVariables]
-    public int Counter;
+    [DataField]
+    public int? Counter;
 
     /// <summary>
     /// If true, allows some actions to use the Counter variable in order to create sequence attacks
@@ -47,7 +47,14 @@ public abstract partial class MegafaunaActionSelector
     /// Using this you can create more complex actions that are called with <see cref="SequenceMegafaunaAction"/>.
     /// </summary>
     [DataField]
-    public bool IsSequence;
+    public bool? IsSequence;
+
+    /// <summary>
+    /// If true, will prevent MegafaunaSystem from picking
+    /// new actions when this action is completed.
+    /// </summary>
+    [DataField]
+    public bool? IsDeadEnd;
 
     /// <summary>
     /// A list of conditions that must evaluate to 'true' for the selector to apply.
@@ -72,7 +79,7 @@ public abstract partial class MegafaunaActionSelector
     /// Default delay time after failing random or conditions check.
     /// </summary>
     [DataField]
-    public float FailDelay = 0.1f;
+    public float FailDelay = 0.5f;
 
     public bool CheckConditions(MegafaunaCalculationBaseArgs args)
     {
@@ -96,18 +103,23 @@ public abstract partial class MegafaunaActionSelector
         return success;
     }
 
-    public float Invoke(MegafaunaCalculationBaseArgs args, bool? isSequence = null, int? counter = null)
+    public float Invoke(MegafaunaCalculationBaseArgs args)
     {
         if (!CheckConditions(args)
             || !args.Random.Prob(Prob))
             return FailDelay;
 
-        if (isSequence != null)
-            IsSequence = isSequence.Value;
-        if (counter != null)
-            Counter = counter.Value;
-
         return InvokeImplementation(args);
+    }
+
+    public void CopyFrom(MegafaunaActionSelector parent)
+    {
+        if (parent.Counter != null)
+            Counter = parent.Counter;
+        if (parent.IsSequence != null)
+            IsSequence = parent.IsSequence;
+        if (parent.IsDeadEnd != null)
+            IsDeadEnd = parent.IsDeadEnd;
     }
 
     protected abstract float InvokeImplementation(MegafaunaCalculationBaseArgs args);

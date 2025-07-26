@@ -1,4 +1,5 @@
 ﻿using Content.Shared._Lavaland.Aggression;
+using Content.Shared._Lavaland.Megafauna.Actions;
 using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared.Mobs;
 using Robust.Shared.Timing;
@@ -46,5 +47,14 @@ public abstract class SharedMegafaunaSystem : EntitySystem
         RaiseLocalEvent(ent, new MegafaunaShutdownEvent()); // Proper cleanup
         RaiseLocalEvent(ent, new MegafaunaKilledEvent()); // Specific handling
         ent.Comp.Active = false;
+    }
+
+    /// <summary>
+    /// Adds new megafauna action to MegafaunaAI's dictionary, so it will fire at the specified time.
+    /// </summary>
+    public void AddMegafaunaAction(MegafaunaAiComponent comp, MegafaunaActionSelector selector, float delay)
+    {
+        var time = Timing.CurTime + TimeSpan.FromSeconds(delay);
+        comp.ActionSchedule.Add(time, selector);
     }
 }

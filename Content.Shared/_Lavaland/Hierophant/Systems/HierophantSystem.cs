@@ -67,7 +67,8 @@ public sealed class HierophantSystem : EntitySystem
         while (blinkQuery.MoveNext(out var uid, out var blink))
         {
             if (blink.BlinkTime == null
-                || _timing.CurTime < blink.BlinkTime)
+                || _timing.CurTime < blink.BlinkTime
+                || !blink.Coordinates.IsValid(EntityManager))
                 continue;
 
             _xform.SetCoordinates(uid, blink.Coordinates.SnapToGrid(EntityManager, _mapMan));
@@ -128,6 +129,7 @@ public sealed class HierophantSystem : EntitySystem
         blinkComp.BlinkTime = _timing.CurTime + duration ?? blinkComp.BlinkDelay;
         blinkComp.Coordinates = coords;
         blinkComp.Sound = sound;
+        Dirty(ent, blinkComp);
     }
 
     public void BlinkToTarget(

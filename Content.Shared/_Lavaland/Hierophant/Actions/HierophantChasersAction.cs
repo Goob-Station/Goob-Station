@@ -40,7 +40,7 @@ public sealed partial class HierophantChasersAction : MegafaunaActionSelector
         var steps = StepsSelector.GetRounded(args);
         var amount = AmountSelector.GetRounded(args);
 
-        hieroSystem.SpawnChasers(uid, DamageTile, speed, steps, target, amount);
+        hieroSystem.SpawnChasers(uid, ChaserTile, speed, steps, target, amount);
 
         return DelaySelector.Get(args);
     }

@@ -13,7 +13,8 @@ public sealed partial class AllMegafaunaAction : MegafaunaActionSelector
         var maxDelay = FailDelay;
         foreach (var child in Children)
         {
-            var delay = child.Invoke(args, IsSequence, Counter);
+            child.CopyFrom(this);
+            var delay = child.Invoke(args);
             if (delay > maxDelay)
                 maxDelay = delay;
         }

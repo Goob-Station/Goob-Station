@@ -62,23 +62,21 @@ public sealed class MegafaunaSystem : SharedMegafaunaSystem
                 if (time > Timing.CurTime)
                     continue;
 
+                // Pick new target
+                // TODO move this somewhere else
+                ai.PreviousTarget = ai.CurrentTarget;
+                _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
+
                 var args = new MegafaunaCalculationBaseArgs(uid, ai, EntityManager, _protoMan, Timing, _random.GetRandom());
                 var delayTime = action.Invoke(args);
                 ai.ActionSchedule.Remove(time);
 
-                // We should spawn new actions only if there are no plans for new ones.
-                // The Stack Overflow Defense
-                if (ai.ActionSchedule.Count > 1)
+                if (action.IsDeadEnd is true)
                     continue;
 
-                // Add new action
+                // Queue next action
                 delayTime = Math.Clamp(delayTime, ai.MinAttackCooldown, ai.MaxAttackCooldown);
-                var nextAction = Timing.CurTime + TimeSpan.FromSeconds(delayTime);
-                ai.ActionSchedule.TryAdd(nextAction, ai.Selector);
-
-                // Pick new target
-                ai.PreviousTarget = ai.CurrentTarget;
-                _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
+                AddMegafaunaAction(ai, ai.Selector, delayTime);
             }
         }
     }

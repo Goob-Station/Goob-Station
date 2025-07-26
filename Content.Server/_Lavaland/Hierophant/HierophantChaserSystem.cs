@@ -50,18 +50,15 @@ public sealed class HierophantChaserSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var eqe = EntityQueryEnumerator<HierophantChaserComponent>();
-        while (eqe.MoveNext(out var uid, out var comp))
+        var eqe = EntityQueryEnumerator<HierophantChaserComponent, TransformComponent>();
+        while (eqe.MoveNext(out var uid, out var comp, out var xform))
         {
-            if (TerminatingOrDeleted(uid))
-                continue;
-
             var delta = frameTime * comp.Speed;
             comp.CooldownTimer -= delta;
 
             if (comp.CooldownTimer <= 0)
             {
-                Cycle((uid, comp));
+                Cycle((uid, comp, xform));
                 comp.CooldownTimer = comp.BaseCooldown;
             }
         }
@@ -72,11 +69,8 @@ public sealed class HierophantChaserSystem : EntitySystem
     ///     Replicate itself and the prototype designated.
     ///     Delete itself afterwards.
     /// </summary>
-    private void Cycle(Entity<HierophantChaserComponent, TransformComponent?> ent)
+    private void Cycle(Entity<HierophantChaserComponent, TransformComponent> ent)
     {
-        if (!Resolve<TransformComponent>(ent, ref ent.Comp2, false))
-            return;
-
         var xform = ent.Comp2;
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
@@ -105,17 +99,11 @@ public sealed class HierophantChaserSystem : EntitySystem
 
             // This monstrosity is to make snake-like movement
             if (tileTargetPos.Y != tilePos.Y)
-            {
                 tileTargetPos.X = tilePos.X;
-            }
             else if (tileTargetPos.Y != tilePos.Y)
-            {
                 tileTargetPos.X = tilePos.X;
-            }
             else
-            {
                 tileTargetPos += _random.Pick(Directions);
-            }
 
             // Don't forget kids, a DELTA is a difference between two things.
             deltaPos = tileTargetPos - tilePos;

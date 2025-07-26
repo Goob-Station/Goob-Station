@@ -39,12 +39,14 @@ public sealed partial class SpawnPatternAction : MegafaunaActionSelector
         var target = args.AiComponent.CurrentTarget ?? args.BossEntity;
 
         TileShape? modifiedShape = null;
-        if (IsSequence)
+        if (IsSequence is true && Counter is not null)
         {
             modifiedShape = Shape;
-            modifiedShape.Size += Counter + SequenceCounter ?? 0;
+            modifiedShape.Size += Counter.Value + (SequenceCounter ?? 0);
             modifiedShape.Offset += SequenceOffset * Counter ?? Vector2i.Zero;
         }
+
+        Logger.Info($"Spawning Shape with size {modifiedShape?.Size ?? Shape.Size} with id {((NestedTileShape) (modifiedShape ?? Shape)).Id}");
 
         shapeSpawner.SpawnTileShape(modifiedShape ?? Shape, target, SpawnId, out _);
 

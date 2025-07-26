@@ -30,12 +30,6 @@ public sealed partial class MegafaunaAiComponent : Component
     public EntityUid? PreviousTarget;
 
     /// <summary>
-    /// If true, will allow this boss to pick the same attacks twice in a row.
-    /// </summary>
-    [DataField]
-    public bool CanRepeatAttacks;
-
-    /// <summary>
     /// When the boss doesn't die ut for any reason stops attacking,
     /// if this bool is true, will rejuvenate the megafauna.
     /// </summary>
