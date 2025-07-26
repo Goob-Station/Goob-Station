@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Seven2280 <semvalentin123@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
@@ -22,6 +23,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Body.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
@@ -65,6 +67,9 @@ public sealed partial class ChangelingIdentityComponent : Component
         "ActionEnterStasis",
         "ActionExitStasis"
     };
+
+    [ValidatePrototypeId<MetabolizerTypePrototype>]
+    public static readonly string MetabolizerAnimal = "Animal";
 
     /// <summary>
     ///     The status icon corresponding to the Changlings.

@@ -19,6 +19,7 @@
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Seven2280 <semvalentin123@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -63,6 +64,9 @@ using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
+using Content.Server.Body.Components;
+using Content.Shared.Body.Systems;
+using Content.Shared.Body.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
@@ -98,6 +102,8 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Chemistry;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -131,6 +137,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly MetabolizerSystem _metabolism = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -262,7 +270,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateAbilities(uid, comp);
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null, bool manualAdjust = true)
+    public void UpdateChemicals(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null, bool manualAdjust = true)
     {
         if (manualAdjust)
             AdjustChemicals(uid, comp, amount ?? 1);
@@ -797,6 +805,22 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         PlayMeatySound(target, comp);
     }
 
+    public void ChangeMetabolizerType(Entity<ChangelingIdentityComponent> changeling)
+    {
+        if (!TryComp<BodyComponent>(changeling, out var body))
+            return;
+
+        foreach (var organ in _body.GetBodyOrgans(changeling, body))
+        {
+            if (TryComp<MetabolizerComponent>(organ.Id, out var metabolizer))
+            {
+                _metabolism.TryAddMetabolizerType(
+                    metabolizer,
+                    ChangelingIdentityComponent.MetabolizerAnimal
+                );
+            }
+        }
+    }
     #endregion
 
     #region Event Handlers
@@ -809,6 +833,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         RemComp<MartialArtsKnowledgeComponent>(uid);
         RemComp<CanPerformComboComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
+        EnsureComp<ChangelingOrganDigestionComponent>(uid);
 
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)
@@ -827,6 +852,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         UpdateChemicals(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
+        // change metabolizer type
+        ChangeMetabolizerType((uid, comp));
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingIdentityComponent comp, ref MobStateChangedEvent args)
