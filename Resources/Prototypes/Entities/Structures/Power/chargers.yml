@@ -288,7 +288,7 @@
       charger_slot: enum.PowerChargerVisualLayers.ItemDisplay
 
 - type: entity
-  parent: BaseItemRecharger
+  parent: [ BaseItemRecharger, BaseWallmount ]
   id: WallWeaponCapacitorRecharger
   name: wall recharger
   components:
