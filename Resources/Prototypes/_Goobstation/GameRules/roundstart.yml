@@ -395,15 +395,12 @@
     - RoundstartAntag
 
 - type: entity
-  parent: BaseGameRule
+  parent: BaseMalfAIGamerule
   id: MalfAI
   components:
-  - type: MalfAIRule
-  - type: GameRule
-    chaosScore: 1000
-    minPlayers: 30
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
+    agentName: malf-roundend-name
     definitions:
     - prefRoles: [ MalfunctionalAI ]
       max: 1
@@ -414,6 +411,10 @@
         - StationAiHeld
       mindRoles:
       - MindRoleMalfAI
+      briefing:
+        text: malf-role-greeting
+        color: Red
+        sound: "/Audio/_Goobstation/Ambience/Antag/malf_start.ogg"
       components:
       - type: UserInterface
         interfaces:
@@ -424,8 +425,6 @@
         - MalfAIAbilities
         currencyWhitelist:
         - ProcessingPower
-  # - type: AntagObjectives - TODO
-  #   objectives:
   - type: Tag
     tags:
     - RoundstartAntag

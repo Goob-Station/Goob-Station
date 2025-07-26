@@ -1,17 +1,21 @@
 using System.Linq;
+using Content.Goobstation.Server.Silicon.MalfAI.Rules;
 using Content.Goobstation.Shared.Silicon.MalfAI;
 using Content.Goobstation.Shared.Silicon.MalfAI.Components;
 using Content.Goobstation.Shared.Silicon.MalfAI.Events;
 using Content.Server.Doors.Systems;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Popups;
 using Content.Server.Power.Components;
+using Content.Server.Station.Systems;
 using Content.Server.SurveillanceCamera;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Server.Wires;
 using Content.Shared.Doors.Components;
 using Content.Shared.Electrocution;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Explosion.Components.OnTrigger;
 using Content.Shared.Silicons.StationAi;
+using Content.Shared.Station;
 using Content.Shared.StationAi;
 using Robust.Server.GameObjects;
 
@@ -20,10 +24,14 @@ namespace Content.Goobstation.Server.Silicon.MalfAI;
 public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
 {
     [Dependency] private readonly SharedStationAiSystem _stationAi = default!;
+    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly TriggerSystem _trigger = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly DoorSystem _door = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly WiresSystem _wires = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public void InitializeActions()
     {
@@ -31,36 +39,85 @@ public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
         SubscribeLocalEvent<MalfStationAIComponent, HostileLockdownActionEvent>(OnLockdownEvent);
 
         SubscribeLocalEvent<MalfStationAIComponent, UpgradeCamerasActionEvent>(OnCameraUpgrade);
-        SubscribeLocalEvent<MalfStationAIComponent, ReactivateCameraActionEvent>(OnRepairCamera);
+        SubscribeLocalEvent<MalfStationAIComponent, ReactivateCameraActionEvent>(OnReactivateCamera);
+
+        SubscribeLocalEvent<MalfStationAIComponent, DoomsDayActionEvent>(OnDoomsDayStart);
     }
 
-    private void OnRepairCamera(Entity<MalfStationAIComponent> ent, ref ReactivateCameraActionEvent args)
+    private void OnDoomsDayStart(Entity<MalfStationAIComponent> ent, ref DoomsDayActionEvent args)
+    {
+        var gamerule = EntityQuery<MalfAIRuleComponent>().First();
+
+        // The AI must be on-station in order to activate the device.
+        if (!IsAIAliveAndOnStation(ent, gamerule.Station))
+        {
+            _popup.PopupEntity(Loc.GetString(gamerule.OnlyOnStationLoc), ent, ent, Content.Shared.Popups.PopupType.LargeCaution);
+            return;
+        }
+
+        // There can only be one dooms day device active at a time.
+        if (gamerule.DoomDeviceActive)
+        {
+            _popup.PopupEntity(Loc.GetString(gamerule.OnlyOneDeviceLoc), ent, ent, Content.Shared.Popups.PopupType.LargeCaution);
+            return;
+        }
+
+        StartDoomsDayDevice(ent);
+
+        args.Handled = true;
+    }
+
+    private void OnReactivateCamera(Entity<MalfStationAIComponent> ent, ref ReactivateCameraActionEvent args)
     {
         if (!_stationAi.TryGetCore(ent, out var core) || core.Comp?.RemoteEntity == null)
             return;
 
         var query = _lookup.GetEntitiesInRange<SurveillanceCameraComponent>(Transform(core.Comp.RemoteEntity.Value).Coordinates, ent.Comp.CameraRepairRadius, LookupFlags.Static);
 
-        var camRepaired = false;
-
         foreach (var cam in query)
         {
-            if (!TryComp<StationAiVisionComponent>(cam, out var visionComp) || visionComp.Enabled)
+            if (ReactivateCamera(cam))
+            {
+                args.Handled = true;
+                return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Mend all of this camera's wires.
+    /// Does not repair damage to the camera.
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <returns></returns>
+    public bool ReactivateCamera(Entity<SurveillanceCameraComponent> entity)
+    {
+        var camRepaired = false;
+
+        if (!TryComp<WiresComponent>(entity, out var wiresComp))
+            return false;
+
+        var wires = _wires.TryGetWires<Wire>(entity, wiresComp);
+
+        foreach (var wire in wires)
+        {
+            if (!wire.IsCut || wire.Action == null || !wire.Action.Mend(entity, wire))
                 continue;
 
-            // This should really mend the wire but eh, they can mend and cut the wire aftward to break it again.
-            _stationAi.SetVisionEnabled((cam.Owner, visionComp), true, true);
+            wire.IsCut = false;
 
             camRepaired = true;
         }
 
-        args.Handled = camRepaired;
+        return camRepaired;
     }
 
     private void OnCameraUpgrade(Entity<MalfStationAIComponent> ent, ref UpgradeCamerasActionEvent args)
     {
-        if (_stationAi.TryGetCore(ent, out var core))
+        if (!_stationAi.TryGetCore(ent, out var core))
             return;
+
+        args.Handled = true;
 
         var query = EntityQueryEnumerator<StationAiVisionComponent, TransformComponent>();
 
@@ -68,13 +125,19 @@ public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
 
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
+            // If its not on the same station as the AI then skip it.
             if (_xform.GetGrid(xform.Coordinates) != gridUid)
                 continue;
 
             _stationAi.SetVisionOcclusion((uid, comp), false);
         }
 
-        args.Handled = true;
+        if (!TryComp<EyeComponent>(ent, out var eye))
+            return;
+
+        // Disable light drawing
+        // to give night vision.
+        _eye.SetDrawLight((ent.Owner, eye), false);
     }
 
     private void OnLockdownEvent(Entity<MalfStationAIComponent> ent, ref HostileLockdownActionEvent args)

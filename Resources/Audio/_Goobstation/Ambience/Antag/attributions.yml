@@ -35,4 +35,7 @@
   copyright: "Taken from TG station"
   source: "https://github.com/tgstation/tgstation/tree/master"
 
-
+- files: ["malf_start.ogg"]
+  license: CC-BY-SA-3.0
+  copyright: "Taken from TG station"
+  source: "https://github.com/tgstation/tgstation/commits/master/sound/music/antag/malf.ogg"

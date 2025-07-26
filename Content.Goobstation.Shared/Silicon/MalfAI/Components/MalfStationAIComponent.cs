@@ -1,6 +1,4 @@
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Actions;
-using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Content.Shared.Store;
 using Robust.Shared.Audio;
@@ -51,9 +49,6 @@ public sealed partial class MalfStationAIComponent : Component
 
 
     // Machine overload
-
-    [DataField]
-    public int MachineOverloadCost = 10;
 
     /// <summary>
     /// This specifies how long an overloaded machine will take before it explodes.

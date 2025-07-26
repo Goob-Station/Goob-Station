@@ -221,7 +221,7 @@
       - MidroundAntag
 
 - type: entity
-  parent: BaseGameRule
+  parent: BaseMalfAIGamerule
   id: MalfAIMidround
   components:
   - type: StationEvent
@@ -235,12 +235,9 @@
       Medical: 300
       Death: 300
     eventType: HostilesSpawn
-  - type: MalfAIRule
-  - type: GameRule
-    chaosScore: 1000
-    minPlayers: 30
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
+    agentName: malf-roundend-name
     definitions:
     - prefRoles: [ MalfunctionalAI ]
       max: 1
@@ -252,14 +249,16 @@
         - StationAiHeld
       mindRoles:
       - MindRoleMalfAI
+      briefing:
+        text: malf-role-greeting
+        color: Red
+        sound: "/Audio/_Goobstation/Ambience/Antag/malf_start.ogg"
       components:
       - type: Store
         categories:
         - MalfAIAbilities
         currencyWhitelist:
         - ProcessingPower
-  # - type: AntagObjectives - TODO
-  #   objectives:
   - type: Tag
     tags:
     - MidroundAntag

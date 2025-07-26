@@ -40,3 +40,13 @@
     ProcessingPower: 10
   categories:
   - MalfAIAbilities
+
+- type: listing
+  id: DoomsDayDevice
+  name: malf-ai-doom-device-name
+  description: malf-ai-doom-device-desc
+  productAction: ActionMalfAIDoomsDay
+  cost:
+    ProcessingPower: 130
+  categories:
+  - MalfAIAbilities

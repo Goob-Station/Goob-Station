@@ -3,8 +3,10 @@ using Content.Goobstation.Shared.Silicon.MalfAI;
 using Content.Goobstation.Shared.Silicon.MalfAI.Components;
 using Content.Goobstation.Shared.Silicon.MalfAI.Events;
 using Content.Server.Actions;
+using Content.Server.Administration.Logs;
 using Content.Server.Power.Components;
 using Content.Server.Store.Systems;
+using Content.Shared.Mind;
 using Content.Shared.Store.Components;
 
 namespace Content.Goobstation.Server.Silicon.MalfAI;
@@ -13,6 +15,7 @@ public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
 {
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
 
     public override void Initialize()
     {
@@ -23,6 +26,7 @@ public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
         SubscribeLocalEvent<ApcComponent, OnHackedEvent>(OnAPCHacked);
 
         InitializeActions();
+        InitializeObjectives();
     }
 
     private void OnStartup(Entity<MalfStationAIComponent> entity, ref ComponentStartup args)
@@ -81,5 +85,13 @@ public sealed partial class MalfStationAISystem : SharedMalfStationAISystem
         ent.Comp.NeedStateUpdate = true;
 
         AddProcessingPower(args.HackerEntity, malfComp.HackAPCReward);
+    }
+
+    public bool IsAIAliveAndOnStation(EntityUid entity, EntityUid targetStation)
+    {
+        // If the core can't be found then the AI is probably ic "dead"
+        return _stationAi.TryGetCore(entity, out var core)
+            && _station.GetOwningStation(core) is { } station
+            && station == targetStation;
     }
 }

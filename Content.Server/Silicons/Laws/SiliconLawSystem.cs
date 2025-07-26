@@ -106,8 +106,10 @@
 using System.Linq;
 using Content.Goobstation.Common.Silicons.Components;
 using Content.Goobstation.Maths.FixedPoint; // Goob edit
+using Content.Goobstation.Shared.Silicon.MalfAI.Components;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
+using Content.Server.Popups;
 using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems; // Goob edit
 using Content.Server.Research.Systems; // Goob edit
@@ -154,6 +156,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly IonStormSystem _ionStorm = default!; // Goob edit
     [Dependency] private readonly ResearchSystem _research = default!; // Goob edit
     [Dependency] private readonly RadioSystem _radio = default!; // Goob edit
+    [Dependency] private readonly PopupSystem _popup = default!; // Goob edit
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -450,6 +453,15 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         while (query.MoveNext(out var update))
         {
+            // Goob edit start - malf AI
+            if (HasComp<MalfStationAIComponent>(update))
+            {
+                var message = Loc.GetString("law-rejected-error");
+                _popup.PopupEntity(message, ent, Shared.Popups.PopupType.MediumCaution);
+                continue;
+            }
+            // Goob edit end
+
             SetLaws(lawset, update, provider.LawUploadSound);
 
             // Corvax-Next-AiRemoteControl-Start

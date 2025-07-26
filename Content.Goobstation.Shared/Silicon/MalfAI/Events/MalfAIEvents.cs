@@ -15,12 +15,12 @@ public readonly struct OnHackedEvent(Entity<MalfStationAIComponent> hacker)
 };
 
 public sealed partial class MalfAIOpenShopAction : InstantActionEvent;
-public sealed partial class HostileLockdownActionEvent : InstantActionEvent;
-public sealed partial class DoomsDayActionEvent : InstantActionEvent;
-public sealed partial class TurretUpgradeActionEvent : InstantActionEvent;
-public sealed partial class DestoryRCDsActionEvent : InstantActionEvent;
-public sealed partial class BlackoutActionEvent : InstantActionEvent;
 public sealed partial class ReactivateCameraActionEvent : InstantActionEvent;
 public sealed partial class UpgradeCamerasActionEvent : InstantActionEvent;
 public sealed partial class MachineOverloadActionEvent : EntityTargetActionEvent;
-public sealed partial class MakeRoboticFactoryActionEvent : EntityTargetActionEvent;
+public sealed partial class HostileLockdownActionEvent : InstantActionEvent;
+public sealed partial class DoomsDayActionEvent : InstantActionEvent; // Todo
+public sealed partial class TurretUpgradeActionEvent : InstantActionEvent; // Todo
+public sealed partial class DestoryRCDsActionEvent : InstantActionEvent; // Todo
+public sealed partial class BlackoutActionEvent : InstantActionEvent; // Todo
+public sealed partial class MakeRoboticFactoryActionEvent : EntityTargetActionEvent; // Todo

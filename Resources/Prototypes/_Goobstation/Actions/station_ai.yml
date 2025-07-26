@@ -34,6 +34,23 @@
       state: modules_menu
 
 - type: entity
+  id: ActionMalfAIDoomsDay
+  name: malf-ai-doom-device-name
+  description: malf-ai-doom-device-desc
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:DoomsDayActionEvent
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: reactivate_cameras
+  - type: LimitedCharges
+    maxCharges: 1
+    lastCharges: 1
+    removeActionOnNoCharges: true
+
+- type: entity
   id: ActionMalfAIOverload
   name: malf-ai-overload-name
   description: malf-ai-overload-desc

@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.Silicon.MalfAI.Components;
 using Content.Goobstation.Shared.Silicon.MalfAI.Events;
 using Content.Shared.DoAfter;
-using Content.Shared.Silicons.StationAi;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
