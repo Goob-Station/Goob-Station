@@ -70,6 +70,11 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
+// SPDX-FileCopyrightText: 2025 poemota <142114334+poeMota@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -95,6 +100,12 @@ public sealed class MappingPrototype
     ///     The text to display on the UI for this button.
     /// </summary>
     public readonly string Name;
+
+    //Reserve - Wizden mapping editor
+    /// <summary>
+    ///     Whether the prototype is in the “Favorites” list.
+    /// </summary>
+    public bool Favorite;
 
     /// <summary>
     ///     Which other prototypes (buttons) this one is nested inside of.

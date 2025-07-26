@@ -7,7 +7,12 @@
 # SPDX-License-Identifier: MIT
 
 - type: decal
+  id: WoodTrimThin
+  abstract: true
+
+- type: decal
   id: WoodTrimThinBox
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -15,6 +20,7 @@
 
 - type: decal
   id: WoodTrimThinCornerNe
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -22,6 +28,7 @@
 
 - type: decal
   id: WoodTrimThinCornerSe
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -29,6 +36,7 @@
 
 - type: decal
   id: WoodTrimThinCornerNw
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -36,6 +44,7 @@
 
 - type: decal
   id: WoodTrimThinCornerSw
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -43,6 +52,7 @@
 
 - type: decal
   id: WoodTrimThinInnerNe
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -50,6 +60,7 @@
 
 - type: decal
   id: WoodTrimThinInnerSe
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -57,6 +68,7 @@
 
 - type: decal
   id: WoodTrimThinInnerNw
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -64,6 +76,7 @@
 
 - type: decal
   id: WoodTrimThinInnerSw
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -71,6 +84,7 @@
 
 - type: decal
   id: WoodTrimThinEndN
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -78,6 +92,7 @@
 
 - type: decal
   id: WoodTrimThinEndE
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -85,6 +100,7 @@
 
 - type: decal
   id: WoodTrimThinEndS
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -92,6 +108,7 @@
 
 - type: decal
   id: WoodTrimThinEndW
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -99,6 +116,7 @@
 
 - type: decal
   id: WoodTrimThinLineN
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -106,6 +124,7 @@
 
 - type: decal
   id: WoodTrimThinLineE
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -113,6 +132,7 @@
 
 - type: decal
   id: WoodTrimThinLineS
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
@@ -120,6 +140,7 @@
 
 - type: decal
   id: WoodTrimThinLineW
+  parent: WoodTrimThin
   tags: ["station", "markings"]
   sprite:
     sprite: Decals/wood_trim.rsi
