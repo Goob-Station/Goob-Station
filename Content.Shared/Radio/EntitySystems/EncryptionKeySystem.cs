@@ -28,6 +28,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
 using Content.Shared.Tools.Components;
+using Content.Shared.Whitelist;
 using Content.Shared.Wires;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -51,6 +52,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedWiresSystem _wires = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation - Whitelisted radio channels
 
     public override void Initialize()
     {
@@ -241,11 +243,29 @@ public sealed partial class EncryptionKeySystem : EntitySystem
                 ? SharedChatSystem.RadioCommonPrefix.ToString()
                 : $"{SharedChatSystem.RadioChannelPrefix}{proto.KeyCode}";
 
+            // Goobstation - Start - Whitelisted radio channels
+            var restictionText = string.Empty;
+            if (HasComp<EncryptionKeyHolderComponent>(examineEvent.Examined))
+            {
+                var receiveFail = _whitelist.IsWhitelistFail(proto.ReceiveWhitelist, examineEvent.Examined);
+                var sendFail = _whitelist.IsWhitelistFail(proto.SendWhitelist, examineEvent.Examined);
+
+                restictionText = (receiveFail, sendFail) switch
+                {
+                    (true, true) => Loc.GetString("examine-headset-not-compatible"),
+                    (true, false) => Loc.GetString("examine-headset-send-only"),
+                    (false, true) => Loc.GetString("examine-headset-receive-only"),
+                    _ => restictionText
+                };
+            }
+            // Goobstation - End
+
             examineEvent.PushMarkup(Loc.GetString(channelFTLPattern,
                 ("color", proto.Color),
                 ("key", key),
                 ("id", proto.LocalizedName),
-                ("freq", proto.Frequency / 10f)));
+                ("freq", proto.Frequency / 10f),
+                ("deviceType", restictionText)));
         }
 
         if (defaultChannel != null && _protoManager.TryIndex(defaultChannel, out proto))
