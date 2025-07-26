@@ -36,7 +36,7 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.35,-0.6,0.35,0.6"
-        density: 50
+        density: 10000 # 10 tons.
         mask:
         - MobMask
         layer:
@@ -81,13 +81,31 @@
     tags:
     - CannotSuicide
   - type: NoSlip
-  - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
-  - type: Megafauna
-    loot: LavalandHierophantClub
-  - type: DamageSquareImmunity
-    isImmune: true
-  - type: Aggressive # also required component for aggro checking
-    forgiveRange: 20.0
   - type: BossMusic
     soundId: Hierophant
   - type: Fauna
+  - type: HierophantBoss
+    teleportShape: !type:NestedTileShape
+      id: BoxFilled
+      size: 3
+  - type: HierophantImmune
+  - type: SpawnLootOnDeath
+    loot: LavalandHierophantClub
+    deleteOnDeath: true
+  - type: MegafaunaAi
+    selector: !type:NestedMegafaunaAction
+      id: Hierophant
+  - type: MegafaunaFieldGenerator
+    wallId: WallHierophantArenaTemporary
+    wallShape: !type:NestedTileShape
+      id: BoxHollow
+      size: 11
+  - type: MegafaunaAnchor
+  - type: Anger
+    totalHp: 2500
+  - type: MobPhases
+    phaseThresholds:
+      0:    1
+      2000: 2
+  - type: Aggressive
+    forgiveRange: 20

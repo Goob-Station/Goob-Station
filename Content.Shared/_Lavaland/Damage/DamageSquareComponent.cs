@@ -21,6 +21,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -30,7 +31,13 @@ namespace Content.Shared._Lavaland.Damage;
 public sealed partial class DamageSquareComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]
-    public DamageSpecifier Damage = new();
+    public DamageSpecifier Damage;
+
+    [DataField, AutoNetworkedField]
+    public EntityWhitelist? DamageWhitelist;
+
+    [DataField, AutoNetworkedField]
+    public EntityWhitelist? DamageBlacklist;
 
     [DataField, AutoNetworkedField]
     public SoundPathSpecifier? Sound;
@@ -51,5 +58,5 @@ public sealed partial class DamageSquareComponent : Component
     /// For how many seconds we add immunity to the entity we hit.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ImmunityTime = 0.3f;
+    public float ImmunityTime = 0.5f;
 }
