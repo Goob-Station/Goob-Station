@@ -22,7 +22,7 @@
         # Goobstation - allow from-materials construction
         - to: solarassembly
           steps:
-            - tag: CapacitorStockPart
+            - tag: MicroManipulatorStockPart
               name: construction-graph-tag-capacitor
               icon:
                 sprite: Objects/Misc/stock_parts.rsi

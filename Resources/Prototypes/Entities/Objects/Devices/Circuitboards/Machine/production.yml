@@ -1119,7 +1119,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: MachineMaterialSilo
+    prototype: MaterialSilo #Goobstation - Silo
     stackRequirements:
       Manipulator: 4
       Cable: 1
@@ -1344,7 +1344,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: CargoMailTeleporter
+    prototype: MailTeleporter #Goobstation
     stackRequirements:
       Manipulator: 2
       Steel: 5
@@ -1478,6 +1478,5 @@
     - type: MachineBoard
       prototype: MedicalBiofabricator
       stackRequirements:
-        MatterBin: 2
-        Manipulator: 2
+        Manipulator: 4
 # Shitmed Change End

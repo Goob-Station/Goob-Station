@@ -729,7 +729,7 @@
         components:
         - Electronics
         - MachineBoard
-    - id: CapacitorStockPart
+    - id: MicroManipulatorStockPart
       whitelist:
         components:
         - StockPart

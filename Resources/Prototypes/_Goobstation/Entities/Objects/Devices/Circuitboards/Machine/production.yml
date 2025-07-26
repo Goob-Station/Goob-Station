@@ -18,8 +18,7 @@
   - type: MachineBoard
     prototype: EngineeringTechFab
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      Manipulator: 4
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -36,8 +35,7 @@
   - type: MachineBoard
     prototype: CargoTechFab
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      Manipulator: 4
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -54,8 +52,7 @@
   - type: MachineBoard
     prototype: ScienceTechFab
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      Manipulator: 4
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -72,8 +69,7 @@
   - type: MachineBoard
     prototype: ServiceTechFab
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      Manipulator: 4
     tagRequirements:
       GlassBeaker:
         amount: 2

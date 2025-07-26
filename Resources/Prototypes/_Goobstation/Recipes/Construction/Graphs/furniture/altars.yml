@@ -112,7 +112,7 @@
       - !type:SnapToGrid
         southRotation: true
       steps:
-      - tag: CapacitorStockPart
+      - tag: MicroManipulatorStockPart
         name: construction-graph-tag-capacitor
         doAfter: 3
     - to: ToolAltarNode
@@ -226,7 +226,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: CapacitorStockPart
+        prototype: MicroManipulatorStockPart
         amount: 1
       steps:
       - tool: Prying

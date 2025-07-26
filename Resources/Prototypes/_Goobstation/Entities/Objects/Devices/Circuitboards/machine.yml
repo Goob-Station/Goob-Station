@@ -8,22 +8,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: MaterialSiloCircuitboard
-  parent: BaseMachineCircuitboard
-  name: material silo machine board
-  description: A machine printed circuit board for a material silo.
-  components:
-    - type: Sprite
-      state: supply
-    - type: MachineBoard
-      prototype: MaterialSilo
-      stackRequirements:
-        MatterBin: 10
-        Steel: 5
-        Gold: 5
-        BSCrystal: 5
-
-- type: entity
   parent: BaseMachineCircuitboard
   id: RoboticArmCircuitboard
   name: robotic arm machine board
@@ -53,8 +37,7 @@
   - type: MachineBoard
     prototype: Constructor
     stackRequirements:
-      Manipulator: 3
-      MatterBin: 2
+      Manipulator: 5
       Steel: 10
       Cable: 5
     tagRequirements:
@@ -71,8 +54,7 @@
   - type: MachineBoard
     prototype: StorageBin
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      Manipulator: 4
       Steel: 1
 
 - type: entity
