@@ -492,6 +492,7 @@
     damagePenalty: 0.2
   - type: ExaminableCharacter # WWDP
   - type: AlternativeJob # Pirate - Alternative Jobs
+  - type: OfferItem # Pirate - port EE item offesrs
 
 - type: entity
   save: false
