@@ -30,6 +30,12 @@
         currentWerewolfForm: DefaultFormWerewolf
         unlockedWerewolfForms:
         - DefaultFormWerewolf
+      - type: WerewolfMutationShop
+      - type: UserInterface
+        interfaces:
+          enum.MutationUiKey.Key:
+            type: MutationBoundUserInterface
+            requireInputValidation: false
   - type: Tag
     tags:
     - RoundstartAntag
