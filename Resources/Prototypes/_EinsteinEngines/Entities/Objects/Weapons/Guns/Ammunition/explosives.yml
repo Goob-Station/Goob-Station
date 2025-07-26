@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 #
@@ -35,7 +36,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
-    - state: frag
+    - state: birdshot
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals

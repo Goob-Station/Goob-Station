@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -115,3 +116,28 @@
     capacity: 1
   - type: UseDelay
     delay: 1.5
+
+- type: entity
+  name: taiwan pond
+  parent: [WeaponLauncherTaiwanPond] # A fake taiwan pond for the clown, acts like a normal china lake.
+  id: WeaponLauncherFakeTaiwanPond
+  description: PLOOP.
+  suffix: LETHAL
+  components:
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    clumsyProof: true
+  - type: BallisticAmmoProvider
+    autoCycle: false # Goobstation
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 3
+    proto:
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
