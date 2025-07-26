@@ -159,3 +159,20 @@
   - Animals
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobXenobiologist
+  groups:
+  - XenobiologistHead
+  - XenobiologistNeck
+  - XenobiologistBackpack
+  - XenobiologistJumpsuit
+  - XenobiologistBelt
+  - XenobiologistOuterClothing
+  - XenobiologistShoes
+  - XenobiologistGloves
+  - XenobiologistPDA
+  - Trinkets
+  - Animals
+  - GroupSpeciesBreathTool
+  - Survival
