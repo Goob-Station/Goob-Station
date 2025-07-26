@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -94,11 +96,18 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Explosion;
+using Content.Shared.Explosion.EntitySystems;
+using Content.Shared.Bed.Sleep;
 
 namespace Content.Shared._Goobstation.Wizard;
 
 public abstract class SharedSpellsSystem : EntitySystem
 {
+
+    private const string StatusEffectKey = "ForcedSleep";
+
     #region Dependencies
 
     [Dependency] protected readonly IGameTiming Timing = default!;
@@ -140,6 +149,8 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
     [Dependency] private   readonly PullingSystem _pulling = default!;
     [Dependency] private   readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private   readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private   readonly SharedExplosionSystem _explosion = default!;
 
     #endregion
 
@@ -183,6 +194,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
+        SubscribeLocalEvent<ExplosionSpellEvent>(OnExplosionSpell);
     }
 
     private void OnSwapSecondaryTarget(SetSwapSecondaryTarget ev)
@@ -676,6 +688,37 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         ev.Handled = true;
+    }
+
+    private void OnExplosionSpell(ExplosionSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        var coords = ev.Coords?.SnapToGrid(EntityManager, MapManager);
+        if (coords == null)
+            return;
+        var dummy = Spawn(null, coords.Value);
+
+
+        Spawn("MagicCircle", coords.Value);
+
+        Timer.Spawn(TimeSpan.FromSeconds(5), () =>
+        {
+            if (!Deleted(dummy))
+            {
+                //Explodes and makes the caster fall asleep
+                TriggerExplosion(dummy);
+                _statusEffects.TryAddStatusEffect<ForcedSleepingComponent>(ev.Performer, StatusEffectKey, TimeSpan.FromSeconds(10), false);
+                QueueDel(dummy);
+            }
+        });
+
+        ev.Handled = true;
+    }
+
+    protected virtual void TriggerExplosion(EntityUid origin)
+    {
     }
 
     private void OnLesserSummonGuns(LesserSummonGunsEvent ev)

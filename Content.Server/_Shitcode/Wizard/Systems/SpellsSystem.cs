@@ -2,7 +2,10 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -72,6 +75,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Explosion.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -100,6 +104,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         base.Initialize();
 
         SubscribeLocalEvent<MindContainerComponent, SummonSimiansMaxedOutEvent>(OnMonkeyAscension);
+        SubscribeLocalEvent<MindContainerComponent, FireballMaxedOutEvent>(OnExplosionAscension);
         SubscribeLocalEvent<BloodlossDamageMultiplierComponent, StoppedTakingBloodlossDamageEvent>(OnBloodlossStopped);
         SubscribeLocalEvent<BloodlossDamageMultiplierComponent, GetBloodlossDamageMultiplierEvent>(OnGetBloodlossMultiplier);
     }
@@ -161,6 +166,60 @@ public sealed class SpellsSystem : SharedSpellsSystem
             false,
             session.Channel,
             args.MessageColor);
+    }
+
+    private void OnExplosionAscension(Entity<MindContainerComponent> ent, ref FireballMaxedOutEvent args)
+    {
+        var (uid, comp) = ent;
+        if (!TryComp(comp.Mind, out MindComponent? mindComp) ||
+            !TryComp(comp.Mind.Value, out ActionsContainerComponent? container))
+            return;
+
+        var hasMaxLevelFireball = false;
+        var hasExplosion = false;
+        foreach (var (action, _) in Actions.GetActions(uid))
+        {
+            if (!hasExplosion && Tag.HasTag(action, args.ExplosionTag))
+                hasExplosion = true;
+
+            if (!Tag.HasTag(action, args.MaxLevelTag))
+                continue;
+
+            if (TryComp(action, out StoreRefundComponent? refund))
+                StoreSystem.DisableListingRefund(refund.Data);
+
+            hasMaxLevelFireball = true;
+        }
+
+        if (hasExplosion || !hasMaxLevelFireball)
+            return;
+
+        ActionContainer.AddAction(comp.Mind.Value, args.Action, container);
+
+        if (!_player.TryGetSessionById(mindComp.UserId, out var session))
+            return;
+
+        var message = Loc.GetString("spell-fireball-maxed-out-message");
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+        _chatManager.ChatMessageToOne(ChatChannel.Server,
+            message,
+            wrappedMessage,
+            default,
+            false,
+            session.Channel,
+            args.MessageColor);
+    }
+
+    protected override void TriggerExplosion(EntityUid origin)
+    {
+        base.TriggerExplosion(origin);
+
+        _explosion.TriggerExplosive(
+            origin,
+            delete: true,
+            totalIntensity: 50f,
+            radius: 4f
+        );
     }
 
     protected override void MakeMime(EntityUid uid)
