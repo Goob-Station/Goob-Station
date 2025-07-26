@@ -387,17 +387,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkWeaponShotgunHeavy
-  name: uplink-weapon-heavy-shotgun-name
-  description: uplink-weapon-heavy-shotgun-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
-  productEntity: WeaponShotgunHeavy
-  cost:
-    Telecrystal: 200
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkBowHardlight
   name: uplink-hardlight-bow-name
   description: uplink-hardlight-bow-desc
@@ -464,16 +453,6 @@
     Telecrystal: 130
   categories:
     - UplinkWeaponry
-
-- type: listing
-  id: UplinkWeaponCombatShotgun
-  name: uplink-combat-shotgun-name
-  description: uplink-combat-shotgun-desc
-  productEntity: WeaponShotgunCombat
-  cost:
-    Telecrystal: 50
-  categories:
-    -  UplinkWeaponry
 
 # Wearables
 

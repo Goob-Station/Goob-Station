@@ -94,9 +94,6 @@ uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicat
 uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
-uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
-uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
-
 uplink-WSPR-name = WSPR
 uplink-WSPR-desc = This rifle operates silently and uses 9.5mm caseless magnum hollow-point bullets, which are more effective against flesh but less effective against armor.
 
@@ -132,9 +129,6 @@ uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. h
 
 uplink-m7s-name = M7S "Ventilator"
 uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
-
-uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
-uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
 
 uplink-he1sg8-bundle-name = HE1S-G8 Bundle
 uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
