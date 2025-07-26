@@ -1,6 +1,6 @@
 - type: material
   id: SheetPrinter
-  stackEntity: SheetPrinter1
+  stackEntity: SheetPrinter
   name: materials-paper
   icon: {sprite: Objects/Misc/bureaucracy.rsi, state: paper}
   color: "#ffffff"

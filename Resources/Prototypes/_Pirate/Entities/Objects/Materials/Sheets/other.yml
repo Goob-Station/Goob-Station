@@ -22,11 +22,3 @@
   - type: Tag
     tags:
     - Document
-
-- type: entity
-  parent: SheetPrinter
-  id: SheetPrinter1
-  suffix: Single
-  components:
-  - type: Stack
-    count: 1
