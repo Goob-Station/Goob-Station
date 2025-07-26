@@ -89,6 +89,15 @@
 
 - type: entity
   parent: BaseFlatpack
+  id: ComputerNTRTasksFlatpack
+  name: ntr task computer flatpack
+  description: A flatpack used for constructing a NTR task computer.
+  components:
+  - type: Flatpack
+    entity: ComputerNTRTasks
+
+- type: entity
+  parent: BaseFlatpack
   id: MachinePowerTransmissionLaserFlatpack
   name: power transmision laser flatpack
   description: A flatpack used for constructing a power transmission laser
