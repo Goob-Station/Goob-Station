@@ -174,12 +174,6 @@ uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 uplink-highcap-pistol-mag-name = High Capacity Pistol Magazine (.35 auto)
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
 
-uplink-heavy-shotgun-magazine-name = Heavy Shotgun Drum (2 gauge HE pellet)
-uplink-heavy-shotgun-magazine-desc = Shotgun magazine with 15 high-explosive pellet shells. Compatible with the NZ CSG-242.
-
-uplink-heavy-shotgun-magazine-slug-name = Heavy Shotgun Drum (2 gauge HE slug)
-uplink-heavy-shotgun-magazine-slug-desc = Shotgun magazine with 15 high-eplosive shrapnel slug shells. Compatible with the NZ CSG-242.
-
 uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
 uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
 
@@ -188,18 +182,6 @@ uplink-cartridge-G8-demolishing-desc = This cartridge shots "The Spear of Ares" 
 
 uplink-cartridge-G8-hypercharged-name = G8 hypercharged cartridge
 uplink-cartridge-G8-hypercharged-desc = This cartridge shots "The Bolt of Zeus" bullet, shocking everyone on its way and creating an energy vortex at its destination point, that creates a massive explosion on overcharge. Used by HE1S-G8.
-
-uplink-high-caliber-shotgun-box-name = 8 Gauge shell box
-uplink-high-caliber-shotgun-box-desc = 16 shells of 8 Gauge shells, for the combat shotgun.
-
-uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
-uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
-
-uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
-uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those without hearing protection.
-
-uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
-uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
 # Grenades
 

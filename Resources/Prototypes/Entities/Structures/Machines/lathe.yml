@@ -430,7 +430,6 @@
     - SecurityAmmoStatic
     # Goobstation
     - SecurityWeaponsStaticGoob
-    - SecurityAmmoStaticGoob
     - SyndicateAmmoLightStatic
     - ScienceExplosives
   - type: BlueprintReceiver
@@ -737,7 +736,6 @@
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
     # Goobstation
-    - SecurityAmmoStaticGoob
     - SecurityEquipmentStaticGoob
     - SecurityHypoStatic
     - MechWeaponsSecurityStatic

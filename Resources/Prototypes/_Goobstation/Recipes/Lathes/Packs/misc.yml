@@ -26,9 +26,6 @@
   - MagazinePistolHighCapacity
   - MagazineLightRifleBoxEmpty
   - MagazineLightRifleBox
-  - MagazineHighCaliberEmpty
-  - MagazineHighCaliber
-  - MagazineBoxHighCaliber
   - MagazineBoxAntiMateriel
 
 - type: latheRecipePack

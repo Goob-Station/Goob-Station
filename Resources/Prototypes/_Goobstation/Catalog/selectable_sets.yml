@@ -365,22 +365,25 @@
   content:
     - BSOManual
 
-- type: selectableSet
-  id: BSOChesterSet
-  name: selectable-set-blueshield-chester-name
-  description: selectable-set-blueshield-chester-description
-  sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
-    state: base
-  content:
-  # Guaranteed items
-  - WeaponLeverChester
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineBoxShotgunHighCaliberEMP
-  - MagazineBoxShotgunHighCaliberEnsnaring
-#  tables:
-#  - ChesterRandomAmmoTable
+# Disabled until chester gets reverted to previous balance.
+# Just because some fuck gave antags an overpowered bullshit toy doesn't mean you can add one to crew too
+# What you should be doing is reverting the scumfuck braindead addition someone else made.
+# - type: selectableSet
+#  id: BSOChesterSet
+#  name: selectable-set-blueshield-chester-name
+#  description: selectable-set-blueshield-chester-description
+#  sprite:
+#    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+#    state: base
+#  content:
+#  # Guaranteed items
+#  - WeaponLeverChester
+#  - MagazineShotgunLeverRifleEmpty
+#  - MagazineShotgunLeverRifleEmpty
+#  - MagazineBoxShotgunHighCaliberEMP
+#  - MagazineBoxShotgunHighCaliberEnsnaring
+##  tables:
+##  - ChesterRandomAmmoTable
 
 - type: selectableSet
   id: BSOSyringeSet

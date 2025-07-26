@@ -3,14 +3,17 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entityTable
-  id: ChesterRandomAmmoTable
-  table: !type:GroupSelector
-    rolls: !type:ConstantNumberSelector
-      value: 2
-    children:
-    - id: MagazineBoxShotgunHighCaliberFlash
-    - id: MagazineBoxShotgunHighCaliberEnsnaring
-    - id: MagazineBoxShotgunHighCaliberEMP
-    - id: MagazineBoxShotgunHighCaliber
-      weight: 2
+# 26-07-2025 - Disabled until people learn that just because antags have a specific toy doesn't mean the crew is entitled to one.
+# Or vice versa.
+
+# - type: entityTable
+#  id: ChesterRandomAmmoTable
+#  table: !type:GroupSelector
+#    rolls: !type:ConstantNumberSelector
+#      value: 2
+#    children:
+#    - id: MagazineBoxShotgunHighCaliberFlash
+#    - id: MagazineBoxShotgunHighCaliberEnsnaring
+#    - id: MagazineBoxShotgunHighCaliberEMP
+#    - id: MagazineBoxShotgunHighCaliber
+#      weight: 2

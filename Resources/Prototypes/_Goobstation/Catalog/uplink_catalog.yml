@@ -1043,28 +1043,6 @@
 #  categories:
 #  - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazineShotgunHeavy
-  name: uplink-heavy-shotgun-magazine-name
-  description: uplink-heavy-shotgun-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon }
-  productEntity: MagazineShotgunHeavy
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkMagazineShotgunHeavySlug
-  name: uplink-heavy-shotgun-magazine-slug-name
-  description: uplink-heavy-shotgun-magazine-slug-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon2 }
-  productEntity: MagazineShotgunHeavySlug
-  cost:
-    Telecrystal: 40
-  categories:
-  - UplinkAmmo
-
 # 弾薬
 - type: listing
   id: UplinkCaselessRifleMag
@@ -1153,50 +1131,6 @@
   productEntity: CartridgeG8Hypercharged
   cost:
     Telecrystal: 6 # 12% cheaper than the bundle, coherency with china
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8Gauge
-  name: uplink-high-caliber-shotgun-box-name
-  description: uplink-high-caliber-shotgun-box-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-lethal }
-  productEntity: MagazineBoxShotgunHighCaliber
-  cost:
-    Telecrystal: 10
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8GaugeSlug
-  name: uplink-high-caliber-shotgun-box-slug-name
-  description: uplink-high-caliber-shotgun-box-slug-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-slug }
-  productEntity: MagazineBoxShotgunSlugHighCaliber
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8GaugeFlash
-  name: uplink-high-caliber-shotgun-box-flash-slug-name
-  description: uplink-high-caliber-shotgun-box-flash-slug-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-incendiary }
-  productEntity: MagazineBoxShotgunHighCaliberFlash
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkAmmo
-
-- type: listing
-  id: UplinkBox8GaugeSarin
-  name: uplink-high-caliber-shotgun-box-sarin-name
-  description: uplink-high-caliber-shotgun-box-sarin-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-sarin }
-  productEntity: MagazineBoxShotgunHighCaliberSarin
-  cost:
-    Telecrystal: 12
   categories:
   - UplinkAmmo
 
