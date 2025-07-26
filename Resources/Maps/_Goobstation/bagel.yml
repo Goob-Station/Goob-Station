@@ -70382,7 +70382,7 @@ entities:
       pos: 40.5,-26.5
       parent: 2
     - type: Battery
-      startingCharge: 340.83823
+      startingCharge: 1500
     - type: ApcPowerReceiverBattery
       enabled: True
   - uid: 9101
@@ -70391,7 +70391,7 @@ entities:
       pos: 40.5,-29.5
       parent: 2
     - type: Battery
-      startingCharge: 386.338
+      startingCharge: 1500
     - type: ApcPowerReceiverBattery
       enabled: True
 - proto: EngineeringTechFab
