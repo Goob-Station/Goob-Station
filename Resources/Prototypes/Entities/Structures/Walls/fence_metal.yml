@@ -88,6 +88,9 @@
     cost: 2
     delay: 2
     fx: EffectRCDDeconstruct2
+  - type: InteractionVerbs # EE: Interaction Verbs
+    allowedVerbs:
+    - Rattle
 
 - type: entity
   parent: BaseFenceMetal
@@ -116,11 +119,6 @@
         - FullTileMask
         layer:
         - TableLayer
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Destructible
     thresholds:
     - trigger:
@@ -175,11 +173,6 @@
         layer:
         - MidImpassable
         - LowImpassable
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Destructible
     thresholds:
     - trigger:
@@ -243,11 +236,6 @@
         layer:
         - MidImpassable
         - LowImpassable
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Construction
     graph: FenceMetal
     node: corner
@@ -280,11 +268,6 @@
         layer:
         - MidImpassable
         - LowImpassable
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Construction
     graph: FenceMetal
     node: end
