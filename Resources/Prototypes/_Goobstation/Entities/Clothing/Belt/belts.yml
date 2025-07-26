@@ -234,10 +234,10 @@
           - Sidearm
 
 - type: entity
-  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCommandContraband ]
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
   id: ClothingBeltMilitaryWebbingBSO
   name: blueshield chest rig
-  description: A chest rig with deep pockets that can store medical and security gear, for use by blueshield officers.
+  description: A robust chest rig with deep pockets and hooks, for use by blueshield officers.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
@@ -248,54 +248,3 @@
     - 0,0,6,2
   - type: ExplosionResistance
     damageCoefficient: 0.25
-    whitelist: # I have no idea why is, say, wrench here, but it's just copied from medical belt.
-      tags:
-      - CigPack
-      - Taser
-      - SecBeltEquip
-      - Radio
-      - Sidearm
-      - MagazinePistol
-      - MagazineMagnum
-      - CombatKnife
-      - Truncheon
-      - BolaEnergy # Goobstation
-      - EnergySpeedloader # Goobstation
-      - MilitaryPowerCell # Goobstation
-      - HandGrenade
-      - Wrench
-      - Bottle
-      - Spray
-      - Brutepack
-      - Bloodpack
-      - Gauze
-      - Ointment
-      - CigPack
-      - PillCanister
-      - Radio
-      - DiscreteHealthAnalyzer
-      - SurgeryTool
-      - Dropper
-      - Tourniquet #Goobstation
-      - MedicalPatch # Goobstation
-      - AutoinjectorCartridge # Goobstation
-      - HandheldCrewMonitor # Goobstation
-      components:
-      - Stunbaton
-      - FlashOnTrigger
-      - SmokeOnTrigger
-      - Flash
-      - Handcuff
-      - BallisticAmmoProvider
-      - CartridgeAmmo
-      - DoorRemote
-      - Whistle
-      - BalloonPopper
-      - ScatteringGrenade # goobstation
-      - Hypospray
-      - Injector
-      - Pill
-      - HandLabeler
-      - SurgeryTool # Shitmed Change
-      - Defibrillator # Goobstation
-      - GunApplySolution # Goobstation - Syndicate dart gun

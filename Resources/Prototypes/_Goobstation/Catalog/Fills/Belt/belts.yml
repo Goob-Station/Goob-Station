@@ -266,3 +266,16 @@
     - id: SupermatterGrenade
     - id: SyndieMiniBomb
       amount: 2
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingBSOFilled
+  parent: ClothingBeltMilitaryWebbingBSO
+  suffix: Filled, BSO
+  components:
+  - type: StorageFill
+    contents:
+    - id: BlueshieldHypoBrute
+    - id: BlueshieldHypoBurn
+    - id: BlueshieldHypoToxin
+    - id: BlueshieldHypoAirloss
+    - id: BlueshieldHypoOmnizine

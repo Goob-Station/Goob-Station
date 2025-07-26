@@ -526,10 +526,10 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 5
+        maxVol: 10
         reagents:
         - ReagentId: ProcenylLazide
-          Quantity: 5
+          Quantity: 10
   - type: SolutionRegeneration
     solution: hypospray
     generated:
@@ -542,7 +542,7 @@
     onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
-    delay: 0.2
+    delay: 0.5
 
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
@@ -574,7 +574,7 @@
     onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
-    delay: 0.2
+    delay: 0.5
 
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
@@ -590,27 +590,27 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 5
+        maxVol: 10
         reagents:
         - ReagentId: Syriniver
-          Quantity: 5
+          Quantity: 10
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
       - ReagentId: Syriniver
-        Quantity: 0.5
+        Quantity: 0.25
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
     onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
-    delay: 0.2
+    delay: 0.5
 
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
-  id: BlueshieldHypoOmni
+  id: BlueshieldHypoOmnizine
   name: combat omnizine hypospray
   description: A self-refilling injector for rapid administration of omnizine.
   components:
@@ -624,27 +624,27 @@
       hypospray:
         maxVol: 10
         reagents:
-        - ReagentId: Omni
+        - ReagentId: Omnizine
           Quantity: 10
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
-      - ReagentId: Omni
-        Quantity: 0.5
+      - ReagentId: Omnizine
+        Quantity: 0.25
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
     onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
-    delay: 0.2
+    delay: 0.5
 
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: BlueshieldHypoAirloss
   name: combat airloss hypospray
-  description: A self-refilling injector for rapid administration of tirimol and dexalin plus.
+  description: A self-refilling injector for rapid administration of artiplates and dexalin plus.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
@@ -656,7 +656,7 @@
       hypospray:
         maxVol: 10
         reagents:
-        - ReagentId: Tirimol
+        - ReagentId: Artiplates
           Quantity: 5
         - ReagentId: DexalinPlus
           Quantity: 5
@@ -664,7 +664,7 @@
     solution: hypospray
     generated:
       reagents:
-      - ReagentId: Tirimol
+      - ReagentId: Artiplates
         Quantity: 0.25
       - ReagentId: DexalinPlus
         Quantity: 0.25
@@ -674,4 +674,4 @@
     onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
-    delay: 0.2
+    delay: 0.5

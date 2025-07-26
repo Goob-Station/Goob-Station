@@ -392,6 +392,16 @@
   content:
     - BoxCombatInjector
 
+- type: selectableSet
+  id: BSOHypoSet
+  name: selectable-set-blueshield-hypo-name
+  description: selectable-set-blueshield-hypo-description
+  sprite:
+    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    state: icon
+  content:
+  - ClothingBeltMilitaryWebbingBSOFilled
+
 # Blueshield hardsuits
 
 - type: selectableSet
