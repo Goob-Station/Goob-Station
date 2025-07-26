@@ -357,9 +357,6 @@
   id: MagazineNailgun
 
 - type: Tag
-  id: MagazineShotgunHeavy
-
-- type: Tag
   id: MagazineSmart
 
 - type: Tag

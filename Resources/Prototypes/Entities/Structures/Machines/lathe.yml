@@ -803,8 +803,6 @@
       runningState: icon
       staticPacks:
       - SecurityAmmoStatic
-      # Goobstation Packs
-      - SecurityAmmoStaticGoob
     - type: EmagLatheRecipes # Goobstation Packs
       emagStaticPacks:
       - SyndicateAmmoLightStatic
