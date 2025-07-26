@@ -164,6 +164,8 @@
   - type: WeldingHealable
   - type: DamagedSiliconAccent
   - type: Uncloneable
+  - type: Sprinter # slight nerf to speed because heavy robot, mass contest when
+    sprintSpeedMultiplier: 1.35
   - type: Tag
     tags:
     - SiliconMob

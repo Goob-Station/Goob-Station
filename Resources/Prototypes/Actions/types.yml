@@ -384,3 +384,16 @@
     itemIconStyle: NoItem
     useDelay: 1
     event: !type:FakeMindShieldToggleEvent
+
+# Goob Change - Temporarily keep as old action behavior, refer to https://github.com/space-wizards/space-station-14/pull/32782 when we get the refactor.
+- type: entity
+  id: ActionToggleRootable
+  name: action-name-toggle-rootable
+  description: action-description-toggle-rootable
+  components:
+  - type: InstantAction
+    icon: Interface/Actions/rooting_off.png
+    iconOn: Interface/Actions/rooting_on.png
+    itemIconStyle: NoItem
+    useDelay: 1
+    event: !type:ToggleActionEvent

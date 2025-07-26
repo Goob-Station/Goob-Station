@@ -102,6 +102,7 @@
 // SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -298,6 +299,9 @@ public abstract partial class SharedMoverController : VirtualController
         // If we're not the target of a relay then handle lerp data.
         if (relaySource == null)
         {
+            if (TileMovementQuery.HasComponent(uid)) // Goobstation Change
+                TryUpdateRelative(uid, mover, xform);
+
             // Update relative movement
             if (mover.LerpTarget < Timing.CurTime)
             {
@@ -349,32 +353,32 @@ public abstract partial class SharedMoverController : VirtualController
 
         // Tile Movement Change
         // Try doing tile movement.
-        // Temporairly nuked.
-        //if (TileMovementQuery.TryComp(physicsUid, out var tileMovement))
-        //{
-        //    if (!weightless && !inAirHelpless)
-        //    {
-        //        var didTileMovement = HandleTileMovement(uid,
-        //            physicsUid,
-        //            tileMovement,
-        //            physicsComponent,
-        //            xform,
-        //            mover,
-        //            tileDef,
-        //            relayTarget,
-        //            frameTime);
-        //        tileMovement.WasWeightlessLastTick = weightless;
-        //        if(didTileMovement)
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        tileMovement.WasWeightlessLastTick = weightless;
-        //        tileMovement.SlideActive = false;
-        //    }
-        //}
+        if (TileMovementQuery.TryComp(uid, out var tileMovement))
+        {
+            if (!weightless && !inAirHelpless)
+            {
+                var didTileMovement = HandleTileMovement(uid,
+                    uid,
+                    tileMovement,
+                    physicsComponent,
+                    xform,
+                    mover,
+                    tileDef,
+                    relayTarget,
+                    frameTime);
+                tileMovement.WasWeightlessLastTick = weightless;
+                if(didTileMovement)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                tileMovement.WasWeightlessLastTick = weightless;
+                tileMovement.SlideActive = false;
+                tileMovement.FailureSlideActive = false;
+            }
+        }
 
         var touching = false;
         // Whether we use tilefriction or not
@@ -890,7 +894,7 @@ public abstract partial class SharedMoverController : VirtualController
                     }
                     // Otherwise if we failed to reach the destination, begin a "failure slide" back to the
                     // original position.
-                    else if(!tileMovement.FailureSlideActive && !targetTransform.LocalPosition.EqualsApprox(tileMovement.Destination, 0.04))
+                    else if (!tileMovement.FailureSlideActive && !targetTransform.LocalPosition.EqualsApprox(tileMovement.Destination, 0.04))
                     {
                         InitializeSlideToTarget(physicsUid, tileMovement, targetTransform.LocalPosition, MoveButtons.None);
                         UpdateSlide(physicsUid, physicsUid, tileMovement, inputMover);

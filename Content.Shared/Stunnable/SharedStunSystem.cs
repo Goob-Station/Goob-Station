@@ -25,7 +25,6 @@
 // SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
@@ -41,7 +40,6 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
@@ -49,9 +47,17 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 nikitosych <boriszyn@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -398,7 +404,8 @@ public abstract class SharedStunSystem : EntitySystem
     /// <param name="runSpeedModifier">New run (sprint) speed modifier. Default is 1f (normal speed).</param>
     public void UpdateStunModifiers(Entity<StaminaComponent?> ent,
         float walkSpeedModifier = 1f,
-        float runSpeedModifier = 1f)
+        float runSpeedModifier = 1f,
+        bool visual = true) // Goob edit
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -408,8 +415,11 @@ public abstract class SharedStunSystem : EntitySystem
         // Choose bigger of speed modifiers (usually sprint) and use it to scale Crowd Control effect time
         var cCFactor = Math.Clamp(1 - Math.Min(walkSpeedModifier, runSpeedModifier), 0, 1);
         var cCTime = TimeSpan.FromSeconds(10f);
-        _jitter.DoJitter(ent, cCFactor * cCTime, true);
-        _stutter.DoStutter(ent, cCFactor * cCTime, true);
+        if (visual) // Goob edit
+        {
+            _jitter.DoJitter(ent, cCFactor * cCTime, true);
+            _stutter.DoStutter(ent, cCFactor * cCTime, true);
+        }
 
         /*
         if (
@@ -443,9 +453,9 @@ public abstract class SharedStunSystem : EntitySystem
     /// <param name="component">
     /// Optional <see cref="StaminaComponent"/> of the entity.
     /// </param>
-    public void UpdateStunModifiers(Entity<StaminaComponent?> ent, float speedModifier = 1f)
+    public void UpdateStunModifiers(Entity<StaminaComponent?> ent, float speedModifier = 1f, bool visual = true) // Goob edit
     {
-        UpdateStunModifiers(ent, speedModifier, speedModifier);
+        UpdateStunModifiers(ent, speedModifier, speedModifier, visual); // Goob edit
     }
 
     private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)

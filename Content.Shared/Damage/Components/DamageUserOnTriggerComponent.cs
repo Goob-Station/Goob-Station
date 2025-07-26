@@ -9,7 +9,7 @@
 using Content.Shared.Damage;
 using Content.Shared._Shitmed.Targeting; // Shitmed
 
-namespace Content.Server.Damage.Components;
+namespace Content.Shared.Damage.Components;
 
 [RegisterComponent]
 public sealed partial class DamageUserOnTriggerComponent : Component
