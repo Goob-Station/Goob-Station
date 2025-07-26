@@ -194,7 +194,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
     {
         if (args.Cancelled)
             return;
-
         ToggleClothing(args.User, toggleable);
     }
 
@@ -252,17 +251,48 @@ public sealed class ToggleableClothingSystem : EntitySystem
             return;
 
         var parts = comp.ClothingUids;
+        var affectedParts = new List<(EntityUid, string)>();
 
-        foreach (var part in parts)
+        // if your toggleable clothing is a backslot and gets forcefully removed i.e. gibbing, Robust likes to forcefully eject the container(s)
+        // you can try this by making a regular outerclothing item a back item with VV and equipping the toggle, then smiting yourself
+        // the toggled clothing will just fall on the spot or follow the attached but will be removed from container even after OnAttachedUnequip runs
+        // this mess fixes that. Im not touching other systems for this bullshit.
+        if (TryComp<ClothingComponent>(toggleable.Owner, out var clothingComp) &&
+            (clothingComp.Slots & SlotFlags.BACK) != 0)
         {
-            // Check if entity in container what means it already unequipped
-            if (comp.Container.Contains(part.Key))
+            foreach (var (partUid, slot) in parts)
+            {
+                if (comp.Container.Contains(partUid))
+                    continue;
+                _inventorySystem.TryUnequip(args.Equipee, slot, force: true, triggerHandContact: true);
+                // unnecessary for gibbing behaviour fix
+                // but this makes it so that if you unequip and there's items stored
+                // it doesn't just eat the items
+                if (TryComp<AttachedClothingComponent>(partUid, out var partComp) &&
+                partComp.ClothingContainer.ContainedEntity is EntityUid stored &&
+                !Deleted(stored))
+                {
+                    _containerSystem.TryRemoveFromContainer(stored);             // pop it out
+                    _inventorySystem.TryEquip(args.Equipee, stored, slot,    // put it on
+                        force: true, triggerHandContact: true);
+                }
+                _containerSystem.Insert(partUid, comp.Container); // instant insert we dont wait for OnAttachedUnequip
+                affectedParts.Add((partUid, slot));
+            }
+            if (affectedParts.Count > 0)
+            {
+                var ev = new ToggledBackClothingFullUnequipAndInsertedEvent(toggleable.Owner, args.Equipee, affectedParts);
+                RaiseLocalEvent(toggleable.Owner, ref ev);
+            }
+            return;
+        }
+
+        foreach (var (partUid, slot) in parts)
+        {
+            if (comp.Container.Contains(partUid) || string.IsNullOrEmpty(slot))
                 continue;
 
-            if (part.Value == null)
-                continue;
-
-            _inventorySystem.TryUnequip(args.Equipee, part.Value, force: true, triggerHandContact: true);
+            _inventorySystem.TryUnequip(args.Equipee, slot, force: true, triggerHandContact: true);
         }
     }
 
@@ -344,6 +374,23 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (!toggleableComp.ClothingUids.ContainsKey(attached.Owner))
             return;
 
+        if (!toggleableComp.ClothingUids.TryGetValue(attached.Owner, out var slot))
+            return;
+        // I'm just assuming any toggleable backslot is a modsuit and deffering sanity checks there
+        if (TryComp<ClothingComponent>(comp.AttachedUid, out var clothingComp) &&
+        (clothingComp.Slots & SlotFlags.BACK) != 0)
+        {
+            var ev = new OnToggleableUnequipAttemptEvent(comp.AttachedUid, attached.Owner, args.Equipee, false);
+            RaiseLocalEvent(comp.AttachedUid, ev);
+            // I fucking hate these naming schemes but im not changing them at this point
+            // AttachedUid = Toggleable Part
+            // Owner       = Toggled Part
+
+        }
+
+        // Handle re-equipping contained items
+        UnequipClothing(args.Equipee, (comp.AttachedUid, toggleableComp), attached.Owner, slot);
+
         if (toggleableComp.Container != null)
             _containerSystem.Insert(attached.Owner, toggleableComp.Container);
     }
@@ -424,6 +471,11 @@ public sealed class ToggleableClothingSystem : EntitySystem
             ForceSuitStorage(user, suitStorageItem);
         }
 
+        // Throw an event to run sanity check for modsuits in sealablesystem - TODO for later
+        /*
+        var ev = new OnToggleableUnequipAttemptEvent(toggleable, user, false);
+        RaiseLocalEvent(toggleable, ev);
+        */
     }
 
     /// <summary>
@@ -611,7 +663,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         {
             if (container.Contains(attached.Key)
                 && unequipping
-                || CheckEquipped(user, attached.Key, attached.Value) < EquipAbility.MissingSlot)
+                || CheckEquipped(Transform(toggleable).ParentUid, attached.Key, attached.Value) < EquipAbility.MissingSlot)
                 continue;
 
             toggledCount++;
@@ -714,3 +766,36 @@ public enum ToggleableClothingAttachedStatus : byte
     PartlyToggled,
     AllToggled
 }
+
+public sealed class OnToggleableUnequipAttemptEvent : CancellableEntityEventArgs
+{
+    public EntityUid Toggleable { get; }
+    public EntityUid Attached { get; }
+    public EntityUid Unequipee { get; }
+    public bool Multiple { get; }
+
+    public OnToggleableUnequipAttemptEvent(EntityUid toggleable, EntityUid attached, EntityUid unequipee, bool multiple)
+    {
+        Toggleable = toggleable;
+        Attached = attached;
+        Unequipee = unequipee;
+        Multiple = multiple;
+
+    }
+}
+
+
+/// <summary>
+/// Raised when a toggleable clothing BACK part is fully unequipped and inserted into its container.
+/// </summary>
+[ByRefEvent]
+public readonly record struct ToggledBackClothingFullUnequipAndInsertedEvent(
+
+    EntityUid Toggleable,
+
+    EntityUid Equipee,
+
+    List<(EntityUid Part, string Slot)> Parts
+);
+
+

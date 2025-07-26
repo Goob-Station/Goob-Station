@@ -4,6 +4,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+# SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -17,3 +19,13 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from Goonstation."
   source: "https://github.com/goonstation/goonstation"
+
+- files: ["ErrorBeep2.wav"]
+  license: "CC-BY-4.0"
+  copyright: "Error 2 by qubodup at freesound.org"
+  source: "https://freesound.org/s/722376/"
+
+- files: ["MaxTempAlertCut.wav & MaxTempAlert.wav"]
+  license: "CC0-1.0"
+  copyright: "MaxTempAlert by CompleteMelody at freesound.org - MaxTempAlertCut is minor edit"
+  source: "https://freesound.org/s/742645/"
