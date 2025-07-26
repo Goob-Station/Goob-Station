@@ -8,7 +8,9 @@
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Jarl <140098675+JarlElbowses@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -157,6 +159,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
     equippedPrefix: gauntlet
@@ -166,6 +169,7 @@
   - type: Item
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
     heldPrefix: gauntlet
+    storedRotation: -90
   - type: ClothingGrantComponent
     component:
     - type: Prying
@@ -242,6 +246,62 @@
 - type: entity
   parent: ClothingHandsGlovesDeathsquad
   id: ClothingHandsGlovesDeathsquadUnremovable
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: [ClothingHandsGlovesDeathsquad, BaseCentcommContraband, ClothingShoesBootsMagAdv] # Can't parent deathsquadboots or jetpack cause UninitializedSaveTest fails
+  id: ClothingHandsGlovesDeathsquadGyro # For species that cant wear shoes
+  name: mk-3.1 "redactor" power gloves  # 3.1
+  description: A pair of highly-advanced gauntlets capable of ripping open doors. Its retractable claws are laced with a potent neurotoxin. This version includes gyroscopic thrusters!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    equippedPrefix: gauntlet
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-pitch-black
+  - type: Item
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    heldPrefix: gauntlet
+  - type: Magboots
+    slot: gloves
+  - type: ToggleClothingPrefix
+    prefixOn: claws
+    prefixOff: gauntlet
+  - type: ItemTogglePrefix
+    prefixOn: claws
+    prefixOff: gauntlet
+  - type: ClothingSpeedModifier
+    walkModifier: 1.10
+    sprintModifier: 1.10
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 2
+      temperature: 293.15
+      moles:
+      - 0.153853429 # oxygen
+      - 0.153853429 # nitrogen
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: UseDelay
+    delays:
+      gasTank:
+        length: 1.0
+  - type: Jetpack
+    moleUsage: 0.00085
+
+- type: entity
+  parent: ClothingHandsGlovesDeathsquadGyro
+  id: ClothingHandsGlovesDeathsquadGyroUnremoveable
   suffix: Unremovable
   components:
   - type: Unremoveable
@@ -433,3 +493,22 @@
         Blunt: 35
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+
+
+- type: entity # for diona & harpy ERT. Probably remove from diona if upstream gets merged. Or dont, it's ERT.
+  parent: [ClothingHandsGlovesCombat, ClothingShoesBootsMagEmergencyResponseTeam]
+  id: ClothingHandsGlovesEmergencyResponseTeam
+  name: tactical response gyroscopic gloves # yes gyroscopes are my stupid excuse
+  description: Look! Supergloves for an emergency responder that can't wear shoes! we're saved!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/emergencyresponseteam.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/emergencyresponseteam.rsi
+    slots: [gloves]
+  - type: Item
+    sprite: _Goobstation/Clothing/Hands/Gloves/emergencyresponseteam.rsi
+  - type: Magboots
+    slot: gloves
+  - type: StaticPrice
+    price: 1000
