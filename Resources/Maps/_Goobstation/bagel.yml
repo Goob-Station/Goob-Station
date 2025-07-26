@@ -70443,19 +70443,19 @@ entities:
     - type: Transform
       pos: 40.5,-26.5
       parent: 2
-    - type: Battery
-      startingCharge: 1500
     - type: ApcPowerReceiverBattery
       enabled: True
+    - type: Battery
+      startingCharge: 1500
   - uid: 9101
     components:
     - type: Transform
       pos: 40.5,-29.5
       parent: 2
-    - type: Battery
-      startingCharge: 1500
     - type: ApcPowerReceiverBattery
       enabled: True
+    - type: Battery
+      startingCharge: 1500
 - proto: EngineeringTechFab
   entities:
   - uid: 10758
