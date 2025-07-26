@@ -12767,3 +12767,33 @@ Entries:
       message: Mobs won't be able to leave footprints without gravity.
   id: 1410
   time: '2025-07-21T18:57:06.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Unslopped how necksnapping works.
+  id: 1411
+  time: '2025-07-22T00:08:27.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Gemini cannot be injected with holoparasite anymore.
+  id: 1412
+  time: '2025-07-23T18:07:28.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Nails projectiles can be reflected now.
+  id: 1413
+  time: '2025-07-23T18:09:11.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed collective mind message repeat for message source
+  id: 1414
+  time: '2025-07-23T18:10:12.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: All Abductors should have Agent IDs now.
+  id: 1415
+  time: '2025-07-23T18:13:53.0000000+00:00'
