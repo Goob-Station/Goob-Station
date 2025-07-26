@@ -20,7 +20,7 @@
   components:
   - type: WizardRule
   - type: GameRule
-    minPlayers: 15 # Pirate
+    minPlayers: 30
     chaosScore: 900
   - type: AntagObjectives
     objectives:
