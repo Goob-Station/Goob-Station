@@ -1,0 +1,18 @@
+- type: entity
+  parent: AirlockScience
+  id: AirlockMantisLocked
+  suffix: Mantis, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMantis ]
+
+
+- type: entity
+  parent: AirlockScienceGlass
+  id: AirlockMantisGlassLocked
+  suffix: Mantis, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMantis ]

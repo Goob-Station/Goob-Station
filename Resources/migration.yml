@@ -158,8 +158,8 @@ AirlockMaintMimeLocked: AirlockMaintTheatreLocked
 AirlockMaintPsychologistLocked: AirlockMaintMedLocked
 AirlockMaintReporterLocked: AirlockServiceLocked
 AirlockMaintZookeeperLocked: AirlockServiceLocked
-AirlockMantisGlassLocked: null
-AirlockMantisLocked: null
+#AirlockMantisGlassLocked: null Pirate
+#AirlockMantisLocked: null
 AirlockMimeGlassLocked: AirlockTheatreGlassLocked
 AirlockMusicianGlassLocked: AirlockTheatreGlassLocked
 AirlockPsychologistLocked: AirlockMedicalLocked
@@ -175,14 +175,14 @@ BenchParkRight: null
 BenchPewLeft: null
 BenchPewMiddle: null
 BenchPewRight: null
-BenchSofaCorpLeft: null
-BenchSofaCorpMiddle: null
-BenchSofaCorpRight: null
-BenchSofaLeft: null
-BenchSofaRight: null
-BenchSteelLeft: null
-BenchSteelMiddle: null
-BenchSteelRight: null
+#BenchSofaCorpLeft: null Pirate start
+#BenchSofaCorpMiddle: null
+#BenchSofaCorpRight: null
+#BenchSofaLeft: null
+#BenchSofaRight: null
+#BenchSteelLeft: null
+#BenchSteelMiddle: null
+#BenchSteelRight: null Pirate end
 BenchSteelWhiteLeft: null
 BenchSteelWhiteMiddle: null
 BenchSteelWhiteRight: null
@@ -196,7 +196,7 @@ ClothingCostumeArcDress: null
 ClothingHeadCourier: null
 ClothingHeadHatFedoraBlack: null
 ClothingHeadHatFedoraChoc: null
-ClothingHeadHatFezMantis: null
+#ClothingHeadHatFezMantis: null Pirate
 ClothingHeadPrisonGuard: null
 ClothingUniformMartialGi: null
 ClothingUniformTShirtKhakiPants: null
@@ -211,7 +211,7 @@ DefaultStationBeaconEngiOutpost: null
 DefaultStationBeaconExam: null
 DefaultStationBeaconJanitorsOffice: null
 DefaultStationBeaconMailroom: null
-DefaultStationBeaconMantis: null
+DefaultStationBeaconBenchSteelMiddle: null
 DefaultStationBeaconMetempsychosis: null
 DefaultStationBeaconPark: null
 DefaultStationBeaconPsychologist: null
@@ -227,7 +227,7 @@ GunSafeVulcanRifle: null
 HatSpawner: null
 KitchenDeepFryer: null
 KvassTankFull: null
-LockerForensicMantisFilled: null
+#LockerForensicMantisFilled: null Pirate
 LunchboxSecurityFilledRandom: null
 MagazineBoxSpecialPractice: null
 MetempsychoticMachine: null
@@ -289,7 +289,7 @@ SpawnMobArcticFoxSiobhan: null
 SpawnMobFerret: null
 SpawnMobMothroach: null
 SpawnPointCourier: null
-SpawnPointForensicMantis: null
+# SpawnPointForensicMantis: null Pirate
 SpawnPointLocationMidRoundAntag: null
 SpawnPointMartialArtist: null
 SpawnPointMedicalBorg: null
