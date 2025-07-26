@@ -17,15 +17,19 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 EulogisticLullaby <karaadastra@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sera <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
 #
@@ -37,8 +41,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/20/2025 04:40:14
-  entityCount: 2503
+  time: 07/16/2025 23:10:49
+  entityCount: 2502
 maps:
 - 1
 grids:
@@ -1015,7 +1019,7 @@ entities:
       pos: 35.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1319.1069
+      secondsUntilStateChange: -1238.2119
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1151,7 +1155,7 @@ entities:
       pos: 32.5,4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3821.4556
+      secondsUntilStateChange: -3740.5605
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15087,13 +15091,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,-20.5
-      parent: 2
-- proto: WizardMirror
-  entities:
-  - uid: 529
-    components:
-    - type: Transform
-      pos: 5.5,1.5
       parent: 2
 - proto: Wrench
   entities:
