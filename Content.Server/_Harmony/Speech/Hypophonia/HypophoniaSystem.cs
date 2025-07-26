@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
