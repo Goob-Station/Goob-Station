@@ -1,0 +1,27 @@
+# Basic
+
+- type: entity
+  parent: ToggleNightVision
+  id: ActionThrallDarksight
+  name: Thrall Darksight
+  description: See through the darkness.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _EinsteinEngines/Shadowling/thrall_abilities.rsi
+      state: thrall_darksight
+
+- type: entity
+  id: ActionGuise
+  name: Guise
+  description: Become invisible in the darkness.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 120
+    icon:
+      sprite: _EinsteinEngines/Shadowling/shadowling_abilities.rsi
+      state: shadow_walk
+    event: !type:GuiseEvent { }

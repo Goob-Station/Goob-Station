@@ -13,3 +13,8 @@
   id: Flap
   kind: source
   path: "/Textures/_EinsteinEngines/Shaders/flap.swsl"
+
+- type: shader
+  id: EnthrallEffect
+  kind: source
+  path: "/Textures/_EinsteinEngines/Shaders/enthrall_effect.swsl"

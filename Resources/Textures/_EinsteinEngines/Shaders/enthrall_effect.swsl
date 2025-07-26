@@ -1,0 +1,77 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float percentComplete;
+const highp float fadeFalloffExp = 8.0;
+
+// Original Credits:  victor_shepardson
+// Shader modified by:  xef6
+
+// LICENSE:
+// Creative Commons Attribution 4.0 International License.
+// https://creativecommons.org/licenses/by/4.0/
+
+highp vec4 T(highp vec2 coords) {
+    return texture(SCREEN_TEXTURE, fract(coords));
+}
+
+void fragment() {
+    // Compute alpha fade
+    highp float remaining = -pow(percentComplete, fadeFalloffExp) + 1.0;
+
+    highp vec2 u = UV;
+    highp vec4 c;
+
+    c = vec4(u.y, u.y, u.y, 1.0) / 20000.0;
+
+    for(highp float t = 0.6; t < 100.0; t += t) {
+        // Slower time animations (reduced by factor of 2.5)
+        highp float timeScale = 0.4; // Slows down all time-based animations
+
+        highp float f1 = 0.3;
+        highp float f2 = f1;
+        highp float f3 = f1;
+
+        highp float s1 = sin(TIME * f1 * timeScale + 3.14 * 2.0 * 0.00) * 0.5 + 0.5;
+        highp float s2 = sin(TIME * f2 * timeScale + 3.14 * 2.0 * 0.33) * 0.5 + 0.5;
+        highp float s3 = sin(TIME * f3 * timeScale + 3.14 * 2.0 * 0.66) * 0.5 + 0.5;
+
+        highp float ps1 = abs(s1);
+        highp float ps2 = abs(s2);
+        highp float ps3 = abs(s3);
+
+        s1 = sign(s1) * pow(ps1, 0.3); // Increased power = softer transition
+        s2 = sign(s2) * pow(ps2, 0.3);
+        s3 = sign(s3) * pow(ps3, 0.3);
+
+        highp vec4 gbar = vec4(c.g, c.b, c.a, c.r);
+        highp vec2 wz = vec2(c.w, c.z);
+
+
+        highp vec4 v1 = gbar / (sin(TIME * 0.1517 * timeScale) * 12.0); // Increased divisor = reduced effect
+        v1 = v1 - c * 0.2; // Reduced from 0.3
+        v1 = v1 + T(u - wz * t * 0.8); // Reduced movement speed
+
+        highp vec4 v2 = gbar / (cos(TIME * 0.1335 * timeScale) * 12.0);
+        v2 = v2 - c * 0.2;
+        v2 = v2 + T(u - wz * t * 0.8);
+
+        highp vec4 v3 = gbar / (sin(TIME * 0.1229 * timeScale) * 12.0);
+        v3 = v3 - c * 0.2;
+        v3 = v3 + T(u - wz * t * 0.8);
+
+        c += v1 * s1 * 0.7;
+        c += v2 * s2 * 0.7;
+        c += v3 * s3 * 0.7;
+    }
+
+    highp float mixscl = 0.002 + 0.03 * (0.5 + 0.5 * sin(TIME * 0.05)); // Reduced from 0.06, slower time
+
+    highp vec4 color1 = T(u + vec2(c.x, c.y) * 0.7); // Reduced distortion by 0.7
+    highp vec4 color2 = vec4(cos(c.x), cos(c.y), cos(c.z), cos(c.w));
+
+    highp vec4 originalColor = texture(SCREEN_TEXTURE, u);
+    c = mix(color1, color2, mixscl);
+
+    c = mix(originalColor, c, 0.7);
+
+    COLOR = vec4(c.rgb, remaining);
+}

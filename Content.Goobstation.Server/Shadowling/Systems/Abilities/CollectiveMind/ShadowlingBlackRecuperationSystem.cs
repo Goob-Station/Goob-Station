@@ -1,0 +1,144 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Shared.Shadowling;
+using Content.Goobstation.Shared.Shadowling.Components;
+using Content.Goobstation.Shared.Shadowling.Components.Abilities.CollectiveMind;
+using Content.Server.Administration.Systems;
+using Content.Server.DoAfter;
+using Content.Server.EUI;
+using Content.Server.Ghost;
+using Content.Server.Humanoid;
+using Content.Server.Mind;
+using Content.Server.Polymorph.Systems;
+using Content.Server.Popups;
+using Content.Shared.DoAfter;
+using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
+using Robust.Server.Audio;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
+
+namespace Content.Goobstation.Server.Shadowling.Systems.Abilities.CollectiveMind;
+
+/// <summary>
+/// This handles the Black Recuperation logic.
+/// Black Rec. either turns back a dead Thrall to life, OR turns a living Thrall into a Lesser Shadowling by empowering them
+/// Reduces your light resistance forever. Less for thralls, more for lesser shadowlings.
+/// </summary>
+public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
+{
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private readonly LightDetectionDamageSystem _light = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
+    [Dependency] private readonly EuiManager _euiManager = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<ShadowlingBlackRecuperationComponent, BlackRecuperationEvent>(OnBlackRec);
+        SubscribeLocalEvent<ShadowlingBlackRecuperationComponent, BlackRecuperationDoAfterEvent>(OnBlackRecDoAfter);
+    }
+
+    private void OnBlackRec(EntityUid uid, ShadowlingBlackRecuperationComponent component, BlackRecuperationEvent args)
+    {
+        var target = args.Target;
+
+        if (!HasComp<ThrallComponent>(target))
+            return;
+
+        if (_mobStateSystem.IsAlive(target) && HasComp<LesserShadowlingComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("shadowling-black-rec-lesser-already"), uid, uid, PopupType.MediumCaution);
+            return;
+        }
+
+        var doAfter = new DoAfterArgs(
+            EntityManager,
+            uid,
+            component.Duration,
+            new BlackRecuperationDoAfterEvent(),
+            uid,
+            target);
+
+        _doAfter.TryStartDoAfter(doAfter);
+    }
+
+    private void OnBlackRecDoAfter(EntityUid uid, ShadowlingBlackRecuperationComponent component, BlackRecuperationDoAfterEvent args)
+    {
+        if (args.Cancelled
+            || args.Target == null)
+            return;
+
+        var target = args.Target.Value;
+
+        if (!_mobStateSystem.IsAlive(target))
+        {
+            if (_mind.TryGetMind(target, out _, out var mind)
+                && _playerMan.TryGetSessionById(mind.UserId, out var session)
+                && mind.CurrentEntity != target)
+            {
+                // notify them they're being revived.
+                _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _playerMan), session);
+            }
+            else
+            {
+                _popup.PopupEntity(Loc.GetString("defibrillator-no-mind"), uid, uid, PopupType.MediumCaution);
+                return;
+            }
+
+            _rejuvenate.PerformRejuvenate(target);
+            _popup.PopupEntity(Loc.GetString("shadowling-black-rec-revive-done"), uid, target, PopupType.MediumCaution);
+
+            Spawn(component.BlackRecuperationEffect, Transform(target).Coordinates);
+            _audio.PlayPvs(component.BlackRecSound, target, AudioParams.Default.WithVolume(-1f));
+
+            if (TryComp<LightDetectionDamageComponent>(uid, out var lightDetectionDamageModifier))
+                _light.AddResistance(lightDetectionDamageModifier, component.ResistanceRemoveFromThralls);
+        }
+        else
+        {
+            if (component.LesserShadowlingAmount >= component.LesserShadowlingMaxLimit)
+            {
+                _popup.PopupEntity(Loc.GetString("shadowling-black-rec-limit"), uid, uid, PopupType.MediumCaution);
+                return;
+            }
+
+            var newUid = _polymorph.PolymorphEntity(target, component.LesserShadowlingSpeciesProto);
+            if (newUid == null)
+                return;
+
+            EnsureComp<LesserShadowlingComponent>(newUid.Value);
+
+            if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human))
+                _humanoidAppearance.AddMarking(newUid.Value, component.MarkingId, Color.Red, true, true, human);
+
+            Spawn(component.BlackRecuperationEffect, Transform(newUid.Value).Coordinates);
+
+            component.LesserShadowlingAmount++;
+
+            _popup.PopupEntity(
+                Loc.GetString("shadowling-black-rec-lesser-done"),
+                uid,
+                newUid.Value,
+                PopupType.MediumCaution);
+            _audio.PlayPvs(component.BlackRecSound, newUid.Value, AudioParams.Default.WithVolume(-1f));
+
+            if (TryComp<LightDetectionDamageComponent>(uid, out var lightDetectionDamageModifier))
+                _light.AddResistance(lightDetectionDamageModifier, component.ResistanceRemoveFromLesser);
+        }
+    }
+}
