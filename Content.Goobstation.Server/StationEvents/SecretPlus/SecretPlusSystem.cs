@@ -106,8 +106,11 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         // roll midroundchaos generation variation
         var roll = _random.NextFloat();
         roll = MathF.Pow(roll, scheduler.ChaosChangeVariationExponent);
-        // 50% chance to bias to either higher chaos or lower chaos
-        scheduler.ChaosChangeVariation = 1f + roll * ((_random.Prob(0.5f) ? scheduler.ChaosChangeVariationMin : scheduler.ChaosChangeVariationMax) - 1f);
+        scheduler.ChaosChangeVariation = MathHelper.Lerp(
+            scheduler.ChaosChangeVariationMin,
+            scheduler.ChaosChangeVariationMax,
+            roll
+        );
         LogMessage($"Using chaos change multiplier of {scheduler.ChaosChangeVariation}");
 
         TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
