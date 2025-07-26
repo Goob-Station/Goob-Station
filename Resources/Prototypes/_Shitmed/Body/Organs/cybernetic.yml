@@ -61,6 +61,8 @@
     - type: ShowJobIcons
     - type: ShowMindShieldIcons
     - type: ShowCriminalRecordIcons
+    - type: FlashImmunity
+    - type: EyeProtection
 
 - type: entity
   parent: BasicCyberneticEyes
@@ -87,16 +89,18 @@
   components:
   - type: Sprite
     state: eyes-diagnostic
-  - type: ShowHealthBars
-    damageContainers:
-    - Inorganic
-    - Silicon
-    - SiliconRadiation
-  - type: ShowHealthIcons
-    damageContainers:
-    - Inorganic
-    - Silicon
-    - SiliconRadiation
+  - type: Organ
+    onAdd:
+    - type: ShowHealthBars
+      damageContainers:
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
+    - type: ShowHealthIcons
+      damageContainers:
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
 
 # Heart
 
