@@ -492,7 +492,7 @@ namespace Content.Server.GameTicking
 
             RoundLengthMetric.Set(0);
 
-            var startingEvent = new Content.Server.GameTicking.Events.RoundStartingEvent(RoundId);
+            var startingEvent = new Content.Server.GameTicking.Events.RoundStartingEvent(RoundId); // Pirate - Port Station Goals
             RaiseLocalEvent(startingEvent);
 
             var origReadyPlayers = readyPlayers.ToArray();
