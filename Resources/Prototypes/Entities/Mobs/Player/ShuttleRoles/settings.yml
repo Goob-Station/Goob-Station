@@ -790,6 +790,7 @@
       prototypes: [ SyndicateFootsoldierGear ]
       roleLoadout: [ RoleSurvivalSyndicate ]
 
+
 - type: randomHumanoidSettings
   id: SyndieVisitor
   parent: EventHumanoid
