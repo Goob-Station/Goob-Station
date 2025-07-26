@@ -744,7 +744,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string wrappedMessagePostfix = "" // Goobstation
         )
     {
-        if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
+        if (!_actionBlocker.CanSpeak(source, true) && !ignoreActionBlocker) // Goobstation - Port hypophonia trait from Harmony - added whisper boolean
             return;
 
         var message = TransformSpeech(source, FormattedMessage.RemoveMarkupOrThrow(originalMessage), language); // Einstein Engines - Language

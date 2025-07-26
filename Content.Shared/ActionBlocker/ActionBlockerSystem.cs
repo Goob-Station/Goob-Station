@@ -228,10 +228,11 @@ namespace Content.Shared.ActionBlocker
             return !itemEv.Cancelled;
         }
 
-        public bool CanSpeak(EntityUid uid)
+        // Goobstation - Port hypophonia trait from Harmony - added whisper boolean
+        public bool CanSpeak(EntityUid uid, bool whisper = false)
         {
             // This one is used as broadcast
-            var ev = new SpeakAttemptEvent(uid);
+            var ev = new SpeakAttemptEvent(uid, whisper);
             RaiseLocalEvent(uid, ev, true);
 
             return !ev.Cancelled;

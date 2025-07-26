@@ -10,11 +10,14 @@ namespace Content.Shared.Speech
 {
     public sealed class SpeakAttemptEvent : CancellableEntityEventArgs
     {
-        public SpeakAttemptEvent(EntityUid uid)
+        // Goobstation - Port hypophonia trait from Harmony - added whisper boolean
+        public SpeakAttemptEvent(EntityUid uid, bool whisper)
         {
             Uid = uid;
+            Whisper = whisper;
         }
 
         public EntityUid Uid { get; }
+        public bool Whisper { get; }
     }
 }
