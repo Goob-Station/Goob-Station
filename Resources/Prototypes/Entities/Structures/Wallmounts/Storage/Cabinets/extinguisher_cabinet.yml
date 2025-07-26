@@ -20,22 +20,13 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# TODO: this could probably use some kind of base structure prototype
-# every wallmount cabinet copypastes placement and like 8 components
+
 - type: entity
-  parent: BaseItemCabinet
+  parent: BaseWallmountCabinet
   id: ExtinguisherCabinet
   name: extinguisher cabinet
   description: A small wall mounted cabinet designed to hold a fire extinguisher.
-  placement:
-    mode: SnapgridCenter
   components:
-    - type: WallMount
-      arc: 360
-    - type: Transform
-      anchored: true
-    - type: Clickable
-    - type: InteractionOutline
     - type: Sprite
       sprite: Structures/Wallmounts/extinguisher_cabinet.rsi
       snapCardinals: true
@@ -53,9 +44,6 @@
           whitelist:
             components:
             - SpraySafety
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: Metallic
     - type: Destructible
       thresholds:
         - trigger:
