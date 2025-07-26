@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseStructureDynamic
   id: PaperBin
-  name: paper bin
-  description: What secrets lie at the bottom of its endless stack?
+  name: "смітник для паперу"
+  description: "Які секрети ховаються на дні його нескінченної стопки?"
   suffix: Empty
   components:
   - type: Sprite

@@ -4,9 +4,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: medical beam gun
+  name: "медична променева гармата"
   parent: BaseItem
-  description: Delivers volatile medical nanites in a focused beam. Don't cross the beams!
+  description: "Доставляє леткі медичні наніти у сфокусованому промені. Не перехрещуйте промені!"
   suffix: Unlimited
   id: MedicalBeamGun
   components:
@@ -78,10 +78,10 @@
     autoRechargeRate: 0
 
 - type: entity
-  name: syndicate medical beam gun
+  name: "медична променева гармата синдикату"
   suffix: Syndicate, Unlimited
   parent: [ MedicalBeamGun, BaseSyndicateContraband ]
-  description: Delivers volatile medical nanites in a focused beam. Don't cross the beams!
+  description: "Доставляє леткі медичні наніти у сфокусованому промені. Не перехрещуйте промені!"
   id: MedicalBeamGunSyndicate
   components:
   - type: Sprite

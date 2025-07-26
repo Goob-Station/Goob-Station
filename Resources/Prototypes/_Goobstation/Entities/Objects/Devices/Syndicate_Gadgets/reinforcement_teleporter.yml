@@ -9,8 +9,8 @@
 - type: entity
   parent: ReinforcementRadio
   id: ReinforcementRadioSyndicateSyndiRoach
-  name: syndiroach reinforcement radio
-  description: Calls in a faithfully trained mothroach with a microbomb to assist you.
+  name: "радіо підкріплення синді-тарганів"
+  description: "Викликає вірно навченого моффа-таргана з мікробомбою, щоб допомогти вам."
   components:
   - type: GhostRole
     name: ghost-role-information-SyndiRoach-name

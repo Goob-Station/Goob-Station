@@ -12,7 +12,7 @@
 # DIE SNAKE CASE
 - type: body
   id: Human
-  name: "human"
+  name: "людина"
   root: chest
   slots:
     head:

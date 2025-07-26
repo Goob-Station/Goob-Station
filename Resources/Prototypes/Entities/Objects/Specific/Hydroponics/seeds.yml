@@ -127,7 +127,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of wheat seeds
+  name: "пачка насіння пшениці"
   id: WheatSeeds
   components:
     - type: Seed
@@ -137,8 +137,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of meatwheat seeds
-  description: "If you ever wanted to drive a vegetarian to insanity, here's how."
+  name: "пачка насіння м'ясної пшениці"
+  description: "Якщо ви коли-небудь хотіли довести вегетаріанця до божевілля, ось як це зробити."
   id: MeatwheatSeeds
   components:
     - type: Seed
@@ -148,7 +148,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of oat seeds
+  name: "пачка насіння вівса"
   id: OatSeeds
   components:
     - type: Seed
@@ -158,7 +158,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of banana seeds
+  name: "пачка насіння банану"
   id: BananaSeeds
   components:
     - type: Seed
@@ -168,7 +168,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of mimana seeds
+  name: "пачка насіння мімани"
   id: MimanaSeeds
   components:
     - type: Seed
@@ -178,7 +178,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of carrot seeds
+  name: "пачка насіння моркви"
   id: CarrotSeeds
   components:
     - type: Seed
@@ -188,7 +188,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of cabbage seeds
+  name: "пачка насіння капусти"
   id: CabbageSeeds
   components:
     - type: Seed
@@ -198,7 +198,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of garlic seeds
+  name: "пачка насіння часнику"
   id: GarlicSeeds
   components:
     - type: Seed
@@ -209,8 +209,8 @@
 - type: entity
   parent: SeedBase
   id: LaughinPeaSeeds
-  name: packet of laughin' pea pods
-  description: "These seeds give off a very soft purple glow.. they should grow into Laughin' Peas."
+  name: "пачка стручків веселого горошку"
+  description: "Це насіння випромінює дуже м'яке фіолетове сяйво... з нього має вирости горошок, що сміється."
   components:
     - type: Seed
       seedId: laughinPea
@@ -219,7 +219,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of lemon seeds
+  name: "пачка насіння лимону"
   id: LemonSeeds
   components:
     - type: Seed
@@ -229,7 +229,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of lemoon seeds
+  name: "пачка насіння лимуну"
   id: LemoonSeeds
   components:
     - type: Seed
@@ -239,7 +239,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of lime seeds
+  name: "пачка насіння лайма"
   id: LimeSeeds
   components:
     - type: Seed
@@ -249,7 +249,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of orange seeds
+  name: "пачка насіння апельсину"
   id: OrangeSeeds
   components:
     - type: Seed
@@ -259,8 +259,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of extradimensional orange seeds
-  description: "Polygonal seeds."
+  name: "пачка апельсинового насіння екстра-розміру"
+  description: "Полігональне насіння."
   id: ExtradimensionalOrangeSeeds
   components:
     - type: Seed
@@ -270,7 +270,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of pineapple seeds
+  name: "пачка насіння ананасу"
   id: PineappleSeeds
   components:
     - type: Seed
@@ -280,7 +280,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of potato seeds
+  name: "пачка насіння картоплі"
   id: PotatoSeeds
   components:
     - type: Seed
@@ -290,7 +290,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of sugarcane seeds
+  name: "пачка насіння цукрової тростини"
   id: SugarcaneSeeds
   components:
     - type: Seed
@@ -300,7 +300,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of tea plant seeds
+  name: "пакет насіння чайного куща"
   id: TeaPlantSeeds
   components:
     - type: Seed
@@ -310,7 +310,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of papercane seeds
+  name: "пачка насіння паперової тростини"
   id: PapercaneSeeds
   components:
     - type: Seed
@@ -320,7 +320,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of tower cap spores
+  name: "пачка спор шапинкового гриба"
   id: TowercapSeeds
   components:
     - type: Seed
@@ -330,7 +330,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of steel cap spores
+  name: "пачка спор сталевошапкового ковпачком"
   id: SteelcapSeeds
   components:
     - type: Seed
@@ -340,7 +340,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of tomato seeds
+  name: "пачка насіння помідорів"
   id: TomatoSeeds
   components:
     - type: Seed
@@ -350,7 +350,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of blue tomato seeds
+  name: "пачка насіння синіх помідорів"
   id: BlueTomatoSeeds
   components:
     - type: Seed
@@ -360,7 +360,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of blood tomato seeds
+  name: "пачка насіння кривавих помідорів"
   id: BloodTomatoSeeds
   components:
     - type: Seed
@@ -370,7 +370,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of killer tomato seeds
+  name: "пачка насіння томатів-убивць"
   id: KillerTomatoSeeds
   components:
     - type: Seed
@@ -380,7 +380,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of eggplant seeds
+  name: "пачка насіння баклажанів"
   id: EggplantSeeds
   components:
     - type: Seed
@@ -390,7 +390,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of apple seeds
+  name: "пачка насіння яблука"
   id: AppleSeeds
   components:
     - type: Seed
@@ -400,7 +400,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of golden apple seeds
+  name: "пачка насіння золотистого яблука"
   id: GoldenAppleSeeds
   components:
     - type: Seed
@@ -410,7 +410,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of corn seeds
+  name: "пачка насіння кукурудзи"
   id: CornSeeds
   components:
     - type: Seed
@@ -420,7 +420,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of chanterelle spores
+  name: "пачка спор лисички"
   id: ChanterelleSeeds
   components:
     - type: Seed
@@ -430,7 +430,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of egg-plant seeds
+  name: "пачка насіння яйцежанів"
   id: EggySeeds
   components:
     - type: Seed
@@ -440,8 +440,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of tobacco seeds
-  description: "These seeds grow into tobacco plants."
+  name: "пачка насіння тютюну"
+  description: "З цього насіння виростають рослини тютюну."
   id: TobaccoSeeds
   components:
     - type: Seed
@@ -451,8 +451,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of cannabis seeds
-  description: "Taxable."
+  name: "пачка насіння канабісу"
+  description: "Оподатковується."
   id: CannabisSeeds
   components:
     - type: Seed
@@ -462,8 +462,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of rainbow cannabis seeds
-  description: "These seeds grow into rainbow weed. Groovy... and also highly addictive."
+  name: "пачка райдужного насіння канабісу"
+  description: "З цього насіння виростає райдужна трава. Круто... а ще вона викликає сильне звикання."
   id: RainbowCannabisSeeds
   components:
     - type: Seed
@@ -473,8 +473,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of nettle seeds
-  description: "Handle with gloves."
+  name: "пачка насіння кропиви"
+  description: "Працювати в рукавичках."
   id: NettleSeeds
   components:
     - type: Seed
@@ -484,8 +484,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of death nettle seeds
-  description: "Handle with very thick gloves."
+  name: "пачка насіння смертельної кропиви"
+  description: "Обробляти в дуже товстих рукавичках."
   id: DeathNettleSeeds
   components:
     - type: Seed
@@ -495,8 +495,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of chili seeds
-  description: "Spicy."
+  name: "пачка насіння чилі"
+  description: "Гострий."
   id: ChiliSeeds
   components:
     - type: Seed
@@ -506,8 +506,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of chilly seeds
-  description: "Frostburn."
+  name: "пачка насіння чиллі"
+  description: "Обмороження."
   id: ChillySeeds
   components:
     - type: Seed
@@ -517,8 +517,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of aloe seeds
-  description: "Soothing."
+  name: "пачка насіння алое"
+  description: "Заспокоює."
   id: AloeSeeds
   components:
     - type: Seed
@@ -528,8 +528,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of poppy seeds
-  description: "Do not eat within 72 hours of a drug test."
+  name: "пачка насіння маку"
+  description: "Не їжте протягом 72 годин після тесту на наркотики."
   id: PoppySeeds
   components:
     - type: Seed
@@ -539,8 +539,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of lily seeds
-  description: "These seeds grow into lilies."
+  name: "пачка насіння лілій"
+  description: "З цього насіння виростають лілії."
   id: LilySeeds
   components:
     - type: Seed
@@ -550,8 +550,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of lingzhi spores
-  description: "Also known as reishi."
+  name: "пачка спор лінчжі"
+  description: "Також відомий як рейші."
   id: LingzhiSeeds
   components:
     - type: Seed
@@ -561,8 +561,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of ambrosia vulgaris seeds
-  description: "A medicinal plant for the common folk."
+  name: "пачка насіння амброзії звичайної"
+  description: "Лікарська рослина для простого народу."
   id: AmbrosiaVulgarisSeeds
   components:
     - type: Seed
@@ -572,8 +572,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of ambrosia deus seeds
-  description: "A medicinal plant for the gods themselves."
+  name: "пачка насіння амброзії деус"
+  description: "Лікарська рослина для самих богів."
   id: AmbrosiaDeusSeeds
   components:
     - type: Seed
@@ -583,8 +583,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of galaxythistle seeds
-  description: "Brushes of starry nights."
+  name: "пачка насіння розторопші"
+  description: "Пензлі зоряних ночей."
   id: GalaxythistleSeeds
   components:
     - type: Seed
@@ -594,8 +594,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of glasstle seeds
-  description: "Scars of gloomy nights."
+  name: "пачка насіння склянуші"
+  description: "Шрами похмурих ночей."
   id: GlasstleSeeds
   components:
     - type: Seed
@@ -605,8 +605,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of fly amanita spores
-  description: "The iconic, extremely deadly mushroom to be used for purely ornamental purposes."
+  name: "пачка спор мухомора"
+  description: "Культовий, надзвичайно смертоносний гриб, який використовується в суто декоративних цілях."
   id: FlyAmanitaSeeds
   components:
     - type: Seed
@@ -616,8 +616,8 @@
 
 - type: entity
   parent: [SeedBase, BaseSyndicateContraband]
-  name: packet of gatfruit seeds
-  description: "These are no peashooters."
+  name: "пачка насіння гатфрута"
+  description: "Це не стрільці по гороху."
   id: GatfruitSeeds
   components:
     - type: Seed
@@ -627,8 +627,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of onion seeds
-  description: "Not a shallot."
+  name: "пачка насіння цибулі"
+  description: "Не цибуля-шалот."
   id: OnionSeeds
   components:
     - type: Seed
@@ -638,7 +638,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of rice seeds
+  name: "пачка насіння рису"
   id: RiceSeeds
   components:
     - type: Seed
@@ -648,7 +648,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of soybean seeds
+  name: "пачка насіння сої"
   id: SoybeanSeeds
   components:
     - type: Seed
@@ -658,7 +658,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of spaceman's trumpet seeds
+  name: "пачка насіння сурми космонавта"
   id: SpacemansTrumpetSeeds
   components:
     - type: Seed
@@ -668,7 +668,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of koibean seeds
+  name: "пачка насіння койбе"
   id: KoibeanSeeds
   components:
     - type: Seed
@@ -678,8 +678,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of red onion seeds
-  description: "Purple despite the name."
+  name: "пачка насіння червоної цибулі"
+  description: "Фіолетовий, незважаючи на назву."
   id: OnionRedSeeds
   components:
     - type: Seed
@@ -689,7 +689,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of watermelon seeds
+  name: "пачка насіння кавуна"
   id: WatermelonSeeds
   components:
     - type: Seed
@@ -699,7 +699,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of holymelon seeds
+  name: "пачка насіння святої дині"
   id: HolymelonSeeds
   components:
     - type: Seed
@@ -709,7 +709,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of grape seeds
+  name: "пачка насіння винограду"
   id: GrapeSeeds
   components:
     - type: Seed
@@ -719,7 +719,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of cocoa seeds
+  name: "пачка насіння какао"
   id: CocoaSeeds
   components:
     - type: Seed
@@ -729,7 +729,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of berry seeds
+  name: "пачка насіння ягід"
   id: BerrySeeds
   components:
     - type: Seed
@@ -739,8 +739,8 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of bungo seeds
-  description: "Don't eat the pits."
+  name: "пачка насіння бунго"
+  description: "Не їжте кісточки."
   id: BungoSeeds
   components:
     - type: Seed
@@ -751,8 +751,8 @@
 - type: entity
   parent: SeedBase
   id: PeaSeeds
-  name: packet of pea pods
-  description: "These humble plants were once a vital part in the study of genetics."
+  name: "пачка стручків гороху"
+  description: "Колись ці скромні рослини відігравали важливу роль у вивченні генетики."
   components:
     - type: Seed
       seedId: pea
@@ -762,8 +762,8 @@
 - type: entity
   parent: SeedBase
   id: WorldPeaSeeds
-  name: packet of world pea seeds
-  description: "These rather large seeds give off a soothing blue glow."
+  name: "пачка насіння світового гороху"
+  description: "Це досить велике насіння випромінює заспокійливе блакитне сяйво."
   components:
     - type: Seed
       seedId: worldPea
@@ -772,7 +772,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of pumpkin seeds
+  name: "пачка насіння гарбуза"
   id: PumpkinSeeds
   components:
     - type: Seed
@@ -782,7 +782,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of blue pumpkin seeds
+  name: "пакет насіння синього гарбуза"
   id: BluePumpkinSeeds
   components:
     - type: Seed
@@ -792,7 +792,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of cotton seeds
+  name: "пачка насіння бавовни"
   id: CottonSeeds
   components:
     - type: Seed
@@ -802,7 +802,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of pyrotton seeds
+  name: "пачка насіння піроттону"
   id: PyrottonSeeds
   components:
     - type: Seed
@@ -813,8 +813,8 @@
 - type: entity
   parent: SeedBase
   id: RealCapfruitSeeds
-  name: packet of capfruit seeds
-  description: "Is it real, or is it fake?"
+  name: "пачка насіння каперсів"
+  description: "Це правда чи фейк?"
   components:
     - type: Seed
       seedId: realCapfruit
@@ -831,7 +831,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of cherry seeds
+  name: "пачка кісточок вишні"
   id: CherrySeeds
   components:
     - type: Seed
@@ -841,7 +841,7 @@
 
 - type: entity
   parent: SeedBase
-  name: packet of anomaly berry seeds
+  name: "пакет насіння аномальної ягоди"
   id: AnomalyBerrySeeds
   components:
     - type: Seed

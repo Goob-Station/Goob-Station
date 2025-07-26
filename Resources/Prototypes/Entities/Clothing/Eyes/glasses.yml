@@ -134,8 +134,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesGar
-  name: gar glasses
-  description: Go beyond impossible and kick reason to the curb!
+  name: "гарні окуляри"
+  description: "Вийдіть за межі неможливого і відкиньте розум на узбіччя!"
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/gar.rsi
@@ -150,8 +150,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesGarOrange
-  name: orange gar glasses
-  description: Just who the hell do you think I am?!
+  name: "помаранчеві гарні окуляри "
+  description: "За кого ти мене в біса маєш?!"
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/gar.rsi
@@ -169,8 +169,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesGarGiga
-  name: giga gar glasses
-  description: We evolve past the person we were a minute before. Little by little we advance with each turn. That's how a drill works!
+  name: "гігагарні окуляри"
+  description: "Ми еволюціонуємо, минаючи ту людину, якою були хвилину тому. Потроху ми просуваємося вперед з кожним поворотом. Ось як працює дриль!"
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/gar.rsi
@@ -188,8 +188,8 @@
 - type: entity
   parent: ClothingEyesBase # goobstation - tider nation - no longer contra
   id: ClothingEyesGlassesMeson
-  name: meson goggles # goobstation - they're called MESONS!!!!
-  description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
+  name: "мезонні окуляри" # goobstation - they're called MESONS!!!!
+  description: "Окуляри із зеленим відтінком, що використовують запатентований полімер, який забезпечує захист очей від усіх видів пошкоджень."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/meson.rsi
@@ -202,8 +202,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlasses
-  name: glasses
-  description: Upon closer inspection, you realize these lenses are infact made of plastic. # Goobstation
+  name: "окуляри"
+  description: "Придивившись, ви розумієте, що ці лінзи насправді зроблені з пластику." # Goobstation
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/glasses.rsi
@@ -218,8 +218,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesJensen
-  name: jensen glasses
-  description: A pair of yellow tinted folding glasses. You never asked for these.
+  name: "окуляри дженсен"
+  description: "Пара складаних окулярів у жовтому тонованому корпусі. Ти їх ніколи не просив."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/jensen.rsi
@@ -232,8 +232,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesJamjar
-  name: jamjar glasses
-  description: These retro glasses remind you of a simpler time.
+  name: "окуляри-банки"
+  description: "Ці ретро-окуляри нагадують вам про простіші часи."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/jamjar.rsi
@@ -248,8 +248,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesOutlawGlasses
-  name: outlaw glasses
-  description: A must for every self-respecting undercover agent.
+  name: "окуляри беззаконника"
+  description: "Обов'язкова річ для кожного агента під прикриттям, який себе поважає."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
@@ -261,8 +261,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesCheapSunglasses
-  name: cheap sunglasses
-  description: A pair of black sunglasses. Doesn't block light well, more of an accessory than something useful.
+  name: "дешеві сонцезахисні окуляри"
+  description: "Пара чорних сонцезахисних окулярів. Погано захищають від світла, скоріше аксесуар, ніж щось корисне."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/sunglasses.rsi
@@ -278,8 +278,8 @@
 - type: entity
   parent: ClothingEyesGlassesCheapSunglasses
   id: ClothingEyesGlassesSunglasses
-  name: sun glasses
-  description: A pair of black sunglasses.
+  name: "сонцезахисні окуляри"
+  description: "Пара чорних сонцезахисних окулярів."
   components:
   - type: FlashImmunity
   - type: EyeProtection
@@ -293,8 +293,8 @@
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesGlassesSecurity
-  name: security glasses
-  description: Upgraded sunglasses that provide flash immunity and a security HUD.
+  name: "окуляри охорони"
+  description: "Оновлені сонцезахисні окуляри з захистом від спалахів та захисним екраном HUD."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/secglasses.rsi
@@ -335,8 +335,8 @@
 - type: entity
   parent: [ClothingEyesBase, BaseCommandContraband]
   id: ClothingEyesGlassesCommand
-  name: administration glasses
-  description: Upgraded sunglasses that provide flash immunity and show ID card status.
+  name: "окуляри адміністрації"
+  description: "Покращені сонцезахисні окуляри, що забезпечують імунітет до спалахів та показують статус ID-карти."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/commandglasses.rsi
@@ -356,8 +356,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesMercenary
-  name: mercenary glasses
-  description: Glasses made for combat, to protect the eyes from bright blinding flashes.
+  name: "окуляри найманця"
+  description: "Окуляри для бою, для захисту очей від яскравих сліпучих спалахів."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/mercglasses.rsi
@@ -388,8 +388,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesThermal
-  name: optical thermal scanner
-  description: Thermals in the shape of glasses.
+  name: "оптичний тепловізор"
+  description: "Тепловізор у вигляді окулярів"
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/thermal.rsi
@@ -417,8 +417,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesChemical
-  name: chemical analysis goggles
-  description: Goggles that can scan the chemical composition of a solution.
+  name: "окуляри хімічного аналізу"
+  description: "Окуляри, які можуть сканувати хімічний склад розчину."
   components:
     - type: Sprite
       sprite: Clothing/Eyes/Glasses/science.rsi
@@ -438,8 +438,8 @@
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
   id: ClothingEyesVisorNinja
-  name: ninja visor
-  description: An advanced visor protecting a ninja's eyes from flashing lights.
+  name: "окуляри ніндзя"
+  description: "Вдосконалені окуляри, що захищають очі ніндзя від миготливих вогнів."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
@@ -467,8 +467,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesNoir
-  name: noir-tech glasses
-  description: A pair of glasses that simulate what the world looked like before the invention of color.
+  name: "нуар-тек окуляри"
+  description: "Окуляри, які імітують, як виглядав світ до винайдення кольору."
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/noir.rsi
