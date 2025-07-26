@@ -1,16 +1,18 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Goobstation.Shared.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Systems;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 
@@ -27,7 +29,7 @@ public sealed class VoidCurseSystem : SharedVoidCurseSystem
     }
 
     private readonly string _overlayStateNormal = "void_chill_partial",
-                            _overlayStateMax = "void_chill_oh_fuck";
+                            _overlayStateMax = "void_chill_oh_fuck"; // todo: ????????
 
     public override void Update(float frameTime)
     {
@@ -39,7 +41,7 @@ public sealed class VoidCurseSystem : SharedVoidCurseSystem
             if (!TryComp<SpriteComponent>(uid, out var sprite))
                 continue;
 
-            if (!sprite.LayerMapTryGet(0, out var layer))
+            if (!sprite.LayerMapTryGet(0, out var layer)) // todo : fuck off dude
                 continue;
 
             var state = _overlayStateNormal;

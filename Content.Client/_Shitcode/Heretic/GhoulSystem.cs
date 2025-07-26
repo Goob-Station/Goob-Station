@@ -10,7 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Heretic;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 using Robust.Shared.Prototypes;
@@ -36,10 +36,8 @@ public sealed partial class GhoulSystem : EntitySystem
     {
         var player = _player.LocalEntity;
 
-        if (!TryComp<GhoulComponent>(player, out var playerGhoul))
-            return;
-
-        if (GetNetEntity(ent.Owner) != playerGhoul.BoundHeretic)
+        if (!TryComp<GhoulComponent>(player, out var playerGhoul)
+            || GetNetEntity(ent.Owner) != playerGhoul.BoundHeretic)
             return;
 
         if (_prototype.TryIndex(playerGhoul.MasterIcon, out var iconPrototype))
@@ -51,8 +49,6 @@ public sealed partial class GhoulSystem : EntitySystem
     /// </summary>
     private void OnGhoulIcons(Entity<GhoulComponent> ent, ref GetStatusIconsEvent args)
     {
-        var player = _player.LocalEntity;
-
         if (_prototype.TryIndex(ent.Comp.GhoulIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }

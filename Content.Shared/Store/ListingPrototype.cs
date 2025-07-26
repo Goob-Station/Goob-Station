@@ -21,7 +21,6 @@
 
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Heretic.Prototypes; // Goob
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -124,13 +123,6 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     /// </summary>
     [DataField(serverOnly: true), NonSerialized] // Goob edit
     public object? ProductEvent;
-
-    // goobstation - heretics
-    // i am too tired of making separate systems for knowledge adding
-    // and all that shit. i've had like 4 failed attempts
-    // so i'm just gonna shitcode my way out of my misery
-    [DataField]
-    public ProtoId<HereticKnowledgePrototype>? ProductHereticKnowledge;
 
     [DataField]
     public bool RaiseProductEventOnUser;
@@ -238,7 +230,6 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
             RaiseProductEventOnUser = RaiseProductEventOnUser, // goob edit
-            ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
             DisableRefund = DisableRefund, // goob edit
             BlockRefundListings = BlockRefundListings, // goob edit
             PurchaseAmount = PurchaseAmount,
