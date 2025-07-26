@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseGameRule
+  id: BaseMalfAIGamerule
+  components:
+  - type: MalfAIRule
+    doomFluffMessageLocs:
+    - malf-doomsday-fluff-command-0
+    - malf-doomsday-fluff-command-1
+    - malf-doomsday-fluff-report-0
+    - malf-doomsday-fluff-report-1
+    - malf-doomsday-fluff-report-2
+    - malf-doomsday-fluff-report-3
+    - malf-doomsday-fluff-auth-0
+    - malf-doomsday-fluff-auth-1
+    - malf-doomsday-fluff-confirm-0
+    - malf-doomsday-fluff-yes
+    - malf-doomsday-fluff-confirm-1
+    - malf-doomsday-fluff-yes
+    - malf-doomsday-fluff-accepted
+  - type: GameRule
+    chaosScore: 1000
+    minPlayers: 30
+  - type: AntagRandomObjectives
+    maxDifficulty: 10
+    sets:
+    - groups: MalfAIObjectiveGroups
+  - type: AntagObjectives
+    objectives:
+    - MalfAISurviveObjective

@@ -4,6 +4,12 @@
 // SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -32,6 +38,12 @@ public sealed partial class LimitedChargesComponent : Component
     /// <summary>
     /// Last time charges was changed. Used to derive current charges.
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan LastUpdate;
+
+    /// <summary>
+    /// Goobstation.
+    /// </summary>
+    [DataField]
+    public bool RemoveActionOnNoCharges = false;
 }

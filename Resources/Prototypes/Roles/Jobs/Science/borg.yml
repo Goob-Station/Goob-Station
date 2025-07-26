@@ -38,7 +38,7 @@
   - !type:RoleTimeRequirement
     role: JobBorg
     time: 18000  # 5 hrs
-  canBeAntag: false
+  canBeAntag: true # Goobstation - malf ai
   goobcoins: 40 #Goob content
   icon: JobIconStationAi
   supervisors: job-supervisors-rd

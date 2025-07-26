@@ -149,6 +149,7 @@
           type: BatteryBoundUserInterface
     - type: ActivatableUI
       key: enum.BatteryUiKey.Key
+    - type: StationAiWhitelist # Goobstation - malf AI
 
 # SMES' in use
 
