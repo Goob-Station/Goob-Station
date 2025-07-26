@@ -1,0 +1,87 @@
+- type: stationGoal
+  id: Area
+
+- type: stationGoal
+  id: Anomalies
+
+- type: stationGoal
+  id: Artifacts
+
+- type: stationGoal
+  id: BureaucraticError
+
+- type: stationGoal
+  id: Combat
+
+- type: stationGoal
+  id: Labor
+
+- type: stationGoal
+  id: Lectures
+
+- type: stationGoal
+  id: Museum
+
+- type: stationGoal
+  id: Shuttle
+
+- type: stationGoal
+  id: Singularity
+
+- type: stationGoal
+  id: SolarPanels
+
+- type: stationGoal
+  id: Storage
+
+- type: stationGoal
+  id: Xeno
+
+- type: stationGoal
+  id: Zoo
+
+
+- type: weightedRandom
+  id: StationGoals
+  weights:
+    StationGoalDepartment: 1
+    StationGoalPower: 1
+    StationGoalStation: 1
+
+
+- type: weightedRandom
+  id: StationGoalDepartment
+  weights:
+    StationGoalScience: 1
+    StationGoalSecurity: 1
+
+
+- type: weightedRandom
+  id: StationGoalPower
+  weights:
+    Singularity: 1
+    SolarPanels: 1
+
+- type: weightedRandom
+  id: StationGoalScience
+  weights:
+    Anomalies: 1
+    Artifacts: 1
+    Xeno: 1
+
+- type: weightedRandom
+  id: StationGoalSecurity
+  weights:
+    Combat: 1
+
+- type: weightedRandom
+  id: StationGoalStation
+  weights:
+    Area: 1
+    BureaucraticError: 1
+    Labor: 1
+    Lectures: 1
+    Museum: 1
+    Shuttle: 1
+    Storage: 1
+    Zoo: 1

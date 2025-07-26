@@ -492,7 +492,7 @@ namespace Content.Server.GameTicking
 
             RoundLengthMetric.Set(0);
 
-            var startingEvent = new RoundStartingEvent(RoundId);
+            var startingEvent = new Content.Server.GameTicking.Events.RoundStartingEvent(RoundId); // Pirate - Port Station Goals
             RaiseLocalEvent(startingEvent);
 
             var origReadyPlayers = readyPlayers.ToArray();
@@ -518,6 +518,7 @@ namespace Content.Server.GameTicking
             AnnounceRound();
             UpdateInfoText();
             SendRoundStartedDiscordMessage();
+            RaiseLocalEvent(new Content.Pirate.Common.GameTicking.RoundStartedEvent(RoundId)); // Pirate - Port Station Goals
 
 #if EXCEPTION_TOLERANCE
             }
@@ -681,6 +682,7 @@ namespace Content.Server.GameTicking
 
             _replayRoundPlayerInfo = listOfPlayerInfoFinal;
             _replayRoundText = roundEndText;
+            RaiseLocalEvent(new Content.Pirate.Common.GameTicking.RoundEndedEvent(RoundId, roundDuration)); // Pirate - Port Station Goals
         }
 
         private async void SendRoundEndDiscordMessage()
