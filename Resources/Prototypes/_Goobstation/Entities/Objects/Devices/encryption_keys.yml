@@ -7,8 +7,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyFuture
-  name: "футуристичний ключ шифрування"
-  description: "віскі-ехо... що далі?"
+  name: futuristic encryption key
+  description: whiskey echo... what's next?
   components:
   - type: EncryptionKey
     channels:

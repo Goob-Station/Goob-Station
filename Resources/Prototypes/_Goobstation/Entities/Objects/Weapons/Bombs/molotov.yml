@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: UnlitMolotov
-  name: "Незапалений молотов"
-  description: "Скоро стане метальною вогняною вибухівкою."
+  name: Unlit molotov
+  description: Soon to be a throwable firely explosive.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Bombs/Molotov.rsi
@@ -42,8 +42,8 @@
 - type: entity
   parent: BaseItem
   id: Molotov
-  name: "молотов"
-  description: "Метальна вогняна вибухівка"
+  name: molotov
+  description: Throwable firely explosive
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Bombs/Molotov.rsi
@@ -103,8 +103,8 @@
 
 - type: entity
   id: molotovfire
-  name: "вогонь"
-  description: "Він горить"
+  name: fire
+  description: It is burning
   placement:
     mode: SnapgridCenter
   components:

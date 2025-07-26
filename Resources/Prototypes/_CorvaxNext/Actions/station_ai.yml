@@ -8,8 +8,8 @@
 
 - type: entity
   id: ActionBackToAi
-  name: "Повернутися до ШІ"
-  description: "Повертає вашу свідомість назад до ядра."
+  name: Back to Ai
+  description: Sends your mind back to the core.
   components:
   - type: InstantAction
     checkConsciousness: false
@@ -23,8 +23,8 @@
 
 - type: entity
   id: ActionOpenRemoteDevicesMenu
-  name: "Відкрити список віддалених пристроїв"
-  description: "Відкриває меню з доступними віддаленими пристроями."
+  name: Open list of remote devices
+  description: Opens a menu with available remote devices.
   components:
   - type: InstantAction
     checkConsciousness: false

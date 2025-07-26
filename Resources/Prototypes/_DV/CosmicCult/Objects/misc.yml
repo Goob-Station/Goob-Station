@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "дендрит піднесеного"
+  name: ascendant's dendrite
   parent: BaseAnimalOrgan
   id: AscendedDendrite
-  description: "Пучок напів-ефемерної тканини, витягнутої з розплутаної оболонки астрального піднесеного. Слабке зловісне світло пульсує всередині."
+  description: A bundle of semi-ephemeral tissue extracted from the unravelling husk of an astral ascendant. A faint malign light pulses within.
   components:
   - type: RogueAscendedDendrite
   - type: Item
@@ -38,8 +38,8 @@
 - type: entity
   id: CosmicCultLawBoard
   parent: BaseElectronics
-  name: "плата зловісних законів"
-  description: "Моторошна мікросхема, призначена для встановлення в консоль завантаження законів ШІ. Її схеми переплетені з фантомними дендритними нитками, що сіпаються самі по собі."
+  name: malign law board
+  description: An eerie circuit board, suited for slotting into an AI law upload console. Its circuitry is interwoven with phantasmal dendritic strands that twitch of their own accord.
   components:
   - type: Sprite
     sprite: _DV/CosmicCult/Objects/lawboard.rsi

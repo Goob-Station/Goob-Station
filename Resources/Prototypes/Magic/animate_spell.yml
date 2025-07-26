@@ -8,8 +8,8 @@
 
 - type: entity
   id: ActionAnimateSpell
-  name: "Оживити"
-  description: "Оживіть неживий предмет!"
+  name: Animate
+  description: Bring an inanimate object to life!
   components:
   - type: EntityTargetAction
     useDelay: 0

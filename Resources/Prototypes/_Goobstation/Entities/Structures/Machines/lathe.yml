@@ -21,8 +21,8 @@
 - type: entity
   id: EngineeringTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
-  name: "інженерний техфаб"
-  description: "Друкує обладнання та друковані плати для використання інженерним відділом."
+  name: engineering techfab
+  description: Prints equipment and circuitboards for use by engineering department.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -88,8 +88,8 @@
 - type: entity
   id: CargoTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
-  name: "вантажний техфаб"
-  description: "Друкує обладнання та друковані плати для використання вантажним відділом."
+  name: cargo techfab
+  description: Prints equipment and circuitboards for use by cargo department.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -150,8 +150,8 @@
 - type: entity
   id: ScienceTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
-  name: "науковий техфаб"
-  description: "Друкує обладнання та друковані плати для використання науковим відділом."
+  name: science techfab
+  description: Prints equipment and circuitboards for use by science department.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -232,8 +232,8 @@
 - type: entity
   id: ServiceTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
-  name: "сервісний техфаб"
-  description: "Друкує обладнання та друковані плати для використання сервісним відділом."
+  name: service techfab
+  description: Prints equipment and circuitboards for use by service department.
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi

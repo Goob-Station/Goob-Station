@@ -232,7 +232,7 @@
 - type: entity
   parent: Airlock
   id: AirlockMaint
-  name: "доступ до технічного обслуговування"
+  name: maintenance access
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
@@ -266,7 +266,7 @@
 - type: entity
   parent: Airlock
   id: AirlockHatch
-  name: "герметичний люк"
+  name: airtight hatch
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/hatch.rsi
@@ -274,7 +274,7 @@
 - type: entity
   parent: Airlock
   id: AirlockHatchMaintenance
-  name: "люк для обслуговування"
+  name: maintenance hatch
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/hatch_maint.rsi

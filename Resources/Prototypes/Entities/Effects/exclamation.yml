@@ -8,7 +8,7 @@
 
 - type: entity
   id: Exclamation
-  name: "вигук"
+  name: exclamation
   categories: [ HideSpawnMenu ]
   save: false
   components:
@@ -29,7 +29,7 @@
         
 - type: entity
   id: WhistleExclamation
-  name: "вигук"
+  name: exclamation
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
