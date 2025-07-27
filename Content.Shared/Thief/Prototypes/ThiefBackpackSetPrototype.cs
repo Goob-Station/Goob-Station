@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
+
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -19,5 +20,6 @@ public sealed partial class ThiefBackpackSetPrototype : IPrototype
     [DataField] public string Name { get; private set; } = string.Empty;
     [DataField] public string Description { get; private set; } = string.Empty;
     [DataField] public SpriteSpecifier Sprite { get; private set; } = SpriteSpecifier.Invalid;
+
     [DataField] public List<EntProtoId> Content = new();
 }

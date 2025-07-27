@@ -5,7 +5,7 @@ using Content.Shared.Roles;
 using Content.Shared.SelfExtinguisher;
 using JetBrains.Annotations;
 
-namespace Content.Server.Jobs;
+namespace Content.Server._EinsteinEngines.Jobs;
 
 [UsedImplicitly]
 public sealed partial class ModifyEnvirosuitSpecial : JobSpecial

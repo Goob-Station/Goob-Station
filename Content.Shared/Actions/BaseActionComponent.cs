@@ -40,12 +40,12 @@ public abstract partial class BaseActionComponent : Component
     [DataField("iconOn")] public SpriteSpecifier? IconOn;
 
     /// <summary>
-    ///     For actions with a cooldown, icon to show when the action is on cooldown.
+    ///     EE Plasmeme Change: For actions with a cooldown, icon to show when the action is on cooldown.
     /// </summary>
     [DataField] public SpriteSpecifier? IconCooldown;
 
     /// <summary>
-    ///     For actions with a cooldown, icon to show when the action is disabled.
+    ///     EE Plasmeme Change: For actions with a cooldown, icon to show when the action is disabled.
     /// </summary>
     [DataField] public SpriteSpecifier? IconDisabled;
 

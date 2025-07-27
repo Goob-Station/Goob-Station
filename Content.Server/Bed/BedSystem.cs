@@ -94,6 +94,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._EinsteinEngines.Bed.Components; // EE Plasmeme Change
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared._Shitmed.Damage; // Shitmed Change
@@ -182,7 +183,7 @@ namespace Content.Server.Bed
             var metabolicEvent = new ApplyMetabolicMultiplierEvent(args.Buckle, bed.Comp.Multiplier, true);
             RaiseLocalEvent(args.Buckle, ref metabolicEvent);
 
-            EnsureComp<InStasisComponent>(args.Buckle);
+            EnsureComp<InStasisComponent>(args.Buckle); // EE Plasmeme Change
         }
 
         private void OnStasisUnstrapped(Entity<StasisBedComponent> bed, ref UnstrappedEvent args)
@@ -193,7 +194,7 @@ namespace Content.Server.Bed
             var metabolicEvent = new ApplyMetabolicMultiplierEvent(args.Buckle, bed.Comp.Multiplier, false);
             RaiseLocalEvent(args.Buckle, ref metabolicEvent);
 
-            RemComp<InStasisComponent>(args.Buckle);
+            RemComp<InStasisComponent>(args.Buckle); // EE Plasmeme Change
         }
 
         private void OnPowerChanged(EntityUid uid, StasisBedComponent component, ref PowerChangedEvent args)

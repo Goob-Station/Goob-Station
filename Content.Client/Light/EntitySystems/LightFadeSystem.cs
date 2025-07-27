@@ -39,8 +39,8 @@ public sealed class LightFadeSystem : EntitySystem
                     InterpolationMode = AnimationInterpolationMode.Cubic,
                     KeyFrames =
                     {
-                        new AnimationTrackProperty.KeyFrame(0f, 0f),
-                        new AnimationTrackProperty.KeyFrame(light.Energy, component.RampUpDuration),
+                        new AnimationTrackProperty.KeyFrame(0f, 0f), // EE - Plasmamen Change
+                        new AnimationTrackProperty.KeyFrame(light.Energy, component.RampUpDuration), // sEE - Plasmamen Change
                         new AnimationTrackProperty.KeyFrame(0f, component.Duration)
                     }
                 }

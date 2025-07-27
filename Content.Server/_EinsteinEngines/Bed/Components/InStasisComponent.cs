@@ -1,4 +1,4 @@
-namespace Content.Server.Bed.Components;
+namespace Content.Server._EinsteinEngines.Bed.Components;
 
 // <summary>
 //     Component added only to entities buckled to a stasis bed.

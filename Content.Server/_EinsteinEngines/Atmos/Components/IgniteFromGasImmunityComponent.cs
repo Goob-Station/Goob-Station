@@ -1,6 +1,6 @@
 using Content.Shared._Shitmed.Targeting;
 
-namespace Content.Server.Atmos.Components;
+namespace Content.Server._EinsteinEngines.Atmos.Components;
 
 /// <summary>
 ///   Component that is used on clothing to prevent ignition when exposed to a specific gas.

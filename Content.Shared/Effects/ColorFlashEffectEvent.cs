@@ -30,6 +30,6 @@ public sealed class ColorFlashEffectEvent : EntityEventArgs
     {
         Color = color;
         Entities = entities;
-        AnimationLength = animationLength;
+        AnimationLength = animationLength; // EE Plasmeme Change
     }
 }

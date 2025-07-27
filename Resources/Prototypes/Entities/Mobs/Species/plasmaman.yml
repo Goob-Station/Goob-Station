@@ -94,8 +94,8 @@
   - type: DamageOnHit
     damage:
       types:
-        Heat: 1
-    targetParts: [ RightHand, LeftHand ]
+        Heat: 2
+    targetParts: Hands
   - type: Speech
     speechVerb: Skeleton
   - type: Vocal

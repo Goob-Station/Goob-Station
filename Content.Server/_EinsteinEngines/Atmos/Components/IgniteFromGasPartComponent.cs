@@ -1,6 +1,6 @@
 using Content.Shared.Atmos;
 
-namespace Content.Server.Atmos.Components;
+namespace Content.Server._EinsteinEngines.Atmos.Components;
 
 /// <summary>
 ///   Component that can be used on body parts to add fire stacks and trigger ignition

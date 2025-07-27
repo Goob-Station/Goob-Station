@@ -1415,8 +1415,6 @@ namespace Content.Client.Lobby.UI
             UpdateSexControls(); // update sex for new species
             UpdateSpeciesGuidebookIcon();
             ReloadPreview();
-            //IsDirty = true;
-            //ReloadProfilePreview();
         }
 
         private void SetName(string newName)

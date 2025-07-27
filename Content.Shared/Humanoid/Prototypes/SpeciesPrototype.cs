@@ -161,5 +161,5 @@ public enum SpeciesNaming : byte
     LastFirst, // DeltaV
     LastNoFirst, // DeltaV
     FirstDashLast, // Goobstation
-    FirstRoman // Goobstation
+    FirstRoman // EE Plasmeme Change
 }

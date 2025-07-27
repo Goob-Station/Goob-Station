@@ -1,4 +1,4 @@
-namespace Content.Shared.SelfExtinguisher;
+namespace Content.Shared._EinsteinEngines.SelfExtinguisher;
 
 /// <summary>
 ///     Used to refill the charges of self-extinguishers.

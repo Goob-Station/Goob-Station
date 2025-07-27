@@ -441,7 +441,7 @@ namespace Content.Server.Atmos.EntitySystems
             _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):entity} stopped being on fire damage");
             flammable.OnFire = false;
             flammable.FireStacks = 0;
-            flammable.IgnoreFireProtection = false;
+            flammable.IgnoreFireProtection = false; // EE Plasmamen Change
 
             _ignitionSourceSystem.SetIgnited(uid, false);
 
@@ -449,7 +449,7 @@ namespace Content.Server.Atmos.EntitySystems
         }
 
         public void Ignite(EntityUid uid, EntityUid ignitionSource, FlammableComponent? flammable = null,
-            EntityUid? ignitionSourceUser = null, bool ignoreFireProtection = false)
+            EntityUid? ignitionSourceUser = null, bool ignoreFireProtection = false) // EE Plasmamen Change
         {
             if (!Resolve(uid, ref flammable, false)) // Lavaland Change: SHUT THE FUCK UP FLAMMABLE
                 return;
@@ -468,7 +468,7 @@ namespace Content.Server.Atmos.EntitySystems
                 flammable.OnFire = true;
             }
 
-            if (ignoreFireProtection)
+            if (ignoreFireProtection) // EE Plasmamen Change
                 flammable.IgnoreFireProtection = ignoreFireProtection;
 
             UpdateAppearance(uid, flammable);
@@ -518,7 +518,7 @@ namespace Content.Server.Atmos.EntitySystems
             uid.SpawnTimer(2000, () =>
             {
                 flammable.Resisting = false;
-                flammable.FireStacks -= flammable.FirestackFade * 10f;
+                flammable.FireStacks -= flammable.FirestackFade * 10f; // EE Plasmamen Change
                 UpdateAppearance(uid, flammable);
             });
         }
@@ -582,10 +582,10 @@ namespace Content.Server.Atmos.EntitySystems
                     if (TryComp(uid, out TemperatureComponent? temp))
                         _temperatureSystem.ChangeHeat(uid, _addHeatFirestack * flammable.FireStacks, false, temp); // goob edit: 12500 -> 1500
 
-                    var multiplier = 1f;
-                    if (!flammable.IgnoreFireProtection)
+                    var multiplier = 1f; // EE Plasmamen Change
+                    if (!flammable.IgnoreFireProtection) // EE Plasmamen Change
                     {
-                        var ev = new GetFireProtectionEvent(uid);
+                        var ev = new GetFireProtectionEvent(uid); // Goobstation
                         // let the thing on fire handle it
                         RaiseLocalEvent(uid, ref ev);
                         // and whatever it's wearing

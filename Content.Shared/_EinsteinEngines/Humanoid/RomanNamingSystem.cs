@@ -1,10 +1,12 @@
 using System.Text;
 using Robust.Shared.Random;
 
-namespace Content.Shared.Humanoid;
+namespace Content.Shared._EinsteinEngines.Humanoid;
 
-public sealed partial class NamingSystem : EntitySystem
+public sealed partial class RomanNamingSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
+
     private static readonly Dictionary<string, int> RomanMap = new()
     {
         { "M", 1000 },
@@ -27,7 +29,7 @@ public sealed partial class NamingSystem : EntitySystem
     //   All possible Roman numerals from 1 to 3,999 can be generated,
     //   but numbers from 1 to 100 have a higher chance of being rolled.
     // </summary>
-    private string GenerateRomanNumeral()
+    public string GenerateRomanNumeral()
     {
         (int, int) range;
         while (true)

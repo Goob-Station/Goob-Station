@@ -95,7 +95,7 @@ public abstract class SharedChargesSystem : EntitySystem
     }
 
     /// <summary>
-    ///   Sets the charges and max charges.
+    ///   EE Plasmeme Change: Sets the charges and max charges.
     /// </summary>
     public void SetCharges(Entity<LimitedChargesComponent?> ent, int? charges, int? maxCharges)
     {

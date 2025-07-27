@@ -56,7 +56,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!; // Goobstation Change
+    [Dependency] private readonly IComponentFactory _factory = default!; // EE Plasmamen Change
     /// <summary>
     /// It's a little on the long side but given we use multiple colours denoting what happened it makes it easier to register.
     /// </summary>
@@ -72,12 +72,13 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         SubscribeLocalEvent<ColorFlashEffectComponent, AnimationCompletedEvent>(OnEffectAnimationCompleted);
     }
 
+    // EE Plasmamen Change
     public override void RaiseEffect(Color color, List<EntityUid> entities, Filter filter, float? animationLength = null)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        OnColorFlashEffect(new ColorFlashEffectEvent(color, GetNetEntityList(entities), animationLength));
+        OnColorFlashEffect(new ColorFlashEffectEvent(color, GetNetEntityList(entities), animationLength)); // EE Plasmamen Change
     }
 
     private void OnEffectAnimationCompleted(EntityUid uid, ColorFlashEffectComponent component, AnimationCompletedEvent args)
@@ -113,6 +114,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         }
     }
 
+    // EE Plasmamen Change
     private Animation? GetDamageAnimation(EntityUid uid, Color color, SpriteComponent? sprite = null, float? animationLength = null)
     {
         if (!Resolve(uid, ref sprite, false))
@@ -121,7 +123,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         // 90% of them are going to be this so why allocate a new class.
         return new Animation
         {
-            Length = TimeSpan.FromSeconds(animationLength ?? AnimationLength),
+            Length = TimeSpan.FromSeconds(animationLength ?? AnimationLength), // EE Plasmamen Change
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty
@@ -132,7 +134,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(color, 0f),
-                        new AnimationTrackProperty.KeyFrame(sprite.Color, animationLength ?? AnimationLength)
+                        new AnimationTrackProperty.KeyFrame(sprite.Color, animationLength ?? AnimationLength) // EE Plasmamen Change
                     }
                 }
             }
@@ -152,7 +154,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
                 continue;
             }
 
-            // <Goobstation Change>
+            // EE Plasmamen Change Start
             if (!TryComp(ent, out AnimationPlayerComponent? player))
             {
                 player = (AnimationPlayerComponent) _factory.GetComponent(typeof(AnimationPlayerComponent));
@@ -173,7 +175,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
 
             if (animation == null)
                 continue;
-            // </Goobstation Change>
+            // EE Plasmamen Change End
 
             if (!TryComp(ent, out ColorFlashEffectComponent? comp))
             {

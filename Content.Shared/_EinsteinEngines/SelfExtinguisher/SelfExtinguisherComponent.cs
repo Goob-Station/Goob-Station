@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.SelfExtinguisher;
+namespace Content.Shared._EinsteinEngines.SelfExtinguisher;
 
 /// <summary>
 ///   When equipped, the SelfExtinguisherComponent will give an action to its wearer to self-extinguish when set on fire.

@@ -16,16 +16,18 @@ using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Enums;
+using Content.Shared._EinsteinEngines.Humanoid; // EE Plasmeme Change
 
 namespace Content.Shared.Humanoid
 {
     /// <summary>
     /// Figure out how to name a humanoid with these extensions.
     /// </summary>
-    public sealed partial class NamingSystem : EntitySystem
+    public sealed class NamingSystem : EntitySystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly RomanNamingSystem _romanNamingSystem = default!; // EE Plasmeme Change
 
         public string GetName(string species, Gender? gender = null)
         {
@@ -54,9 +56,9 @@ namespace Content.Shared.Humanoid
                 case SpeciesNaming.LastFirst: // DeltaV: Rodentia name scheme
                     return Loc.GetString("namepreset-lastfirst",
                         ("last", GetLastName(speciesProto)), ("first", GetFirstName(speciesProto, gender)));
-                case SpeciesNaming.FirstRoman: // Goobstation
+                case SpeciesNaming.FirstRoman: // EE Plasmeme Change
                     return Loc.GetString("namepreset-firstlast",
-                        ("first", GetFirstName(speciesProto, gender)), ("last", GenerateRomanNumeral()));
+                        ("first", GetFirstName(speciesProto, gender)), ("last", _romanNamingSystem.GenerateRomanNumeral()));
                 case SpeciesNaming.FirstLast:
                 default:
                     return Loc.GetString("namepreset-firstlast",

@@ -16,7 +16,7 @@ public sealed partial class LightFadeComponent : Component
     public float Duration = 0.5f;
 
     // <summary>
-    //   Goobstation Change: The duration of the fade-in effect before starting the fade out effect.
+    //   EE Plasmamen Change: The duration of the fade-in effect before starting the fade out effect.
     // </summary>
     [DataField]
     public float RampUpDuration = 0f;

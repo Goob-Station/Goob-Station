@@ -358,7 +358,7 @@ public sealed class TemperatureSystem : EntitySystem
 
         if (args.CurrentTemperature <= idealTemp)
         {
-            // If there's no risk to being cold there's no reason to show a Cold alert
+            // EE Plasmeme Change: If there's no risk to being cold there's no reason to show a Cold alert
             if (!temperature.ColdDamage.AnyPositive())
                 return;
 
@@ -367,7 +367,7 @@ public sealed class TemperatureSystem : EntitySystem
         }
         else
         {
-            if (!temperature.HeatDamage.AnyPositive())
+            if (!temperature.HeatDamage.AnyPositive()) // EE Plasmeme Change
                 return;
 
             type = temperature.HotAlert;

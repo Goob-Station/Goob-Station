@@ -299,9 +299,6 @@ public sealed class InternalsSystem : EntitySystem
             return;
 
         _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
-
-        var ev = new BreathToolConnectedEvent(ent.Owner, toolEntity);
-        RaiseLocalEvent(ent.Owner, ev);
     }
 
     public void DisconnectTank(Entity<InternalsComponent> ent)
@@ -388,20 +385,5 @@ public sealed class InternalsSystem : EntitySystem
         }
 
         return null;
-    }
-}
-
-/// <summary>
-///   Goobstation Change: Raised on an equipee when it has breath tools connected.
-/// </summary>
-public sealed class BreathToolConnectedEvent : EntityEventArgs
-{
-    public readonly EntityUid Equipee;
-    public readonly EntityUid BreathTool;
-
-    public BreathToolConnectedEvent(EntityUid equipee, EntityUid breathTool)
-    {
-        Equipee = equipee;
-        BreathTool = breathTool;
     }
 }

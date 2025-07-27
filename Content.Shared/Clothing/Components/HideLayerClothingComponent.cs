@@ -30,7 +30,7 @@ public sealed partial class HideLayerClothingComponent : Component
     public Dictionary<HumanoidVisualLayers, SlotFlags> Layers = new();
 
     /// <summary>
-    /// The clothing layers to hide.
+    /// EE Plasmeme Change: The clothing layers to hide.
     /// </summary>
     [DataField]
     public HashSet<string>? ClothingSlots = new();

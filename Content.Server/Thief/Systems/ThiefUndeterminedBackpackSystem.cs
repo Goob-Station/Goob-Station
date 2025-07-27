@@ -41,7 +41,6 @@ using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Thief;
 using Robust.Server.GameObjects;
 using Robust.Server.Audio;
-using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Thief.Systems;
@@ -54,7 +53,6 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
@@ -71,7 +69,7 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
 
     private void OnUIOpened(Entity<ThiefUndeterminedBackpackComponent> backpack, ref BoundUIOpenedEvent args)
     {
-        UpdateUI(backpack.Owner, args.Actor, backpack.Comp);
+        UpdateUI(backpack.Owner, backpack.Comp);
     }
 
     private void OnApprove(Entity<ThiefUndeterminedBackpackComponent> backpack, ref ThiefBackpackApproveMessage args)
@@ -112,10 +110,10 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
         if (!backpack.Comp.SelectedSets.Remove(args.SetNumber))
             backpack.Comp.SelectedSets.Add(args.SetNumber);
 
-        UpdateUI(backpack.Owner, args.Actor, backpack.Comp);
+        UpdateUI(backpack.Owner, backpack.Comp);
     }
 
-    private void UpdateUI(EntityUid uid, EntityUid user, ThiefUndeterminedBackpackComponent? component = null)
+    private void UpdateUI(EntityUid uid, ThiefUndeterminedBackpackComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -125,7 +123,6 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
         for (int i = 0; i < component.PossibleSets.Count; i++)
         {
             var set = _proto.Index(component.PossibleSets[i]);
-
             var selected = component.SelectedSets.Contains(i);
             var info = new ThiefBackpackSetInfo(
                 set.Name,

@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server._EinsteinEngines.Atmos.Components;
 using Content.Server.Bed.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Body.Events;
@@ -10,7 +12,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 
-namespace Content.Server.Atmos.EntitySystems;
+namespace Content.Server._EinsteinEngines.Atmos.EntitySystems;
 
 public sealed class IgniteFromGasSystem : EntitySystem
 {

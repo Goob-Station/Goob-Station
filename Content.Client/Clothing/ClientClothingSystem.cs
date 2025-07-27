@@ -370,10 +370,10 @@ public sealed class ClientClothingSystem : ClothingSystem
                 layer.SetRsi(clothingSprite.BaseRSI);
             }
 
-            // Goob Change: Another "temporary" fix for clothing stencil masks.
+            // EE Plasmamen Change: Another "temporary" fix for clothing stencil masks.
             // Sprite layer refactor when
-            //if (slot == Jumpsuit)
-            //    layerData.Shader ??= "StencilDraw";
+            if (slot == Jumpsuit)
+                layerData.Shader ??= "StencilDraw";
 
             sprite.LayerSetData(index, layerData);
             layer.Offset += slotDef.Offset;

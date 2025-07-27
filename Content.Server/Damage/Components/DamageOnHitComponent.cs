@@ -5,7 +5,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Damage;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Targeting; // EE Plasmeme Change
 
 
 // Damages the entity by a set amount when it hits someone.
@@ -24,11 +24,11 @@ public sealed partial class DamageOnHitComponent : Component
     public DamageSpecifier Damage = default!;
 
     // <summary>
-    //   Goobstation Change: The body parts to deal damage to.
+    //   EE Plasmeme Change: The body parts to deal damage to.
     //   When there is more than one listed element,
     //   randomly selects between one of the elements.
     // </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public List<TargetBodyPart>? TargetParts = null;
+    public TargetBodyPart TargetParts = null;
 }

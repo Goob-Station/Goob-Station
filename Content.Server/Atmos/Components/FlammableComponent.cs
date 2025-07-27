@@ -122,9 +122,8 @@ namespace Content.Server.Atmos.Components
         public bool CanExtinguish = true;
 
         /// <summary>
-        ///     Should the component ignore fire protection when on fire?
+        ///     EE Plasmamen Change: Should the component ignore fire protection when on fire?
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public bool IgnoreFireProtection = false;
 

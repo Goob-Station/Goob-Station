@@ -1,7 +1,7 @@
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
 
-namespace Content.Server.Atmos.Components;
+namespace Content.Server._EinsteinEngines.Atmos.Components;
 
 /// <summary>
 ///   Component that can be used to add (or remove) fire stacks when exposed to a type of gas, unless wearing ignition immunity.
