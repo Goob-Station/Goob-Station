@@ -10,6 +10,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
+using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
 namespace Content.Server._White.Xenomorphs.Egg;
@@ -103,7 +104,7 @@ public sealed class XenomorphEggSystem : EntitySystem
     {
         _popup.PopupEntity(Loc.GetString("xenomorph-egg-clean-butsting-egg"), user, user);
         _audio.PlayEntity(component.CleaningSound, user, user);
-        QueueDel(uid);
+        EnsureComp<TimedDespawnComponent>(uid).Lifetime = 0.1f;
     }
 
     private void SetBurst(EntityUid uid, XenomorphEggComponent component)

@@ -12,6 +12,7 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
+using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -27,6 +28,7 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly MindSystem _mind = default!;
@@ -116,7 +118,7 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
         var query = EntityQueryEnumerator<XenomorphEvolutionComponent>();
         while (query.MoveNext(out var uid, out var alienEvolution))
         {
-            if (alienEvolution.Points == alienEvolution.Max || time < alienEvolution.NextPointsAt)
+            if (alienEvolution.Points == alienEvolution.Max || time < alienEvolution.NextPointsAt || _container.IsEntityInContainer(uid))
                 continue;
 
             alienEvolution.NextPointsAt = time + TimeSpan.FromSeconds(1);

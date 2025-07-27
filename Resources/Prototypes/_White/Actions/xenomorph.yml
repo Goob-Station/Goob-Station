@@ -59,7 +59,6 @@
   description: Plants some xenomorph weeds.
   components:
   - type: Action
-    checkCanInteract: false
     itemIconStyle: BigAction
     useDelay: 2
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: plant_seed }
@@ -74,11 +73,12 @@
   name: Lay egg (75)
   description: Lay an egg to produce facehuggers to impregnate prey with.
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     itemIconStyle: BigAction
     useDelay: 2
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: egg }
+  - type: InstantAction
     event: !type:SpawnTileEntityActionEvent
       entity: XenomorphEgg
       blockedCollision: TableMask
@@ -159,7 +159,7 @@
     range: 10
   - type: WorldTargetAction
     event: !type:TailLashActionEvent
-    
+
     # Acid action
 - type: entity
   id: ActionAcid
@@ -194,7 +194,7 @@
     range: 10
   - type: WorldTargetAction
     event: !type:JumpActionEvent
-    
+
     # Transfer plasma action
 - type: entity
   id: ActionTransferPlasma

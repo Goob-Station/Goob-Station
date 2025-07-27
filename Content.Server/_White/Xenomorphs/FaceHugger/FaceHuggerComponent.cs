@@ -1,3 +1,5 @@
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Whitelist;
@@ -28,4 +30,7 @@ public sealed partial class FaceHuggerComponent : Component
 
     [DataField]
     public DamageSpecifier PassiveDamage = new();
+
+    [DataField]
+    public (BodyPartType Type, BodyPartSymmetry Symmetry) InfectionBodyPart = (BodyPartType.Chest, BodyPartSymmetry.None);
 }

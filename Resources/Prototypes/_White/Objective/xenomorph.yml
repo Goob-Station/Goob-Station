@@ -8,8 +8,7 @@
     issuer: objective-issuer-xenomorph-hive
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - XenomorphRole
+    - XenomorphRole
 
 - type: entity
   parent: [BaseXenomorphObjective, BaseSurviveObjective]

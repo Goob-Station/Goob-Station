@@ -25,6 +25,8 @@ public sealed partial class WhiteInventorySystem
 
         var effectsArgs = new EntityEffectBaseArgs(args.Equipee, EntityManager);
         foreach (var effect in component.Effects)
+        {
             effect.Effect(effectsArgs);
+        }
     }
 }

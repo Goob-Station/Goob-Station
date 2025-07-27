@@ -74,8 +74,6 @@
     slot: mask
     blacklist:
       components:
-      - XenomorphInfected
-      - XenomorphLarvaVictim
       - Ghost
     effects:
     - !type:Paralyze
