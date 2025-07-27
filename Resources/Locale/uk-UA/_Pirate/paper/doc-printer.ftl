@@ -1,1253 +1,1190 @@
-doc-text-printer-report-station =
-   ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+doc-text-printer-report-station = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                                SITUATION REPORT
+                                ЗВІТ ПРО СИТУАЦІЮ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    Objective:
-    Objective completion status:
-    Threat level code:
-    Reason for establishing the code:
-    Active threats:
-    Crew casualties:
-    Current situation:
+    Ціль:
+    Статус виконання цілі:
+    Код рівня загрози:
+    Причина встановлення коду:
+    Активні загрози:
+    Втрати екіпажу:
+    Поточна ситуація:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-report-on-elimination-of-violations =
-   ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-report-on-elimination-of-violations = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                            VIOLATION CORRECTION REPORT
+                            ЗВІТ ПРО УСУНЕННЯ ПОРУШЕНЬ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), report the correction of violations in the work identified by (full name), in the position of (full job title).
-    Identified violations:
+    Я, (повне ім'я), на посаді (повна назва посади), повідомляю про усунення порушень у роботі, виявлених (повне ім'я), на посаді (повна назва посади).
+    Виявлені порушення:
 
-    Reason for violations:
+    Причина порушень:
 
-    Actions taken to correct the violations:
+    Вжиті заходи для усунення порушень:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-report-department =
-   ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-report-department = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                                DEPARTMENT PERFORMANCE REPORT
+                                ЗВІТ ПРО РОБОТУ ВІДДІЛУ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    Number of employees in the department:
-    Number of interns:
-    Inactive employees in the department:
-    Full name, position, reason
-    Goal readiness level:
-    Overall condition of the department:
+    Кількість працівників у відділі:
+    Кількість інтернів:
+    Неактивні працівники у відділі:
+    Повне ім'я, посада, причина
+    Рівень готовності цілі:
+    Загальний стан відділу:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-report-employee-performance =
-   ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-report-employee-performance = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        EMPLOYEE PERFORMANCE REPORT
+                        ЗВІТ ПРО РЕЗУЛЬТАТИВНІСТЬ ПРАЦІВНИКА
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), have completed the required amount of work in the course of performing my duties. I request the approval of my work results by the Head of the department (department name).
-    Performed work:
+    Я, (повне ім'я), на посаді (повна назва посади), виконав(ла) необхідний обсяг роботи в ході виконання своїх обов'язків. Прошу затвердити результати моєї роботи у Голови відділу (назва відділу).
+    Виконана робота:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-report-on-the-chapters-meeting =
-   ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-report-on-the-chapters-meeting = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                                HEADS OF DEPARTMENTS MEETING REPORT
+                                ЗВІТ ПРО ЗАСІДАННЯ ГОЛІВ ВІДДІЛІВ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    Reason for calling the Heads of Departments Meeting:
-    Formulation of the question posed to the Heads:
-    Number of votes for:
-    Voters for:
+    Причина скликання засідання Голів Відділів:
+    Формулювання питання, поставленого перед Головами:
+    Кількість голосів "за":
+    Голосували "за":
 
-    Number of votes against:
-    Voters against:
+    Кількість голосів "проти":
+    Голосували "проти":
 
-    Number of abstentions:
-    Abstentions:
+    Кількість тих, хто утримався:
+    Утрималися:
 
-    Decision of the Heads of Departments Meeting:
+    Рішення засідання Голів Відділів:
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-internal-affairs-agents-report =
-   ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-internal-affairs-agents-report = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                INTERNAL INVESTIGATION REPORT
+                ЗВІТ ПРО ВНУТРІШНЄ РОЗСЛІДУВАННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of Internal Affairs Agent, during the internal investigation requested by (full name), in the position of (full job title) for the reason (reason for investigation), identified the following violations:
+    Я, (повне ім'я), на посаді Агента Внутрішніх Справ, під час внутрішнього розслідування, запитаного (повне ім'я), на посаді (повна назва посади) з причини (причина розслідування), виявив(ла) наступні порушення:
 
-    I would also like to report the following:
+    Також хочу повідомити про наступне:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-condition-report =
-   ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-condition-report = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+   ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        TECHNICAL CONDITION REPORT
+                        ЗВІТ ПРО ТЕХНІЧНИЙ СТАН
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    A check of (name of the system or object) was carried out, the results of the check were analyzed, and the causes of the unstable operation of the object were examined.
-    Cause of the object's malfunction:
+    Було проведено перевірку (назва системи або об'єкта), проаналізовано результати перевірки та розглянуто причини нестабільної роботи об'єкта.
+    Причина несправності об'єкта:
 
-    Identified damages to the object:
+    Виявлені пошкодження об'єкта:
 
-    Repairs carried out on the object:
+    Проведені ремонтні роботи на об'єкті:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-report-study-object =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-report-study-object = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
+   ⠀[color=#1b487e]░░░░██░░░████░███[/color]
+    =============================================
+                        ЗВІТ ПРО ДОСЛІДЖЕННЯ ОБ'ЄКТА
+    =============================================
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
+
+    Для експертизи (хто або який відділ передав об'єкт) надав пристрій з невідомими властивостями. В ході експертизи було досліджено об'єкт, визначено його властивості та вид.
+    Зовнішній опис об'єкта:
+
+    Виявлені властивості об'єкта:
+
+    =============================================
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-experiment-report = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
+   ⠀[color=#1b487e]░░░░██░░░████░███[/color]
+    =============================================
+                        ЗВІТ ПРО ЕКСПЕРИМЕНТ
+    =============================================
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
+
+    Зовнішній опис об'єкта експерименту:
+
+    Експериментатор(и):
+
+    Експеримент №...
+    Опис експерименту:
+
+    Очікуваний результат:
+
+    Використане обладнання:
+
+    Фактичний результат:
+
+    =============================================
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-disposal-report = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+   ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
+   ⠀[color=#1b487e]░░░░██░░░████░███[/color]
+    =============================================
+                            ЗВІТ ПРО УТИЛІЗАЦІЮ
+    =============================================
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
+
+    Відділ Постачання провів утилізацію об'єктів за допомогою (метод утилізації). В ході утилізації було виявлено цінні предмети та речі, цінні предмети передано відповідним відділам для їх використання.
+    Список виявлених предметів:
+
+    =============================================
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-application-appointment-interim = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        OBJECT STUDY REPORT
+                    ЗАЯВА НА ТИМЧАСОВЕ ПРИЗНАЧЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    For the expertise, (who or which department handed over the object) provided a device with unknown properties. During the expertise, the object was studied, its properties and species were determined.
-    External description of the object:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу схвалити моє призначення виконуючим обов'язки Голови (повна назва відділу)/Капітана.
+    При вступі на посаду зобов'язуюсь дотримуватися Стандартних Операційних Процедур і, до прибуття Голови (повна назва відділу)/Капітана з Центрального Командування, забезпечувати порядок і управління відділом, а також збереження довірених мені цінних предметів та обладнання.
 
-    Identified properties of the object:
-
+    Після прибуття Голови відділу/Капітана з Центрального Командування зобов'язуюсь повернути підвищений доступ, цінні предмети та обладнання.
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-experiment-report =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-application-employment = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        EXPERIMENT REPORT
+                        ЗАЯВА ПРО ПРИЙОМ НА РОБОТУ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    External description of the experiment object:
-
-    Experimenter(s):
-
-    Experiment №...
-    Description of the experiment:
-
-    Expected result:
-
-    Equipment used:
-
-    Actual result:
-
+    Я, (повне ім'я), на поточній посаді (повна назва посади), прошу призначити мене співробітником (назва відділу) на посаду (повна назва посади).
+    Зобов'язуюсь дотримуватися Стандартних Операційних Процедур відділу. Зобов'язуюсь повернути робоче обладнання та спорядження відділу при переведенні.
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-disposal-report =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-letter-resignation = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                            DISPOSAL REPORT
+                        ЗАЯВА ПРО ЗВІЛЬНЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    The Supply Department has conducted the disposal of objects using (disposal method). During the disposal, valuable items and things were discovered; the valuable items were handed over to the respective departments for their use.
-    List of discovered items:
-
+    Я, (повне ім'я), на поточній посаді (повна назва посади), бажаю звільнитися з відділу (назва відділу) з причини (причина).
+    Зобов'язуюсь виплатити штраф, передбачений умовами розірвання строкового/безстрокового договору, на станції Центрального Командування.
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-application-appointment-interim =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-application-access = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    REQUEST FOR ACTING APPOINTMENT
+                    ЗАПИТ НА ДОСТУП
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the approval of my appointment as Acting Head of (full department name)/Captain.
-    Upon assuming the position, I undertake to follow the Standard Operating Procedures and, until the arrival of the Head of (full department name)/Captain from Central Command, ensure order and management of the department, as well as the safekeeping of valuable items and equipment entrusted to me.
+    Я, (повне ім'я), на посаді (повна назва посади), прошу надати наступні доступи:
 
-    Upon the arrival of the Head of the department/Captain from Central Command, I undertake to return elevated access, valuable items, and equipment.
+    Причина отримання підвищеного доступу:
+
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-application-employment =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-application-equipment = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        JOB APPLICATION
+                    ЗАПИТ НА ПРИДБАННЯ ОБЛАДНАННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the current position of (full job title), request to be appointed as an employee of (department name) in the position of (full job title).
-    I undertake to follow the department's Standard Operating Procedures. I undertake to return the department's work equipment and gear upon transfer.
+    Я, (повне ім'я), на посаді (повна назва посади), прошу видати наступне обладнання відділу (назва відділу)/особисте обладнання:
+
+    Причина отримання обладнання:
+
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-letter-resignation =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-appeal = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        RESIGNATION LETTER
+                            ЗВЕРНЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the current position of (full job title), want to resign from the department (department name) for the reason (reason).
-    I undertake to pay the fine stipulated by the terms of the termination of the fixed-term/permanent contract, at the Central Command station.
+    Я, (повне ім'я), на посаді (повна назва посади), прошу розглянути (повне ім'я), на посаді (повна назва посади), щодо мого звернення.
+    Зміст звернення:
+
+    Причини його написання:
+
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-application-access =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-evacuation-shuttle-request = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    REQUEST FOR ACCESS
+                    ЗАПИТ НА ЕВАКУАЦІЙНИЙ ШАТТЛ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the following accesses:
-
-    Reason for obtaining elevated access:
+    Шановне Центральне Командування! Я, (повне ім'я), на посаді (повна назва посади), прошу ініціювати протоколи евакуації та відправити евакуаційний шаттл, прийнявши рішення про закінчення зміни.
+    Причина закінчення зміни:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-application-equipment =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-shuttle-registration-request = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    REQUEST FOR EQUIPMENT ACQUISITION
+                        ЗАПИТ НА РЕЄСТРАЦІЮ ШАТТЛА
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the issuance of the following department equipment (department name)/personal equipment:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу зареєструвати шаттл у системі НаноТрейзен для ідентифікації.
+    Розміри шаттла:
 
-    Reason for obtaining equipment:
+    Клас шаттла:
+
+    Відповідальний за будівництво:
+
+    Запитана назва:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-appeal =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-request-call-members-central-committee-dso = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                            ADDRESS
+                    ЗАПИТ НА ВИКЛИК ЧЛЕНІВ ЦЕНТРАЛЬНОГО КОМІТЕТУ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the consideration of (full name), in the position of (full job title), for my address.
-    Content of the address:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу розглянути питання про виклик на станцію:
 
-    Reasons for writing it:
+    Причина виклику:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-evacuation-shuttle-request =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-request-to-establish-threat-level = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    REQUEST FOR EVACUATION SHUTTLE
+                    ЗАПИТ НА ОЦІНКУ РІВНЯ ЗАГРОЗИ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    Dear Central Command! I, (full name), in the position of (full job title), request the initiation of evacuation protocols and the dispatch of an evacuation shuttle, having decided to end the shift.
-    Reason for ending the shift:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу розглянути питання про встановлення рівня загрози на станції:
+
+    Причина встановлення коду:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-shuttle-registration-request =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-request-change-salary = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        REQUEST FOR SHUTTLE REGISTRATION
+            ЗАПИТ НА ЗМІНУ ЗАРОБІТНОЇ ПЛАТИ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the registration of the shuttle in the NanoTrasen system for identification.
-    Shuttle dimensions:
-
-    Shuttle class:
-
-    Responsible for construction:
-
-    Requested name:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу розглянути питання про підвищення/зниження заробітної плати на (сума або відсоток) для співробітника (повне ім'я) на посаді (повна назва посади)/відділу (назва відділу)/поточної зміни.
+    Причина підвищення/зниження заробітної плати:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-request-call-members-central-committee-dso =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-request-for-non-listed-employment = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    REQUEST FOR CALLING MEMBERS OF THE CENTRAL COMMITTEE
+            ЗАПИТ НА НЕСТАНДАРТНЕ ПРАЦЕВЛАШТУВАННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the consideration for calling to the station:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу розглянути питання про працевлаштування (повне ім'я) на поточну зміну на нестандартну посаду.
+    Повна назва посади:
 
-    Reason for the call:
+    Відповідальний керівник або персонал для співробітника:
+
+    Обов'язки, які виконуватимуться на посаді:
+
+    Доступи, надані співробітнику:
+
+    Причина працевлаштування:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-request-to-establish-threat-level =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-request-for-promotion = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    REQUEST FOR THREAT LEVEL ASSESSMENT
+                ЗАПИТ НА ПІДВИЩЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the consideration for the establishment of a threat level at the station:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу розглянути питання про підвищення (повне ім'я), на посаді (повна назва посади), згідно з командною ієрархією. Співробітник отримав необхідну кваліфікацію для цієї роботи.
+    Запитувана посада:
 
-    Reason for code establishment:
+    Відповідальний керівник або персонал для співробітника:
+
+    Причина підвищення:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-request-change-salary =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-request-documents = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            REQUEST FOR SALARY CHANGE
+            ЗАПИТ НА НАДАННЯ ДОКУМЕНТІВ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the consideration for an increase/decrease in salary by (amount or percentage) for the employee (full name) in the position of (full job title)/department (department name)/current shift.
-    Reason for the increase/decrease in salary:
+    Я, (повне ім'я), на посаді Агента Внутрішніх Справ, прошу надати копію/оригінал документів для перевірки дотримання Корпоративного Законодавства:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-request-for-non-listed-employment =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-request-euthanasia = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            REQUEST FOR NON-STANDARD EMPLOYMENT
+                    ЗАПИТ НА ЕВТАНАЗІЮ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the consideration for the employment of (full name) in the current shift for a non-standard position.
-    Full job title:
-
-    Responsible head or staff for the employee:
-
-    Duties to be performed in the position:
-
-    Accesses granted to the employee:
-
-    Reason for employment:
-
+    Я, (повне ім'я), на посаді (повна назва посади), прошу допомоги медичного відділу в проведенні евтаназії як медичного лікування з причини (вказати причину запиту). Я ознайомлений(а) з наслідками цього рішення, і медичний персонал визначив, що це рішення є раціональним і гуманним. Я не маю претензій до медичного відділу щодо дотримання протоколів евтаназії.
+    Після закінчення процедури, будь ласка, утилізуйте тіло за допомогою (метод утилізації), якщо це можливо.
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-request-for-promotion =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-request-construction-work = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                REQUEST FOR PROMOTION
+        ЗАПИТ НА ПРОВЕДЕННЯ БУДІВЕЛЬНИХ РОБІТ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the consideration for the promotion of (full name), in the position of (full job title), according to the command hierarchy. The employee has obtained the necessary qualifications for this job.
-    Requested position:
-
-    Responsible head or staff for the employee:
-
-    Reason for the promotion:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу провести будівельні роботи в (назва відділу або об'єкта) з причини (причина запиту).
+    Перелік будівельних робіт:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-request-documents =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-request-modernization = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            REQUEST FOR DOCUMENT PROVISION
+                ЗАПИТ НА МОДЕРНІЗАЦІЮ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of Internal Affairs Agent, request the provision of a copy/original of the documents for verification of compliance with Corporate Law:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу провести модернізацію обладнання в (назва відділу або об'єкта) з причини (причина запиту).
+    Перелік модернізацій:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-request-euthanasia =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-complaint-violation-labor-rules = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    REQUEST FOR EUTHANASIA
+            СКАРГА НА ПОРУШЕННЯ ТРУДОВОГО ПОРЯДКУ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the capacity of (full job title), request the assistance of the medical department in euthanizing as a medical treatment for the reason of (specify reason for request). I am familiar with the consequences of this decision and the medical staff has determined that this decision is rational and humane. I have no complaints about the medical department in their adherence to euthanasia protocols.
-    At the end of the procedure, please dispose of the body by (method of disposal) if possible.
+    Я, (повне ім'я), на посаді (повна назва посади), вважаю, що під час роботи відділу (назва відділу) були допущені наступні порушення:
+
+    Прошу провести внутрішнє розслідування щодо цих порушень.
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-request-construction-work =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-complaint-offense = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-        REQUEST FOR CONSTRUCTION WORK
+                        СКАРГА НА ПОРУШЕННЯ ЗАКОНОДАВСТВА
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the construction work in (department or object name) for the reason (reason for the request).
-    List of construction works:
+    Я, (повне ім'я), на посаді (повна назва посади), вважаю, що (повне ім'я), на посаді (повна назва посади), порушив(ла) Корпоративне Законодавство через (причина).
+    Що сталося з моєї точки зору:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-request-modernization =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-permission-equipment = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                REQUEST FOR MODERNIZATION
+        ДОЗВІЛ НА ВИКОРИСТАННЯ ОБЛАДНАННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the modernization of the equipment in (department or object name) for the reason (reason for the request).
-    List of modernizations:
+    Я, (повне ім'я), на посаді голови відділу (повна назва відділу), дозволяю (повне ім'я), на посаді (повна назва посади), використовувати наступне робоче обладнання відділу:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-complaint-violation-labor-rules =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-permission-to-travel-in-case-of-threat = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            COMPLAINT ABOUT LABOR ORDER VIOLATION
+            ДОЗВІЛ НА ПЕРЕМІЩЕННЯ У РАЗІ ЗАГРОЗИ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), believe that during the work of the department (department name), the following violations were committed:
+    Я, (повне ім'я), на посаді (повна назва посади), дозволяю співробітнику (повне ім'я), на посаді (повна назва посади), переміщатися станцією для виконання своїх робочих обов'язків.
+    Коди рівнів загрози, для яких надається цей дозвіл:
 
-    I request an internal investigation into these violations.
+    Дозволені частини станції для перебування співробітника (можна вказати всю станцію):
+
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-complaint-offense =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-search-permission = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        COMPLAINT ABOUT VIOLATION OF LAW
+                        ДОЗВІЛ НА ОБШУК
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), believe that (full name), in the position of (full job title), violated the Corporate Law because (reason).
-    What happened from my point of view:
+    Я, (повне ім'я), на посаді (повна назва посади), дозволяю обшук (повне ім'я)/(повна назва відділу), на посаді (повна назва посади).
+    Причина обшуку:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-permission-equipment =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-permission-to-carry-weapons = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-        PERMISSION FOR USE OF EQUIPMENT
+                    ДОЗВІЛ НА НОСІННЯ ЗБРОЇ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of head of the department (full name of the department), authorize (full name), in the position of (full job title), to use the following work equipment of the department:
+    Я, (повне ім'я), на посаді (повна назва посади), дозволяю (повне ім'я), на посаді (повна назва посади), носити зброю до тих пір, поки вона використовується за призначенням. У разі порушення дозвіл анулюється, а зброя конфіскується Службою Безпеки.
+    Зброя та тип боєприпасів:
+
+    Спосіб отримання зброї та боєприпасів:
+
+    Причина видачі дозволу:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-permission-to-travel-in-case-of-threat=
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-prescription-drug-authorization = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            PERMISSION FOR MOVEMENT IN CASE OF THREAT
+                ДОЗВІЛ НА РЕЦЕПТУРНІ МЕДИКАМЕНТИ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), authorize the employee (full name), in the position of (full job title), to move around the station to perform their work duties.
-    Threat code levels for which this permission is given:
+    Я, (повне ім'я), на посаді (повна назва посади), дозволяю зберігання та використання рецептурного медикаменту або наркотику "(повна назва речовини)" для пацієнта (повне ім'я), на посаді (повна назва посади).
+    Діагностований стан:
 
-    Authorized parts of the station for the employee's presence (you can specify the entire station):
+    Причина призначення медикаменту:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-search-permission =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-permission-dispose-body = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        PERMISSION FOR SEARCH
+                    ДОЗВІЛ НА УТИЛІЗАЦІЮ ТІЛА
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), authorize the search of (full name)/(full name of the department), in the position of (full job title).
-    Reason for the search:
+    Я, (повне ім'я), на посаді (повна назва посади), дозволяю утилізацію тіла (повне ім'я), на посаді (повна назва посади) через неможливість його реанімації та клонування.
+    Метод утилізації:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-permission-to-carry-weapons =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-construction-permit = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    PERMISSION FOR WEAPON CARRYING
+                        ДОЗВІЛ НА БУДІВНИЦТВО
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), authorize (full name), in the position of (full job title), to carry a weapon as long as it is used for its intended purpose. In case of violation, the permission is revoked and the weapon is confiscated by the Security Service.
-    Weapon and type of ammunition:
-
-    Method of obtaining the weapon and ammunition:
-
-    Reason for issuing the permission:
+    Я, (повне ім'я), на посаді (повна назва посади), дозволяю (повне ім'я), на посаді (повна назва посади), провести реконфігурацію частини станції (вказівка місця реконфігурації) з причини (причина реконфігурації).
+    Узгоджений обсяг реконфігурації:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-prescription-drug-authorization =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-permission-to-extend-marriage = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                PERMISSION FOR PRESCRIPTION MEDICATION
+                ДОЗВІЛ НА РОЗШИРЕННЯ ШЛЮБУ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), authorize the storage and use of the prescription medication or narcotic "(full name of the substance)" for the patient (full name), in the position of (full job title).
-    Diagnosed condition:
-
-    Reason for prescribing the medication:
-
-    =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-permission-dispose-body =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
-    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
-    =============================================
-                    PERMISSION FOR BODY DISPOSAL
-    =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
-
-    I, (full name), in the position of (full job title), authorize the disposal of the body of (full name), in the position of (full job title) due to the impossibility of its resuscitation and cloning.
-    Method of disposal:
-
-    =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-construction-permit =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
-    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
-    =============================================
-                        PERMISSION FOR CONSTRUCTION
-    =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
-
-    I, (full name), in the position of (full job title), authorize (full name), in the position of (full job title), to carry out the reconfiguration of part of the station (indication of the reconfiguration location) for the reason (reason for reconfiguration).
-    Agreed scope of reconfiguration:
-
-    =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-permission-to-extend-marriage =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
-    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
-    =============================================
-                PERMISSION FOR MARRIAGE EXTENSION
-    =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
-
-    I, (full name), in the position of (full job title), give my permission for the extension of the marriage contracted between:
-    (Full name), in the position of (full job title)
+    Я, (повне ім'я), на посаді (повна назва посади), даю дозвіл на розширення шлюбу, укладеного між:
+    (Повне ім'я), на посаді (повна назва посади)
     ⠀...
-    (Full name), in the position of (full job title)
-    For the inclusion of new spouses in this marriage:
-    (Full name), in the position of (full job title)
+    (Повне ім'я), на посаді (повна назва посади)
+    Для включення нових членів шлюбу:
+    (Повне ім'я), на посаді (повна назва посади)
     ⠀...
-    (Full name), in the position of (full job title)
+    (Повне ім'я), на посаді (повна назва посади)
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-order-dismissal =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-order-dismissal = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                            ORDER FOR DISMISSAL
+                            НАКАЗ ПРО ЗВІЛЬНЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), order the dismissal of the employee (full name) from the department (department name) in the position of (dismissed employee's full job title) for the reason:
+    Я, (повне ім'я), на посаді (повна назва посади), наказую звільнити співробітника (повне ім'я) з відділу (назва відділу) на посаді (повна назва посади звільненого співробітника) з причини:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-order-deprivation-access =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-order-deprivation-access = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        ORDER TO REVOKE ACCESS
+                        НАКАЗ ПРО ПОЗБАВЛЕННЯ ДОСТУПУ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), order to revoke the following access from the employee (full name) in the position of (full job title):
+    Я, (повне ім'я), на посаді (повна назва посади), наказую позбавити наступного доступу співробітника (повне ім'я) на посаді (повна назва посади):
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-order-encouragement =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-order-encouragement = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                            ORDER FOR ENCOURAGEMENT
+                            НАКАЗ ПРО ЗАОХОЧЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title) award (full name), in the position of (awardee's full job title), with a medal/certificate/memento/prize in the amount of (prize amount) for the following merits:
+    Я, (повне ім'я), на посаді (повна назва посади) нагороджую (повне ім'я), на посаді (повна назва посади нагороджуваного), медаллю/грамотою/пам'ятним подарунком/премією у розмірі (розмір премії) за наступні заслуги:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-order-parole-prisoner =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-order-parole-prisoner = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    ORDER FOR PRISONER PAROLE
+                    НАКАЗ ПРО УМОВНО-ДОСТРОКОВЕ ЗВІЛЬНЕННЯ УВ'ЯЗНЕНОГО
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), authorize the release of the prisoner (full name) to the brig/permanent brig. After the issuance of the parole, the prisoner will be assigned a civilian profession with mandatory work until the end of the shift.
-    Assigned profession:
+    Я, (повне ім'я), на посаді (повна назва посади), дозволяю звільнення ув'язненого (повне ім'я) до карцеру/постійного карцеру. Після видачі умовно-дострокового звільнення ув'язненому буде призначено цивільну професію з обов'язковою роботою до кінця зміни.
+    Призначена професія:
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-order-recognizing-sentience-creature =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-order-recognizing-sentience-creature = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            ORDER OF RECOGNITION OF SENTIENCE OF A CREATURE
+            НАКАЗ ПРО ВИЗНАННЯ РОЗУМНОСТІ ІСТОТИ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    During the testing of the creature, signs of higher brain activity and intelligence of this creature were identified, its ability to think, learn, understand morality, and the presence of common sense in actions. Thus, I, (full name), in the position of (full job title), based on the principles of equality of rights of all sentient beings established by the OPRS, recognize this creature as sentient.
-    Appearance of the creature:
+    Під час тестування істоти були виявлені ознаки вищої мозкової діяльності та інтелекту цієї істоти, її здатність мислити, навчатися, розуміти мораль та наявність здорового глузду у діях. Таким чином, я, (повне ім'я), на посаді (повна назва посади), ґрунтуючись на принципах рівності прав усіх розумних істот, встановлених ЗРПІ, визнаю цю істоту розумною.
+    Зовнішній вигляд істоти:
 
-    Assigned full name of the creature:
+    Призначене повне ім'я істоти:
 
-    Creature accepted/not accepted as a passenger of the station until the end of the shift.
+    Істоту прийнято/не прийнято як пасажира станції до кінця зміни.
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-order-medical-intervention =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-order-medical-intervention = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-    ORDER FOR MEDICAL INTERVENTION
+    НАКАЗ ПРО МЕДИЧНЕ ВТРУЧАННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), order the medical intervention for the purpose of (description of the purpose of the medical intervention), in relation to (full name) in the position of (full job title).
-    Basis for the operation:
+    Я, (повне ім'я), на посаді (повна назва посади), наказую провести медичне втручання з метою (опис мети медичного втручання), стосовно (повне ім'я) на посаді (повна назва посади).
+    Підстава для операції:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-product-manufacturing-order =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-product-manufacturing-order = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    ORDER FOR PRODUCT MANUFACTURING
+                    НАКАЗ НА ВИГОТОВЛЕННЯ ПРОДУКЦІЇ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request the department (department name) to manufacture the product.
-    List of required products:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу відділ (назва відділу) виготовити продукцію.
+    Список необхідної продукції:
 
-    Reason for the order:
+    Причина замовлення:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-order-purchase-resources-equipment =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-order-purchase-resources-equipment = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color] [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            ORDER FOR THE PURCHASE OF RESOURCES AND EQUIPMENT
+            НАКАЗ НА ЗАКУПІВЛЮ РЕСУРСІВ ТА ОБЛАДНАННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    List of items to order:
+    Перелік предметів для замовлення:
 
-    Delivery location:
+    Місце доставки:
 
-    Reason:
+    Причина:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-ordering-special-equipment =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-ordering-special-equipment = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    ORDER FOR SPECIAL EQUIPMENT
+                    НАКАЗ НА СПЕЦІАЛЬНЕ ОБЛАДНАННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), request special equipment for the station from Central Command.
-    List of requested equipment:
+    Я, (повне ім'я), на посаді (повна назва посади), прошу спеціальне обладнання для станції від Центрального Командування.
+    Перелік запитуваного обладнання:
 
-    Reason for request:
+    Причина запиту:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-order-purchase-weapons =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-order-purchase-weapons = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    ORDER FOR WEAPONS PURCHASE
+                    НАКАЗ НА ЗАКУПІВЛЮ ЗБРОЇ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the capacity of (full job title), am ordering combat arms and/or combat equipment through the Supply Department.
-    Reason for order:
+    Я, (повне ім'я), на посаді (повна назва посади), замовляю бойову зброю та/або бойове спорядження через Відділ Постачання.
+    Причина замовлення:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-certificate =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-certificate = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                                        CERTIFICATE OF HONOR
+                                        ПОЧЕСНА ГРАМОТА
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    (Full name), in the position of (full job title), is awarded a certificate of honor for the following merits:
+    (Повне ім'я), на посаді (повна назва посади), нагороджується почесною грамотою за наступні заслуги:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-certificate-advanced-training =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-certificate-advanced-training = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-    CERTIFICATE OF PROFESSIONAL DEVELOPMENT
+    СВІДОЦТВО ПРО ПІДВИЩЕННЯ КВАЛІФІКАЦІЇ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of head of the department (full name of the department), certify that the employee (full name), in the position of (employee's position), has successfully completed the educational course "(course name)" and has been certified.
+    Я, (повне ім'я), на посаді голови відділу (повна назва відділу), засвідчую, що співробітник (повне ім'я), на посаді (посада співробітника), успішно закінчив(ла) освітній курс "(назва курсу)" та пройшов(ла) атестацію.
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-certificate-offense =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-certificate-offense = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                CERTIFICATE OF OFFENSE
+                СВІДОЦТВО ПРО ПРАВОПОРУШЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), testify to the offenses/I personally confess to committing the offenses provided for in the articles:
-    (list of articles)
-    Regarding this incident, I can explain the following.
-    Place of the crime:
-    Motives for committing the crime:
-    Against whom the crime was committed:
-    Nature and extent of the harm caused by the crime:
-    Accomplices in the crime:
-    Full chronology of events:
+    Я, (повне ім'я), на посаді (повна назва посади), свідчу про правопорушення/особисто зізнаюся у скоєнні правопорушень, передбачених статтями:
+    (перелік статей)
+    Щодо цієї події можу пояснити наступне.
+    Місце злочину:
+    Мотиви скоєння злочину:
+    Проти кого було скоєно злочин:
+    Характер і розмір шкоди, завданої злочином:
+    Спільники злочину:
+    Повна хронологія подій:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-death-certificate =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-death-certificate = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                            DEATH CERTIFICATE
+                            СВІДОЦТВО ПРО СМЕРТЬ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    Full name of the deceased:
-    Position of the deceased:
-    Race:
-    Gender:
-    Cause of death:
-    Possibility of resuscitation or cloning:
+    Повне ім'я померлого:
+    Посада померлого:
+    Раса:
+    Стать:
+    Причина смерті:
+    Можливість реанімації чи клонування:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-marriage-certificate =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-marriage-certificate = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                MARRIAGE CERTIFICATE
+                СВІДОЦТВО ПРО ШЛЮБ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), officiate the marriage between:
-    (Full name), in the position of (full job title)
+    Я, (повне ім'я), на посаді (повна назва посади), проводжу одруження між:
+    (Повне ім'я), на посаді (повна назва посади)
     ⠀...
-    (Full name), in the position of (full job title)
-    After the marriage, the following full names were assigned to the newlyweds:
+    (Повне ім'я), на посаді (повна назва посади)
+    Після укладення шлюбу нареченим було присвоєно наступні повні імена:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-divorce-certificate =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-divorce-certificate = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                DIVORCE CERTIFICATE
+                СВІДОЦТВО ПРО РОЗЛУЧЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), dissolve the marriage between:
-    (Full name), in the position of (full job title)
+    Я, (повне ім'я), на посаді (повна назва посади), розриваю шлюб між:
+    (Повне ім'я), на посаді (повна назва посади)
     ⠀...
-    (Full name), in the position of (full job title)
-    After the dissolution of marriage, the following full names were assigned to the former spouses:
+    (Повне ім'я), на посаді (повна назва посади)
+    Після розірвання шлюбу колишньому подружжю було присвоєно наступні повні імена:
 
-    The division of property was carried out as follows:
+    Розділ майна було проведено наступним чином:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-closing-indictment =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-closing-indictment = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                        INDICTMENT
+                        ОБВИНУВАЛЬНИЙ ВИСНОВОК
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), authorize the arrest of (full name), in the position of (full job title) on suspicion of committing the following offenses:
+    Я, (повне ім'я), на посаді (повна назва посади), дозволяю арешт (повне ім'я), на посаді (повна назва посади) за підозрою у скоєнні наступних правопорушень:
 
-    During the preliminary investigation, evidence was found indicating the commission of the offense by this person.
-    Direct evidence:
+    Під час попереднього розслідування було виявлено докази, що вказують на скоєння правопорушення цією особою.
+    Прямі докази:
 
-    Indirect evidence:
+    Непрямі докази:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-sentence =
-        ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-        ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-        ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-        ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-sentence = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+        ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+        ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+        ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
         ⠀[color=#1b487e]░░░░██░░░████░███[/color]
         =============================================
-                                        VERDICT
+                                        ВИРОК
         =============================================
-        Time from the start of the shift and date:
-        Document author:
-        Author's position:
+        Час від початку зміни та дата:
+        Автор документа:
+        Посада автора:
 
-        I, (full name), in the position of (full job title), render a verdict according to the authority vested in me regarding (full name), in the position of (full job title).
-        This person has violated the following articles of Corporate Law:
-        (list of articles)
-        Taking into account all mitigating and aggravating circumstances, the legal punishment for this person is as follows:
-        (summary term, life imprisonment, or death sentence)
-        Administrative punishment:
-        (demotion, dismissal)
-        The period of detention begins from: (start time of detention)
+        Я, (повне ім'я), на посаді (повна назва посади), виношу вирок згідно з наданими мені повноваженнями щодо (повне ім'я), на посаді (повна назва посади).
+        Ця особа порушила наступні статті Корпоративного Законодавства:
+        (перелік статей)
+        Враховуючи всі пом'якшуючі та обтяжуючі обставини, законне покарання для цієї особи представлено у вигляді:
+        (сумарний термін, довічне ув'язнення або смертний вирок)
+        Адміністративне покарання:
+        (пониження, звільнення)
+        Період ув'язнення починається з: (час початку ув'язнення)
         =============================================
-                                    ⠀          [italic]Place for seals[/italic]
-doc-text-printer-judgment =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                    ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-judgment = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    JUDICIAL DECISION
+                    СУДОВЕ РІШЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), make a decision on the legal proceedings against (full name), in the position of (full job title).
-    Alleged violations:
+    Я, (повне ім'я), на посаді (повна назва посади), приймаю рішення щодо судового розгляду проти (повне ім'я), на посаді (повна назва посади).
+    Імовірні порушення:
 
-    Decision of the Security Service verdict:
+    Рішення вироку Служби Безпеки:
 
-    Time spent in detention prior to legal proceedings:
+    Час, проведений в ув'язненні до судового розгляду:
 
-    This person violated the following articles of Corporate Law:
-    (list of articles)
-    Taking into account all mitigating and aggravating circumstances, the legal punishment for this person is presented as follows:
-    (summary term, life imprisonment, or death sentence)
-    Administrative punishment:
-    (demotion, dismissal)
-    The period of detention begins from:
-    (start time of detention)
-    My decision is justified by (the fact that):
+    Ця особа порушила наступні статті Корпоративного Законодавства:
+    (перелік статей)
+    Враховуючи всі пом'якшуючі та обтяжуючі обставини, законне покарання для цієї особи представлено у вигляді:
+    (сумарний термін, довічне ув'язнення або смертний вирок)
+    Адміністративне покарання:
+    (пониження, звільнення)
+    Період ув'язнення починається з:
+    (час початку ув'язнення)
+    Моє рішення обґрунтоване (тим, що):
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-statement-health =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-statement-health = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-                    HEALTH CONDITION CONCLUSION
+                    ВИСНОВОК ПРО СТАН ЗДОРОВ'Я
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    The patient (full name), in the position of (full job title), was referred for a medical examination due to (reason for examination). A complete examination of the patient was carried out, and the necessary studies and tests were conducted.
-    Composition of the medical commission:
-    (Doctor's full name, full job title or specialization)
-    Patient's condition upon admission:
+    Пацієнт (повне ім'я), на посаді (повна назва посади), був(ла) направлений(а) на медичний огляд у зв'язку з (причина огляду). Було проведено повний огляд пацієнта, проведено необхідні дослідження та аналізи.
+    Склад медичної комісії:
+    (Повне ім'я лікаря, повна назва посади або спеціалізація)
+    Стан пацієнта при надходженні:
 
-    Diagnosis:
+    Діагноз:
 
-    Patient's psychological condition:
+    Психологічний стан пацієнта:
 
-    Treatment provided during hospitalization:
+    Проведене лікування під час госпіталізації:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-decision-to-start-trial =
-    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
-    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
-    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Station XX-000 NT[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-decision-to-start-trial = ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
+    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Шаблон документа[/head]
+    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]НаноТрейзен[/head]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Станція XX-000 NT[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
-            DECISION ON THE START OF A LEGAL PROCEEDING
+            РІШЕННЯ ПРО ПОЧАТОК СУДОВОГО ПРОВАДЖЕННЯ
     =============================================
-    Time from the start of the shift and date:
-    Document author:
-    Author's position:
+    Час від початку зміни та дата:
+    Автор документа:
+    Посада автора:
 
-    I, (full name), in the position of (full job title), report the beginning of a legal proceeding for the case of (full name) due to the complexity and ambiguity of the case.
-    Alleged violations:
+    Я, (повне ім'я), на посаді (повна назва посади), повідомляю про початок судового провадження у справі (повне ім'я) через складність та неоднозначність справи.
+    Імовірні порушення:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-error-loading-form-header =
-    ⠀[color=#B50F1D] ███░██████░███[/color]
-    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Document template[/head]
-    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Station XX-000 SY[/bold]
-    ⠀[color=#B50F1D] ███░██████░███[/color]
-    =============================================
-                        DOCUMENT TITLE
-    =============================================
-    Time from the start of the shift and date:
-    Agent callsign:
-
-    Full content of the document with all necessary information and description
-    =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-notice-of-liquidation =
-    ⠀[color=#B50F1D] ███░██████░███[/color]
-    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Document template[/head]
-    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Station XX-000 SY[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-error-loading-form-header = ⠀[color=#B50F1D] ███░██████░███[/color]
+    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Шаблон документа[/head]
+    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Синдикат[/head]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Станція XX-000 SY[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
-                        NOTICE OF LIQUIDATION
+                        ЗАГОЛОВОК ДОКУМЕНТА
     =============================================
-    Time from the start of the shift and date:
-    Agent callsign:
+    Час від початку зміни та дата:
+    Позивний агента:
 
-    Dear (full name), in the position of (full job title)! The Syndicate leadership has decided on your immediate liquidation during this shift. Please prepare your will in advance and send it to the Medical Department of the station. The destruction of your body will be carried out by the Syndicate forces.
-    Reason for liquidation:
-
+    Повний зміст документа з усією необхідною інформацією та описом
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-business-deal =
-    ⠀[color=#B50F1D] ███░██████░███[/color]
-    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Document template[/head]
-    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Station XX-000 SY[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-notice-of-liquidation = ⠀[color=#B50F1D] ███░██████░███[/color]
+    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Шаблон документа[/head]
+    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Синдикат[/head]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Станція XX-000 SY[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
-                                BUSINESS DEAL
+                        ПОВІДОМЛЕННЯ ПРО ЛІКВІДАЦІЮ
     =============================================
-    Time from the start of the shift and date:
-    Agent callsign:
+    Час від початку зміни та дата:
+    Позивний агента:
 
-    The Syndicate kindly proposes to conclude a deal between the station and the agent (agent callsign). On the part of the station, it is necessary:
-
-    Reason for fulfilling the terms of the deal:
+    Шановний(а) (повне ім'я), на посаді (повна назва посади)! Керівництво Синдикату прийняло рішення про вашу негайну ліквідацію протягом цієї зміни. Будь ласка, підготуйте свій заповіт заздалегідь і відправте його до Медичного відділу станції. Знищення вашого тіла буде проведено силами Синдикату.
+    Причина ліквідації:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-note-beginning-military-actions =
-    ⠀[color=#B50F1D] ███░██████░███[/color]
-    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Document template[/head]
-    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Station XX-000 SY[/bold]
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-business-deal = ⠀[color=#B50F1D] ███░██████░███[/color]
+    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Шаблон документа[/head]
+    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Синдикат[/head]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Станція XX-000 SY[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
-                    NOTE ON THE START OF MILITARY ACTIONS
+                                ДІЛОВА УГОДА
     =============================================
-    Time from the start of the shift and date:
-    Agent callsign:
+    Час від початку зміни та дата:
+    Позивний агента:
 
-    Disrespectful corporate rats of NanoTrasen! The Syndicate officially declares the start of military actions against you, as well as the beginning of an operation for your extermination.
-    Reason for the note:
+    Синдикат люб'язно пропонує укласти угоду між станцією та агентом (позивний агента). З боку станції необхідно:
+
+    Причина виконання умов угоди:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
-doc-text-printer-report-accomplishment-goals =
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-note-beginning-military-actions = ⠀[color=#B50F1D] ███░██████░███[/color]
+    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Шаблон документа[/head]
+    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Синдикат[/head]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Станція XX-000 SY[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
-    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Document template[/head]
-    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
-    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Station XX-000 SY[/bold]
+    =============================================
+                    ПОВІДОМЛЕННЯ ПРО ПОЧАТОК БОЙОВИХ ДІЙ
+    =============================================
+    Час від початку зміни та дата:
+    Позивний агента:
+
+    Нешановні корпоративні щури НаноТрейзен! Синдикат офіційно оголошує про початок бойових дій проти вас, а також про початок операції з вашого винищення.
+    Причина повідомлення:
+
+    =============================================
+                                ⠀          [italic]Місце для печаток[/italic]
+doc-text-printer-report-accomplishment-goals = ⠀[color=#B50F1D] ███░██████░███[/color]
+    ⠀[color=#B50F1D] █░░░██░░░░░░░█[/color]    [head=3]Шаблон документа[/head]
+    ⠀[color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Синдикат[/head]
+    ⠀[color=#B50F1D] █░░░░░░░██░░░█[/color]       [bold]Станція XX-000 SY[/bold]
     ⠀[color=#B50F1D] ███░██████░███[/color]
     =============================================
-                        PERFORMANCE REPORT
+                        ЗВІТ ПРО ВИКОНАННЯ
     =============================================
-    Time from the start of the shift and date:
-    Agent callsign:
+    Час від початку зміни та дата:
+    Позивний агента:
 
-    I, (agent callsign), have successfully completed the objectives assigned to me by the Syndicate leadership. Please accept the performance report.
-    Report:
+    Я, (позивний агента), успішно виконав(ла) поставлені переді мною керівництвом Синдикату цілі. Прошу прийняти звіт про виконання.
+    Звіт:
 
     =============================================
-                                ⠀          [italic]Place for seals[/italic]
+                                ⠀          [italic]Місце для печаток[/italic]
