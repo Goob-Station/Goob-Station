@@ -433,6 +433,11 @@
     Telecrystal: 38 # This + esword = 75 TC
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkBulkMosin
@@ -777,22 +782,22 @@
   categories:
   - UplinkChemicals
 
-- type: listing
-  id: UplinkMedicalBeamGunSyndicate
-  name: uplink-medical-beam-gun-name
-  description: uplink-medical-beam-gun-desc
-  productEntity: MedicalBeamGunSyndicateBattery
-  cost:
-    Telecrystal: 100
-  categories:
-  - UplinkChemicals
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsMedicUplink
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#- type: listing Removed pending rework™
+#  id: UplinkMedicalBeamGunSyndicate
+#  name: uplink-medical-beam-gun-name
+#  description: uplink-medical-beam-gun-desc
+#  productEntity: MedicalBeamGunSyndicateBattery
+#  cost:
+#    Telecrystal: 100
+#  categories:
+#  - UplinkChemicals
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsMedicUplink
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 - type: listing
   id: UplinkCombatMedkitPills
