@@ -519,17 +519,22 @@
   description: A self-refilling injector for rapid administration of procenyl lazide.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
-    state: hypo
+    sprite: Objects/Specific/Medical/syndihypo.rsi
+    layers:
+    - state: hypo
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: hypo_fill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
   - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    sprite: Objects/Specific/Medical/syndihypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 5
         reagents:
         - ReagentId: ProcenylLazide
-          Quantity: 10
+          Quantity: 5
   - type: SolutionRegeneration
     solution: hypospray
     generated:
@@ -543,6 +548,11 @@
     injectOnly: true
   - type: UseDelay
     delay: 0.5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
@@ -551,10 +561,13 @@
   description: A self-refilling injector for rapid administration of ebifin.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
-    state: hypo
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    sprite: Objects/Specific/Medical/syndihypo.rsi
+    layers:
+    - state: hypo
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: hypo_fill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -575,30 +588,38 @@
     injectOnly: true
   - type: UseDelay
     delay: 0.5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: BlueshieldHypoToxin
   name: combat toxin hypospray
-  description: A self-refilling injector for rapid administration of syriniver.
+  description: A self-refilling injector for rapid administration of pentenic acid.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
-    state: hypo
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    sprite: Objects/Specific/Medical/syndihypo.rsi
+    layers:
+    - state: hypo
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: hypo_fill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 5
         reagents:
-        - ReagentId: Syriniver
-          Quantity: 10
+        - ReagentId: PentenicAcid
+          Quantity: 5
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
-      - ReagentId: Syriniver
+      - ReagentId: PentenicAcid
         Quantity: 0.25
   - type: ExaminableSolution
     solution: hypospray
@@ -607,6 +628,11 @@
     injectOnly: true
   - type: UseDelay
     delay: 0.5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
@@ -615,17 +641,20 @@
   description: A self-refilling injector for rapid administration of omnizine.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
-    state: hypo
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    sprite: Objects/Specific/Medical/syndihypo.rsi
+    layers:
+    - state: hypo
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: hypo_fill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 5
         reagents:
         - ReagentId: Omnizine
-          Quantity: 10
+          Quantity: 5
   - type: SolutionRegeneration
     solution: hypospray
     generated:
@@ -639,32 +668,40 @@
     injectOnly: true
   - type: UseDelay
     delay: 0.5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: hypo_fill
+    solutionName: hypospray
 
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: BlueshieldHypoAirloss
   name: combat airloss hypospray
-  description: A self-refilling injector for rapid administration of artiplates and dexalin plus.
+  description: A self-refilling injector for rapid administration of saline and dexalin plus.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
-    state: hypo
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    sprite: Objects/Specific/Medical/syndihypo.rsi
+    layers:
+    - state: hypo
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: hypo_fill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 10
+        maxVol: 5
         reagents:
-        - ReagentId: Artiplates
-          Quantity: 5
+        - ReagentId: Saline
+          Quantity: 2.5
         - ReagentId: DexalinPlus
-          Quantity: 5
+          Quantity: 2.5
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
-      - ReagentId: Artiplates
+      - ReagentId: Saline
         Quantity: 0.25
       - ReagentId: DexalinPlus
         Quantity: 0.25
@@ -675,3 +712,8 @@
     injectOnly: true
   - type: UseDelay
     delay: 0.5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: hypo_fill
+    solutionName: hypospray
