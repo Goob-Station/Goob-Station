@@ -1,7 +1,7 @@
-ent-WeaponShotgunAntelope = Antelope
-    .desc = A mag-fed shotgun designed for neutralizing threats and keeping criminals at bay with overwhelming force.
+ent-WeaponShotgunAntelope = Антилопа
+    .desc = Заряжаемый магнитом дробовик, предназначенный для нейтрализации угроз и сдерживания преступников подавляющей силой.
     .suffix = DO NOT MAP
-ent-WeaponShotgunCombat = 'Bojevic' combat shotgun
-    .desc = An old design with a beefier shell intended to repell boarding parties; this time, you are the boarding party. '8 GUAGE' is stamped on the barrel.
+ent-WeaponShotgunCombat = Боевой дробовик "Боевик"
+    .desc = Старая конструкция с более толстым корпусом, предназначенная для отпугивания абордажных отрядов; на этот раз абордажной группой являетесь вы. На стволе выбито "8 КАЛИБРОВ".
 ent-WeaponShotgunHeavy = NZ CSG-242
-    .desc = A 3-round burst magazine-fed heavy shotgun for total extermination. Uses 2 gauge ammunition.
+    .desc = Крупнокалиберный дробовик с подачей по 3 патрона в ствол для тотального уничтожения. Использует патроны 2-го калибра.

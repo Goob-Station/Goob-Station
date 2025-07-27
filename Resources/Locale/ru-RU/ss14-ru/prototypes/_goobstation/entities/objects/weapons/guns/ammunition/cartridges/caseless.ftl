@@ -1,2 +1,2 @@
-ent-CartridgeCaselessRifleSAPHE = cartridge (9.5mm SAP-HE)
+ent-CartridgeCaselessRifleSAPHE = патрон (9.5mm бронебойные)
     .desc = { ent-BaseCartridgeCaselessRifle.desc }

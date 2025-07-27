@@ -1,6 +1,6 @@
-ent-WeaponPistolDualetta = Dualetta
-    .desc = The coolest pistol in the sector. It is said that nobody is strong enough of will to tarnish this weapon's reputation by daring to fire it without its paired pistol.
-ent-WeaponPistolAnaconda = Anaconda
-    .desc = A heavy pistol capable of supplying itself with the ammo on the way using a built-in fabricator.
-ent-WeaponPistolCentcommAgent = contract terminator
-    .desc = A pistol specifically designed to fire neurotoxin laced bullets. It's capable concealing itself via bluespace technology.
+ent-WeaponPistolDualetta = Дуалетта
+    .desc = Самый крутой пистолет в отрасли. Говорят, что ни у кого не хватит воли запятнать репутацию этого оружия, осмелившись стрелять из него без спаренного пистолета.
+ent-WeaponPistolAnaconda = Анаконда
+    .desc = Тяжелый пистолет, способный самостоятельно запасаться боеприпасами в пути с помощью встроенного устройства для изготовления.
+ent-WeaponPistolCentcommAgent = разрыватель контрактов
+    .desc = Пистолет, специально разработанный для стрельбы пулями с нейротоксином. Он способен маскироваться с помощью технологии БлюСпейс.
