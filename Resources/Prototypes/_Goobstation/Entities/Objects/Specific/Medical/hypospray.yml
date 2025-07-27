@@ -542,7 +542,7 @@
     generated:
       reagents:
       - ReagentId: ProcenylLazide
-        Quantity: 0.125
+        Quantity: 0.2
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
@@ -582,7 +582,7 @@
     generated:
       reagents:
       - ReagentId: Ebifin
-        Quantity: 0.125
+        Quantity: 0.2
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
@@ -622,7 +622,7 @@
     generated:
       reagents:
       - ReagentId: PentenicAcid
-        Quantity: 0.125
+        Quantity: 0.2
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
@@ -662,7 +662,7 @@
     generated:
       reagents:
       - ReagentId: DexalinPlus
-        Quantity: 0.125
+        Quantity: 0.2
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
