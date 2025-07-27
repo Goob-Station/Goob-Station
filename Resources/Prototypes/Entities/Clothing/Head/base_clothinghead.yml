@@ -108,6 +108,10 @@
   - type: Clothing
     slots:
     - HEAD
+  # Goobstation edit start
+    equipSound:
+      collection: GenericEquip
+  # Goobstation edit end
   - type: Sprite
     state: icon
   - type: Item
@@ -124,9 +128,9 @@
           Quantity: 10
   - type: Tag
     tags:
-      - ClothMade
-      - WhitelistChameleon
-      - DroneUsable # Goobstation
+    - ClothMade
+    - WhitelistChameleon
+    - DroneUsable # Goobstation
 
 - type: entity
   abstract: true
@@ -138,10 +142,14 @@
     spawned:
     - id: MaterialCloth1
       amount: 1
+  - type: PhysicalComposition # 50% of the amount of cloth you'd obtain upon butchering
+    materialComposition:
+      Cloth: 50
   - type: Tag
     tags:
-      - ClothMade
-      - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
 
 - type: entity
   abstract: true
@@ -208,6 +216,9 @@
   id: ClothingHeadEVAHelmetBase
   name: base space helmet
   components:
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [ears, eyes, mask]
   - type: BreathMask
   - type: Item
     size: Normal
@@ -247,6 +258,9 @@
   name: base hardsuit helmet
   categories: [ HideSpawnMenu ]
   components:
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [ears, eyes, mask]
   - type: BreathMask
   - type: Sprite
     state: icon # default state used by most inheritors
@@ -467,6 +481,9 @@
   name: base hardsuit helmet with light
   categories: [ HideSpawnMenu ]
   components:
+# SlotBlocker blocked until UI change
+#  - type: SlotBlock
+#    slots: [ears, eyes, mask]
   - type: Sprite
     layers:
     - state: icon
@@ -530,6 +547,11 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.05
     coolingCoefficient: 0.7
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.90
+  - type: Armor # so zombification resistance shows up
+    modifiers:
+      coefficients: { }
   - type: GroupExamine
   - type: HideLayerClothing
     slots:

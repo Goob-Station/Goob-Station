@@ -34,21 +34,24 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
@@ -62,6 +65,7 @@ using Content.Shared.Chat;
 using Content.Shared.Communications;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -269,6 +273,10 @@ namespace Content.Server.Communications
             if (stationUid != null)
             {
                 _alertLevelSystem.SetLevel(stationUid.Value, message.Level, true, true);
+                // Goob
+                _adminLogger.Add(LogType.Chat,
+                                 LogImpact.Medium,
+                                 $"{ToPrettyString(message.Actor):actor} set alert level to {message.Level:level} with {ToPrettyString(uid):subject}");
             }
         }
 
@@ -306,7 +314,9 @@ namespace Content.Server.Communications
             Loc.TryGetString(comp.Title, out var title);
             title ??= comp.Title;
 
-            msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
+            if (comp.AnnounceSentBy)
+                msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
+
             if (comp.Global)
             {
                 _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: comp.Sound, colorOverride: comp.Color);

@@ -31,9 +31,30 @@
   parent: Clothing
   id: ClothingShoesBase
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/generic_small_pickup.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/shoes_drop.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/boots_drop.ogg
+      params:
+        volume: -5
   - type: Clothing
     slots:
     - FEET
+    equipSound:
+      collection: GenericEquip
+      params:
+        volume: -5
+  # Goobstation edit end
   - type: Sprite
     state: icon
   - type: Item
@@ -50,6 +71,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
   - type: Armor # provide minimal covering to your feet
@@ -71,6 +93,9 @@
     spawned:
     - id: MaterialCloth1
       amount: 1
+  - type: PhysicalComposition # 50% of the amount of cloth you'd obtain upon butchering
+    materialComposition:
+      Cloth: 50
 
 # stuff common to all military boots
 - type: entity

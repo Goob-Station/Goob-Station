@@ -62,7 +62,7 @@ public sealed class VocalSystem : EntitySystem
 
     private void OnSexChanged(EntityUid uid, VocalComponent component, SexChangedEvent args)
     {
-        LoadSounds(uid, component);
+        LoadSounds(uid, component, args.NewSex);
     }
 
     private void OnEmote(EntityUid uid, VocalComponent component, ref EmoteEvent args)
@@ -97,7 +97,7 @@ public sealed class VocalSystem : EntitySystem
         if (args.Handled)
             return;
 
-        _chat.TryEmoteWithChat(uid, component.ScreamId);
+        _chat.TryEmoteWithChat(uid, component.ScreamId, voluntary: true); // Goob - emotespam
         args.Handled = true;
     }
 

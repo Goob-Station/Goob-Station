@@ -59,8 +59,8 @@ namespace Content.Server.Inventory
             }
             foreach (var (item, slot) in items)
             {
-                TryUnequip(source, slot.Name, true, force, inventory: source.Comp);
-                TryEquip(target, item, slot.Name , true, force, inventory: target.Comp);
+                TryUnequip(source, slot.Name, true, force, inventory: source.Comp, triggerHandContact: true);
+                TryEquip(target, item, slot.Name , true, force, inventory: target.Comp, triggerHandContact: true);
             }
             // Goob edit end
         }

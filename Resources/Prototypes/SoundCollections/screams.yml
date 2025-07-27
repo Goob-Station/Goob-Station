@@ -61,8 +61,14 @@
     - /Audio/Voice/Human/femalescream_5.ogg
 
 - type: soundCollection
-  id: PlasmamanUnisexScreams
+  id: SiliconScreams
   files:
-    - /Audio/Voice/Plasmaman/plasmaman_scream_1.ogg
-    - /Audio/Voice/Plasmaman/plasmaman_scream_2.ogg
-    - /Audio/Voice/Plasmaman/plasmaman_scream_3.ogg
+    - /Audio/Machines/robotscream_1.ogg
+    - /Audio/Machines/robotscream_2.ogg
+    - /Audio/Machines/robotscream_3.ogg
+    - /Audio/Machines/robotscream_4.ogg
+    - /Audio/Machines/robotscream_5.ogg
+    - /Audio/Machines/robotscream_6.ogg
+    - /Audio/Machines/robotscream_7.ogg
+    - /Audio/Machines/robotscream_8.ogg
+    - /Audio/Machines/robotscream_9.ogg

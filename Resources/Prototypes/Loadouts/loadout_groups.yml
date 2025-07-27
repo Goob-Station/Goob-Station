@@ -126,26 +126,34 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Brassica Prime <114382089+Pumkin69@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Cass <45694413+CubixThree@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2025 KingFroozy <140668342+KingFroozy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
+# SPDX-FileCopyrightText: 2025 Phooooooooooooooooooooooooooooooosphate <184853112+Phooooooooooooooooooooooooooooooosphate@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Pumkin69 <judeb@DESKTOP-M4B8G5D>
 # SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 T <theo75cg@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -185,8 +193,10 @@
   - ClothingNeckLesbianPin
   - ClothingNeckNonBinaryPin
   - ClothingNeckPansexualPin
+  - ClothingNeckPluralPin
   - ClothingNeckOmnisexualPin
   - ClothingNeckGenderqueerPin
+  - ClothingNeckGenderfluidPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - CardBoxBlack # GoobStation
@@ -227,6 +237,17 @@
   - GlassesJamjar
   - GlassesJensen
   - CheapSunglasses # Goobstation
+
+- type: loadoutGroup
+  id: Animals  # Goobstation
+  name: loadout-group-animals
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - Squackroach
+  - Mouse
+  - Mothroach
+  - Goldfish
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -314,6 +335,7 @@
   loadouts:
   - CaptainOuterClothing
   - CaptainWintercoat
+  - CaptainJacket # Goobstation
 
 - type: loadoutGroup
   id: HoPHead
@@ -364,6 +386,7 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+  - RainbowJumpskirt
  # goob changes start
   - GreyMJ
   - BlackMJ
@@ -411,6 +434,7 @@
   minLimit: 0
   loadouts:
   - Mantle
+  - OldNeckWrap # EE
 
 - type: loadoutGroup
   id: PassengerOuterClothing
@@ -741,6 +765,7 @@
   loadouts:
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
   - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
@@ -1279,8 +1304,7 @@
   loadouts:
   - ArmorVest
   - ArmorVestSlim
-  #- SecurityOfficerWintercoat #Goobstation
-  - WinterCoatSecArmored # Goobstation
+  - SecurityOfficerWintercoat
   - WinterCoatSeniorSecArmored # Goobstation
 
 - type: loadoutGroup
@@ -1288,8 +1312,8 @@
   name: loadout-group-security-shoes
   loadouts:
   - JackBoots
-  #- SecurityWinterBoots # Goobstation
-  - WinterCombatBoots # Goobstation
+  - CombatBoots # Goobstation
+  - SecurityWinterBoots
 
 - type: loadoutGroup
   id: SecurityPDA
@@ -1541,7 +1565,19 @@
   name: loadout-group-paramedic-shoes
   loadouts:
   - BlueShoes
+  - WhiteShoes
   - MedicalWinterBoots
+
+- type: loadoutGroup
+  id: MedicalEyewear
+  name: loadout-group-medical-glasses
+  minLimit: 0
+  loadouts:
+  - MedicalHud
+  - MedicalEyePatchHud
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
 
 - type: loadoutGroup
   id: SurvivalMedical

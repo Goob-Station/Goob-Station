@@ -57,6 +57,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly IComponentFactory _factory = default!; // EE Plasmamen Change
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     /// <summary>
     /// It's a little on the long side but given we use multiple colours denoting what happened it makes it easier to register.
     /// </summary>
@@ -88,7 +89,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
 
         if (TryComp<SpriteComponent>(uid, out var sprite))
         {
-            sprite.Color = component.Color;
+            _sprite.SetColor((uid, sprite), component.Color);
         }
     }
 

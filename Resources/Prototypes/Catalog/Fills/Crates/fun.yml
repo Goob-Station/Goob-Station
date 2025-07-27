@@ -114,6 +114,7 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Evige <jussi.heikkila1@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
@@ -140,6 +141,7 @@
     - id: PlushieNuke
     - id: PlushieSlime
     - id: PlushieSnake
+    - id: PlushieExperiment
     - !type:GroupSelector
       children:
       - id: PlushieLizard
@@ -170,75 +172,7 @@
     - id: PlushieHampter
     - id: PlushieMoth
     - id: PlushieArachind
-    - id: PlushieSamantha # Goobstation
     - id: PlushiePenguin
-    - !type:GroupSelector
-      children:
-      - id: PlushieBlackburn
-        weight: 0.35
-      - id: PlushieBlackburnKobliska
-        weight: 0.25
-      - id: PlushieBlackburnMatryoskya
-        weight: 0.25
-      - id: PlushieDesislavaBlackburn
-        weight: 0.15
-    - !type:GroupSelector # Self insert crew :-)
-      children:
-      - id: PlushieBenny
-        weight: 0.65
-      - id: PlushieCairo
-        weight: 0.65
-      - id: PlushiePash
-        weight: 0.65
-      - id: PlushieDelta
-        weight: 0.65
-      - id: PlushieRaki
-        weight: 0.65
-      - id: PlushieTina
-        weight: 0.65
-      - id: PlushieKnott
-        weight: 0.65
-      - id: PlushieZlorb
-        weight: 0.65
-      - id: PlushieTiderMoth
-        weight: 0.65
-      - id: PlushieCommandHuman
-        weight: 0.65
-      - id: PlushieRanork
-        weight: 0.65
-      - id: PlushieWehWinter
-        weight: 0.65
-      - id: PlushieHaleigh
-        weight: 0.65
-      - id: PlushieStoop
-        weight: 0.65
-      - id: PlushieAhti
-        weight: 0.65
-      - id: PlushieSparkle
-        weight: 0.65
-      - id: PlushieGrub
-        weight: 0.65
-      - id: PlushieFern
-        weight: 0.65
-      - id: PlushieHexadecimal
-        weight: 0.65
-      - id: PlushieFlint
-        weight: 0.65
-      - id: PlushiePistachio
-        weight: 0.65
-      - id: PlushieSeesTheStars
-        weight: 0.65
-      - id: PlushieDumbLizard
-        weight: 0.65
-      - id: PlushieSqueaks
-        weight: 0.65
-      - id: PlushieHaato
-        weight: 0.65
-      - id: PlushieTinyLane
-        weight: 0.65
-      - id: PlushieChewsTheShoes
-        weight: 0.65
-
 
 - type: entity
   id: CrateFunPlushie
@@ -269,6 +203,26 @@
         - id: PlushieSpaceLizard
           amount: !type:ConstantNumberSelector
             value: 3
+
+- type: entity
+  id: CrateFunSharkPlushieBulk
+  parent: CrateGenericSteel
+  name: bulk soft toy shark crate
+  description: A crate filled with a variety of everyone's favorite finned friend. Rawr!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: PlushieSharkBlue
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: PlushieSharkPink
+          amount: !type:ConstantNumberSelector
+            value: 2
+        - id: PlushieSharkGrey
+          amount: !type:ConstantNumberSelector
+            value: 2
 
 - type: entity
   id: CrateFunInstrumentsVariety
@@ -597,37 +551,12 @@
         prob: 0.05
 
 - type: entity
-  id: CrateFunSelfInsertPlushie # Self insert crate :-)
+  id: CrateFunDiscoBeachBall
   parent: CrateGenericSteel
-  name: crew plushie crate
-  description: A box full of cute plushies of beloved crewmembers.
+  name: disco beach ball crate
+  description: A crate containing a Disco Beach Ball that turns any beach trip into Studio 54.
   components:
   - type: StorageFill
     contents:
-      - id: PlushieBenny
-      - id: PlushieCairo
-      - id: PlushiePash
-      - id: PlushieDelta
-      - id: PlushieRaki
-      - id: PlushieTina
-      - id: PlushieKnott
-      - id: PlushieZlorb
-      - id: PlushieTiderMoth
-      - id: PlushieCommandHuman
-      - id: PlushieRanork
-      - id: PlushieWehWinter
-      - id: PlushieHaleigh
-      - id: PlushieStoop
-      - id: PlushieAhti
-      - id: PlushieSparkle
-      - id: PlushieGrub
-      - id: PlushieFern
-      - id: PlushieHexadecimal
-      - id: PlushieFlint
-      - id: PlushiePistachio
-      - id: PlushieSeesTheStars
-      - id: PlushieDumbLizard
-      - id: PlushieSqueaks
-      - id: PlushieHaato
-      - id: PlushieTinyLane
-      - id: PlushieChewsTheShoes
+    - id: DiscoBeachBall
+      amount: 1

@@ -24,7 +24,6 @@
 # SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
@@ -82,8 +81,10 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -115,6 +116,9 @@
     layers:
     - state: crypt_gray
     - state: common_label
+  - type: Tag
+    tags:
+    - EncryptionCommon
 
 - type: entity
   parent: [ EncryptionKey, BaseCargoContraband ]
@@ -130,6 +134,9 @@
     layers:
     - state: crypt_gray
     - state: cargo_label
+  - type: Tag
+    tags:
+    - EncryptionCargo
 
 - type: entity
   parent: [ EncryptionKey, BaseCentcommContraband ]
@@ -182,6 +189,9 @@
     layers:
     - state: crypt_silver
     - state: com_label
+  - type: Tag
+    tags:
+    - EncryptionCommand
 
 - type: entity
   parent: [ EncryptionKey, BaseEngineeringContraband ]
@@ -197,6 +207,9 @@
     layers:
     - state: crypt_gray
     - state: eng_label
+  - type: Tag
+    tags:
+    - EncryptionEngineering
 
 - type: entity
   parent: [ EncryptionKey, BaseMedicalContraband ]
@@ -212,6 +225,9 @@
     layers:
     - state: crypt_gray
     - state: med_label
+  - type: Tag
+    tags:
+    - EncryptionMedical
 
 - type: entity
   parent: [ EncryptionKey, BaseMedicalScienceContraband ]
@@ -243,6 +259,9 @@
     layers:
     - state: crypt_gray
     - state: sci_label
+  - type: Tag
+    tags:
+    - EncryptionScience
 
 - type: entity
   parent: [ EncryptionKey, BaseScienceContraband ]
@@ -273,6 +292,9 @@
     layers:
     - state: crypt_gray
     - state: sec_label
+  - type: Tag
+    tags:
+    - EncryptionSecurity
 
 - type: entity
   parent: [ EncryptionKey, BaseCivilianContraband ]
@@ -288,6 +310,9 @@
     layers:
     - state: crypt_gray
     - state: service_label
+  - type: Tag
+    tags:
+    - EncryptionService
 
 - type: entity
   parent: [ EncryptionKey, BaseSyndicateContraband ]
@@ -311,7 +336,6 @@
   description: An encryption key that translates binary signals used by silicons.
   components:
   # Goobstation - replaced with collective mind
-  # wyci
   #- type: EncryptionKey
   #  channels:
   #  - Binary
@@ -328,7 +352,6 @@
   description: A syndicate encryption key that translates binary signals used by silicons.
   components:
   # Goobstation - replaced with collective mind
-  # wyci
   #- type: EncryptionKey
   #  channels:
   #  - Binary

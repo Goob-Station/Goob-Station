@@ -18,6 +18,12 @@
   components:
   - type: Speech
     speechSounds: Baritone
+    speechVerb: Oni
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic # Nothing else because Rouge said she was adding a language for Oni
+    understands:
+    - TauCetiBasic
   - type: HumanoidAppearance
     species: Oni
   - type: Sprite
@@ -49,6 +55,8 @@
         - MobLayer
   - type: Stamina
     critThreshold: 115
+  - type: TypingIndicator
+    proto: oni
   - type: Tag
     tags:
     - CanPilot

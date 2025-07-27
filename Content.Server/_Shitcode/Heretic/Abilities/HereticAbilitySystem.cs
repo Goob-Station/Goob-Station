@@ -10,14 +10,20 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
+using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
@@ -26,6 +32,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Store.Systems;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -96,7 +103,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly MobStateSystem _mobstate = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly StaminaSystem _stam = default!;
+    [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly DoAfterSystem _doafter = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
@@ -112,6 +119,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
@@ -162,6 +170,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         SubscribeLocalEvent<HereticComponent, EventHereticLivingHeart>(OnLivingHeart);
         SubscribeLocalEvent<HereticComponent, EventHereticLivingHeartActivate>(OnLivingHeartActivate);
+
+        SubscribeLocalEvent<HereticComponent, HereticVoidVisionEvent>(OnVoidVision);
 
         SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
@@ -381,6 +391,22 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
     }
 
+    private void OnVoidVision(Entity<HereticComponent> ent, ref HereticVoidVisionEvent args)
+    {
+        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
+        thermalVision.Color = Color.FromHex("#b4babf");
+        thermalVision.LightRadius = 7.5f;
+        thermalVision.FlashDurationMultiplier = 1f;
+        thermalVision.ActivateSound = null;
+        thermalVision.DeactivateSound = null;
+        thermalVision.ToggleAction = null;
+
+        AddComp(ent, thermalVision);
+
+        var toggleEvent = new ToggleThermalVisionEvent();
+        RaiseLocalEvent(ent, toggleEvent);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -443,7 +469,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                     damageable,
                     null,
                     false,
-                    targetPart: TargetBodyPart.All);
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll);
             }
 
             if (bloodQuery.TryComp(uid, out var blood))

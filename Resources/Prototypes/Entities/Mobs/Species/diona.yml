@@ -133,6 +133,15 @@
       Male: UnisexDiona
       Female: UnisexDiona
       Unsexed: UnisexDiona
+  - type: TypingIndicator
+    proto: diona
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RootSpeak
+    understands:
+    - TauCetiBasic
+    - RootSpeak
   - type: BodyEmotes
     soundsId: DionaBodyEmotes
   - type: IgnoreKudzu

@@ -42,6 +42,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Timing;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -53,7 +54,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 {
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -201,9 +202,17 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
         if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
             return;
 
-        var ev = new BeforeCastTouchSpellEvent(args.Target.Value);
-        RaiseLocalEvent(target, ev, true);
-        if (ev.Cancelled)
+        var beforeEvent = new BeforeHarmfulActionEvent(args.User, HarmfulActionType.MansusGrasp);
+        RaiseLocalEvent(target, beforeEvent);
+        var cancelled = beforeEvent.Cancelled;
+        if (!cancelled)
+        {
+            var ev = new BeforeCastTouchSpellEvent(args.Target.Value);
+            RaiseLocalEvent(target, ev, true);
+            cancelled = ev.Cancelled;
+        }
+
+        if (cancelled)
         {
             _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
             hereticComp.MansusGrasp = EntityUid.Invalid;

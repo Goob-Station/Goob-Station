@@ -12,6 +12,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -34,7 +35,7 @@ public sealed partial class PendingZombieComponent : Component
     {
         DamageDict = new ()
         {
-            { "Poison", 3 }, ///Goobchange
+            { "Poison", 1.8 }, ///Goobchange
         }
     };
 
