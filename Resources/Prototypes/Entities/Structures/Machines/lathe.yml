@@ -581,6 +581,7 @@
     - CameraBoards
     #- MechBoards - Goobstation - split between departmental lathes
     - ShuttleBoards
+    - AdvancedRoboticsBoards # CorvaxGoob MutableLaws
     # Goobstation Packs
     - SharedBoards
   - type: MaterialStorage

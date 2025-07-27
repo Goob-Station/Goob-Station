@@ -1,3 +1,35 @@
+# Tier 1
+
+# Tier 2
+- type: technology
+  id: AdvancedRobotics
+  name: research-technology-advanced-robotics
+  icon:
+    sprite: Mobs/Silicon/station_ai.rsi
+    state: ai
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - AsimovCircuitBoard
+  - CorporateCircuitBoard
+  - NTDefaultCircuitBoard
+  - CommandmentCircuitBoard
+  - PaladinCircuitBoard
+  - LiveLetLiveCircuitBoard
+  - StationEfficiencyCircuitBoard
+  - RobocopCircuitBoard
+  - OverlordCircuitBoard
+  - GameMasterCircuitBoard
+  - ArtistCircuitBoard
+  - NutimovCircuitBoard
+  # Goobstation R&D Console rework start
+  position: -4, 0
+  technologyPrerequisites:
+  - AdvancedAnomalyResearch
+  # Goobstation R&D Console rework end
+
+# Tier 3
 - type: technology
   id: BluespaceMining
   name: research-technology-bluespace-mining

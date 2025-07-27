@@ -1,0 +1,59 @@
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: AsimovCircuitBoard
+  result: AsimovCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CorporateCircuitBoard
+  result: CorporateCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: NTDefaultCircuitBoard
+  result: NTDefaultCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: CommandmentCircuitBoard
+  result: CommandmentCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: PaladinCircuitBoard
+  result: PaladinCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: LiveLetLiveCircuitBoard
+  result: LiveLetLiveCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: StationEfficiencyCircuitBoard
+  result: StationEfficiencyCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: RobocopCircuitBoard
+  result: RobocopCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: OverlordCircuitBoard
+  result: OverlordCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: GameMasterCircuitBoard
+  result: GameMasterCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ArtistCircuitBoard
+  result: ArtistCircuitBoard
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: NutimovCircuitBoard
+  result: NutimovCircuitBoard
