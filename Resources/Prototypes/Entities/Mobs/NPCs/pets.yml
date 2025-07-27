@@ -1062,7 +1062,7 @@
     requirements: # Goobstation - ghost roles requirements
     - !type:RoleTimeRequirement
       role: JobBartender
-      time: 180000 #50 hour
+      time: 54000 #15 hour
     mindRoles:
     - MindRoleGhostRoleNeutral
   - type: GhostTakeoverAvailable
