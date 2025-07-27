@@ -145,3 +145,11 @@
     back:
     - Flash
     - TelescopicBaton
+
+- type: startingGear
+  id: NanotrasenRepresentativePlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitNanotrasenRepresentative
+    head: ClothingHeadEnvirohelmNanotrasenRepresentative
+    gloves: ClothingHandsGlovesEnviroglovesBlack

@@ -87,3 +87,11 @@
     back:
     - Flash
     - ClothingMaskGasSecurity
+
+- type: startingGear
+  id: BlueshieldPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBlueshield
+    head: ClothingHeadEnvirohelmBlueshield
+    gloves: ClothingHandsGlovesEnviroglovesBlack

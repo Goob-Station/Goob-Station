@@ -794,8 +794,6 @@
         color: "#dcdcdc"
       - state: soles-equipped-INNERCLOTHING
         color: "#dcdcdc"
-  - type: ClothingAddFaction
-    faction: Mailman
 
 - type: entity
   parent: ClothingUniformEnvirosuitCustomBase

@@ -10,6 +10,7 @@
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Groin" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -81,13 +82,7 @@
     bloodMaxVolume: 0
   - type: Damageable
     damageModifierSet: Plasmaman
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#555555AA"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+
   - type: MeleeWeapon
     soundHit:
       collection: FirePunch
@@ -136,14 +131,13 @@
     - Snout
   - type: TypingIndicator
     proto: plasmaman
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - Calcic
-    understands:
-    - TauCetiBasic
-    - Calcic
-  - type: FootPrints
+  #- type: LanguageKnowledge
+  #  speaks:
+  #  - TauCetiBasic
+  #  - Calcic
+  #  understands:
+  #  - TauCetiBasic
+  #  - Calcic
 
 - type: entity
   parent: BaseSpeciesDummy

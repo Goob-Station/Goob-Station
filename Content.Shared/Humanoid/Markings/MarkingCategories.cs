@@ -21,6 +21,7 @@ namespace Content.Shared.Humanoid.Markings
         Head,
         HeadTop,
         HeadSide,
+        Face, // Plasmeme Port
         Snout,
         Chest,
         Groin, // Shitmed Change
@@ -38,6 +39,7 @@ namespace Content.Shared.Humanoid.Markings
             return layer switch
             {
                 HumanoidVisualLayers.Special => MarkingCategories.Special,
+                HumanoidVisualLayers.Face => MarkingCategories.Face, // Plasmeme Port
                 HumanoidVisualLayers.Hair => MarkingCategories.Hair,
                 HumanoidVisualLayers.FacialHair => MarkingCategories.FacialHair,
                 HumanoidVisualLayers.Head => MarkingCategories.Head,

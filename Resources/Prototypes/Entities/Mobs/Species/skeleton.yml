@@ -169,15 +169,13 @@
     - Undead
   - type: TypingIndicator
     proto: skeleton
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    - Calcic
-    understands:
-    - TauCetiBasic
-    - Calcic
-  - type: FootPrints
-  - type: LayingDown
+  #- type: LanguageKnowledge
+  #  speaks:
+  #  - TauCetiBasic
+  #  - Calcic
+  #  understands:
+  #  - TauCetiBasic
+  #  - Calcic
 
 - type: entity
   parent: BaseSpeciesDummy

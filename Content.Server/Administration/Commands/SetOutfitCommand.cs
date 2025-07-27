@@ -213,9 +213,6 @@ namespace Content.Server.Administration.Commands
                 var preferencesManager = IoCManager.Resolve<IServerPreferencesManager>();
                 var prefs = preferencesManager.GetPreferences(userId);
                 profile = prefs.SelectedCharacter as HumanoidCharacterProfile;
-
-                if (profile != null)
-                    startingGear = IoCManager.Resolve<IEntityManager>().System<SharedStationSpawningSystem>().ApplySubGear(startingGear, profile);
             }
 
             var invSystem = entityManager.System<InventorySystem>();

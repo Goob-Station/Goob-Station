@@ -49,7 +49,6 @@ using Robust.Shared.Collections;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Client.Graphics; // Goobstation Change
 
 namespace Content.Client.Effects;
 
@@ -58,7 +57,6 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly IComponentFactory _factory = default!; // Goobstation Change
-    [Dependency] private readonly SpriteSystem _sprite = default!; // Goobstation Change
     /// <summary>
     /// It's a little on the long side but given we use multiple colours denoting what happened it makes it easier to register.
     /// </summary>
@@ -87,8 +85,10 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         if (args.Key != AnimationKey)
             return;
 
-        if (HasComp<SpriteComponent>(uid)) // Goobstation Change
-            _sprite.SetColor(uid, component.Color);
+        if (TryComp<SpriteComponent>(uid, out var sprite))
+        {
+            sprite.Color = component.Color;
+        }
     }
 
     public override void Update(float frameTime)
@@ -167,7 +167,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
                 _animation.Stop(ent, player, AnimationKey);
 
             if (TryComp<ColorFlashEffectComponent>(ent, out var effect))
-                _sprite.SetColor(ent, effect.Color);
+                sprite.Color = effect.Color;
 
             var animation = GetDamageAnimation(ent, color, sprite, ev.AnimationLength);
 

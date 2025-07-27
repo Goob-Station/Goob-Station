@@ -327,14 +327,6 @@
             Heat: -0.30
             Shock: -0.30
             Caustic: -0.30
-      - !type:ChemAddMoodlet
-        conditions:
-        - !type:OrganType
-          type: Plasmaman
-        - !type:ReagentThreshold
-          reagent: Milk
-          min: 4
-        moodPrototype: PlasmamanIngestMilk
 
 - type: reagent
   id: MilkGoat

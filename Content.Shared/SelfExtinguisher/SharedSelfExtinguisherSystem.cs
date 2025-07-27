@@ -47,8 +47,8 @@ public abstract partial class SharedSelfExtinguisherSystem : EntitySystem
         _actions.SetUseDelay(component.ActionEntity, component.Cooldown);
         if (TryComp<LimitedChargesComponent>(uid, out var charges))
         {
-            _actions.SetCharges(component.ActionEntity, charges.Charges);
-            _actions.SetMaxCharges(component.ActionEntity, charges.MaxCharges);
+            _actions.SetCharges(component.ActionEntity, (int) charges.Charges);
+            _actions.SetMaxCharges(component.ActionEntity, (int) charges.MaxCharges);
         }
     }
 
@@ -59,8 +59,8 @@ public abstract partial class SharedSelfExtinguisherSystem : EntitySystem
             return;
 
         _charges.SetCharges((uid, chargeComp), charges, maxCharges);
-        _actions.SetCharges(component.ActionEntity, chargeComp.Charges);
-        _actions.SetMaxCharges(component.ActionEntity, chargeComp.MaxCharges);
+        _actions.SetCharges(component.ActionEntity, (int) chargeComp.Charges);
+        _actions.SetMaxCharges(component.ActionEntity, (int) chargeComp.MaxCharges);
 
         _actions.SetEnabled(component.ActionEntity, chargeComp.Charges != 0);
     }
@@ -111,7 +111,7 @@ public abstract partial class SharedSelfExtinguisherSystem : EntitySystem
 
         // Add charges
         _charges.AddCharges(uid, refill.RefillAmount, charges);
-        _actions.SetCharges(component.ActionEntity, charges.Charges);
+        _actions.SetCharges(component.ActionEntity, (int) charges.Charges);
 
         // Reenable action
         _actions.SetEnabled(component.ActionEntity, charges.Charges != 0);

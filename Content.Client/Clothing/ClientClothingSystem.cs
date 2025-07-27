@@ -82,7 +82,6 @@ public sealed class ClientClothingSystem : ClothingSystem
     [Dependency] private readonly IResourceCache _cache = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!; // Goobstation Change
 
     public override void Initialize()
     {
@@ -231,20 +230,6 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (!inventorySlots.VisualLayerKeys.TryGetValue(args.Slot, out var revealedLayers))
             return;
 
-        if (TryComp<HideLayerClothingComponent>(args.Equipment, out var hideLayer) &&
-            hideLayer.ClothingSlots != null)
-        {
-            foreach (var clothingSlot in hideLayer.ClothingSlots)
-            {
-                if (!inventorySlots.VisualLayerKeys.TryGetValue(clothingSlot, out var revealedLayersToShow))
-                    continue;
-
-                foreach (var layerToShow in revealedLayersToShow)
-                    _sprite.SetLayerVisible(uid, layerToShow, true);
-            }
-            inventorySlots.HiddenSlots.ExceptWith(hideLayer.ClothingSlots);
-        }
-
         // Remove old layers. We could also just set them to invisible, but as items may add arbitrary layers, this
         // may eventually bloat the player with lots of invisible layers.
         foreach (var layer in revealedLayers)
@@ -319,9 +304,6 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (mapLayerEv.MapLayer != slot)
             slotLayerExists = sprite.LayerMapTryGet(mapLayerEv.MapLayer, out index);
 
-        if (clothingComponent.RenderLayer != null)
-            slot = clothingComponent.RenderLayer;
-
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
         if (!slotLayerExists)
@@ -385,13 +367,13 @@ public sealed class ClientClothingSystem : ClothingSystem
                 && layer.RSI == null
                 && TryComp(equipment, out SpriteComponent? clothingSprite))
             {
-                layer.SetRsi(clothingSprite.BaseRSI);s
+                layer.SetRsi(clothingSprite.BaseRSI);
             }
 
             // Goob Change: Another "temporary" fix for clothing stencil masks.
             // Sprite layer refactor when
-            if (slot == Jumpsuit)
-                layerData.Shader ??= "StencilDraw";
+            //if (slot == Jumpsuit)
+            //    layerData.Shader ??= "StencilDraw";
 
             sprite.LayerSetData(index, layerData);
             layer.Offset += slotDef.Offset;

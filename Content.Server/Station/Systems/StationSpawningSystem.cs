@@ -100,12 +100,8 @@ using Content.Server.Station.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
-<<<<<<< HEAD
 using Content.Shared.Clothing;
 using Content.Shared.DetailExaminable;
-=======
-using Content.Shared.Customization.Systems;
->>>>>>> e68e0c3f4b9 (New Species: Plasmaman (#1291))
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.NameIdentifier;
@@ -140,17 +136,9 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-<<<<<<< HEAD
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-=======
-    [Dependency] private readonly InternalEncryptionKeySpawner _internalEncryption = default!;
-    [Dependency] private readonly ArrivalsSystem _arrivalsSystem = default!;
-    [Dependency] private readonly ContainerSpawnPointSystem _containerSpawnPointSystem = default!;
-    [Dependency] private readonly CharacterRequirementsSystem _characterRequirements = default!;
-
->>>>>>> e68e0c3f4b9 (New Species: Plasmaman (#1291))
     private bool _randomizeCharacters;
 
     /// <inheritdoc/>

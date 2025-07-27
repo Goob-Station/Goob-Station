@@ -18,6 +18,6 @@ public sealed partial class LightFadeComponent : Component
     // <summary>
     //   Goobstation Change: The duration of the fade-in effect before starting the fade out effect.
     // </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [DataField]
     public float RampUpDuration = 0f;
 }

@@ -31,4 +31,7 @@
     soundHit:
       path: /Audio/Weapons/smash.ogg
   - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 1
     staminaCost: 5

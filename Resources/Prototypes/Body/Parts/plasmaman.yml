@@ -16,14 +16,37 @@
       amount: 1
   - type: IgniteFromGasPart
     gas: Oxygen
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#743474"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  id: TorsoPlasmaman
-  name: plasmaman torso
-  parent: [PartPlasmaman, BaseTorso]
+  id: ChestPlasmaman
+  name: plasmaman chest
+  parent: [PartPlasmaman, BaseChest]
   components:
   - type: Sprite
-    state: torso_m
+    state: chest_m
+  - type: Butcherable
+    butcherDelay: 6.0
+    spawned:
+    - id: SheetPlasma1
+      amount: 3
+  - type: IgniteFromGasPart
+    fireStacks: 0.06
+
+- type: entity
+  id: GroinPlasmaman
+  name: plasmaman groin
+  parent: [PartPlasmaman, BaseGroin]
+  components:
+  - type: Sprite
+    state: groin_m
   - type: Butcherable
     butcherDelay: 6.0
     spawned:

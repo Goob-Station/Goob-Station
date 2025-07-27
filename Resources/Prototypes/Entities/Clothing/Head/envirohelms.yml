@@ -622,8 +622,6 @@
       - state: midaccent-equipped-HELMET
         color: "#d82927"
       - state: visor-equipped-HELMET
-  - type: ClothingAddFaction
-    faction: Mailman
 
 - type: entity
   parent: ClothingHeadEnvirohelmCustomBase

@@ -180,15 +180,13 @@
   components:
   - type: IgniteFromGasImmunity
     parts:
-    - Torso
+    - Chest
     - Groin
     - LeftArm
-    - LeftHand
     - RightArm
-    - RightHand
     - LeftLeg
-    - LeftFoot
     - RightLeg
+    - LeftFoot
     - RightFoot
   - type: Clothing
     equipDelay: 0.4
@@ -210,8 +208,6 @@
     tags:
     - WhitelistChameleon
     - PlasmamanSafe
-  - type: ClothingRequiredStepTriggerImmune
-    slots: WITHOUT_POCKET
   - type: GuideHelp # While the playerbase is getting introduced to Plasmamen, add their guidebook here
     guides: [ Plasmaman ]
 

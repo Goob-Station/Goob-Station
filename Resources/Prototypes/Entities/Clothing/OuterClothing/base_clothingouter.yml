@@ -264,15 +264,13 @@
     reduction: 0.75 # almost perfectly sealed, atmos firesuit is better
   - type: IgniteFromGasImmunity
     parts:
-    - Torso
+    - Chest
     - Groin
     - LeftArm
-    - LeftHand
     - RightArm
-    - RightHand
     - LeftLeg
-    - LeftFoot
     - RightLeg
+    - LeftFoot
     - RightFoot
   - type: ClothingSpeedModifier
     walkModifier: 0.4
@@ -342,15 +340,13 @@
     coolingCoefficient: 0.01
   - type: IgniteFromGasImmunity
     parts:
-    - Torso
+    - Chest
     - Groin
     - LeftArm
-    - LeftHand
     - RightArm
-    - RightHand
     - LeftLeg
-    - LeftFoot
     - RightLeg
+    - LeftFoot
     - RightFoot
   - type: ClothingSpeedModifier
     walkModifier: 0.8

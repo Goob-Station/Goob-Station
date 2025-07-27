@@ -26,10 +26,7 @@ public sealed class IgniteFromGasSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<FlammableComponent, BodyPartAddedEvent>(OnBodyPartAdded);
-        SubscribeLocalEvent<FlammableComponent, BodyPartAttachedEvent>(OnBodyPartAttached);
-
         SubscribeLocalEvent<IgniteFromGasComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
-        SubscribeLocalEvent<IgniteFromGasComponent, BodyPartDroppedEvent>(OnBodyPartDropped);
 
         SubscribeLocalEvent<IgniteFromGasImmunityComponent, GotEquippedEvent>(OnIgniteFromGasImmunityEquipped);
         SubscribeLocalEvent<IgniteFromGasImmunityComponent, GotUnequippedEvent>(OnIgniteFromGasImmunityUnequipped);
@@ -37,15 +34,13 @@ public sealed class IgniteFromGasSystem : EntitySystem
 
     private void OnBodyPartAdded(Entity<FlammableComponent> ent, ref BodyPartAddedEvent args) =>
         HandleAddBodyPart(ent.Owner, args.Part);
-    private void OnBodyPartAttached(Entity<FlammableComponent> ent, ref BodyPartAttachedEvent args) =>
-        HandleAddBodyPart(ent.Owner, args.Part);
 
     private void HandleAddBodyPart(EntityUid uid, Entity<BodyPartComponent> part)
     {
-        if (!TryComp<IgniteFromGasPartComponent>(part, out var ignitePart) ||
-            _body.GetTargetBodyPart(part.Comp.PartType, part.Comp.Symmetry) is not { } targetBodyPart)
+        if (!TryComp<IgniteFromGasPartComponent>(part, out var ignitePart))
             return;
 
+        var targetBodyPart = _body.GetTargetBodyPart(part.Comp.PartType, part.Comp.Symmetry);
         if (!TryComp<IgniteFromGasComponent>(uid, out var ignite))
         {
             ignite = EnsureComp<IgniteFromGasComponent>(uid);
@@ -59,14 +54,13 @@ public sealed class IgniteFromGasSystem : EntitySystem
 
     private void OnBodyPartRemoved(Entity<IgniteFromGasComponent> ent, ref BodyPartRemovedEvent args) =>
         HandleRemoveBodyPart(ent, args.Part);
-    private void OnBodyPartDropped(Entity<IgniteFromGasComponent> ent, ref BodyPartDroppedEvent args) =>
-        HandleRemoveBodyPart(ent, args.Part);
 
     private void HandleRemoveBodyPart(Entity<IgniteFromGasComponent> ent, Entity<BodyPartComponent> part)
     {
-        if (!HasComp<IgniteFromGasPartComponent>(part) ||
-            _body.GetTargetBodyPart(part.Comp.PartType, part.Comp.Symmetry) is not { } targetBodyPart)
+        if (!HasComp<IgniteFromGasPartComponent>(part))
             return;
+
+        var targetBodyPart = _body.GetTargetBodyPart(part.Comp.PartType, part.Comp.Symmetry);
 
         ent.Comp.IgnitableBodyParts.Remove(targetBodyPart);
 

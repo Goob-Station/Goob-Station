@@ -22,7 +22,8 @@
   sprites:
     Head: MobPlasmamanHead
     Face: MobHumanoidAnyMarking
-    Chest: MobPlasmamanTorso
+    Chest: MobPlasmamanChest
+    Groin: MobPlasmamanGroin
     Eyes: MobPlasmamanEyes
     LArm: MobPlasmamanLArm
     RArm: MobPlasmamanRArm
@@ -55,28 +56,10 @@
     Chest:
       points: 1
       required: false
-    RightLeg:
+    Legs:
       points: 2
       required: false
-    RightFoot:
-      points: 2
-      required: false
-    LeftLeg:
-      points: 2
-      required: false
-    LeftFoot:
-      points: 2
-      required: false
-    RightArm:
-      points: 2
-      required: false
-    RightHand:
-      points: 2
-      required: false
-    LeftArm:
-      points: 2
-      required: false
-    LeftHand:
+    Arms:
       points: 2
       required: false
 
@@ -105,22 +88,40 @@
     state: eyes
 
 - type: humanoidBaseSprite
-  id: MobPlasmamanTorso
+  id: MobPlasmamanChest
   baseSprite:
     sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobPlasmamanTorsoMale
+  id: MobPlasmamanChestMale
   baseSprite:
     sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobPlasmamanTorsoFemale
+  id: MobPlasmamanChestFemale
   baseSprite:
     sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanGroin
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanGroinMale
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanGroinFemale
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobPlasmamanLLeg

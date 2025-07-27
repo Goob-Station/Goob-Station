@@ -254,6 +254,14 @@
     - Flash
     - ClothingMaskBreathMedicalSecurity
 
+- type: startingGear
+  id: CorpsmanPlasmamanGear
+  parent: BasePlasmamanSecurityGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBrigmedic
+    head: ClothingHeadEnvirohelmBrigmedic
+    gloves: ClothingHandsGlovesEnviroglovesBlack
+
 # Aghost
 - type: startingGear
   id: MobAghostGear
