@@ -9,8 +9,8 @@
 
 - type: entity
   id: ChurchBell
-  name: church bell
-  description: You feel your soul grow ever closer to the realms beyond for every chime this bell tolls...
+  name: "церковний дзвін"
+  description: "Ти відчуваєш, як з кожним ударом цього дзвону твоя душа стає все ближчою до потойбічних світів..."
   placement:
     mode: SnapgridCenter
   components:

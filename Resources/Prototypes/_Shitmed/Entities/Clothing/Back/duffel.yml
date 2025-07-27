@@ -9,8 +9,8 @@
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseMajorContraband ]
   id: ClothingBackpackDuffelAbductor
-  name: alien duffel bag
-  description: An ordinary duffel bag woven from a durable fiber.
+  name: "сумка інопланетянина"
+  description: "Звичайна спортивна сумка, сплетена з міцного волокна."
   components:
   - type: Sprite
     sprite: _Shitmed/Clothing/Back/Duffels/abductor.rsi

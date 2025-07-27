@@ -11,8 +11,8 @@
 - type: entity
   id: BiomassReclaimer
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: biomass reclaimer
-  description: Reclaims biomass from corpses. Gruesome.
+  name: "утилізатор біомаси"
+  description: "Отримує біомасу з трупів. Жахливо."
   placement:
     mode: SnapgridCenter
   components:

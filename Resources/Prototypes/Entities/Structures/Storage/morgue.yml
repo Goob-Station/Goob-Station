@@ -28,8 +28,8 @@
 
 - type: entity
   id: Morgue
-  name: morgue
-  description: Used to store bodies until someone fetches them. Includes a high-tech alert system for false-positives!
+  name: "морг"
+  description: "Використовується для зберігання тіл, поки їх не заберуть. Включає високотехнологічну систему оповіщення про хибні спрацьовування!"
   placement:
     mode: SnapgridCenter
   components:
@@ -104,8 +104,8 @@
 
 - type: entity
   id: Crematorium
-  name: crematorium
-  description: A human incinerator. Works well on barbecue nights.
+  name: "крематорій"
+  description: "Спалювач людей. Добре працює на вечірніх барбекю."
   placement:
     mode: SnapgridCenter
   components:
