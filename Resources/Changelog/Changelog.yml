@@ -3900,6 +3900,14 @@
   id: 8803
   time: '2025-07-23T18:06:32.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39167
+- author: Lokachop
+  changes:
+  - message: The engineering & chief engineer's hardsuit now properly glow in the
+      dark
+    type: Fix
+  id: 8804
+  time: '2025-07-24T03:04:29.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39153
 - author: K-Dynamic
   changes:
   - message: Cold slowdowns are now less impactful.
@@ -3939,3 +3947,10 @@
   id: 8809
   time: '2025-07-25T19:46:42.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38657
+- author: Toast_Enjoyer, Djmc216
+  changes:
+  - message: The scrap armor now functions as a utility belt too!
+    type: Add
+  id: 8810
+  time: '2025-07-27T06:17:01.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39233
