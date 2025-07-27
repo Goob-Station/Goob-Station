@@ -80,6 +80,17 @@
         {
             "name": "bingle_pony",
             "directions": 4
+        },
+        {
+            "name": "plushie_mnwaar"
+        },
+        {
+            "name": "plushiemnwaar-inhand-left",
+            "directions": 4
+        },
+                {
+            "name": "plushiemnwaar-inhand-right",
+            "directions": 4
         }
 
     ]
