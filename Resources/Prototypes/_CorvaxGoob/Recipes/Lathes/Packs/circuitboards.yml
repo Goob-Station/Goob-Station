@@ -1,0 +1,9 @@
+- type: latheRecipePack
+  id: BluespaceHarvesterBoards
+  recipes:
+  - MachineBluespaceHarvesterCircuitboard
+
+- type: latheRecipePack
+  id: BluespaceTechnologyBoards
+  recipes:
+  - MachineBluespaceTransitorCircuitboard

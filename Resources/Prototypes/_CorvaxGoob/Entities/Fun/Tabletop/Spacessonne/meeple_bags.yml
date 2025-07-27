@@ -1,0 +1,208 @@
+- type: entity
+  parent: BaseStorageItem
+  id: CarcBagMeepleBase
+  name: "meeple bag"
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    layers:
+    - state: icon
+      color: "#FFFFFF"
+    - state: overlay
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#FFFFFF"
+      - state: overlay-inhand-left
+      right:
+      - state: inhand-right
+        color: "#FFFFFF"
+      - state: overlay-inhand-right
+  - type: Clothing
+    slots: [belt]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+        color: "#FFFFFF"
+      - state: overlay-equipped-BELT
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 20
+  - type: StaticPrice
+    price: 5
+  - type: Storage
+    grid:
+    - 0,0,5,0
+    quickInsert: false
+    areaInsert: false
+    maxItemSize: Tiny
+
+- type: entity
+  parent: CarcBagMeepleBase
+  id: CarcBagMeepleRed
+  name: "red meeples bag"
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    layers:
+    - state: icon
+      color: "#BB0000"
+    - state: overlay
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#BB0000"
+      - state: overlay-inhand-left
+      right:
+      - state: inhand-right
+        color: "#BB0000"
+      - state: overlay-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+        color: "#BB0000"
+      - state: overlay-equipped-BELT
+  - type: StorageFill
+    contents:
+      - id: CarcMeepleRed
+        amount: 6
+
+- type: entity
+  parent: CarcBagMeepleBase
+  id: CarcBagMeepleGreen
+  name: "green meeples bag"
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    layers:
+    - state: icon
+      color: "#00BB00"
+    - state: overlay
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#00BB00"
+      - state: overlay-inhand-left
+      right:
+      - state: inhand-right
+        color: "#00BB00"
+      - state: overlay-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+        color: "#00BB00"
+      - state: overlay-equipped-BELT
+  - type: StorageFill
+    contents:
+      - id: CarcMeepleGreen
+        amount: 6
+
+- type: entity
+  parent: CarcBagMeepleBase
+  id: CarcBagMeepleBlue
+  name: "blue meeples bag"
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    layers:
+    - state: icon
+      color: "#4444BB"
+    - state: overlay
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#4444BB"
+      - state: overlay-inhand-left
+      right:
+      - state: inhand-right
+        color: "#4444BB"
+      - state: overlay-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+        color: "#4444BB"
+      - state: overlay-equipped-BELT
+  - type: StorageFill
+    contents:
+      - id: CarcMeepleBlue
+        amount: 6
+
+- type: entity
+  parent: CarcBagMeepleBase
+  id: CarcBagMeepleBlack
+  name: "black meeples bag"
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    layers:
+    - state: icon
+      color: "#252525"
+    - state: overlay
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#252525"
+      - state: overlay-inhand-left
+      right:
+      - state: inhand-right
+        color: "#252525"
+      - state: overlay-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+        color: "#252525"
+      - state: overlay-equipped-BELT
+  - type: StorageFill
+    contents:
+      - id: CarcMeepleBlack
+        amount: 6
+
+- type: entity
+  parent: CarcBagMeepleBase
+  id: CarcBagMeepleYellow
+  name: "yellow meeples bag"
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/meeple_bag.rsi
+    layers:
+    - state: icon
+      color: "#BBBB00"
+    - state: overlay
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#BBBB00"
+      - state: overlay-inhand-left
+      right:
+      - state: inhand-right
+        color: "#BBBB00"
+      - state: overlay-inhand-right
+  - type: Clothing
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+        color: "#BBBB00"
+      - state: overlay-equipped-BELT
+  - type: StorageFill
+    contents:
+      - id: CarcMeepleYellow
+        amount: 6

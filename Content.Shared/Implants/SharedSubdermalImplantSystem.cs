@@ -81,6 +81,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
 
         var ev = new ImplantImplantedEvent(uid, component.ImplantedEntity.Value);
         RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(ref ev); // CorvaxGoob-Skills
     }
 
     private void OnRemoveAttempt(EntityUid uid, SubdermalImplantComponent component, ContainerGettingRemovedAttemptEvent args)

@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingMilitaryBackpack
+  name: army backpack
+  description: A spacious backpack with lots of pockets, worn by military structures.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Back/Backpacks/military.rsi
+  - type: Storage
+    grid:
+    - 0,0,8,4
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingDeathSquadronBackpack
+  name: death squadron backpack
+  description: A spacious backpack using bluespace technology.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Back/Backpacks/deathsquad-backpack.rsi
+  - type: Storage
+    grid:
+    - 0,0,13,7
+    maxItemSize: Huge
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackCE
+  name: chief engineer backpack
+  description: Technicially progressive backpack.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Back/Backpacks/ce.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackWarden
+  name: warden backpack
+  description: It's a very robust blue backpack.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Back/Backpacks/warden.rsi
+    

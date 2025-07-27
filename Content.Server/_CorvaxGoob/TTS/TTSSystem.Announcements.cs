@@ -83,13 +83,13 @@ public sealed partial class TTSSystem
             return;
 
 
-        SendTTS(_stationSystem.GetInStation(stationDataComp), text, voice);
+        SendTTS(_stationSystem.GetInStation(stationDataComp), text, voice, ChatSystem.CentComAnnouncementSound);
     }
-    async private void SendTTS(Filter filter, string text, string voice)
+    async private void SendTTS(Filter filter, string text, string voice, string announcementSound = ChatSystem.DefaultAnnouncementSound)
     {
         _filterToSend = filter;
         _isPlaying = true;
-        _sendTTSAt = _timing.CurTime + _audio.GetAudioLength(_audio.ResolveSound(new SoundPathSpecifier(ChatSystem.DefaultAnnouncementSound))) + TimeSpan.FromSeconds(0.5);
+        _sendTTSAt = _timing.CurTime + _audio.GetAudioLength(_audio.ResolveSound(new SoundPathSpecifier(announcementSound))) + TimeSpan.FromSeconds(0.5);
 
         _soundDataToSend = await GenerateTTS(text, voice);
     }

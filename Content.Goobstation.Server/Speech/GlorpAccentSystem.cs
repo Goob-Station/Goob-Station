@@ -19,14 +19,14 @@ namespace Content.Goobstation.Server.Speech;
 public sealed class GlorpAccentSystem : EntitySystem
 {
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
-    private static readonly string[] StartingLetters = { "n", "x", "z", "v", "g" };
-    private static readonly string[] Suffixes = { "narp", "lorp", "leeb", "orp", "orple", "ip", "op", "eegle" };
-    private static readonly string[] RandomInserts = { "Glupshitto", "Glorpshit" };
+    private static readonly string[] StartingLetters = { "н", "к", "з", "в", "г" };
+    private static readonly string[] Suffixes = { "нарп", "лорп", "либ", "орп", "орпл", "ип", "оп", "игл" };
+    private static readonly string[] RandomInserts = { "глорпито", "глорп" };
     private static readonly HashSet<string> WhitelistedWords = new(StringComparer.OrdinalIgnoreCase)
     {
-        "discrimination", "inferior", "surgery", "probing", "neanderthal", "animal",
-        "tool", "heart", "zoo", "subject", "organ", "skill", "issue", "extract", "remove", "eyes",
-        "sleep", "bruh", "skibidi", "ohio", "brazil", "shitsec", "silly", "yippee", "bald"
+        "дискриминация", "неполноценный", "операция", "зондирование", "неандерталец", "животное",
+        "инструмент", "сердце", "инструменты", "объект", "орган", "навык", "проблема", "удали", "вырежи", "глаза",
+        "спи", "лысый"
     };
     private static readonly Regex WordRegex = new(@"\b\w+\b", RegexOptions.IgnoreCase);
 

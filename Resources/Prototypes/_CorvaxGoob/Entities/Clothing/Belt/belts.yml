@@ -1,0 +1,77 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltSurgicalBoard
+  name: surgical magnetic board
+  description: Able to magnetize special surgical instruments made on Medical TechFab. Surgeon's assistant? I have my own little buddy!
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Belt/surgical_board.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Belt/surgical_board.rsi
+  - type: Storage
+    grid:
+    - 0,0,8,1
+    whitelist:
+      tags:
+        - SurgeryTool
+      components:
+        - SurgeryTool
+  - type: ItemMapper
+    mapLayers:
+      hemostat:
+        whitelist:
+          tags:
+          - Hemostat
+      scalpel:
+        whitelist:
+          tags:
+          - Scalpel
+      energyScalpel:
+        whitelist:
+          tags:
+          - EnergyScalpel
+      scalpelLaser:
+        whitelist:
+          tags:
+          - ScalpelLaser
+      retractor:
+        whitelist:
+          tags:
+          - Retractor
+      advancedRetractor:
+        whitelist:
+          tags:
+          - AdvancedRetractor
+      cautery:
+        whitelist:
+          tags:
+          - Cautery
+      energyCautery:
+        whitelist:
+          tags:
+            - EnergyCautery
+      drill:
+        whitelist:
+          tags:
+            - Drill
+      sawElectric:
+        whitelist:
+          tags:
+            - SawElectric
+    sprite: _CorvaxGoob/Clothing/Belt/belt_overlay.rsi
+  - type: Appearance
+
+- type: entity
+  parent: ClothingBeltSurgicalBoard
+  id: ClothingBeltSurgicalBoardFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Hemostat
+      - id: Scalpel
+      - id: Retractor
+      - id: Cautery
+      - id: Drill
+      - id: SawElectric
+      - id: Bonesetter

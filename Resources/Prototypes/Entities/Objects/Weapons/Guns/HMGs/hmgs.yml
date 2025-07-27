@@ -107,6 +107,7 @@
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+    requiresSkill: true # CorvaxGoob-Skills
   - type: StaticPrice
     price: 500
   # No chamber because HMG may want its own

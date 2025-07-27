@@ -120,7 +120,7 @@
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
   id: EmitterCircuitboard
-  icon: { sprite:  Structures/Power/Generation/Singularity/emitter.rsi, state: emitter2 } # Goobstation
+  icon: { sprite:  Structures/Power/Generation/Singularity/emitter.rsi, state: emitter } # Goobstation. Replaced by CorvaxGoob
   result: EmitterCircuitboard
 
 # Atmos

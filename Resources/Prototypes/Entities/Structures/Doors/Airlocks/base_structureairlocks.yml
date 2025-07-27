@@ -129,11 +129,6 @@
       shader: unshaded
       visible: false
       map: ["enum.ElectrifiedLayers.HUD"]
-    - state: electrified
-      sprite: Effects/electricity.rsi
-      shader: unshaded
-      visible: false
-      map: ["enum.ElectrifiedLayers.Sparks"]
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -172,15 +167,10 @@
     fuel: 5
     time: 3
   - type: Airlock
+    openUnlitVisible: true # CorvaxGoob-Resprite-Airlocks
   - type: NavMapDoor
   - type: DoorBolt
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ElectrifiedVisuals.ShowSparks:
-        enum.ElectrifiedLayers.Sparks:
-          True: { visible: True }
-          False: { visible: False }
   - type: WiresVisuals
   - type: ElectrocutionHUDVisuals
   - type: ApcPowerReceiver
@@ -251,6 +241,9 @@
     - board
   - type: PlacementReplacement
     key: walls
+  - type: IconSmooth # CorvaxGoob-Resprites
+    key: walls
+    mode: NoSprite
   - type: PaintableAirlock
     group: Standard
     department: Civilian
@@ -318,6 +311,8 @@
     node: glassAirlock
   - type: PaintableAirlock
     group: Glass
+  - type: RadiationBlocker # CorvaxGoob
+    resistance: 2
   - type: Tag
     tags:
       - GlassAirlock

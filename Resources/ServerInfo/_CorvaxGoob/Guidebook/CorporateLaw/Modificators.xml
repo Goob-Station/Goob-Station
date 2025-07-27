@@ -1,0 +1,551 @@
+<Document>
+
+# Модификаторы
+
+## Обязательные
+
+[italic]Каждая из этих групп модификаторов должна быть в деле.[/italic]
+
+[bold]Форма вины[/bold]
+
+  <Table Columns="4">
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Название[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Влияние на меру наказания[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Описание[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Преступление, совершенное умышленно[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      Применяется к статье
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+        Лицо осознает общественную опасность своего деяния, предвидело возможность или неизбежность наступления общественно опасных последствий и:
+        - желало их наступления;
+        - не желало, но сознательно допускало эти последствия либо относилось к ним безразлично.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Преступление, совершенное по неосторожности[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      минус 5 минут к наказанию
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical" Margin="1">
+        Лицо предвидело возможность наступление общественно опасных последствий своего деяния, но без достаточных к тому оснований самонадеянно рассчитывало на предотвращение этих последствий;
+
+        Лицо не предвидело возможность наступления общественно опасный последствий своего деяния, хотя при необходимой внимательности и предусмотрительности должно было и могло предвидеть эти последствия.
+
+        Модификатор не влияет на срок для статей "Халатность" и "Грубая халатность". Модификатор не влияет на срок для статей "Халатность" и "Грубая халатность".
+
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Отсутствие вины[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Снятие обвинений
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Невозможно применить модификатор “преступление, совершенное умышленно” или “преступление, совершенное по неосторожности”
+      </Box>
+    </ColorBox>
+  </Table>
+
+
+[bold]Неоконченное и оконченное преступление[/bold]
+
+  <Table Columns="4">
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Название[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Влияние на меру наказания[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Описание[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Оконченное преступление[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Применяется к статье
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Преступление считается оконченным, если по факту действий лица возможно применить статью корпоративного закона.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Покушение на преступление[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Умышленные действия, направленные на совершение преступление, если преступление не было доведено до конца по не зависящим от этого лица обстоятельствам.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Приготовление к преступлению[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical" Margin="1">
+       - Полное наказание для XX3, XX4, XX5, XX6
+       - Снятие обвинения для иных статей
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Умышленное создание условий для совершения преступления, если преступление не было доведено до конца по не зависящим от этого лица обстоятельствам
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Безуспешный добровольный отказ от преступления [/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        минус 5 минут к наказанию
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Действия организатора, направленные на прекращение доведения преступления, не смогли предотвратить совершение преступления исполнителем.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Успешный добровольный отказ от преступления [/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Снятие обвинений
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      Прекращение лицом приготовления к преступлению или прекращение деяний, направленных на совершение преступления, если лицо осознавало возможность доведения преступления до конца.
+
+      Организатор прекратил доведения преступления до конца.
+
+      Пособник предпринял все зависящие от него меры, чтобы предотвратить совершение преступления
+      </Box>
+    </ColorBox>
+  </Table>
+
+
+[bold]Соучастие в преступлении[/bold]
+
+  <Table Columns="4">
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Название[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Влияние на меру наказания[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Описание[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Исполнитель[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Применяется к статье
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Лицо, совершающее преступление
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Подстрекатель[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Лицо, склонившее другое лицо к совершению преступления путем уговора, подкупа, угрозы или другим способом
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Пособник[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Лицо, содействовавшее совершению преступления советами, указаниями, предоставлением информации, средств или орудий совершения преступления, либо устранением препятствий или иными способами.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Организатор[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      +10 минут к наказанию
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      - Лицо, организовавшее совершение преступления или руководившее его исполнением.
+      - Лицо, организовавшее преступную группу или руководившее ей.
+
+        Модификатор не применяется, исполнитель является организатором и нет других исполнителей.
+      </Box>
+    </ColorBox>
+  </Table>
+
+## Необязательные модификаторы
+
+[italic]Модификаторы этой группы появляются не в каждом деле.[/italic]
+
+  <Table Columns="4">
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Название[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Влияние на меру наказания[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Снятие обвинений
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Описание[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Гипноз[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Снятие обвинений
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+        Явление, когда разум лица контролируется кем-либо.
+        Модификатор не применяется, если доказано, что загипнотизированное лицо стремилось и желало достичь такого состояния.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Крайняя необходимость[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Снятие обвинений
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      Вынужденные действия в целях самозащиты, защиты здоровья и жизни своих коллег, а также сохранности своего рабочего места и станции в целом.
+
+      Модификатор применяется на усмотрение допрашивающего лица.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Допустимая самооборона[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      Снятие обвинений
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      Действия, направленные на самооборону и не нарушающее допустимое применение силы.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Манипулирование синтетиками[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      Манипулирование законами синтетиков, что привело к нарушению корпоративного закона лицом или синтетиком.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Должностное преступление[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        плюс 10 минут к наказанию
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Нарушение корпоративного закона должностным лицом.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Преступление против должностного лица [/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        плюс 10 минут к наказанию
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+        Нарушение статей второго раздела корпоративного закона, направленные против должностного лица.
+
+        Модификатор не применяется, если невозможно однозначно определить принадлежность пострадавшего к должностным лицам. (Отсутствие соответствующей формы и ID карты)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Расизм[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      плюс 10 минут к наказанию
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        Преступление, совершенное по мотивам расовой дискриминации.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Явка с повинной[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      минус 5 минут к наказанию
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#db812c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      Чистосердечное признание в совершении преступления. Наказания по статье и модификатор выдаются независимо от того, была ли информация истинной.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Сделка со следствием[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      Зависит от условий сделки
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#69db2c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      Применяется к сроку
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#69db2c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      Предоставление интересующей службу безопасности информации, касающейся совершенного преступления. Смотритель или глава СБ могут снизить срок приговора на любое разумное число
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+        [bold]Рецидив[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      плюс 5 минут к наказанию за каждый случай рецидива
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1">
+      </Box>
+    </ColorBox>
+    <ColorBox OutlineColor="#69db2c" OutlineThickness="2">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Margin="1">
+      Повторное нарушение статьи.
+      </Box>
+    </ColorBox>
+  </Table>
+
+</Document>

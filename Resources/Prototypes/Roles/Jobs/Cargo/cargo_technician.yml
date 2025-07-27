@@ -90,6 +90,11 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay
     prototype: BoxCardboard
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
 
 - type: startingGear
   id: CargoTechGear

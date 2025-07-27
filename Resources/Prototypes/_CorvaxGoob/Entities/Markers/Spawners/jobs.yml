@@ -1,0 +1,36 @@
+- type: entity
+  id: SpawnPointPilot
+  parent: SpawnPointJobBase
+  name: pilot
+  components:
+  - type: SpawnPoint
+    job_id: Pilot
+  - type: Sprite
+    layers:
+    - state: green
+    - state: seniorofficer
+
+- type: entity
+  id: SpawnPointSurgeon
+  parent: SpawnPointJobBase
+  name: surgeon
+  components:
+  - type: SpawnPoint
+    job_id: Surgeon
+  - type: Sprite
+    layers:
+    - sprite: _CorvaxGoob/Markers/jobs.rsi
+      state: surgeon
+
+- type: entity
+  id: SpawnPointWardenHelper
+  parent: SpawnPointJobBase
+  name: warden assistant
+  components:
+  - type: SpawnPoint
+    job_id: WardenHelper
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _CorvaxGoob/Markers/jobs.rsi
+        state: wardenhelper
