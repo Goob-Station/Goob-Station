@@ -124,8 +124,8 @@
 - type: entity
   id: BaseBorgModule
   parent: BaseItem
-  name: "модуль borg"
-  description: "Технологія, яка дає кіборгам нові здібності."
+  name: borg module
+  description: A piece of tech that gives cyborgs new abilities.
   abstract: true
   components:
   - type: Item
@@ -173,8 +173,8 @@
 
 - type: entity
   id: ActionBorgSwapModule
-  name: "Модуль заміни"
-  description: "Виберіть цей модуль, щоб скористатися інструментами, які він надає."
+  name: Swap Module
+  description: Select this module, enabling you to use the tools it provides.
   components:
   - type: InstantAction
     itemIconStyle: BigAction
@@ -535,8 +535,8 @@
 - type: entity
   id: BorgModuleCable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: "кабельний модуль кіборга"
-  description: "Універсальний модуль кіборга, який дозволяє встановлювати та маніпулювати електричними системами."
+  name: cable cyborg module
+  description: A universal cyborg module which allows the unit to install and manipulate electrical systems.
   components:
   - type: Sprite
     layers:
@@ -557,8 +557,8 @@
 - type: entity
   id: BorgModuleFireExtinguisher
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: "реактивний модуль кіборга"
-  description: "НТ доручила команді розробити реактивний ранець для кіборгів, але у них закінчилося фінансування і вони просто зробили більший вогнегасник. Однак він поставляється з інтегрованим GPS і сканером маси!"
+  name: thruster cyborg module
+  description: NT assigned a team to design a jetpack for cyborg units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though!
   components:
   - type: Sprite
     layers:
@@ -576,7 +576,7 @@
 - type: entity
   id: BorgModuleTool
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: "інструментальний модуль кіборга"
+  name: tool cyborg module
   components:
   - type: Sprite
     layers:
@@ -599,7 +599,7 @@
 - type: entity
   id: BorgModuleAppraisal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: "оціночний модуль \"кіборг"
+  name: appraisal cyborg module
   components:
   - type: Sprite
     layers:
@@ -620,7 +620,7 @@
 - type: entity
   id: BorgModuleMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: "шахтарський кіборг-модуль"
+  name: mining cyborg module
   components:
   - type: Sprite
     layers:
@@ -639,8 +639,8 @@
 - type: entity
   id: BorgModuleAdvancedMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: "просунутий шахтарський модуль кіборга"
-  description: "Просунутий вантажний модуль, що містить просунуте шахтарське обладнання. Дослідження показують, що він підвищує продуктивність кіборга на 150%."
+  name: advanced mining cyborg module
+  description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
   components:
   - type: Sprite
     layers:
@@ -659,7 +659,7 @@
 - type: entity
   id: BorgModuleTraversal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: "модуль переміщення кіборга"
+  name: traversal cyborg module
   components:
   - type: Sprite
     layers:
@@ -680,8 +680,8 @@
 - type: entity
   id: BorgModuleAdvancedTool
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: "просунутий інструментальний модуль кіборга"
-  description: "Просунутий інженерний модуль, що містить передові інструменти."
+  name: advanced tool cyborg module
+  description: Advanced engineering module containing cutting-edge tools.
   components:
   - type: Sprite
     layers:
@@ -702,7 +702,7 @@
 - type: entity
   id: BorgModuleConstruction
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: "будівельний модуль-кіборг"
+  name: construction cyborg module
   components:
   - type: Sprite
     layers:
@@ -740,7 +740,7 @@
 - type: entity
   id: BorgModuleRCD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: "інженерний модуль кіборга"
+  name: engineering cyborg module
   components:
   - type: Sprite
     layers:
@@ -763,7 +763,7 @@
 - type: entity
   id: BorgModuleCustodial
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: "прибиральний модуль кіборга"
+  name: custodial cyborg module
   components:
   - type: Sprite
     layers:
@@ -784,7 +784,7 @@
 - type: entity
   id: BorgModuleCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: "очисний кіборг-модуль"
+  name: cleaning cyborg module
   components:
   - type: Sprite
     layers:
@@ -803,8 +803,8 @@
 - type: entity
   id: BorgModuleAdvancedCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: "просунутий клінінговий модуль кіборга"
-  description: "Просунутий модуль для прибирання, що містить, ну... просунуте обладнання для прибирання. А що ви очікували?"
+  name: advanced cleaning cyborg module
+  description: Advanced janitorial module containing, well... advanced janitor equipment. What were you expecting?
   components:
   - type: Sprite
     layers:
@@ -825,7 +825,7 @@
 - type: entity
   id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: "модуль діагностики кіборгів"
+  name: diagnosis cyborg module
   components:
   - type: Sprite
     layers:
@@ -842,7 +842,7 @@
 - type: entity
   id: BorgModuleTopicals
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: "модуль для зовнішнього застосування кіборга"
+  name: topicals cyborg module
   components:
   - type: Sprite
     layers:
@@ -864,7 +864,7 @@
 - type: entity
   id: BorgModuleRescue
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: "рятувальний модуль кіборга"
+  name: rescue cyborg module
   components:
   - type: Sprite
     layers:
@@ -884,7 +884,7 @@
 - type: entity
   id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: "хімічний модуль кіборга"
+  name: chemical cyborg module
   components:
   - type: Sprite
     layers:
@@ -905,8 +905,8 @@
 - type: entity
   id: BorgModuleAdvancedChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: "просунутий хімічний модуль кіборга"
-  description: "Просунутий медичний модуль, що містить адаптацію для кіборгів дуже затребуваного гіпоспрея. Тепер ваші кіборги можуть вводити кривдникам екіпажу хлоралгідрат ще швидше!"
+  name: advanced chemical cyborg module
+  description: Advanced medical module containing the cyborg adaptation of the highly coveted hypospray. Now your cyborgs can inject crew-harmers with chloral hydrate even faster!
   components:
   - type: Sprite
     layers:
@@ -935,7 +935,7 @@
 - type: entity
   id: BorgModuleArtifact
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: "артефактний модуль кіборга"
+  name: artifact cyborg module
   components:
   - type: Sprite
     layers:
@@ -956,7 +956,7 @@
 - type: entity
   id: BorgModuleAnomaly
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: "модуль аномального кіборга"
+  name: anomaly cyborg module
   components:
   - type: Sprite
     layers:
@@ -978,7 +978,7 @@
 - type: entity
   id: BorgModuleService
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: "сервісний модуль кіборга"
+  name: service cyborg module
   components:
   - type: Sprite
     layers:
@@ -1010,7 +1010,7 @@
 - type: entity
   id: BorgModuleMusique
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: "модуль музичного кіборга"
+  name: musique cyborg module
   components:
   - type: Sprite
     layers:
@@ -1028,7 +1028,7 @@
 - type: entity
   id: BorgModuleGardening
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: "модуль садівничого кіборга"
+  name: gardening cyborg module
   components:
   - type: Sprite
     layers:
@@ -1057,7 +1057,7 @@
 - type: entity
   id: BorgModuleHarvesting
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: "модуль збирання врожаю кіборга"
+  name: harvesting cyborg module
   components:
   - type: Sprite
     layers:
@@ -1075,7 +1075,7 @@
 - type: entity
   id: BorgModuleClowning
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: "модуль клоунського кіборга"
+  name: clowning cyborg module
   components:
   - type: Sprite
     layers:
@@ -1094,7 +1094,7 @@
 - type: entity
   id: BorgModuleSyndicateWeapon
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: "збройовий кіборг-модуль"
+  name: weapon cyborg module
   components:
   - type: Sprite
     layers:
@@ -1129,8 +1129,8 @@
 - type: entity
   id: BorgModuleOperative
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: "модуль кіборга-оперативника"
-  description: "Модуль, що поставляється з парою гідравлічних ножиць синдикату, емагом, зломщиком доступу та пінпоінтером синдикату." # Goobstation
+  name: operative cyborg module
+  description: A module that comes with a pair of syndicate jaws of life, an Emag, an Access Breaker and a syndicate pinpointer. # Goobstation
   components:
     - type: Sprite
       layers:
@@ -1149,8 +1149,8 @@
 - type: entity
   id: BorgModuleEsword
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: "модуль кіборга з енергетичним мечем"
-  description: "Модуль, який постачається з подвійним енергетичним мечем."
+  name: energy sword cyborg module
+  description: A module that comes with a double energy sword.
   components:
     - type: Sprite
       layers:
@@ -1167,8 +1167,8 @@
 - type: entity
   id: BorgModuleL6C
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: "Модуль кіборга L6C ROW"
-  description: "Модуль, який постачається з L6C."
+  name: L6C ROW cyborg module
+  description: A module that comes with a L6C.
   components:
     - type: Sprite
       layers:
@@ -1185,8 +1185,8 @@
 - type: entity
   id: BorgModuleMartyr
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: "модуль кіборга-мученика"
-  description: "Модуль з вибухівкою, з якою ви, ймовірно, не захочете поводитися самостійно."
+  name: martyr cyborg module
+  description: "A module that comes with an explosive you probably don't want to handle yourself."
   components:
     - type: Sprite
       layers:
@@ -1222,7 +1222,7 @@
 - type: entity
   id: BorgModuleSurgery
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: "хірургічний модуль \"кіборг"
+  name: surgery cyborg module
   components:
   - type: Sprite
     layers:
@@ -1257,7 +1257,7 @@
 - type: entity
   id: BorgModuleAdvancedSurgery
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: "передовий хірургічний модуль-кіборг"
+  name: advanced surgery cyborg module
   components:
   - type: Sprite
     layers:
@@ -1288,8 +1288,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleBasic
-  name: "базовий модуль ксеноборга"
-  description: "Основні предмети для будь-якого ксеноборга."
+  name: basic xenoborg module
+  description: Essential items for any xenoborg.
   components:
   - type: Sprite
     layers:
@@ -1307,8 +1307,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleGeneric, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleTool
-  name: "інструментальний модуль ксеноборга"
-  description: "Прості інструменти для більшості ксеноборгів."
+  name: tool xenoborg module
+  description: Simple tools for most xenoborgs.
   components:
   - type: Sprite
     layers:
@@ -1329,8 +1329,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleAccessBreaker
-  name: "модуль доступу ксеноборга"
-  description: "Модуль з пристроєм для злому доступу."
+  name: access breaker xenoborg module
+  description: Module with a access breaker.
   components:
   - type: Sprite
     layers:
@@ -1346,8 +1346,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleFireExtinguisher
-  name: "модуль вогнегасника ксеноборга"
-  description: "Модуль з самозаправним вогнегасником."
+  name: fire extinguisher xenoborg module
+  description: Module with a self-refueling fire extinguisher.
   components:
   - type: Sprite
     layers:
@@ -1363,8 +1363,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleJammer
-  name: "модуль глушилки ксеноборга"
-  description: "Модуль з глушилкою зв'язку."
+  name: jammer xenoborg module
+  description: Module with a communication jammer.
   components:
   - type: Sprite
     layers:
@@ -1380,8 +1380,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleLaser
-  name: "лазерний модуль ксеноборга"
-  description: "Модуль з лазерною гарматою."
+  name: laser xenoborg module
+  description: Module with a laser gun.
   components:
   - type: Sprite
     layers:
@@ -1397,8 +1397,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleHeavyLaser
-  name: "важкий лазерний модуль ксеноборга"
-  description: "Модуль з важкою лазерною гарматою."
+  name: heavy laser xenoborg module
+  description: Module with a heavy laser gun.
   components:
   - type: Sprite
     layers:
@@ -1414,8 +1414,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleSpaceMovement
-  name: "модуль космічного руху ксеноборга"
-  description: "Модуль, який допомагає ксеноборгу краще рухатися в космосі."
+  name: space movement xenoborg module
+  description: Module that helps a xenoborg move better in space.
   components:
   - type: Sprite
     layers:
@@ -1435,8 +1435,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleSword
-  name: "модуль ксеноборга з мечем"
-  description: "Модуль з ножем кукрі."
+  name: sword xenoborg module
+  description: Module with a kukri knife.
   components:
   - type: Sprite
     layers:
@@ -1453,8 +1453,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleEnergySword
-  name: "модуль ксеноборга з енергетичним мечем"
-  description: "Модуль з енергетичним кинджалом."
+  name: energy sword xenoborg module
+  description: Module with an energy dagger.
   components:
   - type: Sprite
     layers:
@@ -1471,8 +1471,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleHypo
-  name: "модуль гіпоінжектора ноктурину ксеноборга"
-  description: "Модуль з самозаправним гіпоінжектором ноктурину."
+  name: nocturine hypo xenoborg module
+  description: Module with a self-refilling nocturine hypo.
   components:
   - type: Sprite
     layers:
@@ -1488,8 +1488,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleChameleonProjector
-  name: "модуль хамелеон-проектора ксеноборга"
-  description: "Модуль з хамелеон-проектором."
+  name: chameleon projector xenoborg module
+  description: Module with a chameleon projector.
   components:
   - type: Sprite
     layers:
@@ -1505,8 +1505,8 @@
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleCloakDevice
-  name: "модуль маскувального пристрою ксеноборга"
-  description: "Модуль з пристроєм, що дозволяє ксеноборгам ставати невидимими на деякий час."
+  name: cloaking device xenoborg module
+  description: Module with a device that allows xenoborgs to become invisible for some time.
   components:
   - type: Sprite
     layers:

@@ -7,7 +7,7 @@
 - type: entity
   parent: MrChips
   id: LilCal
-  name: "ліл кел"
+  name: lil cal
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/lilcal.rsi

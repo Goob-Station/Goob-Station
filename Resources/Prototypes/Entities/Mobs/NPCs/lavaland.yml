@@ -93,11 +93,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "спостерігач"
+  name: watcher
   id: MobWatcherBase
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   abstract: true
-  description: "Ніби він дивиться крізь вас."
+  description: It's like it's staring right through you.
   components:
   - type: NpcFactionMember
     factions:
@@ -190,7 +190,7 @@
 - type: entity
   id: MobWatcherIcewing
   parent: MobWatcherBase
-  name: "льодокрилий спостерігач"
+  name: icewing watcher
   components:
   - type: Sprite
     layers:
@@ -215,7 +215,7 @@
 - type: entity
   id: MobWatcherMagmawing
   parent: MobWatcherBase
-  name: "магмакрилий спостерігач"
+  name: magmawing watcher
   components:
   - type: Sprite
     layers:
@@ -240,9 +240,9 @@
 - type: entity
   id: MobWatcherPride
   parent: MobWatcherBase
-  name: "прайдокрилий спостерігач"
+  name: pride watcher
   suffix: Admeme
-  description: "Цей рідкісний підвид з'являється лише в червні."
+  description: This rare subspecies only appears in June.
   components:
   - type: Sprite
     layers:
