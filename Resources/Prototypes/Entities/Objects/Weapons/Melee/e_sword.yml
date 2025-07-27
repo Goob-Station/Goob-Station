@@ -227,6 +227,10 @@
   - type: Tool
     qualities:
     - Ignition
+  - type: UserInterface # Goobstation-EsColorPicker
+    interfaces:
+      enum.EsColorPickerMenu.Key:
+        type: EsColorPickerBUI
 
 - type: entity
   name: energy sword
