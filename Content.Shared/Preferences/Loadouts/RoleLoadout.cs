@@ -244,7 +244,7 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 }
 
                 Apply(loadoutProto);
-            }этом пре
+            }
 
             // Apply defaults if required
             // Technically it's possible for someone to game themselves into loadouts they shouldn't have
