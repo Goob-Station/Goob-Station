@@ -515,10 +515,9 @@
 # Blueshield officer's refilling hyposprays
 
 - type: entity
-  parent: [BaseItem, BaseCentcommContraband]
-  id: BlueshieldHypoBrute
-  name: combat brute hypospray
-  description: A self-refilling injector for rapid administration of procenyl lazide.
+  parent: BaseItem
+  id: BaseBlueshieldHypo
+  abstract: true
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
@@ -557,7 +556,35 @@
     solutionName: hypospray
 
 - type: entity
-  parent: [BaseItem, BaseCentcommContraband]
+  parent: [BaseBlueshieldHypo, BaseCentcommContraband]
+  id: BlueshieldHypoBrute
+  name: combat brute hypospray
+  description: A self-refilling injector for rapid administration of procenyl lazide.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
+    layers:
+    - state: orangehypo
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: hypo_fill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 5
+        reagents:
+        - ReagentId: ProcenylLazide
+          Quantity: 5
+  - type: SolutionRegeneration
+    solution: hypospray
+    generated:
+      reagents:
+      - ReagentId: ProcenylLazide
+        Quantity: 0.2
+
+- type: entity
+  parent: [BaseBlueshieldHypo, BaseCentcommContraband]
   id: BlueshieldHypoBurn
   name: combat burn hypospray
   description: A self-refilling injector for rapid administration of ebifin.
@@ -570,36 +597,22 @@
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 3
+        maxVol: 5
         reagents:
         - ReagentId: Ebifin
-          Quantity: 3
+          Quantity: 5
   - type: SolutionRegeneration
     solution: hypospray
     generated:
       reagents:
       - ReagentId: Ebifin
         Quantity: 0.2
-  - type: ExaminableSolution
-    solution: hypospray
-  - type: Hypospray
-    onlyAffectsMobs: true
-    injectOnly: true
-  - type: UseDelay
-    delay: 5
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 5
-    fillBaseName: hypo_fill
-    solutionName: hypospray
 
 - type: entity
-  parent: [BaseItem, BaseCentcommContraband]
+  parent: [BaseBlueshieldHypo, BaseCentcommContraband]
   id: BlueshieldHypoToxin
   name: combat toxin hypospray
   description: A self-refilling injector for rapid administration of pentenic acid.
@@ -612,8 +625,6 @@
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -627,21 +638,9 @@
       reagents:
       - ReagentId: PentenicAcid
         Quantity: 0.2
-  - type: ExaminableSolution
-    solution: hypospray
-  - type: Hypospray
-    onlyAffectsMobs: true
-    injectOnly: true
-  - type: UseDelay
-    delay: 5
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 5
-    fillBaseName: hypo_fill
-    solutionName: hypospray
 
 - type: entity
-  parent: [BaseItem, BaseCentcommContraband]
+  parent: [BaseBlueshieldHypo, BaseCentcommContraband]
   id: BlueshieldHypoAirloss
   name: combat airloss hypospray
   description: A self-refilling injector for rapid administration of dexalin plus.
@@ -654,8 +653,6 @@
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -669,15 +666,3 @@
       reagents:
       - ReagentId: DexalinPlus
         Quantity: 0.2
-  - type: ExaminableSolution
-    solution: hypospray
-  - type: Hypospray
-    onlyAffectsMobs: true
-    injectOnly: true
-  - type: UseDelay
-    delay: 5
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 5
-    fillBaseName: hypo_fill
-    solutionName: hypospray

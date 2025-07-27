@@ -31,7 +31,6 @@
     - BSORevolverSet
     - BSOCQCSet
     - BSOChesterSet
-    # - BSOSyringeSet
     - BSOHypoSet
     maxSelectedSets: 2
 

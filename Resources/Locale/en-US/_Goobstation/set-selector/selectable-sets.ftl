@@ -146,12 +146,7 @@ selectable-set-blueshield-chester-description =
     Includes: 8 Gauge shotgun, the Chester. Spare ammo,
     Alternate ammo, Spare magazines.
 
-selectable-set-blueshield-syringe-name = medical set
-selectable-set-blueshield-syringe-description =
-    Perfect for healing allies or poisioning foes in a pinch.
-    Includes: A combat injector, and several vials of medicine.
-
-selectable-set-blueshield-hypo-name = hypoinjector set
+selectable-set-blueshield-hypo-name = hypospray set
 selectable-set-blueshield-hypo-description =
     Bluespace medicine!
     Includes: a general use chestrig, and a bulky
