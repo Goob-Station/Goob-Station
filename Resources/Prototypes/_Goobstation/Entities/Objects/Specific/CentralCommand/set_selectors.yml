@@ -17,8 +17,8 @@
 
 - type: entity
   id: BlueshieldUndeterminedWeapon
-  name: "набір синього щита"
-  description: "Невелика коробка, що використовує технологію блюспейс для доставки спорядження безпосередньо до вас. Обирайте з розумом."
+  name: blueshield sets pack
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
@@ -36,8 +36,8 @@
 
 - type: entity
   id: BlueshieldUndeterminedHardsuit
-  name: "набір скафандра синього щита"
-  description: "Невелика коробка, що використовує технологію блюспейс для доставки спорядження безпосередньо до вас. Обирайте з розумом."
+  name: blueshield hardsuit pack
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
@@ -53,8 +53,8 @@
 
 - type: entity
   id: ERTSecurityUndeterminedWeapon
-  name: "набір озброєння екстреного реагування"
-  description: "Невеликий пульт, що використовує технологію блюспейс для доставки спорядження прямо до вас. Обирайте мудро."
+  name: emergency response weaponry pack
+  description: A small remote utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite

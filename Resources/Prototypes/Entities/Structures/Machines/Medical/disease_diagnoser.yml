@@ -13,8 +13,8 @@
 - type: entity
   id: DiseaseDiagnoser
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
-  name: "Діагност захворювань Delta Extreme"
-  description: "Машина, яка аналізує зразки хвороб."
+  name: Disease Diagnoser Delta Extreme
+  description: A machine that analyzes disease samples.
   placement:
     mode: SnapgridCenter
   components:
@@ -31,10 +31,10 @@
     board: DiagnoserMachineCircuitboard
 
 - type: entity
-  name: "висновок лікаря-діагноста"
+  name: disease diagnoser report
   parent: Paper
   id: DiagnosisReportPaper
-  description: "Моторошна медична квитанція."
+  description: 'A chilling medical receipt.'
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi

@@ -19,8 +19,8 @@
 
 - type: entity
   id: FloorLiquidPlasmaEntity
-  name: "рідка плазма"
-  description: "Солодкий, дорогий нектар. Не споживайте."
+  name: liquid plasma
+  description: Sweet, expensive nectar. Don't consume.
   placement:
     mode: SnapgridCenter
     snap:

@@ -56,7 +56,7 @@
 
 - type: entity
   id: SpawnPointGhostBlobRatToken
-  name: "Точка появи мишачого блобу"
+  name: Mouse Blob Spawn Point
   suffix: Blob Ghostrole, Token
   parent: SpawnPointGhostBlobRat
   components:

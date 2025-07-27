@@ -186,8 +186,8 @@
 - type: entity
   id: OrganHumanBrain
   parent: BaseHumanOrganUnGibbable
-  name: "мозок"
-  description: "Джерело неймовірного, нескінченного інтелекту. Хонк."
+  name: brain
+  description: "The source of incredible, unending intelligence. Honk."
   components:
   - type: MindContainer
     showExamineInfo: true
@@ -250,8 +250,8 @@
 - type: entity
   id: OrganHumanEyes
   parent: BaseHumanOrgan
-  name: "очі"
-  description: "Я тебе бачу!"
+  name: eyes
+  description: "I see you!"
   components:
   - type: Organ # Shitmed Change
     intCap: 12
@@ -278,8 +278,8 @@
 - type: entity
   id: OrganHumanTongue
   parent: BaseHumanOrgan
-  name: "язик"
-  description: "М'яз із плоті, який здебільшого використовується для брехні."
+  name: tongue
+  description: "A fleshy muscle mostly used for lying."
   components:
   - type: Sprite
     state: tongue
@@ -301,7 +301,7 @@
 - type: entity
   id: OrganHumanAppendix
   parent: BaseHumanOrgan
-  name: "аппендикс"
+  name: appendix
   components:
   - type: Sprite
     layers:
@@ -312,8 +312,8 @@
 - type: entity
   id: OrganHumanEars
   parent: BaseHumanOrgan
-  name: "вуха"
-  description: "Вухо складається з трьох частин. Внутрішнє, середнє і зовнішнє. Зазвичай тільки одне з цих частин повинне бути видимою."
+  name: ears
+  description: "There are three parts to the ear. Inner, middle and outer. Only one of these parts should normally be visible."
   components:
   - type: Sprite
     state: ears
@@ -331,8 +331,8 @@
 - type: entity
   id: OrganHumanLungs
   parent: BaseHumanOrgan
-  name: "легені"
-  description: "Фільтрують кисень з атмосфери, який потім потрапляє в кровотік і використовується як переносник електронів."
+  name: lungs
+  description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
   - type: Organ # Shitmed Change
     intCap: 17
@@ -381,8 +381,8 @@
 - type: entity
   id: OrganHumanHeart
   parent: BaseHumanOrgan
-  name: "серце"
-  description: "Мені шкода безсердечного виродка, який його втратив."
+  name: heart
+  description: "I feel bad for the heartless bastard who lost this."
   components:
   - type: Heart # Shitmed Change
   - type: Organ # Shitmed Change
@@ -417,8 +417,8 @@
 - type: entity
   id: OrganHumanStomach
   parent: BaseHumanOrgan
-  name: "шлунок"
-  description: "Гидота. Це складно переварити."
+  name: stomach
+  description: "Gross. This is hard to stomach."
   components:
   - type: Organ # Shitmed Change
     intCap: 44 # consists of a lot of pieces, thus is incredibly hard to easily destroy
@@ -471,8 +471,8 @@
 - type: entity
   id: OrganHumanLiver
   parent: BaseHumanOrgan
-  name: "печінка"
-  description: "Поєднання: к'янті та квасоля фава."
+  name: liver
+  description: "Pairing suggestion: chianti and fava beans."
   components:
   - type: Liver # Shitmed Change
   - type: Organ # Shitmed Change
@@ -512,8 +512,8 @@
 - type: entity
   id: OrganHumanKidneys
   parent: BaseHumanOrgan
-  name: "нирки"
-  description: "Фільтрує токсини з кровотоку."
+  name: kidneys
+  description: "Filters toxins from the bloodstream."
   components:
   - type: Organ # Shitmed
     intCap: 21

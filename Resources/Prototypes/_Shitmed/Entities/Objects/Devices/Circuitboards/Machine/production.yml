@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: AutodocCircuitboard
-  name: "плата автодокументації машини"
-  description: "Машинна друкована плата для автодокумента."
+  name: autodoc machine board
+  description: A machine printed circuit board for an autodoc.
   components:
   - type: MachineBoard
     prototype: Autodoc
@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: OperatingTableCircuitboard
-  name: "машинна плптп операційного стілу"
-  description: "Машинна друкована плата для операційного столу."
+  name: operating table machine board
+  description: A machine printed circuit board for an operating table.
   components:
   - type: MachineBoard
     prototype: OperatingTable
