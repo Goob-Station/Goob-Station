@@ -399,8 +399,8 @@
   name: selectable-set-blueshield-hypo-name
   description: selectable-set-blueshield-hypo-description
   sprite:
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
-    state: hypo
+    sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
+    state: bluehypo
   content:
   - ClothingBeltMilitaryWebbingBSOFilled
 

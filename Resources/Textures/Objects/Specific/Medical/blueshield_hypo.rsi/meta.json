@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Goobstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bluehypo"
+    },
+    {
+      "name": "hypo_fill1"
+    },
+    {
+      "name": "hypo_fill2"
+    },
+    {
+      "name": "hypo_fill3"
+    },
+    {
+      "name": "hypo_fill4"
+    },
+      {
+          "name": "hypo_fill5"
+      },
+      {
+          "name": "greenhypo"
+      },
+      {
+          "name": "redhypo"
+      },
+      {
+          "name": "orangehypo"
+      }
+  ]
+}

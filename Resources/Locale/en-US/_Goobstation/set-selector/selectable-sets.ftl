@@ -154,8 +154,8 @@ selectable-set-blueshield-syringe-description =
 selectable-set-blueshield-hypo-name = hypoinjector set
 selectable-set-blueshield-hypo-description =
     Bluespace medicine!
-    Includes: a general use chestrig, and a bulky set of
-    five self refilling hypoinjectors.
+    Includes: a general use chestrig, and a bulky
+    set of four self refilling hypoinjectors.
 
 # Blueshield hardsuits
 

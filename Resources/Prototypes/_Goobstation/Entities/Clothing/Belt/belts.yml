@@ -239,12 +239,12 @@
   parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
   id: ClothingBeltMilitaryWebbingBSO
   name: blueshield chest rig
-  description: A robust chest rig with deep pockets and robust hooks, for use by a blueshield officer.
+  description: A robust chest rig with deep pockets and hooks, for use by a blueshield officer.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/militarywebbing.rsi
+    sprite: Clothing/Belt/blueshieldwebbing.rsi
   - type: Clothing
-    sprite: Clothing/Belt/militarywebbing.rsi
+    sprite: Clothing/Belt/blueshieldwebbing.rsi
   - type: Storage
     grid:
     - 0,0,6,2

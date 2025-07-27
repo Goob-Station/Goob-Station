@@ -521,15 +521,15 @@
   description: A self-refilling injector for rapid administration of procenyl lazide.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/syndihypo.rsi
+    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
     layers:
-    - state: hypo
+    - state: orangehypo
       map: [ "enum.SolutionContainerLayers.Base" ]
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
   - type: Item
-    sprite: Objects/Specific/Medical/syndihypo.rsi
+    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -549,10 +549,10 @@
     onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
-    delay: 0.5
+    delay: 5
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 4
+    maxFillLevels: 5
     fillBaseName: hypo_fill
     solutionName: hypospray
 
@@ -563,9 +563,9 @@
   description: A self-refilling injector for rapid administration of ebifin.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/syndihypo.rsi
+    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
     layers:
-    - state: hypo
+    - state: redhypo
       map: [ "enum.SolutionContainerLayers.Base" ]
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
@@ -589,10 +589,10 @@
     onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
-    delay: 0.5
+    delay: 5
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 4
+    maxFillLevels: 5
     fillBaseName: hypo_fill
     solutionName: hypospray
 
@@ -603,9 +603,9 @@
   description: A self-refilling injector for rapid administration of pentenic acid.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/syndihypo.rsi
+    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
     layers:
-    - state: hypo
+    - state: greenhypo
       map: [ "enum.SolutionContainerLayers.Base" ]
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
@@ -629,10 +629,10 @@
     onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
-    delay: 0.5
+    delay: 5
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 4
+    maxFillLevels: 5
     fillBaseName: hypo_fill
     solutionName: hypospray
 
@@ -643,9 +643,9 @@
   description: A self-refilling injector for rapid administration of dexalin plus.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/syndihypo.rsi
+    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
     layers:
-    - state: hypo
+    - state: bluehypo
       map: [ "enum.SolutionContainerLayers.Base" ]
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
@@ -669,9 +669,9 @@
     onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
-    delay: 0.5
+    delay: 5
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 4
+    maxFillLevels: 5
     fillBaseName: hypo_fill
     solutionName: hypospray
