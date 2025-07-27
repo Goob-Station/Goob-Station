@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/26/2025 22:47:41
-  entityCount: 29050
+  time: 07/27/2025 08:11:02
+  entityCount: 29026
 maps:
 - 1
 grids:
@@ -11000,7 +11000,6 @@ entities:
       - 17570
       - 17886
       - 17683
-      - 717
   - uid: 53
     components:
     - type: Transform
@@ -11044,7 +11043,6 @@ entities:
       - 13727
       - 13958
       - 13672
-      - 719
   - uid: 55
     components:
     - type: Transform
@@ -11056,7 +11054,6 @@ entities:
       - 13806
       - 13807
       - 13839
-      - 641
       - 17522
       - 17808
       - 17600
@@ -11212,7 +11209,6 @@ entities:
     - type: DeviceList
       devices:
       - 17597
-      - 652
       - 17806
       - 17805
       - 17598
@@ -11890,18 +11886,13 @@ entities:
       devices:
       - 17677
       - 17881
-      - 718
       - 17713
-      - 712
       - 17500
       - 17708
       - 17502
       - 17715
-      - 709
       - 17716
       - 17685
-      - 710
-      - 711
       - 17682
       - 17707
       - 17676
@@ -11921,10 +11912,8 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 721
       - 17679
       - 17883
-      - 716
       - 13954
       - 13955
       - 13957
@@ -11943,7 +11932,6 @@ entities:
       - 17711
       - 17499
       - 17712
-      - 714
       - 17710
       - 17497
       - 17501
@@ -11967,7 +11955,6 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 640
       - 17684
       - 17714
   - uid: 118
@@ -11980,7 +11967,6 @@ entities:
       devices:
       - 17882
       - 17688
-      - 713
       - 17496
       - 17718
       - 17717
@@ -11996,7 +11982,6 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 715
       - 17681
       - 17885
   - uid: 120
@@ -12006,7 +11991,6 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 720
       - 17680
       - 17884
   - uid: 121
@@ -12021,15 +12005,12 @@ entities:
       - 17690
       - 17692
       - 17890
-      - 726
       - 17691
       - 17888
       - 17695
       - 17893
       - 17694
       - 17892
-      - 724
-      - 725
       - 17891
       - 17693
   - uid: 122
@@ -12041,7 +12022,6 @@ entities:
     - type: DeviceList
       devices:
       - 17895
-      - 723
       - 17697
   - uid: 123
     components:
@@ -12051,7 +12031,6 @@ entities:
     - type: DeviceList
       devices:
       - 17897
-      - 729
       - 17700
       - 17896
       - 17699
@@ -12421,7 +12400,7 @@ entities:
       pos: -13.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3292.365
+      secondsUntilStateChange: -3567.8174
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14315,7 +14294,7 @@ entities:
       pos: 41.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -103900.586
+      secondsUntilStateChange: -104176.04
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15544,22 +15523,6 @@ entities:
     - type: Transform
       pos: 15.5,-17.5
       parent: 2
-  - uid: 640
-    components:
-    - type: MetaData
-      name: Кімната барменів
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 32.5,-0.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 117
-  - uid: 641
-    components:
-    - type: Transform
-      pos: 45.5,-7.5
-      parent: 2
   - uid: 642
     components:
     - type: Transform
@@ -15609,11 +15572,6 @@ entities:
     components:
     - type: Transform
       pos: 40.5,-43.5
-      parent: 2
-  - uid: 652
-    components:
-    - type: Transform
-      pos: 40.5,-57.5
       parent: 2
   - uid: 653
     components:
@@ -15910,211 +15868,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 112
-  - uid: 709
-    components:
-    - type: MetaData
-      name: Дорми - п'ята
-    - type: Transform
-      pos: 17.5,15.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 114
-      - 13662
-  - uid: 710
-    components:
-    - type: MetaData
-      name: Дорми - третя
-    - type: Transform
-      pos: 11.5,15.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 114
-      - 13662
-  - uid: 711
-    components:
-    - type: MetaData
-      name: Дорми - друга
-    - type: Transform
-      pos: 5.5,15.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 114
-      - 13662
-  - uid: 712
-    components:
-    - type: MetaData
-      name: Дорми - шоста
-    - type: Transform
-      pos: 14.5,5.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 114
-      - 13662
-  - uid: 713
-    components:
-    - type: MetaData
-      name: Басейн
-    - type: Transform
-      pos: 34.5,10.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 118
-      - 13601
-  - uid: 714
-    components:
-    - type: MetaData
-      name: Дорми - Атріум
-    - type: Transform
-      pos: 23.5,14.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 116
-      - 13661
-  - uid: 715
-    components:
-    - type: MetaData
-      name: Музиканти
-    - type: Transform
-      pos: 27.5,2.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 119
-  - uid: 716
-    components:
-    - type: MetaData
-      name: Кухня
-    - type: Transform
-      pos: 36.5,-5.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 115
-      - 13657
-      - 13628
-  - uid: 717
-    components:
-    - type: MetaData
-      name: туалет
-    - type: Transform
-      pos: 12.5,2.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 52
-  - uid: 718
-    components:
-    - type: MetaData
-      name: Дорми - коридор
-    - type: Transform
-      pos: 14.5,10.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 114
-      - 13662
-  - uid: 719
-    components:
-    - type: MetaData
-      name: Бар - Відвідувачи
-    - type: Transform
-      pos: 23.5,-6.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 54
-      - 13627
-  - uid: 720
-    components:
-    - type: MetaData
-      name: Клоун
-    - type: Transform
-      pos: 17.5,7.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 120
-      - 13662
-  - uid: 721
-    components:
-    - type: MetaData
-      name: Холодильна камера
-    - type: Transform
-      pos: 39.5,-1.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 115
-  - uid: 722
-    components:
-    - type: MetaData
-      name: Дорми - перша
-    - type: Transform
-      pos: 5.5,6.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 13662
-  - uid: 723
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -8.5,44.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 122
-  - uid: 724
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -20.5,50.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 121
-  - uid: 725
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -17.5,50.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 121
-  - uid: 726
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -19.5,44.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 121
-  - uid: 727
-    components:
-    - type: Transform
-      pos: -7.5,50.5
-      parent: 2
-  - uid: 728
-    components:
-    - type: Transform
-      pos: -7.5,55.5
-      parent: 2
-  - uid: 729
-    components:
-    - type: Transform
-      pos: -11.5,54.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 123
 - proto: AltarConvertMaint
   entities:
   - uid: 730
@@ -75898,7 +75651,7 @@ entities:
       pos: 28.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -42464.527
+      secondsUntilStateChange: -42739.98
       state: Opening
   - uid: 11664
     components:
@@ -87336,7 +87089,6 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 713
       - 13722
       - 13724
       - 13721
@@ -87746,7 +87498,6 @@ entities:
       devices:
       - 13910
       - 13911
-      - 719
       - 13954
       - 13955
       - 13957
@@ -87764,7 +87515,6 @@ entities:
       devices:
       - 13839
       - 13782
-      - 716
   - uid: 13629
     components:
     - type: Transform
@@ -87775,7 +87525,6 @@ entities:
       - 13806
       - 13807
       - 13839
-      - 641
       - 13782
   - uid: 13630
     components:
@@ -88177,7 +87926,6 @@ entities:
       - 13957
       - 13955
       - 13954
-      - 716
   - uid: 13658
     components:
     - type: Transform
@@ -88234,7 +87982,6 @@ entities:
       - 13675
       - 13670
       - 13674
-      - 714
   - uid: 13662
     components:
     - type: Transform
@@ -88242,7 +87989,6 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 718
       - 13674
       - 13670
       - 13676
@@ -88251,12 +87997,6 @@ entities:
       - 13723
       - 13714
       - 13713
-      - 711
-      - 722
-      - 712
-      - 720
-      - 710
-      - 709
   - uid: 13663
     components:
     - type: Transform
@@ -89435,7 +89175,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -177635.12
+      secondsUntilStateChange: -177910.58
       state: Closing
   - uid: 13863
     components:
@@ -89900,7 +89640,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -169382.86
+      secondsUntilStateChange: -169658.31
       state: Closing
   - uid: 13954
     components:
@@ -118471,6 +118211,8 @@ entities:
       pos: 25.5,-2.5
       parent: 2
     - type: DeviceNetwork
+      configurators:
+      - invalid
       deviceLists:
       - 54
     - type: AtmosPipeColor
