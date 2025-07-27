@@ -400,7 +400,7 @@
   description: selectable-set-blueshield-hypo-description
   sprite:
     sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
-    state: bluehypo
+    state: icon
   content:
   - ClothingBeltMilitaryWebbingBSOFilled
 

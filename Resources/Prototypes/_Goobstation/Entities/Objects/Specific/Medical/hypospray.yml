@@ -521,7 +521,7 @@
   description: A self-refilling injector for rapid administration of procenyl lazide.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
+    sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
     layers:
     - state: orangehypo
       map: [ "enum.SolutionContainerLayers.Base" ]
@@ -529,7 +529,7 @@
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
   - type: Item
-    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
+    sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -563,13 +563,15 @@
   description: A self-refilling injector for rapid administration of ebifin.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
+    sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
     layers:
     - state: redhypo
       map: [ "enum.SolutionContainerLayers.Base" ]
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
+    - type: Item
+      sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -603,13 +605,15 @@
   description: A self-refilling injector for rapid administration of pentenic acid.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
+    sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
     layers:
     - state: greenhypo
       map: [ "enum.SolutionContainerLayers.Base" ]
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
+    - type: Item
+      sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -643,13 +647,15 @@
   description: A self-refilling injector for rapid administration of dexalin plus.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/blueshield_hypo.rsi
+    sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
     layers:
     - state: bluehypo
       map: [ "enum.SolutionContainerLayers.Base" ]
     - state: hypo_fill1
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
+    - type: Item
+      sprite: _Goobstation/Objects/Specific/Medical/blueshield_hypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
