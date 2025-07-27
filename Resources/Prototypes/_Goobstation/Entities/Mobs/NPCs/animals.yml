@@ -216,7 +216,7 @@
 - type: entity
   name: lootbug
   id: MobLootbug
-  parent: SimpleMobBase
+  parent: SimpleSpaceMobBase
   description: It eats metal, maybe it's eaten something of value?
   components:
   - type: Sprite
@@ -276,12 +276,26 @@
     - Trash
     - VimPilot
   - type: Butcherable
-    spawned:
-    - id: SpawnLootLootbug
+    spawned: []
+    #- id: SpawnLootLootbug
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
       - Mouse
   - type: VentCrawler # goobstation - Ventcrawl
+  - type: Devourer
+    foodPreference: All
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      tags:
+      - Ingot
+      - Metal
+      - Steel
+      - Glass
+      - Ore
+      - Telecrystal
+
 
 - type: entity
   name: space carp
