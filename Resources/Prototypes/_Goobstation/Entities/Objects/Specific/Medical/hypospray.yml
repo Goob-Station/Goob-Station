@@ -600,10 +600,10 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 5
+        maxVol: 3
         reagents:
         - ReagentId: Ebifin
-          Quantity: 5
+          Quantity: 3
   - type: SolutionRegeneration
     solution: hypospray
     generated:
