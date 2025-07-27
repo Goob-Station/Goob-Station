@@ -56,7 +56,7 @@
   - Bagel
   - Box
   - Cluster
-  #- Core
+  - Core
   - Fland
  # - Gate Goobstation - My name is Walter Hartwell White, I live at 2308 Negra alloya line albequrque new mexico.
   - Loop
@@ -73,7 +73,7 @@
   - OasisHighPop
   - Barratry # Goobstation - Re-add barratry
   - Kettle # Goobstation - Re-add kettle (before it was gemini!)
-  - Submarine # goobstation - kill yourse
+  #- Submarine # goobstation - kill yourse
   - Leonid # Goobstation - for goob by goob
   - Delta # Goobstation - ported from Corvax
   - Chloris # Goobstation - also Corvax because we love goidamaps
