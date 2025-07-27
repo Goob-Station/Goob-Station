@@ -1,0 +1,48 @@
+- type: entity
+  id: ResinMembrane
+  parent: WindowRCDResistant
+  name: resin membrane
+  description: Resin just thin enough to let light pass through.
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: _White/Structures/Windows/resin_membrane.rsi
+  - type: Icon
+    sprite: _White/Structures/Windows/resin_membrane.rsi
+    state: full
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Resin
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: blood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 95
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 65
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: resin_membrane
+    base: resin_membrane
+  - type: Appearance
