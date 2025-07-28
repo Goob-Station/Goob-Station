@@ -10,7 +10,7 @@
   name: nail gun
   parent: [BaseItem, BaseEngineeringContraband]
   id: WeaponNailgun
-  description: Standard-issue Nanotrasen tool that fires high-velocity nails. Ideal for quick wall repairs, and occasionally for kicking tiders out of your department.
+  description: Standard-issue Nanotrasen tool that fires high-velocity nails. Ideal for quick wall repairs, and occasionally for kicking tiders out of your department, though lacks a scope so you can only shoot the chest.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Nailgun/nailgun.rsi
@@ -32,8 +32,8 @@
     - Belt
     - suitStorage
   - type: AmmoCounter
+  - type: Nailgun
   - type: Gun
-    projectileSpeed: 30
     fireRate: 6
     selectedMode: FullAuto
     availableModes:
