@@ -1,0 +1,88 @@
+- type: entity
+  parent: IDCardStandard
+  id: SquidGamePlayerIDCard
+  name: картка гравця
+  description: "Картка учасника гри з номером гравця."
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idpassenger
+  - type: PresetIdCard
+    job: SquidGamePlayer
+  - type: IdCard
+    jobTitle: job-name-squidgame-player
+    jobIcon: JobIconSquidGamePlayer
+
+- type: entity
+  parent: IDCardStandard
+  id: SquidGameGuardCircleIDCard
+  name: картка охоронця (коло)
+  description: "Картка охоронця з символом коло. Найнижчий ранг в ієрархії охорони."
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idsecurityofficer
+  - type: PresetIdCard
+    job: SquidGameGuardCircle
+  - type: IdCard
+    jobTitle: job-name-squidgame-guard-circle
+    jobIcon: JobIconSquidGameGuardCircle
+
+- type: entity
+  parent: IDCardStandard
+  id: SquidGameGuardTriangleIDCard
+  name: картка охоронця (трикутник)
+  description: "Картка охоронця з символом трикутник. Середній ранг в ієрархії охорони."
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idsecurityofficer
+  - type: PresetIdCard
+    job: SquidGameGuardTriangle
+  - type: IdCard
+    jobTitle: job-name-squidgame-guard-triangle
+    jobIcon: JobIconSquidGameGuardTriangle
+
+- type: entity
+  parent: IDCardStandard
+  id: SquidGameGuardSquareIDCard
+  name: картка охоронця (квадрат)
+  description: "Картка охоронця з символом квадрат. Високий ранг в ієрархії охорони."
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idheadofsecurity
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: SquidGameGuardSquare
+  - type: IdCard
+    jobTitle: job-name-squidgame-guard-square
+    jobIcon: JobIconSquidGameGuardSquare
+
+- type: entity
+  parent: IDCardStandard
+  id: SquidGameGuardUwUIDCard
+  name: картка UwU охоронця
+  description: "Картка головного охоронця з символом UwU. Найвищий ранг - Фронтмен."
+  components:
+  - type: Sprite
+    layers:
+    - state: gold
+    - state: idcaptain
+  - type: Item
+    heldPrefix: gold
+  - type: PresetIdCard
+    job: SquidGameGuardUwU
+  - type: IdCard
+    jobTitle: job-name-squidgame-guard-uwu
+    jobIcon: JobIconSquidGameGuardUwU
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - HighRiskItem

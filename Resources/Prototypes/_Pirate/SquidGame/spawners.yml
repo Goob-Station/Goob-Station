@@ -1,0 +1,66 @@
+- type: entity
+  id: SpawnPointSquidGamePlayer
+  parent: SpawnPointJobBase
+  name: squid game player
+  components:
+  - type: SpawnPoint
+    spawn_type: LateJoin
+    job_id: SquidGamePlayer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointSquidGameGuardCircle
+  parent: SpawnPointJobBase
+  name: squid game guard (circle)
+  components:
+  - type: SpawnPoint
+    spawn_type: LateJoin
+    job_id: SquidGameGuardCircle
+  - type: Sprite
+    layers:
+      - state: green
+      - state: detective
+
+- type: entity
+  id: SpawnPointSquidGameGuardTriangle
+  parent: SpawnPointJobBase
+  name: squid game guard (triangle)
+  components:
+  - type: SpawnPoint
+    spawn_type: LateJoin
+    job_id: SquidGameGuardTriangle
+  - type: Sprite
+    layers:
+      - state: green
+      - state: detective
+
+- type: entity
+  id: SpawnPointSquidGameGuardSquare
+  parent: SpawnPointJobBase
+  name: squid game guard (square)
+  components:
+  - type: SpawnPoint
+    spawn_type: LateJoin
+    job_id: SquidGameGuardSquare
+  - type: Sprite
+    layers:
+      - state: green
+      - state: warden
+
+- type: entity
+  id: SpawnPointSquidGameGuardUwU
+  parent: SpawnPointJobBase
+  name: squid game guard (uwu)
+  components:
+  - type: SpawnPoint
+    spawn_type: LateJoin
+    job_id: SquidGameGuardUwU
+  - type: Sprite
+    layers:
+      - state: green
+      - state: hos
+
+

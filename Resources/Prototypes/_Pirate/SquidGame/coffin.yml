@@ -1,0 +1,35 @@
+- type: entity
+  parent: CrateGeneric
+  id: SquidGameCoffin
+  name: Гроб для гравців
+  description: "Гроб для гравців, які програли гру"
+  suffix: SquidGame
+  components:
+  - type: Sprite
+    sprite: _Pirate/SquidGame/coffin.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _Pirate/SquidGame/coffin.rsi
+    state: base
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 1
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  #- type: Coffin
