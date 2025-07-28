@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Nuclear14 by Peptide90",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base-blue"
+    },
+    {
+      "name": "base-green"
+    },
+    {
+      "name": "base-red"
+    },
+    {
+      "name": "wall"
+    },
+    {
+      "name": "portal"
+    }
+  ]
+}
