@@ -87,11 +87,11 @@
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
   goobcoins: 0 #Goob content
-  special:
-  - !type:PlaytimeDegrade # MisandryBox - tider main syndrome
-    since: 600
-    until: 24600
-    disarmMalus: true
+#  special: # Slon - what the fuck
+#  - !type:PlaytimeDegrade # MisandryBox - tider main syndrome
+#    since: 600
+#    until: 24600
+#    disarmMalus: true
   access:
   - Maintenance
 
