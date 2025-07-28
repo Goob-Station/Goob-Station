@@ -118,12 +118,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ColonicAcid <claudiomota1990@googlemail.com>
 # SPDX-FileCopyrightText: 2025 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 PicklOH <62030853+semensponge@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -239,7 +237,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   name: China-Lake bundle
-  description: "An old China-Lake grenade launcher bundled with 13 rounds of various destruction capability."
+  description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
   components:
   - type: StorageFill
     contents:
@@ -248,8 +246,6 @@
         amount: 4
       - id: GrenadeFrag
         amount: 4
-      - id: GrenadeSlug # Goobstation, you only get two of these, and cannot make more.
-        amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
