@@ -184,6 +184,21 @@
   - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/wrench_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/wrench_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+      collection: PipeDrop
+  # Goobstation edit end
 
 - type: entity  # Goobstation - ventcrawl
   id: VentCrawlerHolder
