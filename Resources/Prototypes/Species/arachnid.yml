@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -39,10 +40,11 @@
     Undershirt: MobHumanoidAnyMarking
     Chest: MobArachnidChest
     Groin: MobArachnidGroin
+    Hair: MobHumanoidAnyMarking # imp, arachnid hair arachnid hair!
     HeadTop: MobHumanoidAnyMarking
+    Eyes: MobArachnidEyes
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Eyes: MobArachnidEyes
     LArm: MobArachnidLArm
     RArm: MobArachnidRArm
     LHand: MobArachnidLHand
@@ -63,24 +65,21 @@
   onlyWhitelisted: true
   points:
     Hair:
-      points: 0
-      required: false
-    FacialHair:
-      points: 0
+      points: 1
       required: false
     Tail:
       points: 1
       required: true
       defaultMarkings: [ ArachnidAppendagesDefault ]
     HeadTop:
-      points: 2
+      points: 6
       required: false
     HeadSide:
       points: 3
       required: true
       defaultMarkings: [ ArachnidCheliceraeDownwards ]
     Chest:
-      points: 2
+      points: 10
       required: false
     Underwear:
       points: 1

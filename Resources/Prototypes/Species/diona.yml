@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
@@ -56,16 +57,17 @@
   onlyWhitelisted: true
   points:
     Head:
-      points: 2
+      points: 4
       required: false
     HeadTop:
       points: 2
+      points: 4
       required: false
     HeadSide:
       points: 3
       required: false
     Chest:
-      points: 3
+      points: 4
       required: false
     Underwear:
       points: 1
