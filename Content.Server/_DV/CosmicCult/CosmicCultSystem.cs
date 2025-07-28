@@ -10,7 +10,8 @@
 
 using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Server._DV.CosmicCult.Components;
-using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
+using Content.Goobstation.Shared.Religion;
+using Content.Server._EinsteinEngines.Radio; // Goobstation - Shitchap
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
@@ -41,6 +42,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Popups;
+using Content.Shared.Radio;
+using Content.Server.Radio.Components;
+using Content.Shared.IdentityManagement.Components;
+using Content.Shared.Radio.Components;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -102,6 +107,9 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         SubscribeLocalEvent<CosmicCultExamineComponent, ExaminedEvent>(OnCosmicCultExamined);
 
+        SubscribeLocalEvent<CosmicSubtleMarkComponent, ExaminedEvent>(OnSubtleMarkExamined);
+        SubscribeLocalEvent<CosmicCultComponent, EncryptionChannelsChangedEvent>(OnTransmitterChannelsChangedCult, after: new[] { typeof(IntrinsicRadioKeySystem) });
+
         SubscribeFinale(); //Hook up the cosmic cult finale system
     }
 
@@ -126,11 +134,19 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             _map.SetPaused(map.Value.Comp.MapId, false);
     }
 
-    private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args) =>
-        args.PushMarkup(Loc.GetString(EntitySeesCult(args.Examiner)
-            ? ent.Comp.CultistText
-            : ent.Comp.OthersText));
+    private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString(EntitySeesCult(args.Examiner) ? ent.Comp.CultistText : ent.Comp.OthersText));
+    }
 
+    private void OnSubtleMarkExamined(Entity<CosmicSubtleMarkComponent> ent, ref ExaminedEvent args)
+    {
+        var ev = new SeeIdentityAttemptEvent();
+        RaiseLocalEvent(ent, ev);
+        if (ev.TotalCoverage.HasFlag(IdentityBlockerCoverage.EYES)) return;
+
+        args.PushMarkup(Loc.GetString(ent.Comp.ExamineText));
+    }
     #endregion
 
     #region Init Cult

@@ -12,19 +12,13 @@ cosmiccult-gamemode-title = The Cosmic Cult
 cosmiccult-gamemode-description = Scanners detect an anomalous increase in Λ-CDM. There is no additional data.
 
 cosmiccult-vote-steward-initiator = The Unknown
-
 cosmiccult-vote-steward-title = Cosmic Cult Stewardship
 cosmiccult-vote-steward-briefing =
     You are the Cosmic Cult's Steward!
     Ensure that The Monument is placed in a secure location, and organize the cult to ensure your collective victory.
     You are not permitted to instruct cultists on how to use or spend their Entropy.
 
-cosmiccult-vote-lone-steward-title = The Lone Cultist
-cosmiccult-vote-lone-steward-briefing =
-    You're completely alone. But your duty is not done.
-    Ensure that The Monument is placed in a secure location, and finish what the cult started.
-
-cosmiccult-finale-autocall-briefing = The Monument activates in {$minutesandseconds}! Gather yourselves, and prepare for the end.
+cosmiccult-finale-autocall-briefing = The Monument has been completed! Gather yourselves, activate it, and prepare for the end.
 cosmiccult-finale-ready = A terrifying light surges forth from The Monument!
 cosmiccult-finale-speedup = The beckoning quickens! Energy surges through the surroundings...
 
@@ -110,9 +104,8 @@ cosmiccult-monument-stage2-briefing =
     Its influence will affect realspace in {$time} seconds.
 
 cosmiccult-monument-stage3-briefing =
-    The Monument has been completed!
+    The Monument grows in power!
     Its influence will begin to overlap with realspace in {$time} seconds.
-    This is the final stretch! Amass as much entropy as you can muster.
 
 
 ## MALIGN RIFTS
@@ -220,3 +213,8 @@ cosmiccult-silicon-colossus-briefing =
 # Goobstation
 
 cult-alert-recall-shuttle = High concentrations of Λ-CDM of unknown origin detected aboard the station. All anomalous presences must be purged or restrained before evacuation can be authorized.
+
+cosmiccult-vote-lone-steward-title = The Lone Cultist
+cosmiccult-vote-lone-steward-briefing =
+    You're completely alone. But your duty is not done.
+        Ensure that The Monument is placed in a secure location, and finish what the cult started.
