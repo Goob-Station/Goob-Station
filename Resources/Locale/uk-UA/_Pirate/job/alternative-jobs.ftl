@@ -8,7 +8,7 @@ job-alternative-name-prankster = Пранкер
 job-alternative-name-waiter = Офіціант
 
 # Священик
-job-alternative-name-holyfather = Священик
+job-alternative-name-holyfather = Святий Отець
 # Юдаїзм
 job-alternative-name-rabbi = Равин
 job-description-rabbi = Духовний вчитель, що проповідує мудрість та закони предків. Бібліотека — його святилище.
