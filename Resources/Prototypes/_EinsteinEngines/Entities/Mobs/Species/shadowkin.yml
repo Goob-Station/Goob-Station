@@ -147,74 +147,74 @@
       - map: ["enum.HumanoidVisualLayers.LArm"]
       - map: ["enum.HumanoidVisualLayers.RLeg"]
       - map: ["enum.HumanoidVisualLayers.LLeg"]
-#     - shader: StencilClear
+#      shader: StencilClear
 #      sprite: Mobs/Species/Human/parts.rsi
 #      state: l_leg
-        - shader: StencilMask
-          map: ["enum.HumanoidVisualLayers.StencilMask"]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: full
-          visible: false
-        - map: ["enum.HumanoidVisualLayers.LFoot"]
-        - map: ["enum.HumanoidVisualLayers.RFoot"]
-        - map: ["socks"]
-        - map: ["underpants"]
-        - map: ["undershirt"]
-        - map: ["jumpsuit"]
-        - map: ["enum.HumanoidVisualLayers.LHand"]
-        - map: ["enum.HumanoidVisualLayers.RHand"]
-        - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-          color: "#ffffff"
-          sprite: Objects/Misc/handcuffs.rsi
-          state: body-overlay-2
-          visible: false
-        - map: ["id"]
-        - map: ["gloves"]
-        - map: ["shoes"]
-        - map: ["ears"]
-        - map: ["innerBelt"]
-        - map: ["innerNeck"]
-        - map: ["outerClothing"]
-        - map: ["eyes"]
-        - map: ["belt"]
-        - map: ["neck"]
-        - map: ["back"]
-        - map: [ "enum.HumanoidVisualLayers.Face" ]
-        - map: ["enum.HumanoidVisualLayers.FacialHair"]
-        - map: ["enum.HumanoidVisualLayers.Hair"]
-        - map: ["enum.HumanoidVisualLayers.HeadSide"]
-        - map: ["enum.HumanoidVisualLayers.HeadTop"]
-        - map: ["mask"]
-        - map: ["head"]
-        - map: ["pocket1"]
-        - map: ["pocket2"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
-    - type: MeleeWeapon
-      soundHit:
-        collection: AlienClaw
-      angle: 30
-      animation: WeaponArcClaw
-      damage:
-        types:
-          Slash: 5
-    - type: Vocal
-      sounds:
-        Male: MaleShadowkin
-        Female: FemaleShadowkin
-        Unsexed: MaleShadowkin
-    - type: TypingIndicator
-      proto: alien
-    - type: MovementSpeedModifier
-      baseWalkSpeed: 2.7
-      baseSprintSpeed: 4.5
-    - type: Speech
-      allowedEmotes: ['Mars', 'Wurble']
-    - type: CollectiveMind
-      defaultChannel: Empathy
-      channels:
-      - Empathy
-    - type: Tag
-      tags:
+        shader: StencilMask
+      - map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: full
+        visible: false
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["socks"]
+      - map: ["underpants"]
+      - map: ["undershirt"]
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: ["id"]
+      - map: ["gloves"]
+      - map: ["shoes"]
+      - map: ["ears"]
+      - map: ["innerBelt"]
+      - map: ["innerNeck"]
+      - map: ["outerClothing"]
+      - map: ["eyes"]
+      - map: ["belt"]
+      - map: ["neck"]
+      - map: ["back"]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: ["enum.HumanoidVisualLayers.FacialHair"]
+      - map: ["enum.HumanoidVisualLayers.Hair"]
+      - map: ["enum.HumanoidVisualLayers.HeadSide"]
+      - map: ["enum.HumanoidVisualLayers.HeadTop"]
+      - map: ["mask"]
+      - map: ["head"]
+      - map: ["pocket1"]
+      - map: ["pocket2"]
+      - map: ["enum.HumanoidVisualLayers.Tail"]
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+  - type: Vocal
+    sounds:
+      Male: MaleShadowkin
+      Female: FemaleShadowkin
+      Unsexed: MaleShadowkin
+  - type: TypingIndicator
+    proto: alien
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.7
+    baseSprintSpeed: 4.5
+  - type: Speech
+    allowedEmotes: ['Mars', 'Wurble']
+  - type: CollectiveMind
+    defaultChannel: Empathy
+    channels:
+    - Empathy
+  - type: Tag
+    tags:
       - CanPilot
       - FootstepSound
       - DoorBumpOpener

@@ -195,20 +195,6 @@
     state: dragontattoo2
 
 - type: marking
-  id: TattooNanotrasenChest
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Humanoid/chest.rsi
-    state: nanotrasen
-
-- type: marking
   id: TorsoIncision
   bodyPart: Chest
   markingCategory: Chest
