@@ -77,8 +77,6 @@
     tags:
     - Nail
     - Trash
-  - type: Reflective
-    reflective: NonEnergy
 
 - type: entity
   name: nail (armor-piercing)
