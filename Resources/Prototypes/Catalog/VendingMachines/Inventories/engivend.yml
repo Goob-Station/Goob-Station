@@ -108,6 +108,7 @@
     CrowbarYellow: 8
     Multitool: 4
     NetworkConfigurator: 5
+    Floodlight: 1 # Corvax-Goob-Floodlight
     PowerCellMedium: 5
     ClothingHandsGlovesColorYellow: 12 # GoobStation: was 6, IPCs need insuls more than usual
     BoxInflatable: 2
