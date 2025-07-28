@@ -73,7 +73,7 @@
   - BorgModuleRCD
   - BorgModuleCable
 
-  lawset: Engineer # DeltaV: Custom lawset
+  # lawset: Engineer # DeltaV: Custom lawset # Slon - nah
 
   radioChannels:
   - Engineering
@@ -118,10 +118,10 @@
 
   addComponents: # Goobstation
   - type: NoWieldNeeded
-  - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs.
-    law: SalvageObeyAI
+  # - type: SlavedBorg # Goobstation: Special AI labeling for salv borgs.
+  #  law: SalvageObeyAI
 
-  lawset: Salvage # DeltaV: Custom lawset
+  # lawset: Salvage # DeltaV: Custom lawset # Slon - nah
 
   # Visual
   inventoryTemplateId: borgTall
@@ -159,7 +159,7 @@
   - Science
   - Service
 
-  lawset: Janitor # DeltaV: Custom lawset
+  # lawset: Janitor # DeltaV: Custom lawset # Slon - nah
 
   # Visual
   inventoryTemplateId: borgShort
@@ -196,7 +196,7 @@
   - BorgModuleSurgery
   - BorgModuleLollypop # Goobstation
 
-  lawset: Medical # DeltaV: Custom lawset
+  # lawset: Medical # DeltaV: Custom lawset # Slon - nah
 
   radioChannels:
   - Science
@@ -256,7 +256,7 @@
   - BorgModuleHarvesting
   - BorgModuleLollypop # Goobstation
 
-  lawset: Clown # DeltaV: Custom lawset
+  # lawset: Clown # DeltaV: Custom lawset # Slon - nah
 
   radioChannels:
   - Science
