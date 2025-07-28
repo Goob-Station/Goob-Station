@@ -11,7 +11,7 @@ namespace Content.Shared.Abilities.Mime;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [AutoGenerateComponentPause]
 public sealed partial class MimePowersComponent : Component
-{
+{ //todo marty fix mimepowers goobstation
     /// <summary>
     /// Whether this component is active or not.
     /// </summarY>
@@ -71,13 +71,6 @@ public sealed partial class MimePowersComponent : Component
     /// </summary>
     [DataField]
     public LocId FailWriteMessage = "paper-component-illiterate-mime";
-
-    /// <summary>
-    /// Goobstation
-    /// Whether this mime is able to break vow
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool CanBreakVow = true;
 
     public override bool SendOnlyToOwner => true;
 }
