@@ -39,6 +39,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -220,16 +221,23 @@
     - type: Sprite
       layers:
         - state: synd_engi
+          map: ["enum.BorgVisualLayers.Body"] # goob edit
+        - state: engineer # goob edit
+          map: [ "enum.BorgDisguiseVisualLayers.Body" ] # goob edit
+          visible: false # goob edit
         - state: synd_engi_e
           map: ["enum.BorgVisualLayers.Light"]
           shader: unshaded
           visible: false
-        - state: synd_engi_l
+        - state: engineer_e # goob edit
+          map: [ "enum.BorgDisguiseVisualLayers.Light" ] # goob edit
           shader: unshaded
-          map: ["light"]
           visible: false
+        - state: synd_engi_l # goob edit
+          shader: unshaded # goob edit
+          map: [ "light" ] # goob edit
     - type: BorgChassis
-      maxModules: 3
+      maxModules: 6 # goob edit
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
@@ -247,6 +255,32 @@
       interactFailureString: petting-failure-syndicate-cyborg
       interactSuccessSound:
         path: /Audio/Ambience/Objects/periodic_beep.ogg
+    - type: BorgDisguise # goobstation start - new syndie borgs
+      action: ActionBorgDisguiseToggle
+      hasMindState: engineer_e
+      noMindState: engineer_e_r
+      description: A man-machine hybrid that assists in station activity. They love being asked to state their laws over and over.
+      disguisedLight: engineer_l
+      realLight: synd_engi_l
+    - type: GenericVisualizer
+      visuals:
+        enum.BorgDisguiseVisuals.IsDisguised:
+          enum.BorgVisualLayers.Body:
+            True: { visible: false }
+            False: { visible: true }
+          enum.BorgDisguiseVisualLayers.Body:
+            True: { visible: true }
+            False: { visible: false } # goob end
+
+- type: entity # goob start
+  id: ActionBorgDisguiseToggle
+  name: Toggle Chameleon Projector
+  description: Use this to toggle your chameleon projector, allowing you to hide as a Nanotrasen cyborg.
+  components:
+  - type: InstantAction
+    icon: /Textures/Interface/VerbIcons/settings.svg.192dpi.png
+    itemIconStyle: BigAction
+    event: !type:BorgDisguiseToggleActionEvent # goob end
 
 - type: entity
   id: BorgChassisDerelict

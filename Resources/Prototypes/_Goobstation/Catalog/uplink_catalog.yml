@@ -1263,6 +1263,38 @@
       - NukeOpsUplink
       - ContravendUplink
 
+- type: listing
+  id: UplinkReinforcementRadioSyndicateCyborgSaboteur
+  name:  uplink-reinforcement-radio-cyborg-saboteur-name
+  description: uplink-reinforcement-radio-cyborg-saboteur-desc
+  productEntity: ReinforcementRadioSyndicateCyborgSaboteur
+  icon: { sprite: /Textures/_Goobstation/Actions/actions_borg.rsi, state: old-radio-borg-saboteur }
+  cost:
+    Telecrystal: 150
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkMedborg
+  name: uplink-medborg-name
+  description: uplink-medborg-desc
+  icon: { sprite: /Textures/Mobs/Silicon/chassis.rsi, state: synd_medical_icon }
+  productEntity: ReinforcementRadioSyndicateCyborgMed
+  cost:
+    Telecrystal: 200
+  categories:
+  - UplinkAllies
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink # we dont want traitors rolling this in their surpluses tbh
+
 # Martial Arts
 - type: listing
   id: UplinkCQCManual

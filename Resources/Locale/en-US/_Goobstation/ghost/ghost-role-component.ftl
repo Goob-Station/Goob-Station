@@ -69,6 +69,9 @@ ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 ghost-role-information-trevor-name = Trevor
 ghost-role-information-trevor-description = Securities trusted battle steed.
 
+ghost-role-information-syndicate-medical-name = Syndicate medical cyborg
+ghost-role-information-syndicate-medical-desc = You were called to help a nukie team complete their objective. Ensure that they acomplish that objective alive.
+
 # Half Life
 
 ghost-role-information-Gman-name = The G-Man
