@@ -42,7 +42,6 @@
       roleLoadout:
       - RoleSurvivalEVA
       components:
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
@@ -106,7 +105,6 @@
       roleLoadout:
       - RoleSurvivalEVA
       components:
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl

@@ -36,7 +36,6 @@
       components:
       - type: CosmicCult
       - type: WeakToHoly # GOOBSTATION
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl

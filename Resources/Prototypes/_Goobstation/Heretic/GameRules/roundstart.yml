@@ -41,7 +41,6 @@
       components:
       - type: WeakToHoly
       - type: CanEnchant
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
@@ -80,7 +79,6 @@
       components:
       - type: WeakToHoly
       - type: CanEnchant
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
