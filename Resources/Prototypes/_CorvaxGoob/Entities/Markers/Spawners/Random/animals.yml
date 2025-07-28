@@ -1,0 +1,51 @@
+- type: entity
+  name: random animal spawner
+  id: AnimalRandomSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - state: ai
+    - type: RandomSpawner
+      prototypes:
+        - MobBat
+        - MobBee
+        - MobChicken
+        - MobChicken1
+        - MobChicken2
+        - MobCockroach
+        - MobMothroach
+        - MobDuckMallard
+        - MobDuckWhite
+        - MobDuckBrown
+        - MobButterfly
+        - MobCow
+        - MobCrab
+        - MobGoat
+        - MobGoose
+        - MobGorilla
+        - MobKangaroo
+        - MobMonkey
+        - MobKobold
+        - MobMouse
+        - MobLizard
+        - MobSlug
+        - MobFrog
+        - MobParrot
+        - MobPenguin
+        - MobSnake
+        - MobPossum
+        - MobRaccoon
+        - MobFox
+        - MobCat
+        - MobCatCalico
+        - MobCatSpace
+        - MobCatCaracal
+        - MobCatKitten
+        - MobSloth
+        - MobFerret
+        - MobHamster
+        - MobPig
+      chance: 1
+      offset: 0.0

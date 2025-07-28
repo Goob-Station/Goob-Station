@@ -1,0 +1,51 @@
+- type: job
+  id: Brigmedic
+  name: job-name-brigmedic
+  description: job-description-brigmedic
+  playTimeTracker: JobBrigmedic
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 54000 # 15 hrs
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 18000 # 5 hrs
+  - !type:TraitsRequirement
+    inverted: true
+    traits:
+    - Muted
+  startingGear: BrigmedicGear
+  icon: "JobIconBrigmedic"
+  supervisors: job-supervisors-cmo
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Medical
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: BrigmedicGear
+  equipment:
+    eyes: ClothingEyesHudMedical
+    id: BrigmedicPDA
+    ears: ClothingHeadsetBrigmedic
+    belt: ClothingBeltMedicalFilled
+  storage:
+    back:
+    - Flash
+
+- type: chameleonOutfit
+  id: BrigmedicChameleonOutfit
+  job: Brigmedic
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretSecurityMedic
+    eyes: ClothingEyesHudMedSec
+    mask: ClothingMaskBreathMedicalSecurity
+    outerClothing: ClothingUniformJumpsuitBrigmedic #верхняя одежда
+    neck: ClothingNeckScarfStripedRed #шея
+    gloves: ClothingHandsGlovesLatex # перчи

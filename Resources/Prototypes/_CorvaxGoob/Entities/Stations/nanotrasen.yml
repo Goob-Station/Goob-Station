@@ -1,0 +1,46 @@
+# For CorvaxSplit
+- type: entity
+  id: NanotrasenStationNoArrivals
+  parent:
+    - BaseStation
+    - BaseStationGoal
+    - BaseStationNews
+    - BaseStationCargo
+    - BaseStationJobsSpawning
+    - BaseStationRecords
+    - BaseStationGateway
+    - BaseStationCentcomm
+    - BaseStationEvacuation
+    - BaseStationAlertLevels
+    - BaseStationMagnet
+    - BaseStationExpeditions
+    - BaseStationSiliconLawCrewsimov
+    - BaseStationAllEventsEligible
+    - BaseStationNanotrasen
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Transform
+    - type: GridSpawn
+      groups:
+        # Spawn last
+        ruins: !type:GridSpawnGroup
+          hide: true
+          nameGrid: true
+          minCount: 2
+          maxCount: 2
+          stationGrid: false
+          paths:
+          - /Maps/Corvax/Ruins/corvax_accident.yml
+          - /Maps/Corvax/Ruins/corvax_adventurer.yml
+          - /Maps/Corvax/Ruins/corvax_aplink.yml
+          - /Maps/Corvax/Ruins/corvax_battleship.yml
+          - /Maps/Corvax/Ruins/corvax_gas_station.yml
+          - /Maps/Corvax/Ruins/corvax_bss_unluck.yml
+          - /Maps/Corvax/Ruins/corvax_hotel_trivago.yml
+          - /Maps/Corvax/Ruins/corvax_kamikaze.yml
+          - /Maps/Corvax/Ruins/corvax_ore.yml
+          - /Maps/Corvax/Ruins/corvax_research_station.yml
+          - /Maps/Corvax/Ruins/corvax_rnd_debris.yml
+          - /Maps/Corvax/Ruins/corvax_sanctus.yml
+          - /Maps/Corvax/Ruins/corvax_ussp_debris.yml
+          - /Maps/Corvax/Ruins/corvax_ussp_asteroid.yml

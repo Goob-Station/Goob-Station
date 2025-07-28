@@ -1,0 +1,110 @@
+- type: loadout
+  id: BrigmedicSecurityHat
+  equipment:
+    head: ClothingHeadHatBeretSecurityMedic
+
+- type: loadout
+  id: BrigmedicHat
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+
+- type: loadout
+  id: BrigmedicHelmet
+  equipment:
+    head: ClothingHeadHelmetSecurityMedic
+
+# Маска
+- type: loadout
+  id: BrigmedicGasSecurity
+  equipment:
+    mask: ClothingMaskGasSecurity
+
+- type: loadout
+  id: BrigmedicMedicalSecurity
+  equipment:
+    mask: ClothingMaskBreathMedicalSecurity
+
+# Комбинезон
+- type: loadout
+  id: BrigmedicJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+
+- type: loadout
+  id: BrigmedicJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBrigmedic
+
+# Перчатки
+- type: loadout
+  id: BrigmedicGlovesLatex
+  equipment:
+    gloves: ClothingHandsGlovesLatex
+
+- type: loadout
+  id: BrigmedicGlovesNitrile
+  equipment:
+    gloves: ClothingHandsGlovesNitrile
+
+- type: loadout
+  id: BrigmedicGlovesBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+# Спина
+- type: loadout
+  id: BrigmedicBackpack
+  equipment:
+    back: ClothingBackpackBrigmedic
+
+- type: loadout
+  id: BrigmedicSatchel
+  equipment:
+    back: ClothingBackpackSatchelBrigmedic
+
+- type: loadout
+  id: BrigmedicDuffel
+  equipment:
+    back: ClothingBackpackDuffelBrigmedic
+
+# Верхняя одежда
+- type: loadout
+  id: BrigmedicCoatLab
+  equipment:
+    outerClothing: ClothingOuterCoatLabSecurityMedic
+
+- type: loadout
+  id: BrigmedicVest
+  equipment:
+    outerClothing: ClothingOuterVestSecurityMedic
+
+- type: loadout
+  id: BrigmedicCoatAMG
+  equipment:
+    outerClothing: ClothingOuterCoatAMG
+
+- type: loadout
+  id: BrigmedicOuterWinterSec
+  equipment:
+    outerClothing: ClothingOuterWinterSec
+
+- type: loadout
+  id: BrigmedicVestArmor
+  equipment:
+    outerClothing: ClothingOuterVestArmorMedSec
+
+# Обувь
+- type: loadout
+  id: BrigmedicJackSec
+  equipment:
+    shoes: ClothingShoesBootsJackSecFilled
+
+- type: loadout
+  id: BrigmedicCombat
+  equipment:
+    shoes: ClothingShoesBootsCombatFilled
+
+- type: loadout
+  id: BrigmedicWinterSec
+  equipment:
+    shoes: ClothingShoesBootsWinterSecFilled

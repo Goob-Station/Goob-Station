@@ -1,0 +1,96 @@
+- type: entity
+  id: BaseERTSpawner
+  name: one-time signal ERT spawner
+  abstract: true
+  parent: MarkerBase
+  components:
+  - type: DeviceLinkSink
+    ports:
+    - Trigger  
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: TriggerOnSignal
+  - type: DeleteOnTrigger
+
+- type: entity
+  id: ERTSpawnerLeader
+  parent: BaseERTSpawner
+  suffix: Leader
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Markers/jobs.rsi
+        state: ertleader
+  - type: SpawnOnTrigger
+    proto: RandomHumanoidSpawnerERTLeader
+
+- type: entity
+  id: ERTSpawnerJanitor
+  parent: BaseERTSpawner
+  suffix: Janitor
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Markers/jobs.rsi
+        state: ertjanitor
+  - type: SpawnOnTrigger
+    proto: RandomHumanoidSpawnerERTJanitor
+
+- type: entity
+  id: ERTSpawnerEngineering
+  parent: BaseERTSpawner
+  suffix: Engineering
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Markers/jobs.rsi
+        state: ertengineer
+  - type: SpawnOnTrigger
+    proto: RandomHumanoidSpawnerERTEngineer
+
+- type: entity
+  id: ERTSpawnerSrcurity
+  parent: BaseERTSpawner
+  suffix: Security
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Markers/jobs.rsi
+        state: ertsecurity
+  - type: SpawnOnTrigger
+    proto: RandomHumanoidSpawnerERTSecurity
+
+- type: entity
+  id: ERTSpawnerMedical
+  parent: BaseERTSpawner
+  suffix: Medical
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Markers/jobs.rsi
+        state: ertmedical
+  - type: SpawnOnTrigger
+    proto: RandomHumanoidSpawnerERTMedical
+
+#CBURN
+
+- type: entity
+  id: ERTSpawnerCBURN
+  name: one-time signal CBURN spawner
+  parent: BaseERTSpawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Markers/jobs.rsi
+        state: cburn
+  - type: SpawnOnTrigger
+    proto: RandomHumanoidSpawnerCBURNUnit

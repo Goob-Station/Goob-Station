@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: CorvaxNamesSyndieSmuggler
+  values:
+    prefix: names-syndie-smuggler-dataset-
+    count: 80

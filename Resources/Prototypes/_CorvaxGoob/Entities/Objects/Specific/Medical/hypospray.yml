@@ -1,0 +1,25 @@
+- type: entity
+  name: hypospray brigmedic
+  parent: BaseItem
+  description: Sterile injector for rapid administration of medications to prisoners and security personnel.
+  id: HyposprayBrigmedic
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Specific/Medical/brigmedichypo.rsi
+    state: hypo
+  - type: Item
+    sprite: _CorvaxGoob/Objects/Specific/Medical/brigmedichypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 5
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 2.5
+  - type: StaticPrice
+    price: 550

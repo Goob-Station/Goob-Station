@@ -1,0 +1,37 @@
+- type: entity
+  parent: [BaseTraitorObjective, BaseLivingObjective]
+  id: HijackShuttleObjective
+  name: Hijack emergency shuttle
+  description: Leave on the shuttle free and clear of the loyal Nanotrasen crew on board. Use ANY methods available to you. Syndicate agents, Nanotrasen enemies, and handcuffed hostages may remain alive on the shuttle. Ignore assistance from anyone other than a support agent.
+  components:
+    - type: Objective
+      difficulty: 5 #Hijacker don't help anyone else
+      icon:
+        sprite: Objects/Tools/emag.rsi
+        state: icon
+    - type: HijackShuttleCondition
+
+- type: entity
+  parent: BaseCaptainObjective
+  id: NukeDiskStealObjective
+  components:
+  - type: Objective
+    # high difficulty since the hardest item both to steal, and to not get caught down the road,
+    # since anyone with a pinpointer can track you down and kill you
+    # it's close to being a stealth loneop
+    difficulty: 3.7
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - HijackShuttleCondition
+      - KillPersonCondition
+      - RandomTraitorAlive
+      - RandomTraitorProgress
+      - DieCondition
+      - StealCondition
+      - SocialObjective
+      - SurviveCondition
+  - type: NotCommandRequirement
+  - type: StealCondition
+    stealGroup: NukeDisk
+    owner: objective-condition-steal-station

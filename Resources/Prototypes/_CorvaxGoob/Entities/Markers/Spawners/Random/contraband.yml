@@ -1,0 +1,176 @@
+- type: entity
+  name: contraband spawner
+  id: LootSpawnerContrabandLow
+  suffix: Low Value
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Fun/Balloons/syndicate.rsi
+          state: icon
+    - type: RandomSpawner
+      rarePrototypes:
+        # Usefull non-contra loot
+        - ClothingHandsGlovesCombat
+        - ThievingGloves
+        - ClothingHeadHelmetCult
+        - ClothingOuterArmorCult
+        - DehydratedSpaceCarp
+        - ClothingOuterEVASuitSyndicate
+        - ClothingHeadHelmetSyndicate
+        - ClothingHeadHelmetSwatSyndicate
+        - ToolboxSyndicateFilled
+        - ClothingOuterVestWeb
+        - SyndicateJawsOfLife
+        - HappyHonkNukie
+        - CigPackSyndicate
+        - LanternFlash
+      rareChance: 0.2
+      prototypes:
+        # Useless non-contra loot
+        - ClothingEyesGlassesOutlawGlasses
+        - ClothingHeadHatPirate
+        - ClothingUniformJumpsuitPirate
+        - ClothingHeadHatHoodCulthood
+        - ClothingOuterRobesCult
+        - ClothingShoesCult
+        # Useless non-contra syndie loot
+        - BalloonSyn
+        - ClothingUniformJumpsuitPyjamaSyndicateRed
+        - ClothingUniformJumpsuitPyjamaSyndicateBlack
+        - ClothingUniformJumpsuitPyjamaSyndicatePink
+        - ClothingHeadPyjamaSyndicateRed
+        - ClothingHeadPyjamaSyndicateBlack
+        - ClothingHeadPyjamaSyndicatePink
+        - ClothingHeadHatOutlawHat
+        - ClothingHeadHatSyndie
+        - ClothingMaskNeckGaiter
+        - ClothingOuterWinterSyndie
+        - ClothingHeadHatSyndieMAA
+        - ClothingOuterWinterSyndieCap
+        - ClothingOuterCoatSyndieCap
+        - ClothingUniformJumpsuitSyndieFormal
+        - ClothingUniformJumpskirtSyndieFormalDress
+        - ClothingUniformJumpsuitOperative
+        - ClothingUniformJumpskirtOperative
+        - ClothingNeckScarfStripedSyndieGreen
+        - ClothingNeckScarfStripedSyndieRed
+        - ClothingShoesBootsWinterSyndicate
+        - ClothingBeltSyndieHolster
+        - ToolboxSyndicate
+      chance: 0.8
+      offset: 0.0
+
+
+- type: entity
+  name: contraband spawner
+  id: LootSpawnerContraband
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Fun/Balloons/syndicate.rsi
+          state: icon
+    - type: RandomSpawner
+      rarePrototypes:
+        - RevolverCapGunFake
+        - ClothingShoesBootsMagSyndie
+        - ClothingHeadsetAltSyndicate
+        - Stimpack
+        - EncryptionKeySyndie
+        - SyndicateSpongeBox
+        - PenExplodingBox
+        - HypopenBox
+        - GatfruitSeeds
+        - EnergyDagger
+        - SingularityGrenade
+        - WhiteholeGrenade
+        - HotPotato
+        - WeaponSniperMosin
+        - SpeedLoaderMagnumAP
+      rareChance: 0.2
+      prototypes:
+        - CigPackSyndicate
+        - HappyHonkNukie
+        - LanternFlash
+        - CyberPen
+        - ClothingHandsGlovesBoxingRigged
+        - ClothingMaskGasSyndicate
+        - RubberStampSyndicate
+        - SoapSyndie
+        - DrinkNukieCan
+        - StimpackMini
+        - NukeDiskFake
+        - SyndicatePersonalAI
+        - Telecrystal1
+        - SyndicateIDCard
+        - BaseUplinkRadio
+        - MagazinePistol
+        - MagazinePistolCaselessRifle
+      chance: 0.8
+      offset: 0.0
+
+
+- type: entity
+  name: contraband spawner
+  id: LootSpawnerContrabandHigh
+  suffix: High Value
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Fun/Balloons/syndicate.rsi
+          state: icon
+    - type: RandomSpawner
+      rarePrototypes:
+        - ClothingBackpackChameleonFill
+        - ToolboxElectricalTurretFilled
+        - EnergySword
+        - FireAxeFlaming
+        - HoloparasiteInjector
+        - StorageImplanter
+        - FreedomImplanter
+        - DnaScramblerImplanter
+        - MacroBombImplanter
+        - MicroBombImplanter
+        - Emag
+        - RadioJammer
+        - SyndicateBomb
+        - WeaponRevolverPythonAP
+        - ThrowingKnivesKit
+        - ExGrenade
+        - ChemistryBottleNocturine
+        - ChameleonProjector
+      rareChance: 0.2
+      prototypes:
+        - AgentIDCard
+        - Hypopen
+        - PenExploding
+        - StealthBox
+        - ClothingMaskGasVoiceChameleon
+        - ClothingShoesChameleonNoSlips
+        - ClothingHeadHatChameleon
+        - ClothingHeadsetChameleon
+        - ClothingOuterChameleon
+        - ClothingNeckChameleon
+        - ClothingMaskGasChameleon
+        - ClothingBackpackChameleon
+        - ClothingEyesChameleon
+        - ClothingHandsChameleon
+        - ClothingShoesChameleon
+        - ClothingUniformJumpsuitChameleon
+        - EncryptionKeySyndie
+        - SyndicateSpongeBox
+        - EnergyDagger
+        - EmpImplanter
+        - SyndieMiniBomb
+        - C4
+        - EmpGrenade
+        - HotPotato
+        - Telecrystal5
+        - BorgModuleSyndicateWeapon
+      chance: 0.8
+      offset: 0.0

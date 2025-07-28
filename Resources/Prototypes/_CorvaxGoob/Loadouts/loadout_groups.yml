@@ -1,0 +1,91 @@
+- type: loadoutGroup
+  id: Inventory
+  name: loadout-group-inventory
+  minLimit: 0
+  maxLimit: 5
+  loadouts: []
+
+- type: loadoutGroup
+  id: ChiefEngineerBackpack
+  name: loadout-group-chief-engineer-backpack
+  loadouts:
+  - ChiefEngineerBackpack
+  - ChiefEngineerSatchel
+  - ChiefEngineerDuffel
+
+# Security
+- type: loadoutGroup
+  id: PilotHead
+  name: loadout-group-pilot-head
+  minLimit: 0
+  loadouts:
+  - SecurityPilotBeret
+
+- type: loadoutGroup
+  id: PilotJumpsuit
+  name: loadout-group-pilot-jumpsuit
+  loadouts:
+  - JumpsuitPilot
+  - JumpskirtPilot
+
+- type: loadoutGroup
+  id: PilotOuterClothing
+  name: loadout-group-pilot-outerclothing
+  loadouts:
+  - OuterWinterPilot
+
+- type: loadoutGroup
+  id: BrigmedicHead
+  name: loadout-group-brigmedic-head
+  loadouts:
+  - BrigmedicSecurityHat
+  - BrigmedicHat
+  - BrigmedicHelmet
+
+- type: loadoutGroup
+  id: BrigmedicMask
+  name: loadout-group-brigmedic-mask
+  loadouts:
+  - BrigmedicGasSecurity
+  - BrigmedicMedicalSecurity
+
+- type: loadoutGroup
+  id: BrigmedicJumpsuit
+  name: loadout-group-brigmedic-jumpsuit
+  loadouts:
+  - BrigmedicJumpsuit
+  - BrigmedicJumpskirt
+
+- type: loadoutGroup
+  id: BrigmedicGloves
+  name: loadout-group-brigmedic-gloves
+  loadouts:
+  - BrigmedicGlovesLatex
+  - BrigmedicGlovesNitrile
+  - BrigmedicGlovesBlack
+
+- type: loadoutGroup
+  id: BrigmedicBackpack
+  name: loadout-group-brigmedic-backpack
+  loadouts:
+  - BrigmedicBackpack
+  - BrigmedicSatchel
+  - BrigmedicDuffel
+
+- type: loadoutGroup
+  id: BrigmedicOuterClothing
+  name: loadout-group-brigmedic-clothing
+  loadouts:
+  - BrigmedicCoatLab
+  - BrigmedicVest
+  - BrigmedicCoatAMG
+  - BrigmedicOuterWinterSec
+  - BrigmedicVestArmor
+
+- type: loadoutGroup
+  id: BrigmedicShoes
+  name: loadout-group-brigmedic-shoes
+  loadouts:
+  - BrigmedicJackSec
+  - BrigmedicCombat
+  - BrigmedicWinterSec
