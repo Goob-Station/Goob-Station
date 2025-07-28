@@ -1012,4 +1012,4 @@ SuitStorageBasic: SuitStorageEVA
 ClothingNeckCloakMiner: null
 
 # 2025-07-14 Change Mapped Chem to Energy Chem by default
-ChemDispenser: EnergyChemDispenser
+# ChemDispenser: EnergyChemDispenser
