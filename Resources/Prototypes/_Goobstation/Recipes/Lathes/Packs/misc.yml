@@ -17,7 +17,7 @@
   - MagazineBoxCaselessRifle
   - MagazineCaselessRifleEmpty
   - MagazineCaselessRifle
-  - MagazineLowCaliberM7S
+  # - MagazineLowCaliberM7S # Slon - bloat
 
 - type: latheRecipePack
   id: SyndicateAmmoHeavyStatic

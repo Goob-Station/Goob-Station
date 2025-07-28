@@ -166,7 +166,7 @@
     - calmdynamic
   name: sleeper-title
   description: sleeper-description
-  showInVote: true
+  showInVote: false # Slon
   minPlayers: 5
   rules:
     - CalmDynamic
@@ -226,7 +226,7 @@
     - chaos
   name: secretplus-admeme-title
   description: secretplus-admeme-description
-  showInVote: false # 1984
+  # showInVote: false # 1984 # Slon - un1984
   rules:
     - SecretPlusAdmeme
     - LavalandStormScheduler

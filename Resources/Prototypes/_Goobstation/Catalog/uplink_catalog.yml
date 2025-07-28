@@ -398,16 +398,16 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkWeaponShotgunHeavy
-  name: uplink-weapon-heavy-shotgun-name
-  description: uplink-weapon-heavy-shotgun-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
-  productEntity: WeaponShotgunHeavy
-  cost:
-    Telecrystal: 200
-  categories:
-  - UplinkWeaponry
+#- type: listing # Slon - bloat
+#  id: UplinkWeaponShotgunHeavy
+#  name: uplink-weapon-heavy-shotgun-name
+#  description: uplink-weapon-heavy-shotgun-desc
+#  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
+#  productEntity: WeaponShotgunHeavy
+#  cost:
+#    Telecrystal: 200
+#  categories:
+#  - UplinkWeaponry
 
 - type: listing
   id: UplinkBowHardlight
@@ -456,15 +456,15 @@
   categories:
     - UplinkWeaponry
 
-- type: listing
-  id: UplinkWeaponM7S
-  name: uplink-m7s-name
-  description: uplink-m7s-desc
-  productEntity: WeaponSubMachineGunM7S
-  cost:
-    Telecrystal: 60
-  categories:
-    -  UplinkWeaponry
+#- type: listing # Slon - bloat
+#  id: UplinkWeaponM7S
+#  name: uplink-m7s-name
+#  description: uplink-m7s-desc
+#  productEntity: WeaponSubMachineGunM7S
+#  cost:
+#    Telecrystal: 60
+#  categories:
+#    -  UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponHE1SG8
@@ -1076,27 +1076,27 @@
 #  categories:
 #  - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazineShotgunHeavy
-  name: uplink-heavy-shotgun-magazine-name
-  description: uplink-heavy-shotgun-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon }
-  productEntity: MagazineShotgunHeavy
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkAmmo
+#- type: listing # Slon - bloat
+#  id: UplinkMagazineShotgunHeavy
+#  name: uplink-heavy-shotgun-magazine-name
+#  description: uplink-heavy-shotgun-magazine-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon }
+#  productEntity: MagazineShotgunHeavy
+#  cost:
+#    Telecrystal: 30
+#  categories:
+#  - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazineShotgunHeavySlug
-  name: uplink-heavy-shotgun-magazine-slug-name
-  description: uplink-heavy-shotgun-magazine-slug-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon2 }
-  productEntity: MagazineShotgunHeavySlug
-  cost:
-    Telecrystal: 40
-  categories:
-  - UplinkAmmo
+#- type: listing
+#  id: UplinkMagazineShotgunHeavySlug
+#  name: uplink-heavy-shotgun-magazine-slug-name
+#  description: uplink-heavy-shotgun-magazine-slug-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon2 }
+#  productEntity: MagazineShotgunHeavySlug
+#  cost:
+#    Telecrystal: 40
+#  categories:
+#  - UplinkAmmo
 
 # 弾薬
 - type: listing
@@ -1158,16 +1158,16 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazineM7S
-  name: uplink-m7s-mag-name
-  description: uplink-m7s-mag-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
-  productEntity: MagazineLowCaliberM7S
-  cost:
-    Telecrystal: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
-  categories:
-  - UplinkAmmo
+#- type: listing # Slon - bloat
+#  id: UplinkMagazineM7S
+#  name: uplink-m7s-mag-name
+#  description: uplink-m7s-mag-desc
+#  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
+#  productEntity: MagazineLowCaliberM7S
+#  cost:
+#    Telecrystal: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
+#  categories:
+#  - UplinkAmmo
 
 - type: listing
   id: UplinkCartridgeG8Demolishing
@@ -1211,16 +1211,16 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkBox8GaugeFlash
-  name: uplink-high-caliber-shotgun-box-flash-slug-name
-  description: uplink-high-caliber-shotgun-box-flash-slug-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-incendiary }
-  productEntity: MagazineBoxShotgunHighCaliberFlash
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkAmmo
+#- type: listing # Slon - bloat
+#  id: UplinkBox8GaugeFlash
+#  name: uplink-high-caliber-shotgun-box-flash-slug-name
+#  description: uplink-high-caliber-shotgun-box-flash-slug-desc
+#  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-incendiary }
+#  productEntity: MagazineBoxShotgunHighCaliberFlash
+#  cost:
+#    Telecrystal: 1
+#  categories:
+#  - UplinkAmmo
 
 - type: listing
   id: UplinkBox8GaugeSarin
