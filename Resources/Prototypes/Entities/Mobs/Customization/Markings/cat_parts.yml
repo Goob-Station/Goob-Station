@@ -15,7 +15,8 @@
   id: CatEars
   bodyPart: Special
   markingCategory: Special
-  speciesRestriction: []
+  speciesRestriction: [Human] # CorvaxGoob-Sponsors
+  sponsorOnly: true # CorvaxGoob-Sponsors
   coloring:
     default:
       type:
@@ -38,7 +39,8 @@
   id: CatTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: []
+  speciesRestriction: [Human]
+  sponsorOnly: true # CorvaxGoob-Sponsors
   coloring:
     default:
       type:

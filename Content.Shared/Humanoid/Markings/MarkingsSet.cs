@@ -208,6 +208,43 @@ public sealed partial class MarkingSet
         }
     }
 
+    // CorvaxGoob-Sponsors-Start
+    /// <summary>
+    ///     Filters sponsor markings unavailable for not sponsors check that from their prototype and allowed param
+    /// </summary>
+    /// <param name="sponsorMarkings">Sponsor markings that allowed to have.</param>
+    /// <param name="markingManager">Markings manager.</param>
+    /// <param name="prototypeManager">Prototype manager.</param>
+    public void FilterSponsor(string[] sponsorMarkings, MarkingManager? markingManager = null, IPrototypeManager? prototypeManager = null)
+    {
+        IoCManager.Resolve(ref markingManager);
+        IoCManager.Resolve(ref prototypeManager);
+
+        var toRemove = new List<(MarkingCategories category, string id)>();
+        foreach (var (category, list) in Markings)
+        {
+            foreach (var marking in list)
+            {
+                if (prototypeManager.TryIndex<MarkingPrototype>(marking.MarkingId, out var proto) && !proto.SponsorOnly)
+                {
+                    continue;
+                }
+
+                var allowedToHave = sponsorMarkings.Contains(marking.MarkingId);
+                if (!allowedToHave)
+                {
+                    toRemove.Add((category, marking.MarkingId));
+                }
+            }
+        }
+
+        foreach (var marking in toRemove)
+        {
+            Remove(marking.category, marking.id);
+        }
+    }
+    // CorvaxGoob-Sponsors-End
+
     /// <summary>
     ///     Filters markings based on sex and it's restrictions in the marking's prototype from this marking set.
     /// </summary>

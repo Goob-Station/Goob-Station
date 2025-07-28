@@ -18,6 +18,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Corvax.Interfaces.Shared;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Preferences;
 using Robust.Client;
@@ -38,6 +39,7 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IClientNetManager _netManager = default!;
         [Dependency] private readonly IBaseClient _baseClient = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        private ISharedSponsorsManager? _sponsorsManager; // CorvaxGoob-Sponsors
 
         public event Action? OnServerDataLoaded;
 
@@ -46,6 +48,7 @@ namespace Content.Client.Lobby
 
         public void Initialize()
         {
+            IoCManager.Instance!.TryResolveType(out _sponsorsManager); // CorvaxGoob-Sponsors
             _netManager.RegisterNetMessage<MsgPreferencesAndSettings>(HandlePreferencesAndSettings);
             _netManager.RegisterNetMessage<MsgUpdateCharacter>();
             _netManager.RegisterNetMessage<MsgSelectCharacter>();
@@ -81,7 +84,10 @@ namespace Content.Client.Lobby
         public void UpdateCharacter(ICharacterProfile profile, int slot)
         {
             var collection = IoCManager.Instance!;
-            profile.EnsureValid(_playerManager.LocalSession!, collection);
+            // CorvaxGoob-Sponsors-Start
+            var sponsorPrototypes = _sponsorsManager?.GetClientPrototypes().ToArray() ?? [];
+            profile.EnsureValid(_playerManager.LocalSession!, collection, sponsorPrototypes);
+            // CorvaxGoob-Sponsors-End
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
             Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.ConstructionFavorites);
             var msg = new MsgUpdateCharacter
