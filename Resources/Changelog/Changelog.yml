@@ -3967,3 +3967,12 @@
   id: 8813
   time: '2025-07-28T12:59:41.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39213
+- author: TrixxedHeart
+  changes:
+  - message: Several strange sprite issues with Vox have been fixed, most notably
+      jumpsuits and many neck items overlapping the face, as well as a layering issue
+      where their tank would appear over their hair.
+    type: Fix
+  id: 8815
+  time: '2025-07-28T21:28:15.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39219
