@@ -18,9 +18,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
@@ -84,8 +82,6 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 2
-    whitelist:
-    - Blade
 
 - type: listing
   id: HereticBladePath4
@@ -139,8 +135,6 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 5
-    whitelist:
-    - Blade
 
 - type: listing
   id: HereticBladePath7
@@ -176,8 +170,6 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 7
-    whitelist:
-    - Blade
 
 - type: listing
   id: HereticBladePath9
