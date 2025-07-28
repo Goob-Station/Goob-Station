@@ -39,11 +39,10 @@ public sealed class BarkSystem : EntitySystem
             !_configurationManager.GetCVar(CorvaxVars.BarksEnabled))
             return;
 
-        bool isObfuscated = args.ObfuscatedMessage != null;
         var sourceEntity = _entityManager.GetNetEntity(uid);
         var soundPath = barkProto.SoundFiles[new Random().Next(barkProto.SoundFiles.Count)];
         var volume = barkProto.Volume;
-        RaiseNetworkEvent(new PlayBarkEvent(soundPath, sourceEntity, args.Message, comp.PlaybackSpeed, isObfuscated, volume));
+        RaiseNetworkEvent(new PlayBarkEvent(soundPath, sourceEntity, args.Message, comp.PlaybackSpeed, args.IsWhisper, volume));
     }
 
     private async void OnRequestPreviewBark(RequestPreviewBarkEvent ev, EntitySessionEventArgs args)
