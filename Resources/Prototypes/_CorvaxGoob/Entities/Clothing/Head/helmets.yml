@@ -1,0 +1,26 @@
+#SCAF Helmet
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHelmetScaf
+  name: scaf helmet
+  description: A robust, strong helmet.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/Helmets/scaf.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/Helmets/scaf.rsi
+    equipDelay: 1.5
+    unequipDelay: 1.5
+  - type: IngestionBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.85
+  - type: Tag
+    tags:
+    - HidesHair
+    - WhitelistChameleon

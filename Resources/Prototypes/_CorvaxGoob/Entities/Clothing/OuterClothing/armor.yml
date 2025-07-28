@@ -17,3 +17,51 @@
           Heat: 0.5
     - type: ExplosionResistance
       damageCoefficient: 0.65
+
+#SCAF suit
+- type: entity
+  parent: ClothingOuterBaseLarge
+  id: ClothingOuterArmorScaf
+  name: scaf suit
+  description: A green and brown tactical suit for combat situations.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Armor/scaf.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/OuterClothing/Armor/scaf.rsi
+    equipDelay: 3
+    unequipDelay: 3
+  - type: AllowSuitStorage
+    whitelist:
+      tags:
+      - GasTank
+  - type: Geiger
+    attachedToSuit: true
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.45
+        Slash: 0.45
+        Caustic: 0.6
+        Radiation: 0.7
+        Heat: 0.75
+        Piercing: 0.85
+  - type: TemperatureProtection
+    heatingCoefficient: 0.3
+    coolingCoefficient: 0.3
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.75
+  - type: GroupExamine
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
