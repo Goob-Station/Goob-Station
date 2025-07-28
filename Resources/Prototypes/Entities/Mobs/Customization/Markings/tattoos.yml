@@ -217,7 +217,7 @@
   sprites:
   - sprite: Mobs/Customization/scars.rsi
     state: buff
-    
+
 - type: marking
   id: TattooEyeMothRight
   bodyPart: Eyes
