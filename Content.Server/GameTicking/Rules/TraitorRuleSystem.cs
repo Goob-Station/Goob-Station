@@ -227,7 +227,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         //it does not need to be a separate Mind Role Entity
         _roleSystem.MindHasRole<TraitorRoleComponent>(mindId, out var traitorRole);
         if (traitorRole is not null)
-        {
+        { // todo marty refactor so this looks like upstreams or some shit
             EnsureComp<RoleBriefingComponent>(traitorRole.Value.Owner, out var briefingComp);
             // Goobstation Change - If you remove this, we lose ringtones and flavor in char menu. Upstream's version sucks.
             briefingComp.Briefing = GenerateBriefingCharacter(codewords, uplinkBriefingShort, issuer);
