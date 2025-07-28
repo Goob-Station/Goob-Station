@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingBackpackDuffelSalvage
+  id: ClothingBackpackDuffelSalvageSCAF
+  name: salvage duffel bag
+  description: A large duffel bag for holding extra exotic treasures.
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterArmorScaf
+    - id: ClothingHeadHelmetScaf
+    - id: AirTankFilled
+    - id: ClothingMaskBreathMedicalSecurity
