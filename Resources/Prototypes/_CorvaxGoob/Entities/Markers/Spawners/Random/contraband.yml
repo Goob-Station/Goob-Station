@@ -7,7 +7,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Fun/Balloons/syndicate.rsi
+        - sprite: _CorvaxGoob/Objects/Fun/Balloons/syndicate.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -71,7 +71,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Fun/Balloons/syndicate.rsi
+        - sprite: _CorvaxGoob/Objects/Fun/Balloons/syndicate.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:
@@ -122,7 +122,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Fun/Balloons/syndicate.rsi
+        - sprite: _CorvaxGoob/Objects/Fun/Balloons/syndicate.rsi
           state: icon
     - type: RandomSpawner
       rarePrototypes:

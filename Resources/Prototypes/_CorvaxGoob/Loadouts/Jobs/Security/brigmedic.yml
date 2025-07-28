@@ -24,17 +24,6 @@
   equipment:
     mask: ClothingMaskBreathMedicalSecurity
 
-# Комбинезон
-- type: loadout
-  id: BrigmedicJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitBrigmedic
-
-- type: loadout
-  id: BrigmedicJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtBrigmedic
-
 # Перчатки
 - type: loadout
   id: BrigmedicGlovesLatex
@@ -50,22 +39,6 @@
   id: BrigmedicGlovesBlack
   equipment:
     gloves: ClothingHandsGlovesColorBlack
-
-# Спина
-- type: loadout
-  id: BrigmedicBackpack
-  equipment:
-    back: ClothingBackpackBrigmedic
-
-- type: loadout
-  id: BrigmedicSatchel
-  equipment:
-    back: ClothingBackpackSatchelBrigmedic
-
-- type: loadout
-  id: BrigmedicDuffel
-  equipment:
-    back: ClothingBackpackDuffelBrigmedic
 
 # Верхняя одежда
 - type: loadout

@@ -1,3 +1,27 @@
+# Medical
+- type: loadoutGroup
+  id: SurgeonHead
+  name: loadout-group-surgeon-head
+  loadouts:
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+
+- type: loadoutGroup
+  id: SurgeonJumpsuit
+  name: loadout-group-surgeon-jumpsuit
+  loadouts:
+  - MedicalBlueScrubs
+  - MedicalGreenScrubs
+  - MedicalPurpleScrubs
+
+- type: loadoutGroup
+  id: SurgeonScalpel
+  name: loadout-group-surgeon-scalpel
+  minLimit: 0
+  loadouts:
+  - SurgeonScalpelLaser
+  
 - type: loadoutGroup
   id: Inventory
   name: loadout-group-inventory
@@ -33,59 +57,3 @@
   name: loadout-group-pilot-outerclothing
   loadouts:
   - OuterWinterPilot
-
-- type: loadoutGroup
-  id: BrigmedicHead
-  name: loadout-group-brigmedic-head
-  loadouts:
-  - BrigmedicSecurityHat
-  - BrigmedicHat
-  - BrigmedicHelmet
-
-- type: loadoutGroup
-  id: BrigmedicMask
-  name: loadout-group-brigmedic-mask
-  loadouts:
-  - BrigmedicGasSecurity
-  - BrigmedicMedicalSecurity
-
-- type: loadoutGroup
-  id: BrigmedicJumpsuit
-  name: loadout-group-brigmedic-jumpsuit
-  loadouts:
-  - BrigmedicJumpsuit
-  - BrigmedicJumpskirt
-
-- type: loadoutGroup
-  id: BrigmedicGloves
-  name: loadout-group-brigmedic-gloves
-  loadouts:
-  - BrigmedicGlovesLatex
-  - BrigmedicGlovesNitrile
-  - BrigmedicGlovesBlack
-
-- type: loadoutGroup
-  id: BrigmedicBackpack
-  name: loadout-group-brigmedic-backpack
-  loadouts:
-  - BrigmedicBackpack
-  - BrigmedicSatchel
-  - BrigmedicDuffel
-
-- type: loadoutGroup
-  id: BrigmedicOuterClothing
-  name: loadout-group-brigmedic-clothing
-  loadouts:
-  - BrigmedicCoatLab
-  - BrigmedicVest
-  - BrigmedicCoatAMG
-  - BrigmedicOuterWinterSec
-  - BrigmedicVestArmor
-
-- type: loadoutGroup
-  id: BrigmedicShoes
-  name: loadout-group-brigmedic-shoes
-  loadouts:
-  - BrigmedicJackSec
-  - BrigmedicCombat
-  - BrigmedicWinterSec
