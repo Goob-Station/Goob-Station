@@ -390,8 +390,5 @@
   bodyPart: Face
   markingCategory: Face
   sprites:
-    - sprite: Mobs/Customization/ipc_screens.rsi
-      state: ipc_screen_l
-
     - sprite: _EinsteinEngines/Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_l
