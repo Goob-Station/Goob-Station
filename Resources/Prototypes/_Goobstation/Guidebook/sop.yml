@@ -6,15 +6,18 @@
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Slon - No fuck you
+
 # SOP Main Directory
-- type: guideEntry
-  id: SOP
-  name: guide-entry-sop
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
-  children:
-  - Jobs SOP
-  - Legal SOP
-  - StandardProcedures SOP
+#- type: guideEntry
+#  id: SOP
+#  name: guide-entry-sop
+#  text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
+#  children:
+#  - Jobs SOP
+#  - Legal SOP
+#  - StandardProcedures SOP
 
 # Alert Levels Main Directory
 - type: guideEntry
