@@ -1,0 +1,137 @@
+- type: bark
+  id: Alto
+  name: Alto
+  soundFiles:
+  - /Audio/Voice/Talk/speak_2.ogg
+  - /Audio/Voice/Talk/speak_2_ask.ogg
+  - /Audio/Voice/Talk/speak_2_exclaim.ogg
+
+- type: bark
+  id: Baritone
+  name: Baritone
+  volume: 1
+  soundFiles:
+  - /Audio/Voice/Talk/speak_1.ogg
+  - /Audio/Voice/Talk/speak_1_ask.ogg
+  - /Audio/Voice/Talk/speak_1_exclaim.ogg
+
+- type: bark
+  id: Bass
+  name: Bass
+  volume: 2
+  soundFiles:
+  - /Audio/Voice/Talk/speak_4.ogg
+  - /Audio/Voice/Talk/speak_4_ask.ogg
+  - /Audio/Voice/Talk/speak_4_exclaim.ogg
+
+- type: bark
+  id: Tenor
+  name: Tenor
+  volume: 1
+  soundFiles:
+  - /Audio/Voice/Talk/speak_3.ogg
+  - /Audio/Voice/Talk/speak_3_ask.ogg
+  - /Audio/Voice/Talk/speak_3_exclaim.ogg
+
+- type: bark
+  id: Arachnid
+  name: Spider
+  volume: 1
+  soundFiles:
+  - /Audio/Voice/Talk/arachnid.ogg
+  - /Audio/Voice/Talk/arachnid_ask.ogg
+  - /Audio/Voice/Talk/arachnid_exclaim.ogg
+
+- type: bark
+  id: Lizard
+  name: Lizard
+  volume: -2
+  soundFiles:
+  - /Audio/Voice/Talk/lizard.ogg
+  - /Audio/Voice/Talk/lizard_ask.ogg
+  - /Audio/Voice/Talk/lizard_exclaim.ogg
+
+- type: bark
+  id: Slime
+  name: Slime
+  volume: -3
+  soundFiles:
+  - /Audio/Voice/Talk/slime.ogg
+  - /Audio/Voice/Talk/slime_ask.ogg
+  - /Audio/Voice/Talk/slime_exclaim.ogg
+
+- type: bark
+  id: Vox
+  name: Bird
+  volume: -3
+  soundFiles:
+  - /Audio/Voice/Talk/vox.ogg
+  - /Audio/Voice/Talk/vox_ask.ogg
+  - /Audio/Voice/Talk/vox_exclaim.ogg
+
+- type: bark
+  id: Harpy
+  name: Chirp
+  volume: 1
+  soundFiles:
+  - /Audio/_DV/Voice/Harpy/chirp1.ogg
+
+- type: bark
+  id: Vulpkanin
+  name: Canine
+  volume: 1
+  soundFiles:
+  - /Audio/_DV/Voice/Talk/vulp.ogg
+  - /Audio/_DV/Voice/Talk/vulp_ask.ogg
+  - /Audio/_DV/Voice/Talk/vulp_exclaim.ogg
+
+- type: bark
+  id: Squeak
+  name: Mouse
+  soundFiles:
+  - /Audio/Animals/mouse_squeak.ogg
+
+- type: bark
+  id: MaleAvali
+  name: Raptor
+  volume: -1
+  soundFiles:
+  - /Audio/_Floofstation/Voice/Avali/avali_1.ogg
+  - /Audio/_Floofstation/Voice/Avali/avali_1_ask.ogg
+  - /Audio/_Floofstation/Voice/Avali/avali_1_exclaim.ogg
+
+- type: bark
+  id: FemaleAvali
+  name: Raptor 2
+  volume: -1
+  soundFiles:
+  - /Audio/_Floofstation/Voice/Avali/avali_2.ogg
+  - /Audio/_Floofstation/Voice/Avali/avali_2_ask.ogg
+  - /Audio/_Floofstation/Voice/Avali/avali_2_exclaim.ogg
+
+- type: bark
+  id: Pai
+  name: Robotic
+  volume: 1
+  soundFiles:
+  - /Audio/Voice/Talk/pai.ogg
+  - /Audio/Voice/Talk/pai_ask.ogg
+  - /Audio/Voice/Talk/pai_exclaim.ogg
+
+- type: bark
+  id: Borg
+  name: Robotic 2
+  volume: -1
+  soundFiles:
+  - /Audio/Voice/Talk/Silicon/borg.ogg
+  - /Audio/Voice/Talk/Silicon/borg_ask.ogg
+  - /Audio/Voice/Talk/Silicon/borg_exclaim.ogg
+
+- type: bark
+  id: BorgSyndie
+  roundstart: false
+  volume: -1
+  soundFiles:
+  - /Audio/Voice/Talk/Silicon/syndieborg.ogg
+  - /Audio/Voice/Talk/Silicon/syndieborg_ask.ogg
+  - /Audio/Voice/Talk/Silicon/syndieborg_exclaim.ogg

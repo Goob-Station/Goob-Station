@@ -425,6 +425,8 @@
       state: ai_female
   - type: NameIdentifier
     group: StationAi
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: Borg
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

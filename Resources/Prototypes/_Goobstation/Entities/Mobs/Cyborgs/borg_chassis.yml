@@ -49,6 +49,8 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
+    voice: BorgSyndie
 
 - type: entity
   id: BorgChassisUrist
