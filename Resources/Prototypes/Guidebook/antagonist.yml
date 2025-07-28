@@ -32,7 +32,7 @@
   text: "/ServerInfo/Guidebook/Antagonist/Antagonists.xml"
   children:
   - Traitors
-  - CorporateAgents # Goobstation - Corporate Agents
+  # - CorporateAgents # Goobstation - Corporate Agents # Slon - fuck no
   - Changelings # Goobstation - changelings
   - Heretics # Goobstation - heretics
   - Blob # Goobstation - Blob

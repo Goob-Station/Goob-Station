@@ -108,7 +108,8 @@
   requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
-  #canBeAntag: false # This is so they can roll devil
+  canBeAntag: false
+  setPreference: false # Slon - useless role
   goobcoins: 40
   access:
   - Security
