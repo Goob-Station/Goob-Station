@@ -100,9 +100,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: BoozeDispenser
+  id: BoozeDispenserEmpty
   name: booze dispenser
-  suffix: Filled
+  suffix: Empty
   description: A booze dispenser with a single slot for a container to be filled.
   parent: ReagentDispenserBase
   components:
@@ -116,6 +116,22 @@
     whitelist:
       tags:
       - DrinkBottle
+  - type: Transform
+    noRot: false
+  - type: Machine
+    board: BoozeDispenserMachineCircuitboard
+  - type: GuideHelp
+    guides:
+    - Bartender
+    - Drinks
+  - type: StealTarget
+    stealGroup: BoozeDispenser
+
+- type: entity
+  id: BoozeDispenser
+  suffix: Filled
+  parent: BoozeDispenserEmpty
+  components:
   - type: StorageFill
     contents:
     - id: DrinkAleBottleFullGrowler
@@ -130,23 +146,3 @@
     - id: DrinkVodkaBottleFull
     - id: DrinkWhiskeyBottleFull
     - id: DrinkWineBottleFull
-  - type: Transform
-    noRot: false
-  - type: Machine
-    board: BoozeDispenserMachineCircuitboard
-  - type: GuideHelp
-    guides:
-    - Bartender
-    - Drinks
-  - type: StealTarget
-    stealGroup: BoozeDispenser
-
-- type: entity
-  id: BoozeDispenserEmpty
-  suffix: Empty
-  parent: BoozeDispenser
-  components:
-  - type: Storage
-    whitelist:
-      tags:
-      - DrinkBottle
