@@ -14,6 +14,13 @@
 #region Civilian
 
 - type: alternativeJob
+  id: AlternativeJobDungeonMaster
+  jobName: job-alternative-name-Dungeon-Master
+  jobDescription: job-description-librarian
+  jobIconProtoId: JobIconDungeonMaster
+  parentJobId: Librarian
+
+- type: alternativeJob
   id: AlternativeJobFloraEngineer
   jobName: job-alternative-name-flora-engineer
   jobDescription: job-description-botanist
@@ -31,6 +38,71 @@
   jobName: job-alternative-name-waiter
   jobDescription: job-description-service-worker
   parentJobId: ServiceWorker
+
+# region Chaplain
+- type: alternativeJob
+  id: AlternativeJobRabbi
+  jobName: job-alternative-name-rabbi
+  jobDescription: job-description-rabbi
+  jobIconProtoId: JobIconRabbi
+  parentJobId: Chaplain
+
+- type: alternativeJob
+  id: AlternativeJobImam
+  jobName: job-alternative-name-imam
+  jobDescription: job-description-imam
+  jobIconProtoId: JobIconImam
+  parentJobId: Chaplain
+
+- type: alternativeJob
+  id: AlternativeJobLama
+  jobName: job-alternative-name-lama
+  jobDescription: job-description-lama
+  jobIconProtoId: JobIconLama
+  parentJobId: Chaplain
+
+- type: alternativeJob
+  id: AlternativeJobGuru
+  jobName: job-alternative-name-guru
+  jobDescription: job-description-guru
+  jobIconProtoId: JobIconGuru
+  parentJobId: Chaplain
+
+- type: alternativeJob
+  id: AlternativeJobKannushi
+  jobName: job-alternative-name-kannushi
+  jobDescription: job-description-kannushi
+  jobIconProtoId: JobIconKannushi
+  parentJobId: Chaplain
+
+- type: alternativeJob
+  id: AlternativeJobMobed
+  jobName: job-alternative-name-mobed
+  jobDescription: job-description-mobed
+  jobIconProtoId: JobIconMobed
+  parentJobId: Chaplain
+
+- type: alternativeJob
+  id: AlternativeJobDruid
+  jobName: job-alternative-name-druid
+  jobDescription: job-description-druid
+  jobIconProtoId: JobIconDruid
+  parentJobId: Chaplain
+
+- type: alternativeJob
+  id: AlternativeJobHolyFather
+  jobName: job-alternative-name-holy-father
+  jobDescription: job-description-holy-father
+  jobIconProtoId: JobIconHolyFather
+  parentJobId: Chaplain
+
+- type: alternativeJob
+  id: AlternativeJobMonolithPreacher
+  jobName: job-alternative-name-monolith-preacher
+  jobDescription: job-description-monolith-preacher
+  jobIconProtoId: JobIconMonolithPreacher
+  parentJobId: Chaplain
+#endregion
 
 #endregion
 
@@ -269,3 +341,77 @@
     state: surgeon
   jobName: job-alternative-name-surgeon
 #endregion
+
+# region Chaplain icons definitions
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconRabbi
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: rabbi
+  jobName: job-alternative-name-rabbi
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconImam
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: imam
+  jobName: job-alternative-name-imam
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconLama
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: lama
+  jobName: job-alternative-name-lama
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconGuru
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: guru
+  jobName: job-alternative-name-guru
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconKannushi
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: kannushi
+  jobName: job-alternative-name-kannushi
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMobed
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: mobed
+  jobName: job-alternative-name-mobed
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDruid
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: druid
+  jobName: job-alternative-name-druid
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconHolyFather
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: holyfather
+  jobName: job-alternative-name-holy-father
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMonolithPreacher
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: monolithpreacher
+  jobName: job-alternative-name-monolith-preacher
+# endregion

@@ -58,6 +58,36 @@
         },
         {
             "name": "AdminAssistant"
+        },
+        {
+            "name": "dungeonmaster"
+        },
+        {
+            "name": "rabbi"
+        },
+        {
+            "name": "imam"
+        },
+        {
+            "name": "lama"
+        },
+        {
+            "name": "guru"
+        },
+        {
+            "name": "kannushi"
+        },
+        {
+            "name": "mobed"
+        },
+        {
+            "name": "druid"
+        },
+        {
+            "name": "holyfather"
+        },
+        {
+            "name": "preacher"
         }
     ]
 }
