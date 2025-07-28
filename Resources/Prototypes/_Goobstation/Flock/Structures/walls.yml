@@ -49,6 +49,51 @@
 
 - type: entity
   parent: WallFlockZoneBase
+  id: WallFlockZoneShuttle1
+  name: strange shuttle wall
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
+    state: FZShuttle1
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallFlockZoneShuttle2
+  name: strange shuttle wall
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
+    state: FZShuttle2
+
+- type: entity
+  parent: WallFlockZoneBase
+  id: WallDiagonalFeatherZone
+  suffix: Diagonal
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
+    state: FZDiagonal
+    noRot: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+  - type: Tag
+    tags:
+    - Diagonal
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
+
+- type: entity
+  parent: WallFlockZoneBase
   id: WallFlockZoneCornerSW
   components:
   - type: Sprite

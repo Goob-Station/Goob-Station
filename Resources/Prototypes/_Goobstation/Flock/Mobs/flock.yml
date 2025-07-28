@@ -26,6 +26,15 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      path: /Audio/_Goobstation/Flock/flockdrone_beep1.ogg
+      params:
+        volume: -5
+        maxDistance: 10
+        variation: 0.05
   - type: NpcFactionMember
     factions:
       - SimpleNeutral
@@ -40,3 +49,56 @@
         - MobMask
         layer:
         - MobLayer
+
+- type: entity
+  name: flockBit
+  id: MobFlockBase
+  parent: MobFlockBase
+  description: The inferior version of the byte. Thankfully, it does not bite.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Flock/Mobs/drone.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: flock_drone
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: flock_drone
+      Critical:
+        Base: flock_drone_crit
+      Dead:
+        Base: flock_drone_dead
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      path: /Audio/_Goobstation/Flock/flockdrone_beep2.ogg
+      params:
+        volume: -5
+        maxDistance: 10
+        variation: 0.05
+  - type: NpcFactionMember
+    factions:
+      - SimpleNeutral
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+

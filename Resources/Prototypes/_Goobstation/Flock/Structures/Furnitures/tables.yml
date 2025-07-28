@@ -1,0 +1,59 @@
+- type: entity
+  id: TableFeatherzone
+  parent: BaseStructure
+  name: strange glass table
+  description: Seems extremely sharp, dangerously so. Don't climb on it!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: full
+  - type: GlassTable
+    climberDamage:
+      types:
+        Slash: 50
+    tableDamage:
+      types:
+        Blunt: 10
+    tableMassLimit: 120
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  - type: Animateable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: PlaceableSurface
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+        - BulletImpassable # Goobstation - Crawling
+  - type: Climbable
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Slash: 15
+  - type: Clickable
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHull
+  - type: Tag
+    tags:
+    - ForceFixRotations
+  - type: RequireProjectileTarget # Goobstation - Crawling
+    ignoreThrow: true
