@@ -15,7 +15,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared.Abilities.Mime;
 
 public sealed class MimePowersSystem : EntitySystem
-{
+{ //todo marty fix mimepowers goobstation
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
@@ -139,9 +139,6 @@ public sealed class MimePowersSystem : EntitySystem
             return;
 
         if (mimePowers.VowBroken)
-            return;
-
-        if (!mimePowers.CanBreakVow) // Goobstation
             return;
 
         mimePowers.Enabled = false;
