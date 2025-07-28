@@ -5,8 +5,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 marking-MobIPCHeadDefault = Standard Operational Monitor
-marking-MobIPCTorsoDefault = Standard Robotic Chassis
-marking-MobIPCTorsoFemaleDefault = Standard Robotic Chassis
+marking-MobIPCChestDefault = Standard Robotic Chassis
+marking-MobIPCChestFemaleDefault = Standard Robotic Chassis
 marking-MobIPCLArmDefault = Standard Left Robotic Arm
 marking-MobIPCLHandDefault = Standard Left Robotic Hand
 marking-MobIPCLLegDefault  = Standard Left Robotic Leg

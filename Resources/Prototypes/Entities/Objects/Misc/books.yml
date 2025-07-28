@@ -100,6 +100,23 @@
   id: BookBase
   description: A hardcover book.
   components:
+   # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/book_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/book_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/book_drop.ogg
+      params:
+        volume: -4
+  # Goobstation edit end
   - type: Sprite
     sprite: Objects/Misc/books.rsi
     layers:
