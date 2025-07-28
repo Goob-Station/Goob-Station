@@ -1,0 +1,13 @@
+- type: department
+  id: SquidGame
+  name: department-name-squidgame
+  description: department-desc-squidgame
+  color: "#FF1744"
+  roles:
+  - SquidGamePlayer
+  - SquidGameGuardCircle
+  - SquidGameGuardTriangle
+  - SquidGameGuardSquare
+  - SquidGameGuardUwU
+  primary: false
+  weight: -200

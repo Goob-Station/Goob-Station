@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Custom Squid Game job icons",
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "SquidGamePlayer"
+        },
+        {
+            "name": "SquidGameGuardCircle"
+        },
+        {
+            "name": "SquidGameGuardTriangle"
+        },
+        {
+            "name": "SquidGameGuardSquare"
+        },
+        {
+            "name": "SquidGameGuardUwU",
+            "delays":
+            [
+                [1.0,1.0,1.0,1.0,1.0,1.0]
+            ]
+        }
+    ]
+}
