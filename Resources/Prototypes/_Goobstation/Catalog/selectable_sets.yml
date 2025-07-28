@@ -353,7 +353,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
     state: icon
   content:
-    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 1 disabler speedloader
+    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 2 disabler speedloader
 
 - type: selectableSet
   id: BSOCQCSet

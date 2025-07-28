@@ -86,7 +86,7 @@
     impactEffect: BulletImpactEffectBlueDisabler
     damage:
       types:
-        Ion: 25
+        Ion: 20 # Slon
     soundHit:
       collection: MeatLaserImpact
 
@@ -125,6 +125,6 @@
     damage:
       types:
         Blunt: 4
-        Heat: 20
+        Heat: 18 # Slon
     soundHit:
       collection: MeatLaserImpact
