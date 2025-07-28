@@ -47,6 +47,23 @@
       Steel: 25
       Plastic: 50
       Glass: 25
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/component_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/component_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/component_drop.ogg
+      params:
+        volume: -2
+  # Goobstation edit end
 
 - type: entity
   parent: RemoteSignaller

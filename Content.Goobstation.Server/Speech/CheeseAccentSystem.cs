@@ -7,10 +7,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Speech.Components;
+using Content.Server.Speech;
+using Content.Server.Speech.EntitySystems;
 using Robust.Shared.Random;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Goobstation.Server.Speech;
 
 public sealed class CheeseAccentSystem : EntitySystem
 {
