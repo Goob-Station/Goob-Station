@@ -5,8 +5,10 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: guideEntry
-  id: NRPRuleset
-  name: guide-entry-rules-nrp
-  priority: 60
-  text: "/ServerInfo/Guidebook/ServerRules/NRPRules.xml"
+# Slon - nah
+
+#- type: guideEntry
+#  id: NRPRuleset
+#  name: guide-entry-rules-nrp
+#  priority: 60
+#  text: "/ServerInfo/Guidebook/ServerRules/NRPRules.xml"

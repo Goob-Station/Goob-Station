@@ -20,13 +20,13 @@
   name: guide-entry-rules
   priority: 60
   text: "/ServerInfo/Guidebook/ServerRules/DefaultRules.xml"
-  children:
-  - CoreRules
-  - RoleplayRules
-  - SiliconRules
-  - RoleTypes
-  - BanTypes
-  - BanDurations
+#  children: # Slon - fuck this
+#  - CoreRules
+#  - RoleplayRules
+#  - SiliconRules
+#  - RoleTypes
+#  - BanTypes
+#  - BanDurations
 
 - type: guideEntry
   id: RoleTypes
