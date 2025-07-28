@@ -126,7 +126,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Goobstation.Common.CCVar;
 using Content.Corvax.Interfaces.Shared;
-using Content.Corvax.Interfaces.Server; // CorvaxGoob - Queue
+using Content.Corvax.Interfaces.Server;
+using Content.Shared._CorvaxGoob.CCCVars; // CorvaxGoob - Queue
 
 /*
  * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
@@ -172,6 +173,7 @@ namespace Content.Server.Connection
         [Dependency] private readonly IHttpClientHolder _http = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
         private ISharedSponsorsManager? _sponsorsMgr; // CorvaxGoob-Sponsors
+        private IServerVPNGuardManager? _vpnGuardMgr; // Corvax-VPNGuard
 
         private GameTicker? _ticker; // CorvaxGoob-Queue
         private ISawmill _sawmill = default!;
@@ -398,7 +400,24 @@ namespace Content.Server.Connection
                             ("reason", Loc.GetString("panic-bunker-account-reason-overall", ("minutes", minOverallMinutes)))), null);
                 }
 
-                if (!validAccountAge || !haveMinOverallTime && !bypassAllowed)
+                // CorvaxGoob-VPNGuard-Start
+                if (_vpnGuardMgr == null) // "lazyload" because of problems with dependency resolve order
+                    IoCManager.Instance!.TryResolveType(out _vpnGuardMgr);
+
+                var denyVpn = false;
+                if (_cfg.GetCVar(CCCVars.PanicBunkerDenyVPN) && _vpnGuardMgr is not null)
+                {
+                    denyVpn = await _vpnGuardMgr!.IsConnectionVpn(e.IP.Address);
+                    if (denyVpn)
+                    {
+                        return (ConnectionDenyReason.Panic,
+                            Loc.GetString("panic-bunker-account-denied-reason",
+                                ("reason", Loc.GetString("panic-bunker-account-reason-vpn"))), null);
+                    }
+                }
+                // CorvaxGoob-VPNGuard-End
+
+                if (!validAccountAge || !haveMinOverallTime || denyVpn) // Corvax-VPNGuard
                 {
                     return (ConnectionDenyReason.Panic, Loc.GetString("panic-bunker-account-denied"), null);
                 }

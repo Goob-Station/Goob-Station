@@ -18,7 +18,13 @@ public sealed class CCCVars
     /// </summary>
     public static readonly CVarDef<bool> StationGoal =
         CVarDef.Create("game.station_goal", true, CVar.SERVERONLY);
-  
+
+    /// <summary>
+    /// Deny any VPN connections.
+    /// </summary>
+    public static readonly CVarDef<bool> PanicBunkerDenyVPN =
+        CVarDef.Create("game.panic_bunker.deny_vpn", false, CVar.SERVERONLY);
+
     /**
      * TTS (Text-To-Speech)
      */

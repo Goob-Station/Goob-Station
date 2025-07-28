@@ -167,6 +167,7 @@ public sealed class AdminSystem : EntitySystem
         Subs.CVar(_config, CCVars.PanicBunkerShowReason, OnPanicBunkerShowReasonChanged, true);
         Subs.CVar(_config, CCVars.PanicBunkerMinAccountAge, OnPanicBunkerMinAccountAgeChanged, true);
         Subs.CVar(_config, CCVars.PanicBunkerMinOverallMinutes, OnPanicBunkerMinOverallMinutesChanged, true);
+        Subs.CVar(_config, Shared._CorvaxGoob.CCCVars.CCCVars.PanicBunkerDenyVPN, OnPanicBunkerDenyVpnChanged, true); // CorvavGoob-VPNGuard
 
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
@@ -412,6 +413,14 @@ public sealed class AdminSystem : EntitySystem
         PanicBunker.MinOverallMinutes = minutes;
         SendPanicBunkerStatusAll();
     }
+
+    // CorvaxGoob-VPNGuard-Start
+    private void OnPanicBunkerDenyVpnChanged(bool deny)
+    {
+        PanicBunker.DenyVpn = deny;
+        SendPanicBunkerStatusAll();
+    }
+    // CorvaxGoob-VPNGuard-End
 
     private void UpdatePanicBunker()
     {
