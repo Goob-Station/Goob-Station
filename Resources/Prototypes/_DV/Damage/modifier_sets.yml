@@ -15,7 +15,7 @@
 - type: damageModifierSet
   id: Vulpkanin
   coefficients:
-    Heat: 1.15
+    Heat: 11.5 # Slon - x10, erp specie
   ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
@@ -32,4 +32,5 @@
     Blunt: 1.3
     Slash: 1.15
     Piercing: 1.15
+    Heat: 10 # Slon - x10, erp specie
   ignoreArmorPierceFlags: All # Goobstation

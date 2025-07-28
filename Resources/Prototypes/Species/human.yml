@@ -62,7 +62,7 @@
   id: MobHumanMarkingLimits
   points:
     Special: # the cat ear joke, its real *godo*
-      points: 1
+      points: 0 # Slon - no fuck you furry
       required: false
     Hair:
       points: 1
@@ -74,7 +74,7 @@
       points: 1
       required: false
     Tail: # the cat tail joke, its real *godo*
-      points: 2
+      points: 0 # Slon - no fuck you furry
       required: false
     HeadTop:
       points: 8

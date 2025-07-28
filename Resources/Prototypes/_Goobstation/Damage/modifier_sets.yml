@@ -67,7 +67,7 @@
     Blunt: 1.15
     Slash: 1.15
     Piercing: 1.15
-    Heat: 1.20
+    Heat: 12 # Slon - x10, erp specie
     Cold: 0.80
   ignoreArmorPierceFlags: All # Goobstation
 
