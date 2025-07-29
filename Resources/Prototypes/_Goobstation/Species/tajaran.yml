@@ -20,12 +20,15 @@
   lastNames: NamesTajaranLast
 
 - type: markingPoints
-  id: MobTajaranMarkingLimits
+  id: MobHumanMarkingLimits
   points:
     Hair:
       points: 1
       required: false
     FacialHair:
+      points: 1
+      required: false
+    Snout:
       points: 1
       required: false
     Tail:
@@ -36,17 +39,41 @@
       points: 1
       required: true
       defaultMarkings: [ TajaranEarsBasic ]
+    HeadSide:
+      points: 8
+      required: false
     Chest:
+      points: 10
+      required: false
+    Underwear:
       points: 1
       required: false
-    Legs:
-      points: 2
-      required: false
-    Arms:
-      points: 2
-      required: false
-    Overlay:
+    Undershirt:
       points: 1
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
       required: false
 
 - type: speciesBaseSprites
