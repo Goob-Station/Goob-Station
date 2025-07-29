@@ -20,7 +20,7 @@
   lastNames: NamesTajaranLast
 
 - type: markingPoints
-  id: MobHumanMarkingLimits
+  id: MobTajaranMarkingLimits
   points:
     Hair:
       points: 1
