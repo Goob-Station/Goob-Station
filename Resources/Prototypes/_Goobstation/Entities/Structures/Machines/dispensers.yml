@@ -4,13 +4,10 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-
 - type: entity
-  id: EnergyChemDispenser
+  id: AbstractEChem
+  abstract: true
   parent: SmallConstructibleMachine
-  name: energy chemical dispenser
-  suffix: energy
-  description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
   placement:
     mode: SnapgridCenter
   components:
@@ -36,6 +33,23 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: ApcPowerReceiverBattery
+    idleLoad: 65
+    batteryRechargeRate: 30
+    batteryRechargeEfficiency: 1.0
+
+- type: entity
+  id: EnergyChemDispenser
+  parent: SmallConstructibleMachine
+  name: energy chemical dispenser
+  suffix: energy
+  description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
+  placement:
+    mode: SnapgridCenter
+  components:
   - type: ApcPowerReceiver
     powerLoad: 65
   - type: ExtensionCableReceiver
@@ -82,13 +96,6 @@
         type: EnergyReagentDispenserBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
-  - type: Battery
-    maxCharge: 1500
-    startingCharge: 1500
-#  - type: ApcPowerReceiverBattery
-#    idleLoad: 65
-#    batteryRechargeRate: 30
-#    batteryRechargeEfficiency: 1.0
   - type: EnergyReagentDispenser #Keep on bottom for view's sake, format is reagentProto: Cost
     energyBeakerSlot:
       whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
