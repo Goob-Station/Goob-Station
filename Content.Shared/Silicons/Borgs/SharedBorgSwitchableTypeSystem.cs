@@ -103,7 +103,7 @@ public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
         if (TryComp(ent, out BorgSwitchableSubtypeComponent? subtype))
             subtype.BorgSubtype = borgSubtype;
 
-        _actionsSystem.RemoveAction(ent, ent.Comp.SelectTypeAction);
+        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.SelectTypeAction);
         _userInterface.CloseUi(ent.Owner, BorgSwitchableTypeUiKey.SelectBorgType);
         ent.Comp.SelectTypeAction = null;
         Dirty(ent);

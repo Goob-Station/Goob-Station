@@ -94,6 +94,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Content.Shared.Actions.Components;
 
 namespace Content.Shared._Goobstation.Wizard;
 
@@ -632,7 +633,7 @@ public abstract class SharedSpellsSystem : EntitySystem
                 velocity,
                 ev.ProjectileSpeed,
                 true,
-                ev.Coords == null ? null : TransformSystem.ToMapCoordinates(ev.Coords.Value));
+                TransformSystem.ToMapCoordinates(ev.Target));
         }
 
         ev.Handled = true;
@@ -658,10 +659,10 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         spellCardsAction.UsesLeft--;
         if (spellCardsAction.UsesLeft > 0)
-            Actions.SetUseDelay(ev.Action, TimeSpan.FromSeconds(0.5));
+            Actions.SetUseDelay(ev.Action.Owner, TimeSpan.FromSeconds(0.5));
         else
         {
-            Actions.SetUseDelay(ev.Action, spellCardsAction.UseDelay);
+            Actions.SetUseDelay(ev.Action.Owner, spellCardsAction.UseDelay);
             spellCardsAction.UsesLeft = spellCardsAction.CastAmount;
             RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer);
         }
@@ -1298,8 +1299,8 @@ public abstract class SharedSpellsSystem : EntitySystem
     {
         var magicQuery = GetEntityQuery<MagicComponent>();
         var ents = except != null
-            ? Actions.GetActions(uid).Where(x => x.Id != except.Value && magicQuery.HasComp(x.Id))
-            : Actions.GetActions(uid).Where(x => magicQuery.HasComp(x.Id));
+            ? Actions.GetActions(uid).Where(x => x.Owner != except.Value && magicQuery.HasComp(x.Owner))
+            : Actions.GetActions(uid).Where(x => magicQuery.HasComp(x.Owner));
         var hasSpells = false;
         foreach (var (ent, _) in ents)
         {
@@ -1372,11 +1373,8 @@ public abstract class SharedSpellsSystem : EntitySystem
         return null;
     }
 
-    private bool ValidateLockOnAction(EntityWorldTargetActionEvent ev)
+    private bool ValidateLockOnAction(WorldTargetActionEvent ev)
     {
-        if (ev.Coords == null)
-            return false;
-
         if (!TryComp(ev.Action.Owner, out LockOnMarkActionComponent? lockOnMark))
             return false;
 
@@ -1386,7 +1384,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!HasComp<MobStateComponent>(ev.Entity.Value) || !HasComp<DamageableComponent>(ev.Entity.Value))
             return false;
 
-        return TransformSystem.InRange(ev.Coords.Value, xform.Coordinates, lockOnMark.LockOnRadius + 1f);
+        return TransformSystem.InRange(ev.Target, xform.Coordinates, lockOnMark.LockOnRadius + 1f);
     }
 
     private void Popup(EntityUid uid, string message, PopupType type = PopupType.Small)

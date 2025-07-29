@@ -16,7 +16,7 @@
   name: Activate Bluespace Lifeline
   description: Activates your bluespace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: BigAction
@@ -24,6 +24,7 @@
     icon:
       sprite: _Goobstation/Effects/bluespace_lifeline.rsi
       state: bluespace_lifeline
+  - type: InstantAction
     event: !type:ActivateImplantEvent
 
 - type: entity

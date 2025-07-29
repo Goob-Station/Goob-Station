@@ -453,7 +453,7 @@
     useDelay: 90
     priority: 4
   - type: InstantAction
-  	event: !type:DragonSpawnCarpHordeActionEvent
+    event: !type:DragonSpawnCarpHordeActionEvent
 
 - type: entity
   parent: BaseAction
@@ -468,5 +468,5 @@
     useDelay: 45
     priority: 5
   - type: InstantAction
-  	event: !type:DragonRoarActionEvent
+    event: !type:DragonRoarActionEvent
 # Goobstation end

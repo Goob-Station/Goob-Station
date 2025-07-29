@@ -397,25 +397,21 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_playerManager.LocalEntity is not { } user)
             return false;
 
-        if (!EntityManager.TryGetComponent(user, out ActionsComponent? comp))
+        if (_actionsSystem.GetAction(actionId) is not { } action)
             return false;
 
-        if (!_actionsSystem.TryGetActionData(actionId, out var baseAction) ||
-            baseAction is not BaseTargetActionComponent action)
-        {
+        if (!EntityManager.TryGetComponent(user, out TargetActionComponent? targetComp))
             return false;
-        }
 
         // Is the action currently valid?
-        if (!action.Enabled
-            || action.Cooldown.HasValue && action.Cooldown.Value.End > _timing.CurTime)
+        if (!action.Comp.Enabled || action.Comp.Cooldown.HasValue && action.Comp.Cooldown.Value.End > _timing.CurTime)
         {
             // The user is targeting with this action, but it is not valid. Maybe mark this click as
             // handled and prevent further interactions.
-            return !action.InteractOnMiss;
+            return !targetComp.InteractOnMiss;
         }
 
-        if (action is not EntityTargetActionComponent entityTarget)
+        if (!EntityManager.TryGetComponent(user, out EntityTargetActionComponent? entityTarget))
             return false;
 
         if (!EntityManager.TryGetComponent(actionId, out SwapSpellComponent? swap))
@@ -431,7 +427,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (!_actionsSystem.ValidateEntityTarget(user, entity, (actionId, entityTarget)))
         {
-            if (entityTarget.DeselectOnMiss)
+            if (targetComp.DeselectOnMiss)
                 StopTargeting();
 
             return false;
@@ -472,21 +468,12 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (savedActions.Count == 0 || _actions.Count == 0 || _actions.SequenceEqual(savedActions))
             return;
         var metaQuery = EntityManager.GetEntityQuery<MetaDataComponent>();
-        var instantActionQuery = EntityManager.GetEntityQuery<InstantActionComponent>();
-        var entityTargetActionQuery = EntityManager.GetEntityQuery<EntityTargetActionComponent>();
-        var worldTargetActionQuery = EntityManager.GetEntityQuery<WorldTargetActionComponent>();
-        var entityWorldTargetActionQuery = EntityManager.GetEntityQuery<EntityWorldTargetActionComponent>();
+        var actionQuery = EntityManager.GetEntityQuery<ActionComponent>();
 
         (EntityUid?, Type)? GetActionContainerAndType(EntityUid action)
         {
-            if (instantActionQuery.TryComp(action, out var instantAction))
-                return (instantAction.Container, typeof(InstantActionComponent));
-            if (entityTargetActionQuery.TryComp(action, out var entityTargetAction))
-                return (entityTargetAction.Container, typeof(EntityTargetActionComponent));
-            if (worldTargetActionQuery.TryComp(action, out var worldTargetAction))
-                return (worldTargetAction.Container, typeof(WorldTargetActionComponent));
-            if (entityWorldTargetActionQuery.TryComp(action, out var entityWorldTargetAction))
-                return (entityWorldTargetAction.Container, typeof(EntityWorldTargetActionComponent));
+            if (actionQuery.TryComp(action, out var actionComp))
+                return (actionComp.Container, typeof(ActionComponent));
             return null;
         }
 
@@ -1171,8 +1158,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!EntityManager.TryGetComponent<EntityTargetActionComponent>(uid, out var entity))
             return;
 
-        if (EntityManager.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId);
+        if (EntityManager.HasComponent<SwapSpellComponent>(uid) && _playerManager.LocalEntity != null) // Goobstation
+            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, uid);
 
         Func<EntityUid, bool>? predicate = null;
         var attachedEnt = action.AttachedEntity;

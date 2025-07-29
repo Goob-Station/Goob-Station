@@ -75,7 +75,7 @@
   description: Release a toxic wave of rust.
   categories: [ HideSpawnMenu ]
   components:
-  - type: EntityWorldTargetAction
+  - type: Action
     range: 0
     useDelay: 35
     itemIconStyle: NoItem
@@ -86,6 +86,7 @@
       state: rust_wave
     checkCanAccess: false
     checkCanInteract: true
+  - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: ProjectileWaveRust
       speed: 2.8

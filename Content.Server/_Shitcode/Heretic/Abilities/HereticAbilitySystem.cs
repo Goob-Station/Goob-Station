@@ -224,7 +224,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 if (!InfuseOurBlades())
                     return;
 
-                _actions.SetCooldown(args.Action, MansusGraspSystem.DefaultCooldown);
+                _actions.SetCooldown(args.Action.Owner, MansusGraspSystem.DefaultCooldown);
                 _mansusGrasp.InvokeGrasp(ent, null);
             }
 

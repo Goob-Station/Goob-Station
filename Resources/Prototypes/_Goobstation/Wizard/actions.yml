@@ -442,7 +442,7 @@
   name: Homing Toolbox
   description: Fires a magical homing toolbox at your opponent.
   components:
-  - type: EntityWorldTargetAction
+  - type: Action
     checkCanAccess: false
     raiseOnUser: true
     useDelay: 8
@@ -458,6 +458,7 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: toolbox
+  - type: WorldTargetAction
     event: !type:HomingToolboxEvent
   - type: SpeakOnAction
     sentence: action-speech-spell-homing-toolbox
@@ -477,7 +478,7 @@
   name: Spell Cards
   description: Fire up to six bursts of homing spell cards.
   components:
-  - type: EntityWorldTargetAction
+  - type: Action
     checkCanAccess: false
     raiseOnUser: true
     repeat: true
@@ -494,6 +495,7 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: spellcard
+  - type: WorldTargetAction
     event: !type:SpellCardsEvent
   - type: SpeakOnAction
     sentence: action-speech-spell-spell-cards

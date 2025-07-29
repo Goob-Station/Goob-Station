@@ -109,7 +109,7 @@ public sealed partial class PossessionSystem : EntitySystem
     {
         MapCoordinates? coordinates = null;
 
-        _action.RemoveAction(possessed, possessed.Comp.ActionEntity);
+        _action.RemoveAction(possessed.Owner, possessed.Comp.ActionEntity);
 
         if (possessed.Comp.HideActions)
             _action.UnHideActions(possessed, possessed.Comp.HiddenActions);

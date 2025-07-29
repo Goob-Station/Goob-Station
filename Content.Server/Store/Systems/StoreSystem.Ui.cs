@@ -516,8 +516,8 @@ public sealed partial class StoreSystem
 
         component.BoughtEntities.Remove(boughtEntity);
 
-        if (_actions.TryGetActionData(boughtEntity, out var actionComponent, logError: false))
-            _actionContainer.RemoveAction(boughtEntity, actionComponent);
+        if (_actions.GetAction(boughtEntity) is { } action)
+            _actionContainer.RemoveAction((boughtEntity, action.Comp));
 
         refundComp.Data.PurchaseAmount = Math.Max(0, refundComp.Data.PurchaseAmount - 1);
 

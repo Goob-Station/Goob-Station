@@ -17,6 +17,7 @@ using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
@@ -70,10 +71,10 @@ public sealed class ChangelingArmorTest
             // Give urist chitinous armor action
             var armorActionEnt = actionSys.AddAction(urist, actionProto);
             armorAction = (armorActionEnt.Value, entMan.GetComponent<InstantActionComponent>(armorActionEnt.Value));
-            actionSys.SetUseDelay(armorAction, null);
+            actionSys.SetUseDelay(armorAction.Owner, null);
 
             // Armor up
-            actionSys.PerformAction(urist, null, armorAction, armorAction.Comp, armorAction.Comp.BaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist, armorAction.Owner, armorAction.Comp.Event);
         });
 
         await server.WaitRunTicks(5);
@@ -92,7 +93,7 @@ public sealed class ChangelingArmorTest
         await server.WaitPost(() =>
         {
             // Armor down
-            actionSys.PerformAction(urist, null, armorAction, armorAction.Comp, armorAction.Comp.BaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist, armorAction.Owner, armorAction.Comp.Event);
         });
 
         await server.WaitRunTicks(5);
@@ -123,7 +124,7 @@ public sealed class ChangelingArmorTest
             Assert.That(invSys.TryEquip(urist, helm, "head", force: true));
 
             // Try to armor up, should fail due to helmet and not equip anything
-            actionSys.PerformAction(urist, null, armorAction, armorAction.Comp, armorAction.Comp.BaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist, armorAction.Owner, armorAction.Comp.Event);
         });
 
         await server.WaitRunTicks(5);

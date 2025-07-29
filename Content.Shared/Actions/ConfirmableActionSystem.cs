@@ -87,7 +87,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
         if (!string.IsNullOrEmpty(comp.Popup))
             _popup.PopupClient(Loc.GetString(comp.Popup), user, user, comp.PopupFontType);
 
-        _actions.SetToggled(ent, true);
+        _actions.SetToggled(ent.Owner, true);
         // Goobstation - Confirmable action with changed icon - End
     }
 
@@ -97,7 +97,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
         comp.NextConfirm = null;
         comp.NextUnprime = null;
 
-        _actions.SetToggled(ent, false); // Goobstation - Confirmable action with changed icon
+        _actions.SetToggled(ent.Owner, false); // Goobstation - Confirmable action with changed icon
 
         Dirty(uid, comp);
     }

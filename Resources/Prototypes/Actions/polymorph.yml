@@ -83,8 +83,6 @@
   - type: Sprite # Goobstation - for apprentices
     sprite: _Goobstation/Wizard/actions.rsi
     state: jaunt
-  - type: InstantAction
-    event: !type:PolymorphSpellEvent # Goob edit
   - type: Action
     useDelay: 30
     icon:

@@ -140,16 +140,17 @@ using Content.Shared.Popups;
 public abstract class SharedActionsSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private   readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private   readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private   readonly RotateToFaceSystem _rotateToFace = default!;
-    [Dependency] private   readonly SharedAudioSystem _audio = default!;
-    [Dependency] private   readonly INetManager _net = default!; // Goobstation
-    [Dependency] private   readonly SharedPopupSystem _popup = default!; // Shitmed Change
-    [Dependency] private   readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private   readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly INetManager _net = default!; // Goobstation
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // Shitmed Change
+    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!; // Goobstaiton
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private EntityQuery<ActionComponent> _actionQuery;
     private EntityQuery<ActionsComponent> _actionsQuery;
@@ -577,7 +578,7 @@ public abstract class SharedActionsSystem : EntitySystem
             return true;
 
         var hasNoSpecificComponents = !HasComp<StationAiOverlayComponent>(user) && !HasComp<AbductorScientistComponent>(user); // Shitmed Change
-        if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
+        if (comp.CheckCanAccess && !_actionBlockerSystem.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
             return false;
 
         return _transform.InRange(coords, xform.Coordinates, comp.Range);
@@ -657,7 +658,7 @@ public abstract class SharedActionsSystem : EntitySystem
     /// <param name="predicted">If false, prevents playing the action's sound on the client</param>
     public void PerformAction(Entity<ActionsComponent?> performer, Entity<ActionComponent> action, BaseActionEvent? actionEvent = null, bool predicted = true)
     {
-        if (!action.Predicted) // Goobstation
+        if (!action.Comp.Predicted) // Goobstation
             predicted = false;
 
         var handled = false;
@@ -686,9 +687,6 @@ public abstract class SharedActionsSystem : EntitySystem
 
         if (!action.Comp.RaiseOnUser && action.Comp.Container is {} container && !_mindQuery.HasComp(container))
             target = container;
-
-        if (action.Comp.RaiseOnAction)
-            target = action;
 
         RaiseLocalEvent(target, (object) ev, broadcast: true);
         handled = ev.Handled;
@@ -859,7 +857,7 @@ public abstract class SharedActionsSystem : EntitySystem
 
         foreach (var actionId in container.Comp.Container.ContainedEntities)
         {
-            if (GetAction(actionId) is {} action && (!ghost || action.AllowGhostAction))
+            if (GetAction(actionId) is {} action && (!ghost || action.Comp.AllowGhostAction))
                 AddActionDirect(performer, (action, action));
         }
     }
