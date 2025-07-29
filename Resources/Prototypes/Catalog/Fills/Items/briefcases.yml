@@ -129,33 +129,6 @@
       - id: SyndieHandyFlag
 
 - type: entity
-  id: BriefcaseSyndieLobbyingBundlePlasmamanFilled
-  parent: BriefcaseSyndie
-  suffix: Syndicate, Spesos, Plasmaman
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingEyesGlassesSunglasses
-      - id: SpaceCash30000
-        amount: 1
-      - id: EncryptionKeySyndie
-      - id: RubberStampTrader
-      - id: PhoneInstrumentSyndicate
-      - id: ClothingUniformEnvirosuitTacticool
-      - id: ClothingHeadEnvirohelmTacticool
-      - id: ClothingOuterCoatJensenFilled
-      - id: ClothingHandsGlovesCombat
-
-- type: entity # No more space in briefcase due to envirohelm so put the syndicate flag in the jensen coat
-  id: ClothingOuterCoatJensenFilled
-  parent: ClothingOuterCoatJensen
-  suffix: Syndicate Flag Inside
-  components:
-  - type: StorageFill
-    contents:
-      - id: SyndieHandyFlag
-
-- type: entity
   id: BriefcaseThiefBribingBundleFilled
   parent: BriefcaseSyndie
   suffix: Thief, Spesos
@@ -166,22 +139,7 @@
       - id: SpaceCash20000
         amount: 1
       - id: ClothingOuterCoatJensen
+      # EE Plasmeme Change: Why did they make this have combat gloves???
       - id: ClothingHandsGlovesCombat
       - id: ClothingMaskNeckGaiter
-      - id: ToyFigurineThief
-
-- type: entity
-  id: BriefcaseThiefBribingBundlePlasmamanFilled
-  parent: BriefcaseSyndie
-  suffix: Thief, Spesos, Plasmaman
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingEyesGlassesSunglasses
-      - id: SpaceCash20000
-        amount: 1
-      - id: ClothingUniformEnvirosuitTacticool
-      - id: ClothingHeadEnvirohelmTacticool
-      - id: ClothingOuterCoatJensen
-      - id: ClothingHandsGlovesCombat
       - id: ToyFigurineThief

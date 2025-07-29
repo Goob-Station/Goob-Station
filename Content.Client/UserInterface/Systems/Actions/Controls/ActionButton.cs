@@ -333,16 +333,11 @@ public sealed class ActionButton : Control, IEntityControl
             if (_action.BackgroundOn != null)
                 _buttonBackgroundTexture = _spriteSys.Frame0(_action.BackgroundOn);
         }
-        // EE - Plasmamen Change Start
-        else if (_action.IconDisabled is { } iconDisabled && !_action.Enabled)
-            SetActionIcon(_spriteSys.Frame0(iconDisabled));
-        else if (_action.IconCooldown is { } iconCooldown && _action.Cooldown is { } cooldown &&
-            cooldown.End > IoCManager.Resolve<IGameTiming>().CurTime)
-            SetActionIcon(_spriteSys.Frame0(iconCooldown));
-        // EE - Plasmamen Change End
         else
+        {
             SetActionIcon(_action.Icon != null ? _spriteSys.Frame0(_action.Icon) : null);
-        _buttonBackgroundTexture = Theme.ResolveTexture("SlotBackground");
+            _buttonBackgroundTexture = Theme.ResolveTexture("SlotBackground");
+        }
     }
 
     public void UpdateBackground()

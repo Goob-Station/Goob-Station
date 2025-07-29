@@ -9,3 +9,10 @@
   files:
     - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_f1.ogg
     - /Audio/_EinsteinEngines/Voice/Slime/slime_scream_f2.ogg
+
+- type: soundCollection
+  id: PlasmamanUnisexScreams
+  files:
+    - /Audio/Voice/Plasmaman/plasmaman_scream_1.ogg
+    - /Audio/Voice/Plasmaman/plasmaman_scream_2.ogg
+    - /Audio/Voice/Plasmaman/plasmaman_scream_3.ogg

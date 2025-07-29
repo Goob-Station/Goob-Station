@@ -349,7 +349,7 @@
         - id: NitrogenTankFilled
         - id: DoubleEmergencyNitrogenTankFilled
       - id: EmergencyFunnyOxygenTankFilled
-      - !type:GroupSelector
+      - !type:GroupSelector # EE Plasmeme Change
         children:
         - !type:EntSelector
           id: PlasmaTankFilled

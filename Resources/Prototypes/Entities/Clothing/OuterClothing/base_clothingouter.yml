@@ -282,7 +282,7 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
-  - type: FireProtection
+  - type: FireProtection # EE Plasmeme Change
     reduction: 0.75 # almost perfectly sealed, atmos firesuit is better
   - type: IgniteFromGasImmunity
     parts:
@@ -336,7 +336,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-    - PlasmamanSafe
+    - PlasmamanSafe # EE Plasmeme Change
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection
@@ -380,7 +380,7 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.01 # Not complete protection from fire
     coolingCoefficient: 0.01
-  - type: IgniteFromGasImmunity
+  - type: IgniteFromGasImmunity # EE Plasmeme Change
     parts:
     - Chest
     - Groin
@@ -408,7 +408,7 @@
     - jumpsuit
   - type: Tag
     tags:
-    - PlasmamanSafe
+    - PlasmamanSafe # EE Plasmeme Change
 
 - type: entity
   parent: ClothingOuterBase

@@ -37,7 +37,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
-      - id: DoubleEmergencyPlasmaTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled # EE Plasmeme Change
 
 - type: entity
   id: CrateSyndicateSuperSurplusBundle

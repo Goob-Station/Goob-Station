@@ -47,6 +47,7 @@ public abstract partial class SharedSelfExtinguisherSystem : EntitySystem
         _actions.SetUseDelay(component.ActionEntity, component.Cooldown);
         if (TryComp<LimitedChargesComponent>(uid, out var charges))
         {
+            
             _actions.SetCharges(component.ActionEntity, (int) charges.Charges);
             _actions.SetMaxCharges(component.ActionEntity, (int) charges.MaxCharges);
         }
@@ -77,7 +78,7 @@ public abstract partial class SharedSelfExtinguisherSystem : EntitySystem
 
         var verb = new EquipmentVerb()
         {
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/extinguisher.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/_EinsteinEngines/Interface/VerbIcons/extinguisher.svg.192dpi.png")),
             Text = Loc.GetString("self-extinguisher-verb"),
             EventTarget = uid,
             ExecutionEventArgs = new SelfExtinguishEvent() { Performer = args.User }

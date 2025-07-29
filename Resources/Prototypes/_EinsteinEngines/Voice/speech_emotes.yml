@@ -61,3 +61,13 @@
     - mars
     - marsing
     - marsed
+
+- type: emoteSounds
+  id: UnisexPlasmaman
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: PlasmamanUnisexScreams
+  sound:
+    path: /Audio/Voice/Skeleton/skeleton_scream.ogg

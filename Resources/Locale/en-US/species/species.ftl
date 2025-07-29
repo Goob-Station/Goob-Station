@@ -23,7 +23,6 @@ species-name-moth = Moth Person
 species-name-skeleton = Skeleton
 species-name-vox = Vox
 # species-name-gingerbread = delicious baked good goobstation - no
-species-name-plasmaman = Plasmaman
 
 ## Misc species things
 

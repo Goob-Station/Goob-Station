@@ -136,8 +136,6 @@
 # Syndicate Operative Outfit - Civilian
 - type: startingGear
   id: SyndicateOperativeGearCivilian
-  subGear:
-  - SyndicatePlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSyndieFormal
     back: ClothingBackpackDuffelSyndicate
@@ -149,8 +147,6 @@
 # Syndicate Footsoldier Gear - No Headset
 - type: startingGear
   id: SyndicateFootsoldierGearRuin
-  subGear:
-  - SyndicateOperativePlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
     head: ClothingHeadHelmetSwatSyndicate
@@ -194,8 +190,6 @@
 # Nanotrasen Paramilitary Unit Gear
 - type: startingGear
   id: NanotrasenParamilitaryGear
-  subGear:
-  - SecurityOfficerPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
     back: ClothingBackpackSecurity
@@ -229,8 +223,6 @@
 
 - type: startingGear
   id: DeathMatchGear
-  subGear:
-  - DeathMatchPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorWhite
     shoes: ClothingShoesBootsJack
@@ -305,8 +297,10 @@
     mask: ClothingMaskClownBanana
     pocket1: BikeHorn
     pocket2: ClownRecorder
+
 # Passenger but without the ID, bag, or headset
 - type: startingGear
   id: LimitedPassengerGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGrey
+    shoes: ClothingShoesColorBlack

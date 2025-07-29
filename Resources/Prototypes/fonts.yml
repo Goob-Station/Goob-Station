@@ -53,7 +53,3 @@
 - type: font
   id: Emoji
   path: /Fonts/NotoEmoji.ttf
-
-- type: font
-  id: LDFComicSans
-  path: /Fonts/LDFComicSans/LDFComicSans-Medium.ttf
