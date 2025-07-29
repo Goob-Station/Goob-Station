@@ -143,6 +143,6 @@
   description: Black beret with a silver badge.
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/Head/Hats/beret_pilot.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hats/beret_pilot.rsi
   - type: Clothing
-    sprite: Corvax/Clothing/Head/Hats/beret_pilot.rsi
+    sprite: _CorvaxGoob/Clothing/Head/Hats/beret_pilot.rsi

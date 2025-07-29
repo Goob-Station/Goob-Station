@@ -126,6 +126,6 @@
   description: Security pilot suit.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Uniforms/Jumpsuit/pilot.rsi
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/pilot.rsi
     - type: Clothing
-      sprite: Corvax/Clothing/Uniforms/Jumpsuit/pilot.rsi
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/pilot.rsi
