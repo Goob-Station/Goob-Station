@@ -167,8 +167,7 @@
 - type: marking
   id: ArachnidLArmSegments
   bodyPart: LArm
-
-
+  markingCategory: LeftArm
   speciesRestriction: [ Arachnid ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/larm.rsi
