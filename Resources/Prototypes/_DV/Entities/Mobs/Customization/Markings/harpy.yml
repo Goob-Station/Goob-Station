@@ -96,7 +96,7 @@
 - type: marking
   id: HarpyLegsDefault
   bodyPart: LLeg
-  markingCategory: LeftLeg
+  markingCategory: Legs
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -112,7 +112,7 @@
 - type: marking
   id: HarpyFeetDefault
   bodyPart: RFoot
-  markingCategory: RightFoot
+  markingCategory: Legs
   speciesRestriction: [Harpy]
   coloring:
     default:
