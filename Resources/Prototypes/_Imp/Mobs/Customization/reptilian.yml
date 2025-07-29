@@ -118,7 +118,7 @@
 - type: marking
   id: BadMoltRArm
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [ Reptilian ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Reptilian/rarm.rsi
@@ -129,7 +129,7 @@
 - type: marking
   id: BadMoltLArm
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [ Reptilian ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Reptilian/larm.rsi

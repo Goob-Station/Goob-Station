@@ -279,7 +279,7 @@
 - type: marking
   id: ProstheticArmRightMoth
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rarm.rsi
@@ -288,18 +288,18 @@
 - type: marking
   id: TwistingArmRightMoth
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rarm.rsi
     state: twisting
 
-# LArm
+# LeftArm
 
 - type: marking
   id: ChimeraArmLeftMoth
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
@@ -308,7 +308,7 @@
 - type: marking
   id: ProstheticArmLeftMoth
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
@@ -317,7 +317,7 @@
 - type: marking
   id: TwistingArmLeftMoth
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
@@ -328,7 +328,7 @@
 - type: marking
   id: LegProstheticRightMoth
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rleg.rsi
@@ -337,7 +337,7 @@
 - type: marking
   id: LegTwistingRightMoth
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rleg.rsi
@@ -348,7 +348,7 @@
 - type: marking
   id: LegChimeraLeftMoth
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
@@ -357,7 +357,7 @@
 - type: marking
   id: LegProstheticLeftMoth
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
@@ -365,8 +365,8 @@
 
 - type: marking
   id: LegTwistingLeftMoth
-  bodyPart: LLeg
-  markingCategory: Legs
+  bodyPart: Lleg
+  markingCategory: LeftLeg
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
@@ -377,7 +377,7 @@
 - type: marking
   id: FootChimeraLeftMoth
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftFoot
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lfoot.rsi
@@ -386,7 +386,7 @@
 - type: marking
   id: FootProstheticLeftMoth
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftFoot
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lfoot.rsi
@@ -397,7 +397,7 @@
 - type: marking
   id: FootProstheticRightMoth
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightFoot
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rfoot.rsi
@@ -408,7 +408,7 @@
 - type: marking
   id: HandChimeraLeftMoth
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
@@ -417,7 +417,7 @@
 - type: marking
   id: HandProstheticLeftMoth
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
@@ -426,7 +426,7 @@
 - type: marking
   id: HandTwistingLeftMoth
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
@@ -437,7 +437,7 @@
 - type: marking
   id: HandProstheticRightMoth
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rhand.rsi
@@ -446,7 +446,7 @@
 - type: marking
   id: HandTwistingRightMoth
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   speciesRestriction: [ Moth ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rhand.rsi

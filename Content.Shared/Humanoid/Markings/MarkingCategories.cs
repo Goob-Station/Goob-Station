@@ -38,8 +38,6 @@ namespace Content.Shared.Humanoid.Markings
         LeftLeg,
         LeftFoot,
         Groin, // Shitmed Change
-        Arms,
-        Legs,
         Wings, // For IPC wings porting from SimpleStation
         Underwear,
         Undershirt,
