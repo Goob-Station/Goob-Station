@@ -250,8 +250,7 @@
 - type: marking
   id: SlimeBonearmleft
   bodyPart: LArm
-
-
+  markingCategory: LeftArm
   speciesRestriction: [ SlimePerson ]
   coloring:
     default:
