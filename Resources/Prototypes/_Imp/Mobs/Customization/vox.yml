@@ -299,8 +299,7 @@
 - type: marking
   id: SpotsArmL
   bodyPart: LArm
-
-
+  markingCategory: LeftArm
   speciesRestriction: [ Vox ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Vox/larm.rsi
