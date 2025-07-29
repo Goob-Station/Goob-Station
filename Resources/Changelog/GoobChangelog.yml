@@ -12797,3 +12797,23 @@ Entries:
       message: All Abductors should have Agent IDs now.
   id: 1415
   time: '2025-07-23T18:13:53.0000000+00:00'
+- author: router
+  changes:
+    - type: Fix
+      message: >-
+        Power Transmission Lasers no longer have weights of small cargo ships,
+        and can now be safely manipulated.
+  id: 1416
+  time: '2025-07-24T03:35:09.0000000+00:00'
+- author: Rouden, Agronomist-NN
+  changes:
+    - type: Add
+      message: Added picking and throwing sounds for the most generic items.
+    - type: Add
+      message: Added ambient sounds for computers and lathes.
+    - type: Tweak
+      message: Ambience is now 2 times louder (scary).
+    - type: Tweak
+      message: THE METAL'S PIPE CANNOT BE STOPPED
+  id: 1417
+  time: '2025-07-26T18:25:15.0000000+00:00'
