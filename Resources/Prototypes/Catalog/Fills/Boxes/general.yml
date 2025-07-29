@@ -90,12 +90,15 @@
     maxItemSize: Small
     grid:
     - 0,0,2,2
+    whitelist:
+      ids:
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: Sprite
     state: box
   - type: Tag
     tags:
     - BoxCardboard
-
 - type: entity
   name: mousetrap box
   parent: BoxCardboard
