@@ -16,7 +16,7 @@
   roundStart: true
   prototype: MobYowie
   sprites: MobYowieSprites
-  markingLimits: MobHumanMarkingLimits
+  markingLimits: MobYowieMarkingLimits
   dollPrototype: MobYowieDummy
   skinColoration: NoColor
   naming: First
