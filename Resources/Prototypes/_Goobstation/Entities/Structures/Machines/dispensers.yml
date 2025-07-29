@@ -43,7 +43,7 @@
 
 - type: entity
   id: EnergyChemDispenser
-  parent: SmallConstructibleMachine
+  parent: AbstractEChem
   name: energy chemical dispenser
   suffix: energy
   description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
