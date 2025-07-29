@@ -6,10 +6,12 @@
 using Content.Goobstation.Shared.SlaughterDemon;
 using Content.Server.Administration.Systems;
 using Content.Server.Body.Components;
+using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Polymorph;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -48,6 +50,9 @@ public sealed class SlaughterDemonSystem : EntitySystem
 
         // polymorph shittery
         SubscribeLocalEvent<SlaughterDemonComponent, PolymorphedEvent>(OnPolymorph);
+
+        // gun-related
+        SubscribeLocalEvent<SlaughterDemonComponent, PickupAttemptEvent>(OnPickup);
     }
 
     public override void Update(float frameTime)
@@ -152,5 +157,12 @@ public sealed class SlaughterDemonSystem : EntitySystem
 
             _rejuvenate.PerformRejuvenate(entity.Value);
         }
+    }
+
+    private void OnPickup(Entity<SlaughterDemonComponent> ent, ref PickupAttemptEvent args)
+    {
+        if (HasComp<GunComponent>(args.Item)
+            && !ent.Comp.CanPickupGuns)
+            args.Cancel();
     }
 }

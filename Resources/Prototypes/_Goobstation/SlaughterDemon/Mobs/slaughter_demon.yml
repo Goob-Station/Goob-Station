@@ -121,6 +121,7 @@
       - DemonicWhisperAction
   - type: ReplacementAccent
     accent: slaughterDemon
+  - type: GrantHellRip
 
 # laughter demon
 - type: entity

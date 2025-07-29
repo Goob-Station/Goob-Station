@@ -50,31 +50,31 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, HellRipHeadRipPerformedEvent>(OnHellRipHeadRip);
         SubscribeLocalEvent<CanPerformComboComponent, HellRipTearDownPerformedEvent>(OnHellRipTearDown);
 
-        SubscribeLocalEvent<GrantHellRipComponent, ClothingGotEquippedEvent>(OnGrantHellRip);
-        SubscribeLocalEvent<GrantHellRipComponent, ClothingGotUnequippedEvent>(OnRemoveHellRip);
+        SubscribeLocalEvent<GrantHellRipComponent, ComponentStartup>(OnGrantHellRip);
+        SubscribeLocalEvent<GrantHellRipComponent, ComponentShutdown>(OnRemoveHellRip);
     }
 
     #region Generic Methods
 
-    private void OnGrantHellRip(Entity<GrantHellRipComponent> ent, ref ClothingGotEquippedEvent args)
+    private void OnGrantHellRip(Entity<GrantHellRipComponent> ent, ref ComponentStartup args)
     {
         if (!_netManager.IsServer)
             return;
 
-        var user = args.Wearer;
-        TryGrantMartialArt(user, ent.Comp);
+        TryGrantMartialArt(ent.Owner, ent.Comp);
     }
 
-    private void OnRemoveHellRip(Entity<GrantHellRipComponent> ent, ref ClothingGotUnequippedEvent args)
+
+    private void OnRemoveHellRip(Entity<GrantHellRipComponent> ent, ref ComponentShutdown args)
     {
-        var user = args.Wearer;
+        var user = ent.Owner;
         if (!TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledge))
             return;
 
         if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.HellRip)
             return;
 
-        if (!TryComp<MeleeWeaponComponent>(args.Wearer, out var meleeWeaponComponent))
+        if (!TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
             return;
 
         var originalDamage = new DamageSpecifier();

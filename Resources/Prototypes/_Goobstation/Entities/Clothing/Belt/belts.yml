@@ -72,7 +72,6 @@
     sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.01
-  - type: GrantHellRip
 
 
 - type: entity
