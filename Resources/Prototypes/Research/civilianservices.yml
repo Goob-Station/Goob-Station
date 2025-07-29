@@ -158,6 +158,7 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+  - TileItemBluespace # Corvax-Goob-BluespaceTile
   # Goobstation R&D Console rework start
   position: 1,5
   technologyPrerequisites:
@@ -202,7 +203,7 @@
   - AdvancedEntertainment
   - BasicRobotics
   # Goobstation R&D Console rework end
-  
+
 
 - type: technology
   id: AdvancedCleaning

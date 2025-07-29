@@ -1,17 +1,17 @@
 - type: entity
   parent: HandTeleporter
-  id: HandTeleporterAdmemeCN
+  id: HandTeleporterAdmemeCG
   suffix: Admeme
   components:
   - type: HandTeleporter
-    firstPortalPrototype: PortalRedAdmemeCN
-    secondPortalPrototype: PortalBlueAdmemeCN
+    firstPortalPrototype: PortalRedAdmemeCG
+    secondPortalPrototype: PortalBlueAdmemeCG
     allowPortalsOnDifferentGrids: true
     portalCreationDelay: 0
 
 - type: entity
   parent: PortalRed
-  id: PortalRedAdmemeCN
+  id: PortalRedAdmemeCG
   suffix: Admeme
   components:
   - type: Portal
@@ -19,7 +19,7 @@
 
 - type: entity
   parent: PortalBlue
-  id: PortalBlueAdmemeCN
+  id: PortalBlueAdmemeCG
   suffix: Admeme
   components:
   - type: Portal
@@ -27,18 +27,18 @@
 
 - type: entity
   parent: HandTeleporter
-  id: HandTeleporterAdmemeCNInvisible
+  id: HandTeleporterAdmemeCGInvisible
   suffix: Admeme, Invisible
   components:
   - type: HandTeleporter
-    firstPortalPrototype: PortalRedAdmemeCNInvisible
-    secondPortalPrototype: PortalBlueAdmemeCNInvisible
+    firstPortalPrototype: PortalRedAdmemeCGInvisible
+    secondPortalPrototype: PortalBlueAdmemeCGInvisible
     allowPortalsOnDifferentGrids: true
     portalCreationDelay: 0
 
 - type: entity
   parent: MarkerBase
-  id: PortalRedAdmemeCNInvisible
+  id: PortalRedAdmemeCGInvisible
   suffix: Admeme, Invisible
   components:
   - type: Transform
@@ -72,8 +72,8 @@
     canTeleportToOtherMaps: true
 
 - type: entity
-  parent: PortalRedAdmemeCNInvisible
-  id: PortalBlueAdmemeCNInvisible
+  parent: PortalRedAdmemeCGInvisible
+  id: PortalBlueAdmemeCGInvisible
   suffix: Admeme, Invisible
   components:
   - type: Portal
