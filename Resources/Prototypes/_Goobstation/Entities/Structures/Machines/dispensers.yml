@@ -5,9 +5,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: AbstractEChem
-  abstract: true
+  id: EnergyChemDispenser
   parent: SmallConstructibleMachine
+  name: energy chemical dispenser
+  suffix: energy
+  description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
   placement:
     mode: SnapgridCenter
   components:
@@ -40,16 +42,6 @@
     idleLoad: 65
     batteryRechargeRate: 30
     batteryRechargeEfficiency: 1.0
-
-- type: entity
-  id: EnergyChemDispenser
-  parent: AbstractEChem
-  name: energy chemical dispenser
-  suffix: energy
-  description: A bluespace Chemical Dispenser that uses station energy to synthesize Reagents. The future is here and now.
-  placement:
-    mode: SnapgridCenter
-  components:
   - type: ExtensionCableReceiver
   - type: Anchorable
   - type: Pullable
