@@ -28,38 +28,40 @@
     event: !type:ActivateImplantEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionHorn
   name: Honk!
   description: Beep the horn at whoever you will run over.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 1
     icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
+  - type: InstantAction
     event: !type:HornActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionSiren
   name: Siren
   description: Alert your victim to your presence.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 1
     icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
+  - type: InstantAction
     event: !type:SirenActionEvent
 
 - type: entity
+  parent: BaseImplantAction
   id: ActivateSmokeImplant
   name: Release a cloud of smoke
   description: Releases a cloud of smoke around you.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 30
-    itemIconStyle: BigAction
-    priority: -20
     icon:
       sprite: Objects/Weapons/Grenades/smoke.rsi
       state: icon
-    event: !type:ActivateImplantEvent
 
 - type: entity
   parent: BaseAction
@@ -83,42 +85,41 @@
     event: !type:DashActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionToggleRightMantisBlade
   name: Toggle Right Mantis Blade
   description: Extend or retract the mantis blade in your right arm.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     useDelay: 2
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
     itemIconStyle: NoItem
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/unsheath.ogg
+  - type: InstantAction
     event: !type:ToggleMantisBladeEvent
 
 - type: entity
+  parent: ActionToggleRightMantisBlade
   id: ActionToggleLeftMantisBlade
   name: Toggle Left Mantis Blade
   description: Extend or retract the mantis blade in your left arm.
-  categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    useDelay: 2
+  - type: Action
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
-    itemIconStyle: NoItem
-    event: !type:ToggleMantisBladeEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionToggleSandevistan
   name: Toggle Sandevistan
   description: Enable or disable your improved reflexes provided by the Sandevistan.
-  categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     useDelay: 3
     icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
     itemIconStyle: NoItem
+  - type: InstantAction
     event: !type:ToggleSandevistanEvent

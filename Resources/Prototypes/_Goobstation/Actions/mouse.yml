@@ -4,15 +4,17 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: MouseMultiply
   name: Multiply
   description: Uses hunger to multiply.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Objects/Consumable/Food/ingredients.rsi
       state: cheesewedge
     useDelay: 1
     sound: !type:SoundPathSpecifier
       path: /Audio/Effects/pop.ogg
+  - type: InstantAction
     event: !type:EggLayInstantActionEvent
