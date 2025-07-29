@@ -1,5 +1,55 @@
 ﻿- type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCaptainWhite
+  name: white captain beret
+  description: A white captain beret, an icon of style.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/Hats/white_beret.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/Hats/white_beret.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSheriff
+  name: sheriff beret
+  description: Beret, a favorite among local sheriffs.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/Hats/sheriff_beret.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/Hats/sheriff_beret.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapcapWhite
+  name: white cap cap
+  description: Stylish white cap cap.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/Hats/white_capcap.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/Hats/white_capcap.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapcapSheriff
+  name: sheriff cap
+  description: Stylish sheriff cap.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Head/Hats/sheriff_capcap.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Head/Hats/sheriff_capcap.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadCapCentcomBlack
   name: special operations officer cap
   description: The NanoTrasen gold-engraved special cap of the higher ranks, which has long gone through more than one blitzkrieg...

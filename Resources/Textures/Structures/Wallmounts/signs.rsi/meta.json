@@ -223,6 +223,9 @@
             "directions": 4
         },
         {
+            "name": "detective"
+        },
+        {
             "name": "dock"
         },
         {

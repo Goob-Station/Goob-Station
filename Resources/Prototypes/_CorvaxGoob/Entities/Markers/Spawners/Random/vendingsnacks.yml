@@ -1,0 +1,43 @@
+- type: entity
+  id: RandomVendingSnacksMidpop
+  name: random vending machine spawner
+  suffix: Snacks, Midpop 15%
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _CorvaxGoob/Structures/Machines/VendingMachines/random.rsi
+        state: snack_midpop
+  - type: RandomSpawner
+    prototypes:
+      - VendingMachineDiscountMidpop
+      - VendingMachineSnackMidpop
+      - VendingMachineSnackBlueMidpop
+      - VendingMachineSnackGreenMidpop
+      - VendingMachineSnackOrangeMidpop
+      - VendingMachineSnackTealMidpop
+      - VendingMachineChangMidpop
+      - VendingMachineDonutMidpop
+    chance: 1
+
+- type: entity
+  id: RandomVendingSnacksHighpop
+  name: random vending machine spawner
+  suffix: Snacks, Highpop 10%
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _CorvaxGoob/Structures/Machines/VendingMachines/random.rsi
+        state: snack_highpop
+  - type: RandomSpawner
+    prototypes:
+      - VendingMachineDiscountHighpop
+      - VendingMachineSnackHighpop
+      - VendingMachineSnackBlueHighpop
+      - VendingMachineSnackGreenHighpop
+      - VendingMachineSnackOrangeHighpop
+      - VendingMachineSnackTealHighpop
+      - VendingMachineChangHighpop
+      - VendingMachineDonutHighpop
+    chance: 1

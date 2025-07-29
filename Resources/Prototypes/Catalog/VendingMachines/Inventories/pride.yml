@@ -14,24 +14,26 @@
 - type: vendingMachineInventory
   id: PrideDrobeInventory
   startingInventory:
-    ClothingNeckLGBTPin: 3
-    ClothingNeckAllyPin: 3
-    ClothingNeckAromanticPin: 3
-    ClothingNeckAsexualPin: 3
-    ClothingNeckAroacePin: 3
-    ClothingNeckBisexualPin: 3
-    ClothingNeckGayPin: 3
-    ClothingNeckIntersexPin: 3
-    ClothingNeckLesbianPin: 3
-    ClothingNeckNonBinaryPin: 3
-    ClothingNeckPansexualPin: 3
-    ClothingNeckPluralPin: 3
-    ClothingNeckOmnisexualPin: 3
-    ClothingNeckGenderqueerPin: 3
-    ClothingNeckGenderfluidPin: 3
-    ClothingNeckTransPin: 3
-    ClothingNeckAutismPin: 3
-    ClothingNeckGoldAutismPin: 3 # somehow we don't have this one in goob so I'm commenting this out
+    # Corvax-Goob-VendomatsTweak-start
+    #ClothingNeckLGBTPin: 3
+    #ClothingNeckAllyPin: 3
+    #ClothingNeckAromanticPin: 3
+    #ClothingNeckAsexualPin: 3
+    #ClothingNeckAroacePin: 3
+    #ClothingNeckBisexualPin: 3
+    #ClothingNeckGayPin: 3
+    #ClothingNeckIntersexPin: 3
+    #ClothingNeckLesbianPin: 3
+    #ClothingNeckNonBinaryPin: 3
+    #ClothingNeckPansexualPin: 3
+    #ClothingNeckPluralPin: 3
+    #ClothingNeckOmnisexualPin: 3
+    #ClothingNeckGenderqueerPin: 3
+    #ClothingNeckGenderfluidPin: 3
+    #ClothingNeckTransPin: 3
+    #ClothingNeckAutismPin: 3
+    #ClothingNeckGoldAutismPin: 3 # somehow we don't have this one in goob so I'm commenting this out
+    # Corvax-Goob-VendomatsTweak-end
     PlushieSharkBlue: 2
     PlushieSharkPink: 2
     PlushieSharkGrey: 2

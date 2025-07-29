@@ -1,0 +1,37 @@
+- type: latheRecipe
+  id: BluespaceBodyBag
+  result: BodyBagBluespaceFolded
+  completetime: 6
+  materials:
+    Plastic: 1200
+    Silver: 120
+    Uranium: 30
+
+- type: latheRecipe
+  id: NTBodyBag
+  result: BodyBagNanoTrasenFolded
+  completetime: 3
+  materials:
+    Plastic: 300
+
+- type: latheRecipe
+  id: PrisonerBodyBag
+  result: BodyBagPrisonerFolded
+  completetime: 3
+  materials:
+    Plastic: 300
+
+- type: latheRecipe
+  id: RadiationBodyBag
+  result: BodyBagRadiationFolded
+  completetime: 3
+  materials:
+    Plastic: 300
+    Uranium: 30
+
+- type: latheRecipe
+  id: SyndicateBodyBag
+  result: BodyBagSyndicateFolded
+  completetime: 6
+  materials:
+    Plastic: 150
