@@ -118,3 +118,14 @@
       sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/rd_classical.rsi
     - type: Clothing
       sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/rd_classical.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPilot
+  name: pilot suit
+  description: Security pilot suit.
+  components:
+    - type: Sprite
+      sprite: Corvax/Clothing/Uniforms/Jumpsuit/pilot.rsi
+    - type: Clothing
+      sprite: Corvax/Clothing/Uniforms/Jumpsuit/pilot.rsi
