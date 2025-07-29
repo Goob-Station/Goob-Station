@@ -39,7 +39,7 @@
 - type: marking
   id: CyberLimbsMarkingXionLArm
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/xion/xion_main.rsi
@@ -50,7 +50,7 @@
 - type: marking
   id: CyberLimbsMarkingXionLHand
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/xion/xion_main.rsi
@@ -61,7 +61,7 @@
 - type: marking
   id: CyberLimbsMarkingXionLLeg
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/xion/xion_main.rsi
@@ -73,7 +73,7 @@
 - type: marking
   id: CyberLimbsMarkingXionLFoot
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftFoot
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/xion/xion_main.rsi
@@ -86,7 +86,7 @@
 - type: marking
   id: CyberLimbsMarkingXionRArm
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/xion/xion_main.rsi
@@ -99,7 +99,7 @@
 - type: marking
   id: CyberLimbsMarkingXionRHand
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/xion/xion_main.rsi
@@ -110,7 +110,7 @@
 - type: marking
   id: CyberLimbsMarkingXionRLeg
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/xion/xion_main.rsi
@@ -122,7 +122,7 @@
 - type: marking
   id: CyberLimbsMarkingXionRFoot
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightFoot
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/xion/xion_main.rsi
