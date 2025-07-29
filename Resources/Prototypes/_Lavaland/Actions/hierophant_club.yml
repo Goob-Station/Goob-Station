@@ -20,68 +20,77 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Place teleport marker
 - type: entity
+  parent: BaseAction
   id: ActionHierophantPlaceMarker
   name: action-hierophant-place-marker
   description: action-hierophant-place-marker-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
     itemIconStyle: BigAction
-    event: !type:HierophantClubPlaceMarkerEvent
     useDelay: 30
+  - type: InstantAction
+    event: !type:HierophantClubPlaceMarkerEvent
 
 # Teleportation
 - type: entity
+  parent: BaseAction
   id: ActionHierophantTeleport
   name: action-hierophant-teleport
   description: action-hierophant-teleport-desc
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
     itemIconStyle: NoItem
-    event: !type:HierophantClubTeleportToMarkerEvent
     useDelay: 60
+  - type: InstantAction
+    event: !type:HierophantClubTeleportToMarkerEvent
 
 # Spawn cross
 - type: entity
+  parent: BaseAction
   id: ActionHierophantSpawnCross
   name: action-hierophant-spawn-cross
   description: action-hierophant-spawn-cross-desc
   components:
-  - type: WorldTargetAction
+  - type: Action
     icon:
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
     itemIconStyle: NoItem
-    event: !type:HierophantClubActivateCrossEvent
     checkCanAccess: true
-    range: 8
     priority: -21
     useDelay: 1
+  - type: TargetAction
+    range: 8
+  - type: WorldTargetAction
+    event: !type:HierophantClubActivateCrossEvent    
 
 # Tile Movement
 - type: entity
+  parent: BaseAction
   id: ActionHierophantTileMovement
   name: action-hierophant-tile-movement
   description: action-hierophant-tile-movement-desc
-  categories: [ HideSpawnMenu ]
   components:
-  - type: EntityTargetAction
+  - type: Action
     icon:
       sprite: /Textures/_Lavaland/Interface/Alerts/hierophantbeat.rsi
       state: hierophant
     itemIconStyle: NoItem
+    useDelay: 60
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:HierophantClubToggleTileMovementEvent
     whitelist:
       requireAll: true
       components:
       - MobState
       - Body
       - MindContainer
-    event: !type:HierophantClubToggleTileMovementEvent
-    useDelay: 60

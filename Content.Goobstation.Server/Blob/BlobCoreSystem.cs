@@ -469,7 +469,7 @@ public sealed class BlobCoreSystem : EntitySystem
         if (tile.Comp.Core == null ||
             tile.Comp.BlobTileType == newTile ||
             tile.Comp.BlobTileType == BlobTileType.Core ||
-            tile.Comp.BlobTileType != checkTile)
+            tile.Comp.BlobTileType != checkTile && checkTile != BlobTileType.Invalid)
         {
             _popup.PopupCoordinates(Loc.GetString("blob-target-normal-blob-invalid"), coords, performer, PopupType.Large);
             return false;
