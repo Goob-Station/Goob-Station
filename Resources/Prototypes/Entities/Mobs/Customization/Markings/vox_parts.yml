@@ -21,7 +21,7 @@
 - type: marking
   id: VoxLArmScales
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
@@ -36,7 +36,7 @@
 - type: marking
   id: VoxLLegScales
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
@@ -51,7 +51,7 @@
 - type: marking
   id: VoxRArmScales
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
@@ -66,7 +66,7 @@
 - type: marking
   id: VoxRLegScales
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
@@ -81,7 +81,7 @@
 - type: marking
   id: VoxRHandScales
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
@@ -96,7 +96,7 @@
 - type: marking
   id: VoxLHandScales
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
@@ -111,7 +111,7 @@
 - type: marking
   id: VoxLFootScales
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftFoot
   forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
@@ -126,7 +126,7 @@
 - type: marking
   id: VoxRFootScales
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightFoot
   forcedColoring: true
   speciesRestriction: [Vox]
   sprites:

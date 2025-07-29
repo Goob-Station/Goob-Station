@@ -6,7 +6,7 @@
 - type: marking
   id: TattooVoxHeartLeftArm
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [Vox]
   coloring:
     default:
@@ -20,7 +20,7 @@
 - type: marking
   id: TattooVoxHeartRightArm
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Vox]
   coloring:
     default:
