@@ -50,8 +50,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 65
   - type: ExtensionCableReceiver
   - type: Anchorable
   - type: Pullable
