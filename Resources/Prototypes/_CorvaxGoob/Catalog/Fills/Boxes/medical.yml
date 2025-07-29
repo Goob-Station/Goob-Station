@@ -87,18 +87,3 @@
     whitelist:
       tags:
         - BodyBag
-
-- type: entity
-  name: MiniSyringe box
-  parent: BoxCardboard
-  id: BoxMiniSyringe
-  description: A box full of minisyringe.
-  components:
-  - type: StorageFill
-    contents:
-      - id: MiniSyringe
-        amount: 9
-  - type: Sprite
-    layers:
-      - state: box_medical # Corvax-Resprite
-      - state: syringe
