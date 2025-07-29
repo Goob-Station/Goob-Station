@@ -1,0 +1,7 @@
+- type: latheRecipe
+  id: TileItemBluespace
+  result: FloorTileItemBluespace
+  completetime: 1.5
+  materials:
+    Uranium: 40
+    Steel: 100
