@@ -85,34 +85,34 @@
   - type: Battery
     maxCharge: 1500
     startingCharge: 1500
-  - type: ApcPowerReceiverBattery
-    idleLoad: 65
-    batteryRechargeRate: 30
-    batteryRechargeEfficiency: 1.0
-#  - type: EnergyReagentDispenser #Keep on bottom for view's sake, format is reagentProto: Cost
-#    energyBeakerSlot:
-#      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
-#      whitelist:
-#        components:
-#        - FitsInDispenser
-#    reagents:
-#      Aluminium: 8
-#      Carbon: 3
-#      Chlorine: 12
-#      Copper: 5
-#      Ethanol: 8
-#      Fluorine: 12
-#      Hydrogen: 3
-#      Iodine: 8
-#      Iron: 5
-#      Lithium: 12
-#      Mercury: 12
-#      Nitrogen: 3
-#      Oxygen: 3
-#      Phosphorus: 5
-#      Potassium: 8
-#      Radium: 15
-#      Silicon: 3
-#      Sodium: 5
-#      Sugar: 5
-#      Sulfur: 5
+#  - type: ApcPowerReceiverBattery
+#    idleLoad: 65
+#    batteryRechargeRate: 30
+#    batteryRechargeEfficiency: 1.0
+  - type: EnergyReagentDispenser #Keep on bottom for view's sake, format is reagentProto: Cost
+    energyBeakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+    reagents:
+      Aluminium: 8
+      Carbon: 3
+      Chlorine: 12
+      Copper: 5
+      Ethanol: 8
+      Fluorine: 12
+      Hydrogen: 3
+      Iodine: 8
+      Iron: 5
+      Lithium: 12
+      Mercury: 12
+      Nitrogen: 3
+      Oxygen: 3
+      Phosphorus: 5
+      Potassium: 8
+      Radium: 15
+      Silicon: 3
+      Sodium: 5
+      Sugar: 5
+      Sulfur: 5
