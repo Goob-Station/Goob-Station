@@ -247,19 +247,19 @@
 
 - type: jukebox
   id: pwmur
-  name: Lauren Loveless - Phoron Will Make Us Rich
+  name: Sunbeamstress - Phoron Will Make Us Rich
   path:
     path: /Audio/Lobby/pwmur.ogg
 
 - type: jukebox
   id: lasers_rip_apart_the_bulkhead
-  name: Lauren Loveless - Lasers Rip Apart the Bulkhead
+  name: Sunbeamstress - Lasers Rip Apart the Bulkhead
   path:
     path: /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
 
 - type: jukebox
   id: every_light_is_blinking_at_once
-  name: Lauren Loveless - Every Light is Blinking at Once
+  name: Sunbeamstress - Every Light is Blinking at Once
   path:
     path: /Audio/Lobby/every_light_is_blinking_at_once.ogg
 
