@@ -47,7 +47,6 @@
     LFoot: MobHarpyLFoot
     RFoot: MobHarpyRFoot
 
-
 - type: markingPoints
   id: MobHarpyMarkingLimits
   points:
@@ -55,6 +54,9 @@
       points: 1
       required: false
     FacialHair:
+      points: 1
+      required: false
+    Snout:
       points: 1
       required: false
     Tail:
@@ -65,17 +67,44 @@
       points: 1
       required: true
       defaultMarkings: [ HarpyEarsDefault ]
+    HeadSide:
+      points: 8
+      required: false
     Chest:
       points: 1
       required: true
       defaultMarkings: [ HarpyChestDefault ]
-    Legs:
+    Underwear:
+      points: 1
+      required: false
+    Undershirt:
+      points: 1
+      required: false
+    RightLeg:
       points: 2
       required: false
-    Arms:
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
       points: 1
       required: false
       defaultMarkings: [ HarpyWingDefaultHuescale ]
+    RightHand:
+      points: 3
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 3
+      required: false
 
 - type: humanoidBaseSprite
   id: MobHarpyHead
