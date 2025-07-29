@@ -528,12 +528,7 @@
 - type: marking
   id: ArmHeavyTattoosLeft
   bodyPart: LArm
-
-
-
-
-
-
+  markingCategory: LeftArm
   speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
