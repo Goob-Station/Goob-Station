@@ -249,4 +249,18 @@ public abstract class SharedChargesSystem : EntitySystem
             0,
             entity.Comp1.MaxCharges);
     }
+
+    // Goob Change: I LOVE SET ACCESSORS.
+    public void SetMaxCharges(
+      EntityUid uid,
+      int charges,
+      LimitedChargesComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.MaxCharges = charges;
+        SetCharges(uid, Math.Clamp(charges, 0, component.MaxCharges));
+        Dirty(uid, component);
+    }
 }
