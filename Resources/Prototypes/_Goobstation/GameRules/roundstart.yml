@@ -55,7 +55,6 @@
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       lateJoinAdditional: true
       components:
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
@@ -313,7 +312,6 @@
       - RoleSurvivalNukieHonkops
       components:
       - type: NukeOperative
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
@@ -375,7 +373,6 @@
       playerRatio: 20
       jobBlacklist: [ Chaplain, Mime ] # Chaplain is obvious. Mime can't write.
       components:
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl

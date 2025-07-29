@@ -148,7 +148,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Random; // Goobstation
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared._CorvaxGoob.Movement.Pulling;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -1004,9 +1003,6 @@ public sealed class PullingSystem : EntitySystem
         if (!ignoreCombatMode)
             if (!_combatMode.IsInCombatMode(puller))
                 return false;
-
-        if (!HasComp<CanChokeGrabComponent>(puller)) // CorvaxGoob-GrabSkill
-            return false;
 
         if (_timing.CurTime < meleeWeaponComponent.NextAttack)
             return true;

@@ -1,0 +1,14 @@
+ent-HandTeleporterAdmemeCG = { ent-HandTeleporter }
+    .desc = { ent-HandTeleporter.desc }
+    .suffix = Адмемы, Между картами
+ent-PortalRedAdmemeCG = { ent-BasePortal }
+    .desc = { ent-BasePortal.desc }
+ent-PortalBlueAdmemeCG = { ent-BasePortal }
+    .desc = { ent-BasePortal.desc }
+ent-HandTeleporterAdmemeCGInvisible = { ent-HandTeleporter }
+    .desc = { ent-HandTeleporter.desc }
+    .suffix = Адмемы, Невидимый, Между картами
+ent-PortalRedAdmemeCGInvisible = { ent-BasePortal }
+    .desc = { ent-BasePortal.desc }
+ent-PortalBlueAdmemeCGInvisible = { ent-BasePortal }
+    .desc = { ent-BasePortal.desc }

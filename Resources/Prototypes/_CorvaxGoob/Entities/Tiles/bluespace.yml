@@ -1,0 +1,59 @@
+- type: entity
+  id: FloorBluespaceEntity
+  name: bluespace floor
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 1.4
+    sprintSpeedModifier: 1.4
+    affectAirborne: false
+  - type: Sprite
+    sprite: _CorvaxGoob/Tiles/Misc/bluespace_tile.rsi
+    drawdepth: FloorTiles
+    layers:
+      - state: bluespace
+  - type: SyncSprite
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          FloorTileItemBluespace:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Physics
+    bodyType: Static
+  - type: Construction
+    graph: FloorBluespace
+    node: BluespaceFloor
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 1000
+        mask:
+        - ItemMask
+        layer:
+        - Impassable
+        - LowImpassable
+        hard: false
