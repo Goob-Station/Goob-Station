@@ -1,0 +1,14 @@
+- type: entity
+  name: bluespace tile
+  parent: FloorTileItemBase
+  id: FloorTileItemBluespace
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Tiles/bluespace.rsi
+    layers:
+      - state: bluespace
+  - type: Stack
+    stackType: BluespaceTile
+    count: 1
+  - type: SyncSprite
+  - type: Material

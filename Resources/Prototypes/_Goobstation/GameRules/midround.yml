@@ -38,7 +38,6 @@
       max: 1
       playerRatio: 10
       components:
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
@@ -87,7 +86,6 @@
       max: 1
       playerRatio: 10
       components:
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
@@ -185,7 +183,6 @@
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl

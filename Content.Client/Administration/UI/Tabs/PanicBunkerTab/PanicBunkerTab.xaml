@@ -46,6 +46,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <LineEdit Name="MinOverallMinutes" MinWidth="50" Margin="0 0 5 0" />
                 <Label Text="{Loc generic-minutes}" />
             </BoxContainer>
+            <!-- CorvaxGoob-VPNGuard-Start -->
+            <BoxContainer Orientation="Horizontal" Margin="2" Visible="False" Name="VPNContainer">
+                <CheckBox Name="DenyVPN" Text="{Loc admin-ui-panic-bunker-deny-vpn}" />
+            </BoxContainer>
+            <!-- CorvaxGoob-VPNGuard-End -->
         </BoxContainer>
     </BoxContainer>
 </controls:PanicBunkerTab>
