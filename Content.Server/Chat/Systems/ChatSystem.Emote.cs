@@ -183,8 +183,8 @@ public partial class ChatSystem
                 return false;
         }
 
-        // if general params for all sounds set - use them
-        var param = proto.GeneralParams ?? sound.Params;
+        // optional override params > general params for all sounds in set > individual sound params
+        var param = audioParams ?? proto.GeneralParams ?? sound.Params;
 
         // Goobstation/MisandryBox - Emote spam countermeasures
         var ev = new EmoteSoundPitchShiftEvent();
@@ -192,9 +192,6 @@ public partial class ChatSystem
 
         param.Pitch += ev.Pitch;
         // Goobstation/MisandryBox
-
-        // optional override params > general params for all sounds in set > individual sound params
-        var param = audioParams ?? proto.GeneralParams ?? sound.Params;
 
         _audio.PlayPvs(sound, uid, param);
         return true;
