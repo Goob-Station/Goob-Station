@@ -1,0 +1,25 @@
+- type: entity
+  name: Oracle Spawner
+  id: OracleSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - Oracle
+
+- type: entity
+  name: Sophia Spawner
+  id: SophicScribeSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+  - type: ConditionalSpawner
+    prototypes:
+      - SophicScribe

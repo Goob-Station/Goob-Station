@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Nazar_m",
+  "copyright": "Made by Nazar_m, idadminassistant by noctyrnal (github)",
   "size": {
     "x": 32,
     "y": 32
@@ -15,6 +15,9 @@
     },
 	{
       "name": "blacksecure"
+    },
+    {
+            "name": "idadminassistant"
     }
   ]
 }

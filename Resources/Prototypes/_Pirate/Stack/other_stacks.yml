@@ -1,0 +1,5 @@
+- type: stack
+  id: SheetPrinter
+  name: stack-sheet-printer
+  icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
+  spawn: SheetPrinter

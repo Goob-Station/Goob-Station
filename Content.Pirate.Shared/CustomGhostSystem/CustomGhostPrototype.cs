@@ -19,7 +19,7 @@ public sealed partial class CustomGhostPrototype : IPrototype
     public string Ckey { get; set; } = default!;
 
     [DataField("sprite", required: true)]
-    public ResPath CustomSpritePath { get; set; } = default!;
+    public List<ResPath> CustomSpritePath { get; set; } = new();
 
     [DataField("alpha")]
     public float AlphaOverride { get; set; } = -1;

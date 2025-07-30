@@ -298,6 +298,14 @@
     proto: robot
   - type: Speech
     speechVerb: Robotic
+  - type: LanguageSpeaker # Einstein Engines - Language
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
 
 - type: entity
   parent: BasePDA
@@ -1130,6 +1138,8 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - GlimmerMonitorCartridge # Einstein Engines
+      - PsiWatchCartridge # Einstein Engines
 
 - type: entity
   parent: CentcomPDA
@@ -1158,6 +1168,8 @@
       - MedTekCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - GlimmerMonitorCartridge # Einstein Engines
+      - PsiWatchCartridge # Einstein Engines
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1313,6 +1325,8 @@
       - LogProbeCartridge
       - AstroNavCartridge
       - NanoChatCartridge # DeltaV
+      - GlimmerMonitorCartridge # Einstein Engines
+      - PsiWatchCartridge # Einstein Engines
 
 - type: entity
   parent: ERTLeaderPDA

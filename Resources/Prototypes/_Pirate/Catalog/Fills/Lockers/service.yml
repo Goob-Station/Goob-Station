@@ -1,0 +1,21 @@
+- type: entity
+  id: LockerBartenderFilled
+  suffix: Filled
+  parent: LockerBartender
+  components:
+  - type: StorageFill
+    contents:
+      - id: DrinkShaker
+      - id: ClothingEyesHudBeer
+      - id: HandLabeler
+        amount: 1
+      - id: DrinkBottleBeer
+        prob: 0.5
+      - id: DrinkBottleBeer
+        prob: 0.5
+      - id: DrinkBottleBeer
+        prob: 0.5
+      - id: RagItem
+        amount: 2
+      - id: WeaponShotgunDoubleBarreledRubber # Pirate shotgun
+      - id: BoxBeanbag

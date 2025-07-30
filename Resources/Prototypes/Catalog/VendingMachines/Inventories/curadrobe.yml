@@ -25,5 +25,6 @@
     ClothingUniformJumpskirtLibrarian: 3
     ClothingShoesBootsLaceup: 2
     ClothingHeadsetService: 2
+    PrinterDocFlatpack: 2 # Pirate Port Document Printer
   contrabandInventory:
     ToyFigurineLibrarian: 1

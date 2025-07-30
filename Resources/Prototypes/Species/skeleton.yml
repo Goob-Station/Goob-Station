@@ -24,6 +24,7 @@
   id: MobSkeletonSprites
   sprites:
     Head: MobSkeletonHead
+    Face: MobHumanoidAnyMarking #Pirate Changes
     Chest: MobSkeletonChest
     Groin: MobSkeletonGroin
     LArm: MobSkeletonLArm

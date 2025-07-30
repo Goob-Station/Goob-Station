@@ -85,6 +85,15 @@
     - type: Condemned
       soulOwnedNotDevil: true # This just means they won't suffer the effects of being condemned, while still not being able to sell their soul. - Goobstation
     - type: CanEnchant #GoobStation
+    - type: Psionic
+      powerRollMultiplier: 3
+      baselinePowerCost: 150
+      nextPowerCost: 150
+    - type: InnatePsionicPowers
+      powersToAdd:
+        - HealingWordPower
+        - SummonRemiliaPower
+        - TelepathyPower
 
 - type: startingGear
   id: ChaplainGear

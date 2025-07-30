@@ -1,0 +1,24 @@
+- type: entity
+  id: MagazinePistolMindbreaker
+  name: pistol magazine (.35 auto mindbreaker)
+  parent: BaseMagazinePistol
+  description: 10-round single-stack magazine for pistols.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolMindbreaker
+  - type: Sprite
+    layers:
+    - state: "mindbreaker"
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#510A5C"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#510A5C"

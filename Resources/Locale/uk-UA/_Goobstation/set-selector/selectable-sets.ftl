@@ -193,3 +193,7 @@ selectable-set-syndicate-builder-description = Ламати веселіше, н
     деякі інструменти та матеріали для початку, та ключ шифрування синдикату.
 
 # Блюшилд
+selectable-set-blueshield-dragon-name = набір посібників з кунг-фу
+selectable-set-blueshield-dragon-description = Іноді доводиться бруднити руки.
+    Включає: Книгу, здатну навчити користувача
+    просунутому бойовому мистецтву кунг-фу.

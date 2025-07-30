@@ -1,0 +1,13 @@
+
+- type: entity
+  id: SpawnPointForensicMantis
+  parent: SpawnPointJobBase
+  name: mantis
+  components:
+  - type: SpawnPoint
+    job_id: ForensicMantis
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _EinsteinEngines/Markers/jobs.rsi
+        state: nyanomantis

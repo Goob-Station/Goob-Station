@@ -1,0 +1,55 @@
+<Document>
+
+  # Драконівське кунг-фу
+
+  <Box>
+    <GuideEntityEmbed Entity="BSOManual" Caption=""/>
+  </Box>
+
+  Драконівське кунг-фу - це шаолінське [textlink="бойове мистецтво" link="MartialArts"], зосереджене на обороні та контролі.
+  Плинні рухи та потужні удари поєднуються з терпінням і витривалістю. Ідеально підходить для охоронців, зміцнює захист і контратакує з точністю.
+  Офіцери "Блакитного щита" можуть вибрати посібник з цього бойового мистецтва у своїй збройовій скрині.
+
+  ## Особливі здібності
+
+  ### Сила Дракона
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDragonPower" Caption=""/>
+  </Box>
+
+  Мить нерухомості без зброї перетворює воїна на живу гору, значно знижуючи
+  силу вхідних рукопашних ударів і підсилюючи власні атаки, як зі зброєю, так і без неї.
+
+  ## Комбо-атаки
+
+  ### Кіготь Дракона
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Наносить величезну шкоду витривалості і значно сповільнює супротивника.
+
+  ### Хвіст Дракона
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Наносить тупу шкоду та шкоду витривалості. Збиває з ніг супротивника, якщо він стоїть, і накладає короткочасне оглушення в іншому випадку.
+
+  ### Удар Дракона
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Наносить 40 шкоди і оглушує на 2 секунди. Працює тільки на повалених супротивниках.
+
+</Document>

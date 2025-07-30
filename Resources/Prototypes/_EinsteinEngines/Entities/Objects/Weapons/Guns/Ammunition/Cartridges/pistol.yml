@@ -1,0 +1,15 @@
+- type: entity
+  id: CartridgePistolMindbreaker
+  name: cartridge (.35 auto mindbreaker)
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns.
+  parent: BaseCartridgePistol
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistolMindbreaker
+  -  type: Sprite
+     layers:
+       - state: base
+         map: [ "enum.AmmoVisualLayers.Base" ]
+       - state: tip
+         map: [ "enum.AmmoVisualLayers.Tip" ]
+         color: "#510A5C"

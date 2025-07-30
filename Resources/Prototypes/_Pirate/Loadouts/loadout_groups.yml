@@ -1,0 +1,70 @@
+# Command
+- type: loadoutGroup
+  id: AdminAssistantJumpsuit
+  name: loadout-group-admin-assistant-jumpsuit
+  loadouts:
+  - AdminAssistantJumpsuit
+  - AdminAssistantJumpskirt
+
+- type: loadoutGroup
+  id: AdminAssistantHeadset
+  name: loadout-group-admin-assistant-headset
+  loadouts:
+  - AdminAssistantHeadset
+  - AdminAssistantHeadsetAlt
+
+# Sience
+- type: loadoutGroup
+  id: MantisHead
+  name: loadout-group-mantis-head
+  loadouts:
+  - MantisTinfoil
+  - MantisHelmet
+  - MantisFez
+  - MantisBeret
+
+- type: loadoutGroup
+  id: MantisJumpsuit
+  name: loadout-group-mantis-Jumpsuit
+  loadouts:
+  - MantisSuit
+  - MantisSkirt
+
+- type: loadoutGroup
+  id: MantisBack
+  name: loadout-group-mantis-Back
+  loadouts:
+  - MantisBackpack
+  - MantisSatchel
+  - MantisDuffel
+
+- type: loadoutGroup
+  id: MantisOuterClothing
+  name: loadout-group-mantis-OuterClothing
+  loadouts:
+  - MantisCoat
+  - MantisCoatWinter
+
+- type: loadoutGroup
+  id: MantisShoes
+  name: loadout-group-mantis-Shoes
+  loadouts:
+  - MantisBoots
+
+- type: loadoutGroup
+  id: MantisEyes
+  name: loadout-group-mantis-Eyes
+  loadouts:
+  - EtherealGlasses
+  - EpiHud
+  - EpiHudGlasses
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+  - CheapSunglasses
+
+- type: loadoutGroup
+  id: MantisBelt
+  name: loadout-group-mantis-Belt
+  loadouts:
+  - MantisBelt

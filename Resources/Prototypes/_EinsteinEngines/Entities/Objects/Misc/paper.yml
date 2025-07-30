@@ -1,0 +1,17 @@
+- type: entity
+  name: mantis' seal
+  parent: RubberStampBase
+  id: RubberStampMantis
+  suffix: DO NOT MAP
+  description: An old-fashioned seal for marking imposrtant documents, made of polished bronze.
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-mantis
+    stampedColor: "#777777"
+    stampState: "paper_stamp-mantis"
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Misc/bureaucracy.rsi
+    state: stamp-mantis
+  - type: Tag
+    tags:
+      - ForensicBeltEquip

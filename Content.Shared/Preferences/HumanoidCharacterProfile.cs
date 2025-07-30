@@ -36,14 +36,21 @@
 // SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Hyper B <137433177+HyperB1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Pirate.Common.AlternativeJobs; // Pirate - Alternative Jobs
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
@@ -84,6 +91,7 @@ namespace Content.Shared.Preferences
                 SharedGameTicker.FallbackOverflowJob, JobPriority.High
             }
         };
+        [DataField] private Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> _jobAlternatives = new(); // Pirate - Alternative Jobs
 
         /// <summary>
         /// Antags we have opted in to.
@@ -96,6 +104,21 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         private HashSet<ProtoId<TraitPrototype>> _traitPreferences = new();
+
+    //Pirate changes start
+
+    /// <summary>
+    /// Width of the character (1.0 = стандартний розмір).
+    /// </summary>
+    [DataField("width")]
+    public float Width { get; set; } = 1.0f;
+
+    /// <summary>
+    /// Height of the character (1.0 = стандартний розмір).
+    /// </summary>
+    [DataField("height")]
+    public float Height { get; set; } = 1.0f;
+    //Pirate changes end
 
         /// <summary>
         /// <see cref="_loadouts"/>
@@ -151,6 +174,11 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities => _jobPriorities;
 
+        /// <summary> 
+        /// <see cref="_jobAlternatives"/>
+        /// </summary>
+        public IReadOnlyDictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> JobAlternatives => _jobAlternatives; // Pirate - Alternative Jobs
+
         /// <summary>
         /// <see cref="_antagPreferences"/>
         /// </summary>
@@ -171,12 +199,15 @@ namespace Content.Shared.Preferences
             string name,
             string flavortext,
             string species,
+            float height, //Pirate
+            float width, //Pirate
             int age,
             Sex sex,
             Gender gender,
             HumanoidCharacterAppearance appearance,
             SpawnPriorityPreference spawnPriority,
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
+            Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> jobAlternatives, // Pirate - Alternative Jobs
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
@@ -186,12 +217,15 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             Species = species;
+            Height = height; //Pirate
+            Width = width; //Pirate
             Age = age;
             Sex = sex;
             Gender = gender;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
             _jobPriorities = jobPriorities;
+            _jobAlternatives = jobAlternatives; // Pirate - Alternative Jobs
             PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
@@ -217,12 +251,15 @@ namespace Content.Shared.Preferences
             : this(other.Name,
                 other.FlavorText,
                 other.Species,
+                other.Height, //Pirate
+                other.Width, //Pirate
                 other.Age,
                 other.Sex,
                 other.Gender,
                 other.Appearance.Clone(),
                 other.SpawnPriority,
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
+                new Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>>(other.JobAlternatives), // Pirate - Alternative Jobs
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
@@ -336,6 +373,8 @@ namespace Content.Shared.Preferences
             return new(this) { Species = species };
         }
 
+        public HumanoidCharacterProfile WithHeight(float height) => new(this) { Height = height };  //Pirate
+        public HumanoidCharacterProfile WithWidth(float width) => new(this) { Width = width };  //Pirate
 
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
@@ -370,6 +409,24 @@ namespace Content.Shared.Preferences
                 _jobPriorities = dictionary
             };
         }
+
+        public HumanoidCharacterProfile WithJobAlternative(KeyValuePair<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>> jobAlternative) // Pirate start - Alternative Jobs
+        {
+            var dictionary = new Dictionary<ProtoId<JobPrototype>, ProtoId<AlternativeJobPrototype>>(_jobAlternatives);
+
+            // If no alternative is selected for this job, add it.
+            if (!dictionary.ContainsKey(jobAlternative.Key))
+                dictionary.Add(jobAlternative.Key, jobAlternative.Value);
+
+            // If there is an alternative selected, but it's not the one we want, change it.
+            else if (dictionary[jobAlternative.Key] != jobAlternative.Value)
+                dictionary[jobAlternative.Key] = jobAlternative.Value;
+
+            return new(this)
+            {
+                _jobAlternatives = dictionary,
+            };
+        } // Pirate end - Alternative Jobs
 
         public HumanoidCharacterProfile WithJobPriority(ProtoId<JobPrototype> jobId, JobPriority priority)
         {

@@ -89,6 +89,14 @@ public abstract partial class SharedHandsSystem
         if (hand.Container?.ContainedEntity is not {} held)
             return false;
 
+        // PIRATE from EE for psionic start
+        if (HasComp<DeleteOnDropComponent>(held) && _net.IsServer)
+        {
+            QueueDel(held);
+            return false;
+        }
+        // PIRATE from EE for psionic end
+
         if (!ContainerSystem.CanRemove(held, hand.Container))
             return false;
 

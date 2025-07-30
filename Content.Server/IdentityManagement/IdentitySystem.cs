@@ -29,6 +29,7 @@ using Content.Goobstation.Common.Identity;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.CriminalRecords.Systems;
+using Content.Server.PsionicsRecords.Systems; // Pirate from EE
 using Content.Server.Humanoid;
 using Content.Shared.Clothing;
 using Content.Shared.Database;
@@ -55,6 +56,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly CriminalRecordsConsoleSystem _criminalRecordsConsole = default!;
+    [Dependency] private readonly PsionicsRecordsConsoleSystem _psionicsRecordsConsole = default!; // Pirate from Einstein Engines
     [Dependency] private readonly GrammarSystem _grammarSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goobstation - Update component state on component toggle
 
@@ -158,7 +160,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
         _adminLog.Add(LogType.Identity, LogImpact.Medium, $"{ToPrettyString(uid)} changed identity to {name}");
         var identityChangedEvent = new IdentityChangedEvent(uid, ident);
         RaiseLocalEvent(uid, ref identityChangedEvent);
-        SetIdentityCriminalIcon(uid);
+        SetIdentityRecordsIcon(uid);
     }
 
     private string GetIdentityName(EntityUid target, IdentityRepresentation representation)
@@ -170,13 +172,14 @@ public sealed class IdentitySystem : SharedIdentitySystem
     }
 
     /// <summary>
-    ///     When the identity of a person is changed, searches the criminal records to see if the name of the new identity
-    ///     has a record. If the new name has a criminal status attached to it, the person will get the criminal status
-    ///     until they change identity again.
+    ///     When the identity of a person is changed, searches the criminal records and psionics records to see if the name
+    ///     of the new identity has a record. If the new name has a criminal status or psionics status attached to it, the
+    ///     person will get the criminal status and/or psionics status until they change identity again.
     /// </summary>
-    private void SetIdentityCriminalIcon(EntityUid uid)
+    private void SetIdentityRecordsIcon(EntityUid uid)
     {
         _criminalRecordsConsole.CheckNewIdentity(uid);
+        _psionicsRecordsConsole.CheckNewIdentity(uid);
     }
 
     /// <summary>

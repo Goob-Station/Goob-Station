@@ -11,3 +11,5 @@ offer-item-give-target = {$user} передав вам {THE($item)}
 
 offer-item-no-give = Ви припиняєте пропонувати {THE($item)} до {$target}
 offer-item-no-give-target = {$user} більше не пропонує вам {THE($item)}
+
+offer-item-no-one-offering = Вам ніхто нічого не пропонує.

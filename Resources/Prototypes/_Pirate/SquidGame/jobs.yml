@@ -1,0 +1,235 @@
+# ГРАВЕЦЬ SQUID GAME
+- type: job
+  id: SquidGamePlayer
+  name: job-name-squidgame-player
+  description: job-description-squidgame-player
+  playTimeTracker: JobSquidGamePlayer
+  startingGear: SquidGamePlayer
+  icon: "JobIconSquidGamePlayer"
+  supervisors: job-supervisors-squidgame-guards
+  canBeAntag: false
+  joinNotifyCrew: false
+  access:
+  - Maintenance
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+      - Human
+    #- !type:TraitRequirement
+    #  inverted: true
+    #  traits:
+    #    # Позитивні трейти, які дають переваги гравцям
+    #    - WillToLive
+    #    - Tenacity
+    #    - Vigor
+    #    - HighAdrenaline
+    #    - Masochism
+    #    - Steadfast
+    #    - MartialArtist
+    #    - TemperatureTolerance
+    #    - Talons
+    #    - Claws
+    #    - StrikingCalluses
+    #    - Spinarette
+    #    - BionicArm
+    #    - BionicPryArm
+    #    - PlateletFactories
+    #    - DermalArmor
+    #    - CyberEyes
+    #    - CyberEyesSecurity
+    #    - CyberEyesMedical
+    #    - CyberEyesDiagnostic
+    #    - CyberEyesOmni
+    #    - RestrictedGear
+    #    - LightAmplification
+    #    - ThermographicVision
+    #    - NaniteAutoRepairBots
+    #    - SecurityEyesModule
+    #    - MedicalEyesModule
+    #    - DiagnosticEyesModule
+    #    - OmniEyesModule
+    #    - LightAmplificationModule
+    #    - ThermographicVisionModule
+    #    - Bodybuilder
+    #    - ParkourTraining
+    #    - CPRTraining
+    #    - SelfAware
+    #    - TrapAvoider
+    #    - LatentPsychic
+    #    - PsionicInsulation
+    #    - PsychoHistorian
+    #    - Thieving
+    #    - Voracious
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MindShield
+    - type: AntagImmune
+
+# ОХОРОНЕЦЬ КОЛО
+- type: job
+  id: SquidGameGuardCircle
+  name: job-name-squidgame-guard-circle
+  description: job-description-squidgame-guard-circle
+  playTimeTracker: JobSquidGameGuardCircle
+  startingGear: SquidGameCircle
+  icon: "JobIconSquidGameGuardCircle"
+  supervisors: job-supervisors-squidgame-triangle
+  canBeAntag: false
+  joinNotifyCrew: false
+  access:
+  - Security
+  - Maintenance
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+      - Human
+    #- !type:TraitRequirement
+    #  inverted: true
+    #  traits:
+    #    # Трейти, які заважають охороні виконувати роль
+    #    - Pacifist
+    #    - Blindness
+    #    - Muted
+    #    - BrittleBoneDisease
+    #    - Clumsy
+    #    - Narcolepsy
+    #    - Feeble
+    #    - LowPainTolerance
+    #    - Foreigner
+    #    - ForeignerLight
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MindShield
+    - type: AntagImmune
+    - type: Tag
+      tags:
+      - SquidGameGuard
+
+# ОХОРОНЕЦЬ ТРИКУТНИК
+- type: job
+  id: SquidGameGuardTriangle
+  name: job-name-squidgame-guard-triangle
+  description: job-description-squidgame-guard-triangle
+  playTimeTracker: JobSquidGameGuardTriangle
+  startingGear: SquidGameTriangle
+  icon: "JobIconSquidGameGuardTriangle"
+  supervisors: job-supervisors-squidgame-square
+  canBeAntag: false
+  joinNotifyCrew: false
+  access:
+  - Security
+  - Maintenance
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+      - Human
+    #- !type:TraitRequirement
+    #  inverted: true
+    #  traits:
+    #    # Трейти, які заважають охороні виконувати роль
+    #    - Pacifist
+    #    - Blindness
+    #    - Muted
+    #    - BrittleBoneDisease
+    #    - Clumsy
+    #    - Narcolepsy
+    #    - Feeble
+    #    - LowPainTolerance
+    #    - Foreigner
+    #    - ForeignerLight
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MindShield
+    - type: AntagImmune
+    - type: Tag
+      tags:
+      - SquidGameGuard
+
+# ОХОРОНЕЦЬ КВАДРАТ
+- type: job
+  id: SquidGameGuardSquare
+  name: job-name-squidgame-guard-square
+  description: job-description-squidgame-guard-square
+  playTimeTracker: JobSquidGameGuardSquare
+  startingGear: SquidGameSquare
+  icon: "JobIconSquidGameGuardSquare"
+  supervisors: job-supervisors-squidgame-uwu
+  canBeAntag: false
+  requireAdminNotify: true
+  joinNotifyCrew: false
+  access:
+  - Security
+  - Command
+  - Maintenance
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+      - Human
+    #- !type:TraitRequirement
+    #  inverted: true
+    #  traits:
+    #    # Трейти, які заважають охороні виконувати роль
+    #    - Pacifist
+    #    - Blindness
+    #    - Muted
+    #    - BrittleBoneDisease
+    #    - Clumsy
+    #    - Narcolepsy
+    #    - Feeble
+    #    - LowPainTolerance
+    #    - Foreigner
+    #    - ForeignerLight
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MindShield
+    - type: AntagImmune
+    - type: Tag
+      tags:
+      - SquidGameGuard
+
+# UWU ОХОРОНЕЦЬ (ФРОНТМЕН)
+- type: job
+  id: SquidGameGuardUwU
+  name: job-name-squidgame-guard-uwu
+  description: job-description-squidgame-guard-uwu
+  playTimeTracker: JobSquidGameGuardUwU
+  startingGear: SquidGameUwU
+  icon: "JobIconSquidGameGuardUwU"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  requireAdminNotify: true
+  joinNotifyCrew: false
+  weight: 20
+  accessGroups:
+  - AllAccess
+  requirements:
+    - !type:SpeciesRequirement
+      species:
+      - Human
+    #- !type:TraitRequirement
+    #  inverted: true
+    #  traits:
+    #    # Трейти, які заважають охороні виконувати роль
+    #    - Pacifist
+    #    - Blindness
+    #    - Muted
+    #    - BrittleBoneDisease
+    #    - Clumsy
+    #    - Narcolepsy
+    #    - Feeble
+    #    - LowPainTolerance
+    #    - Foreigner
+    #    - ForeignerLight
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MindShield
+    - type: AntagImmune
+    - type: CommandStaff
+    - type: Tag
+      tags:
+      - SquidGameGuard

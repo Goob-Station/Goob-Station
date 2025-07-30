@@ -1,0 +1,14 @@
+- type: playTimeTracker
+  id: JobSquidGamePlayer
+
+- type: playTimeTracker
+  id: JobSquidGameGuardCircle
+
+- type: playTimeTracker
+  id: JobSquidGameGuardTriangle
+
+- type: playTimeTracker
+  id: JobSquidGameGuardSquare
+
+- type: playTimeTracker
+  id: JobSquidGameGuardUwU

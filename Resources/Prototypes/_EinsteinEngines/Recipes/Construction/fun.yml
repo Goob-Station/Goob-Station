@@ -1,0 +1,9 @@
+- type: construction
+  name: ouisiana-dust-name
+  id:  FoodOusianaDustBowl
+  graph: OusianaDustBowl
+  startNode: start
+  targetNode: ousianadustbowl
+  category: construction-category-misc
+  description: ouisiana-dust-description
+  objectType: Item

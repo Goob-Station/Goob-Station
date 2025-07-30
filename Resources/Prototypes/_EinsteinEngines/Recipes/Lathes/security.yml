@@ -1,0 +1,61 @@
+- type: latheRecipe
+  id: ClothingHeadCage
+  icon:
+    sprite: _EinsteinEngines/Clothing/Head/Hats/cage.rsi
+    state: icon
+  result: ClothingHeadCage
+  completetime: 4
+  materials:
+    Steel: 400
+    BSCrystal: 20
+
+- type: latheRecipe
+  id: ClothingHeadHelmetInsulated
+  result: ClothingHeadHelmetInsulated
+  completetime: 4
+  materials:
+    Steel: 400
+    BSCrystal: 20
+
+- type: latheRecipe
+  id: MagazineBoxPistolMindbreaker
+  result: MagazineBoxPistolMindbreaker
+  completetime: 5
+  materials:
+    Plastic: 1250
+    Steel: 75
+    BSCrystal: 75
+
+- type: latheRecipe
+  id: MagazinePistolMindbreaker
+  result: MagazinePistolMindbreaker
+  completetime: 4
+  materials:
+    Steel: 400
+    BSCrystal: 20
+
+- type: latheRecipe
+  id: ShellSoulbreaker
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    state: practice
+  result: ShellSoulbreaker
+  completetime: 4
+  materials:
+    Plastic: 15
+    Steel: 10
+    BSCrystal: 10
+    Glass: 5
+
+- type: latheRecipe
+  id: BoxShellSoulbreaker
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    state: practice
+  result: BoxShellSoulbreaker
+  completetime: 4
+  materials:
+    Plastic: 450
+    Steel: 300
+    BSCrystal: 100
+    Glass: 50

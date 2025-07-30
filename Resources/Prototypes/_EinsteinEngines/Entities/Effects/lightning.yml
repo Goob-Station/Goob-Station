@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseLightning
+  id: LightningNoospheric
+  name: noospheric lightning
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Electrified
+    enabled: false
+  - type: Lightning
+    canArc: false

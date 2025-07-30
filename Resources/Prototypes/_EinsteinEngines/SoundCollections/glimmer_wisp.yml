@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: MagicMissile
+  files:
+  - /Audio/_EinsteinEngines/Effects/magic_missile_1.ogg
+  - /Audio/_EinsteinEngines/Effects/magic_missile_2.ogg
+  - /Audio/_EinsteinEngines/Effects/magic_missile_3.ogg

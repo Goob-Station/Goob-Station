@@ -1,0 +1,26 @@
+- type: entity
+  id: BulletPistolMindbreaker
+  name: bullet (.38 special mindbreaker)
+  parent: BulletPistolPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 5
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 5
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+

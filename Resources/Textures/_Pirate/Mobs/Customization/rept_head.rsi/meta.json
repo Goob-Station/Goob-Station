@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Vareniko/Vadimilian discord",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "head_flattened",
+      "directions": 4
+    },
+    {
+      "name": "head_flattened_2",
+      "directions": 4
+    },
+    {
+      "name": "head_flattened_3",
+      "directions": 4
+    },
+    {
+      "name": "head_base",
+      "directions": 4
+    },
+    {
+      "name": "head_base_1",
+      "directions": 4
+    }
+  ]
+}

@@ -11,3 +11,45 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_EinsteinEngines/Effects/Shadowkin/shadeskip.ogg
+
+- type: entity
+  id: EffectFlashShadeskip
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 5
+    energy: 3.5
+    color: "#7100bd"
+  - type: TimedDespawn
+    lifetime: 12
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_EinsteinEngines/Psionics/shadeskip_power.ogg
+
+- type: entity
+  id: EffectFlashShadowkinDarkSwapOn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 5
+    energy: 3.5
+    color: "#7100bd"
+  - type: TimedDespawn
+    lifetime: 3
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Shadowkin/darkswapon.ogg
+
+- type: entity
+  id: EffectFlashShadowkinDarkSwapOff
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 5
+    energy: 3.5
+    color: "#7100bd"
+  - type: TimedDespawn
+    lifetime: 3
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Shadowkin/darkswapoff.ogg

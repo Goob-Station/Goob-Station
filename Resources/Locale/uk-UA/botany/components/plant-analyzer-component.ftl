@@ -103,3 +103,7 @@ plant-analyzer-printout = [color=#9FED58][head=2]Звіт аналізатора
     }{$nl
     }[bullet/] Хімікати: [color=gray][bold]{$chemicals}[/bold][/color]{$nl
     }[bullet/] Викиди: [bold]{$gasesOut}[/bold]
+
+plant-analyzer-component-environemt = Цьому [color=green]{$seedName}[/color] потрібна атмосфера з тиском [color=lightblue]{$kpa}кПа ± {$kpaTolerance}кПа[/color], температурою [color=lightsalmon]{$temp}°k ± {$tempTolerance}°k[/color] та рівнем освітлення [color=white]{$lightLevel} ± {$lightTolerance}[/color].
+plant-analyzer-component-environemt-void = Це [color=green]{$seedName}[/color] має вирощуватися [bolditalic]у вакуумі космосу[/bolditalic] при рівні освітлення [color=white]{$lightLevel} ± {$lightTolerance}[/color].
+plant-analyzer-component-environemt-gas = Цьому [color=green]{$seedName}[/color] потрібна атмосфера, що містить [bold]{$gases}[/bold], з тиском [color=lightblue]{$kpa}кПа ± {$kpaTolerance}кПа[/color], температурою [color=lightsalmon]{$temp}°k ± {$tempTolerance}°k[/color] та рівнем освітлення [color=white]{$lightLevel} ± {$lightTolerance}[/color].
