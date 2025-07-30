@@ -60,35 +60,6 @@ public sealed partial class ChannelFilterPopup : Popup
     public ChannelFilterPopup()
     {
         RobustXamlLoader.Load(this);
-
-    // Goobstation highlights - start
-
-        HighlightButton.OnPressed += HighlightsEntered;
-        // Add a placeholder text to the highlights TextEdit.
-        HighlightEdit.Placeholder = new Rope.Leaf(Loc.GetString("hud-chatbox-highlights-placeholder"));
-
-        // Load highlights if any were saved.
-        var cfg = IoCManager.Resolve<IConfigurationManager>();
-        string highlights = cfg.GetCVar(GoobCVars.ChatHighlights);
-
-        if (!string.IsNullOrEmpty(highlights))
-        {
-            UpdateHighlights(highlights);
-        }
-    }
-    public event Action<string>? OnNewHighlights;
-
-    public void UpdateHighlights(string highlights)
-    {
-        HighlightEdit.TextRope = new Rope.Leaf(highlights);
-    }
-
-    private void HighlightsEntered(ButtonEventArgs _args)
-    {
-        OnNewHighlights?.Invoke(Rope.Collapse(HighlightEdit.TextRope));
-
-    // Goobstation highlights - end
-
     }
 
     public bool IsActive(ChatChannel channel)
