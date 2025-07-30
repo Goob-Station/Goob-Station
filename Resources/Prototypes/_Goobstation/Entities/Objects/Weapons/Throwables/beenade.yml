@@ -35,12 +35,3 @@
     containers:
       cluster-payload: !type:Container
 
-- type: entity
-  parent: [BeeGrenade]
-  id: BeeGrenadeActivated
-  components:
-  - type: ActiveTimerTrigger
-    timeRemaining: 2
-  - type: ScatteringGrenade
-    fillPrototype: MobSyndieAngryBee
-    capacity: 4 # 20% less bees to prevent spamming
