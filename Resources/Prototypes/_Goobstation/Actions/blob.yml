@@ -6,6 +6,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionCreateBlobFactory
   name: blob-create-factory-action-name
   description: blob-create-factory-action-desc
@@ -24,6 +25,7 @@
       tileType: Factory
 
 - type: entity
+  parent: BaseAction
   id: ActionCreateBlobResource
   name: blob-create-resource-action-name
   description: blob-create-resource-action-desc
@@ -42,6 +44,7 @@
       tileType: Resource
 
 - type: entity
+  parent: BaseAction
   id: ActionCreateBlobNode
   name: blob-create-node-action-name
   description: blob-create-node-action-desc
@@ -60,6 +63,7 @@
       tileType: Node
 
 - type: entity
+  parent: BaseAction
   id: ActionCreateBlobbernaut
   name: blob-produce-blobbernaut-action-name
   description: blob-produce-blobbernaut-action-desc
@@ -76,6 +80,7 @@
     event: !type:BlobCreateBlobbernautActionEvent    
 
 - type: entity
+  parent: BaseAction
   id: ActionSplitBlobCore
   name: blob-split-core-action-name
   description: blob-split-core-action-desc
@@ -92,6 +97,7 @@
     event: !type:BlobSplitCoreActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionSwapBlobCore
   name: blob-swap-core-action-name
   description: blob-swap-core-action-desc
@@ -108,6 +114,7 @@
     event: !type:BlobSwapCoreActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionTeleportBlobToCore
   name: blob-teleport-to-core-action-name
   description: blob-teleport-to-core-action-desc
@@ -122,6 +129,7 @@
     event: !type:BlobToCoreActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionSwapBlobChem
   name: blob-swap-chem-action-name
   description: blob-swap-chem-action-desc
@@ -135,6 +143,7 @@
     event: !type:BlobSwapChemActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionTransformToBlob
   name: blob-carrier-transform-to-blob-action-name
   description: blob-carrier-transform-to-blob-action-desc
@@ -147,6 +156,7 @@
     event: !type:TransformToBlobActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionDowngradeBlob
   name: blob-downgrade-action-name
   description: blob-downgrade-action-desc

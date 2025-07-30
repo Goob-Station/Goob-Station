@@ -408,8 +408,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         if (TryComp(ev.Entity, out TransformComponent? xform))
             targetMap = TransformSystem.GetMapCoordinates(ev.Entity.Value, xform);
-        else
-            return;
 
         var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 
