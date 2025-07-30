@@ -210,7 +210,8 @@ public sealed partial class WizardMirrorWindow : DefaultWindow
             if (Profile is null)
                 return;
 
-            var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, Profile.Species)
+            var ckey = Robust.Shared.IoC.IoCManager.Resolve<Robust.Client.Player.IPlayerManager>().LocalSession?.Name; // Pirate ckey for restricted players
+            var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, Profile.Species, ckey) // Pirate ckey for restricted players
                 .Keys
                 .FirstOrDefault();
 
@@ -233,7 +234,8 @@ public sealed partial class WizardMirrorWindow : DefaultWindow
             if (Profile is null)
                 return;
 
-            var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.FacialHair, Profile.Species)
+            var ckey = Robust.Shared.IoC.IoCManager.Resolve<Robust.Client.Player.IPlayerManager>().LocalSession?.Name; // Pirate ckey for restricted players
+            var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.FacialHair, Profile.Species, ckey) // Pirate ckey for restricted players
                 .Keys
                 .FirstOrDefault();
 

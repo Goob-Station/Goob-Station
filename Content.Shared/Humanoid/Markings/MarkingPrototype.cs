@@ -43,6 +43,11 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("followSkinColor")]
         public bool FollowSkinColor { get; private set; } = false;
 
+        //Pirate changes start
+        [DataField("playerRestriction")]
+        public List<string>? PlayerRestrictions { get; private set; }
+        //Pirate changes end
+
         [DataField("forcedColoring")]
         public bool ForcedColoring { get; private set; } = false;
 

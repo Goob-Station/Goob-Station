@@ -9,7 +9,8 @@
 - type: customGhost
   id: amata-ghost
   ckey: amatadorro
-  sprite: _Pirate/Ghosts/amata.rsi
+  sprite:
+    - _Pirate/Ghosts/amata.rsi
   alpha: 1
   ghostName: A.
   ghostDescription: хоч бан?
@@ -17,7 +18,8 @@
 - type: customGhost
   id: asik-ghost
   ckey: localhost@JoeGenero
-  sprite: _Pirate/Ghosts/asik.rsi
+  sprite:
+    - _Pirate/Ghosts/asik.rsi
   alpha: 1
   ghostName: Asik
   ghostDescription: ААААААА СІК!!! (Лінивий)
@@ -25,7 +27,8 @@
 - type: customGhost
   id: kit-ghost
   ckey: NegatyvnyiKit
-  sprite: _Pirate/Ghosts/kit.rsi
+  sprite:
+    - _Pirate/Ghosts/kit.rsi
   alpha: 1
   ghostName: Negatyvnyi Kit
   ghostDescription: Штучний Інтелект К.І.Т., розроблений найкращими роботехніками НаноТрейзен задля забезпечення порядку на станції та для допомоги екіпажу. Ненавидить мишей всією своєю позитронною душею.
@@ -33,7 +36,8 @@
 - type: customGhost
   id: v0id-ghost
   ckey: v0id_
-  sprite: _Pirate/Ghosts/v0id_.rsi
+  sprite:
+    - _Pirate/Ghosts/v0id_.rsi
   alpha: 1
   ghostName: vØid
   ghostDescription: тут може бути ваша реклама
@@ -41,7 +45,8 @@
 - type: customGhost
   id: kraftorset-ghost
   ckey: kraftorset
-  sprite: _Pirate/Ghosts/kraftorset.rsi
+  sprite:
+    - _Pirate/Ghosts/kraftorset.rsi
   alpha: 1
   ghostName: kraftorset
   ghostDescription: Схоже це створіння пізнало весь світ прийнявши... Текст під ним ймовірно вказує його ім'я... kraftorset? А це той самий \#крафторсет_руїна
@@ -49,7 +54,8 @@
 - type: customGhost
   id: sadnezzz-ghost
   ckey: Sadnezzz
-  sprite: _Pirate/Ghosts/sadnezzz.rsi
+  sprite:
+    - _Pirate/Ghosts/sadnezzz.rsi
   alpha: 1
   ghostName: Sadnezzz
   ghostDescription: OMG IT'S REI PLUSH You spin me right 'round, baby, right 'round Like a record, baby, right 'round, 'round, 'round
@@ -57,7 +63,8 @@
 - type: customGhost
   id: astrally-ghost
   ckey: Astrally
-  sprite: _Pirate/Ghosts/astrally.rsi
+  sprite:
+    - _Pirate/Ghosts/astrally.rsi
   alpha: 1
   ghostName: Astrally
   ghostDescription: Шляпа
@@ -65,7 +72,8 @@
 - type: customGhost
   id: bunkeran-ghost
   ckey: bunkeran
-  sprite: _Pirate/Ghosts/bunkeran.rsi
+  sprite:
+    - _Pirate/Ghosts/bunkeran.rsi
   alpha: 1
   ghostName: ipc bunkeran
   ghostDescription: ghost ipc... boo?
@@ -73,7 +81,8 @@
 - type: customGhost
   id: mushroom_Fox-ghost
   ckey: mushroom_Fox
-  sprite: _Pirate/Ghosts/mushroom_Fox.rsi
+  sprite:
+    - _Pirate/Ghosts/mushroom_Fox.rsi
   alpha: 1
   ghostName: mushroom_Fox
   ghostDescription: Ви бачите щось миле мале і голодне, воно вимагає у вас їсти! Сквік Сквік! * звуки жування огурчика *
@@ -82,7 +91,8 @@
 - type: customGhost
   id: Omak-ghost
   ckey: Omak
-  sprite: _Pirate/Ghosts/Omak.rsi
+  sprite:
+    - _Pirate/Ghosts/Omak.rsi
   alpha: 1
   ghostName: Omak
   ghostDescription: Він виглядає як ворожий стенд
@@ -90,7 +100,8 @@
 - type: customGhost
   id: Takara-ghost
   ckey: Takara
-  sprite: _Pirate/Ghosts/Takara.rsi
+  sprite:
+    - _Pirate/Ghosts/Takara.rsi
   alpha: 1
   ghostName: Takara
   ghostDescription: Піка піка чу
@@ -98,7 +109,8 @@
 - type: customGhost
   id: qazmlp-ghost
   ckey: qazmlp
-  sprite: _Pirate/Ghosts/qazmlp.rsi
+  sprite:
+    - _Pirate/Ghosts/qazmlp.rsi
   alpha: 1
   ghostName: qazmlp
   ghostDescription: Кваз
@@ -106,7 +118,8 @@
 - type: customGhost
   id: 75-ghost
   ckey: 757575
-  sprite: _Pirate/Ghosts/757575.rsi
+  sprite:
+    - _Pirate/Ghosts/757575.rsi
   alpha: 1
   ghostName: 757575
   ghostDescription: >-
@@ -117,7 +130,8 @@
 - type: customGhost
   id: Mister_Diavolo-ghost
   ckey: Mister_Diavolo
-  sprite: _Pirate/Ghosts/mister_diavolo.rsi
+  sprite:
+    - _Pirate/Ghosts/mister_diavolo.rsi
   alpha: 1
   ghostName: Mister_Diavolo
   ghostDescription: >-
@@ -126,7 +140,8 @@
 - type: customGhost
   id: JoeTedyu-ghost
   ckey: JoeTedyu
-  sprite: _Pirate/Ghosts/JoeTedyu.rsi
+  sprite:
+    - _Pirate/Ghosts/JoeTedyu.rsi
   alpha: 1
   ghostName: JoeTedyu
   ghostDescription: >-
@@ -135,7 +150,8 @@
 - type: customGhost
   id: Sh1Nima-ghost
   ckey: Sh1Nima
-  sprite: _Pirate/Ghosts/Sh1Nima.rsi
+  sprite:
+    - _Pirate/Ghosts/Sh1Nima.rsi
   alpha: 1
   ghostName: Sh1Nima
   ghostDescription: >-
@@ -144,7 +160,8 @@
 - type: customGhost
   id: Alonne427-ghost
   ckey: Alonne427
-  sprite: _Pirate/Ghosts/Alonne.rsi
+  sprite:
+    - _Pirate/Ghosts/Alonne.rsi
   alpha: 1
   ghostName: Alonne427
   ghostDescription: мяу
@@ -152,7 +169,8 @@
 - type: customGhost
   id: Nupenk-ghost
   ckey: Nupenk
-  sprite: _Pirate/Ghosts/Nupenk.rsi
+  sprite:
+    - _Pirate/Ghosts/Nupenk.rsi
   alpha: 1
   ghostName: Nupenk
   ghostDescription: I am done, with you and with your son, no more fucking games!
@@ -160,7 +178,8 @@
 - type: customGhost
   id: Carry_ua-ghost
   ckey: Carry_ua
-  sprite: _Pirate/Ghosts/Carry_ua.rsi
+  sprite:
+    - _Pirate/Ghosts/Carry_ua.rsi
   alpha: 1
   ghostName: Carry_ua
   ghostDescription: UwU -><-
@@ -168,7 +187,26 @@
 - type: customGhost
   id: lemax-ghost
   ckey: lemax
-  sprite: _Pirate/Ghosts/lemax.rsi
+  sprite:
+    - _Pirate/Ghosts/lemax.rsi
   alpha: 1
   ghostName: lemax
   ghostDescription: Вибухова ляля
+
+- type: customGhost
+  id: JustDecorghost
+  ckey: JustDecor
+  sprite:
+    - Structures/Decoration/banner.rsi
+    - Structures/Decoration/bonfire.rsi
+    - Structures/Decoration/cobweb.rsi
+    - Structures/Decoration/crystal.rsi
+    - Structures/Decoration/decorated_fir_tree.rsi
+    - Structures/Decoration/fireplace.rsi
+    - Structures/Decoration/flesh_decoration.rsi
+    - Structures/Decoration/mannequin.rsi
+    - Structures/Decoration/showcase.rsi
+    - Structures/Decoration/statues.rsi
+  alpha: 1
+  ghostName: "Просто Декорація"
+  ghostDescription: "Усі люди наділені талантами, а я просто декорація"
