@@ -8,9 +8,10 @@
 
 using Content.Server.Speech.EntitySystems;
 
-namespace Content.Server.Speech.Components;
+namespace Content.Goobstation.Server.Speech;
 
 [RegisterComponent]
 [Access(typeof(CheeseAccentSystem))]
+public sealed partial class CheeseAccentComponent : Component;
 public sealed partial class CheeseAccentComponent : Component
 { }
