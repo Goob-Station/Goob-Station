@@ -262,7 +262,6 @@
 - type: entity
   parent: [ClothingHeadHatPropeller, ClothingHeadHeadHatBaseFlipped]
   id: ClothingHeadHatPropellerFlipped
-  name: propeller hat
   components:
   - type: Tag
     tags:
