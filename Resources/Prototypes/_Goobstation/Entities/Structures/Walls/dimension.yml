@@ -7,7 +7,7 @@
 - type: entity
   parent: BaseStructure
   id: WallDimension
-  name: dimension wall
+  name: "габаритна стіна"
   placement:
     mode: SnapgridCenter
     snap:

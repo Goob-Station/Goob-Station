@@ -28,8 +28,8 @@
 
 - type: job
   id: BlueshieldOfficer
-  name: Blueshield Officer
-  description: "Act as a bodyguard and advisor for Command and CentCom VIPs."
+  name: "Офіцер Блакитного Щита"
+  description: "Виступати в ролі охоронця та радника для VIP-персон командування та Центрального командування."
   playTimeTracker: JobBlueshieldOfficer
   requirements:
     - !type:DepartmentTimeRequirement

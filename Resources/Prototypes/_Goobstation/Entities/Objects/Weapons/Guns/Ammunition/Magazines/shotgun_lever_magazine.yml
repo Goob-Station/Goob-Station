@@ -14,7 +14,7 @@
 # Empty mags
 - type: entity
   id: BaseMagazineShotgunLeverRifle
-  name: "magazine (8 Gauge)"
+  name: "магазин (8 калібр)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -48,7 +48,7 @@
 
 - type: entity
   id: MagazineShotgunLeverRifle
-  name: "lever rifle magazine (8 Gauge)"
+  name: "магазин для важільної гвинтівки (8 калібр)"
   parent: BaseMagazineShotgunLeverRifle
   components:
   - type: Tag

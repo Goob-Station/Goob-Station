@@ -1,8 +1,8 @@
 - type: entity
   parent: SciencePDA
   id: ForensicMantisPDA
-  name: mantis PDA
-  description: Smells like illegal substances.
+  name: "кПК мантіса"
+  description: "Пахне забороненими речовинами."
   components:
   - type: Pda
     id: ForensicMantisIDCard

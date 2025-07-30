@@ -720,8 +720,8 @@
 # For the Estoc
 - type: listing
   id: UplinkEstocAmmo
-  name: uplink-estoc-ammo-name
-  description: uplink-estoc-ammo-desc
+  name: "набої .20 для \"Естока"
+  description: "три додаткові магазини гвинтівкових набоїв .20 для вашого \"Естока\""
   productEntity: MagazineRifle
   cost:
     Telecrystal: 5 # goob - on par with c20

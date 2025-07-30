@@ -9,8 +9,8 @@
 - type: entity
   id: CrateFunATV
   parent: CrateLivestock
-  name: ATV crate
-  description: An Absolutely Taxable Vehicle to help cargo with hauling.
+  name: "ящик з квадроциклом"
+  description: "Абсолютно оподатковуваний транспортний засіб, щоб допомогти вантажу з перевезенням."
   components:
   - type: StorageFill
     contents:
@@ -20,8 +20,8 @@
 - type: entity
   id: CrateFunSyndicateSegway
   parent: CrateLivestock
-  name: Syndicate segway crate
-  description: A crate containing a two-wheeler that will help you escape from the security officers. Or not.
+  name: "ящик із сегвеєм Синдикату"
+  description: "Ящик, що містить двоколісний транспорт, який допоможе вам втекти від офіцерів служби безпеки. Або ні."
   components:
     - type: StorageFill
       contents:
@@ -32,7 +32,7 @@
 - type: entity
   id: CrateFunBingleLoot
   parent: CrateBingle
-  name: Bingle loot
+  name: "Трофеї Бінгла"
   components:
   - type: StorageFill
     contents:
@@ -47,7 +47,7 @@
   id: CrateFunBingleAdmeme
   parent: CrateBingle
   suffix: Admeme voice triggered bingle crate
-  name: Bingle
+  name: "Бінгл"
   components:
   - type: SpawnOnTrigger
     proto: MobBingle

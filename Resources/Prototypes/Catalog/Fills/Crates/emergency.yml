@@ -25,8 +25,8 @@
 - type: entity
   id: CrateEmergencyExplosive
   parent: CrateSecgear
-  name: bomb suit crate
-  description: Science gone bonkers? Beeping behind the airlock? Buy now and be the hero the station des... I mean needs! (time not included)
+  name: "ящик з бомбозахисним костюмом"
+  description: "Науковий відділ збожеволів? Щось біпає за шлюзом? Купуйте зараз і станьте героєм, який був потрібний станції... Тобто, треба зараз! (час не включено)"
   components:
   - type: StorageFill
     contents:
@@ -40,8 +40,8 @@
 - type: entity
   id: CrateEmergencyFire
   parent: CrateGenericSteel
-  name: firefighting crate
-  description: Only you can prevent station fires. Partner up with two firefighter suits, gas masks, flashlights, large oxygen tanks, extinguishers, and hardhats!
+  name: "ящик пожежника"
+  description: "Тільки ви можете запобігти пожежі на станції. Візьміть з собою два костюми пожежника, протигази, ліхтарики, великі кисневі балони, вогнегасники та каски!"
   components:
   - type: StorageFill
     contents:
@@ -61,8 +61,8 @@
 - type: entity
   id: CrateEmergencyInternals
   parent: CrateInternals
-  name: internals crate
-  description: Master your life energy and control your breathing with 3 breath masks, emergency suits and large air tanks.
+  name: "ящик з дихальними апаратами"
+  description: "Опануйте свою життєву енергію та контролюйте дихання за допомогою 3 дихальних масок, аварійних костюмів та великих повітряних балонів."
   components:
   - type: StorageFill
     contents:
@@ -80,8 +80,8 @@
 - type: entity
   id: CrateEmergencyInternalsLarge
   parent: CrateInternals
-  name: internals crate (large)
-  description: Master your life energy and control your breathing with 6 breath masks, emergency suits and large air tanks.
+  name: "ящик з дихальними апаратами (великий)"
+  description: "Опануйте свою життєву енергію та контролюйте дихання за допомогою 6 дихальних масок, аварійних костюмів та великих повітряних балонів."
   components:
     - type: StorageFill
       contents:
@@ -99,8 +99,8 @@
 - type: entity
   id: CrateNitrogenInternals
   parent: CrateInternals
-  name: internals crate (nitrogen)
-  description: Contains four breath masks and four large nitrogen tanks. Intended for Slimepeople and Vox.
+  name: "ящик з азотними балонами"
+  description: "Містить чотири дихальні маски та чотири великі азотні балони. Призначено для Слаймолюдей та Воксів."
   components:
   - type: StorageFill
     contents:
@@ -114,8 +114,8 @@
 - type: entity
   id: CrateEmergencyRadiation
   parent: CrateRadiation
-  name: radiation protection crate
-  description: Survive the Nuclear Apocalypse and Supermatter Engine alike with two sets of Radiation suits. Each set contains a helmet, suit, and Geiger counter. We'll even throw in a bottle of vodka and some glasses too, considering the life-expectancy of people who order this.
+  name: "ящик з захистом від радіації"
+  description: "Переживіть ядерний апокаліпсис і коллапс надматерії з двома комплектами костюмів захисту від радіації. Кожен комплект містить шолом, костюм та лічильник Гейгера. Ми навіть докинемо пляшку горілки та кілька склянок, враховуючи тривалість життя людей, які замовляють це."
   components:
   - type: StorageFill
     contents:
@@ -130,8 +130,8 @@
 - type: entity
   id: CrateEmergencyInflatablewall
   parent: CratePlastic
-  name: inflatable wall crate
-  description: Three stacks of inflatable walls for when the stations metal walls don't want to hold atmosphere anymore.
+  name: "ящик надувних стін"
+  description: "Три стоси надувних стін на випадок, якщо металеві стіни станції більше не хочуть утримувати атмосферу."
   components:
   - type: StorageFill
     contents:
@@ -140,8 +140,8 @@
 - type: entity
   id: CrateGenericBiosuit
   parent: CratePlastic
-  name: emergency bio suit crate
-  description: Contains 2 biohazard suits to ensure that no disease will distract you from what you're doing there.
+  name: "ящик з аварійним біокостюмом"
+  description: "Містить 2 костюми біозахисту, щоб гарантувати, що жодна хвороба не відволікатиме вас від того, що ви там робите."
   components:
   - type: StorageFill
     contents:
