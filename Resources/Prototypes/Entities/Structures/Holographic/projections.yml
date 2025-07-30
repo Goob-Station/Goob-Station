@@ -23,8 +23,8 @@
 
 - type: entity
   id: HolosignWetFloor
-  name: "знак мокрої підлоги"
-  description: "Слова мерехтять, ніби нічого не означають."
+  name: wet floor sign
+  description: The words flicker as if they mean nothing.
   placement:
     mode: SnapgridCenter
   components:
@@ -52,8 +52,8 @@
 - type: entity
   id: HoloFan
   parent: BaseHolosign # DeltaV - don't include TimedDespawn
-  name: "голофан"
-  description: "Бар'єр жорсткого світла, який блокує повітря, але не більше."
+  name: holofan
+  description: A barrier of hard light that blocks air, but nothing else.
   components:
   - type: Sprite
     sprite: Structures/Holo/holofan.rsi
@@ -75,8 +75,8 @@
 - type: entity
   id: HolosignSecurity
   parent: HolosignWetFloor
-  name: "голографічний бар'єр"
-  description: "Бар'єр жорсткого світла, який блокує рух, але досить слабкий."
+  name: holographic barrier
+  description: A barrier of hard light that blocks movement, but pretty weak.
   components:
     - type: Physics
       bodyType: Static
@@ -106,8 +106,8 @@
 - type: entity
   id: HolosignForcefield
   parent: HolosignWetFloor
-  name: "голографічне силове поле"
-  description: "Потужне темпоральне стримуюче поле, яке не пропускає нічого, навіть тесла чи сингулярність."
+  name: holographic force field
+  description: A powerful temporal containment field that doesn't let anything through, not even a tesla or singularity.
   components:
   - type: Physics
     bodyType: Static

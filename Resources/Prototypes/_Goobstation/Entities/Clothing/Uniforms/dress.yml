@@ -6,8 +6,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtDressOpenShoulder
-  name: "сукня з відкритими плечима"
-  description: "У цій сукні немає рукавів, лише фасон, достатньо жорстокий, щоб схопити перуки."
+  name: open-shoulder dress
+  description: No sleeves in this dress, only style fierce enough to snatch wigs.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Uniforms/Other/openshoulder_dress.rsi

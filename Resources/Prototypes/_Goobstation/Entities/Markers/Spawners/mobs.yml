@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Спавнер Брулбарів"
+  name: Brullbar Spawner
   id: SpawnMobBrullbar
   parent: MarkerBase
   components:
@@ -18,7 +18,7 @@
     - MobBrullbar
 
 - type: entity
-  name: "Спавнер Короля Брулбарів"
+  name: Brullbar King Spawner
   id: SpawnMobBrullbarKing
   parent: MarkerBase
   components:
@@ -32,7 +32,7 @@
     - MobBrullbarKing
 
 - type: entity
-  name: "Спавнер Ведмедів"
+  name: Bear Spawner
   id: SpawnMobBearGoon
   parent: MarkerBase
   components:
@@ -46,7 +46,7 @@
     - MobBearGoon
 
 - type: entity
-  name: "Спавнер Білих Вовків"
+  name: White Wolf Spawner
   id: SpawnMobWhiteWolf
   parent: MarkerBase
   components:
@@ -60,7 +60,7 @@
     - MobWhiteWolf
 
 - type: entity
-  name: "Спавнер Живих Проклять"
+  name: Living Curse Spawner
   id: SpawnMobLivingCurse
   parent: MarkerBase
   components:

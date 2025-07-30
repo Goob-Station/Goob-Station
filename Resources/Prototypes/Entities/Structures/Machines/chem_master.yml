@@ -50,8 +50,8 @@
 - type: entity
   id: ChemMaster
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: "ХімМастер 4000"
-  description: "Хімічний маніпулятор промислового класу з можливістю виробництва таблеток та пляшок."
+  name: ChemMaster 4000
+  description: An industrial grade chemical manipulator with pill and bottle production included.
   placement:
     mode: SnapgridCenter
   components:
