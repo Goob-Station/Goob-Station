@@ -180,7 +180,9 @@
   - CryostasisBeaker
   - SyringeCryostasis
   # Goobstation R&D Console rework start
-  - BodyBagsDynamic # Corvax-Goob-AdvancedBodyBags-end
+  - NTBodyBag # Corvax-Goob-AdvancedBodyBags-end
+  - PrisonerBodyBag
+  - RadiationBodyBag
   position: 3,5
   technologyPrerequisites:
   - AccessibilityTech
@@ -335,7 +337,7 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
-  - BluespaceBodyBagDynamic # Corvax-Goob-AdvancedBodyBags
+  - BluespaceBodyBag # Corvax-Goob-AdvancedBodyBags
   # Goobstation R&D Console rework start
   position: 2,6
   technologyPrerequisites:
