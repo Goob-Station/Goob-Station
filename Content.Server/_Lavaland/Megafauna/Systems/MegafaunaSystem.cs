@@ -21,21 +21,21 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Administration.Systems;
-using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Megafauna;
 using Content.Shared._Lavaland.Megafauna.Actions;
 using Content.Shared._Lavaland.Megafauna.Components;
 using Content.Shared._Lavaland.Megafauna.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server._Lavaland.Megafauna.Systems;
 
 public sealed class MegafaunaSystem : SharedMegafaunaSystem
 {
-    [Dependency] private readonly AggressorsSystem _aggressors = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly ISerializationManager _serializeMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
@@ -50,46 +50,61 @@ public sealed class MegafaunaSystem : SharedMegafaunaSystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<MegafaunaAiComponent, AggressiveComponent>();
-        while (query.MoveNext(out var uid, out var ai, out var aggressive))
+        var query = EntityQueryEnumerator<MegafaunaAiComponent>();
+        while (query.MoveNext(out var uid, out var ai))
         {
             if (!ai.Active)
                 continue;
 
-            var schedule = new Dictionary<TimeSpan, MegafaunaActionSelector>(ai.ActionSchedule);
-            foreach (var (time, action) in schedule)
+            // TODO MEGAFAUNA actual multi-threading here
+            for (var index = 0; index < ai.Threads.Count; index++)
             {
-                if (time > Timing.CurTime)
+                var (thread, isMain) = ai.Threads[index];
+                float? actionTime = null;
+                var args = new MegafaunaCalculationBaseArgs(uid,
+                    ai,
+                    EntityManager,
+                    _protoMan,
+                    _serializeMan,
+                    _random.GetRandom());
+
+                foreach (var (time, action) in thread)
+                {
+                    if (time > Timing.CurTime)
+                        continue;
+
+                    actionTime = action.Invoke(args);
+                    thread.Remove(time);
+                    break;
+                }
+
+                if (!isMain
+                    || actionTime == null)
                     continue;
 
-                // Pick new target
-                // TODO move this somewhere else
-                ai.PreviousTarget = ai.CurrentTarget;
-                _aggressors.TryPickTarget((uid, aggressive), out ai.CurrentTarget);
-
-                var args = new MegafaunaCalculationBaseArgs(uid, ai, EntityManager, _protoMan, Timing, _random.GetRandom());
-                var delayTime = action.Invoke(args);
-                ai.ActionSchedule.Remove(time);
-
-                if (action.IsDeadEnd is true)
-                    continue;
-
-                // Queue next action
-                delayTime = Math.Clamp(delayTime, ai.MinAttackCooldown, ai.MaxAttackCooldown);
-                AddMegafaunaAction(ai, ai.Selector, delayTime);
+                // Add next action to this thread
+                actionTime = Math.Abs(actionTime.Value);
+                var delayTime = ai.ActionDelaySelector.Get(args);
+                AddActionToThread(ai, index, ai.Selector, actionTime.Value + delayTime);
             }
+
+            // Dispose all empty threads at the end of the tick.
+            ai.Threads.RemoveAll(x => x.Actions.Count == 0);
         }
     }
 
     private void OnMegafaunaStartup(Entity<MegafaunaAiComponent> ent, ref MegafaunaStartupEvent args)
     {
-        var nextAction = Timing.CurTime + TimeSpan.FromSeconds(ent.Comp.StartingCooldown);
-        ent.Comp.ActionSchedule.TryAdd(nextAction, ent.Comp.Selector);
+        var thread = new Dictionary<TimeSpan, MegafaunaActionSelector>();
+        var nextAction = Timing.CurTime + TimeSpan.FromSeconds(ent.Comp.StartingDelay);
+        thread.Add(nextAction, ent.Comp.Selector);
+        ent.Comp.Threads.Add(new MegafaunaActionThread(thread, true));
     }
 
     private void OnMegafaunaShutdown(Entity<MegafaunaAiComponent> ent, ref MegafaunaShutdownEvent args)
     {
-        ent.Comp.ActionSchedule.Clear();
+        ent.Comp.Threads.Clear();
+
         if (ent.Comp.RejuvenateOnShutdown)
             _rejuvenate.PerformRejuvenate(ent);
     }

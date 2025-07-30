@@ -21,6 +21,7 @@
 
 using Content.Shared._Lavaland.Megafauna.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Megafauna;
@@ -48,5 +49,5 @@ public record struct MegafaunaCalculationBaseArgs(
     MegafaunaAiComponent AiComponent,
     IEntityManager EntityManager,
     IPrototypeManager PrototypeMan,
-    IGameTiming Timing,
+    ISerializationManager SerialMan,
     System.Random Random);

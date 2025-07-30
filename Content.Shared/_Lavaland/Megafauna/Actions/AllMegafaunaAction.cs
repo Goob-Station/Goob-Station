@@ -1,4 +1,6 @@
-﻿namespace Content.Shared._Lavaland.Megafauna.Actions;
+﻿using System.Linq;
+
+namespace Content.Shared._Lavaland.Megafauna.Actions;
 
 /// <summary>
 /// Invokes all children attacks at once.
@@ -11,7 +13,9 @@ public sealed partial class AllMegafaunaAction : MegafaunaActionSelector
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
         var maxDelay = FailDelay;
-        foreach (var child in Children)
+        var sortedChildren = Children.OrderBy(m => m.Priority).ToList();
+
+        foreach (var child in sortedChildren)
         {
             child.CopyFrom(this);
             var delay = child.Invoke(args);

@@ -10,6 +10,12 @@ namespace Content.Shared._Lavaland.Megafauna.NumberSelectors;
 [ImplicitDataDefinitionForInheritors, UsedImplicitly(ImplicitUseTargetFlags.WithInheritors)]
 public abstract partial class MegafaunaNumberSelector
 {
+    /// <summary>
+    /// Input that is used in some number selectors to modify it and return a result.
+    /// </summary>
+    [DataField]
+    public float Value;
+
     [DataField]
     public MidpointRounding Rounding = MidpointRounding.ToEven;
 

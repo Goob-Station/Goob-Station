@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Robust.Shared.Random;
 
-// ReSharper disable EnforceForStatementBraces
 namespace Content.Shared._Lavaland.Tile;
 
 /// <summary>
@@ -19,7 +19,7 @@ public static class TileHelperMethods
     /// Draws a simple line in a specified direction, adding Step vector Range
     /// times, starting from the center and returning the result.
     /// </summary>
-    public static List<Vector2i> MakeLine(Vector2i center, int range, Vector2i step)
+    public static IEnumerable<Vector2i> MakeLine(Vector2i center, int range, Vector2i step)
     {
         var refs = new List<Vector2i> { center };
 
@@ -36,58 +36,106 @@ public static class TileHelperMethods
         return refs;
     }
 
-    public static List<Vector2i> MakeBox(Vector2i center, int range, bool hollow)
+    public static IEnumerable<Vector2i> MakeBox(Vector2i center, int range, bool hollow)
     {
         return hollow ? MakeBoxHollow(center, range) : MakeBoxFilled(center, range);
     }
 
-    public static List<Vector2i> MakeBoxFilled(Vector2i center, int range)
+    public static IEnumerable<Vector2i> MakeBoxFilled(Vector2i center, int range)
     {
-        var refs = new List<Vector2i>();
-        var bottomLeft = center + new Vector2i(-range, -range);
+        if (range <= 0)
+            yield break;
+
+        if (range == 1)
+        {
+            yield return center;
+            yield break;
+        }
+
+        var startPoint = center - new Vector2i(range / 2, range / 2);
 
         for (int y = 0; y < range; y++)
         {
             for (int x = 0; x < range; x++)
             {
-                refs.Add(bottomLeft + new Vector2i(x, y));
+                yield return startPoint + new Vector2i(x, y);
             }
         }
-
-        return refs;
     }
 
-    public static List<Vector2i> MakeBoxHollow(Vector2i center, int range)
+    public static IEnumerable<Vector2i> MakeBoxHollow(Vector2i center, int range)
     {
-        var boxTiles = new List<Vector2i>();
-        var length = range * 2;
+        if (range <= 0)
+            yield break;
 
-        // Calculate the starting position (top-left corner) of the box
-        var startX = (int) Math.Round(center.X - (length - 1) / 2.0);
-        var startY = (int) Math.Round(center.Y - (length - 1) / 2.0);
+        if (range == 1)
+        {
+            yield return center;
+            yield break;
+        }
 
-        // Top side
-        for (var x = 0; x < length; x++)
-            boxTiles.Add(new Vector2i(startX + x, startY));
-        // Right side
-        for (var y = 1; y < length - 1; y++)
-            boxTiles.Add(new Vector2i(startX + length - 1, startY + y));
-        // Bottom side
-        for (var x = length - 1; x >= 0; x--)
-            boxTiles.Add(new Vector2i(startX + x, startY + length - 1));
+        var startPoint = center - new Vector2i(range / 2, range / 2);
+
         // Left side
-        for (var y = length - 2; y > 0; y--)
-            boxTiles.Add(new Vector2i(startX, startY + y));
+        for (int i = 0; i < range - 1; i++)
+        {
+            yield return startPoint + Vector2i.Up * i;
+        }
+        // Top side
+        for (int i = 0; i < range - 1; i++)
+        {
+            yield return startPoint + Vector2i.Right * i;
+        }
+        // Right side
+        for (int i = 0; i < range - 1; i++)
+        {
+            yield return startPoint + Vector2i.Down * i;
+        }
+        // Bottom side
+        for (int i = 0; i < range - 1; i++)
+        {
+            yield return startPoint + Vector2i.Left * i;
+        }
+    }
 
-        return boxTiles;
+    public static IEnumerable<Vector2i> MakeCross(Vector2i center, int range)
+    {
+        yield return center;
+
+        if (range <= 0)
+            yield break;
+
+        for (int i = 1; i < range; i++)
+        {
+            yield return new Vector2i(center.X + i, center.Y);
+            yield return new Vector2i(center.X, center.Y + i);
+            yield return new Vector2i(center.X - i, center.Y);
+            yield return new Vector2i(center.X, center.Y - i);
+        }
+    }
+
+    public static IEnumerable<Vector2i> MakeCrossDiagonal(Vector2i center, int range)
+    {
+        yield return center;
+
+        if (range <= 0)
+            yield break;
+
+        for (var i = 1; i < range; i++)
+        {
+            yield return new Vector2i(center.X + i, center.Y + i);
+            yield return new Vector2i(center.X + i, center.Y - i);
+            yield return new Vector2i(center.X - i, center.Y + i);
+            yield return new Vector2i(center.X - i, center.Y - i);
+        }
     }
 
     /// <summary>
     /// Makes a box where each square is filled by a random chance.
     /// </summary>
-    public static List<Vector2i> MakeBoxChanceRandom(Vector2i center, int range, System.Random random, float filledSquareChance = 0.3f)
+    public static IEnumerable<Vector2i> MakeBoxChanceRandom(Vector2i center, int range, System.Random random, float filledSquareChance = 0.3f)
     {
-        var refs = MakeBoxFilled(center, range);
+        var refs = MakeBoxFilled(center, range).ToList();
         var refsTemp = new List<Vector2i>(refs);
         foreach (var tile in refsTemp)
         {
@@ -101,43 +149,15 @@ public static class TileHelperMethods
     /// <summary>
     /// Makes a box and then removes the specified amount of tiles from it randomly.
     /// </summary>
-    public static List<Vector2i> MakeBoxCountRandom(Vector2i center, int range, System.Random random, int removeAmount)
+    public static IEnumerable<Vector2i> MakeBoxCountRandom(Vector2i center, int range, System.Random random, int removeAmount)
     {
-        var refs = MakeBoxFilled(center, range);
+        var refs = MakeBoxFilled(center, range).ToList();
         for (int i = 0; i < removeAmount; i++)
         {
             if (refs.Count == 0)
                 return refs;
 
             refs.Remove(random.Pick(refs));
-        }
-
-        return refs;
-    }
-
-    public static List<Vector2i> MakeCross(Vector2i center, int range)
-    {
-        var refs = new List<Vector2i> { center };
-        for (int i = 1; i < range; i++)
-        {
-            refs.Add(new Vector2i(center.X + i, center.Y));
-            refs.Add(new Vector2i(center.X, center.Y + i));
-            refs.Add(new Vector2i(center.X - i, center.Y));
-            refs.Add(new Vector2i(center.X, center.Y - i));
-        }
-
-        return refs;
-    }
-
-    public static List<Vector2i> MakeCrossDiagonal(Vector2i center, int range)
-    {
-        var refs = new List<Vector2i> { center };
-        for (var i = 1; i < range; i++)
-        {
-            refs.Add(new Vector2i(center.X + i, center.Y + i));
-            refs.Add(new Vector2i(center.X + i, center.Y - i));
-            refs.Add(new Vector2i(center.X - i, center.Y + i));
-            refs.Add(new Vector2i(center.X - i, center.Y - i));
         }
 
         return refs;

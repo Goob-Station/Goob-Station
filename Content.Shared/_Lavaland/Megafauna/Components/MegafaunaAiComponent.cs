@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Lavaland.Megafauna.Actions;
+using Content.Shared._Lavaland.Megafauna.NumberSelectors;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Megafauna.Components;
@@ -11,18 +12,32 @@ namespace Content.Shared._Lavaland.Megafauna.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MegafaunaAiComponent : Component
 {
+    public const int MaxThreads = 8;
+
+    /// <summary>
+    /// Selector that is added to the main thread
+    /// </summary>
     [DataField(required: true), ViewVariables(VVAccess.ReadOnly)]
     public MegafaunaActionSelector Selector;
 
+    /// <summary>
+    /// Delay between picking new action selectors.
+    /// Added to the delay that Selector returned after invocation.
+    /// It's recommended to be always bigger than 0 to prevent errors.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public MegafaunaNumberSelector ActionDelaySelector = new MegafaunaConstantNumberSelector(0.5f);
+
+    /// <summary>
+    /// True if this megafauna can execute any attacks now.
+    /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool Active;
 
-    [ViewVariables]
-    public Dictionary<TimeSpan, MegafaunaActionSelector> ActionSchedule = new();
+    [ViewVariables(VVAccess.ReadOnly)]
+    public List<MegafaunaActionThread> Threads = new(MaxThreads);
 
-    /// <summary>
-    /// Target that is picked before each new attack
-    /// </summary>
+    // TODO MEGAFAUNA move targets somewhere else when more use cases will appear (I don't know what to do now)
     [ViewVariables, AutoNetworkedField]
     public EntityUid? CurrentTarget;
 
@@ -30,21 +45,20 @@ public sealed partial class MegafaunaAiComponent : Component
     public EntityUid? PreviousTarget;
 
     /// <summary>
-    /// When the boss doesn't die ut for any reason stops attacking,
+    /// When the boss doesn't die, but for any reason stops attacking,
     /// if this bool is true, will rejuvenate the megafauna.
     /// </summary>
     [DataField]
-    public bool RejuvenateOnShutdown = true;
-
-    [DataField, AutoNetworkedField]
-    public float MinAttackCooldown = 0.1f;
-
-    [DataField, AutoNetworkedField]
-    public float MaxAttackCooldown = 5f;
+    public bool RejuvenateOnShutdown = true; // TODO MEGAFAUNA move this into another component
 
     /// <summary>
     /// Defines delay for the first megafauna's attack.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public float StartingCooldown = 0.3f;
+    [DataField]
+    public float StartingDelay = 0.5f;
 }
+
+/// <summary>
+/// Represents a thread that contains sequence of megafauna actions within some timeframe.
+/// </summary>
+public record struct MegafaunaActionThread(Dictionary<TimeSpan, MegafaunaActionSelector> Actions, bool IsMain);

@@ -5,9 +5,6 @@ namespace Content.Shared._Lavaland.Megafauna.NumberSelectors;
 /// </summary>
 public sealed partial class MegafaunaConstantNumberSelector : MegafaunaNumberSelector
 {
-    [DataField]
-    public float Value = 1f;
-
     public MegafaunaConstantNumberSelector(float value)
     {
         Value = value;

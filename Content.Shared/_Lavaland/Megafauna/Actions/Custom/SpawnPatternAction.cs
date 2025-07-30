@@ -42,8 +42,8 @@ public sealed partial class SpawnPatternAction : MegafaunaActionSelector
         if (IsSequence is true && Counter is not null)
         {
             modifiedShape = Shape;
-            modifiedShape.Size += Counter.Value + (SequenceCounter ?? 0);
-            modifiedShape.Offset += SequenceOffset * Counter ?? Vector2i.Zero;
+            modifiedShape.DefaultSize = Counter.Value + (SequenceCounter ?? 0);
+            modifiedShape.DefaultOffset = SequenceOffset * Counter ?? Vector2i.Zero;
         }
 
         Logger.Info($"Spawning Shape with size {modifiedShape?.Size ?? Shape.Size} with id {((NestedTileShape) (modifiedShape ?? Shape)).Id}");

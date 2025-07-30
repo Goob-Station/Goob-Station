@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using System.Linq;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Tile.Shapes;
 
@@ -23,10 +24,10 @@ public sealed partial class BoxRandomTileShape : TileShape
     protected override List<Vector2i> GetShapeImplementation(System.Random rand, IPrototypeManager proto)
     {
         if (FilledChance != null)
-            return TileHelperMethods.MakeBoxChanceRandom(Offset, Size, rand, FilledChance.Value);
+            return TileHelperMethods.MakeBoxChanceRandom(Offset, Size, rand, FilledChance.Value).ToList();
         if (RemoveAmount != null)
-            return TileHelperMethods.MakeBoxCountRandom(Offset, Size, rand, RemoveAmount.Value);
+            return TileHelperMethods.MakeBoxCountRandom(Offset, Size, rand, RemoveAmount.Value).ToList();
 
-        return TileHelperMethods.MakeBoxFilled(Offset, Size);
+        return TileHelperMethods.MakeBoxFilled(Offset, Size).ToList();
     }
 }

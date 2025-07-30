@@ -6,6 +6,7 @@
     children:
     - id: HierophantBoxExpanding
     - id: HierophantSpawnChasers
+    - id: HierophantCrossSequence
     - id: HierophantBlink
       conditions:
       - !type:PhaseMegafaunaCondition
@@ -13,16 +14,6 @@
         - 1
       - !type:RangeMegafaunaCondition
         minRange: 3.0
-    - id: HierophantCrossSequence
-      conditions:
-      - !type:PhaseMegafaunaCondition
-        phases:
-        - 1
-    - id: HierophantCrossSequenceHard
-      conditions:
-      - !type:PhaseMegafaunaCondition
-        phases:
-        - 2
 
 # TILE ATTACKS
 
@@ -65,25 +56,23 @@
     children:
     - id: HierophantRookCross
     - id: HierophantBishopCross
-
-- type: megafaunaAction
-  id: HierophantRandomCrossHard
-  action: !type:GroupMegafaunaAction
-    children:
-    - id: HierophantRookCross
-    - id: HierophantBishopCross
     - id: HierophantQueenCross
       weight: 0.8
+      conditions:
+      - !type:PhaseMegafaunaCondition
+        phases:
+        - 2
 
 ## Sequence attacks
 - type: megafaunaAction
   id: HierophantBoxExpanding
   action: !type:SequenceMegafaunaAction
     isSequence: true
+    counterModifier: !type:MegafaunaOddNumberSelector
     selector: !type:NestedMegafaunaAction
       id: HierophantBox
-    sequenceDelay: !type:MegafaunaRangeNumberSelector
-      range: 0.4,0.8
+    #sequenceDelay: !type:MegafaunaRangeNumberSelector
+    #  range: 0.4,0.8
     delay: !type:MegafaunaConstantNumberSelector
       value: 5.0
     rolls: !type:MegafaunaRangeNumberSelector
@@ -92,28 +81,14 @@
 - type: megafaunaAction
   id: HierophantCrossSequence
   action: !type:SequenceMegafaunaAction
-    isSequence: true
     selector: !type:NestedMegafaunaAction
       id: HierophantRandomCross
-    sequenceDelay: !type:MegafaunaRangeNumberSelector
-      range: 0.8,1.0
+    #sequenceDelay: !type:MegafaunaRangeNumberSelector
+    #  range: 0.8,1.0
     delay: !type:MegafaunaConstantNumberSelector
       value: 5.0
     rolls: !type:MegafaunaRangeNumberSelector
       range: 1,3
-
-- type: megafaunaAction
-  id: HierophantCrossSequenceHard
-  action: !type:SequenceMegafaunaAction
-    isSequence: true
-    selector: !type:NestedMegafaunaAction
-      id: HierophantRandomCrossHard
-    sequenceDelay: !type:MegafaunaRangeNumberSelector
-      range: 0.8,1.0
-    delay: !type:MegafaunaConstantNumberSelector
-      value: 5.0
-    rolls: !type:MegafaunaRangeNumberSelector
-      range: 2,4
 
 # SPECIFIC
 

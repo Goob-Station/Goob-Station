@@ -24,8 +24,7 @@ public abstract class SharedMegafaunaSystem : EntitySystem
         if (ent.Comp.Active)
             return;
 
-        RaiseLocalEvent(ent, new MegafaunaStartupEvent());
-        ent.Comp.Active = true;
+        StartupMegafauna(ent);
     }
 
     private void OnAggressorRemoved(Entity<MegafaunaAiComponent> ent, ref AggressorRemovedEvent args)
@@ -35,8 +34,7 @@ public abstract class SharedMegafaunaSystem : EntitySystem
             || aggressive.Aggressors.Count != 0)
             return;
 
-        RaiseLocalEvent(ent, new MegafaunaShutdownEvent());
-        ent.Comp.Active = false;
+        ShutdownMegafauna(ent);
     }
 
     private void OnStateChanged(Entity<MegafaunaAiComponent> ent, ref MobStateChangedEvent args)
@@ -44,17 +42,46 @@ public abstract class SharedMegafaunaSystem : EntitySystem
         if (!ent.Comp.Active)
             return;
 
-        RaiseLocalEvent(ent, new MegafaunaShutdownEvent()); // Proper cleanup
-        RaiseLocalEvent(ent, new MegafaunaKilledEvent()); // Specific handling
+        ShutdownMegafauna(ent, true);
+    }
+
+    public void StartupMegafauna(Entity<MegafaunaAiComponent> ent)
+    {
+        RaiseLocalEvent(ent, new MegafaunaStartupEvent());
+        ent.Comp.Active = true;
+    }
+
+    public void ShutdownMegafauna(Entity<MegafaunaAiComponent> ent, bool kill = false)
+    {
+        RaiseLocalEvent(ent, new MegafaunaShutdownEvent());
+
+        if (kill)
+            RaiseLocalEvent(ent, new MegafaunaKilledEvent());
+
         ent.Comp.Active = false;
     }
 
     /// <summary>
-    /// Adds new megafauna action to MegafaunaAI's dictionary, so it will fire at the specified time.
+    /// Adds new megafauna action to MegafaunaAI's thread, so it will fire at the specified time.
+    /// This will throw an error if thread with specified index doesn't exist.
     /// </summary>
-    public void AddMegafaunaAction(MegafaunaAiComponent comp, MegafaunaActionSelector selector, float delay)
+    public void AddActionToThread(MegafaunaAiComponent comp, int index, MegafaunaActionSelector selector, float delay)
     {
         var time = Timing.CurTime + TimeSpan.FromSeconds(delay);
-        comp.ActionSchedule.Add(time, selector);
+        comp.Threads[index].Actions.Add(time, selector);
+    }
+
+    /// <summary>Adds new thread to the megafauna.</summary>
+    /// <returns>New thread's index.</returns>
+    public int AddNewThread(MegafaunaAiComponent comp)
+    {
+        var thread = new MegafaunaActionThread(new Dictionary<TimeSpan, MegafaunaActionSelector>(), false);
+        comp.Threads.Add(thread);
+        return comp.Threads.Count - 1;
+    }
+
+    public void RemoveThread(MegafaunaAiComponent comp, int index)
+    {
+        comp.Threads.RemoveAt(index);
     }
 }

@@ -34,6 +34,9 @@ public abstract partial class MegafaunaActionSelector
     [DataField]
     public double Prob = 1;
 
+    [DataField]
+    public int Priority;
+
     /// <summary>
     /// Represents this attack's order from other attacks that are called via
     /// <see cref="SequenceMegafaunaAction"/>. Use this variable to make time-progressive actions.
@@ -48,13 +51,6 @@ public abstract partial class MegafaunaActionSelector
     /// </summary>
     [DataField]
     public bool? IsSequence;
-
-    /// <summary>
-    /// If true, will prevent MegafaunaSystem from picking
-    /// new actions when this action is completed.
-    /// </summary>
-    [DataField]
-    public bool? IsDeadEnd;
 
     /// <summary>
     /// A list of conditions that must evaluate to 'true' for the selector to apply.
@@ -118,8 +114,6 @@ public abstract partial class MegafaunaActionSelector
             Counter = parent.Counter;
         if (parent.IsSequence != null)
             IsSequence = parent.IsSequence;
-        if (parent.IsDeadEnd != null)
-            IsDeadEnd = parent.IsDeadEnd;
     }
 
     protected abstract float InvokeImplementation(MegafaunaCalculationBaseArgs args);

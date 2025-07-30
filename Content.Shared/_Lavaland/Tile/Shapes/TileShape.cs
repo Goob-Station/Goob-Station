@@ -15,7 +15,7 @@ public abstract partial class TileShape
     /// That way you can change size or offset for groups of tiles
     /// instead of individually changing values.
     /// </summary>
-    [DataField]
+    [DataField("group")]
     public string? OverrideGroup;
 
     [DataField("offset")]

@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Prototypes;
+﻿using System.Linq;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Tile.Shapes;
 
@@ -10,6 +11,6 @@ public sealed partial class RookTileShape : TileShape
 {
     protected override List<Vector2i> GetShapeImplementation(System.Random rand, IPrototypeManager proto)
     {
-        return TileHelperMethods.MakeCross(Offset, Size);
+        return TileHelperMethods.MakeCross(Offset, Size).ToList();
     }
 }
