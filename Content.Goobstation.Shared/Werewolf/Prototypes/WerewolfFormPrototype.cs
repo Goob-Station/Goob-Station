@@ -63,4 +63,10 @@ public sealed partial record WerewolfConfiguration
     /// </summary>
     [DataField(serverOnly: true)]
     public ComponentRegistry Components = new();
+
+    /// <summary>
+    /// How much the form costs in fury
+    /// </summary>
+    [DataField]
+    public int FuryCost = 15;
 }

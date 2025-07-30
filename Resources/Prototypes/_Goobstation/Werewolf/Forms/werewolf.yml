@@ -19,3 +19,7 @@
     furColor: "#00008B"
     entity: BaseMobWerewolf
     name: Werewolf (No Mutations)
+    sprite:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: cheat-death
+

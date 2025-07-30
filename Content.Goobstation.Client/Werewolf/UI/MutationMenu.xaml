@@ -1,5 +1,4 @@
 <DefaultWindow xmlns="https://spacestation14.io"
-               xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                Title="Mutations"
                MinWidth="600"
                MinHeight="600">
@@ -13,10 +12,12 @@
                              Margin="0 0 5 0"
                              Stretch="KeepAspectCentered"
                              VerticalAlignment="Center" />
-                <Label Name="CurrencyLabel"
+                <Label Name="FuryLabel"
                        Text="0"
-                       StyleClasses="LabelBig"
-                       VerticalAlignment="Center" />
+                       StyleClasses="LabelHeading"
+                       VerticalAlignment="Center"
+                       FontColorOverride="#AB4E3C"
+                       ClipText="False"/>
             </BoxContainer>
         </BoxContainer>
 
