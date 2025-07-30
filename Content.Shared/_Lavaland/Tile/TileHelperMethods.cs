@@ -74,27 +74,31 @@ public static class TileHelperMethods
             yield break;
         }
 
-        var startPoint = center - new Vector2i(range / 2, range / 2);
+        var halfRange = range / 2;
+        var bottomLeft = center - new Vector2i(halfRange, halfRange);
+        var topLeft = center - new Vector2i(halfRange, -halfRange);
+        var topRight = center - new Vector2i(-halfRange, -halfRange);
+        var bottomRight = center - new Vector2i(-halfRange, halfRange);
 
         // Left side
         for (int i = 0; i < range - 1; i++)
         {
-            yield return startPoint + Vector2i.Up * i;
+            yield return bottomLeft + Vector2i.Up * i;
         }
         // Top side
         for (int i = 0; i < range - 1; i++)
         {
-            yield return startPoint + Vector2i.Right * i;
+            yield return topLeft + Vector2i.Right * i;
         }
         // Right side
         for (int i = 0; i < range - 1; i++)
         {
-            yield return startPoint + Vector2i.Down * i;
+            yield return topRight + Vector2i.Down * i;
         }
         // Bottom side
         for (int i = 0; i < range - 1; i++)
         {
-            yield return startPoint + Vector2i.Left * i;
+            yield return bottomRight + Vector2i.Left * i;
         }
     }
 
