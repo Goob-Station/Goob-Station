@@ -255,18 +255,14 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string objectiveIssuer)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("\n" + Loc.GetString($"traitor-{objectiveIssuer}-intro"));
-
+        sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+        if (codewords != null)
+            sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
         if (uplinkCode != null)
-        {
-            sb.AppendLine("\n" + Loc.GetString($"traitor-{objectiveIssuer}-uplink"));
-            sb.AppendLine(Loc.GetString($"traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
-        }
-        else sb.AppendLine("\n" + Loc.GetString($"traitor-role-nouplink"));
+            sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
+        else
+            sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
 
-        sb.AppendLine("\n" + Loc.GetString($"traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
-
-        sb.AppendLine("\n" + Loc.GetString($"traitor-role-moreinfo"));
 
         return sb.ToString();
     }
