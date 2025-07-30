@@ -42,7 +42,7 @@
     - fluffy
   - type: Butcherable
     spawned:
-    - id: FoodMacaronCotton
+    - id: FoodMeatRat
       amount: 1
   - type: Bloodstream
     bloodReagent: InsectBlood
