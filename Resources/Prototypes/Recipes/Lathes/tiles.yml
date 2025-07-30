@@ -10,8 +10,8 @@
 # Base prototypes
 
 - type: latheRecipe
-  id: FloorTileItemDark
-  result: FloorTileItemDark
+  abstract: true
+  id: BaseTileRecipe
   applyMaterialDiscount: false
   categories:
   - Tiles
