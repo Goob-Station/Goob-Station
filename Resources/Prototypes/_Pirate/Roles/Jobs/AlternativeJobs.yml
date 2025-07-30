@@ -340,6 +340,15 @@
     sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
     state: surgeon
   jobName: job-alternative-name-surgeon
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDungeonMaster
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: dungeonmaster
+  jobName: job-alternative-name-Dungeon-Master
+
 #endregion
 
 # region Chaplain icons definitions
