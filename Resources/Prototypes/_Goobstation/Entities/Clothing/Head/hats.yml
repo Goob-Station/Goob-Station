@@ -247,7 +247,7 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatPropeller
-  name: propeller hat hat
+  name: propeller hat
   description: Aw gee willickers!
   components:
   - type: Sprite
@@ -262,7 +262,7 @@
 - type: entity
   parent: [ClothingHeadHatPropeller, ClothingHeadHeadHatBaseFlipped]
   id: ClothingHeadHatPropellerFlipped
-  name: propeller hat hat
+  name: propeller hat
   components:
   - type: Tag
     tags:
