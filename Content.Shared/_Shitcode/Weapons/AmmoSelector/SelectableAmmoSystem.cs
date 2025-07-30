@@ -91,7 +91,7 @@ public sealed class SelectableAmmoSystem : EntitySystem
         }
 
         if (index.Color != null && TryComp(ent, out AppearanceComponent? appearance))
-            _appearance.SetData(ent, ToggleableLightVisuals.Color, index.Color, appearance);
+            _appearance.SetData(ent, ToggleableVisuals.Color, index.Color, appearance);
 
         Dirty(ent);
         return true;

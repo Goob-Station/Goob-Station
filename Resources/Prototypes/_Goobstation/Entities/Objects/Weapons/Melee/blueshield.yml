@@ -37,7 +37,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/blueshield_mace.rsi
     layers:
     - state: icon-off
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: ItemToggle
     soundActivate:
       collection: sparks
@@ -92,8 +92,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: {state: icon}
           False: {state: icon-off}
   - type: StaticPrice

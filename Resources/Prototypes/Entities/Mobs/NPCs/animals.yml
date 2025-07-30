@@ -1669,7 +1669,7 @@
     - state: monkey_skinned # Goobstation - Fuck pun-pun
       sprite: /Textures/Mobs/Animals/monkey.rsi
       visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -1708,8 +1708,8 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-      enum.ToggleVisuals.Toggled: # Goobstation - Skinnable monkey
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled: # Goobstation - Skinnable monkey
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
 
