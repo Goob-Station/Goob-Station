@@ -63,6 +63,7 @@
     prototypes:
     - ResearchAssistantGear
     - ScientistGear
+    - ForensicMantisGear
 
 - type: entity
   parent: SalvageHumanCorpse

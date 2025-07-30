@@ -19,23 +19,23 @@ namespace Content.Goobstation.Server.StationEvents.Metric;
 /// </summary>
 public sealed class AnomalyMetric : ChaosMetricSystem<Components.AnomalyMetricComponent>
 {
-    private static readonly Gauge AnomalyTotal = Metrics.CreateGauge(
+    private static readonly Gauge AnomalyTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_anomaly_total",
         "Total number of active anomalies.");
 
-    private static readonly Gauge AnomalySevereTotal = Metrics.CreateGauge(
+    private static readonly Gauge AnomalySevereTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_anomaly_severe_total",
         "Total number of severe anomalies (severity > 0.8).");
 
-    private static readonly Gauge AnomalyGrowingTotal = Metrics.CreateGauge(
+    private static readonly Gauge AnomalyGrowingTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_anomaly_growing_total",
         "Total number of growing anomalies (stability > growth threshold).");
 
-    private static readonly Gauge KudzuTotal = Metrics.CreateGauge(
+    private static readonly Gauge KudzuTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_kudzu_total",
         "Total number of kudzu patches.");
 
-    private static readonly Gauge AnomalyChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge AnomalyChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_anomaly_chaos_calculated",
         "Calculated chaos value contributed by anomalies and kudzu.");
 

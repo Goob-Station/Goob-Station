@@ -136,13 +136,19 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -157,6 +163,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Pirate.UIKit.UserInterface.Lobby; // Pirate - Alternative Jobs
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -182,6 +189,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
+using Robust.Shared.Physics; //Pirate width and height
 
 namespace Content.Client.Lobby.UI
 {
@@ -242,6 +250,8 @@ namespace Content.Client.Lobby.UI
         private List<SpeciesPrototype> _species = new();
 
         private List<(string, RequirementsSelector)> _jobPriorities = new();
+
+        private Dictionary<string, AlternativeJobSelector> _jobAlternatives = new(); // Pirate - Alternative Jobs
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
 
@@ -378,7 +388,33 @@ namespace Content.Client.Lobby.UI
                 SetSpecies(_species[args.Id].ID);
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
+                UpdateHeightWidthSliders(); //Pirate
             };
+
+            //Pirate changes start
+            #region Height and Width
+
+            var prototype = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+
+            UpdateHeightWidthSliders();
+
+            HeightSlider.OnValueChanged += _ => UpdateDimensions(SliderUpdate.Height);
+            WidthSlider.OnValueChanged += _ => UpdateDimensions(SliderUpdate.Width);
+
+            HeightReset.OnPressed += _ =>
+            {
+                HeightSlider.Value = prototype.DefaultHeight;
+                UpdateDimensions(SliderUpdate.Height);
+            };
+
+            WidthReset.OnPressed += _ =>
+            {
+                WidthSlider.Value = prototype.DefaultWidth;
+                UpdateDimensions(SliderUpdate.Width);
+            };
+
+            #endregion Height
+            //Pirate changes end
 
             #region Skin
 
@@ -464,7 +500,8 @@ namespace Content.Client.Lobby.UI
                 if (Profile is null)
                     return;
 
-                var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, Profile.Species).Keys
+                var ckey = _playerManager.LocalSession?.Name; // Pirate ckey for restricted players
+                var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, Profile.Species, ckey).Keys // Pirate ckey for restricted players
                     .FirstOrDefault();
 
                 if (string.IsNullOrEmpty(hair))
@@ -484,7 +521,8 @@ namespace Content.Client.Lobby.UI
                 if (Profile is null)
                     return;
 
-                var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.FacialHair, Profile.Species).Keys
+                var ckey = _playerManager.LocalSession?.Name; // Pirate ckey for restricted players
+                var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.FacialHair, Profile.Species, ckey).Keys // Pirate ckey for restricted players
                     .FirstOrDefault();
 
                 if (string.IsNullOrEmpty(hair))
@@ -576,17 +614,18 @@ namespace Content.Client.Lobby.UI
             RefreshFlavorText();
 
             #region Dummy
-
-            SpriteRotateLeft.OnPressed += _ =>
-            {
-                _previewRotation = _previewRotation.TurnCw();
-                SetPreviewRotation(_previewRotation);
-            };
-            SpriteRotateRight.OnPressed += _ =>
-            {
-                _previewRotation = _previewRotation.TurnCcw();
-                SetPreviewRotation(_previewRotation);
-            };
+            //Pirate changes start
+            //SpriteRotateLeft.OnPressed += _ =>
+            //{
+            //    _previewRotation = _previewRotation.TurnCw();
+            //    SetPreviewRotation(_previewRotation);
+            //};
+            //SpriteRotateRight.OnPressed += _ =>
+            //{
+            //    _previewRotation = _previewRotation.TurnCcw();
+            //    SetPreviewRotation(_previewRotation);
+            //};
+            //Pirate changes end
 
             #endregion Dummy
 
@@ -641,7 +680,7 @@ namespace Content.Client.Lobby.UI
         {
             TraitsList.DisposeAllChildren();
 
-            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
+            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => t.Cost).ToList(); // Pirate - Traits Rework
             TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
 
             if (traits.Count < 1)
@@ -738,7 +777,7 @@ namespace Content.Client.Lobby.UI
                     if (category is { MaxTraitPoints: >= 0 } &&
                         selector.Cost + selectionCount > category.MaxTraitPoints)
                     {
-                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                        selector.Checkbox.Label.FontColorOverride = Color.DarkGray; // Pirate - Traits Rework
                     }
 
                     TraitsList.AddChild(selector);
@@ -878,7 +917,17 @@ namespace Content.Client.Lobby.UI
                 return;
 
             PreviewDummy = _controller.LoadProfileEntity(Profile, JobOverride, ShowClothes.Pressed);
-            SpriteView.SetEntity(PreviewDummy);
+            //Pirate changes start
+            //SpriteView.SetEntity(PreviewDummy);
+            SpriteViewN.SetEntity(PreviewDummy);
+            SpriteViewN.OverrideDirection = Direction.North;
+            SpriteViewE.SetEntity(PreviewDummy);
+            SpriteViewE.OverrideDirection = Direction.East;
+            SpriteViewS.SetEntity(PreviewDummy);
+            SpriteViewS.OverrideDirection = Direction.South;
+            SpriteViewW.SetEntity(PreviewDummy);
+            SpriteViewW.OverrideDirection = Direction.West;
+            //Pirate changes end
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, Profile.Name);
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
@@ -918,6 +967,9 @@ namespace Content.Client.Lobby.UI
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
+            UpdateAlternativeJobs(); // Pirate - Alternative Jobs
+            UpdateHeightWidthSliders(); // Pirate
+            UpdateWeight(); // Pirate
 
             RefreshAntags();
             RefreshJobs();
@@ -977,6 +1029,7 @@ namespace Content.Client.Lobby.UI
             JobList.DisposeAllChildren();
             _jobCategories.Clear();
             _jobPriorities.Clear();
+            _jobAlternatives.Clear(); // Pirate - Alternative Jobs
             var firstCategory = true;
 
             // Get all displayed departments
@@ -1109,6 +1162,24 @@ namespace Content.Client.Lobby.UI
                         SetDirty();
                     };
 
+                    var altJobSelector = new AlternativeJobSelector(job.ID) // Pirate start - Alternative Jobs
+                    {
+                        HorizontalAlignment = HAlignment.Left,
+                        VerticalAlignment = VAlignment.Center,
+                        MinWidth = 120,
+                        Margin = new Thickness(3f, 3f, 3f, 0f),
+                    };
+
+                    altJobSelector.OnAlternativeSelected += alternativeId =>
+                    {
+                        // Add alternative job to profile
+                        Profile = Profile?.WithJobAlternative(new(job.ID, alternativeId));
+                        // SetDirty(); //TODO: Use SetDirty() instead of manual save btn toggling
+                        IsDirty = true;
+                    };
+
+                    _jobAlternatives[job.ID] = altJobSelector; // Pirate end - Alternative Jobs
+
                     var loadoutWindowBtn = new Button()
                     {
                         Text = Loc.GetString("loadout-window"),
@@ -1148,12 +1219,14 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
+                    jobContainer.AddChild(altJobSelector); // Pirate - Alternative Jobs
                     jobContainer.AddChild(loadoutWindowBtn);
                     category.AddChild(jobContainer);
                 }
             }
 
             UpdateJobPriorities();
+            UpdateAlternativeJobs(); // Pirate - Alternative Jobs
         }
 
         private void OpenLoadout(JobPrototype? jobProto, RoleLoadout roleLoadout, RoleLoadoutPrototype roleLoadoutProto)
@@ -1324,7 +1397,7 @@ namespace Content.Client.Lobby.UI
                         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                         break;
                     }
-                // Goobstation Section End - Tajaran
+                    // Goobstation Section End - Tajaran
             }
 
             ReloadProfilePreview();
@@ -1397,6 +1470,8 @@ namespace Content.Client.Lobby.UI
             // In case there's species restrictions for loadouts
             RefreshLoadouts();
             UpdateSexControls(); // update sex for new species
+            UpdateHeightWidthSliders();  //Pirate changes
+            UpdateWeight(); //Pirate changes
             UpdateSpeciesGuidebookIcon();
             ReloadPreview();
         }
@@ -1417,6 +1492,24 @@ namespace Content.Client.Lobby.UI
             Profile = Profile?.WithSpawnPriorityPreference(newSpawnPriority);
             SetDirty();
         }
+
+        //Pirate changes start
+        private void SetProfileHeight(float height)
+        {
+            var oldHeight = Profile?.Height;
+            Profile = Profile?.WithHeight(height);
+            IsDirty = true;
+            ReloadProfilePreview();
+        }
+
+        private void SetProfileWidth(float width)
+        {
+            var oldWidth = Profile?.Width;
+            Profile = Profile?.WithWidth(width);
+            IsDirty = true;
+            ReloadProfilePreview();
+        }
+        //Pirate changes end
 
         public bool IsDirty
         {
@@ -1576,7 +1669,7 @@ namespace Content.Client.Lobby.UI
                         _rgbSkinColorSelector.Color = SkinColor.ClosestAnimalFurColor(Profile.Appearance.SkinColor);
                         break;
                     }
-                // Goobstation Section End - Tajaran
+                    // Goobstation Section End - Tajaran
             }
 
         }
@@ -1631,6 +1724,103 @@ namespace Content.Client.Lobby.UI
 
             SpawnPriorityButton.SelectId((int) Profile.SpawnPriority);
         }
+
+        //Pirate changes start
+        private void UpdateHeightWidthSliders()
+        {
+            if (Profile is null)
+                return;
+
+            var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+
+            HeightSlider.MinValue = species.MinHeight;
+            HeightSlider.MaxValue = species.MaxHeight;
+            HeightSlider.SetValueWithoutEvent(Profile?.Height ?? species.DefaultHeight);
+
+            WidthSlider.MinValue = species.MinWidth;
+            WidthSlider.MaxValue = species.MaxWidth;
+            WidthSlider.SetValueWithoutEvent(Profile?.Width ?? species.DefaultWidth);
+
+            var height = MathF.Round(species.AverageHeight * HeightSlider.Value);
+            HeightLabel.Text = Loc.GetString("humanoid-profile-editor-height-label", ("height", (int)height));
+
+            var width = MathF.Round(species.AverageWidth * WidthSlider.Value);
+            WidthLabel.Text = Loc.GetString("humanoid-profile-editor-width-label", ("width", (int)width));
+
+            UpdateDimensions(SliderUpdate.Both);
+        }
+
+        private enum SliderUpdate
+        {
+            Height,
+            Width,
+            Both
+        }
+
+        private void UpdateDimensions(SliderUpdate updateType)
+        {
+            if (Profile == null)
+                return;
+
+            var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+
+            var heightValue = Math.Clamp(HeightSlider.Value, species.MinHeight, species.MaxHeight);
+            var widthValue = Math.Clamp(WidthSlider.Value, species.MinWidth, species.MaxWidth);
+            var sizeRatio = species.SizeRatio;
+            var ratio = heightValue / widthValue;
+
+            if (updateType == SliderUpdate.Height || updateType == SliderUpdate.Both)
+                if (ratio < 1 / sizeRatio || ratio > sizeRatio)
+                    widthValue = heightValue / (ratio < 1 / sizeRatio ? (1 / sizeRatio) : sizeRatio);
+
+            if (updateType == SliderUpdate.Width || updateType == SliderUpdate.Both)
+                if (ratio < 1 / sizeRatio || ratio > sizeRatio)
+                    heightValue = widthValue * (ratio < 1 / sizeRatio ? (1 / sizeRatio) : sizeRatio);
+
+            heightValue = Math.Clamp(heightValue, species.MinHeight, species.MaxHeight);
+            widthValue = Math.Clamp(widthValue, species.MinWidth, species.MaxWidth);
+
+            HeightSlider.Value = heightValue;
+            WidthSlider.Value = widthValue;
+
+            SetProfileHeight(heightValue);
+            SetProfileWidth(widthValue);
+
+            var height = MathF.Round(species.AverageHeight * HeightSlider.Value);
+            HeightLabel.Text = Loc.GetString("humanoid-profile-editor-height-label", ("height", (int)height));
+
+            var width = MathF.Round(species.AverageWidth * WidthSlider.Value);
+            WidthLabel.Text = Loc.GetString("humanoid-profile-editor-width-label", ("width", (int)width));
+
+            UpdateWeight();
+        }
+
+        private void UpdateWeight()
+        {
+            if (Profile == null)
+                return;
+
+            var species = _species.Find(x => x.ID == Profile.Species) ?? _species.First();
+            _prototypeManager.Index(species.Prototype).TryGetComponent<FixturesComponent>(out var fixture);
+
+            if (fixture != null)
+            {
+                var radius = fixture.Fixtures["fix1"].Shape.Radius;
+                var density = fixture.Fixtures["fix1"].Density;
+                var avg = (Profile.Width + Profile.Height) / 2;
+                var weight = MathF.Round(MathF.PI * MathF.Pow(radius * avg, 2) * density);
+                WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int)weight));
+            }
+            else // Whelp, the fixture doesn't exist, guesstimate it instead
+                WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int)71));
+
+            SpriteViewS.InvalidateMeasure();
+            SpriteViewN.InvalidateMeasure();
+            SpriteViewE.InvalidateMeasure();
+            SpriteViewW.InvalidateMeasure();
+            IsDirty = true;
+        }
+        //Pirate changes end
 
         private void UpdateHairPickers()
         {
@@ -1745,12 +1935,12 @@ namespace Content.Client.Lobby.UI
             SaveButton.Disabled = Profile is null || !IsDirty;
             ResetButton.Disabled = Profile is null || !IsDirty;
         }
-
-        private void SetPreviewRotation(Direction direction)
-        {
-            SpriteView.OverrideDirection = (Direction) ((int) direction % 4 * 2);
-        }
-
+        //Pirate changes start
+        //private void SetPreviewRotation(Direction direction)
+        //{
+        //    SpriteView.OverrideDirection = (Direction) ((int) direction % 4 * 2);
+        //}
+        //Pirate changes end
         private void RandomizeEverything()
         {
             Profile = HumanoidCharacterProfile.Random();
@@ -1771,7 +1961,8 @@ namespace Content.Client.Lobby.UI
             if (_imaging)
                 return;
 
-            var dir = SpriteView.OverrideDirection ?? Direction.South;
+            //var dir = SpriteView.OverrideDirection ?? Direction.South; //Pirate
+            var dir = SpriteViewS.OverrideDirection ?? Direction.South;  //Pirate
 
             // I tried disabling the button but it looks sorta goofy as it only takes a frame or two to save
             _imaging = true;
@@ -1855,5 +2046,26 @@ namespace Content.Client.Lobby.UI
             ImportButton.Disabled = false;
             ExportButton.Disabled = false;
         }
+
+        private void UpdateAlternativeJobs() // Pirate start - Alternative Jobs
+        {
+            if (Profile == null)
+                return;
+
+            // Assuming Profile has a Dictionary<string, string> AlternativeJobs property
+            // that maps job IDs to their selected alternative (or the original job ID if no alternative is selected)
+            foreach (var (jobId, selector) in _jobAlternatives)
+            {
+                if (Profile.JobAlternatives.TryGetValue(jobId, out var alternativeId))
+                {
+                    selector.SelectAlternative(alternativeId);
+                }
+                else
+                {
+                    // Default to the original job
+                    selector.SelectAlternative(jobId);
+                }
+            }
+        } // Pirate end - Alternative Jobs
     }
 }

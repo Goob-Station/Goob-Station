@@ -150,6 +150,62 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public int MaxAge = 120;
+    //Pirate changes start
+
+    /// <summary>
+    ///     The minimum height and width ratio for this species
+    /// </summary>
+    [DataField]
+    public float SizeRatio = 1.2f;
+
+    /// <summary>
+    /// Default width for this species (1.0 = стандартний розмір).
+    /// </summary>
+    [DataField("defaultWidth")]
+    public float DefaultWidth { get; } = 1.0f;
+
+    /// <summary>
+    /// Default height for this species (1.0 = стандартний розмір).
+    /// </summary>
+    [DataField("defaultHeight")]
+    public float DefaultHeight { get; } = 1.0f;
+
+    /// <summary>
+    /// Minimum width allowed for this species.
+    /// </summary>
+    [DataField("minWidth")]
+    public float MinWidth { get; } = 0.8f;
+
+    /// <summary>
+    /// Maximum width allowed for this species.
+    /// </summary>
+    [DataField("maxWidth")]
+    public float MaxWidth { get; } = 1.2f;
+
+    /// <summary>
+    /// Minimum height allowed for this species.
+    /// </summary>
+    [DataField("minHeight")]
+    public float MinHeight { get; } = 0.8f;
+
+    /// <summary>
+    /// Maximum height allowed for this species.
+    /// </summary>
+    [DataField("maxHeight")]
+    public float MaxHeight { get; } = 1.2f;
+
+    /// <summary>
+    ///     The average height in centimeters for this species, used to calculate player facing height values in UI elements
+    /// </summary>
+    [DataField]
+    public float AverageHeight = 176.1f;
+
+    /// <summary>
+    ///     The average shoulder-to-shoulder width in cm for this species, used to calculate player facing width values in UI elements
+    /// </summary>
+    [DataField]
+    public float AverageWidth = 40f;
+    //Pirate changes end
 }
 
 public enum SpeciesNaming : byte

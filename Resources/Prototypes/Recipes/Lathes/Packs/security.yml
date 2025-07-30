@@ -84,6 +84,8 @@
   - PowerCageMedium
   - PowerCageSmall
   - TelescopicShield
+  - ClothingHeadHelmetInsulated # PIRATE psionic
+  - ClothingHeadCage # PIRATE psionic
 
 - type: latheRecipePack
   id: SecurityBoards
@@ -129,6 +131,10 @@
   - MagazineShotgunIncendiary
   - SpeedLoaderMagnumIncendiary
   - SpeedLoaderMagnumUranium
+  - MagazinePistolMindbreaker # PIRATE psionic
+  - MagazineBoxPistolMindbreaker # PIRATE psionic
+  - ShellSoulbreaker # PIRATE psionic
+  - BoxShellSoulbreaker
 
 - type: latheRecipePack
   id: SecurityWeapons

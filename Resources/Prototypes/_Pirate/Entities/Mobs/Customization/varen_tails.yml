@@ -1,0 +1,20 @@
+- type: marking
+  id: VulpFanTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  playerRestriction: [vareniko, JustDecor]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/tail_fan.rsi
+    state: tail_fan_wag
+  - sprite: _Pirate/Mobs/Customization/tail_fan.rsi
+    state: tail_fan_wag-tip
+
+- type: marking
+  id: SharkTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, Reptilian]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/sharktail.rsi
+    state: sharktail

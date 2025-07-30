@@ -1,0 +1,3 @@
+- type: accessLevel
+  id: Mantis
+  name: id-card-access-level-mantis # Custom access level for the Mantis so they can have their own locker and maybe doors

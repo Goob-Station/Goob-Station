@@ -1,12 +1,16 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Pirate.Common.Traits.Lightweight; // Pirate - Traits Rework
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Events;
@@ -34,6 +38,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using System.Numerics;
+using Content.Shared.Mind.Components;
 
 namespace Content.Shared._DV.Carrying;
 
@@ -65,6 +70,7 @@ public sealed class CarryingSystem : EntitySystem
         SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
         SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<CarryingComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<CarryingComponent, BeforePolymorphedEvent>(OnBeforePolymorphed);
         SubscribeLocalEvent<BeingCarriedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
@@ -164,6 +170,12 @@ public sealed class CarryingSystem : EntitySystem
     private void OnMobStateChanged(Entity<CarryingComponent> ent, ref MobStateChangedEvent args)
     {
         DropCarried(ent, ent.Comp.Carried);
+    }
+
+    private void OnBeforePolymorphed(Entity<CarryingComponent> ent, ref BeforePolymorphedEvent args)
+    {
+        if (HasComp<MindContainerComponent>(ent.Comp.Carried))
+            DropCarried(ent, ent.Comp.Carried);
     }
 
     /// <summary>
@@ -360,8 +372,9 @@ public sealed class CarryingSystem : EntitySystem
         var mod = MassContest(carrier, carried);
         if (mod != 0)
             length /= mod;
+        TryComp<LightweightComponent>(carried, out var lightweight); // Pirate - Traits Rework
 
-        return length;
+        return length / float.Max(lightweight?.PickupSpeedMultiplier ?? 1f, 1f); // Pirate - Traits Rework
     }
 
     public override void Update(float frameTime)

@@ -40,43 +40,43 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
 
-    private static readonly Gauge HostileEntitiesTotal = Metrics.CreateGauge(
+    private static readonly Gauge HostileEntitiesTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_hostile_entities_total",
         "Total number of hostile entities counted.");
 
-    private static readonly Gauge FriendlyEntitiesTotal = Metrics.CreateGauge(
+    private static readonly Gauge FriendlyEntitiesTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_friendly_entities_total",
         "Total number of alive friendly entities counted.");
 
-    private static readonly Gauge DeadFriendlyEntitiesTotal = Metrics.CreateGauge(
+    private static readonly Gauge DeadFriendlyEntitiesTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_dead_friendly_entities_total",
         "Total number of dead friendly entities counted.");
 
-    private static readonly Gauge CritFriendlyEntitiesTotal = Metrics.CreateGauge(
+    private static readonly Gauge CritFriendlyEntitiesTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_crit_friendly_entities_total",
         "Total number of critical friendly entities counted.");
 
-    private static readonly Gauge HostileInventoryThreatTotal = Metrics.CreateGauge(
+    private static readonly Gauge HostileInventoryThreatTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_hostile_inventory_threat_total",
         "Total calculated inventory threat for hostile entities.");
 
-    private static readonly Gauge FriendlyInventoryThreatTotal = Metrics.CreateGauge(
+    private static readonly Gauge FriendlyInventoryThreatTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_friendly_inventory_threat_total",
         "Total calculated inventory threat for friendly entities.");
 
-    private static readonly Gauge HostileChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge HostileChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_hostile_chaos_calculated",
         "Calculated chaos value contributed by hostiles.");
 
-    private static readonly Gauge FriendChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge FriendChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_friend_chaos_calculated",
         "Calculated chaos value contributed by friendlies (positive value).");
 
-    private static readonly Gauge MedicalChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge MedicalChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_medical_chaos_calculated",
         "Calculated chaos value contributed by medical state.");
 
-    private static readonly Gauge DeathChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge DeathChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_combat_death_chaos_calculated",
         "Calculated chaos value contributed by deaths.");
 

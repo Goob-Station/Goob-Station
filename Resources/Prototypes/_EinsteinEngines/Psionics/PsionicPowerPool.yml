@@ -1,0 +1,17 @@
+- type: weightedRandom
+  id: RandomPsionicPowerPool
+  weights:
+    MetapsionicPower: 0.25 # Leads to Assay
+    AnoigoPower: 0.25
+    DispelPower: 0.5
+    TelegnosisPower: 0.5
+    PsionicRegenerationPower: 0.75
+    MassSleepPower: 0.5
+    #PsionicInvisibilityPower: 0.35 Pirate
+    MindSwapPower: 0.
+    TelepathyPower: 1 # Leads to Xenoglossy and Psychognomy
+    HealingWordPower: 0.4 # Leads to revivify
+    ShadeskipPower: 0.4 # Leads to darkswap
+    TelekineticPulsePower: 0.35
+    PyrokineticFlare: 0.6 # Leads to summon imp and pyrokenisis
+    NoosphericZapPower: 0.3

@@ -1,0 +1,14 @@
+﻿<cartridges:GlimmerMonitorUiFragment xmlns:cartridges="clr-namespace:Content.Pirate.Client._EinsteinEngines.CartridgeLoader.Cartridges"
+                                 xmlns="https://spacestation14.io" Margin="1 0 2 0">
+    <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
+    <BoxContainer Name="SettingsBox" Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="False">
+        <Label Text="{Loc 'glimmer-monitor-interval'}"/>
+        <Button Name="IntervalButton6s" Access="Public" Text="Realtime" StyleClasses="OpenRight"/>
+        <Button Name="IntervalButton1" Access="Public" Text="1m" StyleClasses="OpenRight"/>
+        <Button Name="IntervalButton5" Access="Public" Text="5m" StyleClasses="OpenBoth"/>
+        <Button Name="IntervalButton10" Access="Public" Text="10m" StyleClasses="OpenLeft"/>
+        <Button Name="SyncButton" Access="Public" Text="{Loc 'glimmer-monitor-sync'}" Margin="200 0 0 0" />
+    </BoxContainer>
+    <BoxContainer Name="MonitorBox" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+    </BoxContainer>
+</cartridges:GlimmerMonitorUiFragment>

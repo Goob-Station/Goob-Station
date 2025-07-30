@@ -81,6 +81,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
@@ -99,6 +100,7 @@
   - NanotrasenRepresentativeBelt
   - Glasses
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - Survival
 
@@ -113,6 +115,7 @@
   - BlueshieldOfficerMask
   - BlueshieldOfficerShoes
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - SurvivalSecurity
 
@@ -128,6 +131,7 @@
   - NanotrasenTrainerGloves
   - NanotrasenTrainerBelt
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - Survival
 
@@ -152,5 +156,6 @@
   - SecurityNeck
   - SurvivalSecurity
   - Trinkets
+  - Animals
   - SecurityStar
   - GroupSpeciesBreathToolSecurity

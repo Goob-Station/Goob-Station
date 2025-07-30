@@ -1,0 +1,302 @@
+# КОЛО
+- type: randomHumanoidSettings
+  id: EventSquidGameHumanCircle
+  randomizeName: false
+  speciesBlacklist:
+    - Yowie
+    - Resomi
+    - Monkey
+    - Kobold
+    - Abductor
+    - SlimePerson
+    - Tajaran
+    - Xelthia
+    - BananaMen
+    - Thaven
+    - Goblin
+    - Gray
+    - Chitinid
+    - Lamia
+    - Rodentia
+    - Vulpkanin
+    - Felinid
+    - Oni
+    - Arachne
+    - Arachnid
+    - Diona
+    - Dwarf
+    - Gingerbread
+    - Harpy
+    - IPC
+    - Moth
+    - Plasmaman
+    - Reptilian
+    - Shadowkin
+    - Skeleton
+    - Vox
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+    - type: MindShield
+    - type: AntagImmune
+    - type: GhostRole
+      name: Охоронець (Коло)
+      description: "Нижча ланка охорони. Виконуй накази без запитань. Стріляй лише по команді. Ти — частина машини, а не людина."
+      rules: |
+        - Ніколи не знімай маску.
+        - Не розмовляй, допоки не накажуть.
+        - Говори лаконічно.
+        - Не розкривай інформацію про гру.
+        - Виконуй накази старших (трикутник/квадрат).
+        - Не імпровізуй — будь частиною системи.
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [ SquidGameCircle ]
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  id: RandomSquidGameHumanSpawnerCircle
+  name: Охоронець (Коло)
+  suffix: SquidGame
+  components:
+    - type: Sprite
+      sprite: _Pirate/SquidGame/Clothing/Masks/circle.rsi
+      state: icon-circleMask
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+    - type: RandomHumanoidSpawner
+      settings: EventSquidGameHumanCircle
+
+# ТРИКУТНИК
+
+- type: randomHumanoidSettings
+  id: EventSquidGameHumanTriangle
+  randomizeName: false
+  speciesBlacklist:
+    - Yowie
+    - Resomi
+    - Monkey
+    - Kobold
+    - Abductor
+    - SlimePerson
+    - Tajaran
+    - Xelthia
+    - BananaMen
+    - Thaven
+    - Goblin
+    - Gray
+    - Chitinid
+    - Lamia
+    - Rodentia
+    - Vulpkanin
+    - Felinid
+    - Oni
+    - Arachne
+    - Arachnid
+    - Diona
+    - Dwarf
+    - Gingerbread
+    - Harpy
+    - IPC
+    - Moth
+    - Plasmaman
+    - Reptilian
+    - Shadowkin
+    - Skeleton
+    - Vox
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+    - type: MindShield
+    - type: AntagImmune
+    - type: GhostRole
+      name: Охоронець (Трикутник)
+      description: "Виконавець. Маєш зброю, маєш силу. Але слідуй наказам вищих. Ти не суддя — ти виконання вироку."
+      rules: |
+        - Тримай нижчих у дисципліні.
+        - Виконуй накази квадратів.
+        - Не приймай самостійних рішень щодо гравців.
+        - Стеж за порядком.
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [ SquidGameTriangle ]
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  id: RandomSquidGameHumanSpawnerTriangle
+  name: Охоронець (Трикутник)
+  suffix: SquidGame
+  components:
+    - type: Sprite
+      sprite: _Pirate/SquidGame/Clothing/Masks/triangle.rsi
+      state: icon-triangleMask
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+    - type: RandomHumanoidSpawner
+      settings: EventSquidGameHumanTriangle
+
+
+# КВАДРАТ
+
+- type: randomHumanoidSettings
+  id: EventSquidGameHumanSquare
+  randomizeName: false
+  speciesBlacklist:
+    - Yowie
+    - Resomi
+    - Monkey
+    - Kobold
+    - Abductor
+    - SlimePerson
+    - Tajaran
+    - Xelthia
+    - BananaMen
+    - Thaven
+    - Goblin
+    - Gray
+    - Chitinid
+    - Lamia
+    - Rodentia
+    - Vulpkanin
+    - Felinid
+    - Oni
+    - Arachne
+    - Arachnid
+    - Diona
+    - Dwarf
+    - Gingerbread
+    - Harpy
+    - IPC
+    - Moth
+    - Plasmaman
+    - Reptilian
+    - Shadowkin
+    - Skeleton
+    - Vox
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+    - type: MindShield
+    - type: AntagImmune
+    - type: GhostRole
+      name: Охоронець (Квадрат)
+      description: "Координатор операції. Відповідаєш за організацію, контроль і виконання правил гри."
+      rules: |
+        - Віддавай накази нижчим (трикутники/кола).
+        - Контролюй процес.
+        - Не пояснюй своїх дій.
+        - Не знімай маску.
+        - Підтримуй атмосферу страху й підпорядкування.
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [ SquidGameSquare ]
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  id: RandomSquidGameHumanSpawnerSquare
+  name: Охоронець (Квадрат)
+  suffix: SquidGame
+  components:
+    - type: Sprite
+      sprite: _Pirate/SquidGame/Clothing/Masks/square.rsi
+      state: icon-squareMask
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+    - type: RandomHumanoidSpawner
+      settings: EventSquidGameHumanSquare
+
+# УВУ
+- type: randomHumanoidSettings
+  id: EventSquidGameHumanUwU
+  randomizeName: false
+  speciesBlacklist:
+    - Yowie
+    - Resomi
+    - Monkey
+    - Kobold
+    - Abductor
+    - SlimePerson
+    - Tajaran
+    - Xelthia
+    - BananaMen
+    - Thaven
+    - Goblin
+    - Gray
+    - Chitinid
+    - Lamia
+    - Rodentia
+    - Vulpkanin
+    - Felinid
+    - Oni
+    - Arachne
+    - Arachnid
+    - Diona
+    - Dwarf
+    - Gingerbread
+    - Harpy
+    - IPC
+    - Moth
+    - Plasmaman
+    - Reptilian
+    - Shadowkin
+    - Skeleton
+    - Vox
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+    - type: MindShield
+    - type: AntagImmune
+    - type: GhostRole
+      name: Охоронець (УвУ)
+      description: "Координатор операції. Відповідаєш за організацію, контроль і виконання правил гри."
+      rules: |
+        - Віддавай накази нижчим (квадрати/трикутники/кола).
+        - Контролюй процес.
+        - Не пояснюй своїх дій.
+        - Не знімай маску.
+        - Підтримуй атмосферу страху й підпорядкування.
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [ SquidGameUwU ]
+    - type: GhostTakeoverAvailable
+
+- type: entity
+  id: RandomSquidGameHumanSpawnerUwU
+  name: Охоронець (UwU)
+  suffix: SquidGame
+  components:
+    - type: Sprite
+      sprite: _Pirate/SquidGame/Clothing/Masks/uwu.rsi
+      state: icon-UwUMask
+    - type: RandomMetadata
+      nameSegments:
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
+    - type: RandomHumanoidSpawner
+      settings: EventSquidGameHumanUwU

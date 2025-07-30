@@ -1,0 +1,111 @@
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  - MobDamageable
+  id: BaseMobPsionicFamiliar
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bat
+      sprite: Mobs/Animals/bat.rsi
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-familiar-name
+    description: ghost-role-information-familiar-description
+    rules: ghost-role-information-familiar-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Damageable
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
+  - type: MindContainer
+    showExamineInfo: false
+  - type: NpcFactionMember
+    factions:
+    - PsionicInterloper
+  - type: Alerts
+  - type: Familiar
+  - type: Psionic
+    removable: false
+    roller: false
+    psychognomicDescriptors:
+      - p-descriptor-bound
+      - p-descriptor-cyclic
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
+  - type: HTN
+    rootTask:
+      task: MeleePsionicFamiliarCompound
+    blackboard:
+      IdleRange: !type:Single
+        3.5
+      FollowCloseRange: !type:Single
+        2.0
+      FollowRange: !type:Single
+        3.0
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: PsionicFamiliar
+  - type: Dispellable
+  - type: DamageOnDispel
+    damage:
+      types:
+        Heat: 100
+
+- type: entity
+  name: imp familiar
+  parent: BaseMobPsionicFamiliar
+  id: MobPsionicFamiliarImp
+  description: A living mote of flame summoned from Gehenna.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: imp
+      sprite: _EinsteinEngines/Mobs/Demons/imp.rsi
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
+      - PyrokineticFlare
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 9
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+  - type: PointLight
+    radius: 2
+    energy: 30
+    color: "#ff4500"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 13
+        mask:
+        - Opaque
+        layer:
+        - MobLayer
+  - type: RandomMetadata
+    nameSegments: [NamesGolem]

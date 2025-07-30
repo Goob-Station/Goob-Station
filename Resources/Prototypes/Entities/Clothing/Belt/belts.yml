@@ -503,7 +503,7 @@
   - type: Storage
     whitelist:
       tags:
-        # - PlantAnalyzer
+        - PlantAnalyzer # Pirate
         - PlantSampleTaker
         - BotanyShovel
         - BotanyHoe
@@ -524,10 +524,12 @@
         whitelist:
           tags:
           - BotanyHatchet
-      # hydro:
-      #   whitelist:
-      #     tags:
-      #     - PlantAnalyzer # Dunno what to put here, should be aight.
+      # Pirate VVV
+      hydro:
+        whitelist:
+          tags:
+          - PlantAnalyzer
+      # Pirate ^^^
       hoe:
         whitelist:
           tags:

@@ -54,7 +54,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Body.Components
 {
-    [RegisterComponent, Access(typeof(SharedBloodstreamSystem), typeof(ReactionMixerSystem))]
+    [RegisterComponent, Access(Other = AccessPermissions.ReadWriteExecute)] // Pirate shitcode with access
     public sealed partial class BloodstreamComponent : Component
     {
         public static string DefaultChemicalsSolutionName = "chemicals";
@@ -224,5 +224,13 @@ namespace Content.Server.Body.Components
 
         [DataField]
         public ProtoId<AlertPrototype> BleedingAlert = "Bleed";
+
+        //Pirate
+        /// <summary>
+        ///     How much hunger/thirst is used to regenerate one unit of blood. Set to zero to disable.
+        ///     The actual thirst/hunger rate will scale with <see cref="BloodRefreshAmount"/>.
+        /// </summary>
+        /// <remarks>Those will have no effect if the entity has no hunger/thirst components.</remarks>
+        public float BloodRegenerationHunger = 1f, BloodRegenerationThirst = 1f;
     }
 }

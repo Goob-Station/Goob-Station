@@ -1,0 +1,39 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSquidGamePlayer
+  icon:
+    sprite: _Pirate/SquidGame/Interface/Misc/job_icons.rsi
+    state: SquidGamePlayer
+  jobName: job-name-squidgame-player
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSquidGameGuardCircle
+  icon:
+    sprite: _Pirate/SquidGame/Interface/Misc/job_icons.rsi
+    state: SquidGameGuardCircle
+  jobName: job-name-squidgame-guard-circle
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSquidGameGuardTriangle
+  icon:
+    sprite: _Pirate/SquidGame/Interface/Misc/job_icons.rsi
+    state: SquidGameGuardTriangle
+  jobName: job-name-squidgame-guard-triangle
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSquidGameGuardSquare
+  icon:
+    sprite: _Pirate/SquidGame/Interface/Misc/job_icons.rsi
+    state: SquidGameGuardSquare
+  jobName: job-name-squidgame-guard-square
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSquidGameGuardUwU
+  icon:
+    sprite: _Pirate/SquidGame/Interface/Misc/job_icons.rsi
+    state: SquidGameGuardUwU
+  jobName: job-name-squidgame-guard-uwu

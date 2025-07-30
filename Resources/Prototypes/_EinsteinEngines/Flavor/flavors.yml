@@ -1,0 +1,14 @@
+- type: flavor
+  id: supernova
+  flavorType: Complex
+  description: flavor-complex-supernova
+
+- type: flavor
+  id: enthralling
+  flavorType: Complex
+  description: flavor-complex-enthralling
+
+- type: flavor
+  id: sublime
+  flavorType: Complex
+  description: flavor-complex-sublime

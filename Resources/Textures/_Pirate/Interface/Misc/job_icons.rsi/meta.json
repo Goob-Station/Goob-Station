@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Interdyne and CaptainInterdyne icon made by Nazar_m | Other Interdyne icon made by kraftorset (discord)",
+    "copyright": "Interdyne and CaptainInterdyne icon made by Nazar_m | Other Interdyne icon made by kraftorset (discord), AdminAssistant made by noctyrnal (github)",
 
     "size": {
         "x": 8,
@@ -34,6 +34,30 @@
         },
 		{
             "name": "InterdynePilot"
+        },
+        {
+            "name": "anomalist"
+        },
+        {
+            "name": "xenoarcheologist"
+        },
+        {
+            "name": "furry"
+        },
+        {
+            "name": "cryo-specialist"
+        },
+        {
+            "name": "electrician"
+        },
+        {
+            "name": "flora-engineer"
+        },
+        {
+            "name": "surgeon"
+        },
+        {
+            "name": "AdminAssistant"
         }
     ]
 }

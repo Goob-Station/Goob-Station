@@ -1,0 +1,161 @@
+# Masks
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskCircle
+  name: "Маска працівника(Коло)"
+  description: "Маска того, хто хоч і немає особистості але все ще має автомат і дозвіл стріляти. Виглядає як обличчя, яке забули намалювати."
+  suffix: SquidGame
+  components:
+  - type: Sprite
+    sprite: _Pirate/SquidGame/Clothing/Masks/circle.rsi
+    state: icon-circleMask
+  - type: Clothing
+    sprite: _Pirate/SquidGame/Clothing/Masks/circle.rsi
+    equippedState: equipped-Mask
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeySecurity
+  - type: Headset
+    requiredSlot: mask
+  - type: EncryptionKeyHolder
+    keySlots: 2
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskTriangle
+  name: "Маска працівника(Трикутник)"
+  description: "Маска того, хто наглядає за іншими і виконує накази без зайвих запитань. Не ти даєш наказ — ти їх реалізуєш, швидко й безшумно."
+  suffix: SquidGame
+  components:
+  - type: Sprite
+    sprite: _Pirate/SquidGame/Clothing/Masks/triangle.rsi
+    state: icon-triangleMask
+  - type: Clothing
+    sprite: _Pirate/SquidGame/Clothing/Masks/triangle.rsi
+    equippedState: equipped-triangleMask
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeySecurity
+  - type: Headset
+    requiredSlot: mask
+  - type: EncryptionKeyHolder
+    keySlots: 2
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskSquare
+  name: "Маска працівника(Квадрат)"
+  description: "Маска старшого працівника, який керує іншими такими ж безликими. Якщо її носиш — значить маєш повноваження, але це не робить тебе менш замінним."
+  suffix: SquidGame
+  components:
+  - type: Sprite
+    sprite: _Pirate/SquidGame/Clothing/Masks/square.rsi
+    state: icon-squareMask
+  - type: Clothing
+    sprite: _Pirate/SquidGame/Clothing/Masks/square.rsi
+    equippedState: equipped-squareMask
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyStationMaster
+  - type: Headset
+    requiredSlot: mask
+  - type: EncryptionKeyHolder
+    keySlots: 2
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskUwu
+  name: "Маска працівника(Кітик)"
+  description: "Нестандартна маска для нестандартних завдань, точно насторожує."
+  suffix: SquidGame
+  components:
+  - type: Sprite
+    sprite: _Pirate/SquidGame/Clothing/Masks/uwu.rsi
+    state: icon-UwUMask
+  - type: Clothing
+    sprite: _Pirate/SquidGame/Clothing/Masks/uwu.rsi
+    equippedState: equipped-UwUMask
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyStationMaster
+  - type: Headset
+    requiredSlot: mask
+  - type: EncryptionKeyHolder
+    keySlots: 2
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformBlue
+  name: "Синя уніформа"
+  description: "Проста синя уніформа учасника з номером {$number}. Комфортна, еластична — щоб бігати, падати і вмирати з максимальною свободою рухів."
+  suffix: SquidGame
+  components:
+  - type: Sprite
+    sprite: _Pirate/SquidGame/Clothing/Uniform/blue.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Pirate/SquidGame/Clothing/Uniform/blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformRed
+  name: "Червона уніформа"
+  description: "Матеріал з якого вироблено уніформу, виглядає як синтетичний, легкий, але не дешевий — десь між спортивним одягом і військовою формою. Уніформа охоронця."
+  suffix: SquidGame
+  components:
+  - type: Sprite
+    sprite: _Pirate/SquidGame/Clothing/Uniform/red.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Pirate/SquidGame/Clothing/Uniform/red.rsi
+  - type: ToggleableClothing
+    requiredSlot: innerclothing
+    clothingPrototypes:
+      head: ClothingHoodRed
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container {}
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHoodRed
+  name: "Червоний капюшон"
+  categories: [ HideSpawnMenu ]
+  description: "Червоний капюшон — фінальний штрих до образу 'анонімного виконавця сумнівних наказів'. Ховає волосся, емоції і, можливо, моральні сумніви."
+  suffix: SquidGame
+  components:
+  - type: Sprite
+    sprite: _Pirate/SquidGame/Clothing/Uniform/red.rsi
+    state: icon2
+  - type: Clothing
+    sprite: _Pirate/SquidGame/Clothing/Uniform/red.rsi
+    equippedState: equipped-HELMET
+  - type: HideLayerClothing
+    slots:
+    - Hair

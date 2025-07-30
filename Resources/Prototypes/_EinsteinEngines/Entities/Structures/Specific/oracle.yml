@@ -1,0 +1,101 @@
+- type: entity
+  parent: BaseStructure
+  id: Oracle
+  name: Oracle
+  description: She asks for items in exchange for knowledge. No one knows how she works.
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: _EinsteinEngines/Structures/Decoration/statues.rsi
+    layers:
+      - state: oracle-0
+      - map: ["enum.SolutionContainerLayers.Fill"]
+        state: oracle-0
+  - type: Speech
+    speechSounds: Tenor
+  - type: Actions
+  - type: Psionic
+    removable: false
+    roller: false
+    assayFeedback:
+      - oracle-feedback
+    psychognomicDescriptors:
+      - p-descriptor-old
+      - p-descriptor-demiurgic
+      - p-descriptor-mysterious
+      - p-descriptor-emanative
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
+      - NoosphericZapPower
+  - type: SolutionContainerManager
+    solutions:
+      fountain:
+        maxVol: 200
+  - type: Drink
+    solution: fountain
+  - type: DrawableSolution
+    solution: fountain
+  - type: DrainableSolution
+    solution: fountain
+  - type: ExaminableSolution
+    solution: fountain
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 10
+    fillBaseName: oracle-
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Prayable
+  - type: SpriteFade
+  - type: Tag
+    tags: []
+  - type: Oracle
+    demandTypes: OracleDemandTypes
+    rewardReagents: OracleRewardReagents
+    rewardEntities:
+    - OracleRewardDisks
+    - OracleRewardCrystals
+  #- type: LanguageSpeaker PIRATe
+  #  currentLanguage: TauCetiBasic
+  #- type: LanguageKnowledge
+  #  speaks:
+  #  - TauCetiBasic
+  #  understands:
+  #  - TauCetiBasic
+  - type: GuideHelp
+    guides: [ Psionics ]
+
+
+- type: weightedRandomEntity
+  id: OracleRewardDisks
+  weights:
+    ResearchDisk5000: 20
+    ResearchDisk10000: 10
+    ResearchDisk20000: 3
+    ResearchDisk50000: 1
+
+- type: weightedRandomEntity
+  id: OracleRewardCrystals
+  weights:
+    MaterialBSCrystal1: 3
+    MaterialBSCrystal3: 10
+    MaterialBSCrystal5: 2
+
+- type: weightedRandom
+  id: OracleRewardReagents
+  weights:
+    LotophagoiOil: 7
+    Ichor: 2
+    Wine: 1.2
+    Blood: 0.8
+
+- type: weightedRandom
+  id: OracleDemandTypes
+  weights:
+    tech: 3
+    plant: 1 # Plants are very annoying to procure most of the time

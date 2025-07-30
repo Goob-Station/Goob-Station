@@ -1,0 +1,96 @@
+- type: marking
+  id: ReptilianEyebags
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/markingsbundle2.rsi
+    state: eyebags
+
+- type: marking
+  id: ReptilianEyebrowsBig
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/markingsbundle2.rsi
+    state: eyebrowsthick
+
+- type: marking
+  id: ReptilianEyebrowsBigger
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/markingsbundle2.rsi
+    state: eyebrowsultra
+
+- type: marking
+  id: ReptilianEyebrowsUnibrow
+  bodyPart: Face
+  markingCategory: Face
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/markingsbundle2.rsi
+    state: eyebrowsunibrow
+
+- type: marking
+  id: ReptilianTattooEyeRight
+  bodyPart: Eyes
+  markingCategory: Face
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_r
+
+- type: marking
+  id: ReptilianTattooEyeLeft
+  bodyPart: Eyes
+  markingCategory: Face
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_l
+
+- type: marking
+  id: MarkingLizardBaseHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/rept_head.rsi
+    state: head_base
+  - sprite: _Pirate/Mobs/Customization/rept_head.rsi
+    state: head_base_1
+
+- type: marking
+  id: MarkingLizardFlattenedHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/rept_head.rsi
+    state: head_flattened
+  - sprite: _Pirate/Mobs/Customization/rept_head.rsi
+    state: head_flattened_2
+  - sprite: _Pirate/Mobs/Customization/rept_head.rsi
+    state: head_flattened_3
+
+- type: marking
+  id: ReptilianLineEyes
+  bodyPart: Eyes
+  markingCategory: Face # PIRATE
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _Pirate/Mobs/Customization/reptilian_custom.rsi
+    state: lineeyes

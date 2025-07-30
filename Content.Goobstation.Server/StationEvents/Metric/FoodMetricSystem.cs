@@ -25,30 +25,30 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
 {
     [Dependency] private readonly SharedRoleSystem _roles = default!;
 
-    private static readonly Gauge HungerThresholdCount = Metrics.CreateGauge(
+    private static readonly Gauge HungerThresholdCount = Prometheus.Metrics.CreateGauge(
         "game_director_metric_food_hunger_threshold_count",
         "Number of entities at a specific hunger threshold.",
         "threshold");
 
-    private static readonly Gauge ThirstThresholdCount = Metrics.CreateGauge(
+    private static readonly Gauge ThirstThresholdCount = Prometheus.Metrics.CreateGauge(
         "game_director_metric_food_thirst_threshold_count",
         "Number of entities at a specific thirst threshold.",
         "threshold");
 
-    private static readonly Gauge SiliconChargeStateCount = Metrics.CreateGauge(
+    private static readonly Gauge SiliconChargeStateCount = Prometheus.Metrics.CreateGauge(
         "game_director_metric_food_silicon_charge_state_count",
         "Number of silicon entities at a specific normalized charge state.",
         "charge_state");
 
-    private static readonly Gauge HungerChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge HungerChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_food_hunger_chaos_calculated",
         "Calculated chaos value contributed by hunger.");
 
-    private static readonly Gauge ThirstChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge ThirstChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_food_thirst_chaos_calculated",
         "Calculated chaos value contributed by thirst.");
 
-    private static readonly Gauge ChargeChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge ChargeChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_food_charge_chaos_calculated",
         "Calculated chaos value contributed by silicon charge levels.");
 

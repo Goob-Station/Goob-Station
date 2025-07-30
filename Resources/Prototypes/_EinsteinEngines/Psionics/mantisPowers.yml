@@ -1,0 +1,81 @@
+- type: psionicPower
+  id: MantisSummonBlackBlade
+  name: Summon Black Blade
+  powerCategories:
+    - Mentalic
+    - Dangerous
+  initializeFunctions:
+    - !type:AddPsionicActions
+      actions:
+        - ActionMantisSummonBlackBlade
+  removalFunctions:
+    - !type:RemovePsionicActions
+
+- type: entity
+  id: ActionMantisSummonBlackBlade
+  name: Summon Black Blade
+  description: Beckon forth the testament of your sins.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
+    state: icon
+  - type: InstantAction
+    useDelay: 20
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon:
+      sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
+      state: icon
+    event: !type:SummonEquipmentEvent
+      speech: "thrusts their open hand to the side. A black blade forms from nothingness into their waiting hand. Whispering demonic voices echo around the sword..."
+      invokeChatType: Emote
+      prototypes:
+        hand1: MantisBlackBlade
+      force: false
+  #- type: BaseCultSpell PIRATE
+
+- type: entity
+  name: black sword
+  parent: BaseItem
+  id: MantisBlackBlade
+  description: A huge black sword covered in strange runes. It whispers incessantly to its wielder.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.3333
+    range: 1.65
+    damage:
+      types:
+        Slash: 10
+        Holy: 15
+    angle: 90
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: AntiPsionicWeapon
+    punish: false
+    modifiers:
+      coefficients:
+        Slash: 1.5
+        Holy: 2
+  - type: Item
+    size: Normal
+  - type: Clothing
+    slots:
+    - back
+  - type: DisarmMalus
+  - type: PointLight
+    color: "#793a80"
+    radius: 1.5
+    energy: 12.5
+  - type: DeleteOnDrop
+  - type: DeleteOnDropAttempt
+  - type: AmbientSound
+    range: 5
+    volume: -5
+    sound:
+      path: /Audio/Ambience/anomaly_scary.ogg

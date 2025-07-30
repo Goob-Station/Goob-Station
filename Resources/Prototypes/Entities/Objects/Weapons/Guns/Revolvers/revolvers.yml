@@ -113,6 +113,17 @@
     price: 500
   - type: Multishot # Goobstation
   - type: CanTakeAim # PIRATE
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RevolversPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RevolversDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RevolversDrop
+  # Goobstation edit end
 
 - type: entity
   name: Deckard
@@ -256,4 +267,3 @@
     capacity: 5
     chambers: [ null, null, null, null, null ]
     ammoSlots: [ null, null, null, null, null ]
-    

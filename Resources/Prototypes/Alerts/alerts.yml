@@ -164,7 +164,10 @@
     - category: Thirst
     - alertType: Magboots
     - alertType: Pacified
+    - alertType: Offer # Pirate - port EE item offesrs
     - alertType: ShadowCloak # Goobstation
+    - alertType: DragonPower # Goobstation
+    - category: Ninjutsu # Goobstation
 
 - type: entity
   id: AlertSpriteView
@@ -560,7 +563,6 @@
   description: alerts-pulling-desc
   minSeverity: 0
   maxSeverity: 3
-
 # Goobstation end
 
 - type: alert

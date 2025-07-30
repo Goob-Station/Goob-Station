@@ -1,0 +1,59 @@
+- type: startingGear
+  id: SquidGamePlayer
+  equipment:
+    jumpsuit: ClothingUniformBlue
+    shoes: ClothingShoesColorBlack
+    id: SquidGamePlayerIDCard
+
+- type: startingGear
+  id: SquidGameCircle
+  equipment:
+    jumpsuit: ClothingUniformRed
+    mask: ClothingMaskCircle
+    #outerClothing: ClothingOuterArmorBasicSquidGame # Можливо варто додати легкий бронежилет для рядового охоронця
+    shoes: ClothingShoesColorBlack
+    belt: ClothingBeltSecurityFilled
+    gloves: ClothingHandsGlovesCombat
+    id: SquidGameGuardCircleIDCard
+    pocket1: WeaponPistolMk58 # або кастомна легка зброя (наприклад, "SquidGameSidearm")
+    pocket2: MagazinePistol
+
+- type: startingGear
+  id: SquidGameTriangle
+  equipment:
+    jumpsuit: ClothingUniformRed
+    mask: ClothingMaskTriangle
+    #outerClothing: ClothingOuterArmorHeavySquidGame # Можливо варто додати важчу броню або спецжилет
+    shoes: ClothingShoesColorBlack
+    belt: ClothingBeltSecurityFilled
+    gloves: ClothingHandsGlovesCombat
+    id: SquidGameGuardTriangleIDCard
+    back: WeaponRifleLecter # або кастомна штурмова зброя
+    pocket1: MagazineRifle
+    pocket2: MagazineRifle
+
+- type: startingGear
+  id: SquidGameSquare
+  equipment:
+    jumpsuit: ClothingUniformRed
+    mask: ClothingMaskSquare
+    #outerClothing: ClothingOuterCoatOfficerSquidGame # Можливо варто додати більш авторитетний одяг, можливо з бронеелементами
+    shoes: ClothingShoesColorBlack
+    belt: ClothingBeltSecurityFilled
+    gloves: ClothingHandsGlovesCombat
+    id: SquidGameGuardSquareIDCard
+    pocket1: WeaponPulsePistol # або елітна зброя ближнього контролю
+    pocket2: Flash
+
+- type: startingGear
+  id: SquidGameUwU
+  equipment:
+    jumpsuit: ClothingUniformRed
+    mask: ClothingMaskUwu
+    #outerClothing: ClothingOuterCoatOfficerSquidGame # Можливо варто додати більш авторитетний одяг, можливо з бронеелементами
+    shoes: ClothingShoesColorBlack
+    belt: ClothingBeltSecurityFilled
+    gloves: ClothingHandsGlovesCombat
+    id: SquidGameGuardUwUIDCard
+    pocket1: WeaponPulsePistol # або елітна зброя ближнього контролю
+    pocket2: Flash

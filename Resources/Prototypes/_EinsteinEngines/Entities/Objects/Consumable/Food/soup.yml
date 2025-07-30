@@ -1,0 +1,23 @@
+- type: entity
+  name: ousiana dust bowl
+  parent: FoodBowlBase # really dry soup i guess
+  id: FoodOusianaDustBowl
+  description: A combination of diametrically opposed forces,
+  components:
+  - type: FlavorProfile
+    flavors:
+      - supernova
+  - type: Sprite
+    layers:
+      - state: bowl
+      - state: ousiana
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: OusianaDust
+            Quantity: 5
+  - type: Construction
+    graph: OusianaDustBowl
+    node: ousianadustbowl

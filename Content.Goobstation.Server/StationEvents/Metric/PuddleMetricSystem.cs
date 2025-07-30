@@ -24,15 +24,15 @@ public sealed class PuddleMetricSystem : ChaosMetricSystem<PuddleMetricComponent
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
-    private static readonly Gauge PuddlesTotal = Metrics.CreateGauge(
+    private static readonly Gauge PuddlesTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_puddle_total",
         "Total number of puddles counted.");
 
-    private static readonly Gauge PuddleVolumeTotal = Metrics.CreateGauge(
+    private static readonly Gauge PuddleVolumeTotal = Prometheus.Metrics.CreateGauge(
         "game_director_metric_puddle_volume_total",
         "Total volume of liquid across all puddles.");
 
-    private static readonly Gauge MessChaosCalculated = Metrics.CreateGauge(
+    private static readonly Gauge MessChaosCalculated = Prometheus.Metrics.CreateGauge(
         "game_director_metric_puddle_mess_chaos_calculated",
         "Calculated chaos value contributed by puddles.");
 
