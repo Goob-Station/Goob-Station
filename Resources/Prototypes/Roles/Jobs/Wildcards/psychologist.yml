@@ -112,6 +112,12 @@
   - Maintenance
   extendedAccess:
   - Chemistry
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - MedicalEquipment
 
 - type: startingGear
   id: PsychologistGear

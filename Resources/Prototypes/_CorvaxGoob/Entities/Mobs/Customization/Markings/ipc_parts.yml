@@ -1,0 +1,1215 @@
+- type: marking
+  id: ShellguardShellguardMonitorHead2
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_monitor.rsi
+      state: head-2
+
+- type: marking
+  id: ShellguardShellguardMonitorHead1
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_monitor.rsi
+      state: head-1
+
+- type: marking
+  id: ShellguardShellguardMainLLeg1
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: l_leg-1
+
+- type: marking
+  id: ShellguardShellguardMainRHand2
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: r_hand-2
+
+- type: marking
+  id: ShellguardShellguardMainLFoot1
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: l_foot-1
+
+- type: marking
+  id: ShellguardShellguardMainLHand1
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: l_hand-1
+
+- type: marking
+  id: ShellguardShellguardMainRArm2
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: r_arm-2
+
+- type: marking
+  id: ShellguardShellguardMainTorso2
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: torso-2
+
+- type: marking
+  id: ShellguardShellguardMainTorso1
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: torso-1
+
+- type: marking
+  id: ShellguardShellguardMainLArm2
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: l_arm-2
+
+- type: marking
+  id: ShellguardShellguardMainRHand1
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: r_hand-1
+
+- type: marking
+  id: ShellguardShellguardMainRLeg2
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: r_leg-2
+
+- type: marking
+  id: ShellguardShellguardMainRLeg1
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: r_leg-1
+
+- type: marking
+  id: ShellguardShellguardMainLArm1
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: l_arm-1
+
+- type: marking
+  id: ShellguardShellguardMainLHand2
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: l_hand-2
+
+- type: marking
+  id: ShellguardShellguardMainRArm1
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: r_arm-1
+
+- type: marking
+  id: ShellguardShellguardMainRFoot2
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: r_foot-2
+
+- type: marking
+  id: ShellguardShellguardMainRFoot1
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: r_foot-1
+
+- type: marking
+  id: ShellguardShellguardMainLFoot2
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: l_foot-2
+
+- type: marking
+  id: ShellguardShellguardMainLLeg2
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
+      state: l_leg-2
+
+- type: marking
+  id: ShellguardShellguardAlt1Head2
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_alt1.rsi
+      state: head-2
+
+- type: marking
+  id: ShellguardShellguardAlt1Head1
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/shellguard/shellguard_alt1.rsi
+      state: head-1
+
+- type: marking
+  id: ZenghuZenghuMainLLeg1
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: l_leg-1
+
+- type: marking
+  id: ZenghuZenghuMainRHand2
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: r_hand-2
+
+- type: marking
+  id: ZenghuZenghuMainLFoot1
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: l_foot-1
+
+- type: marking
+  id: ZenghuZenghuMainLHand1
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: l_hand-1
+
+- type: marking
+  id: ZenghuZenghuMainRArm2
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: r_arm-2
+
+- type: marking
+  id: ZenghuZenghuMainTorso2
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: torso-2
+
+- type: marking
+  id: ZenghuZenghuMainTorso1
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: torso-1
+
+- type: marking
+  id: ZenghuZenghuMainLArm2
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: l_arm-2
+
+- type: marking
+  id: ZenghuZenghuMainRHand1
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: r_hand-1
+
+- type: marking
+  id: ZenghuZenghuMainRLeg2
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: r_leg-2
+
+- type: marking
+  id: ZenghuZenghuMainGroin
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: groin
+
+- type: marking
+  id: ZenghuZenghuMainRLeg1
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: r_leg-1
+
+- type: marking
+  id: ZenghuZenghuMainHead2
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: head-2
+
+- type: marking
+  id: ZenghuZenghuMainLArm1
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: l_arm-1
+
+- type: marking
+  id: ZenghuZenghuMainLHand2
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: l_hand-2
+
+- type: marking
+  id: ZenghuZenghuMainRArm1
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: r_arm-1
+
+- type: marking
+  id: ZenghuZenghuMainRFoot2
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: r_foot-2
+
+- type: marking
+  id: ZenghuZenghuMainRFoot1
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: r_foot-1
+
+- type: marking
+  id: ZenghuZenghuMainLFoot2
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: l_foot-2
+
+- type: marking
+  id: ZenghuZenghuMainHead1
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: head-1
+
+- type: marking
+  id: ZenghuZenghuMainLLeg2
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
+      state: l_leg-2
+
+- type: marking
+  id: HesphiastosHesphiastosMainLLeg1
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: l_leg-1
+
+- type: marking
+  id: HesphiastosHesphiastosMainRHand2
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: r_hand-2
+
+- type: marking
+  id: HesphiastosHesphiastosMainLFoot1
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: l_foot-1
+
+- type: marking
+  id: HesphiastosHesphiastosMainLHand1
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: l_hand-1
+
+- type: marking
+  id: HesphiastosHesphiastosMainRArm2
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: r_arm-2
+
+- type: marking
+  id: HesphiastosHesphiastosMainTorso2
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: torso-2
+
+- type: marking
+  id: HesphiastosHesphiastosMainTorso1
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: torso-1
+
+- type: marking
+  id: HesphiastosHesphiastosMainLArm2
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: l_arm-2
+
+- type: marking
+  id: HesphiastosHesphiastosMainRHand1
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: r_hand-1
+
+- type: marking
+  id: HesphiastosHesphiastosMainRLeg2
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: r_leg-2
+
+- type: marking
+  id: HesphiastosHesphiastosMainRLeg1
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: r_leg-1
+
+- type: marking
+  id: HesphiastosHesphiastosMainLArm1
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: l_arm-1
+
+- type: marking
+  id: HesphiastosHesphiastosMainLHand2
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: l_hand-2
+
+- type: marking
+  id: HesphiastosHesphiastosMainRArm1
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: r_arm-1
+
+- type: marking
+  id: HesphiastosHesphiastosMainRFoot2
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: r_foot-2
+
+- type: marking
+  id: HesphiastosHesphiastosMainRFoot1
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: r_foot-1
+
+- type: marking
+  id: HesphiastosHesphiastosMainLFoot2
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: l_foot-2
+
+- type: marking
+  id: HesphiastosHesphiastosMainLLeg2
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
+      state: l_leg-2
+
+- type: marking
+  id: HesphiastosHesphiastosMonitorHead2
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_monitor.rsi
+      state: head-2
+
+- type: marking
+  id: HesphiastosHesphiastosMonitorHead1
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_monitor.rsi
+      state: head-1
+
+- type: marking
+  id: HesphiastosHesphiastosAlt1Head2
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_alt1.rsi
+      state: head-2
+
+- type: marking
+  id: HesphiastosHesphiastosAlt1Head3
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_alt1.rsi
+      state: head-3
+
+- type: marking
+  id: HesphiastosHesphiastosAlt1Head1
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/hesphiastos/hesphiastos_alt1.rsi
+      state: head-1
+
+- type: marking
+  id: BishopBishopMonitorHead2
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_monitor.rsi
+      state: head-2
+
+- type: marking
+  id: BishopBishopMonitorHead
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_monitor.rsi
+      state: head
+
+- type: marking
+  id: BishopBishopAlt1Head
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_alt1.rsi
+      state: head
+
+- type: marking
+  id: BishopBishopMainLArmCombined
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: l_arm-combined
+
+- type: marking
+  id: BishopBishopMainTorsoPrimary
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: torso-primary
+
+- type: marking
+  id: BishopBishopMainLLegSecondary
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: l_leg-secondary
+
+- type: marking
+  id: BishopBishopMainRArmPrimary
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: r_arm-primary
+
+- type: marking
+  id: BishopBishopMainLArmTertiary
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: l_arm-tertiary
+
+- type: marking
+  id: BishopBishopMainRHand
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: r_hand
+
+- type: marking
+  id: BishopBishopMainLArmPrimary
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: l_arm-primary
+
+- type: marking
+  id: BishopBishopMainRLegPrimary
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: r_leg-primary
+
+- type: marking
+  id: BishopBishopMainTorsoSecondary
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: torso-secondary
+
+- type: marking
+  id: BishopBishopMainRLegCombined
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: r_leg-combined
+
+- type: marking
+  id: BishopBishopMainRArmSecondary
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: r_arm-secondary
+
+- type: marking
+  id: BishopBishopMainHead
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: head
+
+- type: marking
+  id: BishopBishopMainLFoot
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: l_foot
+
+- type: marking
+  id: BishopBishopMainLArmSecondary
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: l_arm-secondary
+
+- type: marking
+  id: BishopBishopMainLLegPrimary
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: l_leg-primary
+
+- type: marking
+  id: BishopBishopMainRArmTertiary
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: r_arm-tertiary
+
+- type: marking
+  id: BishopBishopMainLHand
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: l_hand
+
+- type: marking
+  id: BishopBishopMainLLegCombined
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: l_leg-combined
+
+- type: marking
+  id: BishopBishopMainRFoot
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: r_foot
+
+- type: marking
+  id: BishopBishopMainRLegSecondary
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: r_leg-secondary
+
+- type: marking
+  id: BishopBishopMainRArmCombined
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/bishop/bishop_main.rsi
+      state: r_arm-combined
+
+- type: marking
+  id: MorpheusMorpheusAlt1Head
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_alt1.rsi
+      state: head
+
+- type: marking
+  id: MorpheusMorpheusMainRHand
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: r_hand
+
+- type: marking
+  id: MorpheusMorpheusMainLArm
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: l_arm
+
+- type: marking
+  id: MorpheusMorpheusMainTorso
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: torso
+
+- type: marking
+  id: MorpheusMorpheusMainHead
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: head
+
+- type: marking
+  id: MorpheusMorpheusMainRLeg
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: r_leg
+
+- type: marking
+  id: MorpheusMorpheusMainLFoot
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: l_foot
+
+- type: marking
+  id: MorpheusMorpheusMainLHand
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: l_hand
+
+- type: marking
+  id: MorpheusMorpheusMainRArm
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: r_arm
+
+- type: marking
+  id: MorpheusMorpheusMainRFoot
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: r_foot
+
+- type: marking
+  id: MorpheusMorpheusMainLLeg
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
+      state: l_leg
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainRHand
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: r_hand
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainLArm
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: l_arm
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainTorso
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: torso
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainHead
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: head
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainRLeg
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: r_leg
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainLFoot
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: l_foot
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainLHand
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: l_hand
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainRArm
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: r_arm
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainRFoot
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: r_foot
+
+- type: marking
+  id: WardtakahashiWardtakahashiMainLLeg
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
+      state: l_leg
+
+- type: marking
+  id: WardtakahashiWardtakahashiMonitorHead
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_monitor.rsi
+      state: head
+
+- type: marking
+  id: WardtakahashiWardtakahashiAlt1Head
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_alt1.rsi
+      state: head
+
+- type: marking
+  id: XionXionMonitorHead2
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_monitor.rsi
+      state: head-2
+
+- type: marking
+  id: XionXionMonitorHead1
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_monitor.rsi
+      state: head-1
+
+- type: marking
+  id: XionXionMainLLeg1
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: l_leg-1
+
+- type: marking
+  id: XionXionMainRHand2
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: r_hand-2
+
+- type: marking
+  id: XionXionMainLFoot1
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: l_foot-1
+
+- type: marking
+  id: XionXionMainLHand1
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: l_hand-1
+
+- type: marking
+  id: XionXionMainRArm2
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: r_arm-2
+
+- type: marking
+  id: XionXionMainTorso2
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: torso-2
+
+- type: marking
+  id: XionXionMainTorso1
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: torso-1
+
+- type: marking
+  id: XionXionMainLArm2
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: l_arm-2
+
+- type: marking
+  id: XionXionMainRHand1
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: r_hand-1
+
+- type: marking
+  id: XionXionMainRLeg2
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: r_leg-2
+
+- type: marking
+  id: XionXionMainRLeg1
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: r_leg-1
+
+- type: marking
+  id: XionXionMainLArm1
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: l_arm-1
+
+- type: marking
+  id: XionXionMainLHand2
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: l_hand-2
+
+- type: marking
+  id: XionXionMainRArm1
+  markingCategory: Arms
+  bodyPart: RArm
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: r_arm-1
+
+- type: marking
+  id: XionXionMainRFoot2
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: r_foot-2
+
+- type: marking
+  id: XionXionMainRFoot1
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: r_foot-1
+
+- type: marking
+  id: XionXionMainLFoot2
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: l_foot-2
+
+- type: marking
+  id: XionXionMainLLeg2
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_main.rsi
+      state: l_leg-2
+
+- type: marking
+  id: XionXionAlt1Head2
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_alt1.rsi
+      state: head-2
+
+- type: marking
+  id: XionXionAlt1Head1
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Ipc]
+  sprites:
+    - sprite: _CorvaxGoob/Mobs/Customization/Ipc/xion/xion_alt1.rsi
+      state: head-1
+

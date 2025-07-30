@@ -293,6 +293,11 @@ public sealed partial class GunComponent : Component
     [DataField]
     public Vector2 DefaultDirection = new Vector2(0, -1);
 
+    // CorvaxGoob-Skills-Start
+    [DataField]
+    public bool RequiresSkill;
+    // CorvaxGoob-Skills-End
+
     /// <summary>
     /// Goobstation
     /// Whether the system won't change gun target when we stop aiming at it while firing in burst mode.

@@ -1,0 +1,41 @@
+<Document>
+# Хирургия
+Ваша еженедельная активность. С помощью проведения хирургических операций на пациентах вы можее лечить повреждения, добавлять новые части тела и органы, и так далее.
+
+## Основы
+Для начала хирургии пациент должен быть в положении лёжа, и в идеале без сознания.
+
+Если пациент всё ещё в сознании, он будет чувствовать огромную боль и могут получать гораздо более серьёзные травмы из-за болевого шока.
+
+<Box>
+<GuideEntityEmbed Entity="NitrousOxideTank" Caption="оксид азота"/>
+<GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="любая маска для дыхания"/>
+</Box>
+
+Вам также потребуется надеть Перчатки и Маску для предотвращения попадания инфекции в тело пациента.
+
+<Box>
+<GuideEntityEmbed Entity="ClothingMaskSterile" Caption="любая маска"/>
+<GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="любые перчатки"/>
+</Box>
+
+## Начало
+
+Для хирургического вмешательства, вам потребуется следующий набор инструментов.
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Caption="скальпель"/>
+<GuideEntityEmbed Entity="Retractor" Caption="ретрактор"/>
+<GuideEntityEmbed Entity="BoneSetter" Caption="установщик костей">
+<GuideEntityEmbed Entity="Hemostat" Caption="гемостат"/>
+<GuideEntityEmbed Entity="Drill" Caption="дрель"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="Saw" Caption="пила"/>
+<GuideEntityEmbed Entity="Cautery" Caption="прибор для прижигания"/>
+<GuideEntityEmbed Entity="BoneGel" Caption="костяной гель"/>
+</Box>
+
+Как только любой хирургический инструмент есть у вас в руке, провзаимодействуйте с телом пациента для начала операции. Вы можете выбрать части тела на которых хотите провести хирургию.
+
+</Document>

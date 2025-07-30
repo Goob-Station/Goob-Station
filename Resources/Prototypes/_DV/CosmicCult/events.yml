@@ -30,6 +30,14 @@
         sound: /Audio/_DV/CosmicCult/antag_cosmic_briefing.ogg
       components:
       - type: RogueAscended
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]

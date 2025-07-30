@@ -142,23 +142,27 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Server.PowerCell;
 using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
+using Content.Shared._CorvaxGoob.Skills;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!; // Goobstation
+    [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills
     [Dependency] private readonly SharedMapSystem _map = default!;
 
     private const float DamagePitchVariation = 0.05f;
+
+    private const float SpreadWithoutSkill = MathHelper.PiOver6; // CorvaxGoob-Skills
 
     public override void Initialize()
     {
@@ -203,6 +207,16 @@ public sealed partial class GunSystem : SharedGunSystem
         var mapDirection = toMap - fromMap.Position;
         var mapAngle = mapDirection.ToAngle();
         var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
+
+        // CorvaxGoob-Skills-Start
+        if (gun.RequiresSkill && user is not null && !_skills.HasSkill(user!.Value, Skills.Shooting))
+        {
+            var spread = -SpreadWithoutSkill / 2 + Random.NextFloat() * SpreadWithoutSkill;
+
+            mapAngle += spread;
+            angle += spread;
+        }
+        // CorvaxGoob-Skills-End
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out _)

@@ -1,0 +1,50 @@
+- type: entity
+  id: LockerPilotFilled
+  name: pilot locker
+  suffix: Filled
+  parent: LockerPilot
+  components:
+  - type: StorageFill
+    contents:
+      - id: FlashlightSeclite
+      - id: WeaponDisabler
+      - id: ClothingUniformSecurityTrooper
+      - id: ClothingHeadHelmetBasic
+      - id: ClothingOuterArmorBasic
+      - id: ClothingBeltSecurityFilled
+      - id: Flash
+      - id: ClothingEyesGlassesSecurity
+      - id: ClothingHeadsetSecurity
+      - id: ClothingShoesBootsJack
+      - id: HoloprojectorSecurity
+      - id: BookSpaceLaw
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingBeltUtilityFilled
+      - id: ClothingOuterWinterPilot
+
+- type: entity
+  id: LockerPilotFilledHardsuit
+  name: pilot locker
+  suffix: Filled, Hardsuit
+  parent: LockerPilot
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHelmetHardsuitSecPilot
+      - id: ClothingOuterHardsuitSecPilotFilled
+      - id: FlashlightSeclite
+      - id: WeaponDisabler
+      - id: ClothingUniformSecurityTrooper
+      - id: ClothingHeadHelmetBasic
+      - id: ClothingOuterArmorBasic
+      - id: ClothingBeltSecurityFilled
+      - id: Flash
+      - id: ClothingEyesGlassesSecurity
+      - id: ClothingHeadsetSecurity
+      - id: ClothingShoesBootsJack
+      - id: HoloprojectorSecurity
+      - id: BookSpaceLaw
+      - id: ThrusterFlatpack
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingBeltUtilityFilled
+      - id: ClothingOuterWinterPilot

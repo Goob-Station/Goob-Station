@@ -1,0 +1,47 @@
+- type: job
+  id: Pilot
+  name: job-name-pilot
+  description: job-description-pilot
+  playTimeTracker: JobPilot
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 72000 #20 hrs
+  - !type:TraitsRequirement
+    inverted: true
+    traits:
+    - Muted
+  startingGear: PilotGear
+  icon: "JobIconPilot"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills # Corvax-Next-Skills
+      skills:
+      - ShuttleControl
+      - Shooting
+
+- type: startingGear
+  id: PilotGear
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    head: ClothingHeadHatBeretSecurity
+    id: PilotPDA
+    ears: ClothingHeadsetSecurity
+    neck: ClothingNeckTieRed
+    pocket1: WeaponPistolMk58
+  storage:
+    back:
+    - Flash
+    - MagazinePistol

@@ -1,0 +1,23 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPilot
+  icon:
+    sprite: /Textures/_CorvaxGoob/Interface/Misc/job_icons.rsi
+    state: Pilot
+  jobName: job-name-pilot
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSurgeon
+  icon:
+    sprite: /Textures/_CorvaxGoob/Interface/Misc/job_icons.rsi
+    state: Surgeon
+  jobName: job-name-surgeon
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconWardenHelper
+  icon:
+    sprite: /Textures/_CorvaxGoob/Interface/Misc/job_icons.rsi
+    state: WardenHelper
+  jobName: job-name-wardenhelper

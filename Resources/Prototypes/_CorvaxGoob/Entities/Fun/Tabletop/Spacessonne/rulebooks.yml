@@ -1,0 +1,12 @@
+- type: entity
+  parent: BookBase
+  id: BookCarcRulesClassic
+  name: "Spacessonne rulebook"
+  description: "Just read it before play."
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/Tabletop/Spacessonne/rulebook.rsi
+    layers:
+    - state: classic
+  - type: Paper
+    content: book-text-carc-rules

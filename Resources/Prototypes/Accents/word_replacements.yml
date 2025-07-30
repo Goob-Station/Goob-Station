@@ -549,6 +549,16 @@
     chatsan-word-70: chatsan-replacement-70
     chatsan-word-71: chatsan-replacement-71
     # goob end
+    # Corvax-Goob-SpeechReplacement-start
+    corvax-goob-chatsan-word-1: corvax-goob-chatsan-replacement-1
+    corvax-goob-chatsan-word-2: corvax-goob-chatsan-replacement-2
+    corvax-goob-chatsan-word-3: corvax-goob-chatsan-replacement-3
+    corvax-goob-chatsan-word-4: corvax-goob-chatsan-replacement-4
+    corvax-goob-chatsan-word-5: corvax-goob-chatsan-replacement-5
+    corvax-goob-chatsan-word-6: corvax-goob-chatsan-replacement-6
+    corvax-goob-chatsan-word-7: corvax-goob-chatsan-replacement-7
+    corvax-goob-chatsan-word-8: corvax-goob-chatsan-replacement-8
+    # Corvax-Goob-SpeechReplacement-end
 
 - type: accent
   id: liar

@@ -72,7 +72,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
 
         _configuration.OnValueChanged(GoobCVars.QueueEnabled, OnQueueCVarChanged, true);
         _configuration.OnValueChanged(GoobCVars.PatreonSkip, OnPatronCvarChanged, true);
-        _player.PlayerStatusChanged += OnPlayerStatusChanged;
+        // _player.PlayerStatusChanged += OnPlayerStatusChanged; // CorvaxGoob
     }
 
 
@@ -109,11 +109,11 @@ public sealed class JoinQueueManager : IJoinQueueManager
         }
         else if (e.NewStatus == SessionStatus.Connected)
         {
-            OnPlayerConnected(e.Session);
+            // OnPlayerConnected(e.Session); // CorvaxGoob
         }
     }
 
-
+    /* CorvaxGoob-Start
     private async void OnPlayerConnected(ICommonSession session)
     {
         if (!_isEnabled)
@@ -144,7 +144,8 @@ public sealed class JoinQueueManager : IJoinQueueManager
         // CorvaxGoob-Coins-end
 
         ProcessQueue(false, session.ConnectedTime);
-    }
+    } CorvaxGoob-End
+    */
 
     /// <summary>
     ///     If possible, takes the first player in the queue and sends him into the game

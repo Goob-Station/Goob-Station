@@ -162,6 +162,10 @@
     components:
       - type: CommandStaff
       - type: EngineeringStaff # Goobstation
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - AdvancedBuilding
 
 - type: startingGear
   id: ChiefEngineerGear

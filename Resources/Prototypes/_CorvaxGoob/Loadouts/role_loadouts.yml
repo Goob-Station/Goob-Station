@@ -1,0 +1,36 @@
+- type: roleLoadout
+  id: JobSurgeon
+  groups:
+  - Inventory
+  - SurgeonHead
+  - SurgeonJumpsuit
+  - MedicalBackpack
+  - Survival
+  - GroupSpeciesBreathTool
+  - SurgeonScalpel
+
+- type: roleLoadout
+  id: JobWardenHelper
+  groups:
+  - Inventory
+  - WardenJumpsuit
+  - SecurityBackpack
+  - SecurityBelt
+  - WardenOuterClothing
+  - SecurityShoes
+  - SurvivalSecurity
+  - SecurityStar
+  - GroupSpeciesBreathToolSecurity
+
+- type: roleLoadout
+  id: JobPilot
+  groups:
+  - Inventory
+  - SecurityJumpsuit
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityBelt
+  - SecurityShoes
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathTool

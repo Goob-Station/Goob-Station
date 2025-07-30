@@ -36,5 +36,13 @@
       components:
       - type: CosmicCult
       - type: WeakToHoly # GOOBSTATION
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       mindRoles:
       - MindRoleCosmicCult

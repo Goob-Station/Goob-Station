@@ -165,11 +165,19 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - Surgery
+        - MedicalEquipment
   # Shitmed Change
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
       speedModifier: 2
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - Surgery
+      - MedicalEquipment
 
 - type: startingGear
   id: CMOGear

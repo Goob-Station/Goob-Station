@@ -11,8 +11,8 @@
 // SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
 // SPDX-FileCopyrightText: 2020 Memory <58238103+FL-OZ@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 // SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
 // SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
@@ -24,7 +24,7 @@
 // SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
 // SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 J�lio C�sar Ueti <52474532+Mirino97@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Paul <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
 // SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
@@ -68,6 +68,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Content.Goobstation.Common.Construction; // Goobstation
 using Content.Server.Construction.Components;
+using Content.Shared._CorvaxGoob.Skills;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
@@ -91,7 +92,6 @@ namespace Content.Server.Construction
 {
     public sealed partial class ConstructionSystem
     {
-        [Dependency] private readonly IComponentFactory _factory = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -246,9 +246,11 @@ namespace Content.Server.Construction
             var steps = new List<ConstructionGraphStep>();
             var used = new HashSet<EntityUid>();
 
+            bool hasSkill = _skills.HasSkill(user, Skills.AdvancedBuilding); // CorvaxGoob-Skills
+
             foreach (var step in edge.Steps)
             {
-                doAfterTime += step.DoAfter;
+                var delay = step.DoAfter; // CorvaxGoob-Skills
 
                 var handled = false;
 
@@ -278,6 +280,11 @@ namespace Content.Server.Construction
                             else if (!_container.Insert(splitStack.Value, GetContainer(materialStep.Store)))
                                 continue;
 
+                            // CorvaxGoob-Skills-Start
+                            if (!hasSkill && IsAdvancedMaterial(entity))
+                                delay *= DelayModifierWithoutSkill;
+                            // CorvaxGoob-Skills-End
+
                             handled = true;
                             break;
                         }
@@ -287,7 +294,7 @@ namespace Content.Server.Construction
                     case ArbitraryInsertConstructionGraphStep arbitraryStep:
                         foreach (var entity in new HashSet<EntityUid>(EnumerateNearby(user)))
                         {
-                            if (!arbitraryStep.EntityValid(entity, EntityManager, _factory))
+                            if (!arbitraryStep.EntityValid(entity, EntityManager, Factory))
                                 continue;
 
                             if (used.Contains(entity))
@@ -322,6 +329,8 @@ namespace Content.Server.Construction
                 }
 
                 steps.Add(step);
+
+                doAfterTime += step.DoAfter; // CorvaxGoob-Skills
             }
 
             if (failed)
@@ -638,7 +647,7 @@ namespace Content.Server.Construction
                     switch (step)
                     {
                         case EntityInsertConstructionGraphStep entityInsert:
-                            if (entityInsert.EntityValid(holding, EntityManager, _factory))
+                            if (entityInsert.EntityValid(holding, EntityManager, Factory))
                                 valid = true;
                             break;
                         case ToolConstructionGraphStep _:

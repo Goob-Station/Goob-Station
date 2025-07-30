@@ -1,0 +1,49 @@
+- type: entity
+  parent: BasePlushie
+  id: RubberPig
+  name: toy pig
+  description: Squeeze Me, Babe # not Baby
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Fun/toys.rsi
+    state: rubber_pig
+  - type: EmitSoundOnUse
+    sound:
+      collection: RubberPig
+      params:
+        variation: 0.125
+  - type: EmitSoundOnLand
+    sound:
+      collection: RubberPig
+      params:
+        variation: 0.125
+  - type: EmitSoundOnActivate
+    sound:
+      collection: RubberPig
+      params:
+        variation: 0.125
+  - type: EmitSoundOnCollide
+    sound:
+      collection: RubberPig
+      params:
+        variation: 0.125
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: RubberPig
+      params:
+        variation: 0.125
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      collection: RubberPig
+      params:
+        variation: 0.125
+  - type: MeleeWeapon
+    wideAnimationRotation: 110
+    soundHit:
+      collection: RubberPig
+      params:
+        variation: 0.125
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25

@@ -112,11 +112,12 @@ using Content.Shared.Damage.Systems; // Goobstation
 using Content.Shared.Database;
 using Content.Shared.Effects; // Goobstation
 using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory.VirtualItem; // Goobstation
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components; // Goobstation
@@ -129,6 +130,7 @@ using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech; // Goobstation
 using Content.Shared.Standing;
+using Content.Shared.StatusEffect;
 using Content.Shared.Throwing; // Goobstation
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
@@ -145,6 +147,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random; // Goobstation
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Movement.Pulling.Systems;
 
@@ -166,7 +169,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _netManager = default!;
@@ -175,7 +178,6 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
-    [Dependency] private readonly SharedMeleeWeaponSystem _meleeWeapon = default!; // Goobstation - Grab Intent
 
     public override void Initialize()
     {
@@ -204,6 +206,10 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
         SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown); // Goobstation - Grab Intent
         SubscribeLocalEvent<PullerComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfterEvent); // Goobstation - Grab Intent
+        SubscribeLocalEvent<PullerComponent, AttackedEvent>(OnAttacked); // Goobstation
+
+        SubscribeLocalEvent<HandsComponent, PullStartedMessage>(HandlePullStarted);
+        SubscribeLocalEvent<HandsComponent, PullStoppedMessage>(HandlePullStopped);
 
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
@@ -212,7 +218,19 @@ public sealed class PullingSystem : EntitySystem
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
             .Register<PullingSystem>();
     }
+
     // Goobstation - Grab Intent
+    private void OnAttacked(Entity<PullerComponent> ent, ref AttackedEvent args)
+    {
+        if (ent.Comp.Pulling != args.User
+            || ent.Comp.GrabStage < GrabStage.Soft
+            || !TryComp(args.User, out PullableComponent? pullable))
+            return;
+
+        if (_random.Prob(pullable.GrabEscapeChance))
+            TryLowerGrabStage((args.User, pullable), (ent.Owner, ent.Comp), true);
+    }
+
     private void OnAddCuffDoAfterEvent(Entity<PullerComponent> ent, ref AddCuffDoAfterEvent args)
     {
         if (args.Handled)
@@ -227,6 +245,41 @@ public sealed class PullingSystem : EntitySystem
         }
     }
     // Goobstation
+
+    private void HandlePullStarted(EntityUid uid, HandsComponent component, PullStartedMessage args)
+    {
+        if (args.PullerUid != uid)
+            return;
+
+        if (TryComp(args.PullerUid, out PullerComponent? pullerComp) && !pullerComp.NeedsHands)
+            return;
+
+        if (!_virtualSystem.TrySpawnVirtualItemInHand(args.PulledUid, uid))
+        {
+            DebugTools.Assert("Unable to find available hand when starting pulling??");
+        }
+    }
+
+    private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)
+    {
+        if (args.PullerUid != uid)
+            return;
+
+        // Try find hand that is doing this pull.
+        // and clear it.
+        foreach (var hand in component.Hands.Values)
+        {
+            if (hand.HeldEntity == null
+                || !TryComp(hand.HeldEntity, out VirtualItemComponent? virtualItem)
+                || virtualItem.BlockingEntity != args.PulledUid)
+            {
+                continue;
+            }
+
+            _handsSystem.TryDrop(args.PullerUid, hand, handsComp: component);
+            break;
+        }
+    }
 
     private void OnStateChanged(EntityUid uid, PullerComponent component, ref UpdateMobStateEvent args)
     {
@@ -955,18 +1008,25 @@ public sealed class PullingSystem : EntitySystem
             return true;
 
         var max = meleeWeaponComponent.NextAttack > _timing.CurTime ? meleeWeaponComponent.NextAttack : _timing.CurTime;
-        meleeWeaponComponent.NextAttack = puller.Comp.StageChangeCooldown + max;
+        var attackRateEv = new GetMeleeAttackRateEvent(puller, meleeWeaponComponent.AttackRate, 1, puller);
+        RaiseLocalEvent(puller, ref attackRateEv);
+        meleeWeaponComponent.NextAttack = puller.Comp.StageChangeCooldown * attackRateEv.Multipliers + max;
         Dirty(puller, meleeWeaponComponent);
 
         var beforeEvent = new BeforeHarmfulActionEvent(puller, HarmfulActionType.Grab);
         RaiseLocalEvent(pullable, beforeEvent);
         if (beforeEvent.Cancelled)
             return false;
-            
+
         // It's blocking stage update, maybe better UX?
         if (puller.Comp.GrabStage == GrabStage.Suffocate)
         {
-            _stamina.TakeStaminaDamage(pullable, puller.Comp.SuffocateGrabStaminaDamage);
+            _stamina.TakeStaminaDamage(pullable, puller.Comp.SuffocateGrabStaminaDamage, applyResistances: true);
+
+            var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
+            RaiseLocalEvent(puller.Owner, comboEv);
+            if (_netManager.IsServer)
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
 
             Dirty(pullable);
             Dirty(puller);
@@ -1005,7 +1065,7 @@ public sealed class PullingSystem : EntitySystem
         return true;
     }
 
-    private bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
+    public bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
     {
         puller.Comp.GrabStage = stage;
         pullable.Comp.GrabStage = stage;

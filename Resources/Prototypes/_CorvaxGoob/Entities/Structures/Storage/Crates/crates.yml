@@ -1,0 +1,64 @@
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateIndustrialSecure
+  name: bluespace industrial crate
+  components:
+  - type: CargoSellBlacklist
+  - type: Icon
+    sprite: _CorvaxGoob/Bluespace/Crates/industrial_secure.rsi
+  - type: Sprite
+    sprite: _CorvaxGoob/Bluespace/Crates/industrial_secure.rsi
+  - type: AccessReader
+    access: [["Engineering"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateTechnologicalSecure
+  name: bluespace technological crate
+  components:
+  - type: CargoSellBlacklist
+  - type: Icon
+    sprite: _CorvaxGoob/Bluespace/Crates/technological_secure.rsi
+  - type: Sprite
+    sprite: _CorvaxGoob/Bluespace/Crates/technological_secure.rsi
+  - type: AccessReader
+    access: [["Research"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateBiologicalSecure
+  name: bluespace biological crate
+  components:
+  - type: CargoSellBlacklist
+  - type: Icon
+    sprite: _CorvaxGoob/Bluespace/Crates/biological_secure.rsi
+  - type: Sprite
+    sprite: _CorvaxGoob/Bluespace/Crates/biological_secure.rsi
+  - type: AccessReader
+    access: [["Research"], ["Chemistry"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateDestructionSecure
+  name: bluespace destruction crate
+  components:
+  - type: CargoSellBlacklist
+  - type: Icon
+    sprite: _CorvaxGoob/Bluespace/Crates/destruction_secure.rsi
+  - type: Sprite
+    sprite: _CorvaxGoob/Bluespace/Crates/destruction_secure.rsi
+  - type: AccessReader
+    access: [["Armory"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateLimitedSecure
+  name: bluespace limited crate
+  components:
+  - type: CargoSellBlacklist
+  - type: Icon
+    sprite: _CorvaxGoob/Bluespace/Crates/limited_secure.rsi
+  - type: Sprite
+    sprite: _CorvaxGoob/Bluespace/Crates/limited_secure.rsi
+  - type: AccessReader
+    access: [["Command"]]

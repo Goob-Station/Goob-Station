@@ -13,32 +13,21 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Species
+  # Расы
 
-  Nanotrasen employs a variety of sapient species.
+  Нанотразен нанимает разнообразные разумные виды.
 
   <Box>
-  <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
-  <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
-  <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
-  <GuideEntityEmbed Entity="MobGingerbread" Caption="Gingerbread"/>
-    <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
+  <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид"/>
+  <GuideEntityEmbed Entity="MobDiona" Caption="Диона"/>
+  <GuideEntityEmbed Entity="MobDwarf" Caption="Дворф"/>
+  <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
-  <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
-  <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-  <GuideEntityEmbed Entity="MobResomi" Caption="Resomi"/>
-  <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
-  </Box>
-  <Box>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
-  <GuideEntityEmbed Entity="MobTajaran" Caption="Tajaran"/>
-  <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
-  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vuplkanin"/>
-  <GuideEntityEmbed Entity="MobYowie" Caption="Yowie"/>
+  <GuideEntityEmbed Entity="MobMoth" Caption="Ниан"/>
+  <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх"/>
+  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпканин"/>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд"/>
   </Box>
 
 </Document>

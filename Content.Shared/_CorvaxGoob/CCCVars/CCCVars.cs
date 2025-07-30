@@ -9,6 +9,22 @@ namespace Content.Shared._CorvaxGoob.CCCVars;
 // ReSharper disable once InconsistentNaming
 public sealed class CCCVars
 {
+    /*
+     * Station Goal
+     */
+
+    /// <summary>
+    /// Send station goal on round start or not.
+    /// </summary>
+    public static readonly CVarDef<bool> StationGoal =
+        CVarDef.Create("game.station_goal", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Deny any VPN connections.
+    /// </summary>
+    public static readonly CVarDef<bool> PanicBunkerDenyVPN =
+        CVarDef.Create("game.panic_bunker.deny_vpn", false, CVar.SERVERONLY);
+
     /**
      * TTS (Text-To-Speech)
      */

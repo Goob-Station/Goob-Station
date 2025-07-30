@@ -83,6 +83,10 @@
     components:
     - type: SurgerySpeedModifier
       speedModifier: 1.25
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - Surgery
+      - MedicalEquipment
 
 - type: startingGear
   id: ChemistGear

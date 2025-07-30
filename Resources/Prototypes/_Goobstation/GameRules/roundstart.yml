@@ -54,6 +54,15 @@
       playerRatio: 12
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       lateJoinAdditional: true
+      components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       mindRoles:
       - MindRoleChangeling
   - type: Tag
@@ -303,6 +312,14 @@
       - RoleSurvivalNukieHonkops
       components:
       - type: NukeOperative
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: RandomMetadata
         nameSegments:
         - NamesHonkopsPrefix
@@ -355,6 +372,15 @@
       max: 1
       playerRatio: 20
       jobBlacklist: [ Chaplain, Mime ] # Chaplain is obvious. Mime can't write.
+      components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       mindRoles:
       - DevilMindRole
       startingGear: DevilStartingGear

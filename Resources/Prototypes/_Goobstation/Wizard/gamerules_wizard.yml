@@ -42,6 +42,14 @@
       roleLoadout:
       - RoleSurvivalEVA
       components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: Wizard
       - type: RandomMetadata
       - type: CanEnchant
@@ -97,6 +105,14 @@
       roleLoadout:
       - RoleSurvivalEVA
       components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: Wizard
       - type: RandomMetadata
       - type: CanEnchant

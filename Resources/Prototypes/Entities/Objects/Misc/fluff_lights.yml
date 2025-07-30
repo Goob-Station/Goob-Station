@@ -343,6 +343,10 @@
     materialComposition:
       Glass: 500
       Steel: 200
+  # Corvax-Goob-Floodlight-start
+  - type: HandheldLight
+    wattage: 0.5
+  # Corvax-Goob-Floodlight-end
 - type: entity
   name: broken floodlight
   id: FloodlightBroken
