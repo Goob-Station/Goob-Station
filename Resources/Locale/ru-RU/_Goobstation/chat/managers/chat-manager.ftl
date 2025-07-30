@@ -8,7 +8,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-
 ## Speech verbs for chat
 
 chat-speech-verb-name-gondola = Гондола
@@ -30,3 +29,12 @@ chat-speech-verb-VoiceModulator-2 = гудит
 chat-speech-verb-VoiceModulator-3 = жужжит
 chat-speech-verb-VoiceModulator-4 = напевает
 chat-speech-verb-VoiceModulator-5 = потрескивает
+chat-speech-verb-name-holier-than-thou = Благочестивый глас
+chat-speech-verb-holier-than-thou-1 = возглашает
+chat-speech-verb-holier-than-thou-2 = поучает
+chat-speech-verb-holier-than-thou-3 = изрекает
+chat-speech-verb-holier-than-thou-4 = провозглашает
+chat-speech-verb-holier-than-thou-5 = возвещает
+chat-speech-verb-holier-than-thou-6 = декламирует
+chat-speech-verb-holier-than-thou-7 = объявляет
+chat-speech-verb-holier-than-thou-8 = вещает

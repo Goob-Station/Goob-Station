@@ -10,7 +10,7 @@ spellbook-scrying-orb-desc = Светящийся шар, наполненный
 spellbook-spellblade-name = Заклинательный Клинок
 spellbook-spellblade-desc =
     Магический меч, который можно зачаровать в руке, чтобы получить уникальный эффект при ударе.
-
+    
     Молния: пускает дуги электричества между целями поблизости, оглушая и повреждая их.
     Огонь: поджигает цель при ударе и делает владельца невосприимчивым к огню.
     Синий космос: телепортирует владельца на большое расстояние, сбивая врагов в небольшой области.
@@ -62,6 +62,10 @@ spellbook-wand-desc =
     Только волшебники и их ученики могут менять режим стрельбы.
     Можно использовать на себе.
     Компактнее посохов, но не заряжается автоматически.
+spellbook-ninjutsu-name = Ninjutsu Scroll
+spellbook-ninjutsu-desc =
+    A scroll that teaches one Ninjutsu, a martial art and set of tactics used by ninja in feudal Japan.
+    Cannot be refunded.
 spellbook-staff-animate-name = Посох Анимации
 spellbook-staff-animate-desc =
     Арканический посох, способный оживлять неодушевлённые предметы при касании.

@@ -32,3 +32,5 @@ lathe-menu-no-materials-message = Материалы не загружены
 lathe-menu-fabricating-message = Производится...
 lathe-menu-materials-title = Материалы
 lathe-menu-queue-title = Очередь производства
+lathe-menu-queue-reset-title = Сбросить очередь
+lathe-menu-queue-reset-material-overflow = Вы замечаете, что автолат полон.

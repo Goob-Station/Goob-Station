@@ -27,7 +27,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-
 # Surplus Voidsuits
 
 uplink-hardsuit-syndiemedic-name = Боевой костюм медика Горлекс
@@ -70,6 +69,12 @@ uplink-pie-cannon-desc = Пушка, автоматически восстана
 uplink-beenades-name = Пчелонаты
 uplink-beenades-desc = Невзрывная граната с пчёлами?! НЕ ПЧЁЛЫ!!!
 uplink-dart-gun-name = Дротиковый пистолет
+uplink-his-grace-name = His Grace
+uplink-his-grace-desc = An otherworldly entity trapping in a toolbox. Grows in power for every kill, but will consume you if not fed. Activate in-hand to bind yourself.
+uplink-magazine-nailgun-name = Nail Gun Magazine (AP)
+uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. The only difference is that this one is armor-piercing.
+uplink-pressure-modkit-name = Pressure Modkit
+uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
 uplink-dart-gun-desc = Стреляет восстанавливающими или ядовитыми дротиками, можно лечить союзников на расстоянии или отравлять врагов.
 
 # Weapons
@@ -89,6 +94,8 @@ uplink-buldog-desc = Магазинный автомат-дробовик.
 uplink-l6-saw-name = L6 SAW
 uplink-l6-saw-desc = Легендарный лёгкий пулемёт.
 uplink-m90-name = M-90
+uplink-syndicate-disabler-name = syndicate disabler
+uplink-syndicate-disabler-desc = An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
 uplink-m90-desc = Боевая винтовка M-90.
 uplink-dualetta-bundle-name = Комплект Дуалетта
 uplink-dualetta-bundle-desc = В комплекте 2 пистолета Дуалетта, 2 магазина, перчатки, костюм нуар, тренч детектива и шнурованные ботинки.
@@ -155,6 +162,10 @@ uplink-high-caliber-shotgun-box-sarin-desc = 16 патронов 8 калибр�
 # Grenades
 
 uplink-sarin-gas-grenade-name = Граната с газом сарин
+uplink-M172LAW-name = M172 Light Anti-structure Weapon
+uplink-M172LAW-desc = A single shot disposable rocket launcher for taking out singular walls/machines with minimal collateral damage. can be stored in your backpack conveniently.
+uplink-RPOA-name = RPO-A 'Shmel'
+uplink-RPOA-desc = A single shot disposable thermobaric rocket launcher, which lights hostiles and hostages on fire in a wide radius. can be stored in your backpack.
 uplink-sarin-gas-grenade-desc = Жестокий нейротоксин, который оглушает, ослепляет и отравляет всех, кто вдохнёт газ, а также обжигает тех, кто без скафандра, оставляя их корчиться в агонии и умолять об облегчении.
 
 # Mechs
@@ -169,10 +180,16 @@ uplink-mech-teleporter-assault-desc = Содержит лёгкий бронир
 uplink-lollypop-bundle-name = Коробка леденцов Donk Co.
 uplink-lollypop-bundle-desc = Содержит 9 случайных леденцов. Что они могут содержать?
 uplink-lollypop-bundle-big-name = Набор конфет Donk Co.
+uplink-medical-beam-gun-name = Medical Beam Gun
+uplink-medical-beam-gun-desc = Heal your teammates with this new device! Runs on internal battery, and automatically recharges after discharging. You can heal only one teammate at once.
 uplink-lollypop-bundle-big-desc = Содержит огромное количество конфет. Что они могут содержать?
 uplink-advanced-combat-medipen-name = Продвинутый боевой медипен
 uplink-advanced-combat-medipen-desc = Одноразовый медипен с химикатами, которые быстро лечат большинство повреждений, полученных в бою.
 uplink-syringe-pistol-name = Пистолет-шприц
+uplink-combat-medkit-pills-name = Combat Medical Kit (Pills)
+uplink-combat-medkit-pills-desc = Contains most medicines you need to recover from injuries and illnesses, all in a convenient pill form.
+uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
+uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, industrial welder, a high capacity cell and meson goggles.
 uplink-syringe-pistol-desc = Оружие, использующее шприцы в качестве боеприпасов и вводящее их содержимое жертвам. Вводит быстрее обычных шприцевых пушек и помещается в карман.
 
 # Implants
@@ -182,6 +199,15 @@ uplink-smoke-implant-desc = Выпускает облако дыма при ак
 uplink-nutriment-implant-name = Имплантат подачи питательных веществ
 uplink-nutriment-implant-desc = Устраняет необходимость в приёме пищи и напитков.
 uplink-jaunter-implanter-name = Имплантатор Джонтер
+uplink-binary-implant-name = Binary Decoder Implanter
+uplink-binary-implant-desc = Lets the user tap into the silicons' binary channel. Talking on it is ill-advised though, at least until the AI goes malf.
+uplink-autosurgeon-right-mantis-blade-name = Right Mantis Blade Autosurgeon
+uplink-autosurgeon-left-mantis-blade-name = Left Mantis Blade Autosurgeon
+uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Mantis Blade cyberware extending from it at will, works best when paired. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
+uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan, a synthetic organ that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+uplink-davids-jacket-name = Edgerunner Jacket
+uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
 uplink-jaunter-implanter-desc = Меняет местами пользователя и цель при активации. Перезаряжается пассивно.
 uplink-krav-maga-implant-name = Имплантатор Крав Мага
 uplink-krav-maga-implant-desc = Позволяет выполнять различные приёмы Крав Мага.
@@ -189,6 +215,8 @@ uplink-krav-maga-implant-desc = Позволяет выполнять разли
 # Wearables
 
 uplink-heat-lamp-name = Обогреватель Cybersun
+uplink-belt-rig-name = Grenadier Belt
+uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
 uplink-heat-lamp-desc = Дизайн Cybersun, часто используется холоднокровными мародёрами Gorlex в осадах. Также эффективен как оружие ближнего боя.
 uplink-helmet-swat-name = Шлем спецназа Syndicate
 uplink-helmet-swat-desc = Надёжный шлем, обеспечивающий хорошую защиту и частично подавляющий звуки светошумовых гранат.
@@ -202,6 +230,8 @@ uplink-clothing-explosive-gloves-desc = Перчатки, выглядящие �
 
 # Disruption
 
+uplink-capoeira-name = Capoeira Manual
+uplink-capoeira-desc = A manual that teaches a single user Capoeira before self-destructing. Capoeira focuses on swift attacks that link into flowing combos, with each move faster and harder than the last one, fueled by relentless momentum.
 uplink-syndicate-weapon-module-advanced-name = Продвинутый боевой модуль
 uplink-syndicate-weapon-module-advanced-desc = Улучшает киборга, давая ему энергетический меч и пистолет Anaconda.
 
@@ -219,6 +249,10 @@ uplink-dimension-pot-desc = Портал в собственное карман�
 uplink-pizza-bomb-name = Пицца-бомба
 uplink-pizza-bomb-desc = Первоначально разработана террористами, теперь используется синдикатом для устранения высокоприоритетных целей. Не открывайте до взрыва.
 uplink-pizza-party-crate-name = Ящик для пицца-вечеринки
+uplink-tcminer-name = Telecrystal miner
+uplink-tcminer-desc = Contains a flatpack with telecrystal miner, A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered. Requires 10kW of energy and a connection to the primary station's grid. Multitool not included.
+uplink-bloodred-casette-name = Bloodred Casette Player
+uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
 uplink-pizza-party-crate-desc = Ящик в виде коробки для пиццы, наполненный пиццами и пицца-бомбами для самой взрывной пицца-вечеринки. К сожалению, сложно определить, какая бомба где.
 uplink-undetermined-bundle-name = Неопределённый набор
 uplink-undetermined-bundle-desc = Ящик с тремя случайными наборами, из которых можно выбрать один. Гарантированно содержит ключ шифрования Синдиката.

@@ -30,6 +30,7 @@ job-name-highcommander = Офицер Синдиката
 # Half Life
 
 job-name-hecu = Агент HECU
+job-name-governmentman = The G-Man
 job-name-gman = Г-Мэн
 
 # Misc

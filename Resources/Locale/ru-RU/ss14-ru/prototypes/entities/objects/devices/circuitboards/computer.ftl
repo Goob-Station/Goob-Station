@@ -24,6 +24,7 @@ ent-SalvageExpeditionsComputerCircuitboard = консоль утилизатор
     .desc = Консольная плата для консоли утилизаторских экспедиций.
 ent-CargoShuttleConsoleCircuitboard = консоль управления грузовым шаттлом (консольная плата)
     .desc = Консольная плата для консоли управления грузовым шаттлом.
+
 ent-SurveillanceCameraMonitorCircuitboard = монитор камер наблюдения (консольная плата)
     .desc = Консольная плата для монитора камер наблюдения.
 ent-SurveillanceWirelessCameraMonitorCircuitboard = монитор беспроводных камер наблюдения (консольная плата)

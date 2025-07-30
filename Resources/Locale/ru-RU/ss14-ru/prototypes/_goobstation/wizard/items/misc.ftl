@@ -12,6 +12,7 @@ ent-ContractApprenticeship = контракт ученичества
 ent-DrinkMugwortTeaGlass = { ent-DrinkGlass }
     .suffix = чай из полыни
     .desc = { ent-DrinkGlass.desc }
+
 ent-EverfullMug = неиссякающая кружка
     .desc = Зачарованная кружка, которая автоматически наполняется омнизином.
 ent-WizardIDCard = ID-карта пассажира

@@ -17,5 +17,6 @@ strip-verb-get-data-text = Обыскать
 
 ## UI
 
+strip-all-verb-get-data-text = Снять всё
 strippable-bound-user-interface-stripping-menu-title = Инвентарь { $ownerName }
 strippable-bound-user-interface-stripping-menu-ensnare-button = Ограничители ног

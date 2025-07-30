@@ -7,6 +7,7 @@ nuke-component-announcement-send-codes = Внимание! Запрошенны�
 nuke-component-doafter-warning = Вы начинаете перебирать провода и кнопки, в попытке обезвредить ядерную бомбу. Это может занять некоторое время.
 # Nuke UI
 nuke-user-interface-title = Ядерная боеголовка
+nuke-disk-component-microwave = The disk sparks and fizzles a bit, but seems mostly unharmed?
 nuke-user-interface-arm-button = ВЗВЕСТИ
 nuke-user-interface-disarm-button = ОБЕЗВРЕДИТЬ
 nuke-user-interface-anchor-button = ЗАКРЕПИТЬ
@@ -36,7 +37,7 @@ nuke-label-nanotrasen = NT-{ $serial }
 # the Syndicate stole a NT nuke
 nuke-label-syndicate = SYN-{ $serial }
 # Codes
-nuke-codes-message = [color=red]СОВЕРШЕННО СЕКРЕТНО![/color]
+nuke-codes-message =  [color=red]СОВЕРШЕННО СЕКРЕТНО![/color]
 nuke-codes-list = Код { $name }: { $code }
 nuke-codes-fax-paper-name = коды ядерной аутентификации
 # Nuke disk slot

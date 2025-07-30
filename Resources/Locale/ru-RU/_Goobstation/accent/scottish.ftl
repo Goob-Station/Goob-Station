@@ -5,7 +5,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-
 # these specifically mostly come from examples of specific scottish-english (not necessarily scots) verbiage
 # https://en.wikipedia.org/wiki/Scotticism
 # https://en.wikipedia.org/wiki/Scottish_English

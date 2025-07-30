@@ -4,4 +4,5 @@ mopping-system-puddle-space = В { $used } полно воды
 mopping-system-puddle-evaporate = { CAPITALIZE($target) } испаряется
 mopping-system-no-water = В { $used } нет воды!
 mopping-system-full = { CAPITALIZE($used) } заполнена!
+mopping-system-no-hands = У вас нет рук!
 mopping-system-empty = { CAPITALIZE($used) } пуста!

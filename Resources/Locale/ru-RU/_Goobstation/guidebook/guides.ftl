@@ -82,6 +82,7 @@ guide-entry-sop-doctorintern = Врач/Интерн
 guide-entry-sop-roboticist = Робототехник
 guide-entry-sop-scientist = Ученый
 # - Охрана
+guide-entry-sop-brigmedic = Бригмедик
 guide-entry-sop-detective = Детектив
 guide-entry-sop-officercadet = Офицер/Кадет
 guide-entry-sop-warden = Тюремщик

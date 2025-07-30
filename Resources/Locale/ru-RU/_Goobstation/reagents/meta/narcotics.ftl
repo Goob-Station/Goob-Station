@@ -22,3 +22,5 @@ reagent-name-mousebites = мышиные укусы
 reagent-desc-mousebites = Пробовал ли ты это лекарство?
 reagent-name-oleoresin-capsaicin = олеорезин капсаицина
 reagent-desc-oleoresin-capsaicin = Маслянистая смола, получаемая из капсаицина. Вызывает сильное раздражение при контакте с глазами или ртом.
+reagent-name-heroin = героин
+reagent-desc-heroin = Нелегальносозданный в подпольных условиях наркотик, что когда-то использовался в медицине, но был заменён травмадолом.

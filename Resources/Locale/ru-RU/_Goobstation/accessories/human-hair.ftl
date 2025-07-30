@@ -33,6 +33,7 @@ marking-HumanHairFrontBraidsLong = Длинные передние косы
 marking-HumanHairFrontBraidsMedium = Средние передние косы
 marking-HumanHairFrontBraidsShort = Короткие передние косы
 marking-HumanHairHairnet = Сеточка для волос
+marking-HumanHairJinx = Джинкс
 marking-HumanHairJellyfish = Медуза
 marking-HumanHairKazuyaMishima = Кадзуя Мисима
 marking-HumanHairLongBraids = Длинные косы

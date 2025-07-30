@@ -24,3 +24,7 @@ marking-TattooTribal1-tattoo_tribal1 = Tribal Tattoo
 marking-TattooTribal1 = Tribal Tattoo
 marking-BuffChest_buff = Buff
 marking-BuffChest = Buff
+marking-TattooEyeMothRight-tattoo_eye_moth_r = Правый Глаз
+marking-TattooEyeMothRight = Правый Глаз
+marking-TattooEyeMothLeft-tattoo_eye_moth_l = Левый Глаз
+marking-TattooEyeMothLeft = Левый Глаз

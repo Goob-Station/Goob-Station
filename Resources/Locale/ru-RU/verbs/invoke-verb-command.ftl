@@ -1,6 +1,5 @@
 ### Localization used for the invoke verb command.
 
-
 # Mostly help + error messages.
 
 invoke-verb-command-description = Вызывает verb с заданным именем на сущности, с сущностью игрока

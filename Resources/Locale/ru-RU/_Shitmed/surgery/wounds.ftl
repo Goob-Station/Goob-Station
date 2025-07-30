@@ -1,3 +1,8 @@
+inspect-wound-minor = повреждено
+inspect-wound-moderate = травмировано
+inspect-wound-severe = сильно повреждено
+inspect-wound-critical = изувечено
+inspect-wound-loss = полностью раздроблено
 inspect-wound-Bleeding-minor = легкое кровотечение
 inspect-wound-Bleeding-moderate = кровотечение
 inspect-wound-Bleeding-severe = сильное кровотечение

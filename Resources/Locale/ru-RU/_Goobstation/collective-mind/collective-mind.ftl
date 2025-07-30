@@ -12,3 +12,5 @@ collective-mind-abductormind = Разум Абдукторов
 collective-mind-binary = Двоичный разум
 collective-mind-mousemind = Разум мышей
 collective-mind-dronemind = Разум Дронов
+collective-mind-empathy = Empathy
+collective-mind-bingle = Бинглсвязь

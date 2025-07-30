@@ -1,5 +1,4 @@
-ent-ActionSmite = Дезинтегрирование
-    .desc = Мгновенно поражает цель.
+
 ent-ActionSmiteNoReq = { ent-ActionSmite }
     .desc = { ent-ActionSmite.desc }
 ent-ActionCluwne = Проклятие КлУвНи

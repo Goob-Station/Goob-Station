@@ -5,7 +5,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-
 # Navy
 
 job-description-navy-officer-undercover = Выполняйте поставленные задачи, устраняйте назначенные цели. Удачи.
@@ -20,9 +19,12 @@ job-description-nct = Обучайте новичков правильному �
 
 # Half Life
 
+job-description-highcommander = You are an elite, high-ranking official within the Spinward Syndicate. It doesn't matter which faction, you're important to them all.
 job-description-gman = Что ж, что ж, как в старые добрые времена.
+job-description-governmentman = Ну, ну, разве это не похоже на старые добрые времена?
 job-description-hecu = Выполняйте приказы вашего руководителя, независимо от морали.
 
 # Misc
 
 job-description-conquest = Будь готов к моему приходу, червь.
+job-description-mercenarycaptain = Order other mercs around. Act as muscle for the highest bidder. Just because it's NT now, doesn't mean it won't change later.

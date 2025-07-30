@@ -9,3 +9,5 @@
 job-supervisors-ntr-centcom = Представитель НаноТрейзен и Центральному Командования
 job-supervisors-commander = Капитан ВКФ
 job-supervisors-null = никто, кроме тебя самого.
+job-supervisor-syndicate = The Spinward Syndicate
+job-supervisors-credits = The Highest Bidders
