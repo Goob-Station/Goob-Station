@@ -212,8 +212,6 @@
       roleLoadout: [ RoleSurvivalEVA ]
     - type: LoadoutSpecies # Goob
       speciesSlotOverride: # Can't wear shoes, give magboot gloves
-        Diona:
-          gloves: ClothingHandsGlovesDeathsquadGyroUnremoveable
         Harpy:
           gloves: ClothingHandsGlovesDeathsquadGyroUnremoveable
     - type: RandomMetadata
@@ -264,8 +262,6 @@
       roleLoadout: [ RoleSurvivalExtended ]
     - type: LoadoutSpecies # Goob
       speciesSlotOverride: # Can't wear shoes, give magboot gloves
-        Diona:
-          gloves: ClothingHandsGlovesEmergencyResponseTeam
         Harpy:
           gloves: ClothingHandsGlovesEmergencyResponseTeam
     - type: AutoImplant
