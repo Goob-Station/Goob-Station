@@ -1,0 +1,10 @@
+ent-EnergyRifleMagBase = { ent-BaseItem }
+    .desc = { ent-BaseItem.desc }
+ent-EnergyMagRifleLethal = energy rifle magazine (lethal)
+    .desc = Powercell with an attached power converter that create lethal bolt at the end of energy rifle.
+ent-EnergyMagRifleDisabler = energy rifle magazine (disabler)
+    .desc = Powercell with an attached power converter that create disabler bolt at the end of energy rifle.
+ent-EnergyMagRifleIon = energy rifle magazine (Ion)
+    .desc = Powercell with an attached power converter that create Ionize bolt at the end of energy rifle.
+ent-EnergyMagRifleOverchargeLethal = energy rifle magazine (overcharge)
+    .desc = The power converter on this magazine has been modified to shot even more powerfull bolt in exchanged of more power consumption.

@@ -1,0 +1,16 @@
+ent-ClothingOuterHardsuitChronolegioneer = футуристический пустотный костюм
+    .desc = Пустотный костюм, покрытый неизвестным материалом, защищающий от большинства материальных и временных повреждений.
+ent-ClothingOuterHardsuitChronolegioneerUnremoveable = { ent-ClothingOuterHardsuitChronolegioneer }
+    .suffix = Неснимаемый
+    .desc = { ent-ClothingOuterHardsuitChronolegioneer.desc }
+ent-ClothingOuterHardsuitBlueshieldLight = пустотный костюм эскорта «преторианец»
+    .desc = Пустотный костюм, предназначенный для элитного телохранителя. Этот костюм изготовлен из более лёгкого металла, обеспечивая большую манёвренность.
+ent-ClothingOuterHardsuitCybersunStealth = пустотный костюм Cybersun
+    .desc = Пустотный костюм с фотоактивной бронёй для скрытных операций. Щит не работает во время движения! Для активации поля невидимости необходим шлем.
+    .suffix = Невидимость
+ent-ClothingOuterHardsuitCybersunDreadnought = костюм Cybersun Дредноут
+    .desc = Синдикат возлагает свою славу на твои плечи, не разочаруй их.
+ent-ClothingOuterVoidsuitSecurity = пустотный скафандр службы безопасности
+    .desc = Лёгкий пустотный костюм с встроенным нагрудным щитком, обеспечивающий умеренную защиту при сохранении мобильности.
+ent-ClothingOuterHardsuitHeadOfSecurityExperimental = парадный пустотный костюм FI-52 «Почётный караул»
+    .desc = Особый пустотный костюм, защищающий от опасных условий низкого давления. Имеет экспериментальную встроенную систему автоматического введения стимулятора.

@@ -12,60 +12,69 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Revolutionaries
+  # Революционеры
 
   <Box>
-    [color=#999999][italic]"Viva la revolución!!"[/italic][/color]
+    [color=#999999][italic]"Да здравствует революция!!"[/italic][/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="PosterContrabandRevolt" Caption=""/>
   </Box>
 
-  Revolutionaries are conversion antagonists sponsored by the [color=#ff0000]Syndicate[/color] who are tasked with taking control of the station. They have no fancy gimmicks or cheap tricks, they only have a cause and strength in numbers.
+  Революционеры — это конверсионные антагонисты, спонсируемые [color=#ff0000]Синдикатом[/color], которым поручено взять под контроль станцию. У них нет никаких хитростей или дешёвых приёмов, у них есть только дело и сила в числах.
 
-  ## Objectives
-  You must cuff, kill, convert, or exile all of the [textlink="Command staff" link="Command"] on station in no particular order.
+  ## Цели
+  Вы должны задержать, убить, конвертировать или изгнать всех из [textlink="Руководство станции" link="Command"] на станции в любом порядке.
 
-  Your objective is not to destroy the station, but [italic]take it over[/italic], so try to minimize damage where possible.
+  Ваша цель — не уничтожить станцию, а [italic]захватить её[/italic], поэтому старайтесь минимизировать ущерб по возможности.
 
-  [bold]The revolution will fail[/bold] if all of the [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] die or all their hypnotic abilities will be disabled with MindShield implant, and all [color=red]Revolutionaries[/color] will de-convert if this happens.
+  [bold]Революция провалится[/bold], если все [bold][color=#5e9cff]Главные революционеры[/color][/bold] погибнут или все их гипнотические способности будут отключены имплантом MindShield, и все [color=red]Революционеры[/color] будут деконвертированы в этом случае.
 
-  ## Headrevs & Conversion
-  [bold][color=#5e9cff]Head Revolutionaries[/color][/bold] are chosen at the start of the shift and begin with a [color=#a4885c]Revolutionary Manifesto[/color] and a [color=cyan]syndicate encryption key[/color].
+  ## Главные революционеры и конвертирование
+  [bold][color=#5e9cff]Главные революционеры[/color][/bold] выбираются в начале смены и начинают с [color=cyan]вспышки[/color], [color=cyan]шифровального ключа синдиката[/color] и пары [color=cyan]солнечных очков[/color].
 
   <Box>
     <GuideEntityEmbed Entity="RevolutionaryManifesto"/>
     <GuideEntityEmbed Entity="EncryptionKeySyndie"/>
   </Box>
 
-  You can convert crew members to your side by taking any [color=#a4885c]Revolutionary Manifesto[/color] and using it on someone.
-  Beware! A [color=#a4885c]MindShield Implant[/color] will prevent the implanted person from being converted into a revolutionary. Assume all of [color=#a4885c]Security[/color] and [color=#a4885c]Command[/color] are implanted already. These will:
-  - Prevent the implanted person from being converted into a [color=red]Revolutionary[/color]
-  - De-convert Revolutionaries, and will make them no longer loyal to your cause
-  - Visibly change appearance upon being implanted into a [bold][color=#5e9cff]Head Revolutionary[/color][/bold], giving away his cover and disabling your convert ability
+  Вы можете конвертировать членов экипажа на свою сторону, взяв любой [bold]вспышки[/bold] и атаковав им кого-либо в режиме [color=#ff0000]вреда[/color].
+  Однако вы не сможете конвертировать цель, если на ней есть [color=cyan]защита от вспышки[/color], такая как [bold]солнечные очки[/bold] или [bold]сварочная маска[/bold].
 
-  Assume all of [color=#cb0000]Security[/color] and [color=#1b67a5]Command[/color] are implanted with mindshields already.
+  <Box>
+    <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
+    <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
+    <GuideEntityEmbed Entity="ClothingHeadHatWelding"/>
+  </Box>
+
+  Ещё одним препятствием являются надоедливые [color=cyan]имплантеры MindShield[/color]. Они:
+  - Не дают имплантированному человеку стать [color=red]Революционером[/color]
+  - Деконвертируют революционеров, лишая их лояльности к вашей цели
+  - Видимо меняют внешний вид у [bold][color=#5e9cff]Главных революционеров[/color][/bold], выдавая их и отключая вашу способность конверсии
+  - НЕ защищают от дезориентации вспышки
+
+  Предполагается, что все [color=#cb0000]Сотрудники безопасности[/color] и [color=#1b67a5]Руководство[/color] уже имплантированы MindShield.
 
   <Box>
     <GuideEntityEmbed Entity="MindShieldImplanter"/>
   </Box>
 
-  ## Fight against MindShield
+  ## Борьба с MindShield
 
-  MindShield implant can be ejected from your target by using empty [color = cyan]implanter[/color] that can be made on [color = yellow]medical techfab[/color] that can be found in medical department.
+  Имплант MindShield можно извлечь у цели с помощью пустого [color=cyan]имплантера[/color], который можно изготовить на [color=yellow]медицинском техфабе[/color], расположенном в медицинском отделе.
 
-  When implant ejected your can convert your target, including command and security.
+  После удаления импланта вы сможете конвертировать цель, включая руководство и сотрудников безопасности.
 
-  If your convert ability was disabled by [color=cyan]mindshield implant[/color] you just need to remove mindshield implant to turn on your ability back.
+  Если ваша способность конверсии была отключена из-за [color=cyan]импланта MindShield[/color], вам просто нужно удалить этот имплант, чтобы снова активировать конверсию.
 
   <Box>
     <GuideEntityEmbed Entity="Implanter"/>
     <GuideEntityEmbed Entity="MedicalTechFab"/>
   </Box>
 
-  ## Revolutionary
-  A [bold][color=red]Revolutionary[/color][/bold] is a crew member that has been converted by a [bold][color=#5e9cff]Head Revolutionary[/color][/bold].
+  ## Революционер
+  [bold][color=red]Революционер[/color][/bold] — это член экипажа, который был конвертирован [bold][color=#5e9cff]Главным революционером[/color][/bold].
 
-  [bold][color=red]Revolutionaries[/color] can't convert people themselves,[/bold] but they're more than capable of doing dirty work and carrying out orders.
+  [bold][color=red]Революционеры[/color] не могут сами конвертировать других,[/bold] но они отлично подходят для грязной работы и выполнения приказов.
 
 </Document>

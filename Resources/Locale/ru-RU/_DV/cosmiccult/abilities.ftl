@@ -1,0 +1,17 @@
+cosmicability-generic-fail = Твоя воля не может укорениться...
+cosmicability-glare-confirm = Нажми ещё раз, чтобы активировать Пустой Взгляд.
+cosmicability-siphon-cultist-success = Твои попытки извлечь энтропийный холод пронизывают { CAPITALIZE(THE($target)) }.
+cosmicability-siphon-success = Ты беззвучно вытягиваешь Энтропию из { CAPITALIZE(THE($target)) }.
+cosmicability-siphon-fail = Не получается вытянуть Энтропию из { CAPITALIZE(THE($target)) }.
+cosmicability-siphon-full = Ты не в силах вместить больше Энтропии!
+cosmicability-blank-begin = { CAPITALIZE(THE($target)) } пытается схватить тебя!
+cosmicability-blank-success = Ты изгоняешь разум { CAPITALIZE(THE($target)) } во тьму космоса.
+cosmicability-blank-transfer = Космическая сила изгоняет твой разум из тела!
+cosmicability-blank-return = Твой разум возвращается в твоё тело.
+cosmicability-lapse-success = Ты размываешь физическую оболочку { CAPITALIZE(THE($target)) }.
+cosmicability-monument-move-confirm = ЭТО ДЕЙСТВИЕ МОЖНО СОВЕРШИТЬ ЛИШЬ ОДИН РАЗ! Повтори, чтобы подтвердить.
+cosmicability-monument-spawn-confirm = ЭТО ДЕЙСТВИЕ МОЖНО СОВЕРШИТЬ ЛИШЬ ОДИН РАЗ! Повтори, чтобы подтвердить.
+cosmicability-monument-spawn-error-grid = Недопустимое место! Монумент можно призвать лишь на стабильной поверхности.
+cosmicability-monument-spawn-error-station = Недопустимое место! Монумент должен быть призван на станции.
+cosmicability-monument-spawn-error-intersection = Слишком тесно! Для призыва Монумента требуется пустая область 3x1.
+cosmicability-monument-spawn-error-space = Слишком близко к космосу! Монумент должен быть на расстоянии не менее { $DISTANCE } м.

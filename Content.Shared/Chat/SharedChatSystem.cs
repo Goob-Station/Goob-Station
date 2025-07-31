@@ -43,9 +43,9 @@ public abstract class SharedChatSystem : EntitySystem
     public const char LocalPrefix = '>';
     public const char ConsolePrefix = '/';
     public const char DeadPrefix = '\\';
-    public const char LOOCPrefix = '(';
+    public const char LOOCPrefix = '_'; // CorvaxGoob-Localization
     public const char OOCPrefix = '[';
-    public const char EmotesPrefix = '@';
+    public const char EmotesPrefix = '%'; // CorvaxGoob-Localization
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
@@ -56,7 +56,7 @@ public abstract class SharedChatSystem : EntitySystem
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
     // CorvaxGoob-TTS-End
     public const char CollectiveMindPrefix = '+'; // Goobstation - Starlight collective mind port
-    public const char DefaultChannelKey = 'h';
+    public const char DefaultChannelKey = 'р'; // CorvaxGoob-Localization
 
     [ValidatePrototypeId<RadioChannelPrototype>]
     public const string CommonChannel = "Common";

@@ -1,0 +1,13 @@
+ent-ClothingHeadHelmetHardsuitChronolegioneer = futuristic helmet
+    .desc = The helmet of the fighters of the future, designed for special timeflow operations
+ent-ClothingHeadHelmetHardsuitBlueshield = blueshield voidsuit helmet
+    .desc = The helmet of the captain's bodyguard's voidsuit.
+ent-ClothingHeadHelmetHardsuitCybersunStealth = cybersun stealth voidsuit helmet
+    .desc = A helmet with photo-reactive plating for stealth operations.
+    .suffix = stealth
+ent-ClothingHeadHelmetHardsuitDreadnought = cybersun Dreadnought suit helmet
+    .desc = A helmet, looking at this you wonder if there anyone alive.
+ent-ClothingHeadHelmetVoidsuitSecurity = security voidsuit helmet
+    .desc = A well-built faceplate attached to the security voidsuit.
+ent-ClothingHeadHelmetHardsuitHeadOfSecurityExperimental = head of security's advanced voidsuit helmet
+    .desc = Security voidsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.

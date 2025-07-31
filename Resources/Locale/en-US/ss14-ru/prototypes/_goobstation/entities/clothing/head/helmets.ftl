@@ -1,0 +1,11 @@
+ent-ClothingHeadHelmetHelldiver = salvage NT-01 tactical helmet
+    .desc = This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
+ent-ClothingHeadHelmetHEV = H.E.V helmet
+    .desc = Not included in a set with crowbar, long jump module and gravity manipulation device.
+ent-ClothingHeadHelmetBasicAlt = { ent-ClothingHeadHelmetBasic }
+    .suffix = Alt
+    .desc = { ent-ClothingHeadHelmetBasic.desc }
+ent-ReverseBearTrap = reverse bear trap
+    .desc = A horrifying set of shut metal jaws, rigged to a kitchen timer and secured by padlock to a head-mounted clamp. To apply, hit someone with it
+ent-ClothingHeadHatHoodCloakSith = dark lord hood
+    .desc = What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.

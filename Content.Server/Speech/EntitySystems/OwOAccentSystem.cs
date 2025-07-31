@@ -28,6 +28,7 @@ namespace Content.Server.Speech.EntitySystems
         private static readonly IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
         {
             { "you", "wu" },
+            { "ты", "ти" }, // CorvaxGoob-Localization
         };
 
         public override void Initialize()

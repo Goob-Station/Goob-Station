@@ -1,0 +1,9 @@
+ent-AbductorConsole = abductor console
+    .desc = A computer that is used for spying on the station.
+ent-CentCommSectoralConsole = centcomm sectoral console
+    .desc = Use this to annoy captains of all stations at once.
+ent-AbductorHumanObservationConsole = human observation console
+    .desc = Use this to set teleporter destination or retrieve people marked by scientist tools. Also used for buying replacement gear and linking the agent's vest.
+ent-AbductorHumanObservationConsoleEye = abductor eye
+    .desc = The abductor's viewer.
+    .suffix = DO NOT MAP

@@ -1,0 +1,14 @@
+ent-BulletClownshot = clownshot
+    .desc = { ent-BaseBullet.desc }
+ent-BulletPulse = pulse
+    .desc = { ent-BaseBullet.desc }
+ent-BulletDetain = detain
+    .desc = { ent-BaseBullet.desc }
+ent-BulletExecute = execute
+    .desc = { ent-BaseBullet.desc }
+ent-BulletHotshot = hotshot
+    .desc = { ent-BaseBullet.desc }
+ent-BulletSleepshot = sleepshot
+    .desc = { ent-BaseBullet.desc }
+ent-BulletBigshot = bigshot
+    .desc = { ent-BaseBullet.desc }

@@ -1,0 +1,12 @@
+ent-MailCommandPipebombIntern = { ent-BaseMailLarge }
+    .suffix = Command smoke and drink
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailHoPSupplement = { ent-BaseMailLarge }
+    .suffix = HoP supplement
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailMedkit = { ent-BaseMailLarge }
+    .suffix = Medkit
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailResearchDisk = { ent-BaseMail }
+    .suffix = Research Disk
+    .desc = { ent-BaseMail.desc }

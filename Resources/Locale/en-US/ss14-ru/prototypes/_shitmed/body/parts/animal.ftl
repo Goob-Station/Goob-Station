@@ -1,0 +1,14 @@
+ent-HeadAnimal = animal head
+    .desc = { ent-PartAnimalBase.desc }
+ent-ChestGoliath = goliath chest
+    .desc = { ent-PartAnimalBase.desc }
+ent-GroinGoliath = goliath groin
+    .desc = { ent-PartAnimalBase.desc }
+ent-LegsGoliath = goliath legs
+    .desc = { ent-PartAnimalBase.desc }
+ent-ChestDragon = dragon chest
+    .desc = { ent-PartAnimalBase.desc }
+ent-GroinDragon = dragon groin
+    .desc = { ent-PartAnimalBase.desc }
+ent-LegsDragon = dragon legs
+    .desc = { ent-PartAnimalBase.desc }

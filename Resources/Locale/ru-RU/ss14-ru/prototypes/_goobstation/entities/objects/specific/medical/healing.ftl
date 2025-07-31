@@ -1,0 +1,11 @@
+ent-SyringePax = { ent-PrefilledSyringe }
+    .suffix = pax
+    .desc = { ent-PrefilledSyringe.desc }
+ent-SyringePoisonCentcomm = { ent-PrefilledSyringe }
+    .suffix = poison
+    .desc = { ent-PrefilledSyringe.desc }
+ent-SyringePoisonFent = used fent syringe
+    .desc = What the fuck?!
+    .suffix = fent
+ent-SyringePoisonLethalInjection = lethal injection syringe
+    .desc = A somewhat humane way to put down prisoners.

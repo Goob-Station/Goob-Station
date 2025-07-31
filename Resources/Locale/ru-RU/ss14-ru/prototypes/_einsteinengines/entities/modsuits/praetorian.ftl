@@ -1,0 +1,13 @@
+ent-ClothingModsuitPraetorian = контроллер модульного скафандра "Преторианец"
+    .desc = Основной контроллер скафандра "Преторианец".
+ent-ClothingModsuitGauntletsPraetorian = перчатки скафандра "Преторианец"
+    .desc = Пара перчаток, изготовленных для скафандра "Преторианец".
+ent-ClothingModsuitHelmetPraetorian = шлем скафандра "Преторианец"
+    .desc = Передовой шлем, разработанный НаноТрейзен для скафандра "Преторианец".
+ent-ClothingModsuitChestplatePraetorian = Нагрудник модсьюта преторианца
+    .desc = Передовой нагрудник, разработанный НаноТрейзен для скафандра "Преторианец". Оснащён сервоприводами для снижения нагрузки.
+ent-ClothingModsuitBootsPraetorian = ботинки скафандра "Преторианец"
+    .desc = Передовая пара магнитных ботинок для скафандра "Преторианец".
+ent-SuitStoragePraetorian = { ent-SuitStorageBase }
+    .suffix = модульный скафандр "Преторианец", Синий Щит
+    .desc = { ent-SuitStorageBase.desc }

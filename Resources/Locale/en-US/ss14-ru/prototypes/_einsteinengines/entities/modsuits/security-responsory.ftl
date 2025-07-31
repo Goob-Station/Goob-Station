@@ -1,0 +1,13 @@
+ent-ClothingModsuitResponsorySecurity = Security Responsory modsuit control
+    .desc = The main controller for a Security Responsory modsuit.
+ent-ClothingModsuitGauntletsResponsorySecurity = Security Responsory modsuit gauntlets
+    .desc = A pair of gauntlets made for the Security Responsory modsuit.
+ent-ClothingModsuitHelmetResponsorySecurity = Security Responsory modsuit helmet
+    .desc = A state-of-the-art helmet designed by NanoTrasen for the Security Responsory modsuit. It includes a built-in HUD.
+ent-ClothingModsuitChestplateResponsorySecurity = Security Responsory modsuit chestplate
+    .desc = A state of the art chestplate designed by NanoTrasen for the Security Responsory Modsuit. It incorporates powered servos to reduce the equipment load.
+ent-ClothingModsuitBootsResponsorySecurity = Security Responsory modsuit boots
+    .desc = A state-of-the-art pair of magboots for the Security Responsory modsuit.
+ent-SuitStorageResponsorySecurity = { ent-SuitStorageBase }
+    .suffix = Security Responsory Modsuit
+    .desc = { ent-SuitStorageBase.desc }

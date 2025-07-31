@@ -440,7 +440,7 @@
       color: "#f7d61a"
   - type: GuideHelp
     guides:
-    - SpaceLaw
+    - CorporateLaw # CorvaxGoob
 
 - type: entity
   parent: BookBase

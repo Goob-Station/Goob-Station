@@ -1,0 +1,9 @@
+ent-CrateFunClownCarUplink = clown car crate
+    .desc = Contains one car, Clown not included
+    .suffix = Uplink item
+ent-CrateFunClownCarCargo = clown car crate
+    .desc = Contains one car, Clown not included
+    .suffix = Cargo Order
+ent-CrateFunClownCarTesting = clown car crate
+    .desc = for the cursed clown
+    .suffix = for testing
