@@ -38,8 +38,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Changelog;
-﻿using Content.Client._RMC14.LinkAccount;
+/* CorvaxGoob-Coins-start
+using Content.Client._RMC14.LinkAccount; CorvaxGoob-Coins
 using Content.Client.Stylesheets;
+CorvaxGoob-Coins-end */
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
@@ -76,6 +78,7 @@ namespace Content.Client.Info
             AddInfoButton("server-info-wiki-button", CCVars.InfoLinksWiki);
             AddInfoButton("server-info-forum-button", CCVars.InfoLinksForum);
             AddInfoButton("server-info-telegram-button", CCVars.InfoLinksTelegram);
+            /* CorvaxGoob-Coins-start
             AddInfoButton("rmc-ui-patreon", CCVars.InfoLinksPatreon);
 
             var linkAccount = UserInterfaceManager.GetUIController<LinkAccountUIController>();
@@ -85,6 +88,7 @@ namespace Content.Client.Info
             };
             linkAccountButton.OnPressed += _ => linkAccount.ToggleWindow();
             buttons.AddChild(linkAccountButton);
+            CorvaxGoob-Coins-end */
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
             var guidebookButton = new Button() { Text = Loc.GetString("server-info-guidebook-button") };

@@ -195,7 +195,7 @@
     enabled: false
   - type: Speech #Goobstation - Dead chat verbs
     speechVerb: Dead
-  - type: GhostColor
+  # - type: GhostColor # Corvax-Goob Coins
   - type: CollectiveMind
     hearAll: true
     seeAllNames: true

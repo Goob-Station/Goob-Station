@@ -161,7 +161,7 @@
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  goobcoins: 45 #Goob content
+  #goobcoins: 45 #Goob content Corvax-Goob-coins
   access:
   - HeadOfSecurity
   - Command

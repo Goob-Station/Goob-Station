@@ -26,6 +26,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+/* CorvaxGoob-Coins-start
 using Content.Shared._RMC14.LinkAccount;
 
 namespace Content.Client._RMC14.LinkAccount;
@@ -44,3 +45,4 @@ public sealed class LinkAccountSystem : EntitySystem
         LobbyMessageReceived?.Invoke(ev);
     }
 }
+CorvaxGoob-Coins-end */

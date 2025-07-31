@@ -107,7 +107,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  goobcoins: 40
+  #goobcoins: 40 Corvax-Goob-coins
   access:
   - Security
   - Brig

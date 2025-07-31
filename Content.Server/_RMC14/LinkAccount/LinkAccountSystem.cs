@@ -28,6 +28,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+/* CorvaxGoob-Coins-start
 using Content.Goobstation.Common.CCVar;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -188,3 +189,4 @@ public sealed class LinkAccountSystem : EntitySystem
         GetRandomLobbyMessage();
     }
 }
+CorvaxGoob-Coins-end */

@@ -146,7 +146,7 @@
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  goobcoins: 35 #Goob content
+  #goobcoins: 35 #Goob content Corvax-Goob-coins
   access:
   - Security
   - Brig

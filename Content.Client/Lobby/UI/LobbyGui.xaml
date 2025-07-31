@@ -38,8 +38,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns:style="clr-namespace:Content.Client.Stylesheets"
     xmlns:lobbyUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:info="clr-namespace:Content.Client.Info"
-    xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets"
-    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets">
     <!-- Background -->
     <TextureRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name="Background"
                  Stretch="KeepAspectCovered" />
@@ -53,7 +52,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         <!-- Left Top Panel -->
                         <PanelContainer StyleClasses="AngleRect" HorizontalAlignment="Left" Name="LeftSideTop"
                                         VerticalAlignment="Top">
-                            <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" MaxWidth="1200">
+                            <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" MaxWidth="800">
                                 <info:LinkBanner Name="LinkBanner" VerticalExpand="false" HorizontalAlignment="Center"
                                                  Margin="3 3 3 3" />
                                 <controls:StripeBack>
@@ -81,10 +80,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <!-- Vertical Padding-->
                     <Control VerticalExpand="True" />
                     <!-- Left Bot Panel -->
+                    <!-- CorvaxGoob-Coins-start
                     <PanelContainer VerticalAlignment="Bottom" HorizontalAlignment="Left"
                                     Margin="0 75" StyleClasses="AngleRect">
                         <RichTextLabel Name="LobbyMessageLabel" Access="Public" Margin="5" />
                     </PanelContainer>
+                    CorvaxGoob-Coins-end -->
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" SeparationOverride="4"> <!-- Goobstation - Lobby Background Credits -->
                         <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
                         <PanelContainer StyleClasses="AngleRect">

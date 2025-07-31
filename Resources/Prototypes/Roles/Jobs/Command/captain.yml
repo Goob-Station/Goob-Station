@@ -157,7 +157,7 @@
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30
-  goobcoins: 50 #Goob content
+  #goobcoins: 50 #Goob content Corvax-Goob-coins
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

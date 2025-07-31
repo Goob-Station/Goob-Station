@@ -81,7 +81,7 @@
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
-  goobcoins: 10 #Goob content
+  #goobcoins: 10 #Goob content Corvax-Goob-coins
   access:
   - Service
   - Maintenance

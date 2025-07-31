@@ -22,7 +22,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             Resizable="False">
 
     <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
-        <Button Access="Public" Name="PatronPerksButton" Text="{Loc 'rmc-ui-patron-perks'}" StyleClasses="Caution" Visible="False" />
+        <!-- CorvaxGoob-Coins-start
+        <Button Access="Public" Name="PatronPerksButton" Text="{Loc 'rmc-ui-patron-perks'}" StyleClasses="Caution" Visible="False" /> 
+        CorvaxGoob-Coins-end -->
         <changelog:ChangelogButton Access="Public" Name="ChangelogButton"/>
         <ui:VoteCallMenuButton />
         <Button Access="Public" Name="OptionsButton" Text="{Loc 'ui-escape-options'}" />
