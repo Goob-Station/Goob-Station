@@ -29,7 +29,7 @@
       - type: WerewolfTransform
         currentWerewolfForm: DefaultFormWerewolf
         unlockedWerewolfForms:
-        - DefaultFormWerewolf
+          - DefaultFormWerewolf
       - type: WerewolfMutationShop
       - type: UserInterface
         interfaces:

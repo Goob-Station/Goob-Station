@@ -37,10 +37,13 @@ public sealed class SharedWerewolfMutationShopSystem : EntitySystem
         if (!_userInterface.HasUi(target, MutationUiKey.Key))
             return false;
 
+        if (_userInterface.IsUiOpen(target, MutationUiKey.Key))
+            return false;
+
         if (_mind.TryGetMind(target, out _, out var mindComp) &&
             _player.TryGetSessionById(mindComp.UserId, out var session) &&
             session is { } insession)
-            _userInterface.OpenUi(target, MutationUiKey.Key, insession);
+            _userInterface.TryOpenUi(target, MutationUiKey.Key, target);
 
         return true;
     }

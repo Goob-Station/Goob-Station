@@ -1,31 +1,47 @@
 using Content.Goobstation.Shared.Werewolf.UI;
+using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Werewolf.UI;
 
 public sealed class MutationBoundUserInterface : BoundUserInterface
 {
+    [ViewVariables]
     private MutationMenu? _menu;
 
     public MutationBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
-        IoCManager.InjectDependencies(this);
     }
 
     protected override void Open()
     {
         base.Open();
 
-        _menu = this.CreateWindow<MutationMenu>();
-        _menu.SetEntity(Owner);
-        _menu.Closed += OnClosed;
+        var spriteSystem = EntMan.System<SpriteSystem>();
+        var dependencies = IoCManager.Instance!;
 
+        _menu = new MutationMenu(Owner, dependencies.Resolve<IPrototypeManager>(), spriteSystem);
+
+        _menu.Populate();
+
+        _menu.OnClose += Close;
+        _menu.ClaimForm += OnClaimForm;
         _menu.OpenCentered();
     }
 
-    private void OnClosed()
+    private void OnClaimForm()
     {
         SendPredictedMessage(new ClosedMessage());
         Close();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        if (!disposing)
+            return;
+        _menu?.Dispose();
     }
 }

@@ -7,6 +7,7 @@ using Content.Goobstation.Shared.Werewolf.Components;
 using Content.Goobstation.Shared.Werewolf.Prototypes;
 using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Werewolf.Systems;
 
@@ -53,6 +54,24 @@ public abstract class SharedWerewolfTransformSystem : EntitySystem
             return Color.White;
 
         return index.Configuration.FurColor;
+    }
+
+    public WerewolfFormPrototype? GetFormProto(ProtoId<WerewolfFormPrototype> proto)
+    {
+        if (!_proto.TryIndex(proto, out var index))
+            return null;
+
+        return index;
+    }
+
+    public SpriteSpecifier? GetSpriteSpecifierForm(ProtoId<WerewolfFormPrototype> proto)
+    {
+        var form = GetFormProto(proto);
+        if (form == null ||
+            form.Configuration.Sprite == null)
+            return null;
+
+        return form.Configuration.Sprite;
     }
 
     #endregion
