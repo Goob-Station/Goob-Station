@@ -63,7 +63,8 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server._DV.Cargo.Systems;
-using Content.Shared.Chat; // Einstein Engines - Languages
+using Content.Shared.Chat;
+using Content.Shared.Chemistry.EntitySystems; // Einstein Engines - Languages
 
 namespace Content.Server.Mail
 {
@@ -81,11 +82,11 @@ namespace Content.Server.Mail
         [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-        [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-        [Dependency] private readonly ItemSystem _itemSystem = default!;
+        [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
@@ -565,10 +566,7 @@ namespace Content.Server.Mail
                 ("recipient", recipient.Name)));
 
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
-            foreach (var access in recipient.AccessTags)
-            {
-                accessReader.AccessLists.Add(new HashSet<ProtoId<AccessLevelPrototype>> { access });
-            }
+            _accessReader.AddAccess((uid, accessReader), recipient.AccessTags);
         }
 
         /// <summary>
