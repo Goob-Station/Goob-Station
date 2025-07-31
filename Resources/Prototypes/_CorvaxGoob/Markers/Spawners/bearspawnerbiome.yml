@@ -1,0 +1,11 @@
+- type: entity
+  name: space bear spawner
+  id: SpawnerMobBearBiome
+  parent: MarkerBase
+  categories: [ HideSpawnMenu, Spawner ] # Used only for CorvaxGlacier
+  components:
+    - type: RandomSpawner
+      prototypes:
+      - MobBearSpaceSalvage
+      chance: 1
+      offset: 0.2

@@ -1,4 +1,15 @@
 - type: entity
+  parent: ClothingUniformJumpskirtCaptain
+  id: ClothingUniformJumpskirtWhiteCaptain
+  name: white captain jumpskirt
+  description: White captain jumpsuit skirt symbolizing that your salary clearly exceeds the norm.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/white_captain.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/white_captain.rsi
+
+- type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCentcomOfficial
   name: CentCom officer's suitskirt
@@ -96,3 +107,14 @@
       sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/rd_classical.rsi
     - type: Clothing
       sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/rd_classical.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtPilot
+  name: pilot skirt
+  description: Security pilot skirt.
+  components:
+    - type: Sprite
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/pilot.rsi
+    - type: Clothing
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpskirt/pilot.rsi

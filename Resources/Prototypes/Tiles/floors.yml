@@ -1652,6 +1652,14 @@
   id: FloorGrass
   name: tiles-planet-grass-floor
   sprite: /Textures/Tiles/grass.png
+  # Corvax-Goob-GrassResprite-start
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  # Corvax-Goob-GrassResprite-end
   baseTurf: FloorDirt
   isSubfloor: true
   footstepSounds:
@@ -1664,6 +1672,14 @@
   id: FloorGrassJungle
   name: tiles-jungle-grass-floor
   sprite: /Textures/Tiles/grassjungle.png
+  # Corvax-Goob-GrassResprite-start
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  # Corvax-Goob-GrassResprite-end
   baseTurf: FloorDirt
   isSubfloor: true
   footstepSounds:

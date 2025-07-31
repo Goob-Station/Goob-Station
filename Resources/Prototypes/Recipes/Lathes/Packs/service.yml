@@ -44,6 +44,7 @@
   - ElectricGrillMachineCircuitboard
   - BoozeDispenserMachineCircuitboard
   - SodaDispenserMachineCircuitboard
+  - PrinterDocMachineCircuitboard # Corvax-Goob-PrinterDoc
 
 ## Dynamic
 

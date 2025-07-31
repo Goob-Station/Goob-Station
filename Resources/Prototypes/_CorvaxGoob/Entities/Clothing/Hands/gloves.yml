@@ -1,4 +1,26 @@
 ﻿- type: entity
+  parent: ClothingHandsGlovesCaptain
+  id: ClothingHandsGlovesCaptainWhite
+  name: white captain gloves
+  description: Royal white gloves with gold trim. Gorgeous.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Hands/Gloves/white_captain_gloves.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Hands/Gloves/white_captain_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesCaptain
+  id: ClothingHandsGlovesSheriff
+  name: sheriff gloves
+  description: Gloves with an ergonomic shape designed to hold a revolver.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Hands/Gloves/sheriff_gloves.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Hands/Gloves/sheriff_gloves.rsi
+
+- type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesAerostatic
   name: aerostatic gloves

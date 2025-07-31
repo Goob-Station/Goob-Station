@@ -1,0 +1,48 @@
+- type: entity
+  id: ExecutionChair
+  parent: BaseStructureDynamic
+  name: execution chair
+  description: Looks comfy.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Structures/Furniture/execution_chair.rsi
+    state: execution-chair
+    noRot: true
+  - type: Rotatable
+  - type: InteractionOutline
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,-0.05"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - TableMask
+  - type: ExecutionChair
+  - type: ApcPowerReceiver
+    powerLoad: 1500
+  - type: ExtensionCableReceiver
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 5
+            max: 5

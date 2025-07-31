@@ -139,6 +139,35 @@
 # WallSolid: Window
 # Table: null
 
+# Corvax-Goob
+DresserCaptainFilled: CaptainDrobe
+ClothingNeckMantleHOSShoulder: ClothingNeckMantleHOS
+LauncherSyringe: SyringePistol
+MiniSyringe: null
+SingularityGrenade: SupermatterGrenade
+BenchChapelMiddle: BenchPewMiddle
+BenchChapelLeft: BenchPewLeft
+BenchChapelRight: BenchPewRight
+SofaMiddle: BenchSofaMiddle
+SofaLeft: BenchSofaLeft
+SofaRight: BenchSofaRight
+SofaCorner: BenchSofaCorner
+CorpSofaMiddle: BenchSofaCorpMiddle
+CorpSofaLeft: BenchSofaCorpLeft
+CorpSofaRight: BenchSofaCorpRight
+CorpSofaCorner: BenchSofaCorpCorner
+BenchComfyMiddle: BenchSteelMiddle
+BenchComfyLeft: BenchSteelLeft
+BenchComfyRight: BenchSteelRight
+BenchRedComfyMiddle: BenchSteelWhiteMiddle
+BenchRedComfyLeft: BenchSteelWhiteLeft
+BenchRedComfyRight: BenchSteelWhiteRight
+BenchBlueComfyMiddle: BenchSteelWhiteMiddle
+BenchBlueComfyLeft: BenchSteelWhiteLeft
+BenchBlueComfyRight: BenchSteelWhiteRight
+ScalpelCool: ScalpelAdvanced
+MirrorModern: Mirror
+
 # Goobstation - Submarine from DeltaV
 AirlockBoxerGlassLocked: AirlockServiceGlassLocked
 AirlockClownGlassLocked: AirlockServiceGlassLocked

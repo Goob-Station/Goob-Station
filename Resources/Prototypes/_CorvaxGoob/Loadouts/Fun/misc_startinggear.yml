@@ -1,0 +1,95 @@
+- type: startingGear
+  id: SyndicateSmugglerBase
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    head: ClothingHeadHatUshanka
+    eyes: ClothingEyesGlassesCheapSunglasses
+    outerClothing: ClothingOuterWinterSyndie
+    gloves: ClothingHandsGlovesColorBlack
+    back: ClothingBackpackSalvage
+    shoes: ClothingShoesBootsWinterSyndicate
+    neck: ClothingNeckScarfStripedSyndieRed
+    id: SyndiPDA
+    belt: ClothingBeltMilitaryWebbing
+    mask: ClothingMaskGasSecurity
+
+- type: startingGear
+  id: SyndicateSmugglerGear
+  parent: SyndicateSmugglerBase
+  inhand:
+    - CombatKnife
+
+- type: startingGear
+  id: SyndicateSmugglerMedicGear
+  parent: SyndicateSmugglerBase
+  equipment:
+    back: ClothingBackpackSatchelGenetics
+    neck: ClothingNeckStethoscope
+    belt: ClothingBeltMilitaryWebbingMed
+    eyes: ClothingEyesEyepatchHudMedical
+    pocket1: EmergencyMedipen
+  storage:
+    back:
+    - MedkitCombatFilled
+  inhand: 
+    - Scalpel
+
+- type: startingGear
+  id: SyndicateSmugglerSoldierGear
+  parent: SyndicateSmugglerBase
+  equipment:
+    shoes: ClothingShoesBootsCombat
+    outerClothing: ClothingOuterWinterSyndieCapArmored
+    jumpsuit: ClothingUniformJumpsuitTacticool
+    gloves: ClothingHandsGlovesCombat
+    pocket1: WeaponPistolViper
+    pocket2: MagazinePistol
+    eyes: ClothingEyesGlassesHiddenSecurity
+  inhand:
+    - CombatKnife
+
+- type: startingGear
+  id: SyndicateSmugglerMinerGear
+  parent: SyndicateSmugglerBase
+  equipment:
+    head: ClothingHeadHatHardhatArmored
+    eyes: ClothingEyesGlassesThermal
+    belt: OreBag
+    back: ClothingBackpackSatchelSalvage
+    gloves: ClothingHandsGlovesPowerglove
+    pocket1: MineralScanner
+  inhand:
+    - Pickaxe
+
+- type: startingGear
+  id: SyndicateSmugglerEngiGear
+  parent: SyndicateSmugglerBase
+  equipment:
+    head: ClothingHeadHatCanadaBeanie
+    eyes: ClothingEyesGlassesMeson
+    belt: ClothingBeltUtility
+    gloves: ClothingHandsGlovesColorYellowBudget
+    shoes: ClothingShoesBootsWork
+  storage:
+    back:
+    - SheetSteel10
+  inhand:
+    - ToolboxMechanicalFilled
+
+- type: startingGear
+  id: SyndicateSmugglerSpyGear
+  parent: SyndicateSmugglerBase
+  equipment:
+    ears: ClothingHeadsetGrey
+    eyes: ClothingEyesGlassesHiddenSecurity
+    neck: ClothingNeckScarfStripedSyndieGreen
+    outerClothing: ClothingOuterWinterColorBlack
+    gloves: ThievingGloves
+    back: ClothingBackpackSatchel
+    pocket1: RadioJammer
+    id: PassengerPDA
+  storage:
+    back:
+    - SpaceCash2500
+  inhand:
+    - CombatKnife

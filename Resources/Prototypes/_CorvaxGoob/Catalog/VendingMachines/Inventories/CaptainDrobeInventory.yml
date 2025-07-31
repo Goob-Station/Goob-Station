@@ -1,0 +1,51 @@
+- type: vendingMachineInventory
+  id: CaptainDrobeInventory
+  startingInventory:
+   # Default
+    ClothingHeadsetAltCommand: 1
+    ClothingHeadHatCaptain: 1
+    ClothingHeadHatCapcap: 1
+    ClothingHeadCaptainHat: 1 # Corvax-Resprite
+    ClothingEyesGlassesSunglasses: 1
+    ClothingEyesGlassesCommand: 1
+    ClothingNeckCloakCap: 1
+    ClothingNeckCloakCapFormal: 1
+    ClothingNeckCaptainWide: 1
+    ClothingNeckMantleCap: 1
+    ClothingOuterWinterCap: 1
+    ClothingOuterArmorCaptainCarapace: 1
+    ClothingOuterCoatCaptain: 1 # Corvax-Resprite
+    ClothingUniformJumpsuitCaptain: 1
+    ClothingUniformJumpskirtCaptain: 1
+    ClothingUniformJumpsuitCapFormal: 1
+    ClothingUniformJumpskirtCapFormalDress: 1
+    ClothingHandsGlovesCaptain: 1
+   # White
+    ClothingHeadHatBeretCaptainWhite: 1
+    ClothingHeadHatCapcapWhite: 1
+    ClothingNeckCloakRoyalCaptain: 1
+    ClothingNeckWhiteMantleCaptain: 1
+    ClothingUniformJumpskirtWhiteCaptain: 1
+    ClothingUniformJumpsuitWhiteCaptain: 1
+    ClothingHandsGlovesCaptainWhite: 1
+    ClothingBeltWhiteSheath: 1
+   # Sheriff
+    ClothingHeadHatBeretSheriff: 1
+    ClothingHeadHatCapcapSheriff: 1
+    ClothingUniformJumpsuitSheriff: 1
+    ClothingHandsGlovesSheriff: 1
+    ClothingBeltSheriffSheath: 1
+   # Other
+    ClothingEyesGlassesGarGiga: 1
+    ClothingUniformJumpsuitCommandCaptain: 1
+    ClothingBackpackCaptain: 1
+    ClothingBackpackDuffelCaptain: 1
+    ClothingBackpackSatchelCaptain: 1
+   # Stuff
+    MedalCase: 1
+    FlippoEngravedLighter: 1
+    ToyFigurineCaptain: 1
+    RubberStampCaptain: 1
+    PaperCaptainsThoughts: 5
+  contrabandInventory:
+    ClothingNeckCloakSyndicateAdmiral: 1
