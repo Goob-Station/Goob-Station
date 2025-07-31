@@ -107,6 +107,17 @@
         ents: []
   - type: StaticPrice
     price: 500
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SnipersDrop
+  # Goobstation edit end
   - type: MeleeWeapon # Goobstation V
     damage:
       types:
