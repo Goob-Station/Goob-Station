@@ -92,7 +92,7 @@
   name: chat-radio-security
   keycode: 'б'
   frequency: 1359
-  color: "#ff4242"
+  color: "#3C6DC3"
 
 - type: radioChannel
   id: Service
