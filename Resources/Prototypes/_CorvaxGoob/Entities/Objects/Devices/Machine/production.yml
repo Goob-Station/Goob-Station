@@ -1,0 +1,51 @@
+﻿- type: entity
+  parent: BaseMachineCircuitboard
+  id: MachineBluespaceHarvesterCircuitboard
+  name: Bluespace Harvester board
+  description: A machine board for a Bluespace Harvester
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Bluespace/module.rsi
+    state: bluespace
+  - type: MachineBoard
+    prototype: BluespaceHarvester
+    stackRequirements:
+      Glass: 15
+      Steel: 15
+      CableHV: 5
+      BSCrystal: 4
+      Capacitor: 5
+      MatterBin: 15
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: MachineBluespaceTransitorCircuitboard
+  name: bluespace T.R.A.N.S.I.T.O.R board
+  description: A machine board for a bluespace T.R.A.N.S.I.T.O.R
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: bluespacearray
+  - type: MachineBoard
+    prototype: BluespaceTransitor
+    stackRequirements:
+      Steel: 10
+      CableHV: 30
+      BSCrystal: 4
+      Capacitor: 15
+  - type: Item
+    size: Normal
+
+- type: entity
+  id: PrinterDocMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: document printer machine board
+  description: A machine printed circuit board for an document printer
+  components:
+    - type: MachineBoard
+      prototype: PrinterDoc
+      stackRequirements:
+        Manipulator: 4
+        Glass: 1
