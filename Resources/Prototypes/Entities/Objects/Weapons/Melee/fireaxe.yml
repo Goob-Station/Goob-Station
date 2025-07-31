@@ -89,7 +89,7 @@
     quickEquip: false
     slots:
     - back
-    - suitStorage
+    - suitStorage  # Goobstation
   - type: Tool
     qualities:
       - Prying
@@ -141,4 +141,4 @@
     quickEquip: false
     slots:
     - back
-    - suitStorage
+    - suitStorage # Goobstation
