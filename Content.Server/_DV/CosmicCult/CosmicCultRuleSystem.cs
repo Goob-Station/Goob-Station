@@ -854,6 +854,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         RemComp<PressureImmunityComponent>(uid);
         RemComp<TemperatureImmunityComponent>(uid);
         RemComp<CosmicStarMarkComponent>(uid);
+        RemComp<CosmicSubtleMarkComponent>(uid);
 
         // Goobstation Change: Shitchap
         if (!uid.Comp.WasWeakToHoly)
