@@ -115,6 +115,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         var query = EntityQueryEnumerator<CosmicCultComponent>();
         while (query.MoveNext(out var cultist, out var cultComp))
         {
+            RemComp<CosmicSubtleMarkComponent>(cultist);
             EnsureComp<CosmicStarMarkComponent>(cultist);
         }
     }

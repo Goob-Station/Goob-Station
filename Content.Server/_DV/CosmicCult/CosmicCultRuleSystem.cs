@@ -779,8 +779,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         cultComp.StoredDamageContainer = Comp<DamageableComponent>(uid).DamageContainerID!.Value;
         EnsureComp<IntrinsicRadioReceiverComponent>(uid);
         TransferCultAssociation(converter, uid);
-
-        if (cosmicGamerule.CurrentTier == 3)
+        if (TryComp<CosmicFinaleComponent>(cult.Comp.MonumentInGame, out var finaleComp) && finaleComp.FinaleActive)
+        {
+            EnsureComp<CosmicStarMarkComponent>(uid);
+        }
+        if (cult.Comp.CurrentTier == 3)
         {
             cultComp.EntropyBudget = 48; // pity balance
             cultComp.Respiration = false;
@@ -788,7 +791,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             foreach (var influenceProto in _protoMan.EnumeratePrototypes<InfluencePrototype>().Where(influenceProto => influenceProto.Tier == 3))
                 cultComp.UnlockedInfluences.Add(influenceProto.ID);
 
-            EnsureComp<CosmicStarMarkComponent>(uid);
+            EnsureComp<CosmicSubtleMarkComponent>(uid);
             EnsureComp<PressureImmunityComponent>(uid);
             EnsureComp<TemperatureImmunityComponent>(uid);
         }
