@@ -60,6 +60,7 @@ tiles-dark-floor-herringbone = dark steel herringbone
 tiles-dark-floor-diagonal-mini = dark steel diagonal mini-tile
 tiles-plastic-dark-floor = dark plastic tile
 tiles-techmaint-floor = techmaint floor
+tiles-techmaint-floor-dark = dark techmaint floor
 tiles-reinforced-floor = reinforced floor
 tiles-super-reinforced-floor = hardened reinforced floor
 tiles-mono-floor = mono floor

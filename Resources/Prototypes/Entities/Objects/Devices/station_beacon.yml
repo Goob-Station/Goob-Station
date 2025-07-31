@@ -272,6 +272,46 @@
     defaultText: station-beacon-security-checkpoint
 
 - type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityGorlex
+  suffix: Gorlex Barracks
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-gorlex
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityGorlexOffice
+  suffix: Gorlex Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-gorlex-office
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityGorlexBreak
+  suffix: Gorlex Breakroom
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-gorlex-breakroom
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityGorlexHos
+  suffix: Gorlex Command
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-gorlex-hos
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconSecurityCybersunLegal
+  suffix: Cybersun Legal Dept
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-cybersun-legal
+
+- type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconMedical
   suffix: Medical
@@ -345,6 +385,30 @@
     defaultText: station-beacon-clinic
 
 - type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconParamedic
+  suffix: Paramedics
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-paramedic
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconInterdyne
+  suffix: Interdyne Triage
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-interdyne
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconInterdyneFront
+  suffix: Interdyne Reception
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-interdyne-front
+
+- type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconScience
   suffix: Science
@@ -402,6 +466,14 @@
     defaultText: station-beacon-anomaly-gen
 
 - type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconCybersunRD
+  suffix: Cybersun R&D
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-cybersun-rd
+
+- type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconSupply
   suffix: Supply
@@ -443,6 +515,22 @@
     defaultText: station-beacon-salvage
 
 - type: entity
+  parent: DefaultStationBeaconSupply
+  id: DefaultStationBeaconDonk
+  suffix: DONK Co. Shipping
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-donk
+
+- type: entity
+  parent: DefaultStationBeaconSupply
+  id: DefaultStationBeaconDonkFront
+  suffix: DONK Co. Front
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-donk-front
+
+- type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconEngineering
   suffix: Engineering
@@ -474,6 +562,70 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-solars
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsN
+  suffix: Solars, North
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-N
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsNE
+  suffix: Solars, Northeast
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-NE
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsE
+  suffix: Solars, East
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-E
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsSE
+  suffix: Solars, Southeast
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-SE
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsS
+  suffix: Solars, South
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-S
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsSW
+  suffix: Solars, Southwest
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-SW
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsW
+  suffix: Solars, West
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-W
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSolarsNW
+  suffix: Solars, Northwest
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-solars-NW
 
 - type: entity
   parent: DefaultStationBeaconEngineering
@@ -538,6 +690,14 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-tech-vault
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconShipyard
+  suffix: Shipyard
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-shipyard
 
 - type: entity
   parent: DefaultStationBeacon

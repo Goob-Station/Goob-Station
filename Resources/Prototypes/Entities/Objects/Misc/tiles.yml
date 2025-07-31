@@ -648,6 +648,22 @@
   - type: Stack
     stackType: FloorTileTechmaint
 
+- type: entity
+  name: dark techmaint floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemTechmaintDark
+  components:
+  - type: Sprite
+    state: techfloordark
+  - type: Item
+    heldPrefix: dark
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorTechMaintDark
+  - type: Stack
+    stackType: FloorTileTechmaintDark
+
 # TODO add a catwalk tile item once tile smoothing is supported
 
 - type: entity

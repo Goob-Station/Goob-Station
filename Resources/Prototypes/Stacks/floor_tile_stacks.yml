@@ -275,6 +275,12 @@
   maxCount: 30
 
 - type: stack
+  id: FloorTileTechmaintDark
+  name: stack-techmaint-floor-dark
+  spawn: FloorTileItemTechmaintDark
+  maxCount: 30
+
+- type: stack
   id: FloorTileFreezer
   name: stack-freezer-tile
   spawn: FloorTileItemFreezer
