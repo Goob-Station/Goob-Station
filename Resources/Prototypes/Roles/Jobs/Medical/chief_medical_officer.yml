@@ -145,6 +145,7 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 36000 #10 hrs
+  whitelisted: true # Pirate
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain

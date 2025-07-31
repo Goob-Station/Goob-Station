@@ -450,6 +450,8 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
     {
+        // This is currently disabled in favor of an interaction verb with the same effect, but more obvious usage.
+        return;
         if (args.Handled || knocked.HelpTimer > 0f)
             return;
 

@@ -2,7 +2,7 @@
   id: AdministrativeAssistant
   name: job-name-admin-assistant
   description: job-description-admin-assistant
-  playTimeTracker: JobAdminAssistant
+  playTimeTracker: JobAdministrativeAssistant
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
@@ -31,6 +31,8 @@
 #      employers:
 #      - IdrisIncorporated
 #      - NanoTrasen
+  whitelisted: true # Pirate
+  goobcoins: 30 #Goob content
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"
   supervisors: job-supervisors-command
