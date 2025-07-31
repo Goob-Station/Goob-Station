@@ -27,12 +27,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <Button Name="CharacterSetup" Text="{Loc 'lobby-character-preview-panel-character-setup-button'}"
                         HorizontalAlignment="Center"
                         Margin="0 5 0 0" />
+                <!--CorvaxGoob-NoCoins
                 <Button Name="PatronPerks" Access="Public" Text="{Loc 'rmc-ui-patron-perks'}"
                         Margin="0 5 0 0" Visible="False" />
                 <cc:CommandButton Name="Currency"
                     Command="balanceui"
                     Text="{Loc 'gs-balanceui-shop-label'}"
                     Margin="0 5 0 0"/>
+                    -->
             </BoxContainer>
         </BoxContainer>
         <Label Name="Unloaded" Text="{Loc 'lobby-character-preview-panel-unloaded-preferences-label'}"/>

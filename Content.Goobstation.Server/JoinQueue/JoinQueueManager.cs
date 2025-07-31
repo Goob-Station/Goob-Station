@@ -139,7 +139,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
         /* CorvaxGoob-Coins-start
         if (isPatron && _patreonIsEnabled)
             _patronQueue.Add(session);
-        else */
+        else 
         _queue.Add(session);
         // CorvaxGoob-Coins-end
 
