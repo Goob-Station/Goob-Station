@@ -419,10 +419,10 @@
   - type: Action
     icon: Interface/Actions/manifest.png
     useDelay: 2
-  - type: InstantAction
-    event: !type:GuardianToggleActionEvent
     checkCanInteract: false
     checkConsciousness: false
+  - type: InstantAction
+    event: !type:GuardianToggleActionEvent
 
 # Goobstation
 - type: entity

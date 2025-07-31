@@ -171,7 +171,7 @@
     - id: AstroNavCartridge
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
     - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
-    - id: ClothingHandsKnucklesQuartermaster # Goobstation - ROCK THAT MF!!
+    - id: ClothingHandsKnuckleDustersQM # Goobstation - ROCK THAT MF!!
 
 - type: entity
   id: LockerQuarterMasterFilled

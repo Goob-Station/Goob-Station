@@ -112,8 +112,8 @@
       - !type:SnapToGrid
         southRotation: true
       steps:
-      - tag: MicroManipulatorStockPart
-        name: construction-graph-tag-capacitor
+      - material: Manipulator
+        amount: 1
         doAfter: 3
     - to: ToolAltarNode
       completed:

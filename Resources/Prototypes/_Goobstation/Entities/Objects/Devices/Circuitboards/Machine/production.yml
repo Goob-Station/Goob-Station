@@ -85,7 +85,7 @@
     - type: MachineBoard
       prototype: TeslaCoil
       stackRequirements:
-        Capacitor: 5
+        Manipulator: 5
         Steel: 10
         CableHV: 10
 
@@ -99,7 +99,7 @@
     - type: MachineBoard
       prototype: RadiationCollector
       stackRequirements:
-        Capacitor: 5
+        Manipulator: 5
         Steel: 5
         CableHV: 10
         Plasma: 5

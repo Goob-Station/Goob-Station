@@ -65,8 +65,8 @@
       state: powersink
     - type: WarpPoint
       location: powersink
-      blacklist:
-        tags:
-        - GhostOnlyWarp
+      #blacklist: Not merged yet?
+      #  tags:
+      #  - GhostOnlyWarp
     - type: StaticPrice
       price: 3000

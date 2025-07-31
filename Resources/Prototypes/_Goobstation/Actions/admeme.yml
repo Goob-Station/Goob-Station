@@ -16,9 +16,6 @@
   - type: Action
     useDelay: 3
     itemIconStyle: BigAction
-    whitelist:
-      components:
-      - Body
     raiseOnUser: true
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/disintegrate.ogg
@@ -27,6 +24,9 @@
       state: gib
   - type: EntityTargetAction
     canTargetSelf: false
+    whitelist:
+      components:
+      - Body
     event: !type:SmiteSpellEvent
   - type: SpeakOnAction
     sentence: action-speech-implant-vaporize
@@ -60,14 +60,13 @@
   components:
   - type: Action
     useDelay: 1
-    range: 48
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: blink
   - type: TargetAction
     checkCanAccess: false
-    range: 0
+    range: 48
   - type: WorldTargetAction
     event: !type:TeleportSpellEvent
 

@@ -656,7 +656,7 @@
 #   description: "24karat gold infused with plasteel and branded with the Nanotrasen logo. A true symbol of the Quartermaster's might."
 #   components:
 #   - type: Sprite
-#     sprite: Clothing/Hands/Gloves/KnuckleDusters/goldenknuckleduster.rsi
+#     sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi # Goob - We need to replace these with real wizden knuckledusters
 #     state: goldenknuckleduster
 #   - type: Clothing
 #     sprite: Clothing/Hands/Gloves/KnuckleDusters/goldenknuckleduster.rsi

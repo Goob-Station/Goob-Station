@@ -6,7 +6,6 @@
   components:
   - type: Action
     useDelay: 2
-    raiseOnAction: true
     itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/changeling.rsi

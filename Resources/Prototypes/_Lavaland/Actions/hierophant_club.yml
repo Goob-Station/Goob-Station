@@ -64,10 +64,10 @@
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
     itemIconStyle: NoItem
-    checkCanAccess: true
     priority: -21
     useDelay: 1
   - type: TargetAction
+    checkCanAccess: true
     range: 8
   - type: WorldTargetAction
     event: !type:HierophantClubActivateCrossEvent    

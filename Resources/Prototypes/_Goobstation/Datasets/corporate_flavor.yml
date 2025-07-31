@@ -3,9 +3,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-
-- type: dataset
+- type: localizedDataset
   id: CorporateFlavor
   values:
-  - "nanotrasenagent"
-  - "centralcommand"
+    prefix: issuers-corporate-flavor-
+    count: 2

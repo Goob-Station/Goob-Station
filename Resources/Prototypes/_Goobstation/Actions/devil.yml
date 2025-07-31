@@ -68,9 +68,9 @@
       sprite: _Goobstation/Actions/devil.rsi
       state: possess
   - type: TargetAction
-    canTargetSelf: false
     interactOnMiss: false
   - type: EntityTargetAction
+    canTargetSelf: false
     whitelist:
       components:
       - Body
