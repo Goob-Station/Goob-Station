@@ -5,10 +5,10 @@
 # Mail-only boxes. If/when something uses these outside of the mail, move the entry into Catalog/Fills.
 
 - type: entity
-  name: scented soap sampler pack
+  name: "пачка пробників ароматизованого мила"
   parent: BoxCardboard
   id: BoxSoapsAssorted
-  description: A box of various scented soaps. Ooh, lavender.
+  description: "Коробка з різним ароматизованим милом. О, лаванда."
   components:
   - type: StorageFill
     contents:
@@ -32,10 +32,10 @@
       - state: box
 
 - type: entity
-  name: scented soap sampler pack
+  name: "пачка пробників ароматизованого мила"
   parent: BoxCardboard
   id: BoxSoapsAssortedOmega
-  description: A box of various scented soaps. Ooh, bluespace.
+  description: "Коробка з різним ароматизованим милом. О, блюзовий простір."
   components:
   - type: StorageFill
     contents:
@@ -59,11 +59,11 @@
       - state: box
 
 - type: entity
-  name: Build-a-Buddy kit
+  name: "Набір \"Побудуй-друга"
   suffix: Human
   parent: BoxHug
   id: BoxBuildABuddyHuman
-  description: "\"Henry the Human\" Build-a-Buddy kit. Some assembly required."
+  description: "Конструктор \"Генрі-людина\" Build-a-Buddy. Потрібно зібрати."
   components:
   - type: StorageFill
     contents:
@@ -128,11 +128,11 @@
 #        amount: 1
 
 - type: entity
-  name: Build-a-Buddy kit
+  name: "Набір \"Побудуй-друга"
   suffix: Reptilian
   parent: BoxBuildABuddyHuman
   id: BoxBuildABuddyReptilian
-  description: "\"Randy the Reptilian\" Build-a-Buddy kit. Some assembly required."
+  description: "Конструктор \"Рептилія Ренді\" Build-a-Buddy. Потрібно зібрати."
   components:
   - type: StorageFill
     contents:
@@ -160,11 +160,11 @@
         amount: 1
 
 - type: entity
-  name: Build-a-Buddy kit
+  name: "Набір \"Побудуй-друга"
   suffix: Slime
   parent: BoxBuildABuddyHuman
   id: BoxBuildABuddySlime
-  description: "\"Steven the Slime\" Build-a-Buddy kit. Some assembly required."
+  description: "Конструктор \"Стівен Слимак\" Build-a-Buddy. Потрібно зібрати."
   components:
   - type: StorageFill
     contents:
@@ -192,11 +192,11 @@
         amount: 1
 
 - type: entity
-  name: Build-a-Buddy kit
+  name: "Набір \"Побудуй-друга"
   suffix: Vulpkanin
   parent: BoxBuildABuddyHuman
   id: BoxBuildABuddyVulpkanin
-  description: "\"Valerie the Vulpkanin\" Build-a-Buddy kit. Some assembly required."
+  description: "Конструктор \"Валерій Вульпканін\" Build-a-Buddy. Потрібно зібрати."
   components:
   - type: StorageFill
     contents:

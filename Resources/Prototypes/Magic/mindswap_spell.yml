@@ -8,8 +8,8 @@
 
 - type: entity
   id: ActionMindSwap
-  name: Mind Swap
-  description: Exchange bodies with another person!
+  name: "Обмін розумом"
+  description: "Обміняйтеся тілами з іншою людиною!"
   components:
   - type: EntityTargetAction
     useDelay: 60 # Goob edit

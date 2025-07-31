@@ -8,8 +8,8 @@
 - type: entity
   parent: [ClothingEyesBase, ShowPsionicsIcons]
   id: ClothingEyesHudEpistemics
-  name: epi psionics hud
-  description: A heads-up display that scans the humanoids in view and provides accurate data about their psionics records.
+  name: "худ епі-псіоніки"
+  description: "Головний дисплей, який сканує гуманоїдів у полі зору і надає точні дані про їхні псионічні показники."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Eyes/Hud/epi.rsi

@@ -61,8 +61,8 @@
 - type: entity
   abstract: true
   id: MobNarsieBase
-  name: Nar'Sie
-  description: Your mind begins to bubble and ooze as it tries to comprehend what it sees.
+  name: "Нар'сі"
+  description: "Ваш розум починає пузиритися і сочитися, намагаючись осмислити побачене."
   components:
   - type: Sprite
     sprite: Mobs/Demons/narsie.rsi

@@ -6,8 +6,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCombatStandard
-  name: combat hardsuit helmet
-  description: An armoured helmet with a yellow visor and dual head-mounted lights.
+  name: "бойовий шолом-костюм"
+  description: "Броньований шолом з жовтим козирком і двома налобними ліхтарями."
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hardsuits/Combat/standard.rsi
@@ -36,7 +36,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCombatOfficer
-  name: security combat hardsuit helmet
+  name: "захисний бойовий шолом-комбінезон"
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
@@ -47,8 +47,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCombatMedical
-  name: medical combat hardsuit helmet
-  description: A lightweight armoured helmet with full-face blue visor and head-mounted light.
+  name: "медичний бойовий шолом-комбінезон"
+  description: "Легкий броньований шолом з повним синім забралом та налобним ліхтарем."
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hardsuits/Combat/medical.rsi
@@ -78,8 +78,8 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCombatRiot
-  name: riot combat hardsuit helmet
-  description: A heavy armoured helmet with a sealed visor with yellow slits and dual head-mounted lights.
+  name: "шолом для боротьби з масовими заворушеннями"
+  description: "Важкий броньований шолом з герметичним забралом з жовтими прорізами та двома налобними ліхтарями."
   components:
   - type: Sprite
     sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi

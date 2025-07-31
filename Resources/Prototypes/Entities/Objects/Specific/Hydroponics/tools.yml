@@ -32,10 +32,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: mini hoe
+  name: "міні мотика"
   parent: BaseItem
   id: HydroponicsToolMiniHoe
-  description: It's used for removing weeds or scratching your back.
+  description: "Використовується для видалення бур'янів або чухання спини."
   components:
   - type: Tag
     tags:
@@ -57,10 +57,10 @@
       Steel: 100
 
 - type: entity
-  name: plant clippers
+  name: "садові ножниці"
   parent: BaseItem
   id: HydroponicsToolClippers
-  description: A tool used to take samples from plants.
+  description: "Інструмент, що використовується для відбору зразків з рослин."
   components:
   - type: Tag
     tags:
@@ -91,10 +91,10 @@
       Steel: 100
 
 - type: entity
-  name: scythe
+  name: "коса"
   parent: BaseItem
   id: HydroponicsToolScythe
-  description: A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow.
+  description: "Гостре та вигнуте лезо на довгій фіброволоконній ручці - цей інструмент дозволяє легко пожинати те, що ви посіяли."
   components:
   - type: Sharp
   - type: Sprite
@@ -119,10 +119,10 @@
       Plastic: 100
 
 - type: entity
-  name: hatchet
+  name: "сокирка"
   parent: BaseItem
   id: HydroponicsToolHatchet
-  description: A very sharp axe blade upon a short fibremetal handle. It has a long history of chopping things, but now it is used for chopping wood.
+  description: "Дуже гостре лезо сокири на короткому руків'ї з фібрового металу. Має давню історію рубання речей, але зараз використовується для рубання деревини."
   components:
   - type: Tag
     tags:
@@ -150,10 +150,10 @@
       Steel: 100
 
 - type: entity
-  name: spade
+  name: "лопатка"
   parent: BaseItem
   id: HydroponicsToolSpade
-  description: A small tool for digging and moving dirt.
+  description: "Невеликий інструмент для копання та переміщення ґрунту."
   components:
   - type: Tag
     tags:
@@ -178,10 +178,10 @@
       Steel: 100
 
 - type: entity
-  name: plant bag
+  name: "мішок для рослин"
   id: PlantBag
   parent: BaseStorageItem
-  description: A bag for botanists to easily move their huge harvests.
+  description: "Сумка для ботаніків, щоб легко переносити свої величезні врожаї."
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/Equipment/plant_bag.rsi
