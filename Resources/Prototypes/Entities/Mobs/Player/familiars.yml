@@ -100,6 +100,12 @@
     - PetsNT
   - type: Alerts
   - type: Familiar
+  - type: LanguageKnowledge
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
+    - TauCetiBasic
 
 - type: entity
   name: Cerberus
@@ -162,3 +168,9 @@
       Male: Cerberus
       Female: Cerberus
       Unsexed: Cerberus
+  - type: LanguageKnowledge
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
