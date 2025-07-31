@@ -131,8 +131,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Antag;
-using Content.Server._durkcode.ServerCurrency;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -183,9 +181,6 @@ namespace Content.Server.Entry
         private IServerDbManager? _dbManager;
         private IWatchlistWebhookManager _watchlistWebhookManager = default!;
         private IConnectionManager? _connectionManager;
-
-        private ServerCurrencyManager? _currencyManager; // Goobstation
-        private LastRolledAntagManager? _lastAntagManager; // Goobstation
 
         /// <inheritdoc />
         public override void Init()
@@ -255,10 +250,6 @@ namespace Content.Server.Entry
                 _watchlistWebhookManager.Initialize();
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
-                // _currencyManager = IoCManager.Resolve<ServerCurrencyManager>(); // Goobstation; Deleted by CorvaxGoob
-                // _currencyManager.Initialize(); // Goobstation; Deleted by CorvaxGoob
-                _lastAntagManager = IoCManager.Resolve<LastRolledAntagManager>(); // Goobstation
-                _lastAntagManager.Initialize(); // Goobstation
             }
         }
 
