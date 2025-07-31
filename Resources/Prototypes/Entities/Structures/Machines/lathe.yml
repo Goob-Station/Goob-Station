@@ -513,6 +513,7 @@
     - MedicalMisc
     - MedicalVehiclesAdvanced
     - UpgradeKits
+    - BodyBagsDynamic # Corvax-Goob-AdvancedBodyBags-end
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -524,6 +525,7 @@
     - SecurityWeaponsGoob
     - RestraintTechnology
     - MiningWeapons
+    - SyndicateBodyBagsStatic # Corvax-Goob-AdvancedBodyBag
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -859,6 +861,7 @@
     - GrenadeTriggersStatic
     dynamicPacks:
     - Chemistry
+    - BodyBagsDynamic # Corvax-Goob-AdvancedBodyBag
     # Goobstation Packs
     - Surgery
     - MedicalCybernetics
@@ -872,6 +875,7 @@
   - type: EmagLatheRecipes # Goobstation Packs
     emagStaticPacks:
     - SyndicateCatridgesStatic
+    - SyndicateBodyBagsStatic # Corvax-Goob-AdvancedBodyBags
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
 

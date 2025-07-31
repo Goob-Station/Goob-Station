@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseSign
+  id: SignNewYear
+  name: new year sign
+  description: "Neon sign. Face in salad and wake up in February."
+  components:
+  - type: Sprite
+    state: corvax_newyear
+
+- type: entity
+  parent: BaseSign
+  id: SignDetective
+  name: Detective sign
+  description: A sign depicting the detective's office.
+  components:
+  - type: Sprite
+    state: detective

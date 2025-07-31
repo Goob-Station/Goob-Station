@@ -92,6 +92,14 @@
       - FoodBakedBrownie
       - FoodPieBananaCreamSlice
       - FoodTartMimeSlice
+      # Corvax-Goob-USSPfood-start
+      - FoodBakedPotatosCutlets
+      - FoodGOOOOLsoup
+      - FoodOkroshkasoup
+      - FoodOlivielsoup
+      - FoodSolankasoup
+      - FoodPlow
+      # Corvax-Goob-USSPfood-end
     chance: 0.8
     offset: 0.0
     #rare

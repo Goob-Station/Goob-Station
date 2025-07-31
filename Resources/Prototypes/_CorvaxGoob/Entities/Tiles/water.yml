@@ -1,0 +1,11 @@
+- type: entity
+  parent: FloorWaterEntity
+  id: FloorAzureWaterEntity
+  name: azure water
+  description: A real thirst quencher. Corals are not included!
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Tiles/Planet/azure_water.rsi
+    drawdepth: BelowFloor
+    layers:
+      - state: shoreline_azure_water

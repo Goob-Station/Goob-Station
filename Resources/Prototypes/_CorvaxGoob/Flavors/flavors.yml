@@ -1,0 +1,18 @@
+- type: flavor
+  id: beary
+  flavorType: Complex
+  description: flavor-complex-bear
+
+- type: flavor
+  id: sumery
+  flavorType: Complex
+  description: flavor-complex-sumer
+
+- type: flavor
+  id: holidais
+  flavorType: Complex
+  description: flavor-complex-holidais
+
+- type: flavor
+  id: snow
+  description: flavor-base-snow

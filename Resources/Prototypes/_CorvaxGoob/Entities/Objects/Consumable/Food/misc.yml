@@ -1,0 +1,50 @@
+- type: entity
+  name: mashed potatoes with cutlets
+  parent: FoodBakedBase
+  id: FoodBakedPotatosCutlets
+  description: You hurry up, we have cutlets right now...
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Consumable/Food/misc.rsi
+    state: pureshka
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 2
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - potatoes
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: pickle
+  parent: FoodBase
+  id: FoodPickles
+  description: The very thing for vodka
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Consumable/Food/misc.rsi
+    state: salt
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 2
+  - type: FlavorProfile
+    flavors:
+      - salty
+  - type: Tag
+    tags:
+    - Fruit

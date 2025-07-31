@@ -1,0 +1,112 @@
+- type: entity
+  id: BasePresentBox
+  name: decoration present
+  description: "Beautiful wrapper, disappointing emptiness inside."
+  abstract: true
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 175
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BasePresentBox
+  id: BigPresentBox
+  suffix: Big
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Decoration/Presents/big_present.yml
+    noRot: true
+    layers:
+    - state: base
+      map: [ "base" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: ribbon
+  - type: RandomSprite
+    available:
+      - base:
+          base: Rainbow
+        decor:
+          decor_0: ""
+          decor_1: ""
+          decor_2: ""
+          mask_null: ""
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.15
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  parent: BasePresentBox
+  id: MediumPresentBox
+  suffix: Medium
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Decoration/Presents/medium_present.yml
+    noRot: true
+    layers:
+    - state: base
+      map: [ "base" ]
+    - state: mask_null
+      map: [ "decor" ]
+    - state: ribbon
+  - type: RandomSprite
+    available:
+      - base:
+          base: Rainbow
+        decor:
+          decor_0: ""
+          decor_1: ""
+          decor_2: ""
+          mask_null: ""
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.07
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  parent: BasePresentBox
+  id: SmallPresentBox
+  suffix: Small
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Decoration/Presents/small_present.yml
+    noRot: true
+    layers:
+    - state: base
+      map: [ "base" ]
+    - state: ribbon
+  - type: RandomSprite
+    available:
+      - base:
+          base: Rainbow
+  - type: Physics
+    bodyType: Static
+    canCollide: false

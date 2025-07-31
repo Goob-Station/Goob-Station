@@ -1,0 +1,153 @@
+- type: entity
+  parent: VendingMachine
+  id: CaptainDrobe
+  name: CaptainDrobe
+  description: Stylish uniform, for a strong leader!
+  components:
+  - type: VendingMachine
+    pack: CaptainDrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Sprite
+    sprite: _CorvaxGoob/Structures/Machines/VendingMachines/captaindrobe.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    color: "#05DAF2"
+  - type: AccessReader
+    access: [["Captain"]]
+
+- type: entity
+  parent: VendingMachineDiscount
+  id: VendingMachineDiscountMidpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.15
+
+- type: entity
+  parent: VendingMachineSnack
+  id: VendingMachineSnackMidpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.15
+
+- type: entity
+  parent: VendingMachineSnackBlue
+  id: VendingMachineSnackBlueMidpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.15
+
+- type: entity
+  parent: VendingMachineSnackGreen
+  id: VendingMachineSnackGreenMidpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.15
+
+- type: entity
+  parent: VendingMachineSnackOrange
+  id: VendingMachineSnackOrangeMidpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.15
+
+- type: entity
+  parent: VendingMachineSnackTeal
+  id: VendingMachineSnackTealMidpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.15
+
+- type: entity
+  parent: VendingMachineChang
+  id: VendingMachineChangMidpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.15
+
+- type: entity
+  parent: VendingMachineDonut
+  id: VendingMachineDonutMidpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.15
+
+- type: entity
+  parent: VendingMachineDiscount
+  id: VendingMachineDiscountHighpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.1
+
+- type: entity
+  parent: VendingMachineSnack
+  id: VendingMachineSnackHighpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.1
+
+- type: entity
+  parent: VendingMachineSnackBlue
+  id: VendingMachineSnackBlueHighpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.1
+
+- type: entity
+  parent: VendingMachineSnackGreen
+  id: VendingMachineSnackGreenHighpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.1
+
+- type: entity
+  parent: VendingMachineSnackOrange
+  id: VendingMachineSnackOrangeHighpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.1
+
+- type: entity
+  parent: VendingMachineSnackTeal
+  id: VendingMachineSnackTealHighpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.1
+
+- type: entity
+  parent: VendingMachineChang
+  id: VendingMachineChangHighpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.1
+
+- type: entity
+  parent: VendingMachineDonut
+  id: VendingMachineDonutHighpop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VendingMachine
+    initialStockQuality: 0.1

@@ -1,0 +1,33 @@
+- type: parallax
+  id: GlacierPlanet
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_CorvaxGoob/Parallax/GlacierParallaxLand.png"
+      slowness: 0.998046875
+      scale: "0.1, 0.1"
+      scrolling: "0.3, 0.15"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_CorvaxGoob/Parallax/GlacierParallaxPlasma.png"
+      slowness: 0.998046875
+      scale: "0.1, 0.1"
+      scrolling: "0.3, 0.15"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_CorvaxGoob/Parallax/GlacierParallaxShadow.png"
+      slowness: 0.998046875
+      scale: "1, 1"
+      scrolling: "0, 0"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_CorvaxGoob/Parallax/GlacierParallaxCloud.png"
+      slowness: 0.95
+      scale: "0.5, 0.5"
+      scrolling: "0.03, 0.15"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/_CorvaxGoob/Parallax/GlacierParallaxCloud2.png"
+      slowness: 0.90
+      scale: "0.4, 0.4"
+      scrolling: "0.05, 0.15"

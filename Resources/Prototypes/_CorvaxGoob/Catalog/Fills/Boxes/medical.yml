@@ -1,0 +1,89 @@
+- type: entity
+  parent: BoxCardboard
+  id: BoxBodyBagBluespace
+  name: bluespace body bag box
+  description: Contains body bags.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BodyBagBluespaceFolded
+        amount: 4
+  - type: Sprite
+    layers:
+      - state: box
+      - state: bodybags
+    whitelist:
+      tags:
+        - BodyBag
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxBodyBagNanoTrasen
+  name: NanoTrasen body bag box
+  description: Contains body bags.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BodyBagNanoTrasenFolded
+        amount: 4
+  - type: Sprite
+    layers:
+      - state: box
+      - state: bodybags
+    whitelist:
+      tags:
+        - BodyBag
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxBodyBagPrisoner
+  name: prisoner body bag box
+  description: Contains body bags.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BodyBagPrisonerFolded
+        amount: 4
+  - type: Sprite
+    layers:
+      - state: box
+      - state: bodybags
+    whitelist:
+      tags:
+        - BodyBag
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxBodyBagRadiation
+  name: radiation body bag box
+  description: Contains body bags.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BodyBagRadiationFolded
+        amount: 4
+  - type: Sprite
+    layers:
+      - state: box
+      - state: bodybags
+    whitelist:
+      tags:
+        - BodyBag
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxBodyBagSyndicate
+  name: syndicate body bag box
+  description: Contains body bags.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BodyBagSyndicateFolded
+        amount: 4
+  - type: Sprite
+    layers:
+      - state: box_of_doom
+      - state: bodybags
+    whitelist:
+      tags:
+        - BodyBag

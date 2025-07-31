@@ -1,0 +1,36 @@
+- type: entity
+  id: FrameStationRandomSpawner
+  parent: MarkerBase
+  categories: [ HideSpawnMenu, Spawner ] # Used only for CorvaxFrame
+  components:
+    - type: RandomSpawner
+      rarePrototypes:
+        - CrateMaterialWood
+        - CrateSalvageEquipment
+        - CrateServiceJanitorialSupplies
+        - CrateHydroponicsSeedsMedicinal
+        - CrateEmergencyInternals
+        - CrateFoodMRE
+        - CrateMaterialTextiles
+        - CrateMedicalSupplies
+        - CrateEngineeringCableBulk
+        - CrateServiceSmokeables
+        - RandomBoard
+        - CrateEngineeringGear
+        - CrateNPCMothroach
+        - CrateMaterialBrass
+        - CrateSecurityNonlethal
+        - CrateEngineeringSolar
+        - CrateEngineeringSingularityCollector
+        - CrateEngineeringShuttle
+        - CrateEngineeringToolbox
+        - CrateRCDAmmo
+      rareChance: 0.4
+      prototypes:
+        - CrateSalvageAssortedGoodies
+        - CrateMaterialSteel
+        - CrateMaterialPlasteel
+        - CrateMaterialPlastic
+        - CrateMaterialGlass
+      chance: 0.9
+      offset: 0.0

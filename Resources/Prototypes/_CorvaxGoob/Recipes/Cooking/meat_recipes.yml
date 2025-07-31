@@ -23,3 +23,92 @@
     FoodMeat: 1
     FoodApple: 1
     HeadVulpkanin: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBakedPotatosCutlets
+  name: mashed potatoes with cutlets
+  result: FoodBakedPotatosCutlets
+  time: 15
+  reagents:
+    Milk: 5
+  solids:
+    FoodMeatCutlet: 2
+    FoodPotato: 1
+
+- type: microwaveMealRecipe
+  id: RecipePickles
+  name: pickle
+  result: FoodPickles
+  time: 5
+  reagents:
+    TableSalt: 5
+  solids:
+    FoodCucumber: 1
+
+- type: microwaveMealRecipe
+  id: RecipeGOOOOLsoup
+  name: footbear soup
+  result: FoodGOOOOLsoup
+  time: 10
+  reagents:
+    Vodka: 10
+  solids:
+    FoodMeatBear: 1
+    FoodBowlBig: 1
+    FoodEgg: 2
+    FoodCucumber: 2
+
+- type: microwaveMealRecipe
+  id: RecipeOkroshkasoup
+  name: okroshka soup
+  result: FoodOkroshkasoup
+  time: 10
+  reagents:
+    Kvass: 10
+  solids:
+    FoodMeat: 1
+    FoodCucumber: 1
+    FoodEgg: 1
+    FoodPotato: 1
+    FoodOnionSlice: 2
+    FoodBowlBig: 1
+
+- type: microwaveMealRecipe
+  id: RecipeOlivielsoup
+  name: oliviel soup
+  result: FoodOlivielsoup
+  time: 15
+  reagents:
+    Mayo: 20
+  solids:
+    FoodMeat: 1
+    FoodCucumber: 1
+    FoodEgg: 1
+    FoodPotato: 1
+    FoodPeaPod: 2
+    FoodCarrot: 1
+    FoodBowlBig: 1
+
+- type: microwaveMealRecipe
+  id: RecipeSolankasoup
+  name: solanka soup
+  result: FoodSolankasoup
+  time: 10
+  solids:
+    FoodMeatSnake: 1
+    FoodPickles: 1
+    FoodLime: 2
+    FoodBowlBig: 1
+
+- type: microwaveMealRecipe
+  id: RecipePlow
+  name: plow
+  result: FoodPlow
+  time: 20
+  reagents:
+    Rice: 10
+  solids:
+    FoodMeat: 2
+    FoodGarlic: 1
+    FoodCarrot: 2
+    FoodBowlBig: 1
