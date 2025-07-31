@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 TytosB <dunlaintytos@yahoo.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: gameMap
   id: Serpentcrest
   mapName: 'Serpentcrest'
