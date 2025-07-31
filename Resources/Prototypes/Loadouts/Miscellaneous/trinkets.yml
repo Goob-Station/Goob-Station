@@ -297,6 +297,35 @@
     - ClothingNeckAutismPin
   groupBy: "pin"
 
+- type: loadout
+  id: ClothingNeckAutismPin
+  storage:
+    back:
+    - ClothingNeckGoldAutismPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckAroacePin
+  storage:
+    back:
+    - ClothingNeckAroacePin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckPluralPin
+  storage:
+    back:
+    - ClothingNeckPluralPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckGenderfluidPin
+  storage:
+    back:
+    - ClothingNeckGenderfluidPin
+  groupBy: "pin"
+
+
 # Playing Cards (GoobStation)
 - type: loadout
   id: CardBoxBlack
