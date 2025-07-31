@@ -171,6 +171,17 @@
     price: 500
   - type: Multishot # Goobstation V
     spreadMultiplier: 2
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: PistolsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: PistolsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: PistolsDrop
+  # Goobstation edit end
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
