@@ -2,6 +2,9 @@
 # SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -27,7 +30,7 @@
       default:
         length: 1
       telebaton:
-        length: 2.5
+        length: 0.5
   - type: ItemToggle
     soundActivate:
       path: /Audio/_Goobstation/Weapons/Baton/contractorbatonextend.ogg
@@ -44,6 +47,7 @@
         Ion: 35
   - type: MeleeWeapon
     bluntStaminaDamageFactor: 0
+    attackRate: 1.25
   - type: StaminaDamageOnHit
     damage: 85
   - type: StunBorgsOnHit
