@@ -3,7 +3,7 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
-  playerRestriction: [vareniko, JustDecor]
+  playerRestriction: [Vareniko, JustDecor, v0id_]
   sprites:
   - sprite: _Pirate/Mobs/Customization/tail_fan.rsi
     state: tail_fan_wag
