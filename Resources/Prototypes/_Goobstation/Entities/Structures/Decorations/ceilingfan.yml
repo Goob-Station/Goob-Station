@@ -6,8 +6,8 @@
 - type: entity
   id: CeilingFan
   parent: BaseStructure
-  name: "стельовий вентилятор"
-  description: "Застарілий метод охолодження кімнати, але в ньому, безумовно, є свій шарм."
+  name: ceiling fan
+  description: An antiquated method of cooling the room, but it sure has a charm to it.
   placement:
     mode: SnapgridCenter
   components:

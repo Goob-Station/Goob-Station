@@ -6,7 +6,7 @@
 - type: entity
   parent: BaseStructure
   id: BaseAutosurgeon
-  description: "Одноразовий автохірург для заміни або модернізації ваших частин кібернетичними імплантами. Розберіть цю станцію і зробіть її частиною себе."
+  description: A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
   abstract: true
   components:
   - type: Sprite
@@ -53,7 +53,7 @@
 - type: entity
   parent: BaseAutosurgeon
   id: AutosurgeonRightSpeedLeg
-  name: "автохірург (права нога S.P.E.E.D)"
+  name: autosurgeon (right S.P.E.E.D leg)
   components:
   - type: AutoSurgeon
     targetBodyPart: Groin
@@ -62,7 +62,7 @@
 - type: entity
   parent: BaseAutosurgeon
   id: AutosurgeonLeftSpeedLeg
-  name: "автохірург (ліва нога S.P.E.E.D)"
+  name: autosurgeon (left S.P.E.E.D leg)
   components:
   - type: AutoSurgeon
     targetBodyPart: Groin
@@ -73,7 +73,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicate
   id: AutosurgeonRightMantisBlade
-  name: "автохірург синдикату (праве лезо-богомол)"
+  name: syndicate autosurgeon (right mantis blade)
   components:
   - type: AutoSurgeon
     targetBodyPart: Arm
@@ -85,7 +85,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicate
   id: AutosurgeonLeftMantisBlade
-  name: "автохірург синдикату (ліве лезо-богомол)"
+  name: syndicate autosurgeon (left mantis blade)
   components:
   - type: AutoSurgeon
     targetBodyPart: Arm
@@ -97,7 +97,7 @@
 - type: entity
   parent: BaseAutosurgeonSyndicate
   id: AutosurgeonSandevistan
-  name: "автохірург синдикату (сандевістан)"
+  name: syndicate autosurgeon (sandevistan)
   components:
   - type: AutoSurgeon
     targetBodyPart: Chest

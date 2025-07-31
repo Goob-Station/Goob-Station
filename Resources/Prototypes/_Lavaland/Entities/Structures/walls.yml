@@ -24,7 +24,7 @@
 - type: entity
   parent: BaseWall
   id: WallHierophantArena
-  name: "стіна ієрофанта"
+  name: hierophant wall
   components:
   - type: Tag
     tags:
@@ -47,8 +47,8 @@
 - type: entity
   parent: BaseWall
   id: WallHierophantArenaTemporary
-  name: "тимчасове поле ієрофанта"
-  description: "Утримує рятувальника всередині і... Чому ти дивишся на це посеред бою? Тобі нема чим зайнятися?!"
+  name: hierophant field
+  description: "Keeps the salvager in and... Why are you looking at this in a middle of a fight? You have nothing to do?!"
   components:
   - type: Tag
     tags:

@@ -5,7 +5,7 @@
 
 - type: entity
   id: GrenadeBeanbagShotgun
-  name: "40мм мішечок з дробом"
+  name: "40mm beanbag shot"
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -26,8 +26,8 @@
 
 - type: entity
   id: GrenadeBirdshot
-  name: "40мм дріб"
-  description: "Для полювання на інопланетних птахів незвичайного розміру."
+  name: "40mm birdshot"
+  description: "For hunting alien birds of unusual size."
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -44,8 +44,8 @@
 
 - type: entity
   id: GrenadeSlug
-  name: "40мм слаг"
-  description: "Для полювання на інопланетну дичину розміром з гору."
+  name: "40mm slug"
+  description: "For hunting alien game the size of a mountain."
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -68,8 +68,8 @@
 
 - type: entity
   id: Grenade00Buckshot
-  name: "40мм 00-Картеч"
-  description: "Для випадків, коли ви полюєте на інопланетних тварин розміром з будинок."
+  name: "40mm 00-Buckshot"
+  description: "For when you're hunting alien game animals the size of a house."
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -86,9 +86,9 @@
 
 - type: entity
   id: Grenade0000Buckshot
-  name: "40мм 0000-Картеч"
+  name: "40mm 0000-Buckshot"
   parent: BaseGrenade
-  description: "Для випадків, коли ви полюєте на інопланетних тварин розміром з десантний корабель."
+  description: "For when you're hunting alien game animals the size of a dropship."
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeSpread0000Buckshot

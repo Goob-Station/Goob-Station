@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: PsiWatchCartridge
-  name: "картридж псі-годинника"
-  description: "Картридж, який відстежує статус задокументованих псіоніків."
+  name: psi watch cartridge
+  description: A cartridge that tracks the status of currently documented psionics individuals.
   components:
   - type: Sprite
     sprite: Objects/Devices/cartridge.rsi

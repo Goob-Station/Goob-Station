@@ -11,8 +11,8 @@
 
 - type: entity
   id: PolymorphAshJauntAnimation
-  name: "Невідомо"
-  description: "Ви не можете зрозуміти, що це таке."
+  name: Unknown
+  description: You can't figure out what that is.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -25,8 +25,8 @@
 
 - type: entity
   id: PolymorphAshJauntEndAnimation
-  name: "Невідомо"
-  description: "Ви не можете зрозуміти, що це таке."
+  name: Unknown
+  description: You can't figure out what that is.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -39,8 +39,8 @@
 
 - type: entity
   id: PolymorphAshJaunt
-  name: "Невідомо"
-  description: "Ви не можете зрозуміти, що це таке."
+  name: Unknown
+  description: You can't figure out what that is.
   parent: BaseMobJaunt
   categories: [ HideSpawnMenu ]
   components:
@@ -52,8 +52,8 @@
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: MobHereticFleshAscend
-  name: "олдріт хоррор"
-  description: "Незрозуміле місиво з кінцівок і очей. Ти відчуваєш, як воно дивиться тобі в душу."
+  name: eldritch horror
+  description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
   components:

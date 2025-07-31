@@ -1,6 +1,6 @@
 - type: entity
   id: BulletPistolMindbreaker
-  name: "куля (.38 special mindbreaker)"
+  name: bullet (.38 special mindbreaker)
   parent: BulletPistolPractice
   categories: [ HideSpawnMenu ]
   components:

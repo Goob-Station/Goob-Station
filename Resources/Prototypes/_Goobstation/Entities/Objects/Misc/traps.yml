@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseItem
   id: ReverseBearTrapKey
-  name: "ключ від зворотної ведмежої пастки"
-  description: "Ключі для відкриття зворотної ведмежої пастки."
+  name: reverse bear trap key
+  description: The keys to unlock the reverse bear trap.
   components:
   - type: Item
     size: Tiny
