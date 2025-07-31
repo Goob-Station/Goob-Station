@@ -37,6 +37,7 @@
           - TelepathyPower
           - MantisSummonBlackBlade
           - AssayPower
+      - type: Telepathy
 
 - type: startingGear
   id: ForensicMantisGear

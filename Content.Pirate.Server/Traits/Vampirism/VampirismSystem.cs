@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Body.Components;
 using Content.Pirate.Server.Traits.Vampirism.Components;
 using Content.Server.Body.Systems;
@@ -21,7 +22,7 @@ public sealed class VampirismSystem : EntitySystem
         {
             if (!TryComp<BodyComponent>(ent, out var bodyCheck)
                 || !_body.TryGetBodyOrganEntityComps<StomachComponent>((ent, bodyCheck), out var stomachComps)
-                || !stomachComps.Any())
+                || stomachComps.Count == 0)
             {
                 // No stomach found and requirement not ignored - don't initialize vampirism
                 return;

@@ -28,7 +28,9 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Rounding;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
-using Content.Pirate.Server.Traits.Vampirism.Components;
+using Content.Shared.Body.Components;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 
 namespace Content.Server.Psionics;
 
@@ -52,6 +54,7 @@ public sealed class PsionicsSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
 
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly BodySystem _body = default!;
 
     private const string BaselineAmplification = "Baseline Amplification";
     private const string BaselineDampening = "Baseline Dampening";
@@ -188,9 +191,9 @@ public sealed class PsionicsSystem : EntitySystem
         // Check if entity has a stomach, unless requirement is ignored. Timely, Instead of trait requirements
         if (!component.IgnoreStomachRequirement)
         {
-            if (!TryComp<BodyComponent>(ent, out var bodyCheck)
-                || !_body.TryGetBodyOrganEntityComps<StomachComponent>((ent, bodyCheck), out var stomachComps)
-                || !stomachComps.Any())
+            if (!TryComp<BodyComponent>(uid, out var bodyCheck)
+                || !_body.TryGetBodyOrganEntityComps<StomachComponent>((uid, bodyCheck), out var stomachComps)
+                || stomachComps.Count == 0)
             {
                 return;
             }

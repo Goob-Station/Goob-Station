@@ -132,8 +132,8 @@
   cost: 2
   components:
     - type: Psionic
+      ignoreStomachRequirement: false # crutch, instead of trait requirements
     - type: InnatePsionicPowers
       powersToAdd:
         - TelepathyPower
-      ignoreStomachRequirement: false # crutch, instead of trait requirements
 #endregion

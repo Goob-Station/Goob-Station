@@ -10,7 +10,8 @@
   requirement:
     !type:MobStateRequirement
     inverted: true
-  #action:
+  action:
+    !type:NoOpAction
   #  # TODO: this should pull the target closer or sumth, but I need to code that action first
   #  !type:MoodAction
   #  effect: BeingHugged
@@ -25,29 +26,30 @@
   range: {max: 1}
   hideByRequirement: true
   requirement:
-    !type:ComplexRequirement
-    requirements:
-    - !type:MobStateRequirement
-      inverted: true
-    - !type:EntityWhitelistRequirement
-      whitelist:
-        components: [HumanoidAppearance]
-  #action:
+    #!type:ComplexRequirement
+    #requirements:
+    !type:MobStateRequirement
+    inverted: true
+    #- !type:EntityWhitelistRequirement
+    #  whitelist:
+    #    components: [HumanoidAppearance]
+  action:
+    !type:NoOpAction
   #  !type:MoodAction
   #  effect: BeingPet
 
 # Petting someone (animals) - improves the mood of the user and the target
-- type: Interaction
-  id: PetAnimal
-  parent: Pet
-  requirement:
-    !type:ComplexRequirement
-    requirements:
-    - !type:MobStateRequirement
-      allowedStates: [Alive]
-    - !type:EntityWhitelistRequirement
-      blacklist:
-        components: [HumanoidAppearance]
+#- type: Interaction
+#  id: PetAnimal
+#  parent: Pet
+#  requirement:
+#    !type:ComplexRequirement
+#    requirements:
+#    - !type:MobStateRequirement
+#      allowedStates: [Alive]
+#    - !type:EntityWhitelistRequirement
+#      blacklist:
+#        components: [HumanoidAppearance]
   #action:
   #  !type:ComplexAction # TODO might wanna make a multiplexer action for situations like this
   #  actions:
@@ -57,4 +59,3 @@
   #    action:
   #      !type:MoodAction
   #      effect: PetAnimal
-
