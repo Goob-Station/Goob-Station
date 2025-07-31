@@ -59,6 +59,7 @@ public sealed class HailerSystem : EntitySystem
         "/Audio/_Goobstation/Hailer/floor.ogg",
         "/Audio/_Goobstation/Hailer/freeze.ogg",
         "/Audio/_Goobstation/Hailer/halt.ogg",
+        "/Audio/_Pirate/Hailer/militia.ogg", // Pirate
     ];
     Dictionary<EntityUid, TimeSpan> _delays = new Dictionary<EntityUid, TimeSpan>();
     TimeSpan _fixed_delay = TimeSpan.FromSeconds(2);
