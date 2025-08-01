@@ -1674,32 +1674,6 @@ entities:
     - type: ContainedSolution
       containerName: steel
       container: 188
-- proto: ActionCombatModeToggle
-  entities:
-  - uid: 194
-    components:
-    - type: Transform
-      parent: 193
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 193
-      attachedEntity: 193
-  - uid: 196
-    components:
-    - type: Transform
-      parent: 195
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 195
-      attachedEntity: 195
-  - uid: 198
-    components:
-    - type: Transform
-      parent: 197
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 197
-      attachedEntity: 197
 - proto: AdvancedCombatMedipen
   entities:
   - uid: 199
@@ -13382,82 +13356,16 @@ entities:
       rot: 0.6471656959038228 rad
       pos: 0.5,-3.5
       parent: 1
-    - type: Actions
-      actions:
-      - 194
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 194
-    - type: CombatMode
-      combatToggleActionEntity: 194
-    - type: BallisticAmmoProvider
-      unspawnedCount: 500
-    - type: HTN
-      checkServices: False
-    - type: ActiveNPC
-    - type: ActionsContainer
   - uid: 195
     components:
     - type: Transform
       rot: 4.935446446337437 rad
       pos: 2.5,9.5
       parent: 1
-    - type: Actions
-      actions:
-      - 196
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 196
-    - type: CombatMode
-      combatToggleActionEntity: 196
-    - type: BallisticAmmoProvider
-      unspawnedCount: 500
-    - type: HTN
-      checkServices: False
-    - type: ActiveNPC
-    - type: ActionsContainer
   - uid: 197
     components:
     - type: Transform
       rot: 2.75613139080815 rad
       pos: -1.5,9.5
       parent: 1
-    - type: Actions
-      actions:
-      - 198
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 198
-    - type: CombatMode
-      combatToggleActionEntity: 198
-    - type: BallisticAmmoProvider
-      unspawnedCount: 500
-    - type: HTN
-      checkServices: False
-    - type: ActiveNPC
-    - type: ActionsContainer
 ...

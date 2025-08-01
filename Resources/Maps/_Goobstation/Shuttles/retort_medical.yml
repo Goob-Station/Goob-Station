@@ -341,38 +341,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-- proto: ActionToggleInternals
-  entities:
-  - uid: 5
-    components:
-    - type: Transform
-      parent: 4
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 4
-  - uid: 10
-    components:
-    - type: Transform
-      parent: 9
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 9
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 6
-    components:
-    - type: Transform
-      parent: 4
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 4
-  - uid: 11
-    components:
-    - type: Transform
-      parent: 9
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 9
 - proto: AirAlarm
   entities:
   - uid: 16
@@ -1482,41 +1450,11 @@ entities:
     components:
     - type: Transform
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 5
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: Jetpack
-      toggleActionEntity: 6
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 6
-          - 5
     - type: InsideEntityStorage
   - uid: 9
     components:
     - type: Transform
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 10
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: Jetpack
-      toggleActionEntity: 11
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 11
-          - 10
     - type: InsideEntityStorage
 - proto: ClothingUniformJumpsuitERTMedic
   entities:

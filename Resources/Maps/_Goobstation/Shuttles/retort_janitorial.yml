@@ -362,52 +362,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-- proto: ActionToggleInternals
-  entities:
-  - uid: 4
-    components:
-    - type: Transform
-      parent: 3
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 3
-  - uid: 9
-    components:
-    - type: Transform
-      parent: 8
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 8
-  - uid: 17
-    components:
-    - type: Transform
-      parent: 16
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 16
-  - uid: 19
-    components:
-    - type: Transform
-      parent: 18
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 18
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 5
-    components:
-    - type: Transform
-      parent: 3
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 3
-  - uid: 10
-    components:
-    - type: Transform
-      parent: 8
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 8
 - proto: AdvMopItem
   entities:
   - uid: 24
@@ -1329,41 +1283,11 @@ entities:
     components:
     - type: Transform
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 4
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: Jetpack
-      toggleActionEntity: 5
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 5
-          - 4
     - type: InsideEntityStorage
   - uid: 8
     components:
     - type: Transform
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 9
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: Jetpack
-      toggleActionEntity: 10
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 10
-          - 9
     - type: InsideEntityStorage
 - proto: ClothingUniformJumpsuitERTJanitor
   entities:
@@ -1780,18 +1704,6 @@ entities:
     components:
     - type: Transform
       parent: 15
-    - type: GasTank
-      toggleActionEntity: 19
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 19
     - type: InsideEntityStorage
 - proto: OxygenTankFilled
   entities:
@@ -1799,18 +1711,6 @@ entities:
     components:
     - type: Transform
       parent: 15
-    - type: GasTank
-      toggleActionEntity: 17
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 17
     - type: InsideEntityStorage
 - proto: PlastitaniumWindow
   entities:
