@@ -11,3 +11,5 @@ ent-ClothingBackpackMercFilledHECU = { ent-ClothingBackpackMerc }
     .desc = { ent-ClothingBackpackMerc.desc }
 ent-ClothingBackpackDuffelGman = странный вещмешок
     .desc = Странная, неснимаемая сумка, способная содержать абсурдное количество предметов. Кажется невидимой для невооружённого глаза.
+ent-ClothingBackpackLMGBattery = Батарея EL-20
+    .desc = Принимает специализированные автомобильные батареи для питания EL-20 HAMRR LMG.

@@ -1,5 +1,7 @@
 ent-FoodDonutBase = { ent-FoodInjectableBase }
     .desc = Отлично сочетается с крепким кофе.
+ent-FoodDonutFruitBase = { ent-FoodDonutBase }
+    .desc = { ent-FoodDonutBase.desc }
 ent-FoodDonutPlain = обычный пончик
     .desc = { ent-FoodDonutBase.desc }
 ent-FoodDonutJellyPlain = обычный желейный пончик

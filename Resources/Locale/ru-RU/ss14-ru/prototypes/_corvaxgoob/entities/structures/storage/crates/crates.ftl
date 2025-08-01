@@ -1,0 +1,10 @@
+ent-CrateIndustrialSecure = блюспейс промышленный ящик
+    .desc = { ent-CrateBaseSecure.desc }
+ent-CrateTechnologicalSecure = блюспейс технологический ящик
+    .desc = { ent-CrateBaseSecure.desc }
+ent-CrateBiologicalSecure = блюспейс биологический ящик
+    .desc = { ent-CrateBaseSecure.desc }
+ent-CrateDestructionSecure = блюспейс уничтожающий ящик
+    .desc = { ent-CrateBaseSecure.desc }
+ent-CrateLimitedSecure = блюспейс ограниченный ящик
+    .desc = { ent-CrateBaseSecure.desc }

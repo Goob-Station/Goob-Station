@@ -276,6 +276,7 @@ flavor-complex-xeno-basher = как уничтожение жуков
 flavor-complex-budget-insuls-drink = как взлом шлюза
 flavor-complex-watermelon-wakeup = как сладкое пробуждение
 flavor-complex-rubberneck = как синтетика
+flavor-complex-irish-car-bomb = как плаванье в шипасной коле
 flavor-complex-irish-slammer = как шипучая пенка колы
 flavor-complex-alien-brain-hemorrhage = как внеземная рана
 flavor-complex-themartinez = как фиалки и лимонная водка

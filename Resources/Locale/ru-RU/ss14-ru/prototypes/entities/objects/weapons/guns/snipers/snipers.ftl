@@ -14,3 +14,6 @@ ent-WeaponPistolFlintlock = кремнёвый пистолет
 ent-Musket = мушкет
     .desc = Это должно было оказаться в музее задолго до твоего рождения. Использует патроны калибра .60 крупнокалиберный.
     .suffix = Винтовка
+ent-WeaponPistolFlintlockEmpty = { ent-WeaponPistolFlintlock }
+    .suffix = Пустой
+    .desc = { ent-WeaponPistolFlintlock.desc }

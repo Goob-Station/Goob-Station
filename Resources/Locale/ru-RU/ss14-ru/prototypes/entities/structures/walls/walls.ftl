@@ -1,5 +1,10 @@
+ent-BaseStructureWall = базовая стена
+    .desc = Удерживает воздух внутри, а грейтайдеров снаружи.
 ent-BaseWall = базовая стена
     .desc = Удерживает воздух внутри, а ассистентов снаружи.
+ent-WallDiagonalBase = { ent-BaseStructureWall }
+    .suffix = Диагональ
+    .desc = { ent-BaseStructureWall.desc }
 ent-WallBrick = кирпичная стена
     .desc = { ent-BaseWall.desc }
 ent-WallClock = заводная стена

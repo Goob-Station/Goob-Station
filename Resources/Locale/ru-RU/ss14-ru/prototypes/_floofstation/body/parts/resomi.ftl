@@ -1,3 +1,5 @@
+ent-PartResomi = { ent-PartHuman }
+    .desc = { ent-PartHuman.desc }
 ent-ChestResomi = грудь резоми
     .desc = { ent-ChestHuman.desc }
 ent-GroinResomi = пах резоми

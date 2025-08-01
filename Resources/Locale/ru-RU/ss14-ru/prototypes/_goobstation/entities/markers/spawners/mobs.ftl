@@ -1,0 +1,10 @@
+ent-SpawnMobBrullbar = спавнер бабайка
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobBrullbarKing = спавнер короля бабаек
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobBearGoon = спавнер медведя
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobWhiteWolf = спавнер белого волка
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobLivingCurse = спавнер живой плоти
+    .desc = { ent-MarkerBase.desc }

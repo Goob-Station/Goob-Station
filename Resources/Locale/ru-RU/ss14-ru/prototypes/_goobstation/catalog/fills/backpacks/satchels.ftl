@@ -1,8 +1,12 @@
 ent-ClothingBackpackSatchelLeatherFilledNavyOfficer = { ent-ClothingBackpackSatchelLeather }
     .desc = { ent-ClothingBackpackSatchelLeather.desc }
+    .suffix = Заполненный, Офицер ВМФ
 ent-ClothingBackpackSatchelLeatherFilledSpecOps = { ent-ClothingBackpackSatchelLeather }
     .desc = { ent-ClothingBackpackSatchelLeather.desc }
+    .suffix = Заполненный, Спецназ
 ent-ClothingBackpackChameleonFilledUndercover = { ent-ClothingBackpackChameleon }
     .desc = { ent-ClothingBackpackChameleon.desc }
+    .suffix = Заполненный, Под прикрытием
 ent-ClothingBackpackSatchelLeatherFilledInspector = { ent-ClothingBackpackSatchelLeather }
     .desc = { ent-ClothingBackpackSatchelLeather.desc }
+    .suffix = Заполненный, Инспектор
