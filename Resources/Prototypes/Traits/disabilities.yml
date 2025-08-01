@@ -81,6 +81,8 @@
   blacklist:
     components:
       - BorgChassis
+      - SecurityStaff
+      - CommandStaff
   components:
     - type: Muted
 
