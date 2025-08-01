@@ -124,7 +124,7 @@ public sealed partial class GraphicsTab : Control
         Control.AddOptionCheckBox(CCVars.ParallaxLowQuality, ParallaxLowQualityCheckBox);
         Control.AddOptionCheckBox(CCVars.HudFpsCounterVisible, FpsCounterCheckBox);
 
-        Arachnofriend.OnPressed += AddSpider; // MisandryBox - spider
+        // Arachnofriend.OnPressed += AddSpider; // MisandryBox - spider : Deleted by CorvaxGoob
 
         Control.Initialize();
 
@@ -135,12 +135,13 @@ public sealed partial class GraphicsTab : Control
         UpdateViewportSettingsVisibility();
     }
 
-    // Goob/MisandryBox - Spider!
+// Deleted by CorvaxGoob
+/*    // Goob/MisandryBox - Spider!
     private void AddSpider(BaseButton.ButtonEventArgs obj)
     {
         var spider = IoCManager.Resolve<ISpiderManager>();
         spider.RequestSpider();
-    }
+    }*/
 
     private void UpdateViewportSettingsVisibility()
     {

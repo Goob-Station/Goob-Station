@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
+// Fully deleted by CorvaxGoob
+/*
 using Content.Client.Lobby;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.MisandryBox;
@@ -87,3 +89,4 @@ public sealed class ClientSpiderManager : ISpiderManager, IPostInjectInit
         _spider.ClearTemporarySpiders();
     }
 }
+*/
