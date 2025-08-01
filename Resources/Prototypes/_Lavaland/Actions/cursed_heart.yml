@@ -23,8 +23,8 @@
 - type: entity
   parent: BaseAction
   id: ActionPumpCursedHeart
-  name: action-pump-heart
-  description: action-pump-heart-desc
+  name: Heartbeat
+  description: Pump your own blood to live!
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

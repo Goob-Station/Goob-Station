@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStartFishing
-  name: action-fishing-start
-  description: action-fishing-start-desc
+  name: Throw fishing lure
+  description: Throw lure from the fishing rod to catch something!
   components:
   - type: Action
     icon:
@@ -27,8 +27,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStopFishing
-  name: action-fishing-stop
-  description: action-fishing-stop-desc
+  name: Reel fishing rod
+  description: Reel your fishing rod to pull an object that it attached to, or stop fishing.
   components:
   - type: Action
     icon:

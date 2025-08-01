@@ -8,7 +8,7 @@
   parent: BaseMail
   abstract: true
   id: BaseMailLarge
-  name: mail-large-item-name-unaddressed
+  name: package
   components:
   - type: Item
     size: Ginormous

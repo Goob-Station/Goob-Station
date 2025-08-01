@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHierophantPlaceMarker
-  name: action-hierophant-place-marker
-  description: action-hierophant-place-marker-desc
+  name: Place teleportation marker
+  description: Let's you place a point where you can always teleport to.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -39,8 +39,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHierophantTeleport
-  name: action-hierophant-teleport
-  description: action-hierophant-teleport-desc
+  name: Hierophant blink
+  description: Teleports you to already placed marker.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -56,8 +56,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHierophantSpawnCross
-  name: action-hierophant-spawn-cross
-  description: action-hierophant-spawn-cross-desc
+  name: Cross
+  description: Spawns a cross that deals minor damage to the target.
   components:
   - type: Action
     icon:
@@ -76,8 +76,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHierophantTileMovement
-  name: action-hierophant-tile-movement
-  description: action-hierophant-tile-movement-desc
+  name: Grant tile movement
+  description: Grants a given target tile movement and a speed buff.
   components:
   - type: Action
     icon:
