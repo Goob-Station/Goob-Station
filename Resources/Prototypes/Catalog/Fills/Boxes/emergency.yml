@@ -60,6 +60,19 @@
   description: It's a box with basic internals inside.
   suffix: Standard
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
       - id: ClothingMaskBreath
@@ -78,6 +91,19 @@
   id: BoxSurvivalNitrogen
   suffix: Standard N2
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreath
@@ -100,6 +126,19 @@
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Extended
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreath
@@ -118,6 +157,19 @@
   id: BoxSurvivalEngineeringNitrogen
   suffix: Extended N2
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreath
@@ -134,13 +186,25 @@
     currentLabel: reagent-name-nitrogen
 
 - type: entity
-
   parent: BoxCardboard
   id: BoxSurvivalSecurity
   name: survival box
   description: It's a box with basic internals inside.
   suffix: Security
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskGasSecurity
@@ -159,6 +223,19 @@
   id: BoxSurvivalSecurityNitrogen
   suffix: Security N2
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskGasSecurity
@@ -175,13 +252,25 @@
     currentLabel: reagent-name-nitrogen
 
 - type: entity
-
   parent: BoxCardboard
   id: BoxSurvivalMedical
   name: survival box
   description: It's a box with basic internals inside.
   suffix: Medical
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreathMedical
@@ -200,6 +289,19 @@
   id: BoxSurvivalMedicalNitrogen
   suffix: Medical N2
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreathMedical
@@ -228,6 +330,19 @@
     - state: heart
   - type: Item
     heldPrefix: hug
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreath
@@ -245,6 +360,19 @@
   id: BoxHugNitrogen
   suffix: Emergency N2
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreath
@@ -261,6 +389,19 @@
   id: BoxMime
   suffix: Mime, Emergency
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreath
@@ -275,6 +416,19 @@
   id: BoxMimeNitrogen
   suffix: Mime, Emergency N2
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreath
@@ -295,6 +449,19 @@
   id: BoxMimeMoth
   suffix: Mime, Emergency moth
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskBreath
@@ -311,6 +478,19 @@
   description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Syndicate
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskGasSyndicate
@@ -318,6 +498,7 @@
     - id: EmergencyMedipen
     - id: Flare
     - id: FoodSnackNutribrick
+    - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
     - state: internals
@@ -328,6 +509,19 @@
   id: BoxSurvivalSyndicateNitrogen
   suffix: Syndicate N2
   components:
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+    whitelist:
+      ids:
+      - ClothingMaskBreath
+      - EmergencyOxygenTankFilled
+      - EmergencyMedipen
+      - SpaceMedipen
+      - FoodSnackNutribrick
+      - DrinkWaterBottleFull
+      - DrinkWaterBottleEmpty
   - type: StorageFill
     contents:
     - id: ClothingMaskGasSyndicate
@@ -335,6 +529,7 @@
     - id: EmergencyMedipen
     - id: Flare
     - id: FoodSnackNutribrick
+    - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
     - state: internals
