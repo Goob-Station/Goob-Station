@@ -1,0 +1,88 @@
+- type: entity
+  parent: HandTeleporter
+  id: HandTeleporterAdmemeCG
+  suffix: Admeme
+  components:
+  - type: HandTeleporter
+    firstPortalPrototype: PortalRedAdmemeCG
+    secondPortalPrototype: PortalBlueAdmemeCG
+    allowPortalsOnDifferentGrids: true
+    portalCreationDelay: 0
+
+- type: entity
+  parent: PortalRed
+  id: PortalRedAdmemeCG
+  suffix: Admeme
+  components:
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  parent: PortalBlue
+  id: PortalBlueAdmemeCG
+  suffix: Admeme
+  components:
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  parent: HandTeleporter
+  id: HandTeleporterAdmemeCGInvisible
+  suffix: Admeme, Invisible
+  components:
+  - type: HandTeleporter
+    firstPortalPrototype: PortalRedAdmemeCGInvisible
+    secondPortalPrototype: PortalBlueAdmemeCGInvisible
+    allowPortalsOnDifferentGrids: true
+    portalCreationDelay: 0
+
+- type: entity
+  parent: MarkerBase
+  id: PortalRedAdmemeCGInvisible
+  suffix: Admeme, Invisible
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Visibility
+    layer: 2
+  - type: Sprite
+    layers:
+      - sprite: _CorvaxGoob/Markers/environment.rsi
+        state: base-red
+        shader: unshaded
+      - sprite: _CorvaxGoob/Markers/environment.rsi
+        shader: unshaded
+        state: portal
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: Portal
+    canTeleportToOtherMaps: true
+
+- type: entity
+  parent: PortalRedAdmemeCGInvisible
+  id: PortalBlueAdmemeCGInvisible
+  suffix: Admeme, Invisible
+  components:
+  - type: Portal
+    canTeleportToOtherMaps: true
+  - type: Sprite
+    layers:
+      - sprite: _CorvaxGoob/Markers/environment.rsi
+        state: base-blue
+        shader: unshaded
+      - sprite: _CorvaxGoob/Markers/environment.rsi
+        shader: unshaded
+        state: portal

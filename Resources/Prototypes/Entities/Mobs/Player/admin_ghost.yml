@@ -260,6 +260,10 @@
       - Surgery
       - MedicalEquipment
       - Butchering
+  # Corvax-Start
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 30
+  # Corvax-End
 
 - type: entity
   id: ActionAGhostShowSolar
