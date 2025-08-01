@@ -6,3 +6,7 @@ ent-UndeterminedVoidsuitHeadOfSecurity = head of security voidsuit selector
     .desc = A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
 ent-UndeterminedVoidsuitEngineer = engineer voidsuit selector
     .desc = A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+ent-UndeterminedVoidsuitCaptain = captain voidsuit selector
+    .desc = A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
+ent-UndeterminedVoidsuitRD = research director suit selector
+    .desc = A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.

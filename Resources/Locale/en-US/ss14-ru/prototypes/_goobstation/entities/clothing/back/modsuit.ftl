@@ -1,4 +1,4 @@
-ent-ClothingModsuitStandard = standard modsuit hardsuit unit
+ent-ClothingModsuitStandard = standard hardsuit control unit
     .desc = A special modular suit contol unit containing all necessary modular hardsuit parts.
 ent-ClothingModsuitStandardPowerCell = { ent-ClothingModsuitStandard }
     .suffix = High-Capacity Battery
@@ -34,7 +34,7 @@ ent-ClothingModsuitResearchDirectorPowerCell = { ent-ClothingModsuitResearchDire
     .suffix = High-Capacity Battery
     .desc = { ent-ClothingModsuitResearchDirector.desc }
 ent-ClothingModsuitCaptain = captain's magnate hardsuit control unit
-    .desc = A gem encrysted, mirror shined and absolutely MAGNATE armored hardsuit, the cooling fluid is dragons blood watered down with dr gibb. This shit is nothing to you, man.
+    .desc = A gem encrusted, mirror shined and absolutely MAGNATE armored hardsuit, the cooling fluid is dragons blood watered down with dr gibb. This shit is nothing to you, man.
 ent-ClothingModsuitCaptainPowerCell = { ent-ClothingModsuitCaptain }
     .suffix = High-Capacity Battery
     .desc = { ent-ClothingModsuitCaptain.desc }

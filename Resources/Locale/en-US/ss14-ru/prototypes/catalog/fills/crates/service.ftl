@@ -35,3 +35,7 @@ ent-CrateTrashCartFilled = { ent-CrateTrashCart }
     .desc = { ent-CrateTrashCart.desc }
 ent-CrateCandles = candles crate
     .desc = Contains 4 boxes of candles, 2 large and 2 small. For atmosphere or something.
+ent-CrateHolySupplies = holy supplies crate
+    .desc = Contains a Bible and 2 Jugs of holy water for religious needs
+ent-CrateServiceColorfulLights = colorful lights crate
+    .desc = It's not a party until it's hard to see, a little disorienting, and your ears hurt.

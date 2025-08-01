@@ -1,0 +1,14 @@
+ent-BaseAutosurgeon = { ent-BaseStructure }
+    .desc = A single-use autosurgeon for replacing or upgrading your parts with cybernetic implants. Rip that station apart and make it a part of you.
+ent-BaseAutosurgeonSyndicate = { ent-BaseAutosurgeon }
+    .desc = { ent-BaseAutosurgeon.desc }
+ent-AutosurgeonRightSpeedLeg = autosurgeon (right S.P.E.E.D leg)
+    .desc = { ent-BaseAutosurgeon.desc }
+ent-AutosurgeonLeftSpeedLeg = autosurgeon (left S.P.E.E.D leg)
+    .desc = { ent-BaseAutosurgeon.desc }
+ent-AutosurgeonRightMantisBlade = syndicate autosurgeon (right mantis blade)
+    .desc = { ent-BaseAutosurgeonSyndicate.desc }
+ent-AutosurgeonLeftMantisBlade = syndicate autosurgeon (left mantis blade)
+    .desc = { ent-BaseAutosurgeonSyndicate.desc }
+ent-AutosurgeonSandevistan = syndicate autosurgeon (sandevistan)
+    .desc = { ent-BaseAutosurgeonSyndicate.desc }

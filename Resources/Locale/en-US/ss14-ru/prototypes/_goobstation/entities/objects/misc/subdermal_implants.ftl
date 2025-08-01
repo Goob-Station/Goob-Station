@@ -1,5 +1,7 @@
 ent-BluespaceLifelineImplant = bluespace lifeline implant
     .desc = Teleports the hosts body to Central Command on activation. They will not be able to return.
+ent-CommandTrackingImplant = Command tracking implant
+    .desc = This implant reserved for command has a tracking device attached to a private suit sensor network, as well as a condition monitor for the Command radio channel.
 ent-PacifismImplant = pacifism implant
     .desc = Pacifism implant, given to life sentenced prisoners or such to prevent them from committing violence.
 ent-SmokeImplant = smoke implant
@@ -14,6 +16,8 @@ ent-SpaceProofImplant = space proofing implant
     .desc = This implant allows the user to survive in space and without air.
 ent-StypticStimulatorImplant = styptic stimulator implant
     .desc = This implant sends the users regeneration into overdrive.
+ent-BinaryImplant = binary decoder implant
+    .desc = This implant allows the user to access Binary and communicate with silicons (use +b).
 ent-BlinkImplant = blink implant
     .desc = This implant allows the user temporarily blink into a higher dimension.
 ent-VaporizeImplant = vaporize implant

@@ -1,0 +1,6 @@
+ent-MachineBluespaceHarvesterCircuitboard = Bluespace Harvester board
+    .desc = A machine board for a Bluespace Harvester
+ent-MachineBluespaceTransitorCircuitboard = bluespace T.R.A.N.S.I.T.O.R board
+    .desc = A machine board for a bluespace T.R.A.N.S.I.T.O.R
+ent-PrinterDocMachineCircuitboard = document printer machine board
+    .desc = A machine printed circuit board for an document printer

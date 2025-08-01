@@ -1,0 +1,10 @@
+ent-SpawnMobBrullbar = Brullbar Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobBrullbarKing = Brullbar King Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobBearGoon = Bear Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobWhiteWolf = White Wolf Spawner
+    .desc = { ent-MarkerBase.desc }
+ent-SpawnMobLivingCurse = Living Curse Spawner
+    .desc = { ent-MarkerBase.desc }

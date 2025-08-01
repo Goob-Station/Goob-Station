@@ -8,3 +8,6 @@ ent-PinpointerUniversal = universal pinpointer
     .desc = A handheld tracking device that locks onto any physical entity while off. Keep upright to retain accuracy.
 ent-PinpointerStation = research server pinpointer
     .desc = A handheld tracking device that leads to the direction of any nearby research server.
+ent-PinpointerMothership = core pinpointer
+    .desc = A handheld tracking device that leads to the direction of the mothership core.
+    .suffix = Mothership

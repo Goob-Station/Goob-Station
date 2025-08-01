@@ -1,5 +1,7 @@
 ent-FoodDonutBase = { ent-FoodInjectableBase }
     .desc = Goes great with robust coffee.
+ent-FoodDonutFruitBase = { ent-FoodDonutBase }
+    .desc = { ent-FoodDonutBase.desc }
 ent-FoodDonutPlain = plain donut
     .desc = { ent-FoodDonutBase.desc }
 ent-FoodDonutJellyPlain = plain jelly-donut

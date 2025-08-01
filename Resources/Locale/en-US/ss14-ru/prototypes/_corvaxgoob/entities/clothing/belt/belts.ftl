@@ -1,0 +1,9 @@
+ent-ClothingBeltWhiteSheath = white sabre sheath
+    .desc = Style, shine, everything for the best sabers in the universe.
+ent-ClothingBeltSheriffSheath = sheriff sabre sheath
+    .desc = Practicality, durability, the saber will definitely not end up in your leg.
+ent-ClothingBeltSurgicalBoard = surgical magnetic board
+    .desc = Able to magnetize special surgical instruments made on Medical TechFab. Surgeon's assistant? I have my own little buddy!
+ent-ClothingBeltSurgicalBoardFilled = { ent-ClothingBeltSurgicalBoard }
+    .suffix = Filled
+    .desc = { ent-ClothingBeltSurgicalBoard.desc }

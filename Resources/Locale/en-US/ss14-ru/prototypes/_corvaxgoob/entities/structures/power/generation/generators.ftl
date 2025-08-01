@@ -1,0 +1,9 @@
+ent-GeneratorRTGDamaged100kW = RTG
+    .desc = A Radioisotope Thermoelectric Generator for long term power.
+    .suffix = 100kW, Debug
+ent-GeneratorRTGDamaged1MW = RTG
+    .desc = A Radioisotope Thermoelectric Generator for long term power.
+    .suffix = 1MW, Debug
+ent-GeneratorRTGDamaged100MW = RTG
+    .desc = A Radioisotope Thermoelectric Generator for long term power.
+    .suffix = 100MW, Debug

@@ -1,5 +1,3 @@
-ent-ClothingHeadHelmetHardsuitBasic = basic voidsuit helmet
-    .desc = A basic-looking voidsuit helmet that provides minor protection against most sources of damage.
 ent-ClothingHeadHelmetHardsuitAtmos = atmos voidsuit helmet
     .desc = A special voidsuit helmet designed for working in low-pressure, high thermal environments.
 ent-ClothingHeadHelmetHardsuitEngineering = engineering voidsuit helmet

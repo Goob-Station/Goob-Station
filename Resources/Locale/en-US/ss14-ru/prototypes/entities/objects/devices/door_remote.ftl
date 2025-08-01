@@ -19,3 +19,5 @@ ent-DoorRemoteEngineering = engineering door remote
 ent-DoorRemoteAll = super door remote
     .suffix = Admeme
     .desc = { ent-DoorRemoteDefault.desc }
+ent-DoorRemoteXenoborg = xenoborg door remote
+    .desc = { ent-DoorRemoteDefault.desc }

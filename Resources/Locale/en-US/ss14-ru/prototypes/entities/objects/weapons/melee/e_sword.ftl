@@ -21,3 +21,6 @@ ent-HyperEutacticBlade = hypereutactic-blade
 ent-CyborgEnergySwordDouble = { ent-EnergySwordDoubleBase }
     .desc = Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
     .suffix = One-Handed, For Borgs
+ent-EnergyDaggerLoudBlue = { ent-EnergyDaggerLoud }
+    .suffix = blue
+    .desc = { ent-EnergyDaggerLoud.desc }

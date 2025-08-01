@@ -1,0 +1,12 @@
+ent-FoodPelmeniBowl = pelmeni
+    .desc = Lots of meat, little dough.
+ent-FoodGOOOOLsoup = footbear soup
+    .desc = I don't think we're playing cards...
+ent-FoodOkroshkasoup = okroshka soup
+    .desc = Salad with kvass and sour cream.. what
+ent-FoodOlivielsoup = oliviel soup
+    .desc = My father never dreamed of so much mayonnaise!
+ent-FoodSolankasoup = solanka soup
+    .desc = Meehhh.....
+ent-FoodPlow = plow
+    .desc = Oh, Vasya, rice is fire

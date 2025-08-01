@@ -1,7 +1,7 @@
 ent-BaseWeaponRifle = BaseWeaponRifle
     .desc = A rooty tooty point and shooty.
 ent-WeaponRifleAk = AKM
-    .desc = An iconic weapon of war. Uses .30 rifle ammo.
+    .desc = A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
 ent-WeaponRifleM90GrenadeLauncher = M-90gl
     .desc = An older bullpup carbine model, with an attached underbarrel grenade launcher. Uses .20 rifle ammo.
 ent-WeaponRifleLecter = Lecter

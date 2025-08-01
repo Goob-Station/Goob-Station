@@ -12,3 +12,5 @@ ent-CrateSecurityBiosuit = security bio suit crate
     .desc = Contains 2 biohazard suits to ensure that no disease will distract you from your duties. Requires Security access to open.
 ent-CrateSecurityTrackingMindshieldImplants = implanter crate
     .desc = Contains 4 MindShield implants and 4 tracking implant. Requires Security access to open.
+ent-CrateSecNonlethalThrowables = nonlethal throwables crate
+    .desc = Contains one box each of flashbangs, stingers, tear gas grenades, and four bolas. Requires Security access to open.

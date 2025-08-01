@@ -1,5 +1,5 @@
 ent-WeaponHeadOfSecurityRifle = X-8 "Station Sweeper"
-    .desc = An elaborately designed rifle, firing shots of pure phoron. Low fire rate, medium damage, insane capacity.
+    .desc = An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
 ent-WeaponHeadOfSecuritySMG = X-6 "Threadripper"
     .desc = An elaborately designed SMG, firing shots of pure phoron. Amazing for laying down suppressive fire.
 ent-WeaponHeadOfSecurityShotgun = X-12 "Flamberge"

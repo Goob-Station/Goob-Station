@@ -12,3 +12,5 @@ ent-SoapHomemade = soap
     .desc = A homemade bar of soap. Smells of... well....
 ent-SoapOmega = omega soap
     .desc = The most advanced soap known to mankind. Smells of bluespace.
+ent-SoapBorg = soap
+    .desc = A Nanotrasen brand bar of soap. Smells of plasma and machines.

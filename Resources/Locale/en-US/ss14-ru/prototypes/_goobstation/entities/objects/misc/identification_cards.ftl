@@ -26,3 +26,5 @@ ent-CentcomIDCardDiplomat = Diplomat's ID card
     .desc = { ent-CentcomIDCardNavyCaptain.desc }
 ent-GmanIDCard = strange ID card
     .desc = The card that originally accessed everything in this universe
+ent-HighCommandIDCard = high command ID card
+    .desc = A particularly extravagent Syndicate identification card. This one has an in-built access breaker to open nearly any door.

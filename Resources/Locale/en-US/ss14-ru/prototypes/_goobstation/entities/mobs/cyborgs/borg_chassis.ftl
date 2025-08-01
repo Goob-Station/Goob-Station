@@ -1,2 +1,10 @@
 ent-BorgChassisDerelictSyndicateAssault = derelict syndicate assasult cyborg
     .desc = A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair.
+ent-BorgChassisUrist = Urist McBorg
+    .desc = An abomination that supposedly assists in station activity.
+ent-PlayerBorgUrist = { ent-BorgChassisUrist }
+    .suffix = Battery, Module
+    .desc = { ent-BorgChassisUrist.desc }
+ent-PlayerBorgUristGhostRole = { ent-PlayerBorgUrist }
+    .suffix = Ghost role
+    .desc = { ent-PlayerBorgUrist.desc }
