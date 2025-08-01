@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using System.Numerics;
 using System.Threading.Tasks;
 using Content.Client.Resources;
@@ -39,7 +41,7 @@ public sealed class ClientFullScreenImageJumpscare : IFullScreenImageJumpscare, 
 
     private void RegisterNetMessages()
     {
-        // _netManager.RegisterNetMessage<JumpscareMessage>(OnJumpscareMessage);
+        _netManager.RegisterNetMessage<JumpscareMessage>(OnJumpscareMessage);
     }
 
     private void OnJumpscareMessage(JumpscareMessage message)
@@ -88,3 +90,4 @@ public sealed class ClientFullScreenImageJumpscare : IFullScreenImageJumpscare, 
     }
 
 }
+*/

@@ -4,6 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
 using Robust.Client.Audio;
@@ -35,7 +37,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
 
     public void Initalize()
     {
-/*        IoCManager.InjectDependencies(this);
+        IoCManager.InjectDependencies(this);
         _sawmill = Logger.GetSawmill("voiceclient");
 
         _volume = _cfg.GetCVar(GoobCVars.VoiceChatVolume);
@@ -46,7 +48,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
 
         _netManager.RegisterNetMessage<MsgVoiceChat>(OnVoiceMessageReceived);
 
-        _sawmill.Info("VoiceChatClientManager initialized");*/
+        _sawmill.Info("VoiceChatClientManager initialized");
     }
 
     /// <summary>
@@ -186,3 +188,4 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
         }
     }
 }
+*/

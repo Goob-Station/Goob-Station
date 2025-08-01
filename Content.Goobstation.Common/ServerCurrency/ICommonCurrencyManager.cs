@@ -3,7 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Threading.Tasks;
+// Fully deleted by CorvaxGoob
+/*using System.Threading.Tasks;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Network;
 
@@ -81,3 +82,4 @@ public interface ICommonCurrencyManager
     /// <returns>The players balance.</returns>
     public int GetBalance(NetUserId? userId = null);
 }
+*/

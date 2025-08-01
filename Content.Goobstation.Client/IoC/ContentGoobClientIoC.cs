@@ -7,6 +7,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using Content.Goobstation.Client.JoinQueue;
 using Content.Goobstation.Client.MisandryBox;
 using Content.Goobstation.Client.MisandryBox.Spider;
@@ -23,13 +25,14 @@ internal static class ContentGoobClientIoC
 {
     internal static void Register()
     {
-        var collection = IoCManager.Instance!;
+        //var collection = IoCManager.Instance!;
 
-        // collection.Register<RedialManager>();
-        // collection.Register<IVoiceChatManager, VoiceChatClientManager>();
-        // collection.Register<JoinQueueManager>();
-        // collection.Register<IFullScreenImageJumpscare, ClientFullScreenImageJumpscare>();
-        // collection.Register<ISpiderManager, ClientSpiderManager>();
-        // collection.Register<ICommonCurrencyManager, ClientCurrencyManager>();
+        collection.Register<RedialManager>();
+        collection.Register<IVoiceChatManager, VoiceChatClientManager>();
+        collection.Register<JoinQueueManager>();
+        collection.Register<IFullScreenImageJumpscare, ClientFullScreenImageJumpscare>();
+        collection.Register<ISpiderManager, ClientSpiderManager>();
+        collection.Register<ICommonCurrencyManager, ClientCurrencyManager>();
     }
 }
+*/

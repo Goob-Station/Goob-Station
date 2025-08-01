@@ -18,7 +18,7 @@ namespace Content.Goobstation.Shared.MisandryBox.Smites;
 
 public sealed class ThunderstrikeSystem : EntitySystem
 {
-    // [Dependency] private readonly IFullScreenImageJumpscare _jumpscare = default!;
+    // [Dependency] private readonly IFullScreenImageJumpscare _jumpscare = default!; // deleted by CorvaxGoob
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPointLightSystem _light = default!;
@@ -64,8 +64,8 @@ public sealed class ThunderstrikeSystem : EntitySystem
         if (!kill || !_player.TryGetSessionByEntity(mumu, out var sesh))
             return;
 
-        // var text = new SpriteSpecifier.Texture(new ResPath(God));
-        // _jumpscare.Jumpscare(text, sesh);
+        // var text = new SpriteSpecifier.Texture(new ResPath(God)); // deleted by CorvaxGoob
+        // _jumpscare.Jumpscare(text, sesh); // deleted by CorvaxGoob
 
         QueueDel(mumu);
         Spawn("Ash", transform.Coordinates);

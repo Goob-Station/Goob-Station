@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using Content.Goobstation.Common.ServerCurrency;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -27,7 +29,7 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
 
     public void Initialize()
     {
-        /*
+            
          * This looks fucked, so I'll explain
          * With durk server currency currently it's reliant on events, events rely on something called an EventBus.
          * Client part of this hellhole is made entirely by an in-sim EntitySystem.
@@ -35,7 +37,7 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
          * So we have to subscribe to events between "We connected to video game" and "We are in the video game"
          *
          * Also I really wanted to manually try out EventBus subscriptions outside EntitySystems.
-         */
+        
 
         _ent.EventBus.SubscribeSessionEvent<PlayerBalanceUpdateEvent>(EventSource.Network, this, UpdateBalance);
     }
@@ -98,3 +100,4 @@ public sealed class ClientCurrencyManager : ICommonCurrencyManager, IEntityEvent
     }
 
 }
+*/

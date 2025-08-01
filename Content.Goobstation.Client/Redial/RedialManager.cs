@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
 /*using System;
 using Content.Goobstation.Shared.Redial;
 using Robust.Client;

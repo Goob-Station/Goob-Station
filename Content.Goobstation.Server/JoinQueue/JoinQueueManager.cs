@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using System.Linq;
 using Content.Server.Connection;
 using Content.Shared.CCVar;
@@ -15,7 +17,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Goobstation.Common.CCVar;
-//using Content.Server._RMC14.LinkAccount; CorvaxGoob-Coins
+using Content.Server._RMC14.LinkAccount;
 using Content.Goobstation.Common.JoinQueue;
 
 namespace Content.Goobstation.Server.JoinQueue;
@@ -113,7 +115,6 @@ public sealed class JoinQueueManager : IJoinQueueManager
         }
     }
 
-    /* CorvaxGoob-Start
     private async void OnPlayerConnected(ICommonSession session)
     {
         if (!_isEnabled)
@@ -136,16 +137,13 @@ public sealed class JoinQueueManager : IJoinQueueManager
             return;
         }
 
-        /* CorvaxGoob-Coins-start
         if (isPatron && _patreonIsEnabled)
             _patronQueue.Add(session);
         else 
-        _queue.Add(session);
-        // CorvaxGoob-Coins-end
+            _queue.Add(session);
 
         ProcessQueue(false, session.ConnectedTime);
-    } CorvaxGoob-End
-    */
+    }
 
     /// <summary>
     ///     If possible, takes the first player in the queue and sends him into the game
@@ -223,3 +221,4 @@ public sealed class JoinQueueManager : IJoinQueueManager
         Timer.Spawn(0, () => _player.JoinGame(session));
     }
 }
+*/
