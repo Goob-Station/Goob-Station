@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 // SPDX-FileCopyrightText: 2019 Remie Richards <remierichards@gmail.com>
 // SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2019 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2019 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
@@ -73,7 +74,6 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
 // SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
@@ -94,7 +94,6 @@
 // SPDX-FileCopyrightText: 2024 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Your Name <you@example.com>
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
@@ -120,9 +119,15 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ciarán Walsh <github@ciaranwal.sh>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 bedroomvampire <leannetoni@proton.me>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 eoineoineoin <helloworld@eoinrul.es>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 

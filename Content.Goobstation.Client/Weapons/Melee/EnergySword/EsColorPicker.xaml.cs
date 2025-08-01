@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Contraband;
