@@ -1,4 +1,4 @@
-ent-CarcMeepleBase = мипл  
+ent-CarcMeepleBase = мипл
     .desc = Маленькая фигурка гуманоидной формы для настольных игр. Сделана из дерева.
     .suffix = DEBUG
 ent-CarcMeepleRed = мипл

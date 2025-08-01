@@ -10,6 +10,7 @@ ent-LeftArmYowie = левая рука йови
     .desc = { ent-PartYowie.desc }
 ent-RightArmYowie = правая рука йови
     .desc = { ent-PartYowie.desc }
+
 ent-LeftLegYowie = левая нога йови
     .desc = { ent-PartYowie.desc }
 ent-RightLegYowie = правая нога йови

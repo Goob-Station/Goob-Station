@@ -1,3 +1,5 @@
+
+
 ent-SpawnMobWatcherIcewing = спавнер наблюдатель-ледокрыл
     .desc = { ent-MarkerBase.desc }
 ent-SpawnMobWatcherLavaland = спавнер наблюдатель лаваленд

@@ -1,3 +1,4 @@
+
 ent-FoodGOOOOLsoup = медвежий суп
     .desc = Доигрался в карты....
 ent-FoodOkroshkasoup = окрошка
