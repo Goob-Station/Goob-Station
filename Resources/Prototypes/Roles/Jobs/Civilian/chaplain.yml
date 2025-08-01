@@ -94,6 +94,7 @@
         - HealingWordPower
         - SummonRemiliaPower
         - TelepathyPower
+    - type: Telepathy
 
 - type: startingGear
   id: ChaplainGear

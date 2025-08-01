@@ -1,0 +1,63 @@
+# Small, invisible to others
+- type: InteractionPopup
+  id: Subtle
+  popupType: Small
+  logChannel: Emotes
+  others: null
+
+# Small, visible to others
+- type: InteractionPopup
+  id: Visible
+  popupType: Small
+  logChannel: Emotes
+
+# Small, visible to others but not logged into chat
+- type: InteractionPopup
+  id: VisibleNoChat
+  popupType: Small
+  logPopup: false
+
+# Medium, visible to others
+- type: InteractionPopup
+  id: Obvious
+  popupType: Medium
+  logChannel: Emotes
+
+# MediumCaution, visible to others
+- type: InteractionPopup
+  id: Dangerous
+  popupType: MediumCaution
+  logChannel: Emotes
+
+# Delayed popups - not logged into chat
+- type: InteractionPopup
+  id: SubtleDelayed
+  popupType: Small
+  logPopup: false
+  logChannel: Emotes
+  others: null
+
+- type: InteractionPopup
+  id: ObviousDelayed
+  popupType: Small
+  logPopup: false
+  logChannel: Emotes
+
+- type: InteractionPopup
+  id: DangerousDelayed
+  popupType: SmallCaution
+  logPopup: false
+  logChannel: Emotes
+
+# Visible only to self
+- type: InteractionPopup
+  id: SubtleFail
+  popupType: SmallCaution
+  target: null
+  others: null
+
+# Visible to self and target, but not others
+- type: InteractionPopup
+  id: Fail
+  popupType: SmallCaution
+  others: null

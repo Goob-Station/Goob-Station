@@ -211,7 +211,7 @@ DefaultStationBeaconEngiOutpost: null
 DefaultStationBeaconExam: null
 DefaultStationBeaconJanitorsOffice: null
 DefaultStationBeaconMailroom: null
-DefaultStationBeaconBenchSteelMiddle: null
+#DefaultStationBeaconMantis: null
 DefaultStationBeaconMetempsychosis: null
 DefaultStationBeaconPark: null
 DefaultStationBeaconPsychologist: null
@@ -220,7 +220,7 @@ DrinkBubbleTeaGlass: null
 FishLabeler: null
 FoodLollipop: null
 FoodPSB: null
-#GlimmerProber: null
+#GlimmerProber: null Pirate
 GunSafeAdjutantShotgun: null
 GunSafeEnergyGunMini: null
 GunSafeVulcanRifle: null

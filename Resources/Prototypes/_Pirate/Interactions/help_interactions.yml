@@ -1,0 +1,93 @@
+- type: Interaction
+  id: BaseHelp
+  parent: [BaseDangerous, BaseHands]
+  abstract: true
+  priority: -5
+  cooldown: 4
+  range: {max: 1.2}
+  allowedContests: [Mass]
+  contestAdvantageRange:
+    min: 0.4 # Only lower bound; you can be as much stronger than your target as you like
+  contestAdvantageLimit:
+    min: 0.5
+    max: 2
+  contestDelay: true
+
+# Combines waking up, helping from stun, and forcing to stand.
+- type: Interaction
+  id: HelpUp
+  parent: [BaseHelp, BaseGlobal]
+  delay: 1.5
+  cooldown: 0.5
+  hideByRequirement: true
+  requirement:
+    !type:StandingStateRequirement
+    allowLaying: true
+    allowKnockedDown: true
+  action:
+    !type:ComplexAction
+    requireAll: false
+    actions:
+    - !type:ToggleSleepingAction
+      wakeUp: true
+    - !type:ChangeStandingStateAction
+      makeStanding: true
+    - !type:ModifyStatusEffectAction
+      effect: KnockedDown
+      timeAdded: -2.5 # TODO: probably unnecessary but some systems like slippery sometimes mention it in TODO manner
+    - !type:ModifyStatusEffectAction
+      effect: Stun
+      timeAdded: -2.5 # 2 seconds delay to remove 2.5 seconds of stun - should be good enough.
+
+- type: Interaction
+  id: ForceDown
+  parent: [BaseHelp, BaseGlobal]
+  delay: 4.5
+  hideByRequirement: true
+  requirement:
+    !type:StandingStateRequirement
+    allowStanding: true
+  action:
+    !type:ChangeStandingStateAction
+    makeLaying: true
+
+- type: Interaction
+  id: MakeSleepOther
+  parent: [BaseHelp, BaseGlobal]
+  priority: -6
+  delay: 10 # Should be long enough to be non-abusable, right?
+  hideByRequirement: true
+  requirement:
+    !type:ComplexRequirement
+    requirements:
+      - !type:StandingStateRequirement
+        allowLaying: true
+        allowKnockedDown: true
+      - !type:MobStateRequirement
+        allowedStates: [Alive, Critical]
+  action:
+    !type:ToggleSleepingAction
+    sleep: true
+
+# Shake the target to wake them up and sober them up a little bit
+- type: Interaction
+  id: ShakeOther
+  parent: [BaseHelp, BaseGlobal]
+  priority: -5
+  delay: 0.8
+  cooldown: 10 # Slightly abusable
+  effectDelayed: null
+  hideByRequirement: true
+  requirement:
+    !type:MobStateRequirement
+    allowedStates: [Alive, Critical]
+  action:
+    !type:ComplexAction
+    actions:
+    - !type:ModifyStatusEffectAction
+      effect: Drunk
+      timeAdded: -20 # Only removes 20s of visual effects, not affecting the amount of ethanol in the target's blood
+    - !type:JitterAction
+      time: 0.8
+    - !type:ToggleSleepingAction
+      wakeUp: true
