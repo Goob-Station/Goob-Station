@@ -109,7 +109,7 @@
     - type: AtmosExposed
     - type: Kudzu
       growthTickChance: 0.3
-      spreadChance: 0.4
+      spreadChance: 0.2
     - type: SpeedModifierContacts
       walkSpeedModifier: 0.2
       sprintSpeedModifier: 0.2
@@ -135,7 +135,7 @@
   suffix: Weak
   components:
     - type: Kudzu
-      spreadChance: 0.3
+      spreadChance: 0.1
 
 - type: entity
   id: KudzuFlowerFriendly
@@ -179,7 +179,7 @@
   parent: KudzuFlowerFriendly
   components:
     - type: Kudzu
-      spreadChance: 0.2
+      spreadChance: 0.1
     - type: RandomSpawner
       chance: 0.05
       rarePrototypes:
@@ -239,7 +239,7 @@
         - Flesh
     - type: Kudzu
       growthTickChance: 0.1
-      spreadChance: 0.4
+      spreadChance: 0.2
       # Heals each time it manages to do a growth tick:
       damageRecovery:
         types:
