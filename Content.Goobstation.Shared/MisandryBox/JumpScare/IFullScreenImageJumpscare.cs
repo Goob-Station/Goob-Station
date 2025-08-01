@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -19,4 +21,4 @@ public interface IFullScreenImageJumpscare
     /// </summary>
     public void Jumpscare(SpriteSpecifier.Texture image, ICommonSession? session = null);
 }
-
+*/

@@ -4,7 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System;
+// Fully deleted by CorvaxGoob
+/*using System;
 using Content.Goobstation.Shared.Redial;
 using Robust.Client;
 using Robust.Shared.IoC;
@@ -21,4 +22,4 @@ public sealed class RedialManager : SharedRedialManager
 
     private void RedialOnMessage(MsgRedial message)
         => IoCManager.Resolve<IGameController>().Redial(message.Address);
-}
+}*/

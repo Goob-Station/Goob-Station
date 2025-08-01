@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using Content.Goobstation.Shared.MisandryBox.JumpScare;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -40,3 +42,4 @@ public sealed class ServerFullScreenImageJumpscare : IFullScreenImageJumpscare, 
         _netManager.RegisterNetMessage<JumpscareMessage>();
     }
 }
+*/
