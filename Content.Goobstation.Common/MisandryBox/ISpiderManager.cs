@@ -3,7 +3,8 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-using Robust.Shared.Player;
+// Fully deleted by CorvaxGoobs
+/*using Robust.Shared.Player;
 
 namespace Content.Goobstation.Common.MisandryBox;
 
@@ -16,3 +17,4 @@ public interface ISpiderManager
     public void AddPermanentSpider(ICommonSession? victim = null);
     public void ClearTemporarySpiders();
 }
+*/
