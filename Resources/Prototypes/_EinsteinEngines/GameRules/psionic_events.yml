@@ -13,11 +13,9 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 6
-    minimumPlayers: 15
     earliestStart: 20
     chaos:
       Psionic: 30  # Increases psionic chaos
-      Medical: 10  # Minor medical chaos from awakening psionics
     eventType: Psionic
   - type: GameRule
     chaosScore: 200
@@ -41,11 +39,9 @@
     startAudio:
       path: /Audio/Effects/Lightning/lightningbolt.ogg
     weight: 8
-    minimumPlayers: 10
     earliestStart: 15
     chaos:
       Psionic: 20  # Moderate psionic chaos
-      Medical: 15  # Medical chaos from stunning/injuries
     eventType: Psionic
   - type: GameRule
     chaosScore: 150
@@ -69,11 +65,9 @@
     startAudio:
       path: /Audio/Effects/lightburn.ogg
     weight: 5
-    minimumPlayers: 8
     earliestStart: 25
     chaos:
       Psionic: 25  # High psionic chaos
-      Medical: 20  # Medical chaos from burns
     eventType: Psionic
   - type: GameRule
     chaosScore: 180
@@ -96,12 +90,10 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     weight: 7
-    minimumPlayers: 12
     earliestStart: 30
     chaos:
       Psionic: 15  # Moderate psionic chaos
       Hostile: 25  # Hostile mobs spawned
-      Medical: 10  # Potential medical issues
     eventType: HostilesSpawn
   - type: GameRule
     chaosScore: 250
@@ -128,7 +120,6 @@
     earliestStart: 20
     chaos:
       Psionic: 10  # Minor psionic chaos
-      Medical: 5   # Minor medical impact (muting)
     eventType: Psionic
   - type: GameRule
     chaosScore: 80
@@ -153,7 +144,6 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 3
-    minimumPlayers: 15
     earliestStart: 25
     maxOccurrences: 2
     chaos:

@@ -102,6 +102,7 @@
       time: 180000  #50 hours
     - !type:AgeRequirement
       requiredAge: 21
+  whitelisted: true # Pirate
   weight: 20
   startingGear: NanotrasenRepresentativeGear
   icon: "JobIconNanotrasenRepresentative"

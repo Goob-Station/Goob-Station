@@ -139,6 +139,7 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 36000 #10 hours
+  whitelisted: true # Pirate
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"

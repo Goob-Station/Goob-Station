@@ -146,6 +146,7 @@
   - !type:DepartmentTimeRequirement
     department: Science
     time: 36000 #10 hrs
+  whitelisted: true # Pirate end
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -176,6 +177,7 @@
           - DispelPower
           - MetapsionicPower
           - TelepathyPower
+      - type: Telepathy
 
 - type: startingGear
   id: ResearchDirectorGear
