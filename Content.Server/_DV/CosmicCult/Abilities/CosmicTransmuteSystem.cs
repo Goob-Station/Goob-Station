@@ -1,7 +1,5 @@
-using System.Linq;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Popups;
-using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
 namespace Content.Server._DV.CosmicCult.Abilities;
@@ -9,7 +7,6 @@ namespace Content.Server._DV.CosmicCult.Abilities;
 public sealed class CosmicTransmuteSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -32,15 +29,10 @@ public sealed class CosmicTransmuteSystem : EntitySystem
             args.Cancel();
             return;
         }
-        if (possibleTargets.Count > 1)
-        {
-            _popup.PopupEntity(Loc.GetString("cult-glyph-too-many-targets"), uid, args.User);
-            args.Cancel();
-            return;
-        }
-
-        Spawn(_random.Pick(uid.Comp.Transmutations), tgtpos);
-        QueueDel(possibleTargets.First());
+        var target = _random.Pick(possibleTargets);
+        if (!TryComp<CosmicTransmutableComponent>(target, out var comp)) return;
+        Spawn(comp.TransmutesTo, tgtpos);
+        QueueDel(target);
     }
 
 
@@ -51,7 +43,7 @@ public sealed class CosmicTransmuteSystem : EntitySystem
     {
         _entities.Clear();
         _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.TransmuteRange, _entities);
-        _entities.RemoveWhere(item => !_entityWhitelist.IsValid(ent.Comp.Whitelist, item));
+        _entities.RemoveWhere(item => !TryComp<CosmicTransmutableComponent>(item, out var comp) || comp.RequiredGlyphType != MetaData(ent).EntityPrototype!.ID);
         return _entities;
     }
 }

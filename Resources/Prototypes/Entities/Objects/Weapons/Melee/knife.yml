@@ -183,6 +183,9 @@
       path: /Audio/Items/Culinary/chop.ogg
   - type: Scalpel # Shitmed
     speed: 0.65
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: SwordCosmicCult
+    requiredGlyphType: CosmicGlyphBlades
 
 - type: entity
   parent: BaseKnife

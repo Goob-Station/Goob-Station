@@ -213,7 +213,6 @@
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
     soundEmpty: null
     fireRate: 1.5 # Goobstation
-    useKey: false
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.67 # Goobstation
     rechargeSound:
@@ -252,6 +251,8 @@
       params:
         variation: 0.2
         volume: -11
+  - type: AltFireMelee
+    attackType: Heavy
   - type: Wieldable
     wieldSound:
       path: /Audio/_DV/CosmicCult/cosmic_wield.ogg

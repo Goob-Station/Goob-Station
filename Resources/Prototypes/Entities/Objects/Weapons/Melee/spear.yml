@@ -198,6 +198,9 @@
     equippedMaxFillLevels: 1
   - type: ThrowableBlocked # Goobstation
   - type: UndetectableContraband #Goobstation-Contraband detector
+  - type: CosmicTransmutable # DeltaV
+    transmutesTo: SpearCosmicCult
+    requiredGlyphType: CosmicGlyphBlades
 
 
 - type: entity
