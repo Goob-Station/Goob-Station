@@ -11,9 +11,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: high-tech retractor
+  name: "високотехнологічний ретрактор"
   id: MechanicalPinchesAbductor
-  description: A highly advanced retractor, it also seems to work like a hemostat.
+  description: "Високотехнологічний ретрактор, здається, він також працює як гемостат."
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
   - type: Sprite
@@ -64,8 +64,8 @@
         type: MagicMirrorBoundUserInterface
 
 - type: entity
-  name: high-tech searing tool
-  description: A highly advanced cautery with an energy tip, it seems to also work as as stitches.
+  name: "високотехнологічний припікаючий інструмент"
+  description: "Високотехнологічний каутер з енергетичним наконечником, здається, він також працює як шви."
   id: SearingToolAbductor
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
@@ -99,8 +99,8 @@
     - Abductors
 
 - type: entity
-  name: high-tech energy scalpel
-  description: A scalpel which uses an energy blade, it seems to also work as a saw and a drill.
+  name: "високотехнологічний енергетичний скальпель"
+  description: "Скальпель, що використовує енергетичне лезо, здається, він також працює як пила та дриль."
   id: EnergyScalpelAbductor
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
@@ -136,9 +136,9 @@
     - Abductors
 
 - type: entity
-  name: high-tech bone manipulator
+  name: "високотехнологічний кістковий маніпулятор"
   id: BoneManipulatorAbductor
-  description: A highly advanced tool, capable of mending bones.
+  description: "Надсучасний інструмент, здатний вправляти кістки."
   parent: [BaseToolSurgery, BaseMajorContraband]
   components:
     - type: Sprite

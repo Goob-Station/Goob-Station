@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesEthereal
-  name: ethereal goggles
-  description: An unusual pair of goggles developed during a time of inhumane experimentation involving Shadowkin. They are designed to allow the wearer to peer into The Dark.
+  name: "ефірні окуляри"
+  description: "Незвичайна пара окулярів, розроблена під час нелюдських експериментів за участю Тінькіна. Вони призначені для того, щоб дозволити користувачеві вдивлятися в темряву."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Eyes/Glasses/etherealgoogles.rsi
@@ -16,8 +16,8 @@
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowPsionicsIcons]
   id: ClothingEyesGlassesEpistemics
-  name: epi psionics glasses
-  description: Upgraded sunglasses that provide flash immunity and a epistemics psionics HUD.
+  name: "окуляри епі-псіоніки"
+  description: "Оновлені сонцезахисні окуляри, що забезпечують захист від спалахів та епістемологічний псіонічний HUD."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Eyes/Glasses/epiglasses.rsi

@@ -7,8 +7,8 @@
 - type: entity
   parent: FoodTinBase
   id: FoodBlackCaviar
-  name: black caviar
-  description: A tin of black caviar with a convenient pull tab. Looks expensive.
+  name: "чорна ікра"
+  description: "Банка чорної ікри зі зручним язичком для відкривання. Виглядає дорого."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/black_caviar.rsi
@@ -27,7 +27,7 @@
 - type: entity
   parent: FoodTinBaseTrash
   id: FoodBlackCaviarTrash
-  name: black caviar
+  name: "чорна ікра"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/black_caviar.rsi
@@ -38,8 +38,8 @@
 - type: entity
   parent: FoodTinBase
   id: FoodRedCaviar
-  name: red caviar
-  description: A tin of red caviar with a convenient pull tab. 
+  name: "червона ікра"
+  description: "Банка червоної ікри зі зручним язичком для відкривання."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/red_caviar.rsi
@@ -57,7 +57,7 @@
 - type: entity
   parent: FoodTinBaseTrash
   id: FoodRedCaviarTrash
-  name: red caviar
+  name: "червона ікра"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/red_caviar.rsi

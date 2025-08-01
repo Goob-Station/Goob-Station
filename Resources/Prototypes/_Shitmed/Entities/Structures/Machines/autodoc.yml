@@ -11,8 +11,8 @@
 - type: entity
   parent: [ConstructibleMachine, BaseMachinePowered]
   id: Autodoc
-  name: Autodoc Mk.XIV
-  description: A programmable robotic surgeon capable of automatically operating on patients.
+  name: "Автодок Mk.XIV"
+  description: "Програмований робот-хірург, здатний автоматично оперувати пацієнтів."
   components:
   - type: Sprite
     sprite: _Shitmed/Structures/Machines/autodoc.rsi

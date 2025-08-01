@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseItem
   id: UpgradeKitAutomation
-  name: automation upgrade kit
-  description: An upgrade kit with all the parts needed to upgrade a machine. This one allows extra automation options by linking robotic arms.
+  name: "набір для покращення автоматизації"
+  description: "Набір для покращення з усіма необхідними деталями для модернізації машини. Цей дозволяє додаткові опції автоматизації шляхом з'єднання роботизованих рук."
   components:
   - type: Sprite
     sprite: _DV/Objects/Tools/lathe_upgrade_kit.rsi

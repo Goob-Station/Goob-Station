@@ -7,7 +7,7 @@
 - type: entity
   id: FTLPoint
   parent: MarkerBase
-  name: FTL point
+  name: "точка FTL"
   components:
     - type: FTLSmashImmune
     - type: FTLBeacon
@@ -17,7 +17,7 @@
 - type: entity
   id: FTLExclusion
   parent: MarkerBase
-  name: FTL exclusion point
+  name: "точка заборони FTL"
   components:
     - type: FTLExclusion
       range: 32

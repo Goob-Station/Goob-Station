@@ -8,8 +8,8 @@
 
 - type: entity
   id: ActionCreateContract
-  name: Summon infernal contract
-  description: Creates an infernal contract in the Devil's hand.
+  name: "Викликати пекельний контракт"
+  description: "Створює пекельний контракт у руці Диявола."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -22,8 +22,8 @@
 
 - type: entity
   id: ActionCreateRevivalContract
-  name: Summon revival contract
-  description: Creates a revival contract in the Devil's hand.
+  name: "Викликати контракт на воскресіння"
+  description: "Створює контракт на воскресіння в руці Диявола."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -36,8 +36,8 @@
 
 - type: entity
   id: ActionShadowJaunt
-  name: Shadow jaunt
-  description: Melt into the shadows.
+  name: "Тіньовий стрибок"
+  description: "Розчиніться в тінях."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -50,8 +50,8 @@
 
 - type: entity
   id: ActionDevilPossess
-  name: Possess target
-  description: Temporarily possess a target.
+  name: "Заволодіти ціллю"
+  description: "Тимчасово заволодіти ціллю."
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -69,8 +69,8 @@
 
 - type: entity
   id: ActionEndPossession
-  name: End possession
-  description: Cancel this possession early.
+  name: "Припинити одержимість"
+  description: "Скасувати цю одержимість достроково."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -84,8 +84,8 @@
 
 - type: entity
   id: ActionDevilGrip
-  name: Devils Grip
-  description: What little fraction of your power remains in this realm, channeled into your hands.
+  name: "Диявольська Хватка"
+  description: "Та мала частка вашої сили, що залишилася в цьому царстві, скерована у ваші руки."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -99,8 +99,8 @@
 
 - type: entity
   id: ActionCheatDeath
-  name: Cheat Death
-  description: Laugh in the Grim Reapers face. You've still got time.
+  name: "Обдурити Смерть"
+  description: "Посмійтеся в обличчя Смерті з косою. У вас ще є час."
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

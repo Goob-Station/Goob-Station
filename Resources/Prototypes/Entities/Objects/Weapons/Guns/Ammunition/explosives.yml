@@ -117,9 +117,9 @@
 
 - type: entity
   id: CartridgeRocket
-  name: PG-7VL grenade
+  name: "Граната ПГ-7ВЛ"
   parent: [BaseItem, BaseMajorContraband]
-  description: A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape.
+  description: "Боєголовка калібру 1,5, призначена для пускової установки РПГ-7. Має трубчасту форму."
   components:
   - type: Tag
     tags:
@@ -137,9 +137,9 @@
 
 - type: entity
   id: CartridgeRocketSlow
-  name: PG-7VL grenade "Snail-Rocket"
+  name: "Граната ПГ-7ВЛ \"Ракета-равлик\""
   parent: [BaseItem, BaseMajorContraband]
-  description: A 1.5 warhead designed for the RPG-7 launcher. It's unusually slow.
+  description: "Боєголовка калібру 1,5, розроблена для пускової установки РПГ-7. Надзвичайно повільна."
   components:
     - type: Tag
       tags:
@@ -157,9 +157,9 @@
 
 - type: entity
   id: CartridgeRocketSingularityBuster
-  name: rocket-propelled anti-singularity grenade
+  name: "ракета з анти-сингулярною гранатою"
   parent: [BaseItem, BaseCommandContraband]
-  description: A warhead containing a large amount of anti-particles. Upon hitting a singularity, the anti-particles are released, decomposing the singularity. Warranty void if the rocket hits anything besides a singularity or tesla.
+  description: "Боєголовка, що містить велику кількість античастинок. При попаданні в сингулярність античастинки вивільняються, розкладаючи сингулярність. Гарантія анулюється, якщо ракета влучить у щось, крім сингулярності або тесли."
   components:
     - type: Item
       size: Small
@@ -177,7 +177,7 @@
 
 - type: entity
   id: BaseGrenade
-  name: base grenade
+  name: "базова граната"
   parent: [BaseItem, BaseMajorContraband]
   abstract: true
   components:
@@ -190,7 +190,7 @@
 
 - type: entity
   id: GrenadeBaton
-  name: baton grenade (40mm) # Goobstation
+  name: "граната-кийок (40мм)" # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -211,7 +211,7 @@
 
 - type: entity
   id: GrenadeBlast
-  name: blast grenade (40mm) # Goobstation
+  name: "осколкова граната (40мм)" # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -228,7 +228,7 @@
 
 - type: entity
   id: GrenadeFlash
-  name: flash grenade (40mm) # Goobstation
+  name: "світлошумова граната (40мм)" # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -249,7 +249,7 @@
 
 - type: entity
   id: GrenadeFrag
-  name: frag grenade (40mm) # Goobstation
+  name: "осколкова граната (40мм)" # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -267,7 +267,7 @@
 - type: entity
   parent: BaseGrenade
   id: GrenadeCleanade
-  name: cleanade grenade round
+  name: "граната \"чистонада"
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeCleanade
@@ -283,7 +283,7 @@
 
 - type: entity
   id: GrenadeEMP
-  name: EMP grenade (40mm) # Goobstation
+  name: "ЕМІ-граната (40мм)" # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -306,7 +306,7 @@
 
 - type: entity
   id: BaseCannonBall
-  name: base cannon ball
+  name: "основа гарматного ядра"
   parent: [BaseItem, BaseMajorContraband]
   abstract: true
   components:
@@ -319,7 +319,7 @@
 
 - type: entity
   id: CannonBall
-  name: cannonball
+  name: "гарматне ядро"
   suffix: Pirate
   parent: BaseCannonBall
   components:
@@ -332,7 +332,7 @@
 
 - type: entity
   id: CannonBallGrapeshot
-  name: grapeshot
+  name: "фотографія"
   suffix: Pirate
   parent: BaseCannonBall
   components:
@@ -345,7 +345,7 @@
 
 - type: entity
   id: CannonBallGlassshot
-  name: glassshot
+  name: "скляний постріл"
   suffix: Pirate
   parent: BaseCannonBall
   components:

@@ -7,8 +7,8 @@
 - type: entity
   id: ExperimentalSyndicateTeleporter
   parent: [BaseItem, BaseSyndicateContraband]
-  name: experimental Syndicate teleporter
-  description: A self-recharging device that teleports the user forward. In case of teleportation into a wall, uses emergency teleportation. Or gibs the user if it's out of charges.
+  name: "експериментальний телепортер Синдикату"
+  description: "Самозарядний пристрій, що телепортує користувача вперед. У випадку телепортації в стіну використовує аварійну телепортацію. Або розриває користувача на шматки, якщо у нього закінчилися заряди."
   components:
   - type: Sprite
     sprite: /Textures/_White/Objects/Devices/experimentalsyndicateteleporter.rsi

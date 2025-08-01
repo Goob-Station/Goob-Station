@@ -6,11 +6,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity # To-do - Replace all sounds with Nanotrasen energy sounds once blueshield shield PR is merged.
-  name: phoron sabre
+  name: "форонова шабля"
   parent: [BaseMeleeWeaponEnergy, BaseCentcommContraband]
   id: PhoronSabre
   suffix: DO NOT MAP
-  description: The signature weapon of the dreaded deathsquads. It's mostly for show.
+  description: "Фірмова зброя страшних загонів смерті. В основному для показухи."
   components:
   - type: ItemToggle
     # Goobstation start
