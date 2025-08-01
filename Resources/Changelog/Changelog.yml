@@ -3900,6 +3900,14 @@
   id: 8803
   time: '2025-07-23T18:06:32.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39167
+- author: Lokachop
+  changes:
+  - message: The engineering & chief engineer's hardsuit now properly glow in the
+      dark
+    type: Fix
+  id: 8804
+  time: '2025-07-24T03:04:29.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39153
 - author: K-Dynamic
   changes:
   - message: Cold slowdowns are now less impactful.
@@ -3967,6 +3975,13 @@
   id: 8813
   time: '2025-07-28T12:59:41.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39213
+- author: SuperGDPWYL
+  changes:
+  - message: The Warden now starts with a network configurator in their locker.
+    type: Add
+  id: 8814
+  time: '2025-07-28T16:09:17.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39254
 - author: TrixxedHeart
   changes:
   - message: Several strange sprite issues with Vox have been fixed, most notably
@@ -3993,6 +4008,17 @@
   id: 8817
   time: '2025-07-29T12:01:40.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39271
+- author: Admiral-Obvious-001
+  changes:
+  - message: Several advanced chemicals now act slower, but with raised OD thresholds
+      and lowered OD damage. The healing per unit remains largely the same.
+    type: Tweak
+  - message: Bicaradine no longer makes razorium when mixed with advanced brute chems.
+      Advanced brute chems still mix and create razorium when combined.
+    type: Tweak
+  id: 8818
+  time: '2025-07-29T18:52:42.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38811
 - author: aada
   changes:
   - message: Lipolicide now continues to poison at 0 hunger.
@@ -4010,3 +4036,18 @@
   id: 8820
   time: '2025-07-30T22:51:21.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39222
+- author: spanky-spanky
+  changes:
+  - message: The wizard now spawns in a den instead of a shuttle.
+    type: Tweak
+  id: 8821
+  time: '2025-07-31T04:08:05.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37701
+- author: perryprog
+  changes:
+  - message: Fixed board game areas sometimes overlapping with those of other board
+      games.
+    type: Fix
+  id: 8822
+  time: '2025-08-01T21:48:40.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39327
