@@ -23,7 +23,6 @@ using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;
-using Content.Goobstation.Common.JoinQueue;
 using Content.Corvax.Interfaces.Server; // CorvaxGoob - Queue
 
 namespace Content.Server.GameTicking
@@ -49,7 +48,7 @@ namespace Content.Server.GameTicking
         ///     For access to the round ID in status responses.
         /// </summary>
         [Dependency] private readonly SharedGameTicker _gameTicker = default!;
-        [Dependency] private readonly IJoinQueueManager _joinQueue = default!; // Goobstation - Queue
+        // [Dependency] private readonly IJoinQueueManager _joinQueue = default!; // Goobstation - Queue : Commented by CorvaxGoob
 
         private void InitializeStatusShell()
         {

@@ -123,6 +123,7 @@
     active: False
   - type: AnimatedEmotes
 #  - type: Fart - Corvax Goob
+  - type: LanguageSpeaker # Einstein Engines - Language. This component is required to support speech, but it does not define known languages.
   - type: CollectiveMind # Goobstation - Starlight collective mind port
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices

@@ -3,11 +3,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
-  name: beta mine
-  parent: BaseLandMine
-  id: LandMineRedialTest
-  components:
-  - type: RedialUserOnTrigger
-    address: ss14s://beta.goobstation.com
-  - type: DeleteOnTrigger
+# - type: entity Deleted by CorvaxGoob
+#   name: beta mine
+#   parent: BaseLandMine
+#   id: LandMineRedialTest
+#   components:
+#   - type: RedialUserOnTrigger
+#     address: ss14s://beta.goobstation.com
+#   - type: DeleteOnTrigger
