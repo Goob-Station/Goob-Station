@@ -1798,6 +1798,24 @@ namespace Content.Client.Stylesheets
                 Element<LineEdit>().Class("PaperLineEdit")
                     .Prop(LineEdit.StylePropertyStyleBox, new StyleBoxEmpty()),
 
+                // Goobstation-EsColorPicker-Start
+                Element<Button>().Class("SecretButton")
+                    .Prop(Control.StylePropertyModulateSelf, Color.Transparent),
+
+                Element<Button>().Class("SecretButton").Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, Color.Transparent),
+
+                Element<Button>().Class("SecretButton").Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, Color.Transparent),
+
+                Element<Button>().Class("SecretButton").Pseudo(ContainerButton.StylePseudoClassPressed)
+                    .Prop(Control.StylePropertyModulateSelf, Color.Transparent),
+
+                Element<TextureRect>().Class("SyndicateLogo")
+                    .Prop(TextureRect.StylePropertyTexture, resCache.GetTexture("/Textures/_Goobstation/Interface/syndicate_logo_white.svg.96dpi.png"))
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#757575")),
+                // Goobstation-EsColorPicker-End
+
                 // Red Button ---
                 Element<Button>().Class("ButtonColorRed")
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorDefaultRed),
