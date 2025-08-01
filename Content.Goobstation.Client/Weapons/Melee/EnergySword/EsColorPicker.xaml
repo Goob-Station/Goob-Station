@@ -10,7 +10,7 @@
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="30 0 0 0">
                     <Label Text="{Loc 'escolorpicker-color-pick'}" HorizontalExpand="True"
                            StyleClasses="StatusFieldTitle"/>
-                    <BoxContainer Name="RgbSkinColorContainer" Visible="True" Orientation="Vertical" HorizontalExpand="True"></BoxContainer>
+                    <BoxContainer Name="RgbColorContainer" Visible="True" Orientation="Vertical" HorizontalExpand="True"></BoxContainer>
                     <Button Name="ConfirmButton" Text="{Loc 'escolorpicker-confirm'}"/>
                 </BoxContainer>
             </BoxContainer>

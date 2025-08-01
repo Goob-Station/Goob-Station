@@ -19,7 +19,7 @@ namespace Content.Goobstation.Client.Weapons.Melee.EnergySword
         private readonly SharedRgbLightControllerSystem _rgbSystem = default!;
         private readonly SharedAppearanceSystem _appearance = default!;
 
-        private ColorSelectorSliders _rgbSkinColorSelector;
+        private ColorSelectorSliders _rgbColorSelector;
         private Entity<EnergySwordComponent> _uid;
         private EntityUid _owner;
         public Action<Color>? OnConfirmButtonPressed;
@@ -33,13 +33,13 @@ namespace Content.Goobstation.Client.Weapons.Melee.EnergySword
             _appearance = _entitySystem.GetEntitySystem<SharedAppearanceSystem>();
             _rgbSystem = _entitySystem.GetEntitySystem<SharedRgbLightControllerSystem>();
 
-            RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
-            _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv;
-            _rgbSkinColorSelector.OnColorChanged += ColorValueChanged;
+            RgbColorContainer.AddChild(_rgbColorSelector = new ColorSelectorSliders());
+            _rgbColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv;
+            _rgbColorSelector.OnColorChanged += ColorValueChanged;
 
             ConfirmButton.OnPressed += _ =>
             {
-                OnConfirmButtonPressed?.Invoke(_rgbSkinColorSelector.Color);
+                OnConfirmButtonPressed?.Invoke(_rgbColorSelector.Color);
                 OnSecretButtonPressed?.Invoke(_rgbActivated);
             };
             SecretButton.OnPressed += SecretButtonPressed;
@@ -75,7 +75,7 @@ namespace Content.Goobstation.Client.Weapons.Melee.EnergySword
                 _appearance.SetData(entity, ToggleableLightVisuals.Color, energySwordOwner.ActivatedColor, appearance);
             }
 
-            _rgbSkinColorSelector.Color = energySwordOwner.ActivatedColor;
+            _rgbColorSelector.Color = energySwordOwner.ActivatedColor;
 
             _uid = (entity, energySword);
             _owner = owner;
