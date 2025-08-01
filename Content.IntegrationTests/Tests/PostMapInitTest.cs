@@ -226,7 +226,7 @@ namespace Content.IntegrationTests.Tests
             "Submarine", // Goobstation - add Submarine
             "Lambda", // Goobstation - add Lambda
             "Leonid", // Goobstation - add Leonid
-            "Amber", 
+            "Amber",
             "Gate", // Goobstation - goob changes
             "Lavatest", // Lavaland Change
             "Loop",
