@@ -211,7 +211,6 @@
       Brute:
         collection: GlassSmash
   - type: WallMount
-    arc: 360
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _Goobstation/Flock/Structures/64x32/sign.rsi
@@ -228,7 +227,6 @@
       Brute:
         collection: GlassSmash
   - type: WallMount
-    arc: 360
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _Goobstation/Flock/Structures/64x32/sign.rsi
