@@ -49,7 +49,7 @@ namespace Content.Server.GameTicking
         ///     For access to the round ID in status responses.
         /// </summary>
         [Dependency] private readonly SharedGameTicker _gameTicker = default!;
-        [Dependency] private readonly IJoinQueueManager _joinQueue = default!; // Goobstation - Queue
+        // [Dependency] private readonly IJoinQueueManager _joinQueue = default!; // Goobstation - Queue
 
         private void InitializeStatusShell()
         {

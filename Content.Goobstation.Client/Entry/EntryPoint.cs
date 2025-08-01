@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Client.IoC;
+/*using Content.Goobstation.Client.IoC;
 using Content.Goobstation.Client.Voice;
 using Content.Goobstation.Client.JoinQueue;
 using Content.Goobstation.Common.MisandryBox;
@@ -21,10 +21,10 @@ namespace Content.Goobstation.Client.Entry;
 
 public sealed class EntryPoint : GameClient
 {
-    [Dependency] private readonly IVoiceChatManager _voiceManager = default!;
-    [Dependency] private readonly JoinQueueManager _joinQueue = default!;
-    [Dependency] private readonly ISpiderManager _spider = default!;
-    [Dependency] private readonly ICommonCurrencyManager _currMan = default!;
+    // [Dependency] private readonly IVoiceChatManager _voiceManager = default!;
+    // [Dependency] private readonly JoinQueueManager _joinQueue = default!;
+    // [Dependency] private readonly ISpiderManager _spider = default!;
+    // [Dependency] private readonly ICommonCurrencyManager _currMan = default!;
 
     public override void PreInit()
     {
@@ -68,3 +68,4 @@ public sealed class EntryPoint : GameClient
         _currMan.Shutdown();
     }
 }
+*/

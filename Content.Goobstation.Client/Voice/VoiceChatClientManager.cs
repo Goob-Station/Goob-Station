@@ -35,7 +35,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
 
     public void Initalize()
     {
-        IoCManager.InjectDependencies(this);
+/*        IoCManager.InjectDependencies(this);
         _sawmill = Logger.GetSawmill("voiceclient");
 
         _volume = _cfg.GetCVar(GoobCVars.VoiceChatVolume);
@@ -46,7 +46,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
 
         _netManager.RegisterNetMessage<MsgVoiceChat>(OnVoiceMessageReceived);
 
-        _sawmill.Info("VoiceChatClientManager initialized");
+        _sawmill.Info("VoiceChatClientManager initialized");*/
     }
 
     /// <summary>

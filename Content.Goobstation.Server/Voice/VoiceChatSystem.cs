@@ -7,7 +7,7 @@ using Content.Goobstation.Server.Voice;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.VoiceChat;
-
+/*
 public sealed class VoiceChatSystem : EntitySystem
 {
     [Dependency] private readonly IVoiceChatServerManager _voiceChatManager = default!;
@@ -38,3 +38,4 @@ public sealed class VoiceChatSystem : EntitySystem
         }
     }
 }
+*/

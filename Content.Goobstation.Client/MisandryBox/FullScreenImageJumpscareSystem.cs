@@ -39,7 +39,7 @@ public sealed class ClientFullScreenImageJumpscare : IFullScreenImageJumpscare, 
 
     private void RegisterNetMessages()
     {
-        _netManager.RegisterNetMessage<JumpscareMessage>(OnJumpscareMessage);
+        // _netManager.RegisterNetMessage<JumpscareMessage>(OnJumpscareMessage);
     }
 
     private void OnJumpscareMessage(JumpscareMessage message)

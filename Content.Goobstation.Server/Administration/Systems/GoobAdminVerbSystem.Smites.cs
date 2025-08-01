@@ -40,6 +40,7 @@ public sealed partial class GoobAdminVerbSystem
         };
         args.Verbs.Add(thunder);
 
+        /* CorvaxGoob
         var spidertext = Loc.GetString("misandrybox-admin-smite-spider");
         Verb spider = new()
         {
@@ -57,6 +58,7 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("misandrybox-admin-smite-spider-desc")
         };
         args.Verbs.Add(spider);
+        */
     }
 
     private bool SmitesAllowed(GetVerbsEvent<Verb> args)
