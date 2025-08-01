@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Weapons.Melee.EnergySword;
 
@@ -43,3 +44,24 @@ public sealed partial class EnergySwordComponent : Component
     [DataField]
     public float CycleRate = 1f;
 }
+
+
+// Goobstation-EsColorPicker-Start
+[NetSerializable, Serializable]
+public enum EsColorPickerMenu : byte
+{
+    Key,
+}
+
+[Serializable, NetSerializable]
+public sealed class EsColorChangedMessage(Color color) : BoundUserInterfaceMessage
+{
+    public Color Color = color;
+}
+
+[Serializable, NetSerializable]
+public sealed class EsHackedStateChangedMessage(bool state) : BoundUserInterfaceMessage
+{
+    public bool State = state;
+}
+// Goobstation-EsColorPicker-End

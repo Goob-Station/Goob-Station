@@ -57,6 +57,7 @@ public sealed class EnergySwordSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
@@ -64,6 +65,11 @@ public sealed class EnergySwordSystem : EntitySystem
 
         SubscribeLocalEvent<EnergySwordComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<EnergySwordComponent, InteractUsingEvent>(OnInteractUsing);
+
+        // Goobstation-EsColorPicker-Start
+        SubscribeLocalEvent<EnergySwordComponent, EsHackedStateChangedMessage>(OnHackedStateChanged);
+        SubscribeLocalEvent<EnergySwordComponent, EsColorChangedMessage>(OnColorChanged);
+        // Goobstation-EsColorPicker-End
     }
 
     // Used to pick a random color for the blade on map init.
@@ -90,8 +96,16 @@ public sealed class EnergySwordSystem : EntitySystem
         if (!_toolSystem.HasQuality(args.Used, SharedToolSystem.PulseQuality))
             return;
 
+        _ui.TryToggleUi(entity.Owner, EsColorPickerMenu.Key, args.User); // Goobstation-EsColorPicker
         args.Handled = true;
-        entity.Comp.Hacked = !entity.Comp.Hacked;
+
+        Dirty(entity);
+    }
+
+    // Goobstation-EsColorPicker-Start
+    private void OnHackedStateChanged(Entity<EnergySwordComponent> entity, ref EsHackedStateChangedMessage args)
+    {
+        entity.Comp.Hacked = args.State;
 
         if (entity.Comp.Hacked)
         {
@@ -100,7 +114,20 @@ public sealed class EnergySwordSystem : EntitySystem
         }
         else
             RemComp<RgbLightControllerComponent>(entity);
-
         Dirty(entity);
     }
+
+    private void OnColorChanged(Entity<EnergySwordComponent> entity, ref EsColorChangedMessage args)
+    {
+        if (entity.Comp.ActivatedColor == args.Color)
+            return;
+        entity.Comp.ActivatedColor = args.Color;
+        Dirty(entity);
+
+        if (!TryComp(entity, out AppearanceComponent? appearanceComponent))
+            return;
+
+        _appearance.SetData(entity, ToggleableLightVisuals.Color, entity.Comp.ActivatedColor, appearanceComponent);
+    }
+    // Goobstation-EsColorPicker-End
 }
