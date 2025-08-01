@@ -1,4 +1,6 @@
+using System.Linq;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.Contraband;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Toggleable;
@@ -78,6 +80,22 @@ namespace Content.Goobstation.Client.Weapons.Melee.EnergySword
             _uid = (entity, energySword);
             _owner = owner;
             EntityView.SetEntity(entity);
+        }
+
+        public void SetLogoAndFlavor(EntityUid entity)
+        {
+            if (_entManager.TryGetComponent<ContrabandComponent>(entity, out var contraband) &&
+                contraband.AllowedDepartments.ToHashSet().Contains("CentralCommand"))
+            {
+                Logo.SetOnlyStyleClass("NTLogoDark");
+                CollaborationText.Text = Loc.GetString("escolorpicker-menu-flavor-left-nanotrasen");
+            }
+            else
+            {
+                Logo.SetOnlyStyleClass("SyndicateLogo");
+                CollaborationText.Text = Loc.GetString("escolorpicker-menu-flavor-left-syndicate");
+            }
+
         }
     }
 }

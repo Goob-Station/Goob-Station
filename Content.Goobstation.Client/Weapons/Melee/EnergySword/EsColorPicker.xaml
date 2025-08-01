@@ -20,11 +20,11 @@
         <BoxContainer Orientation="Vertical">
             <PanelContainer StyleClasses="LowDivider" />
             <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
-                <Label Text="{Loc 'escolorpicker-menu-flavor-left'}" StyleClasses="WindowFooterText" />
+                <Label Name="CollaborationText" StyleClasses="WindowFooterText" />
                 <Label Text="{Loc 'escolorpicker-menu-flavor-right'}" StyleClasses="WindowFooterText"
                        HorizontalAlignment="Right" HorizontalExpand="True" />
                 <Button Name="SecretButton" StyleClasses="SecretButton" SetSize="25 25">
-                    <TextureRect StyleClasses="SyndicateLogo" Stretch="KeepAspectCentered" SetSize="19 19"/>
+                    <TextureRect Name="Logo" Stretch="KeepAspectCentered" SetSize="19 19"/>
                 </Button>
             </BoxContainer>
         </BoxContainer>

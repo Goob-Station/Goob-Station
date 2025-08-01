@@ -24,6 +24,7 @@ namespace Content.Goobstation.Client.Weapons.Melee.EnergySword
             _prototypeView = EntMan.Spawn(metadata.EntityPrototype.ID);
 
             _window.SetEntity(_prototypeView, Owner);
+            _window.SetLogoAndFlavor(_prototypeView);
 
             _window.OnConfirmButtonPressed += color =>
             {
