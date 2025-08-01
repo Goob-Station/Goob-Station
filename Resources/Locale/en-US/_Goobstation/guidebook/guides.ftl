@@ -16,12 +16,12 @@ guide-entry-automation = Automation
 
 # Goob SOP
 # - Main Directories
-guide-entry-sop = SOP
+guide-entry-sop = Standard Operating Procedure
 guide-entry-sop-alert-levels = Alert Levels
 guide-entry-sop-emergencies = Emergencies
-guide-entry-sop-jobs = Jobs
-guide-entry-sop-legal = Legal
-guide-entry-sop-standards = Standard Procedures
+guide-entry-sop-jobs = Job Standards
+guide-entry-sop-legal = Legal Procedures
+guide-entry-sop-standards = Command Procedures
 # - Sub/Nested Directories
 guide-entry-sop-cargo = Cargo
 guide-entry-sop-command = Command
