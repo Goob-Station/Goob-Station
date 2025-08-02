@@ -73,6 +73,9 @@
       - type: CommandStaff
       - type: Condemned
         soulOwnedNotDevil: true
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - Shooting
   - !type:AddObjectiveSpecial
     objectives:
     - BlueshieldRandomCommandAliveObjective

@@ -315,6 +315,7 @@
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
     - id: ChemistryBottleOmnizine
+    - id: ClothingBackpackDuffelSalvageSCAF # Corvax-Goob SCAF
     - id: FoodSnackLollypopWrappedCarpEvil # Goobstation
     - !type:GroupSelector
       children:

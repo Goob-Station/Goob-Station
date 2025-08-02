@@ -1,8 +1,8 @@
 chat-sign-language-message-wrap = [italic][BubbleHeader][Name]{ $entityName }[/Name][/BubbleHeader] [BubbleContent]{ $verb } "[font="{ $fontType }" size={ $fontSize }][color={ $color }]{ $message }[/color][/font]"[/italic][/BubbleContent]
 chat-sign-language-whisper-wrap = [italic][BubbleHeader][Name]{ $entityName }[/Name][/BubbleHeader] [BubbleContent]subtly gestures "[font="{ $fontType }" size={ $fontSize }][color={ $color }]{ $message }[/color][/font]"[/italic][/BubbleContent]
-chat-speech-verb-sign-1 = жесты
-chat-speech-verb-sign-2 = знаки
-chat-speech-verb-sign-3 = движения
+chat-speech-verb-sign-1 = жестикулирует
+chat-speech-verb-sign-2 = показывает жестами
+chat-speech-verb-sign-3 = машет
 # Tajaran stuffs
 chat-sign-tajaran-language-message-wrap = [italic][BubbleHeader][Name]{ $entityName }[/Name][/BubbleHeader] [BubbleContent]{ $verb } "[font="{ $fontType }" size={ $fontSize }][color={ $color }]{ $message }[/color][/font]"[/italic][/BubbleContent]
 chat-sign-tajaran-language-whisper-wrap = [italic][BubbleHeader][Name]{ $entityName }[/Name][/BubbleHeader] [BubbleContent]subtly { $verb } "[font="{ $fontType }" size={ $fontSize }][color={ $color }]{ $message }[/color][/font]"[/italic][/BubbleContent]
@@ -34,7 +34,7 @@ chat-speech-verb-sign-siiktajr-3 = дернул ушами и мяукнул
 chat-speech-verb-sign-siiktajr-4 = дернул ушами и мурлыкнул
 chat-speech-verb-sign-siiktajr-5 = навострил уши и мурлычет
 chat-speech-verb-sign-siiktajr-6 = навострил уши не мяукнул
-chat-speech-verb-sign-siiktajr-7 = стукнул хвостом и мяукнул
-chat-speech-verb-sign-siiktajr-8 = стукнул хвостом и мурлыкнул
+chat-speech-verb-sign-siiktajr-7 = подёргал хвостом и мурлычет
+chat-speech-verb-sign-siiktajr-8 = подёргивает хвостом и мяукает
 chat-speech-verb-sign-siiktajr-9 = дернул ушами и хвостом, после чего мурлыкнул
 chat-speech-verb-sign-siiktajr-10 = дернул ушами и хвостом, после чего мяукнул

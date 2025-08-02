@@ -7,3 +7,19 @@
   id: BluespaceTechnologyBoards
   recipes:
   - MachineBluespaceTransitorCircuitboard
+
+- type: latheRecipePack
+  id: AdvancedRoboticsBoards
+  recipes:
+  - AsimovCircuitBoard
+  - CorporateCircuitBoard
+  - NTDefaultCircuitBoard
+  - CommandmentCircuitBoard
+  - PaladinCircuitBoard
+  - LiveLetLiveCircuitBoard
+  - StationEfficiencyCircuitBoard
+  - RobocopCircuitBoard
+  - OverlordCircuitBoard
+  - GameMasterCircuitBoard
+  - ArtistCircuitBoard
+  - NutimovCircuitBoard

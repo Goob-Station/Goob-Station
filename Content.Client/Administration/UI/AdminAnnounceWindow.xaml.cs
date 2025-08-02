@@ -92,7 +92,7 @@ namespace Content.Client.Administration.UI
         {
             AnnounceMethod.SelectId(args.Id);
             Announcer.Editable = ((AdminAnnounceType?)args.Button.SelectedMetadata ?? AdminAnnounceType.Station) == AdminAnnounceType.Station;
-            TTSContainer.Visible = ((AdminAnnounceType?) args.Button.SelectedMetadata ?? AdminAnnounceType.Station) == AdminAnnounceType.Station; // CorvaxGoob-TTS
+            TTSContainer.Visible = _cfgManager.GetCVar(CCCVars.TTSEnabled) && (((AdminAnnounceType?) args.Button.SelectedMetadata ?? AdminAnnounceType.Station) == AdminAnnounceType.Station); // CorvaxGoob-TTS
         }
     }
 }

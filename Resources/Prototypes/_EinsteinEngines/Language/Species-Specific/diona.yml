@@ -10,9 +10,9 @@
     !type:SyllableObfuscation
     minSyllables: 1
     maxSyllables: 5
-    replacement:
-    - hs
-    - zt
-    - kr
-    - st
-    - sh
+    replacement: # CorvaxGoob-Localization
+    - хс
+    - зт
+    - кр
+    - ст
+    - ш

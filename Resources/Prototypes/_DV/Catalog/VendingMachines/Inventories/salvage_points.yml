@@ -113,5 +113,7 @@
     cost: 3000
   - id: ShelterCapsuleLuxury
     cost: 3000
+  - id: ClothingBackpackDuffelSalvageSCAF # Corvax-Goob SCAF
+    cost: 7000
   # TODO: luxury elite bar capsule for 10k
   # TODO: mining drone stuff
