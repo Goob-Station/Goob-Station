@@ -55,7 +55,6 @@
         - CrateTrashCartFilled
         - ClosetMaintenanceFilledRandom
         - ClosetEmergencyFilledRandom
-        - ClothingBackpackDuffelSalvageSCAF # Corvax-Goob SCAF
       rareChance: 0.4
       prototypes:
         - CrateSalvageAssortedGoodies
