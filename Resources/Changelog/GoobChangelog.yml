@@ -12817,3 +12817,9 @@ Entries:
       message: THE METAL'S PIPE CANNOT BE STOPPED
   id: 1417
   time: '2025-07-26T18:25:15.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Fix
+      message: Wizard robes (the real ones) have their armour values again
+  id: 1418
+  time: '2025-08-02T03:41:02.0000000+00:00'
