@@ -26,7 +26,7 @@ public sealed partial class SealableClothingComponent : Component
     public bool IsSealed = false;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan SealingTime = TimeSpan.FromSeconds(1.75);
+    public TimeSpan SealingTime = TimeSpan.FromSeconds(0.25);
 
     [DataField]
     public LocId SealUpPopup = "sealable-clothing-seal-up";

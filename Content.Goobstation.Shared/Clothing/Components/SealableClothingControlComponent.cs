@@ -70,7 +70,7 @@ public sealed partial class SealableClothingControlComponent : Component
     ///     Doafter time for other players to start sealing via stripping menu
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan NonWearerSealingTime = TimeSpan.FromSeconds(4);
+    public TimeSpan NonWearerSealingTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     ///     if true; after ClothingControlSealCompleteEvent it will unToggle the control
