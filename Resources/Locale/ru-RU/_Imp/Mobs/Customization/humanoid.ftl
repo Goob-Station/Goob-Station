@@ -213,8 +213,22 @@ marking-MessyPonytail = Неопрятный хвост
 marking-Niqab = Никаб
 marking-TichelFashionable = Тикель (Модный)
 marking-TichelSimple = Тикель (Простой)
+marking-HumanHairShaggy = Кудрявый  
+marking-HumanHairShaggyLonger = Кудрявый (Длиннее)  
+marking-HumanHairShaggyMessy = Кудрявый (Неаккуратный)  
+marking-HumanHairSusie = Злая Девчонка (Челка)  
+marking-HumanHairSusieNoBangs = Злая Девчонка  
 
-# Tail
+# Tail  
 
-# RArmExtension
+# RArmExtension  
 
+marking-HeadEarrings = Серьги (Маленькие)  
+marking-HeadEarrings-earrings1 = Правая серьга  
+marking-HeadEarrings-earrings2 = Левая серьга  
+marking-HeadEarringsDrop = Серьги (Капельки)  
+marking-HeadEarringsDrop-earringsdrop1 = Правая серьга  
+marking-HeadEarringsDrop-earringsdrop2 = Левая серьга  
+marking-HeadEarringsWeights = Серьги (Грузики)  
+marking-HeadEarringsWeights-earringsweights1 = Правая серьга  
+marking-HeadEarringsWeights-earringsweights2 = Левая серьга  
