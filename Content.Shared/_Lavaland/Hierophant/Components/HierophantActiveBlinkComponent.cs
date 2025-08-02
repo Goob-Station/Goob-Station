@@ -21,7 +21,7 @@ public sealed partial class HierophantActiveBlinkComponent : Component
     public TimeSpan BlinkDelay = TimeSpan.FromSeconds(0.9f);
 
     [DataField]
-    public SoundSpecifier? Sound;
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
 
     [ViewVariables]
     [AutoNetworkedField, AutoPausedField]

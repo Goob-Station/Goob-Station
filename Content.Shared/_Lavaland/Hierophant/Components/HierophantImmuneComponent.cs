@@ -3,13 +3,7 @@
 namespace Content.Shared._Lavaland.Hierophant.Components;
 
 /// <summary>
-/// This is used for...
+/// Marker component that makes this entity immune to Hierophant's damage tiles.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState, AutoGenerateComponentPause]
-public sealed partial class HierophantImmuneComponent : Component
-{
-    [ViewVariables]
-    [AutoNetworkedField, AutoPausedField]
-    public TimeSpan? EndTime;
-}
+public sealed partial class HierophantImmuneComponent : Component;

@@ -41,7 +41,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly HierophantSystem _hierophant = default!;
-    [Dependency] private readonly TileShapeSystem _tile = default!;
+    [Dependency] private readonly EntityShapeSystem _entity = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -50,13 +50,13 @@ public sealed class HierophandClubItemSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HierophantClubItemComponent, HierophantClubActivateCrossEvent>(OnCreateCross);
-        SubscribeLocalEvent<HierophantClubItemComponent, HierophantClubPlaceMarkerEvent>(OnPlaceMarker);
-        SubscribeLocalEvent<HierophantClubItemComponent, HierophantClubTeleportToMarkerEvent>(OnTeleport);
-        SubscribeLocalEvent<HierophantClubItemComponent, HierophantClubToggleTileMovementEvent>(OnToggleTileMovement);
+        SubscribeLocalEvent<HierophantMagicComponent, HierophantClubActivateCrossEvent>(OnCreateCross);
+        SubscribeLocalEvent<HierophantMagicComponent, HierophantClubPlaceMarkerEvent>(OnPlaceMarker);
+        SubscribeLocalEvent<HierophantMagicComponent, HierophantClubTeleportToMarkerEvent>(OnTeleport);
+
     }
 
-    private void OnCreateCross(Entity<HierophantClubItemComponent> ent, ref HierophantClubActivateCrossEvent args)
+    private void OnCreateCross(Entity<HierophantMagicComponent> ent, ref HierophantClubActivateCrossEvent args)
     {
         if (args.Handled || !args.Target.IsValid(EntityManager))
             return;
@@ -76,7 +76,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnPlaceMarker(Entity<HierophantClubItemComponent> ent, ref HierophantClubPlaceMarkerEvent args)
+    private void OnPlaceMarker(Entity<HierophantMagicComponent> ent, ref HierophantClubPlaceMarkerEvent args)
     {
         if (args.Handled)
             return;
@@ -97,12 +97,12 @@ public sealed class HierophandClubItemSystem : EntitySystem
         _popup.PopupPredicted("Teleportation point set.", user, user);
 
         AddImmunity(user);
-        _tile.SpawnTileShape(ent.Comp.BlinkShape, position, ent.Comp.HierophantDamageTileId, out _);
+        _entity.SpawnTileShape(ent.Comp.BlinkShape, position, ent.Comp.HierophantDamageTileId, out _);
 
         args.Handled = true;
     }
 
-    private void OnTeleport(Entity<HierophantClubItemComponent> ent, ref HierophantClubTeleportToMarkerEvent args)
+    private void OnTeleport(Entity<HierophantMagicComponent> ent, ref HierophantClubTeleportToMarkerEvent args)
     {
         if (args.Handled)
             return;
@@ -129,27 +129,13 @@ public sealed class HierophandClubItemSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnToggleTileMovement(Entity<HierophantClubItemComponent> ent, ref HierophantClubToggleTileMovementEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (HasComp<HierophantBeatComponent>(args.Target))
-            RemComp<HierophantBeatComponent>(args.Target);
-        else
-            EnsureComp<HierophantBeatComponent>(args.Target);
-
-        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString("action-hierophant-tile-movement-cast"), InGameICChatType.Speak, false);
-        args.Handled = true;
-    }
-
-    private void SpawnHierophantCross(EntityUid owner, EntityCoordinates coords, HierophantClubItemComponent club)
+    private void SpawnHierophantCross(EntityUid owner, EntityCoordinates coords, HierophantMagicComponent club)
     {
         AddImmunity(owner);
-        _tile.SpawnTileShape(club.CrossAttackShape, coords, club.HierophantDamageTileId, out _);
+        _entity.SpawnTileShape(club.CrossAttackShape, coords, club.HierophantDamageTileId, out _);
         _audio.PlayPredicted(club.DamageSound, coords, owner);
     }
 
     private void AddImmunity(EntityUid uid, float time = 3f)
-        => EnsureComp<HierophantImmuneComponent>(uid).EndTime = _timing.CurTime + TimeSpan.FromSeconds(time);
+        => (uid).EndTime = _timing.CurTime + TimeSpan.FromSeconds(time);
 }

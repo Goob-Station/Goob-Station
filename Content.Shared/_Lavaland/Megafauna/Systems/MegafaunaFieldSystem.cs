@@ -20,8 +20,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared._Lavaland.EntityShapes;
 using Content.Shared._Lavaland.Megafauna.Components;
-using Content.Shared._Lavaland.Tile;
 using Robust.Shared.Threading;
 
 // ReSharper disable EnforceForeachStatementBraces
@@ -29,7 +29,7 @@ namespace Content.Shared._Lavaland.Megafauna.Systems;
 
 public sealed class MegafaunaFieldSystem : EntitySystem
 {
-    [Dependency] private readonly TileShapeSystem _tileShape = default!;
+    [Dependency] private readonly EntityShapeSystem _entityShape = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
 
     private MegafaunaSpawnFieldJob _job;
@@ -67,7 +67,7 @@ public sealed class MegafaunaFieldSystem : EntitySystem
     private void SpawnField(Entity<MegafaunaFieldGeneratorComponent> ent)
     {
         var comp = ent.Comp;
-        _tileShape.SpawnTileShape(comp.WallShape, ent.Owner, comp.WallId, out comp.Walls);
+        _entityShape.SpawnTileShape(comp.WallShape, ent.Owner, comp.WallId, out comp.Walls);
     }
 
     public void DeactivateField(Entity<MegafaunaFieldGeneratorComponent> ent)

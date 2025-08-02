@@ -1,15 +1,15 @@
-﻿using Content.Shared._Lavaland.Megafauna.Selectors;
+﻿using Content.Shared._Lavaland.EntityShapes.Shapes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Validation;
 using Robust.Shared.Serialization.TypeSerializers.Interfaces;
 
-namespace Content.Shared._Lavaland.Megafauna;
+namespace Content.Shared._Lavaland.EntityShapes;
 
 [TypeSerializer]
-public sealed class MegafaunaActionTypeSerializer :
-    ITypeReader<MegafaunaSelector, MappingDataNode>
+public sealed class EntityShapeTypeSerializer :
+    ITypeReader<EntityShape, MappingDataNode>
 {
     public ValidationNode Validate(
         ISerializationManager serializationManager,
@@ -17,24 +17,24 @@ public sealed class MegafaunaActionTypeSerializer :
         IDependencyCollection dependencies,
         ISerializationContext? context = null)
     {
-        if (node.Has(ProtoIdMegafaunaSelector.IdDataFieldTag))
-            return serializationManager.ValidateNode<ProtoIdMegafaunaSelector>(node, context);
+        if (node.Has(ProtoIdEntityShape.IdDataFieldTag))
+            return serializationManager.ValidateNode<ProtoIdEntityShape>(node, context);
 
         return new ErrorNode(node, "Custom validation not supported! Please specify the type manually!");
     }
 
-    public MegafaunaSelector Read(
+    public EntityShape Read(
         ISerializationManager serializationManager,
         MappingDataNode node,
         IDependencyCollection dependencies,
         SerializationHookContext hookCtx,
         ISerializationContext? context = null,
-        ISerializationManager.InstantiationDelegate<MegafaunaSelector>? instanceProvider = null)
+        ISerializationManager.InstantiationDelegate<EntityShape>? instanceProvider = null)
     {
-        var type = typeof(MegafaunaSelector);
-        if (node.Has(ProtoIdMegafaunaSelector.IdDataFieldTag))
-            type = typeof(ProtoIdMegafaunaSelector);
+        var type = typeof(EntityShape);
+        if (node.Has(ProtoIdEntityShape.IdDataFieldTag))
+            type = typeof(ProtoIdEntityShape);
 
-        return (MegafaunaSelector) serializationManager.Read(type, node, context)!;
+        return (EntityShape) serializationManager.Read(type, node, context)!;
     }
 }

@@ -7,7 +7,6 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -20,30 +19,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.EntityShapes.Shapes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Lavaland.Hierophant.Components;
+namespace Content.Shared._Lavaland.HierophantClub;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class HierophantBossComponent : Component
-{
-    /// <summary>
-    /// Connected field generator, will try to teleport here when it's inactive.
-    /// </summary>
-    [ViewVariables, AutoNetworkedField]
-    public EntityUid? ConnectedFieldGenerator;
-
-    [DataField]
-    public EntProtoId DamageTile = "LavalandHierophantSquare";
-
-    [DataField(required: true)]
-    public EntityShape TeleportShape;
-
-    [DataField]
-    public TimeSpan ArenaReturnDelay = TimeSpan.FromSeconds(10f);
-
-    [ViewVariables]
-    public List<EntityUid> ActiveChasers = new();
-}
+/// <summary>
+/// Marker component that is required for entity to use Hierophant's actions.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class HierophantMagicComponent : Component;

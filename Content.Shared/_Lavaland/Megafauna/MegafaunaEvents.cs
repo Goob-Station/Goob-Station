@@ -19,10 +19,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Megafauna.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Megafauna;
 
@@ -46,8 +44,7 @@ public sealed class MegafaunaShutdownEvent : EntityEventArgs;
 /// </summary>
 public record struct MegafaunaCalculationBaseArgs(
     EntityUid BossEntity,
-    MegafaunaAiComponent AiComponent,
+    EntityUid? AiEntity,
     IEntityManager EntityManager,
     IPrototypeManager PrototypeMan,
-    ISerializationManager SerialMan,
     System.Random Random);

@@ -20,14 +20,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared._Lavaland.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Robust.Shared.GameStates;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
 
 namespace Content.Shared._Lavaland.Aggression;
 
@@ -35,7 +33,6 @@ public sealed class AggressorsSystem : EntitySystem
 {
     [Dependency] private readonly SharedBossMusicSystem _bossMusic = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -189,17 +186,6 @@ public sealed class AggressorsSystem : EntitySystem
         }
 
         ent.Comp.Aggressors.Clear();
-    }
-
-    public bool TryPickTarget(Entity<AggressiveComponent?> ent, [NotNullWhen(true)] out EntityUid? target)
-    {
-        target = null;
-        if (!Resolve(ent.Owner, ref ent.Comp)
-            || ent.Comp.Aggressors.Count == 0)
-            return false;
-
-        target = _random.Pick(ent.Comp.Aggressors);
-        return true;
     }
 
     #endregion

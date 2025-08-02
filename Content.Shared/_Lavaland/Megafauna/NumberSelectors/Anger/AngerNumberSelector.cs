@@ -18,9 +18,6 @@ public sealed partial class AngerNumberSelector : MegafaunaNumberSelector
     [DataField]
     public bool Inverse;
 
-    [DataField]
-    public NumberGrowthFormula ScaleFormula = NumberGrowthFormula.Linear;
-
     public override float Get(MegafaunaCalculationBaseArgs args)
     {
         var entMan = args.EntityManager;
@@ -31,26 +28,9 @@ public sealed partial class AngerNumberSelector : MegafaunaNumberSelector
 
         var maxAnger = angerComp.MaxAnger;
         var anger = angerComp.CurrentAnger;
-        switch (ScaleFormula)
-        {
-            case NumberGrowthFormula.Linear:
-                var progress = anger / maxAnger;
-                return Inverse
-                    ? Range.Y + (Range.X - Range.Y) * (1f - progress)
-                    : Range.X + (Range.Y - Range.X) * progress;
-            case NumberGrowthFormula.Exponent:
-                return Range.X;
-            case NumberGrowthFormula.Sqrt:
-                return Range.X;
-            default:
-                return Range.X;
-        }
+        var progress = anger / maxAnger;
+        return Inverse
+            ? Range.Y + (Range.X - Range.Y) * (1f - progress)
+            : Range.X + (Range.Y - Range.X) * progress;
     }
-}
-
-public enum NumberGrowthFormula
-{
-    Linear,
-    Exponent, // TODO
-    Sqrt, // TODO
 }

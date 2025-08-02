@@ -36,7 +36,7 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.35,-0.6,0.35,0.6"
-        density: 10000 # 10 tons.
+        density: 10000 # 10 tons. Can't really push this thing
         mask:
         - MobMask
         layer:
@@ -93,13 +93,16 @@
     loot: LavalandHierophantClub
     deleteOnDeath: true
   - type: MegafaunaAi
-    selector: !type:NestedMegafaunaAction
+    actionDelay: !type:AngerNumberSelector
+      range: 0.3,1.8
+      inverse: true
+    selector: !type:NestedMegafaunaSelector
       id: Hierophant
   - type: MegafaunaFieldGenerator
     wallId: WallHierophantArenaTemporary
     wallShape: !type:NestedTileShape
       id: BoxHollow
-      size: 11
+      size: 23 # Equals to the size of the arena
   - type: MegafaunaAnchor
   - type: Anger
     totalHp: 2500
@@ -108,4 +111,4 @@
       0:    1
       2000: 2
   - type: Aggressive
-    forgiveRange: 20
+    forgiveRange: 25

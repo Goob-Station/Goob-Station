@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Shared._Lavaland.Megafauna.Components;
 
 namespace Content.Shared._Lavaland.Megafauna.Conditions;
 
@@ -24,10 +25,11 @@ public sealed partial class RangeMegafaunaCondition : MegafaunaCondition
         var entMan = args.EntityManager;
         var transformSys = entMan.System<SharedTransformSystem>();
 
-        if (args.AiComponent.CurrentTarget == null)
+        if (!entMan.TryGetComponent<MegafaunaTargetingComponent>(args.AiEntity, out var targetingComp)
+            || targetingComp.TargetEntity == null)
             return false;
 
-        var target = args.AiComponent.CurrentTarget.Value;
+        var target = targetingComp.TargetEntity.Value;
 
         var bossPos = transformSys.GetMapCoordinates(args.BossEntity);
         var targetPos = transformSys.GetMapCoordinates(target);

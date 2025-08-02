@@ -19,7 +19,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Lavaland.Tile.Shapes;
+using Content.Shared._Lavaland.EntityShapes.Shapes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -38,7 +38,7 @@ public sealed partial class MegafaunaFieldGeneratorComponent : Component
     public List<EntityUid> Walls = new();
 
     [DataField(required: true)]
-    public TileShape WallShape;
+    public EntityShape WallShape;
 
     [DataField]
     public EntProtoId WallId;
