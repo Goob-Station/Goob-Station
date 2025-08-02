@@ -33,7 +33,7 @@ public sealed class RotationVisualizerSystem : SharedRotationVisualsSystem
             return;
 
         if (!_appearance.TryGetData<RotationState>(uid, RotationVisuals.RotationState, out var state, args.Component))
-            return;
+            state = RotationState.Vertical;
 
         switch (state)
         {
