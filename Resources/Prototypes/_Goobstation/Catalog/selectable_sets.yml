@@ -629,7 +629,9 @@
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
     state: base
   content:
+  - EffectDutyWeaponPrint
   - WeaponPistolMk58Empty
+  - MagazinePistol
   - MagazinePistol
 
 # commented out until we can find a way to better balance nonlethals
@@ -641,7 +643,9 @@
 #    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
 #    state: bolt-open
 #  content:
+#   - EffectDutyWeaponPrint
 #   - WeaponPistolMk58Empty
+#   - MagazinePistolRubber
 #   - MagazinePistolRubber
 #   - MagazinePistolRubber
 
@@ -653,6 +657,7 @@
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
     state: base
   content:
+  - EffectDutyWeaponPrint
   - WeaponLaserSvalinn
   - PowerCellSmall
   - PowerCellSmall

@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: EffectDutyWeaponPrint
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 4
+    energy: 10
+    color: "#830710"
+  - type: TimedDespawn
+    lifetime: 4
+  - type: EmitSoundOnSpawn
+    sound: 
+      path: /Audio/Machines/circuitprinter.ogg
