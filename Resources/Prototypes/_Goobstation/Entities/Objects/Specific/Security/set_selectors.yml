@@ -25,3 +25,19 @@
     - HosShotgunSet
     - HosSniperSet
     maxSelectedSets: 1
+
+- type: entity
+  id: SecurityDutyWeaponUndetermined
+  name: DCD-S00
+  description: A small, disposable matter constructer designed to print one of several Duty Weapons available to NanoTrasen security, once. 
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/dutyweaponundetermined.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - DutyWeaponSelectMk58Lethal
+    - DutyWeaponSelectMk58NonLethal
+    - DutyWeaponSelectSvalinn
+    maxSelectedSets: 1

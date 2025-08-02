@@ -618,3 +618,40 @@
     state: control
   content:
   - ClothingModsuitResearchDirectorPowerCell
+
+# Duty Weapons
+
+- type: selectableSet
+  id: DutyWeaponSelectMk58Lethal
+  name: selectable-set-duty-weapon-mk58-lethal-name
+  description: selectable-set-duty-weapon-mk58-lethal-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    state: base
+  content:
+  - WeaponPistolMk58Empty
+  - MagazinePistol
+
+- type: selectableSet
+  id: DutyWeaponSelectMk58NonLethal
+  name: selectable-set-duty-weapon-mk58-non-lethal-name
+  description: selectable-set-duty-weapon-mk58-non-lethal-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    state: bolt-open
+  content:
+   - WeaponPistolMk58Empty
+   - MagazinePistolRubber
+   - MagazinePistolRubber
+
+- type: selectableSet
+  id: DutyWeaponSelectSvalinn
+  name: selectable-set-duty-weapon-salvinn-name
+  description: selectable-set-duty-weapon-salvinn-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    state: base
+  content:
+  - WeaponLaserSvalinn
+  - PowerCellSmall
+  - PowerCellSmall

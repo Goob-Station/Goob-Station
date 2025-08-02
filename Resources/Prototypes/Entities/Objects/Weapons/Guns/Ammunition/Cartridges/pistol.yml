@@ -105,3 +105,19 @@
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
         color: "#65fe08"
+
+- type: entity
+  id: CartridgePistolRubber
+  name: cartridge (.35 auto rubber)
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Reduced load and a rubber ball makes this round sting, bad, while not being deadly.
+  parent: BaseCartridgePistol
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistolRubber
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#3e4968"
