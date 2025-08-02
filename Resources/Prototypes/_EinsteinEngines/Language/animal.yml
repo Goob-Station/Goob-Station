@@ -6,10 +6,11 @@
     minSyllables: 1
     maxSyllables: 2
     replacement:
-    - murr
-    - meow
-    - purr
-    - mrow
+    # CorvaxGoob-Localization-Start
+    - мурр
+    - мяу
+    - мряу
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Dog
@@ -18,12 +19,12 @@
     minSyllables: 1
     maxSyllables: 2
     replacement:
-    - woof
-    - bark
-    - ruff
-    - bork
-    - raff
-    - garr
+    # CorvaxGoob-Localization-Start
+    - вуф
+    - гаф
+    - гоф
+    - гар
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Fox
@@ -32,12 +33,14 @@
     minSyllables: 1
     maxSyllables: 2
     replacement:
-    - ruff
-    - raff
-    - garr
-    - yip
-    - yap
-    - myah
+    # CorvaxGoob-Localization-Start
+    - руфф
+    - рафф
+    - гарр
+    - йип
+    - йап
+    - мяух
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Xeno
@@ -46,8 +49,10 @@
     minSyllables: 1
     maxSyllables: 8 # I was crazy once
     replacement:
-    - s
-    - S
+    # CorvaxGoob-Localization-Start
+    - с
+    - С
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Monkey
@@ -56,8 +61,10 @@
     minSyllables: 1
     maxSyllables: 8 # They locked me in a room...
     replacement:
-    - o
-    - k
+    # CorvaxGoob-Localization-Start
+    - о
+    - к
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Mouse
@@ -66,14 +73,16 @@
     minSyllables: 2
     maxSyllables: 3
     replacement:
-    - squ
-    - eak
-    - pi
-    - ep
-    - chuu
-    - ee
-    - fwi
-    - he
+    # CorvaxGoob-Localization-Start
+    - ску
+    - ик
+    - пи
+    - ип
+    - чуу
+    - ее
+    - фии
+    - хи
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Chicken
@@ -82,9 +91,11 @@
     minSyllables: 1
     maxSyllables: 3
     replacement:
-    - co
-    - coo
-    - ot
+    # CorvaxGoob-Localization-Start
+    - ку
+    - куу
+    - дах
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Duck
@@ -93,9 +104,11 @@
     minSyllables: 1
     maxSyllables: 3
     replacement:
-    - qu
-    - ack
-    - quack
+    # CorvaxGoob-Localization-Start
+    - кв
+    - ак
+    - квак
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Cow
@@ -104,8 +117,10 @@
     minSyllables: 1
     maxSyllables: 3
     replacement:
-    - moo
-    - mooo
+    # CorvaxGoob-Localization-Start
+    - му
+    - мууу
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Sheep
@@ -114,9 +129,11 @@
     minSyllables: 1
     maxSyllables: 3
     replacement:
-    - ba
-    - baa
-    - aa
+    # CorvaxGoob-Localization-Start
+    - бе
+    - бее
+    - аа
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Kangaroo
@@ -125,10 +142,12 @@
     minSyllables: 1
     maxSyllables: 3
     replacement:
-    - shre
-    - ack
-    - chuu
-    - choo
+    # CorvaxGoob-Localization-Start
+    - шре
+    - екк
+    - чуу
+    - чоо
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Pig
@@ -137,7 +156,9 @@
     minSyllables: 1
     maxSyllables: 3
     replacement:
-    - oink # Please someone come up with something better
+    # CorvaxGoob-Localization-Start
+    - хрюю # Please someone come up with something better
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Crab
@@ -146,13 +167,15 @@
     minSyllables: 1
     maxSyllables: 3
     replacement:
-    - click
-    - clack
-    - ti
-    - pi
-    - tap
-    - cli
-    - ick
+    # CorvxGoob-Localization-Start
+    - клац
+    - клак
+    - ти
+    - пи
+    - щёлк
+    - щё
+    - лк
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Kobold
@@ -161,17 +184,18 @@
     minSyllables: 2
     maxSyllables: 4
     replacement:
-    - yip
-    - yap
-    - gar
-    - grr
-    - ar
-    - scre
-    - et
-    - gronk
-    - hiss
-    - ss
-    - ee
+    # CorvaxGoob-Localization-Start
+    - йип
+    - йап
+    - гар
+    - грр
+    - ар
+    - ск
+    - ри
+    - хисс
+    - сс
+    - ее
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Hissing
@@ -180,10 +204,12 @@
     minSyllables: 2
     maxSyllables: 4
     replacement:
-    - hss
-    - iss
-    - ss
-    - is
+    # CorvaxGoob-Localization-Start
+    - хисс
+    - сс
+    - хи
+    - ис
+    # CorvaxGoob-Localization-End
 
 - type: language
   id: Penguin
@@ -192,11 +218,13 @@
     minSyllables: 2
     maxSyllables: 3
     replacement: # I'm out of ideas
-    - pen
-    - peng
-    - won
-    - wonk
-    - wong
+    # CorvaxGoob-Localization-Start
+    - пен
+    - пенг
+    - вон
+    - вонк
+    - вонг
+    # CorvaxGoob-Localization-End
 
 - type: language # Goobstation - For Deer
   id: Deer
@@ -205,6 +233,7 @@
     minSyllables: 1
     maxSyllables: 3
     replacement:
-    - neigh
-    - ni
-    - brr
+    # CorvaxGoob-Localization-Start
+    - ни
+    - брр
+    # CorvaxGoob-Localization-End

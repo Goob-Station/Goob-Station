@@ -10,9 +10,9 @@
     !type:SyllableObfuscation
     minSyllables: 1
     maxSyllables: 3
-    replacement:
-    - blob
-    - plop
-    - pop
-    - bop
-    - boop
+    replacement: # CorvaxGoob-Localization
+    - блоб
+    - плоп
+    - поп
+    - боп
+    - буп
