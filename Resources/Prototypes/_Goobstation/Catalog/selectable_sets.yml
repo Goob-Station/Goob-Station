@@ -632,17 +632,18 @@
   - WeaponPistolMk58Empty
   - MagazinePistol
 
-- type: selectableSet
-  id: DutyWeaponSelectMk58NonLethal
-  name: selectable-set-duty-weapon-mk58-non-lethal-name
-  description: selectable-set-duty-weapon-mk58-non-lethal-desc
-  sprite:
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
-    state: bolt-open
-  content:
-   - WeaponPistolMk58Empty
-   - MagazinePistolRubber
-   - MagazinePistolRubber
+# commented out until we can find a way to better balance nonlethals
+# - type: selectableSet
+#  id: DutyWeaponSelectMk58NonLethal
+#  name: selectable-set-duty-weapon-mk58-non-lethal-name
+#  description: selectable-set-duty-weapon-mk58-non-lethal-desc
+#  sprite:
+#    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+#    state: bolt-open
+#  content:
+#   - WeaponPistolMk58Empty
+#   - MagazinePistolRubber
+#   - MagazinePistolRubber
 
 - type: selectableSet
   id: DutyWeaponSelectSvalinn

@@ -38,6 +38,7 @@
   - type: SetSelector
     possibleSets:
     - DutyWeaponSelectMk58Lethal
-    - DutyWeaponSelectMk58NonLethal
+    # commented out until we can find a way to better balance nonlethals
+    #- DutyWeaponSelectMk58NonLethal
     - DutyWeaponSelectSvalinn
     maxSelectedSets: 1
