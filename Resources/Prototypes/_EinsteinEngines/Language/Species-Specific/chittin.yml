@@ -9,8 +9,8 @@
     !type:SyllableObfuscation
     minSyllables: 1 # Replacements are really short
     maxSyllables: 2
-    replacement:
-    - click
-    - clack
-    - buzz
-    - bizz
+    replacement: # CorvaxGoob-Localization
+    - клик
+    - клак
+    - бзз
+    - бизз

@@ -29,7 +29,7 @@ public sealed partial class TTSSystem
         if (_timing.CurTime < _sendTTSAt)
             return;
 
-        if (_soundDataToSend == null || _filterToSend == null)
+        if (_soundDataToSend is null || _filterToSend is null)
         {
             _isPlaying = false;
             return;
@@ -37,7 +37,8 @@ public sealed partial class TTSSystem
 
         _isPlaying = false;
 
-        RaiseNetworkEvent(new TTSAnnouncedEvent(_soundDataToSend!), _filterToSend!);
+        foreach (var recipient in _filterToSend.Recipients) if (recipient.AttachedEntity.HasValue)
+                RaiseNetworkEvent(new TTSAnnouncedEvent(_soundDataToSend!), recipient);
 
         _soundDataToSend = null;
         _filterToSend = null;
@@ -82,14 +83,13 @@ public sealed partial class TTSSystem
         if (!TryComp<StationDataComponent>(station, out var stationDataComp))
             return;
 
-
         SendTTS(_stationSystem.GetInStation(stationDataComp), text, voice, ChatSystem.CentComAnnouncementSound);
     }
     async private void SendTTS(Filter filter, string text, string voice, string announcementSound = ChatSystem.DefaultAnnouncementSound)
     {
         _filterToSend = filter;
         _isPlaying = true;
-        _sendTTSAt = _timing.CurTime + _audio.GetAudioLength(_audio.ResolveSound(new SoundPathSpecifier(announcementSound))) + TimeSpan.FromSeconds(0.5);
+        _sendTTSAt = _timing.CurTime + _audio.GetAudioLength(_audio.ResolveSound(new SoundPathSpecifier(announcementSound)));
 
         _soundDataToSend = await GenerateTTS(text, voice);
     }

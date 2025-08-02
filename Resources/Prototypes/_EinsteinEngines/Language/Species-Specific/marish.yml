@@ -12,27 +12,27 @@
     !type:SyllableObfuscation
     minSyllables: 2
     maxSyllables: 5
-    replacement:
-    - mar
-    - mwrrr
-    - maaAr
-    - aarrr
-    - wrurrl
-    - mmar
-    - mwar
-    - mlar
-    - mlwar
-    - mwaarr
-    - mAaAr
-    - lmwar
-    - wlurrl
-    - wlmwar
-    - arrmaw
-    - mwAlwar
-    - wrlurll
-    - wlarrul
-    - wlAmur
-    - AlwuRm
-    - mrrrAw
-    - wurlMur
-    - uuRlmmr
+    replacement: # CorvaxGoob-Localization
+    - мар
+    - мвуррр
+    - мааАр
+    - ааррр
+    - вруррл
+    - ммар
+    - мвар
+    - млар
+    - млвар
+    - мваарр
+    - мАаАр
+    - лмвар
+    - влуррл
+    - влмвар
+    - аррмав
+    - мвАлвар
+    - врлурлл
+    - вларрул
+    - влАмур
+    - АлвуРм
+    - мрррАв
+    - вурлМур
+    - ууРлммр
