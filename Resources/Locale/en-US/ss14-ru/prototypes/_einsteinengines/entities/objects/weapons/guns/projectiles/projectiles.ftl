@@ -1,0 +1,12 @@
+ent-BulletGrenadeSpreadBeanbag = { ent-PelletShotgun }
+    .desc = { ent-PelletShotgun.desc }
+ent-BulletGrenadeSpreadBirdshot = { ent-PelletShotgun }
+    .desc = { ent-PelletShotgun.desc }
+ent-BulletGrenadeBirdshot = { ent-PelletShotgun }
+    .desc = { ent-PelletShotgun.desc }
+ent-BulletGrenadeSpread00Buckshot = { ent-PelletShotgun }
+    .desc = { ent-PelletShotgun.desc }
+ent-BulletGrenadeSpread0000Buckshot = { ent-PelletShotgun }
+    .desc = { ent-PelletShotgun.desc }
+ent-BulletGrenadeSlug = slug grenade
+    .desc = { ent-BaseBullet.desc }

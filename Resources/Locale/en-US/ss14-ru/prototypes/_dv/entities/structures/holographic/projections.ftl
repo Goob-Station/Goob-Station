@@ -1,0 +1,2 @@
+ent-BaseHolosign = { "" }
+    .desc = { "" }
