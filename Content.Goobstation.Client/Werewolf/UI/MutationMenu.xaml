@@ -1,12 +1,13 @@
 <ui:FancyWindow xmlns="https://spacestation14.io"
                 xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                 Title="Mutations"
-             MinWidth="600"
+             MinWidth="800"
              MinHeight="600">
     <BoxContainer Orientation="Vertical" VerticalExpand="True">
         <!-- Header with currency display -->
         <BoxContainer Orientation="Horizontal" Margin="0 0 0 10">
-            <Label Text="Mutations" StyleClasses="LabelHeading" HorizontalExpand="True" />
+            <Label Text="Mutations" StyleClasses="LabelHeading" HorizontalExpand="True" Margin="35 0 0 0" />
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextureRect Name="CurrencyIcon"
                              MinSize="24 24"
@@ -18,7 +19,8 @@
                        StyleClasses="LabelHeading"
                        VerticalAlignment="Center"
                        FontColorOverride="#AB4E3C"
-                       ClipText="False"/>
+                       ClipText="False"
+                       Margin="0 0 15 0"/>
             </BoxContainer>
         </BoxContainer>
 
@@ -26,17 +28,23 @@
         <BoxContainer Orientation="Horizontal" VerticalExpand="True" >
             <!-- Left panel - Form selection with scrollable grid -->
             <ScrollContainer HorizontalExpand="False" VerticalExpand="True"
-                           MinSize="200 400"
+                           MinSize="150 400"
                            HScrollEnabled="False"
-                           Margin="0 0 10 0">
+                           Margin="15 0 10 0">
                 <GridContainer Name="FormsGrid"
-                              Columns="3"
+                              Columns="5"
                               HSeparationOverride="5"
-                              VSeparationOverride="5"
-                              MinSize="200 400">
+                              VSeparationOverride="20"
+                              MinSize="150 200">
                     <!-- Form icons will be added here dynamically -->
                 </GridContainer>
             </ScrollContainer>
+
+            <PanelContainer VerticalExpand="False" HorizontalExpand="False" MinWidth="5" Margin="0 0">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#c0c0c0" /> <!-- Dark gray color with 100% opacity -->
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
 
             <!-- Right panel - Description and claim button -->
             <PanelContainer VerticalExpand="True" HorizontalExpand="True">
@@ -55,21 +63,15 @@
                         <BoxContainer Orientation="Vertical">
                             <RichTextLabel Name="FormDescriptionLabel"
                                           Text="Click on a form to view its description."
-                                          VerticalExpand="True" />
+                                          VerticalExpand="True"
+                                          HorizontalAlignment="Center"/>
 
                             <!-- Cost information -->
                             <Label Name="FormCostLabel"
-                                   Text="Cost: 0"
                                    StyleClasses="LabelSecondaryColor"
                                    Margin="0 10 0 0" />
                         </BoxContainer>
                     </ScrollContainer>
-
-                    <!-- Form status label -->
-                    <Label Name="FormStatusLabel"
-                           Text="Status: Locked"
-                           StyleClasses="LabelSecondaryColor"
-                           Margin="0 0 0 10" />
 
                     <!-- Claim button -->
                     <Button Name="MutationCloseButton"

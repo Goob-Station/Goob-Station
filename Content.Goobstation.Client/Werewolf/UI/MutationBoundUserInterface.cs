@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Werewolf.Prototypes;
 using Content.Goobstation.Shared.Werewolf.UI;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
@@ -35,9 +36,9 @@ public sealed class MutationBoundUserInterface : BoundUserInterface
         _menu.OpenCentered();
     }
 
-    private void OnClaimForm()
+    private void OnClaimForm(ProtoId<WerewolfFormPrototype>? form)
     {
-        SendPredictedMessage(new ClosedMessage());
+        SendPredictedMessage(new ClaimedMessage(form));
         Close();
     }
 

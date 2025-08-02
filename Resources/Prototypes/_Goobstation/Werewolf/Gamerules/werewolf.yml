@@ -30,6 +30,7 @@
         currentWerewolfForm: DefaultFormWerewolf
         unlockedWerewolfForms:
           - DefaultFormWerewolf
+          - ExplosiveFormWerewolf
       - type: WerewolfMutationShop
       - type: UserInterface
         interfaces:

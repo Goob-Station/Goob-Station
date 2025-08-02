@@ -14,7 +14,7 @@ namespace Content.Goobstation.Shared.Werewolf.Systems;
 /// This handles the mutation shop ability.
 /// Opens the mutation shop
 /// </summary>
-public sealed class SharedWerewolfMutationShopSystem : EntitySystem
+public abstract class SharedWerewolfMutationShopSystem : EntitySystem
 {
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -30,6 +30,7 @@ public sealed class SharedWerewolfMutationShopSystem : EntitySystem
     private void OnOpenMutationShop(Entity<WerewolfMutationShopComponent> ent, ref OpenMutationShopEvent args)
     {
         TryOpenUi(ent.Owner);
+        ent.Comp.ActionEntity = args.Action;
     }
 
     private bool TryOpenUi(EntityUid target)

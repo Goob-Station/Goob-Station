@@ -56,23 +56,13 @@ public abstract class SharedWerewolfTransformSystem : EntitySystem
         return index.Configuration.FurColor;
     }
 
-    public WerewolfFormPrototype? GetFormProto(ProtoId<WerewolfFormPrototype> proto)
-    {
-        if (!_proto.TryIndex(proto, out var index))
-            return null;
-
-        return index;
-    }
-
-    public SpriteSpecifier? GetSpriteSpecifierForm(ProtoId<WerewolfFormPrototype> proto)
-    {
-        var form = GetFormProto(proto);
-        if (form == null ||
-            form.Configuration.Sprite == null)
-            return null;
-
-        return form.Configuration.Sprite;
-    }
+    /// <summary>
+    /// Changes the current form of the werewolf to another one.
+    /// </summary>
+    /// <param name="ent"></param> The werewolf
+    /// <param name="formToChangeTo"></param> The form to change to
+    public void ChangeForm(Entity<WerewolfTransformComponent> ent, ProtoId<WerewolfFormPrototype> formToChangeTo) =>
+        ent.Comp.CurrentWerewolfForm = formToChangeTo;
 
     #endregion
 }

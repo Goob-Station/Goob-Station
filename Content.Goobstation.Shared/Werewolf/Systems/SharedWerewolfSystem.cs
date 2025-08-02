@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Werewolf.Components;
+
 namespace Content.Goobstation.Shared.Werewolf.Systems;
 
 /// <summary>
@@ -15,4 +17,5 @@ public sealed class SharedWerewolfSystem : EntitySystem
     {
 
     }
+    
 }

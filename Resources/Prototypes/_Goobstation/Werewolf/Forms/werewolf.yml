@@ -14,12 +14,23 @@
 
 - type: werewolfForm
   id: DefaultFormWerewolf
-  parent: BaseWerewolfForm
   configuration:
     furColor: "#00008B"
     entity: BaseMobWerewolf
     name: Werewolf (No Mutations)
+    description: base-form-description
     sprite:
       sprite: _Goobstation/Actions/devil.rsi
       state: cheat-death
 
+- type: werewolfForm
+  id: ExplosiveFormWerewolf
+  configuration:
+    furColor: "#14568B"
+    entity: BaseMobWerewolf
+    name: Werewolf (With Mutations)
+    description: black-wolf-form-description
+    furyCost: 30
+    sprite:
+      sprite: Actions/Implants/implants.rsi
+      state: explosive

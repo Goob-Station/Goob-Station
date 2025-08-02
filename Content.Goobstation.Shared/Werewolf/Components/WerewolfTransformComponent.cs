@@ -25,12 +25,12 @@ public sealed partial class WerewolfTransformComponent : Component
     /// </summary>
     [AutoNetworkedField]
     [DataField]
-    public HashSet<ProtoId<WerewolfFormPrototype>> WerewolfForms = new();
+    public List<ProtoId<WerewolfFormPrototype>> WerewolfForms = new();
 
     /// <summary>
     /// The list of unlocked forms to the werewolf
     /// </summary>
     [AutoNetworkedField]
     [DataField]
-    public HashSet<ProtoId<WerewolfFormPrototype>> UnlockedWerewolfForms = new();
+    public List<ProtoId<WerewolfFormPrototype>> UnlockedWerewolfForms = new();
 }

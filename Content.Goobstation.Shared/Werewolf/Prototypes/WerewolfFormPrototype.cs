@@ -24,7 +24,7 @@ public sealed partial class WerewolfFormPrototype : IPrototype, IInheritingProto
     [AbstractDataField]
     public bool Abstract { get; private set; }
 
-    [DataField(required: true, serverOnly: true)]
+    [DataField(required: true)]
     public WerewolfConfiguration Configuration = new();
 }
 
@@ -51,6 +51,12 @@ public sealed partial record WerewolfConfiguration
     /// </summary>
     [DataField]
     public string? Name = string.Empty;
+
+    /// <summary>
+    /// The description of the werewolf
+    /// </summary>
+    [DataField]
+    public LocId? Description;
 
     /// <summary>
     /// The sprite of the werewolf's form. Used in ui

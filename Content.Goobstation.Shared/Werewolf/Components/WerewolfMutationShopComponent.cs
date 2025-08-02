@@ -8,7 +8,15 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Werewolf.Components;
 
 [RegisterComponent]
-public sealed partial class WerewolfMutationShopComponent : Component;
+public sealed partial class WerewolfMutationShopComponent : Component
+{
+    /// <summary>
+    ///  The entity that is used to store the action,
+    /// used for removing it once the user claims a form.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? ActionEntity;
+};
 
 [NetSerializable, Serializable]
 public enum MutationUiKey : byte
