@@ -51,6 +51,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         SubscribeLocalEvent<RoboticsConsoleComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         // Corvax-Goob-MutableLaws-Start
         SubscribeLocalEvent<RoboticsConsoleComponent, EntInsertedIntoContainerMessage>(OnInserted);
+        SubscribeLocalEvent<RoboticsConsoleComponent, RoboticsConsoleChangeLawsMessage>(OnChangeLaws);
         SubscribeLocalEvent<RoboticsConsoleComponent, EntRemovedFromContainerMessage>(OnRemoved);
         // Corvax-Goob-MutableLaws-End
         Subs.BuiEvents<RoboticsConsoleComponent>(RoboticsConsoleUiKey.Key, subs =>
