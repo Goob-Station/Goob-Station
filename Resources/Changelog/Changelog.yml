@@ -4058,3 +4058,11 @@
   id: 8823
   time: '2025-08-02T15:14:17.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39333
+- author: FairlySadPanda
+  changes:
+  - message: A new cake, berry delight, that is made with a cake base, berries and
+      milk.
+    type: Add
+  id: 8824
+  time: '2025-08-02T18:35:09.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38881
