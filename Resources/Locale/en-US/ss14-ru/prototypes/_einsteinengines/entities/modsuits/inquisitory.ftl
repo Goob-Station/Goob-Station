@@ -1,0 +1,13 @@
+ent-ClothingModsuitInquisitory = Inquisitory modsuit control
+    .desc = The main controller for a Inquisitory modsuit.
+ent-ClothingModsuitGauntletsInquisitory = Inquisitory modsuit gauntlets
+    .desc = A pair of gauntlets made for the Inquisitory modsuit.
+ent-ClothingModsuitHelmetInquisitory = Inquisitory modsuit helmet
+    .desc = A state-of-the-art helmet designed by NanoTrasen for the Inquisitory modsuit. It includes a built-in HUD.
+ent-ClothingModsuitChestplateInquisitory = Inquisitory modsuit chestplate
+    .desc = A state of the art chestplate designed by NanoTrasen for the Inquisitory Modsuit. It incorporates powered servos to reduce the equipment load.
+ent-ClothingModsuitBootsInquisitory = Inquisitory modsuit boots
+    .desc = A state-of-the-art pair of magboots for the Inquisitory modsuit.
+ent-SuitStorageInquisitory = { ent-SuitStorageBase }
+    .suffix = Inquisitory Modsuit
+    .desc = { ent-SuitStorageBase.desc }

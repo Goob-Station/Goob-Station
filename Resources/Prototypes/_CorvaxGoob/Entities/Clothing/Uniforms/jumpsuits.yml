@@ -1,5 +1,38 @@
 ﻿- type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCommandCaptain
+  name: captain command jumpsuit
+  description: Black suit with gold shoulder straps.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/captain_command.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/captain_command.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWhiteCaptain
+  name: white captain jumpsuit
+  description: Captain white jumpsuit symbolizes that your salary is clearly above the norm.
+  components:
+    - type: Sprite
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/captain_white.rsi
+    - type: Clothing
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/captain_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSheriff
+  name: sheriff jumpsuit
+  description: Jumpsuit showing your status is how terrible... the great ruler.
+  components:
+    - type: Sprite
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/sheriff.rsi
+    - type: Clothing
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/sheriff.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuperstarCop
   name: superstar cop uniform
   description: Flare cut trousers and a dirty shirt that might have been classy before someone took a piss in the armpits. It's the dress of a superstar.
@@ -85,3 +118,14 @@
       sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/rd_classical.rsi
     - type: Clothing
       sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/rd_classical.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPilot
+  name: pilot suit
+  description: Security pilot suit.
+  components:
+    - type: Sprite
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/pilot.rsi
+    - type: Clothing
+      sprite: _CorvaxGoob/Clothing/Uniforms/Jumpsuit/pilot.rsi

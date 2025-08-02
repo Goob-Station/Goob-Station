@@ -1,0 +1,13 @@
+ent-ClothingHeadsetChronolegioneer = футуристические наушники
+    .desc = Наушники из будущего, способные принимать большинство частот станции.
+ent-ClothingHeadsetChronolegioneerUnremoveable = { ent-ClothingHeadsetChronolegioneer }
+    .suffix = Не снимаются
+    .desc = { ent-ClothingHeadsetChronolegioneer.desc }
+ent-ClothingHeadsetAltWarden = наушники надзирателя
+    .desc = Обновлённый модульный интерком, позволяющий быстро связываться с командным составом.
+ent-ClothingHeadsetDeathsquad = наушники отряда смерти
+    .desc = { ent-ClothingHeadsetAlt.desc }
+ent-ClothingHeadsetAltSecurityRegular = наушники охраны
+    .desc = { ent-ClothingHeadsetAlt.desc }
+ent-ClothingHeadsetAltBlueshield = наушники офицера блющит
+    .desc = { ent-ClothingHeadsetAlt.desc }

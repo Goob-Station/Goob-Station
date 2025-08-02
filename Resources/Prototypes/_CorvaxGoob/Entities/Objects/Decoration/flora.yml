@@ -1,0 +1,69 @@
+- type: entity
+  id: NewYearTree0
+  name: big tree
+  description: A tree that radiates a magical aura.
+  components:
+  - type: SpriteFade
+  - type: Clickable
+  - type: Sprite
+    state: before
+    noRot: true
+    sprite: _CorvaxGoob/Objects/Decoration/Flora/newyear_tree.yml
+    drawdepth: Overdoors
+    offset: 0, 1
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.8,-0.4,0.8,0.4"
+        density: 4500
+        layer:
+        - WallLayer
+  - type: Damageable # Да, я специально сделал неразрушаемым, но damageable.
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Effects/chop.ogg
+        params:
+          variation: 0.05
+
+- type: entity
+  parent: NewYearTree0
+  id: NewYearTree1
+  suffix: PresentsGiver
+  name: new year tree
+  description: Have you been a good boy?
+  components:
+  - type: Sprite
+    layers:
+    - state: after
+    - state: lights
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.8,-1,0.8,0.5"
+        density: 4500
+        layer:
+        - WallLayer
+  - type: PointLight
+    color: "#FFD66DFF"
+    energy: 2.5
+  - type: LimitedItemGiver
+    spawnEntries:
+      - id: PresentRandom
+        orGroup: present
+      - id: PresentRandomCash
+        prob: 0.20
+        orGroup: present
+      - id: PresentRandomCoal
+        prob: 0.05
+        orGroup: present
+    receivedPopup: christmas-tree-got-gift
+    deniedPopup: christmas-tree-no-gift
+    requiredHoliday: FestiveSeason

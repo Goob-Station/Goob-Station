@@ -282,6 +282,14 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
 
 - type: entity
   parent: VendingMachine
@@ -1062,7 +1070,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-    initialStockQuality: 0.33
+    initialStockQuality: 0.25 # Corvax-Goob-VendomatsTweak
   - type: Advertise
     pack: DiscountDansAds
   - type: SpeakOnUIClosed
@@ -1312,7 +1320,7 @@
     normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    initialStockQuality: 0.33
+    initialStockQuality: 0.25 # Corvax-Goob-VendomatsTweak
   - type: Advertise
     pack: GetmoreChocolateCorpAds
   - type: SpeakOnUIClosed
@@ -1729,7 +1737,7 @@
     normalState: normal-unshaded
     denyState: deny-unshaded
     ejectState: eject-unshaded
-    initialStockQuality: 0.33
+    initialStockQuality: 0.25 # Corvax-Goob-VendomatsTweak
   - type: Advertise
     pack: ChangAds
   - type: SpeakOnUIClosed
@@ -1828,7 +1836,7 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
-    initialStockQuality: 0.33
+    initialStockQuality: 0.25 # Corvax-Goob-VendomatsTweak
   - type: Advertise
     pack: DonutAds
   - type: SpeakOnUIClosed
@@ -2571,7 +2579,7 @@
   - type: PointLight
     radius: 1.5
     energy: 1.3 # reduced energy since the color is pure white
-    color: "#FFFFFF"
+    color: "#FF9CE0" # Corvax-Goob-VendomatsTweak
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/pride.rsi
     layers:

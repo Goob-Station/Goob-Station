@@ -1,0 +1,22 @@
+# For CorvaxSplit
+- type: entity
+  id: NanotrasenStationNoArrivals
+  parent:
+    - BaseStation
+    - BaseStationGoal
+    - BaseStationNews
+    - BaseStationCargo
+    - BaseStationJobsSpawning
+    - BaseStationRecords
+    - BaseStationGateway
+    - BaseStationCentcomm
+    - BaseStationEvacuation
+    - BaseStationAlertLevels
+    - BaseStationMagnet
+    - BaseStationExpeditions
+    - BaseStationSiliconLawCrewsimov
+    - BaseStationAllEventsEligible
+    - BaseStationNanotrasen
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Transform

@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+bingle-accent-1 = Бингл
+bingle-accent-2 = Бинг
+bingle-accent-3 = Бонгл
+bingle-accent-4 = Бонг
+bingle-accent-5 = БИНГЛ
+chat-speech-verb-name-bingle = Бингл
+bingle-verb-1 = Квакнет
+bingle-verb-2 = Бормочет
+bingle-verb-3 = Шепчет
+bingle-verb-4 = Ворчит
+bingle-station-announcement = Бингл Бингл Бингл
+ghost-role-information-bingle-name = Бингл
+ghost-role-information-bingle-description = Яма — это любовь. Яма — это жизнь. Яма должна расти
+ghost-role-information-bingle-rules = Ты [color=red][bold]антагонист в команде[/bold][/color] с другими Бинглами
+bingle-upgrade-success = Ты чувствуешь себя сильнее
+bingle-pit-grow = Яма становится больше
+bingle-pit-end-of-round = Бингл-ямa возле { $location } выросла до уровня [color=teal]{ $level }[/color] и собрала [color=teal]{ $points }[/color] очков Бингла

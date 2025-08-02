@@ -101,7 +101,7 @@ namespace Content.Client.RoundEnd
             {
                 VerticalExpand = true,
                 Margin = new Thickness(10),
-                HScrollEnabled = false,
+                //HScrollEnabled = false, CorvaxGoob-Coins
             };
             var roundEndSummaryContainer = new BoxContainer
             {

@@ -1,0 +1,15 @@
+ent-CrateCybersunDarkGygaxBundle = Cybersun gygax bundle
+    .desc = Contains a set of Cybersan light armored mechs.
+    .suffix = Filled
+ent-CrateCybersunMaulerBundle = Cybersun mauler bundle
+    .desc = Contains a set of Cybersan heavy armored mechs.
+    .suffix = Filled
+ent-CrateSyndicateBulkMosin = Syndicate bulk rifle crate
+    .desc = Just use more rifles, comrade.
+    .suffix = Filled
+ent-CrateSyndicateDreadnought = cybersun dreadnought bundle
+    .desc = An advanced cybersun dreadnought bundle.
+ent-CratePizzaParty = disaster pizza delivery
+    .desc = In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+ent-CrateSyndicateUndetermined = undetermined Syndicate bundle crate
+    .desc = Contains a Syndicate bundle. Which one is yet to be determined.

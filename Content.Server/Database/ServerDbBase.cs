@@ -92,6 +92,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -109,8 +110,10 @@
 // SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -135,7 +138,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
-using Content.Shared._RMC14.LinkAccount;
+// using Content.Shared._RMC14.LinkAccount; // CorvaxGoob-Coins
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
@@ -820,63 +823,6 @@ namespace Content.Server.Database
                 new DateTimeOffset(NormalizeDatabaseTime(player.LastSeenTime)),
                 player.LastSeenAddress,
                 player.LastSeenHWId);
-        }
-
-        public async Task<int> GetServerCurrency(NetUserId userId) // Goobstation
-        {
-            await using var db = await GetDb();
-
-            return await db.DbContext.Player
-                .Where(dbPlayer => dbPlayer.UserId == userId)
-                .Select(dbPlayer => dbPlayer.ServerCurrency)
-                .SingleOrDefaultAsync();
-        }
-
-        public async Task SetServerCurrency(NetUserId userId, int currency) // Goobstation
-        {
-            await using var db = await GetDb();
-
-            var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
-            if (dbPlayer == null)
-                return;
-
-            dbPlayer.ServerCurrency = currency;
-            await db.DbContext.SaveChangesAsync();
-        }
-
-        public async Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta) // Goobstation
-        {
-            await using var db = await GetDb();
-
-            var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
-            if (dbPlayer == null)
-                return currencyDelta;
-
-            dbPlayer.ServerCurrency += currencyDelta;
-            await db.DbContext.SaveChangesAsync();
-            return dbPlayer.ServerCurrency;
-        }
-
-        public async Task<TimeSpan> GetLastRolledAntag(NetUserId userId) // Goobstation
-        {
-            await using var db = await GetDb();
-            TimeSpan? lastRolled = await db.DbContext.Player
-                .Where(dbPlayer => dbPlayer.UserId == userId)
-                .Select(dbPlayer => dbPlayer.LastRolledAntag)
-                .SingleOrDefaultAsync();
-
-            return lastRolled ?? TimeSpan.Zero;
-        }
-
-        public async Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to) // Goobstation
-        {
-            await using var db = await GetDb();
-            var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
-            if (dbPlayer == null)
-                return false;
-            dbPlayer.LastRolledAntag = to;
-            await db.DbContext.SaveChangesAsync();
-            return true;
         }
 
         #endregion
@@ -1948,144 +1894,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #endregion
 
-        #region RMC14
-
-        public async Task<Guid?> GetLinkingCode(Guid player)
-        {
-            await using var db = await GetDb();
-            var linking = await db.DbContext.RMCLinkingCodes.FirstOrDefaultAsync(l => l.PlayerId == player);
-            return linking?.Code;
-        }
-
-        public async Task SetLinkingCode(Guid player, Guid code)
-        {
-            await using var db = await GetDb();
-            var linking = await db.DbContext.RMCLinkingCodes.FirstOrDefaultAsync(l => l.PlayerId == player);
-            if (linking == null)
-            {
-                linking = new RMCLinkingCodes { PlayerId = player };
-                db.DbContext.RMCLinkingCodes.Add(linking);
-            }
-
-            linking.Code = code;
-            linking.CreationTime = DateTime.UtcNow;
-            await db.DbContext.SaveChangesAsync();
-        }
-
-        public async Task<bool> HasLinkedAccount(Guid player, CancellationToken cancel)
-        {
-            await using var db = await GetDb(cancel);
-            return await db.DbContext.RMCLinkedAccounts.AnyAsync(l => l.PlayerId == player, cancel);
-
-        }
-
-        public async Task<RMCPatron?> GetPatron(Guid player, CancellationToken cancel)
-        {
-            await using var db = await GetDb(cancel);
-            var patron = await db.DbContext.RMCPatrons
-                .Include(p => p.Tier)
-                .Include(p => p.LobbyMessage)
-                .Include(p => p.RoundEndNTShoutout)
-                .FirstOrDefaultAsync(p => p.PlayerId == player, cancellationToken: cancel);
-            return patron;
-        }
-
-        public async Task<List<RMCPatron>> GetAllPatrons()
-        {
-            await using var db = await GetDb();
-            return await db.DbContext.RMCPatrons
-                .Include(p => p.Player)
-                .Include(p => p.Tier)
-                .ToListAsync();
-        }
-
-        public async Task SetGhostColor(Guid player, System.Drawing.Color? color)
-        {
-            await using var db = await GetDb();
-            var patron = await db.DbContext.RMCPatrons.FirstOrDefaultAsync(p => p.PlayerId == player);
-            if (patron == null)
-                return;
-
-            patron.GhostColor = color?.ToArgb();
-            await db.DbContext.SaveChangesAsync();
-        }
-
-        public async Task SetLobbyMessage(Guid player, string message)
-        {
-            await using var db = await GetDb();
-            var msg = await db.DbContext.RMCPatronLobbyMessages
-                .Include(l => l.Patron)
-                .FirstOrDefaultAsync(p => p.PatronId == player);
-            msg ??= db.DbContext.RMCPatronLobbyMessages
-                .Add(new RMCPatronLobbyMessage
-                {
-                    PatronId = player,
-                    Message = message,
-                })
-                .Entity;
-            msg.Message = message;
-
-            await db.DbContext.SaveChangesAsync();
-        }
-
-        public async Task SetNTShoutout(Guid player, string name)
-        {
-            await using var db = await GetDb();
-            var msg = await db.DbContext.RMCPatronRoundEndNTShoutouts
-                .Include(s => s.Patron)
-                .FirstOrDefaultAsync(p => p.PatronId == player);
-            msg ??= db.DbContext.RMCPatronRoundEndNTShoutouts
-                .Add(new RMCPatronRoundEndNTShoutout()
-                {
-                    PatronId = player,
-                    Name = name,
-                })
-                .Entity;
-            msg.Name = name;
-
-            await db.DbContext.SaveChangesAsync();
-        }
-
-        public async Task<(string Message, string User)?> GetRandomLobbyMessage()
-        {
-            // TODO RMC14 the random row is evaluated outside the DB, if we have that many patrons I guess we have better problems!
-            await using var db = await GetDb();
-            var messages = await db.DbContext.RMCPatronLobbyMessages
-                .Include(p => p.Patron)
-                .ThenInclude(p => p.Player)
-                .Where(p => p.Patron.Tier.LobbyMessage)
-                .Where(p => !string.IsNullOrWhiteSpace(p.Message))
-                .Select(p => new { p.Message, p.Patron.Player.LastSeenUserName })
-                .ToListAsync();
-
-            if (messages.Count == 0)
-                return null;
-
-            var random = messages[Random.Shared.Next(messages.Count)];
-            return (random.Message, random.LastSeenUserName);
-        }
-
-        public async Task<string?> GetRandomShoutout()
-        {
-            // TODO RMC14 the random row is evaluated outside the DB, if we have that many patrons I guess we have better problems!
-            await using var db = await GetDb();
-            var ntNames = await db.DbContext.RMCPatronRoundEndNTShoutouts
-                .Include(p => p.Patron)
-                .Where(p => p.Patron.Tier.RoundEndShoutout)
-                .Where(p => !string.IsNullOrWhiteSpace(p.Name))
-                .Select(p => p.Name)
-                .ToListAsync();
-
-            var ntName = ntNames.Count == 0 ? null : ntNames[Random.Shared.Next(ntNames.Count)];
-
-            if (ntName == null)
-                ntName = "John Nanotrasen";
-
-            return (ntName);
-        }
-
-        #endregion
-
         # region IPIntel
 
         public async Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
@@ -2152,6 +1960,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
 
         #endregion
+
 
         public abstract Task SendNotification(DatabaseNotification notification);
 

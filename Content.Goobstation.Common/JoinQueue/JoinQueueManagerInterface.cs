@@ -3,7 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Common.JoinQueue;
+// Fully deleted by CorvaxGoob
+/*namespace Content.Goobstation.Common.JoinQueue;
 
 /// <summary>
 /// Defines the public contract for managing the player join queue.
@@ -25,3 +26,4 @@ public interface IJoinQueueManager
     /// </summary>
     int ActualPlayersCount { get; }
 }
+*/

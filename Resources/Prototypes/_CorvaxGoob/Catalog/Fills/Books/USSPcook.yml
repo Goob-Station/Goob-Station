@@ -1,0 +1,12 @@
+- type: entity
+  parent: BookBase
+  id: BookUSSPCook
+  name: Kopatuch. Let him cook
+  description: Kopatych is a legendary chef of the USSP
+  components:
+    - type: Sprite
+      sprite: _CorvaxGoob/Objects/Misc/books.rsi
+      layers:
+        - state: book_USSP
+    - type: Paper
+      content: book-text-ussp

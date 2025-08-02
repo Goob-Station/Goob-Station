@@ -462,7 +462,7 @@ namespace Content.Shared.Cuffs
                     ? "handcuff-component-cuff-self-observer-success-message"
                     : "handcuff-component-cuff-observer-success-message";
                 _popup.PopupEntity(Loc.GetString(popupText,
-                        ("user", Identity.Name(user, EntityManager)), ("target", Identity.Name(target, EntityManager))),
+                        ("user", user), ("target", target)),
                     target, Filter.Pvs(target, entityManager: EntityManager)
                         .RemoveWhere(e => e.AttachedEntity == target || e.AttachedEntity == user), true);
 
@@ -475,9 +475,9 @@ namespace Content.Shared.Cuffs
                 else
                 {
                     _popup.PopupClient(Loc.GetString("handcuff-component-cuff-other-success-message",
-                        ("otherName", Identity.Name(target, EntityManager, user))), user, user);
+                        ("otherName", target)), user, user);
                     _popup.PopupClient(Loc.GetString("handcuff-component-cuff-by-other-success-message",
-                        ("otherName", Identity.Name(user, EntityManager, target))), target, target);
+                        ("otherName", user)), target, target);
                     _adminLog.Add(LogType.Action, LogImpact.High,
                         $"{ToPrettyString(user):player} has cuffed {ToPrettyString(target):player}");
                 }

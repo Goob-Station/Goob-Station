@@ -1,0 +1,15 @@
+ent-MailPowerTool = { ent-BaseMailLarge }
+    .suffix = power tool
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailCircuitboardService = { ent-BaseMailLarge }
+    .suffix = Service Circuitboard
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailCircuitboardIndustrial = { ent-BaseMailLarge }
+    .suffix = Industrial Circuitboard
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailEngineeringCables = { ent-BaseMailLarge }
+    .suffix = cables
+    .desc = { ent-BaseMailLarge.desc }
+ent-MailEngineeringMaterials = { ent-BaseMailLarge }
+    .suffix = sheetglass
+    .desc = { ent-BaseMailLarge.desc }

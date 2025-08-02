@@ -1,0 +1,29 @@
+[game]
+fallbackpreset = "extended"
+lobbyenabled = true
+role_timers = true
+contraband_examine = false
+
+[ic]
+flavor_text = true
+punctuation = false
+
+[ooc]
+enable_during_round = false
+
+[atmos]
+space_wind = true
+space_wind_max_velocity = 22.0
+max_explosion_range = 10.0
+
+[shuttle]
+emergency_early_launch_allowed = true
+arrivals_map = "/Maps/Corvax/Misc/corvax_terminal.yml"
+auto_call_time = 150
+
+[vote]
+restart_required_ratio = 0.85
+same_type_timeout = 300.0
+timerrestart = 30
+preset_enabled = false
+restart_enabled = false

@@ -1,0 +1,15 @@
+ent-ClothingBackpackWizardClownBundle = { ent-ClothingBackpackClown }
+    .suffix = Wizard Clown Bundle
+    .desc = { ent-ClothingBackpackClown.desc }
+ent-ClothingBackpackWizardMimeBundle = { ent-ClothingBackpackMime }
+    .suffix = Wizard Mime Bundle
+    .desc = { ent-ClothingBackpackMime.desc }
+ent-ClothingBackpackOblivionEnforcerBundle = { ent-ClothingBackpack }
+    .suffix = Wizard Oblivion Enforcer Bundle
+    .desc = { ent-ClothingBackpack.desc }
+ent-ToolboxTider = { ent-ToolboxMechanical }
+    .desc = Are you ready for the new tide order?
+    .suffix = Tider
+ent-ToolboxTiderFilled = { ent-ToolboxTider }
+    .suffix = Wizard Tider Bundle
+    .desc = { ent-ToolboxTider.desc }

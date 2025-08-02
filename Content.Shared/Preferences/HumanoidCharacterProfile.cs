@@ -36,9 +36,15 @@
 // SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Hyper B <137433177+HyperB1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -72,7 +78,7 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
-        private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
+        private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' -]"); // CorvaxGoob-Localization
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         /// <summary>
@@ -539,7 +545,7 @@ namespace Content.Shared.Preferences
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
-        public void EnsureValid(ICommonSession session, IDependencyCollection collection)
+        public void EnsureValid(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)
         {
             var configManager = collection.Resolve<IConfigurationManager>();
             var prototypeManager = collection.Resolve<IPrototypeManager>();
@@ -549,6 +555,14 @@ namespace Content.Shared.Preferences
                 Species = SharedHumanoidAppearanceSystem.DefaultSpecies;
                 speciesPrototype = prototypeManager.Index(Species);
             }
+
+            // CorvaxGoob-Sponsors-Start: Reset to human if player not sponsor
+            if (speciesPrototype.SponsorOnly && !sponsorPrototypes.Contains(Species.Id))
+            {
+                Species = SharedHumanoidAppearanceSystem.DefaultSpecies;
+                speciesPrototype = prototypeManager.Index(Species);
+            }
+            // CorvaxGoob-Sponsors-End
 
             var sex = Sex switch
             {
@@ -619,7 +633,7 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
 
-            var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
+            var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes); // CorvaxGoob-Sponsors
 
             var prefsUnavailableMode = PreferenceUnavailable switch
             {
@@ -760,10 +774,10 @@ namespace Content.Shared.Preferences
             return voice.RoundStart && sex == Sex.Unsexed || (voice.Sex == sex || voice.Sex == Sex.Unsexed);
         }
         // CorvaxGoob-TTS-End
-        public ICharacterProfile Validated(ICommonSession session, IDependencyCollection collection)
+        public ICharacterProfile Validated(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)
         {
             var profile = new HumanoidCharacterProfile(this);
-            profile.EnsureValid(session, collection);
+            profile.EnsureValid(session, collection, sponsorPrototypes);
             return profile;
         }
 

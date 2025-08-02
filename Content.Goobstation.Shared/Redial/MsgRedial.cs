@@ -10,7 +10,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Lidgren.Network;
+// Fully deleted by CorvaxGoob
+/*using Lidgren.Network;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
@@ -33,4 +34,4 @@ public sealed class MsgRedial : NetMessage
     }
 
     public override NetDeliveryMethod DeliveryMethod => NetDeliveryMethod.ReliableOrdered;
-}
+}*/

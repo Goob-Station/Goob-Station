@@ -1,0 +1,17 @@
+ent-BaseVehicle = { "" }
+    .desc = { "" }
+ent-VehicleSecway = секвей
+    .desc = Будущее транспорта. Популяризируется святым Иаковом, покровителем сотрудников службы безопасности и модераторов интернет-форумов.
+ent-VehicleSyndicateSegway = сегвей синдиката
+    .desc = Будьте стильным врагом корпорации.
+ent-VehicleATV = Квадроцикл
+    .desc = All-Tile Vehicle.
+ent-VehicleJanicart = Уборочная машина
+    .desc = Верный конь уборщика.
+ent-VehicleWheelchair = инвалидная коляска
+    .desc = Кресло на больших колесиках. Похоже, в нем можно передвигаться самостоятельно.
+ent-VehicleWheelchairFolded = { ent-VehicleWheelchair }
+    .suffix = сложено
+    .desc = { ent-VehicleWheelchair.desc }
+ent-VehicleHoverchair = стул-ховер
+    .desc = Откиньтесь на спинку роскошного кресла и расслабьтесь.

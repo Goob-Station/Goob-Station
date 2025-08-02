@@ -1,0 +1,13 @@
+ent-ClothingModsuitInquisitory = контроллер скафандра инквизитора
+    .desc = Основной контроллер скафандра инквизитора.
+ent-ClothingModsuitGauntletsInquisitory = перчатки скафандра инквизитора
+    .desc = Пара перчаток, изготовленных для скафандра инквизитора.
+ent-ClothingModsuitHelmetInquisitory = шлем скафандра инквизитора
+    .desc = Передовой шлем, разработанный НаноТрейзен для скафандра инквизитора. Имеет встроенный ИЛС.
+ent-ClothingModsuitChestplateInquisitory = нагрудная пластина скафандра инквизитора
+    .desc = Передовой нагрудник, разработанный НаноТрейзен для скафандра инквизитора. Оснащён сервоприводами для снижения нагрузки.
+ent-ClothingModsuitBootsInquisitory = ботинки скафандра инквизитора
+    .desc = Передовая пара магнитных ботинок для скафандра инквизитора.
+ent-SuitStorageInquisitory = { ent-SuitStorageBase }
+    .suffix = модульный скафандр инквизитора
+    .desc = { ent-SuitStorageBase.desc }

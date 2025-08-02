@@ -1,0 +1,16 @@
+ent-ClothingModsuitBootsStandard = стандартные ботинки скафандра MOD
+    .desc = Специальные модульные ботинки, разработанные для компактного хранения в модульном скафандра.
+ent-ClothingModsuitBootsSecurity = ботинки скафандра MOD «Солдат»
+    .desc = ЖЕЛЕЗНЫЕ БОТИНКИ - ЗАКОН.
+ent-ClothingModsuitBootsHeadOfSecurity = ботинки скафандра MOD «Бастион»
+    .desc = Я называю их своими топтунами коммунистов.
+ent-ClothingModsuitBootsParamedic = ботинки скафандра MOD «Санитар»
+    .desc = Созданы, чтобы испачкаться кровью.
+ent-ClothingModsuitBootsEngineer = ботинки скафандра MOD «Сапёр»
+    .desc = Созданы, чтобы испачкаться маслом.
+ent-ClothingModsuitBootsAtmostech = ботинки скафандра MOD «Эол»
+    .desc = Созданы, чтобы обжечься.
+ent-ClothingModsuitBootsResearchDirector = ботинки скафандра MOD «Минерва»
+    .desc = Не спасут от скольжения по собственной крови, когда голокарп летит за тобой.
+ent-ClothingModsuitBootsCaptain = ботинки скафандра MOD "Магнат"
+    .desc = Эти ботинки разработаны самим МАЙКЛОМ ДЖОРДАНОМ и выкованы из древних сплавов, чувак.

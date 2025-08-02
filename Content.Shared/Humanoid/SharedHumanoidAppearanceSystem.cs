@@ -46,6 +46,7 @@ using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.Shared._CorvaxGoob.TTS;
+using Content.Corvax.Interfaces.Shared;
 
 namespace Content.Shared.Humanoid;
 
@@ -66,6 +67,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly GrammarSystem _grammarSystem = default!;
+    private ISharedSponsorsManager? _sponsors;
     [Dependency] private readonly SharedIdentitySystem _identity = default!;
 
     [ValidatePrototypeId<SpeciesPrototype>]
@@ -83,6 +85,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        IoCManager.Instance!.TryResolveType(out _sponsors); // Corvax-Sponsors
 
         SubscribeLocalEvent<HumanoidAppearanceComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<HumanoidAppearanceComponent, ExaminedEvent>(OnExamined);
@@ -115,7 +118,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         var profile = export.Profile;
         var collection = IoCManager.Instance;
-        profile.EnsureValid(session, collection!);
+        var sponsorPrototypes = _sponsors != null && _sponsors.TryGetServerPrototypes(session.UserId, out var prototypes) ? prototypes.ToArray() : []; // Corvax-Sponsors
+        profile.EnsureValid(session, collection!, sponsorPrototypes);
         return profile;
     }
 

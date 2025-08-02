@@ -10,94 +10,94 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <Document>
   # The Mansus Veil Weakens
-  So you're a Heretic? Well, get ready for magic and battle. Grab influences, complete sacrifices, accomplish rituals, and ascend to godhood.
+  Итак, ты еретик? Приготовься к магии и битве. Собирай влияния, выполняй жертвоприношения, совершай ритуалы и вознесись к божественности.
 
-  Your ultimate goal is to ascend and become all powerful, but to do that you must gain knowledge.
-  All knowledges cost 1 point, except for "public" ones, which are accessible from any path, or Ascensions.
+  Твоя главная цель — вознестись и стать всемогущим, но для этого нужно получить знания.
+  Все знания стоят 1 очко, кроме "публичных", доступных с любого пути, и Вознесений.
 
-  You can gain knowledge points and become stronger through a few ways:
-  - Draining influences that spawn randomly around the station.
-  - Sacrificing crew members your dark patrons hunger for.
-  - Automatically getting one knowledge point every 20 minutes.
+  Ты можешь получать очки знаний и становиться сильнее несколькими способами:
+  - Поглощая влияния, которые случайно появляются по станции.
+  - Жертвуя членов экипажа, которых требуют твои тёмные покровители.
+  - Автоматически получая по одному очку знаний каждые 20 минут.
 
   ## The Chaplain
-  A powerful foe indeed, try to steer clear of the Chaplain as their Null Rod and it's variants will deal holy damage to you while you're wielding heretical equipment!
+  Опасный противник, старайся держаться подальше от Капеллана — его Null Rod и варианты наносят святой урон, если у тебя ересь на руках!
 
-  Heretics can heal holy damage a few ways:
-  - Standing on a transmutation rune.
-  - Drinking from the Eldritch Flask.
+  Еретики могут лечить святой урон несколькими способами:
+  - Стоя на руне трансмутации.
+  - Пьянствуя из Элдритч-фляги.
 
   ## Eldritch Influences
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluence" Caption=""/>
   </Box>
-  Influences are the easy way to gain power points. Whenever there are Heretics aboard Space Station 14, influences will randomly spawn across the station.
-  They are not visible to the naked eye of a crew member, however they [bold]will[/bold] become visible after harvesting, aside from suddenly changing colors.
-  Tip: When using [color=green]Codex Cicatrix[/color] on an influence you will harvest it faster and get twice as much knowledge points from it, but it will be a dead giveaway to anyone nearby that you're a heretic.
-  <Box>
-    <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Harvested influence. Notice the glow."/>
-  </Box>
+  Влияния — простой способ получить очки силы. Когда на станции есть еретики, влияния случайно появляются по всей станции.
+  Они невидимы для глаза обычного члена экипажа, но **станут видны** после сбора, кроме того, резко меняют цвет.
+  Совет: Используя **Codex Cicatrix** на влиянии, ты соберёшь его быстрее и получишь вдвое больше очков знаний, но это сразу выдаст тебя окружающим как еретика.
 
-  Each influence can only be harvested once, so the heretic that goes the fastest and grabs the most influences first has to do less killing and sacrificing to reach their ascensions.
+  <Box>
+    <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Собранное влияние. Обрати внимание на свечение."/>
+  </Box>
+  Каждое влияние можно собрать только один раз, поэтому еретик, который первым соберёт больше влияний, должен убивать и жертвовать меньше, чтобы достичь вознесения.
 
   ## Sacrifices
-  Now it's time for you to grow some balls and start sacrificing crewmembers for points.
-  The Mansus desires only a select few Heathens (non-heretics) at any moment.
+  Теперь пора набраться храбрости и начать приносить в жертву членов экипажа ради очков.
+  Mansus желает только избранных язычников (нееретиков) в любой момент.
 
-  At the start of the round you will be assigned four-five sacrifice targets.
+  В начале раунда тебе назначат 4-5 целей для жертвоприношения.
 
-  - One target will be a Head of Staff.
-  - One target will be a member of security.
-  - Other targets will be completely random crewmembers.
+  - Одна цель — глава персонала.
+  - Одна цель — сотрудник службы безопасности.
+  - Остальные — случайные члены экипажа.
 
-  Sacrificing a Head of Staff or member of security will reward you 3 knowledge points, sacrificing any other crewmember will reward 2. You cannot sacrifice regular non-target crewmembers.
+  Жертвоприношение главы персонала или охранника даст 3 очка знаний, жертва любого другого члена экипажа — 2 очка. Нельзя приносить в жертву обычных нецелевых членов экипажа.
 
-  Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target's in critical condition or dead they're ready to sacrifice.
-  Drag them over a transmutation rune and invoke the [color=yellow]Heartbeat of the Mansus[/color] to sacrifice them.
+  Следуй за своим [color=red]Живым Сердцем[/color] к выбранной цели и выведи её из строя любыми способами. Если цель в критическом состоянии или мертва — её можно жертвовать.
+  Перетащи тело на руну трансмутации и вызови [color=yellow]Сердцебиение Mansus[/color], чтобы принести жертву.
 
-  You can reroll your targets by invoking [color=yellow]Relentless Heartbeat[/color] ritual.
+  Ты можешь перебросить цели, вызвав ритуал [color=yellow]Неумолимое Сердцебиение[/color].
 
   ## Heretical Research
-  Once you have some power points, it's time to research! Open up your knowledge store using the action button.
-  The research menu forms a branching tree, and your first selection will be to commit to a path that defines your initial abilities and Final Ascension.
-  You can earn abilities from other paths to a limited degree, but overall your chosen path will heavily influence your play-style.
+  Когда у тебя появятся очки знаний, начинай исследования! Открой хранилище знаний через кнопку действия.
+  Меню исследований представляет собой ветвящееся дерево, и твой первый выбор — это путь, определяющий начальные способности и Финальное Вознесение.
+  Ты можешь получить способности с других путей в ограниченной мере, но выбранный путь сильно влияет на стиль игры.
 
   ## Transmutation is Key
-  Eventually, you'll need to start using proper magics. To draw a transmutation rune, you'll need a writing tool, such as a pen or crayon.
-  Activate [color=green]Mansus Grasp[/color] in your offhand and click on the floor to start drawing a rune.
-  These runes are highly noticeable and take up a 3x3 area.
-  You can freely remove runes by using your pen with the activated [color=green]Mansus Grasp[/color] on it, and you can also freely use other Heretic's runes.
+  В конце концов тебе понадобится использовать настоящую магию. Чтобы нарисовать руну трансмутации, нужен инструмент для письма, например ручка или мелок.
+  Активируй [color=green]Mansus Grasp[/color] в свободной руке и кликни по полу, чтобы начать рисовать руну.
+  Эти руны хорошо заметны и занимают область 3x3.
+  Ты можешь свободно удалять руны, используя свою ручку с активированным [color=green]Mansus Grasp[/color], а также использовать руны других еретиков.
 
-  To [bold]transmute[/bold], simply click the rune with your empty hand to choose the needed ritual, after that use your [color=green]Mansus Grasp[/color] on the rune to see what objects you require for the ritual.
-  You can always see your chosen ritual by [bold]inspecting[/bold] the rune.
+  Чтобы [bold]трансмутировать[/bold], просто кликни по руне пустой рукой для выбора ритуала, затем используй [color=green]Mansus Grasp[/color] на руне, чтобы увидеть необходимые предметы.
+  Всегда можно посмотреть выбранный ритуал, [bold]осмотрев[/bold] руну.
 
-  Transmutation Rituals allow you to create powerful artifacts, demonic monsters, and many useful tools that will help you progress towards ultimate power.
+  Ритуалы трансмутации позволяют создавать мощные артефакты, демонических монстров и полезные инструменты для достижения власти.
 
   ## Focus is Necessary
-  To cast more advanced spells, you must focus by wearing an [color=orange]Amber Focus[/color].
-  You can acquire Amber Focus using the eponymous ritual.
-  Some more powerful heretical equipment also functions as a focus - namely, the Ominous Armor from the Armorer's Ritual (when the hood is flipped up).
-  [color=yellow]Ascension[/color] disables the need for a focus.
+  Для более продвинутых заклинаний нужно фокусироваться, надевая [color=orange]Янтарный Фокус[/color].
+  Его можно получить с помощью одноимённого ритуала.
+  Некоторые мощные еретические предметы также служат фокусом — например, Зловещие Доспехи из Ритуала Бронника (с поднятым капюшоном).
+  [color=yellow]Вознесение[/color] снимает необходимость в фокусе.
 
   ## Starting Knowledge
-  - \[ [color=red]Mansus Grasp[/color] \] - A short range spell that channels eldritch power straight to your palm. Upon contact, knocks down and confuses unsuspecting targets.
-  - \[ [color=red]Heartbeat of the Mansus[/color] \] - Allows you to sacrifice targets who are in critical or worse condition to the Mansus, gibbing them and rewarding you with one knowledge point; two if your victim was a head of staff.
-  - \[ [color=red]Amber Focus[/color] \] - Allows you to transmute a shard of glass and a pair of eyes into an Amber Focus. This is a small neck-worn item that allows you to cast advanced spells while worn.
-  - \[ [color=red]Living Heart[/color] \] - Allows you to pinpoint your targets. Plays an audible heartbeat sound, so use it carefully.
-  - \[ [color=red]Relentless Heartbeat[/color] \] - Allows you to transmute a heart, a pen and paper to reroll your target selection, in case you've run out of bodies or want a different approach.
-  - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix. The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes easier, and as a spell focus in a pinch.
-  - \[ [color=red]Cloak of Shadow[/color] \] - A spell, which will conceal your identity in an obvious purple smoke, making you move faster but interact slower. Requires a focus to cast.
-  - \[ [color=red]Feast of Owls[/color] \] - Allows you to perform a ritual that grants you 5 knowledge points but locks you out of ascension. A small sacrifice to gain power quickly. There are no refunds.
-  - \[ [color=red]Reminiscence[/color] \] - Heretic blades are limited. You can only create up to 2-4 blades depending on your path by performing stage 2 blade creation ritual. Reminiscence ritual allows you to transmute a chair to recall your lost blade that you have previously created to the transmutation rune.
+  - \[ [color=red]Mansus Grasp[/color] \] — Короткодействующее заклинание, направляющее потоки Элдритч прямо в ладонь. При контакте сбивает с ног и сбивает с толку цель.
+  - \[ [color=red]Heartbeat of the Mansus[/color] \] — Позволяет приносить в жертву цели в критическом состоянии, расчленяя их и давая одно очко знаний; два — если жертва — глава персонала.
+  - \[ [color=red]Amber Focus[/color] \] — Позволяет трансмутировать осколок стекла и пару глаз в Янтарный Фокус. Маленький предмет, надеваемый на шею, который даёт возможность кастовать продвинутые заклинания.
+  - \[ [color=red]Living Heart[/color] \] — Позволяет определять цели. Издаёт слышимое сердцебиение, используй осторожно.
+  - \[ [color=red]Relentless Heartbeat[/color] \] — Позволяет трансмутировать сердце, ручку и бумагу для переброса целей, если закончились тела или хочешь другой подход.
+  - \[ [color=red]Codex Cicatrix[/color] \] — Позволяет трансмутировать книгу, любую ручку и кусок мяса или несиликоновый орган в Codex Cicatrix. Используется для сбора влияний с прибавкой знаний, но увеличивает риск быть замеченным. Также помогает рисовать и удалять руны и служит фокусом в крайнем случае.
+  - \[ [color=red]Cloak of Shadow[/color] \] — Заклинание, скрывающее твою личность в густом пурпурном дыму, увеличивающее скорость передвижения и замедляющее взаимодействия. Требует фокус для кастования.
+  - \[ [color=red]Feast of Owls[/color] \] — Ритуал, дающий 5 очков знаний, но блокирующий вознесение. Маленькая жертва ради быстрой силы. Возврата нет.
+  - \[ [color=red]Reminiscence[/color] \] — Еретические клинки ограничены. Можно создать от 2 до 4 клинков в зависимости от пути, выполнив ритуал создания клинка второго этапа. Ритуал Reminiscence позволяет трансмутировать стул, чтобы вернуть ранее созданный клинок к руне трансмутации.
 
   ## Tips
-  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend!
-  - As a [color=purple]Raw Prophet[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a radio channel similar to changelings with :z key to talk privately.
-  - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof.
-  - [color=purple]Influences[/color] can spawn in almost any location on the station, ranging from the main hallways and public restrooms to [color=cyan]Command staff offices[/color] and [color=red]restricted security areas[/color] in the Brig. It's best to check every area you can access, public and department.
-  - Monkeys and other animals make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
-  - Most summoned ghouls will drop the components used to create them on death. While having them to die is not ideal, you can easily grab the parts and summon another.
-  - [color=yellow]Eldritch Flask[/color], a stage 3 side path knowledge acts like a cryostasis beaker and has a total capacity of 100 units, meaning you can create deadly mixes that are easily triggered.
-  - Rusted tiles cause vomiting and other negative effects to organics standing on them and deal massive damage to silicons. It is highly advised to stay away from rust if you are not a heretic, ghoul or summoned creature. On the other hand, you can always take advantage of the rust as heretic, no matter what path you choose.
-  - [color=yellow]Eldritch Essence[/color], contained in eldritch flask is able to rust tiles upon splashing on them. Contrariwise, [color=yellow]Space Cola[/color] clears tile rusting, which is useful for crew when fighting Rusted Path heretic.
+  - На Пути Пепла всегда носи с собой огнетушитель или бутылку с водой! Хотя можешь выпускать огненные шары, ты не невосприимчив к огню, пока не вознесёшься!
+  - Как [color=purple]Raw Prophet[/color], твоя способность [color=green]Mansus Link[/color] очень полезна для общения. При использовании на ком-то они получают радиоканал, похожий на чейнджлинговый, с кнопкой :z для приватного разговора.
+  - Mansus Grasp временно искажает речь тех, на кого ты его направляешь. Это поможет уйти от подозрений при общении, но не полностью.
+  - [color=purple]Влияния[/color] могут появляться почти в любом месте станции — от основных коридоров и общих туалетов до [color=cyan]офисов команды[/color] и [color=red]ограниченных зон безопасности[/color] в бриге. Проверяй все доступные места.
+  - Обезьяны и другие животные — хорошие и обычно не вызывающие подозрений источники органов и трупов для ритуалов.
+  - Большинство призванных гулей при смерти оставляют компоненты для повторного призыва. Хотя убивать их нежелательно, детали легко собрать и вызвать другого.
+  - [color=yellow]Eldritch Flask[/color], знание третьей стадии бокового пути, действует как криотехнологическая колба с ёмкостью 100 единиц, позволяя создавать опасные смеси, легко активируемые.
+  - Ржавые плитки вызывают рвоту и другие отрицательные эффекты у органиков и наносят сильный урон силикону. Совет — держаться подальше от ржавчины, если ты не еретик, гуль или призванное существо. С другой стороны, ржавчину можно использовать в своих целях.
+  - [color=yellow]Eldritch Essence[/color], содержимое фляги, может ржавить плитки при попадании. Напротив, [color=yellow]Space Cola[/color] очищает плитки от ржавчины, что полезно для экипажа при борьбе с еретиками Пути Ржавчины.
 </Document>

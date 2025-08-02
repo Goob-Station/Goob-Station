@@ -1,0 +1,15 @@
+ent-ClothingBeltMilitaryWebbingCMO = chief medical officer's chest rig
+    .desc = A medical chest rig with deep pockets, for use by health professionals.
+ent-ClothingBeltDeathsquadWebbing = deathsquad operative chestrig
+    .desc = A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it.
+    .suffix = DO NOT MAP
+ent-ClothingBeltSecurityWebbingMedical = ert doctor's chest rig
+    .desc = A medical chest rig with deep pockets, for use by ERT operatives.
+ent-ClothingBeltCorporateJudo = Corporate Judo Belt
+    .desc = Teaches the wearer NT Corporate Judo.
+ent-ClothingBeltChemBagSyndi = syndicate medical pouch
+    .desc = A robust pouch for medical supplies worn by Gorlex Marauder operatives. It smells of desoxyephedrine.
+ent-ClothingBeltSheathHeadOfSecurity = head of security's sheath
+    .desc = A rugged sheath, designed to hold the Head of Security's custom energy sword.
+ent-ClothingBeltMilitaryRigGrenadier = grenadier belt
+    .desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.

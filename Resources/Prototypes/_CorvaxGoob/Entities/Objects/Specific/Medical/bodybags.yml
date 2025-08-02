@@ -1,0 +1,161 @@
+- type: entity
+  parent: BodyBag
+  id: BodyBagBluespace
+  name: body bag bluespace
+  description: Durable bluespace bag designed for storing and transporting corpses, preventing decomposition.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/bluespace.rsi
+    layers:
+    - state: bluespacebag
+      map: ["unfoldedLayer", "enum.StorageVisualLayers.Base"]
+    - state: bluespacebag_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: open_overlay
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/bluespace.rsi
+    state: bluespacebag
+  - type: EntityStorage
+    capacity: 50
+
+- type: entity
+  parent: BodyBagBluespace
+  id: BodyBagBluespaceFolded
+  suffix: Folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  parent: BodyBag
+  id: BodyBagNanoTrasen
+  name: blue body bag
+  description: Plastic NT bag designed for storing and transporting corpses, preventing decomposition.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/nanotrasen.rsi
+    layers:
+    - state: ntbag
+      map: ["unfoldedLayer", "enum.StorageVisualLayers.Base"]
+    - state: ntbag_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: open_overlay
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/nanotrasen.rsi
+    state: ntbag
+  - type: EntityStorage
+    capacity: 1
+
+- type: entity
+  parent: BodyBagNanoTrasen
+  id: BodyBagNanoTrasenFolded
+  suffix: Folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  parent: BodyBag
+  id: BodyBagPrisoner
+  name: prisoner body bag
+  description: Plastic bag designed for storing and transporting corpses, preventing decomposition in prison structures.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/prison.rsi
+    layers:
+    - state: prisonerbag
+      map: ["unfoldedLayer", "enum.StorageVisualLayers.Base"]
+    - state: prisonerbag_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: open_overlay
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/prison.rsi
+    state: prisonerbag
+  - type: EntityStorage
+    capacity: 1
+
+- type: entity
+  parent: BodyBagPrisoner
+  id: BodyBagPrisonerFolded
+  suffix: Folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  parent: BodyBag
+  id: BodyBagRadiation
+  name: radiation body bag
+  description: Plastic bag designed for storing and transporting radioactive corpses, preventing decomposition.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/radiation.rsi
+    layers:
+    - state: radiationbag
+      map: ["unfoldedLayer", "enum.StorageVisualLayers.Base"]
+    - state: radiationbag_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: open_overlay
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/radiation.rsi
+    state: radiationbag
+  - type: EntityStorage
+    capacity: 1
+  - type: RadiationBlockingContainer
+    resistance: 5
+
+- type: entity
+  parent: BodyBagRadiation
+  id: BodyBagRadiationFolded
+  suffix: Folded
+  components:
+  - type: Foldable
+    folded: true
+
+- type: entity
+  parent: BodyBag
+  id: BodyBagSyndicate
+  name: red body bag
+  description: Plastic bag with Syndicate symbols, designed for storing and transporting corpses, preventing decomposition.
+  components:
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/syndicate.rsi
+    layers:
+    - state: syndicatebag
+      map: ["unfoldedLayer", "enum.StorageVisualLayers.Base"]
+    - state: syndicatebag_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: open_overlay
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _CorvaxGoob/Objects/Specific/Medical/BodyBags/syndicate.rsi
+    state: syndicatebag
+  - type: EntityStorage
+    capacity: 3
+
+- type: entity
+  parent: BodyBagSyndicate
+  id: BodyBagSyndicateFolded
+  suffix: Folded
+  components:
+  - type: Foldable
+    folded: true

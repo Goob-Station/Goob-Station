@@ -1,0 +1,59 @@
+# Medical
+- type: loadoutGroup
+  id: SurgeonHead
+  name: loadout-group-surgeon-head
+  loadouts:
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+
+- type: loadoutGroup
+  id: SurgeonJumpsuit
+  name: loadout-group-surgeon-jumpsuit
+  loadouts:
+  - MedicalBlueScrubs
+  - MedicalGreenScrubs
+  - MedicalPurpleScrubs
+
+- type: loadoutGroup
+  id: SurgeonScalpel
+  name: loadout-group-surgeon-scalpel
+  minLimit: 0
+  loadouts:
+  - SurgeonScalpelLaser
+  
+- type: loadoutGroup
+  id: Inventory
+  name: loadout-group-inventory
+  minLimit: 0
+  maxLimit: 5
+  loadouts: []
+
+- type: loadoutGroup
+  id: ChiefEngineerBackpack
+  name: loadout-group-chief-engineer-backpack
+  loadouts:
+  - ChiefEngineerBackpack
+  - ChiefEngineerSatchel
+  - ChiefEngineerDuffel
+
+# Security
+- type: loadoutGroup
+  id: PilotHead
+  name: loadout-group-pilot-head
+  minLimit: 0
+  loadouts:
+  - SecurityPilotBeret
+
+- type: loadoutGroup
+  id: PilotJumpsuit
+  name: loadout-group-pilot-jumpsuit
+  loadouts:
+  - JumpsuitPilot
+  - JumpskirtPilot
+
+- type: loadoutGroup
+  id: PilotOuterClothing
+  name: loadout-group-pilot-outerclothing
+  loadouts:
+  - OuterWinterPilot

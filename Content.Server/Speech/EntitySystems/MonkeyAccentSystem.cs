@@ -36,23 +36,23 @@ public sealed class MonkeyAccentSystem : EntitySystem
                 {
                     foreach (var _ in word)
                     {
-                        accentedMessage.Append('O');
+                        accentedMessage.Append('У');  // CorvaxGoob-Localization
                     }
 
                     if (_random.NextDouble() >= 0.3)
-                        accentedMessage.Append('K');
+                        accentedMessage.Append('К');  // CorvaxGoob-Localization
                 }
                 else
-                    accentedMessage.Append('O');
+                    accentedMessage.Append('У');  // CorvaxGoob-Localization
             }
             else
             {
                 foreach (var _ in word)
                 {
                     if (_random.NextDouble() >= 0.8)
-                        accentedMessage.Append('H');
+                        accentedMessage.Append('Г');  // CorvaxGoob-Localization
                     else
-                        accentedMessage.Append('A');
+                        accentedMessage.Append('А');  // CorvaxGoob-Localization
                 }
 
             }

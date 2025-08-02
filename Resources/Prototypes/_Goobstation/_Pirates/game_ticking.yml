@@ -58,7 +58,6 @@
       - type: RandomMetadata
         nameSegments:
         - NamesDeathCommando
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl

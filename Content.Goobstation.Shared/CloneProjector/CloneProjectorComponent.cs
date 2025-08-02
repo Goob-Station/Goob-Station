@@ -42,7 +42,7 @@ public sealed partial class CloneProjectorComponent : Component
     /// Should the host be stunned when the clone is destroyed?
     /// </summary>
     [DataField]
-    public bool StunOnDestroyed = true;
+    public bool DoStun = true;
 
     /// <summary>
     ///  How much damage does the host take when the clone is destroyed?
@@ -73,6 +73,12 @@ public sealed partial class CloneProjectorComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? ClonedItemWhitelist;
+
+    /// <summary>
+    /// If the entity using this projector matches the whitelist, prevent use.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? UserBlacklist;
 
     [DataField]
     public ProtoId<DamageModifierSetPrototype> CloneDamageModifierSet ="LivingLight";

@@ -1,0 +1,44 @@
+- type: entity
+  id: GarlandsOff
+  name: garlands
+  description: "Non-working danglers. Maybe they will turn on when something happens?"
+  suffix: "Off"
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Decoration/garlands.yml
+    drawdepth: Overdoors
+    state: base
+  - type: SpriteFade
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 175
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+
+- type: entity
+  parent: GarlandsOff
+  id: Garlands
+  description: "Beautiful... Looking at this, you are filled with a New Year's mood."
+  suffix: "On"
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: lights
+      shader: unshaded

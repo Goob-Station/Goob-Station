@@ -1,0 +1,14 @@
+ent-BaseMagazineHighCaliber = magazine (.50 caliber)
+    .desc = { ent-BaseItem.desc }
+ent-MagazineHighCaliberEmpty = magazine (.50 empty)
+    .desc = { ent-BaseMagazineHighCaliber.desc }
+ent-MagazineHighCaliber = magazine (.50 anti-materiel)
+    .desc = { ent-BaseMagazineHighCaliber.desc }
+ent-MagazineHighCaliberExplosive = magazine (.50 high-explosive incendiary)
+    .desc = { ent-BaseMagazineHighCaliber.desc }
+ent-BaseMagazineAntiMateriel = magazine (.60 caliber)
+    .desc = { ent-BaseItem.desc }
+ent-MagazineAntiMaterielEmpty = magazine (.60 empty)
+    .desc = { ent-BaseMagazineAntiMateriel.desc }
+ent-MagazineAntiMateriel = magazine (.60 anti-materiel)
+    .desc = { ent-BaseMagazineAntiMateriel.desc }

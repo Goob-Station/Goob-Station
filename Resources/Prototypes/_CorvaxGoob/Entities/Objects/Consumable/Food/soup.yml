@@ -30,3 +30,151 @@
     - type: Tag
       tags:
       - Meat
+
+- type: entity
+  name: footbear soup
+  parent: FoodBowlBase
+  id: FoodGOOOOLsoup
+  description: I don't think we're playing cards...
+  components:
+  - type: FlavorProfile
+    flavors:
+      - beary
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: goool
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 6
+  - type: Tag
+    tags:
+    - Soup
+    - Fruit
+    - Meat
+
+- type: entity
+  name: okroshka soup
+  parent: FoodBowlBase
+  id: FoodOkroshkasoup
+  description: Salad with kvass and sour cream.. what
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sumery
+      - bread
+      - potatoes
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: okroshka
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Water
+          Quantity: 7
+  - type: Tag
+    tags:
+    - Soup
+    - Fruit
+    - Meat
+
+- type: entity
+  name: oliviel soup
+  parent: FoodBowlBase
+  id: FoodOlivielsoup
+  description: My father never dreamed of so much mayonnaise!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - holidais
+      - potatoes
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: oliviel
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 10
+  - type: Tag
+    tags:
+    - Soup
+    - Meat
+
+- type: entity
+  name: solanka soup
+  parent: FoodBowlBase
+  id: FoodSolankasoup
+  description: Meehhh.....
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sour
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: solanka
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 7
+  - type: Tag
+    tags:
+    - Soup
+    - Meat
+
+- type: entity
+  name: plow 
+  parent: FoodBowlBase
+  id: FoodPlow
+  description: Oh, Vasya, rice is fire
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - meaty
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: plow
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Soup
+    - Meat

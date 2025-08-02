@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using System.Linq;
 using Content.Server.Connection;
 using Content.Shared.CCVar;
@@ -47,7 +49,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
     [Dependency] private readonly IConnectionManager _connection = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly IServerNetManager _net = default!;
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
+    //[Dependency] private readonly LinkAccountManager _linkAccount = default!; CorvaxGoob-Coins
 
     /// <summary>
     ///     Queue of active player sessions
@@ -72,7 +74,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
 
         _configuration.OnValueChanged(GoobCVars.QueueEnabled, OnQueueCVarChanged, true);
         _configuration.OnValueChanged(GoobCVars.PatreonSkip, OnPatronCvarChanged, true);
-        _player.PlayerStatusChanged += OnPlayerStatusChanged;
+        // _player.PlayerStatusChanged += OnPlayerStatusChanged; // CorvaxGoob
     }
 
 
@@ -109,10 +111,9 @@ public sealed class JoinQueueManager : IJoinQueueManager
         }
         else if (e.NewStatus == SessionStatus.Connected)
         {
-            OnPlayerConnected(e.Session);
+            // OnPlayerConnected(e.Session); // CorvaxGoob
         }
     }
-
 
     private async void OnPlayerConnected(ICommonSession session)
     {
@@ -123,7 +124,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
         }
 
         var isPrivileged = await _connection.HasPrivilegedJoin(session.UserId);
-        var isPatron = _linkAccount.GetPatron(session)?.Tier != null;
+        //var isPatron = _linkAccount.GetPatron(session)?.Tier != null; CorvaxGoob-Coins
         var currentOnline = _player.PlayerCount - 1;
         var haveFreeSlot = currentOnline < _configuration.GetCVar(CCVars.SoftMaxPlayers);
         if (isPrivileged || haveFreeSlot)
@@ -138,7 +139,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
 
         if (isPatron && _patreonIsEnabled)
             _patronQueue.Add(session);
-        else
+        else 
             _queue.Add(session);
 
         ProcessQueue(false, session.ConnectedTime);
@@ -220,3 +221,4 @@ public sealed class JoinQueueManager : IJoinQueueManager
         Timer.Spawn(0, () => _player.JoinGame(session));
     }
 }
+*/

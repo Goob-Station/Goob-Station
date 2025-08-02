@@ -4,6 +4,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+// Fully deleted by CorvaxGoob
+/*
 using Robust.Shared.IoC;
 using Robust.Shared.Network;
 
@@ -22,4 +24,4 @@ public abstract class SharedRedialManager : IPostInjectInit
     {
 
     }
-}
+}*/

@@ -72,7 +72,7 @@
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
-  goobcoins: 20 #Goob content
+  #goobcoins: 20 #Goob content Corvax-Goob-coins
   access:
   - Maintenance
   - Engineering

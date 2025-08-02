@@ -23,7 +23,7 @@ using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;
-using Content.Goobstation.Common.JoinQueue; // Goobstation - Queue
+using Content.Corvax.Interfaces.Server; // CorvaxGoob - Queue
 
 namespace Content.Server.GameTicking
 {
@@ -48,7 +48,7 @@ namespace Content.Server.GameTicking
         ///     For access to the round ID in status responses.
         /// </summary>
         [Dependency] private readonly SharedGameTicker _gameTicker = default!;
-        [Dependency] private readonly IJoinQueueManager _joinQueue = default!; // Goobstation - Queue
+        // [Dependency] private readonly IJoinQueueManager _joinQueue = default!; // Goobstation - Queue : Commented by CorvaxGoob
 
         private void InitializeStatusShell()
         {
@@ -62,11 +62,21 @@ namespace Content.Server.GameTicking
             // This method is raised from another thread, so this better be thread safe!
             lock (_statusShellLock)
             {
+                // CorvaxGoob-Queue-Start
+                var players = IoCManager.Instance?.TryResolveType<IServerJoinQueueManager>(out var joinQueueManager) ?? false
+                    ? joinQueueManager.ActualPlayersCount
+                    : _playerManager.PlayerCount;
+
+                players = _cfg.GetCVar(CCVars.AdminsCountInReportedPlayerCount)
+                    ? players
+                    : players - _adminManager.ActiveAdmins.Count();
+                // CorvaxGoob-Queue-End
                 jObject["name"] = _baseServer.ServerName;
                 jObject["map"] = _gameMapManager.GetSelectedMap()?.MapName;
                 jObject["round_id"] = _gameTicker.RoundId;
-                jObject["players"] = _joinQueue.ActualPlayersCount; // Goobstation - Queue
-                jObject["queue"] = _joinQueue.PlayerInQueueCount; // Goobstation - Queue
+                jObject["players"] = players; // Corvax-Queue
+                // jObject["players"] = _joinQueue.ActualPlayersCount; // Goobstation - Queue. Commented by CorvaxGoob
+                // jObject["queue"] = _joinQueue.PlayerInQueueCount; // Goobstation - Queue. Commented by CorvaxGoob
                 jObject["soft_max_players"] = _cfg.GetCVar(CCVars.SoftMaxPlayers);
                 jObject["panic_bunker"] = _cfg.GetCVar(CCVars.PanicBunkerEnabled);
                 jObject["run_level"] = (int) _runLevel;

@@ -1,0 +1,13 @@
+ent-ClothingModsuitResponsoryLeader = Leader Responsory modsuit control
+    .desc = The main controller for a Leader Responsory modsuit.
+ent-ClothingModsuitGauntletsResponsoryLeader = Leader Responsory modsuit gauntlets
+    .desc = A pair of gauntlets made for the Leader Responsory modsuit.
+ent-ClothingModsuitHelmetResponsoryLeader = Leader Responsory modsuit helmet
+    .desc = A state-of-the-art helmet designed by NanoTrasen for the Leader Responsory modsuit. It includes a built-in HUD.
+ent-ClothingModsuitChestplateResponsoryLeader = Leader Responsory modsuit chestplate
+    .desc = A state of the art chestplate designed by NanoTrasen for the Leader Responsory Modsuit. It incorporates powered servos to reduce the equipment load.
+ent-ClothingModsuitBootsResponsoryLeader = Leader Responsory modsuit boots
+    .desc = A state-of-the-art pair of magboots for the Leader Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
+ent-SuitStorageResponsoryLeader = { ent-SuitStorageBase }
+    .suffix = Leader Responsory Modsuit
+    .desc = { ent-SuitStorageBase.desc }

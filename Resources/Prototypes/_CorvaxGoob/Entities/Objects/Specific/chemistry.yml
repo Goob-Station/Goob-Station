@@ -1,0 +1,14 @@
+- type: entity
+  suffix: opporozidone
+  parent: Beaker
+  id: OpporozidoneBeakerSmall
+  components:
+  - type: Label
+    currentLabel: reagent-name-opporozidone
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 50
+        reagents:
+        - ReagentId: Opporozidone
+          Quantity: 50

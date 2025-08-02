@@ -39,7 +39,7 @@
     role: JobBorg
     time: 18000  # 5 hrs
   canBeAntag: false
-  goobcoins: 40 #Goob content
+  #goobcoins: 40 #Goob content Corvax-Goob-coins
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
@@ -55,7 +55,7 @@
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs
   canBeAntag: false
-  goobcoins: 20 #Goob content
+  #goobcoins: 20 #Goob content Corvax-Goob-coins
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery

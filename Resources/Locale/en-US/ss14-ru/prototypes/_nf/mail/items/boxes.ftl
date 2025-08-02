@@ -1,0 +1,16 @@
+ent-BoxSoapsAssorted = scented soap sampler pack
+    .desc = A box of various scented soaps. Ooh, lavender.
+ent-BoxSoapsAssortedOmega = scented soap sampler pack
+    .desc = A box of various scented soaps. Ooh, bluespace.
+ent-BoxBuildABuddyHuman = Build-a-Buddy kit
+    .desc = "Henry the Human" Build-a-Buddy kit. Some assembly required.
+    .suffix = Human
+ent-BoxBuildABuddyReptilian = Build-a-Buddy kit
+    .desc = "Randy the Reptilian" Build-a-Buddy kit. Some assembly required.
+    .suffix = Reptilian
+ent-BoxBuildABuddySlime = Build-a-Buddy kit
+    .desc = "Steven the Slime" Build-a-Buddy kit. Some assembly required.
+    .suffix = Slime
+ent-BoxBuildABuddyVulpkanin = Build-a-Buddy kit
+    .desc = "Valerie the Vulpkanin" Build-a-Buddy kit. Some assembly required.
+    .suffix = Vulpkanin

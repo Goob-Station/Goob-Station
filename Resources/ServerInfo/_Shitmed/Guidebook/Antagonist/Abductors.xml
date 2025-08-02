@@ -8,26 +8,26 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Abductors
+  # Абдукторы
 
   <Box>
     <GuideEntityEmbed Entity="MobLoneAbductor"/>
     <GuideEntityEmbed Entity="MobAbductorAgent"/>
     <GuideEntityEmbed Entity="MobAbductorScientist"/>
   </Box>
-  Abductors are an alien society set on cataloging and experimenting on the sectors personnel.
-  Its important to note: Abductors, unlike most antagonists are [color=red]NOT set on killing people[/color] and are rather purely interested in completing their experiments.
+  Абдукторы — это инопланетное общество, занимающееся каталогизацией и экспериментами на персонале сектора.
+  Важно отметить: абдукторы, в отличие от большинства антагонистов, [color=red]НЕ настроены на убийства[/color], а скорее заинтересованы исключительно в завершении своих экспериментов.
 
-  Abductors do not possess the ability to speak and therefore communicate through telepathy.
+  Абдукторы не обладают способностью говорить и поэтому общаются посредством телепатии.
 
-  ##Abductors
-  There are three types of abductors; lone abductors, scientists, and agents.
-  - [color=#a4885c]Lone abductors[/color] are a solo abductor, and will not have support or allies.
-  - [color=#a4885c]Scientists[/color] are group abductors, and need to support the agent by toggling their armor and experimenting on crew.
-  - [color=#a4885c]Agents[/color] are group abductors, and work to kidnap crew for the scientist to experiment on.
-  - Any abductor can fill anothers role in the event of an unfortunate death.
+  ## Абдукторы
+  Существуют три типа абдукторов: одиночные абдукторы, учёные и агенты.
+  - [color=#a4885c]Одиночные абдукторы[/color] действуют поодиночке и не имеют поддержки или союзников.
+  - [color=#a4885c]Учёные[/color] — это групповые абдукторы, которые поддерживают агентов, активируя броню и проводя эксперименты над экипажем.
+  - [color=#a4885c]Агенты[/color] — групповые абдукторы, занимающиеся похищением экипажа для учёных.
+  - Любой абдуктор может взять на себя роль другого в случае его гибели.
 
-  ##Abduction
+  ## Похищение
 
   <Box>
     <GuideEntityEmbed Entity="Wonderprod"/>
@@ -37,36 +37,36 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="AbductorGizmo"/>
   </Box>
 
-  Abductors begin on their ship somewhere near the station. Using the [color=#a149bf]"Human Observation Console"[/color] you can seek out victims who are alone and [color=lightblue]warp[/color] near them to begin abduction.
+  Абдукторы начинают на своём корабле где-то рядом со станцией. С помощью [color=#a149bf]"Консоли наблюдения за людьми"[/color] можно искать жертв, которые находятся в одиночестве, и [color=lightblue]телпортироваться[/color] к ним, чтобы начать похищение.
 
-  The wonderprod is the primary tool of an Abductor. It has four modes you will use for abduction:
-  - [color=yellow]{Stun}[/color] Stuns the victim for roughly 5 seconds.
-  - [color=pink]{Restrain}[/color] binds the victims hands in weak cables.
-  - [color=blue]{Sleep}[/color] Induces a sleep-like state in the victim.
-  - [color=red]{Harm}[/color] Burns the target, dealing damage. [bold]ONLY USE IF YOU MUST.[/bold]
+  Wonderprod — основной инструмент абдуктора. У него есть четыре режима, которые используются при похищении:
+  - [color=yellow]{Оглушение}[/color] — оглушает жертву примерно на 5 секунд.
+  - [color=pink]{Сковывание}[/color] — связывает руки жертвы слабыми кабелями.
+  - [color=blue]{Сон}[/color] — вводит жертву в соноподобное состояние.
+  - [color=red]{Урон}[/color] — наносит ожог цели, причиняя урон. [bold]ИСПОЛЬЗУЙТЕ ТОЛЬКО В КРАЙНЕМ СЛУЧАЕ.[/bold]
 
-  Once a target is immobilized you can use the [italic]gizmo[/italic] to implant them with a nano tracker, return to your ship using the [color=lightblue]return action[/color], then use the gizmo on your [color=#a149bf]Abductor Console[/color].
+  После того, как цель обездвижена, можно использовать [italic]гаджет[/italic], чтобы имплантировать ей нано-трекер, вернуться на свой корабль с помощью [color=lightblue]команды возврата[/color], а затем применить гаджет на [color=#a149bf]Консоли абдукторов[/color].
 
-  In a bad situation you can use the alien pistol to get out of a pinch, it is completely armor piercing but has low capacity. [color=red] You are not here to kill, use sparingly.[/color]
+  В экстренной ситуации можно использовать инопланетный пистолет, чтобы выбраться из неприятностей. Он полностью пробивает броню, но имеет малый боезапас. [color=red]Вы здесь не для убийств, используйте оружие экономно.[/color]
 
-  ##Experimentation
+  ## Эксперименты
 
   <Box>
     <GuideEntityEmbed Entity="AbductorConsole"/>
     <GuideEntityEmbed Entity="AbductorExperimentator"/>
   </Box>
 
-  Once you have linked the most recent nano tracker to the console, select [bold]{ATTRACT}[/bold] to warp your victim to your ship.
+  После того, как последний нано-трекер привязан к консоли, выберите [bold]{ПРИВЛЕЧЬ}[/bold], чтобы телепортировать жертву на ваш корабль.
 
-  Now that you have your victim aboard, its recommended you:
-  - Buckle them to your surgical table.
-  - Change out their cuffs for a higher grade of handcuffs provided on the ship.
-  - Remove any of their belongings that could damage you or the secrecy of the experiment.
-  - Use your vast surgical knowledge to replace their heart with a gland. You don't need to remove their clothes to do surgery, unlike normal surgeons.
+  Когда жертва находится на борту, рекомендуется:
+  - Пристегнуть её к хирургическому столу.
+  - Заменить наручники на более прочные, предоставляемые на корабле.
+  - Убрать все предметы, которые могут навредить вам или раскрыть эксперименты.
+  - Использовать обширные хирургические знания, чтобы заменить сердце жертвы на железу. Одежду снимать не нужно — в отличие от обычных хирургов.
 
-  Finally, drag the victim whom you have completed your experiment on into the [color=#a149bf]Experimentator[/color] to confirm the results of the experiment on the [color=#a149bf]Abductor Console[/color] and send them back where you found them.
+  В конце затащите жертву, на которой завершён эксперимент, в [color=#a149bf]Экспериментатор[/color], чтобы подтвердить результаты эксперимента на [color=#a149bf]Консоли абдукторов[/color] и вернуть её обратно.
 
-  ## Abductor Tools
+  ## Инструменты абдукторов
 
   <Box>
     <GuideEntityEmbed Entity="Silencer"/>
@@ -74,12 +74,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="CrowbarAbductor"/>
   </Box>
 
-  Abductors have access to more advanced tools than normal surgeons or engineers. Their surgical tools are faster than advanced surgical tools, and from their normal tools, the multitool's alternative mode is able to be used to hijack doors.
+  Абдукторы имеют доступ к более продвинутым инструментам, чем обычные хирурги или инженеры. Их хирургические инструменты работают быстрее, а у обычных инструментов есть альтернативный режим мультиинструмента, который может взламывать двери.
 
-  You also have access to a silencer, which prevents the crew from speaking when they are hit with it.
+  Также у вас есть глушитель, который не позволяет экипажу говорить, если они получили попадание от него.
 
-  ##Getting rid of an Abductor
-  Like [textlink="Changelings" link="Changelings"], Abductors are not protected by [textlink="space law" link="SpaceLaw"] and are able to be executed freely.
+  ## Избавление от абдукторов
+  Как и у [textlink="генокрады" link="Changelings"], абдукторы не защищены [textlink="космическим законом" link="SpaceLaw"] и могут быть безнаказанно уничтожены.
 
-  Also, an abductor's ship is a physical object in the world, anyone with access to a space-faring ship such as [textlink="salvage" link="Salvage"] can bump into them in space and dismantle their ship.
+  Кроме того, корабль абдукторов — это физический объект в мире, и любой, у кого есть доступ к космическому кораблю (например, [textlink="сборщики" link="Salvage"]), может столкнуться с ним в космосе и разобрать корабль.
 </Document>

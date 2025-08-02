@@ -83,7 +83,7 @@
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop
-  goobcoins: 15 #Goob content
+  #goobcoins: 15 #Goob content Corvax-Goob-coins
   access:
   - Service
   - Maintenance
@@ -100,7 +100,6 @@
       - type: Skills # CorvaxGoob-Skills
         skills:
         - Butchering
-      - type: CanChokeGrab # CorvaxGoob-Skills
 
 - type: startingGear
   id: ChefGear

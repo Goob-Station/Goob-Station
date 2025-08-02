@@ -95,7 +95,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._Goobstation.Antag;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -150,7 +149,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
-    [Dependency] private readonly LastRolledAntagManager _lastRolled = default!; // Goobstation
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
@@ -348,18 +346,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         AssignPreSelectedSessions((uid, component));
     }
 
-    // Goobstation
-    public Dictionary<ICommonSession, float> ToWeightsDict(IList<ICommonSession> pool)
-    {
-        Dictionary<ICommonSession, float> weights = new();
-
-        // weight by playtime since last rolled
-        foreach (var se in pool)
-            weights[se] = (float)(_playTime.GetOverallPlaytime(se) - _lastRolled.GetLastRolled(se.UserId)).TotalSeconds;
-
-        return weights;
-    }
-
     /// <summary>
     /// Chooses antagonists from the given selection of players
     /// </summary>
@@ -470,16 +456,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (!IsSessionValid(ent, session, def) || !IsEntityValid(session?.AttachedEntity, def))
             return false;
-
-        // Goobstation
-        if (session != null)
-        {
-            try // tests die without this
-            {
-                _lastRolled.SetLastRolled(session.UserId, _playTime.GetOverallPlaytime(session));
-            }
-            catch { }
-        }
 
         if (onlyPreSelect && session != null)
         {
@@ -630,7 +606,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
     /// <summary>
     /// Gets an ordered player pool based on player preferences and the antagonist definition.
-    /// </summary>
+       /// </summary>
     public AntagSelectionPlayerPool GetPlayerPool(Entity<AntagSelectionComponent> ent, IList<ICommonSession> sessions, AntagSelectionDefinition def)
     {
         var preferredList = new List<ICommonSession>();
@@ -653,7 +629,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             }
         }
 
-        return new AntagSelectionPlayerPool(new() { ToWeightsDict(preferredList), ToWeightsDict(fallbackList) }); // Goobstation
+        return new AntagSelectionPlayerPool(new() { preferredList, fallbackList });
     }
 
     /// <summary>

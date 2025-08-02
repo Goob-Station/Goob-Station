@@ -48,6 +48,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -65,7 +66,9 @@
 // SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
 // SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -273,12 +276,6 @@ namespace Content.Server.Database
             ImmutableTypedHwid? hwId);
         Task<PlayerRecord?> GetPlayerRecordByUserName(string userName, CancellationToken cancel = default);
         Task<PlayerRecord?> GetPlayerRecordByUserId(NetUserId userId, CancellationToken cancel = default);
-        Task<int> GetServerCurrency(NetUserId userId); // Goobstation
-        Task SetServerCurrency(NetUserId userId, int currency); // Goobstation
-        Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta); // Goobstation
-
-        Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to); // Goobstation
-        Task<TimeSpan> GetLastRolledAntag(NetUserId userId); // Goobstation
         #endregion
 
         #region Connection Logs
@@ -419,30 +416,6 @@ namespace Content.Server.Database
         Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job);
 
         Task<bool> RemoveJobWhitelist(Guid player, ProtoId<JobPrototype> job);
-
-        #endregion
-
-        #region RMC14
-
-        Task<Guid?> GetLinkingCode(Guid player);
-
-        Task SetLinkingCode(Guid player, Guid code);
-
-        Task<bool> HasLinkedAccount(Guid player, CancellationToken cancel);
-
-        Task<RMCPatron?> GetPatron(Guid player, CancellationToken cancel);
-
-        Task<List<RMCPatron>> GetAllPatrons();
-
-        Task SetGhostColor(Guid player, System.Drawing.Color? color);
-
-        Task SetLobbyMessage(Guid player, string message);
-
-        Task SetNTShoutout(Guid player, string name);
-
-        Task<(string Message, string User)?> GetRandomLobbyMessage();
-
-        Task<string?> GetRandomShoutout();
 
         #endregion
 
@@ -757,35 +730,6 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetPlayerRecordByUserId(userId, cancel));
-        }
-
-        public Task<int> GetServerCurrency(NetUserId userId) // Goobstation
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetServerCurrency(userId));
-        }
-        public Task SetServerCurrency(NetUserId userId, int currency) // Goobstation
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetServerCurrency(userId, currency));
-        }
-
-        public Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta) // Goobstation
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.ModifyServerCurrency(userId, currencyDelta));
-        }
-
-        public Task<TimeSpan> GetLastRolledAntag(NetUserId userId) // Goobstation
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetLastRolledAntag(userId));
-        }
-
-        public Task<bool> SetLastRolledAntag(NetUserId userId, TimeSpan to) // Goobstation
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetLastRolledAntag(userId, to));
         }
 
         public Task<int> AddConnectionLogAsync(
@@ -1174,70 +1118,6 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveJobWhitelist(player, job));
         }
-
-        #region RMC
-
-        public Task<Guid?> GetLinkingCode(Guid player)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetLinkingCode(player));
-        }
-
-        public Task SetLinkingCode(Guid player, Guid code)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetLinkingCode(player, code));
-        }
-
-        public Task<bool> HasLinkedAccount(Guid player, CancellationToken cancel)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.HasLinkedAccount(player, cancel));
-        }
-
-        public Task<RMCPatron?> GetPatron(Guid player, CancellationToken cancel)
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetPatron(player, cancel));
-        }
-
-        public Task<List<RMCPatron>> GetAllPatrons()
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetAllPatrons());
-        }
-
-        public Task SetGhostColor(Guid player, System.Drawing.Color? color)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetGhostColor(player, color));
-        }
-
-        public Task SetLobbyMessage(Guid player, string message)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetLobbyMessage(player, message));
-        }
-
-        public Task SetNTShoutout(Guid player, string name)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetNTShoutout(player, name));
-        }
-
-        public Task<(string Message, string User)?> GetRandomLobbyMessage()
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomLobbyMessage());
-        }
-
-        public Task<string?> GetRandomShoutout()
-        {
-            DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetRandomShoutout());
-        }
-
-        #endregion
 
         public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
         {

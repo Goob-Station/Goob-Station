@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
@@ -16,7 +17,6 @@ namespace Content.Client.Chat
     {
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly CollectiveMindUpdateSystem _collectiveSystem = default!;
 
         public override void Initialize()
         {
@@ -24,8 +24,8 @@ namespace Content.Client.Chat
             SubscribeLocalEvent<CollectiveMindComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<CollectiveMindComponent, ComponentRemove>(OnRemove);
         }
-        
-        public bool IsCollectiveMind => CompOrNull<CollectiveMindComponent>(_playerManager.LocalPlayer?.ControlledEntity) != null;
+
+        public bool IsCollectiveMind => CompOrNull<CollectiveMindComponent>(_playerManager.LocalSession?.AttachedEntity) != null;
 
         private void OnInit(EntityUid uid, CollectiveMindComponent component, ComponentInit args)
         {

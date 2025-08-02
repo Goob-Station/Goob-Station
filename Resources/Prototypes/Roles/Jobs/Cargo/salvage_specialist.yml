@@ -79,7 +79,7 @@
       time: 9000 # 2.5 hrs
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
-  goobcoins: 20 #Goob content
+  #goobcoins: 20 #Goob content Corvax-Goob-coins
   supervisors: job-supervisors-qm
   access:
   - Cargo

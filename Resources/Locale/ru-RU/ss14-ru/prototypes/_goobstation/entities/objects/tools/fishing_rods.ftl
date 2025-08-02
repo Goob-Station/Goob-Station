@@ -1,0 +1,13 @@
+ent-FishingRod = fishing rod
+    .desc = It's time to go fishing!
+ent-FishingRodGoon = fishing rod
+    .desc = It's time to go fishing!
+    .suffix = Goon
+ent-FishingRodMakeshift = makeshift fishing rod
+    .desc = Probably would be hard to catch a fish using that.
+ent-FishingRodGolden = golden fishing rod
+    .desc = Finally, you caught 250 fishes. Here's your trophey.
+ent-FishingLure = fishing lure
+    .desc = fish come here
+ent-FishingLureMakeshift = fishing lure
+    .desc = fish come here

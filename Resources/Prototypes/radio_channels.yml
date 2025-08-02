@@ -54,7 +54,7 @@
 - type: radioChannel
   id: CentCom
   name: chat-radio-centcom
-  keycode: 'y'
+  keycode: 'ц' # CorvaxGoob-Loc
   frequency: 1337
   color: "#2681a5"
   longRange: true
@@ -62,56 +62,56 @@
 - type: radioChannel
   id: Command
   name: chat-radio-command
-  keycode: 'c'
+  keycode: 'к' # CorvaxGoob-Loc
   frequency: 1353
   color: "#fcdf03"
 
 - type: radioChannel
   id: Engineering
   name: chat-radio-engineering
-  keycode: 'e'
+  keycode: 'и' # CorvaxGoob-Loc
   frequency: 1357
   color: "#ff733c"
 
 - type: radioChannel
   id: Medical
   name: chat-radio-medical
-  keycode: 'm'
+  keycode: 'м' # CorvaxGoob-Loc
   frequency: 1355
   color: "#57b8f0"
 
 - type: radioChannel
   id: Science
   name: chat-radio-science
-  keycode: 'n'
+  keycode: 'н' # CorvaxGoob-Loc
   frequency: 1351
   color: "#cd7ccd"
 
 - type: radioChannel
   id: Security
   name: chat-radio-security
-  keycode: 's'
+  keycode: 'о' # CorvaxGoob-Loc
   frequency: 1359
   color: "#ff4242"
 
 - type: radioChannel
   id: Service
   name: chat-radio-service
-  keycode: 'v'
+  keycode: 'с' # CorvaxGoob-Loc
   frequency: 1349
   color: "#539c00"
 
 - type: radioChannel
   id: Supply
   name: chat-radio-supply
-  keycode: 'u'
+  keycode: 'п' # CorvaxGoob-Loc
   frequency: 1347
   color: "#b48b57"
 
 - type: radioChannel
   id: Syndicate
   name: chat-radio-syndicate
-  keycode: 't'
+  keycode: 'т' # CorvaxGoob-Loc
   frequency: 1213
   color: "#8f4a4b"
   longRange: true

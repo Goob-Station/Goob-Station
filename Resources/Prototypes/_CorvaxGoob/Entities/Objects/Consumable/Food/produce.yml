@@ -1,0 +1,61 @@
+- type: entity
+  name: cucumber
+  parent: [FoodProduceBase]
+  id: FoodCucumber
+  description: PHAHAHHAHA cu-cu-cu-cu-mbe-er
+  components:
+  - type: FlavorProfile
+    flavors:
+      - water
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Water
+          Quantity: 4
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Specific/Hydroponics/cucumber.rsi
+  - type: Produce
+    seedId: cucumberSeed
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 1
+
+- type: entity
+  name: shashamber
+  parent: [FoodProduceBase]
+  id: FoodShashamber
+  description: what?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - water
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Cryptobiolin
+          Quantity: 12
+  - type: Sprite
+    sprite: _CorvaxGoob/Objects/Specific/Hydroponics/shashamber.rsi
+  - type: Produce
+    seedId: shashamberSeed
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable
+

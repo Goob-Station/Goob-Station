@@ -1,0 +1,14 @@
+ent-CosmicGlyphBase = base glyph
+    .desc = A strange, otherworldly marking.
+ent-CosmicGlyphTruth = Glyph of Truth
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphKnowledge = Glyph of Knowledge
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphCessation = Glyph of Cessation
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphBlades = Glyph of Blades
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphWarding = Glyph of Warding
+    .desc = { ent-CosmicGlyphBase.desc }
+ent-CosmicGlyphProjection = Glyph of Projection
+    .desc = { ent-CosmicGlyphBase.desc }

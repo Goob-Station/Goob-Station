@@ -130,6 +130,7 @@
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -444,7 +445,6 @@
         - Surgery
         - MedicalEquipment
         - Butchering
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -477,6 +477,11 @@
     objectiveBlacklist:
       tags:
       - ParadoxCloneObjectiveBlacklist
+    targetBlacklist: # Goobstation
+      components:
+      - BorgBrain # No copying the AI or borgs.
+      - AntagImmune # No copying people who are immune to antags. (Gemini Hologram, Ghost bar, etcetera.)
+
   - type: AntagObjectives
     objectives:
     - ParadoxCloneKillObjective
@@ -823,7 +828,6 @@
         maxInitialInfectedGrace: 450
       - type: ZombifyOnDeath
       - type: IncurableZombie
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: Skills # CorvaxGoob-Skills
         skills:
         - ShuttleControl
@@ -883,7 +887,6 @@
         - NamesSyndicatePrefix
         - NamesSyndicateNormal
         nameFormat: name-format-nukie-generic
-      - type: CanChokeGrab # CorvaxGoob-Grab
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -934,7 +937,6 @@
         - Surgery
         - MedicalEquipment
         - Butchering
-      - type: CanChokeGrab # CorvaxGoob-Grab
       mindRoles:
       - MindRoleTraitorSleeper
 

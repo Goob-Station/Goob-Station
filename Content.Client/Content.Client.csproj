@@ -57,6 +57,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     <ProjectReference Include="..\RobustToolbox\Robust.Client\Robust.Client.csproj" />
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
+	<ProjectReference Include="..\Corvax\Content.Corvax.Interfaces.Shared\Content.Corvax.Interfaces.Shared.csproj" />
+    <ProjectReference Include="..\Corvax\Content.Corvax.Interfaces.Client\Content.Corvax.Interfaces.Client.csproj" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
