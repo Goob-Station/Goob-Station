@@ -41,3 +41,4 @@ loadout-group-brigmedic-head = Бригмедик, голова
 loadout-group-brigmedic-outer = Бригмедик, верхняя одежда
 loadout-group-brigmedic-backpack = Бригмедик, рюкзак
 loadout-group-security-melee = Служба Безопасности, оружие ближнего боя
+loadout-group-animals = Животные

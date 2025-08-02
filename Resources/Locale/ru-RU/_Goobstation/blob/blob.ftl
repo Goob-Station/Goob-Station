@@ -148,3 +148,7 @@ objective-condition-fail = { $condition } | [color={ $markupColor }]Провал
 
 admin-verb-make-blob = Сделать цель носителем блоба.
 admin-verb-text-make-blob = Сделать носителем блоба
+# Language
+language-Blob-name = Блоб
+chat-language-Blob-name = Блоб
+language-Blob-description = Блиб боб! Блоб блоб!

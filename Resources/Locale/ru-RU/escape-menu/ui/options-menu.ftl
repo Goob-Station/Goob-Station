@@ -118,6 +118,7 @@ ui-options-header-hotbar = Хотбар
 ui-options-header-shuttle = Шаттл
 ui-options-header-map-editor = Редактор карт
 ui-options-header-dev = Разработка
+ui-options-hotkey-default-walk = Ходьба по умолчанию
 ui-options-header-general = Основное
 ui-options-header-text-cursor = Текстовый курсор
 ui-options-header-text-cursor-select = Выделение текста

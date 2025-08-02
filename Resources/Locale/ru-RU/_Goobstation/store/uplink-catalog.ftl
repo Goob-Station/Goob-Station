@@ -69,12 +69,12 @@ uplink-pie-cannon-desc = Пушка, автоматически восстана
 uplink-beenades-name = Пчелонаты
 uplink-beenades-desc = Невзрывная граната с пчёлами?! НЕ ПЧЁЛЫ!!!
 uplink-dart-gun-name = Дротиковый пистолет
-uplink-his-grace-name = His Grace
-uplink-his-grace-desc = An otherworldly entity trapping in a toolbox. Grows in power for every kill, but will consume you if not fed. Activate in-hand to bind yourself.
-uplink-magazine-nailgun-name = Nail Gun Magazine (AP)
-uplink-magazine-nailgun-desc = Almost like a normal magazine for your nail gun. The only difference is that this one is armor-piercing.
-uplink-pressure-modkit-name = Pressure Modkit
-uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
+uplink-his-grace-name = его милость
+uplink-his-grace-desc = Потустороннее существо, заключённое в ящик с инструментами. С каждым убийством становится сильнее, но поглотит тебя, если не будет накормлено. Активируй в руке, чтобы связать себя с ним.
+uplink-magazine-nailgun-name = магазин для гвоздомёта (бронебойный)
+uplink-magazine-nailgun-desc = Почти как обычный магазин для твоего гвоздомёта. Разница в том, что этот пробивает броню.
+uplink-pressure-modkit-name = модуль давления
+uplink-pressure-modkit-desc = Этот нелегальный модуль расходует 30 единиц ёмкости твоего протокинетического ускорителя и разгоняет его для нанесения полного урона даже при неподходящем давлении.
 uplink-dart-gun-desc = Стреляет восстанавливающими или ядовитыми дротиками, можно лечить союзников на расстоянии или отравлять врагов.
 
 # Weapons
@@ -94,6 +94,8 @@ uplink-buldog-desc = Магазинный автомат-дробовик.
 uplink-l6-saw-name = L6 SAW
 uplink-l6-saw-desc = Легендарный лёгкий пулемёт.
 uplink-m90-name = M-90
+uplink-estoc-name = эсток
+uplink-estoc-desc = Штурмовая винтовка с прицелом средней дальности, рассчитана для боя на дистанции.
 uplink-syndicate-disabler-name = syndicate disabler
 uplink-syndicate-disabler-desc = An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
 uplink-m90-desc = Боевая винтовка M-90.

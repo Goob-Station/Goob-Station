@@ -5,6 +5,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 marking-MobIPCHeadDefault = Стандартный операционный монитор
+marking-MobIPCChestDefault = Стандартное шасси борга
+marking-MobIPCChestFemaleDefault = Стандартное шасси борга
 marking-MobIPCTorsoDefault = Стандартное роботическое шасси
 marking-MobIPCTorsoFemaleDefault = Стандартное роботическое шасси
 marking-MobIPCLArmDefault = Левая роботическая рука (стандарт)
