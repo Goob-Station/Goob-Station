@@ -13,10 +13,10 @@
 - type: entity
   id: OrganDubiousBase
   parent: [ OrganHumanHeart, BaseMajorContraband ]
-  name: "таємнича залоза"
+  name: mysterious gland
   categories: [ HideSpawnMenu ]
   abstract: true
-  description: "Підозріла чужорідна залоза, що замінює серце."
+  description: Suspicious alien gland, replaces the heart.
   components:
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Misc/Dubious/organs.rsi

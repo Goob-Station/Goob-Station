@@ -6,8 +6,8 @@
 
 - type: entity
   id: ActionSwapImplant
-  name: "Помінятися місцями"
-  description: "Дозволяє вам мінятися місцями з будь-якою живою істотою."
+  name: Swap
+  description: Allows you to swap locations with any living being.
   components:
   - type: EntityTargetAction
     checkCanAccess: false
@@ -34,8 +34,8 @@
 
 - type: entity
   id: ActionNaniteMend
-  name: "Нанітовий Ремонтник"
-  description: "Випустіть рій нанітів, щоб швидко відремонтувати цільову сутність."
+  name: Nanite Mender
+  description: Let loose a swarm of nanites to rapidly repair a target entity.
   components:
   - type: EntityTargetAction
     useDelay: 20

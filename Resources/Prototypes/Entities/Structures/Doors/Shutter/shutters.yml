@@ -53,9 +53,9 @@
 - type: entity
   id: BaseShutter
   parent: BaseStructure
-  name: "затвор"
+  name: shutter
   abstract: true
-  description: "Здригаєшся, коли думаєш про те, що може бути за цими віконницями."
+  description: One shudders to think about what might be behind this shutter.
   placement:
     mode: SnapgridCenter
   components:
@@ -179,8 +179,8 @@
 - type: entity
   id: ShuttersRadiation
   parent: BaseShutter
-  name: "радіаційні жалюзі"
-  description: "Навіщо вони зробили ці жалюзі радіоактивними?"
+  name: radiation shutters
+  description: Why did they make these shutters radioactive?
   components:
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters_radiation.rsi
@@ -215,8 +215,8 @@
 - type: entity
   id: ShuttersWindow
   parent: BaseShutter
-  name: "скляні жалюзі"
-  description: "Це затвор - з'єднайте його з кнопкою, щоб відкривати і закривати"
+  name: window shutters
+  description: The Best (TM) place to see your friends explode!
   components:
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters_window.rsi
@@ -247,8 +247,8 @@
 - type: entity
   id: ShuttersFrame
   parent: BaseStructureDynamic
-  name: "рама затвора"
-  description: "Рама для побудови віконниці."
+  name: shutter frame
+  description: A frame for constructing a shutter.
   components:
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters.rsi

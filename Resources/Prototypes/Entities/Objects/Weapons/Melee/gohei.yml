@@ -16,10 +16,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "гохей"
+  name: gohei
   parent: BaseItem
   id: Gohei
-  description: "Дерев'яна палиця з білими стрічками на кінці. Спочатку використовувалася служницями для очищення речей. Зараз використовується станційними вібусами."
+  description: A wooden stick with white streamers at the end. Originally used by shrine maidens to purify things. Now used by the station's weeaboos.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/gohei.rsi

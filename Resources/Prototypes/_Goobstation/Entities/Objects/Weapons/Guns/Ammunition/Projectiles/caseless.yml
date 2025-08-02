@@ -8,7 +8,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   id: BulletCaselessRifleSAPHE
-  name: "куля (9.5мм SAP-HE)"
+  name: bullet (9.5mm SAP-HE)
   components:
   - type: Projectile
     damage:

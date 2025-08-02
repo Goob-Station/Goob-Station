@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseStructure
   id: BaseFenceMetal
-  name: "огорожа з ланцюгової сітки"
-  description: "Металевий шматок огорожі, що огороджує щось, ймовірно, дуже важливе."
+  name: chain link fence
+  description: A metal piece of fencing cordoning off something likely very important.
   abstract: true
   components:
   - type: MeleeSound
@@ -95,8 +95,8 @@
 - type: entity
   parent: BaseFenceMetal
   id: FenceMetalBroken
-  name: "зламаний паркан з ланцюгової огорожі"
-  description: "Хтось дуже розлютився на неживий предмет."
+  name: broken chain link fence
+  description: Someone got real mad at an inanimate object.
   components:
   - type: Sprite
     layers:
@@ -295,8 +295,8 @@
 - type: entity
   parent: BaseFenceMetal
   id: FenceMetalGate
-  name: "ворота для паркану з ланцюгової огорожі"
-  description: "Простий спосіб пробратися через паркан із сітки рабиці."
+  name: chain link fence gate
+  description: You could use the door instead of vaulting over--if you're a COWARD, that is.
   components:
   - type: Sprite
     layers:

@@ -8,7 +8,7 @@
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeLauncherNonLethal
-  name: "сейф для пускової установки"
+  name: riot launcher safe
   components:
   - type: StorageFill
     contents:

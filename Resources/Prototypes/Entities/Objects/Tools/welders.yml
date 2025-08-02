@@ -103,10 +103,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "зварювальний інструмент"
+  name: welding tool
   parent: BaseItem
   id: Welder
-  description: "Розплавляє все, що завгодно, якщо воно заправлене паливом, не забудьте захисні окуляри!"
+  description: "Melts anything as long as it's fueled, don't forget your eye protection!"
   components:
   # Goobstation edit start
   - type: EmitSoundOnPickup
@@ -246,10 +246,10 @@
     - WeldingTool # Einstein Engines
 
 - type: entity
-  name: "промисловий зварювальний інструмент"
+  name: industrial welding tool
   parent: Welder
   id: WelderIndustrial
-  description: "Промисловий зварювальний апарат з більш ніж удвічі більшим запасом палива."
+  description: "An industrial welder with over double the fuel capacity."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_industrial.rsi
@@ -264,10 +264,10 @@
         maxVol: 250
 
 - type: entity
-  name: "вдосконалений промисловий зварювальний апарат"
+  name: advanced industrial welding tool
   parent: WelderIndustrial
   id: WelderIndustrialAdvanced
-  description: "Вдосконалений промисловий зварювальний апарат з більш ніж подвоєною ємністю палива та гарячішим полум'ям."
+  description: "An advanced industrial welder with over double the fuel capacity and hotter flame."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_industrialadv.rsi
@@ -284,10 +284,10 @@
     speedModifier: 1.3
 
 - type: entity
-  name: "експериментальний зварювальний апарат"
+  name: experimental welding tool
   parent: Welder
   id: WelderExperimental
-  description: "Експериментальний зварювальний апарат, здатний до самостійної генерації палива та менш шкідливий для очей."
+  description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_experimental.rsi
@@ -320,10 +320,10 @@
     price: 50
 
 - type: entity
-  name: "аварійний зварювальний інструмент"
+  name: emergency welding tool
   parent: Welder
   id: WelderMini
-  description: "Мініатюрний зварювальний апарат, що використовується під час надзвичайних ситуацій."
+  description: "A miniature welder used during emergencies."
   components:
   - type: Sprite
     sprite: Objects/Tools/welder_mini.rsi
@@ -349,8 +349,8 @@
 - type: entity
   parent: [ Welder, BaseXenoborgContraband ]
   id: RefuelingWelder
-  name: "самозаправний зварювальний апарат"
-  description: "Повільний зварювальний апарат, який може з часом самостійно заправлятися."
+  name: refuling welding tool
+  description: "An slow welder that can refuel itself over time."
   components:
   - type: Tool
     speedModifier: 0.5
