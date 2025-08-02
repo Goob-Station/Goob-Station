@@ -27,12 +27,15 @@ using Robust.Shared.Utility;
 using Content.Server._Imp.Drone; //Goobstation drone
 using Robust.Shared.Player; //Goobstation drone
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components; // Corvax-Next-AiRemoteControl
+using Content.Server.Silicons.Laws;
+using Content.Shared.Silicons.Laws.Components;
 
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
 public sealed partial class BorgSystem
 {
+    [Dependency] private readonly SiliconLawSystem _law = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
 
     private void InitializeTransponder()
@@ -132,11 +135,31 @@ public sealed partial class BorgSystem
         if (!payload.TryGetValue(DeviceNetworkConstants.Command, out string? command))
             return;
 
-        if (command == RoboticsConsoleConstants.NET_DISABLE_COMMAND)
+        // Corvax-Goob-MutableLaws-Start
+        if (command == RoboticsConsoleConstants.NET_CHANGE_LAWS_COMMAND)
+        {
+            if (payload.TryGetValue(RoboticsConsoleConstants.NET_CIRCUIT_BOARD, out EntityUid circuitBoard))
+                ChangeLaws(ent, circuitBoard);
+        }
+        // Corvax-Goob-MutableLaws-End
+        else if (command == RoboticsConsoleConstants.NET_DISABLE_COMMAND)
             Disable(ent);
         else if (command == RoboticsConsoleConstants.NET_DESTROY_COMMAND)
             Destroy(ent);
     }
+
+    // Corvax-Goob-MutableLaws-Start
+    private void ChangeLaws(EntityUid ent, EntityUid circuitBoard)
+    {
+        if (CheckEmagged(ent, "destroyed"))
+            return;
+
+        if (!TryComp<SiliconLawProviderComponent>(circuitBoard, out var law))
+            return;
+
+        _law.SetLaws(_law.GetLawset(law.Laws).Laws, ent, law.LawUploadSound);
+    }
+    // Corvax-Goob-MutableLaws-End
 
     private void Disable(Entity<BorgTransponderComponent, BorgChassisComponent?> ent)
     {

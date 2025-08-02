@@ -21,6 +21,8 @@ using Content.Shared.Robotics.Components;
 using Content.Shared.Robotics.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
+using Content.Shared.Containers.ItemSlots;
+using Robust.Shared.Containers;
 using Content.Shared.DeviceNetwork.Events;
 
 namespace Content.Server.Research.Systems;
@@ -37,6 +39,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
 
     // almost never timing out more than 1 per tick so initialize with that capacity
     private List<string> _removing = new(1);
@@ -46,6 +49,11 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         base.Initialize();
 
         SubscribeLocalEvent<RoboticsConsoleComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
+        // Corvax-Goob-MutableLaws-Start
+        SubscribeLocalEvent<RoboticsConsoleComponent, EntInsertedIntoContainerMessage>(OnInserted);
+        SubscribeLocalEvent<RoboticsConsoleComponent, RoboticsConsoleChangeLawsMessage>(OnChangeLaws);
+        SubscribeLocalEvent<RoboticsConsoleComponent, EntRemovedFromContainerMessage>(OnRemoved);
+        // Corvax-Goob-MutableLaws-End
         Subs.BuiEvents<RoboticsConsoleComponent>(RoboticsConsoleUiKey.Key, subs =>
         {
             subs.Event<BoundUIOpenedEvent>(OnOpened);
@@ -100,11 +108,52 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         UpdateUserInterface(ent);
     }
 
+    // Corvax-Goob-MutableLaws-Start
+    private void OnInserted(Entity<RoboticsConsoleComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        UpdateUserInterface(ent);
+    }
+
+    private void OnRemoved(Entity<RoboticsConsoleComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        UpdateUserInterface(ent);
+    }
+    // Corvax-Goob-MutableLaws-End
+
     private void OnOpened(Entity<RoboticsConsoleComponent> ent, ref BoundUIOpenedEvent args)
     {
         UpdateUserInterface(ent);
     }
 
+    // Corvax-Goob-MutableLaws-Start
+    private void OnChangeLaws(Entity<RoboticsConsoleComponent> ent, ref RoboticsConsoleChangeLawsMessage args)
+    {
+        if (_lock.IsLocked(ent.Owner))
+            return;
+
+        if (!ent.Comp.Cyborgs.TryGetValue(args.Address, out var data))
+            return;
+
+        if (!_slots.TryGetSlot(ent, ent.Comp.CircuitBoardItemSlot, out var slot) || slot.Item is null)
+            return;
+        // Corvax-Next-AiRemoteControl-Start
+        if (data.IsAiControllable)
+            return;
+        // Corvax-Next-AiRemoteControl-End
+
+        var payload = new NetworkPayload()
+        {
+            [DeviceNetworkConstants.Command] = RoboticsConsoleConstants.NET_CHANGE_LAWS_COMMAND,
+            [RoboticsConsoleConstants.NET_CIRCUIT_BOARD] = slot.Item.Value,
+        };
+
+        _deviceNetwork.QueuePacket(ent, args.Address, payload);
+
+        var message = Loc.GetString(ent.Comp.ChangeLawsMessage, ("name", data.Name));
+        _radio.SendRadioMessage(ent, message, ent.Comp.RadioChannel, ent);
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Actor):user} changed laws of borg {data.Name} with address {args.Address}");
+    }
+    // Corvax-Goob-MutableLaws-End
 
     private void OnDisable(Entity<RoboticsConsoleComponent> ent, ref RoboticsConsoleDisableMessage args)
     {
@@ -152,7 +201,7 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
 
     private void UpdateUserInterface(Entity<RoboticsConsoleComponent> ent)
     {
-        var state = new RoboticsConsoleState(ent.Comp.Cyborgs);
+        var state = new RoboticsConsoleState(ent.Comp.Cyborgs, _slots.TryGetSlot(ent, ent.Comp.CircuitBoardItemSlot, out var slot) && slot.HasItem); // Corvax-Goob-MutableLaws
         _ui.SetUiState(ent.Owner, RoboticsConsoleUiKey.Key, state);
     }
 }

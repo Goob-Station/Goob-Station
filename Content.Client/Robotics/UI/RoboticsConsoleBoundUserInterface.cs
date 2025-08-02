@@ -28,6 +28,13 @@ public sealed class RoboticsConsoleBoundUserInterface : BoundUserInterface
         _window = this.CreateWindow<RoboticsConsoleWindow>();
         _window.SetEntity(Owner);
 
+        // Corvax-Goob-MutableLaws-Start
+        _window.OnChangeLawsPressed += address =>
+        {
+            SendMessage(new RoboticsConsoleChangeLawsMessage(address));
+        };
+        // Corvax-Goob-MutableLaws-End
+
         _window.OnDisablePressed += address =>
         {
             SendMessage(new RoboticsConsoleDisableMessage(address));
