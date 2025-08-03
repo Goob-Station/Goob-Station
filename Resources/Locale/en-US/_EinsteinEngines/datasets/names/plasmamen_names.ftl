@@ -1,4 +1,4 @@
-  # Periodic table elements
+# Periodic table elements
 names-plasmaman-dataset-1 = Actinium
 names-plasmaman-dataset-2 = Aluminium
 names-plasmaman-dataset-3 = Americium
@@ -117,7 +117,7 @@ names-plasmaman-dataset-115 = Ytterbium
 names-plasmaman-dataset-116 = Yttrium
 names-plasmaman-dataset-117 = Zinc
 names-plasmaman-dataset-118 = Zirconium
-  # Periodic table groups
+# Periodic table groups
 names-plasmaman-dataset-119 = Metalloid
 names-plasmaman-dataset-120 = Alkali
 names-plasmaman-dataset-121 = Alkaline
@@ -127,15 +127,15 @@ names-plasmaman-dataset-124 = Chalcogen
 names-plasmaman-dataset-125 = Pnictogen
 names-plasmaman-dataset-126 = Halogen
 names-plasmaman-dataset-127 = Noble
-  # Periodic table series
+# Periodic table series
 names-plasmaman-dataset-128 = Lanthanide
 names-plasmaman-dataset-129 = Actinide
-  # Polyatomic cations
+# Polyatomic cations
 names-plasmaman-dataset-130 = Ammonium
 names-plasmaman-dataset-131 = Hydronium
 names-plasmaman-dataset-132 = Nitronium
 names-plasmaman-dataset-133 = Pyrylium
-  # Anions
+# Anions
 names-plasmaman-dataset-134 = Hydride
 names-plasmaman-dataset-135 = Oxide
 names-plasmaman-dataset-136 = Fluoride
@@ -159,7 +159,7 @@ names-plasmaman-dataset-153 = Phenoxide
 names-plasmaman-dataset-154 = Peroxide
 names-plasmaman-dataset-155 = Superoxide
 names-plasmaman-dataset-156 = Acetylide
-  # Oxoanions
+# Oxoanions
 names-plasmaman-dataset-157 = Sulfate
 names-plasmaman-dataset-158 = Sulfite
 names-plasmaman-dataset-159 = Phosphate
@@ -206,14 +206,14 @@ names-plasmaman-dataset-199 = Permanganate
 names-plasmaman-dataset-200 = Sulfonate
 names-plasmaman-dataset-201 = Isocyanate
 names-plasmaman-dataset-202 = Carbamate
-  # Anions from organic acids
+# Anions from organic acids
 names-plasmaman-dataset-203 = Acetate
 names-plasmaman-dataset-204 = Formate
 names-plasmaman-dataset-205 = Oxalate
 names-plasmaman-dataset-206 = Propionate
 names-plasmaman-dataset-207 = Butyrate
 names-plasmaman-dataset-208 = Malate
-  # Isotopes
+# Isotopes
 names-plasmaman-dataset-209 = Protium
 names-plasmaman-dataset-210 = Deuterium
 names-plasmaman-dataset-211 = Tritium
@@ -221,7 +221,7 @@ names-plasmaman-dataset-212 = Uranium-235
 names-plasmaman-dataset-213 = Uranium-238
 names-plasmaman-dataset-214 = Radon-222
 names-plasmaman-dataset-215 = Thorium-232
-  # Compounds
+# Compounds
 names-plasmaman-dataset-216 = Ammonia
 names-plasmaman-dataset-217 = Methane
 names-plasmaman-dataset-218 = Glucose
@@ -229,7 +229,7 @@ names-plasmaman-dataset-219 = Ethanol
 names-plasmaman-dataset-220 = Formaldehyde
 names-plasmaman-dataset-221 = Acetylene
 names-plasmaman-dataset-222 = Toluene
-  # SS14 chemicals
+# SS14 chemicals
 names-plasmaman-dataset-223 = Bananium
 names-plasmaman-dataset-224 = Fresium
 names-plasmaman-dataset-225 = Carpetium
@@ -249,7 +249,7 @@ names-plasmaman-dataset-238 = Sigynate
 names-plasmaman-dataset-239 = Nocturine
 names-plasmaman-dataset-240 = Impedrezene
 names-plasmaman-dataset-241 = Ephedrine
-  # Skeleton names from skeleton_first.yml - double weight
+# Skeleton names from skeleton_first.yml - double weight
 names-plasmaman-dataset-242 = Sternum
 names-plasmaman-dataset-243 = Sternum
 names-plasmaman-dataset-244 = Ribs
@@ -302,7 +302,7 @@ names-plasmaman-dataset-290 = Lacrimal
 names-plasmaman-dataset-291 = Lacrimal
 names-plasmaman-dataset-292 = Bone
 names-plasmaman-dataset-293 = Bone
-  # Bonus Skeleton names
+# Bonus Skeleton names
 names-plasmaman-dataset-294 = Skull
 names-plasmaman-dataset-295 = Skull
 names-plasmaman-dataset-296 = Maxilla

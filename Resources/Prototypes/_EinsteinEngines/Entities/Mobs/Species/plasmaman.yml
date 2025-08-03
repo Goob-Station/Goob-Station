@@ -77,8 +77,6 @@
       types:
         Blunt: 0
     bloodRefreshAmount: 0
-    bloodRegenerationHunger: 0
-    bloodRegenerationThirst: 0
     bloodMaxVolume: 0
   - type: Damageable
     damageModifierSet: Plasmaman

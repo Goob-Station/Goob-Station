@@ -185,6 +185,9 @@
   id: EmergencyOxygenTank
 
 - type: Tag
+  id: EmergencyPlasmaTank
+
+- type: Tag
   id: EnergySpeedloader
 
 - type: Tag
@@ -198,6 +201,12 @@
 
 - type: Tag
   id: ExtendedEmergencyOxygenTank
+
+- type: Tag
+  id: ExtendedEmergencyNitrogenTank
+
+- type: Tag
+  id: ExtendedEmergencyPlasmaTank
 
 - type: Tag
   id: Eyes

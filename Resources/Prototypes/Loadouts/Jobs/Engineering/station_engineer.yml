@@ -102,9 +102,6 @@
   id: EngineeringBeret
   equipment:
     head: ClothingHeadHatBeretEngineering
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: StationEngineerHardhatYellow

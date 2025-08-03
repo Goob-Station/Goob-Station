@@ -104,7 +104,6 @@
       path: /Audio/Effects/extinguish.ogg
   - type: LimitedCharges
     maxCharges: 4
-    charges: 4
   - type: Armor
     modifiers:
       coefficients:

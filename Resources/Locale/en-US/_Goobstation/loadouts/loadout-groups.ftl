@@ -134,6 +134,7 @@ loadout-group-librarian-envirogloves = Librarian envirogloves
 loadout-group-mime-envirohelm = Mime envirohelm
 loadout-group-mime-envirosuit = Mime envirosuit
 loadout-group-mime-envirogloves = Mime envirogloves
+loadout-group-mime-gloves = Mime gloves
 
 # Assistant
 loadout-group-assistant-envirohelm = Assistant envirohelm
@@ -208,7 +209,12 @@ loadout-group-brigmedic-envirogloves = Brigmedic envirogloves
 loadout-group-zookeeper-envirohelm = Zookeeper envirohelm
 loadout-group-zookeeper-envirosuit = Zookeeper envirosuit
 loadout-group-zookeeper-envirogloves = Zookeeper envirogloves
+loadout-group-zookeeper-jumpsuit = Zookeeper jumpsuit
+loadout-group-zookeeper-head = Zookeeper hat
 
 # Boxer
 loadout-group-boxer-envirohelm = Boxer envirohelm
 loadout-group-boxer-envirosuit = Boxer envirosuit
+
+# Misc
+loadout-group-plasma-tank = Plasma tank

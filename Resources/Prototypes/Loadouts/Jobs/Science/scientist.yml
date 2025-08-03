@@ -90,9 +90,6 @@
   id: ScientificBeret
   equipment:
     head: ClothingHeadHatBeretRND
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ScientificBeret
@@ -102,7 +99,7 @@
     proto: SeniorResearcher
   - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
     proto: EffectSpeciesNotPlasmaman
-    
+
 - type: loadout
   id: RoboticistCap
   equipment:
