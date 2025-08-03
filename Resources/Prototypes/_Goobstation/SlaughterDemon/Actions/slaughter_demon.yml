@@ -14,7 +14,7 @@
       sprite: _Goobstation/SlaughterDemon/abilities.rsi
       state: crawl
     event: !type:BloodCrawlEvent
-    useDelay: 2
+    useDelay: 3 # honestly good for ss14
 
 - type: entity
   id: DemonicWhisperAction

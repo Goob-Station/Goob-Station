@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.SlaughterDemon;
+using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Item;
@@ -28,6 +29,7 @@ public sealed class SlaughterDemonSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -82,6 +84,10 @@ public sealed class SlaughterDemonSystem : EntitySystem
 
             _container.Insert(entity.Value, component.Container);
         }
+
+        // Cooldown
+        foreach (var action in _actions.GetActions(args.NewEntity))
+            _actions.StartUseDelay(action.Id);
     }
 
     private void OnBloodCrawlExit(Entity<SlaughterDemonComponent> ent, ref BloodCrawlExitEvent args)
