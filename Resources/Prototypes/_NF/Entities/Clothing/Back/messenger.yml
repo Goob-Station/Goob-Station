@@ -403,9 +403,9 @@
     - state: icon-base-top
       color: "#4c4b4f"
     - state: icon-sling
-      color: "#88242d"
+      color: "#234787" # Pirate
     - state: icon-clasp
-      color: "#a52f29"
+      color: "#2965A5" # Pirate
   - type: Clothing
     clothingVisuals:
       back:
@@ -414,9 +414,9 @@
       - state: base-top-equipped-BACKPACK
         color: "#4c4b4f"
       - state: sling-equipped-BACKPACK
-        color: "#88242d"
+        color: "#234787" # Pirate
       - state: clasp-equipped-BACKPACK
-        color: "#a52f29"
+        color: "#2965A5" # Pirate
   - type: Item
     inhandVisuals:
       left:
