@@ -11,8 +11,8 @@
   youngAge: 60
   oldAge: 120
   maxAge: 180
-  maleFirstNames: names_plasmaman
-  femaleFirstNames: names_plasmaman
+  maleFirstNames: NamesPlasmaman
+  femaleFirstNames: NamesPlasmaman
   naming: FirstRoman
   sexes:
   - Unsexed
