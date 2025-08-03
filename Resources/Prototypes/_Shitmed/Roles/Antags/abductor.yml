@@ -28,3 +28,9 @@
   name: abductor-victim-role-name
   antagonist: true
   objective: roles-antag-abductor-victim
+
+- type: roleType
+  id: AbductorVictimRole
+  name: abductor-victim-role-name-freeagent
+  color: "#ffff00"
+  symbol: "☯"
