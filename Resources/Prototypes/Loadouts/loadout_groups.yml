@@ -1381,7 +1381,7 @@
 
 - type: loadoutGroup
   id: SecurityCadetOuterClothing # Pirate
-  name: Верхній одяг кадетів
+  name: loadout-group-cadet-outerclothing
   loadouts:
   - ArmorCadet
 
