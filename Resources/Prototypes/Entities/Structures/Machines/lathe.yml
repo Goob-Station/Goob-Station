@@ -867,6 +867,8 @@
     - MedicalBoardsStaticGoob
     - PowerCellsStatic
     - GrenadeTriggersStatic
+    # Einstein Engines Packs
+    - SyringeCase
     dynamicPacks:
     - Chemistry
     # Goobstation Packs

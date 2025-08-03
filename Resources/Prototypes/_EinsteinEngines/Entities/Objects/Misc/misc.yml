@@ -1,0 +1,18 @@
+- type: entity
+  id: MedipenCase
+  parent: SyringeCase
+  name: medipen case
+  description: A syringe case stocked with an organized supply of medipens.
+  components:
+  - type: StorageFill
+    contents:
+      - id: RadAutoInjector
+        amount: 2
+      - id: AntiPoisonMedipen
+        amount: 2
+      - id: SpaceMedipen
+        amount: 2
+      - id: EmergencyMedipen
+      - id: BruteAutoInjector
+      - id: BurnAutoInjector
+      - id: PainMedipen
