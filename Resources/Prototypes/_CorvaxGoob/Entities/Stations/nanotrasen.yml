@@ -30,17 +30,17 @@
           maxCount: 2
           stationGrid: false
           paths:
-          - /Maps/Corvax/Ruins/corvax_accident.yml
-          - /Maps/Corvax/Ruins/corvax_adventurer.yml
-          - /Maps/Corvax/Ruins/corvax_aplink.yml
-          - /Maps/Corvax/Ruins/corvax_battleship.yml
-          - /Maps/Corvax/Ruins/corvax_gas_station.yml
-          - /Maps/Corvax/Ruins/corvax_bss_unluck.yml
-          - /Maps/Corvax/Ruins/corvax_hotel_trivago.yml
-          - /Maps/Corvax/Ruins/corvax_kamikaze.yml
-          - /Maps/Corvax/Ruins/corvax_ore.yml
-          - /Maps/Corvax/Ruins/corvax_research_station.yml
-          - /Maps/Corvax/Ruins/corvax_rnd_debris.yml
-          - /Maps/Corvax/Ruins/corvax_sanctus.yml
-          - /Maps/Corvax/Ruins/corvax_ussp_debris.yml
-          - /Maps/Corvax/Ruins/corvax_ussp_asteroid.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_accident.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_adventurer.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_aplink.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_battleship.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_gas_station.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_bss_unluck.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_hotel_trivago.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_kamikaze.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_ore.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_research_station.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_rnd_debris.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_sanctus.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_ussp_debris.yml
+          - /Maps/_CorvaxGoob/Ruins/corvax_ussp_asteroid.yml

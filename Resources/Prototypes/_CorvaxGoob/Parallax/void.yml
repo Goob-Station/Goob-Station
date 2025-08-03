@@ -3,7 +3,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxNext/Parallaxes/VoidParallax.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/VoidParallax.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -29,7 +29,7 @@
   layersLQ:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxNext/Parallaxes/VoidParallax.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/VoidParallax.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
