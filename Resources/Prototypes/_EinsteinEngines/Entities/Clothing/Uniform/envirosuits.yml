@@ -11,18 +11,6 @@
 
 - type: entity
   parent: ClothingUniformEnvirosuitBase
-  id: ClothingUniformEnvirosuitBoxer
-  name: boxer "envirosuit"
-  description: It just works™
-  components:
-  - type: Sprite
-    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/boxer.rsi
-  - type: Clothing
-    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/boxer.rsi
-  - type: Item
-
-- type: entity
-  parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitAtmos
   name: atmospherics envirosuit
   description: An air-tight suit designed to be used by Plasmamen employed as atmos technicians.
