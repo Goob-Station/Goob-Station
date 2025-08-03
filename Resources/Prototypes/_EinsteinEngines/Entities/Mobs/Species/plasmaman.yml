@@ -113,7 +113,7 @@
   - type: Inventory
     templateId: plasmaman
   - type: Temperature
-    heatDamageThreshold: 313    # 40 celsius, -12 from base heat damage threshold
+    heatDamageThreshold: 308    # 35 celsius, -17 from base heat damage threshold
     currentTemperature: 270.15  # -3 celsius
     specificHeat: 46
     coldDamage:
@@ -140,6 +140,58 @@
     understands:
     - TauCetiBasic
     - Calcic
+  - type: SpawnGasOnGib
+    gasMixture:
+      moles:
+      - 0    # oxygen
+      - 0    # nitrogen
+      - 0    # CO2
+      - 100  # plasma
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 160
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 400
+        behaviors:
+        - !type:GibBehavior { }
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Heat
+          damage: 1500
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawnInContainer: true
+          spawn:
+            Ash:
+              min: 1
+              max: 1
+        - !type:BurnBodyBehavior { }
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MeatLaserImpact
+        - !type:SpawnGasBehavior
+          gasMixture:
+            moles:
+            - 0    # oxygen
+            - 0    # nitrogen
+            - 0    # CO2
+            - 80   # plasma, lower than gas on gibbing
+  - type: TemperatureSpeed
+    thresholds:
+      243: 0.8
 
 - type: entity
   parent: BaseSpeciesDummy

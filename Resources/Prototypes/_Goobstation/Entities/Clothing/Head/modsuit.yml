@@ -155,6 +155,13 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+    - Envirohelm
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
 
 - type: entity
   parent: BaseClothingModsuitHelmet
