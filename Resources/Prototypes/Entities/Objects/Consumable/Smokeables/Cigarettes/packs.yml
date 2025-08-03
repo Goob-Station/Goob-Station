@@ -147,6 +147,9 @@
   - type: Storage
     grid:
     - 0,0,4,1
+    blacklist:
+      components:
+      - SolutionCartridge
   - type: StorageFill
     contents:
     - id: Cigarette
