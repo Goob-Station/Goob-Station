@@ -3,12 +3,12 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/venusland.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/venusland.png"
       slowness: 0.98
       scale: 1,1
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/acid.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/acid.png"
       slowness: 0.95
       scale: "2, 2"
       scrolling: "0.1, -0.05"

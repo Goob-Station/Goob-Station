@@ -3,7 +3,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/AvriteParallaxBG.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/AvriteParallaxBG.png"
       slowness: 0.998046875
       scale: "0.5, 0.5"
     - texture:
@@ -28,7 +28,7 @@
       slowness: 0.984352
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/AvriteParallaxNeb.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/AvriteParallaxNeb.png"
       slowness: 0.978046875
       scale: "1, 1"
       tiled: false
