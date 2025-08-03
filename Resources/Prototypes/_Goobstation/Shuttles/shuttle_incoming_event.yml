@@ -7,7 +7,7 @@
 
 - type: preloadedGrid
   id: FrontierProspector
-  path: /Maps/_Goobstation/Shuttles/ShuttleEvent/prospector.yml
+  path: /Maps/_CorvaxGoob/Misc/ShuttleEvents/prospector.yml # Corvax-Goob-Maps
   copies: 1
 
 - type: preloadedGrid

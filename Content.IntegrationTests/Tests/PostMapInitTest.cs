@@ -232,6 +232,24 @@ namespace Content.IntegrationTests.Tests
             "Delta", // Goobstation - add Delta
             "dm01-entryway",
             "Chloris", // Goobstation
+            // Corvax-Goob-Maps-start
+            "CorvaxAstra",
+            "CorvaxBox",
+            "CorvaxDelta",
+            "CorvaxGlacier",
+            "CorvaxPilgrim",
+            "CorvaxAmber",
+            "CorvaxBagel",
+            "CorvaxMarathon",
+            "CorvaxOutpost",
+            "CorvaxPaper",
+            "CorvaxPearl",
+            "CorvaxVoid",
+            "CorvaxMaus",
+            "CorvaxOmega",
+            "CorvaxPacked",
+            "CorvaxTushkan",
+            // Corvax-Goob-Maps-end
         };
 
         /// <summary>

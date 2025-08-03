@@ -1,0 +1,28 @@
+- type: gameMapPool
+  id: CorvaxMapPool
+  maps:
+  # Highpop 55+
+  - CorvaxAstra
+  #- CorvaxAvrite WIP
+  - CorvaxBox
+  #- CorvaxChloris WIP
+  - CorvaxDelta
+  - CorvaxGlacier
+  - CorvaxPilgrim
+
+  # Midpop 25–55
+  - CorvaxAmber
+  #- CorvaxAwesome WIP
+  - CorvaxBagel
+  - CorvaxMarathon
+  - CorvaxOutpost
+  - CorvaxPaper
+  - CorvaxPearl
+  - CorvaxVoid
+
+  # Lowpop 0–25
+  - CorvaxMaus
+  - CorvaxOmega
+  - CorvaxPacked
+  #- CorvaxSilly WIP
+  - CorvaxTushkan
