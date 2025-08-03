@@ -304,6 +304,7 @@
   cost: 4000
   recipeUnlocks:
   - PushHorn
+  - BorgModuleAdvancedClowning
   # Goobstation R&D Console rework start
   position: 0,5
   technologyPrerequisites:
