@@ -4066,3 +4066,11 @@
   id: 8824
   time: '2025-08-02T18:35:09.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/38881
+- author: DrSmugleaf
+  changes:
+  - message: Fixed rotate verbs being delayed when used, and your right click UI bounce
+      when they appear after a short delay.
+    type: Fix
+  id: 8825
+  time: '2025-08-03T00:34:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38165
