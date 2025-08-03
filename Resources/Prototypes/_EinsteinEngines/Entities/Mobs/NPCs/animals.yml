@@ -113,6 +113,13 @@
       amount: 2
   - type: Extractable
     grindableSolutionName: food
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic # Goob Edit
+    - ValyrianStandard
+    understands:
+    - TauCetiBasic # Goob Edit
+    - ValyrianStandard
   - type: Vocal
     sounds:
       Male: SoundsHarpyMale
