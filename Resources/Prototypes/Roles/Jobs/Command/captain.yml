@@ -157,7 +157,6 @@
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30
-  whitelisted: true # Pirate
   goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear

@@ -43,7 +43,6 @@
       time: 90000 # 25 hours
     - !type:AgeRequirement
       requiredAge: 21
-  whitelisted: true # Pirate
   goobcoins: 45
   weight: 20
   startingGear: BlueshieldOfficerGear

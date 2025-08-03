@@ -156,7 +156,6 @@
   #    - HumanHairFloorlengthBedhead
   #    - HumanHairClassicFloorlengthBedhead
   #    - HumanHairFloorlengthBraid
-  whitelisted: true # Pirate
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
