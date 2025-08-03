@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Pspritechologist <81725545+Pspritechologist@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio;
 using Content.Server.SurveillanceCamera;
@@ -32,7 +19,6 @@ public sealed class EmpSystem : SharedEmpSystem
     {
         base.Initialize();
         SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<EmpOnTriggerComponent, TriggerEvent>(HandleEmpTrigger);
 
         SubscribeLocalEvent<EmpDisabledComponent, RadioSendAttemptEvent>(OnRadioSendAttempt);
         SubscribeLocalEvent<EmpDisabledComponent, RadioReceiveAttemptEvent>(OnRadioReceiveAttempt);
@@ -40,14 +26,7 @@ public sealed class EmpSystem : SharedEmpSystem
         SubscribeLocalEvent<EmpDisabledComponent, SurveillanceCameraSetActiveAttemptEvent>(OnCameraSetActive);
     }
 
-    /// <summary>
-    ///   Triggers an EMP pulse at the given location, by first raising an <see cref="EmpAttemptEvent"/>, then a raising <see cref="EmpPulseEvent"/> on all entities in range.
-    /// </summary>
-    /// <param name="coordinates">The location to trigger the EMP pulse at.</param>
-    /// <param name="range">The range of the EMP pulse.</param>
-    /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
-    /// <param name="duration">The duration of the EMP effects.</param>
-    public void EmpPulse(MapCoordinates coordinates, float range, float energyConsumption, float duration)
+    public override void EmpPulse(MapCoordinates coordinates, float range, float energyConsumption, float duration)
     {
         foreach (var uid in _lookup.GetEntitiesInRange(coordinates, range))
         {
@@ -128,12 +107,6 @@ public sealed class EmpSystem : SharedEmpSystem
     private void OnExamine(EntityUid uid, EmpDisabledComponent component, ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("emp-disabled-comp-on-examine"));
-    }
-
-    private void HandleEmpTrigger(EntityUid uid, EmpOnTriggerComponent comp, TriggerEvent args)
-    {
-        EmpPulse(_transform.GetMapCoordinates(uid), comp.Range, comp.EnergyConsumption, comp.DisableDuration);
-        args.Handled = true;
     }
 
     private void OnRadioSendAttempt(EntityUid uid, EmpDisabledComponent component, ref RadioSendAttemptEvent args)
