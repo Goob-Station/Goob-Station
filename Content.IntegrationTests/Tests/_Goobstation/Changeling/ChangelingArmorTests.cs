@@ -10,12 +10,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Changeling;
-using Content.Goobstation.Shared.Changeling;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Actions;
-using Content.Server.Antag;
-using Content.Server.GameTicking;
-using Content.Server.Mind;
 using Content.Shared.Actions;
 using Content.Shared.Inventory;
 using Robust.Shared.GameObjects;
@@ -40,20 +36,16 @@ public sealed class ChangelingArmorTest
 
         var server = pair.Server;
         var testMap = await pair.CreateTestMap();
-        var ticker = server.System<GameTicker>();
         var entMan = server.ResolveDependency<IEntityManager>();
         var timing = server.ResolveDependency<IGameTiming>();
 
-        var lingSys = entMan.System<ChangelingSystem>();
-        var antagSys = entMan.System<AntagSelectionSystem>();
-        var mindSys = entMan.System<MindSystem>();
         var actionSys = entMan.System<ActionsSystem>();
         var invSys = entMan.System<InventorySystem>();
 
         // Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
 
-        EntityUid urist = EntityUid.Invalid;
-        Goobstation.Shared.Changeling.Components.ChangelingIdentityComponent changelingIdentity = null;
+        var urist = EntityUid.Invalid;
+        ChangelingIdentityComponent changelingIdentity;
         Entity<InstantActionComponent> armorAction = (EntityUid.Invalid, null);
 
         await server.WaitPost(() =>
@@ -62,31 +54,40 @@ public sealed class ChangelingArmorTest
             urist = entMan.SpawnEntity("MobHuman", testMap.GridCoords);
 
             // Make urist a changeling
-            changelingIdentity = entMan.AddComponent<Goobstation.Shared.Changeling.Components.ChangelingIdentityComponent>(urist);
+            changelingIdentity = entMan.EnsureComponent<ChangelingIdentityComponent>(urist);
             changelingIdentity.TotalAbsorbedEntities += 10;
             changelingIdentity.MaxChemicals = 1000;
             changelingIdentity.Chemicals = 1000;
 
             // Give urist chitinous armor action
-            var armorActionEnt = actionSys.AddAction(urist, actionProto);
-            armorAction = (armorActionEnt.Value, entMan.GetComponent<InstantActionComponent>(armorActionEnt.Value));
+            var armorActionEntityNullable = actionSys.AddAction(urist, actionProto);
+            if (armorActionEntityNullable is not { } armorActionEntity)
+                return;
+
+            armorAction = (armorActionEntity, entMan.GetComponent<InstantActionComponent>(armorActionEntity));
+            if (armorAction.Comp is not { BaseEvent: { } armorActionBaseEvent } armorActionComp)
+                return;
+
             actionSys.SetUseDelay(armorAction, null);
 
             // Armor up
-            actionSys.PerformAction(urist, null, armorAction, armorAction.Comp, armorAction.Comp.BaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist, null, armorAction, armorActionComp, armorActionBaseEvent, timing.CurTime);
         });
 
         await server.WaitRunTicks(5);
 
         await server.WaitAssertion(() =>
         {
-            Assert.That(invSys.TryGetSlotEntity(urist, "outerClothing", out var outerClothing), Is.True);
-            Assert.That(outerClothing, Is.Not.Null);
-            Assert.That(entMan.GetComponent<MetaDataComponent>(outerClothing.Value).EntityPrototype!.ID, Is.EqualTo(outerProto));
+            Assert.Multiple(() =>
+            {
+                Assert.That(invSys.TryGetSlotEntity(urist, "outerClothing", out var outerClothing), Is.True);
+                Assert.That(outerClothing, Is.Not.Null);
+                Assert.That(entMan.GetComponent<MetaDataComponent>(outerClothing.Value).EntityPrototype!.ID, Is.EqualTo(outerProto));
 
-            Assert.That(invSys.TryGetSlotEntity(urist, "head", out var head));
-            Assert.That(head, Is.Not.Null);
-            Assert.That(entMan.GetComponent<MetaDataComponent>(head.Value).EntityPrototype!.ID, Is.EqualTo(helmetProto));
+                Assert.That(invSys.TryGetSlotEntity(urist, "head", out var head));
+                Assert.That(head, Is.Not.Null);
+                Assert.That(entMan.GetComponent<MetaDataComponent>(head.Value).EntityPrototype!.ID, Is.EqualTo(helmetProto));
+            });
         });
 
         await server.WaitPost(() =>
@@ -114,12 +115,12 @@ public sealed class ChangelingArmorTest
             });
         });
 
-        const string mercHelmet = "ClothingHeadHelmetMerc";
+        const string mercenaryHelmet = "ClothingHeadHelmetMerc";
 
         await server.WaitPost(() =>
         {
             // Equip helmet
-            var helm = entMan.SpawnEntity(mercHelmet, testMap.GridCoords);
+            var helm = entMan.SpawnEntity(mercenaryHelmet, testMap.GridCoords);
             Assert.That(invSys.TryEquip(urist, helm, "head", force: true));
 
             // Try to armor up, should fail due to helmet and not equip anything
@@ -137,9 +138,12 @@ public sealed class ChangelingArmorTest
                 Assert.That(meta?.EntityPrototype, Is.Null);
             });
 
-            Assert.That(invSys.TryGetSlotEntity(urist, "head", out var head));
-            Assert.That(head, Is.Not.Null);
-            Assert.That(entMan.GetComponent<MetaDataComponent>(head.Value).EntityPrototype!.ID, Is.EqualTo(mercHelmet));
+            Assert.Multiple(() =>
+            {
+                Assert.That(invSys.TryGetSlotEntity(urist, "head", out var head));
+                Assert.That(head, Is.Not.Null);
+                Assert.That(entMan.GetComponent<MetaDataComponent>(head.Value).EntityPrototype!.ID, Is.EqualTo(mercenaryHelmet));
+            });
         });
 
         await server.WaitPost(() => entMan.DeleteEntity(urist));
