@@ -28,6 +28,7 @@
     - ActionSpawnResinMembrane
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
+    - ActionSpawnXenomorphEgg
   - type: Body
     prototype: XenomorphQueen
   - type: TypingIndicator
@@ -46,13 +47,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      490: Critical
-      500: Dead
+      735: Critical
+      750: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      410: 0.9
-      430: 0.7
-      460: 0.6
+      600: 0.9
+      645: 0.7
+      690: 0.6
   - type: MeleeWeapon
     damage:
       groups:
@@ -102,6 +103,6 @@
     baseSprintSpeed: 3.8
   - type: SlowOnDamage
     speedModifierThresholds:
-      410: 0.7
-      430: 0.6
-      460: 0.5
+      600: 0.7
+      645: 0.6
+      690: 0.5

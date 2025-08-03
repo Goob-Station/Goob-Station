@@ -74,6 +74,6 @@
     baseSprintSpeed: 4
   - type: SlowOnDamage
     speedModifierThresholds:
-      70: 0.7
-      85: 0.6
-      100: 0.5
+      105: 0.7
+      125: 0.6
+      150: 0.5

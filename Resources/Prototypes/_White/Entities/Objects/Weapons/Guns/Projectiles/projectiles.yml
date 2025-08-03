@@ -1,0 +1,9 @@
+- type: entity
+  id: BulletAcidLarge
+  parent: BulletAcid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Caustic: 35

@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
+using Content.Shared.Physics;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -29,6 +30,9 @@ public sealed partial class SpawnTileEntityActionEvent : InstantActionEvent
     /// </summary>
     [DataField]
     public SoundSpecifier? Audio;
+
+    [DataField]
+    public CollisionGroup? BlockedCollision;
 }
 
 /// <summary>
@@ -53,6 +57,9 @@ public sealed partial class PlaceTileEntityEvent : WorldTargetActionEvent
     /// </summary>
     [DataField]
     public SoundSpecifier? Audio;
+
+    [DataField]
+    public CollisionGroup? BlockedCollision;
 
     /// <summary>
     /// The duration of the action in seconds

@@ -24,6 +24,7 @@
         mask:
         - TableMask
         layer:
+        - TableLayer
         - BulletImpassable
   - type: RequireProjectileTarget
   - type: Damageable

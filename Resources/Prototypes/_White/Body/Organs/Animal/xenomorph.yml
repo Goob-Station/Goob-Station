@@ -92,7 +92,7 @@
     - type: XenomorphAcid
       damagePerSecond:
         types:
-          Caustic: 5
+          Caustic: 20
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -108,7 +108,7 @@
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 0.75
     - type: BasicEntityAmmoProvider
-      proto: BulletAcid
+      proto: BulletAcidLarge
       capacity: 1
       count: 1
     - type: Gun
@@ -123,6 +123,7 @@
   parent: BaseXenomorphOrgan
   id: OrganXenomorphEggSack
   name: egg sack
+  description: Designed to produce and store eggs containing facehuggers, the organ's enormous size allows the xenomorph queen to lay thousands of eggs in a short period of time.
   components:
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi
@@ -135,7 +136,7 @@
   parent: BaseXenomorphOrgan
   id: OrganXenomorphResinSpinner
   name: resin spinner
-  description: The central organ of the xenomorphs, providing communication with the common mind.
+  description: Designed for the production and isolation of resin-like biopolymer.
   components:
   - type: Sprite
     state: resin_spinner
@@ -187,7 +188,6 @@
 - type: entity
   parent: OrganXenomorphPlasmaVesselLarge
   id: OrganXenomorphPlasmaVesselLargeQueen
-  name: large plasma vessel
   components:
   - type: Organ
     onAdd:

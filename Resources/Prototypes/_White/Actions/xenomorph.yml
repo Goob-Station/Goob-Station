@@ -34,7 +34,7 @@
 - type: entity
   id: ActionEvolutionPraetorian
   parent: ActionEvolution
-  name: Evolve to Praetorian (500)
+  name: Evolve to praetorian (500)
   description: Evolve into the main defender of the hive.
   components:
   - type: Action
@@ -45,7 +45,7 @@
 - type: entity
   id: ActionEvolutionQueen
   parent: ActionEvolutionPraetorian
-  name: Evolve to Queen (500)
+  name: Evolve to queen (500)
   description: Produce an internal egg sac capable of spawning children. Only one queen can exist at a time.
   components:
   - type: Action
@@ -55,7 +55,7 @@
 - type: entity
   id: ActionSpawnResinWeedNode
   parent: BaseAction
-  name: Plant Weeds (50)
+  name: Plant weeds (50)
   description: Plants some xenomorph weeds.
   components:
   - type: Action
@@ -66,13 +66,30 @@
   - type: InstantAction
     event: !type:SpawnTileEntityActionEvent
       entity: ResinWeedNode
+      blockedCollision: SlipLayer
   - type: PlasmaCostAction
+
+- type: entity
+  id: ActionSpawnXenomorphEgg
+  name: Lay egg (75)
+  description: Lay an egg to produce facehuggers to impregnate prey with.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    useDelay: 2
+    icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: egg }
+    event: !type:SpawnTileEntityActionEvent
+      entity: XenomorphEgg
+      blockedCollision: TableMask
+  - type: PlasmaCostAction
+    plasmaCost: 75
 
 # TODO: delete it
 - type: entity
   id: ActionSpawnWallResin
   parent: BaseAction
-  name: Secrete Resin (50)
+  name: Secrete resin (50)
   description: Secrete tough malleable resin.
   components:
   - type: Action
@@ -85,13 +102,14 @@
     event: !type:PlaceTileEntityEvent
       entity: WallResin
       length: 0.5
+      blockedCollision: FullTileMask
   - type: PlasmaCostAction
 
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinMembrane
   parent: BaseAction
-  name: Secrete Resin (50)
+  name: Secrete resin (50)
   description: Secrete tough malleable resin.
   components:
   - type: Action
@@ -104,13 +122,14 @@
     event: !type:PlaceTileEntityEvent
       entity: ResinMembrane
       length: 0.5
+      blockedCollision: GlassLayer
   - type: PlasmaCostAction
 
 # TODO: delete it
 - type: entity
   id: ActionSpawnResinNest
   parent: BaseAction
-  name: Secrete Resin (50)
+  name: Secrete resin (50)
   description: Secrete tough malleable resin.
   components:
   - type: Action
@@ -129,7 +148,7 @@
 - type: entity
   id: ActionTailLash
   parent: BaseAction
-  name: Tail Lash
+  name: Tail lash
   description: Hit your opponent with your tail.
   components:
   - type: Action
@@ -140,12 +159,12 @@
     range: 10
   - type: WorldTargetAction
     event: !type:TailLashActionEvent
-
-# Acid action
+    
+    # Acid action
 - type: entity
   id: ActionAcid
   parent: BaseAction
-  name: Corrosive Acid (200)
+  name: Corrosive acid (200)
   description: Drench an object in acid, destroying it over time.
   components:
   - type: Action
@@ -175,12 +194,12 @@
     range: 10
   - type: WorldTargetAction
     event: !type:JumpActionEvent
-
-# Transfer plasma action
+    
+    # Transfer plasma action
 - type: entity
   id: ActionTransferPlasma
   parent: BaseAction
-  name: Transfer Plasma (50)
+  name: Transfer plasma (50)
   description: Passes plasma to your friend.
   components:
   - type: Action

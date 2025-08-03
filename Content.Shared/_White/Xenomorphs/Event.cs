@@ -25,6 +25,9 @@ public sealed partial class XenomorphEvolutionDoAfterEvent : DoAfterEvent
     public override DoAfterEvent Clone() => this;
 }
 
+[Serializable, NetSerializable]
+public sealed partial class LarvaBurstDoAfterEvent : SimpleDoAfterEvent;
+
 public sealed partial class TransferPlasmaActionEvent : EntityTargetActionEvent
 {
     [DataField]

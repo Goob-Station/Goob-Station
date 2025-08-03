@@ -2,7 +2,10 @@ using Content.Server.DoAfter;
 using Content.Shared._White.Actions.Events;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
+using Content.Shared.Maps;
+using Content.Shared.Physics;
 using Robust.Server.Audio;
+using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
@@ -13,12 +16,15 @@ namespace Content.Server._White.Actions;
 
 public sealed class ActionsSystem : EntitySystem
 {
+    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
 
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -30,7 +36,7 @@ public sealed class ActionsSystem : EntitySystem
 
     private void OnSpawnTileEntityAction(SpawnTileEntityActionEvent args)
     {
-        if (args.Handled || !CreationTileEntity(args.Performer.ToCoordinates(), args.TileId, args.Entity, args.Audio))
+        if (args.Handled || !CreationTileEntity(args.Performer, args.Performer.ToCoordinates(), args.TileId, args.Entity, args.Audio, args.BlockedCollision))
             return;
 
         args.Handled = true;
@@ -43,6 +49,9 @@ public sealed class ActionsSystem : EntitySystem
 
         if (args.Length != 0)
         {
+            if (CheckTileBlocked(args.Target, args.BlockedCollision))
+                return;
+
             var ev = new PlaceTileEntityDoAfterEvent
             {
                 Target = GetNetCoordinates(args.Target),
@@ -64,7 +73,7 @@ public sealed class ActionsSystem : EntitySystem
             return;
         }
 
-        if (!CreationTileEntity(args.Target, args.TileId, args.Entity, args.Audio))
+        if (!CreationTileEntity(args.Performer, args.Target, args.TileId, args.Entity, args.Audio, args.BlockedCollision))
             return;
 
         args.Handled = true;
@@ -72,7 +81,7 @@ public sealed class ActionsSystem : EntitySystem
 
     private void OnPlaceTileEntityDoAfter(PlaceTileEntityDoAfterEvent args)
     {
-        if (args.Handled || !CreationTileEntity(GetCoordinates(args.Target), args.TileId, args.Entity, args.Audio))
+        if (args.Handled || !CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity, args.Audio, null))
             return;
 
         args.Handled = true;
@@ -80,8 +89,11 @@ public sealed class ActionsSystem : EntitySystem
 
     #region Helpers
 
-    private bool CreationTileEntity(EntityCoordinates coordinates, string? tileId, EntProtoId? entProtoId, SoundSpecifier? audio)
+    private bool CreationTileEntity(EntityUid user, EntityCoordinates coordinates, string? tileId, EntProtoId? entProtoId, SoundSpecifier? audio, CollisionGroup? blockedCollision)
     {
+        if (_container.IsEntityOrParentInContainer(user))
+            return false;
+
         if (tileId != null)
         {
             if (_transform.GetGrid(coordinates) is not { } grid || !TryComp(grid, out MapGridComponent? mapGrid))
@@ -93,12 +105,21 @@ public sealed class ActionsSystem : EntitySystem
             _mapSystem.SetTile(grid, mapGrid, coordinates, tile);
         }
 
-        if (entProtoId != null)
-            Spawn(entProtoId, coordinates);
-
         _audio.PlayPvs(audio, coordinates);
 
+        if (entProtoId == null || CheckTileBlocked(coordinates, blockedCollision))
+            return false;
+
+        Spawn(entProtoId, coordinates);
+
         return true;
+    }
+
+    private bool CheckTileBlocked(EntityCoordinates coordinates, CollisionGroup? blockedCollision)
+    {
+        var tileRef = coordinates.GetTileRef(EntityManager, _mapManager);
+
+        return tileRef.HasValue && blockedCollision.HasValue && _turf.IsTileBlocked(tileRef.Value, blockedCollision.Value);
     }
 
     #endregion

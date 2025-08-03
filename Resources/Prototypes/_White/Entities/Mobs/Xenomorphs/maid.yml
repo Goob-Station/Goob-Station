@@ -3,7 +3,6 @@
   id: MobXenomorphMaid
   name: lusty xenomorph maid
   description: Don't ask it to lay eggs in you.
-  abstract: true
   components:
   - type: Sprite
     sprite: _White/Mobs/Aliens/Xenomorphs/maid.rsi

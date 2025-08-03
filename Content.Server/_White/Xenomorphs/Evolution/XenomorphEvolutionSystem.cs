@@ -133,7 +133,7 @@ public sealed class XenomorphEvolutionSystem : EntitySystem
     {
         if (component.Points < component.Max)
         {
-            _popup.PopupEntity(Loc.GetString("xenomorphs-evolution-not-enough-points", ("seconds", (component.Max - component.Points) * component.PointsPerSecond)), uid, uid);
+            _popup.PopupEntity(Loc.GetString("xenomorphs-evolution-not-enough-points", ("seconds", (component.Max - component.Points) / component.PointsPerSecond)), uid, uid);
             return false;
         }
 

@@ -21,7 +21,7 @@ public sealed partial class XenomorphEvolutionComponent : Component
     public FixedPoint2 Max;
 
     [DataField]
-    public FixedPoint2 PointsPerSecond = 0.5;
+    public FixedPoint2 PointsPerSecond = 2;
 
     [DataField]
     public TimeSpan EvolutionJitterDuration = TimeSpan.FromSeconds(10);

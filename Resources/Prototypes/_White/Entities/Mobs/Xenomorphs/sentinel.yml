@@ -30,13 +30,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Critical
-      160: Dead
+      225: Critical
+      240: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      100: 0.9
-      115: 0.7
-      130: 0.6
+      150: 0.9
+      170: 0.7
+      195: 0.6
   # - type: GuideHelp
   #   guides:
   #   - XenomorphSentinel
@@ -66,6 +66,6 @@
     baseSprintSpeed: 3.2
   - type: SlowOnDamage
     speedModifierThresholds:
-      100: 0.7
-      115: 0.6
-      130: 0.5
+      150: 0.7
+      170: 0.6
+      195: 0.5
