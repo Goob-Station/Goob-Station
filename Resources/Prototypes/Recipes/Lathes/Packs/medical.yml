@@ -77,7 +77,7 @@
   - MedkitBrute
   - MedkitAdvanced
   - MedkitRadiation
-  - MedkitCombat
+#  - MedkitCombat #goob - Move combat kit to research
 
 - type: latheRecipePack
   id: MedicalBoardsStatic
@@ -99,6 +99,7 @@
   - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
+  - MedkitCombat #goob - Move combat kit to research
 
 - type: latheRecipePack
   id: MedicalBoards
