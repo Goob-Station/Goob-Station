@@ -31,7 +31,6 @@
 #      employers:
 #      - IdrisIncorporated
 #      - NanoTrasen
-  whitelisted: true # Pirate
   goobcoins: 30 #Goob content
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"

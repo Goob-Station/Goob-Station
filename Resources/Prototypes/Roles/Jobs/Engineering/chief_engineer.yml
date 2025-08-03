@@ -143,7 +143,6 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 36000 #10 hrs
-  whitelisted: true # Pirate
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
