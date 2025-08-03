@@ -1359,7 +1359,7 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
+  - CadetJumpsuit
   - RedJumpskirt
 
 - type: loadoutGroup
@@ -1378,6 +1378,12 @@
   minLimit: 0
   loadouts:
   - SecStar
+
+- type: loadoutGroup
+  id: SecurityCadetOuterClothing # Pirate
+  name: Верхній одяг кадетів
+  loadouts:
+  - ArmorCadet
 
 # Medical
 - type: loadoutGroup
