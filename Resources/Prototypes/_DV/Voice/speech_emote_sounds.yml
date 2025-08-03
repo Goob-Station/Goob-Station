@@ -90,6 +90,14 @@
       collection: FemaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Trill:
+      collection: Trill
+    Yip:
+      collection: Yip
+    Warble:
+      collection: Warble
+    Wurble:
+      collection: Wurble
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -164,6 +172,16 @@
       collection: MaleDeathGasp
     Gulp: # Goob
       path: /Audio/_Goobstation/Voice/gulpexotic.ogg
+    Trill:
+      collection: Trill
+    Yip:
+      collection: Yip
+    Warble:
+      collection: Warble
+    Wurble:
+      collection: Wurble
+    Mars:
+      collection: Mars
 
 - type: emoteSounds
   id: FemaleVulpkanin

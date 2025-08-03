@@ -33,6 +33,8 @@
     - /Audio/Voice/Moth/moth_scream.ogg
     - /Audio/Voice/Skeleton/skeleton_scream.ogg
     - /Audio/Voice/Reptilian/reptilian_scream.ogg
+    - /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+
 
 - type: soundCollection
   id: HarpyLaugh
@@ -46,6 +48,7 @@
     - /Audio/Animals/lizard_happy.ogg
     - /Audio/Animals/ferret_happy.ogg
     - /Audio/Voice/Moth/moth_laugh.ogg
+    - /Audio/_Floofstation/Voice/Avali/avali_laugh.ogg
 
 - type: soundCollection
   id: HarpyHisses
@@ -67,6 +70,7 @@
     - /Audio/Machines/windoor_open.ogg
     - /Audio/Effects/spray.ogg
     - /Audio/Effects/spray2.ogg
+    - /Audio/_Floofstation/Voice/Reptilian/hiss.ogg
 
 - type: soundCollection
   id: HarpySigh
@@ -231,7 +235,7 @@
 
 - type: soundCollection
   id: HarpyChitter
-  files: 
+  files:
     - /Audio/Voice/Moth/moth_chitter.ogg
     - /Audio/Machines/circuitprinter.ogg
     - /Audio/Machines/diagnoser_printing.ogg
@@ -240,19 +244,24 @@
 
 - type: soundCollection
   id: HarpySqueak
-  files: 
+  files:
     - /Audio/Voice/Moth/moth_squeak.ogg
     - /Audio/Animals/mouse_squeak.ogg
 
 - type: soundCollection
   id: HarpyCaws
-  files: 
+  files:
     - /Audio/_DV/Voice/Harpy/caw1.ogg
 
 - type: soundCollection
   id: HarpyChirps
-  files: 
+  files:
     - /Audio/_DV/Voice/Harpy/chirp1.ogg
     - /Audio/Voice/Talk/pai.ogg
     - /Audio/Voice/Talk/pai_ask.ogg
     - /Audio/Voice/Talk/pai_exclaim.ogg
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp1.ogg
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp2.ogg
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp3.ogg
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp4.ogg
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp5.ogg
