@@ -117,11 +117,17 @@
   id: GreyJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorGrey
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: GreyJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorGrey
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Rainbow
 - type: loadout
@@ -129,6 +135,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformColorRainbow
 
@@ -138,6 +146,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRainbow
 
@@ -147,6 +157,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpsuitAncient
 
@@ -186,6 +198,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     gloves: ClothingHandsGlovesFingerlessInsulated
 
@@ -212,76 +226,121 @@
   id: GreyMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorGrey
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BlackMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorBlack
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BlueMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorBlue
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: DarkBlueMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorDarkBlue
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: TealMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorTeal
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: GreenMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorGreen
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: DarkGreenMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorDarkGreen
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: OrangeMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorOrange
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: PinkMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorPink
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: RedMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorRed
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: YellowMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorYellow
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: PurpleMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorPurple
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LightBrownMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorLightBrown
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BrownMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorBrown
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: MaroonMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 
 # service jumpsuit - putting it here because frontier's only service jumpsuits are hydroponics and general lmao # goob change btw
@@ -290,3 +349,6 @@
   id: ServiceMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryService
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman

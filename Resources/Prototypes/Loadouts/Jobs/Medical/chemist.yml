@@ -81,16 +81,25 @@
   id: ChemistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChemistry
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ChemistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistry
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # goob
   id: ChemistMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryChemistry
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Back
 - type: loadout

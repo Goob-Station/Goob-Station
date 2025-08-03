@@ -1,5 +1,6 @@
 - type: typingIndicator
   id: plasmaman
-  spritePath: _EinsteinEngines/Effects/speech.rsi
+  spritePath: /Textures/_EinsteinEngines/Effects/speech.rsi
   typingState: plasmaman0
+  idleState: plasmaman1
   offset: 0, 0.125

@@ -1,0 +1,26 @@
+- type: loadout
+  id: ReporterEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitReporter
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ReporterEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmReporter
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ReporterEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesReporter
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

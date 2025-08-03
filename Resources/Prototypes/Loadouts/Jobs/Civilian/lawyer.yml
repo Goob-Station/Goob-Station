@@ -80,51 +80,81 @@
   id: LawyerJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitLawyerBlack
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LawyerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtLawyerBlack
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LawyerJumpsuitBlue
   equipment:
     jumpsuit: ClothingUniformJumpsuitLawyerBlue
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LawyerJumpskirtBlue
   equipment:
     jumpsuit: ClothingUniformJumpskirtLawyerBlue
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LawyerJumpsuitPurple
   equipment:
     jumpsuit: ClothingUniformJumpsuitLawyerPurple
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LawyerJumpskirtPurple
   equipment:
     jumpsuit: ClothingUniformJumpskirtLawyerPurple
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LawyerJumpsuitRed
   equipment:
     jumpsuit: ClothingUniformJumpsuitLawyerRed
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LawyerJumpskirtRed
   equipment:
     jumpsuit: ClothingUniformJumpskirtLawyerRed
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LawyerJumpsuitGood
   equipment:
     jumpsuit: ClothingUniformJumpsuitLawyerGood
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LawyerJumpskirtGood
   equipment:
     jumpsuit: ClothingUniformJumpskirtLawyerGood
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Neck
 - type: loadout

@@ -100,11 +100,3 @@
   #storage:
     #back:
     #- Stuff
-
-- type: startingGear
-  id: CargoTechPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitCargo
-    head: ClothingHeadEnvirohelmCargo
-    gloves: ClothingHandsGlovesEnviroglovesCargo

@@ -82,21 +82,33 @@
   id: AtmosphericTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmos
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: AtmosphericTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtAtmos
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: AtmosphericTechnicianJumpsuitCasual
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmosCasual
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # goob
   id: AtmosMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryAtmospherics
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Back
 - type: loadout

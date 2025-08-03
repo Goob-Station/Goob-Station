@@ -79,18 +79,30 @@
   id: LibrarianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitLibrarian
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: LibrarianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtLibrarian
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: CuratorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCurator
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: CuratorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCurator
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman

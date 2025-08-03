@@ -85,16 +85,25 @@
   id: MimeHead
   equipment:
     head: ClothingHeadHatBeret
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: MimeFrenchBeret
   equipment:
     head: ClothingHeadHatBeretFrench
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: MimeCap
   equipment:
     head: ClothingHeadHatMimesoft
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Mask
 - type: loadout
@@ -117,11 +126,17 @@
   id: MimeJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMime
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: MimeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMime
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Back
 - type: loadout

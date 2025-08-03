@@ -100,22 +100,34 @@
   id: HoPJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoP
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: HoPJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoP
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # goob
   id: HoPJumpsuitMilitary
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryHoP
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Head
 - type: loadout
   id: HoPHead
   equipment:
     head: ClothingHeadHatHopcap
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Neck
 - type: loadout

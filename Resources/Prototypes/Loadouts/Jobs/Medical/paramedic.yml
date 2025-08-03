@@ -81,22 +81,34 @@
   id: ParamedicHead
   equipment:
     head: ClothingHeadHatParamedicsoft
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Jumpsuit
 - type: loadout
   id: ParamedicJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ParamedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # goob
   id: ParamedMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryParamedic
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Outer clothing
 - type: loadout

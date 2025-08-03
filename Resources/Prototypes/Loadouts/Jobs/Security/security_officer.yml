@@ -111,58 +111,90 @@
   id: SecurityHelmet
   equipment:
     head: ClothingHeadHelmetBasic
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # Goobstation
   id: SecurityHelmetAlt
   equipment:
     head: ClothingHeadHelmetBasicAlt
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: SecurityHat
   equipment:
     head: ClothingHeadHatSecsoft
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: SecurityBeret
   equipment:
     head: ClothingHeadHatBeretSecurity
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: TrooperHat
   equipment:
     head: ClothingHeadHatSecurityTrooper
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Jumpsuit
 - type: loadout
   id: SecurityJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: SecurityJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSec
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: SecurityJumpsuitGrey
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecGrey
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: SecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: TrooperUniform
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: SeniorOfficerJumpsuit
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
 
@@ -171,6 +203,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
 

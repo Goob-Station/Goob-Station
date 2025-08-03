@@ -177,11 +177,3 @@
     back:
     - Flash
     - TelescopicBaton # Goobstation
-
-- type: startingGear
-  id: QuartermasterPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitQM
-    head: ClothingHeadEnvirohelmQM
-    gloves: ClothingHandsGlovesEnviroglovesCargo

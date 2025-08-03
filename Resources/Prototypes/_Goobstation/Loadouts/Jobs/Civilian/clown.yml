@@ -1,0 +1,26 @@
+- type: loadout
+  id: ClownEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitClown
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ClownEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmClown
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ClownEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesClown
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

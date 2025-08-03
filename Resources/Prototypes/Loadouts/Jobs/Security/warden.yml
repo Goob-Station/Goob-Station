@@ -79,22 +79,34 @@
   id: WardenHead
   equipment:
     head: ClothingHeadHatWarden
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: WardenBeret
   equipment:
     head: ClothingHeadHatBeretWarden
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Jumpsuit
 - type: loadout
   id: WardenJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitWarden
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: WardenJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtWarden
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # OuterClothing
 - type: loadout

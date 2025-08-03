@@ -92,11 +92,3 @@
   #storage:
     #back:
     #- Stuff
-
-- type: startingGear
-  id: BotanistPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitHydroponics
-    head: ClothingHeadEnvirohelmHydroponics
-    gloves: ClothingHandsGlovesEnviroglovesLeather

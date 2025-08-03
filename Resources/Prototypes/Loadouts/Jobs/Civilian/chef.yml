@@ -79,6 +79,9 @@
   id: ChefHead
   equipment:
     head: ClothingHeadHatChef
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Mask
 - type: loadout
@@ -91,11 +94,17 @@
   id: ChefJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChef
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ChefJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChef
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Outer clothing
 - type: loadout

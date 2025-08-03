@@ -89,6 +89,9 @@
 - type: loadout
   id: ResearchDirectorBeret
   startingGear: ScientificBeret
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Neck
 - type: loadout
@@ -114,16 +117,25 @@
   id: ResearchDirectorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitResearchDirector
+  effects: 
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ResearchDirectorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # goob
   id: ResearchDirectorMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryResearchDirector
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # OuterClothing
 - type: loadout

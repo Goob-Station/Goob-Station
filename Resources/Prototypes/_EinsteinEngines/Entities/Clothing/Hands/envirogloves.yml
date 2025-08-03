@@ -57,6 +57,23 @@
     fiberColor: fibers-black
 
 - type: entity
+  parent: ClothingHandsGlovesEnviroglovesBlack
+  id: ClothingHandsGlovesEnviroglovesCombat
+  name: combat envirogloves
+  description: Specially designed envirogloves for combat and shock-protection.
+  components:
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Shock: 0.75
+
+- type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesNitrile
   name: nitrile envirogloves
@@ -123,15 +140,15 @@
   suffix: Loadouts, Colorable
 
 - type: entity
-  parent: ClothingHandsGlovesEnviroglovesBase
-  id: ClothingHandsGlovesEnviroglovesEvening
-  name: evening envirogloves
-  description: Who said Plasmamen can't serve elegance and looks?
+  parent: ClothingHandsGlovesEnviroglovesWhite
+  id: ClothingHandsGlovesEnviroglovesDetective
+  name: forensic envirogloves
+  description: Covers up those scandalous boney fingerprints.
   components:
-  - type: Sprite
-    sprite: Clothing/Hands/Gloves/evening_gloves.rsi
-  - type: Clothing
-    sprite: Clothing/Hands/Gloves/evening_gloves.rsi
+  - type: FingerprintMask
+  - type: GuideHelp
+    guides:
+    - Forensics
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
@@ -190,6 +207,7 @@
         color: "#883391"
   - type: Fiber
     fiberColor: fibers-purple
+  - type: Insulated # Same deal as the engi ones.
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
@@ -248,6 +266,7 @@
         color: "#d75600"
   - type: Fiber
     fiberColor: fibers-orange
+  - type: Insulated # We dont have as granular of a system as EE so we just make em straight up insuls.
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
@@ -277,6 +296,7 @@
         color: "#00a5ff"
   - type: Fiber
     fiberColor: fibers-blue
+  - type: Insulated # We dont have as granular of a system as EE so we just make em straight up insuls.
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
@@ -421,6 +441,12 @@
     fiberColor: fibers-blue
 
 - type: entity
+  parent: ClothingHandsGlovesEnviroglovesHoP
+  id: ClothingHandsGlovesEnviroglovesCaptain
+  name: captain's envirogloves
+  description: Covers up those scandalous, bony hands in a fancy way.
+
+- type: entity
   parent: ClothingHandsGlovesEnviroglovesBase
   id: ClothingHandsGlovesEnviroglovesChiefEngineer
   name: chief engineer's envirogloves
@@ -448,6 +474,7 @@
         color: "#45ff00"
   - type: Fiber
     fiberColor: fibers-green
+  - type: Insulated
 
 - type: entity
   parent: ClothingHandsGlovesEnviroglovesBase

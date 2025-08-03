@@ -79,11 +79,17 @@
   id: BoxerShorts
   equipment:
     jumpsuit: UniformShortsRed
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BoxerShortsWithTop
   equipment:
     jumpsuit: UniformShortsRedWithTop
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Gloves
 - type: loadout

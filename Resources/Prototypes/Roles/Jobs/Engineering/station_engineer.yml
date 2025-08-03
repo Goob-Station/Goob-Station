@@ -101,11 +101,3 @@
   #storage:
     #back:
     #- Stuff
-
-- type: startingGear
-  id: StationEngineerPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitEngineering
-    head: ClothingHeadEnvirohelmEngineering
-    gloves: ClothingHandsGlovesEnviroglovesEngineering

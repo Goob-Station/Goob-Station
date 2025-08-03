@@ -80,6 +80,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._EinsteinEngines.Bed.Components; // EE Plasmeme Change
 using Content.Server.Actions;
 using Content.Server.Bed.Components;
 using Content.Server.Body.Systems;
@@ -95,7 +96,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared._EinsteinEngines.Bed.Components; // EE Plasmeme Change
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Shared._Shitmed.Damage; // Shitmed Change

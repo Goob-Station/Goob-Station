@@ -115,6 +115,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorPhysician
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
 
@@ -123,6 +125,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MedicalHeadMirrorTimer
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     head: ClothingHeadMirror
 
@@ -130,43 +134,66 @@
   id: MedicalBeret
   equipment:
     head: ClothingHeadHatBeretMedic
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BlueSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapBlue
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: GreenSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapGreen
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: PurpleSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapPurple
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NurseHat
   equipment:
     head: ClothingHeadNurseHat
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Jumpsuit
 - type: loadout
   id: MedicalDoctorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: MedicalDoctorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: SeniorPhysicianJumpsuit
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorPhysician
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
 
@@ -175,6 +202,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorPhysician
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorPhysician
 
@@ -182,21 +211,33 @@
   id: MedicalBlueScrubs
   equipment:
     jumpsuit: UniformScrubsColorBlue
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: MedicalGreenScrubs
   equipment:
     jumpsuit: UniformScrubsColorGreen
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: MedicalPurpleScrubs
   equipment:
     jumpsuit: UniformScrubsColorPurple
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # goob
   id: MedicMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryMedicalDoctor
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Back
 - type: loadout
@@ -253,6 +294,9 @@
   id: NitrileGloves
   equipment:
     gloves: ClothingHandsGlovesNitrile
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 #Masks
 - type: loadout

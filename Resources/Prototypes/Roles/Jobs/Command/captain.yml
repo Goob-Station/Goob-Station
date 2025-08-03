@@ -180,7 +180,7 @@
   equipment:
     shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesSunglasses
-    gloves: ClothingHandsGlovesCaptain
+    #gloves: ClothingHandsGlovesCaptain - Goobstation, moved to loadouts
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
   storage:
@@ -188,11 +188,3 @@
     - Flash
     - TelescopicBaton # Goobstation
     # - StationCharter
-
-- type: startingGear
-  id: CaptainPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitCaptain
-    head: ClothingHeadEnvirohelmCaptain
-    gloves: ClothingHandsGlovesCaptain

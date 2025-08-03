@@ -33,3 +33,30 @@
     id: SalvagePDA
     back: ClothingBackpackSalvage
     ears: ClothingHeadsetCargo
+
+- type: loadout
+  id: SalvageEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitSalvage
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: SalvageEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmSalvage
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: SalvageEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesSalvage
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

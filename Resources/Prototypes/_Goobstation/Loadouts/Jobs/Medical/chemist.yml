@@ -17,5 +17,25 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterChemist
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     head: ClothingHeadHatUshanka
+
+- type: loadout
+  id: ChemistEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitChemist
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ChemistEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmChemist
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

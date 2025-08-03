@@ -1,0 +1,26 @@
+- type: loadout
+  id: AncientVoidEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitAncientVoid
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: AncientVoidEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmAncientVoid
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: PrototypeEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesPrototype
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

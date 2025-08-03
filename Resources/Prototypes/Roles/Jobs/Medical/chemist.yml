@@ -95,11 +95,3 @@
   #storage:
     #back:
     #- Stuff
-
-- type: startingGear
-  id: ChemistPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitChemist
-    head: ClothingHeadEnvirohelmChemist
-    gloves: ClothingHandsGlovesEnviroglovesWhite

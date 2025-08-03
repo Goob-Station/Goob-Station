@@ -73,8 +73,6 @@
 
 - type: startingGear
   id: BoxerGear
-  subGear:
-  - BoxerPlasmamanGear
   equipment:
     id: BoxerPDA
     ears: ClothingHeadsetService
@@ -83,11 +81,3 @@
   #storage:
     #back:
     #- Stuff
-
-- type: startingGear
-  id: BoxerPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitBoxing
-    head: ClothingHeadEnvirohelmBoxing
-    # No envirogloves, use the boxing gloves instead

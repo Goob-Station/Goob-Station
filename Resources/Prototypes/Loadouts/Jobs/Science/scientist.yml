@@ -90,6 +90,9 @@
   id: ScientificBeret
   equipment:
     head: ClothingHeadHatBeretRND
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ScientificBeret
@@ -97,16 +100,24 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
-
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
+    
 - type: loadout
   id: RoboticistCap
   equipment:
     head: ClothingHeadHatCorpsoft
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: SkullBandana
   equipment:
     head: ClothingHeadBandSkull
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Neck
 
@@ -120,27 +131,41 @@
   id: ScientistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitScientist
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ScientistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtScientist
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: RoboticistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitRoboticist
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: RoboticistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtRoboticist
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: SeniorResearcherJumpsuit
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorResearcher
 
@@ -149,6 +174,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorResearcher
 
@@ -156,6 +183,9 @@
   id: ResearchMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryScientist
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Back
 - type: loadout
@@ -212,11 +242,17 @@
   id: LatexGloves
   equipment:
     gloves: ClothingHandsGlovesLatex
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: RobohandsGloves
   equipment:
     gloves: ClothingHandsGlovesRobohands
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Shoes
 - type: loadout

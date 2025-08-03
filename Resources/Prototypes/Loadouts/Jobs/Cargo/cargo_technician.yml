@@ -80,22 +80,34 @@
   id: CargoTechnicianHead
   equipment:
     head: ClothingHeadHatCargosoft
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Jumpsuit
 - type: loadout
   id: CargoTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargo
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: CargoTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # goob
   id: CargoTechMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCargo
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Back
 - type: loadout

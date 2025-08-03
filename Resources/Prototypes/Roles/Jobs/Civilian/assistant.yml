@@ -103,11 +103,3 @@
   #storage:
     #back:
     #- Stuff
-
-- type: startingGear
-  id: PassengerPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitColorGrey
-    head: ClothingHeadEnvirohelmColorGrey
-    gloves: ClothingHandsGlovesEnviroglovesColorDarkGrey

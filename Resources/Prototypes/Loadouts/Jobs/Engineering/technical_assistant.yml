@@ -79,8 +79,14 @@
   id: YellowJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorYellow
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: YellowJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorYellow
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman

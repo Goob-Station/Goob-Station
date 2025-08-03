@@ -79,27 +79,42 @@
   id: BartenderHead
   equipment:
     head: ClothingHeadHatTophat
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BartenderBowler
   equipment:
     head: ClothingHeadHatBowlerHat
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Jumpsuit
 - type: loadout
   id: BartenderJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartender
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BartenderJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBartender
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BartenderJumpsuitPurple
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartenderPurple
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Outer clothing
 - type: loadout

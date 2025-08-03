@@ -2,7 +2,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Roles;
-using Content.Shared.SelfExtinguisher;
+using Content.Shared._EinsteinEngines.SelfExtinguisher;
 using JetBrains.Annotations;
 
 namespace Content.Server._EinsteinEngines.Jobs;
@@ -31,6 +31,6 @@ public sealed partial class ModifyEnvirosuitSpecial : JobSpecial
             !entMan.TryGetComponent<SelfExtinguisherComponent>(envirosuit, out var selfExtinguisher))
             return;
 
-        entMan.System<SharedSelfExtinguisherSystem>().SetCharges(envirosuit, Charges, Charges, selfExtinguisher);
+        entMan.System<SharedSelfExtinguisherSystem>().SetCharges(envirosuit, Charges, selfExtinguisher);
     }
 }

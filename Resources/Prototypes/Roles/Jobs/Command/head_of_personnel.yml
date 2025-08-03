@@ -202,18 +202,10 @@
   equipment:
     shoes: ClothingShoesColorBrown
     id: HoPPDA
-    gloves: ClothingHandsGlovesHop
+    #gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
     belt: BoxFolderClipboard
   storage:
     back:
     - Flash
     - TelescopicBaton # Goobstation
-
-- type: startingGear
-  id: HoPPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitHoP
-    head: ClothingHeadEnvirohelmHoP
-    gloves: ClothingHandsGlovesEnviroglovesHoP

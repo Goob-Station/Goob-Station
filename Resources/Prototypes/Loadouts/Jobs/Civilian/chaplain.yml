@@ -80,26 +80,41 @@
   id: ChaplainHead
   equipment:
     head: ClothingHeadHatFez
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ChaplainNunHood
   equipment:
     head: ClothingHeadHatHoodNunHood
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ChaplainPlagueHat
   equipment:
     head: ClothingHeadHatPlaguedoctor
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ChaplainWitchHat
   equipment:
     head: ClothingHeadHatWitch
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ChaplainWitchHatAlt
   equipment:
     head: ClothingHeadHatWitch1
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Mask
 - type: loadout
@@ -112,21 +127,33 @@
   id: ChaplainJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChaplain
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ChaplainJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChaplain
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ChaplainRobesDark
   equipment:
     jumpsuit: ClothingUniformJumpsuitMonasticRobeDark
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: ChaplainRobesLight
   equipment:
     jumpsuit: ClothingUniformJumpsuitMonasticRobeLight
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Neck
 - type: loadout

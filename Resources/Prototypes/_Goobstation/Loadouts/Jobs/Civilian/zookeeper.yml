@@ -1,0 +1,33 @@
+- type: loadout
+  id: ZookeeperEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitSafari
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ZookeeperEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmSafari
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ZookeeperHead
+  equipment:
+    head: ClothingHeadSafari
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
+
+- type: loadout
+  id: ZookeeperJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSafari
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman

@@ -141,10 +141,8 @@
 
 - type: startingGear
   id: MimeGear
-  subGear:
-  - MimePlasmamanGear
   equipment:
-    gloves: ClothingHandsGlovesColorWhite
+    #gloves: ClothingHandsGlovesColorWhite - Goobstation, moved to loadouts
     shoes: ClothingShoesColorWhite
     id: MimePDA
     pocket1: CrayonMime
@@ -152,15 +150,6 @@
   storage:
     back:
     - RubberStampMime
-
-- type: startingGear
-  id: MimePlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitMime
-    head: ClothingHeadEnvirohelmMime
-    gloves: ClothingHandsGlovesEnviroglovesWhite
-    mask: ClothingMaskMime # Parent sets mask to breath mask so set it again here
 
 - type: entity
   id: ActionMimeInvisibleWall

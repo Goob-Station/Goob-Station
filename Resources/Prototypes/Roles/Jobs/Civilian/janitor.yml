@@ -90,8 +90,6 @@
 
 - type: startingGear
   id: JanitorGear
-  subGear:
-  - JanitorPlasmamanGear
   equipment:
     shoes: ClothingShoesGaloshes
     id: JanitorPDA
@@ -100,14 +98,6 @@
   #storage:
     #back:
     #- Stuff
-
-- type: startingGear
-  id: JanitorPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitJanitor
-    head: ClothingHeadEnvirohelmJanitor
-    gloves: ClothingHandsGlovesEnviroglovesJanitor
 
 - type: startingGear
   id: JanitorMaidGear

@@ -186,7 +186,7 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     id: HoSPDA
-    gloves: ClothingHandsGlovesCombat
+    #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     ears: ClothingHeadsetAltSecurity
     pocket1: WeaponPistolMk58
   storage:
@@ -194,11 +194,3 @@
     - Flash
     - MagazinePistol
     - ClothingMaskGasSecurity # Goobstation
-
-- type: startingGear
-  id: HoSPlasmamanGear
-  parent: BasePlasmamanSecurityGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitHoS
-    head: ClothingHeadEnvirohelmHoS
-    gloves: ClothingHandsGlovesEnviroglovesBlack

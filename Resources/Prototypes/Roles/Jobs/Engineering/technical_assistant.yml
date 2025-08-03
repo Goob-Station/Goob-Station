@@ -84,8 +84,6 @@
 
 - type: startingGear
   id: TechnicalAssistantGear
-  subGear:
-  - StationEngineerPlasmamanGear
   equipment:
     shoes: ClothingShoesBootsWork
     id: TechnicalAssistantPDA

@@ -103,8 +103,6 @@
 
 - type: startingGear
   id: ParamedicGear
-  subGear:
-  - ParamedicPlasmamanGear
   equipment:
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
@@ -112,12 +110,3 @@
   storage:
     back:
     - EmergencyRollerBedSpawnFolded
-
-- type: startingGear
-  id: ParamedicPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitParamedic
-    head: ClothingHeadEnvirohelmParamedic
-    gloves: ClothingHandsGlovesEnviroglovesNitrile
-    shoes: ClothingShoesColorBlue

@@ -86,14 +86,23 @@
   id: MusicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMusician
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: MusicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMusician
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Outerclothing
 - type: loadout
   id: MusicianWintercoat
   equipment:
     outerClothing: ClothingOuterWinterMusician
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman

@@ -103,33 +103,51 @@
   id: JanitorHead
   equipment:
     head: ClothingHeadHatPurplesoft
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Jumpsuit
 - type: loadout
   id: JanitorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJanitor
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: JanitorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Gloves
 - type: loadout
   id: JanitorRubberGloves
   equipment:
     gloves: ClothingHandsGlovesJanitor
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: OrangeGloves
   equipment:
     gloves: ClothingHandsGlovesColorOrange
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: PurpleGloves
   equipment:
     gloves: ClothingHandsGlovesColorPurple
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Outer clothing
 - type: loadout

@@ -48,3 +48,21 @@
   storage:
     back:
     - SpearTelescopic
+
+- type: loadout
+  id: SecurityOfficerEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitSec
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: SecurityOfficerEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmSec
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

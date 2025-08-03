@@ -90,42 +90,66 @@
   id: QuartermasterJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitQM
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: QuartermasterJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtQM
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: QuartermasterTurtleneck
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMTurtleneck
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: QuartermasterTurtleneckSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtQMTurtleneck
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: QuartermasterFormalSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # goob
   id: QuartermasterMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryQM
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Head
 - type: loadout
   id: QuartermasterHead
   equipment:
     head: ClothingHeadHatQMsoft
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: QuartermasterBeret
   equipment:
     head: ClothingHeadHatBeretQM
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Neck
 - type: loadout
@@ -135,7 +159,7 @@
 
 - type: loadout
   id: QuartermasterMantle
-  equipment: 
+  equipment:
     neck: ClothingNeckMantleQM
   effects:
   - !type:GroupLoadoutEffect

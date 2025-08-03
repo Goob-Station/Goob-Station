@@ -13,6 +13,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterHoS
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
   equipment:
     head: ClothingHeadHatBeretHeadOfSecurityAdvanced
 
@@ -31,3 +33,21 @@
     proto: MasterHoS
   equipment:
     shoes: ClothingShoesBootsJackAdvancedFilled
+
+- type: loadout
+  id: HeadofSecurityEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitHoS
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: HeadofSecurityEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmHoS
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

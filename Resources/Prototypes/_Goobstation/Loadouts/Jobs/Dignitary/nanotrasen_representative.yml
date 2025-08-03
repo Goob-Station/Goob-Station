@@ -85,26 +85,59 @@
   id: NanotrasenRepresentativeBowler
   equipment:
     head: ClothingHeadHatBowlerHat
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NanotrasenRepresentativeTop
   equipment:
     head: ClothingHeadHatTophat
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NanotrasenRepresentativeOutlaw
   equipment:
     head: ClothingHeadHatOutlawHat
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NanotrasenRepresentativeBeret
   equipment:
     head: ClothingHeadHatBeretFrench
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NanotrasenRepresentativeMAA
   equipment:
     head: ClothingHeadHatSyndieMAA
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
+
+- type: loadout
+  id: NanotrasenRepresentativeEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmNanotrasenRepresentative
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+# Gloves
+- type: loadout
+  id: NanotrasenRepresentativeGloves
+  equipment:
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Neck
 - type: loadout
@@ -138,11 +171,26 @@
   id: NanotrasenRepresentativeJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
+
+- type: loadout
+  id: NanotrasenRepresentativeEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitNanotrasenRepresentative
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
 
 # Belt
 - type: loadout

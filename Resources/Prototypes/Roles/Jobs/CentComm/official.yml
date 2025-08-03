@@ -77,11 +77,3 @@
     - BoxFolderCentComClipboard # Solely for holding and looking menacing.
     - DeterrentCaseFilled
 # Goobstation - End
-
-- type: startingGear
-  id: CentcomPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitCentcomOfficial
-    head: ClothingHeadEnvirohelmCentcomOfficial
-    gloves: ClothingHandsGlovesEnviroglovesBlack

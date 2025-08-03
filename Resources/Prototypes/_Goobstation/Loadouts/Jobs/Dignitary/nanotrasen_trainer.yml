@@ -3,11 +3,17 @@
   id: NanotrasenTrainerHat
   equipment:
     head: ClothingHeadBeretTrainer
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NanotrasenTrainerBeret
   equipment:
     head: ClothingHeadHatTrainer
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Backpacks
 - type: loadout
@@ -30,11 +36,17 @@
   id: NanotrasenTrainerJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitTrainer
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NanotrasenTrainerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtTrainer
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Outer
 - type: loadout
@@ -58,6 +70,9 @@
   id: NanotrasenTrainerGloves
   equipment:
     gloves: ClothingHandsGlovesHeavyGoldenTrim
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Shoes
 - type: loadout

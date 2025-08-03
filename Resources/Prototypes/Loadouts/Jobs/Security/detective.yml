@@ -82,11 +82,17 @@
   id: DetectiveFedora
   equipment:
     head: ClothingHeadHatFedoraBrown
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: DetectiveFedoraGrey
   equipment:
     head: ClothingHeadHatFedoraGrey
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Neck
 - type: loadout
@@ -99,21 +105,33 @@
   id: DetectiveJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetective
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: DetectiveJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetective
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NoirJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitDetectiveGrey
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: NoirJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtDetectiveGrey
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # OuterClothing
 - type: loadout

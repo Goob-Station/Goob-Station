@@ -11,6 +11,18 @@
 
 - type: entity
   parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitBoxer
+  name: boxer "envirosuit"
+  description: It just works™
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/boxer.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/boxer.rsi
+  - type: Item
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitAtmos
   name: atmospherics envirosuit
   description: An air-tight suit designed to be used by Plasmamen employed as atmos technicians.
@@ -284,8 +296,8 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformEnvirosuitResearchDirector
-  name: mystagogue's envirosuit
-  description: It's an envirosuit worn by those with the know-how to achieve the position of "Mystagogue".
+  name: research director's envirosuit
+  description: It's an envirosuit worn by those with the know-how to achieve the position of Research Director.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/rd.rsi

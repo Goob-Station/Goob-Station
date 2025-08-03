@@ -122,11 +122,3 @@
   storage:
     back:
     - RubberStampPsychologist
-
-- type: startingGear
-  id: PsychologistPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitEnviroslacksPsychologist
-    head: ClothingHeadEnvirohelmMedicalDoctor
-    gloves: ClothingHandsGlovesEnviroglovesWhite

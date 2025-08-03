@@ -80,32 +80,50 @@
   id: BotanistHead
   equipment:
     head: ClothingHeadHatTrucker
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BotanistBandana
   equipment:
     head: ClothingHeadBandBotany
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Jumpsuit
 - type: loadout
   id: BotanistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitHydroponics
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BotanistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHydroponics
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout
   id: BotanistOveralls
   equipment:
     jumpsuit: ClothingUniformOveralls
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 - type: loadout # goob
   id: HydroMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryHydroponics
+  effects:
+  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
+    proto: EffectSpeciesNotPlasmaman
 
 # Back
 - type: loadout

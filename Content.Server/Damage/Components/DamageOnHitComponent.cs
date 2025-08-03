@@ -30,5 +30,5 @@ public sealed partial class DamageOnHitComponent : Component
     // </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public TargetBodyPart TargetParts = null;
+    public TargetBodyPart? TargetParts;
 }

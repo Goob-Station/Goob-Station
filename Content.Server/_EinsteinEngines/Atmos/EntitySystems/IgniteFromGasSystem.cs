@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server._EinsteinEngines.Atmos.Components;
+using Content.Server._EinsteinEngines.Bed.Components;
 using Content.Server.Bed.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Body.Events;

@@ -81,7 +81,7 @@
   id: BlueshieldOfficerGear
   equipment:
     eyes: ClothingEyesGlassesBSO
-    gloves: ClothingHandsGlovesCombat
+    #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
     id: BlueshieldPDA
     ears: ClothingHeadsetAltBlueshield
     belt: ClothingBeltAssaultFilled
@@ -90,11 +90,3 @@
     back:
     - Flash
     - ClothingMaskGasSecurity
-
-- type: startingGear
-  id: BlueshieldPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitBlueshield
-    head: ClothingHeadEnvirohelmBlueshield
-    gloves: ClothingHandsGlovesEnviroglovesBlack
