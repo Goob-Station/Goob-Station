@@ -54,15 +54,15 @@
   - type: Repairable
     qualityNeeded: "Anchoring"
     doAfterDelay: 3
-  - type: TriggerWhenEmpty
- # Goobstation - no
- #- type: ExplodeOnTrigger
- #- type: Explosive
- #  explosionType: Default
- #  maxIntensity: 10
- #  intensitySlope: 1.5
- #  totalIntensity: 30
- #  canCreateVacuum: false
+  - type: TriggerOnEmptyGunshot
+# Goobstation - no
+#  - type: ExplodeOnTrigger
+#  - type: Explosive
+#    explosionType: Default
+#    maxIntensity: 10
+#    intensitySlope: 1.5
+#    totalIntensity: 30
+#    canCreateVacuum: false
 
 - type: entity
   parent: BaseWeaponBallisticTurret
