@@ -12817,3 +12817,49 @@ Entries:
       message: THE METAL'S PIPE CANNOT BE STOPPED
   id: 1417
   time: '2025-07-26T18:25:15.0000000+00:00'
+- author: thebiggestbruh
+  changes:
+    - type: Fix
+      message: Wizard robes (the real ones) have their armour values again
+  id: 1418
+  time: '2025-08-02T03:41:02.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Fix
+      message: CE, RD, and the QM can't roll every antag in the game anymore.
+    - type: Fix
+      message: NTR is now properly limited to only getting devil
+  id: 1419
+  time: '2025-08-03T03:58:43.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Remove
+      message: Removed Mediguns pending rework™
+    - type: Remove
+      message: Removed Anacondas from nukie uplinks
+  id: 1420
+  time: '2025-08-04T07:10:12.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Reduced the spawn rate of Lone Abductors and Duo Abductors.
+  id: 1421
+  time: '2025-08-04T07:22:58.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: BSO no longer gets shocked on grilles when using their modsuit.
+  id: 1422
+  time: '2025-08-04T07:24:49.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Moths' cries (and other emotes) can now be heard.
+  id: 1423
+  time: '2025-08-04T07:26:03.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Fix
+      message: Fixed IPCs being unable to use cyborg rechargers.
+  id: 1424
+  time: '2025-08-04T07:26:49.0000000+00:00'
