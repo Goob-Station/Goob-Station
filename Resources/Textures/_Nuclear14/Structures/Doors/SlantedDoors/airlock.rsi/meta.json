@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by INFRARED_BARON for MS13, modified by Peptide90 for Nuclear14",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "opening",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "closed",
+      "directions": 4
+    },
+    {
+      "name": "open",
+      "directions": 4
+    },
+    {
+      "name": "closing",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "bolted_unlit"
+    },
+    {
+      "name": "welded"
+    },
+    {
+      "name": "closed_unlit"
+    },
+    {
+      "name": "closing_unlit"
+    },
+    {
+      "name": "deny_unlit"
+    },
+    {
+      "name": "emergency_unlit"
+    },
+    {
+      "name": "opening_unlit"
+    },
+    {
+      "name": "panel_closing"
+    },
+    {
+      "name": "panel_open"
+    },
+    {
+      "name": "panel_opening"
+    },
+    {
+      "name": "sparks"
+    },
+    {
+      "name": "sparks_open"
+    },
+    {
+      "name": "sparks_broken"
+    },
+    {
+      "name": "sparks_damaged"
+    }
+  ]
+}

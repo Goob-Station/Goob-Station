@@ -1,0 +1,877 @@
+
+# Rock
+- type: entity
+  id: N14RockGrey
+  parent: BaseWall
+  name: asteroid rock
+  description: A rocky asteroid.
+  components:
+  - type: Transform
+    noRot: true
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: SmoothEdge
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+    state: rock_asteroid
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+      - state: rock_asteroid
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_asteroid_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_asteroid_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_asteroid_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_asteroid_west
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+
+# Ore veins
+- type: entity
+  id: N14RockGreyCoal
+  parent: N14RockGrey
+  description: An ore vein rich with coal.
+  suffix: Coal
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_coal
+
+- type: entity
+  id: N14RockGreyGold
+  parent: N14RockGrey
+  description: An ore vein rich with gold.
+  suffix: Gold
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_gold
+
+- type: entity
+  id: N14RockGreySilver
+  parent: N14RockGrey
+  description: An ore vein rich with silver.
+  suffix: Silver
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_silver
+
+- type: entity
+  id: N14RockGreySteel
+  parent: N14RockGrey
+  description: An ore vein rich with Steel.
+  suffix: Steel
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_tin
+
+- type: entity
+  id: N14RockGreyUranium
+  parent: N14RockGrey
+  description: An ore vein rich with uranium.
+  suffix: Uranium
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_uranium
+
+- type: entity
+  id: N14RockGreyMining
+  parent: N14RockGrey
+  name: ore vein
+  suffix: higher ore yield .44
+  description: An asteroid.
+  components:
+  - type: OreVein
+    oreChance: 0.44
+    oreRarityPrototypeId: RandomOreDistributionStandard
+  - type: Sprite
+    layers:
+      - state: rock_asteroid
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_asteroid_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_asteroid_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_asteroid_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_asteroid_west
+      - state: rock_coal
+
+- type: entity
+  id: SteelRock
+  parent: N14RockGrey
+  name: ore vein
+  suffix: Low Ore Yield
+  description: A rocky asteroid.
+  components:
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: SmoothEdge
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+      - state: rock_asteroid_south
+      - map: [ "enum.EdgeLayer.South" ]
+        state: rock_asteroid_south
+      - map: [ "enum.EdgeLayer.East" ]
+        state: rock_asteroid_east
+      - map: [ "enum.EdgeLayer.North" ]
+        state: rock_asteroid_north
+      - map: [ "enum.EdgeLayer.West" ]
+        state: rock_asteroid_west
+
+- type: entity
+  id: N14RockGreySalt
+  parent: N14RockGrey
+  description: An ore vein rich with salt.
+  suffix: Salt
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_asteroid
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_asteroid_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_asteroid_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_asteroid_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_asteroid_west
+        - state: rock_salt
+
+- type: entity
+  id: N14RockMining
+  parent: SteelRock
+  name: ore evin
+  suffix: higher ore yield
+  description: An asteroid.
+  components:
+  - type: OreVein
+    oreChance: 0.33
+    oreRarityPrototypeId: RandomOreDistributionStandard
+
+
+# Rocks and ore veins
+- type: entity
+  id: N14WallRock
+  parent: BaseWall
+  name: rock
+  suffix: planetmap
+  components:
+    - type: Transform
+      noRot: true
+    - type: SoundOnGather
+    - type: Gatherable
+      toolWhitelist:
+        tags:
+          - Pickaxe
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: IconSmooth
+      key: walls
+      mode: NoSprite
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock
+    - type: SmoothEdge
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+
+# Ore veins
+- type: entity
+  id: N14WallRockCoal
+  parent: N14WallRock
+  description: An ore vein rich with coal.
+  suffix: Coal
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+        - state: rock_coal
+
+- type: entity
+  id: N14WallRockGold
+  parent: N14WallRock
+  description: An ore vein rich with gold.
+  suffix: Gold
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+        - state: rock_gold
+
+- type: entity
+  id: N14WallRockSilver
+  parent: N14WallRock
+  description: An ore vein rich with silver.
+  suffix: Silver
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+        - state: rock_silver
+
+- type: entity
+  id: N14WallRockSteel
+  parent: N14WallRock
+  description: An ore vein rich with Steel.
+  suffix: Steel
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+        - state: rock_tin
+
+- type: entity
+  id: N14WallRockUranium
+  parent: N14WallRock
+  description: An ore vein rich with uranium.
+  suffix: Uranium
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+        - state: rock_uranium
+
+- type: entity
+  id: N14WallRockSalt
+  parent: N14WallRock
+  description: An ore vein rich with salt.
+  suffix: Salt
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+        - state: rock_salt
+
+# Basalt variants
+- type: entity
+  id: N14WallRockBasalt
+  name: basalt
+  parent: N14WallRock
+  components:
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock_wall
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+
+- type: entity
+  id: N14WallRockBasaltCoal
+  parent: N14WallRockBasalt
+  description: An ore vein rich with coal.
+  suffix: Coal
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        - state: rock_coal
+
+- type: entity
+  id: N14WallRockBasaltGold
+  parent: N14WallRockBasalt
+  description: An ore vein rich with gold.
+  suffix: Gold
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        - state: rock_gold
+
+- type: entity
+  id: N14WallRockBasaltSilver
+  parent: N14WallRockBasalt
+  description: An ore vein rich with silver.
+  suffix: Silver
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        - state: rock_silver
+
+- type: entity
+  id: N14WallRockBasaltSteel
+  parent: N14WallRockBasalt
+  description: An ore vein rich with Steel.
+  suffix: Steel
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        - state: rock_tin
+
+- type: entity
+  id: N14WallRockBasaltUranium
+  parent: N14WallRockBasalt
+  description: An ore vein rich with uranium.
+  suffix: Uranium
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        - state: rock_uranium
+
+- type: entity
+  id: N14WallRockBasaltSalt
+  parent: N14WallRockBasalt
+  description: An ore vein rich with salt.
+  suffix: Salt
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_wall
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_wall_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_wall_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_wall_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_wall_west
+        - state: rock_salt
+
+# Sand variants
+- type: entity
+  id: N14WallRockSand
+  name: sandstone
+  parent: N14WallRock
+  components:
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock_sand
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+
+- type: entity
+  id: N14WallRockSandCoal
+  parent: N14WallRockSand
+  description: An ore vein rich with coal.
+  suffix: Coal
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        - state: rock_coal
+
+- type: entity
+  id: N14WallRockSandGold
+  parent: N14WallRockSand
+  description: An ore vein rich with gold.
+  suffix: Gold
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        - state: rock_gold
+
+- type: entity
+  id: N14WallRockSandSilver
+  parent: N14WallRockSand
+  description: An ore vein rich with silver.
+  suffix: Silver
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        - state: rock_silver
+
+- type: entity
+  id: N14WallRockSandSteel
+  parent: N14WallRockSand
+  description: An ore vein rich with Steel.
+  suffix: Steel
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        - state: rock_tin
+
+- type: entity
+  id: N14WallRockSandUranium
+  parent: N14WallRockSand
+  description: An ore vein rich with uranium.
+  suffix: Uranium
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        - state: rock_uranium
+
+- type: entity
+  id: N14WallRockSandSalt
+  parent: N14WallRockSand
+  description: An ore vein rich with salt.
+  suffix: Salt
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_sand
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_sand_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_sand_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_sand_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_sand_west
+        - state: rock_salt
+
+# Andesite variants
+- type: entity
+  id: N14WallRockAndesite
+  name: andesite
+  parent: N14WallRock
+  components:
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock_andesite
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+
+- type: entity
+  id: N14WallRockAndesiteCoal
+  parent: N14WallRockAndesite
+  description: An ore vein rich with coal.
+  suffix: Coal
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreCoal
+    - type: Sprite
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        - state: rock_coal
+
+- type: entity
+  id: N14WallRockAndesiteGold
+  parent: N14WallRockAndesite
+  description: An ore vein rich with gold.
+  suffix: Gold
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreGold
+    - type: Sprite
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        - state: rock_gold
+
+- type: entity
+  id: N14WallRockAndesiteSilver
+  parent: N14WallRockAndesite
+  description: An ore vein rich with silver.
+  suffix: Silver
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSilver
+    - type: Sprite
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        - state: rock_silver
+
+- type: entity
+  id: N14WallRockAndesiteSteel
+  parent: N14WallRockAndesite
+  description: An ore vein rich with Steel.
+  suffix: Steel
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSteel
+    - type: Sprite
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        - state: rock_tin
+
+- type: entity
+  id: N14WallRockAndesiteUranium
+  parent: N14WallRockAndesite
+  description: An ore vein rich with uranium.
+  suffix: Uranium
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreUranium
+    - type: Sprite
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        - state: rock_uranium
+
+- type: entity
+  id: N14WallRockAndesiteSalt
+  parent: N14WallRockAndesite
+  description: An ore vein rich with salt.
+  suffix: Salt
+  components:
+    - type: OreVein
+      oreChance: 1.0
+      currentOre: OreSalt
+    - type: Sprite
+      layers:
+        - state: rock_andesite
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_andesite_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_andesite_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_andesite_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_andesite_west
+        - state: rock_salt

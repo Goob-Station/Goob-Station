@@ -1,0 +1,240 @@
+- type: entity
+  id: N14JunkWoodBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/junk.rsi
+    snapCardinals: true
+    netsync: false
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Tag
+    tags:
+    - Wooden
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Pullable
+  - type: InteractionOutline
+  - type: Clickable
+# No fixture on this base, inherit from further down for fixture
+
+- type: entity
+  parent: N14JunkWoodBase
+  id: N14JunkMetalBase
+  abstract: true
+  components:
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Physics
+    canCollide: False
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 125
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Tag
+    tags:
+    - Metal
+
+# Wood Junk
+- type: entity
+  parent: N14JunkWoodBase
+  id: N14JunkDresser
+  name: broken dresser
+  description: Once held underwear. Now it's junk.
+  components:
+  - type: Sprite
+    state: junk_dresser
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  parent: N14JunkDresser
+  id: N14JunkCabinet
+  name: broken cabinet
+  description: Once held clothes. Now it's junk.
+  components:
+  - type: Sprite
+    state: junk_cabinet
+
+- type: entity
+  parent: N14JunkDresser
+  id: N14JunkTable
+  name: broken table
+  description: Ate without table, now I'm angry. Junk.
+  components:
+  - type: Sprite
+    state: junk_table
+
+# Metal Junk
+- type: entity
+  parent: N14JunkMetalBase
+  id: N14JunkMachine
+  name: broken machine
+  description: Rusty old machine. Now it's junk.
+  components:
+  - type: Sprite
+    state: junk_machine
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  parent: N14JunkMachine
+  id: N14JunkMicrowave
+  name: broken microwave
+  description: Dirty old microwave. Now it's junk.
+  components:
+  - type: Sprite
+    state: junk_micro
+
+- type: entity
+  parent: N14JunkMachine
+  id: N14JunkJukebox
+  name: broken jukebox
+  description: An old destroyed jukebox. Now it's junk.
+  components:
+  - type: Sprite
+    state: junk_jukebox
+
+- type: entity
+  parent: N14JunkMetalBase
+  id: N14JunkBed1
+  name: broken bed
+  description: An old bed with a holey mattress. Now it's junk.
+  components:
+  - type: Sprite
+    state: junk_bed1
+
+- type: entity
+  parent: N14JunkMetalBase
+  id: N14JunkBed2
+  name: broken bed
+  description: A rusty bed frame. Now it's junk.
+  components:
+  - type: Sprite
+    state: junk_bed2
+
+- type: entity
+  parent: N14JunkMachine
+  id: N14JunkTV
+  name: broken TV
+  description: An old television. Now it's junk.
+  components:
+  - type: Sprite
+    state: junk_tv
+
+- type: entity
+  parent: N14JunkMachine
+  id: N14JunkArcade
+  name: broken arcade game
+  description: An old arcade machine. Now it's junk.
+  components:
+  - type: Sprite
+    state: junk_arcade
+
+- type: entity
+  parent: N14JunkMetalBase
+  id: N14JunkUrinal
+  name: broken urinal
+  description: A broken stinky urinal.
+  components:
+  - type: Sprite
+    state: junk_urinal
+
+- type: entity
+  parent: Mirror
+  id: N14JunkMirror
+  name: broken mirror
+  description: Mirror mirror... I hope I don't get bad luck.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/junk.rsi
+    state: junk_mirror
+    drawdepth: Overdoors
+
+- type: entity
+  parent: N14JunkMetalBase
+  id: N14JunkClock
+  name: broken clock
+  description: Out of time!
+  components:
+  - type: Sprite
+    state: junk_clock
+    drawdepth: Overdoors
+  - type: WallMount

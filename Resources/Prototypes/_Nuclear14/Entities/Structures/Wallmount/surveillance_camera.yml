@@ -1,0 +1,14 @@
+- type: entity
+  parent: SurveillanceCameraBase
+  id: N14SurveillanceCameraBrotherhoodWashington
+  name: camera
+  suffix: BrotherhoodWashington
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCamera
+    transmitFrequencyId: SurveillanceCameraBrotherhoodWashington
+  - type: SurveillanceCamera
+    networkSet: true
+  - type: Sprite
+    drawdepth: Overdoors

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "Mithrandalf Discord 93652604520767488",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "black-closed"
+    },
+    {
+      "name": "black-full"
+    },
+	{
+      "name": "black-open"
+    },
+	{
+      "name": "blue-closed"
+    },
+	{
+      "name": "blue-open"
+    },
+	{
+      "name": "red-closed"
+    },
+	{
+      "name": "red-full"
+    },
+	{
+      "name": "red-open"
+    },
+	{
+      "name": "yellow-closed"
+    },
+	{
+      "name": "yellow-full"
+    },
+	{
+      "name": "yellow-open"
+    }
+  ]
+}

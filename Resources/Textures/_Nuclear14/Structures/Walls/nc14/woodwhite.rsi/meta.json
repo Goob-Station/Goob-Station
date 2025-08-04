@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Big-Iron at https://github.com/Foundation-19/Big-Iron/blob/4e1ebfed8923d7d3d6b29cd657b554698276394b/icons/turf/walls/f13wood_wall.dmi, modified by Peptide90",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "girder"
+        },
+        {
+            "name": "wood0",
+            "directions": 4
+        },
+        {
+            "name": "wood1",
+            "directions": 4
+        },
+        {
+            "name": "wood2",
+            "directions": 4
+        },
+        {
+            "name": "wood3",
+            "directions": 4
+        },
+        {
+            "name": "wood4",
+            "directions": 4
+        },
+        {
+            "name": "wood5",
+            "directions": 4
+        },
+        {
+            "name": "wood6",
+            "directions": 4
+        },
+        {
+            "name": "wood7",
+            "directions": 4
+        }
+    ]
+}

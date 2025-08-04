@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from MS13 and modified for SS14 by Kill_Me_I_Noobs",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "tallscrapwhite0",
+            "directions": 4
+        },
+        {
+            "name": "tallscrapwhite1",
+            "directions": 4
+        },
+        {
+            "name": "tallscrapwhite2",
+            "directions": 4
+        },
+        {
+            "name": "tallscrapwhite3",
+            "directions": 4
+        },
+        {
+            "name": "tallscrapwhite4",
+            "directions": 4
+        },
+        {
+            "name": "tallscrapwhite5",
+            "directions": 4
+        },
+        {
+            "name": "tallscrapwhite6",
+            "directions": 4
+        },
+        {
+            "name": "tallscrapwhite7",
+            "directions": 4
+        }
+    ]
+}

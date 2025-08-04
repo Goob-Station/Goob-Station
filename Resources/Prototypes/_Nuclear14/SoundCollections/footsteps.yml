@@ -1,0 +1,76 @@
+- type: soundCollection
+  id: N14FootstepWood
+  files:
+  - /Audio/_Nuclear14/Effects/Footsteps/Wood/wood1.ogg
+  - /Audio/_Nuclear14/Effects/Footsteps/Wood/wood2.ogg
+  - /Audio/_Nuclear14/Effects/Footsteps/Wood/wood3.ogg
+  - /Audio/_Nuclear14/Effects/Footsteps/Wood/wood4.ogg
+  - /Audio/_Nuclear14/Effects/Footsteps/Wood/wood5.ogg
+  - /Audio/_Nuclear14/Effects/Footsteps/Wood/wood6.ogg
+
+- type: soundCollection
+  id: N14FootstepWater
+  files:
+    - /Audio/_Nuclear14/Effects/Footsteps/Water/water1.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Water/water2.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Water/water3.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Water/water4.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Water/water5.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Water/water6.ogg
+
+- type: soundCollection
+  id: N14FootstepConcrete
+  files:
+    - /Audio/_Nuclear14/Effects/Footsteps/Concrete/concrete1.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Concrete/concrete2.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Concrete/concrete3.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Concrete/concrete4.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Concrete/concrete5.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Concrete/concrete6.ogg
+
+- type: soundCollection
+  id: N14FootstepConcreteBroken
+  files:
+    - /Audio/_Nuclear14/Effects/Footsteps/ConcreteBroken/concretebroken1.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/ConcreteBroken/concretebroken2.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/ConcreteBroken/concretebroken3.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/ConcreteBroken/concretebroken4.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/ConcreteBroken/concretebroken5.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/ConcreteBroken/concretebroken6.ogg
+
+- type: soundCollection
+  id: N14FootstepDirt
+  files:
+    - /Audio/_Nuclear14/Effects/Footsteps/Dirt/dirt1.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Dirt/dirt2.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Dirt/dirt3.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Dirt/dirt4.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Dirt/dirt5.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Dirt/dirt6.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Dirt/dirt7.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Dirt/dirt8.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/Dirt/dirt9.ogg
+
+- type: soundCollection
+  id: N14FootstepMetalHollow
+  files:
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow1.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow2.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow3.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow4.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow5.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow6.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow7.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow8.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow9.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalHollow/metalhollow10.ogg
+
+- type: soundCollection
+  id: N14FootstepMetalSolid
+  files:
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalSolid/metalsolid1.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalSolid/metalsolid2.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalSolid/metalsolid3.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalSolid/metalsolid4.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalSolid/metalsolid5.ogg
+    - /Audio/_Nuclear14/Effects/Footsteps/MetalSolid/metalsolid6.ogg

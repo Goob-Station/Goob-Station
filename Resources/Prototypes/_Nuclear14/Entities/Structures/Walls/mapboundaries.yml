@@ -1,0 +1,80 @@
+# Full tile boundaries
+- type: entity
+  parent: BaseStructure
+  id: N14WallRockIndestructible
+  suffix: Indestructible
+  name: rock
+  components:
+    - type: Occluder
+    - type: Airtight
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          density: 100
+          mask:
+            - FullTileMask
+          layer:
+            - WallLayer
+    - type: IconSmooth
+      key: walls
+      mode: NoSprite
+    - type: SmoothEdge
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west
+
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: N14BaseFenceIndestructible
+  name: fence
+  description: Helps keep trespassers out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    netsync: false
+    drawdepth: Walls
+  - type: Icon
+    state: full
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 100
+
+- type: entity
+  parent: N14BaseFenceIndestructible
+  id: N14WallFenceChainMapBoundary
+  suffix: Indestructible
+  name: chainlink fence
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/fencechain.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/fencechain.rsi
+  - type: IconSmooth
+    key: walls
+    base: fence

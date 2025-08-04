@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Nukapop13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "rack"
+    },
+    {
+      "name": "shelf_wood"
+    },
+    {
+      "name": "shelf"
+    },
+    {
+      "name": "dresser"
+    },
+    {
+      "name": "bookempty"
+    },
+    {
+      "name": "book-0"
+    },
+    {
+      "name": "book-1"
+    },
+    {
+      "name": "book-2"
+    },
+    {
+      "name": "book-3"
+    },
+    {
+      "name": "book-4"
+    },
+    {
+      "name": "book-5"
+    },
+    {
+      "name": "nboard00",
+      "directions": 4
+    },
+    {
+      "name": "nboard01",
+      "directions": 4
+    },
+    {
+      "name": "nboard02",
+      "directions": 4
+    },
+    {
+      "name": "nboard03",
+      "directions": 4
+    },
+    {
+      "name": "nboard04",
+      "directions": 4
+    },
+    {
+      "name": "nboard05",
+      "directions": 4
+    },
+    {
+      "name": "grand_clock",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "vat"
+    },
+    {
+      "name": "punchingbag"
+    },
+    {
+      "name": "punchingbag2",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "punchingbag_down",
+      "directions": 4
+    },
+    {
+      "name": "fitnesslifter"
+    },
+    {
+      "name": "fitnesslifter2",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "fitnessweight"
+    },
+    {
+      "name": "fitnessweight-c"
+    },
+    {
+      "name": "fitnessweight-w",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

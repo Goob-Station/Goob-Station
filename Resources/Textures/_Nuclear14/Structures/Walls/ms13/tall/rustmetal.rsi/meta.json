@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from MS13 and modified for SS14 by Kill_Me_I_Noobs",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "tallrustmetal0",
+            "directions": 4
+        },
+        {
+            "name": "tallrustmetal1",
+            "directions": 4
+        },
+        {
+            "name": "tallrustmetal2",
+            "directions": 4
+        },
+        {
+            "name": "tallrustmetal3",
+            "directions": 4
+        },
+        {
+            "name": "tallrustmetal4",
+            "directions": 4
+        },
+        {
+            "name": "tallrustmetal5",
+            "directions": 4
+        },
+        {
+            "name": "tallrustmetal6",
+            "directions": 4
+        },
+        {
+            "name": "tallrustmetal7",
+            "directions": 4
+        }
+    ]
+}

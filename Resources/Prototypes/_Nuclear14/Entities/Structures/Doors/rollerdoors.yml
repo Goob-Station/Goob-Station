@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseMaterialDoor
+  id: N14DoorShutterFramedRoller
+  name: shutter
+  description: A lightweight airtight roller shutter door.
+  components:
+  - type: Door
+    bumpOpen: false
+    crushDamage:
+      types:
+        Blunt: 5
+    openSound:
+      path: /Audio/Machines/airlock_ext_open.ogg
+    closeSound:
+      path: /Audio/Machines/airlock_ext_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/RollerDoors/framedshutter.rsi
+    
+- type: entity
+  parent: BaseMaterialDoor
+  id: N14DoorShutterRoller
+  name: garage shutter
+  suffix: frameless
+  description: A lightweight airtight roller shutter door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/RollerDoors/garageshutter.rsi

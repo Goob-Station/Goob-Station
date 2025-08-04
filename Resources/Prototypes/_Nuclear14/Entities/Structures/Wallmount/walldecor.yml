@@ -1,0 +1,179 @@
+# see adverts for sign base
+- type: entity
+  parent: BaseSign
+  id: N14SignBase # for non directional signs otherwise remove snapCardinals: true
+  abstract: true
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    drawdepth: Overdoors
+    sprite: _Nuclear14/Structures/Wallmounts/adverts.rsi
+    snapCardinals: true # one direction
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# Flags
+- type: entity
+  parent: N14SignBase
+  id: N14FlagWallUS
+  name: flag
+  suffix: US
+  description: A US flag.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_us
+    
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallChina
+  suffix: China
+  description: A Chinese flag.
+  components:
+  - type: Sprite
+    state: flag_china
+    
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallCalifornia
+  suffix: California
+  description: A flag of California.
+  components:
+  - type: Sprite
+    state: flag_cali
+    
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallArizona
+  suffix: Arizona
+  description: A flag of Arizona.
+  components:
+  - type: Sprite
+    state: flag_arizona
+    
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallEnclave
+  suffix: Enclave
+  description: An Enclave flag.
+  components:
+  - type: Sprite
+    state: flag_enclave
+    
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallNCR
+  suffix: NCR
+  description: An NCR flag.
+  components:
+  - type: Sprite
+    state: flag_ncr
+    
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallLegion
+  suffix: Legion
+  description: A Legion flag.
+  components:
+  - type: Sprite
+    state: flag_legion
+    
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallRangers
+  suffix: Rangers
+  description: A Rangers flag.
+  components:
+  - type: Sprite
+    state: flag_rangers
+    
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallWesternBrotherhood
+  suffix: Midwestern BOS
+  description: A Midwest Brotherhood of Steel flag.
+  components:
+  - type: Sprite
+    state: flag_westbos
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallWashingtonBrotherhood # Actually Eastern but repurposed.
+  suffix: Washington BOS
+  description: A Washington Brotherhood of Steel flag.
+  components:
+  - type: Sprite
+    state: flag_eastbos
+
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallColorado
+  suffix: colorado
+  description: A flag for the state of Colorado
+  components:
+  - type: Sprite
+    state: flag_colorado
+    
+- type: entity
+  parent: N14FlagWallUS
+  id: N14FlagWallDenver
+  suffix: denver
+  description: A flag for the state of Denver
+  components:
+  - type: Sprite
+    state: flag_denver
+
+# Decor
+- type: entity
+  parent: N14SignBase
+  id: N14WallDecorClock
+  name: clock
+  description: A clock. Don't think it works.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    snapCardinals: false
+    state: clock
+    
+- type: entity
+  parent: N14WallDecorClock
+  id: N14WallDecorCalendar
+  name: calendar
+  description: A calendar for some forgotten year.
+  components:
+  - type: Sprite
+    state: calendar
+    
+- type: entity
+  parent: N14WallDecorClock
+  id: N14WallDecorCalendar1
+  name: calendar
+  description: A blank calendar for some forgotten year.
+  components:
+  - type: Sprite
+    state: calendar_blank
+    
+- type: entity
+  parent: N14WallDecorClock
+  id: N14WallDecorCross
+  name: cross
+  description: A symbol from another time.
+  components:
+  - type: Sprite
+    state: cross
+    
+- type: entity
+  parent: N14WallDecorClock
+  id: N14WallDecorWallscreen
+  name: wall screen
+  description: A cluster of monitors hung on the wall.
+  components:
+  - type: Sprite
+    state: wallscreen

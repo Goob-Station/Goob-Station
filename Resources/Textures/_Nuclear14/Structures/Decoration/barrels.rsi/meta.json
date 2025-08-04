@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Created by INFRARED_BARON for MS13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": ""
+    },
+    {
+      "name": "grey_1"
+    },
+    {
+      "name": "grey_2"
+    },
+    {
+      "name": "grey_3"
+    },
+    {
+      "name": "red_1"
+    },
+    {
+      "name": "red_2"
+    },
+    {
+      "name": "red_3"
+    },
+    {
+      "name": "yellow_1"
+    },
+    {
+      "name": "yellow_2"
+    },
+    {
+      "name": "yellow_3"
+    },
+    {
+      "name": "label_1"
+    },
+    {
+      "name": "label_2"
+    },
+    {
+      "name": "label_3"
+    },
+    {
+      "name": "hazard_1"
+    },
+    {
+      "name": "hazard_2"
+    },
+    {
+      "name": "hazard_3"
+    },
+    {
+      "name": "red_alt_1"
+    },
+    {
+      "name": "red_alt_2"
+    },
+    {
+      "name": "red_alt_3"
+    },
+    {
+      "name": "toxic_1"
+    },
+    {
+      "name": "toxic_2"
+    },
+    {
+      "name": "toxic_3"
+    },
+    {
+      "name": "toxic_4"
+    },
+    {
+      "name": "waste_1"
+    },
+    {
+      "name": "waste_2"
+    },
+    {
+      "name": "waste_3"
+    },
+    {
+      "name": "flammable_1"
+    },
+    {
+      "name": "flammable_2"
+    },
+    {
+      "name": "flammable_3"
+    },
+    {
+      "name": "warning_1"
+    },
+    {
+      "name": "warning_2"
+    },
+    {
+      "name": "warning_3"
+    },
+    {
+      "name": "double_grey_1"
+    },
+    {
+      "name": "double_grey_2"
+    },
+    {
+      "name": "triple_grey_1"
+    },
+    {
+      "name": "triple_grey_2"
+    },
+    {
+      "name": "triple_grey_3"
+    },
+    {
+      "name": "quad_grey_1"
+    },
+    {
+      "name": "double_red_1"
+    },
+    {
+      "name": "double_red_2"
+    },
+    {
+      "name": "triple_red_1"
+    },
+    {
+      "name": "triple_red_2"
+    },
+    {
+      "name": "quad_red_1"
+    },
+    {
+      "name": "quad_red_2"
+    },
+    {
+      "name": "double_yellow_1"
+    },
+    {
+      "name": "double_yellow_2"
+    },
+    {
+      "name": "triple_yellow_1"
+    },
+    {
+      "name": "triple_yellow_2"
+    },
+    {
+      "name": "triple_yellow_3"
+    },
+    {
+      "name": "quad_yellow_1"
+    },
+    {
+      "name": "double_toxic_1"
+    },
+    {
+      "name": "triple_toxic_1"
+    },
+    {
+      "name": "triple_toxic_2"
+    },
+    {
+      "name": "quad_toxic_1"
+    },
+    {
+      "name": "double_waste_1"
+    },
+    {
+      "name": "double_waste_2"
+    },
+    {
+      "name": "triple_waste_1"
+    },
+    {
+      "name": "triple_waste_2"
+    },
+    {
+      "name": "triple_waste_3"
+    },
+    {
+      "name": "quad_waste_1"
+    }
+  ]
+}

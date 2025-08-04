@@ -1,0 +1,96 @@
+- type: entity
+  id: N14Rails
+  name: railway
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Decoration/rails64.rsi
+    state: rails
+    snapCardinals: false
+    netsync: false
+    drawdepth: FloorObjects
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Transform
+    anchored: true
+  - type: Physics
+    canCollide: False
+    bodyType: Static
+  - type: Clickable
+
+- type: entity
+  parent: N14Rails
+  id: N14RailsJunctionRightTop
+  suffix: junction right top
+  components:
+  - type: Sprite
+    state: junction-right-top
+
+- type: entity
+  parent: N14Rails
+  id: N14RailsJunctionLeftTop
+  suffix: junction left top
+  components:
+  - type: Sprite
+    state: junction-left-top
+
+- type: entity
+  parent: N14Rails
+  id: N14RailsJunctionRightBottom
+  suffix: junction right bottom
+  components:
+  - type: Sprite
+    state: junction-right-bottom
+
+- type: entity
+  parent: N14Rails
+  id: N14RailsJunctionLeftBottom
+  suffix: junction left bottom
+  components:
+  - type: Sprite
+    state: junction-left-bottom
+
+- type: entity
+  parent: N14Rails
+  id: N14RailsTurnWS
+  suffix: turn west-south
+  components:
+  - type: Sprite
+    state: turn-WS
+
+- type: entity
+  parent: N14Rails
+  id: N14RailsTurnNW
+  suffix: turn north-west
+  components:
+  - type: Sprite
+    state: turn-NW
+
+- type: entity
+  parent: N14Rails
+  id: N14RailsTurnNE
+  suffix: turn north-east
+  components:
+  - type: Sprite
+    state: turn-NE
+
+- type: entity
+  parent: N14Rails
+  id: N14RailsTurnSE
+  suffix: turn south-east
+  components:
+  - type: Sprite
+    state: turn-SE

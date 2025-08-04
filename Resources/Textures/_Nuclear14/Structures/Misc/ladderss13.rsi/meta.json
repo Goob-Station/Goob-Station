@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "BadDeathclaw commit https://github.com/BadDeathclaw/Drymouth-Gulch/commit/63d5cc6913885fd4b481b5ffcc980726c2dedca9, modified by Peptide90",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ladder_bottom"
+    },
+    {
+      "name": "ladder_top"
+    }
+  ]
+}

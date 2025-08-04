@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Civ13 at https://github.com/Civ13/Civ13/blob/d5cca4c4d7a649176c5f0b26d02dfccaaf5649f4/icons/mob/uniform.dmi, https://github.com/Civ13/Civ13/blob/d5cca4c4d7a649176c5f0b26d02dfccaaf5649f4/icons/obj/clothing/uniforms.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    }
+  ]
+}
