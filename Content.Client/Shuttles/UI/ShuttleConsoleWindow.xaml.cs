@@ -72,6 +72,8 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
         {
             UndockRequest?.Invoke(entity);
         };
+
+        NfInitialize(); // Frontier
     }
 
     private void ClearModes(ShuttleConsoleMode mode)

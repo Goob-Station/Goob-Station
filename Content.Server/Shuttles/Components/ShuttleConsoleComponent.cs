@@ -12,7 +12,10 @@
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;
+using Content.Shared._NF.Shuttles.Events;
+using Content.Shared.DeviceLinking;
 using Content.Shared.Shuttles.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Shuttles.Components
 {
@@ -33,5 +36,19 @@ namespace Content.Server.Shuttles.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField("whitelistSpecific")]
         public List<EntityUid> FTLWhitelist = new List<EntityUid>();
+
+        // Frontier
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public InertiaDampeningMode DampeningMode = InertiaDampeningMode.Dampen;
+
+        [DataField]
+        public List<ProtoId<SourcePortPrototype>> SourcePorts = new()
+        {
+            "SignalShuttleConsole1",
+            "SignalShuttleConsole2",
+            "SignalShuttleConsole3",
+            "SignalShuttleConsole4"
+        };
+        // End Frontier
     }
 }

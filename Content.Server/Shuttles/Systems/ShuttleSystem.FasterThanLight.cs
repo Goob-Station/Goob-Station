@@ -86,6 +86,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
 using Content.Shared._Lavaland.Shuttles;
+using Content.Shared._NF.Shuttles;
 using Content.Shared.Body.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -346,13 +347,17 @@ public sealed partial class ShuttleSystem
         Angle angle,
         float? startupTime = null,
         float? hyperspaceTime = null,
-        string? priorityTag = null)
+        string? priorityTag = null,
+        FTLDriveComponent? ftlDrive = null) // Frontier edit
     {
+        if (!Resolve(shuttleUid, ref ftlDrive)) // Frontier edit
+            return;
+
         if (!TrySetupFTL(shuttleUid, component, out var hyperspace))
             return;
 
-        startupTime ??= DefaultStartupTime;
-        hyperspaceTime ??= DefaultTravelTime;
+        startupTime ??= ftlDrive.Data.StartupTime ?? DefaultStartupTime; // Frontier edit
+        hyperspaceTime ??= ftlDrive.Data.TravelTime ?? DefaultTravelTime; // Frontier edit
 
         hyperspace.StartupTime = startupTime.Value;
         hyperspace.TravelTime = hyperspaceTime.Value;
@@ -381,13 +386,17 @@ public sealed partial class ShuttleSystem
         EntityUid target,
         float? startupTime = null,
         float? hyperspaceTime = null,
-        string? priorityTag = null)
+        string? priorityTag = null,
+        FTLDriveComponent? ftlDrive = null) // Frontier edit
     {
+        if (!Resolve(shuttleUid, ref ftlDrive)) // Frontier edit
+            return;
+
         if (!TrySetupFTL(shuttleUid, component, out var hyperspace))
             return;
 
-        startupTime ??= DefaultStartupTime;
-        hyperspaceTime ??= DefaultTravelTime;
+        startupTime ??= ftlDrive.Data.StartupTime ?? DefaultStartupTime; // Frontier edit
+        hyperspaceTime ??= ftlDrive.Data.TravelTime ?? DefaultTravelTime; // Frontier edit
 
         var config = _dockSystem.GetDockingConfig(shuttleUid, target, priorityTag);
         hyperspace.StartupTime = startupTime.Value;
@@ -447,7 +456,7 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Transitions shuttle to FTL map.
     /// </summary>
-    private void UpdateFTLStarting(Entity<FTLComponent, ShuttleComponent> entity)
+    private void UpdateFTLStarting(Entity<FTLComponent, ShuttleComponent, FTLDriveComponent> entity) // Frontier edit - FTLDrive
     {
         var uid = entity.Owner;
         var comp = entity.Comp1;
@@ -490,7 +499,7 @@ public sealed partial class ShuttleSystem
         // Reset rotation so they always face the same direction.
         xform.LocalRotation = Angle.Zero;
         _index += width + Buffer;
-        comp.StateTime = StartEndTime.FromCurTime(_gameTiming, comp.TravelTime - DefaultArrivalTime);
+        comp.StateTime = StartEndTime.FromCurTime(_gameTiming, comp.TravelTime - (entity.Comp3.Data.ArrivalTime ?? DefaultArrivalTime)); // Frontier edit
 
         Enable(uid, component: body);
         _physics.SetLinearVelocity(uid, new Vector2(0f, 20f), body: body);
@@ -511,11 +520,11 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Shuttle arriving.
     /// </summary>
-    private void UpdateFTLTravelling(Entity<FTLComponent, ShuttleComponent> entity)
+    private void UpdateFTLTravelling(Entity<FTLComponent, ShuttleComponent, FTLDriveComponent> entity) // Frontier edit - FTLDrive
     {
         var shuttle = entity.Comp2;
         var comp = entity.Comp1;
-        comp.StateTime = StartEndTime.FromCurTime(_gameTiming, DefaultArrivalTime);
+        comp.StateTime = StartEndTime.FromCurTime(_gameTiming, entity.Comp3.Data.ArrivalTime ?? DefaultArrivalTime); // Frontier edit
         comp.State = FTLState.Arriving;
 
         if (entity.Comp1.VisualizerProto != null)
@@ -538,7 +547,7 @@ public sealed partial class ShuttleSystem
     /// <summary>
     ///  Shuttle arrived.
     /// </summary>
-    private void UpdateFTLArriving(Entity<FTLComponent, ShuttleComponent> entity)
+    private void UpdateFTLArriving(Entity<FTLComponent, ShuttleComponent, FTLDriveComponent> entity) // Frontier edit - FTLDrive
     {
         var uid = entity.Owner;
         var xform = _xformQuery.GetComponent(uid);
@@ -623,7 +632,7 @@ public sealed partial class ShuttleSystem
         }
 
         comp.State = FTLState.Cooldown;
-        comp.StateTime = StartEndTime.FromCurTime(_gameTiming, FTLCooldown);
+        comp.StateTime = StartEndTime.FromCurTime(_gameTiming, entity.Comp3.Data.CooldownTime ?? FTLCooldown); // Frontier edit
         _console.RefreshShuttleConsoles(uid);
         _mapManager.SetMapPaused(mapId, false);
         Smimsh(uid, xform: xform);
@@ -632,7 +641,7 @@ public sealed partial class ShuttleSystem
         RaiseLocalEvent(uid, ref ftlEvent, true);
     }
 
-    private void UpdateFTLCooldown(Entity<FTLComponent, ShuttleComponent> entity)
+    private void UpdateFTLCooldown(Entity<FTLComponent, ShuttleComponent, FTLDriveComponent> entity) // Frontier edit - FTLDrive
     {
         RemCompDeferred<FTLComponent>(entity);
         _console.RefreshShuttleConsoles(entity);
@@ -641,14 +650,14 @@ public sealed partial class ShuttleSystem
     private void UpdateHyperspace()
     {
         var curTime = _gameTiming.CurTime;
-        var query = EntityQueryEnumerator<FTLComponent, ShuttleComponent>();
+        var query = EntityQueryEnumerator<FTLComponent, ShuttleComponent, FTLDriveComponent>(); // Frontier edit - FTLDrive
 
-        while (query.MoveNext(out var uid, out var comp, out var shuttle))
+        while (query.MoveNext(out var uid, out var comp, out var shuttle, out var ftlDrive)) // Frontier edit - FTLDrive
         {
             if (curTime < comp.StateTime.End)
                 continue;
 
-            var entity = (uid, comp, shuttle);
+            var entity = (uid, comp, shuttle, ftlDrive); // Frontier edit - FTLDrive
 
             switch (comp.State)
             {

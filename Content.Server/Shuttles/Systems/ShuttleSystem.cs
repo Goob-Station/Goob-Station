@@ -114,6 +114,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Systems;
 using Content.Server.Stunnable;
+using Content.Shared._NF.Shuttles;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.GameTicking;
@@ -194,6 +195,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         InitializeGridFills();
         InitializeIFF();
         InitializeImpact();
+        InitializeNf(); // Frontier
 
         SubscribeLocalEvent<ShuttleComponent, ComponentStartup>(OnShuttleStartup);
         SubscribeLocalEvent<ShuttleComponent, ComponentShutdown>(OnShuttleShutdown);
@@ -227,6 +229,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
 
         EnsureComp<ShuttleComponent>(ev.EntityUid);
         EnsureComp<ImplicitRoofComponent>(ev.EntityUid);
+        EnsureComp<FTLDriveComponent>(ev.EntityUid); // Frontier edit
     }
 
     private void OnShuttleStartup(EntityUid uid, ShuttleComponent component, ComponentStartup args)
