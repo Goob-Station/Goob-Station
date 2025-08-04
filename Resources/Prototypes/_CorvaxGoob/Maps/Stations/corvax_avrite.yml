@@ -1,0 +1,76 @@
+- type: gameMap
+  id: CorvaxAvrite
+  mapName: 'NTSY Аврит'
+  mapPath: /Maps/_CorvaxGoob/Stations/Avrite/corvax_avrite.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 55
+  stations:
+    CorvaxAvrite:
+      stationProto: StandardNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Аврит {1}'
+        nameGenerator: !type:NanotrasenNameGenerator
+          prefixCreator: 'SY'
+      - type: StationEmergencyShuttle
+        emergencyShuttlePath: /Maps/_CorvaxGoob/Stations/Avrite/Shuttles/corvax_emergency_avrite.yml
+      - type: StationJobs
+        availableJobs:
+          # command
+          Captain: [ 1, 1 ]
+          BlueshieldOfficer: [ 1, 1 ]
+          NanotrasenRepresentative: [ 1, 1 ]
+          # cargo
+          Quartermaster: [ 1, 1 ]
+          SalvageSpecialist: [ 4, 4 ]
+          CargoTechnician: [ 4, 5 ]
+          # engineering
+          ChiefEngineer: [ 1, 1 ]
+          AtmosphericTechnician: [ 3, 3 ]
+          StationEngineer: [ 4, 5 ]
+          TechnicalAssistant: [ 2, 3 ]
+          # medical
+          ChiefMedicalOfficer: [ 1, 1 ]
+          MedicalDoctor: [ 4, 5 ]
+          MedicalIntern: [ 3, 4 ]
+          Psychologist: [ 1, 1 ]
+          Paramedic: [ 1, 1 ]
+          Chemist: [ 3, 3 ]
+          Surgeon: [ 1, 1 ]
+          # science
+          ResearchDirector: [ 1, 1 ]
+          Scientist: [ 5, 6 ]
+          ResearchAssistant: [ 3, 4 ]
+          # security
+          HeadOfSecurity: [ 1, 1 ]
+          Warden: [ 1, 1 ]
+          WardenHelper: [ 1, 1 ]
+          SecurityOfficer: [ 8, 9 ]
+          SecurityCadet: [ 3, 4 ]
+          Detective: [ 1, 1 ]
+          Pilot: [ 1, 1 ]
+          Brigmedic: [ 1, 1 ]
+          Lawyer: [ 1, 1 ]
+          # service
+          HeadOfPersonnel: [ 1, 1 ]
+          Bartender: [ 2, 2 ]
+          Botanist: [ 3, 4 ]
+          Chaplain: [ 1, 1 ]
+          Chef: [ 2, 2 ]
+          Clown: [ 1, 1 ]
+          Janitor: [ 3, 3 ]
+          Librarian: [ 1, 1 ]
+          Mime: [ 1, 1 ]
+          Musician: [ 1, 1 ]
+          Reporter: [ 1, 2 ]
+          ServiceWorker: [ 3, 4 ]
+          Zookeeper: [ 1, 1 ]
+          Passenger: [ -1, -1 ]
+          # silicon
+          StationAi: [ 1, 1 ]
+          Borg: [ 2, 3 ]
+      - type: StationBlobConfig
+        stageBegin: 40
+        stageCritical: 700
+        stageTheEnd: 1200

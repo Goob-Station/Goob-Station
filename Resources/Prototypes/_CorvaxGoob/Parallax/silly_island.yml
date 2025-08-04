@@ -3,21 +3,21 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/SillyOcean.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/SillyOcean.png"
       slowness: 0.5
       scale: "1, 1"
       scrolling: "0, -0.05"
       shader: ""
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/SillyOcean_Overlay2.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/SillyOcean_Overlay2.png"
       slowness: 0.3
       scale: "0.5, 0.5"
       scrolling: "0.08, 0.08"
       shader: ""
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/SillyOcean_Overlay.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/SillyOcean_Overlay.png"
       slowness: 0.05
       scale: "0.4, 0.4"
       scrolling: "-0.1, -0.1"
@@ -25,7 +25,7 @@
   layersLQ:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/SillyOcean.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/SillyOcean.png"
       slowness: 0.5
       scale: "1, 1"
       scrolling: "0, -0.05"
@@ -37,42 +37,42 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/SillyOcean.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/SillyOcean.png"
       slowness: 0.5
       shader: ""
       scale: "1, 1"
       scrolling: "0, -0.05"
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/SillyOcean_Overlay2.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/SillyOcean_Overlay2.png"
       slowness: 0.3
       scale: "0.5, 0.5"
       scrolling: "0.08, 0.08"
       shader: ""
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/SillyOcean_Overlay.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/SillyOcean_Overlay.png"
       slowness: 0.05
       scale: "0.4, 0.4"
       scrolling: "-0.1, -0.1"
       shader: ""
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/SillyIceParallax.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/SillyIceParallax.png"
       slowness: 0
       tiled: true
       shader: ""
   layersLQ:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/SillyOcean.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/SillyOcean.png"
       slowness: 0.5
       scale: "1, 1"
       scrolling: "0, -0.05"
       shader: ""
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/_CorvaxGoob/Parallax/IceParallax.png"
+        path: "/Textures/_CorvaxGoob/Parallaxes/IceParallax.png"
       slowness: 0
       tiled: true
       shader: ""

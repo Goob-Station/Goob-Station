@@ -1,0 +1,96 @@
+- type: gameMap
+  id: CorvaxPearl
+  mapName: 'NTSR Пёрл'
+  mapPath: /Maps/_CorvaxGoob/Stations/Pearl/corvax_pearl.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 25
+  maxPlayers: 55
+  stations:
+    CorvaxPearl:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Пёрл {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'SR'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_CorvaxGoob/Base/Shuttles/corvax_emergency_small.yml
+        - type: StationJobs
+          availableJobs:
+            # command
+            Captain: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            # cargo
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 3, 3 ]
+            CargoTechnician: [ 3, 3 ]
+            # engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 3, 3 ]
+            TechnicalAssistant: [ 3, 3 ]
+            # medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 2, 2 ]
+            MedicalIntern: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
+            Paramedic: [ 1, 1 ]
+            Chemist: [ 1, 1 ]
+            # science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 2, 2 ]
+            ResearchAssistant: [ 2, 2 ]
+            # security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            WardenHelper: [ 1, 1 ]
+            SecurityOfficer: [ 3, 3 ]
+            SecurityCadet: [ 2, 2 ]
+            Detective: [ 1, 1 ]
+            Pilot: [ 2, 2 ]
+            Brigmedic: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            # service
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2, 2 ]
+            Boxer: [ 1, 1 ]
+            Chaplain: [ 1, 1 ]
+            Chef: [ 2, 2 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 2, 2 ]
+            ServiceWorker: [ 2, 2 ]
+            Passenger: [ -1, -1 ]
+            Reporter: [ 1, 1 ]
+            # silicon
+            Borg: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
+        - type: StationGoal
+          goals:
+          - SolarPanels
+          - Artifacts
+          - Bank
+          - Zoo
+          - MiningOutpost
+          - Tesla
+          - SecurityTraining
+          - ShuttleMed
+          - ShuttleSec
+          - ShuttleRnd
+          - ShuttleSrv
+          - ShuttleEmergency
+          - Theatre
+          - CellAI
+          - Botany
+          - Bunker
+          - BluespaceHarvest
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 500
+          stageTheEnd: 900
