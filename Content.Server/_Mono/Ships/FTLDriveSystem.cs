@@ -57,6 +57,7 @@ public sealed class FTLDriveSystem : EntitySystem
 
     public void UpdateFtlDrives(Entity<FTLDriveComponent> shuttle)
     {
+        _drives.Clear();
         _lookup.GetGridEntities(shuttle.Owner, _drives);
         FTLDriveGeneratorComponent? targetDrive = null;
         foreach (var (_, drive) in _drives)

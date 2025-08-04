@@ -20,9 +20,6 @@ public sealed partial class FireControlServerComponent : Component
     [ViewVariables]
     public HashSet<EntityUid> Consoles = new();
 
-    [ViewVariables]
-    public Dictionary<EntityUid, EntityUid> Leases;
-
     [ViewVariables, DataField]
     public int ProcessingPower;
 

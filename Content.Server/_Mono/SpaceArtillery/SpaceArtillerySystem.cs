@@ -30,7 +30,7 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
 
     private const float DISTANCE = 100;
     private const float BIG_DAMAGE = 1000;
-    private const float BIG_DAMGE_KICK = 35;
+    private const float BIG_DAMAGE_KICK = 35;
     private ISawmill _sawmill = default!;
 
     public override void Initialize()
@@ -163,7 +163,7 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
 
             var vector = _xform.GetWorldPosition(uid) - _xform.GetWorldPosition(playerEnt);
 
-            _recoilSystem.KickCamera(playerEnt, vector.Normalized() * (float)hitEvent.Damage.GetTotal() / BIG_DAMAGE * BIG_DAMGE_KICK);
+            _recoilSystem.KickCamera(playerEnt, vector.Normalized() * (float)hitEvent.Damage.GetTotal() / BIG_DAMAGE * BIG_DAMAGE_KICK);
         }
     }
 

@@ -37,7 +37,6 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IInputManager _inputs = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IEntityManager _entManager = default!; // Frontier
     private readonly SharedMapSystem _mapSystem;
     private readonly ShuttleSystem _shuttles;
