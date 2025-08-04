@@ -19,3 +19,10 @@ public enum GrabStageDirection
     Increase,
     Decrease,
 }
+
+public enum GrabResistResult
+{
+    TooSoon,
+    Failed,
+    Succeeded
+}

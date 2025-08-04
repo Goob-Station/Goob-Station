@@ -940,13 +940,20 @@ public sealed class PullingSystem : EntitySystem
         if (!_netManager.IsServer)
             return false;
 
-        if (!releaseAttempt)
+        switch (releaseAttempt)
         {
-            _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
-                pullableUid,
-                pullableUid,
-                PopupType.SmallCaution);
-            return false;
+            case GrabResistResult.Failed:
+                _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
+                                pullableUid,
+                                pullableUid,
+                                PopupType.SmallCaution);
+                return false;
+            case GrabResistResult.TooSoon:
+                _popup.PopupEntity(Loc.GetString("popup-grab-release-too-soon"),
+                                pullableUid,
+                                pullableUid,
+                                PopupType.SmallCaution);
+                return false;
         }
 
         _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
@@ -1189,18 +1196,18 @@ public sealed class PullingSystem : EntitySystem
     /// </summary>
     /// <param name="pullable">Grabbed entity</param>
     /// <returns></returns>
-    private bool AttemptGrabRelease(Entity<PullableComponent?> pullable)
+    private GrabResistResult AttemptGrabRelease(Entity<PullableComponent?> pullable)
     {
         if (!Resolve(pullable.Owner, ref pullable.Comp)
             || _timing.CurTime < pullable.Comp.NextEscapeAttempt)
-            return false;
+            return GrabResistResult.TooSoon;
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
-            return true;
+            return GrabResistResult.Succeeded;
 
-        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(3));
+        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(2));
         Dirty(pullable.Owner, pullable.Comp);
-        return false;
+        return GrabResistResult.Failed;
     }
 
     private void OnGrabbedMoveAttempt(EntityUid uid, PullableComponent component, UpdateCanMoveEvent args)
