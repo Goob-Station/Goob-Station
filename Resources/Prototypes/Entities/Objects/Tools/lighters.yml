@@ -179,6 +179,9 @@
   - type: Tool #Goob
     qualities:
     - Ignition
+  - type: Tag #Goobstation - whitelisted cig pack strorage (added new tag)
+    tags:
+    - Lighter
 
 - type: entity
   name: cheap lighter

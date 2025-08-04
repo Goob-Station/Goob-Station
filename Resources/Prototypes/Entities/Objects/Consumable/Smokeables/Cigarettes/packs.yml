@@ -150,9 +150,10 @@
   - type: Storage
     grid:
     - 0,0,4,1
-    blacklist:
-      components:
-      - SolutionCartridge
+    whitelist: #Goobstation - whitelisted cig pack strorage
+      tags:
+      - Cigarette
+      - Lighter
   - type: StorageFill
     contents:
     - id: Cigarette
@@ -222,6 +223,10 @@
   - type: Storage
     grid:
     - 0,0,4,1
+    whitelist: #Goobstation - whitelisted cig pack strorage
+      tags:
+      - Cigarette
+      - Lighter
   - type: ItemCounter
     count:
       tags: [Cigarette]

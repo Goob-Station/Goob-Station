@@ -1036,6 +1036,9 @@
   id: LightBulb
 
 - type: Tag
+  id: Lighter #Goobstation - whitelisted cig pack strorage (added tag)
+
+- type: Tag
   id: Lime
 
 - type: Tag
