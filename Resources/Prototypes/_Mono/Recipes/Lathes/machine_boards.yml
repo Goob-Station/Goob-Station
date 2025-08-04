@@ -1,0 +1,23 @@
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: MachineFTLDriveCircuitboard
+  icon:
+    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+    snapCardinals: true
+    layers:
+    - state: control600
+    - state: control_on
+      shader: unshaded
+  result: MachineFTLDriveCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseSilverCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: MachineFTLDriveHighCircuitboard
+  icon:
+    sprite: _Mono/Structures/ShuttleComponents/drive.rsi
+    snapCardinals: true
+    layers:
+    - state: control
+    - state: control_on
+      shader: unshaded
+  result: MachineFTLDriveHighCircuitboard

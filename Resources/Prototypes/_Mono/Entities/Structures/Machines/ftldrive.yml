@@ -47,7 +47,7 @@
 # Bluespace Drives
 # Please sort them with their Priority stat!!!
 - type: entity
-  id: MachineFTLDrive600
+  id: MachineFTLDrive
   parent: FTLDriveBase
   name: FSS-512 bluespace drive
   description: Low-power bluespace FTL engine that increases FTL radius.
@@ -73,9 +73,9 @@
     price: 2000
 
 - type: entity
-  id: MachineFTLDrive
+  id: MachineFTLDriveHigh
   parent: FTLDriveBase
-  name: CTLA-1024 bluespace drive
+  name: CTLA-2048 bluespace drive
   description: High-power bluespace FTL engine that drastically extends FTL radius. Has high cooldown time.
   components:
   - type: Sprite
