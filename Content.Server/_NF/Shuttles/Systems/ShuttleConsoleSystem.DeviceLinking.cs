@@ -43,16 +43,13 @@ public sealed partial class ShuttleConsoleSystem
 
     private void EnsureDeviceLinkComponents(EntityUid uid, ShuttleConsoleComponent component)
     {
-        // Get the DeviceLinkSystem which has proper access to modify DeviceLinkSourceComponent
-        var deviceLinkSystem = EntityManager.System<DeviceLinkSystem>();
+        if (!TryComp<DeviceLinkSourceComponent>(uid, out var sourceComp))
+            return;
 
-        var sourceComp = EnsureComp<DeviceLinkSourceComponent>(uid);
-        deviceLinkSystem.EnsureSourcePorts(uid, component.SourcePorts.ToArray());
+        _deviceLink.EnsureSourcePorts(uid, component.SourcePorts.ToArray());
 
         // Clear all signal states to prevent unwanted signals when establishing new connections
         foreach (var sourcePort in component.SourcePorts)
-        {
-            deviceLinkSystem.ClearSignal((uid, sourceComp), sourcePort);
-        }
+            _deviceLink.ClearSignal((uid, sourceComp), sourcePort);
     }
 }

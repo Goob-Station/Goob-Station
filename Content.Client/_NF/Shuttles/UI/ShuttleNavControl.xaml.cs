@@ -9,7 +9,6 @@
 
 using Content.Shared._NF.Shuttles.Events;
 using Content.Shared.Shuttles.BUIStates;
-using Robust.Shared.Physics.Components;
 using System.Numerics;
 using Content.Shared.Shuttles.Components;
 using Robust.Client.Graphics;
@@ -31,24 +30,13 @@ public sealed partial class ShuttleNavControl
     private void NfUpdateState(NavInterfaceState state)
     {
         if (!EntManager.GetCoordinates(state.Coordinates).HasValue ||
-            !EntManager.TryGetComponent(EntManager.GetCoordinates(state.Coordinates).GetValueOrDefault().EntityId,
-                out TransformComponent? transform) ||
-            !EntManager.TryGetComponent(transform.GridUid, out PhysicsComponent? physicsComponent))
-        {
+            !EntManager.TryGetComponent(EntManager.GetCoordinates(state.Coordinates).GetValueOrDefault().EntityId, out TransformComponent? transform))
             return;
-        }
 
         DampeningMode = state.DampeningMode;
 
         // Check if the entity has an FTLComponent which indicates it's in FTL
-        if (transform.GridUid != null)
-        {
-            InFtl = EntManager.HasComponent<FTLComponent>(transform.GridUid);
-        }
-        else
-        {
-            InFtl = false;
-        }
+        InFtl = transform.GridUid != null && EntManager.HasComponent<FTLComponent>(transform.GridUid);
     }
 
     // New Frontiers - Maximum IFF Distance - checks distance to object, draws if closer than max range

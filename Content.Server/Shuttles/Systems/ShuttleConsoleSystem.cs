@@ -521,7 +521,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         EntityCoordinates coordinates,
         Angle angle)
     {
-        if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
+        if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2, false))
             return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks, InertiaDampeningMode.Dampen);
 
         return new NavInterfaceState(

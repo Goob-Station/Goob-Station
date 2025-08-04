@@ -27,7 +27,7 @@ public sealed partial class NavScreen
         MaximumIFFDistanceValue.GetChild(0).GetChild(1).Margin = new Thickness(8, 0, 0, 0);
         MaximumIFFDistanceValue.OnValueChanged += args => OnRangeFilterChanged(args);
 
-        DampenerOff.OnPressed += _ => SetDampenerMode(InertiaDampeningMode.Off);
+        DampenerOff.OnPressed += _ => SetDampenerMode(InertiaDampeningMode.Cruise);
         DampenerOn.OnPressed += _ => SetDampenerMode(InertiaDampeningMode.Dampen);
         AnchorOn.OnPressed += _ => SetDampenerMode(InertiaDampeningMode.Anchor);
 
@@ -43,7 +43,7 @@ public sealed partial class NavScreen
 
         // Send off a request to get the current dampening mode.
         _entManager.TryGetNetEntity(_shuttleEntity, out var shuttle);
-        OnInertiaDampeningModeChanged?.Invoke(shuttle, InertiaDampeningMode.Query);
+        OnInertiaDampeningModeChanged?.Invoke(shuttle, InertiaDampeningMode.None);
     }
 
     private void OnPortButtonPressed(string sourcePort)
@@ -60,34 +60,23 @@ public sealed partial class NavScreen
 
     private void NfUpdateState()
     {
-        if (NavRadar.DampeningMode == InertiaDampeningMode.Station)
+        DampenerOff.Pressed = NavRadar.DampeningMode == InertiaDampeningMode.Cruise;
+        DampenerOn.Pressed = NavRadar.DampeningMode == InertiaDampeningMode.Dampen;
+        AnchorOn.Pressed = NavRadar.DampeningMode == InertiaDampeningMode.Anchor;
+
+        // Disable the Park button (AnchorOn) while in FTL, but keep other dampener buttons enabled
+        if (NavRadar.InFtl)
         {
-            DampenerModeButtons.Visible = false;
+            AnchorOn.Disabled = true;
+            // If the AnchorOn button is pressed while it gets disabled, we need to switch to another mode
+            if (!AnchorOn.Pressed)
+                return;
+
+            DampenerOn.Pressed = true;
+            SetDampenerMode(InertiaDampeningMode.Dampen);
         }
         else
-        {
-            DampenerModeButtons.Visible = true;
-            DampenerOff.Pressed = NavRadar.DampeningMode == InertiaDampeningMode.Off;
-            DampenerOn.Pressed = NavRadar.DampeningMode == InertiaDampeningMode.Dampen;
-            AnchorOn.Pressed = NavRadar.DampeningMode == InertiaDampeningMode.Anchor;
-
-            // Disable the Park button (AnchorOn) while in FTL, but keep other dampener buttons enabled
-            if (NavRadar.InFtl)
-            {
-                AnchorOn.Disabled = true;
-                // If the AnchorOn button is pressed while it gets disabled, we need to switch to another mode
-                if (AnchorOn.Pressed)
-                {
-                    DampenerOn.Pressed = true;
-                    SetDampenerMode(InertiaDampeningMode.Dampen);
-                }
-            }
-            else
-            {
-                AnchorOn.Disabled = false;
-            }
-        }
-
+            AnchorOn.Disabled = false;
     }
 
     // Frontier - Maximum IFF Distance
