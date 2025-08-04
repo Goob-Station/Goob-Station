@@ -298,3 +298,10 @@
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: spikehawk
 
+- type: marking
+  id: HumanHairLongTwinTails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: longtwintails
