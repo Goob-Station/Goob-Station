@@ -26,12 +26,18 @@
         actions:
         - ActionTransformWerewolf
         - ActionOpenMutationShop
+        - ActionHeightenedSenses
       - type: WerewolfTransform
         currentWerewolfForm: DefaultFormWerewolf
         unlockedWerewolfForms:
           - DefaultFormWerewolf
           - ExplosiveFormWerewolf
       - type: WerewolfMutationShop
+      - type: WerewolfHeightenedSenses
+      - type: ThermalVision
+        toggleAction: null
+        activateSound: null
+        deactivateSound: null
       - type: UserInterface
         interfaces:
           enum.MutationUiKey.Key:

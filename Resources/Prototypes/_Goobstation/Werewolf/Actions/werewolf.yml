@@ -3,6 +3,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Pre-Werewolf Abilities:
+# Werewolf Transform, Mutation Shop, Heightened Senses
 - type: entity
   id: ActionTransformWerewolf
   name: Werewolf Transform.
@@ -29,3 +31,61 @@
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: evolution_menu
     event: !type:OpenMutationShopEvent
+
+- type: entity
+  id: ActionHeightenedSenses
+  name: Heightened Senses.
+  description: Activate Heightened Senses.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
+      state: augmented_eyesight
+    event: !type:HeightenedSensesEvent
+    useDelay: 60
+# Pre-Werewolf Abilities end
+
+# Werewolf Abilities:
+# Gut, Ambush, Howl
+- type: entity
+  id: ActionWerewolfGut
+  name: Gut.
+  description: Spill the organs of a deceased victim.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
+      state: fleshmend
+    event: !type:WerewolfGutEvent
+
+- type: entity
+  id: ActionWerewolfAmbush
+  name: Ambush.
+  description: Ambush. # todo: add
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
+      state: hammer
+    event: !type:WerewolfAmbushEvent
+
+- type: entity
+  id: ActionWerewolfHowl
+  name: Howl.
+  description: Howl. # todo: add
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
+      state: stasis_exit
+    event: !type:WerewolfHowlEvent
+    # useDelay: X
+# Werewolf Abilities end
