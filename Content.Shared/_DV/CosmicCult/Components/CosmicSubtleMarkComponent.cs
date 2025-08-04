@@ -12,4 +12,7 @@ public sealed partial class CosmicSubtleMarkComponent : Component
 {
     [DataField]
     public LocId ExamineText = "cosmic-examine-text-subtle-mark";
+
+    [DataField]
+    public SpriteSpecifier Sprite = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Effects/cultsubtlerevealed.rsi"), "default");
 }

@@ -427,6 +427,8 @@
     understands:
       - TauCetiBasic
       - NewKinPidgin        # Vox language from Floofstation
+  - type: CosmicMarkVisuals # DeltaV - cosmic cult
+    subtleState: vox
 
 - type: entity
   parent: BaseSpeciesDummy

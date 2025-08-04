@@ -133,6 +133,8 @@
     item: Chitzite
     action: ActionChitzite
     coughPopup: chitzite-cough
+  - type: CosmicMarkVisuals
+    subtleState: moth
 
 - type: entity
   parent: BaseSpeciesDummy

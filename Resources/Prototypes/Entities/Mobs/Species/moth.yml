@@ -321,6 +321,8 @@
         - MobLayer
   - type: DashAction # Goobstation - dark souls moths
     actionProto: ActionDashMoth
+  - type: CosmicMarkVisuals # DeltaV - cosmic cult
+    subtleState: moth
 
 - type: entity
   parent: BaseSpeciesDummy
