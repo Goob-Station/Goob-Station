@@ -6,11 +6,15 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 holorain <scratchysenior@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: TeslaCoil
+  parent: ConstructibleMachine # Goobstation
   name: tesla coil
   description: A machine that converts lightning strikes into an electric current.
   placement:
@@ -112,6 +116,8 @@
               SheetSteel1:
                 min: 2
                 max: 4
+  - type: Machine # Goobstation
+    board: TeslaCoilCircuitboard # Goobstation
   - type: GuideHelp
     guides:
     - TeslaEngine
