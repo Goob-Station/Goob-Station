@@ -12831,3 +12831,11 @@ Entries:
       message: NTR is now properly limited to only getting devil
   id: 1419
   time: '2025-08-03T03:58:43.0000000+00:00'
+- author: loltart
+  changes:
+    - type: Remove
+      message: Removed Mediguns pending rework™
+    - type: Remove
+      message: Removed Anacondas from nukie uplinks
+  id: 1420
+  time: '2025-08-04T07:10:12.0000000+00:00'
