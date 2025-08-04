@@ -13,13 +13,13 @@ public sealed partial class FireControllableComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid? ControllingServer = null;
-    
+
     /// <summary>
     /// When the weapon can next be fired
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextFire = TimeSpan.Zero;
-    
+
     /// <summary>
     /// Cooldown between firing, in seconds
     /// </summary>
