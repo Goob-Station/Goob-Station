@@ -8,7 +8,7 @@ using Content.Goobstation.Shared.Heretic.Messages;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 
-namespace Content.Client._Shitcode.Heretic.UI;
+namespace Content.Goobstation.Client.Heretic.Heretic.UI;
 
 [UsedImplicitly]
 public sealed class FeastOfOwlsEui : BaseEui

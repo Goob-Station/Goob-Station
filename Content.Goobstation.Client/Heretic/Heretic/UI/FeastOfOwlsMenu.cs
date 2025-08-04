@@ -13,7 +13,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
-namespace Content.Client._Shitcode.Heretic.UI;
+namespace Content.Goobstation.Client.Heretic.Heretic.UI;
 
 public sealed class FeastOfOwlsMenu : DefaultWindow
 {

@@ -3,9 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+namespace Content.Goobstation.Client.Heretic.Heretic;
 
-using Content.Goobstation.Shared.Heretic.Systems;
-
-namespace Content.Client._Shitcode.Heretic;
-
-public sealed class MansusGraspSystem : SharedMansusGraspSystem;
+public sealed class IconSmoothCornersInitializedEvent : EntityEventArgs;

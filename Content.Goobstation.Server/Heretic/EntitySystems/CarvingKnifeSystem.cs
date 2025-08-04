@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.DoAfter;
 using Content.Server.Gravity;

@@ -11,6 +11,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Heretic.Prototypes;
 using System.Linq;
+using Content.Goobstation.Shared.Heretic.Prototypes;
 
 namespace Content.Goobstation.Server.Heretic.Ritual;
 
@@ -40,3 +41,4 @@ public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior
         return true;
     }
 }
+

@@ -19,7 +19,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Shitcode.Heretic.UI;
+namespace Content.Goobstation.Client.Heretic.Heretic.UI;
 
 public sealed class LivingHeartMenu : RadialMenu
 {

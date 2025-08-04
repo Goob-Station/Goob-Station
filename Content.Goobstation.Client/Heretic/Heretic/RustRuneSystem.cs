@@ -15,7 +15,7 @@ using Content.Shared.Tag;
 using Robust.Client.GameObjects;
 using Robust.Shared.Graphics.RSI;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic.Heretic;
 
 public sealed class RustRuneSystem : EntitySystem
 {

@@ -7,7 +7,7 @@ using Content.Goobstation.Shared.Heretic.Components;
 using Content.Goobstation.Shared.Heretic.Systems;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic.Heretic;
 
 public sealed class ShadowCloakSystem : SharedShadowCloakSystem
 {

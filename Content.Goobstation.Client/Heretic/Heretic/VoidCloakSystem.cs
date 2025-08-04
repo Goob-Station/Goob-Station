@@ -8,6 +8,6 @@
 
 using Content.Goobstation.Shared.Heretic.Systems;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic.Heretic;
 
 public sealed class VoidCloakSystem : SharedVoidCloakSystem;

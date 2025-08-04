@@ -14,7 +14,7 @@
 
 using Content.Goobstation.Shared.Heretic.Prototypes;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic.Heretic;
 
 // these do nothing and are there just for yaml limter to shut the fuck up.
 // make sure they stay up in sync with the server counterpart.

@@ -14,10 +14,11 @@ using Content.Goobstation.Shared.Heretic.Systems;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic.Heretic;
 
 public sealed class VoidCurseSystem : SharedVoidCurseSystem
 {
+    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

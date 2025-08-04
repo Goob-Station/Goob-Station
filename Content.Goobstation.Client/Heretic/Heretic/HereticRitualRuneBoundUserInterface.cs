@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Client._Shitcode.Heretic.UI;
+using Content.Goobstation.Client.Heretic.Heretic.UI;
 using Content.Goobstation.Shared.Heretic.Components;
 using Content.Goobstation.Shared.Heretic.Prototypes;
 using Robust.Client.Graphics;
@@ -13,7 +13,7 @@ using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic.Heretic;
 
 public sealed class HereticRitualRuneBoundUserInterface : BoundUserInterface
 {

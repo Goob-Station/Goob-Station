@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Shared.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Server.GameObjects;
@@ -8,16 +10,18 @@ namespace Content.Goobstation.Server.Heretic.Ritual;
 
 public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
 {
-    public override bool Execute(RitualData args, [NotNullWhen(true)] out string? outstr)
+    public override bool Execute(RitualData args, out string? outstr)
     {
         outstr = null;
 
         var entMan = args.EntityManager;
         var transform = entMan.System<TransformSystem>();
 
-        if (!entMan.TryGetComponent(args.Performer, out HereticComponent? heretic)
-            || GetLostBlade(args.Platform, args.Performer, heretic, args.EntityManager, transform) == null)
+        if (!entMan.TryGetComponent(args.Performer, out HereticComponent? heretic))
             return false;
+
+        if (GetLostBlade(args.Platform, args.Performer, heretic, args.EntityManager, transform) == null)
+            return true;
 
         outstr = Loc.GetString("heretic-ritual-fail-no-lost-blades");
         return false;
@@ -52,8 +56,7 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
         var range = MathF.Max(1.5f, dist + 0.5f);
 
         foreach (var blade in comp.OurBlades
-                     .Where(entMan.EntityExists)
-                     .Where(blade => !originCoords.InRange(transform.GetMapCoordinates(blade), range)))
+                     .Where(blade => blade.HasValue && !originCoords.InRange(transform.GetMapCoordinates(blade.Value), range)))
         {
             return blade;
         }

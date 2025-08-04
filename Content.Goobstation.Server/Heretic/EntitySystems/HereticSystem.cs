@@ -16,24 +16,18 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Eye;
-using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;
-using Content.Shared.Heretic.Prototypes;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Audio;
-using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
 using Content.Goobstation.Server.Heretic.Components;
-using Content.Goobstation.Server.Heretic.GameTicking;
-using Content.Goobstation.Shared.Enchanting.Components;
-using Content.Goobstation.Shared.Religion;
+using Content.Goobstation.Shared.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Prototypes;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Actions;
 using Content.Server.Heretic.EntitySystems;

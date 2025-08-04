@@ -5,6 +5,6 @@
 
 using Content.Goobstation.Shared.Heretic.Systems.Abilities;
 
-namespace Content.Client._Shitcode.Heretic;
+namespace Content.Goobstation.Client.Heretic.Heretic;
 
 public sealed class HereticAbilitySystem : SharedHereticAbilitySystem;
