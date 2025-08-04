@@ -12851,3 +12851,9 @@ Entries:
       message: BSO no longer gets shocked on grilles when using their modsuit.
   id: 1422
   time: '2025-08-04T07:24:49.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Moths' cries (and other emotes) can now be heard.
+  id: 1423
+  time: '2025-08-04T07:26:03.0000000+00:00'
