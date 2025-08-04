@@ -1,48 +1,45 @@
 # Base
 - type: entity
   id: FTLDriveBase
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   abstract: true
   placement:
     mode: SnapgridCenter
   components:
-    - type: Transform
-      anchored: true
-    - type: Physics
-      bodyType: Static
-    - type: PointLight
-      enabled: false
-      color: "#349BEB" # beb color
-      radius: 2.0
-      energy: 1.5
-    - type: LitOnPowered
-    - type: ExtensionCableReceiver
-    - type: Appearance
-    - type: AmbientOnPowered
-    - type: AmbientSound
-      volume: -9
-      range: 5
-      sound:
-        path: /Audio/Ambience/Objects/anomaly_generator.ogg
-    - type: GenericVisualizer
-      visuals:
-        enum.PowerDeviceVisuals.Powered:
-          enum.PowerDeviceVisualLayers.Powered:
-            True: { visible: true }
-            False: { visible: false }
-    - type: ActivatableUI
-      key: enum.PowerChargeUiKey.Key
-    - type: ActivatableUIRequiresPower
-    - type: UserInterface
-      interfaces:
-        enum.PowerChargeUiKey.Key:
-          type: PowerChargeBoundUserInterface
-    - type: ApcPowerReceiver
-      powerLoad: 2000
-    - type: PowerCharge
-      windowTitle: gravity-generator-window-title
-      idlePower: 50
-      activePower: 2500
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: PointLight
+    enabled: false
+    color: "#349BEB" # beb color
+    radius: 2.0
+    energy: 1.5
+  - type: LitOnPowered
+  - type: ExtensionCableReceiver
+  - type: Appearance
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/anomaly_generator.ogg
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ActivatableUI
+    key: enum.PowerChargeUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.PowerChargeUiKey.Key:
+        type: PowerChargeBoundUserInterface
+  - type: WiresPanel
+  - type: StaticPrice
+    price: 2000
 
 # Bluespace Drives
 # Please sort them with their Priority stat!!!
@@ -61,16 +58,20 @@
       map: ["enum.PowerDeviceVisualLayers.Powered"]
       visible: false
       shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 3000
+  - type: PowerCharge
+    windowTitle: ftl-drive-window-title
+    idlePower: 100
+    activePower: 3000
+  - type: Machine
+    board: MachineFTLDriveCircuitboard
   - type: FTLDriveGenerator
     priority: 1
     data:
       range: 512
       ftlToSameMap: true
       cooldownTime: 120
-  - type: ApcPowerReceiver
-    powerLoad: 2500
-  - type: StaticPrice
-    price: 2000
 
 - type: entity
   id: MachineFTLDriveHigh
@@ -87,16 +88,20 @@
       map: ["enum.PowerDeviceVisualLayers.Powered"]
       visible: false
       shader: unshaded
+  - type: ApcPowerReceiver
+    powerLoad: 6000
+  - type: PowerCharge
+    windowTitle: ftl-drive-window-title
+    idlePower: 300
+    activePower: 6000
+  - type: Machine
+    board: MachineFTLDriveHighCircuitboard
   - type: FTLDriveGenerator
     priority: 2
     data:
       range: 2048
       ftlToSameMap: true
       cooldownTime: 180
-  - type: ApcPowerReceiver
-    powerLoad: 10000
-  - type: StaticPrice
-    price: 6000
 
 # Debug drives
 - type: entity

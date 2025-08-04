@@ -61,19 +61,3 @@
       Steel: 10
       Capacitor: 2
       Manipulator: 2
-
-- type: entity
-  id: MachineGCSStationCircuitboard
-  parent: BaseMachineCircuitboard
-  name: station gunnery control server board
-  description: A machine board for a GCS.
-  components:
-  - type: Sprite
-    state: security
-  - type: MachineBoard
-    prototype: GunneryServerStation
-    stackRequirements:
-      Glass: 10
-      Steel: 10
-      Capacitor: 2
-      Manipulator: 2
