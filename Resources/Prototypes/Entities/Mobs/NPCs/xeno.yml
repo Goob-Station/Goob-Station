@@ -232,6 +232,11 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
   - type: ThermalVision
     lightRadius: 15
     color: "#808080"
@@ -346,6 +351,13 @@
   - type: Tag
     tags:
     - CannotSuicide
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - TauCetiBasic
+    - Xeno
+    understands:
+    - TauCetiBasic
+    - Xeno
 
 - type: entity
   name: xenonid ravager #Goobstation name change

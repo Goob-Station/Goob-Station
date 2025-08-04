@@ -1,0 +1,67 @@
+//
+// https://gamedev.stackexchange.com/a/59808
+//
+//   Author: sam hocevar
+// Answered: Jul 27, 2013 at 13:33
+//  License: CC BY-SA 3.0
+//
+
+uniform highp float jitter;
+uniform highp float colorJitter;
+uniform highp float alphaJitter;
+uniform highp float hue;
+
+highp vec3 rgb2hsv(highp vec3 c)
+{
+    highp vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    highp vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    highp vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    highp float d = q.x - min(q.w, q.y);
+    /* float e = 1.0e-10; */
+    highp float e = 0.0000000001;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+highp vec3 hsv2rgb(highp vec3 c)
+{
+    highp vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    highp vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+highp float rng(highp vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+}
+
+highp vec3 blend(highp vec3 base, highp vec3 color, highp float factor){
+	return base+(color-base)*factor;
+}
+
+// quick and simple okay-ish looking shader because i don't like the deltaV one.
+void fragment() {
+
+
+	highp float hue2 = hue-0.01;
+
+	// introduces random noise in the X coord of the UV, seeded by Y
+	// produces scanline-like effect, with each line of pixels being randomly displaced left or right
+	// makes the item jitter a bit
+	highp float dispfloat = rng(vec2(UV.y*TIME, 0)) * jitter;
+
+    highp vec4 tex = zTexture(UV + vec2(dispfloat*TEXTURE_PIXEL_SIZE.x*0.5, 0));
+	highp vec3 col = rgb2hsv(tex.rgb);
+	col.x = hue;
+	col.z = (log(col.z) + 4.0) / 4.0; // increase the value in hsv color, helps with highlighting detail
+
+	// this produces a color which randomly flashes from hue2 (at max value) to white
+	// mixed in with sprite color down below
+	highp vec3 col2 = hsv2rgb(vec3(hue2, rng(vec2(TIME*0.001, 0)) * colorJitter + (1.0 - colorJitter), 1.0));
+	col = hsv2rgb(col);
+
+	COLOR = vec4(mix(col, col2, 0.3), max(tex.w*(sin(TIME * sin(TIME)))*0.25, 0.0)+0.45*tex.w);
+	// another scanline-like effect, but with transparensy this time
+	// "*=" instead of proper construction because it's an afterthought
+	COLOR.w *= rng(vec2(0, 1.09248882*TIME*UV.y)) * alphaJitter + (1.0 - alphaJitter);
+	lightSample = vec3(1.0);
+}

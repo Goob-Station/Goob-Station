@@ -1,0 +1,33 @@
+- type: latheRecipePack
+  id: Translators
+  recipes:
+  - CanilunztTranslator
+  - BubblishTranslator
+  - NekomimeticTranslator
+  - DraconicTranslator
+  - SolCommonTranslator
+  - RootSpeakTranslator
+  - MofficTranslator
+  - XenoTranslator
+  - AnimalTranslator
+  - ValyrianStandardTranslator
+  - ChittinTranslator
+  - SiikMaasTranslator
+  - MarishTranslator
+
+- type: latheRecipePack
+  id: TranslatorImplanters
+  recipes:
+  - BasicGalaticCommonTranslatorImplanter
+  - AdvancedGalaticCommonTranslatorImplanter
+  - CanilunztTranslatorImplanter
+  - BubblishTranslatorImplanter
+  - NekomimeticTranslatorImplanter
+  - DraconicTranslatorImplanter
+  - SolCommonTranslatorImplanter
+  - RootSpeakTranslatorImplanter
+  - MofficTranslatorImplanter
+  - ValyrianStandardTranslatorImplanter
+  - ChittinTranslatorImplanter
+  - SiikMaasTranslatorImplanter
+  - MarishTranslatorImplanter

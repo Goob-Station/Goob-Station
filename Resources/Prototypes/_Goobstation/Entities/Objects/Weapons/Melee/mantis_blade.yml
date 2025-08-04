@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Avalon <jfbentley1@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -24,8 +25,8 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 7
-        Piercing: 7
+        Slash: 10
+        Piercing: 4
         Structural: 15
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
