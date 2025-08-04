@@ -12857,3 +12857,9 @@ Entries:
       message: Moths' cries (and other emotes) can now be heard.
   id: 1423
   time: '2025-08-04T07:26:03.0000000+00:00'
+- author: RatherUncreativeName
+  changes:
+    - type: Fix
+      message: Fixed IPCs being unable to use cyborg rechargers.
+  id: 1424
+  time: '2025-08-04T07:26:49.0000000+00:00'
