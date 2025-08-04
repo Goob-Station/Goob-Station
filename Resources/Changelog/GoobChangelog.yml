@@ -12839,3 +12839,9 @@ Entries:
       message: Removed Anacondas from nukie uplinks
   id: 1420
   time: '2025-08-04T07:10:12.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Reduced the spawn rate of Lone Abductors and Duo Abductors.
+  id: 1421
+  time: '2025-08-04T07:22:58.0000000+00:00'
