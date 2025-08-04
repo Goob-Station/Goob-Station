@@ -34,7 +34,7 @@
         layer:
         - TableLayer
   - type: Climbable
-  
+
 - type: entity
   id: N14BarricadeTanktrap
   parent: N14BarricadeSandbagSingle
@@ -71,7 +71,7 @@
         - TableMask
         layer:
         - TableLayer
-        
+
 - type: entity
   id: N14BarricadeTanktrapRusty
   parent: N14BarricadeTanktrap
@@ -82,7 +82,7 @@
     sprite: _Nuclear14/Structures/Furniture/barricades.rsi
     netsync: false
     state: iron_barricadeA
-  
+
 - type: entity
   parent: BaseStructure
   id: N14BarricadeRazorwire
@@ -144,8 +144,9 @@
   - type: Slippery
     slipSound:
       path: /Audio/Effects/fence_rattle1.ogg
-    launchForwardsMultiplier: 0
-    paralyzeTime: 0
+    slipData:
+      launchForwardsMultiplier: 0
+      paralyzeTime: 0
 
 - type: entity
   parent: N14BarricadeSandbagSingle
@@ -160,7 +161,7 @@
   - type: Damageable
     damageModifierSet: Metallic
     damageContainer: Inorganic
-    
+
 - type: entity
   parent: N14BarricadeMetal
   id: N14BarricadeMetalGreen
@@ -168,8 +169,8 @@
   components:
   - type: Sprite
     state: green
-    
-#- type: entity 
+
+#- type: entity
 #  parent: N14DecorFloorWorldBase - Has to be made/fixed, Not present in dictionary
 #  id: N14DecorConcreteBarrier
 #  name: concrete barrier
@@ -187,7 +188,7 @@
 #        density: 1000
 #        layer:
 #        - WallLayer
-#    
+#
 #- type: entity
 #  parent: N14DecorConcreteBarrier
 #  id: N14DecorConcreteBarrierDamaged
@@ -204,7 +205,7 @@
 #          concrete_barrier_3: ""
 #          concrete_barrier_4: ""
 #          concrete_barrier_5: ""
-#          
+#
 #- type: entity
 #  parent: N14DecorConcreteBarrier
 #  id: N14DecorConcreteBarrierStriped
@@ -220,7 +221,7 @@
 #      - body:
 #          concrete_barrier_alt: ""
 #          concrete_barrier_alt_1: ""
-#          
+#
 #- type: entity
 #  parent: N14DecorConcreteBarrier
 #  id: N14DecorRoadBarrier

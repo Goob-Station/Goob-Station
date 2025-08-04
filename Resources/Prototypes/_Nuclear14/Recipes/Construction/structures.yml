@@ -30,8 +30,5 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Doors/FalloutDoors/wooddoor.rsi
-    state: closed
   conditions:
     - !type:TileNotBlocked

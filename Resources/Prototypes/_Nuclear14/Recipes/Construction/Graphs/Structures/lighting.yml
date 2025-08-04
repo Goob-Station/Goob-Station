@@ -66,27 +66,27 @@
             # - !type:DeleteEntity {}
 
 # Torches
-- type: constructionGraph
-  id: WallTorch
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: WallTorch
-          steps:
-            - material: WoodPlank
-              amount: 1
-              doAfter: 2.0
+# - type: constructionGraph
+#   id: N14WallTorch
+#   start: start
+#   graph:
+#     - node: start
+#       edges:
+#         - to: N14WallTorch
+#           steps:
+#             - material: WoodPlank
+#               amount: 1
+#               doAfter: 2.0
 
-    - node: WallTorch
-      entity: N14TorchWall
-      edges:
-        - to: start
-          steps:
-            - tool: Screwing
-              doAfter: 2.0
-          completed:
-            - !type:SpawnPrototype
-              prototype: MaterialWoodPlank1
-              amount: 1
-            - !type:DeleteEntity {}
+#     - node: N14WallTorch
+#       entity: N14TorchWall
+#       edges:
+#         - to: start
+#           steps:
+#             - tool: Screwing
+#               doAfter: 2.0
+#           completed:
+#             - !type:SpawnPrototype
+#               prototype: MaterialWoodPlank1
+#               amount: 1
+#             - !type:DeleteEntity {}

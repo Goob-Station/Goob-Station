@@ -60,17 +60,17 @@
     radius: 5
     power: 16
 
-- type: entity
-  parent: N14Torch
-  id: N14TorchWall
-  suffix: wall
-  components:
-  - type: Sprite
-    noRot: false
-    state: wall_torch_unlit
-  - type: FireVisuals
-    sprite: _Nuclear14/Structures/Decoration/torches.rsi
-    normalState: wall_torch_lit
-  - type: Construction
-    graph: N14WallTorch
-    node: N14WallTorch
+# - type: entity
+#   parent: N14Torch
+#   id: N14TorchWall
+#   suffix: wall
+#   components:
+#   - type: Sprite
+#     noRot: false
+#     state: wall_torch_unlit
+#   - type: FireVisuals
+#     sprite: _Nuclear14/Structures/Decoration/torches.rsi
+#     normalState: wall_torch_lit
+#   - type: Construction
+#     graph: N14WallTorch
+#     node: N14WallTorch
