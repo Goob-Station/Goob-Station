@@ -124,10 +124,11 @@ public sealed partial class AudioTab : Control
             SliderVolumeInterface,
             scale: ContentAudioSystem.InterfaceMultiplier);
 
-        Control.AddOptionPercentSlider(
+        // Deleted by CorvaxGoob
+        /*Control.AddOptionPercentSlider(
             GoobCVars.VoiceChatVolume,
             SliderVolumeVoiceChat,
-            -8, 10);
+            -8, 10);*/
 
         Control.AddOptionSlider(
             CCVars.MaxAmbientSources,
@@ -135,7 +136,7 @@ public sealed partial class AudioTab : Control
             _cfg.GetCVar(CCVars.MinMaxAmbientSourcesConfigured),
             _cfg.GetCVar(CCVars.MaxMaxAmbientSourcesConfigured));
 
-        Control.AddOptionCheckBox(GoobCVars.VoiceChatHearSelf, HearSelfCheckBox);
+        // Control.AddOptionCheckBox(GoobCVars.VoiceChatHearSelf, HearSelfCheckBox); Deleted by CorvaxGoob
         Control.AddOptionCheckBox(CCVars.LobbyMusicEnabled, LobbyMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.RestartSoundsEnabled, RestartSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.EventMusicEnabled, EventMusicCheckBox);
