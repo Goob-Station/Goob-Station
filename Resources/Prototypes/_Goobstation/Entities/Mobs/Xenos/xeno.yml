@@ -49,7 +49,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 1
+          radius: 0.5
         density: 1000
         mask:
         - MobMask
@@ -129,7 +129,9 @@
     activateSound: null
     deactivateSound: null
   - type: VentCrawler
-  - type: TileMovement #Doesn't seem to be working
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
+  - type: Fauna # Lavaland Change
 
 - type: entity
   name: drone
@@ -167,6 +169,8 @@
         Base: crit
       Dead:
         Base: dead
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
 
 - type: entity
   name: warrior
@@ -207,6 +211,8 @@
         Base: crit
       Dead:
         Base: dead
+  - type: CombatPower # Goobstation
+    factor: 1.8 # times more dangerous than a crew-member
 
 - type: entity
   name: crusher
@@ -247,6 +253,8 @@
         Base: crit
       Dead:
         Base: dead
+  - type: CombatPower # Goobstation
+    factor: 2 # times more dangerous than a crew-member
 
 - type: entity
   name: ravager
@@ -284,6 +292,8 @@
         Base: crit
       Dead:
         Base: dead
+  - type: CombatPower # Goobstation
+    factor: 2.5 # times more dangerous than a crew-member
 
 - type: entity
   name: king
@@ -324,6 +334,13 @@
         Base: crit
       Dead:
         Base: dead
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: XenoFootstepLarge
+      params:
+        volume: -6
+  - type: CombatPower # Goobstation
+    factor: 4 # times more dangerous than a crew-member
 
 - type: entity
   name: queen
@@ -345,7 +362,7 @@
     animation: WeaponArcBite
     damage:
         types:
-          Blunt: 10
+          Piercing: 15
           Slash: 15
           Structural: 60
   - type: MovementSpeedModifier
@@ -374,8 +391,22 @@
         volume: -8
         maxDistance: 10
         variation: 0.05
+  - type: XenoScreech
   - type: FootstepModifier
     footstepSoundCollection:
       collection: XenoFootstepLarge
       params:
         volume: -6
+  - type: Devourer
+    foodPreference: Humanoid
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 7.5
+    whitelist:
+      components:
+      - MobState
+      - Door
+      tags:
+      - Wall
+  - type: CombatPower # Goobstation
+    factor: 4 # times more dangerous than a crew-member
