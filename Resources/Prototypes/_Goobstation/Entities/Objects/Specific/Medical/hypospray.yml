@@ -390,8 +390,6 @@
         reagents:
         - ReagentId: Stasizium
           Quantity: 10
-  - type: Tag
-    tags: []
 
 - type: entity
   name: centcomm advanced stimulant
@@ -423,8 +421,6 @@
     injectOnly: true
   - type: StaticPrice
     price: 500
-  - type: Tag
-    tags: []
 
 - type: entity
   name: biohazard medipen
@@ -453,6 +449,7 @@
           Quantity: 5
   - type: Tag
     tags:
+    - Medipen
     - EmergencyMedipen
 
 - type: entity
@@ -482,6 +479,7 @@
           Quantity: 15
   - type: Tag
     tags:
+    - Medipen
     - EmergencyMedipen
 
 # Actual hyposprays

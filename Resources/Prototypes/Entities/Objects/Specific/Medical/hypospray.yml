@@ -279,6 +279,9 @@
   - type: SpaceGarbage
   - type: StaticPrice
     price: 75 # These are limited supply items.
+  - type: Tag
+    tags:
+    - Medipen
   - type: TrashOnSolutionEmpty
     solution: pen
 
@@ -310,6 +313,7 @@
           Quantity: 5
   - type: Tag
     tags:
+    - Medipen
     - EmergencyMedipen
     - Trash
 
@@ -652,6 +656,7 @@
             Quantity: 20
   - type: Tag
     tags:
+    - Medipen
     - SpaceMedipen
     - Trash
 

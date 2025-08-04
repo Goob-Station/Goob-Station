@@ -41,7 +41,8 @@
   - type: StaticPrice
     price: 500
   - type: Tag
-    tags: []
+    tags:
+    - Medipen
 
 - type: entity
   name: tactical medical kit

@@ -378,6 +378,9 @@
   id: MedicalPatch
 
 - type: Tag
+  id: Medipen
+
+- type: Tag
   id: MilitaryPowerCell
 
 - type: Tag

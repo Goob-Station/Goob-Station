@@ -29,9 +29,6 @@
     - state: pen2
       map: ["pen2"]
       visible: false
-  - type: Tag
-    tags:
-    - CigPack # so it can be placed in things that whitelist cigarette packs
   - type: PhysicalComposition
     materialComposition:
       Plastic: 62
@@ -42,6 +39,14 @@
   - type: Storage
     grid:
     - 0,0,4,1
+    whitelist:
+      tags:
+      - Bottle
+      - CentrifugeCompatible
+      - Dropper
+      - Syringe
+      - Medipen
+
   - type: ItemCounter # i do not have the spoons to make itemmapper work with opening/closing so you get this
     count:
       components: [Item]
