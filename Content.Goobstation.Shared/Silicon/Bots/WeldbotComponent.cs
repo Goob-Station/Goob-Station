@@ -5,6 +5,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.Silicon.Bots;
@@ -22,6 +24,21 @@ public sealed partial class WeldbotComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier WeldSound = new SoundPathSpecifier("/Audio/Items/welder2.ogg");
+
+    /// <summary>
+    /// Heal or emagged damage amount
+    /// </summary>
+    [DataField]
+    public DamageSpecifier DamageAmount = new()
+    {
+        DamageDict = new()
+        {
+            { "Blunt", -10 },
+            { "Slash", -10 },
+            { "Piercing", -10 },
+            { "Structural", -20 }
+        }
+    };
 
     [DataField]
     public SoundSpecifier EmagSparkSound = new SoundCollectionSpecifier("sparks")

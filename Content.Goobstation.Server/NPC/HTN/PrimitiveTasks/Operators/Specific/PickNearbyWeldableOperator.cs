@@ -5,12 +5,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Goobstation.Shared.Silicon.Bots;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Pathfinding;
+using Content.Server.Repairable;
 using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
@@ -68,13 +70,15 @@ public sealed partial class PickNearbyWeldableOperator : HTNOperator
             if (!damageQuery.TryGetComponent(target, out var damage))
                 continue;
 
-            var tagPrototype = _prototypeManager.Index<TagPrototype>(WeldbotWeldOperator.SiliconTag);
+            if (!_entManager.TryGetComponent<RepairableComponent>(target, out var repairComp))
+                continue;
 
-            if (!_entManager.TryGetComponent<TagComponent>(target, out var tagComponent) || !_tagSystem.HasTag(tagComponent, tagPrototype) || !emagged && damage.DamagePerGroup["Brute"].Value == 0)
+            // Check if weldbot can repair this entity
+            if (!emagged && damage.Damage.DamageDict.Keys.Intersect(weldbot.DamageAmount.DamageDict.Keys).All(key => damage.Damage.DamageDict[key] == 0))
                 continue;
 
             //Needed to make sure it doesn't sometimes stop right outside it's interaction range
-            var pathRange = SharedInteractionSystem.InteractionRange - 1f;
+            var pathRange = SharedInteractionSystem.InteractionRange - 0.5f;
             var path = await _pathfinding.GetPath(owner, target, pathRange, cancelToken);
 
             if (path.Result == PathResult.NoPath)
