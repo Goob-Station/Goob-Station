@@ -4075,3 +4075,13 @@
   id: 8826
   time: '2025-08-04T19:19:20.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/39374
+- author: TrixxedHeart
+  changes:
+  - message: Added canes to the trinkets loadout tab.
+    type: Add
+  - message: Added offset canes for roleplay flair. They can be crafted in the medical
+      lathe.
+    type: Add
+  id: 8827
+  time: '2025-08-04T23:39:40.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/39272
