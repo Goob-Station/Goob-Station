@@ -12845,3 +12845,9 @@ Entries:
       message: Reduced the spawn rate of Lone Abductors and Duo Abductors.
   id: 1421
   time: '2025-08-04T07:22:58.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: BSO no longer gets shocked on grilles when using their modsuit.
+  id: 1422
+  time: '2025-08-04T07:24:49.0000000+00:00'
