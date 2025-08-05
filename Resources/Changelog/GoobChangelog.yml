@@ -12921,3 +12921,9 @@ Entries:
       message: Fixed Cosmic Cult Recall Loop
   id: 1432
   time: '2025-08-05T11:18:09.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Fix
+      message: Fixed heretics not seeing rifts sometimes.
+  id: 1433
+  time: '2025-08-05T13:53:15.0000000+00:00'
