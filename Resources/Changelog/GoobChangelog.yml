@@ -12883,3 +12883,9 @@ Entries:
       message: Syndicate Disaster Victims will now spawn with Crew Aligned roles
   id: 1427
   time: '2025-08-05T10:59:27.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed vehicles not moving.
+  id: 1428
+  time: '2025-08-05T11:05:42.0000000+00:00'
