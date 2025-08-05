@@ -7,12 +7,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-salvage-expedition-structure-examine = This is a [color=#B02E26]destruction[/color] objective
-salvage-expedition-structure-remaining = {$count ->
-    [one] {$count} structure remaining.
-    *[other] {$count} structures remaining.
-}
-
 salvage-expedition-type = Mission
 salvage-expedition-window-title = Salvage expeditions
 salvage-expedition-window-difficulty = Difficulty:
