@@ -12895,3 +12895,9 @@ Entries:
       message: Fixed BSO could get objective to protect antagonist target.
   id: 1429
   time: '2025-08-05T11:12:26.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Wizards now have proper names again.
+  id: 1430
+  time: '2025-08-05T11:13:06.0000000+00:00'
