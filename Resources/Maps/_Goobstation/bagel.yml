@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 08/05/2025 13:03:06
-  entityCount: 24766
+  time: 08/05/2025 13:14:13
+  entityCount: 24791
 maps:
 - 1
 grids:
@@ -12118,7 +12118,7 @@ entities:
       pos: 0.5,-0.5
       parent: 24940
     - type: Door
-      secondsUntilStateChange: -1236.9535
+      secondsUntilStateChange: -1394.2809
       changeAirtight: False
       state: Opening
     - type: DeviceLinkSource
@@ -12581,7 +12581,7 @@ entities:
       pos: 42.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1467.9199
+      secondsUntilStateChange: -1625.2473
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12593,7 +12593,7 @@ entities:
       pos: 42.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1467.3866
+      secondsUntilStateChange: -1624.714
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12943,7 +12943,7 @@ entities:
       pos: 35.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1470.1532
+      secondsUntilStateChange: -1627.4806
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -130667,6 +130667,131 @@ entities:
     components:
     - type: Transform
       pos: -76.5,-1.5
+      parent: 2
+  - uid: 21089
+    components:
+    - type: Transform
+      pos: -1.5,1.5
+      parent: 2
+  - uid: 21103
+    components:
+    - type: Transform
+      pos: 0.5,2.5
+      parent: 2
+  - uid: 21104
+    components:
+    - type: Transform
+      pos: 2.5,1.5
+      parent: 2
+  - uid: 21120
+    components:
+    - type: Transform
+      pos: 7.5,-27.5
+      parent: 2
+  - uid: 21136
+    components:
+    - type: Transform
+      pos: 39.5,-26.5
+      parent: 2
+  - uid: 21150
+    components:
+    - type: Transform
+      pos: 41.5,-27.5
+      parent: 2
+  - uid: 21169
+    components:
+    - type: Transform
+      pos: 40.5,-30.5
+      parent: 2
+  - uid: 21171
+    components:
+    - type: Transform
+      pos: 37.5,-29.5
+      parent: 2
+  - uid: 21174
+    components:
+    - type: Transform
+      pos: 47.5,-17.5
+      parent: 2
+  - uid: 21181
+    components:
+    - type: Transform
+      pos: 43.5,8.5
+      parent: 2
+  - uid: 21202
+    components:
+    - type: Transform
+      pos: 50.5,18.5
+      parent: 2
+  - uid: 21204
+    components:
+    - type: Transform
+      pos: 43.5,14.5
+      parent: 2
+  - uid: 21205
+    components:
+    - type: Transform
+      pos: 45.5,14.5
+      parent: 2
+  - uid: 21206
+    components:
+    - type: Transform
+      pos: 36.5,14.5
+      parent: 2
+  - uid: 21213
+    components:
+    - type: Transform
+      pos: -15.5,27.5
+      parent: 2
+  - uid: 21215
+    components:
+    - type: Transform
+      pos: -37.5,11.5
+      parent: 2
+  - uid: 21216
+    components:
+    - type: Transform
+      pos: -43.5,5.5
+      parent: 2
+  - uid: 21217
+    components:
+    - type: Transform
+      pos: -43.5,3.5
+      parent: 2
+  - uid: 21218
+    components:
+    - type: Transform
+      pos: -41.5,-5.5
+      parent: 2
+  - uid: 21220
+    components:
+    - type: Transform
+      pos: -41.5,-9.5
+      parent: 2
+  - uid: 21221
+    components:
+    - type: Transform
+      pos: -52.5,-5.5
+      parent: 2
+  - uid: 21222
+    components:
+    - type: Transform
+      pos: -58.5,2.5
+      parent: 2
+  - uid: 21223
+    components:
+    - type: Transform
+      pos: -46.5,16.5
+      parent: 2
+  - uid: 21224
+    components:
+    - type: Transform
+      pos: -47.5,12.5
+      parent: 2
+  - uid: 21225
+    components:
+    - type: Transform
+      pos: -12.5,-51.5
       parent: 2
 - proto: SpawnVehicleJanicart
   entities:
