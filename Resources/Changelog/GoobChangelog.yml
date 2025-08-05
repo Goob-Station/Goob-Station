@@ -12927,3 +12927,11 @@ Entries:
       message: Fixed heretics not seeing rifts sometimes.
   id: 1433
   time: '2025-08-05T13:53:15.0000000+00:00'
+- author: Aineias
+  changes:
+    - type: Tweak
+      message: >-
+        Taking over Pun Pun ghostrole now requires knowing how to be a
+        bartender.
+  id: 1434
+  time: '2025-08-05T14:00:40.0000000+00:00'
