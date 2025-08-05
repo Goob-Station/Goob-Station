@@ -6,9 +6,6 @@
   targetNode: logWall
   category: construction-category-structures
   description: Home from home.
-  icon:
-    sprite: _Nuclear14/Structures/Walls/nc14/woodlog.rsi
-    state: full
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
