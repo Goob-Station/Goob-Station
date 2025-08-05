@@ -12901,3 +12901,11 @@ Entries:
       message: Wizards now have proper names again.
   id: 1430
   time: '2025-08-05T11:13:06.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: >-
+        Fixed "On Fire" Alert Visual Bug. You can now be extinguished without it
+        remaining on your screen.
+  id: 1431
+  time: '2025-08-05T11:15:48.0000000+00:00'
