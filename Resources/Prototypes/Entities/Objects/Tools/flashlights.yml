@@ -147,7 +147,7 @@
 
 - type: entity
   name: seclite
-  parent: [FlashlightLantern, BaseSecurityContraband]
+  parent: [FlashlightLantern, BaseSecurityCargoContraband] # Goob edit - Also allowed for Cargo
   id: FlashlightSeclite
   description: A robust flashlight used by security.
   components:

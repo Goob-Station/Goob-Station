@@ -116,7 +116,7 @@
   - type: Matchbox
 
 - type: entity
-  parent: [ClothingShoesMilitaryBase, BaseSecurityContraband]
+  parent: [ClothingShoesMilitaryBase, BaseSecurityCargoContraband] # Goob edit - Also allowed for Cargo
   id: ClothingShoesBootsJack
   name: jackboots
   description: Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time.
