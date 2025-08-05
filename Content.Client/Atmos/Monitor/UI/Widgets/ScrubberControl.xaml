@@ -41,18 +41,13 @@ SPDX-License-Identifier: MIT
                 <Collapsible Margin="2 2 2 2">
                     <CollapsibleHeading Title="Gas filters" />
                     <CollapsibleBody Margin="20 0 0 0">
-                        <!-- Assmos changes start -->
                         <BoxContainer Orientation="Vertical">
-                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 5">
-                                <GridContainer HorizontalExpand="True" Columns="3" Margin="0 5 0 0">
-                                    <Button Name="CSelectAllButton" HorizontalExpand="True" Text="{Loc 'Select All'}" />
-                                    <Button Name="CDeselectAllButton" HorizontalExpand="True" Text="{Loc 'Deselect All'}" />
-                                    <Control HorizontalExpand="True" />
-                                </GridContainer>
+                            <BoxContainer Margin="2">
+                                <Button Name="CSelectAll" Text="{Loc 'air-alarm-ui-scrubber-select-all-gases-label'}" />
+                                <Button Name="CDeselectAll" Text="{Loc 'air-alarm-ui-scrubber-deselect-all-gases-label'}" />
                             </BoxContainer>
-                            <GridContainer HorizontalExpand="True" Name="CGasContainer" Columns="3" Margin="0 5 0 0" /> <!-- Revert to just this line to undo changes -->
+                            <GridContainer Name="CGasContainer" Columns="3" />
                         </BoxContainer>
-                        <!-- Assmos changes end -->
                     </CollapsibleBody>
                 </Collapsible>
             </BoxContainer>

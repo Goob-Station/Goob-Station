@@ -41,6 +41,8 @@ public sealed partial class ScrubberControl : BoxContainer
     private FloatSpinBox _volumeRate => CVolumeRate;
     private CheckBox _wideNet => CWideNet;
     private Button _copySettings => CCopySettings;
+    private Button _selectAll => CSelectAll;
+    private Button _deselectAll => CDeselectAll;
 
     private GridContainer _gases => CGasContainer;
     private Dictionary<Gas, Button> _gasControls = new();
@@ -97,12 +99,20 @@ public sealed partial class ScrubberControl : BoxContainer
             ScrubberDataCopied?.Invoke(_data);
         };
 
-        // Assmos changes start here
-        CSelectAllButton.OnPressed += _ => SelectAllGases();
-        CDeselectAllButton.OnPressed += _ => DeselectAllGases();
-        // End of Assmos changes
+        var allGases = Enum.GetValues<Gas>();
+        _selectAll.OnPressed += _ =>
+        {
+            _data.FilterGases = new HashSet<Gas>(allGases);
+            ScrubberDataChanged?.Invoke(_address, _data);
+        };
 
-        foreach (var value in Enum.GetValues<Gas>())
+        _deselectAll.OnPressed += _ =>
+        {
+            _data.FilterGases = [];
+            ScrubberDataChanged?.Invoke(_address, _data);
+        };
+
+        foreach (var value in allGases)
         {
             var gasButton = new Button
             {
@@ -148,27 +158,4 @@ public sealed partial class ScrubberControl : BoxContainer
             _gasControls[value].Pressed = data.FilterGases.Contains(value);
         }
     }
-
-    // Assmos changes start here
-    private void SelectAllGases()
-    {
-        _data.FilterGases.Clear();
-        foreach (var (gas, button) in _gasControls)
-        {
-            button.Pressed = true;
-            _data.FilterGases.Add(gas);
-        }
-        ScrubberDataChanged?.Invoke(_address, _data);
-    }
-
-    private void DeselectAllGases()
-    {
-        foreach (var (_, button) in _gasControls)
-        {
-            button.Pressed = false;
-        }
-        _data.FilterGases.Clear();
-        ScrubberDataChanged?.Invoke(_address, _data);
-    }
-    // Assmos changes end
 }
