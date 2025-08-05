@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 08/05/2025 00:10:25
-  entityCount: 28192
+  time: 08/05/2025 01:31:33
+  entityCount: 28191
 maps:
 - 1
 grids:
@@ -55104,11 +55104,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 41.13836,33.843678
-      parent: 2
-  - uid: 28166
-    components:
-    - type: Transform
-      pos: -4.6747403,0.984375
       parent: 2
 - proto: Catwalk
   entities:
