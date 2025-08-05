@@ -1,0 +1,61 @@
+# Hugging - improves the mood of the user
+- type: Interaction
+  id: Hug
+  parent: [BaseGlobal, BaseHands]
+  priority: 2
+  #icon: /Textures/Interface/Actions/hug.png
+  delay: 0.7
+  range: {max: 1}
+  hideByRequirement: true
+  requirement:
+    !type:MobStateRequirement
+    inverted: true
+  action:
+    !type:NoOpAction
+  #  # TODO: this should pull the target closer or sumth, but I need to code that action first
+  #  !type:MoodAction
+  #  effect: BeingHugged
+
+# Petting someone (people) - improves the mood of the target
+- type: Interaction
+  id: Pet
+  parent: [BaseGlobal, BaseHands]
+  priority: 1
+  #icon: /Textures/Interface/Actions/hug.png
+  delay: 0.4
+  range: {max: 1}
+  hideByRequirement: true
+  requirement:
+    #!type:ComplexRequirement
+    #requirements:
+    !type:MobStateRequirement
+    inverted: true
+    #- !type:EntityWhitelistRequirement
+    #  whitelist:
+    #    components: [HumanoidAppearance]
+  action:
+    !type:NoOpAction
+  #  !type:MoodAction
+  #  effect: BeingPet
+
+# Petting someone (animals) - improves the mood of the user and the target
+#- type: Interaction
+#  id: PetAnimal
+#  parent: Pet
+#  requirement:
+#    !type:ComplexRequirement
+#    requirements:
+#    - !type:MobStateRequirement
+#      allowedStates: [Alive]
+#    - !type:EntityWhitelistRequirement
+#      blacklist:
+#        components: [HumanoidAppearance]
+  #action:
+  #  !type:ComplexAction # TODO might wanna make a multiplexer action for situations like this
+  #  actions:
+  #  - !type:MoodAction
+  #    effect: BeingPet
+  #  - !type:OnUserAction
+  #    action:
+  #      !type:MoodAction
+  #      effect: PetAnimal

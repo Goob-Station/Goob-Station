@@ -67,7 +67,7 @@ namespace Content.Shared.Humanoid.Markings
         /// </remarks>
         /// <returns></returns>
         public IReadOnlyDictionary<string, MarkingPrototype> MarkingsByCategoryAndSpecies(MarkingCategories category,
-            string species)
+            string species, string? ckey = null) // Pirate ckey for restricted players
         {
             var speciesProto = _prototypeManager.Index<SpeciesPrototype>(species);
             var markingPoints = _prototypeManager.Index(speciesProto.MarkingPoints);
@@ -88,6 +88,11 @@ namespace Content.Shared.Humanoid.Markings
                 {
                     continue;
                 }
+
+                // Pirate: playerRestriction filter
+                if (ckey != null && marking.PlayerRestrictions != null && marking.PlayerRestrictions.Count > 0 && !marking.PlayerRestrictions.Contains(ckey))
+                    continue;
+
                 res.Add(key, marking);
             }
 
@@ -105,7 +110,7 @@ namespace Content.Shared.Humanoid.Markings
         /// </remarks>
         /// <returns></returns>
         public IReadOnlyDictionary<string, MarkingPrototype> MarkingsByCategoryAndSex(MarkingCategories category,
-            Sex sex)
+            Sex sex, string? ckey = null) // Pirate ckey for restricted players
         {
             var res = new Dictionary<string, MarkingPrototype>();
 
@@ -115,7 +120,9 @@ namespace Content.Shared.Humanoid.Markings
                 {
                     continue;
                 }
-
+                // Pirate: playerRestriction filter
+                if (ckey != null && marking.PlayerRestrictions != null && marking.PlayerRestrictions.Count > 0 && !marking.PlayerRestrictions.Contains(ckey))
+                    continue;
                 res.Add(key, marking);
             }
 
@@ -134,7 +141,7 @@ namespace Content.Shared.Humanoid.Markings
         /// </remarks>
         /// <returns></returns>
         public IReadOnlyDictionary<string, MarkingPrototype> MarkingsByCategoryAndSpeciesAndSex(MarkingCategories category,
-            string species, Sex sex)
+            string species, Sex sex, string? ckey = null) // Pirate ckey for restricted players
         {
             var speciesProto = _prototypeManager.Index<SpeciesPrototype>(species);
             var onlyWhitelisted = _prototypeManager.Index(speciesProto.MarkingPoints).OnlyWhitelisted;
@@ -157,6 +164,10 @@ namespace Content.Shared.Humanoid.Markings
                     continue;
                 }
 
+                // Pirate: playerRestriction filter
+                if (ckey != null && marking.PlayerRestrictions != null && marking.PlayerRestrictions.Count > 0 && !marking.PlayerRestrictions.Contains(ckey))
+                    continue;
+
                 res.Add(key, marking);
             }
 
@@ -176,7 +187,7 @@ namespace Content.Shared.Humanoid.Markings
         /// <param name="species"></param>
         /// <param name="sex"></param>
         /// <returns></returns>
-        public bool IsValidMarking(Marking marking, MarkingCategories category, string species, Sex sex)
+        public bool IsValidMarking(Marking marking, MarkingCategories category, string species, Sex sex, string? ckey = null) // Pirate ckey for restricted players
         {
             if (!TryGetMarking(marking, out var proto))
             {
@@ -190,6 +201,12 @@ namespace Content.Shared.Humanoid.Markings
                 return false;
             }
 
+            // Pirate: playerRestriction check (ckey=null by default, for backward compatibility)
+            if (ckey != null && proto.PlayerRestrictions != null && proto.PlayerRestrictions.Count > 0 && !proto.PlayerRestrictions.Contains(ckey))
+            {
+                return false;
+            }
+
             if (marking.MarkingColors.Count != proto.Sprites.Count)
             {
                 return false;
@@ -198,13 +215,14 @@ namespace Content.Shared.Humanoid.Markings
             return true;
         }
 
+
         private void OnPrototypeReload(PrototypesReloadedEventArgs args)
         {
             if (args.WasModified<MarkingPrototype>())
                 CachePrototypes();
         }
 
-        public bool CanBeApplied(string species, Sex sex, Marking marking, IPrototypeManager? prototypeManager = null)
+        public bool CanBeApplied(string species, Sex sex, Marking marking, IPrototypeManager? prototypeManager = null, string? ckey = null) // Pirate ckey for restricted players
         {
             IoCManager.Resolve(ref prototypeManager);
 
@@ -232,10 +250,24 @@ namespace Content.Shared.Humanoid.Markings
                 return false;
             }
 
+            // Pirate: playerRestriction check (ckey=null by default)
+            if (ckey != null && prototype.PlayerRestrictions != null && prototype.PlayerRestrictions.Count > 0 && !prototype.PlayerRestrictions.Contains(ckey))
+            {
+                return false;
+            }
+
             return true;
         }
 
-        public bool CanBeApplied(string species, Sex sex, MarkingPrototype prototype, IPrototypeManager? prototypeManager = null)
+        // Pirate Changes start ckey for restricted players
+        public bool CanBeApplied(string species, Sex sex, Marking marking, string? ckey, IPrototypeManager? prototypeManager = null)
+        {
+            if (!TryGetMarking(marking, out var prototype))
+                return false;
+            return CanBeApplied(species, sex, marking, prototypeManager) && (ckey == null || prototype.PlayerRestrictions == null || prototype.PlayerRestrictions.Count == 0 || prototype.PlayerRestrictions.Contains(ckey));
+        }
+
+        public bool CanBeApplied(string species, Sex sex, MarkingPrototype prototype, IPrototypeManager? prototypeManager = null, string? ckey = null) //Pirate changes end ckey for restricted players
         {
             IoCManager.Resolve(ref prototypeManager);
 
@@ -254,6 +286,12 @@ namespace Content.Shared.Humanoid.Markings
             }
 
             if (prototype.SexRestriction != null && prototype.SexRestriction != sex)
+            {
+                return false;
+            }
+
+            // Pirate: playerRestriction check (ckey=null by default)
+            if (ckey != null && prototype.PlayerRestrictions != null && prototype.PlayerRestrictions.Count > 0 && !prototype.PlayerRestrictions.Contains(ckey))
             {
                 return false;
             }

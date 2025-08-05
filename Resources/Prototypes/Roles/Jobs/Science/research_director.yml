@@ -176,6 +176,7 @@
           - DispelPower
           - MetapsionicPower
           - TelepathyPower
+      - type: Telepathy
 
 - type: startingGear
   id: ResearchDirectorGear

@@ -26,4 +26,10 @@ public sealed partial class VampirismComponent : Component
 
     [DataField]
     public float UnitsToSucc = 10;
+
+    /// <summary>
+    /// Whether to ignore the stomach requirement for vampirism initialization. Timely, instead of trait requirements
+    /// </summary>
+    [DataField]
+    public bool IgnoreStomachRequirement = false;
 }

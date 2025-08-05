@@ -24,19 +24,20 @@
   special:
   - !type:AddComponentSpecial
     components:
+      - type: CanEnchant
       - type: Psionic
         powerSlots: 2
         powerRollMultiplier: 3
         baselinePowerCost: 75
         nextPowerCost: 75
         removable: false
-        powerPool: RandomPsionicPowerPool
       - type: InnatePsionicPowers
         powersToAdd:
           - MetapsionicPower
           - TelepathyPower
           - MantisSummonBlackBlade
-          - AssayPower # Pirate
+          - AssayPower
+      - type: Telepathy
 
 - type: startingGear
   id: ForensicMantisGear

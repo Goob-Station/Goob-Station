@@ -20,7 +20,7 @@ public abstract class SharedAbductorSystem : EntitySystem
     {
         SubscribeLocalEvent<AbductorExperimentatorComponent, EntInsertedIntoContainerMessage>(OnInsertedContainer);
         SubscribeLocalEvent<AbductorExperimentatorComponent, EntRemovedFromContainerMessage>(OnRemovedContainer);
-        SubscribeLocalEvent<AbductorOrganComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
+        //SubscribeLocalEvent<AbductorOrganComponent, TryRemoveOrganEvent>(OnTryRemoveOrgan);
         base.Initialize();
     }
 
@@ -65,8 +65,8 @@ public abstract class SharedAbductorSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnTryRemoveOrgan(Entity<AbductorOrganComponent> ent, ref TryRemoveOrganEvent args) =>
-        args.Cancelled = true;
+    //private void OnTryRemoveOrgan(Entity<AbductorOrganComponent> ent, ref TryRemoveOrganEvent args) =>
+    //    args.Cancelled = true; Pirate make it removalble
 
     protected virtual void UpdateGui(NetEntity? target, Entity<AbductorConsoleComponent> computer)
     {
