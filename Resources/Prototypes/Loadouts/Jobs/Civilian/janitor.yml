@@ -1,3 +1,4 @@
+---
 # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
@@ -91,15 +92,13 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: loadoutEffectGroup
   id: SeniorJanitorial
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobJanitor
-      time: 187200 #52 hrs (1 hour per week for 1 year)
+    - !type:JobRequirementLoadoutEffect
+      requirement: !type:RoleTimeRequirement
+        role: JobJanitor
+        time: 187200  # 52 hrs (1 hour per week for 1 year)
 
 # Head
 - type: loadout
@@ -112,12 +111,10 @@
   id: JanitorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJanitor
-
 - type: loadout
   id: JanitorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
-
 - type: loadout
   id: MaidOutfitJanitor
   equipment:
@@ -128,12 +125,10 @@
   id: JanitorRubberGloves
   equipment:
     gloves: ClothingHandsGlovesJanitor
-
 - type: loadout
   id: OrangeGloves
   equipment:
     gloves: ClothingHandsGlovesColorOrange
-
 - type: loadout
   id: PurpleGloves
   equipment:
@@ -149,8 +144,7 @@
 - type: loadout
   id: JanitorGoldenPlunger
   effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorJanitorial
+    - !type:GroupLoadoutEffect
+      proto: SeniorJanitorial
   storage:
-    back:
-    - GoldenPlunger
+    back: [GoldenPlunger]

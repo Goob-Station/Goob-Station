@@ -14,7 +14,8 @@
   - type: Clothing
     sprite: _DV/Clothing/OuterClothing/Coats/overcoat.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:

@@ -1,3 +1,4 @@
+---
 # SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
 # SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
@@ -26,20 +27,19 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vendingMachineInventory
   id: MediDrobeInventory
   startingInventory:
     ClothingBackpackDuffelMedical: 4
     ClothingBackpackMedical: 4
     ClothingBackpackSatchelMedical: 4
-    ClothingBackpackMessengerMedical: 4 # Frontier
+    ClothingBackpackMessengerMedical: 4  # Frontier
     ClothingUniformJumpsuitMedicalDoctor: 4
     ClothingUniformJumpskirtMedicalDoctor: 4
     ClothingBeltMedical: 4
     ClothingHeadHatBeretMedic: 4
     ClothingHeadNurseHat: 4
-    ClothingUniformJumpskirtNurse: 4 # Loadout Reworks Addition - Nyanotrasen
+    ClothingUniformJumpskirtNurse: 4  # Loadout Reworks Addition - Nyanotrasen
     ClothingOuterCoatLab: 4
     ClothingShoesColorWhite: 4
     ClothingHandsGlovesLatex: 4

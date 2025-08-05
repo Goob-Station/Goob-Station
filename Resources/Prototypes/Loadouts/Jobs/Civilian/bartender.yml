@@ -1,3 +1,4 @@
+---
 # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
@@ -82,7 +83,6 @@
   id: BartenderHead
   equipment:
     head: ClothingHeadHatTophat
-
 - type: loadout
   id: BartenderBowler
   equipment:
@@ -93,17 +93,14 @@
   id: BartenderJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartender
-
 - type: loadout
   id: BartenderJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBartender
-
 - type: loadout
   id: BartenderJumpsuitPurple
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartenderPurple
-
 - type: loadout
   id: WaitressUniform
   equipment:
@@ -114,12 +111,10 @@
   id: BartenderApron
   equipment:
     outerClothing: ClothingOuterApronBar
-
 - type: loadout
   id: BartenderVest
   equipment:
     outerClothing: ClothingOuterVest
-
 - type: loadout
   id: BartenderWintercoat
   equipment:

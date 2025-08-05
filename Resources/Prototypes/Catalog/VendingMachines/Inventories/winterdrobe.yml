@@ -1,3 +1,4 @@
+---
 # SPDX-FileCopyrightText: 2023 Jackal298 <129199891+Jackal298@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
@@ -17,7 +18,6 @@
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vendingMachineInventory
   id: WinterDrobeInventory
   startingInventory:
@@ -29,7 +29,7 @@
     ClothingNeckScarfStripedLightBlue: 3
     ClothingNeckScarfStripedOrange: 3
     ClothingNeckScarfStripedPurple: 3
-    ClothingOuterCoatGentle: 3 #goob start
+    ClothingOuterCoatGentle: 3  # goob start
     ClothingOuterCoatJensen: 3
     ClothingOuterCoatTrench: 4
     ClothingOuterWinterCoat: 4
@@ -43,15 +43,15 @@
     ClothingOuterWinterColorBrown: 2
     ClothingOuterWinterColorBlack: 2
     ClothingOuterWinterColorGray: 2
-    ClothingOuterWinterColorWhite: 2 #goob end
-    #Loadouts Rework Stuff Start
-    ClothingOuterDenimJacket: 2  #Loadouts Rework addition - DeltaV
-    ClothingOuterCoatLettermanBlue: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingOuterCoatLettermanRed: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingOuterCoatHyenhSweater: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingOuterWinterCoatLong: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingOuterWinterCoatPlaid: 1 #Loadouts Rework addition - Nyanotrasen
-    #Loadouts Rework Stuff End 
+    ClothingOuterWinterColorWhite: 2  # goob end
+    # Loadouts Rework Stuff Start
+    ClothingOuterDenimJacket: 2  # Loadouts Rework addition - DeltaV
+    ClothingOuterCoatLettermanBlue: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingOuterCoatLettermanRed: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingOuterCoatHyenhSweater: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingOuterWinterCoatLong: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingOuterWinterCoatPlaid: 1  # Loadouts Rework addition - Nyanotrasen
+    # Loadouts Rework Stuff End 
     ClothingShoesBootsWinter: 6
     ClothingOuterFlannelRed: 2
     ClothingOuterFlannelBlue: 2
@@ -60,7 +60,7 @@
     ClothingHeadHatCanadaBeanie: 4
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
-  contrabandInventory: # Goobstation
+  contrabandInventory:  # Goobstation
     ClothingOuterDavidsJacket: 1
   emaggedInventory:
     ClothingNeckScarfStripedSyndieGreen: 3

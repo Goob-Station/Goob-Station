@@ -1,3 +1,4 @@
+---
 # SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
 # SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
@@ -19,7 +20,6 @@
 # SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vendingMachineInventory
   id: JaniDrobeInventory
   startingInventory:
@@ -32,7 +32,7 @@
     ClothingHeadsetService: 2
     ClothingOuterWinterJani: 2
     ClothingNeckScarfStripedPurple: 3
-    UniformMaid: 1 #Loadouts Rework addition - Nyanotrasen
+    UniformMaid: 1  # Loadouts Rework addition - Nyanotrasen
   contrabandInventory:
     ToyFigurineJanitor: 1
   emaggedInventory:

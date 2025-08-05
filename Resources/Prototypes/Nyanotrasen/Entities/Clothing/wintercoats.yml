@@ -39,7 +39,8 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/hyenh.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
 
 - type: entity
   parent: ClothingOuterWinterCoat

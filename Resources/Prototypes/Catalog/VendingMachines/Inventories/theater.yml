@@ -1,3 +1,4 @@
+---
 # SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
 # SPDX-FileCopyrightText: 2021 BulletGrade <66234359+BulletGrade@users.noreply.github.com>
@@ -54,7 +55,6 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: vendingMachineInventory
   id: AutoDrobeInventory
   startingInventory:
@@ -88,7 +88,7 @@
     Gohei: 2
     ClothingOuterSuitWitchRobes: 2
     ClothingHeadHatWitch1: 2
-    Broomstick: 2 # Goobstation (it's here because of the order)
+    Broomstick: 2  # Goobstation (it's here because of the order)
     ClothingHeadHatRedRacoon: 2
     ClothingOuterRedRacoon: 2
     ClothingHeadPaperSack: 2
@@ -115,36 +115,36 @@
     ClothingShoesBootsCowboyWhite: 1
     ClothingCostumeAbductorHead: 1
     ClothingCostumeAbductor: 1
-    #Loadouts Rework Stuff Start
-    ClothingUniformMNKOfficeSkirt: 2 #Loadouts Rework addition - Nyanotrasen
-    ClothingUniformMNKUnderGarment: 2 #Loadouts Rework addition - Nyanotrasen
-    ClothingUniformMNKGymBra: 2 #Loadouts Rework addition - Nyanotrasen
-    ClothingUniformMNKDressBlack: 2 #Loadouts Rework addition - Nyanotrasen
-    ClothingUniformMNKBlackShoulder: 2 #Loadouts Rework addition - Nyanotrasen
-    ClothingUniformMNKTracksuitBlack: 2 #Loadouts Rework addition - Nyanotrasen
-    ClothingHeadHatBunny: 1 # Goobstation
-    ClothingCostumeBunnySuit: 1 # Goobstation - If you want it, you'll have to take it
-    UniformGeisha: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingCostumeMioSkirt: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingCostumeNaota: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingUniformRat: 1 #Loadouts Rework addition - Nyanotrasen - The fucking rat that I hate
-    ClothingUniformDressRed: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingUniformKendoHakama: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingKimonoBlue: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingKimonoPink: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingKimonoSky: 1 #Loadouts Rework addition - Nyanotrasen
-    ClothingKimonoGreen: 1 #Loadouts Rework addition - Nyanotrasen
-    #Loadouts Rework Stuff End  
+    # Loadouts Rework Stuff Start
+    ClothingUniformMNKOfficeSkirt: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKUnderGarment: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKGymBra: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKDressBlack: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKBlackShoulder: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformMNKTracksuitBlack: 2  # Loadouts Rework addition - Nyanotrasen
+    ClothingHeadHatBunny: 1  # Goobstation
+    ClothingCostumeBunnySuit: 1  # Goobstation - If you want it, you'll have to take it
+    UniformGeisha: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingCostumeMioSkirt: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingCostumeNaota: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformRat: 1  # Loadouts Rework addition - Nyanotrasen - The fucking rat that I hate
+    ClothingUniformDressRed: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingUniformKendoHakama: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoBlue: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoPink: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoSky: 1  # Loadouts Rework addition - Nyanotrasen
+    ClothingKimonoGreen: 1  # Loadouts Rework addition - Nyanotrasen
+    # Loadouts Rework Stuff End  
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1
     ToyFigurineMusician: 1
-    WeaponLauncherTaiwanPond: 1 # Goobstation
-    GrenadeToy: 5 # Goobstation
-    ClothingShoesResonant: 1 # Goobstation
-    ClothingNeckCloakResonant: 1 # Goobstation
-    ClothingUniformJumpsuitResonant: 1 # Goobstation
-    ClothingCostumeArcDress: 1 # Seal away the beast
+    WeaponLauncherTaiwanPond: 1  # Goobstation
+    GrenadeToy: 5  # Goobstation
+    ClothingShoesResonant: 1  # Goobstation
+    ClothingNeckCloakResonant: 1  # Goobstation
+    ClothingUniformJumpsuitResonant: 1  # Goobstation
+    ClothingCostumeArcDress: 1  # Seal away the beast
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
@@ -152,4 +152,4 @@
     ClothingMaskSexyClown: 1
     ClothingMaskSexyMime: 1
     ClothingHeadHatCowboyBountyHunter: 1
-    ClothingUniformSwimsuitBlue: 1 # Goobstation - It came in the trash
+    ClothingUniformSwimsuitBlue: 1  # Goobstation - It came in the trash
