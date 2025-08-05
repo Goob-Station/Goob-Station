@@ -19,7 +19,7 @@
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/plasma_cutter.ogg
   - type: Item
-    size: Large
+    size: Normal
     shape:
     - 0,0,2,2
   - type: Battery
