@@ -140,7 +140,6 @@ using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
 using Content.Shared.Whitelist;
-using Content.Shared.Zombies;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -1060,8 +1059,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     public string TransformSpeech(EntityUid sender, string message, LanguagePrototype language) // Einstein Engines - Language
     {
-        if (!language.SpeechOverride.RequireSpeech // Einstein Engines - Language
-            && !HasComp<ZombieComponent>(sender)) // No Zombie Gang Signs
+        if (!language.SpeechOverride.RequireSpeech) // Einstein Engines - Language
             return message; // Do not apply speech accents if there's no speech involved.
 
         var ev = new TransformSpeechEvent(sender, message);
