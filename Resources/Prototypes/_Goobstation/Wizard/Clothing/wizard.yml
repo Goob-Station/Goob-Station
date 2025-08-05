@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -116,7 +117,7 @@
 
 # Black
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatBlackwizardReal
   name: black wizard hat
   description: Strange-looking black hat-wear that most certainly belongs to a real lich. Spooky.
@@ -127,7 +128,7 @@
     sprite: _Goobstation/Wizard/Clothing/Head/blackwizard.rsi
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardBlackReal
   name: black wizard robes
   description: An unnerving black gem-lined robe that reeks of death and decay.
@@ -139,7 +140,7 @@
 
 # Yellow
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatYellowwizardReal
   name: yellow wizard hat
   description: Strange-looking yellow hat-wear that most certainly belongs to a powerful magic user.
@@ -150,7 +151,7 @@
     sprite: _Goobstation/Wizard/Clothing/Head/yellowwizard.rsi
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardYellowReal
   name: yellow wizard robes
   description: A magnificent yellow gem-lined robe that seems to radiate power.
@@ -162,7 +163,7 @@
 
 # Tape
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatTapewizardReal
   name: tape hat
   description: A magically attuned hat made exclusively from duct tape. You can barely see.
@@ -177,7 +178,7 @@
         offset: "0, 0.2"
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardTapeReal
   name: tape robes
   description: A fine robe made from magically attuned duct tape.
@@ -189,7 +190,7 @@
 
 # Chanterelle
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatChanterelleReal
   name: chanterelle hat
   description: An oversized chanterelle with hollow out space to fit a head in. Kinda looks like wizard's hat.
@@ -201,7 +202,7 @@
 
 # Paper
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardPaperReal
   name: papier-mâché robes
   description: A robe held together by various bits of clear-tape and paste.
@@ -221,13 +222,13 @@
     - ActionSummonStickmen
 
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatPaper]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatPaper, ClothingHeadHatWizardBase]
   id: ClothingHeadHatPaperWizard
   name: paper magic hat
 
 # Mime
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatMimeReal
   name: magical beret
   description: A magical red beret.
@@ -238,7 +239,7 @@
     sprite: _Goobstation/Wizard/Clothing/Head/mimewizard.rsi
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardMimeReal
   name: mime robes
   description: Red, black, and white robes. There is not much else to say about them.
@@ -250,7 +251,7 @@
 
 # Clown
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatClownReal
   name: purple wizard hat
   description: Strange-looking purple hat-wear that most certainly belongs to a real magic user.
@@ -261,7 +262,7 @@
     sprite: _Goobstation/Wizard/Clothing/Head/clownwizard.rsi
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardClownReal
   name: clown robes
   description: A set of armoured robes that seem to radiate a dark power. That, and bad fashion decisions.
@@ -273,7 +274,7 @@
 
 # Psy
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatPsyReal
   name: psychic amplifier
   description: A crown-of-thorns psychic amplifier.
@@ -284,7 +285,7 @@
     sprite: _Goobstation/Wizard/Clothing/Head/psywizard.rsi
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardPsyReal
   name: purple robes
   description: Heavy, royal purple robes threaded with psychic amplifiers and weird, bulbous lenses. Do not machine wash.
@@ -296,7 +297,7 @@
 
 # Oblibion
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatOblivionEnforcer
   name: oblivion enforcer's hood
   description: A hood worn by an Oblivion Enforcer.
@@ -373,62 +374,62 @@
 
 # Blue
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizard]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizard, ClothingHeadHatWizardBase]
   id: ClothingHeadHatWizardReal
   name: wizard hat
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterWizard]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizard, ClothingOuterWizardBase]
   id: ClothingOuterWizardReal
   name: wizard robes
 
 # Red
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatRedwizard]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatRedwizard, ClothingHeadHatWizardBase]
   id: ClothingHeadHatRedwizardReal
   name: red wizard hat
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterWizardRed]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardRed, ClothingOuterWizardBase]
   id: ClothingOuterWizardRedReal
   name: red wizard robes
 
 # Violet
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatVioletwizard]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatVioletwizard, ClothingHeadHatWizardBase]
   id: ClothingHeadHatVioletwizardReal
   name: violet wizard hat
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterWizardViolet]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardViolet, ClothingOuterWizardBase]
   id: ClothingOuterWizardVioletReal
   name: violet wizard robes
 
 # Witch
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatWitch1]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWitch1, ClothingHeadHatWizardBase]
   id: ClothingHeadHatWitchReal
   name: witch hat
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitWitchRobes]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterSuitWitchRobes, ClothingOuterWizardBase]
   id: ClothingOuterSuitWitchRobesReal
   name: witch robes
 
 # Shrine maiden
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor, ClothingHeadHatShrineMaidenWig]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatShrineMaidenWig, ClothingHeadHatWizardBase]
   id: ClothingHeadHatShrineMaidenWigReal
   name: shrine maiden's wig
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitShrineMaiden]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterSuitShrineMaiden, ClothingOuterWizardBase]
   id: ClothingOuterSuitShrineMaidenReal
   name: shrine maiden outfit
 
 # Centcomm
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatCentCommwizardReal
   name: CentComm wizard hat
   suffix: ADMIN
@@ -440,7 +441,7 @@
     sprite: _Goobstation/Wizard/Clothing/Head/comwizard.rsi
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardCentCommReal
   name: CentComm wizard robes
   suffix: ADMIN
@@ -469,7 +470,7 @@
 
 # Crimsom
 - type: entity
-  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  parent: [ClothingHeadHatWizardBaseArmor, ClothingHeadHatWizardBase]
   id: ClothingHeadHatCrimsonReal
   name: crimson wizard hat
   description: A wide-brimmed, pointy wizard hat adorned with a crimson band and a touch of theatrical flair. Feels... explosive.
@@ -480,7 +481,7 @@
     sprite: _Goobstation/Wizard/Clothing/Head/crimsonwizard.rsi
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  parent: [ClothingOuterWizardBaseArmor, ClothingOuterWizardBase]
   id: ClothingOuterWizardCrimsonReal
   name: crimson wizard robes
   description: A flowing set of red and gold-trimmed robes, made for dramatic spellcasting. You can feel the power flowing through you...
