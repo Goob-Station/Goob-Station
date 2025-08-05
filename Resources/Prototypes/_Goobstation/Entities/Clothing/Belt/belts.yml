@@ -115,6 +115,9 @@
       - CombatKnife
       - Truncheon
       - BolaEnergy
+      - EnergySpeedloader
+      - MilitaryPowerCell
+      - HandGrenade
       components:
       - FlashOnTrigger
       - SmokeOnTrigger
