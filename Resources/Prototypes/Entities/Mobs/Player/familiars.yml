@@ -61,14 +61,17 @@
 # SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Ремілія"
-  parent: BaseMobPsionicFamiliar
+  name: Remilia
+  parent: BaseMobPsionicFamiliar # Pirate psionics
   id: MobBatRemilia
   description: The chaplain's familiar. Likes fruit.
   components:
@@ -100,7 +103,14 @@
     - PetsNT
   - type: Alerts
   - type: Familiar
-  - type: MeleeWeapon #Pirate psionics
+  - type: LanguageKnowledge
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
+    - TauCetiBasic
+#Pirate psionics VVV
+  - type: MeleeWeapon
     soundHit:
         path: /Audio/Effects/bite.ogg
     angle: 0
@@ -111,6 +121,8 @@
   - type: InnatePsionicPowers
     powersToAdd:
       - TelepathyPower
+#Pirate psionics ^^^
+
 - type: entity
   name: Cerberus
   parent: MobCorgiNarsi
@@ -172,3 +184,9 @@
       Male: Cerberus
       Female: Cerberus
       Unsexed: Cerberus
+  - type: LanguageKnowledge
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
