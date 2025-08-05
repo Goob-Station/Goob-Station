@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Goobstation.Shared.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._White.Standing;
 using Content.Shared.Projectiles;
