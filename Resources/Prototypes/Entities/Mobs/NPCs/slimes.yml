@@ -221,9 +221,14 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
+    allowedEmotes: ['Squish', 'Bubble', 'Pop'] # Imp: add Bubble, Pop
   - type: TypingIndicator
     proto: slime
+  - type: Vocal # Imp
+    sounds: # Imp
+      Male: AnimalSlime # Imp
+      Female: AnimalSlime # Imp
+      Unsexed: AnimalSlime # Imp
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
