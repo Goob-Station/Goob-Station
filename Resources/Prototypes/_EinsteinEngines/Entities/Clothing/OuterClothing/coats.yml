@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatMantis
-  name: mantis' jacket
-  description: Modeled after an ancient infantry uniform, this jacket may guard you against the unknown in your journey for the truth.
+  name: "куртка мантіса"
+  description: "Зроблена за зразком старовинної піхотної форми, ця куртка може захистити вас від невідомого на вашому шляху до істини."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/mantis_jacket.rsi

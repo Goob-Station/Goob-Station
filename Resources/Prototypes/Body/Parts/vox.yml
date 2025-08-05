@@ -31,7 +31,7 @@
   abstract: true
   parent: BasePart # Shitmed Change
   id: PartVoxBase
-  name: "vox body part"
+  name: "частина тіла вокса"
   components:
   - type: Sprite
     sprite: Mobs/Species/Vox/parts.rsi
@@ -50,7 +50,7 @@
 - type: entity
   parent: [ PartVoxBase, BaseChest ]
   id: ChestVox
-  name: "vox chest"
+  name: "груди вокса"
   components:
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
@@ -69,7 +69,7 @@
 - type: entity
   parent: [ PartVoxBase, BaseGroin ]
   id: GroinVox
-  name: "vox groin"
+  name: "пах вокса"
   components:
     - type: Sprite
       sprite: Mobs/Species/Vox/parts.rsi
@@ -88,7 +88,7 @@
 - type: entity
   parent: [ PartVoxBase, BaseHead ]
   id: HeadVox
-  name: "vox head"
+  name: "голова вокса"
   components:
   - type: Sprite
     state: "head"
@@ -98,39 +98,39 @@
 - type: entity
   parent: [ PartVoxBase, BaseLeftArm ]
   id: LeftArmVox
-  name: "left vox arm"
+  name: "ліва рука вокса"
 
 - type: entity
   parent: [ PartVoxBase, BaseRightArm ]
   id: RightArmVox
-  name: "right vox arm"
+  name: "права рука вокса"
 
 - type: entity
   parent: [ PartVoxBase, BaseLeftHand ]
   id: LeftHandVox
-  name: "left vox hand"
+  name: "ліва долоня вокса"
 
 - type: entity
   parent: [ PartVoxBase, BaseRightHand ]
   id: RightHandVox
-  name: "right vox hand"
+  name: "права долоня вокса"
 
 - type: entity
   parent: [ PartVoxBase, BaseLeftLeg ]
   id: LeftLegVox
-  name: "left vox leg"
+  name: "ліва нога вокса"
 
 - type: entity
   parent: [ PartVoxBase, BaseRightLeg ]
   id: RightLegVox
-  name: "right vox leg"
+  name: "права нога вокса"
 
 - type: entity
   parent: [ PartVoxBase, BaseLeftFoot ]
   id: LeftFootVox
-  name: "left vox foot"
+  name: "ліва стопа вокса"
 
 - type: entity
   parent: [ PartVoxBase, BaseRightFoot ]
   id: RightFootVox
-  name: "right vox foot"
+  name: "права стопа вокса"

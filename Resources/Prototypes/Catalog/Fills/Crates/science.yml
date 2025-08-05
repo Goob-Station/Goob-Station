@@ -18,8 +18,8 @@
 - type: entity
   id: CrateScienceBiosuit
   parent: CrateScienceSecure
-  name: scientist bio suit crate
-  description: Contains 2 biohazard suits to ensure that no disease will distract you from doing science. Requires Science access to open.
+  name: "ящик з біокостюмом вченого"
+  description: "Містить 2 костюми біозахисту, щоб жодна хвороба не відволікала вас від занять наукою. Для відкриття потрібен доступ вченого."
   components:
   - type: StorageFill
     contents:
@@ -33,8 +33,8 @@
 - type: entity
   id: CrateCrewMonitoring
   parent: CrateScienceSecure
-  name: crew monitoring crate
-  description: Contains a flatpack of a crew monitoring server and a few crew monitoring computers. Requires Science access to open.
+  name: "ящик моніторингу екіпажу"
+  description: "Містить плоский пакет сервера моніторингу екіпажу та кілька комп'ютерів моніторингу екіпажу. Для відкриття потрібен науковий доступ."
   components:
   - type: StorageFill
     contents:

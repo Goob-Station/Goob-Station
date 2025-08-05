@@ -6,8 +6,8 @@
 
 - type: entity
   id: MultiWand
-  name: wizard wand
-  description: Apparently a wand used by the wizard.
+  name: "чарівна паличка"
+  description: "Очевидно, паличка, якою користувався чарівник."
   parent: [BaseItem, BaseMagicalContraband]
   suffix: DO NOT MAP
   categories: [ DoNotMap ]

@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseItem
   id: MiningVoucher
-  name: mining voucher
-  description: A token to redeem a piece of equipment. Insert into your salvage vendor to redeem it.
+  name: "шахтарський ваучер"
+  description: "Жетон для отримання обладнання. Вставте його у свій торговий автомат, щоб отримати обладнання."
   components:
   - type: Sprite
     sprite: _DV/Objects/Specific/Salvage/voucher.rsi

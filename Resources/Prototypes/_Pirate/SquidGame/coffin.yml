@@ -1,8 +1,8 @@
 - type: entity
   parent: CrateGeneric
   id: SquidGameCoffin
-  name: Гроб для гравців
-  description: "Гроб для гравців, які програли гру"
+  name: "Труна для гравців"
+  description: "Труна для гравців, які програли гру"
   suffix: SquidGame
   components:
   - type: Sprite
