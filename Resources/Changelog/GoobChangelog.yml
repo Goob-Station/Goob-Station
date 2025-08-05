@@ -12863,3 +12863,11 @@ Entries:
       message: Fixed IPCs being unable to use cyborg rechargers.
   id: 1424
   time: '2025-08-04T07:26:49.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Remilia and Cerberus not understanding Tau-Ceti Basic, so they
+        couldn't understand the Chaplain.
+  id: 1425
+  time: '2025-08-05T10:56:12.0000000+00:00'
