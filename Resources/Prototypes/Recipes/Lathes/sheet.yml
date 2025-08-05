@@ -37,16 +37,16 @@
   result: SheetSteel1
   completetime: 0
   materials:
-    RawIron: 20 # Goobstation - was 100
-    Coal: 10 # Goobstation - was 30
+    RawIron: 100
+    Coal: 30
 
 - type: latheRecipe
   id: SheetSteel30
   result: SheetSteel
   completetime: 2
   materials:
-    RawIron: 600 # Goobstation - was 3000
-    Coal: 300 # Goobstation - was 1000
+    RawIron: 3000
+    Coal: 1000
 
 - type: latheRecipe
   id: SheetGlass1
