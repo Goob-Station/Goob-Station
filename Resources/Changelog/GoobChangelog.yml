@@ -12871,3 +12871,9 @@ Entries:
         couldn't understand the Chaplain.
   id: 1425
   time: '2025-08-05T10:56:12.0000000+00:00'
+- author: Diggy
+  changes:
+    - type: Fix
+      message: CBurn - ERT - Deathsquad are now human only.
+  id: 1426
+  time: '2025-08-05T10:58:39.0000000+00:00'
