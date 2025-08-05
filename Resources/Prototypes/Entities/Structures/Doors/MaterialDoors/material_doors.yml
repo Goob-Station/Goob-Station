@@ -84,6 +84,9 @@
         acts: ["Destruction"]
   - type: Occluder
   - type: BlockWeather
+  - type: InteractionVerbs #Pirate
+    allowedVerbs:
+    - KnockOn
 
 - type: entity
   parent: BaseMaterialDoor
