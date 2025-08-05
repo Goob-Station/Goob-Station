@@ -3,13 +3,15 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 Teapug <159912420+Teapug@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingBackpack
-  id: ClothingBackpackCentcom
-  name: Centcom backpack
+  parent: [ BaseCentcommContraband , ClothingBackpack ]
+  id: ClothingBackpackCentcomm
+  name: centcomm backpack
   description: A luxurious backpack, smells like money.
   components:
   - type: Sprite

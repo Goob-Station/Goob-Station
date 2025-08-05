@@ -170,12 +170,11 @@
         - AbductorNames
       - type: Tag
         tags:
-         - Abductor
-         - AbductorScientist
-         - CanPilot
-         - FootstepSound
-         - DoorBumpOpener
-         - AbductorMind
+        - Abductor
+        - AbductorScientist
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: Sanitized

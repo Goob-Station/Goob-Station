@@ -24,7 +24,7 @@ public sealed partial class FirefighterTankRefillableComponent : Component
     ///     Name of solution/>.
     /// </summary>
     [DataField]
-    public const string SolutionName = "tank";
+    public string SolutionName = "tank";
 
     /// <summary>
     ///     Reagent that will be used in backpack.

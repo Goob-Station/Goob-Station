@@ -10,7 +10,7 @@ nullrod-honkmother-untrained-usage-popup = You think you're funny, huh?
 nullrod-uristhand-untrained-usage-popup = Secure trespass.
 nullrod-chainsaw-untrained-usage-popup = Ahh, and look at what we have here — a bloody heathen!
 
-nullrod-pray-prompt = Pray to Nullrod
-nullrod-pray-start = {$user} begins to whisper to the {$nullrod}...
+alternate-pray-prompt = Pray to {$item}
+alternate-pray-start = {$user} begins to whisper to the {$item}...
 
 nullrod-spelldenial-popup = THE POWER OF GOD COMPELS YOU!

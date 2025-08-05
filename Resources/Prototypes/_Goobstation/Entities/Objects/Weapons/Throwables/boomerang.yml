@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: boomerang
+  parent: BaseItem
+  name: boomerang
+  description: Made from wood. You should give this to a monkey.
+  components:
+  - type: LandAtCursor
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Throwable/boomerang.rsi # GoobStation Edit
+    layers:
+    - state: icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 4
+  - type: StaminaDamageOnCollide
+    damage: 10 
+  - type: Item
+    size: Small
+  - type: Boomerang # Goobstation
+  - type: Construction
+    graph: boomerangGraph
+    node: boomerangFinish
+
+- type: entity
+  id: boomerangIncomplete
+  parent: BaseItem
+  name: incomplete boomerang
+  description: Apply knife to get a fresh boomerang.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Throwable/boomerangIncomplete.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+  - type: Construction
+    graph: boomerangGraph
+    node: boomerangIncomplete

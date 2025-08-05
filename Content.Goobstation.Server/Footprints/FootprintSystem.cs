@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -19,6 +22,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Server.Gravity;
 
 namespace Content.Goobstation.Server.Footprints;
 
@@ -28,6 +32,7 @@ public sealed class FootprintSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public static readonly FixedPoint2 MaxFootprintVolumeOnTile = 50;
@@ -56,10 +61,7 @@ public sealed class FootprintSystem : EntitySystem
 
     private void OnMove(Entity<FootprintOwnerComponent> entity, ref MoveEvent e)
     {
-        if (!e.OldPosition.IsValid(EntityManager))
-            return;
-
-        if (!e.NewPosition.IsValid(EntityManager))
+        if (_gravity.IsWeightless(entity) || !e.OldPosition.IsValid(EntityManager) || !e.NewPosition.IsValid(EntityManager))
             return;
 
         var oldPosition = _transform.ToMapCoordinates(e.OldPosition).Position;
@@ -119,9 +121,22 @@ public sealed class FootprintSystem : EntitySystem
         if (!_solution.EnsureSolutionEntity(entity.Owner, FootprintOwnerSolution, out _, out var solution, FixedPoint2.Max(entity.Comp.MaxFootVolume, entity.Comp.MaxBodyVolume)))
             return false;
 
+        var puddleSolSol = puddleSolution.Value.Comp.Solution;
+        // don't transfer reagents that don't stick to skin to our footsteps
+        var nonStickProtos = new List<string>(); // has to be string or it dies
+        foreach (var (proto, amt) in puddleSolSol.GetReagentPrototypes(_prototype))
+        {
+            if (!proto.SticksToSkin)
+                nonStickProtos.Add(proto.ID);
+        }
+        var addBack = puddleSolSol.SplitSolutionWithOnly(puddleSolSol.Volume, nonStickProtos.ToArray());
+
         _solution.TryTransferSolution(puddleSolution.Value, solution.Value.Comp.Solution, GetFootprintVolume(entity, solution.Value));
 
-        _solution.TryTransferSolution(solution.Value, puddleSolution.Value.Comp.Solution, FixedPoint2.Max(0, (standing ? entity.Comp.MaxFootVolume : entity.Comp.MaxBodyVolume) - solution.Value.Comp.Solution.Volume));
+        _solution.TryTransferSolution(solution.Value, puddleSolSol, FixedPoint2.Max(0, (standing ? entity.Comp.MaxFootVolume : entity.Comp.MaxBodyVolume) - solution.Value.Comp.Solution.Volume));
+
+        // add back whatever we temporarily took out
+        puddleSolSol.AddSolution(addBack, _prototype);
 
         _solution.UpdateChemicals(puddleSolution.Value, false);
 

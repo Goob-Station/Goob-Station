@@ -127,6 +127,7 @@
   - type: RequireProjectileTarget
     active: False
   - type: AnimatedEmotes
+  - type: LanguageSpeaker # Einstein Engines - Language. This component is required to support speech, but it does not define known languages.
   - type: Fart
   - type: CollectiveMind # Goobstation - Starlight collective mind port
   - type: SpecialAnimationViewer # Goobstation - Cool Animations!!!!

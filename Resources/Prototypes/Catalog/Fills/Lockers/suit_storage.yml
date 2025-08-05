@@ -12,6 +12,9 @@
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #SOFTSUITS
@@ -80,7 +83,7 @@
     contents:
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitSyndicateDurathread
+        - id: ClothingOuterEVASuitSyndicate
         - id: ClothingHeadHelmetSyndicate
         - id: ClothingMaskGasSyndicate
 
@@ -111,19 +114,6 @@
         - id: ClothingMaskBreath
 
 #HARDSUITS
-#Basic hardsuit
-- type: entity
-  id: SuitStorageBasic
-  parent: SuitStorageBase
-  suffix: Basic Hardsuit
-  components:
-  - type: StorageFill
-    contents:
-        - id: OxygenTankFilled
-        - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitBasic
-        - id: ClothingMaskBreath
-
 #Engineering hardsuit
 - type: entity
   id: SuitStorageEngi
@@ -135,7 +125,7 @@
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
         - id: ClothingShoesBootsMag
-        - id: ClothingOuterHardsuitEngineering
+        - id: UndeterminedVoidsuitEngineer # Goob edit
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Engineering"]]
@@ -150,7 +140,7 @@
     contents:
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitAtmos
+        - id: ClothingModsuitAtmostechPowerCell
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Atmospherics"]]
@@ -165,7 +155,7 @@
     contents:
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitSecurity
+        - id: UndeterminedVoidsuitSecurity # Goob edit
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]

@@ -1,0 +1,46 @@
+<Document>
+  # Corporate Agents
+
+  [color=#ac3a0d]An elite agent sent to infiltrate and complete missions onboard various stations.[/color]
+
+  Only select command members can become corporate agents: the Quartermaster, Chief Engineer, and Research Director.
+  <Box>
+    <GuideEntityEmbed Entity="PosterLegitEnlist" Caption="Enlist now!"/>
+  </Box>
+
+  Corporate Agents are tasked with retrieving items, testing weak points, sabotaging, or assassinating targets who know too much.
+
+  Despite their deep connections to Nanotrasen/Central Command, they rarely receive help and are abandoned if caught.
+  Corporate agents should avoid causing excessive disruption, [color=red][bold]as corporations want to avoid bad press.[/bold][/color]
+
+  ## How they play
+
+  Unlike Traitors, Corporate Agents have limited freedom in their objectives.
+  First and foremost, [color=red][bold] they should not be causing more damage than necessary! [/bold][/color]
+  Corporate Agents must complete missions while maintaining their disguise as command members.
+  It wouldn't be very productive if the station fell apart due to them not doing their job as a head of staff, now would it?
+
+  [bold] Most people don't react well to finding out one of their closest allies is a spy. [/bold]
+
+  ## Objectives
+
+  Corporate Agents receive objectives at the start of the round, often involving traitors or other heads of staff.
+  Objectives typically include stealing items or eliminating targets who oppose the corporation or know sensitive information.
+  Sometimes someone's been talking against the corporation, or they've heard things they really shouldn't have.
+
+  Agents may also need to handle suspected syndicate spies discreetly, as corporations aim to maintain appearances and avoid public violations of space law.
+  [bold]Corporate Agents are here to resolve these issues.[/bold]
+
+  ## Equipment
+
+  Corporate Agents start with an uplink containing 25 telecrystals.
+  These corporations usually don't have an abundance of Telecrystals to spare even for their most elite agents.
+  Use them wisely.
+  Agents must carefully manage their purchases and utilize resources as command members.
+
+  [color=red][bold]You didn't spend all this time infiltrating and gaining trust with nothing to show for it right?[/bold][/color]
+
+
+
+  [textlink="For more information on how to play it look in the traitor tab." link="Traitors"]
+</Document>

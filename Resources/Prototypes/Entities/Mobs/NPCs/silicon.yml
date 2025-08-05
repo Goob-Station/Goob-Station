@@ -50,7 +50,6 @@
 # SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
 # SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
@@ -120,8 +119,6 @@
 # SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 # SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 marbow <152051971+marboww@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
@@ -146,8 +143,17 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 # SPDX-FileCopyrightText: 2025 YourUsername <you@example.com>
+# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -155,7 +161,8 @@
 - type: entity
   save: false
   abstract: true
-  id: MobSiliconBase
+  parent: BaseMob
+  id: MobRobotic
   components:
   - type: LagCompensation
   - type: Reactive
@@ -176,34 +183,6 @@
         - MobMask
         layer:
         - MobLayer
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 4
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
-  - type: NpcFactionMember
-    factions:
-    - SimpleNeutral
-  - type: Access
-    tags:
-    - BasicSilicon
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
-  - type: ActiveRadio
-    channels:
-    - Binary
-    - Common
-  - type: HealthExaminable
-    examinableTypes:
-    - Blunt
-    - Slash
-    - Piercing
-    - Heat
-    - Shock
-    locPrefix: silicon
   - type: MovedByPressure
   - type: Physics
     bodyType: KinematicController # Same for all inheritors
@@ -214,8 +193,6 @@
     - SlowedDown
     - Stutter
     - Electrocution
-  - type: NameIdentifier
-    group: GenericNumber
   - type: Repairable
     doAfterDelay: 8
     fuelCost: 15
@@ -223,8 +200,8 @@
   - type: Tag
     tags:
     - DoorBumpOpener
-    - Bot
     - Unimplantable
+    - SiliconMob
   - type: MobState
     allowedStates:
       - Alive
@@ -235,7 +212,68 @@
       120: Dead
     stateAlertDict:
       Alive: BorgHealth
+      Dead: BorgDead
     showOverlays: false
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+  - type: TypingIndicator
+    proto: robot
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  - type: Emoting
+  - type: ZombieImmune
+  - type: ProtectedFromStepTriggers
+  - type: NoSlip
+  - type: Insulated
+  - type: LanguageKnowledge # Einstein Engines - Languages # Goob moved to MobRobotic since it is parent for MobSiliconBase
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
+
+# Used for bots
+- type: entity
+  save: false
+  abstract: true
+  parent: MobRobotic
+  id: MobSiliconBase
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: Access
+    tags:
+    - BasicSilicon
+  - type: IntrinsicRadioReceiver
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #  - Binary # Goobstation - replaced with collective mind
+  - type: ActiveRadio
+    channels:
+    - Common
+    # - Binary # Goobstation - replaced with collective mind
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+    locPrefix: silicon
+  - type: NameIdentifier
+    group: Silicon
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 4
   - type: Stamina
     critThreshold: 120
   - type: Destructible
@@ -255,20 +293,21 @@
     context: "human"
   - type: InputMover
   - type: MobMover
-  - type: Body
-    prototype: Bot
   - type: GuideHelp
     guides:
     - Robotics
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Bot
+    - Unimplantable
+    - SiliconMob
+  - type: Body
+    bodyType: Simple
+    prototype: Bot
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai #couldn't decide if this should be borg or pai sounds so I flipped a coin.
-  - type: TypingIndicator
-    proto: robot
-  - type: ZombieImmune
-  - type: ProtectedFromStepTriggers
-  - type: NoSlip
-  - type: Insulated
 
 - type: entity
   parent: MobSiliconBase
@@ -337,7 +376,8 @@
     rootTask:
       task: HonkbotCompound
   - type: Slippery
-    launchForwardsMultiplier: 2
+    slipData:
+      launchForwardsMultiplier: 2
   - type: Speech
     speechVerb: Cluwne
   - type: StepTrigger
@@ -647,8 +687,10 @@
     - Unimplantable
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+  - type: Puller
+    needsHands: false

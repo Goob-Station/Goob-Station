@@ -51,12 +51,15 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared.Examine;
+using Content.Shared.Interaction; // Goobstation
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -82,6 +85,8 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
         SubscribeLocalEvent<ToggleableGhostRoleComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<ToggleableGhostRoleComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<ToggleableGhostRoleComponent, GetVerbsEvent<ActivationVerb>>(AddWipeVerb);
+
+        SubscribeLocalEvent<ToggleableGhostRoleComponent, ActivateInWorldEvent>(OnActivateInWorld); // Goobstation
     }
 
     private void OnUseInHand(EntityUid uid, ToggleableGhostRoleComponent component, UseInHandEvent args)
@@ -91,30 +96,19 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
 
         args.Handled = true;
 
-        // check if a mind is present
-        if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
-        {
-            _popup.PopupEntity(Loc.GetString(component.ExamineTextMindPresent), uid, args.User, PopupType.Large);
+        // Goobstation - intentional conflict landmine: if you see conflicts here, move the new code to TryActivate()
+        TryActivate(uid, component, args.User);
+    }
+
+    // Goobstation
+    private void OnActivateInWorld(EntityUid uid, ToggleableGhostRoleComponent component, ActivateInWorldEvent args)
+    {
+        if (args.Handled)
             return;
-        }
-        if (HasComp<GhostTakeoverAvailableComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString(component.ExamineTextMindSearching), uid, args.User);
-            return;
-        }
-        _popup.PopupEntity(Loc.GetString(component.BeginSearchingText), uid, args.User);
 
-        UpdateAppearance(uid, ToggleableGhostRoleStatus.Searching);
+        args.Handled = true;
 
-        var ghostRole = EnsureComp<GhostRoleComponent>(uid);
-        EnsureComp<GhostTakeoverAvailableComponent>(uid);
-
-        //GhostRoleComponent inherits custom settings from the ToggleableGhostRoleComponent
-        ghostRole.RoleName = Loc.GetString(component.RoleName);
-        ghostRole.RoleDescription = Loc.GetString(component.RoleDescription);
-        ghostRole.RoleRules = Loc.GetString(component.RoleRules);
-        ghostRole.JobProto = component.JobProto;
-        ghostRole.MindRoles = component.MindRoles;
+        TryActivate(uid, component, args.User);
     }
 
     private void OnExamined(EntityUid uid, ToggleableGhostRoleComponent component, ExaminedEvent args)
@@ -157,7 +151,7 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
 
     private void AddWipeVerb(EntityUid uid, ToggleableGhostRoleComponent component, GetVerbsEvent<ActivationVerb> args)
     {
-        if (args.Hands == null || !args.CanAccess || !args.CanInteract)
+        if (!args.CanAccess || !args.CanComplexInteract) // Goobstation - replace hands check with CanComplexInteract
             return;
 
         if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
@@ -195,6 +189,35 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
             };
             args.Verbs.Add(verb);
         }
+    }
+
+    // Goobstation
+    public void TryActivate(EntityUid uid, ToggleableGhostRoleComponent component, EntityUid user)
+    {
+        // check if a mind is present
+        if (TryComp<MindContainerComponent>(uid, out var mind) && mind.HasMind)
+        {
+            _popup.PopupEntity(Loc.GetString(component.ExamineTextMindPresent), uid, user, PopupType.Large);
+            return;
+        }
+        if (HasComp<GhostTakeoverAvailableComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString(component.ExamineTextMindSearching), uid, user);
+            return;
+        }
+        _popup.PopupEntity(Loc.GetString(component.BeginSearchingText), uid, user);
+
+        UpdateAppearance(uid, ToggleableGhostRoleStatus.Searching);
+
+        var ghostRole = EnsureComp<GhostRoleComponent>(uid);
+        EnsureComp<GhostTakeoverAvailableComponent>(uid);
+
+        //GhostRoleComponent inherits custom settings from the ToggleableGhostRoleComponent
+        ghostRole.RoleName = Loc.GetString(component.RoleName);
+        ghostRole.RoleDescription = Loc.GetString(component.RoleDescription);
+        ghostRole.RoleRules = Loc.GetString(component.RoleRules);
+        ghostRole.JobProto = component.JobProto;
+        ghostRole.MindRoles = component.MindRoles;
     }
 
     /// <summary>

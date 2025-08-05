@@ -52,6 +52,7 @@
             SecurityOfficer: [ 6, 7 ]
             SecurityCadet: [ 3, 3 ]
             Detective: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
             # service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
@@ -61,6 +62,7 @@
             Chef: [ 2, 3 ]
             Clown: [ 1, 1 ]
             Janitor: [ 1, 2 ]
+            Lawyer: [ 1, 2 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]

@@ -59,7 +59,6 @@
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
@@ -75,9 +74,18 @@
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -85,11 +93,11 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Common.Religion.Events;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -145,7 +153,6 @@ public abstract class SharedMagicSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
     [Dependency] private readonly ISerializationManager _seriMan = default!;
-    [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -174,8 +181,6 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MagicComponent, BeforeCastSpellEvent>(OnBeforeCastSpell);
-
-        SubscribeLocalEvent<BeforeCastTouchSpellEvent>(OnTouchSpellAttempt);
 
         SubscribeLocalEvent<InstantSpawnSpellEvent>(OnInstantSpawn);
         SubscribeLocalEvent<TeleportSpellEvent>(OnTeleportSpell);
@@ -334,39 +339,13 @@ public abstract class SharedMagicSystem : EntitySystem
         return !ev.Cancelled;
     }
 
-    //goobstation start
-    private void OnTouchSpellAttempt(ref BeforeCastTouchSpellEvent args)
+    private bool IsTouchSpellDenied(EntityUid target) // Goob edit
     {
-        if (!TryComp<HandsComponent>(args.Target, out var handsComp))
-            return;
+        var ev = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(target, ev, true);
 
-        var held = _hands.EnumerateHeld(args.Target.Value, handsComp);
-        foreach (var heldEnt in held)
-        {
-            if (!TryComp<DivineInterventionComponent>(heldEnt, out var comp))
-                continue;
-
-            args.Cancelled = true;
-
-            if (_net.IsClient)
-                return;
-
-            _popupSystem.PopupEntity(Loc.GetString("nullrod-spelldenial-popup"),
-                args.Target.Value,
-                type: PopupType.MediumCaution);
-            _audio.PlayPvs(comp.DenialSound, args.Target.Value);
-            Spawn(comp.EffectProto, Transform(args.Target.Value).Coordinates);
-            break;
-        }
+        return ev.Cancelled;
     }
-
-    public bool SpellDenied(EntityUid target)
-    {
-        var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(target);
-        RaiseLocalEvent(target, ref beforeTouchSpellEvent, true);
-        return beforeTouchSpellEvent.Cancelled;
-    }
-    //goobstation end
 
     #region Spells
     #region Instant Spawn Spells
@@ -385,7 +364,6 @@ public abstract class SharedMagicSystem : EntitySystem
             SpawnSpellHelper(args.Prototype, position, args.Performer, preventCollide: args.PreventCollideWithCaster);
         }
 
-        Speak(args);
         args.Handled = true;
     }
 
@@ -479,7 +457,6 @@ public abstract class SharedMagicSystem : EntitySystem
         var targetMapCoords = args.Target;
 
         WorldSpawnSpellHelper(args.Prototypes, targetMapCoords, args.Performer, args.Lifetime, args.Offset);
-        Speak(args);
         args.Handled = true;
     }
 
@@ -518,7 +495,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
 
         if (_net.IsClient) // Goobstation
             return;
@@ -528,16 +504,16 @@ public abstract class SharedMagicSystem : EntitySystem
         var toCoords = ev.Coords.Value; // Goob edit
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromMap = fromCoords.ToMap(EntityManager, _transform);
-        var spawnCoords = _mapManager.TryFindGridAt(fromMap, out var gridUid, out _)
-            ? fromCoords.WithEntityId(gridUid, EntityManager)
-            : new(_mapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
+        var fromMap = _transform.ToMapCoordinates(fromCoords);
 
+        var spawnCoords = _mapManager.TryFindGridAt(fromMap, out var gridUid, out _)
+            ? _transform.WithEntityId(fromCoords, gridUid)
+            : new(_mapSystem.GetMap(fromMap.MapId), fromMap.Position);
         var userVelocity = _physics.GetMapLinearVelocity(spawnCoords); // Goob edit
 
-        var ent = Spawn(ev.Prototype, spawnCoords);
-        var direction = toCoords.ToMapPos(EntityManager, _transform) -
-                        spawnCoords.ToMapPos(EntityManager, _transform);
+        var ent = Spawn(ev.Prototype, fromMap);
+        var direction = _transform.ToMapCoordinates(toCoords).Position -
+                        fromMap.Position;
         _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Goob edit
 
         if (ev.Entity != null) // Goobstation
@@ -552,17 +528,13 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
-            if (ev.DoSpeech)
-                Speak(ev);
             ev.Handled = true;
             return;
         }
 
         ev.Handled = true;
-        if (ev.DoSpeech)
-            Speak(ev);
 
         RemoveComponents(ev.Target, ev.ToRemove);
         AddComponents(ev.Target, ev.ToAdd);
@@ -587,7 +559,6 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _transform.SetCoordinates(args.Performer, args.Target);
         _transform.AttachToGridOrMap(args.Performer, transform);
-        Speak(args);
         args.Handled = true;
     }
     // End Teleport Spells
@@ -620,7 +591,7 @@ public abstract class SharedMagicSystem : EntitySystem
             if (HasComp(target, data.Component.GetType()))
                 continue;
 
-            var component = (Component)_compFact.GetComponent(name);
+            var component = (Component)Factory.GetComponent(name);
             var temp = (object)component;
             _seriMan.CopyTo(data.Component, ref temp);
             EntityManager.AddComponent(target, (Component)temp!);
@@ -631,7 +602,7 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         foreach (var toRemove in comps)
         {
-            if (_compFact.TryGetRegistration(toRemove, out var registration))
+            if (Factory.TryGetRegistration(toRemove, out var registration))
                 RemComp(target, registration.Type);
         }
     }
@@ -643,15 +614,13 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target))
         {
-            Speak(ev);
             ev.Handled = true;
             return;
         }
 
         ev.Handled = true;
-        Speak(ev);
 
         var direction = _transform.GetMapCoordinates(ev.Target, Transform(ev.Target)).Position - _transform.GetMapCoordinates(ev.Performer, Transform(ev.Performer)).Position;
         var impulseVector = direction * 10000;
@@ -677,7 +646,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         args.Handled = true;
-        Speak(args);
 
         var transform = Transform(args.Performer);
 
@@ -717,7 +685,6 @@ public abstract class SharedMagicSystem : EntitySystem
         }
 
         ev.Handled = true;
-        Speak(ev);
 
         if (wand == null || !TryComp<BasicEntityAmmoProviderComponent>(wand, out var basicAmmoComp) || basicAmmoComp.Count == null)
             return;
@@ -734,7 +701,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         ev.Handled = true;
-        Speak(ev);
 
         var allHumans = _mind.GetAliveHumans();
 
@@ -764,9 +730,8 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (SpellDenied(ev.Target))
+        if (IsTouchSpellDenied(ev.Target)) // Goobstation
         {
-            Speak(ev);
             ev.Handled = true;
             return;
         }
@@ -797,7 +762,6 @@ public abstract class SharedMagicSystem : EntitySystem
         // Goobstation end
 
         ev.Handled = true;
-        Speak(ev);
 
         // Need performer mind, but target mind is unnecessary, such as taking over a NPC
         // Need to get target mind before putting performer mind into their body if they have one
@@ -943,7 +907,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (aHasComp && bHasComp)
             return;
 
-        var comp = _compFact.GetComponent(type);
+        var comp = Factory.GetComponent(type);
         if (aHasComp)
         {
             AddComp(b, comp);
@@ -960,38 +924,4 @@ public abstract class SharedMagicSystem : EntitySystem
     // End Spells
     #endregion
 
-    // When any spell is cast it will raise this as an event, so then it can be played in server or something. At least until chat gets moved to shared
-    // TODO: Temp until chat is in shared
-    public void Speak(BaseActionEvent args) // Goob edit
-    {
-        // Goob edit start
-        var speech = string.Empty;
-
-        if (args is ISpeakSpell speak && !string.IsNullOrWhiteSpace(speak.Speech))
-            speech = speak.Speech;
-
-        if (TryComp(args.Action, out MagicComponent? magic))
-        {
-            var invocationEv = new GetSpellInvocationEvent(magic.School, args.Performer);
-            RaiseLocalEvent(args.Performer, invocationEv);
-            if (invocationEv.Invocation.HasValue)
-                speech = invocationEv.Invocation;
-            if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
-            {
-                _damageable.TryChangeDamage(args.Performer,
-                    -invocationEv.ToHeal,
-                    true,
-                    false,
-                    canSever: false,
-                    targetPart: TargetBodyPart.All);
-            }
-        }
-
-        if (string.IsNullOrEmpty(speech))
-            return;
-
-        var ev = new SpeakSpellEvent(args.Performer, speech);
-        // Goob edit end
-        RaiseLocalEvent(ref ev);
-    }
 }

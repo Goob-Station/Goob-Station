@@ -1,0 +1,72 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: NFEnergyPickaxe
+  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
+  name: energy pickaxe
+  description: A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
+  components:
+  - type: ItemToggleSize
+    activatedSize: Huge
+    activatedShape:
+    - 0,0,2,0
+    - 1,1,1,2
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      groups:
+        Brute: 18
+      types:
+        Heat: 18
+        Structural: 40
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Melee/energy_pickaxe.rsi
+    layers:
+    - state: e-pickaxe
+    - state: e-pickaxe-blade
+      color: "#e95151"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    sprite: _NF/Objects/Weapons/Melee/energy_pickaxe.rsi
+    storedRotation: -45
+  - type: Clothing
+    sprite: _NF/Objects/Weapons/Melee/energy_pickaxe.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - back
+    - suitStorage
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
+  - type: Tag
+    tags:
+    - Pickaxe
+  - type: ThrowableBlocker
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
+  - type: MeleeWeapon
+    animationRotation: -135
+    attackRate: 0.7
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+      params:
+        volume: -3
+    damage:
+      groups:
+        Brute: 3
+    heavyStaminaCost: 5
+    clickPartDamageMultiplier: 1

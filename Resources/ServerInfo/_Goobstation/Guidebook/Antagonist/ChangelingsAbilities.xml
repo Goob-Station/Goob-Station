@@ -13,8 +13,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     [color=#999999][italic]0 Chems[italic][/color]
   </Box>
 
-  - Allows you to slowly and noisily absorb a dead, crit, or cuffed crewmate. This adds their DNA to your pool, gives you 2 evolution points, and refills your biomass.
-  - If another changeling is absorbed, you instead get 10 more evolution points, +60 max chemicals, and +15 max biomass/
+  - Allows you to slowly and noisily absorb a dead, crit, cuffed or hard-grabbed crewmate. This adds their DNA to your pool, gives you 2 evolution points, and refills your biomass.
+  - If another changeling is absorbed, you instead get half of their total evolution points and half of their max chemicals.
   - Target must be in a HARD grab to use this ability.
   - Can be used in lesser form.
   - Cannot be used while on fire.
@@ -46,7 +46,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Enter Regenerative Statis
   <Box>
-    [color=#999999][italic]All Chems, 1 biomass[italic][/color]
+    [color=#999999][italic]0 chems[italic][/color]
   </Box>
 
   - Changeling instantly dies, and the exit stasis ability is unlocked.
@@ -55,12 +55,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Exit Regenerative Statis
   <Box>
-    [color=#999999][italic]60 Chems[italic][/color]
+    [color=#999999][italic]30 Chems[italic][/color]
   </Box>
 
   - Changeling instantly revives, all health is fully recovered.
   - Can be used while cuffed or in lesser form.
   - Can be used while on fire.
+  - Can only be used after a set duration. This scales with damage taken prior to stasis, up to 180 seconds.
 
   # Combat Abilities
 
@@ -284,11 +285,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   <Box>
     [color=#999999][italic] 5 Evolution Points / 35 Chems [italic][/color]
   </Box>
-  - Changeling produces 5 units of changeling fleshmenders.
-  - Reduces bleed by 8 every unit.
-  - Restores 20 blood level per unit.
-  - Heals 70 of each brute damage.
-  - Heals 30 of each burn damage.
+  - User is given the "Fleshmend" status effect, lasting for 10 seconds.
+  - Fleshmend's effects will temporarily cease while on fire.
+  - Heals 10 overall brute damage per tick (100 in total).
+  - Heals 5 overall burn damage per tick (50 in total).
+  - Heals 2 asphyxiation damage per tick (20 in total).
+  - Reduces bleeding severity by 2.5 per tick (25 in total).
+  - Restores roughly 3.5% blood level per tick (35% in total).
   - Usable while in critical condition.
   - Can be used while cuffed or in lesser form.
 </Document>

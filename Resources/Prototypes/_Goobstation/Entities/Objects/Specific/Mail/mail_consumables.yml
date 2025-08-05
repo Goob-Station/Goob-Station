@@ -141,13 +141,7 @@
       prob: 0.19
     - id: CigPackMixed
       orGroup: Cigs
-      prob: 0.09
-    - id: CigPackMixedMedical
-      orGroup: Cigs
-      prob: 0.05
-    - id: CigPackMixedNasty
-      orGroup: Cigs
-      prob: 0.05
+      prob: 0.19
       # Rare
     - id: CigPackSyndicate
       orGroup: Cigs
@@ -470,7 +464,7 @@
     - id: JointRainbow
       orGroup: Smokeable1
       prob: 0.15
-    - id: Blunt
+    - id: BluntCigar
       orGroup: Smokeable1
       prob: 0.35
     - id: BluntRainbow
@@ -483,7 +477,7 @@
     - id: JointRainbow
       orGroup: Smokeable2
       prob: 0.15
-    - id: Blunt
+    - id: BluntCigar
       orGroup: Smokeable2
       prob: 0.35
     - id: BluntRainbow
@@ -496,7 +490,7 @@
     - id: JointRainbow
       orGroup: Smokeable3
       prob: 0.15
-    - id: Blunt
+    - id: BluntCigar
       orGroup: Smokeable3
       prob: 0.35
     - id: BluntRainbow

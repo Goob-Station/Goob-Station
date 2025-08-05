@@ -81,7 +81,9 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -98,6 +100,7 @@
   - NanotrasenRepresentativeBelt
   - Glasses
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - Survival
 
@@ -112,6 +115,7 @@
   - BlueshieldOfficerMask
   - BlueshieldOfficerShoes
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - SurvivalSecurity
 
@@ -127,6 +131,7 @@
   - NanotrasenTrainerGloves
   - NanotrasenTrainerBelt
   - Trinkets
+  - Animals
   - GroupSpeciesBreathTool
   - Survival
 
@@ -136,3 +141,21 @@
   - SurvivalSyndicate
   - GroupHonkopsMask
   - GroupPocketTankDouble
+
+- type: roleLoadout
+  id: JobBrigmedic
+  groups:
+  - BrigmedicHead
+  - MedicalMask
+  - BrigmedicJumpsuit
+  - BrigmedicOuterClothing
+  - MedicalGloves
+  - BrigmedicBackpack
+  #- SecurityMelee # Brigmed probably doesn't need this roundstart
+  - SecurityShoes
+  - SecurityNeck
+  - SurvivalSecurity
+  - Trinkets
+  - Animals
+  - SecurityStar
+  - GroupSpeciesBreathToolSecurity

@@ -72,6 +72,11 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # For mantles
@@ -126,14 +131,6 @@
   equipment:
     head: ClothingHeadHatBeretHoS
 
-- type: loadout # Goobstation
-  id: HeadofSecuritySpecialBeret
-  equipment:
-    head: ClothingHeadHatBeretHeadOfSecurityAdvanced
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterHoS
-
 # Neck
 - type: loadout
   id: HeadofSecurityCloak
@@ -158,14 +155,6 @@
   id: HeadofSecurityCoat
   equipment:
     outerClothing: ClothingOuterCoatHoSTrench
-
-- type: loadout
-  id: HeadofSecurityGreatCoat # Goobstation
-  equipment:
-    outerClothing: ClothingOuterArmorHoSExperimental
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterHoS
 
 - type: loadout
   id: HeadofSecurityWinterCoat

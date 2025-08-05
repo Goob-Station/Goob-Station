@@ -11,6 +11,8 @@
 guide-entry-space-law = Space Law
 guide-entry-medpatches = Medical Patches
 guide-entry-rules-nrp = NRP Ruleset
+guide-entry-sm = Supermatter Engine
+guide-entry-automation = Automation
 
 # Goob SOP
 # - Main Directories
@@ -81,6 +83,7 @@ guide-entry-sop-doctorintern = Doctor/Intern
 guide-entry-sop-roboticist = Roboticist
 guide-entry-sop-scientist = Scientist
 # - Security
+guide-entry-sop-brigmedic = Brigmedic
 guide-entry-sop-detective = Detective
 guide-entry-sop-officercadet = Officer/Cadet
 guide-entry-sop-warden = Warden

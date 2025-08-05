@@ -8,6 +8,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Jarl <140098675+JarlElbowses@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -41,8 +43,8 @@
   id: NanotrasenRepresentativeBackpack
   name: loadout-group-ntr-backpack
   loadouts:
-  - NanotrasenRepresentativeSatchel
   - NanotrasenRepresentativeBackpack
+  - NanotrasenRepresentativeSatchel
   - NanotrasenRepresentativeDuffel
   - NanotrasenRepresentativeMessenger
 
@@ -78,6 +80,7 @@
   - BlueshieldOfficerHeadSwatHelmet
   - BlueshieldOfficerBeret
   - BlueshieldOfficerHeadCowboy
+  - BlueshieldOfficerGoidaHelmet
 
 - type: loadoutGroup
   id: BlueshieldOfficerBackpack
@@ -103,6 +106,7 @@
   - BlueshieldOfficerOuterBlueshieldArmorVest
   - BlueshieldOfficerOuterBlueshieldArmoredJacket
   - BlueshieldOfficerOuterBlueshieldCowboyVest
+  - BlueshieldOfficerOuterWinterBlueshield
 
 - type: loadoutGroup
   id: BlueshieldOfficerNeck
@@ -124,6 +128,7 @@
   loadouts:
   - JackBoots
   - BlackCowboyBoots
+  - SnowjacksBso
 
 # Career Trainer
 
@@ -193,6 +198,7 @@
   minLimit: 0
   loadouts:
   - Bodycam # Goobstation - Body cameras
+  - ClothingNeckCWPSec
 
 #honkops
 
@@ -213,3 +219,81 @@
   minLimit: 0
   loadouts:
   - CaptainMask
+
+# Salvage specialist
+
+- type: loadoutGroup
+  id: SalvageSpecialistNeck
+  name: loadout-group-salvage-specialist-neck
+  minLimit: 0
+  loadouts:
+  - MinerCloak
+
+# Chemist
+
+- type: loadoutGroup
+  id: ChemistHead
+  name: loadout-group-chemist-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - SeniorPhysicianBeret
+  - ChemistUshanka # Da.
+
+# HOS
+
+- type: loadoutGroup
+  id: HeadofSecurityShoes
+  name: loadout-group-hos-shoes
+  loadouts:
+  - JackBoots
+  - SecurityWinterBoots
+  - AdvancedJackBoots
+
+# Brigmedic
+
+- type: loadoutGroup
+  id: BrigmedicJumpsuit
+  name: loadout-group-brigmedic-jumpsuit
+  loadouts:
+  - BrigmedicJumpsuit
+  - BrigmedicJumpskirt
+
+- type: loadoutGroup
+  id: BrigmedicHead
+  name: loadout-group-brigmedic-head
+  minLimit: 0
+  loadouts:
+  - BrigmedicBeret
+  - CMOMedicalHeadMirror
+  - SecurityBeret
+  - SecurityHat
+  - TrooperHat
+
+- type: loadoutGroup
+  id: BrigmedicOuterClothing
+  name: loadout-group-brigmedic-outer
+  loadouts:
+  - BrigmedicAMG
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+
+- type: loadoutGroup
+  id: BrigmedicBackpack
+  name: loadout-group-brigmedic-backpack
+  loadouts:
+  - BrigmedicBackpack
+  - BrigmedicSatchel
+  - BrigmedicDuffel
+  - BrigmedicMessenger
+
+# Security
+
+- type: loadoutGroup
+  id: SecurityMelee
+  name: loadout-group-security-melee
+  loadouts:
+  - SecurityMeleeKnife
+  - SecurityMeleePolyBaton
+  - SecurityMeleeSpear

@@ -10,10 +10,11 @@ condemned-component-examined = [color=chartreuse]{CAPITALIZE($target)}'s eyes ar
 devil-role-greeting = You are a devil from the depths of hell,
   who has possessed the body of {$playerName}
   Corrupt mortals and collect souls through the use of contracts.
+  It is not in your interest to do tasks unrelated to your deals, they are beneath you.
   Your true name is {$trueName} - Try to keep it a secret, will you?
 
 devil-true-name-heard = The act of {$speaker} commanding {$target}'s true name compels {POSS-ADJ($target)} to stop.
-devil-true-name-heard-chaplain = The act of {$speaker}'s holy words commanding your true name burns away at {$target}'s very soul.
+devil-true-name-heard-chaplain = The act of {$speaker}'s holy words commanding their true name burns away at {$target}'s very soul.
 
 objective-condition-contract-title = Collect Souls
 objective-condition-contract-description = Collect as many souls as possible.
@@ -21,16 +22,11 @@ objective-condition-contract-description = Collect as many souls as possible.
 hand-shake-prompt-verb = Offer handshake to {$target}
 hand-shake-accept-verb = Shake {$target}'s hand
 
-handshake-offer-popup = {$user} offers {POSS-ADJ($user)} hand to you, a sly grin on {POSS-ADJ($user)} face.
-handshake-offer-popup-self = You outstretch your hand to {$target}, a sly grin on your face.
-
-handshake-accept-verb = Accept Handshake.
-handshake-decline-verb = Decline Handshake.
-handshake-decline-message = The target declined your handshake offer.
 handshake-success = You feel slightly lighter as you shake {$user}'s hand.
 handshake-fail =  You shake {POSS-ADJ($user)} hand, but nothing happens!
 
-not-enough-souls = You do not have enough souls to use this spell!
+handshake-offer-popup = {$user} offers {POSS-ADJ($user)} hand to you, a sly grin on {POSS-ADJ($user)} face.
+handshake-offer-popup-self = You outstretch your hand to {$target}, a sly grin on your face.
 
 weaktoholy-component-bible-sizzle = {$target}'s skin is singed with the {$item}!
 devil-banish-begin = {$user} begins to perform an exorcism on {$target}!

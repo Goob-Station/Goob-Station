@@ -1,5 +1,8 @@
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -24,4 +27,10 @@ public sealed partial class DelayedDeathComponent : Component
     /// </summary>
     [DataField]
     public LocId DeathMessageId;
+
+    /// <summary>
+    /// What the defib displays when attempting to revive this entity. - Goobstation
+    /// </summary>
+    [DataField]
+    public LocId DefibFailMessageId = "defibrillator-missing-organs";
 }

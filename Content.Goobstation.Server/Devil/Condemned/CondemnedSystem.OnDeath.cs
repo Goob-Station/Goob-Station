@@ -18,13 +18,14 @@ public sealed partial class CondemnedSystem
 
     private void OnMobStateChanged(EntityUid uid, CondemnedComponent comp, MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Dead || comp.SoulOwnedNotDevil || !comp.CondemnOnDeath)
+        if (args.NewMobState != MobState.Dead
+            || comp.SoulOwnedNotDevil
+            || !comp.CondemnOnDeath)
             return;
 
-        // if you have one, or unlimited revives, stop!
-        if (TryComp<CheatDeathComponent>(uid, out var cheatDeath))
-            if (cheatDeath.ReviveAmount is > 0 or -1)
-             return;
+        if (TryComp<CheatDeathComponent>(uid, out var cheatDeath)
+            && cheatDeath.ReviveAmount > 0 || cheatDeath is { InfiniteRevives: true })
+            return;
 
         StartCondemnation(uid, behavior: CondemnedBehavior.Delete);
     }

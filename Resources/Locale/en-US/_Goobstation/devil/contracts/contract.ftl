@@ -4,6 +4,7 @@ devil-contract-contractor = contractor
 devil-contract-early-sign-failed = The contractor must wait for the contractee to sign first!
 devil-contract-no-soul-sign-failed = You do not have a soul to sell!
 devil-sign-invalid-user = You do not have the power to fulfill this contract!
+devil-contract-mind-shielded-failed = A voice comes from your Nanotrasen™ mindshield. "Nice try."
 
 contract-summon-flavor = {$name}'s hand bursts into flames before revealing a black roll of parchment...
 burn-contract-prompt = Burn contract.
@@ -24,7 +25,7 @@ revival-contract-rejected = You reject the unholy offer.
 revival-contract-expired = Times up.
 revival-contract-prompt = {$offerer} offers to restore your life for a price... Do you accept?
 revival-contract-use-success = You offer {$target} a deal no man could refuse...
-revival-contract-use-failed = You cannot offer {$target} two deals at once.
+revival-contract-use-failed = You cannot offer {$target} this deal.
 
 revival-contract-prompt-reject = Reject Offer
 revival-contract-prompt-accept = Accept Offer
@@ -40,10 +41,7 @@ default-contract-content = This binding contract made this day between:
             {"["}bold]Clauses of Binding:{"["}/bold]
             {"["}italic]The following parties give up the following possessions{"["}/italic{"]"}
 
-            Article I: Soul
             Contractee: Soul Ownership
-
-            Article II: Mortality
             Contractee: Death
 
             {"["}italic]All clauses come into effect upon signing of this paper by both parties.{"["}/italic]

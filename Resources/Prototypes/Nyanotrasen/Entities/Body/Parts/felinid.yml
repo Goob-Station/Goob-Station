@@ -1,0 +1,113 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: PartFelinid
+  parent: PartHuman
+  abstract: true
+  components:
+  - type: Damageable
+    damageModifierSet: Felinid
+  - type: BodyPart
+    species: Felinid
+
+- type: entity
+  id: HeadFelinid
+  name: "felinid head"
+  parent: [PartFelinid, BaseHead]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "head_m"
+
+- type: entity
+  id: ChestFelinid
+  name: "felinid chest"
+  parent: [PartFelinid, BaseChest]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "chest_m"
+
+- type: entity
+  id: GroinFelinid
+  name: "felinid groin"
+  parent: [PartFelinid, BaseGroin]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "groin_m"
+
+- type: entity
+  id: LeftArmFelinid
+  name: "left felinid arm"
+  parent: [PartFelinid, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmFelinid
+  name: "right felinid arm"
+  parent: [PartFelinid, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandFelinid
+  name: "left felinid hand"
+  parent: [PartFelinid, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandFelinid
+  name: "right felinid hand"
+  parent: [PartFelinid, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegFelinid
+  name: "left felinid leg"
+  parent: [PartFelinid, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegFelinid
+  name: "right felinid leg"
+  parent: [PartFelinid, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootFelinid
+  name: "left felinid foot"
+  parent: [PartFelinid, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootFelinid
+  name: "right felinid foot"
+  parent: [PartFelinid, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_foot"

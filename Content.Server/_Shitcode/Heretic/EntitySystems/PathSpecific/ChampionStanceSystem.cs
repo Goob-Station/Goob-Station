@@ -7,13 +7,14 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Bloodstream;
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
@@ -21,7 +22,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
-
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components; // Shitmed Change
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
 public sealed class ChampionStanceSystem : EntitySystem
@@ -34,14 +35,14 @@ public sealed class ChampionStanceSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ChampionStanceComponent, DamageModifyEvent>(OnDamageModify);
-        SubscribeLocalEvent<ChampionStanceComponent, TakeStaminaDamageEvent>(OnTakeStaminaDamage);
+        SubscribeLocalEvent<ChampionStanceComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<ChampionStanceComponent, GetBloodlossDamageMultiplierEvent>(OnGetBloodlossMultiplier);
         SubscribeLocalEvent<ChampionStanceComponent, ComponentStartup>(OnChampionStartup);
         SubscribeLocalEvent<ChampionStanceComponent, ComponentShutdown>(OnChampionShutdown);
         SubscribeLocalEvent<ChampionStanceComponent, ModifySlowOnDamageSpeedEvent>(OnChampionModifySpeed);
 
         // if anyone is reading through and does not have EE newmed you can remove these handlers
-        SubscribeLocalEvent<ChampionStanceComponent, BodyPartAttachedEvent>(OnBodyPartAttached);
+        SubscribeLocalEvent<ChampionStanceComponent, BodyPartAddedEvent>(OnBodyPartAdded);
         SubscribeLocalEvent<ChampionStanceComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
     }
 
@@ -89,22 +90,30 @@ public sealed class ChampionStanceSystem : EntitySystem
         args.Damage = args.OriginalDamage / 2f;
     }
 
-    private void OnTakeStaminaDamage(Entity<ChampionStanceComponent> ent, ref TakeStaminaDamageEvent args)
+    private void OnBeforeStaminaDamage(Entity<ChampionStanceComponent> ent, ref BeforeStaminaDamageEvent args)
     {
         if (!Condition(ent))
             return;
 
-        args.Multiplier /= 2.5f;
+        args.Value *= 0.4f;
     }
 
-    private void OnBodyPartAttached(Entity<ChampionStanceComponent> ent, ref BodyPartAttachedEvent args)
+    private void OnBodyPartAdded(Entity<ChampionStanceComponent> ent, ref BodyPartAddedEvent args)
     {
         // can't touch this
-        args.Part.Comp.CanSever = false;
+        if (!TryComp(args.Part, out WoundableComponent? woundable))
+            return;
+
+        woundable.CanRemove = false;
+        Dirty(args.Part);
     }
     private void OnBodyPartRemoved(Entity<ChampionStanceComponent> ent, ref BodyPartRemovedEvent args)
     {
         // can touch this
-        args.Part.Comp.CanSever = true;
+        if (!TryComp(args.Part, out WoundableComponent? woundable))
+            return;
+
+        woundable.CanRemove = true;
+        Dirty(args.Part);
     }
 }
