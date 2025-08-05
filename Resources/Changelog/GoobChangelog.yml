@@ -12863,3 +12863,61 @@ Entries:
       message: Fixed IPCs being unable to use cyborg rechargers.
   id: 1424
   time: '2025-08-04T07:26:49.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Remilia and Cerberus not understanding Tau-Ceti Basic, so they
+        couldn't understand the Chaplain.
+  id: 1425
+  time: '2025-08-05T10:56:12.0000000+00:00'
+- author: Diggy
+  changes:
+    - type: Fix
+      message: CBurn - ERT - Deathsquad are now human only.
+  id: 1426
+  time: '2025-08-05T10:58:39.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: Syndicate Disaster Victims will now spawn with Crew Aligned roles
+  id: 1427
+  time: '2025-08-05T10:59:27.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed vehicles not moving.
+  id: 1428
+  time: '2025-08-05T11:05:42.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Fixed BSO could get objective to protect antagonist target.
+  id: 1429
+  time: '2025-08-05T11:12:26.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Wizards now have proper names again.
+  id: 1430
+  time: '2025-08-05T11:13:06.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: >-
+        Fixed "On Fire" Alert Visual Bug. You can now be extinguished without it
+        remaining on your screen.
+  id: 1431
+  time: '2025-08-05T11:15:48.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: Cosmic Cult will only recall once Tier 3 now.
+    - type: Tweak
+      message: >-
+        Cosmic Cult will no longer recall if all Cultists are **dead**. You
+        still must deconvert them to recall.
+    - type: Fix
+      message: Fixed Cosmic Cult Recall Loop
+  id: 1432
+  time: '2025-08-05T11:18:09.0000000+00:00'
