@@ -169,6 +169,9 @@ public sealed partial class PullableComponent : Component
     /// </summary>
     [DataField]
     public float TabledDamage = 5f;
+
+    [DataField]
+    public float EscapeAttemptCooldown = 2f;
     // Goobstation end
 }
 

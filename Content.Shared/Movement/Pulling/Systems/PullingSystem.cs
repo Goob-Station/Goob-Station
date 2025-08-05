@@ -1205,7 +1205,7 @@ public sealed class PullingSystem : EntitySystem
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
             return GrabResistResult.Succeeded;
 
-        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(2));
+        pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(pullable.Comp.EscapeAttemptCooldown));
         Dirty(pullable.Owner, pullable.Comp);
         return GrabResistResult.Failed;
     }
