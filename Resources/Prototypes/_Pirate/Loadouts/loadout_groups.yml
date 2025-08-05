@@ -14,7 +14,7 @@
   - AdminAssistantHeadsetAlt
 
 - type: loadoutGroup
-  id: AdminAssistanShoes
+  id: AdminAssistantShoes
   name: loadout-group-admin-assistant-shoes
   loadouts:
   - BrownShoes
