@@ -12909,3 +12909,15 @@ Entries:
         remaining on your screen.
   id: 1431
   time: '2025-08-05T11:15:48.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Tweak
+      message: Cosmic Cult will only recall once Tier 3 now.
+    - type: Tweak
+      message: >-
+        Cosmic Cult will no longer recall if all Cultists are **dead**. You
+        still must deconvert them to recall.
+    - type: Fix
+      message: Fixed Cosmic Cult Recall Loop
+  id: 1432
+  time: '2025-08-05T11:18:09.0000000+00:00'
