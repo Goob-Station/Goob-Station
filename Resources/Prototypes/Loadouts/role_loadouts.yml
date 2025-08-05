@@ -164,15 +164,15 @@
   id: JobPassenger
   groups:
   - GroupTankHarness
-  - PassengerJumpsuit
-  - CommonBackpack
-  - PassengerHat
-  - PassengerNeck
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuitRequired
+  - CivilianBackpack
+  - CivilianHat
+  - CivilianNeck
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
   - Glasses
   - Survival
   - Trinkets
@@ -185,41 +185,41 @@
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
-  - CommonBackpack
+  - CivilianBackpack
   - BartenderOuterClothing
   - Glasses
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobServiceWorker
   groups:
   - GroupTankHarness
   - BartenderJumpsuit
-  - CommonBackpack
+  - CivilianBackpack
   - Glasses
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobChef
@@ -228,41 +228,41 @@
   - ChefHead
   - ChefMask
   - ChefJumpsuit
-  - CommonBackpack
+  - CivilianBackpack
   - ChefOuterClothing
   - Glasses
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobLibrarian
   groups:
   - GroupTankHarness
   - LibrarianJumpsuit
-  - CommonBackpack
+  - CivilianBackpack
   - Glasses
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobLawyer
@@ -270,20 +270,20 @@
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
-  - CommonBackpack
+  - CivilianBackpack
   - Glasses
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobChaplain
@@ -293,21 +293,21 @@
   - ChaplainMask
   - ChaplainNeck
   - ChaplainJumpsuit
-  - CommonBackpack
+  - CivilianBackpack
   - ChaplainOuterClothing
   - Glasses
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobJanitor
@@ -316,7 +316,7 @@
   - JanitorHead
   - JanitorJumpsuit
   - JanitorGloves
-  - CommonBackpack
+  - CivilianBackpack
   - JanitorOuterClothing
   - Glasses
   - Survival
@@ -324,14 +324,14 @@
   - JanitorPlunger
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobBotanist
@@ -346,14 +346,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobClown
@@ -369,14 +369,14 @@
   - SurvivalClown
   - Trinkets
 
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
   - Animals
 
 
@@ -394,14 +394,14 @@
   - Glasses
   - SurvivalMime
   - Trinkets
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
   - Animals
 
 - type: roleLoadout
@@ -409,7 +409,7 @@
   groups:
   - GroupTankHarness
   - MusicianJumpsuit
-  - CommonBackpack
+  - CivilianBackpack
   - MusicianOuterClothing
   - Glasses
   - Survival
@@ -417,14 +417,14 @@
   - Instruments
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerShoes
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 # Cargo
 - type: roleLoadout
@@ -745,19 +745,19 @@
   id: JobZookeeper
   groups:
   - GroupTankHarness
-  - CommonBackpack
+  - CivilianBackpack
   - Glasses
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobReporter
@@ -765,19 +765,19 @@
   - GroupTankHarness
   - ReporterJumpsuit
   - ReporterOuterClothing # Goobstation - Bodycams
-  - CommonBackpack
+  - CivilianBackpack
   - Glasses
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianBelt
 
 
 - type: roleLoadout
@@ -791,14 +791,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - CommonBackpack
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianBackpack
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobBoxer
@@ -806,19 +806,19 @@
   - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
-  - CommonBackpack
+  - CivilianBackpack
   - Glasses
   - Survival
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
-  - PassengerJumpsuit
-  - PassengerNeck
-  - PassengerHat
-  - PassengerFace
-  - PassengerGloves
-  - PassengerOuterClothing
-  - PassengerBelt
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianBelt
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
