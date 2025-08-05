@@ -8,3 +8,5 @@ ent-PKAUpgradeFireRate = PKA modkit (fire rate)
     .desc = { ent-BasePKAUpgrade.desc }
 ent-PKAUpgradeLight = PKA modkit (light)
     .desc = { ent-BasePKAUpgrade.desc }
+ent-PKAUpgradePressure = PKA modkit (pressure)
+    .desc = { ent-BaseSyndicateContraband.desc }

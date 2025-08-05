@@ -44,3 +44,6 @@ ent-MobYowieRandom = Урист МакЙоу
 ent-MobVoxRandom = Урристити МакВокс
     .suffix = Случайная внешность
     .desc = { ent-MobVox.desc }
+ent-MobShadowkinRandom = Урист МакШэдоукин
+    .suffix = Случайная внешность
+    .desc = { ent-MobShadowkin.desc }

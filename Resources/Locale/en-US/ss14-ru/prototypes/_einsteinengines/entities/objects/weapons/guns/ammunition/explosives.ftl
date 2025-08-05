@@ -1,0 +1,10 @@
+ent-GrenadeBeanbagShotgun = 40mm beanbag shot
+    .desc = { ent-BaseGrenade.desc }
+ent-GrenadeBirdshot = 40mm birdshot
+    .desc = For hunting alien birds of unusual size.
+ent-GrenadeSlug = 40mm slug
+    .desc = For hunting alien game the size of a mountain.
+ent-Grenade00Buckshot = 40mm 00-Buckshot
+    .desc = For when you're hunting alien game animals the size of a house.
+ent-Grenade0000Buckshot = 40mm 0000-Buckshot
+    .desc = For when you're hunting alien game animals the size of a dropship.

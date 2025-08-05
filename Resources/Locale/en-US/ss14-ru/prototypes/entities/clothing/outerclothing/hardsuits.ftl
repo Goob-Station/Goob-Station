@@ -1,5 +1,3 @@
-ent-ClothingOuterHardsuitBasic = basic voidsuit
-    .desc = A basic, universal voidsuit that protects the wearer against the horrors of life in space. Beats not having a hardsuit, at least.
 ent-ClothingOuterHardsuitAtmos = atmos voidsuit
     .desc = A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
 ent-ClothingOuterHardsuitEngineering = engineering voidsuit
@@ -18,8 +16,8 @@ ent-ClothingOuterHardsuitBrigmedic = brigmedic voidsuit
     .desc = Special voidsuit of the guardian angel of the brig. It is the medical version of the security voidsuit.
 ent-ClothingOuterHardsuitWarden = warden's voidsuit
     .desc = A specialized riot suit geared to combat low pressure environments.
-ent-ClothingOuterHardsuitCap = captain's armored spacesuit
-    .desc = A formal armored spacesuit, made for the station's captain.
+ent-ClothingOuterHardsuitCap = captain's parade voidsuit
+    .desc = A formal and slightly armored voidsuit, made for the station's captain.
 ent-ClothingOuterHardsuitEngineeringWhite = chief engineer's voidsuit
     .desc = A special voidsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station.
 ent-ClothingOuterHardsuitMedical = chief medical officer's voidsuit

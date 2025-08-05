@@ -19,3 +19,5 @@ ent-DoorRemoteEngineering = пульт от шлюзов инженерного 
 ent-DoorRemoteAll = супер-пульт от шлюзов
     .suffix = Адмемы
     .desc = { ent-DoorRemoteDefault.desc }
+ent-DoorRemoteXenoborg = пульт от шлюзов ксеноборгов
+    .desc = { ent-DoorRemoteDefault.desc }

@@ -8,3 +8,5 @@ ent-PKAUpgradeFireRate = улучшение ПКА (скорострельнос
     .desc = { ent-BasePKAUpgrade.desc }
 ent-PKAUpgradeLight = улучшение ПКА (свет)
     .desc = { ent-BasePKAUpgrade.desc }
+ent-PKAUpgradePressure = улучшение ПКА (давление)
+    .desc = { ent-BaseSyndicateContraband.desc }

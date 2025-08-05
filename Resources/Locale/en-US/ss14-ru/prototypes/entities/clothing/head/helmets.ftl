@@ -1,5 +1,7 @@
 ent-ClothingHeadHelmetBase = { ent-ClothingHeadBase }
     .desc = { ent-ClothingHeadBase.desc }
+ent-ClothingHeadHelmetArmoredBase = { ent-ClothingHeadHelmetBase }
+    .desc = { ent-ClothingHeadHelmetBase.desc }
 ent-ClothingHeadHelmetBasic = helmet
     .desc = Standard security gear. Protects the head from impacts.
 ent-ClothingHeadHelmetMerc = mercenary helmet
@@ -38,7 +40,7 @@ ent-ClothingHeadHelmetERTSecurity = ERT security helmet
 ent-ClothingHeadHelmetERTMedic = ERT medic helmet
     .desc = An in-atmosphere helmet worn by medical members of the Nanotrasen Emergency Response Team. Has white highlights.
 ent-ClothingHeadHelmetERTEngineer = ERT engineer helmet
-    .desc = An in-atmosphere helmet worn by engineering members of the Nanotrasen Emergency Response Team. Has orange highlights.
+    .desc = An in-atmosphere helmet worn by engineering members of the Nanotrasen Emergency Response Team. Has orange highlights and keeps your eyes safe.
 ent-ClothingHeadHelmetERTJanitor = ERT janitor helmet
     .desc = An in-atmosphere helmet worn by janitorial members of the Nanotrasen Emergency Response Team. Has dark purple highlights.
 ent-ClothingHeadHelmetRaid = syndicate raid helmet

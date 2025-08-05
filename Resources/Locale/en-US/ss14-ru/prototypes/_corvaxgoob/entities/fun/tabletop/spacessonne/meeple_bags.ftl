@@ -1,0 +1,12 @@
+ent-CarcBagMeepleBase = meeple bag
+    .desc = { ent-BaseStorageItem.desc }
+ent-CarcBagMeepleRed = red meeples bag
+    .desc = { ent-CarcBagMeepleBase.desc }
+ent-CarcBagMeepleGreen = green meeples bag
+    .desc = { ent-CarcBagMeepleBase.desc }
+ent-CarcBagMeepleBlue = blue meeples bag
+    .desc = { ent-CarcBagMeepleBase.desc }
+ent-CarcBagMeepleBlack = black meeples bag
+    .desc = { ent-CarcBagMeepleBase.desc }
+ent-CarcBagMeepleYellow = yellow meeples bag
+    .desc = { ent-CarcBagMeepleBase.desc }

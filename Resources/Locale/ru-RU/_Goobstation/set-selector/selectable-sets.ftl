@@ -115,6 +115,11 @@ selectable-set-blueshield-revolver-description =
     Закончиться боеприпасы — худшее, что может случиться в перестрелке.
     Включает: Энергетический револьвер EG-4 с зарядными магазинами,
     как боевыми, так и учебными, и плечевую кобуру.
+selectable-set-blueshield-dragon-name = набор для кунг-фу
+selectable-set-blueshield-dragon-description =
+    Иногда приходится замарать руки.
+    Включает в себя: книгу, способную обучить
+    продвинутому боевому искусству кунг-фу..
 selectable-set-blueshield-cqc-name = набор для ближнего боя
 selectable-set-blueshield-cqc-description =
     Иногда нужно и руками поработать.

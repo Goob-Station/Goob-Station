@@ -1,0 +1,12 @@
+ent-PelletShotgunBirdshot = pellet (.50 birdshot)
+    .desc = { ent-BaseBullet.desc }
+ent-PelletShotgunSpreadBirdshot = { ent-PelletShotgun }
+    .desc = { ent-PelletShotgun.desc }
+ent-PelletShotgun00Buckshot = pellet (.50 00-Buckshot)
+    .desc = { ent-BaseBullet.desc }
+ent-PelletShotgunSpread00Buckshot = { ent-PelletShotgun }
+    .desc = { ent-PelletShotgun.desc }
+ent-PelletShotgun0000Buckshot = pellet (.50 0000-Buckshot)
+    .desc = { ent-BaseBullet.desc }
+ent-PelletShotgunSpread0000Buckshot = { ent-PelletShotgun }
+    .desc = { ent-PelletShotgun.desc }

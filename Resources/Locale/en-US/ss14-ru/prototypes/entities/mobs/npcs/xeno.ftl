@@ -1,10 +1,10 @@
-ent-MobXeno = burrower
+ent-MobXeno = Burrower
     .desc = They mostly come at night. Mostly.
 ent-MobXenoPraetorian = praetorian
     .desc = { ent-MobXeno.desc }
 ent-MobXenoDrone = drone
     .desc = { ent-MobXeno.desc }
-ent-MobXenoQueen = queen
+ent-MobXenoQueen = Queen
     .desc = { ent-MobXeno.desc }
 ent-MobXenoRavager = ravager
     .desc = { ent-MobXeno.desc }

@@ -1,0 +1,10 @@
+ent-BoxBodyBagBluespace = bluespace body bag box
+    .desc = Contains body bags.
+ent-BoxBodyBagNanoTrasen = NanoTrasen body bag box
+    .desc = Contains body bags.
+ent-BoxBodyBagPrisoner = prisoner body bag box
+    .desc = Contains body bags.
+ent-BoxBodyBagRadiation = radiation body bag box
+    .desc = Contains body bags.
+ent-BoxBodyBagSyndicate = syndicate body bag box
+    .desc = Contains body bags.

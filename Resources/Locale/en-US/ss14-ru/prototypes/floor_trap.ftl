@@ -1,8 +1,8 @@
 ent-CollideFloorTrap = { "" }
     .desc = { "" }
-ent-CollideFloorTrapSpawn = спавн напольной ловушки
+ent-CollideFloorTrapSpawn = floor trap spawn
     .desc = { ent-CollideFloorTrap.desc }
-ent-FloorTrapExplosion = взрывная напольная ловушка
+ent-FloorTrapExplosion = explosion floor trap
     .desc = { ent-CollideFloorTrap.desc }
 ent-FloorTrapEMP = EMP floor trap
     .desc = { ent-CollideFloorTrap.desc }

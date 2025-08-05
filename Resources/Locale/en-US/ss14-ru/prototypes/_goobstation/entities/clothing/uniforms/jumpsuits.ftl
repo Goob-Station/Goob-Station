@@ -1,5 +1,7 @@
 ent-ClothingUniformJumpsuitDurathread = durathread jumpsuit
     .desc = A loose worn durathread shirt with a grey pants, its resilient fibres provide some protection to the wearer.
+ent-ClothingUniformJumpsuitResonant = resonant jumpsuit
+    .desc = Lets not play too rough. Neither you nor I can reach it just yet…
 ent-ClothingUniformJumpsuitNanotrasenRepresentative = nanotrasen representative suit
     .desc = A black suit worn by officials.
 ent-ClothingUniformJumpsuitCasualSyndicate = casual syndicate jumpsuit

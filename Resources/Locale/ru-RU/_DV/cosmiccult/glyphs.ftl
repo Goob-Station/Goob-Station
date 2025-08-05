@@ -1,4 +1,5 @@
 cult-glyph-target-dead = Влияние глифа не действует на мёртвых...
+cult-glyph-target-rotting = Влияние глифа не действует на гнилых.
 cult-glyph-not-enough-cultists = Недостаточно культистов для активации глифа!
 cult-glyph-conditions-not-met = Нет подходящих целей в зоне действия глифа!
 cult-glyph-too-many-targets = Слишком много целей на глифе!

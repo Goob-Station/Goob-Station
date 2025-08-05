@@ -1,0 +1,12 @@
+ent-MedicalBeamGun = medical beam gun
+    .desc = Delivers volatile medical nanites in a focused beam. Don't cross the beams!
+    .suffix = Unlimited
+ent-MedicalBeamGunBattery = { ent-MedicalBeamGun }
+    .suffix = Battery
+    .desc = { ent-MedicalBeamGun.desc }
+ent-MedicalBeamGunSyndicate = syndicate medical beam gun
+    .desc = Delivers volatile medical nanites in a focused beam. Don't cross the beams!
+    .suffix = Syndicate, Unlimited
+ent-MedicalBeamGunSyndicateBattery = { ent-MedicalBeamGunSyndicate }
+    .suffix = Battery, Syndicate
+    .desc = { ent-MedicalBeamGunSyndicate.desc }

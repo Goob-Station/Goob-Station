@@ -26,3 +26,5 @@ ent-InspectorPDA = auditor's PDA
     .desc = { ent-NavyCaptainPDA.desc }
 ent-SyndiPDANukie = syndicate PDA
     .desc = Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people!
+ent-HighCommandPDA = high commander PDA
+    .desc = An ordinary syndicate PDA, adorned with gilded symbols. It's owner is clearly of a higher standing.

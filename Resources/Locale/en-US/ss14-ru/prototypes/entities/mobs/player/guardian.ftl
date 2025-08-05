@@ -8,3 +8,5 @@ ent-MobHoloClownGuardian = HoloClown
     .desc = A mesmerising whirl of hard-light patterns weaves a blue colored clown of dubious origin.
 ent-ActionToggleGuardian = Toggle Guardian
     .desc = Either manifests the guardian or recalls it back into your body
+ent-ActionSelfToggleGuardian = Recall Self
+    .desc = Recalls yourself back into your host's body

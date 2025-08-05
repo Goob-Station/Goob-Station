@@ -1,12 +1,51 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "[redsur, redsur-1] by Ko4erga",
+  "copyright": "Taken from TauCetiClassic at commit https://github.com/TauCetiStation/TauCetiClassic/tree/13b5c47145804dd24507b75f250de5e87d34e194, [redsur, redsur-1] by Ko4erga",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "can-connector"
+    },
+    {
+      "name": "locked"
+    },
+    {
+      "name": "unlocked"
+    },
+    {
+      "name": "can-o0",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "can-o1"
+    },
+    {
+      "name": "can-o2"
+    },
+    {
+      "name": "can-o3"
+    },
+    {
+      "name": "can-oa1"
+    },
+    {
+      "name": "can-open"
+    },
+    {
+      "name": "scrubber-connector"
+    },
+    {
+      "name": "scrubber-open"
+    },
     {
       "name": "redsur"
     },

@@ -47,6 +47,7 @@ marking-HumanHairQueenBee = Королева пчёл
 marking-HumanHairSaggedMohawk = Опущенный ирокез
 marking-HumanHairSharpMohawk = Острый ирокез
 marking-HumanHairShortAndPoofy = Короткие и пышные
+marking-HumanHairPoofed = Пышный
 marking-HumanHairShortCurls = Короткие кудри
 marking-HumanHairShoulderLengthBraid = Косы до плеч
 marking-HumanHairSideSpike = Боковой пик

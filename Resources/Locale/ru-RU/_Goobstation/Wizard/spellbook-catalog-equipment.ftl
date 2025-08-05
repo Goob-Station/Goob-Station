@@ -62,12 +62,16 @@ spellbook-wand-desc =
     Только волшебники и их ученики могут менять режим стрельбы.
     Можно использовать на себе.
     Компактнее посохов, но не заряжается автоматически.
-spellbook-ninjutsu-name = Ninjutsu Scroll
+spellbook-ninjutsu-name = Свиток Ниндзюцу
 spellbook-ninjutsu-desc =
-    A scroll that teaches one Ninjutsu, a martial art and set of tactics used by ninja in feudal Japan.
-    Cannot be refunded.
+    Свиток, обучающий технике ниндзюцу — боевому искусству и тактике, использовавшимся ниндзя в феодальной Японии.  
+    Возврату не подлежит.
 spellbook-staff-animate-name = Посох Анимации
 spellbook-staff-animate-desc =
     Арканический посох, способный оживлять неодушевлённые предметы при касании.
     Не действует на машины.
     Оживлённые предметы обзаводятся глупыми глазками, но они очень опасны!
+spellbook-hammer-mjollnir-name = Мьёльнир
+spellbook-hammer-mjollnir-description = В ваших руках мощь ГРОЗЫ. Отправляйте врагов в полет с помощью мощного взмаха или броска прямо в них!
+spellbook-hammer-singularity-name = Молот сингулярности
+spellbook-hammer-singularity-description = Вы когда-нибудь задумывались, каково это - быть сингулярностью? Размахивайте этим молотом, чтобы притянуть всё вокруг, даже если вы промахнетесь!

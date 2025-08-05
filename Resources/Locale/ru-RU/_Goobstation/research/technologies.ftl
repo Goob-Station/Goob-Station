@@ -34,3 +34,4 @@ research-technology-mag-fed-smg = ПП с энергоячейками
 research-technology-mag-fed-sniper = Снайперские винтовки с энергоячейками
 research-technology-mag-fed-lmg = Ручные пулемёты с энергоячейками
 research-technology-restraint = Технологии ограничителей
+research-technology-advanced-power-generation = Продвинутый генератор
