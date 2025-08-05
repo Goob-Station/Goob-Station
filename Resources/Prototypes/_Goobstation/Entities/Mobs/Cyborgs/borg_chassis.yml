@@ -49,6 +49,11 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+  - type: Speech # Goobstation - Cyborg emote sounds
+    speechSounds: SyndieBorg
+  - type: Vocal # Goobstation - Cyborg emote sounds
+    sounds:
+      Unsexed: UnisexSiliconSyndicate
 
 - type: entity
   id: BorgChassisUrist
