@@ -12935,3 +12935,9 @@ Entries:
         bartender.
   id: 1434
   time: '2025-08-05T14:00:40.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Explosions won't make Tesla fly across the station anymore.
+  id: 1435
+  time: '2025-08-05T14:17:05.0000000+00:00'
