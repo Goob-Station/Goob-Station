@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Suyo <suyotulam@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["reptillian_hiss1.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from https://github.com/ss220-space/Paradise/commit/6572a5f522e32cb5e0af7fb3ca3e45a725e2e992. Downmixed to 1 channel, volume edited by SabatonShip"
