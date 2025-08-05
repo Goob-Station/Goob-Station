@@ -1,0 +1,71 @@
+- type: entity
+  name: Святий посібник для співробітників Нанотрайзен
+  description: Прославляй НТ, провчай клоунів, навчай асистентів стандартним робочим процедурам!
+  parent: BaseStorageItem
+  id: NTEmployeeHandbook
+  suffix: Bible
+  components:
+  - type: UseDelay
+    delay: 10.0
+  - type: Bible
+    damage:
+      groups:
+        Brute: -15
+        Burn: -15
+    damageOnFail:
+      groups:
+        Brute: 15
+        Airloss: 15
+    damageOnUntrainedUse:
+      groups:
+        Burn: 10
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Holy: 5 # Goobstation - bro wtf
+        Blunt: 1
+  #- type: Prayable
+  #  bibleUserOnly: true
+  - type: AlternatePrayable # Goobstation
+    requireBibleUser: true
+  - type: Summonable
+    specialItem: SpawnPointGhostRemilia
+  - type: ReactionMixer
+    mixMessage: "bible-mixing-success"
+    reactionTypes:
+    - Holy
+  - type: Sprite
+    sprite: _Pirate/Objects/Specific/Chapel/NTEmployeeHandbook.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _Pirate/Objects/Specific/Chapel/NTEmployeeHandbook.rsi
+  - type: Clothing
+    slots:
+    - Belt
+  - type: Storage
+    grid:
+    - 0,0,0,1
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Material
+  - type: Tag
+    tags:
+    - Bible
+  - type: StealTarget
+    stealGroup: Bible
+  - type: EnchantingTool # Goobstation
+
+- type: selectableSet
+  id: NTEmployeeHandbookSet
+  name: Святий посібник для співробітників Нанотрайзен
+  description: Прославляй НТ, провчай клоунів, навчай асистентів!
+  sprite:
+    sprite: _Pirate/Objects/Specific/Chapel/NTEmployeeHandbook.rsi
+    state: icon
+  content:
+  - NTEmployeeHandbook

@@ -41,6 +41,13 @@
 
 # region Chaplain
 - type: alternativeJob
+  id: AlternativeJobAtheist
+  jobName: job-alternative-name-atheist
+  jobDescription: job-description-atheist
+  jobIconProtoId: JobIconAtheist
+  parentJobId: Chaplain
+
+- type: alternativeJob
   id: AlternativeJobRabbi
   jobName: job-alternative-name-rabbi
   jobDescription: job-description-rabbi
@@ -354,6 +361,14 @@
 # region Chaplain icons definitions
 - type: jobIcon
   parent: JobIcon
+  id: JobIconAtheist
+  icon:
+    sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
+    state: atheist
+  jobName: job-alternative-name-atheist
+
+- type: jobIcon
+  parent: JobIcon
   id: JobIconRabbi
   icon:
     sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
@@ -421,6 +436,6 @@
   id: JobIconMonolithPreacher
   icon:
     sprite: /Textures/_Pirate/Interface/Misc/job_icons.rsi
-    state: monolithpreacher
+    state: preacher
   jobName: job-alternative-name-monolith-preacher
 # endregion

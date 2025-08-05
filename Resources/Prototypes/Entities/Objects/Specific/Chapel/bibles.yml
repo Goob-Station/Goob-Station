@@ -102,6 +102,7 @@
     - BibleSet
     - QuaranSet
     - TanakhSet
+    - NTEmployeeHandbookSet #Pirate changes atheist
     maxSelectedSets: 1
 
 - type: selectableSet
