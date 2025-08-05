@@ -32,7 +32,7 @@
 
 - type: stack
   id: FloorTileMetalGreyDark
-  name: stack-metal-floor-grey dark
+  name: stack-metal-floor-grey-dark
   spawn: FloorTileItemMetalGreyDark
 
 - type: stack
@@ -136,5 +136,5 @@
 
 - type: stack
   id: FloorTileMetalSolid
-  name: stack-metal-solid floor
+  name: stack-metal-solid-floor
   spawn: FloorTileItemMetalSolid

@@ -1,5 +1,4 @@
 - type: construction
-  name: log wall
   id: N14WoodWallLog
   graph: N14WoodWall
   startNode: start
@@ -15,7 +14,6 @@
 
 # # Doors
 - type: construction
-  name: wooden door
   id: N14DoorWood
   graph: N14DoorGraph
   startNode: start
