@@ -198,7 +198,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/desks.rsi
     state: desk_metal
-    offset: 0.5, 0
+    offset: 0.5,0
   - type: Fixtures
     fixtures:
       fix1:
@@ -237,7 +237,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/desks.rsi
     state: desk_wood
-    offset: 0.5, 0
+    offset: 0.5,0
   - type: Fixtures
     fixtures:
       fix1:

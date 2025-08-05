@@ -307,7 +307,7 @@
 - type: entity
   parent: N14DecorStalagmite1
   id: N14DecorMinecart
-  name: minecrart
+  name: minecart
   description: It seems to have fallen over...
   components:
   - type: Sprite

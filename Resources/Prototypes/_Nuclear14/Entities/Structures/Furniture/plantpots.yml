@@ -6,7 +6,7 @@
   components:
   - type: Fixtures
   - type: Physics
-    canCollide: False
+    canCollide: false
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/plantpots.rsi
     noRot: true

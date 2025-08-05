@@ -887,6 +887,7 @@
   friction: 0.30
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorMS13BrickVertical
@@ -1708,7 +1709,7 @@
   sprite: /Textures/_Nuclear14/Tiles/wasteland.png
   variants: 4
   placementVariants: [0, 1, 2, 3]
-  baseTurf: space
+  baseTurf: FloorPlanetDirt
   isSubfloor: true
   footstepSounds:
     collection: N14FootstepDirt
@@ -1732,7 +1733,7 @@
     East: /Textures/_Nuclear14/Tiles/Dirt/double_edge_E.png
     North: /Textures/_Nuclear14/Tiles/Dirt/double_edge_N.png
     West: /Textures/_Nuclear14/Tiles/Dirt/double_edge_W.png
-  # baseTurf: FloorBase
+  baseTurf: FloorPlanetDirt
   isSubfloor: true
   footstepSounds:
     collection: N14FootstepDirt
@@ -1753,7 +1754,7 @@
     East: /Textures/_Nuclear14/Tiles/Dirt/double_edge_E.png
     North: /Textures/_Nuclear14/Tiles/Dirt/double_edge_N.png
     West: /Textures/_Nuclear14/Tiles/Dirt/double_edge_W.png
-  # baseTurf: FloorBase
+  baseTurf: Plating
   isSubfloor: true
   footstepSounds:
     collection: N14FootstepDirt
@@ -1775,7 +1776,7 @@
     East: /Textures/_Nuclear14/Tiles/Rubble/double_edge_E.png
     North: /Textures/_Nuclear14/Tiles/Rubble/double_edge_N.png
     West: /Textures/_Nuclear14/Tiles/Rubble/double_edge_W.png
-  # baseTurf: FloorBase
+  baseTurf: Plating
   isSubfloor: true
   footstepSounds:
     collection: FootstepAsteroid
@@ -1797,7 +1798,7 @@
     East: /Textures/_Nuclear14/Tiles/Rubble/double_edge_E.png
     North: /Textures/_Nuclear14/Tiles/Rubble/double_edge_N.png
     West: /Textures/_Nuclear14/Tiles/Rubble/double_edge_W.png
-  # baseTurf: FloorBase
+  baseTurf: Plating
   isSubfloor: true
   footstepSounds:
     collection: FootstepAsteroid

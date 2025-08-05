@@ -14,7 +14,7 @@
       - FloorMetalBlue
   - type: Stack
     stackType: FloorTileMetalBlue
-    
+
 - type: entity
   name: metal floor blue solid
   parent: FloorTileItemBase
@@ -30,7 +30,7 @@
       - FloorMetalBlueSolid
   - type: Stack
     stackType: FloorTileMetalBlueSolid
-    
+
 - type: entity
   name: metal floor green
   parent: FloorTileItemBase
@@ -46,7 +46,7 @@
       - FloorMetalGreen
   - type: Stack
     stackType: FloorTileMetalGreen
-    
+
 - type: entity
   name: metal floor green solid
   parent: FloorTileItemBase
@@ -62,7 +62,7 @@
       - FloorMetalGreenSolid
   - type: Stack
     stackType: FloorTileMetalGreenSolid
-    
+
 - type: entity
   name: metal floor grey
   parent: FloorTileItemBase
@@ -78,7 +78,7 @@
       - FloorMetalGrey
   - type: Stack
     stackType: FloorTileMetalGrey
-    
+
 - type: entity
   name: metal floor grey solid
   parent: FloorTileItemBase
@@ -94,7 +94,7 @@
       - FloorMetalGreySolid
   - type: Stack
     stackType: FloorTileMetalGreySolid
-    
+
 - type: entity
   name: metal floor grey dark
   parent: FloorTileItemBase
@@ -110,7 +110,7 @@
       - FloorMetalGreyDark
   - type: Stack
     stackType: FloorTileMetalGreyDark
-    
+
 - type: entity
   name: metal floor grey dark solid
   parent: FloorTileItemBase
@@ -126,7 +126,7 @@
       - FloorMetalGreyDarkSolid
   - type: Stack
     stackType: FloorTileMetalGreyDarkSolid
-    
+
 - type: entity
   name: metal floor purple
   parent: FloorTileItemBase
@@ -142,7 +142,7 @@
       - FloorMetalPurple
   - type: Stack
     stackType: FloorTileMetalPurple
-    
+
 - type: entity
   name: metal floor purple solid
   parent: FloorTileItemBase
@@ -158,7 +158,7 @@
       - FloorMetalPurpleSolid
   - type: Stack
     stackType: FloorTileMetalPurpleSolid
-    
+
 - type: entity
   name: metal floor red
   parent: FloorTileItemBase
@@ -174,7 +174,7 @@
       - FloorMetalRed
   - type: Stack
     stackType: FloorTileMetalRed
-    
+
 - type: entity
   name: metal floor red solid
   parent: FloorTileItemBase
@@ -190,7 +190,7 @@
       - FloorMetalRedSolid
   - type: Stack
     stackType: FloorTileMetalRedSolid
-    
+
 - type: entity
   name: metal floor teal
   parent: FloorTileItemBase
@@ -206,7 +206,7 @@
       - FloorMetalTeal
   - type: Stack
     stackType: FloorTileMetalTeal
-    
+
 - type: entity
   name: metal floor teal solid
   parent: FloorTileItemBase
@@ -222,7 +222,7 @@
       - FloorMetalTealSolid
   - type: Stack
     stackType: FloorTileMetalTealSolid
-    
+
 - type: entity
   name: metal floor white
   parent: FloorTileItemBase
@@ -238,7 +238,7 @@
       - FloorMetalWhite
   - type: Stack
     stackType: FloorTileMetalWhite
-    
+
 - type: entity
   name: metal floor white solid
   parent: FloorTileItemBase
@@ -254,7 +254,7 @@
       - FloorMetalWhiteSolid
   - type: Stack
     stackType: FloorTileMetalWhiteSolid
-    
+
 - type: entity
   name: metal floor yellow
   parent: FloorTileItemBase
@@ -270,7 +270,7 @@
       - FloorMetalYellow
   - type: Stack
     stackType: FloorTileMetalYellow
-    
+
 - type: entity
   name: metal floor yellow solid
   parent: FloorTileItemBase
@@ -286,7 +286,7 @@
       - FloorMetalYellowSolid
   - type: Stack
     stackType: FloorTileMetalYellowSolid
-    
+
 - type: entity
   name: metal floor freezer
   parent: FloorTileItemBase
@@ -368,57 +368,57 @@
   id: FloorTileItemMetalIndustrial
   components:
   - type: Sprite
-    state: wood
+    state: steel
   - type: Item
-    heldPrefix: wood
+    heldPrefix: steel
   - type: FloorTile
     outputs:
       - FloorWasteland
       - FloorMS13MetalIndustrial
   - type: Stack
     stackType: FloorTileMetalIndustrial
-    
+
 - type: entity
   name: metal floor
   parent: FloorTileItemBase
   id: FloorTileItemMetalMS13
   components:
   - type: Sprite
-    state: wood
+    state: steel
   - type: Item
-    heldPrefix: wood
+    heldPrefix: steel
   - type: FloorTile
     outputs:
       - FloorWasteland
       - FloorMS13MetalTile
   - type: Stack
     stackType: FloorTileMetalMS13
-    
+
 - type: entity
   name: metal grate floor
   parent: FloorTileItemBase
   id: FloorTileItemMetalGrate
   components:
   - type: Sprite
-    state: wood
+    state: steel
   - type: Item
-    heldPrefix: wood
+    heldPrefix: steel
   - type: FloorTile
     outputs:
       - FloorWasteland
       - FloorMS13MetalGrate
   - type: Stack
     stackType: FloorTileMetalGrate
-    
+
 - type: entity
   name: metal solid floor
   parent: FloorTileItemBase
   id: FloorTileItemMetalSolid
   components:
   - type: Sprite
-    state: wood
+    state: steel
   - type: Item
-    heldPrefix: wood
+    heldPrefix: steel
   - type: FloorTile
     outputs:
       - FloorWasteland

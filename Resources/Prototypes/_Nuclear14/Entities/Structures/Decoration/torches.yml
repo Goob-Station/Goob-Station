@@ -12,7 +12,7 @@
   - type: InteractionOutline
   - type: Physics
     bodyType: Static
-    canCollide: False
+    canCollide: false
   - type: Sprite
     netsync: false
     noRot: true
@@ -58,7 +58,7 @@
   - type: PointLight
     color: "#e39c40"
     radius: 5
-    power: 16
+    energy: 1.6
 
 # - type: entity
 #   parent: N14Torch

@@ -38,7 +38,7 @@
 
 - type: entity
   parent: N14WellBoarded
-  id: N14WellWaterClean 
+  id: N14WellWaterClean
   name: water well
   description: A well. Hopefully it's got some water at the bottom. Let's hope it's clean.
   suffix: Clean
@@ -76,42 +76,42 @@
       - ReagentId: Water
         Quantity: 1
 
-- type: entity
-  parent: N14WellWaterClean
-  id: N14WellWaterDirty
-  suffix: Dirty
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 100
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
-  - type: SolutionRegeneration
-    solution: tank
-    generated:
-      reagents:
-      - ReagentId: Water
-        Quantity: 1
+# - type: entity
+#   parent: N14WellWaterClean
+#   id: N14WellWaterDirty
+#   suffix: Dirty
+#   components:
+#   - type: SolutionContainerManager
+#     solutions:
+#       drainBuffer:
+#         maxVol: 100
+#       tank:
+#         reagents:
+#         - ReagentId: Water
+#           Quantity: 500
+#   - type: SolutionRegeneration
+#     solution: tank
+#     generated:
+#       reagents:
+#       - ReagentId: Water
+#         Quantity: 1
 
-- type: entity
-  parent: N14WellWaterClean
-  id: N14WellWaterIrradiated # N14TODO: As above
-  suffix: Irradiated
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 100
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
-  - type: SolutionRegeneration
-    solution: tank
-    generated:
-      reagents:
-      - ReagentId: Water
-        Quantity: 1
+# - type: entity
+#   parent: N14WellWaterClean
+#   id: N14WellWaterIrradiated # N14TODO: As above
+#   suffix: Irradiated
+#   components:
+#   - type: SolutionContainerManager
+#     solutions:
+#       drainBuffer:
+#         maxVol: 100
+#       tank:
+#         reagents:
+#         - ReagentId: Water
+#           Quantity: 500
+#   - type: SolutionRegeneration
+#     solution: tank
+#     generated:
+#       reagents:
+#       - ReagentId: Water
+#         Quantity: 1

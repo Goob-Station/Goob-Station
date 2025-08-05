@@ -146,7 +146,7 @@
       path: /Audio/Effects/fence_rattle1.ogg
     slipData:
       launchForwardsMultiplier: 0
-      paralyzeTime: 0
+      paralyzeTime: 1
 
 - type: entity
   parent: N14BarricadeSandbagSingle

@@ -27,7 +27,7 @@
   - type: Transform
     anchored: true
   - type: Physics
-    canCollide: False
+    canCollide: false
     bodyType: Static
   - type: Clickable
 
