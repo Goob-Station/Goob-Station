@@ -336,6 +336,16 @@
     - !type:AutomatedMaterialStorage
       input: AutomationSlotMaterials
       output: null
+  - type: SpamEmitSound # Goobstation - random lathe sounds
+    minInterval: 300
+    maxInterval: 900
+    sound:
+      collection: RandomLatheSounds
+      params:
+        volume: -12 # Ambient
+        maxDistance: 10
+        variation: 0.05
+  - type: SpamEmitSoundRequirePower # Goobstation
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -513,6 +523,8 @@
     - MedicalMisc
     - MedicalVehiclesAdvanced
     - UpgradeKits
+    # Einstein Engines Packs
+    - Translators
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -865,6 +877,9 @@
     - MedicalVehiclesAdvanced
     - MedicalBoards
     - Janitor
+    # Einstein Engines Packs
+    - Translators # Language
+    - TranslatorImplanters # Language
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: EmagLatheRecipes # Goobstation Packs

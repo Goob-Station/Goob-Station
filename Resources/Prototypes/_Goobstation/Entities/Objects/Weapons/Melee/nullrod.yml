@@ -201,10 +201,8 @@
   - type: Tool
     qualities:
     - Prying
-  - type: Prying
-    speedModifier: 3
-    pryPowered: true
-    useSound: /Audio/Items/jaws_pry.ogg
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: Unremoveable
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -216,6 +214,11 @@
   - type: Tag
     tags:
     - GodHand
+    - Crowbar
+  - type: ToolTileCompatible
+  - type: UseDelay
+    delay: 1
+  - type: Prying
 
 - type: entity
   parent: BaseNullrod

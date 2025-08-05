@@ -90,6 +90,9 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 router <messagebus@vk.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -138,7 +141,7 @@ public sealed partial class ZombieComponent : Component
     };
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float ZombieMovementSpeedDebuff = 1.05f; ///Goobchange
+    public float ZombieMovementSpeedDebuff = 0.95f; ///Goobchange
 
     /// <summary>
     /// The skin color of the zombie

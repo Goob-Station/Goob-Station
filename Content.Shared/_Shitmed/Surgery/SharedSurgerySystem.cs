@@ -11,6 +11,7 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -22,7 +23,6 @@ using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
-using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 //using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared.Buckle.Components;
@@ -30,7 +30,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.GameTicking;
@@ -47,7 +46,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -169,7 +167,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
         var complete = IsStepComplete(ent, part, args.Step, surgery);
         args.Repeat = HasComp<SurgeryRepeatableStepComponent>(step) && !complete;
-        var ev = new SurgeryStepEvent(args.User, ent, part, GetTools(args.User), surgery, step, complete);
+        var ev = new SurgeryStepEvent(args.User, ent, part, _hands.GetActiveItemOrSelf(args.User), surgery, step, complete);
         RaiseLocalEvent(step, ref ev);
         RaiseLocalEvent(args.User, ref ev);
         RefreshUI(ent);
@@ -448,11 +446,6 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         }
 
         return ent;
-    }
-
-    private List<EntityUid> GetTools(EntityUid surgeon)
-    {
-        return _hands.EnumerateHeld(surgeon).ToList();
     }
 
     public bool IsLyingDown(EntityUid entity, EntityUid user)

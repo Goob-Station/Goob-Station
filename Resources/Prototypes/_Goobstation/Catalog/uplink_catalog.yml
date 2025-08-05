@@ -26,6 +26,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
@@ -51,6 +52,7 @@
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
@@ -285,19 +287,6 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkTelecrystalMiner
-  name: uplink-tcminer-name
-  description: uplink-tcminer-desc
-  productEntity: TCminerFlatpack
-  cost:
-    Telecrystal: 100
-  categories:
-    - UplinkDisruption
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
 # Weaponry
 
 # - type: listing
@@ -337,17 +326,6 @@
   productEntity: ClothingHandsKnuckleDustersSyndicate
   cost:
     Telecrystal: 20
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkM90
-  name: uplink-m90-name
-  description: uplink-m90-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
-  productEntity: WeaponRifleM90
-  cost:
-    Telecrystal: 50
   categories:
   - UplinkWeaponry
 
@@ -456,6 +434,11 @@
     Telecrystal: 38 # This + esword = 75 TC
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkBulkMosin
@@ -800,22 +783,22 @@
   categories:
   - UplinkChemicals
 
-- type: listing
-  id: UplinkMedicalBeamGunSyndicate
-  name: uplink-medical-beam-gun-name
-  description: uplink-medical-beam-gun-desc
-  productEntity: MedicalBeamGunSyndicateBattery
-  cost:
-    Telecrystal: 100
-  categories:
-  - UplinkChemicals
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsMedicUplink
-  - !type:ListingLimitedStockCondition
-    stock: 1
+#- type: listing Removed pending rework™
+#  id: UplinkMedicalBeamGunSyndicate
+#  name: uplink-medical-beam-gun-name
+#  description: uplink-medical-beam-gun-desc
+#  productEntity: MedicalBeamGunSyndicateBattery
+#  cost:
+#    Telecrystal: 100
+#  categories:
+#  - UplinkChemicals
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - NukeOpsMedicUplink
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 - type: listing
   id: UplinkCombatMedkitPills
@@ -1111,17 +1094,6 @@
 
 # 弾薬
 - type: listing
-  id: UplinkRifleMag
-  name: uplink-rifle-mag-name
-  description: uplink-rifle-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
-  productEntity: MagazineRifle
-  cost:
-    Telecrystal: 5
-  categories:
-  - UplinkAmmo
-
-- type: listing
   id: UplinkCaselessRifleMag
   name: uplink-rifle-caseless-mag-name
   description: uplink-rifle-caseless-mag-desc
@@ -1301,6 +1273,32 @@
       tags:
       - NukeOpsUplink
       - ContravendUplink
+
+- type: listing
+  id: UplinkCQCManualChef
+  name: uplink-cqc-name
+  description: uplink-cqc-desc
+  productEntity: CQCManual
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+
+- type: listing
+  id: UplinkCapoeiraManual
+  name: uplink-capoeira-name
+  description: uplink-capoeira-desc
+  productEntity: CapoeiraManual
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkMysteriousScroll

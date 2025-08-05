@@ -985,10 +985,11 @@ public partial class SharedBodySystem
         return containerNames.Count > 0;
     }
 
-    public bool TryGetPartFromSlotContainer(string slot, out BodyPartType? partType)
+    public bool TryGetPartFromSlotContainer(string slot, [NotNullWhen(true)] out BodyPartType? partType)
     {
         partType = slot switch
         {
+            "innerclothing" or "outerclothing" => BodyPartType.Chest,
             "gloves" => BodyPartType.Hand,
             "shoes" => BodyPartType.Foot,
             "eyes" or "ears" or "head" or "mask" => BodyPartType.Head,
