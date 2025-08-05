@@ -24,7 +24,7 @@
     mode: SnapgridCenter
   components:
   - type: Damageable
-    damageContainer: StructuralXeno
+    damageContainer: Biological
     damageModifierSet: Wood
   - type: Appearance
   - type: PlacementReplacement

@@ -49,7 +49,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.5
+          radius: 0.4
         density: 1000
         mask:
         - MobMask
@@ -137,6 +137,18 @@
   name: drone
   id: MobXenoDroneOld
   parent: BaseXenoOld
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 1000
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   name: Burrower
@@ -391,7 +403,6 @@
         volume: -8
         maxDistance: 10
         variation: 0.05
-  - type: XenoScreech
   - type: FootstepModifier
     footstepSoundCollection:
       collection: XenoFootstepLarge
