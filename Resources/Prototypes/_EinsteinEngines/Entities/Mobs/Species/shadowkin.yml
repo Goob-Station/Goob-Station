@@ -219,7 +219,6 @@
     - DoorBumpOpener
     - AnomalyHost
     - ShadowkinEmotes
-    - FlashVulnerable # Can't protect against flashes
 
 - type: entity
   save: false

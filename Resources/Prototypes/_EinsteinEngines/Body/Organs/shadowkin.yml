@@ -27,6 +27,7 @@
       color: Gray
       activateSound: null
       deactivateSound: null
+    - type: FlashVulnerable # There are downsides.
 
 - type: entity
   id: OrganShadowkinEars
