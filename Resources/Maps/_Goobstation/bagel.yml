@@ -97512,8 +97512,6 @@ entities:
       pos: -21.5,-23.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 68
     - type: AtmosPipeColor
