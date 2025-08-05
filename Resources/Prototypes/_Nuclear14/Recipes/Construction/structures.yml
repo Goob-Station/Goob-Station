@@ -5,7 +5,6 @@
   startNode: start
   targetNode: logWall
   category: construction-category-structures
-  description: Home from home.
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
@@ -22,7 +21,6 @@
   startNode: start
   targetNode: woodDoorMakeshift
   category: construction-category-structures
-  description: A primitive door with manual operation like the cavemen used.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

@@ -2,7 +2,6 @@
 - type: construction
   id: N14Bed
   name: bed
-  description: This is used to lie in, sleep in or strap on. Resting here provides extremely slow healing.
   graph: N14Bed
   startNode: start
   targetNode: bed
@@ -17,7 +16,6 @@
 - type: construction
   id: N14BedWood
   name: bed
-  description: This is used to lie in, sleep in or strap on. Resting here provides extremely slow healing.
   graph: N14Bed
   startNode: start
   targetNode: bedwood
@@ -32,7 +30,6 @@
 - type: construction
   id: N14Bedroll
   name: bedroll
-  description: A bedroll for sleeping on the road. Not very comfy.
   graph: N14Bed
   startNode: start
   targetNode: bedroll
@@ -51,7 +48,6 @@
   startNode: start
   targetNode: N14ChairWood
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -66,7 +62,6 @@
   startNode: start
   targetNode: N14ChairWood1
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -81,7 +76,6 @@
   startNode: start
   targetNode: N14ChairWoodPadded
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -96,7 +90,6 @@
   startNode: start
   targetNode: N14ChairWoodSettler
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -111,7 +104,6 @@
   startNode: start
   targetNode: N14ChairStoolBarBlack
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -126,7 +118,6 @@
   startNode: start
   targetNode: N14ChairStoolBarTan
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -141,7 +132,6 @@
   startNode: start
   targetNode: N14ChairStoolBarRed
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -156,7 +146,6 @@
   startNode: start
   targetNode: N14ChairArmchair
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -171,7 +160,6 @@
   startNode: start
   targetNode: N14ChairMetalGreen
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -186,7 +174,6 @@
   startNode: start
   targetNode: N14ChairMetalBlue
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -201,7 +188,6 @@
   startNode: start
   targetNode: N14ChairMetalRed
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -216,7 +202,6 @@
   startNode: start
   targetNode: N14ChairOfficeRed
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -231,7 +216,6 @@
   startNode: start
   targetNode: N14ChairOfficeBlue
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -246,7 +230,6 @@
   startNode: start
   targetNode: N14ChairOfficeGreen
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -261,7 +244,6 @@
   startNode: start
   targetNode: N14ChairOfficeErgonomic
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -276,7 +258,6 @@
   startNode: start
   targetNode: N14ChairMetalFolding
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -291,7 +272,6 @@
   startNode: start
   targetNode: N14ChairPlastic
   category: construction-category-furniture
-  description: You sit in this. Either by will or force.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -308,7 +288,6 @@
   startNode: start
   targetNode: TableCounterBar
   category: construction-category-furniture
-  description: An alcohol stained bartop.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -324,7 +303,6 @@
   startNode: start
   targetNode: TableMetalGrate
   category: construction-category-furniture
-  description: A cold handmade metal table made from grating.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
@@ -340,7 +318,6 @@
   startNode: start
   targetNode: TableWoodSettler
   category: construction-category-furniture
-  description: A wooden table used by settlers.
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
