@@ -12,7 +12,7 @@
   id: Morgue
   sound:
     params:
-      volume: -12
+      volume: -6
     collection: AmbienceSpooky
   rules: NearMorgue
   priority: 4
@@ -21,7 +21,7 @@
   id: SpookyFog
   sound:
     params:
-      volume: -12
+      volume: -6
     collection: AmbienceSpookyFog
   rules: NearSpookyFog
   priority: 5
@@ -30,7 +30,7 @@
   id: Holy
   sound:
     params:
-      volume: -12
+      volume: -8
     collection: AmbienceHoly
   rules: NearPrayable
   priority: 4
@@ -39,7 +39,7 @@
   id: Train
   sound:
     params:
-      volume: -8
+      volume: -4
     collection: AmbienceTrain
   rules: NearTrain
   priority: 4
@@ -49,7 +49,7 @@
   id: Medical
   sound:
     params:
-      volume: -12
+      volume: -6
     collection: AmbienceMedical
   rules: NearMedical
   priority: 3
@@ -58,7 +58,7 @@
   id: Engineering
   sound:
     params:
-      volume: -12
+      volume: -6
     collection: AmbienceEngineering
   rules: NearEngineering
   priority: 3
@@ -68,7 +68,7 @@
   id: Maintenance
   sound:
     params:
-      volume: -12
+      volume: -6
     collection: AmbienceMaintenance
   rules: NearMaintenance
   priority: 2
@@ -77,7 +77,7 @@
   id: Space
   sound:
     params:
-      volume: -10
+      volume: -5
     collection: AmbienceSpace
   fadeIn: true
   interruptable: true
@@ -88,7 +88,7 @@
   id: Mining
   sound:
     params:
-      volume: -12
+      volume: -6
     collection: AmbienceMining
   rules: OnMapGrid
   fadeIn: true
@@ -100,7 +100,7 @@
   id: General
   sound:
     params:
-      volume: -12
+      volume: -6
     collection: AmbienceGeneral
   rules: AlwaysTrue
 
@@ -160,6 +160,7 @@
     - /Audio/Voice/Misc/lowHiss3.ogg
     - /Audio/Voice/Misc/lowHiss4.ogg
     - /Audio/Ambience/maintambience.ogg
+    - /Audio/_Goobstation/Ambience/ambihullcreak.ogg # Goobstation
 
 - type: soundCollection
   id: AmbienceMedical
