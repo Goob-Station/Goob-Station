@@ -801,8 +801,6 @@
       name: ghost-role-information-syndie-disaster-victim-name
       description: ghost-role-information-syndie-disaster-victim-description
       rules: ghost-role-information-nonantagonist-rules
-      mindRoles:
-      - MindRoleGhostRoleFreeAgentHarmless
       raffle:
         settings: short
     - type: Loadout
