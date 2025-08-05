@@ -12921,3 +12921,23 @@ Entries:
       message: Fixed Cosmic Cult Recall Loop
   id: 1432
   time: '2025-08-05T11:18:09.0000000+00:00'
+- author: doktor-gonz0
+  changes:
+    - type: Fix
+      message: Fixed heretics not seeing rifts sometimes.
+  id: 1433
+  time: '2025-08-05T13:53:15.0000000+00:00'
+- author: Aineias
+  changes:
+    - type: Tweak
+      message: >-
+        Taking over Pun Pun ghostrole now requires knowing how to be a
+        bartender.
+  id: 1434
+  time: '2025-08-05T14:00:40.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Explosions won't make Tesla fly across the station anymore.
+  id: 1435
+  time: '2025-08-05T14:17:05.0000000+00:00'
