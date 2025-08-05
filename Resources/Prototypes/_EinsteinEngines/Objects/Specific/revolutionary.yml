@@ -14,12 +14,15 @@
       - state: detail_bookmark
         color: "#aaaa24"
     - type: RevolutionaryConverter
-      conversionDuration: 2
+      # CorvaxGoob-Start : Convertion system will be reworked soon
+      visibleDoAfter: true
+      conversionDuration: 10
+      # CorvaxGoob-End
     - type: Tag
       tags:
         - Book
     - type: UseDelay
-      delay: 2
+      delay: 10 # CorvaxGoob
     - type: Appearance
     - type: GuideHelp
       guides:

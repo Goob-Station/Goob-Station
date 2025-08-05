@@ -7,21 +7,21 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-job-name-futureagent = Агент будущего
-job-name-salvagediver = Спасатель
-job-name-ntr = Представитель Нанотрейзен
-job-name-bs = Офицер Синего Щита
-job-name-overall = Общее
-job-name-exec = Служебный доступ
+job-name-futureagent = агент будущего
+job-name-salvagediver = спасатель
+job-name-ntr = представитель Нанотрейзен
+job-name-bs = офицер Синего Щита
+job-name-overall = общее
+job-name-exec = служебный доступ
 
 # Navy Stuff
 
-job-name-navyofficer = Офицер ЦекнтКом
-job-name-navy-officer-undercover = Офицер под прикрытием
-job-name-navycaptain = Капитан ВКФ
-job-name-diplomat = Дипломат Нанотрейзен
-job-name-inspector = Инспектор ЦК
-job-name-nct = Наставник ЦК
+job-name-navyofficer = офицер ЦекнтКом
+job-name-navy-officer-undercover = офицер под прикрытием
+job-name-navycaptain = капитан ВКФ
+job-name-diplomat = дипломат Нанотрейзен
+job-name-inspector = инспектор ЦК
+job-name-nct = наставник ЦК
 
 # Syndicate
 
@@ -29,26 +29,26 @@ job-name-highcommander = Офицер Синдиката
 
 # Half Life
 
-job-name-hecu = Агент HECU
+job-name-hecu = агент HECU
 job-name-governmentman = The G-Man
 job-name-gman = Г-Мэн
 
 # Misc
 
-job-name-conquest = Конквест
-job-name-mercenarycaptain = Капитан Наёмников
+job-name-conquest = конквест
+job-name-mercenarycaptain = капитан Наёмников
 
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
-JobBlueshieldOfficer = Офицер Синего Щита
-JobNanotrasenRepresentative = Представитель Нанотрейзен
-JobNanotrasenCareerTrainer = Наставник ЦК
-JobHecuOperative = Агент HECU
-JobNavyOfficer = Офицер ЦК
-JobNavyOfficerUndercover = Офицер под прикрытием
-JobNavyCaptain = Капитан ВКФ
-JobDiplomat = Дипломат Нанотрейзен
+JobBlueshieldOfficer = офицер Синего Щита
+JobNanotrasenRepresentative = представитель Нанотрейзен
+JobNanotrasenCareerTrainer = наставник ЦК
+JobHecuOperative = агент HECU
+JobNavyOfficer = офицер ЦК
+JobNavyOfficerUndercover = офицер под прикрытием
+JobNavyCaptain = капитан ВКФ
+JobDiplomat = дипломат Нанотрейзен
 JobGovernmentMan = Г-Мэн
-JobConquest = Конквест
-JobInspector = Инспектор ЦК
-JobMercenaryCaptain = Капитан Наёмников
+JobConquest = конквест
+JobInspector = инспектор ЦК
+JobMercenaryCaptain = капитан Наёмников

@@ -208,7 +208,7 @@
     - PetWearable
     - WhitelistChameleon
     - SecurityBreathMask
-  - type: Hailer # Goobstation - Hailer
+  # - type: Hailer # Goobstation - Hailer Removed by CorvaxGoob
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
 

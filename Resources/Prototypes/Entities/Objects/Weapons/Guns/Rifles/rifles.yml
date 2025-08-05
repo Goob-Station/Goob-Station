@@ -108,7 +108,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
-    requiresSkill: false # CorvaxGoob-Skills
+    requiresSkill: true # CorvaxGoob-Skills
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg

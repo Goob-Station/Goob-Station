@@ -1,36 +1,35 @@
 chat-language-Universal-name = Межгалактический
-# нужна хелпа, я не шарю
-chat-language-Psychomantic-name = Psychomantic
-chat-language-Bubblish-name = Bubblish
-chat-language-RootSpeak-name = Rootspeak
+chat-language-Psychomantic-name = Психомантия
+chat-language-Bubblish-name = Булькяз
+chat-language-RootSpeak-name = Корнеречь
 chat-language-Nekomimetic-name = Неко
-chat-language-Draconic-name = Sinta'Unathi
-chat-language-Azaziba-name = Sinta'Azaziba
-chat-language-SolCommon-name = Sol Common
-chat-language-NovuNederic-name = Novu-Nederic
-chat-language-TauCetiBasic-name = Basic
-chat-language-Tradeband-name = Tradeband
-chat-language-Freespeak-name = Свободный
-chat-language-Elyran-name = Elyran
-chat-language-Canilunzt-name = Canilunzt
-chat-language-Moffic-name = Moffic
-chat-language-RobotTalk-name = Бинарный
-chat-language-Calcic-name = Calcic
-chat-language-ValyrianStandard-name = Valyrian
-chat-language-Sign-name = Sign
-chat-language-Marish-name = Marish
-chat-language-Chittin-name = Chittin
-chat-language-Xeeplian-name = Xeeplian
+chat-language-Draconic-name = Синта'Унати
+chat-language-Azaziba-name = Синта'Азазиба
+chat-language-SolCommon-name = Сол-Коммон
+chat-language-NovuNederic-name = Ново-Недирик
+chat-language-TauCetiBasic-name = Бейсик
+chat-language-Tradeband-name = Трейдбэнд
+chat-language-Freespeak-name = Вольный
+chat-language-Elyran-name = Элиранский
+chat-language-Canilunzt-name = Канилунцт
+chat-language-Moffic-name = Моффик
+chat-language-RobotTalk-name = Бинарник
+chat-language-Calcic-name = Кальцик
+chat-language-ValyrianStandard-name = Валирийский
+chat-language-Sign-name = Жесты
+chat-language-Marish-name = Мариш
+chat-language-Chittin-name = Читин
+chat-language-Xeeplian-name = Ксиплианский
 
-# Additional languges
+# Дополнительные языки
 
-chat-language-NalRasan-name = Nal'rasan
-chat-language-SiikTajr-name = Siik'tajr
-chat-language-SiikMaas-name = Siik'maas
-chat-language-YaSsa-name = Ya'ssa
-chat-language-Delvahii-name = Delvahii
-chat-language-Shadowmind-name = Shadowmind
-chat-language-Qiilour-name = Qiilour
+chat-language-NalRasan-name = Наль'расаан
+chat-language-SiikTajr-name = Сиик'таджр
+chat-language-SiikMaas-name = Сиик'маас
+chat-language-YaSsa-name = Я'сса
+chat-language-Delvahii-name = Дельвахии
+chat-language-Shadowmind-name = Тенемыслие
+chat-language-Qiilour-name = Киилур
 
 # Animal Languages
 

@@ -827,6 +827,7 @@
   - type: Gun
     selectedMode: FullAuto
     fireRate: 4.5
+    requiresSkill: true # CorvaxGoob-Skills
     availableModes:
       - SemiAuto
       - FullAuto
