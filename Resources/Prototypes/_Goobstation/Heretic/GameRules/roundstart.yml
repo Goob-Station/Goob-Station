@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -37,7 +38,10 @@
       max: 3
       playerRatio: 15
       lateJoinAdditional: true
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
       mindRoles:
       - MindRoleHeretic
       components:
@@ -67,7 +71,10 @@
       max: 2
       playerRatio: 20
       lateJoinAdditional: true
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
       mindRoles:
       - MindRoleHeretic
       components:
