@@ -143,7 +143,6 @@
   id: MimeGear
   equipment:
     gloves: ClothingHandsGlovesColorWhite
-    shoes: ClothingShoesColorWhite
     id: MimePDA
     pocket1: CrayonMime
     ears: ClothingHeadsetService

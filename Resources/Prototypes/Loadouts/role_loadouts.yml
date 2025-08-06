@@ -118,6 +118,7 @@
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Command real
 - type: roleLoadout
   id: JobCaptain
@@ -368,7 +369,6 @@
   - Glasses
   - SurvivalClown
   - Trinkets
-
   - CivilianJumpsuit
   - CivilianNeck
   - CivilianHat
@@ -442,6 +442,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -457,6 +465,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -471,6 +487,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 # Engineering
 - type: roleLoadout
@@ -487,6 +511,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -498,6 +530,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -513,6 +553,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -527,6 +575,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 # Science
 - type: roleLoadout
@@ -545,6 +601,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobScientist
@@ -563,6 +627,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -575,6 +647,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathTool
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 # Security
 - type: roleLoadout
@@ -676,6 +756,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -694,6 +782,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -706,6 +802,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobChemist
@@ -722,6 +826,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 - type: roleLoadout
   id: JobParamedic
@@ -739,6 +851,14 @@
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolMedical
+  - CivilianJumpsuit
+  - CivilianNeck
+  - CivilianHat
+  - CivilianFace
+  - CivilianGloves
+  - CivilianOuterClothing
+  - CivilianShoes
+  - CivilianBelt
 
 # Wildcards
 - type: roleLoadout
