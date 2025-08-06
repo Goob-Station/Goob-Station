@@ -242,6 +242,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         var weights = weightList.Weights.ToDictionary();
         var primaryWeights = primaryWeightList.Weights.ToDictionary();
         int maxIters = 50, i = 0; // in case something dumb is tried
+        var origChaos = scheduler.Comp.ChaosScore;
         while (scheduler.Comp.ChaosScore < 0 && i < maxIters)
         {
             i++;
@@ -301,8 +302,10 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
             )
                 return;
 
-            LogMessage($"Roundstart rule chosen: {pick} with score {GetChaosScore(pickProto, ruleComp)}");
-            StartRule(scheduler, pick, false, count);
+                                                // pick less antags if we have less chaos left
+            var effPlayers = (int)MathF.Round(count * scheduler.Comp.ChaosScore / origChaos);
+            LogMessage($"Roundstart rule chosen: {pick} with score {GetChaosScore(pickProto, ruleComp, effPlayers)}");
+            StartRule(scheduler, pick, false, effPlayers);
         }
     }
 
@@ -312,7 +315,21 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
     private void StartRule(Entity<SecretPlusComponent> scheduler, string rule, bool doStart = true, int? players = null)
     {
         var ruleUid = _ticker.AddGameRule(rule);
-        scheduler.Comp.ChaosScore += GetChaosScore(ruleUid)!.Value;
+
+        scheduler.Comp.ChaosScore += GetChaosScore(ruleUid, players)!.Value;
+
+        // if we hijack playercount, also hijack how many antags we pick
+        if (players != null && TryComp<AntagSelectionComponent>(ruleUid, out var selection))
+        {
+            // i love C#
+            for (var i = 0; i < selection.Definitions.Count; i++)
+            {
+                var def = selection.Definitions[i];
+                def.Min = def.Max = _antagSelection.GetTargetAntagCount((ruleUid, selection), players, def);
+                selection.Definitions[i] = def;
+            }
+        }
+
         if (doStart)
             _ticker.StartGameRule(ruleUid);
     }
