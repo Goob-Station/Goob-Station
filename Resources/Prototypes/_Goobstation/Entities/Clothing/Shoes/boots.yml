@@ -301,6 +301,7 @@
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsJackFake
   name: jackboots
+  suffix: fake
   description: Nanotrasen-issue Security combat boots for the civilian market. These aren't the real deal, but they look the part.
   components:
   - type: Sprite
