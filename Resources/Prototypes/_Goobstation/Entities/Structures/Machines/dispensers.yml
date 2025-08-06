@@ -42,6 +42,8 @@
     idleLoad: 65
     batteryRechargeRate: 30
     batteryRechargeEfficiency: 1.0
+  - type: ApcPowerReceiver
+    powerLoad: 65
   - type: ExtensionCableReceiver
   - type: Anchorable
   - type: Pullable
