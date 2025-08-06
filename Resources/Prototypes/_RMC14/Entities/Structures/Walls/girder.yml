@@ -1,0 +1,100 @@
+- type: entity
+  parent: Girder
+  id: CMGirder
+  name: girder
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/girder.rsi
+    state: girder
+  - type: Icon
+    sprite: _RMC14/Structures/Walls/girder.rsi
+    state: girder
+  - type: Construction
+    graph: CMGirder
+    node: girder
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMSheetMetal1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RMCDropshipBlocked
+  - type: DamageMultiplierFlags
+    flags: Breaching
+  - type: XenoToggleChargingDamage
+    stageLoss: 4
+    damage:
+      types:
+        Blunt: 40
+  - type: XenoCrusherChargable
+
+- type: entity
+  parent: CMGirder
+  id: CMGirderReinforced
+  name: reinforced girder
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/girder.rsi
+    state: reinforced
+  - type: Icon
+    sprite: _RMC14/Structures/Walls/girder.rsi
+    state: girder
+  ##- type: Construction
+  ##  graph: CMGirder
+  ##  node: reinforcedGirder
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMSheetMetal1:
+            min: 1
+            max: 1
+          CMSheetPlasteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: StaticPrice
+    price: 66
+
+- type: entity
+  parent: CMGirder
+  id: RMCGirderDisplaced # TODO RMC14 : Requires crowbarring to be used as a girder
+  name: displaced
+  suffix: Girder
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    state: displaced
+  - type: Icon
+    state: displaced
