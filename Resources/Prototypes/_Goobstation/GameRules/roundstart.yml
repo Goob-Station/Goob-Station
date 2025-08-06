@@ -254,7 +254,7 @@
   components:
   - type: BlobRule
   - type: GameRule
-    chaosScore: 1100
+    chaosScore: 1000
 
 - type: entity
   id: BlobGameMode
@@ -264,7 +264,7 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 20
-    chaosScore: 1100
+    chaosScore: 1000
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -299,7 +299,7 @@
       Medical: 200
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 1100
+    chaosScore: 1000
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
