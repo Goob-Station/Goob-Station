@@ -312,23 +312,23 @@
 
 # Tier 3
 
-- type: technology
-  id: QuantumFiberWeaving
-  name: research-technology-quantum-fiber-weaving
-  icon:
-    sprite: Clothing/Shoes/Boots/speedboots.rsi
-    state: icon
-  discipline: CivilianServices
-  tier: 3
-  cost: 15000 # Goobstation 10000 -> 15000
-  recipeUnlocks:
-  - ClothingShoesBootsSpeed
-  # Goobstation R&D Console rework start
-  position: 1,9
-  technologyPrerequisites:
-  - BluespaceCargoTransport
-  - HighEndSurgery
-  # Goobstation R&D Console rework end
+#- type: technology
+#  id: QuantumFiberWeaving - Goobstation - Nuked due to sprinting.
+#  name: research-technology-quantum-fiber-weaving
+#  icon:
+#    sprite: Clothing/Shoes/Boots/speedboots.rsi
+#    state: icon
+#  discipline: CivilianServices
+#  tier: 3
+#  cost: 15000 # Goobstation 10000 -> 15000
+#  recipeUnlocks:
+#  - ClothingShoesBootsSpeed
+#  # Goobstation R&D Console rework start
+#  position: 1,9
+#  technologyPrerequisites:
+#  - BluespaceCargoTransport
+#  - HighEndSurgery
+#  # Goobstation R&D Console rework end
 
 - type: technology
   id: BluespaceChemistry
@@ -342,6 +342,7 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+  - MedkitCombat # Goobstation - remove medkitcombat from static to research
   # Goobstation R&D Console rework start
   position: 2,6
   technologyPrerequisites:
