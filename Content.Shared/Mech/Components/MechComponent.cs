@@ -113,6 +113,9 @@ public sealed partial class MechComponent : Component
     [DataField]
     public EntityWhitelist? PilotWhitelist;
 
+    [DataField]
+    public EntityWhitelist? PilotBlacklist;
+
     /// <summary>
     /// A container for storing the equipment entities.
     /// </summary>

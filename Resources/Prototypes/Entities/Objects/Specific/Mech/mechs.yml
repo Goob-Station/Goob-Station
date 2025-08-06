@@ -40,6 +40,10 @@
   components:
   - type: MobMover
   - type: Mech
+    pilotBlacklist:
+      components:
+      - Zombie
+      - ZombieBlob
   - type: MechAir
   - type: AirFilter
     # everything except oxygen and nitrogen
@@ -210,7 +214,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -259,7 +262,6 @@
     pilotWhitelist:
       components:
       - HumanoidAppearance
-      - BorgChassis # Goobstation - Let borgs pilot mechs
 
 - type: entity
   parent: MechHonker

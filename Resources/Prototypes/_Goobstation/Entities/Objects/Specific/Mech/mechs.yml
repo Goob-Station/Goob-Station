@@ -81,7 +81,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -140,7 +139,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -212,7 +210,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -273,7 +270,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -342,7 +338,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -416,7 +411,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -493,7 +487,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -567,7 +560,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
