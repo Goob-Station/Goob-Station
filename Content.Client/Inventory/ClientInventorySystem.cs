@@ -146,6 +146,13 @@ namespace Content.Client.Inventory
             OnLinkInventorySlots?.Invoke(uid, component);
         }
 
+        protected override void OnInit(Entity<InventoryComponent> ent, ref ComponentInit args)
+        {
+            base.OnInit(ent, ref args);
+
+            _clothingVisualsSystem.InitClothing(ent.Owner, ent.Comp);
+        }
+
         public override void Shutdown()
         {
             CommandBinds.Unregister<ClientInventorySystem>();
@@ -292,7 +299,6 @@ namespace Content.Client.Inventory
                     TryAddSlotData((ent.Owner, inventorySlots), (SlotData)slot);
             }
 
-            _clothingVisualsSystem.InitClothing(ent, ent.Comp);
             if (ent.Owner == _playerManager.LocalEntity)
                 ReloadInventory(inventorySlots);
         }
