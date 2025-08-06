@@ -40,7 +40,7 @@
   components:
   - type: MobMover
   - type: Mech
-    pilotBlacklist:
+    pilotBlacklist: # Goobstation Change
       components:
       - Zombie
       - ZombieBlob
