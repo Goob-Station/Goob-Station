@@ -383,7 +383,6 @@
   components:
   - type: DevilRule
   - type: GameRule
-    chaosScore: 350 # low since they tend to revive people and stuff
     minPlayers: 15
   - type: AntagObjectives
     objectives:
@@ -395,6 +394,7 @@
     - prefRoles: [ Devil ]
       max: 1
       playerRatio: 20
+      chaosScore: 150
       jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
       mindRoles:
       - DevilMindRole
