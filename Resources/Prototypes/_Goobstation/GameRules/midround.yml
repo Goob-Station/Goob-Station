@@ -203,8 +203,8 @@
   id: BlobMidround
   components:
   - type: StationEvent
-    weight: 2
-    earliestStart: 75
+    weight: 1.5
+    earliestStart: 80
     minimumPlayers: 30 # how is that 20 people when rat king is 30??? changed.
     duration: null
     maxOccurrences: 2
@@ -214,7 +214,7 @@
       Death: 300
     eventType: HostilesSpawn
   - type: GameRule
-    chaosScore: 800
+    chaosScore: 1000
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
