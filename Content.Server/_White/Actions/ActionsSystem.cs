@@ -119,7 +119,7 @@ public sealed class ActionsSystem : EntitySystem
     {
         var tileRef = coordinates.GetTileRef(EntityManager, _mapManager);
 
-        return tileRef.HasValue && blockedCollision.HasValue && _turf.IsTileBlocked(tileRef.Value, blockedCollision.Value);
+        return !tileRef.HasValue || blockedCollision.HasValue && _turf.IsTileBlocked(tileRef.Value, blockedCollision.Value);
     }
 
     #endregion

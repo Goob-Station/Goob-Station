@@ -78,9 +78,21 @@
       - XenomorphLarvaVictim
       - Ghost
     effects:
-    - !type:XenomorphInfection
     - !type:Paralyze
       paralyzeTime: 5
+  - type: FaceHugger
+    slot: mask
+    blacklist:
+      components:
+      - XenomorphInfected
+      - XenomorphLarvaVictim
+      - Silicon
+      - Ghost
+    allowedPassiveDamageStates:
+    - Alive
+    passiveDamage:
+      groups:
+        Genetic: 1
   - type: NameIdentifier
     group: GenericNumber
   - type: NpcFactionMember

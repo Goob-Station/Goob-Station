@@ -2,6 +2,7 @@ using Content.Shared._White.Xenomorphs.Infection;
 using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.Body.Events;
 using Content.Shared.EntityEffects;
+using Content.Shared.Mobs.Systems;
 using Robust.Server.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -14,6 +15,7 @@ public sealed class XenomorphInfectionSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
 
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -60,7 +62,7 @@ public sealed class XenomorphInfectionSystem : EntitySystem
 
             infection.NextPointsAt = time + infection.GrowTime;
 
-            if (!_random.Prob(infection.GrowProb))
+            if (_mobState.IsDead(infection.Infected.Value) || !_random.Prob(infection.GrowProb))
                 continue;
 
             infection.GrowthStage++;

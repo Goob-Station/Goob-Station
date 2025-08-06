@@ -39,7 +39,7 @@ public sealed class XenomorphSystem : SharedXenomorphSystem
         var query = EntityQueryEnumerator<XenomorphComponent>();
         while (query.MoveNext(out var uid, out var xenomorph))
         {
-            if (xenomorph.WeedHeal == null || xenomorph.OnWeed || time < xenomorph.NextPointsAt)
+            if (xenomorph.WeedHeal == null || !xenomorph.OnWeed || time < xenomorph.NextPointsAt)
                 continue;
 
             xenomorph.NextPointsAt = time + xenomorph.WeedHealRate;
