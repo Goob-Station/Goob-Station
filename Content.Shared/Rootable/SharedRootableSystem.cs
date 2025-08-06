@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Damage.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
@@ -14,7 +19,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
-using Content.Server.Damage.Components;
 
 namespace Content.Shared.Rootable;
 
@@ -173,6 +177,6 @@ public abstract class SharedRootableSystem : EntitySystem
     private void OnRefreshMovementSpeed(Entity<RootableComponent> entity, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (entity.Comp.Rooted)
-            args.ModifySpeed(entity.Comp.SpeedModifier);
+            args.ModifySpeed(entity.Comp.SpeedModifier, bypassImmunity: true);
     }
 }
