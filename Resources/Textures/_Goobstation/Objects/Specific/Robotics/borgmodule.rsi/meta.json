@@ -1,17 +1,20 @@
 {
   "version": 1,
   "license": "CC0-1.0",
-  "copyright": "Lollypop by SolsticeOfTheWinter (Lollypop Guy), PKA by Mocho",
+  "copyright": "Lollypop by SolsticeOfTheWinter (Lollypop Guy), PKA by Mocho, Security by ThunderBear06",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
-	{
+	  {
       "name": "icon-lollypop"
     },
-	{
+	  {
       "name": "icon-pka"
+    },
+    {
+      "name": "icon-security"
     }
   ]
 }
