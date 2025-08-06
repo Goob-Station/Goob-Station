@@ -119,7 +119,7 @@ public sealed partial class SprinterComponent : Component
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            { "Blunt", 6.5 }, // real
+            { "Blunt", 10 },
         }
     };
 }
