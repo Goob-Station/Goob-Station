@@ -174,10 +174,10 @@ binds:
   key: S
 - function: Walk
   type: State
-  key: C
+  key: Shift
 - function: Sprint
   type: State
-  key: Shift
+  key: C
 - function: ToggleStanding
   type: State
   key: R

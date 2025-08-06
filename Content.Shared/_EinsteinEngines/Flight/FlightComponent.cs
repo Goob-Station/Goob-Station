@@ -75,7 +75,7 @@ public sealed partial class FlightComponent : Component
     ///     How much does this modify the weightless acceleration and speed?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SpeedModifier = 2.0f;
+    public float SpeedModifier = 1.8f;
 
     /// <summary>
     ///     How much does this modify the weightless friction?

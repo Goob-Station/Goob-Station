@@ -149,7 +149,7 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: Sprinter # human major
-    staminaDrainRate: 9
+    staminaDrainRate: 8
 
 
 - type: entity

@@ -5,8 +5,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Movement;
-using Content.Shared._EinsteinEngines.Flight;
+using Content.Shared._EinsteinEngines.Flight.Events;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -15,6 +16,8 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
+using Content.Shared.Mech.Components;
+using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -53,12 +56,16 @@ public abstract class SharedSprintingSystem : EntitySystem
         SubscribeLocalEvent<SprinterComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
         SubscribeLocalEvent<SprinterComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<SprinterComponent, SleepStateChangedEvent>(OnSleep);
+        SubscribeLocalEvent<SprinterComponent, FlightEvent>(OnFlight);
+        SubscribeLocalEvent<SprinterComponent, MechEntryEvent>(OnMechEntry);
         SubscribeLocalEvent<SprinterComponent, ToggleWalkEvent>(OnToggleWalk);
         SubscribeLocalEvent<SprinterComponent, KnockedDownEvent>(OnSprintDisablingEvent);
         SubscribeLocalEvent<SprinterComponent, StunnedEvent>(OnSprintDisablingEvent);
         SubscribeLocalEvent<SprinterComponent, DownedEvent>(OnSprintDisablingEvent);
         SubscribeLocalEvent<CuffableComponent, SprintAttemptEvent>(OnCuffableSprintAttempt);
+        SubscribeLocalEvent<MechPilotComponent, SprintAttemptEvent>(OnMechPilotSprintAttempt);
         SubscribeLocalEvent<StandingStateComponent, SprintAttemptEvent>(OnStandingStateSprintAttempt);
+        SubscribeLocalEvent<BuckleComponent, SprintAttemptEvent>(OnBuckleSprintAttempt);
         SubscribeLocalEvent<SprinterComponent, EntityZombifiedEvent>(OnZombified);
     }
 
@@ -127,22 +134,21 @@ public abstract class SharedSprintingSystem : EntitySystem
     private void OnSprintToggle(EntityUid uid, SprinterComponent component, ref SprintToggleEvent args) =>
         ToggleSprint(uid, component, args.IsSprinting);
 
-    private void ToggleSprint(EntityUid uid, SprinterComponent component, bool isSprinting, bool gracefulStop = true)
+    private void ToggleSprint(EntityUid uid, SprinterComponent component, bool newSprintState, bool gracefulStop = true)
     {
         // Breaking these into two separate if's for better readability
-        if (isSprinting == component.IsSprinting)
+        if (newSprintState == component.IsSprinting)
             return;
 
-
-        if (isSprinting
+        if (newSprintState
             && (!CanSprint(uid, component)
             || _timing.CurTime - component.LastSprint < component.TimeBetweenSprints))
             return;
 
         component.LastSprint = _timing.CurTime;
-        component.IsSprinting = isSprinting;
+        component.IsSprinting = newSprintState;
 
-        if (isSprinting)
+        if (newSprintState)
         {
             RaiseLocalEvent(uid, new SprintStartEvent());
             _audio.PlayPredicted(component.SprintStartupSound, uid, uid);
@@ -152,7 +158,7 @@ public abstract class SharedSprintingSystem : EntitySystem
             _damageable.TryChangeDamage(uid, component.SprintDamageSpecifier);
 
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
-        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, isSprinting, true, component.StaminaDrainKey);
+        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, newSprintState, true, component.StaminaDrainKey);
         Dirty(uid, component);
     }
 
@@ -193,6 +199,25 @@ public abstract class SharedSprintingSystem : EntitySystem
         args.Cancel();
     }
 
+    private void OnBuckleSprintAttempt(EntityUid uid, BuckleComponent component, ref SprintAttemptEvent args)
+    {
+        if (component.BuckledTo == null
+            || !TryComp<SprinterComponent>(component.BuckledTo, out var sprinterComponent)
+            || sprinterComponent.IsSprinting)
+            return;
+
+        args.Cancel();
+    }
+
+    private void OnMechPilotSprintAttempt(EntityUid uid, MechPilotComponent component, ref SprintAttemptEvent args)
+    {
+        if (!TryComp<SprinterComponent>(component.Mech, out var sprinterComponent)
+            || sprinterComponent.IsSprinting)
+            return;
+
+        args.Cancel();
+    }
+
     #endregion
 
     #region Misc.Handlers
@@ -221,6 +246,23 @@ public abstract class SharedSprintingSystem : EntitySystem
             return;
 
         ToggleSprint(uid, component, false, gracefulStop: false);
+    }
+
+    private void OnFlight(EntityUid uid, SprinterComponent component, ref FlightEvent args)
+    {
+        if (!component.IsSprinting
+            || args.IsFlying)
+            return;
+
+        ToggleSprint(uid, component, false);
+    }
+
+    private void OnMechEntry(EntityUid uid, SprinterComponent component, ref MechEntryEvent args)
+    {
+        if (!component.IsSprinting)
+            return;
+
+        ToggleSprint(uid, component, false);
     }
 
     private void OnToggleWalk(EntityUid uid, SprinterComponent component, ref ToggleWalkEvent args)
