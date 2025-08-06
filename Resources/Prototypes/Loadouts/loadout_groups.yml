@@ -480,7 +480,7 @@
   id: CivilianFace
   name: loadout-group-civilian-mask
   minLimit: 0
-  loadouts: [GreyTiderFace]
+  loadouts: [GreyTiderMask]
 
 - type: loadoutGroup
   id: CivilianGloves
