@@ -8,22 +8,22 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 heretic-ascension-ash =
-    The Watch is dead. The Nightwatcher burned with it, yet his fire burns evermore.
-    I stand among the charred. The first of many, that which will shine brighter than all stars in the sky.
-    FOR DUST THOU ART, AND UNTO DUST SHALT THOU RETURN. WITNESS MY ASCENSION!
+    The Watch is dead. The Nightwatcher burned with it, yet his fire burns evermore,
+    for the Nightwatcher brought forth the rite to mankind! His gaze continues, as now I am one with fire.
+    FOR DUST THOU ART, AND UNTO DUST THOU SHALT RETURN. WITNESS MY ASCENSION!
 
 heretic-ascension-blade =
     I rip through chains of dust and light. The moon waxes here, among the chosen.
     The serpent decapitated. Its poison gone. Rent with crescent blades of silver.
-    A storm of steel, am I, CHAMPION OF THE TORN AND PURE. WITNESS MY ASCENSION!
+    A storm of steel, am I, CHAMPION OF THE TORN AND FREE. WITNESS MY ASCENSION!
 
 heretic-ascension-lock =
-    The Stewards... I hear them, now. My friends in the misted sky.
-    A Labyrinth meant to contain us now broken. Solved. A guiding string led through.
-    We cannot be contained. WE CANNOT BE LOCKED AWAY. WITNESS OUR ASCENSION!
+    The Stewards guided me, and I guided them.
+    My foes were the Locks and my blades were the Key!
+    The Labyrinth will be Locked no more, and freedom will be ours! WITNESS OUR ASCENSION!
 
 heretic-ascension-flesh =
-    The heavens offered ideals and dreams. I desired more than that.
+    The heavens offered ideals and dreams. I desired more than that -
     More than blind promises of a better future. More than escapism from a dying world.
     The Marshal leads my army. THE SKY CAN BLEED, AND I WILL DRAIN IT OF ITS ESSENCE. WITNESS MY ASCENSION!
 
@@ -33,8 +33,8 @@ heretic-ascension-void =
     as the world is destroyed before our eyes. The void will return all to nothing. WITNESS MY ASCENSION!
 
 heretic-ascension-rust =
-    Let me tell you a story.
-    There are hills ahead, draped in rust. Rust that rots your heat. Mouth parched, soul weak, your tongue begins to bleed.
-    I am decay incarnate. INEVITABLE AS A DYING STAR; IMPASSIVE AS THE WATERS. WITNESS MY ASCENSION!
+    Champion of rust. Corruptor of steel.
+    Fear the dark, for the RUSTBRINGER has come!
+    The Blacksmith forges ahead! Rusted Hills, CALL MY NAME! WITNESS MY ASCENSION!
 
 heretic-ascension-bingle = bungle
