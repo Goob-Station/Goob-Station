@@ -174,6 +174,9 @@ binds:
   key: S
 - function: Walk
   type: State
+  key: C
+- function: Sprint
+  type: State
   key: Shift
 - function: ToggleStanding
   type: State
@@ -326,6 +329,7 @@ binds:
   mod1: Alt
 - function: OpenCharacterMenu
   type: State
+  mod1: Shift
   key: C
 - function: OpenEmotesMenu
   type: State
