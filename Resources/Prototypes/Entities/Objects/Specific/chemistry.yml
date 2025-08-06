@@ -204,6 +204,7 @@
     solution: beaker
   - type: ExaminableSolution
     solution: beaker
+    exactVolume: true
   - type: DrawableSolution
     solution: beaker
   - type: InjectableSolution
@@ -307,6 +308,7 @@
     solution: beaker
   - type: ExaminableSolution
     solution: beaker
+    exactVolume: true
   - type: DrawableSolution
     solution: beaker
   - type: InjectableSolution
@@ -363,6 +365,7 @@
     solution: beaker
   - type: ExaminableSolution
     solution: beaker
+    exactVolume: true
   - type: DrawableSolution
     solution: beaker
   - type: InjectableSolution
@@ -534,6 +537,7 @@
     toggleState: 1 # draw
   - type: ExaminableSolution
     solution: dropper
+    exactVolume: true
   - type: UserInterface
     interfaces:
       enum.TransferAmountUiKey.Key:
@@ -607,7 +611,10 @@
         maxVol: 15
   - type: Injector
     injectOnly: false
-    # Goobstation Start - Added embeddable properties for syringe gun
+  - type: ExaminableSolution
+    solution: injector
+    exactVolume: true
+  # Goobstation Start - Added embeddable properties for syringe gun
   - type: MeleeWeapon
     wideAnimationRotation: -135
     canHeavyAttack: false
@@ -630,7 +637,7 @@
         Piercing: 3
   - type: Reflective
     reflective:
-      - NonEnergy
+    - NonEnergy
   - type: EmbeddableProjectile
     offset: "0,-0.1"
     minimumSpeed: 3
@@ -667,8 +674,6 @@
   - type: Ammo
     muzzleFlash: null
     # Goobstation End
-  - type: ExaminableSolution
-    solution: injector
   - type: Spillable
     solution: injector
   - type: TrashOnSolutionEmpty
@@ -695,9 +700,9 @@
     tags:
     - Syringe
     - Trash
-    - SyringeGunAmmo # GoobStation
 
-#- type: entity # Goobstation - proper syringe guns
+# Goob disabled - proper syringe guns or something
+#- type: entity
 #  name: mini syringe
 #  parent: Syringe
 #  description: A regular syringe, reshaped to fit inside of a gun.
@@ -710,25 +715,31 @@
 #        map: ["enum.SolutionContainerLayers.Fill"]
 #        visible: false
 #      - state: syringeproj
+#  - type: SolutionContainerManager
+#    solutions:
+#      injector:
+#        maxVol: 5
+#  - type: Injector
+#    minTransferAmount: 1
+#    maxTransferAmount: 5
+#    transferAmount: 5
 #  - type: SolutionContainerVisuals
 #    maxFillLevels: 3
 #    fillBaseName: minisyringe
 #    inHandsMaxFillLevels: 3
 #    inHandsFillBaseName: -fill-
 #  - type: EmbeddableProjectile
-#    offset: "-0.1,0"
+#    offset: "0,-0.1"
 #    minimumSpeed: 3
 #    removalTime: 0.25
-#    embedOnThrow: true
+#    embedOnThrow: false
 #  - type: SolutionInjectWhileEmbedded
 #    transferAmount: 1
 #    solution: injector
 #    updateInterval: 2
-#    pierceArmor: false # Goobstation
 #  - type: SolutionInjectOnEmbed
-#    transferAmount: 2
+#    transferAmount: 1
 #    solution: injector
-#    pierceArmor: false # Goobstation
 #  - type: Fixtures
 #    fixtures:
 #      fix1:
