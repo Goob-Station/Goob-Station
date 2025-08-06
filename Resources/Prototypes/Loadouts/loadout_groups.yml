@@ -480,13 +480,13 @@
   id: CivilianFace
   name: loadout-group-civilian-mask
   minLimit: 0
-  loadouts: [CivilianFace]
+  loadouts: [GreyTiderFace]
 
 - type: loadoutGroup
   id: CivilianGloves
-  name: loadout-group-passenger-gloves
+  name: loadout-group-civilian-gloves
   minLimit: 0
-  loadouts: [CivilianGloves]
+  loadouts: [GreyTiderGloves]
 
 - type: loadoutGroup
   id: CivilianBackpack
@@ -587,10 +587,12 @@
   name: loadout-group-civilian-belt
   minLimit: 0
   loadouts: [WaistLeatherBag]
+
 - type: loadoutGroup
   id: CivilianShoes
   name: loadout-group-civilian-shoes
-  minLimit: 1
+  minLimit: 0
+  exclusiveWith: FEET #Goostation
   loadouts:
     - BlackShoes
     - WinterBoots
@@ -599,6 +601,11 @@
     - LoadoutSalvageBoots
     - LaceupShoes
   # Goob Loadouts Rework End
+
+- type: loadoutGroup
+  id: CivilianShoesRequired
+  parent: CivilianShoes
+  minLimit: 1 #Passengers also need to be forced to wear shoes.
 
 - type: loadoutGroup
   id: BartenderHead
@@ -810,6 +817,7 @@
   id: ClownShoes
   name: loadout-group-clown-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [ClownShoes, JesterShoes]
 - type: loadoutGroup
   id: SurvivalClown
@@ -946,6 +954,7 @@
   id: QuartermasterShoes
   name: loadout-group-quartermaster-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [BrownShoes, CargoWinterBoots]
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -985,6 +994,7 @@
   id: CargoTechnicianShoes
   name: loadout-group-cargo-technician-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [BlackShoes, CargoWinterBoots]
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -1004,6 +1014,7 @@
   id: SalvageSpecialistShoes
   name: loadout-group-salvage-specialist-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts:
     - SalvageBoots
     - CargoWinterBoots
@@ -1039,6 +1050,7 @@
   id: ChiefEngineerShoes
   name: loadout-group-chief-engineer-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [BrownShoes, EngineeringWinterBoots]
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1088,6 +1100,7 @@
   id: StationEngineerShoes
   name: loadout-group-station-engineer-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [WorkBoots, EngineeringWinterBoots]
 - type: loadoutGroup
   id: StationEngineerID
@@ -1129,6 +1142,7 @@
   id: AtmosphericTechnicianShoes
   name: loadout-group-atmospheric-technician-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [WhiteShoes, EngineeringWinterBoots]
 - type: loadoutGroup
   id: SurvivalExtended
@@ -1169,6 +1183,7 @@
   id: ResearchDirectorShoes
   name: loadout-group-research-director-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [BrownShoes, ScienceWinterBoots]
 - type: loadoutGroup
   id: ScientistHead
@@ -1217,6 +1232,7 @@
   id: ScientistShoes
   name: loadout-group-scientist-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [WhiteShoes, BlackShoes, ScienceWinterBoots]
 - type: loadoutGroup
   id: ScientistGloves
@@ -1436,6 +1452,7 @@
   id: ChiefMedicalOfficerShoes
   name: loadout-group-chief-medical-officer-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [BrownShoes, MedicalWinterBoots]
 - type: loadoutGroup
   id: MedicalDoctorHead
@@ -1485,6 +1502,7 @@
   id: MedicalShoes
   name: loadout-group-medical-doctor-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [WhiteShoes, MedicalWinterBoots]
 - type: loadoutGroup
   id: MedicalDoctorPDA
@@ -1569,6 +1587,7 @@
   id: ParamedicShoes
   name: loadout-group-paramedic-shoes
   minLimit: 1
+  exclusiveWith: FEET #Goostation
   loadouts: [BlueShoes, WhiteShoes, MedicalWinterBoots]
 - type: loadoutGroup
   id: MedicalEyewear

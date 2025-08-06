@@ -74,18 +74,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Content.Shared.Inventory;
 using Content.Shared.CCVar;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Random;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace Content.Shared.Preferences.Loadouts;
 
@@ -139,7 +136,6 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
         var groupRemove = new ValueList<string>();
         var protoManager = collection.Resolve<IPrototypeManager>();
         var configManager = collection.Resolve<IConfigurationManager>();
-        var exclusiveWith = new ValueList<SlotFlags>(); // Goobstation
 
         if (!protoManager.TryIndex(Role, out var roleProto))
         {
@@ -200,19 +196,6 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
                 groupRemove.Add(group);
                 continue;
             }
-
-            // Goobstation - Start
-            if (groupProto.ExclusiveWith is { } exclusive)
-            {
-                if (exclusiveWith.Contains(exclusive))
-                {
-                    groupRemove.Add(group);
-                    continue;
-                }
-
-                exclusiveWith.Add(exclusive);
-            }
-            // Goobstation - End
 
             var loadouts = groupLoadouts[..Math.Min(groupLoadouts.Count, groupProto.MaxLimit)];
 

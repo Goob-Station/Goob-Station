@@ -111,7 +111,7 @@
 
 # Face
 - type: loadout
-  id: PassengerFace
+  id: GreyTiderMask
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
@@ -195,7 +195,7 @@
 
 # Gloves
 - type: loadout
-  id: PassengerGloves
+  id: GreyTideGloves
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
