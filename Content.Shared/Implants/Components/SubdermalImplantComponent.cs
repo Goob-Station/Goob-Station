@@ -100,12 +100,13 @@ public sealed partial class OpenStorageImplantEvent : InstantActionEvent
 {
 
 }
-
+// Goob start
 public sealed partial class UseFreedomImplantEvent : InstantActionEvent
 {
     [DataField]
     public float StunTime = 5; // Goobstation - useful freedom
 }
+//goob end
 
 /// <summary>
 /// Used for triggering trigger events on the implant via action
@@ -119,16 +120,6 @@ public sealed partial class ActivateImplantEvent : InstantActionEvent
 /// Used for opening the uplink implant via action.
 /// </summary>
 public sealed partial class OpenUplinkImplantEvent : InstantActionEvent
-{
-
-}
-
-public sealed partial class UseScramImplantEvent : InstantActionEvent
-{
-
-}
-
-public sealed partial class UseDnaScramblerImplantEvent : InstantActionEvent
 {
 
 }
