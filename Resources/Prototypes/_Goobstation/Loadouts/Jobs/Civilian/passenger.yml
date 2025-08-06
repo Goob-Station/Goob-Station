@@ -17,6 +17,38 @@
   id: LaceupShoes
   equipment:
     shoes: ClothingShoesBootsLaceup
+- type: loadout
+  id: PerformerBoots
+  equipment:
+    shoes: ClothingShoesBootsPerformer
+- type: loadout
+  id: JackBootsFake #The fake military boots are a different prototype without the slowdown modifier or internal storage, but the same texture.
+  equipment:
+    shoes: ClothingShoesBootsJackFake
+- type: loadout
+  id: CombatBootsFake
+  equipment:
+    shoes: ClothingShoesBootsCombatFake
+- type: loadout
+  id: MercBootsFake
+  equipment:
+    shoes: ClothingShoesBootsMercFake
+- type: loadout
+  id: CowboyBootsBrown
+  equipment:
+    shoes: ClothingShoesBootsCowboyBrown
+- type: loadout
+  id: CowboyBootsBlack
+  equipment:
+    shoes: ClothingShoesBootsCowboyBlack
+- type: loadout
+  id: CowboyBootsWhite
+  equipment:
+    shoes: ClothingShoesBootsCowboyWhite
+- type: loadout
+  id: CowboyBootsFancy
+  equipment:
+    shoes: ClothingShoesBootsCowboyFancy
 
 # Neck
 - type: loadout
@@ -39,3 +71,63 @@
   id: NeckScarfOrange
   equipment:
     neck: ClothingNeckScarfStripedOrange
+- type: loadout
+  id: NeckScarfPurple
+  equipment:
+    neck: ClothingNeckScarfStripedPurple
+- type: loadout
+  id: NeckTieRed
+  equipment:
+    neck: ClothingNeckTieRed
+
+# Gloves
+- type: loadout
+  id: BlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+- type: loadout
+  id: PurpleGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorPurple
+- type: loadout
+  id: RedGloves
+  equipment:
+   gloves: ClothingHandsGlovesColorRed
+- type: loadout
+  id: BlueGloves
+  equipment:
+   gloves: ClothingHandsGlovesColorBlue
+- type: loadout
+  id: TealGloves
+  equipment:
+   gloves: ClothingHandsGlovesColorTeal
+- type: loadout
+  id: BrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBrown
+- type: loadout
+  id: GrayGloves
+  equipment:
+   gloves: ClothingHandsGlovesColorGray
+- type: loadout
+  id: GreenGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorGreen
+- type: loadout
+  id: LightBrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorLightBrown
+- type: loadout
+  id: OrangeGloves
+  equipment:
+   gloves: ClothingHandsGlovesColorOrange
+- type: loadout
+  id: WhiteGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+# Masks
+- type: loadout
+  id: ClothingMaskSterile
+  equipment:
+    mask: ClothingMaskSterile

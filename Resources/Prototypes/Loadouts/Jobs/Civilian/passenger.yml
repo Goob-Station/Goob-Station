@@ -195,7 +195,7 @@
 
 # Gloves
 - type: loadout
-  id: GreyTideGloves
+  id: GreyTiderGloves
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider

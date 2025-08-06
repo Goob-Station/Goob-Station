@@ -486,7 +486,21 @@
   id: CivilianGloves
   name: loadout-group-civilian-gloves
   minLimit: 0
-  loadouts: [GreyTiderGloves]
+  loadouts:
+    - GreyTiderGloves
+  #Goobstation Loadout Rework Start
+    - BlackGloves
+    - WhiteGloves
+    - PurpleGloves
+    - RedGloves
+    - BlueGloves
+    - TealGloves
+    - BrownGloves
+    - GrayGloves
+    - GreenGloves
+    - LightBrownGloves
+    - OrangeGloves
+  #Goobstation Loadout Rework End
 
 - type: loadoutGroup
   id: CivilianBackpack
@@ -516,6 +530,8 @@
     - NeckScarfGreen
     - NeckScarfOrange
     - NeckScarfRed
+    - NeckScarfPurple
+    - NeckTieRed
   # Goobstation Loadout Rework End
 
 - type: loadoutGroup
@@ -600,6 +616,13 @@
     - LoadoutWorkBoots
     - LoadoutSalvageBoots
     - LaceupShoes
+    - JackBootsFake
+    - CombatBootsFake
+    - MercBootsFake
+    - CowboyBootsBrown
+    - CowboyBootsBlack
+    - CowboyBootsWhite
+    - CowboyBootsFancy
   # Goob Loadouts Rework End
 
 - type: loadoutGroup

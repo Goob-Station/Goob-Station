@@ -172,7 +172,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
   - Glasses
   - Survival
@@ -199,7 +199,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -219,7 +219,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -242,7 +242,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -262,7 +262,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -283,7 +283,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -307,7 +307,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -353,7 +353,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -423,7 +423,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 # Cargo
@@ -536,7 +536,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -653,7 +653,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 # Security
@@ -808,7 +808,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
-  - CivilianShoes
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -877,6 +877,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
+  - CivilianShoesRequired
   - CivilianBelt
 
 - type: roleLoadout
@@ -897,6 +898,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
+  - CivilianShoesRequired
   - CivilianBelt
 
 
@@ -938,6 +940,7 @@
   - CivilianFace
   - CivilianGloves
   - CivilianOuterClothing
+  - CivilianShoes #yeah i guess these guys can forego shoes
   - CivilianBelt
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
