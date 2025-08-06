@@ -91,6 +91,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Robust.Shared.Configuration;
 using Content.Goobstation.Common.Movement; // Goobstation
+using Content.Goobstation.Common.CCVar; // Goobstation
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Movement.Systems
@@ -103,7 +104,7 @@ namespace Content.Shared.Movement.Systems
         private float _frictionModifier;
         private float _airDamping;
         private float _offGridDamping;
-
+        private float _maxSpeed = 3.8f; // Goobstation Change, actual value is given by Cvar, this is a fallback.
         public override void Initialize()
         {
             base.Initialize();
@@ -112,6 +113,7 @@ namespace Content.Shared.Movement.Systems
             Subs.CVar(_configManager, CCVars.TileFrictionModifier, value => _frictionModifier = value, true);
             Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
             Subs.CVar(_configManager, CCVars.OffgridFriction, value => _offGridDamping = value, true);
+            Subs.CVar(_configManager, GoobCVars.MaxSpeed, value => _maxSpeed = value, true); // Goobstation Change
         }
 
         private void OnModMapInit(Entity<MovementSpeedModifierComponent> ent, ref MapInitEvent args)
@@ -185,8 +187,9 @@ namespace Content.Shared.Movement.Systems
                 MathHelper.CloseTo(ev.SprintSpeedModifier, move.SprintSpeedModifier))
                 return;
 
-            move.WalkSpeedModifier = ev.WalkSpeedModifier;
-            move.SprintSpeedModifier = ev.SprintSpeedModifier;
+
+            move.WalkSpeedModifier = Math.Min(ev.WalkSpeedModifier, _maxSpeed); // Goobstation Change
+            move.SprintSpeedModifier = Math.Min(ev.SprintSpeedModifier, _maxSpeed); // Goobstation Change
             Dirty(uid, move);
         }
 
