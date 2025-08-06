@@ -302,7 +302,8 @@
     triggerGroups: # Goobstation
       types:
       - SlipTile
-  - type: Drink
+  - type: Edible
+    edible: Drink
     delay: 3
     transferAmount: 1
     solution: puddle

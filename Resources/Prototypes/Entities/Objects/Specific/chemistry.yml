@@ -869,12 +869,11 @@
     size: Tiny
     sprite: Objects/Specific/Chemistry/pills.rsi
   - type: Pill
-  - type: Food
-    delay: 0.2
-    forceFeedDelay: 1.5
+  - type: Edible
+    delay: 0.6
+    forceFeedDelay: 2
     transferAmount: null
-    eatMessage: food-swallow
-    useSound: /Audio/Items/pill.ogg
+    edible: Pill
   - type: BadFood
   - type: FlavorProfile
     ignoreReagents: []
