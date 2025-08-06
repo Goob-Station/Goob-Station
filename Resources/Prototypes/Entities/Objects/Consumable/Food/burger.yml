@@ -129,8 +129,7 @@
   description: It's time to start building the burger tower.
   components:
   - type: Item
-    shape:
-    - 0,0,1,0
+    size: Normal #patch until there is an adequate resizing system in place
   - type: Food
   - type: Sprite
     drawdepth: Mobs
@@ -194,8 +193,6 @@
     flavors:
       - bun
       - meaty
-  - type: Food
-    transferAmount: 5
   - type: Sprite
     sprite: Objects/Consumable/Food/burger.rsi
   - type: SolutionContainerManager
@@ -594,7 +591,9 @@
         - ReagentId: CapsaicinOil
           Quantity: 3
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 8
+        - ReagentId: Sulfur # What you get for eating something with a flare in it
+          Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -797,7 +796,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
