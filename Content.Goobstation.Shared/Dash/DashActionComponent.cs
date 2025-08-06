@@ -29,6 +29,9 @@ public sealed partial class DashActionEvent : WorldTargetActionEvent
     [DataField]
     public float Speed = 9.65f;
 
+    [DataField]
+    public float? StaminaDrain;
+
     /// <summary>
     /// Whether you need gravity to perform the dash. Keep in mind there's no friction without gravity so if this
     /// is false, the performer gets every chance to be launched straight to Ohio on dashing without gravity.
