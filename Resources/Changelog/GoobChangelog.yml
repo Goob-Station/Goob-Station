@@ -12984,3 +12984,21 @@ Entries:
         instead loser.
   id: 1436
   time: '2025-08-06T02:07:17.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Combat medkits now require research to unlock.
+  id: 1437
+  time: '2025-08-06T02:17:05.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Cigarette packs can now only store cigarettes and small lighters.
+  id: 1438
+  time: '2025-08-06T02:18:15.0000000+00:00'
+- author: Thesia000
+  changes:
+    - type: Fix
+      message: Salvage of meta
+  id: 1439
+  time: '2025-08-06T06:01:57.0000000+00:00'
