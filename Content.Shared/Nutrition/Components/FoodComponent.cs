@@ -1,3 +1,5 @@
+using Content.Shared.Body.Components;
+using Content.Goobstation.Maths.FixedPoint;
 // SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 BlueberryShortcake <rubetskoy234@mail.ru>
@@ -116,17 +118,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Body.Components;
-using Content.Server.Nutrition.EntitySystems;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Nutrition.Components;
+[Obsolete("Migration to Content.Shared.Nutrition.Components.EdibleComponent is required")]
 
 [RegisterComponent, Access(typeof(FoodSystem), typeof(FoodSequenceSystem))]
-public sealed partial class FoodComponent : SharedFoodComponent // Goobstation - Changeling absorb biomass ability, now inherits from shared
+public sealed partial class FoodComponent : Component
 {
     [DataField]
     public string Solution = "food";
@@ -152,7 +153,6 @@ public sealed partial class FoodComponent : SharedFoodComponent // Goobstation -
     [DataField]
     public bool UtensilRequired;
 
-    /* Goobstation - Changeling absorb biomass ability, has been moved to shared
     /// <summary>
     ///     If this is set to true, food can only be eaten if you have a stomach with a
     ///     <see cref="StomachComponent.SpecialDigestible"/> that includes this entity in its whitelist,
@@ -161,7 +161,6 @@ public sealed partial class FoodComponent : SharedFoodComponent // Goobstation -
     /// </summary>
     [DataField]
     public bool RequiresSpecialDigestion;
-    */
 
     /// <summary>
     ///     Stomachs required to digest this entity.
@@ -174,7 +173,7 @@ public sealed partial class FoodComponent : SharedFoodComponent // Goobstation -
     /// The localization identifier for the eat message. Needs a "food" entity argument passed to it.
     /// </summary>
     [DataField]
-    public LocId EatMessage = "food-nom";
+    public LocId EatMessage = "edible-nom";
 
     /// <summary>
     /// How long it takes to eat the food personally.
