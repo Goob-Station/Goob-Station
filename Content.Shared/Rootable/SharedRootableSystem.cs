@@ -19,6 +19,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using Content.Server.Damage.Components;
 
 namespace Content.Shared.Rootable;
 

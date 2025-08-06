@@ -148,8 +148,6 @@ public sealed class SlipperySystem : EntitySystem
 
         if (!force)
         {
-            var attemptEv = new SlipAttemptEvent(uid);
-
             RaiseLocalEvent(other, attemptEv);
             if (attemptEv.SlowOverSlippery)
                 _speedModifier.AddModifiedEntity(other);
