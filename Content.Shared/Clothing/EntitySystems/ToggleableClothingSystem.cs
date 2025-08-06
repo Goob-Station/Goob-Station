@@ -157,6 +157,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
     private void StartDoAfter(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid wearer)
     {
+        _popupSystem.PopupClient("You begin toggling the suit.", wearer, user);
         var comp = toggleable.Comp;
 
         if (comp.StripDelay == null)
@@ -191,8 +192,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
         if (comp.StripDelay == null)
             return;
-
-        var (time, stealth) = _strippable.GetStripTimeModifiers(user, wearer, attached, comp.StripDelay.Value*2);
+        var (time, stealth) = _strippable.GetStripTimeModifiers(user, wearer, acomp.AttachedUid, comp.StripDelay.Value*3/4); // 3/4's of toggleable
 
         var args = new DoAfterArgs(EntityManager, user, time, new AttachClothingDoAfterEvent(), attached, wearer, attached)
         {
@@ -207,7 +207,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (!stealth)
         {
             var popup = Loc.GetString("strippable-component-alert-owner-interact", ("user", Identity.Entity(user, EntityManager)), ("item", attached));
-            _popupSystem.PopupEntity(popup, wearer, user, PopupType.Large);
+            _popupSystem.PopupEntity(popup, wearer, wearer, PopupType.Large);
 
         }
     }
@@ -388,7 +388,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         var attachedEnt = new Entity<AttachedClothingComponent>(args.Equipment, attachedComp);
         if (args.UnEquipTarget != args.Unequipee)
         {
-            StartAttachedDoAfter(args.UnEquipTarget, attachedEnt, args.Unequipee);
+            StartAttachedDoAfter(args.Unequipee, attachedEnt, args.UnEquipTarget);
             args.Cancel(); // Cancel original unequip, DoAfter will handle it
         }
         else
@@ -528,7 +528,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         var attachedClothings = comp.ClothingUids;
         var container = comp.Container;
 
-        if (!CanToggleClothing(user, toggleable))
+        if (!CanToggleClothing(user, toggleable, false))
             return;
 
         if (!attachedClothings.TryGetValue(attachedUid, out var slot) || string.IsNullOrEmpty(slot))
@@ -544,12 +544,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
             EquipClothing(user, toggleable, attachedUid, slot!);
             ForceSuitStorage(user, suitStorageItem);
         }
-
-        // Throw an event to run sanity check for modsuits in sealablesystem - TODO for later
-        /*
-        var ev = new OnToggleableUnequipAttemptEvent(toggleable, user, false);
-        RaiseLocalEvent(toggleable, ev);
-        */
     }
 
     /// <summary>
@@ -561,7 +555,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         var attachedClothings = comp.ClothingUids;
         var container = comp.Container;
 
-        if (!CanToggleClothing(user, toggleable))
+        if (!CanToggleClothing(user, toggleable, true))
             return;
 
         if (GetAttachedToggleStatus(user, toggleable, false, comp) == ToggleableClothingAttachedStatus.NoneToggled)
@@ -587,7 +581,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         }
     }
 
-    private bool CanToggleClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable)
+    private bool CanToggleClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, bool multiple)
     {
         var comp = toggleable.Comp;
         var attachedClothings = comp.ClothingUids;
@@ -596,7 +590,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (container == null || attachedClothings.Count == 0)
             return false;
 
-        var ev = new ToggleClothingAttemptEvent(user, toggleable);
+        var ev = new ToggleClothingAttemptEvent(user, toggleable, multiple);
         RaiseLocalEvent(toggleable, ev);
 
         if (ev.Cancelled)
@@ -608,7 +602,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
     private void UnequipClothing(EntityUid user, Entity<ToggleableClothingComponent> toggleable, EntityUid clothing, string slot)
     {
         var parent = Transform(toggleable.Owner).ParentUid;
-        _inventorySystem.TryUnequip(parent == user? parent : user, slot, force: true);
+        _inventorySystem.TryUnequip(parent, slot, force: true);
 
         // If attached have clothing in container - equip it
         if (!TryComp<AttachedClothingComponent>(clothing, out var attachedComp) || attachedComp.ClothingContainer == null)
@@ -822,17 +816,14 @@ public sealed partial class AttachClothingDoAfterEvent : SimpleDoAfterEvent
 /// <summary>
 ///     Event raises on toggleable clothing when someone trying to toggle it
 /// </summary>
-public sealed class ToggleClothingAttemptEvent : CancellableEntityEventArgs
+public sealed class ToggleClothingAttemptEvent(EntityUid user, EntityUid target, bool multiple)
+    : CancellableEntityEventArgs
 {
-    public EntityUid User { get; }
-    public EntityUid Target { get; }
-
-    public ToggleClothingAttemptEvent(EntityUid user, EntityUid target)
-    {
-        User = user;
-        Target = target;
-    }
+    public EntityUid User { get; } = user;
+    public EntityUid Target { get; } = target;
+    public bool Multiple { get; } = multiple;
 }
+
 
 /// <summary>
 /// Status of toggleable clothing attachee
