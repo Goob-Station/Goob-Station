@@ -104,7 +104,7 @@
       amount: 1
       catalyst: true
   products:
-    Methane: 1
+    Methane: 3
     Water: 2
 
 - type: reaction

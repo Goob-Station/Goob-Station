@@ -62,27 +62,11 @@
     AmmoniumNitrateFuelOil: 2
 
 - type: reaction
-  id: ANFORunaway #when you make more than 60u per reaction
-  impact: High
-  priority: 20
-  reactants:
-    AmmoniumNitrate:
-      amount: 42
-    WeldingFuel:
-      amount: 21
-  products:
-    AmmoniumNitrateFuelOil: 63
-  effects:
-    - !type:AdjustSolutionThermalEnergyEffect #explodes everything in the beaker
-      delta: 5000
-      scaled: true
-
-- type: reaction
   id: Octogen
   reactants:
     AmmoniumNitrate:
       amount: 1
-    NitricAcid:
+    PolytrinicAcid:
       amount: 1
     Vinegar:
       amount: 1
@@ -91,4 +75,4 @@
     Hexamine:
       amount: 1
   products:
-    Octogen: 2
+    Octogen: 4
