@@ -12984,3 +12984,9 @@ Entries:
         instead loser.
   id: 1436
   time: '2025-08-06T02:07:17.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: Combat medkits now require research to unlock.
+  id: 1437
+  time: '2025-08-06T02:17:05.0000000+00:00'
