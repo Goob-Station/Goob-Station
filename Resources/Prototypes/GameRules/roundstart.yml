@@ -255,6 +255,7 @@
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFull
       unequipOldGear: true
+      chaosScore: 300 # Goobstation
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -273,6 +274,7 @@
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFull
       unequipOldGear: true
+      chaosScore: 300 # Goobstation
       roleLoadout:
       - RoleSurvivalNukie
       components:
