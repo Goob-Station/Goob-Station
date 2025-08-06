@@ -12941,3 +12941,46 @@ Entries:
       message: Explosions won't make Tesla fly across the station anymore.
   id: 1435
   time: '2025-08-05T14:17:05.0000000+00:00'
+- author: Mocho, Gus, Skubman
+  changes:
+    - type: Add
+      message: Added sprinting from SS13!
+    - type: Tweak
+      message: >-
+        Humans now only get 10% doafter bonus instead of 20%. I'm nuking this
+        afterwards anyway so don't get used to it.
+    - type: Tweak
+      message: >-
+        Harpy flight maneuvers better now, doesn't require a doafter, and lets
+        you fly over tables.
+    - type: Tweak
+      message: >-
+        Dionas are now immune to most slowdowns or speedups, and can trigger
+        built-in magboots to become immune to slips at a cost of 25% of their
+        speed, and sipping reagents off the floor.
+    - type: Tweak
+      message: >-
+        C is now the default keybind for sprinting, Shift + C for accessing your
+        character. Please check and rebind accordingly!
+    - type: Tweak
+      message: >-
+        Upgraded cybernetic lungs now give you increased persistent passive
+        stamina regen instead of space immunity.
+    - type: Tweak
+      message: >-
+        Mechs and vehicles now inherit your tile movement so long as you are
+        driving them.
+    - type: Fix
+      message: Tile movement now works again.
+    - type: Fix
+      message: >-
+        Tile movement no longer launches you at mach 10 when walking in space,
+        nor throws you in the deathloop when entering/exiting shuttles.
+    - type: Fix
+      message: Fixed cybernetic eyes not giving their bonuses properly.
+    - type: Remove
+      message: >-
+        Removed speed boots from research! Go get a bucket of meth or stims
+        instead loser.
+  id: 1436
+  time: '2025-08-06T02:07:17.0000000+00:00'
