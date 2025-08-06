@@ -77,6 +77,8 @@
       params:
         volume: 6.5
     event: !type:DashActionEvent
+      staminaDrain: 30
+
 
 - type: entity
   id: ActionToggleRightMantisBlade
