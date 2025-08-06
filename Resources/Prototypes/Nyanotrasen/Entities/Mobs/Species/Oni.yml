@@ -39,7 +39,7 @@
         Blunt: 1.35
         Slash: 1.2
         Piercing: 1.2
-        Structural: 1.35
+        Structural: 1.35 # Goobstation - Changed from Asphyxiation
   - type: Damageable
     damageModifierSet: Oni
   - type: Body
