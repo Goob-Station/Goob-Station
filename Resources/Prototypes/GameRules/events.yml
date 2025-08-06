@@ -888,7 +888,6 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 500
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -897,6 +896,7 @@
       min: 1
       max: 2
       playerRatio: 10
+      chaosScore: 200 # Goobstation - same as roundstart traitor gamerule
       blacklist:
         components:
         - AntagImmune

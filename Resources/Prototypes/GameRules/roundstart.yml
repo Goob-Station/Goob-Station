@@ -230,9 +230,6 @@
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
-  # Goobstation
-  - type: GameRule
-    chaosScore: 1200
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
@@ -296,6 +293,7 @@
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 16 # Goobstation
+      chaosScore: 300 # Goobstation
       startingGear: SyndicateOperativeGearFull
       unequipOldGear: true
       roleLoadout:
@@ -319,9 +317,6 @@
   id: BaseTraitorRuleNoObjectives
   components:
   - type: TraitorRule
-  # Goobstation
-  - type: GameRule
-    chaosScore: 900
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagSelection
@@ -369,6 +364,7 @@
     - prefRoles: [ Traitor ]
       max: 8
       playerRatio: 10
+      chaosScore: 150 # Goobstation
       blacklist:
         components:
         - CommandStaff # Goobstation
@@ -384,7 +380,7 @@
   components:
   - type: GameRule
     minPlayers: 15
-    chaosScore: 1000 # Goobstation
+    chaosScore: 1000 # Goobstation - intentionally not per-antag
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation

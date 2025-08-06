@@ -8,6 +8,8 @@
 
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Server.StationEvents.SecretPlus;
+using Content.Server.Antag;
+using Content.Server.Antag.Components;
 using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.GameObjects;
@@ -30,6 +32,7 @@ public sealed class SecretPlusTest
         var compFac = server.ResolveDependency<IComponentFactory>();
         var entMan = server.ResolveDependency<IEntityManager>();
 
+        var antagSelection = entMan.System<AntagSelectionSystem>();
         var entTable = entMan.System<EntityTableSystem>();
 
         await server.WaitAssertion(() =>
@@ -69,7 +72,17 @@ public sealed class SecretPlusTest
 
                         Assert.That(ruleComp, Is.Not.Null, $"Entity prototype {id} is used as gamerule by {proto.ID}, but has no GameRuleComponent!");
 
-                        Assert.That(ruleComp.ChaosScore, Is.Not.Null, $"Gamerule {id} is fireable by {proto.ID}, but has no chaos score!");
+                        bool any = false;
+                        if (evProto.TryGetComponent<AntagSelectionComponent>(out var selection, compFac))
+                        {
+                            any = selection.Definitions.Any(def => def.ChaosScore != null);
+                            if (any)
+                                Assert.That(selection.Definitions.All(def => def.ChaosScore != null), Is.True, $"Gamerule {id} is fireable by {proto.ID}, but only some of its antag selection definitions have a choas score!");
+                        }
+
+                        // allow null chaos score if we have non-null chaos score on antag selections
+                        if (!any)
+                            Assert.That(ruleComp.ChaosScore, Is.Not.Null, $"Gamerule {id} is fireable by {proto.ID}, but has no chaos score!");
                     }
                 }
             });
