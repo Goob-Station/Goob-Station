@@ -305,7 +305,9 @@
         layer:
         - MobLayer
   - type: DashAction # Goobstation - dark souls moths
+    staminaDrain: 50
     actionProto: ActionDashMoth
+
 - type: entity
   parent: BaseSpeciesDummy
   id: MobMothDummy
