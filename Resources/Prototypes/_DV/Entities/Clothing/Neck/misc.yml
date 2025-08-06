@@ -6,8 +6,8 @@
 - type: entity
   parent: [ClothingNeckBase, BaseSecurityContraband]
   id: ClothingNeckCWPSec
-  name: "пончо старшого офіцера"
-  description: "Стійке до холоду пончо, що рекламується як шедевр захисту від навколишнього середовища. Результати можуть відрізнятися."
+  name: senior officer's poncho
+  description: A cold weather poncho, advertised as a masterpiece of environmental protection. Results may vary.
   components:
   - type: Sprite
     sprite: _DV/Clothing/Neck/cwpsec.rsi

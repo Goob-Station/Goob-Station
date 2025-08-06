@@ -2,8 +2,8 @@
   parent: [ StorageTank ]
   id: BaseBarrelChem
   abstract: true
-  name: "хімічна бочка"
-  description: "Невелика металева бочка. Як тропічно."
+  name: chemical barrel
+  description: A small metal drum. How tropical.
   components:
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
@@ -55,8 +55,8 @@
   parent: BaseBarrelChem
   id: BaseBarrelChemRadioactive
   abstract: true
-  name: "радіоактивна бочка"
-  description: "Здається, вона трохи протікає. Не думаю, що ви захочете довго перебувати поруч."
+  name: radioactive barrel
+  description: It seems to be leaking a bit. I don't think you'd want to be around this for long.
   components:
   - type: Sprite
     state: radbarrel
@@ -189,7 +189,7 @@
   parent: BaseBarrelChem
   id: BarrelChemFilledLube
   suffix: Lube
-  description: "Слизько..."
+  description: Slippery...
   components:
   - type: Sprite
     state: silicatebarrel

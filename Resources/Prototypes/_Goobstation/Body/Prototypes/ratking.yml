@@ -8,7 +8,7 @@
 
 - type: body
   id: RatKing
-  name: "тварина"
+  name: "animal"
   root: chest
   slots:
     chest:

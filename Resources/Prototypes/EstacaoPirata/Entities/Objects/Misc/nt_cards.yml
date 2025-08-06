@@ -8,7 +8,7 @@
 - type: entity
   parent: CardBase
   id: CardBaseNanotrasen
-  name: "картка"
+  name: card
   components:
     - type: Card
       backSpriteLayers:
@@ -18,7 +18,7 @@
 - type: entity
   parent: CardBoxBase
   id: CardBoxNanotrasen
-  name: "нанотрасен колодний ящик"
+  name: nanotrasen deck box
   components:
   - type: Item
     size: Small
@@ -37,7 +37,7 @@
 - type: entity
   parent: CardDeckBase
   id: CardDeckNanotrasen
-  name: "колода карт"
+  name: deck of cards
   components:
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi

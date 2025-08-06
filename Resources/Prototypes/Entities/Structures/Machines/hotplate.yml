@@ -55,8 +55,8 @@
 - type: entity
   parent: BaseHeaterMachine
   id: ChemistryHotplate
-  name: "плита"
-  description: "Нащадок мікрохвильових печей, наш новітній винахід у технології нагрівання мензурок: конфорка!"
+  name: hotplate
+  description: "The descendent of the microwaves, our newest invention in beaker heating technology: the hotplate!"
   components:
   - type: Sprite
     sprite: Structures/Machines/hotplate.rsi

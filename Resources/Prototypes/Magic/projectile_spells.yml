@@ -21,8 +21,8 @@
 
 - type: entity
   id: ActionFireball
-  name: "Вогняна Куля"
-  description: "Вистрілює вибуховою вогняною кулею в напрямку клацнутої локації."
+  name: Fireball
+  description: Fires an explosive fireball towards the clicked location.
   components:
   - type: Magic
     requiresSpeech: true # Goobstation
@@ -54,8 +54,8 @@
 - type: entity
   id: ActionFireballII
   parent: ActionFireball
-  name: "Вогняна Куля II"
-  description: "Вистрілює вогняною кулею, але швидше!"
+  name: Fireball II
+  description: Fires a fireball, but faster!
   components:
   - type: EntityWorldTargetAction # Goob edit
     useDelay: 4 # Goob edit
@@ -77,8 +77,8 @@
 - type: entity
   id: ActionFireballIII
   parent: ActionFireball
-  name: "Вогняна куля III"
-  description: "Найшвидша вогняна куля на заході!"
+  name: Fireball III
+  description: The fastest fireball in the west!
   components:
     - type: EntityWorldTargetAction # Goob edit
       useDelay: 2 # Goob edit
