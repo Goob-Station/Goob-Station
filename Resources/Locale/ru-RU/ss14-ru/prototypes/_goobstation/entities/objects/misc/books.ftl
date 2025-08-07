@@ -1,3 +1,3 @@
-ent-GuidebookCodexUmbra = Codex Umbra
-    .desc = An old book tightly wound in dark leather. It details various contracts and their effects.
+ent-GuidebookCodexUmbra = Кодекс Умбра
+    .desc = Старая книга, туго обтянутая тёмной кожей. Содержит описание различных контрактов и их эффектов.
     .suffix = guidebook

@@ -1,2 +1,2 @@
-ent-BloodTrak = bloodtrak
-    .desc = A handheld tracking device, capable of tracking someone from their DNA. This particular model only works on puddles, and only functions for a short duration.
+ent-BloodTrak = КровоСлед
+    .desc = Ручное устройство слежения, способное отслеживать человека по его ДНК. Эта конкретная модель работает только с лужами и функционирует лишь короткое время.

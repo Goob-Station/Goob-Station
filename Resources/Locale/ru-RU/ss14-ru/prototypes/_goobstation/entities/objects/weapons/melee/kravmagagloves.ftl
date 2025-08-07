@@ -1,2 +1,2 @@
-ent-ClothingHandsGlovesKravMaga = Krav Maga gloves
-    .desc = These gloves can teach you to perform Krav Maga using nanochips for as long as you're wearing them.
+ent-ClothingHandsGlovesKravMaga = перчатки Крав Мага
+    .desc = Эти перчатки обучают вас приёмам Крав Мага с помощью наночипов, пока вы их носите.

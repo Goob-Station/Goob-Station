@@ -1,6 +1,6 @@
-ent-BorgModuleSyndicateWeaponAdvanced = advanced weapon cyborg module
+ent-BorgModuleSyndicateWeaponAdvanced = продвинутый оружейный модуль киборга
     .desc = { ent-BaseBorgModule.desc }
-ent-BorgModuleLollypop = lollypop cyborg module
+ent-BorgModuleLollypop = леденцовый модуль киборга
     .desc = { ent-BaseBorgModule.desc }
-ent-BorgModulePKA = proto-kinetic cyborg module
+ent-BorgModulePKA = прото-кинетический модуль киборга
     .desc = { ent-BaseBorgModuleCargo.desc }

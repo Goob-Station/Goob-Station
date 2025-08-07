@@ -1,2 +1,2 @@
-ent-Butt = butt
-    .desc = { ent-BaseItem.desc }
+ent-Butt = жопа
+    .desc = Ок.

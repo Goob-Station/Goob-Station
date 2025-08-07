@@ -1,4 +1,4 @@
-ent-GrenadeMPAPERS = MP-APERS shell (40mm)
+ent-GrenadeMPAPERS = MP-APERS снаряд (40-мм)
     .desc = { ent-BaseGrenade.desc }
-ent-GrenadeTeargas = tear gas shell (40mm)
+ent-GrenadeTeargas = слезоточивый снаряд (40-мм)
     .desc = { ent-BaseGrenade.desc }

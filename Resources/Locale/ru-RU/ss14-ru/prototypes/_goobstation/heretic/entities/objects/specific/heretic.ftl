@@ -1,8 +1,8 @@
-ent-CodexCicatrix = codex cicatrix
-    .desc = This heavy tome is full of cryptic scribbles and impossible diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
-ent-HereticEldritchFlask = eldritch flask
-    .desc = A flask filled with an unknown substance. Who knows what will happen when you take a sip from it.
-ent-HereticProtectiveBlade = eldritch blade
-    .desc = Maelstrom of razors flashing right before your eyes. Why are you stopping to look at it!?
-ent-HereticProtectiveBladeProjectile = eldritch blade
-    .desc = Maelstrom of razors flashing right before your eyes. Why are you stopping to look at it!?
+ent-CodexCicatrix = кодекс Цикатрикс
+    .desc = Этот тяжёлый фолиант полон загадочных каракулей и невозможных диаграмм. Согласно легенде, его можно расшифровать, чтобы раскрыть тайны завесы между мирами.
+ent-HereticEldritchFlask = эльдрическая фляга
+    .desc = Фляга, наполненная неизвестным веществом. Кто знает, что произойдёт, если ты сделаешь из неё глоток.
+ent-HereticProtectiveBlade = эльдрический клинок
+    .desc = Водоворот лезвий сверкает прямо у тебя перед глазами. Почему ты вообще остановился, чтобы на него посмотреть!?
+ent-HereticProtectiveBladeProjectile = эльдрический клинок
+    .desc = Водоворот лезвий сверкает прямо у тебя перед глазами. Почему ты вообще остановился, чтобы на него посмотреть!?

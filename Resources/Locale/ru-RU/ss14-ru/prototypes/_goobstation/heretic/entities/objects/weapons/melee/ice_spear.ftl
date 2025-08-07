@@ -1,2 +1,2 @@
-ent-SpearIceHeretic = Glacier Spear
-    .desc = When the veil between frost and thought thins, the spear shall bite with the might of the Winter Dawn.
+ent-SpearIceHeretic = ледяное копьё
+    .desc = Когда завеса между холодом и разумом истончается, копьё вонзается с мощью Зимнего Рассвета.
