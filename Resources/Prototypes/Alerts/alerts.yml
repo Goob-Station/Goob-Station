@@ -168,6 +168,7 @@
     - category: Hunger
     - category: Thirst
     - alertType: Magboots
+    - alertType: Rooted
     - alertType: Pacified
     - alertType: ShadowCloak # Goobstation
     - alertType: DragonPower # Goobstation
