@@ -1,3 +1,3 @@
-ent-BlueshieldAmmunitionBox = blueshield ammunition box
-    .desc = A box containing various ammunition and magazines for high caliber shotguns.
-    .suffix = Unused
+ent-BlueshieldAmmunitionBox = ящик патрон Синего Щита
+    .desc = Ящик, содержащий различные боеприпасы и магазины для дробовиков крупного калибра.
+    .suffix = Неиспользуемый

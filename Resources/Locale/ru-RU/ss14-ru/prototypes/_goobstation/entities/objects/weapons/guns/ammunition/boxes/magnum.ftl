@@ -1,2 +1,2 @@
-ent-MagazineBoxMagnumNeurotoxin = ammunition box (.45 magnum neurotoxin)
+ent-MagazineBoxMagnumNeurotoxin = коробка патронов (.45 магнум нейротоксин)
     .desc = { ent-BaseMagazineBoxMagnum.desc }

@@ -1,2 +1,2 @@
-ent-BananiumSword = bananium energy sword
-    .desc = A very loud & slippery sword with a beam made of pure, concentrated bananium. Slips un-galoshed targets like butter.
+ent-BananiumSword = бананиумный энергетический меч
+    .desc = Очень громкий и скользкий меч с лучом из чистого, концентрированного бананиума. Скользит по незащищённым целям, как по маслу.

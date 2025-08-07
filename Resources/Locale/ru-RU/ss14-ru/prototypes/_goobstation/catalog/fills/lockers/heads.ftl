@@ -1,6 +1,6 @@
 ent-LockerNanorepFilled = { ent-LockerNanorep }
-    .suffix = Filled
+    .suffix = Заполненный
     .desc = { ent-LockerNanorep.desc }
 ent-LockerBlueshieldOfficerFilled = { ent-LockerBlueshieldOfficer }
-    .suffix = Filled
+    .suffix = Заполненный
     .desc = { ent-LockerBlueshieldOfficer.desc }

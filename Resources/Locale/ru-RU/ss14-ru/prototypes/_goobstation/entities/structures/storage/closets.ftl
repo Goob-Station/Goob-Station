@@ -1,6 +1,6 @@
-ent-SuitStorageHEV = H.E.V suit storage unit
-    .desc = A fancy hi-tech storage unit made for storing H.E.V suit.
-    .suffix = Empty
+ent-SuitStorageHEV = { ent-SuitStorageBase }
+    .desc = { ent-SuitStorageBase.desc }
+    .suffix = HEV, Пустой
 ent-SuitStorageHEVFilled = { ent-SuitStorageHEV }
-    .suffix = Filled
+    .suffix = HEV, Заполненный
     .desc = { ent-SuitStorageHEV.desc }

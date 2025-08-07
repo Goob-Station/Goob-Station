@@ -287,6 +287,7 @@
   id: MobResomiDummy
   save: false
   description: A dummy resomi meant to be used in character setup.
+  categories: [ HideSpawnMenu ] # Corvax-Goob-Resomi
   components:
   - type: HumanoidAppearance
     species: Resomi

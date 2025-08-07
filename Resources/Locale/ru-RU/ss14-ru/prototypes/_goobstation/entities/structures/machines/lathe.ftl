@@ -1,8 +1,8 @@
-ent-EngineeringTechFab = engineering techfab
-    .desc = Prints equipment and circuitboards for use by engineering department.
-ent-CargoTechFab = cargo techfab
-    .desc = Prints equipment and circuitboards for use by cargo department.
-ent-ScienceTechFab = science techfab
-    .desc = Prints equipment and circuitboards for use by science department.
-ent-ServiceTechFab = service techfab
-    .desc = Prints equipment and circuitboards for use by service department.
+ent-EngineeringTechFab = инженерный ТехФаб
+    .desc = Печатает снаряжение и машинные платы для инженерного отдела.
+ent-CargoTechFab = ТехФаб снабжения
+    .desc = Печатает снаряжение и машинные платы для инженерного отдела.
+ent-ScienceTechFab = научный ТехФаб
+    .desc = Печатает снаряжение и машинные платы для инженерного отдела.
+ent-ServiceTechFab = сервисный ТехФаб
+    .desc = Печатает снаряжение и машинные платы для инженерного отдела.

@@ -1,2 +1,2 @@
-ent-CartridgeSmart = cartridge (.160 smart)
-    .desc = A .160 smart bullet with a small charge of booster propellant at the bottom.
+ent-CartridgeSmart = патрон (.160 умный)
+    .desc = Пуля калибра .160 с умной системой наведения и небольшим зарядом ускоряющего топлива в основании.

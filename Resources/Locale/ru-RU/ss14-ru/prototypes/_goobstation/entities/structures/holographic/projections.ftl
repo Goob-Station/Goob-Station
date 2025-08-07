@@ -1,2 +1,2 @@
-ent-HolosignSecurityAdvanced = advanced holographic barrier
-    .desc = An advanced barrier of hard light that blocks movement. You can't crawl under this one.
+ent-HolosignSecurityAdvanced = продвинутый голографический барьер
+    .desc = Продвинутый барьер из твёрдого света, блокирует движение. Вы не можете перелезть через него.
