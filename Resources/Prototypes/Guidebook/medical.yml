@@ -52,6 +52,7 @@
   # TODO GUIDEBOOK Maybe allow duplicate entries?
   - Botanicals
   - AdvancedBrute
+  - PlasticProduction
 
 - type: guideEntry
   id: Medicine
@@ -69,3 +70,8 @@
   id: AdvancedBrute
   name: guide-entry-brute
   text: "/ServerInfo/Guidebook/Medical/AdvancedBrute.xml"
+
+- type: guideEntry
+  id: PlasticProduction
+  name: guide-entry-plastic
+  text: "/ServerInfo/Guidebook/Medical/PlasticProduction.xml"
