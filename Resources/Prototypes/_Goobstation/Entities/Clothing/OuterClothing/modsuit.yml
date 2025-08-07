@@ -86,9 +86,6 @@
       heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -163,9 +160,6 @@
       heatingCoefficient: 0.01
   - type: FireProtection
     reduction: 0.5
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 
 - type: entity
@@ -248,9 +242,6 @@
       Bicaridine: 10
       TranexamicAcid: 5
       Tramadol: 5
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -326,9 +317,6 @@
     damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.5
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -405,9 +393,6 @@
     damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.7
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -482,9 +467,6 @@
     damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.75
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -561,9 +543,6 @@
     damageCoefficient: 0.5
   - type: FireProtection
     reduction: 0.5
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
   - type: GroupExamine
 
 - type: entity
@@ -641,6 +620,3 @@
     damageCoefficient: 0.6
   - type: FireProtection
     reduction: 0.5
-  - type: HideClothingLayerClothing
-    hiddenSlots:
-    - jumpsuit
