@@ -14,8 +14,8 @@
 - type: entity
   parent: BaseBoardEntity
   id: CheckerBoard
-  name: checkerboard
-  description: A checkerboard. Pieces included!
+  name: "шашківниця"
+  description: "Шахова дошка. Шматки включені!"
   components:
   - type: Sprite
     sprite: Objects/Fun/Tabletop/chessboard.rsi
@@ -34,7 +34,7 @@
 # Checkerboard tabletop item (item only visible in tabletop game)
 - type: entity
   id: *checkerboard
-  name: checkerboard
+  name: "шашківниця"
   parent: BaseBoardTabletop
   categories: [ HideSpawnMenu ]
   components:
@@ -45,7 +45,7 @@
 # The pieces
 - type: entity
   id: *pieceWhite
-  name: white checker piece
+  name: "біла шашка"
   parent: BaseTabletopPiece
   components:
     - type: Sprite
@@ -54,7 +54,7 @@
 
 - type: entity
   id: *crownWhite
-  name: white checker crown
+  name: "біла коронова шашка"
   parent: BaseTabletopPiece
   components:
     - type: Sprite
@@ -63,7 +63,7 @@
 
 - type: entity
   id: *pieceBlack
-  name: black checker piece
+  name: "чорна шашка"
   parent: BaseTabletopPiece
   components:
     - type: Sprite
@@ -72,7 +72,7 @@
 
 - type: entity
   id: *crownBlack
-  name: black checker crown
+  name: "чорна коронова шашка"
   parent: BaseTabletopPiece
   components:
     - type: Sprite

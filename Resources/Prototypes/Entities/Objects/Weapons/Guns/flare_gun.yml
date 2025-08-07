@@ -21,10 +21,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: flare gun
+  name: "сигнальна ракета"
   parent: BaseItem
   id: WeaponFlareGun
-  description: A compact, single-shot pistol that fires shotgun shells. Comes with a safety feature that prevents the user from fitting lethal shells inside.
+  description: "Компактний однозарядний пістолет, що стріляє дробовими набоями. Має запобіжник, який не дозволяє користувачеві вставляти смертоносні набої всередину."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
@@ -88,10 +88,10 @@
   # Goobstation edit end
 
 - type: entity
-  name: security shell gun
+  name: "охоронний пістолет"
   parent: [WeaponFlareGun, BaseSecurityContraband]
   id: WeaponFlareGunSecurity
-  description: A modified flare gun originally designed to be used by security to launch non-lethal shotgun shells, however it can also fire lethal shells without risk.
+  description: "Модифікована сигнальна ракета, спочатку призначена для використання службою безпеки для запуску несмертельних дробових снарядів, однак вона також може стріляти смертельними снарядами без ризику."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/flaregun_security.rsi

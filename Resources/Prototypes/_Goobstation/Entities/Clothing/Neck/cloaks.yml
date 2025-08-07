@@ -13,8 +13,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakHelldiver
-  name: salvage pure loality cape
-  description: A representation of the thankfulness of those infinite crew whose wealthy existence we strive to ensure.
+  name: "плащ чистої лояльності"
+  description: "Уособлення вдячності нескінченного екіпажу, чиє заможне існування ми прагнемо забезпечити."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/helldiver.rsi
@@ -24,8 +24,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCloakResonant
-  name: resonant cape
-  description: The stage calls for us. We should gladly play along.
+  name: "резонансний плащ"
+  description: "Сцена кличе нас. Ми повинні з радістю підіграти."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/breverb.rsi
@@ -35,8 +35,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarp
-  name: carp cloak
-  description: Getting up to some fishy business are we?
+  name: "плащ карпа"
+  description: "Займаємося рибними справами, так?"
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloak.rsi
@@ -46,8 +46,8 @@
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarpAlt
-  name: carp cloak
-  description: Restricted to extraterrestrial entities. That means NOT you.
+  name: "плащ карпа"
+  description: "Дозволено лише позаземним істотам. Це означає НЕ вам."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Cloaks/carpcloakalt.rsi

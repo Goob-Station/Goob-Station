@@ -12,10 +12,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: reverse bear trap pack
+  name: "пакунок зворотної ведмежої пастки"
   parent: BoxCardboard
   id: BoxReverseBearTrap
-  description: A box full of completely legal stuff.
+  description: "Коробка, повна абсолютно легальних речей."
   components:
   - type: StorageFill
     contents:
@@ -27,11 +27,11 @@
     sprite: _Goobstation/Objects/Storage/boxes.rsi
 
 - type: entity
-  name: combat injector box
+  name: "коробка бойових ін'єкторів"
   parent: BoxCardboard
   id: BoxCombatInjector
   suffix: DO NOT MAP
-  description: A box containing a combat injector and a few healing chemicals.
+  description: "Коробка з бойовим ін'єктором та кількома лікувальними хімікатами."
   components:
   - type: StorageFill
     contents:
@@ -51,10 +51,10 @@
     sprite: _Goobstation/Objects/Storage/boxes.rsi
 
 - type: entity
-  name: autoinjector cartridge box
+  name: "коробка картриджів для автоін'єктора"
   parent: BoxCardboard
   id: BoxAutoinjectorCartidges
-  description: A box with autoinjector cartridges.
+  description: "Коробка з картриджами для автоін'єктора."
   components:
   - type: StorageFill
     contents:

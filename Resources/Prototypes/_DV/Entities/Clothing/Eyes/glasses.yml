@@ -22,7 +22,7 @@
 - type: entity
   parent: ClothingEyesGlassesGar
   id: ClothingEyesGlassesGarMeson
-  name: gar mesons
-  description: Do the impossible, see the invisible!
+  name: "гар-мезони"
+  description: "Робити неможливе, бачити невидиме!"
   components:
   - type: EyeProtection

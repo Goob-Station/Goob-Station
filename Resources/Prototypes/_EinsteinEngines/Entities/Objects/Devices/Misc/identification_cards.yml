@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: GlimmerMonitorCartridge
-  name: glimmer monitor cartridge
-  description: A cartridge that keeps track of glimmer.
+  name: "картридж для монітора мерехтіння"
+  description: "Картридж, який відстежує мерехтіння."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Devices/cartridge.rsi
@@ -22,7 +22,7 @@
 - type: entity
   parent: IDCardStandard
   id: ForensicMantisIDCard
-  name: mantis ID card
+  name: "ідентифікаційна картка мантіса"
   components:
   - type: Sprite
     layers:

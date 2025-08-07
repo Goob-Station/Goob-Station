@@ -181,7 +181,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBun
-  name: bun recipe
+  name: "рецепт булочки"
   result: FoodBreadBun
   time: 5
   group: Breads
@@ -190,7 +190,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCottonBun
-  name: cotton bun recipe
+  name: "рецепт бавовняної булочки"
   result: FoodCottonBun
   time: 5
   group: Breads
@@ -200,7 +200,7 @@
 #Bagels
 - type: microwaveMealRecipe
   id: RecipeBagel
-  name: bagel recipe
+  name: "рецепт бейглу"
   result: FoodBagel
   time: 5
   group: Breads
@@ -209,7 +209,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBagelPoppy
-  name: poppyseed bagel recipe
+  name: "рецепт бейглу з маком"
   result: FoodBagelPoppy
   time: 5
   group: Breads
@@ -219,7 +219,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBagelCotton
-  name: cotton bagel recipe
+  name: "рецепт бавовняного бейглу"
   result: FoodBagelCotton
   time: 5
   group: Moth
@@ -230,7 +230,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeAppendixBurger
-  name: appendix burger recipe
+  name: "рецепт бургера з апендиксом"
   result: FoodBurgerAppendix
   time: 10
   group: Savory
@@ -240,7 +240,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBaconBurger
-  name: bacon burger recipe
+  name: "рецепт бургера з беконом"
   result: FoodBurgerBacon
   time: 10
   group: Savory
@@ -251,7 +251,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBaseballBurger
-  name: baseball burger recipe
+  name: "рецепт бейсбольного бургера"
   result: FoodBurgerBaseball
   time: 10
   group: Savory
@@ -261,7 +261,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBearger
-  name: bearger recipe
+  name: "рецепт ведмебургера"
   result: FoodBurgerBear
   time: 10
   group: Savory
@@ -271,7 +271,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBigBiteBurger
-  name: big bite burger recipe
+  name: "рецепт бургера з великим шматком"
   result: FoodBurgerBig
   time: 15
   group: Savory
@@ -284,7 +284,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBrainBurger
-  name: brain burger recipe
+  name: "рецепт бургера з мозком"
   result: FoodBurgerBrain
   time: 10
   group: Savory
@@ -294,7 +294,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCatBurger
-  name: cat burger recipe
+  name: "рецепт котячого бургера"
   result: FoodBurgerCat
   time: 10
   group: Savory
@@ -305,7 +305,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCheeseburger
-  name: cheeseburger recipe
+  name: "рецепт чизбургера"
   result: FoodBurgerCheese
   time: 10
   group: Savory
@@ -316,7 +316,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeChickenSandwich
-  name: chicken sandwich recipe
+  name: "рецепт курячого сендвіча"
   result: FoodBurgerChicken
   time: 10
   group: Savory
@@ -328,7 +328,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeClownBurger
-  name: clownburger recipe
+  name: "рецепт клоунбургера"
   result: FoodBurgerClown
   time: 10
   group: Savory
@@ -338,7 +338,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCorgiBurger
-  name: corgi burger recipe
+  name: "рецепт коргі-бургера"
   result: FoodBurgerCorgi
   time: 10
   group: Savory
@@ -348,7 +348,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCrabBurger
-  name: crab burger recipe
+  name: "рецепт крабового бургера"
   result: FoodBurgerCrab
   time: 10
   group: Savory
@@ -358,7 +358,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCrazyHamburger
-  name: crazy hamburger recipe
+  name: "рецепт божевільного гамбургера"
   result: FoodBurgerCrazy
   time: 15
   group: Savory
@@ -375,7 +375,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDuckBurger
-  name: duck sandwich recipe
+  name: "рецепт качиного сендвіча"
   result: FoodBurgerDuck
   time: 10
   group: Savory
@@ -386,7 +386,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeEmpoweredBurger
-  name: empowered burger recipe
+  name: "рецепт посиленого бургера"
   result: FoodBurgerEmpowered
   time: 10
   group: Savory
@@ -396,7 +396,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCarpBurger
-  name: fillet-o-carp burger recipe
+  name: "рецепт бургера з філе коропа"
   result: FoodBurgerCarp
   time: 10
   group: Savory
@@ -407,7 +407,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFiveBurger
-  name: five alarm burger recipe
+  name: "рецепт бургера з п'ятьма перцями"
   result: FoodBurgerFive
   time: 10
   group: Savory
@@ -418,7 +418,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeGhostBurger
-  name: ghost burger recipe
+  name: "рецепт примарного бургера"
   result: FoodBurgerGhost
   time: 10
   group: Savory
@@ -428,7 +428,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeHumanBurger
-  name: human burger recipe
+  name: "рецепт людського бургера"
   result: FoodBurgerHuman
   time: 10
   group: Savory
@@ -438,7 +438,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeJellyBurger
-  name: jelly burger recipe
+  name: "рецепт желейного бургера"
   result: FoodBurgerJelly
   time: 10
   group: Savory
@@ -448,7 +448,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBurgerMcguffin
-  name: McGuffin recipe
+  name: "рецепт МакГафіна"
   result: FoodBurgerMcguffin
   time: 10
   group: Savory
@@ -460,7 +460,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBurgerMcrib
-  name: BBQ rib sandwich recipe
+  name: "рецепт сендвіча з реберець барбекю"
   result: FoodBurgerMcrib
   time: 10
   group: Savory
@@ -471,7 +471,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMimeBurger
-  name: mime burger recipe
+  name: "рецепт мім-бургера"
   result: FoodBurgerMime
   time: 10
   group: Savory
@@ -481,7 +481,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePlainBurger
-  name: plain burger recipe
+  name: "рецепт простого бургера"
   result: FoodBurgerPlain
   time: 10
   group: Savory
@@ -491,7 +491,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRatBurger
-  name: rat burger recipe
+  name: "рецепт щурячого бургера"
   result: FoodBurgerRat
   time: 10
   group: Savory
@@ -501,7 +501,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRobotBurger
-  name: roburger recipe
+  name: "рецепт робобургера"
   result: FoodBurgerRobot
   time: 10
   group: Savory
@@ -512,7 +512,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeSoylentBurger
-  name: soylent burger recipe
+  name: "рецепт сойлент-бургера"
   result: FoodBurgerSoy
   time: 10
   group: Savory
@@ -523,7 +523,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeSpellBurger
-  name: spell burger recipe
+  name: "рецепт спелл-бургера"
   result: FoodBurgerSpell
   time: 10
   group: Savory
@@ -533,7 +533,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeSuperBiteBurger
-  name: super bite burger recipe
+  name: "рецепт супер-бургера"
   result: FoodBurgerSuper
   time: 25
   group: Savory
@@ -548,7 +548,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeTofuBurger
-  name: tofu burger recipe
+  name: "рецепт тофу-бургера"
   result: FoodBurgerTofu
   time: 10
   group: Savory
@@ -558,7 +558,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeXenoburger
-  name: xenoburger recipe
+  name: "рецепт ксенобургера"
   result: FoodBurgerXeno
   time: 10
   group: Savory
@@ -568,7 +568,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMothRoachburger
-  name: mothroachburger recipe
+  name: "рецепт тарганоміль-бургера"
   result: FoodBurgerMothRoach
   group: Savory
   solids:
@@ -579,7 +579,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBananaBread
-  name: banana bread recipe
+  name: "рецепт бананового хліба"
   result: FoodBreadBanana
   time: 15
   group: LoafCakes
@@ -589,7 +589,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCornbread
-  name: cornbread recipe
+  name: "рецепт кукурудзяного хліба"
   result: FoodBreadCorn
   time: 10
   group: Breads
@@ -598,7 +598,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCreamCheeseBread
-  name: cream cheese bread recipe
+  name: "рецепт хліба з вершковим сиром"
   result: FoodBreadCreamcheese
   time: 15
   group: Breads
@@ -610,7 +610,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMeatBread
-  name: meat bread recipe
+  name: "рецепт м'ясного хліба"
   result: FoodBreadMeat
   time: 15
   group: Breads
@@ -621,7 +621,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMimanaBread
-  name: mimana bread recipe
+  name: "рецепт мімана-хліба"
   result: FoodBreadMimana
   time: 15
   group: Breads
@@ -633,7 +633,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBread
-  name: bread recipe
+  name: "рецепт хліба"
   result: FoodBreadPlain
   time: 10
   group: Breads
@@ -642,7 +642,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBreadCotton
-  name: cotton bread recipe
+  name: "рецепт бавовняного хліба"
   result: FoodBreadCotton
   time: 10
   group: Moth
@@ -651,7 +651,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeSausageBread
-  name: sausage bread recipe
+  name: "рецепт ковбасного хліба"
   result: FoodBreadSausage
   time: 15
   group: Breads
@@ -661,7 +661,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeSpiderMeatBread
-  name: spider meat bread recipe
+  name: "рецепт хліба з павучого м'яса"
   result: FoodBreadMeatSpider
   time: 15
   group: Breads
@@ -672,7 +672,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeTofuBread
-  name: tofu bread recipe
+  name: "рецепт тофу-хліба"
   result: FoodBreadTofu
   time: 15
   group: Breads
@@ -682,7 +682,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeXenoMeatBread
-  name: xeno meat bread recipe
+  name: "рецепт хліба з ксеном'яса"
   result: FoodBreadMeatXeno
   time: 15
   group: Breads
@@ -695,7 +695,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBaguette
-  name: baguette recipe
+  name: "рецепт багета"
   result: FoodBreadBaguette
   time: 15
   group: Breads
@@ -707,7 +707,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBaguetteCotton
-  name: baguette recipe
+  name: "рецепт багета"
   result: FoodBreadBaguetteCotton
   time: 15
   group: Moth
@@ -719,7 +719,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBaguetteSword
-  name: baguette sword recipe
+  name: "рецепт багетного меча"
   result: WeaponBaguette
   secretRecipe: true
   time: 15
@@ -733,7 +733,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeButteredToast
-  name: buttered toast recipe
+  name: "рецепт тосту з маслом"
   result: FoodBreadButteredToast
   time: 5
   group: Breads
@@ -743,7 +743,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFrenchToast
-  name: french toast recipe
+  name: "рецепт французького тосту"
   result: FoodBreadFrenchToast
   time: 5
   group: Breakfast
@@ -755,7 +755,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeGarlicBread
-  name: garlic bread slice recipe
+  name: "рецепт часникового хліба"
   result: FoodBreadGarlicSlice
   time: 5
   group: Breads
@@ -766,7 +766,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeJellyToast
-  name: jelly toast recipe
+  name: "рецепт тосту з желе"
   result: FoodBreadJellySlice
   time: 5
   group: Breads
@@ -776,7 +776,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMoldyBreadSlice
-  name: moldy bread slice recipe
+  name: "рецепт цвілого шматка хліба"
   result: FoodBreadMoldySlice
   time: 5
   group: Breads
@@ -786,7 +786,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeTwoBreadSlice
-  name: two slice recipe
+  name: "рецепт двох шматків хліба"
   result: FoodBreadTwoSlice
   time: 5
   group: Breads
@@ -797,7 +797,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeOnionRings
-  name: onion rings recipe
+  name: "рецепт цибулевих кілець"
   result: FoodOnionRings
   time: 15
   group: Savory
@@ -807,7 +807,7 @@
 #Pizzas TODO: contruction graph based pizza
 - type: microwaveMealRecipe
   id: RecipeMargheritaPizza
-  name: margherita pizza recipe
+  name: "рецепт піци Маргарита"
   result: FoodPizzaMargherita
   time: 30
   group: Pizza
@@ -818,7 +818,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMushroomPizza
-  name: mushroom pizza recipe
+  name: "рецепт грибної піци"
   result: FoodPizzaMushroom
   time: 30
   group: Pizza
@@ -828,7 +828,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMeatPizza
-  name: meat pizza recipe
+  name: "рецепт м'ясної піци"
   result: FoodPizzaMeat
   time: 30
   group: Pizza
@@ -840,7 +840,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeVegetablePizza
-  name: vegetable pizza recipe
+  name: "рецепт овочевої піци"
   result: FoodPizzaVegetable
   time: 30
   group: Pizza
@@ -853,7 +853,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeHawaiianPizza
-  name: Hawaiian pizza recipe
+  name: "рецепт гавайської піци"
   result: FoodPizzaPineapple
   time: 30
   group: Pizza
@@ -864,7 +864,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDankPizza
-  name: dank pizza recipe
+  name: "рецепт данк-піци"
   result: FoodPizzaDank
   time: 30
   group: Pizza
@@ -876,7 +876,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketPizza
-  name: donk-pocket pizza recipe
+  name: "рецепт донк-покет піци"
   result: FoodPizzaDonkpocket
   time: 30
   group: Pizza
@@ -888,7 +888,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeUraniumPizza
-  name: spicy rock pizza recipe
+  name: "рецепт гострої кам'яної піци"
   result: FoodPizzaUranium
   time: 30
   group: Pizza
@@ -900,7 +900,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCottonPizza
-  name: cotton pizza recipe
+  name: "рецепт бавовняної піци"
   result: FoodPizzaCotton
   time: 30
   group: Moth
@@ -910,7 +910,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWorldpeasPizza
-  name: world peazza recipe
+  name: "рецепт піци \"мирний горошок"
   result: FoodPizzaWorldpeas
   time: 30
   solids:
@@ -920,7 +920,7 @@
 #Italian
 - type: microwaveMealRecipe
   id: RecipeBoiledSpaghetti
-  name: boiled spaghetti recipe
+  name: "рецепт варених спагеті"
   result: FoodNoodlesBoiled
   time: 15
   group: Pasta
@@ -931,7 +931,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePastaTomato
-  name: pasta tomato recipe
+  name: "рецепт пасти з томатами"
   result: FoodNoodles
   time: 10
   group: Pasta
@@ -941,7 +941,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMeatballSpaghetti
-  name: spaghetti & meatballs recipe
+  name: "рецепт спагеті з фрикадельками"
   result: FoodNoodlesMeatball
   time: 10
   group: Pasta
@@ -951,7 +951,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeButterNoodles
-  name: butter noodles recipe
+  name: "рецепт локшини з маслом"
   result: FoodNoodlesButter
   time: 10
   group: Pasta
@@ -961,7 +961,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeChowMein
-  name: chow mein recipe
+  name: "рецепт чау-мейн"
   result: FoodNoodlesChowmein
   time: 10
   group: Pasta
@@ -975,7 +975,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeOatmeal
-  name: oatmeal recipe
+  name: "рецепт вівсянки"
   result: FoodOatmeal
   time: 15
   group: Savory
@@ -987,7 +987,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBoiledRice
-  name: boiled rice recipe
+  name: "рецепт вареного рису"
   result: FoodRiceBoiled
   time: 15
   group: Savory
@@ -999,7 +999,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRicePudding
-  name: rice pudding recipe
+  name: "рецепт рисового пудингу"
   result: FoodRicePudding
   time: 15
   group: Dessert
@@ -1012,7 +1012,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRicePork
-  name: rice and pork recipe
+  name: "рецепт рису зі свининою"
   result: FoodRicePork
   time: 15
   group: Savory
@@ -1022,7 +1022,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRiceGumbo
-  name: black-eyed gumbo recipe
+  name: "рецепт гамбо з чорнооким горохом"
   result: FoodRiceGumbo
   time: 15
   group: Savory
@@ -1033,7 +1033,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeEggRice
-  name: egg-fried rice recipe
+  name: "рецепт смаженого рису з яйцем"
   result: FoodRiceEgg
   time: 15
   group: Savory
@@ -1045,7 +1045,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCopypasta
-  name: copypasta recipe
+  name: "рецепт копіпасти"
   result: FoodNoodlesCopy
   time: 10
   group: Pasta
@@ -1056,7 +1056,7 @@
 #Soups & Stew
 - type: microwaveMealRecipe
   id: RecipeBisque
-  name: bisque recipe
+  name: "рецепт біску"
   result: FoodSoupBisque
   time: 10
   group: Soup
@@ -1070,7 +1070,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMeatballSoup
-  name: meatball soup recipe
+  name: "рецепт супу з фрикадельками"
   result: FoodSoupMeatball
   time: 10
   group: Soup
@@ -1084,7 +1084,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeNettleSoup
-  name: nettle soup recipe
+  name: "рецепт супу з кропиви"
   result: FoodSoupNettle
   time: 10
   group: Soup
@@ -1098,7 +1098,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeEyeballSoup
-  name: eyeball soup recipe
+  name: "рецепт супу з очними яблуками"
   result: FoodSoupEyeball
   time: 10
   group: Soup
@@ -1112,7 +1112,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeAmanitaJelly
-  name: amanita jelly recipe
+  name: "рецепт желе з мухоморів"
   result: FoodJellyAmanita
   time: 10
   group: Savory
@@ -1124,7 +1124,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeOnionSoup
-  name: onion soup recipe
+  name: "рецепт цибулевого супу"
   result: FoodSoupOnion
   time: 10
   group: Soup
@@ -1137,7 +1137,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMushroomSoup
-  name: mushroom soup recipe
+  name: "рецепт грибного супу"
   result: FoodSoupMushroom
   time: 10
   group: Soup
@@ -1150,7 +1150,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeStewSoup
-  name: stew recipe
+  name: "рецепт рагу"
   result: FoodSoupStew
   time: 10
   group: Soup
@@ -1167,7 +1167,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeTomatoSoup
-  name: tomato soup recipe
+  name: "рецепт томатного супу"
   result: FoodSoupTomato
   time: 10
   group: Soup
@@ -1179,7 +1179,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeTomatoBloodSoup
-  name: tomato blood soup recipe
+  name: "рецепт томатно-кров'яного супу"
   result: FoodSoupTomatoBlood
   time: 10
   group: Soup
@@ -1191,7 +1191,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWingFangChuSoup
-  name: wing fang chu recipe
+  name: "рецепт супу з крил, іклів та Чу"
   result: FoodSoupWingFangChu
   time: 10
   group: Soup
@@ -1203,7 +1203,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWingFangChuSoupSpider
-  name: wing fang chu recipe
+  name: "рецепт супу з крил, іклів та Чу"
   result: FoodSoupWingFangChu
   time: 10
   group: Soup
@@ -1215,7 +1215,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeVegetableSoup
-  name: vegetable soup recipe
+  name: "рецепт овочевого супу"
   result: FoodSoupVegetable
   time: 10
   group: Soup
@@ -1230,7 +1230,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeClownTearsSoup
-  name: clown tears soup recipe
+  name: "рецепт супу зі сліз клоуна"
   result: FoodSoupClown
   time: 10
   group: Soup
@@ -1244,7 +1244,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMonkeysDelightSoup
-  name: monkeys delight recipe
+  name: "рецепт супу з мавпячої насолоди"
   result: FoodSoupMonkey
   time: 10
   group: Soup
@@ -1259,7 +1259,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBungoSoup
-  name: bungo soup recipe
+  name: "рецепт супу бунго"
   result: FoodSoupBungo
   time: 10
   group: Soup
@@ -1272,7 +1272,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBoiledSnail
-  name: boiled snail recipe
+  name: "рецепт вареного равлика"
   result: FoodMeatSnailCooked
   time: 5
   group: Savory
@@ -1283,7 +1283,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeEscargotSoup
-  name: escargot recipe
+  name: "рецепт ескарго"
   result: FoodSoupEscargot
   time: 10
   group: Soup
@@ -1299,7 +1299,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeAmanitaPie
-  name: amanita pie recipe
+  name: "рецепт пирога з мухоморами"
   result: FoodPieAmanita
   time: 15
   group: Pie
@@ -1310,7 +1310,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeApplePie
-  name: apple pie recipe
+  name: "рецепт яблучного пирога"
   result: FoodPieApple
   time: 15
   group: Pie
@@ -1321,7 +1321,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBaklava
-  name: baklava recipe
+  name: "рецепт пахлави"
   result: FoodPieBaklava
   time: 15
   group: BarsAndCookies
@@ -1332,7 +1332,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBananaCreamPie
-  name: banana cream pie recipe
+  name: "рецепт бананового кремового пирога"
   result: FoodPieBananaCream
   time: 15
   group: Pie
@@ -1343,7 +1343,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBerryClafoutis
-  name: berry clafoutis recipe
+  name: "рецепт ягідного клафуті"
   result: FoodPieClafoutis
   time: 15
   group: Pie
@@ -1354,7 +1354,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCherryPie
-  name: cherry pie recipe
+  name: "рецепт вишневого пирога"
   result: FoodPieCherry
   time: 15
   group: Pie
@@ -1365,7 +1365,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFrostyPie
-  name: frosty pie recipe
+  name: "рецепт морозного пирога"
   result: FoodPieFrosty
   time: 15
   group: Pie
@@ -1376,7 +1376,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMeatPie
-  name: meat pie recipe
+  name: "рецепт м'ясного пирога"
   result: FoodPieMeat
   time: 15
   group: Pie
@@ -1387,7 +1387,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePumpkinPie
-  name: pumpkin pie recipe
+  name: "рецепт гарбузового пирога"
   result: FoodPiePumpkin
   time: 15
   group: Pie
@@ -1408,7 +1408,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeXenoPie
-  name: xeno pie recipe
+  name: "рецепт ксенопирога"
   result: FoodPieXeno
   time: 15
   group: Pie
@@ -1421,7 +1421,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCocoTart
-  name: chocolate lava tart recipe
+  name: "рецепт шоколадного лавового тарта"
   result: FoodTartCoco
   time: 15
   group: Pie
@@ -1435,7 +1435,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeGappleTart
-  name: golden apple streusel tart recipe
+  name: "рецепт тарта з золотими яблуками та штрейзелем"
   result: FoodTartGapple
   time: 15
   group: Pie
@@ -1450,7 +1450,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeGrapeTart
-  name: grape tart recipe
+  name: "рецепт виноградного тарта"
   result: FoodTartGrape
   time: 15
   group: Pie
@@ -1464,7 +1464,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMimeTart
-  name: mime tart recipe
+  name: "рецепт тарта міма"
   result: FoodTartMime
   time: 15
   group: Pie
@@ -1480,7 +1480,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCubanCarp
-  name: Cuban carp recipe
+  name: "рецепт кубинського коропа"
   result: FoodMealCubancarp
   time: 15
   group: Savory
@@ -1492,7 +1492,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeSashimi
-  name: sashimi recipe
+  name: "рецепт сашимі"
   result: FoodMealSashimi
   time: 15
   group: Savory
@@ -1503,7 +1503,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMisoColaSoup
-  name: salty sweet misocola soup recipe
+  name: "рецепт солодко-солоного супу місокола"
   result: DisgustingSweptSoup
   time: 15
   group: Savory
@@ -1514,7 +1514,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeLoadedBakedPotato
-  name: loaded baked potato recipe
+  name: "рецепт запеченої картоплі з начинкою"
   result: FoodMealPotatoLoaded
   time: 15
   group: Savory
@@ -1524,7 +1524,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFries
-  name: space fries recipe
+  name: "рецепт космічної картоплі фрі"
   result: FoodMealFries
   time: 15
   group: Savory
@@ -1535,7 +1535,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCheesyFries
-  name: cheesy fries recipe
+  name: "рецепт сирної картоплі фрі"
   result: FoodMealFriesCheesy
   time: 15
   group: Savory
@@ -1547,7 +1547,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCarrotFries
-  name: carrot fries recipe
+  name: "рецепт морквяної картоплі фрі"
   result: FoodMealFriesCarrot
   time: 15
   group: Savory
@@ -1558,7 +1558,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeNachos
-  name: nachos recipe
+  name: "рецепт начос"
   result: FoodMealNachos
   time: 10
   group: Savory
@@ -1570,7 +1570,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeNachosCheesy
-  name: cheesy nachos recipe
+  name: "рецепт сирних начос"
   result: FoodMealNachosCheesy
   time: 10
   group: Savory
@@ -1583,7 +1583,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeNachosCuban
-  name: cuban nachos recipe
+  name: "рецепт кубинських начос"
   result: FoodMealNachosCuban
   time: 10
   group: Savory
@@ -1596,7 +1596,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePopcorn
-  name: popcorn recipe
+  name: "рецепт попкорну"
   result: FoodSnackPopcorn
   time: 20
   group: Savory
@@ -1605,7 +1605,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePancake
-  name: pancake recipe
+  name: "рецепт млинців"
   result: FoodBakedPancake
   time: 5
   group: Breakfast
@@ -1616,7 +1616,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBlueberryPancake
-  name: blueberry pancake recipe
+  name: "рецепт чорничних млинців"
   result: FoodBakedPancakeBb
   time: 5
   group: Breakfast
@@ -1629,7 +1629,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWaffles
-  name: waffle recipe
+  name: "рецепт вафель"
   result: FoodBakedWaffle
   time: 10
   group: Breakfast
@@ -1641,7 +1641,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWaffleSoy
-  name: soy waffle recipe
+  name: "рецепт соєвих вафель"
   result: FoodBakedWaffleSoy
   time: 10
   group: Breakfast
@@ -1653,7 +1653,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCookie
-  name: cookie recipe
+  name: "рецепт печива"
   result: FoodBakedCookie
   time: 5
   group: BarsAndCookies
@@ -1666,7 +1666,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeSugarCookie
-  name: sugar cookie recipe
+  name: "рецепт цукрового печива"
   result: FoodBakedCookieSugar
   time: 5
   group: BarsAndCookies
@@ -1678,7 +1678,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRaisinCookie
-  name: raisin cookie recipe
+  name: "рецепт печива з родзинками"
   result: FoodBakedCookieRaisin
   time: 5
   group: BarsAndCookies
@@ -1690,7 +1690,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCookieOatmeal
-  name: oatmeal cookie recipe
+  name: "рецепт вівсяного печива"
   result: FoodBakedCookieOatmeal
   time: 5
   group: BarsAndCookies
@@ -1702,7 +1702,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeChocolateChipPancake
-  name: chocolate chip pancake recipe
+  name: "рецепт млинців з шоколадною крихтою"
   result: FoodBakedPancakeCc
   time: 5
   group: BarsAndCookies
@@ -1715,7 +1715,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeAppleCake
-  name: apple cake recipe
+  name: "рецепт яблучного пирога"
   result: FoodCakeApple
   time: 5
   group: Cake
@@ -1725,7 +1725,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCarrotCake
-  name: carrot cake recipe
+  name: "рецепт морквяного пирога"
   result: FoodCakeCarrot
   time: 5
   group: Cake
@@ -1735,7 +1735,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeLemonCake
-  name: lemon cake recipe
+  name: "рецепт лимонного пирога"
   result: FoodCakeLemon
   time: 5
   group: Cake
@@ -1745,7 +1745,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeLemoonCake
-  name: lemoon cake recipe
+  name: "рецепт лимунового пирога"
   result: FoodCakeLemoon
   time: 5
   group: Cake
@@ -1756,7 +1756,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeOrangeCake
-  name: orange cake recipe
+  name: "рецепт апельсинового пирога"
   result: FoodCakeOrange
   time: 5
   group: Cake
@@ -1766,7 +1766,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBlueberryCake
-  name: blueberry cake recipe
+  name: "рецепт чорничного пирога"
   result: FoodCakeBlueberry
   time: 5
   group: Cake
@@ -1776,7 +1776,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeLimeCake
-  name: lime cake recipe
+  name: "рецепт лаймового пирога"
   result: FoodCakeLime
   time: 5
   group: Cake
@@ -1786,7 +1786,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCheeseCake
-  name: cheese cake recipe
+  name: "рецепт сирного пирога"
   result: FoodCakeCheese
   time: 5
   group: Cake
@@ -1798,7 +1798,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePumpkinCake
-  name: pumpkin cake recipe
+  name: "рецепт гарбузового пирога"
   result: FoodCakePumpkin
   time: 5
   group: Cake
@@ -1808,7 +1808,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeClownCake
-  name: clown cake recipe
+  name: "рецепт клоунського пирога"
   result: FoodCakeClown
   time: 5
   group: Cake
@@ -1818,7 +1818,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCake
-  name: cake recipe
+  name: "рецепт пирога"
   result: FoodCakePlain
   time: 15
   group: Cake
@@ -1827,7 +1827,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBirthdayCake
-  name: birthday cake recipe
+  name: "рецепт торта на день народження"
   result: FoodCakeBirthday
   time: 5
   group: Cake
@@ -1838,7 +1838,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeChocolateCake
-  name: chocolate cake recipe
+  name: "рецепт шоколадного пирога"
   result: FoodCakeChocolate
   time: 5
   group: Cake
@@ -1848,7 +1848,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBrainCake
-  name: brain cake recipe
+  name: "рецепт пирога з мізками"
   result: FoodCakeBrain
   time: 15
   group: Cake
@@ -1858,7 +1858,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeSlimeCake
-  name: slime cake recipe
+  name: "рецепт пирога зі слизу"
   result: FoodCakeSlime
   time: 5
   group: Cake
@@ -1869,7 +1869,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCatCake
-  name: cat cake recipe
+  name: "рецепт котячого пирога"
   result: MobCatCake
   time: 15
   group: Cake
@@ -1883,7 +1883,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBreadDog
-  name: bread dog recipe
+  name: "рецепт хлібного пса"
   result: MobBreadDog
   time: 15
   group: Breads
@@ -1896,7 +1896,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDumplings
-  name: dumplings recipe
+  name: "рецепт дамплінгів"
   result: FoodBakedDumplings
   time: 15
   group: Savory
@@ -1908,7 +1908,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeBrownies
-  name: brownie recipe
+  name: "рецепт брауні"
   result: FoodBakedBrownieBatch
   time: 25
   group: BarsAndCookies
@@ -1923,7 +1923,7 @@
 #Donks i guess
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocket
-  name: warm donk pocket recipe
+  name: "рецепт теплого донк-пакета"
   result: FoodDonkpocketWarm
   time: 5
   group: Savory
@@ -1932,7 +1932,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWarmDankpocket
-  name: warm dank pocket recipe
+  name: "рецепт теплого данк-пакета"
   result: FoodDonkpocketDankWarm
   time: 5
   group: Savory
@@ -1941,7 +1941,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocketSpicy
-  name: warm spicy donk-pocket recipe
+  name: "рецепт теплого гострого донк-пакета"
   result: FoodDonkpocketSpicyWarm
   time: 5
   group: Savory
@@ -1950,7 +1950,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocketTeriyaki
-  name: warm teriyaki-pocket recipe
+  name: "рецепт теплого теріякі-пакета"
   result: FoodDonkpocketTeriyakiWarm
   time: 5
   group: Savory
@@ -1959,7 +1959,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocketPizza
-  name: warm pizza-pocket recipe
+  name: "рецепт теплого піца-пакета"
   result: FoodDonkpocketPizzaWarm
   time: 5
   group: Savory
@@ -1968,7 +1968,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketHonk
-  name: warm honk-pocket recipe
+  name: "рецепт теплого хонк-пакета"
   result: FoodDonkpocketHonkWarm
   time: 5
   group: Savory
@@ -1977,7 +1977,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketBerry
-  name: warm berry-pocket recipe
+  name: "рецепт теплого ягідного пакета"
   result: FoodDonkpocketBerryWarm
   time: 5
   group: Savory
@@ -1986,7 +1986,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketStonk
-  name: warm stonk-pocket recipe
+  name: "рецепт теплого стонк-пакета"
   result: FoodDonkpocketStonkWarm
   time: 5
   group: Savory
@@ -1995,7 +1995,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketCarp
-  name: warm carp-pocket recipe
+  name: "рецепт теплого карп-пакета"
   result: FoodDonkpocketCarpWarm
   time: 5
   group: Savory
@@ -2004,7 +2004,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketMoth
-  name: warm moth-pocket recipe
+  name: "рецепт теплого метеликового пиріжка"
   result: FoodDonkpocketMothWarm
   time: 5
   solids:
@@ -2012,7 +2012,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeHotChili
-  name: hot chili recipe
+  name: "рецепт гострого чилі"
   result: FoodSoupChiliHot
   time: 20
   group: Soup
@@ -2025,7 +2025,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeColdChili
-  name: cold chili recipe
+  name: "рецепт холодного чилі"
   result: FoodSoupChiliCold
   time: 5
   group: Soup
@@ -2036,7 +2036,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeClownTears
-  name: clown's tears recipe
+  name: "рецепт сліз клоуна"
   result: FoodSoupClown
   time: 15
   group: Soup
@@ -2048,7 +2048,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeChiliClown
-  name: chili con carnival recipe
+  name: "рецепт чилі кон карнавал"
   result: FoodSoupChiliClown
   time: 30
   group: Soup
@@ -2062,7 +2062,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeQueso
-  name: queso recipe
+  name: "рецепт кесо"
   result: FoodMealQueso
   time: 15
   group: Soup
@@ -2075,7 +2075,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRibs
-  name: BBQ ribs recipe
+  name: "рецепт реберець барбекю"
   result: FoodMealRibs
   time: 15
   group: Savory
@@ -2087,7 +2087,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeEnchiladas
-  name: enchiladas recipe
+  name: "рецепт енчіладас"
   result: FoodMealEnchiladas
   time: 20
   group: Savory
@@ -2099,7 +2099,7 @@
 # SALADS: These should be moved out of the microwave as soon as possible
 - type: microwaveMealRecipe
   id: RecipeHerbSalad
-  name: herb salad recipe
+  name: "рецепт трав'яного салату"
   result: FoodSaladHerb
   time: 5
   group: Salad
@@ -2110,7 +2110,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeValidSalad
-  name: valid salad recipe
+  name: "рецепт валід салату"
   result: FoodSaladValid
   time: 5
   group: Salad
@@ -2122,7 +2122,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeColeslaw
-  name: coleslaw recipe
+  name: "рецепт салату коулсло"
   result: FoodSaladColeslaw
   time: 5
   group: Salad
@@ -2135,7 +2135,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCaesarSalad
-  name: caesar salad recipe
+  name: "рецепт салату Цезар"
   result: FoodSaladCaesar
   time: 5
   group: Salad
@@ -2150,7 +2150,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCitrusSalad
-  name: citrus salad recipe
+  name: "рецепт цитрусового салату"
   result: FoodSaladCitrus
   time: 5
   group: Salad
@@ -2162,7 +2162,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeKimchiSalad
-  name: kimchi salad recipe
+  name: "рецепт салату кімчі"
   result: FoodSaladKimchi
   time: 5
   group: Salad
@@ -2176,7 +2176,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFruitSalad
-  name: fruit salad recipe
+  name: "рецепт фруктового салату"
   result: FoodSaladFruit
   time: 5
   group: Salad
@@ -2189,7 +2189,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeJungleSalad
-  name: jungle salad recipe
+  name: "рецепт салату джунглі"
   result: FoodSaladJungle
   time: 5
   group: Salad
@@ -2202,7 +2202,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeWatermelonFruitBowlSalad
-  name: watermelon fruit bowl recipe
+  name: "рецепт фруктової миски з кавуна"
   result: FoodSaladWatermelonFruitBowl
   time: 5
   group: Salad
@@ -2218,7 +2218,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMuffin
-  name: muffin recipe
+  name: "рецепт мафіна"
   result: FoodBakedMuffin
   time: 15
   group: Dessert
@@ -2230,7 +2230,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMuffinChocolate
-  name: chocolate muffin recipe
+  name: "рецепт шоколадного мафіна"
   result: FoodBakedMuffinChocolate
   time: 15
   group: Dessert
@@ -2243,7 +2243,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMuffinBerry
-  name: berry muffin recipe
+  name: "рецепт ягідного мафіна"
   result: FoodBakedMuffinBerry
   time: 15
   group: Dessert
@@ -2256,7 +2256,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMuffinBanana
-  name: banana muffin recipe
+  name: "рецепт бананового мафіна"
   result: FoodBakedMuffinBanana
   time: 15
   group: Dessert
@@ -2269,7 +2269,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeMuffinCherry
-  name: cherry muffin recipe
+  name: "рецепт вишневого мафіна"
   result: FoodBakedMuffinCherry
   time: 15
   group: Dessert
@@ -2284,7 +2284,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDriedTeaLeaves
-  name: dried tea leaves recipe
+  name: "рецепт сушеного чайного листя"
   result: LeavesTeaDried
   time: 10
   solids:
@@ -2292,7 +2292,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDriedTobacco
-  name: dried tobacco leaves recipe
+  name: "рецепт сушеного листя тютюну"
   result: LeavesTobaccoDried
   time: 10
   group: Medicinal
@@ -2301,7 +2301,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDriedCannabis
-  name: dried cannabis leaves recipe
+  name: "рецепт сушеного листя канабісу"
   result: LeavesCannabisDried
   time: 10
   group: Medicinal
@@ -2310,7 +2310,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeDriedCannabisRainbow
-  name: dried rainbow cannabis leaves recipe
+  name: "рецепт сушеного листя райдужної коноплі"
   result: LeavesCannabisRainbowDried
   time: 10
   group: Medicinal
@@ -2319,7 +2319,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeTrashBakedBananaPeel
-  name: baked banana peel recipe
+  name: "рецепт печеної шкірки банана"
   result: TrashBakedBananaPeel
   time: 5
   solids:
@@ -2328,7 +2328,7 @@
 # Suppermatter
 - type: microwaveMealRecipe
   id: RecipeSuppermatter
-  name: suppermatter recipe
+  name: "рецепт суперматерії"
   result: FoodCakeSuppermatter
   time: 30
   solids:
@@ -2340,7 +2340,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFoodBakedChevreChaud
-  name: chevre chaud recipe
+  name: "рецепт печеного шевр шо"
   result: FoodBakedChevreChaud
   time: 5
   group: Savory
@@ -2350,7 +2350,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFoodBakedChevreChaudCotton
-  name: cotton chevre chaud recipe
+  name: "рецепт бавовняного шевр шо"
   result: FoodBakedChevreChaudCotton
   time: 5
   group: Moth
@@ -2360,7 +2360,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCannabisButter
-  name: cannabis butter recipe
+  name: "рецепт масла з канабісу"
   result: FoodCannabisButter
   time: 15
   solids:
@@ -2369,7 +2369,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCannabisBrownies
-  name: cannabis brownie recipe
+  name: "рецепт брауні з канабісом"
   result: FoodBakedCannabisBrownieBatch
   time: 25
   group: BarsAndCookies
@@ -2383,7 +2383,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCornInButter
-  name: corn in butter recipe
+  name: "рецепт кукурудзи в маслі"
   result: FoodMealCornInButter
   time: 10
   group: Savory
@@ -2394,7 +2394,7 @@
 
 - type: microwaveMealRecipe
   id: RecipePeaSoup
-  name: pea soup recipe
+  name: "рецепт горохового супу"
   result: FoodSoupPea
   time: 10
   group: Soup
@@ -2406,7 +2406,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeTacoShell
-  name: taco shell recipe
+  name: "рецепт тако-шелл"
   result: FoodTacoShell
   time: 5
   group: Breads
@@ -2490,7 +2490,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCroissant
-  name: croissant recipe
+  name: "рецепт круасанів"
   result: FoodBakedCroissant
   time: 5
   group: Dessert
@@ -2500,7 +2500,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCroissantCotton
-  name: cotton croissant recipe
+  name: "рецепт бавовняного круасана"
   result: FoodBakedCroissantCotton
   time: 5
   group: Moth
@@ -2510,7 +2510,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeThrowingCroissant
-  name: throwing croissant recipe
+  name: "рецепт кидання круасанів"
   result: WeaponCroissant
   secretRecipe: true
   time: 5
@@ -2522,7 +2522,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeInertAnomalyMeat
-  name: inert meat anomaly recipe
+  name: "рецепт інертної м'ясної аномалії"
   result: FoodMeatAnomaly
   time: 5
   group: Savory
@@ -2531,7 +2531,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeAnomalyMeat
-  name: meat anomaly recipe
+  name: "рецепт м'ясної аномалії"
   result: FoodMeatAnomaly
   time: 5
   group: Savory
@@ -2540,7 +2540,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeAnomalyMeatCooked
-  name: cooked meat anomaly recipe
+  name: "рецепт приготованої м'ясної аномалії"
   result: FoodMeatAnomalyCooked
   time: 5
   group: Savory
@@ -2549,7 +2549,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeGrilledCheeseSandwich
-  name: grilled cheese sandwich recipe
+  name: "рецепт сендвіча з сиром на грилі"
   result: FoodBakedGrilledCheeseSandwich
   time: 10
   solids:
@@ -2559,7 +2559,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeGrilledCheeseSandwichCotton
-  name: cotton grilled cheese sandwich recipe
+  name: "рецепт бутерброда з бавовняним сиром на грилі"
   result: FoodBakedGrilledCheeseSandwichCotton
   time: 10
   solids:

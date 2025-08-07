@@ -8,7 +8,7 @@
 
 - type: entity
   id: LeftHandDwarf
-  name: "left dwarf hand"
+  name: "ліва рука дварфа"
   parent: [PartHuman, BaseLeftHand]
   components:
   - type: Sprite
@@ -17,7 +17,7 @@
 
 - type: entity
   id: RightHandDwarf
-  name: "right dwarf hand"
+  name: "права рука дварфа"
   parent: [PartHuman, BaseRightHand]
   components:
   - type: Sprite
@@ -26,7 +26,7 @@
 
 - type: entity
   id: LeftHandBananamen
-  name: "left bananamen hand"
+  name: "ліва рука бананолюдини"
   parent: [PartHuman, BaseLeftHand]
   components:
   - type: Sprite
@@ -35,7 +35,7 @@
 
 - type: entity
   id: RightHandBananamen
-  name: "right bananamen hand"
+  name: "права рука бананолюдини"
   parent: [PartHuman, BaseRightHand]
   components:
   - type: Sprite

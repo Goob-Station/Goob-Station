@@ -5,6 +5,6 @@
 
 - type: guideEntry
   id: Conditions
-  name: "Antag Revealing Conditions"
+  name: "Умови розкриття антагоністів"
   priority: 60
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/MetaReveal.xml"

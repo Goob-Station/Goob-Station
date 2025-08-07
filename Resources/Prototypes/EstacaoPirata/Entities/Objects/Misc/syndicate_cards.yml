@@ -8,7 +8,7 @@
 - type: entity
   parent: CardBase
   id: CardBaseSyndicate
-  name: card
+  name: "картка"
   components:
     - type: Card
       backSpriteLayers:
@@ -18,7 +18,7 @@
 - type: entity
   parent: CardBoxBase
   id: CardBoxSyndicate
-  name: syndicate deck box
+  name: "колода синдикату"
   components:
   - type: Item
     size: Small
@@ -37,7 +37,7 @@
 - type: entity
   parent: CardDeckBase
   id: CardDeckSyndicate
-  name: deck of cards
+  name: "колода карт"
   components:
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi

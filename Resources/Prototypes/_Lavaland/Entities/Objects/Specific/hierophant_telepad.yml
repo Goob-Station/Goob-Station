@@ -22,8 +22,8 @@
 
 - type: entity
   id: LavalandHierophantTelepad
-  name: hierophant telepad
-  description: It locks you from the outer world, and forces you to dance.
+  name: "телепорт ієрофанта"
+  description: "Він замикає вас від зовнішнього світу і змушує танцювати."
   placement:
     mode: SnapgridCenter
   components:

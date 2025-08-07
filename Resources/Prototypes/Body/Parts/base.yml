@@ -20,7 +20,7 @@
   abstract: true
   parent: BaseItem
   id: BasePartInorganic
-  name: "body part"
+  name: "частина тіла"
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
@@ -58,7 +58,7 @@
 - type: entity
   abstract: true
   id: BaseChestInorganic
-  name: "chest"
+  name: "груди"
   components:
   - type: Sprite
     state: "chest_m"
@@ -121,7 +121,7 @@
 - type: entity
   abstract: true
   id: BaseGroinInorganic
-  name: "groin"
+  name: "пах"
   components:
   - type: Sprite
     state: "groin_m"
@@ -179,7 +179,7 @@
 - type: entity
   abstract: true
   id: BaseHead
-  name: "head"
+  name: "голова"
   components:
   - type: Damageable
     damageContainer: Biological
@@ -239,7 +239,7 @@
 - type: entity
   abstract: true
   id: BaseLeftArm
-  name: "left arm"
+  name: "ліва рука"
   components:
   - type: Sprite
     state: "l_arm"
@@ -276,7 +276,7 @@
 - type: entity
   abstract: true
   id: BaseRightArm
-  name: "right arm"
+  name: "права рука"
   components:
   - type: Sprite
     state: "r_arm"
@@ -313,7 +313,7 @@
 - type: entity
   abstract: true
   id: BaseLeftHand
-  name: "left hand"
+  name: "ліва долоня"
   components:
   - type: Sprite
     state: "l_hand"
@@ -346,7 +346,7 @@
 - type: entity
   abstract: true
   id: BaseRightHand
-  name: "right hand"
+  name: "права долоня"
   components:
   - type: Sprite
     state: "r_hand"
@@ -379,7 +379,7 @@
 - type: entity
   abstract: true
   id: BaseLeftLeg
-  name: "left leg"
+  name: "ліва нога"
   components:
   - type: Sprite
     state: "l_leg"
@@ -417,7 +417,7 @@
 - type: entity
   abstract: true
   id: BaseRightLeg
-  name: "right leg"
+  name: "права нога"
   components:
   - type: Sprite
     state: "r_leg"
@@ -455,7 +455,7 @@
 - type: entity
   abstract: true
   id: BaseLeftFoot
-  name: "left foot"
+  name: "ліва стопа"
   components:
   - type: Sprite
     state: "l_foot"
@@ -488,7 +488,7 @@
 - type: entity
   abstract: true
   id: BaseRightFoot
-  name: "right foot"
+  name: "права стопа"
   components:
   - type: Sprite
     state: "r_foot"

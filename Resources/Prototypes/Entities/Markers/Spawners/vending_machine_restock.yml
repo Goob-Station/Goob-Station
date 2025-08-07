@@ -10,7 +10,7 @@
 
 - type: entity
   id: SpawnVendingMachineRestockFoodDrink
-  name: Vending Machine Restock
+  name: "Поповнення торгового автомата"
   suffix: "food or drink"
   parent: MarkerBase
   components:
@@ -34,7 +34,7 @@
 
 - type: entity
   id: SpawnVendingMachineRestockFood
-  name: Vending Machine Restock
+  name: "Поповнення торгового автомата"
   suffix: "food"
   parent: MarkerBase
   components:
@@ -57,7 +57,7 @@
 
 - type: entity
   id: SpawnVendingMachineRestockDrink
-  name: Vending Machine Restock
+  name: "Поповнення торгового автомата"
   suffix: "drink"
   parent: MarkerBase
   components:

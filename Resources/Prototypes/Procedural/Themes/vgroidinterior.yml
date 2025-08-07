@@ -133,7 +133,7 @@
 - type: entity
   id: VGRoidInteriorRoomMarker
   parent: BaseRoomMarker
-  name: VGRoid interior marker
+  name: "маркер інтер'єру VGRoid"
   components:
   - type: RoomFill
     roomWhitelist:

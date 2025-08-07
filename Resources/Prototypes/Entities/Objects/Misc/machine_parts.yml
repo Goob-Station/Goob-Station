@@ -19,9 +19,9 @@
 
 - type: entity
   id: BaseStockPart
-  name: stock part
+  name: "стокова частина"
   parent: BaseItem
-  description: What?
+  description: "Що?"
   abstract: true
   components:
     # Goobstation edit start
@@ -54,9 +54,9 @@
 
 - type: entity
   id: CapacitorStockPart
-  name: capacitor
+  name: "конденсатор"
   parent: BaseStockPart
-  description: A basic capacitor used in the construction of a variety of devices.
+  description: "Базовий конденсатор, який використовується в побудові різноманітних пристроїв."
   suffix: Rating 1
   components:
     - type: Sprite
@@ -70,9 +70,9 @@
 
 - type: entity
   id: MicroManipulatorStockPart
-  name: manipulator
+  name: "маніпулятор"
   parent: BaseStockPart
-  description: A basic manipulator used in the construction of a variety of devices.
+  description: "Базовий маніпулятор, що використовується при конструюванні різноманітних пристроїв."
   suffix: Rating 1
   components:
     - type: Sprite
@@ -82,9 +82,9 @@
 
 - type: entity
   id: MatterBinStockPart
-  name: matter bin
+  name: "контейнер матерії"
   parent: BaseStockPart
-  description: A basic matter bin used in the construction of a variety of devices.
+  description: "Базовий контейнер для речовин, який використовується в конструкції різноманітних пристроїв."
   suffix: Rating 1
   components:
     - type: Sprite

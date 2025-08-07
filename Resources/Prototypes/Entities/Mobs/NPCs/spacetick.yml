@@ -98,10 +98,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: space tick
+  name: "космічний кліщ"
   id: MobTick
   parent: SimpleSpaceMobBase
-  description: It's a space tick, watch out for its nasty bite. CentComm reports that 90 percent of cargo leg amputations are due to space tick bites.
+  description: "Це космічний кліщ, остерігайтеся його неприємного укусу. Центком повідомляє, що 90 відсотків ампутацій ніг у вантажному відсіку пов'язані з укусами космічних кліщів."
   components:
   - type: VentCrawler # goobstation - Ventcrawl
   - type: InputMover

@@ -62,10 +62,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: BaseSMG
+  name: "BaseSMG"
   parent: BaseItem
   id: BaseWeaponSubMachineGun
-  description: A rooty tooty point and shooty.
+  description: "Корінцевий зубастий і пагонистий."
   abstract: true
   components:
   - type: Sprite
@@ -145,10 +145,10 @@
   - type: CanTakeAim # PIRATE
 
 - type: entity
-  name: Atreides
+  name: "Атрейдес"
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunAtreides
-  description: A rare machine pistol hailing from the Corporate Wars. Its extremely high fire rate and compact profile make it useful in close quarters combat. Despite its age, it is in remarkably good condition. Feeds from .35 SMG magazines.
+  description: "Рідкісний автоматичний пістолет часів Корпоративних Воєн. Його надзвичайно висока скорострільність і компактність роблять його корисним у ближньому бою. Незважаючи на свій вік, він у чудовому стані. Живиться з магазинів для пістолетів-кулеметів .35 калібру."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
@@ -168,10 +168,10 @@
   - type: Appearance
 
 - type: entity
-  name: C-20r submachine gun
+  name: "пістолет-кулемет C-20r"
   parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
   id: WeaponSubMachineGunC20r
-  description: A classic and widespread submachine gun, infamous for its use by the Gorlex Marauders. One of the first homegrown Waffle Corp. designs, it remains in service today. Feeds from .35 SMG magazines.
+  description: "Класичний і поширений пістолет-кулемет, сумнозвісний через його використання Мародерами Горлекса. Один з перших власних проєктів Waffle Corp., він і досі перебуває на озброєнні. Живиться з магазинів для пістолетів-кулеметів .35 калібру."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
@@ -209,10 +209,10 @@
     - 0,0,2,1
 
 - type: entity
-  name: Drozd
+  name: "Дрозд"
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunDrozd
-  description: A modern SMG manufactured by Nanotrasen’s Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
+  description: "Сучасний пістолет-кулемет, вироблений відділом стрілецької зброї Nanotrasen. Він має виняткову скорострільність в режимі черги, що корисно для утримання оборонних позицій або враження супротивників на великих відстанях. Живиться з магазинів для пістолетів-кулеметів .35 калібру."
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
@@ -275,10 +275,10 @@
       - oni-cannot-shoot-guns-3
 
 - type: entity
-  name: WT550 autorifle # Goobstation
+  name: "автоматична гвинтівка WT550" # Goobstation
   parent: [ BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunWt550
-  description: A truly unique firearm, the WT550 was designed by Nanotrasen's Small Arms Division as a compact, cheap, and mass produced submachine gun fully controllable with one hand. It contains an exotic internal recoil buffer and feeds from special top-mounted .35 magazines.
+  description: "Воістину унікальна вогнепальна зброя, WT550 була розроблена відділом стрілецької зброї Nanotrasen як компактний, дешевий і масовий пістолет-кулемет, повністю керований однією рукою. Він містить екзотичний внутрішній буфер віддачі та живиться зі спеціальних магазинів .35 калібру з верхнім кріпленням."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi

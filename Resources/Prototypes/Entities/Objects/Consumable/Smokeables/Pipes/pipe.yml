@@ -15,8 +15,8 @@
 - type: entity
   id: SmokingPipe
   parent: BaseSmokingPipe
-  name: pipe
-  description: Just like grandpappy used to smoke.
+  name: "труба"
+  description: "Така сама, яку дідусь колись курив."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Pipes/pipe.rsi
@@ -35,9 +35,9 @@
 - type: entity
   id: SmokingPipeFilledTobacco
   parent: SmokingPipe
-  name: pipe
+  name: "труба"
   suffix: Tobacco
-  description: Just like grandpappy used to smoke.
+  description: "Така сама, яку дідусь колись курив."
   components:
   - type: ContainerContainer
     containers:
@@ -58,9 +58,9 @@
 - type: entity
   id: SmokingPipeFilledCannabis
   parent: SmokingPipe
-  name: pipe
+  name: "труба"
   suffix: Cannabis
-  description: Just like grandpappy used to smoke.
+  description: "Така сама, яку дідусь колись курив."
   components:
   - type: ContainerContainer
     containers:
@@ -81,9 +81,9 @@
 - type: entity
   id: SmokingPipeFilledCannabisRainbow
   parent: SmokingPipe
-  name: pipe
+  name: "труба"
   suffix: Rainbow Cannabis
-  description: Just like grandpappy used to smoke.
+  description: "Така сама, яку дідусь колись курив."
   components:
   - type: ContainerContainer
     containers:

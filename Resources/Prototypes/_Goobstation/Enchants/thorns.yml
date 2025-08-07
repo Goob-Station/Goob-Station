@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantThorns
-  name: Thorns
+  name: "Шипи"
   components:
   - type: Enchant
     whitelist:

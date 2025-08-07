@@ -15,8 +15,8 @@
 - type: entity
   parent: BookBase
   id: BookNarsieLegend
-  name: the legend of nar'sie
-  description: The book is an old, leather-bound tome with intricate engravings on the cover. The pages are yellowed and fragile with age, with the ink of the text faded in some places. It appears to have been well-read and well-loved, with dog-eared pages and marginalia scrawled in the margins. Despite its aged appearance, the book still exudes a sense of mystical power and wonder, hinting at the secrets and knowledge contained within its pages.
+  name: "легенда про Нар'сі"
+  description: "Це старовинний фоліант у шкіряній палітурці зі складними гравюрами на обкладинці. Сторінки пожовкли і стали крихкими від часу, чорнило тексту подекуди вицвіло. Схоже, що її добре читали і любили, адже сторінки зашнуровані, а на полях списані маргіналії. Незважаючи на свій старий вигляд, книга все ще випромінює відчуття містичної сили та дива, натякаючи на таємниці та знання, що містяться на її сторінках."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -38,8 +38,8 @@
 - type: entity
   parent: BookBase
   id: BookTruth
-  name: exploring different philosophical perspectives on truth and the complexity of lying
-  description: A book exploring the different philosophical perspectives on truth and lying has a worn cover, with creases and marks indicating frequent use and thoughtful contemplation. The spine shows signs of wear from being pulled off the shelf again and again. The pages themselves are filled with underlines, notes in the margins, and highlighted passages as readers grapple with the nuances and complexities of the topic.
+  name: "вивчення різних філософських поглядів на правду та складність брехні"
+  description: "Книга, що досліджує різні філософські погляди на правду та брехню, має потерту обкладинку, зі складками та позначками, що свідчать про часте використання та вдумливе роздумування. На корінці видно сліди зносу від того, що її знову і знову діставали з полиці. Самі сторінки заповнені підкресленнями, нотатками на полях і виділеними уривками, які допомагають читачеві розібратися в нюансах і складнощах теми."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -60,8 +60,8 @@
 - type: entity
   parent: BookBase
   id: BookWorld
-  name: shaping the state of the world - interplay of forces and choices
-  description: The book is a well-preserved hardcover with a simple, elegant design on the cover, depicting the image of a world in motion. The pages are crisp and clean, with no signs of wear or tear, suggesting that it has been well-cared for and valued by its previous owner. The text is printed in a clear, legible font, and the chapters are organized in a logical and easy-to-follow manner, making it accessible to readers of all levels of expertise.
+  name: "формування стану світу - взаємодія сил і вибір"
+  description: "Книга має добре збережену тверду обкладинку з простим, елегантним дизайном на обкладинці, що зображає світ у русі. Сторінки чіткі та чисті, без жодних ознак зносу чи розривів, що свідчить про те, що попередній власник дбайливо ставився до книги і цінував її. Текст надруковано чітким, розбірливим шрифтом, а розділи організовано логічно і легко, що робить його доступним для читачів усіх рівнів підготовки."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -79,8 +79,8 @@
 - type: entity
   parent: BookBase
   id: BookIanAntarctica
-  name: adventures of robert & ian - exploring antarctica
-  description: The book is a small paperback in good condition, with an illustration of Ian the corgi and the colony of penguins on the cover. The title, "Ian and Robert's Antarctic Adventure", is written in bold white letters against a blue background. The back cover features a brief summary of the story, highlighting the themes of humility, resilience, and the beauty of nature.
+  name: "пригоди роберта та яна - дослідження антарктиди"
+  description: "Це невелика книжка в м'якій обкладинці в хорошому стані, з ілюстрацією коргі Яна та колонії пінгвінів на обкладинці. Назва \"Антарктична пригода Яна та Роберта\" написана жирними білими літерами на блакитному тлі. На звороті обкладинки подано стислий виклад історії, що підкреслює теми смирення, стійкості та краси природи."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -99,8 +99,8 @@
 - type: entity
   parent: BookBase
   id: BookSlothClownSSS
-  name: the sloth and the clown - space station shenanigans
-  description: The book looks new, with a glossy cover featuring Chuckles the clown and Snuggles the sloth floating in space with a backdrop of stars and planets. Chuckles is dressed in his banana costume and Snuggles is sleeping on a hammock made of space ropes. The title "The Sloth and the Clown - Space Station Shenanigans" is written in bold and colorful letters.
+  name: "лінивець і клоун - витівки на космічній станції"
+  description: "Книга виглядає новою, з глянцевою обкладинкою, на якій зображені клоун Чаклз і лінивець Снагглз, що летять у космосі на тлі зірок і планет. Чаклз одягнений у костюм банана, а Снагглз спить на гамаку з космічних мотузок. Назва \"Лінивець і клоун - витівки на космічній станції\" написана жирними і барвистими літерами."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -121,8 +121,8 @@
 - type: entity
   parent: BookBase
   id: BookSlothClownPranks
-  name: the sloth and the clown - pranks on zorgs
-  description: The book is in excellent condition, with crisp pages and a bright cover. The cover of the book features Chuckles and Snuggles, surrounded by the different species they encountered during their adventures in space. In the background, the Zorgs can be seen peeking out from behind a spaceship.
+  name: "лінивець і клоун - витівки на зоргах"
+  description: "Книга у відмінному стані, з чіткими сторінками та яскравою обкладинкою. На обкладинці книги зображені Чаклз і Снаглз в оточенні різних видів, з якими вони зіткнулися під час своїх космічних пригод. На задньому плані можна побачити Зоргів, які визирають з-за космічного корабля."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -143,8 +143,8 @@
 - type: entity
   parent: BookBase
   id: BookSlothClownMMD
-  name: the sloth and the clown - maze maze danger
-  description: The book looks new and vibrant, with an image of Chuckles and Snuggles standing in front of the changing maze on the cover. The title "The Sloth and the Clown - Maze Maze Danger" is written in bold, colorful letters that pop against a background of space and stars.
+  name: "лінивець і клоун - небезпека лабіринту"
+  description: "Книжка виглядає новою та яскравою: на обкладинці зображені Лінивець і Клоун, які стоять перед мінливим лабіринтом. Назва \"Лінивець і Клоун - лабіринтова небезпека\" написана жирними, барвистими літерами, які виринають на тлі космосу та зірок."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -165,8 +165,8 @@
 - type: entity
   parent: BookBase
   id: BookStruck
-  name: the humbling and transformative experience of being struck by lightning
-  description: The cover of the book is an electrifying image of lightning striking the ground, with a silhouette of a person standing in the midst of it. The title is written in bold letters in white against a black background, conveying the power and intensity of the experience. The subtitle is written in smaller letters below the title, providing a hint of the philosophical and spiritual themes explored within.
+  name: "смиренний і перетворюючий досвід ураження блискавкою"
+  description: "Обкладинка книги - це наелектризоване зображення блискавки, що б'є в землю, з силуетом людини, яка стоїть посеред неї. Назва написана жирними літерами білим кольором на чорному тлі, передаючи силу та інтенсивність пережитого досвіду. Підзаголовок написаний меншими літерами під назвою, натякаючи на філософські та духовні теми, що досліджуються у фільмі."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -190,8 +190,8 @@
 - type: entity
   parent: BookBase
   id: BookSun
-  name: reaching for the sun - a plant's quest for life
-  description: The book is new, with a bright and vibrant cover featuring a plant stretching its leaves towards the sun. The title, "Reaching for the Sun - A Plant's Quest for Life," is written in bold, green letters, with an image of the sun rising behind the plant. The cover evokes a sense of growth, energy, and the beauty of nature.
+  name: "потяг до сонця - прагнення рослин до життя"
+  description: "Книжка нова, з яскравою обкладинкою, на якій зображено рослину, що тягнеться до сонця. Назва \"Прагнення до сонця - прагнення рослини до життя\" написана жирними зеленими літерами, з зображенням сонця, що сходить за рослиною. Обкладинка викликає відчуття зростання, енергії та краси природи."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -214,8 +214,8 @@
 - type: entity
   parent: BookBase
   id: BookPossum
-  name: fallen ambitions - the tragic tale of morty the possum
-  description: The book is in good condition, with a hardcover and a dark green forest background. In the center of the cover, there is a sad looking possum sitting on a branch, with a distant and lonely expression on its face. The title, "Fallen Ambitions - The Tragic Tale of Morty the Possum," is written in bold, gold letters above the possum.
+  name: "втрачені амбіції - трагічна історія опосума Морти"
+  description: "Книга у гарному стані, з твердою обкладинкою та темно-зеленим лісовим фоном. У центрі обкладинки - сумний опосум, що сидить на гілці, з відстороненим і самотнім виразом обличчя. Над опосумом жирними золотими літерами написано назву \"Втрачені амбіції - трагічна історія опосума Морти\"."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -233,8 +233,8 @@
 - type: entity
   parent: BookBase
   id: BookCafe
-  name: the cafe possum
-  description: The book is in new condition, with a vibrant and whimsical cover that features a charming illustration of a tiny possum peeking out from behind a coffee cup, with a colorful and bustling cafe scene in the background. The title "The Cafe Possum" is written in bold, playful lettering, and the author's name is printed in a smaller font below it.
+  name: "кафе \"Опосум"
+  description: "Книжка в новому стані, з яскравою та вигадливою обкладинкою, на якій зображено чарівну ілюстрацію крихітного опосума, що визирає з-за філіжанки кави, а на задньому плані - барвиста та галаслива сцена в кав'ярні. Назва \"Опосум з кав'ярні\" написана жирним, грайливим шрифтом, а ім'я автора надруковано під нею меншим шрифтом."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -251,8 +251,8 @@
 - type: entity
   parent: BookBase
   id: BookFeather
-  name: a feather of magic - the wandering bird's journey to belonging
-  description: The book would be in new condition, with a glossy cover depicting the wandering bird surrounded by a glowing forest, with the magical feather at the center. The title, "A Feather of Magic," would be written in bold, glittering letters, while the subtitle, "The Wandering Bird's Journey to Belonging," would be written in smaller print underneath. The back cover would feature a brief summary of the story, along with reviews from critics praising the book's themes of hope and renewal.
+  name: "чарівна пір'їнка - подорож мандрівного птаха до приналежності"
+  description: "Книга була б у новому стані, з глянцевою обкладинкою, на якій був зображений мандрівний птах, оточений сяючим лісом, з чарівним пером у центрі. Заголовок \"Чарівна пір'їнка\" був би написаний жирними блискучими літерами, а підзаголовок \"Подорож мандрівного птаха до своєї приналежності\" був би написаний під ним дрібнішим шрифтом. На звороті обкладинки було б розміщено короткий зміст історії, а також рецензії критиків, які вихваляють теми надії та оновлення в цій книжці."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -272,8 +272,8 @@
 - type: entity
   parent: BookBase
   id: BookIanLostWolfPup
-  name: the adventures of ian and renault - finding the lost wolf pup
-  description: The book is a new condition with a colorful cover, depicting Ian the corgi and Renault the fox on a journey through the forest, with the lost wolf pup to their feet. The title "The Adventures of Ian and Renault - Finding the Lost Wolf Pup" is prominently displayed at the top, with the author's name below. The cover has a whimsical and adventurous feel to it, attracting readers of all ages.
+  name: "пригоди Яна та Рено - пошук загубленого вовченяти"
+  description: "Книга у новому стані з барвистою обкладинкою, на якій зображені коргі Ян та лис Рено під час подорожі лісом, з загубленим вовченям біля їхніх ніг. Заголовок \"Пригоди Яна та Рено - у пошуках загубленого вовченяти\" помітно видніється вгорі, а нижче - ім'я автора. Обкладинка має химерний та пригодницький вигляд, що приваблює читачів різного віку."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -292,8 +292,8 @@
 - type: entity
   parent: BookBase
   id: BookIanRanch
-  name: the adventures of ian and renault - ranch expedition
-  description: The book appears to be new, with crisp pages and an unblemished cover. The cover features a colorful illustration of Ian and Renault, surrounded by various animals they encountered on the ranch, including horses, cows, and chickens. The title, "The Adventures of Ian and Renault - Ranch Expedition," is written in bold letters above the image, with the subtitle, "Helping Animals in Need," written below.
+  name: "пригоди яна та рено - експедиція на ранчо"
+  description: "Книга виглядає новою, з чіткими сторінками та бездоганною обкладинкою. На обкладинці - барвиста ілюстрація, на якій зображені Ян і Рено в оточенні різних тварин, яких вони зустріли на ранчо, зокрема коней, корів і курей. Над ілюстрацією жирними літерами написано назву \"Пригоди Яна та Рено - Експедиція на ранчо\", а нижче - підзаголовок \"Допомога тваринам у біді\"."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -312,8 +312,8 @@
 - type: entity
   parent: BookBase
   id: BookIanOcean
-  name: the adventures of ian and renault - an ocean adventure
-  description: The book is new and in excellent condition. The cover shows Ian and Renault running and playing on the beach, with the blue ocean and golden sand in the background. The title is written in bold, playful letters, and the subtitle reads "An Ocean Adventure."
+  name: "пригоди іана та рено - океанська пригода"
+  description: "Книга нова і у відмінному стані. На обкладинці зображені Ян і Рено, які бігають і граються на пляжі, а на задньому плані - блакитний океан і золотистий пісок. Назва написана жирними, грайливими літерами, а підзаголовок - \"Океанська пригода\""
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -332,8 +332,8 @@
 - type: entity
   parent: BookBase
   id: BookIanMountain
-  name: the adventures of ian and renault - a mountain expedition
-  description: The book is in new condition. The cover is a stunning mountain landscape with Ian and Renault in the foreground, looking out over the vista of the surrounding peaks and valleys. The title is written in bold, block letters at the top, with the subtitle, "A Mountain Expedition," written underneath.
+  name: "пригоди Яна та Рено - гірська експедиція"
+  description: "Книга в новому стані. На обкладинці - приголомшливий гірський пейзаж з Яном та Рено на передньому плані, що дивляться на панораму навколишніх вершин та долин. Назва написана жирними, великими літерами вгорі, а під нею - підзаголовок, \"Гірська експедиція\"."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -351,8 +351,8 @@
 - type: entity
   parent: BookBase
   id: BookIanCity
-  name: the adventures of ian and renault - exploring the city
-  description: The book is in new condition, with crisp pages and a glossy cover. The cover features a colorful illustration of Ian and Renault exploring the city, with tall buildings and bustling streets in the background. Ian is leading the way, with his tail wagging excitedly, while Renault follows close behind, her ears perked up and her eyes wide with wonder. The title, "The Adventures of Ian and Renault," is written in bold, playful letters, with the subtitle, "Exploring the City," written below in smaller font.
+  name: "пригоди іана та рено - досліджуємо місто"
+  description: "Книга у новому стані, з чіткими сторінками та глянцевою обкладинкою. На обкладинці - барвиста ілюстрація, на якій Ян і Рено досліджують місто, з високими будівлями і жвавими вулицями на задньому плані. Йен йде попереду, збуджено виляючи хвостом, а Рено слідує за ним, нашорошивши вуха та широко розплющивши очі від здивування. Назва \"Пригоди Ієна та Рено\" написана жирними, грайливими літерами, а підзаголовок \"Досліджуємо місто\" розміщений нижче меншим шрифтом."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -371,8 +371,8 @@
 - type: entity
   parent: BookBase
   id: BookIanArctic
-  name: the adventures of ian and renault - an arctic journey of courage and friendship
-  description: The book looks new and adventurous, with a picture of Ian and Renault standing in front of an icy landscape with snowflakes falling all around them. The title, "The Adventures of Ian and Renault," is written in bold letters at the top, with a subtitle that reads, "An Arctic Journey of Courage and Friendship."
+  name: "пригоди Яна та Рено - арктична подорож мужності та дружби"
+  description: "Книжка виглядає новою та пригодницькою: на обкладинці зображені Ян та Рено, які стоять на тлі крижаного ландшафту, а довкола них падають сніжинки. Вгорі жирними літерами написано назву \"Пригоди Яна та Рено\", а під нею - підзаголовок \"Арктична подорож мужності та дружби\""
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -391,8 +391,8 @@
 - type: entity
   parent: BookBase
   id: BookIanDesert
-  name: the adventures of ian and renault - exploring the mysterious desert
-  description: The book is in new condition and would have a colorful cover depicting Ian and Renault against a desert backdrop. The cover would feature images of various animals and plants that the two encountered on their adventure, such as a rattlesnake, coyotes, sand dunes, and an oasis. The title, "The Adventures of Ian and Renault" is prominently displayed on the cover in bold letters, while the subtitle "Exploring the Mysterious Desert" is written in smaller letters underneath.
+  name: "пригоди іана та рено - дослідження таємничої пустелі"
+  description: "Книга в новому стані і мала б мати барвисту обкладинку із зображенням Яна та Рено на тлі пустелі. На обкладинці зображені різні тварини і рослини, які зустрічалися героям під час пригод, наприклад, гримуча змія, койоти, піщані дюни і оазис. На обкладинці помітно виділяється заголовок \"Пригоди Яна та Рено\", написаний жирними літерами, а під ним - підзаголовок \"Досліджуючи таємничу пустелю\", написаний дрібнішими літерами."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -411,8 +411,8 @@
 - type: entity
   parent: BookBase
   id: BookNames
-  name: the power of names - a philosophical exploration
-  description: The book is a gently used philosophy text, with a cover that features a close-up of a person's mouth, with the word "names" written on their lips. The title is "The Power of Names - A Philosophical Exploration," and the author's name is prominently displayed underneath. The overall design is simple and elegant, with the focus on the text rather than any flashy graphics or images.
+  name: "сила імен - філософська розвідка"
+  description: "Книга являє собою філософський текст у м'якій обкладинці, на якій крупним планом зображено рот людини зі словом \"імена\", написаним на його губах. Назва - \"Сила імен - філософське дослідження\", а під нею - ім'я автора, яке помітно видніється на обкладинці. Загальний дизайн є простим і елегантним, з акцентом на тексті, а не на будь-якій яскравій графіці чи зображеннях."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -430,8 +430,8 @@
 - type: entity
   parent: BookBase
   id: BookEarth
-  name: earthly longing
-  description: The book is in good condition, with a slightly faded cover due to exposure to sunlight.  The cover of the book depicts a panoramic view of the Earth from space, with a bright blue ocean and green landmasses. In the foreground, a lone astronaut is seen sitting in front of a window, gazing wistfully at the Earth. The title of the book, "Earthly Longing," is written in bold white letters against a black background at the top of the cover.
+  name: "земна туга"
+  description: "Книга у гарному стані, обкладинка злегка вицвіла під впливом сонячних променів.  На обкладинці книги зображено панорамний вид Землі з космосу, з яскраво-блакитним океаном і зеленим суходолом. На передньому плані - самотній астронавт, який сидить перед ілюмінатором і задумливо дивиться на Землю. Назва книги \"Земна туга\" написана жирними білими літерами на чорному тлі у верхній частині обкладинки."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -453,8 +453,8 @@
 - type: entity
   parent: BookBase
   id: BookAurora
-  name: journey beyond - the starship aurora mission
-  description: The book is in excellent condition, with a shiny cover depicting a spaceship hovering above a planet, perhaps with the Earth in the background. The title "Journey Beyond - The Starship Aurora Mission" is written in bold, silver letters. The cover also features a quote from a review, "A breathtaking tale of human achievement and exploration" to entice potential readers.
+  name: "подорож за межі - місія зорельота \"Аврора"
+  description: "Книга у відмінному стані, з блискучою обкладинкою, на якій зображено космічний корабель, що ширяє над планетою, можливо, з Землею на задньому плані. На обкладинці жирними сріблястими літерами написано назву \"Подорож за межі - місія зорельота \"Аврора\"\". На обкладинці також розміщена цитата з рецензії: \"Захоплююча розповідь про людські досягнення та дослідження\", щоб привабити потенційних читачів."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -478,8 +478,8 @@
 - type: entity
   parent: BookBase
   id: BookTemple
-  name: the nature of the divine - embracing the many gods
-  description: The book appears new with crisp pages and an uncreased spine. The cover features an image of a temple with a glowing, multicolored aura around it, symbolizing the various gods discussed in the book. The title is displayed prominently in gold lettering, with the author's name and a brief summary of the book written in smaller text below.
+  name: "природа божественного - охоплення багатьох богів"
+  description: "Книга виглядає як нова, з чіткими сторінками та незатертим корінцем. На обкладинці - зображення храму з сяючою, різнобарвною аурою навколо нього, що символізує різних богів, про яких йдеться в книзі. На обкладинці помітно виділяється назва золотими літерами, нижче - ім'я автора та короткий зміст книги, написаний дрібнішим шрифтом."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -500,8 +500,8 @@
 - type: entity
   parent: BookBase
   id: BookWatched
-  name: watched
-  description: The book is in good condition, with a slightly worn cover that features a dark and ominous space station looming in the background. The title "Watched" is written in bold letters that seem to be staring back at the reader, conveying the feeling of being constantly observed. The blurb on the back cover hints at a thrilling and suspenseful tale of paranoia and danger in a confined setting.
+  name: "дивився"
+  description: "Книга у гарному стані, з трохи потертою обкладинкою, на задньому плані якої зображена темна і зловісна космічна станція, що вимальовується на тлі. Назва \"Спостереження\" написана жирними літерами, які, здається, дивляться на читача, передаючи відчуття, що за ним постійно спостерігають. Анотація на звороті обкладинки натякає на захопливу та напружену історію про параною та небезпеку в обмеженому просторі."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -522,8 +522,8 @@
 - type: entity
   parent: BookBase
   id: BookMedicalOfficer
-  name: horizon's battle - a medical officer's tale of trust and survival
-  description: The cover features Smith, the medical officer, in his uniform, looking determined and ready to face any challenge. The backdrop shows the SS Horizon under attack, with explosions and smoke filling the space station. In the foreground, a wizard with a staff can be seen, adding an element of mystery and intrigue to the scene. The title is prominently displayed in bold letters, with the author's name and a tagline indicating the book's action-packed and suspenseful nature.
+  name: "битва за горизонт - історія офіцера-медика про довіру та виживання"
+  description: "На обкладинці зображений Сміт, офіцер-медик, у своїй уніформі, з рішучим виглядом, готовий до будь-яких випробувань. На задньому плані зображено космічний корабель SS Horizon під час атаки, вибухи та дим заповнюють космічну станцію. На передньому плані зображено чарівника з посохом, що додає сцені елементу таємничості та інтриги. На обкладинці жирними літерами виділено назву, ім'я автора та слоган, що вказує на гостросюжетний і напружений характер книги."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -543,8 +543,8 @@
 - type: entity
   parent: BookBase
   id: BookMorgue
-  name: the ghostly residents of the abandoned morgue
-  description: The book looks old and worn, with faded lettering on the cover. The cover depicts a dark and eerie morgue, with a full moon casting an ominous glow over the scene. In the foreground are Morty the possum and Morticia the raccoon, with mischievous expressions on their faces, peeking out from behind a metal shelf. The title is written in bold, spooky letters, with the subtitle "A Tale of Animal Spirits" written in smaller font below.
+  name: "примарні мешканці покинутого моргу"
+  description: "Книга виглядає старою і потертою, з вицвілими написами на обкладинці. На обкладинці зображено темний і моторошний морг, а повний місяць відкидає зловісне сяйво на сцену. На передньому плані - опосум Морти і єнот Мортиція з пустотливими виразами на обличчях, які визирають з-за металевої полиці. Назва написана жирними, моторошними літерами, а під нею - підзаголовок \"Казка про духів тварин\", написаний меншим шрифтом."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -563,8 +563,8 @@
 - type: entity
   parent: BookBase
   id: BookRufus
-  name: rufus and the mischievous fairy
-  description: The book is in new condition, with vibrant colors and illustrations on the cover. The cover shows Rufus on his bicycle, with Blossom flying beside him in a playful manner. The title is written in bold, whimsical font, with the characters' names highlighted in a contrasting color. The overall aesthetic is charming and inviting, appealing to children and adults alike.
+  name: "руфус і пустотлива фея"
+  description: "Книга в новому стані, з яскравими кольорами та ілюстраціями на обкладинці. На обкладинці зображений Руфус на велосипеді, а поруч з ним у грайливій манері летить Блоссом. Заголовок написаний жирним, химерним шрифтом, а імена персонажів виділені контрастним кольором. Загальна естетика є чарівною та привабливою, привабливою як для дітей, так і для дорослих."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -588,8 +588,8 @@
 - type: entity
   parent: BookBase
   id: BookMap
-  name: the map of adventure
-  description: The book is in a good condition, with a glossy cover depicting a jungle scene with vibrant colors and intricate details. The title "The Map of Adventure," is written in bold, gold lettering. The cover also features an image of a mysterious suitcase with the map spilling out of it.
+  name: "карта пригод"
+  description: "Книга у гарному стані, з глянцевою обкладинкою, на якій зображено сцену джунглів з яскравими кольорами та складними деталями. Назва \"Карта пригод\" написана жирним золотим шрифтом. На обкладинці також є зображення таємничої валізи, з якої висипається карта."
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -611,8 +611,8 @@
 - type: entity
   parent: BookBase
   id: BookJourney
-  name: a journey of music, mountains, and self-discovery
-  description: The book is in excellent condition, with crisp pages and a glossy cover. The cover features a striking image of a mountain range, with a silhouette of a climber with a guitar on their back in the foreground. The title is bold and eye-catching, with the subtitle "A Journey of Music, Mountains, and Self-Discovery."
+  name: "подорож музики, гір та самопізнання"
+  description: "Книга у відмінному стані, з чіткими сторінками та глянцевою обкладинкою. На обкладинці - яскраве зображення гірського хребта, а на передньому плані - силует альпініста з гітарою за спиною. Назва книги є сміливою і привертає увагу, з підзаголовком \"Подорож музики, гір і самопізнання\""
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -632,8 +632,8 @@
 - type: entity
   parent: BookBase
   id: BookInspiration
-  name: finding inspiration - a writer's journey through the woods
-  description: The book is in a new condition with a cover depicting a serene forest scene with a waterfall and colorful wildflowers. The title of the book "Finding Inspiration - A Writer's Journey Through the Woods" and the author's name are prominently displayed at the bottom.
+  name: "у пошуках натхнення - подорож письменника лісом"
+  description: "Ель Натх"
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -654,8 +654,8 @@
 - type: entity
   parent: BookBase
   id: BookJanitorTale
-  name: the tales of a tired janitor
-  description: A clean looking book, smelling vaguely of soap and bleach. 
+  name: "розповіді втомленого прибиральника"
+  description: "Чистенька на вигляд книжечка, з неясним запахом мила та відбілювача."
   components:
   - type: Sprite
     sprite: Objects/Misc/books.rsi

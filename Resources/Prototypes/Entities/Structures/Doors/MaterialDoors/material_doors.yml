@@ -28,9 +28,9 @@
 - type: entity
   id: BaseMaterialDoor
   parent: BaseStructure
-  name: door
+  name: "двері"
   abstract: true
-  description: A door, where will it lead?
+  description: "Двері, куди вони ведуть?"
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -97,7 +97,7 @@
 
 - type: entity
   id: MetalDoor
-  name: metal door
+  name: "металеві двері"
   parent: BaseMaterialDoorNavMap
   components:
   - type: Construction
@@ -106,9 +106,9 @@
 
 - type: entity
   id: WoodDoor
-  name: wooden door
+  name: "дерев'яні двері"
   parent: BaseMaterialDoorNavMap
-  description: A door, where will it lead?
+  description: "Двері, куди вони ведуть?"
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/wood_door.rsi
@@ -143,9 +143,9 @@
 
 - type: entity
   id: PaperDoor
-  name: paper door
+  name: "паперові двері"
   parent: BaseMaterialDoorNavMap
-  description: A door, where will it lead?
+  description: "Двері, куди вони ведуть?"
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/paper_door.rsi
@@ -171,9 +171,9 @@
 
 - type: entity
   id: PlasmaDoor
-  name: plasma door
+  name: "плазмові двері"
   parent: BaseMaterialDoorNavMap
-  description: A door, where will it lead?
+  description: "Двері, куди вони ведуть?"
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/plasma_door.rsi
@@ -197,9 +197,9 @@
 
 - type: entity
   id: GoldDoor
-  name: gold door
+  name: "золоті двері"
   parent: BaseMaterialDoorNavMap
-  description: A door, where will it lead?
+  description: "Двері, куди вони ведуть?"
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/gold_door.rsi
@@ -212,9 +212,9 @@
 
 - type: entity
   id: SilverDoor
-  name: silver door
+  name: "срібні двері"
   parent: BaseMaterialDoorNavMap
-  description: A door, where will it lead?
+  description: "Двері, куди вони ведуть?"
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/silver_door.rsi
@@ -227,9 +227,9 @@
 
 - type: entity
   id: BananiumDoor
-  name: bananium door
+  name: "бананіумні двері"
   parent: BaseMaterialDoorNavMap
-  description: A door, where will it lead?
+  description: "Двері, куди вони ведуть?"
   components:
   - type: Sprite
     sprite: Structures/Doors/MineralDoors/bananium_door.rsi
@@ -247,9 +247,9 @@
 
 - type: entity
   id: WebDoor
-  name: web door
+  name: "павутинні двері"
   parent: BaseMaterialDoorNavMap
-  description: A door, leading to the lands of the spiders... or a spaced room.
+  description: "Ручні дверцята з павутиння, зазвичай розміщені безпосередньо перед ямою або пасткою."
   components:
   - type: Sprite
     sprite: Structures/Doors/web_door.rsi

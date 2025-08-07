@@ -5,7 +5,7 @@
 
 - type: entity
   id: RandomLandmineSpawner
-  name: random landmine spawner
+  name: "спавнер випадкових мін"
   parent: MarkerBase
   components:
     - type: Sprite

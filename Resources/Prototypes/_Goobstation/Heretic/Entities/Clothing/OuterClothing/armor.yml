@@ -21,8 +21,8 @@
 - type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicalContraband ]
   id: ClothingOuterArmorHeretic
-  name: ominous armor
-  description: A ragged, dusty set of robes. Strange eyes line the inside.
+  name: "зловісні обладунки"
+  description: "Пошарпаний, запилений комплект обладунків. Дивні очі вишикувалися зсередини."
   components:
   - type: UnholyItem
   - type: Sprite
@@ -120,8 +120,8 @@
 - type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicalContraband ]
   id: ClothingOuterArmorCloakVoid
-  name: void cloak
-  description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
+  name: "порожній плащ"
+  description: "Чорний, як смола, не відбиває світла. Рунічні символи вишикувані зовні. З кожним спалахом ви втрачаєте розуміння того, що бачите."
   components:
   # - type: UnholyItem # This should only be active when cloak is visible. Can't simply ensure/remove this component on
   # cloak toggle due to goobmod. Should be done when heretic is mored to goobmod probably.

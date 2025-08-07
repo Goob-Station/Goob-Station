@@ -97,10 +97,10 @@
 # Bun
 
 - type: entity
-  name: bun
+  name: "булочка"
   parent: FoodBreadSliceBase
   id: FoodBreadBun
-  description: A hamburger bun. Round and convenient to hold.
+  description: "Булочка для гамбургера. Кругла і зручна для тримання."
   components:
   - type: Food
   - type: Sprite
@@ -125,8 +125,8 @@
 - type: entity
   id: FoodBreadBunBottom
   parent: FoodBreadSliceBase
-  name: bottom bun
-  description: It's time to start building the burger tower.
+  name: "нижня булочка"
+  description: "Час починати будувати вежу для бургерів."
   components:
   - type: Item
     shape:
@@ -161,8 +161,8 @@
 - type: entity
   id: FoodBreadBunTop
   parent: FoodBreadSliceBase
-  name: top bun
-  description: The perfect finish for your burger tower.
+  name: "верхня булочка"
+  description: "Ідеальне завершення вашої бургерної вежі."
   components:
   - type: Food
   - type: Sprite
@@ -213,10 +213,10 @@
 # Custom Burger Example
 
 - type: entity
-  name: jelly burger
+  name: "желейний бургер"
   parent: FoodBurgerBase
   id: FoodBurgerJelly
-  description: Culinary delight..?
+  description: "Кулінарні шедеври...?"
   components:
   - type: FlavorProfile
     flavors:
@@ -232,10 +232,10 @@
 # Burger
 
 - type: entity
-  name: appendix burger
+  name: "апендикс-бургер"
   parent: FoodBurgerBase
   id: FoodBurgerAppendix
-  description: Tastes like appendicitis.
+  description: "На смак як апендицит."
   components:
   - type: FlavorProfile
     flavors:
@@ -260,10 +260,10 @@
 # Tastes like bun, grass.
 
 - type: entity
-  name: bacon burger
+  name: "бургер з беконом"
   parent: FoodBurgerBase
   id: FoodBurgerBacon
-  description: The perfect combination of all things American.
+  description: "Ідеальне поєднання всього американського."
   components:
   - type: FlavorProfile
     flavors:
@@ -286,10 +286,10 @@
 # Tastes like bun, bacon.
 
 - type: entity
-  name: baseball burger
+  name: "бейсбольний бургер"
   parent: FoodBurgerBase
   id: FoodBurgerBaseball
-  description: It's still warm. The steam coming off of it smells kinda sweaty.
+  description: "Він ще теплий. Пара, що йде від нього, пахне потом."
   components:
   - type: FlavorProfile
     flavors:
@@ -313,10 +313,10 @@
     - Meat
 
 - type: entity
-  name: bearger
+  name: "біржовик"
   parent: FoodBurgerBase
   id: FoodBurgerBear
-  description: Best served rawr.
+  description: "Найкраще подавати сирим."
   components:
   - type: FlavorProfile
     flavors:
@@ -340,10 +340,10 @@
     - Meat
 
 - type: entity
-  name: big bite burger
+  name: "бургер з великим укусом"
   parent: FoodBurgerBase
   id: FoodBurgerBig
-  description: Forget the Big Mac. THIS is the future!
+  description: "Забудьте про Біг Мак. Це майбутнє!"
   components:
   - type: FlavorProfile
     flavors: # What bun?
@@ -367,10 +367,10 @@
 # Tastes like bun, silver, magic.
 
 - type: entity
-  name: brain burger
+  name: "мозковий бургер"
   parent: FoodBurgerBase
   id: FoodBurgerBrain
-  description: A strange looking burger. It looks almost sentient.
+  description: "Дивний на вигляд бургер. Виглядає майже живим."
   components:
   - type: FlavorProfile
     flavors:
@@ -395,10 +395,10 @@
 # Tastes like bun, brains.
 
 - type: entity
-  name: cat burger
+  name: "котячий бургер"
   parent: FoodBurgerBase
   id: FoodBurgerCat
-  description: Finally those cats and catpeople are worth something!
+  description: "Нарешті ці коти та люди чогось варті!"
   components:
   - type: Sprite
     state: cat
@@ -423,10 +423,10 @@
     - Meat
 
 - type: entity
-  name: cheese burger
+  name: "сирний бургер"
   parent: FoodBurgerBase
   id: FoodBurgerCheese
-  description: This noble burger stands proudly clad in golden cheese.
+  description: "Цей благородний бургер гордо стоїть, вкритий золотистим сиром."
   components:
   - type: FlavorProfile
     flavors:
@@ -460,10 +460,10 @@
 # Tastes like bun, beef patty, cheese.
 
 - type: entity
-  name: chicken sandwich # Burger for you euro-cucks
+  name: "курячий сендвіч" # Burger for you euro-cucks
   parent: FoodBurgerBase
   id: FoodBurgerChicken
-  description: A delicious chicken sandwich, it is said the proceeds from this treat helps criminalize disarming people on the space frontier.
+  description: "Смачний курячий сендвіч, кажуть, що виручка від цього частування допомагає криміналізувати роззброєння людей на космічному кордоні."
   components:
   - type: FlavorProfile
     flavors:
@@ -490,10 +490,10 @@
 # Tastes like bun, chicken.
 
 - type: entity
-  name: clown burger
+  name: "клоунський бургер"
   parent: FoodBurgerBase
   id: FoodBurgerClown
-  description: This tastes funny...
+  description: "Дивний смак..."
   components:
   - type: FlavorProfile
     flavors:
@@ -517,10 +517,10 @@
     - Meat
 
 - type: entity
-  name: corger #not curger
+  name: "корґер\"" #not curger
   parent: FoodBurgerBase
   id: FoodBurgerCorgi
-  description: The Head of Personnel's favorite!
+  description: "Улюбленець керівника відділу кадрів!"
   components:
   - type: FlavorProfile
     flavors:
@@ -542,10 +542,10 @@
     - Meat
 
 - type: entity
-  name: crab burger
+  name: "крабовий бургер"
   parent: FoodBurgerBase
   id: FoodBurgerCrab
-  description: A delicious patty of the crabby kind, slapped in between a bun.
+  description: "Смачний крабовий пиріжок, затиснутий між булочкою."
   components:
   - type: FlavorProfile
     flavors:
@@ -569,10 +569,10 @@
     - Meat
 
 - type: entity
-  name: crazy hamburger # Burger for you euro-cucks
+  name: "божевільний гамбургер" # Burger for you euro-cucks
   parent: FoodBurgerBase
   id: FoodBurgerCrazy
-  description: This looks like the sort of food that a demented clown in a trenchcoat would make.
+  description: "Це схоже на їжу, яку міг би приготувати божевільний клоун у плащі."
   components:
   - type: FlavorProfile
     flavors:
@@ -600,10 +600,10 @@
     - Meat
 
 - type: entity
-  name: duck sandwich # Burger for you sick bastards
+  name: "бутерброд з качкою" # Burger for you sick bastards
   parent: FoodBurgerBase
   id: FoodBurgerDuck
-  description: A duck sandwich, only the criminally insane would dare to eat the meat of such an adorable creature.
+  description: "Качиний сендвіч, тільки злочинно божевільний наважиться їсти м'ясо такого чарівного створіння."
   components:
   - type: FlavorProfile
     flavors:
@@ -628,10 +628,10 @@
 # Tastes like bun, duck.
 
 - type: entity
-  name: empowered burger
+  name: "заряджений бургер"
   parent: FoodBurgerBase
   id: FoodBurgerEmpowered
-  description: It's shockingly good, if you live off of electricity that is.
+  description: "Це шокуюче добре, якщо ви живете за рахунок електрики."
   components:
   - type: Sprite
     state: empowered
@@ -651,10 +651,10 @@
 # Tastes like bun, pure electricity.
 
 - type: entity
-  name: fillet-o-carp burger
+  name: "бургер з філе коропа"
   parent: FoodBurgerBase
   id: FoodBurgerCarp
-  description: Almost like a carp is yelling somewhere...
+  description: "Наче короп десь кричить..."
   components:
   - type: FlavorProfile
     flavors:
@@ -668,10 +668,10 @@
 # Tastes like bun, fish.
 
 - type: entity
-  name: five alarm burger
+  name: "бургер П'ять тривог"
   parent: FoodBurgerBase
   id: FoodBurgerFive
-  description: HOT! HOT! HOT!
+  description: "ГАРЯЧЕ! ГАРЯЧЕ! ГАРЯЧЕ!"
   components:
   - type: FlavorProfile
     flavors:
@@ -699,10 +699,10 @@
 # Tastes like bun, HEAT.
 
 - type: entity
-  name: ghost burger
+  name: "бургер-привид"
   parent: FoodBurgerBase
   id: FoodBurgerGhost
-  description: Too spooky!
+  description: "Занадто моторошно!"
   components:
   - type: FlavorProfile
     flavors:
@@ -726,10 +726,10 @@
 # Tastes like bun, ectoplasm.
 
 - type: entity
-  name: human burger
+  name: "людський бургер"
   parent: FoodBurgerBase
   id: FoodBurgerHuman
-  description: You cant tell who this is made of...
+  description: "Не можна сказати, з кого це зроблено..."
   components:
   - type: FlavorProfile
     flavors:
@@ -753,10 +753,10 @@
     - Meat
 
 - type: entity
-  name: McGuffin
+  name: "Макгафін"
   parent: FoodBurgerBase
   id: FoodBurgerMcguffin
-  description: A cheap and greasy imitation of an eggs Benedict.
+  description: "Дешева і жирна імітація яєчні \"Бенедикт\"."
   components:
   - type: FlavorProfile
     flavors:
@@ -780,10 +780,10 @@
     - Meat
 
 - type: entity
-  name: BBQ Rib Sandwich
+  name: "Сендвіч з реберцями BBQ"
   parent: FoodBurgerBase
   id: FoodBurgerMcrib
-  description: An elusive rib shaped burger with limited availability across the galaxy. Not as good as you remember it.
+  description: "Невловимий бургер у формі ребер з обмеженою доступністю по всій галактиці. Не такий смачний, як ви його пам'ятаєте."
   components:
   - type: Food
     trash:
@@ -813,10 +813,10 @@
 # Tastes like bun, pork patty.
 
 - type: entity
-  name: mime burger
+  name: "мім-бургер"
   parent: FoodBurgerBase
   id: FoodBurgerMime
-  description: Its taste defies language.
+  description: "Його смак не піддається опису."
   components:
   - type: FlavorProfile
     flavors:
@@ -840,10 +840,10 @@
 # Tastes like  .
 
 - type: entity
-  name: plain burger
+  name: "звичайний бургер"
   parent: FoodBurgerBase
   id: FoodBurgerPlain
-  description: A boring, dry burger.
+  description: "Нудний, сухий бургер."
   components:
   - type: FlavorProfile
     flavors:
@@ -867,10 +867,10 @@
     - Meat
 
 - type: entity
-  name: rat burger
+  name: "щурячий бургер"
   parent: FoodBurgerBase
   id: FoodBurgerRat
-  description: Pretty much what you'd expect...
+  description: "Майже те, чого можна було очікувати..."
   components:
   - type: FlavorProfile
     flavors:
@@ -895,10 +895,10 @@
 # Tastes like bun, HEAT.
 
 - type: entity
-  name: roburger
+  name: "робургер"
   parent: FoodBurgerBase
   id: FoodBurgerRobot
-  description: The lettuce is the only organic component. Beep.
+  description: "Листя салату - єдиний органічний компонент. Біп."
   components:
   - type: FlavorProfile
     flavors:
@@ -922,10 +922,10 @@
 # Tastes like bun, lettuce, sludge.
 
 - type: entity
-  name: soylent burger
+  name: "соковитий бургер"
   parent: FoodBurgerBase
   id: FoodBurgerSoy
-  description: After eating this you have the overwhelming urge to purchase overpriced figurines of superheroes.
+  description: "Після цього у вас з'являється непереборне бажання придбати фігурки супергероїв за завищеними цінами."
   components:
   - type: FlavorProfile
     flavors:
@@ -947,10 +947,10 @@
 # Tastes like bun, redditors.
 
 - type: entity
-  name: spell burger
+  name: "бургер із заклинанням"
   parent: FoodBurgerBase
   id: FoodBurgerSpell
-  description: This is absolutely Ei Nath.
+  description: "Це абсолютно Ей Нат."
   components:
   - type: FlavorProfile
     flavors:
@@ -972,10 +972,10 @@
 # Tastes like bun, silver.
 
 - type: entity
-  name: super bite burger
+  name: "бургер \"супер укус"
   parent: FoodBurgerBase
   id: FoodBurgerSuper
-  description: This is a mountain of a burger. FOOD!
+  description: "Це гора бургерів. ЇЖА!"
   components:
   - type: FlavorProfile
     flavors: # What bun?
@@ -1003,10 +1003,10 @@
 # Tastes like bun, diabetes.
 
 - type: entity
-  name: tofu burger
+  name: "бургер з тофу"
   parent: FoodBurgerBase
   id: FoodBurgerTofu
-  description: What... is that meat?
+  description: "Що... це за м'ясо?"
   components:
   - type: FlavorProfile
     flavors:
@@ -1028,10 +1028,10 @@
 # Tastes like bun, tofu.
 
 - type: entity
-  name: xenoburger
+  name: "ксенобургер"
   parent: FoodBurgerBase
   id: FoodBurgerXeno
-  description: Smells caustic. Tastes like heresy.
+  description: "Пахне їдким. На смак як єресь."
   components:
   - type: FlavorProfile
     flavors:
@@ -1060,10 +1060,10 @@
 # I'd rather wait for a custom burger component.
 
 - type: entity
-  name: mothroachburger
+  name: "бургер з тарганомілі"
   parent: FoodBurgerBase
   id: FoodBurgerMothRoach
-  description: The last lamp it saw was the one inside the microwave.
+  description: "Останньою лампою, яку вона бачила, була лампа всередині мікрохвильовки. Монстр."
   components:
   - type: FlavorProfile
     flavors:

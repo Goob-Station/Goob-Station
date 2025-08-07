@@ -10,8 +10,8 @@
 - type: entity
   id: ClosetWall
   parent: BaseWallCloset
-  name: maintenance wall closet
-  description: It's a storage unit.
+  name: "настінна шафа"
+  description: "Це камера зберігання"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -21,9 +21,9 @@
 
 - type: entity
   id: ClosetWallEmergency
-  name: emergency wall closet
+  name: "аварійна стінна шафа"
   parent: BaseWallCloset
-  description: It's a storage unit for emergency breath masks and O2 tanks.
+  description: "Це приміщення для зберігання аварійних дихальних масок та балонів з киснем."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseWallCloset
   id: ClosetWallEmergencyN2
-  name: emergency nitrogen wall closet
-  description: It's full of life-saving equipment. Assuming, that is, that you breathe nitrogen.
+  name: "настінна шафа з аварійним азотом"
+  description: "Вона повна рятувального обладнання. Якщо, звичайно, ви дихаєте азотом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -45,9 +45,9 @@
 
 - type: entity
   id: ClosetWallFire
-  name: fire-safety wall closet
+  name: "протипожежна стінна шафа"
   parent: BaseWallCloset
-  description: It's a storage unit for fire-fighting supplies.
+  description: "Це склад для зберігання протипожежного приладдя."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -58,8 +58,8 @@
 - type: entity
   id: ClosetWallBlue
   parent: BaseWallCloset
-  name: blue wall closet
-  description: "A wardrobe packed with stylish blue clothing."
+  name: "синя настінна шафа"
+  description: "Гардероб, наповнений стильним синім одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -70,8 +70,8 @@
 - type: entity
   id: ClosetWallPink
   parent: BaseWallCloset
-  name: pink wall closet
-  description: "A wardrobe packed with fabulous pink clothing."
+  name: "рожева настінна шафа"
+  description: "Шафа, наповнена казковим рожевим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -82,8 +82,8 @@
 - type: entity
   id: ClosetWallBlack
   parent: BaseWallCloset
-  name: black wall closet
-  description: "A wardrobe packed with stylish black clothing."
+  name: "чорна настінна шафа"
+  description: "Шафа, наповнена стильним чорним одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -94,8 +94,8 @@
 - type: entity
   id: ClosetWallGreen
   parent: BaseWallCloset
-  name: green wall closet
-  description: "A wardrobe packed with stylish green clothing."
+  name: "зелена настінна шафа"
+  description: "Гардероб, наповнений стильним зеленим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -106,7 +106,7 @@
 - type: entity
   id: ClosetWallOrange
   parent: BaseWallCloset
-  name: prison wall closet
+  name: "тюремна настінна шафа"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -117,8 +117,8 @@
 - type: entity
   id: ClosetWallYellow
   parent: BaseWallCloset
-  name: yellow wall closet
-  description: "A wardrobe packed with stylish yellow clothing."
+  name: "жовта настінна шафа"
+  description: "Гардероб, наповнений стильним жовтим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -129,8 +129,8 @@
 - type: entity
   id: ClosetWallWhite
   parent: BaseWallCloset
-  name: white wall closet
-  description: "A wardrobe packed with stylish white clothing."
+  name: "біла настінна шафа"
+  description: "Шафа, наповнена стильним білим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -141,8 +141,8 @@
 - type: entity
   id: ClosetWallGrey
   parent: BaseWallCloset
-  name: grey wall closet
-  description: "A wardrobe packed with a tide of grey clothing."
+  name: "сіра настінна шафа"
+  description: "Шафа, переповнена сірим одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -153,8 +153,8 @@
 - type: entity
   id: ClosetWallMixed
   parent: BaseWallCloset
-  name: mixed wall closet
-  description: "A wardrobe packed with a mix of colorful clothing."
+  name: "змішана стінна шафа"
+  description: "Гардероб, наповнений різнобарвним одягом."
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -165,7 +165,7 @@
 - type: entity
   id: ClosetWallAtmospherics
   parent: BaseWallCloset
-  name: atmospherics wall closet
+  name: "настінна шафа атмосферника"
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -176,7 +176,7 @@
 - type: entity
   id: LockerWallMedical
   parent: BaseWallLocker
-  name: medical wall locker
+  name: "медична настінна шафка"
   components:
   - type: Appearance
   - type: EntityStorageVisuals

@@ -90,8 +90,8 @@
 - type: entity
   id: KitchenSpike
   parent: BaseStructure
-  name: meat spike
-  description: A spike for collecting meat from animals.
+  name: "м'ясний шпик"
+  description: "Колос для збирання м'яса тварин."
   components:
   - type: InteractionOutline
   - type: Sprite

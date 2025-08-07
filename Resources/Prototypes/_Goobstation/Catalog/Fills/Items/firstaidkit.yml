@@ -11,8 +11,8 @@
 
 - type: entity
   id: MedkitCombatStasiziumFilled
-  name: futuristic medkit
-  description: Medkit filled with medicines of the future
+  name: "футуристична аптечка"
+  description: "Аптечка з ліками майбутнього"
   suffix: Stazisium
   parent: MedkitCombat
   components:

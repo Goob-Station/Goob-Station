@@ -6,8 +6,8 @@
 # Only player controlled ones would, and you could claim its a feature to throw salvies off at that point :trollface:
 - type: entity
   id: ActionGoliathTentacleCrew
-  name: "[color=red]Tentacle Slam[/color]"
-  description: Use your tentacles to grab and stun a target player!
+  name: "[color=red]Удар щупальцем[/color]"
+  description: "Використовуйте свої щупальця, щоб схопити та оглушити цільового гравця!"
   components:
   - type: EntityWorldTargetAction
     raiseOnUser: true

@@ -11,8 +11,8 @@
 
 - type: entity
   id: BlueshieldAmmunitionBox
-  name: blueshield ammunition box
-  description: A box containing various ammunition and magazines for high caliber shotguns.
+  name: "ящик з боєприпасами синього щита"
+  description: "Ящик, що містить різні боєприпаси та магазини для великокаліберних дробовиків."
   suffix: Unused
   parent: BaseStorageItem
   components:

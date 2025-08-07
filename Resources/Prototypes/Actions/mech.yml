@@ -8,8 +8,8 @@
 
 - type: entity
   id: ActionMechCycleEquipment
-  name: Cycle
-  description: Cycles currently selected equipment
+  name: "Цикл"
+  description: "Цикли вибраного на даний момент обладнання"
   components:
   - type: InstantAction
     itemIconStyle: NoItem
@@ -21,8 +21,8 @@
 
 - type: entity
   id: ActionMechOpenUI
-  name: Control Panel
-  description: Opens the control panel for the mech
+  name: "Панель управління"
+  description: "Відкриває панель керування механізмом"
   components:
   - type: InstantAction
     itemIconStyle: NoItem
@@ -34,8 +34,8 @@
 
 - type: entity
   id: ActionMechEject
-  name: Eject
-  description: Ejects the pilot from the mech
+  name: "Викидай!"
+  description: "Катапультує пілота з меча"
   components:
   - type: InstantAction
     itemIconStyle: NoItem

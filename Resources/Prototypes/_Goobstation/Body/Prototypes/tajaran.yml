@@ -18,7 +18,7 @@
 
 - type: body
   id: Tajaran
-  name: tajaran
+  name: "таджаран"
   root: chest
   slots:
     head:

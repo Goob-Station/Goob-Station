@@ -23,7 +23,7 @@
 
 - type: entity
   id: BaseMagazineCaselessRifle
-  name: "magazine (9.5mm HP)" # Goob edit
+  name: "магазин (9.5мм HP)" # Goob edit
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -57,7 +57,7 @@
 
 - type: entity
   id: BaseMagazineCaselessRifleShort
-  name: "caseless rifle short magazine (9.5mm HP)" # Goob edit
+  name: "короткий безгільзовий гвинтівковий магазин (9.5мм HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   abstract: true
   components:
@@ -76,7 +76,7 @@
 
 - type: entity
   id: BaseMagazinePistolCaselessRifle
-  name: "pistol magazine (9.5mm HP)" # Goob edit
+  name: "пістолетний магазин (9.5мм HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   abstract: true
   components:
@@ -106,7 +106,7 @@
 
 - type: entity
   id: MagazineCaselessRifle10x24
-  name: "box magazine (9.5mm HP)" # Goob edit
+  name: "коробчастий магазин (9.5мм HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -121,9 +121,9 @@
 
 - type: entity
   id: MagazinePistolCaselessRifle
-  name: "pistol magazine (9.5mm HP)" # Goob edit
+  name: "пістолетний магазин (9.5мм HP)" # Goob edit
   parent: BaseMagazinePistolCaselessRifle
-  description: 10-round magazine for the Cobra pistol. Intended to hold general-purpose kinetic ammunition.
+  description: "10-зарядний магазин для пістолета Cobra. Призначений для кінетичних боєприпасів загального призначення."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -148,9 +148,9 @@
 
 - type: entity
   id: MagazinePistolCaselessRiflePractice
-  name: "pistol magazine (9.5mm practice)" # Goob edit
+  name: "пістолетний магазин (9.5мм тренувальний)" # Goob edit
   parent: BaseMagazinePistolCaselessRifle
-  description: 10-round magazine for the Cobra pistol. Intended to hold non-harmful chalk ammunition.
+  description: "10-зарядний магазин для пістолета Cobra. Призначений для безпечних крейдяних боєприпасів."
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice
@@ -179,7 +179,7 @@
 
 - type: entity
   id: MagazineCaselessRifle
-  name: "magazine (9.5mm HP)" # Goob edit
+  name: "магазин (9.5мм HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -203,7 +203,7 @@
 
 - type: entity
   id: MagazineCaselessRiflePractice
-  name: "magazine (9.5mm practice)" # Goob edit
+  name: "магазин (9.5мм тренувальний)" # Goob edit
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -227,7 +227,7 @@
 
 - type: entity
   id: MagazineCaselessRifleShort
-  name: "short magazine (9.5mm HP)" # Goob edit
+  name: "короткий магазин (9.5мм HP)" # Goob edit
   parent: BaseMagazineCaselessRifleShort
   components:
   - type: BallisticAmmoProvider
@@ -252,7 +252,7 @@
 
 - type: entity
   id: MagazineCaselessRifleShortPractice
-  name: "short magazine (9.5mm practice)" # Goob edit
+  name: "короткий магазин (9.5мм тренувальний)" # Goob edit
   parent: BaseMagazineCaselessRifleShort
   components:
   - type: BallisticAmmoProvider

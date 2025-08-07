@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseSecurityContraband]
   id: ClothingOuterArmorCadet
-  name: кадетський бронежилет
-  description: Стандартний жилет I класу захисту, має синю обводку для позначення кадетів.
+  name: "кадетський бронежилет"
+  description: "Стандартний жилет I класу захисту, має синю обводку для позначення кадетів."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/OuterClothing/Armor/security_cadet.rsi

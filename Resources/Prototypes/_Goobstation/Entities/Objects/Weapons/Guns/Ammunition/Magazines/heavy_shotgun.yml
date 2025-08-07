@@ -8,7 +8,7 @@
 
 - type: entity
   id: BaseMagazineShotgunHeavy
-  name: ammo drum (2 gauge shells)
+  name: "барабан з патронами (2 калібр)"
   parent: [ BaseItem, BaseSyndicateContraband ]
   abstract: true
   components:
@@ -43,7 +43,7 @@
 
 - type: entity
   id: MagazineShotgunHeavy
-  name: ammo drum (2 gauge HE pellet)
+  name: "барабан з патронами (2 калібр HE)"
   parent: BaseMagazineShotgunHeavy
   components:
   - type: BallisticAmmoProvider
@@ -51,7 +51,7 @@
 
 - type: entity
   id: MagazineShotgunHeavySlug
-  name: ammo drum (2 gauge HE slug)
+  name: "барабан з патронами (2 калібр HE куля)"
   parent: BaseMagazineShotgunHeavy
   components:
   - type: BallisticAmmoProvider

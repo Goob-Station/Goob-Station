@@ -13,8 +13,8 @@
 
 - type: entity
   id: ActionKnock
-  name: Knock
-  description: Opens nearby doors and lockers. # Goob edit
+  name: "Постукати"
+  description: "Це заклинання відкриває сусідні двері." # Goob edit
   components:
   - type: InstantAction
     raiseOnUser: true # Goobstation

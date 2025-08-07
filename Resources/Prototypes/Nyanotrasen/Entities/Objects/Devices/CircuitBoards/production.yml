@@ -7,7 +7,7 @@
 - type: entity
   id: MailTeleporterMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: mail teleporter machine board
+  name: "машинна плата поштового телепорту"
   components:
     - type: Sprite
       state: supply

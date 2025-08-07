@@ -128,7 +128,7 @@
 - type: entity
   parent: [ PartSiliconBase, BaseLeftArm ]
   id: LeftArmBorg
-  name: cyborg left arm
+  name: "ліва рука кіборга"
   components:
   - type: Sprite
     state: borg_l_arm
@@ -145,7 +145,7 @@
 - type: entity
   parent: [ PartSiliconBase, BaseRightArm ]
   id: RightArmBorg
-  name: cyborg right arm
+  name: "права рука кіборга"
   components:
   - type: Sprite
     state: borg_r_arm
@@ -162,7 +162,7 @@
 - type: entity
   parent: [ PartSiliconBase, BaseLeftLeg ]
   id: LeftLegBorg
-  name: cyborg left leg
+  name: "ліва нога кіборга"
   components:
   - type: Sprite
     state: borg_l_leg
@@ -179,7 +179,7 @@
 - type: entity
   parent: [ PartSiliconBase, BaseRightLeg ]
   id: RightLegBorg
-  name: cyborg right leg
+  name: "права нога кіборга"
   components:
   - type: Sprite
     state: borg_r_leg
@@ -196,7 +196,7 @@
 - type: entity
   parent: [ PartSiliconBase, BaseHead ]
   id: LightHeadBorg
-  name: cyborg head
+  name: "голова кіборга"
   components:
   - type: Sprite
     state: borg_head
@@ -212,7 +212,7 @@
 - type: entity
   parent: [ PartSiliconBase, BaseChestInorganic ]
   id: TorsoBorg
-  name: cyborg torso
+  name: "торс кіборга"
   components:
   - type: Sprite
     state: borg_chest

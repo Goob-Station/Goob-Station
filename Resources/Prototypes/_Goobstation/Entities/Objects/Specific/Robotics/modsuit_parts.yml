@@ -11,8 +11,8 @@
 - type: entity
   id: PartModsuit
   parent: BaseItem
-  name: MOD part
-  description: A part used in MOD construction.
+  name: "Частина МОУ"
+  description: "Деталь, що використовується в будівництві МО."
   abstract: true
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
 - type: entity
   id: ModsuitChestplate
   parent: PartModsuit
-  name: MOD chestplate
+  name: "Нагрудний знак MOD"
   components:
   - type: Sprite
     state: chestplate
@@ -47,7 +47,7 @@
 - type: entity
   id: ModsuitBoots
   parent: PartModsuit
-  name: MOD boots
+  name: "Черевики для військовослужбовців"
   components:
   - type: Sprite
     state: boots
@@ -64,7 +64,7 @@
 - type: entity
   id: ModsuitHelmet
   parent: PartModsuit
-  name: MOD helmet
+  name: "Шолом MOD"
   components:
   - type: Sprite
     state: helmet
@@ -81,7 +81,7 @@
 - type: entity
   id: ModsuitGauntlets
   parent: PartModsuit
-  name: MOD gauntlets
+  name: "Рукавиці МОУ"
   components:
   - type: Sprite
     state: gauntlets
@@ -98,7 +98,7 @@
 - type: entity
   id: ModsuitShell
   parent: PartModsuit
-  name: MOD shell
+  name: "Оболонка MOD"
   components:
   - type: Appearance
   - type: Sprite
@@ -135,8 +135,8 @@
 - type: entity
   id: ModsuitPlatingExternal
   parent: PartModsuit
-  name: MOD standard external plating
-  description: A part used in MOD construction.
+  name: "Зовнішнє покриття за стандартом MOD"
+  description: "Деталь, що використовується в будівництві МО."
   components:
   - type: Sprite
     state: standard-plating
@@ -155,8 +155,8 @@
 - type: entity
   id: ModsuitPlatingParamedic
   parent: PartModsuit
-  name: MOD standard paramedic 'sanitater' plating
-  description: A part used in MOD construction.
+  name: "MOD стандартна обшивка парамедика \"санітар"
+  description: "Деталь, що використовується в будівництві МО."
   components:
   - type: Sprite
     state: standard-plating
@@ -175,8 +175,8 @@
 - type: entity
   id: ModsuitPlatingEngineer
   parent: PartModsuit
-  name: MOD standard engineer 'sapper' plating
-  description: A part used in MOD construction.
+  name: "MOD стандартна обшивка інженера \"сапер"
+  description: "Деталь, що використовується в будівництві МО."
   components:
   - type: Sprite
     state: standard-plating
@@ -195,8 +195,8 @@
 - type: entity
   id: ModsuitPlatingSecurity
   parent: PartModsuit
-  name: MOD standard security 'soldat' plating
-  description: A part used in MOD construction.
+  name: "MOD стандартна обшивка служби безпеки \"солдат"
+  description: "Деталь, що використовується в будівництві МО."
   components:
   - type: Sprite
     state: standard-plating
@@ -215,8 +215,8 @@
 - type: entity
   id: ModsuitPlatingHeadOfSecurity
   parent: PartModsuit
-  name: MOD standard head of security 'bulwark' plating
-  description: A part used in MOD construction.
+  name: "MOD стандартна обшивка голови служби безпеки \"бастіон"
+  description: "Деталь, що використовується в будівництві МО."
   components:
   - type: Sprite
     state: standard-plating
@@ -235,8 +235,8 @@
 - type: entity
   id: ModsuitPlatingCaptain
   parent: PartModsuit
-  name: MOD standard captain's magnate plating
-  description: A part used in MOD construction.
+  name: "MOD стандартна обшивка капітана \"магнат"
+  description: "Деталь, що використовується в будівництві МО."
   components:
   - type: Sprite
     state: standard-plating
@@ -255,8 +255,8 @@
 - type: entity
   id: ModsuitPlatingRD
   parent: PartModsuit
-  name: MOD standard RD's 'minerva' plating
-  description: A part used in MOD construction.
+  name: "MOD стандартна обшивка НД \"мінерва"
+  description: "Деталь, що використовується в будівництві МО."
   components:
   - type: Sprite
     state: standard-plating
@@ -275,8 +275,8 @@
 - type: entity
   id: ModsuitPlatingAtmostech
   parent: PartModsuit
-  name: MOD standard atmospheric technician's 'aeolus' plating
-  description: A part used in MOD construction.
+  name: "MOD стандартна обшивка атмосферного техніка \"еол"
+  description: "Деталь, що використовується в будівництві МО."
   components:
   - type: Sprite
     state: standard-plating
@@ -295,8 +295,8 @@
 - type: entity
   id: ModsuitCoreStandard
   parent: PartModsuit
-  name: MOD standard core
-  description: Growing in the most lush, fertile areas of the planet Sprout, there is a crystal known as the Heartbloom. These rare, organic piezoelectric crystals are of incredible cultural significance to the artist castes of the Ethereals, owing to their appearance; which is exactly similar to that of an Ethereal's heart. Which one you have in your suit is unclear, but either way, it's been repurposed to be an internal power source for a Modular Outerwear Device.
+  name: "Стандартне ядро МОУ"
+  description: "У найпишніших, найродючіших районах планети Спрут росте кристал, відомий як Цвіт Серця. Ці рідкісні органічні п'єзоелектричні кристали мають неймовірну культурну цінність для касти художників Ефіріалів завдяки своєму зовнішньому вигляду, який дуже схожий на серце Ефіріала. Який саме кристал знаходиться у вашому костюмі - незрозуміло, але в будь-якому випадку, його перепрофілювали на внутрішнє джерело живлення для Модульного Пристрою Верхнього Одягу."
   components:
   - type: Sprite
     state: mod-core-standard

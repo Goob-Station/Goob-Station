@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketProtein
-  name: protein powder packet
-  description: Contains 10u of powdered protein. Mix with 20u of water
+  name: "упаковка протеїнового порошку"
+  description: "Містить 10 унцій порошкового протеїну. Змішати з 20 унціями води"
   components:
   - type: SolutionContainerManager
     solutions:

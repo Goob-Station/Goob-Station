@@ -7,8 +7,8 @@
 - type: entity
   parent: MobSiliconBase
   id: MobFillBot
-  name: fillbot
-  description: It picks up things and puts them somewhere else.
+  name: "філлбот"
+  description: "Він підбирає речі і кладе їх кудись іще."
   components:
   - type: Fillbot
   - type: Sprite

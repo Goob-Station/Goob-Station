@@ -6,8 +6,8 @@
 - type: entity
   parent: DehydratedSpaceCarp
   id: DehydratedHolocarp
-  name: dehydrated holocarp
-  description: Looks like a plush toy holocarp, but just add water and it becomes a real-life holocarp!
+  name: "зневоднений голокарп"
+  description: "Виглядає як плюшевий голокарп, але просто додайте води, і він стане справжнім голокарпом!"
   components:
   - type: Sprite
     state: holoplush

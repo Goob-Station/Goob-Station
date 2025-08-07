@@ -30,7 +30,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseLeftArm ]
   id: LeftArmCybernetic
-  name: cybernetic left arm
+  name: "кібернетична ліва рука"
   components:
   - type: Sprite
     state: "l_arm-combined"
@@ -52,7 +52,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseRightArm ]
   id: RightArmCybernetic
-  name: cybernetic right arm
+  name: "кібернетична права рука"
   components:
   - type: Sprite
     state: "r_arm-combined"
@@ -74,7 +74,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseLeftLeg ]
   id: LeftLegCybernetic
-  name: cybernetic left leg
+  name: "кібернетична ліва нога"
   components:
   - type: Sprite
     state: "l_leg-combined"
@@ -96,7 +96,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseRightLeg ]
   id: RightLegCybernetic
-  name: cybernetic right leg
+  name: "кібернетична права нога"
   components:
   - type: Sprite
     state: "r_leg-combined"
@@ -118,7 +118,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseLeftHand ]
   id: LeftHandCybernetic
-  name: cybernetic left hand
+  name: "кібернетична ліва долоня"
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLHand
@@ -136,7 +136,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseRightHand ]
   id: RightHandCybernetic
-  name: cybernetic right hand
+  name: "кібернетична права долоня"
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRHand
@@ -154,7 +154,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseLeftFoot ]
   id: LeftFootCybernetic
-  name: cybernetic left foot
+  name: "кібернетична ліва нога"
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLFoot
@@ -172,7 +172,7 @@
 - type: entity
   parent: [ CyberneticPartBase, BaseRightFoot ]
   id: RightFootCybernetic
-  name: cybernetic right foot
+  name: "кібернетична права нога"
   components:
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRFoot
@@ -190,8 +190,8 @@
 - type: entity
   parent: LeftArmCybernetic
   id: JawsOfLifeLeftArm
-  name: J.W.L left arm
-  description: A cybernetic left arm with the ability to pry doors open.
+  name: "Ліва рука J.W.L"
+  description: "Кібернетична ліва рука з можливістю відчиняти двері."
   components:
   - type: BodyPart
     onAdd:
@@ -204,8 +204,8 @@
 - type: entity
   parent: RightArmCybernetic
   id: JawsOfLifeRightArm
-  name: J.W.L right arm
-  description: A cybernetic right arm with the ability to pry doors open.
+  name: "Права рука J.W.L"
+  description: "Кібернетична права рука з можливістю відчиняти двері."
   components:
   - type: BodyPart
     onAdd:
@@ -218,8 +218,8 @@
 - type: entity
   parent: LeftLegCybernetic
   id: SpeedLeftLeg
-  name: S.P.E.E.D left leg
-  description: A cybernetic left leg that allows its wearer to run faster.
+  name: "S.P.E.E.D ліва нога"
+  description: "Кібернетична ліва нога, яка дозволяє її власнику бігати швидше."
   components:
   - type: MovementBodyPart
     walkSpeed: 3.125
@@ -228,8 +228,8 @@
 - type: entity
   parent: RightLegCybernetic
   id: SpeedRightLeg
-  name: S.P.E.E.D right leg
-  description: A cybernetic left leg that allows its wearer to run faster.
+  name: "S.P.E.E.D права нога"
+  description: "Кібернетична ліва нога, яка дозволяє її власнику бігати швидше."
   components:
   - type: MovementBodyPart
     walkSpeed: 3.125
@@ -238,8 +238,8 @@
 - type: entity
   id: DexLeftHand
   parent: LeftHandCybernetic
-  name: D.E.X left hand
-  description: A cybernetic left hand that allows its wearer to interact faster.
+  name: "ліва рука D.E.X"
+  description: "Кібернетична ліва рука, що дозволяє її власнику швидше взаємодіяти."
   components:
   - type: DoAfterDelayMultiplier
     multiplier: 0.9
@@ -247,8 +247,8 @@
 - type: entity
   id: DexRightHand
   parent: RightHandCybernetic
-  name: D.E.X right hand
-  description: A cybernetic right hand that allows its wearer to interact faster.
+  name: "права рука D.E.X"
+  description: "Кібернетична права рука, що дозволяє її власнику швидше взаємодіяти."
   components:
   - type: DoAfterDelayMultiplier
     multiplier: 0.9

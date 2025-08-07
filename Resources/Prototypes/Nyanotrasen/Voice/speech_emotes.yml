@@ -11,7 +11,7 @@
 # vocal emotes
 - type: emote
   id: Hiss
-  name: Hiss
+  name: "Шипіти"
   category: Vocal
   icon: _Goobstation/Interface/Emotes/hiss.png
   whitelist:
@@ -31,7 +31,7 @@
 
 - type: emote
   id: Meow
-  name: Meow
+  name: "Няв"
   category: Vocal
   icon: _Goobstation/Interface/Emotes/meow.png
   whitelist:
@@ -56,7 +56,7 @@
 
 - type: emote
   id: Mew
-  name: Mew
+  name: "Нявкати"
   category: Vocal
   icon: _Goobstation/Interface/Emotes/mew.png
   whitelist:
@@ -75,7 +75,7 @@
 
 - type: emote
   id: Growl
-  name: Growl
+  name: "Гарчати"
   category: Vocal
   icon: _Goobstation/Interface/Emotes/growl.png
   whitelist:
@@ -94,7 +94,7 @@
 
 - type: emote
   id: Purr
-  name: Purr
+  name: "Муркотіти"
   category: Vocal
   icon: _Goobstation/Interface/Emotes/purr.png
   whitelist:

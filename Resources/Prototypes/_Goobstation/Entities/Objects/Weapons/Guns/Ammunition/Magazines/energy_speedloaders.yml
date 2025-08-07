@@ -30,8 +30,8 @@
 - type: entity
   id: EnergySpeedloaderLethal
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
-  name: energy speedloader (lethal)
-  description: A rather volatile powercell utilizing phoron to charge lethal bolts over time. Phoron will make us all rich.
+  name: "енергетичний швидкісний зарядник (летальний)"
+  description: "Досить нестабільна енергетична комірка, що використовує форон для зарядки летальних зарядів з часом. Форон зробить нас усіх багатими."
   components:
   - type: ProjectileBatteryAmmoProvider
     proto: BulletEnergyGunMagnum
@@ -44,8 +44,8 @@
 - type: entity
   id: EnergySpeedloaderDisabler
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
-  name: energy speedloader (disabler)
-  description: A rather volatile powercell utilizing phoron to charge disabling bolts over time. Phoron will make us all rich.
+  name: "енергетичний швидкісний зарядник (дизейблер)"
+  description: "Досить нестабільна енергетична комірка, що використовує форон для зарядки виводячих з ладу зарядів з часом. Форон зробить нас усіх багатими."
   components:
   - type: Sprite
     state: icon-disabling
@@ -60,8 +60,8 @@
 - type: entity
   id: EnergySpeedloaderPulse
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
-  name: energy speedloader (pulse)
-  description: A rather volatile powercell utilizing phoron to charge destructive energy pulses over time. Phoron will make us all rich.
+  name: "енергетичний швидкісний зарядник (імпульс)"
+  description: "Досить нестабільна енергетична комірка, що використовує форон для зарядки руйнівних енергетичних імпульсів з часом. Форон зробить нас усіх багатими."
   components:
   - type: HitscanBatteryAmmoProvider
     proto: LightPulse
