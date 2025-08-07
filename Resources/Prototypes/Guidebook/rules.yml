@@ -168,6 +168,7 @@
   - RuleR12
   - RuleR13
   - RuleR14
+  - RuleR15
 
 - type: guideEntry
   id: RuleR1
@@ -266,6 +267,13 @@
   ruleEntry: true
   priority: 14
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR14NewLifeRule.xml"
+
+- type: guideEntry
+  id: RuleR15
+  name: guide-entry-rules-r15
+  ruleEntry: true
+  priority: 15
+  text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR15EORG.xml"
 
 - type: guideEntry
   id: SiliconRules
