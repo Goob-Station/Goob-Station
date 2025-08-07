@@ -65,7 +65,7 @@
   alias:
     - survival
   name: survival-title
-  showInVote: true # secret
+  showInVote: false # secret
   description: survival-description
   rules:
     # - MeteorSwarmScheduler Goobstation - nuh uh
