@@ -23,6 +23,17 @@
   id: BaseMagazineBoxCaselessRifle
   name: ammunition box (9.5mm HP) # Goob edit
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
+  # Goobstation edit end
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
