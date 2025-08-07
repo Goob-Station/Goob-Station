@@ -163,6 +163,7 @@
     - category: Hunger
     - category: Thirst
     - alertType: Magboots
+    - alertType: Rooted
     - alertType: Pacified
     - alertType: Offer # Pirate - port EE item offesrs
     - alertType: ShadowCloak # Goobstation

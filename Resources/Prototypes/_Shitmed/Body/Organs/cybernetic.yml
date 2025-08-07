@@ -56,9 +56,13 @@
   components:
   - type: Sprite
     state: eyes-sechud
-  - type: ShowJobIcons
-  - type: ShowMindShieldIcons
-  - type: ShowCriminalRecordIcons
+  - type: Organ
+    onAdd:
+    - type: ShowJobIcons
+    - type: ShowMindShieldIcons
+    - type: ShowCriminalRecordIcons
+    - type: FlashImmunity
+    - type: EyeProtection
 
 - type: entity
   parent: BasicCyberneticEyes
@@ -68,12 +72,14 @@
   components:
   - type: Sprite
     state: eyes-medhud
-  - type: ShowHealthBars
-    damageContainers:
-    - Biological
-  - type: ShowHealthIcons
-    damageContainers:
-    - Biological
+  - type: Organ
+    onAdd:
+    - type: ShowHealthBars
+      damageContainers:
+      - Biological
+    - type: ShowHealthIcons
+      damageContainers:
+      - Biological
 
 - type: entity
   parent: BasicCyberneticEyes
@@ -83,16 +89,18 @@
   components:
   - type: Sprite
     state: eyes-diagnostic
-  - type: ShowHealthBars
-    damageContainers:
-    - Inorganic
-    - Silicon
-    - SiliconRadiation
-  - type: ShowHealthIcons
-    damageContainers:
-    - Inorganic
-    - Silicon
-    - SiliconRadiation
+  - type: Organ
+    onAdd:
+    - type: ShowHealthBars
+      damageContainers:
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
+    - type: ShowHealthIcons
+      damageContainers:
+      - Inorganic
+      - Silicon
+      - SiliconRadiation
 
 # Heart
 
@@ -113,6 +121,9 @@
       Damaged: 9
       Destroyed: 0
     slotId: heart
+    onAdd:
+    - type: StaminaModifier
+      modifier: 1.35
   - type: Metabolizer
     maxPoisonsProcessable: 2
     metabolizerTypes: [ Cybernetic ]
@@ -147,6 +158,9 @@
       Damaged: 9
       Destroyed: 0
     slotId: heart
+    onAdd:
+    - type: StaminaModifier
+      modifier: 1.7
   - type: Metabolizer
     maxPoisonsProcessable: 2
     metabolizerTypes: [ Cybernetic ]
@@ -252,5 +266,5 @@
       Destroyed: 0
     slotId: lungs
     onAdd:
-    - type: BreathingImmunity
-    - type: PressureImmunity
+    - type: StaminaRegeneration
+      regenerationRate: -3.0
