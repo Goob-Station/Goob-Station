@@ -1,6 +1,6 @@
 ent-BlueShieldShieldFilled = { ent-BlueShieldShield }
-    .suffix = Filled, НЕ МАППИТЬ
+    .suffix = НЕ МАППИТЬ, Заполненный
     .desc = { ent-BlueShieldShield.desc }
 ent-BlueShieldShieldEvilFilled = { ent-BlueShieldShieldEvil }
-    .suffix = Filled, Evil, НЕ МАППИТЬ
+    .suffix = НЕ МАППИТЬ, Заполненный, Эскадрон смерти
     .desc = { ent-BlueShieldShieldEvil.desc }

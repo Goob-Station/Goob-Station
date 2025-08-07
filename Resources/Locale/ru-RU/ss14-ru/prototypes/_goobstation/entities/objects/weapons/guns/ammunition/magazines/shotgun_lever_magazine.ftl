@@ -1,7 +1,7 @@
-ent-BaseMagazineShotgunLeverRifle = magazine (8 Gauge)
+ent-BaseMagazineShotgunLeverRifle = магазин (8 калибр)
     .desc = { ent-BaseItem.desc }
-ent-MagazineShotgunLeverRifle = lever rifle magazine (8 Gauge)
+ent-MagazineShotgunLeverRifle = магазин для рычажной винтовки (8 калибр)
     .desc = { ent-BaseMagazineShotgunLeverRifle.desc }
 ent-MagazineShotgunLeverRifleEmpty = { ent-MagazineShotgunLeverRifle }
-    .suffix = Empty
+    .suffix = Пустой
     .desc = { ent-MagazineShotgunLeverRifle.desc }

@@ -1,8 +1,8 @@
 ent-PartMoth = часть тела ниана
     .desc = { ent-BasePart.desc }
-ent-ChestMoth = moth chest
+ent-ChestMoth = грудь ниана
     .desc = { ent-PartMoth.desc }
-ent-GroinMoth = moth groin
+ent-GroinMoth = пах ниана
     .desc = { ent-PartMoth.desc }
 ent-HeadMoth = голова ниана
     .desc = { ent-PartMoth.desc }

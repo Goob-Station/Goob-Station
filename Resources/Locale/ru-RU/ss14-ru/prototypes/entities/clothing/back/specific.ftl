@@ -3,5 +3,5 @@ ent-ClothingBackpackChameleon = рюкзак
     .suffix = Хамелеон
 ent-ClothingBackpackWaterTank = ранцевый водяной резервуар
     .desc = Вмещает большое количество жидкости. Для разбрызгивания возьмите в руки форсунку. Сбоку имеется слот для форсунки.
-ent-ClothingBackpackFirefighterTank = firefighter water tank backpack
-    .desc = A refrigerated water tank backpack that can switch modes to launch ATMOS resin or work as a high pressure extinguisher.
+ent-ClothingBackpackFirefighterTank = ранцевый пожарный резервуар
+    .desc = Охлаждаемый водяной ранец, способный переключаться между режимами запуска атмос-смолы и работы как огнетушитель высокого давления.

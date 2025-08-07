@@ -1,2 +1,2 @@
-ent-FieryStake = fiery stake
-    .desc = But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
+ent-FieryStake = костёр с колом
+    .desc = Бог доказывал свою любовь к нам на этом.... Христос умер за нас, когда мы были ещё грешниками!

@@ -1,2 +1,2 @@
-ent-DeterrentCase = deterrent case
-    .desc = A small green case filled with a Central Command members best friends. Warm to the touch.
+ent-DeterrentCase = кейс сдерживания
+    .desc = Небольшой зелёный кейс, наполненный лучшими друзьями членов Центрального Командования. Тёплый на ощупь.

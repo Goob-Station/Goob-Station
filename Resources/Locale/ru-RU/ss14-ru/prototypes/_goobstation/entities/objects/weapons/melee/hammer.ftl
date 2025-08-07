@@ -1,2 +1,2 @@
-ent-MeleeHammer = hammer
-    .desc = 3 steel 2 wood
+ent-MeleeHammer = молоток
+    .desc = 3 стали 2 дерева.

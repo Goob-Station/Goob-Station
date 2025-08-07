@@ -1,8 +1,8 @@
 ent-BaseMobGhoul = { ent-SimpleMobBase }
     .desc = { ent-SimpleMobBase.desc }
-ent-MobGhoulStalker = flesh stalker
-    .desc = An abomination cobbled together from varied remains. Its appearance changes slightly every time you blink.
-ent-MobGhoulProphet = raw prophet
-    .desc = An abomination stitched together from a few severed arms and one swollen, orphaned eye.
-ent-MobGhoulRustWalker = rust walker
-    .desc = A grinding, clanking construct which leaches life from its surroundings with every armoured step.
+ent-MobGhoulStalker = гончий плоти
+    .desc = Мерзость, собранная из разных останков. Его внешний вид слегка меняется каждый раз, когда вы моргаете.
+ent-MobGhoulProphet = нечестивый Проповедник
+    .desc = Мерзость, сшитая из нескольких отрубленных рук и одного опухшего, осиротевшего глаза.
+ent-MobGhoulRustWalker = скиталец ржавчины
+    .desc = Скрежещущая, гремящая конструкция, вытягивающая жизнь из всего вокруг с каждым бронированным шагом.

@@ -1,4 +1,4 @@
-ent-MaterialSilo = material silo
-    .desc = Bluespace storage connected to most lathes on the station.
+ent-MaterialSilo = сило
+    .desc = Блюспейс хранилище, соединяемое с автолатами станции.
 ent-BaseSiloUtilizer = { "" }
     .desc = { "" }

@@ -1,4 +1,4 @@
-ent-PenFuture = futuristic pen
-    .desc = Some theories claim that the apocalypse of 3024 happened because of the pens
-ent-PenDevil = devilish pen
-    .desc = A devilishly sharp pen with a strangely warm body. Not quite as sharp as a devils tongue, nor as silver coated.
+ent-PenFuture = футуристичная ручка
+    .desc = Некоторые теории утверждают, что апокалипсис 2846 года произошёл из-за ручек.
+ent-PenDevil = дьявольская ручка
+    .desc = Дьявольски острая ручка со странно тёплым корпусом. Не такая острая, как язык дьявола, и не покрыта серебром.
