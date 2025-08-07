@@ -60,7 +60,7 @@
   alias:
     - survival
   name: survival-title
-  showInVote: false # secret
+  showInVote: true # secret
   description: survival-description
   rules:
     # - MeteorSwarmScheduler Goobstation - nuh uh
@@ -175,7 +175,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: false # Goob - Game Director
+  showInVote: true # Goob - Game Director
   description: secret-description
   rules:
     - Secret
@@ -277,7 +277,7 @@
   description: rev-description
   showInVote: false
   rules:
-  - DummyNonAntagChance  
+  - DummyNonAntagChance
   - Revolutionary
   - SubGamemodesRule
   - BasicStationEventScheduler
