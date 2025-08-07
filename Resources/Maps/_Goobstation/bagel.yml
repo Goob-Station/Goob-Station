@@ -155249,6 +155249,95 @@ entities:
     - type: Transform
       pos: 13.5,-1.5
       parent: 24940
+- proto: WeaponEnergyTurretAI
+  entities:
+  - uid: 8972
+    components:
+    - type: Transform
+      pos: -108.5,13.5
+      parent: 2
+  - uid: 8973
+    components:
+    - type: Transform
+      pos: -114.5,13.5
+      parent: 2
+  - uid: 8975
+    components:
+    - type: Transform
+      pos: -109.5,37.5
+      parent: 2
+  - uid: 8976
+    components:
+    - type: Transform
+      pos: -113.5,37.5
+      parent: 2
+  - uid: 8991
+    components:
+    - type: Transform
+      pos: -114.5,15.5
+      parent: 2
+  - uid: 8992
+    components:
+    - type: Transform
+      pos: -114.5,19.5
+      parent: 2
+  - uid: 8993
+    components:
+    - type: Transform
+      pos: -108.5,19.5
+      parent: 2
+  - uid: 8994
+    components:
+    - type: Transform
+      pos: -108.5,15.5
+      parent: 2
+  - uid: 8995
+    components:
+    - type: Transform
+      pos: -107.5,21.5
+      parent: 2
+  - uid: 8996
+    components:
+    - type: Transform
+      pos: -107.5,30.5
+      parent: 2
+  - uid: 8998
+    components:
+    - type: Transform
+      pos: -115.5,30.5
+      parent: 2
+  - uid: 9007
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -108.5,9.5
+      parent: 2
+  - uid: 9023
+    components:
+    - type: Transform
+      pos: -109.5,2.5
+      parent: 2
+  - uid: 9024
+    components:
+    - type: Transform
+      pos: -123.5,17.5
+      parent: 2
+  - uid: 9834
+    components:
+    - type: Transform
+      pos: -115.5,21.5
+      parent: 2
+  - uid: 9847
+    components:
+    - type: Transform
+      pos: -113.5,2.5
+      parent: 2
+  - uid: 10471
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -114.5,9.5
+      parent: 2
 - proto: WeaponLaserCarbine
   entities:
   - uid: 24051
