@@ -79,6 +79,7 @@
 
 using System.Diagnostics;
 using System.IO.Compression;
+using Content.ModuleManager;
 using Robust.Packaging;
 using Robust.Packaging.AssetProcessing;
 using Robust.Packaging.AssetProcessing.Passes;
@@ -113,7 +114,7 @@ public static class ServerPackaging
         .Select(o => o.Rid)
         .ToList();
 
-    private static readonly List<string> ServerContentAssemblies = new()
+    private static readonly List<string> CoreServerContentAssemblies = new()
     {
         // CorvaxGoob-Secrets-Start
         "Content.Corvax.Interfaces.Shared",
@@ -123,6 +124,7 @@ public static class ServerPackaging
         "Content.Server",
         "Content.Shared",
         "Content.Shared.Database",
+        "Content.ModuleManager", // I cant be fucked to figure out how to this dynamically
     };
 
     private static readonly List<string> ServerExtraAssemblies = new()
@@ -130,7 +132,7 @@ public static class ServerPackaging
         // Python script had Npgsql. though we want Npgsql.dll as well soooo
         "Npgsql",
         "Microsoft",
-        "NetCord",
+        "Concentus",
     };
 
     private static readonly List<string> ServerNotExtraAssemblies = new()
@@ -189,31 +191,37 @@ public static class ServerPackaging
 
         if (!skipBuild)
         {
-            await ProcessHelpers.RunCheck(new ProcessStartInfo
+            var serverModules = FindServerModules();
+
+            foreach (var module in serverModules)
             {
-                FileName = "dotnet",
-                ArgumentList =
-                {
-                    "build",
-                    Path.Combine("Content.Server", "Content.Server.csproj"),
-                    "-c", configuration,
-                    "--nologo",
-                    "/v:m",
-                    $"/p:TargetOs={platform.TargetOs}",
-                    "/t:Rebuild",
-                    "/p:FullRelease=true",
-                    "/m"
-                }
-            });
-            // CorvaxGoob-Secrets-Start
-            if (UseSecrets)
-            {
-                logger.Info($"Secrets found. Building secret project for {platform}...");
                 await ProcessHelpers.RunCheck(new ProcessStartInfo
                 {
                     FileName = "dotnet",
                     ArgumentList =
                     {
+                        "build",
+                        Path.Combine(module, $"{module}.csproj"),
+                        "-c", configuration,
+                        "--nologo",
+                        "/v:m",
+                        $"/p:TargetOs={platform.TargetOs}",
+                        "/t:Rebuild",
+                        "/p:FullRelease=true",
+                        "/m"
+                    }
+                });
+            }
+
+            // CorvaxGoob-Secrets-Start
+            if (UseSecrets)
+            {
+                logger.Info($"Secrets found. Building secret project for {platform}...");
+                await ProcessHelpers.RunCheck(new ProcessStartInfo
+                        {
+                        FileName = "dotnet",
+                        ArgumentList =
+                        {
                         "build",
                         Path.Combine("Secrets","Content.Corvax.Server", "Content.Corvax.Server.csproj"),
                         "-c", "Release",
@@ -223,8 +231,8 @@ public static class ServerPackaging
                         "/t:Rebuild",
                         "/p:FullRelease=true",
                         "/m"
-                    }
-                });
+                        }
+                        });
             }
             // CorvaxGoob-Secrets-End
 
@@ -245,6 +253,54 @@ public static class ServerPackaging
         }
 
         logger.Info($"Finished packaging server in {sw.Elapsed}");
+    }
+
+    private static List<string> FindServerModules(string path = ".")
+    {
+        var serverModules = new List<string> { "Content.Server" };
+
+        var directories = Directory.GetDirectories(path, "Content.*");
+        foreach (var dir in directories)
+        {
+            var dirName = Path.GetFileName(dir);
+
+            // Look for Content.{name}.Server projects
+            if (dirName != "Content.Server" && dirName.EndsWith(".Server"))
+            {
+                var projectPath = Path.Combine(dir, $"{dirName}.csproj");
+                if (File.Exists(projectPath))
+                {
+                    serverModules.Add(dirName);
+                }
+            }
+        }
+
+        return serverModules;
+    }
+
+    private static List<string> FindAllServerModules(string path = ".")
+    {
+        var modules = new List<string>(CoreServerContentAssemblies);
+        modules.AddRange(ModuleDiscovery.DiscoverModules(path)
+            .Where(m => m.Type is not ModuleType.Client)
+            .Select(m => m.Name)
+            .Distinct()
+        );
+
+        var directories = Directory.GetDirectories(path, "Content.*");
+        foreach (var dir in directories)
+        {
+            var dirName = Path.GetFileName(dir);
+
+            // Throw out anything that does not end with ".Server" or ".Shared"
+            if ((!dirName.EndsWith(".Server") && !dirName.EndsWith(".Shared")) || modules.Contains(dirName))
+                continue;
+            var projectPath = Path.Combine(dir, $"{dirName}.csproj");
+            if (File.Exists(projectPath))
+                modules.Add(dirName);
+        }
+
+        return modules;
     }
 
     private static async Task PublishClientServer(string runtime, string targetOs, string configuration)
@@ -284,12 +340,14 @@ public static class ServerPackaging
 
         var inputPassCore = graph.InputCore;
         var inputPassResources = graph.InputResources;
-        var contentAssemblies = new List<string>(ServerContentAssemblies);
+
+        var contentAssemblies = FindAllServerModules();
+
         // CorvaxGoob-Secrets-Start
         if (UseSecrets)
             contentAssemblies.AddRange(new[] { "Content.Corvax.Shared", "Content.Corvax.Server" });
-        // CorvaxGoob-Secrets-End
 
+        // CorvaxGoob-Secrets-End
         // Additional assemblies that need to be copied such as EFCore.
         var sourcePath = Path.Combine(contentDir, "bin", "Content.Server");
 
