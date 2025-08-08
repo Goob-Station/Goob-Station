@@ -16,7 +16,7 @@
 
 - type: entity
   id: MutingImplanter
-  name: bulky implanter
+  name: mysterious implanter
   description: A compact disposable syringe exclusively designed for the injection of subdermal implants. This one looks thicker, with a stronger spring for delivering a larger payload.
   parent: BaseImplantOnlyImplanterSyndi
   components:

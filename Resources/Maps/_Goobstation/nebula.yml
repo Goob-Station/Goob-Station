@@ -50939,13 +50939,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -49.5,-22.5
       parent: 2
-- proto: DeathRattleImplanter
+- proto: MutingImplanter
   entities:
   - uid: 8277
     components:
     - type: MetaData
       desc: A gift from a not-so-friendly friend. Whoever it was meant for knows what it does.
-      name: syndicate implanter
     - type: Transform
       parent: 16802
     - type: Physics
