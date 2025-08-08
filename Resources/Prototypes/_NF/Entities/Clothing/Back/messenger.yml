@@ -403,9 +403,9 @@
     - state: icon-base-top
       color: "#4c4b4f"
     - state: icon-sling
-      color: "#234787" # Pirate
+      color: "#265075" # Pirate
     - state: icon-clasp
-      color: "#2965A5" # Pirate
+      color: "#47729B" # Pirate
   - type: Clothing
     clothingVisuals:
       back:
@@ -414,9 +414,9 @@
       - state: base-top-equipped-BACKPACK
         color: "#4c4b4f"
       - state: sling-equipped-BACKPACK
-        color: "#234787" # Pirate
+        color: "#265075" # Pirate
       - state: clasp-equipped-BACKPACK
-        color: "#2965A5" # Pirate
+        color: "#47729B" # Pirate
   - type: Item
     inhandVisuals:
       left:
@@ -443,9 +443,9 @@
   - type: Sprite
     layers:
     - state: icon-base
-      color: "#88242d"
+      color: "#265075" # Pirate
     - state: icon-base-top
-      color: "#a52f29"
+      color: "#47729B" # Pirate
     - state: icon-sling
       color: "#ffffff" # 1f2026
     - state: icon-clasp
@@ -454,9 +454,9 @@
     clothingVisuals:
       back:
       - state: base-equipped-BACKPACK
-        color: "#88242d"
+        color: "#265075" # Pirate
       - state: base-top-equipped-BACKPACK
-        color: "#a52f29"
+        color: "#47729B" # Pirate
       - state: sling-equipped-BACKPACK
         color: "#1f2026" # ffffff
       - state: clasp-equipped-BACKPACK
@@ -465,16 +465,16 @@
     inhandVisuals:
       left:
       - state: base-inhand-left
-        color: "#88242d"
+        color: "#265075" # Pirate
       - state: base-top-inhand-left
-        color: "#a52f29"
+        color: "#47729B" # Pirate
       - state: clasp-inhand-left
         color: "#ffffff"
       right:
       - state: base-inhand-right
-        color: "#88242d"
+        color: "#265075" # Pirate
       - state: base-top-inhand-right
-        color: "#a52f29"
+        color: "#47729B" # Pirate
       - state: clasp-inhand-right
         color: "#ffffff"
 

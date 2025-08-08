@@ -1,0 +1,41 @@
+- type: entity
+  id: Bodycam
+  parent: BaseItem
+  name: "Офіерський бодікам"
+  description: "Камера яка транслює буття офіцера. Працює тільки коли одягнена. НЕ ЗАБУДЬТЕ НАЛАШТУВАТИ ВАШЕ ІМ'Я!!!"
+  components:
+    - type: Sprite
+      sprite: _Pirate/Clothing/Neck/bodycam.rsi
+      state: mobilevision_active
+    - type: DeviceNetwork
+      autoConnect: false
+      deviceNetId: Wired #this line means that camera will work off same router as wired cameras
+      receiveFrequencyId: SurveillanceCameraSecurity
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      networkSet: true
+      id: "bodycam"
+    - type: InteractionOutline
+    - type: Eye
+    - type: Item
+    - type: ActivateCameraOnEquipped
+    - type: WirelessNetworkConnection
+      range: 200
+    - type: SurveillanceCameraMicrophone
+      blacklist:
+        components:
+          - SurveillanceCamera
+          - RadioSpeaker
+    - type: ActiveListener
+      range: 10
+    - type: ClothingGrantComponent
+      component:
+      - type: StationAiVision
+      range: 4
+    - type: UserInterface
+      interfaces:
+        enum.SurveillanceCameraSetupUiKey.Camera:
+          type: SurveillanceCameraSetupBoundUi
+    - type: Clothing
+      slots:
+      - neck
