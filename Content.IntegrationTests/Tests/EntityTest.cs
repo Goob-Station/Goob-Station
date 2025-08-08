@@ -341,9 +341,6 @@ namespace Content.IntegrationTests.Tests
             {
                 foreach (var protoId in protoIds)
                 {
-                    if (protoId == "LavalandHierophantTelepad") // TODO Lavaland Change: fix telepad
-                        continue;
-
                     var count = Count(server.EntMan);
                     var clientCount = Count(client.EntMan);
                     var serverEntities = new HashSet<EntityUid>(Entities(server.EntMan));

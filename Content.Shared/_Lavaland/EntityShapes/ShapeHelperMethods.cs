@@ -23,19 +23,17 @@ public static class ShapeHelperMethods
     /// </summary>
     public static IEnumerable<Vector2> MakeLine(Vector2 center, int range, Vector2 step)
     {
-        var refs = new List<Vector2> { center };
+        yield return center;
 
         if (step == Vector2.Zero)
-            return refs;
+            yield break;
 
         var curStep = new Vector2(center.X, center.Y);
         for (int i = 0; i < range; i++)
         {
             curStep += step;
-            refs.Add(curStep);
+            yield return curStep;
         }
-
-        return refs;
     }
 
     public static IEnumerable<Vector2> MakeBox(Vector2 center, int range, bool hollow, int stepSize = 1)

@@ -2,7 +2,7 @@
 using Content.Shared._Lavaland.EntityShapes.Shapes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Lavaland.Tile.Components;
+namespace Content.Shared._Lavaland.EntityShapes.Components;
 
 /// <summary>
 /// Spawns an entity shape periodically or with a delay. Can be modified to expand, shrink, or move with time.

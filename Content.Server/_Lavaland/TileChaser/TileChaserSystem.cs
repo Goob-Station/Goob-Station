@@ -23,16 +23,15 @@
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using System.Numerics;
-using Content.Shared._Lavaland.Hierophant.Components;
+using Content.Shared._Lavaland.TileChaser;
 
-namespace Content.Server._Lavaland.Hierophant;
+namespace Content.Server._Lavaland.TileChaser;
 
 /// <summary>
 ///     Chaser works as a self replicator.
 ///     It searches for the player, picks a neat position and spawns itself with something else
-///     (in our case hierophant damaging square).
 /// </summary>
-public sealed class HierophantChaserSystem : EntitySystem
+public sealed class TileChaserSystem : EntitySystem
 {
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -50,7 +49,7 @@ public sealed class HierophantChaserSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var eqe = EntityQueryEnumerator<HierophantChaserComponent, TransformComponent>();
+        var eqe = EntityQueryEnumerator<TileChaserComponent, TransformComponent>();
         while (eqe.MoveNext(out var uid, out var comp, out var xform))
         {
             var delta = frameTime * comp.Speed;
@@ -69,7 +68,7 @@ public sealed class HierophantChaserSystem : EntitySystem
     ///     Replicate itself and the prototype designated.
     ///     Delete itself afterwards.
     /// </summary>
-    private void Cycle(Entity<HierophantChaserComponent, TransformComponent> ent)
+    private void Cycle(Entity<TileChaserComponent, TransformComponent> ent)
     {
         var xform = ent.Comp2;
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
@@ -115,7 +114,7 @@ public sealed class HierophantChaserSystem : EntitySystem
         // Calculate the new world position based on grid coordinates.
         var newPos = _map.GridTileToWorld(xform.GridUid.Value, grid, tilePos + deltaPos);
 
-        Spawn(ent.Comp1.SpawnPrototype, newPos);
+        Spawn(ent.Comp1.Spawn, newPos);
         _xform.SetMapCoordinates(ent, newPos);
 
         // Increment steps and delete the entity if the maximum is reached.

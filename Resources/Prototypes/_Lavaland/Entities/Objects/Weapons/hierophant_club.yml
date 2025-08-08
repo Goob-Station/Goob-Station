@@ -57,16 +57,9 @@
     - ActionHierophantPlaceMarker
     - ActionHierophantTeleport
     - ActionHierophantTileMovement
-  - type: HierophantClubItem
-    crossAttackShape: !type:NestedTileShape
-      id: QueenCross
-      size: 5
-    blinkShape: !type:NestedTileShape
-      id: BoxFilled
-      size: 3
 
 - type: entity
-  id: LavalandHierophantClubTeleportMarker
+  id: LavalandHierophantMarker
   name: mysterious marker
   description: What even is this?
   save: false

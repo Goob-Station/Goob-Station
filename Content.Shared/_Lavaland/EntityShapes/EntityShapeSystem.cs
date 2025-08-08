@@ -1,5 +1,5 @@
-﻿using Content.Shared._Lavaland.EntityShapes.Shapes;
-using Content.Shared._Lavaland.Tile.Components;
+﻿using Content.Shared._Lavaland.EntityShapes.Components;
+using Content.Shared._Lavaland.EntityShapes.Shapes;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -18,9 +18,7 @@ public sealed class EntityShapeSystem : EntitySystem
     }
 
     private void OnSpawnerInit(Entity<ShapeSpawnerComponent> ent, ref MapInitEvent args)
-    {
-        SpawnTileShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _);
-    }
+        => SpawnTileShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _);
 
     public override void Update(float frameTime)
     {
@@ -54,10 +52,12 @@ public sealed class EntityShapeSystem : EntitySystem
     }
 
     public void SpawnTileShape(EntityShape shape, EntityUid target, EntProtoId spawnId, out List<EntityUid> spawned)
-    {
-        SpawnTileShape(shape, Transform(target).Coordinates, spawnId, out spawned);
-    }
+        => SpawnTileShape(shape, Transform(target).Coordinates, spawnId, out spawned);
 
+    /// <remarks>
+    /// Use this only if you need to get all spawned entities by this shape,
+    /// otherwise it's better to spawn an entity with ShapeSpawnerComponent.
+    /// </remarks>
     public void SpawnTileShape(EntityShape shape, EntityCoordinates coords, EntProtoId spawnId, out List<EntityUid> spawned)
     {
         spawned = new List<EntityUid>();

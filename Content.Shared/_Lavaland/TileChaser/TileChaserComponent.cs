@@ -43,7 +43,7 @@ public sealed partial class TileChaserComponent : Component
     public float BaseCooldown = 1f;
 
     [ViewVariables]
-    public TimeSpan NextStep;
+    public float CooldownTimer;
 
     [DataField(required: true)]
     public EntProtoId Spawn;

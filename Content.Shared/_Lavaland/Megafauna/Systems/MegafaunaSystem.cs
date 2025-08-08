@@ -32,12 +32,17 @@ public sealed partial class MegafaunaSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         var query = EntityQueryEnumerator<MegafaunaAiComponent>();
         while (query.MoveNext(out var uid, out var ai))
         {
             if (!ai.Active)
                 continue;
 
+            var watch = new Stopwatch();
+            watch.Start();
             var selectors = ai.Schedule;
             foreach (var (time, action) in selectors)
             {
@@ -59,6 +64,8 @@ public sealed partial class MegafaunaSystem : EntitySystem
                 var nextAction = _timing.CurTime + TimeSpan.FromSeconds(actionTime + delayTime);
                 ai.Schedule.Add(nextAction, ai.Selector);
             }
+
+            Log.Info($"Megafauna updated in {watch.Elapsed.TotalMicroseconds} microseconds");
         }
     }
 

@@ -18,7 +18,7 @@ namespace Content.Shared._Lavaland.Hierophant.Components;
 public sealed partial class HierophantActiveBlinkComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public TimeSpan BlinkDelay = TimeSpan.FromSeconds(0.9f);
+    public TimeSpan DefaultDelay = TimeSpan.FromSeconds(0.9f);
 
     [DataField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");

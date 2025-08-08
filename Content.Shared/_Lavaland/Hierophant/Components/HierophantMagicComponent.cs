@@ -24,7 +24,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Lavaland.HierophantClub;
 
 /// <summary>
-/// Marker component that is required for entity to use Hierophant's actions.
+/// Marker component that is required for entity to use Hierophant actions.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HierophantMagicComponent : Component;

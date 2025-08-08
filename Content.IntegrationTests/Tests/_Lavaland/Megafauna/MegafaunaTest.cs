@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Lavaland.Megafauna.Systems;
 using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Shared._Lavaland.Megafauna.Systems;
 using Robust.Shared.GameObjects;
 
 namespace Content.IntegrationTests.Tests._Lavaland.Megafauna;
@@ -41,7 +41,7 @@ public sealed class MegafaunaTest
 
         // Check that boss is clear
         Assert.That(megafaunaAi.Active, Is.False);
-        Assert.That(megafaunaAi.Threads, Is.Empty);
+        Assert.That(megafaunaAi.Schedule, Is.Empty);
 
         await server.WaitAssertion(() =>
         {
@@ -55,7 +55,7 @@ public sealed class MegafaunaTest
 
         // Should start up now
         Assert.That(megafaunaAi.Active, Is.True);
-        Assert.That(megafaunaAi.Threads, Is.Not.Empty);
+        Assert.That(megafaunaAi.Schedule, Is.Not.Empty);
 
         await server.WaitAssertion(() =>
         {
@@ -69,7 +69,7 @@ public sealed class MegafaunaTest
 
         // Should be clear again
         Assert.That(megafaunaAi.Active, Is.False);
-        Assert.That(megafaunaAi.Threads, Is.Empty);
+        Assert.That(megafaunaAi.Schedule, Is.Empty);
 
         await pair.CleanReturnAsync();
     }

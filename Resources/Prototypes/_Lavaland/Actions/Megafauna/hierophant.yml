@@ -1,0 +1,75 @@
+# Hierophant boss
+- type: entity
+  id: ActionHierophantAttackBoss
+  name: Spawn attack
+  description: Spawns an attack on the target position.
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+    itemIconStyle: NoItem
+    event: !type:HierophantAttackActionEvent
+    checkCanAccess: false
+    range: 20
+    priority: -21
+    useDelay: 0.1 # Dynamic
+
+- type: entity
+  id: ActionHierophantBlinkBoss
+  name: Blink
+  description: Teleports you to the target position.
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+    itemIconStyle: NoItem
+    event: !type:HierophantBlinkActionEvent
+    checkCanAccess: true
+    range: 20
+    priority: -22
+    useDelay: 6
+
+- type: entity
+  id: ActionHierophantTileChasers
+  name: Spawn Chasers
+  description: Spawns hierophant tile chasers that move towards the target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: /Textures/_Lavaland/Interface/Alerts/hierophantbeat.rsi
+      state: hierophant
+    itemIconStyle: NoItem
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Body
+      - MindContainer
+    event: !type:HierophantBeatActionEvent
+    useDelay: 0.1 # Dynamic
+
+# Hierophant club
+
+
+- type: entity
+  id: ActionHierophantTileMovement
+  name: Curse of Tile Movement
+  description: Makes the target move only by tiles.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: /Textures/_Lavaland/Interface/Alerts/hierophantbeat.rsi
+      state: hierophant
+    itemIconStyle: NoItem
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Body
+      - MindContainer
+    event: !type:HierophantBeatActionEvent
+    useDelay: 60

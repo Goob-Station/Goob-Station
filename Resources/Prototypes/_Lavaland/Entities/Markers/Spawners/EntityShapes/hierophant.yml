@@ -1,0 +1,73 @@
+# Base
+- type: entity
+  parent: MarkerBase
+  id: BaseHierophantShape
+  name: hierophant attack spawner
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+
+# Crosses
+- type: entity
+  parent: MarkerBase
+  id: HierophantShapeCrossBishop
+  name: hierophant attack cross bishop spawner
+  components:
+  - type: Sprite
+    state: red
+  - type: ShapeSpawner
+    spawn: LavalandHierophantSquare
+    shape: !type:NestedTileShape
+      id: BishopCross
+      size: 11
+
+- type: entity
+  parent: MarkerBase
+  id: HierophantShapeCrossRook
+  name: hierophant attack cross rook spawner
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedTileShape
+      id: RookCross
+      size: 11
+
+- type: entity
+  parent: MarkerBase
+  id: HierophantShapeCrossQueen
+  name: hierophant attack cross queen spawner
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedTileShape
+      id: QueenCross
+      size: 11
+
+# Boxes
+
+- type: entity
+  parent: MarkerBase
+  id: HierophantShapeBlink
+  name: hierophant attack blink spawner
+  components:
+  - type: ShapeSpawner
+    shape: !type:NestedTileShape
+      id: BoxFilled
+      size: 3
+
+- type: entity
+  parent: MarkerBase
+  id: HierophantShapeBoxExpanding
+  name: hierophant attack box expanding spawner
+  components:
+  - type: Sprite
+    state: red
+  - type: ExpandingShapeSpawner
+    maxCounter: 5
+    counterSize: 1
+    spawnPeriod: 0.6
+    spawn: LavalandHierophantSquare
+    shape: !type:NestedTileShape
+      id: BoxHollow

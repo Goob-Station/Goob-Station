@@ -26,6 +26,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Hierophant.Components;
 
+// TODO nuke this thing later when we actually will need Blink teleportation for more bosses,
+// it is used only for hierophant to teleport back to the arena after it shutdowns
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HierophantBossComponent : Component
 {
@@ -33,17 +35,14 @@ public sealed partial class HierophantBossComponent : Component
     /// Connected field generator, will try to teleport here when it's inactive.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public EntityUid? ConnectedFieldGenerator;
-
-    [DataField]
-    public EntProtoId DamageTile = "LavalandHierophantSquare";
-
-    [DataField(required: true)]
-    public EntityShape TeleportShape;
+    public EntityUid? ConnectedMarker;
 
     [DataField]
     public TimeSpan ArenaReturnDelay = TimeSpan.FromSeconds(10f);
 
-    [ViewVariables]
-    public List<EntityUid> ActiveChasers = new();
+    [DataField]
+    public EntProtoId MarkerId = "LavalandHierophantMarker";
+
+    [DataField]
+    public EntProtoId BlinkShapeSpawner = "HierophantShapeBlink";
 }
