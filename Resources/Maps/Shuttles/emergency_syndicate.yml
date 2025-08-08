@@ -1,34 +1,11 @@
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 TytosB <dunlaintytos@yahoo.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Grid
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/30/2025 03:26:28
-  entityCount: 665
+  time: 08/08/2025 03:37:39
+  entityCount: 666
 maps: []
 grids:
 - 1
@@ -141,6 +118,123 @@ entities:
     - type: GridAtmosphere
       version: 2
       data:
+        tiles:
+          0,-1:
+            0: 48127
+          1,-1:
+            0: 14199
+          1,0:
+            1: 8
+          -2,0:
+            1: 2
+          -2,-1:
+            0: 36044
+          -1,-1:
+            0: 48127
+          -2,-4:
+            0: 52430
+          -2,-3:
+            0: 52940
+          -2,-2:
+            0: 52238
+          -2,-5:
+            0: 52748
+          -1,-4:
+            0: 56607
+          -1,-3:
+            0: 61917
+          -1,-2:
+            0: 48031
+          -1,-5:
+            0: 65327
+          0,-4:
+            0: 30495
+          0,-3:
+            0: 61815
+          0,-2:
+            0: 47935
+          -2,-6:
+            1: 12
+            0: 52224
+          -1,-6:
+            1: 15
+            0: 65280
+          0,-6:
+            1: 15
+            0: 60928
+          0,-5:
+            0: 65422
+          1,-4:
+            0: 30591
+          1,-3:
+            0: 32631
+          1,-2:
+            0: 30479
+          1,-5:
+            0: 32513
+            2: 4
+          1,-6:
+            1: 7
+            0: 4352
+            2: 17408
+        uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          immutable: True
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 1400.0662
+          - 5266.916
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -1257,6 +1351,12 @@ entities:
       parent: 1
 - proto: Catwalk
   entities:
+  - uid: 159
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-20.5
+      parent: 1
   - uid: 415
     components:
     - type: Transform
@@ -1322,12 +1422,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,-20.5
-      parent: 1
-  - uid: 443
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-20.5
       parent: 1
 - proto: Chair
   entities:
@@ -2065,12 +2159,6 @@ entities:
     - type: Transform
       pos: 3.5,-18.5
       parent: 1
-  - uid: 159
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,-20.5
-      parent: 1
   - uid: 160
     components:
     - type: Transform
@@ -2368,6 +2456,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,-21.5
       parent: 1
+- proto: GasPressurePump
+  entities:
+  - uid: 443
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,-20.5
+      parent: 1
 - proto: GasVentPump
   entities:
   - uid: 204
@@ -2444,6 +2540,13 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-21.5
+      parent: 1
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 666
+    components:
+    - type: Transform
+      pos: 2.5,-19.5
       parent: 1
 - proto: Grille
   entities:
