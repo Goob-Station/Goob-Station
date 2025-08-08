@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._NF.Implants.Components;
+namespace Content.Shared._DV.Implants.Components;
 
 /// <summary>
 /// Implant to get MimePowers status (to summon walls and take the mime's vow)

@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._DV.Implants.AddComponentsImplant;
 
@@ -16,7 +16,7 @@ public sealed partial class AddComponentsImplantComponent : Component
     ///     What components will be added to the entity. If the component already exists, it will be skipped.
     /// </summary>
     [DataField(required: true)]
-    public ComponentRegistry ComponentsToAdd;
+    public ComponentRegistry ComponentsToAdd = new();
 
     /// <summary>
     ///     What components were added to the entity after implanted. Is used to know what components to remove.

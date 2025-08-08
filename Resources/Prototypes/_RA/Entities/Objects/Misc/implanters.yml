@@ -9,7 +9,7 @@
 - type: entity
   id: MimePowersImplanter
   name: mime vow implanter
-  parent: BaseImplantOnlyImplanterSyndi
+  parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter
     implant: MimePowersImplant
