@@ -75,9 +75,17 @@ public sealed class SlipperySystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SpeedModifierContactsSystem _speedModifier = default!;
 
+    private EntityQuery<KnockedDownComponent> _knockedDownQuery;
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+    private EntityQuery<SlidingComponent> _slidingQuery;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        _knockedDownQuery = GetEntityQuery<KnockedDownComponent>();
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        _slidingQuery = GetEntityQuery<SlidingComponent>();
 
         SubscribeLocalEvent<SlipperyComponent, StepTriggerAttemptEvent>(HandleAttemptCollide);
         SubscribeLocalEvent<SlipperyComponent, StepTriggeredOffEvent>(HandleStepTrigger);
@@ -149,6 +157,9 @@ public sealed class SlipperySystem : EntitySystem
 
     public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true, bool force = false, bool predicted = true) // Goob edit
     {
+        var knockedDown = _knockedDownQuery.HasComp(other);
+        if (knockedDown && !component.SlipData.SuperSlippery)
+            return;
         // Goob edit start
         if (!predicted && _net.IsClient)
             return;
@@ -178,7 +189,7 @@ public sealed class SlipperySystem : EntitySystem
         var ev = new SlipEvent(other);
         RaiseLocalEvent(uid, ref ev);
 
-        if (TryComp(other, out PhysicsComponent? physics) && !HasComp<SlidingComponent>(other))
+        if (_physicsQuery.TryComp(other, out var physics) && !_slidingQuery.HasComp(other))
         {
             _physics.SetLinearVelocity(other, physics.LinearVelocity * component.SlipData.LaunchForwardsMultiplier, body: physics);
 
@@ -189,16 +200,23 @@ public sealed class SlipperySystem : EntitySystem
         // todo marty - goob edit stunmeta john station PR
 
         // Preventing from playing the slip sound and stunning when you are already knocked down.
-        if (!HasComp<KnockedDownComponent>(other))
+        if (!knockedDown)
         {
+            // Status effects should handle a TimeSpan of 0 properly...
             _stun.TryUpdateStunDuration(other, component.SlipData.StunTime);
-            _stamina.TakeStaminaDamage(other, component.StaminaDamage); // Note that this can stamCrit
-            _movementMod.TryUpdateFrictionModDuration(
-                other,
-                component.FrictionStatusTime,
-                component.SlipData.SlipFriction,
-                component.SlipData.SlipFriction
-            );
+
+            // Don't make a new status effect entity if the entity wouldn't do anything
+            if (!MathHelper.CloseTo(component.SlipData.SlipFriction, 1f))
+            {
+                _movementMod.TryUpdateFrictionModDuration(
+                    other,
+                    component.FrictionStatusTime,
+                    component.SlipData.SlipFriction
+                );
+            }
+
+            _stamina.TakeStaminaDamage(other, component.StaminaDamage); // Note that this can StamCrit
+
             _audio.PlayPredicted(component.SlipSound, other, other);
         }
 
