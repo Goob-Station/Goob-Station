@@ -24,3 +24,20 @@
     componentsToAdd:
     - type: MimePowers
       preventWriting: false # Explicit in case upstream changes its mind on this.
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MutingImplant
+  name: experimental control implant
+  description: This implant is purpose built, restricting the throat painfully to limit speech. It looks worn and burnt.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: MimePowers
+      vowCooldown: 5
+      punishmentChance: 0
+      wallPrototype: Paper
+      preventWriting: false # Explicit in case upstream changes its mind on this.
