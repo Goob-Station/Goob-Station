@@ -22,4 +22,12 @@
   - type: ActionGrant
     actions:
     - ActionRevertPolymorph
+    - ActionWerewolfGut
+  - type: WerewolfGut
+    whitelist:
+      tags:
+      - Kidneys
+      - Liver
+      - Stomach
+      - Heart
 
