@@ -390,7 +390,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
     state: icon
   content:
-    - BoxCombatInjector
+    - ClothingBeltMilitaryWebbingBSOFilled
 
 # Blueshield hardsuits
 
