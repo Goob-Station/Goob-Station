@@ -126,8 +126,8 @@
   - type: BasicStationEventScheduler # goob edit
     minimumTimeUntilFirstEvent: 600 # 10 min # goob edit
     minMaxEventTiming: # goob edit
-      min: 600 # 10 min # goob edit
-      max: 5400 # 60 min # goob edit
+      min: 300 # 5 min # goob edit
+      max: 5400 # 90 min # goob edit
     scheduledGameRules: !type:NestedSelector # goob edit
       tableId: BasicMeteorSwarmEventsTable # goob edit
 # goob edit
@@ -139,8 +139,8 @@
   - type: BasicStationEventScheduler # goob edit
     minimumTimeUntilFirstEvent: 600 # 10 min # goob edit
     minMaxEventTiming: # goob edit
-      min: 600 # 10 min # goob edit
-      max: 5400 # 60 min # goob edit
+      min: 300 # 5 min # goob edit
+      max: 5400 # 90 min # goob edit
     scheduledGameRules: !type:NestedSelector # goob edit
       tableId: MeteorSwarmMildTable # goob edit
 # goob edit
