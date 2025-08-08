@@ -1,6 +1,6 @@
 ent-VaseBase = ваза
     .desc = Это ваза. Это держит цветы.
-ent-VasePlant0 = empty vase
+ent-VasePlant0 = пустая ваза
     .desc = Это ваза. Это держит цветы. Это пустое.
 ent-VasePlant1 = { ent-VaseBase }
     .desc = { ent-VaseBase.desc }

@@ -1,2 +1,2 @@
-ent-WallDirectional = directional wall
-    .desc = Cheap and cheerful metal plating.
+ent-WallDirectional = направленная стена
+    .desc = Дешевое и сердитое металлическое покрытие.

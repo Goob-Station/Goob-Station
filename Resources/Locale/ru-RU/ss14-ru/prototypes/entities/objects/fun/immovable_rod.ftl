@@ -1,7 +1,7 @@
 ent-ImmovableRod = неподвижный жезл
     .desc = Вы чувствуете, что он голоден. Как правило, это плохой знак.
-ent-ImmovableVoidRod = immovable void rod
-    .desc = You can sense that it's hungry. That's usually a bad sign.
+ent-ImmovableVoidRod = неподвижный стержень пустоты
+    .desc = Вы чувствуете, что он голоден. Как правило, это плохой знак.
 ent-ImmovableRodDespawn = { ent-ImmovableRod }
     .desc = { ent-ImmovableRod.desc }
     .suffix = Деспавн

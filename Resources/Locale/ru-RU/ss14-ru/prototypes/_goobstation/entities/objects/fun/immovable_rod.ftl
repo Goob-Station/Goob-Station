@@ -1,2 +1,2 @@
-ent-ImmovableRodSkibidi = immovable Skibidi
-    .desc = skibidi dob dob yes yes
+ent-ImmovableRodSkibidi = неподвижный Скибиди туалет
+    .desc = Скибиди доп доп йес йес.

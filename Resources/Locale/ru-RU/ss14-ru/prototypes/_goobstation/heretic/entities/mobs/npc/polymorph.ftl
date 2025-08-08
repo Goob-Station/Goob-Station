@@ -1,9 +1,8 @@
-ent-PolymorphAshJauntAnimation = Unknown
-    .desc = You can't figure out what that is.
-ent-PolymorphAshJauntEndAnimation = Unknown
-    .desc = You can't figure out what that is.
-ent-PolymorphAshJaunt = Unknown
-    .desc = You can't figure out what that is.
-ent-MobHereticFleshAscend = eldritch horror
-    .desc = An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
-    .suffix = DO NOT MAP
+ent-PolymorphAshJauntAnimation = пепельное нечто
+    .desc = Я не думаю, что тебе стоит это читать.
+ent-PolymorphAshJauntEndAnimation = { ent-PolymorphAshJauntAnimation }
+    .desc = { ent-PolymorphAshJauntAnimation.desc }
+ent-PolymorphAshJaunt = пепельное нечто
+    .desc = Я не думаю, что тебе стоит это читать.
+ent-MobHereticFleshAscend = вестник плоти
+    .desc = Непонятное месиво из конечностей и глаз. Вы чувствуете, как он смотрит вам в душу.

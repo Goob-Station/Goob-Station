@@ -1,2 +1,2 @@
-ent-GoldPersonalAI = golden deluxe personal ai device
-    .desc = Your electronic pal who's fun to be with, now with 200% more shine!
+ent-GoldPersonalAI = золотой про ультра делюкс макс персональный ИИ
+    .desc = Твой электронный дружок, с которым весело. Теперь на 200% больше блеска!

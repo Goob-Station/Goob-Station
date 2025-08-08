@@ -1,6 +1,6 @@
-ent-BaseBola = bola
-    .desc = Linked together with some spare cuffs and metal.
-ent-Bola = бола
+ent-BaseBola = бола
     .desc = Скреплённые с металлом кабельные стяжки.
-ent-BolaEnergy = energy bola
-    .desc = A specialized hardlight bola designed to ensnare fleeing criminals and aid in arrests.
+ent-Bola = { ent-BaseBola }
+    .desc = { ent-BaseBola.desc }
+ent-BolaEnergy = энерго-бола
+    .desc = Специализированная бола из твёрдого света, предназначенная для захвата убегающих преступников и помощи при задержаниях.

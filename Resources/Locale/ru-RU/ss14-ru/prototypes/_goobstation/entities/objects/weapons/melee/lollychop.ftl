@@ -1,2 +1,2 @@
-ent-LollyChop = lollychop
-    .desc = Fill (split) your buddies' tummies (skulls) with this delicious candy (cold steel).
+ent-LollyChop = леденец
+    .desc = Заполните (вскройте) животы (черепа) своих друзей этим вкусным конфетным (холодным стальным) угощением.

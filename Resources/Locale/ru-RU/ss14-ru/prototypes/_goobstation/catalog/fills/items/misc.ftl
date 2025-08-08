@@ -1,5 +1,5 @@
 ent-CandyBowlFilledLollypopsMystery = { ent-CandyBowl }
-    .suffix = загадочный, хороший
+    .suffix = Загадочный, Хороший
     .desc = { ent-CandyBowl.desc }
 ent-DeterrentCaseFilled = { ent-DeterrentCase }
     .suffix = Заполненный, Центком
