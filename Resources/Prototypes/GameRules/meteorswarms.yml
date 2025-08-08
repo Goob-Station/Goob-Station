@@ -64,43 +64,43 @@
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-## Event Tables # goob edit
-# goob edit
-- type: entityTable # goob edit
-  id: MeteorSwarmDustEventsTable # goob edit
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp # goob edit
-    children: # goob edit
-    - id: GameRuleSpaceDustMinor # goob edit
-    - id: GameRuleSpaceDustMajor # goob edit
-# goob edit
-- type: entityTable # goob edit
-  id: MeteorSwarmSmallChanceEventsTable # goob edit
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp # goob edit
-    children: # goob edit
-    - id: GameRuleMeteorSwarmSmall # goob edit
-      prob: 0.15 # goob edit
-# goob edit
-- type: entityTable # goob edit
-  id: MeteorSwarmMildTable # goob edit
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp # goob edit
-    children: # goob edit
-    - !type:NestedSelector # goob edit
-        tableId: MeteorSwarmDustEventsTable # goob edit
-    - !type:NestedSelector # goob edit
-        tableId: MeteorSwarmSmallChanceEventsTable # goob edit
-# goob edit
-- type: entityTable # goob edit
-  id: BasicMeteorSwarmEventsTable # goob edit
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp # goob edit
-    children: # goob edit
-    - !type:NestedSelector # goob edit
-        tableId: MeteorSwarmDustEventsTable # goob edit
-    - id: GameRuleMeteorSwarmSmall # goob edit
-    - id: GameRuleMeteorSwarmMedium # goob edit
-    - id: GameRuleMeteorSwarmLarge # goob edit
-    - id: GameRuleUristSwarm # goob edit
-    - id: ImmovableRodSpawn # goob edit
-# goob edit
+## Event Tables
+
+- type: entityTable
+  id: MeteorSwarmDustEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: GameRuleSpaceDustMinor
+    - id: GameRuleSpaceDustMajor
+
+- type: entityTable
+  id: MeteorSwarmSmallChanceEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: GameRuleMeteorSwarmSmall
+      prob: 0.15
+
+- type: entityTable
+  id: MeteorSwarmMildTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - !type:NestedSelector
+        tableId: MeteorSwarmDustEventsTable
+    - !type:NestedSelector
+        tableId: MeteorSwarmSmallChanceEventsTable
+
+- type: entityTable
+  id: BasicMeteorSwarmEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - !type:NestedSelector
+        tableId: MeteorSwarmDustEventsTable
+    - id: GameRuleMeteorSwarmSmall
+    - id: GameRuleMeteorSwarmMedium
+    - id: GameRuleMeteorSwarmLarge
+    - id: GameRuleUristSwarm
+    - id: ImmovableRodSpawn
+
 - type: weightedRandomEntity
   id: MeteorSpawnAsteroidWallTable
   weights:
@@ -115,210 +115,210 @@
     MeteorRockUranium: 0.5
     MeteorRockBananium: 0.5
     MeteorRockBSCrystal: 0.5 # Goobstation
-# goob edit
-## Event Schedulers # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: BaseGameRule # goob edit
-  id: MeteorSwarmScheduler # goob edit
-  components: # goob edit
-  - type: GameRule # goob edit
-  - type: BasicStationEventScheduler # goob edit
-    minimumTimeUntilFirstEvent: 600 # 10 min # goob edit
-    minMaxEventTiming: # goob edit
-      min: 300 # 5 min # goob edit
-      max: 5400 # 90 min # goob edit
-    scheduledGameRules: !type:NestedSelector # goob edit
-      tableId: BasicMeteorSwarmEventsTable # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: BaseGameRule # goob edit
-  id: MeteorSwarmMildScheduler # goob edit
-  components: # goob edit
-  - type: GameRule # goob edit
-  - type: BasicStationEventScheduler # goob edit
-    minimumTimeUntilFirstEvent: 600 # 10 min # goob edit
-    minMaxEventTiming: # goob edit
-      min: 300 # 5 min # goob edit
-      max: 5400 # 90 min # goob edit
-    scheduledGameRules: !type:NestedSelector # goob edit
-      tableId: MeteorSwarmMildTable # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: BaseGameRule # goob edit
-  id: KesslerSyndromeScheduler # goob edit
-  components: # goob edit
-  - type: GameRule # goob edit
-  - type: RampingStationEventScheduler # goob edit
-    scheduledGameRules: !type:NestedSelector # goob edit
-      tableId: BasicMeteorSwarmEventsTable # goob edit
-# goob edit
-## Game Rules # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: BaseGameRule # goob edit
-  id: GameRuleMeteorSwarm # goob edit
-  abstract: true # goob edit
-  components: # goob edit
-  - type: GameRule # goob edit
-  - type: StationEvent # goob edit
-    reoccurrenceDelay: 1 # goob edit
-    earliestStart: 12 # goob edit
-    minimumPlayers: 25 # goob edit
-  - type: MeteorSwarm # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: GameRuleMeteorSwarm # goob edit
-  id: GameRuleSpaceDustMinor # goob edit
-  components: # goob edit
-  - type: StationEvent # goob edit
-    weight: 44 # goob edit
-    earliestStart: 2 # goob edit
-    minimumPlayers: 0 # goob edit
-    chaos: # Goobstation # goob edit
-      Power: 10 # goob edit
-      Atmos: 10 # goob edit
-  - type: MeteorSwarm # goob edit
-    announcement: null # goob edit
-    announcementSound: null # goob edit
-    nonDirectional: true # goob edit
-    meteors: # goob edit
-      MeteorSpaceDust: 1 # goob edit
-    waves: # goob edit
-      min: 2 # goob edit
-      max: 3 # goob edit
-    meteorsPerWave: # goob edit
-      min: 3 # goob edit
-      max: 5 # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: GameRuleMeteorSwarm # goob edit
-  id: GameRuleSpaceDustMajor # goob edit
-  components: # goob edit
-  - type: StationEvent # goob edit
-    weight: 22 # goob edit
-    minimumPlayers: 0 # goob edit
-    chaos: # Goobstation # goob edit
-      Power: 25 # goob edit
-      Atmos: 25 # goob edit
-  - type: MeteorSwarm # goob edit
-    announcement: station-event-space-dust-start-announcement # goob edit
-    announcementSound: /Audio/Announcements/attention.ogg # goob edit
-    nonDirectional: true # goob edit
-    meteors: # goob edit
-      MeteorSpaceDust: 1 # goob edit
-    waves: # goob edit
-      min: 2 # goob edit
-      max: 3 # goob edit
-    meteorsPerWave: # goob edit
-      min: 8 # goob edit
-      max: 12 # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: GameRuleMeteorSwarm # goob edit
-  id: GameRuleMeteorSwarmSmall # goob edit
-  components: # goob edit
-  - type: StationEvent # goob edit
-    weight: 18 # goob edit
-    minimumPlayers: 15 # goob edit
-    chaos: # Goobstation # goob edit
-      Power: 40 # goob edit
-      Atmos: 40 # goob edit
-  - type: MeteorSwarm # goob edit
-    meteors: # goob edit
-      MeteorSmall: 7 # goob edit
-      MeteorMedium: 3 # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: GameRuleMeteorSwarm # goob edit
-  id: GameRuleMeteorSwarmMedium # goob edit
-  components: # goob edit
-  - type: StationEvent # goob edit
-    weight: 10 # goob edit
-    chaos: # Goobstation # goob edit
-      Power: 50 # goob edit
-      Atmos: 50 # goob edit
-  - type: MeteorSwarm # goob edit
-    meteors: # goob edit
-      MeteorSmall: 3 # goob edit
-      MeteorMedium: 6 # goob edit
-      MeteorLarge: 1 # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: GameRuleMeteorSwarm # goob edit
-  id: GameRuleMeteorSwarmLarge # goob edit
-  components: # goob edit
-  - type: StationEvent # goob edit
-    weight: 5 # goob edit
-    chaos: # Goobstation # goob edit
-      Power: 60 # goob edit
-      Atmos: 60 # goob edit
-  - type: MeteorSwarm # goob edit
-    meteors: # goob edit
-      MeteorSmall: 2 # goob edit
-      MeteorMedium: 4 # goob edit
-      MeteorLarge: 4 # goob edit
-# goob edit
-- type: entity # goob edit
-  parent: GameRuleMeteorSwarm # goob edit
-  id: GameRuleUristSwarm # goob edit
-  components: # goob edit
-  - type: StationEvent # goob edit
-    weight: 0.05 # goob edit
-  - type: MeteorSwarm # goob edit
-    announcement: station-event-meteor-urist-start-announcement # goob edit
-    announcementSound: /Audio/Announcements/attention.ogg # goob edit
-    meteors: # goob edit
-      MeteorUrist: 1 # goob edit
-    waves: # goob edit
-      min: 3 # goob edit
-      max: 3 # goob edit
-    meteorsPerWave: # goob edit
-      min: 10 # goob edit
-      max: 10 # goob edit
-# goob edit
-- type: entity # goob edit
-  id: ImmovableRodSpawn # goob edit
-  parent: BaseGameRule # goob edit
-  components: # goob edit
-  - type: StationEvent # goob edit
-    startAnnouncement: station-event-immovable-rod-start-announcement # goob edit
-    startAudio: # goob edit
-      path: /Audio/Announcements/attention.ogg # goob edit
-    weight: 3.5 # goob edit
-    reoccurrenceDelay: 1 # goob edit
-    duration: 1 # goob edit
-    earliestStart: 30 # goob edit
-    minimumPlayers: 25 # goob edit
-    chaos: # Goobstation # goob edit
-      Power: 100 # goob edit
-      Atmos: 100 # goob edit
-  - type: ImmovableRodRule # goob edit
-    rodPrototypes: # goob edit
-    - id: ImmovableRodKeepTiles # goob edit # goob edit
-      prob: 0.94 # goob edit
-      orGroup: rodProto # goob edit
-    - id: ImmovableRodMop # goob edit
-      prob: 0.0075 # goob edit
-      orGroup: rodProto # goob edit
-    - id: ImmovableRodShark # goob edit
-      prob: 0.0075 # goob edit
-      orGroup: rodProto # goob edit
-    - id: ImmovableRodClown # goob edit
-      prob: 0.0075 # goob edit
-      orGroup: rodProto # goob edit
-    - id: ImmovableRodBanana # goob edit
-      prob: 0.0075 # goob edit
-      orGroup: rodProto # goob edit
-    - id: ImmovableRodHammer # goob edit
-      prob: 0.0075 # goob edit
-      orGroup: rodProto # goob edit
-    - id: ImmovableRodThrongler # goob edit
-      prob: 0.0075 # goob edit
-      orGroup: rodProto # goob edit
-    - id: ImmovableRodGibstick # goob edit
-      prob: 0.0075 # goob edit
-      orGroup: rodProto # goob edit
-    - id: ImmovableRodWeh # goob edit
-      prob: 0.0075 # goob edit
-      orGroup: rodProto # goob edit
+
+## Event Schedulers
+
+- type: entity
+  parent: BaseGameRule
+  id: MeteorSwarmScheduler
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 600 # 10 min
+    minMaxEventTiming:
+      min: 300 # 5 min - Goob Edit
+      max: 5400 # 90 min - Goob edit
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicMeteorSwarmEventsTable
+
+- type: entity
+  parent: BaseGameRule
+  id: MeteorSwarmMildScheduler
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 600 # 10 min
+    minMaxEventTiming:
+      min: 300 # 5 min - Goob Edit
+      max: 5400 # 90 min - Goob Edit
+    scheduledGameRules: !type:NestedSelector
+      tableId: MeteorSwarmMildTable
+
+- type: entity
+  parent: BaseGameRule
+  id: KesslerSyndromeScheduler
+  components:
+  - type: GameRule
+  - type: RampingStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicMeteorSwarmEventsTable
+
+## Game Rules
+
+- type: entity
+  parent: BaseGameRule
+  id: GameRuleMeteorSwarm
+  abstract: true
+  components:
+  - type: GameRule
+  - type: StationEvent
+    reoccurrenceDelay: 1
+    earliestStart: 12
+    minimumPlayers: 25
+  - type: MeteorSwarm
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRuleSpaceDustMinor
+  components:
+  - type: StationEvent
+    weight: 44
+    earliestStart: 2
+    minimumPlayers: 0
+    chaos: # Goobstation
+      Power: 10
+      Atmos: 10
+  - type: MeteorSwarm
+    announcement: null
+    announcementSound: null
+    nonDirectional: true
+    meteors:
+      MeteorSpaceDust: 1
+    waves:
+      min: 2
+      max: 3
+    meteorsPerWave:
+      min: 3
+      max: 5
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRuleSpaceDustMajor
+  components:
+  - type: StationEvent
+    weight: 22
+    minimumPlayers: 0
+    chaos: # Goobstation
+      Power: 25
+      Atmos: 25
+  - type: MeteorSwarm
+    announcement: station-event-space-dust-start-announcement
+    announcementSound: /Audio/Announcements/attention.ogg
+    nonDirectional: true
+    meteors:
+      MeteorSpaceDust: 1
+    waves:
+      min: 2
+      max: 3
+    meteorsPerWave:
+      min: 8
+      max: 12
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRuleMeteorSwarmSmall
+  components:
+  - type: StationEvent
+    weight: 18
+    minimumPlayers: 15
+    chaos: # Goobstation
+      Power: 40
+      Atmos: 40
+  - type: MeteorSwarm
+    meteors:
+      MeteorSmall: 7
+      MeteorMedium: 3
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRuleMeteorSwarmMedium
+  components:
+  - type: StationEvent
+    weight: 10
+    chaos: # Goobstation
+      Power: 50
+      Atmos: 50
+  - type: MeteorSwarm
+    meteors:
+      MeteorSmall: 3
+      MeteorMedium: 6
+      MeteorLarge: 1
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRuleMeteorSwarmLarge
+  components:
+  - type: StationEvent
+    weight: 5
+    chaos: # Goobstation
+      Power: 60
+      Atmos: 60
+  - type: MeteorSwarm
+    meteors:
+      MeteorSmall: 2
+      MeteorMedium: 4
+      MeteorLarge: 4
+
+- type: entity
+  parent: GameRuleMeteorSwarm
+  id: GameRuleUristSwarm
+  components:
+  - type: StationEvent
+    weight: 0.05
+  - type: MeteorSwarm
+    announcement: station-event-meteor-urist-start-announcement
+    announcementSound: /Audio/Announcements/attention.ogg
+    meteors:
+      MeteorUrist: 1
+    waves:
+      min: 3
+      max: 3
+    meteorsPerWave:
+      min: 10
+      max: 10
+
+- type: entity
+  id: ImmovableRodSpawn
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-immovable-rod-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 3.5
+    reoccurrenceDelay: 1
+    duration: 1
+    earliestStart: 30
+    minimumPlayers: 25
+    chaos: # Goobstation
+      Power: 100
+      Atmos: 100
+  - type: ImmovableRodRule
+    rodPrototypes:
+    - id: ImmovableRodKeepTiles
+      prob: 0.94
+      orGroup: rodProto
+    - id: ImmovableRodMop
+      prob: 0.0075
+      orGroup: rodProto
+    - id: ImmovableRodShark
+      prob: 0.0075
+      orGroup: rodProto
+    - id: ImmovableRodClown
+      prob: 0.0075
+      orGroup: rodProto
+    - id: ImmovableRodBanana
+      prob: 0.0075
+      orGroup: rodProto
+    - id: ImmovableRodHammer
+      prob: 0.0075
+      orGroup: rodProto
+    - id: ImmovableRodThrongler
+      prob: 0.0075
+      orGroup: rodProto
+    - id: ImmovableRodGibstick
+      prob: 0.0075
+      orGroup: rodProto
+    - id: ImmovableRodWeh
+      prob: 0.0075
+      orGroup: rodProto

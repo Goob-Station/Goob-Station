@@ -42,7 +42,7 @@
     - Changeling
     - SubGamemodesRule
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
 
@@ -58,7 +58,7 @@
     - CalmLing
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
 
@@ -75,7 +75,7 @@
     - Calmops
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
 
@@ -91,7 +91,7 @@
     - Calmops
     - CalmLing
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
 
@@ -108,7 +108,7 @@
     - CalmRevs
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
@@ -123,7 +123,7 @@
     - CalmRevs
     - CalmLing
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
@@ -154,7 +154,7 @@
     - Honkops
     - SubGamemodesRule
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler
