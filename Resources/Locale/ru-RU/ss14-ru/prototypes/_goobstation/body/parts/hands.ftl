@@ -1,6 +1,6 @@
-ent-LeftHandDwarf = левая ладонь дварфа
+ent-LeftHandDwarf = левая ладонь дворфа
     .desc = { ent-PartHuman.desc }
-ent-RightHandDwarf = правая ладонь дварфа
+ent-RightHandDwarf = правая ладонь дворфа
     .desc = { ent-PartHuman.desc }
 ent-LeftHandYowie = левая ладонь йови
     .desc = { ent-PartHuman.desc }
