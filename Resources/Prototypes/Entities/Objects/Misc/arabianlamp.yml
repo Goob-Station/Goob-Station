@@ -58,10 +58,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "лампа"
+  name: lamp
   parent: BaseItem
   id: ArabianLamp
-  description: "Якого біса цей шматок мотлоху не відкривається!?"
+  description: Why the heck won't this piece of junk open!?
   components:
   - type: Appearance
   - type: AccessReader

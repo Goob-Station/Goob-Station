@@ -37,8 +37,8 @@
 - type: entity
   parent: [ SimpleMobBase, MobCombat ]
   id: BaseMobFlesh
-  name: "химерна плоть"
-  description: "Безладна маса плоті, оживлена аномальною енергією. Ніяк не виглядає на збоченця!"
+  name: aberrant flesh
+  description: A shambling mass of flesh, animated through anomalous energy.
   abstract: true
   components:
   - type: HTN
@@ -201,8 +201,8 @@
 - type: entity
   parent: BaseMobFlesh
   id: MobAbomination
-  name: "гидота"
-  description: "Відкинутий клон, який постійно відчуває біль і прагне помсти."
+  name: abomination
+  description: A rejected clone, in constant pain and seeking revenge.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -239,9 +239,9 @@
 - type: entity
   parent: [ SimpleSpaceMobBase, MobCombat ]
   id: BaseMobFleshSalvage #This one is immune to space!
-  name: "химерна плоть"
+  name: aberrant flesh
   suffix: "Salvage Ruleset"
-  description: "Безладна маса плоті, оживлена аномальною енергією. Ніяк не виглядає на збоченця!"
+  description: A shambling mass of flesh, animated through anomalous energy.
   abstract: true
   components:
   - type: HTN

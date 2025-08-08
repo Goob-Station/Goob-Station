@@ -12,8 +12,8 @@
 
 - type: entity
   id: ActionForceWall
-  name: "Силова Стіна" # Goob edit
-  description: "Створює магічний бар'єр." # Goob edit
+  name: Force Wall # Goob edit
+  description: Create a magical barrier that only you can pass through. # Goob edit
   components:
   - type: InstantAction
     raiseOnUser: true # Goobstation

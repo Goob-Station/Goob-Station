@@ -25,10 +25,10 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: "коробка з мензурками"
+  name: beaker box
   parent: BoxCardboard
   id: BoxBeaker
-  description: "Коробка, повна мензурок."
+  description: A box full of beakers.
   components:
   - type: Storage
     grid:

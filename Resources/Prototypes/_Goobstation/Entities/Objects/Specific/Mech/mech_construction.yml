@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseRipleyMKIIPart
   id: RipleyMKIIHarness
-  name: "джгут ripley MK-II"
-  description: "Ядро Ripley MK-II."
+  name: ripley MK-II harness
+  description: The core of the Ripley MK-II.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -63,8 +63,8 @@
 - type: entity
   id: RipleyMKIIChassis
   parent: BaseRipleyMKIIPart
-  name: "шасі ripley MK-II"
-  description: "Незавершене будівництво меча Ripley MK-II."
+  name: ripley MK-II chassis
+  description: An in-progress construction of the Ripley MK-II mech.
   components:
   - type: Appearance
   - type: ContainerContainer
@@ -103,8 +103,8 @@
 - type: entity
   parent: BaseClarkePart
   id: ClarkeHarness
-  name: "кларк харнесс"
-  description: "Ядро Кларка."
+  name: clarke harness
+  description: The core of the Clarke.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -143,8 +143,8 @@
 - type: entity
   parent: BaseClarkePartItem
   id: ClarkeHead
-  name: "кларк Хед"
-  description: "Голова Кларка. Вона має бути на шасі меча."
+  name: clarke head
+  description: The head of the Clarke. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: clarke_head
@@ -155,8 +155,8 @@
 - type: entity
   parent: BaseClarkePartItem
   id: ClarkeRArm
-  name: "кларк права рука"
-  description: "Права рука Кларка. Вона має бути на шасі меча."
+  name: clarke right arm
+  description: The right arm of the Clarke. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: clarke_l_arm
@@ -167,8 +167,8 @@
 - type: entity
   parent: BaseClarkePartItem
   id: ClarkeLArm
-  name: "кларк ліва рука"
-  description: "Ліва рука Кларка. Вона має бути на шасі меча."
+  name: clarke left arm
+  description: The left arm of the Clarke. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: clarke_r_arm
@@ -179,8 +179,8 @@
 - type: entity
   parent: BaseClarkePartItem
   id: ClarkeTreads
-  name: "кларк протектори"
-  description: "Гусениці Кларка. Він має бути на шасі меча."
+  name: clarke treads
+  description: The treads of the Clarke. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: clarke_treads
@@ -191,8 +191,8 @@
 - type: entity
   id: ClarkeChassis
   parent: BaseClarkePart
-  name: "шасі clarke"
-  description: "Незавершене будівництво меча Кларка."
+  name: clarke chassis
+  description: An in-progress construction of the Clarke mech.
   components:
   - type: Appearance
   - type: ContainerContainer
@@ -231,8 +231,8 @@
 - type: entity
   parent: BaseDurandPart
   id: DurandHarness
-  name: "дюралеві джгути"
-  description: "Ядро Дюрана."
+  name: durand harness
+  description: The core of the Durand.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -276,8 +276,8 @@
 - type: entity
   parent: BaseDurandPartItem
   id: DurandHead
-  name: "головка з дюралюмінію"
-  description: "Голова Дюранда. Вона стоїть на шасі меча."
+  name: durand head
+  description: The head of the Durand. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: durand_head
@@ -288,8 +288,8 @@
 - type: entity
   parent: BaseDurandPartItem
   id: DurandLArm
-  name: "дюран ліва рука"
-  description: "Ліва рука Дюрана. Вона стоїть на шасі меча."
+  name: durand left arm
+  description: The left arm of the Durand. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: durand_l_arm
@@ -300,8 +300,8 @@
 - type: entity
   parent: BaseDurandPartItem
   id: DurandLLeg
-  name: "дюран ліва нога"
-  description: "Ліва нога Дюрана. Її місце на шасі меча."
+  name: durand left leg
+  description: The left leg of the Durand. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: durand_l_leg
@@ -312,8 +312,8 @@
 - type: entity
   parent: BaseDurandPartItem
   id: DurandRLeg
-  name: "дюранда права нога"
-  description: "Права нога Дюрана. Вона стоїть на шасі меча."
+  name: durand right leg
+  description: The right leg of the Durand. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: durand_r_leg
@@ -324,8 +324,8 @@
 - type: entity
   parent: BaseDurandPartItem
   id: DurandRArm
-  name: "дюран правая рука"
-  description: "Права рука Дюрана. Вона стоїть на шасі меча."
+  name: durand right arm
+  description: The right arm of the Durand. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: durand_r_arm
@@ -336,8 +336,8 @@
 - type: entity
   id: DurandChassis
   parent: BaseDurandPart
-  name: "шасі durand"
-  description: "Незавершене будівництво меча Дюран."
+  name: durand chassis
+  description: An in-progress construction of the Durand mech.
   components:
   - type: Appearance
   - type: ContainerContainer
@@ -376,8 +376,8 @@
 - type: entity
   parent: BaseGygaxPart
   id: GygaxHarness
-  name: "упряжь gygax"
-  description: "Ядро Gygax."
+  name: gygax harness
+  description: The core of the Gygax.
   components:
   - type: Appearance
   - type: ItemMapper
@@ -421,8 +421,8 @@
 - type: entity
   parent: BaseGygaxPartItem
   id: GygaxHead
-  name: "голова gygax"
-  description: "Голова Гігакса. Вона знаходиться на шасі меча."
+  name: gygax head
+  description: The head of the Gygax. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: gygax_head
@@ -433,8 +433,8 @@
 - type: entity
   parent: BaseGygaxPartItem
   id: GygaxLArm
-  name: "гігакс ліва рука"
-  description: "Ліва рука Гігакса. Находиться на шасі меча."
+  name: gygax left arm
+  description: The left arm of the Gygax. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: gygax_l_arm
@@ -445,8 +445,8 @@
 - type: entity
   parent: BaseGygaxPartItem
   id: GygaxLLeg
-  name: "гігакс ліва нога"
-  description: "Ліва нога Гігакса. Її місце на шасі меча."
+  name: gygax left leg
+  description: The left leg of the Gygax. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: gygax_l_leg
@@ -457,8 +457,8 @@
 - type: entity
   parent: BaseGygaxPartItem
   id: GygaxRLeg
-  name: "гігакс права нога"
-  description: "Права нога Гігакса. Находиться на шасі меча."
+  name: gygax right leg
+  description: The right leg of the Gygax. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: gygax_r_leg
@@ -469,8 +469,8 @@
 - type: entity
   parent: BaseGygaxPartItem
   id: GygaxRArm
-  name: "gygax правая рука"
-  description: "Права рука Гігакса. Находиться на шасі меча."
+  name: gygax right arm
+  description: The right arm of the Gygax. It belongs on the chassis of the mech.
   components:
   - type: Sprite
     state: gygax_r_arm
@@ -481,8 +481,8 @@
 - type: entity
   id: GygaxChassis
   parent: BaseGygaxPart
-  name: "шасі gygax"
-  description: "Незавершене будівництво меча Gygax."
+  name: gygax chassis
+  description: An in-progress construction of the Gygax mech.
   components:
   - type: Appearance
   - type: ContainerContainer

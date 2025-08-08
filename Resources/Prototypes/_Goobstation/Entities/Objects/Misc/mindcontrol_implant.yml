@@ -8,7 +8,7 @@
 
 - type: entity
   id: MindcontrolImplanter
-  name: "імплантер контролю розуму"
+  name: mind control implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -17,8 +17,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: MindcontrolImplant
-  name: "імплант контролю розуму"
-  description: "вчинити ментицид"
+  name: mind control implant
+  description: commit menticide
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant

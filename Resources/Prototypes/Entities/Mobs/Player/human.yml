@@ -121,7 +121,7 @@
 
 - type: entity
   save: false
-  name: "Уріст МакХендс"
+  name: Urist McHands
   parent: BaseMobHuman
   id: MobHuman
   
@@ -129,7 +129,7 @@
 - type: entity
   parent: MobHuman
   id: MobHumanSyndicateAgentBase
-  name: "агент синдикату"
+  name: syndicate agent
   suffix: Human, Base
   components:
   - type: RandomHumanoidAppearance
@@ -147,7 +147,7 @@
 - type: entity
   parent: MobHumanSyndicateAgentBase
   id: MobHumanSyndicateAgent
-  name: "агент синдикату"
+  name: syndicate agent
   suffix: Human, Traitor
   components:
   # make the player a traitor once its taken
@@ -157,7 +157,7 @@
 - type: entity
   parent: MobHumanSyndicateAgent
   id: MobHumanSyndicateAgentMedic
-  name: "медик синдикату"
+  name: syndicate medic
   components:
   - type: Loadout
     prototypes: [SyndicateReinforcementMedic]
@@ -166,7 +166,7 @@
 - type: entity
   parent: MobHumanSyndicateAgent
   id: MobHumanSyndicateAgentSpy
-  name: "шпигун синдикату"
+  name: syndicate spy
   components:
   - type: Loadout
     prototypes: [SyndicateReinforcementSpy]
@@ -175,7 +175,7 @@
 - type: entity
   parent: MobHumanSyndicateAgent
   id: MobHumanSyndicateAgentThief
-  name: "злодій синдикату"
+  name: syndicate thief
   components:
   - type: Loadout
     prototypes: [SyndicateReinforcementThief]
@@ -197,7 +197,7 @@
 # Nuclear Operative
 - type: entity
   categories: [ HideSpawnMenu ]
-  name: "Ядерний оперативник"
+  name: Nuclear Operative
   parent: MobHuman
   id: MobHumanNukeOp
   components:
@@ -208,7 +208,7 @@
   categories: [ HideSpawnMenu ]
   parent: MobHuman
   id: MobHumanLoneNuclearOperative
-  name: "Самотній оперативник"
+  name: Lone Operative
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false

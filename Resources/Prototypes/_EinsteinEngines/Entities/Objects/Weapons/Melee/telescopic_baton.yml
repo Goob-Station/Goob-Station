@@ -10,8 +10,8 @@
 - type: entity
   id: TelescopicBaton
   parent: [BaseItem, BaseCommandContraband] # Goob edit
-  name: "телескопічний кийок"
-  description: "Компактна і нешкідлива зброя особистого захисту. Досить міцна, щоб збити з ніг нападників. Якщо вдарити людину одразу після розкладання кийка, це змусить її кинути предмети, що тримаються в руках." # Goob edit
+  name: telescopic baton
+  description: A compact and harmless personal defense weapon. Sturdy enough to knock the feet out from under attackers. If you hit a person immediately after extending the baton, it will force them drop held items as well. # Goob edit
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi # Goob edit

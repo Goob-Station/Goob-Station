@@ -8,8 +8,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: SurveillanceWirelessCameraBodySecurity
-  name: "нагрудна камера служби безпеки"
-  description: "Натільна камера. Вона стежить за вами."
+  name: security bodycam
+  description: A body mounted camera. It's watching you.
   components:
   - type: DeviceNetwork
     deviceNetId: Wired # :clueless:

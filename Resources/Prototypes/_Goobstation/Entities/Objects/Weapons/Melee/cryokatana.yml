@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "кріо-катана"
+  name: cryo katana
   parent: [BaseMagicalContraband, Katana]
   id: CryoKatana
-  description: "Заморозьте своїх ворогів."
+  description: Freeze your enemies.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/cryokatana.rsi

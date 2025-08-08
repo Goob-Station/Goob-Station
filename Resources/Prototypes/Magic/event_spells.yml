@@ -10,8 +10,8 @@
 
 - type: entity
   id: ActionSummonGhosts
-  name: "Викликати привидів"
-  description: "Робить усіх поточних привидів постійно видимими"
+  name: Summon Ghosts
+  description: Makes all current ghosts permanently visible
   components:
   - type: InstantAction
     useDelay: 120
@@ -25,8 +25,8 @@
 
 - type: entity
   id: ActionSummonGuns
-  name: "Викликати зброю"
-  description: "АК-47 для всіх! Розміщує випадкову зброю перед кожним."
+  name: Summon Guns
+  description: AK47s for everyone! Places a random gun in front of everybody.
   components:
   - type: Magic
   - type: InstantAction
@@ -172,8 +172,8 @@
 
 - type: entity
   id: ActionSummonMagic
-  name: "Викликати магію"
-  description: "Розміщує випадковий магічний предмет перед кожним. Ніщо не може піти не так!"
+  name: Summon Magic
+  description: Places a random magical item in front of everybody. Nothing could go wrong!
   components:
   - type: Magic
   - type: InstantAction

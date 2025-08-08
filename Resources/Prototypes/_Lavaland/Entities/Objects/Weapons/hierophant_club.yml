@@ -22,8 +22,8 @@
 - type: entity
   id: LavalandHierophantClub
   parent: BaseItem
-  name: "кийок ієрофанта"
-  description: "Отримай по голові, лол"
+  name: hierophant club
+  description: Get item'ed lol
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
@@ -49,8 +49,8 @@
 
 - type: entity
   id: LavalandHierophantClubTeleportMarker
-  name: "таємничий маркер"
-  description: "Що це взагалі таке?"
+  name: mysterious marker
+  description: What even is this?
   save: false
   placement:
     mode: AlignTileAny

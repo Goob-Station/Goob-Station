@@ -32,7 +32,7 @@
 - type: entity
   id: PartDiona
   parent: [BaseItem, BasePart]
-  name: "частина тіла діони"
+  name: "diona body part"
   abstract: true
   components:
   - type: WoundableVisuals
@@ -53,7 +53,7 @@
 
 - type: entity
   id: ChestDiona
-  name: "груди діони"
+  name: "diona chest"
   parent: [PartDiona, BaseChest]
   components:
   - type: Sprite
@@ -61,7 +61,7 @@
 
 - type: entity
   id: GroinDiona
-  name: "пах діони"
+  name: "diona groin"
   parent: [PartDiona, BaseGroin]
   components:
   - type: Sprite
@@ -69,7 +69,7 @@
 
 - type: entity
   id: HeadDiona
-  name: "голова діони"
+  name: "diona head"
   parent: [PartDiona, BaseHead]
   components:
   - type: Sprite
@@ -77,7 +77,7 @@
 
 - type: entity
   id: LeftArmDiona
-  name: "ліва рука діони"
+  name: "left diona arm"
   parent: [PartDiona, BaseLeftArm]
   components:
   - type: Sprite
@@ -85,7 +85,7 @@
 
 - type: entity
   id: RightArmDiona
-  name: "права рука діони"
+  name: "right diona arm"
   parent: [PartDiona, BaseRightArm]
   components:
   - type: Sprite
@@ -93,7 +93,7 @@
 
 - type: entity
   id: LeftHandDiona
-  name: "ліва долоня діони"
+  name: "left diona hand"
   parent: [PartDiona, BaseLeftHand]
   components:
   - type: Sprite
@@ -101,7 +101,7 @@
 
 - type: entity
   id: RightHandDiona
-  name: "права долоня діони"
+  name: "right diona hand"
   parent: [PartDiona, BaseRightHand]
   components:
   - type: Sprite
@@ -109,7 +109,7 @@
 
 - type: entity
   id: LeftLegDiona
-  name: "ліва нога діони"
+  name: "left diona leg"
   parent: [PartDiona, BaseLeftLeg]
   components:
   - type: Sprite
@@ -117,7 +117,7 @@
 
 - type: entity
   id: RightLegDiona
-  name: "права нога діони"
+  name: "right diona leg"
   parent: [PartDiona, BaseRightLeg]
   components:
   - type: Sprite
@@ -128,7 +128,7 @@
 
 - type: entity
   id: LeftFootDiona
-  name: "ліва стопа діони"
+  name: "left diona foot"
   parent: [PartDiona, BaseLeftFoot]
   components:
   - type: Sprite
@@ -139,7 +139,7 @@
 
 - type: entity
   id: RightFootDiona
-  name: "права стопа діони"
+  name: "right diona foot"
   parent: [PartDiona, BaseRightFoot]
   components:
   - type: Sprite

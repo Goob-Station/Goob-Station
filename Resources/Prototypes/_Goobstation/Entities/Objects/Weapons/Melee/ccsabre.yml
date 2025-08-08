@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "шабля морського офіцера"
+  name: navy officer's sabre
   parent: [ BaseSword, BaseCentcommContraband ]
   id: NavyOfficerSabre
-  description: "Церемоніальна зброя, що належить високопоставленому чиновнику Центрального Командування."
+  description: A ceremonial weapon belonging to a high ranking Central Command official.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/ccsabre.rsi

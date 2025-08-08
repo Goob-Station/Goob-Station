@@ -6,7 +6,7 @@
 - type: entity
   id: OrganShadowkinBrain
   parent: OrganHumanBrain
-  description: "Ой, треба покласти це туди, де взяла."
+  description: "Oops, I should put this back where I found it."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
@@ -15,7 +15,7 @@
 - type: entity
   id: OrganShadowkinEyes
   parent: OrganHumanEyes
-  description: "Я бачу більше, ніж ти коли-небудь зможеш!"
+  description: "I see beyond anything you ever will!"
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
@@ -31,7 +31,7 @@
 - type: entity
   id: OrganShadowkinEars
   parent: OrganHumanEars
-  description: "Послухайте!"
+  description: "Hey, listen!"
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
@@ -40,7 +40,7 @@
 - type: entity
   id: OrganShadowkinCore
   parent: OrganHumanLungs
-  description: "Що це за штука?"
+  description: "What is this thing?"
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
@@ -51,7 +51,7 @@
 - type: entity
   id: OrganShadowkinTongue
   parent: OrganHumanTongue
-  description: "Нагадайте, що це дає?"
+  description: "What does this do again?"
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
@@ -61,7 +61,7 @@
 - type: entity
   id: OrganShadowkinAppendix
   parent: OrganHumanAppendix
-  description: "Я думаю, що це нічого не дає..."
+  description: "I think it does nothing..."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
@@ -72,7 +72,7 @@
 - type: entity
   id: OrganShadowkinHeart
   parent: OrganHumanHeart
-  description: "Ой, здається, це чиєсь!"
+  description: "Oops, I think this belongs to someone!"
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
@@ -92,7 +92,7 @@
 - type: entity
   id: OrganShadowkinStomach
   parent: OrganHumanStomach
-  description: "\"Смакота!\", - каже шлунок, хоча ви його не чуєте."
+  description: '"Yummy!", says the stomach, although you are unable to hear it.'
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
@@ -129,7 +129,7 @@
 - type: entity
   id: OrganShadowkinLiver
   parent: OrganHumanLiver
-  description: "Живу з нею? Я її майже не знаю!"
+  description: "Live 'er? I hardly know 'er!"
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi
@@ -157,7 +157,7 @@
 - type: entity
   id: OrganShadowkinKidneys
   parent: OrganHumanKidneys
-  description: "Поверніть дитині коліна, будь ласка, це вже втретє за тиждень."
+  description: "Give the kid their knees back, please, this is the third time this week."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Mobs/Species/Shadowkin/organs.rsi

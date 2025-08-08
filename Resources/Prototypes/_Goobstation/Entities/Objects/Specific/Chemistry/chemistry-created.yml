@@ -8,7 +8,7 @@
 - type: entity
   parent: ShardCrystalRed
   id: ShardCrystalStyptic
-  name: "кровоспинний кристалічний уламок"
+  name: styptic crystal shard
   components:
   - type: Extractable
     grindableSolutionName: crystal
@@ -20,10 +20,10 @@
           Quantity: 10
 
 - type: entity
-  name: "синтетичне м'ясо"
+  name: synth meat
   parent: FoodMeatRotten # you can, but you shouldn't eat this
   id: FoodMeatSynth
-  description: "Штучно створений шматок... синтетичного м'яса? Чи можна його взагалі готувати? Краще не їсти."
+  description: Artificially created chunk of... synthetic meat? Can it even be cooked? Better not to eat it.
   components:
   - type: Sprite
     state: bear # looks pretty disgusting

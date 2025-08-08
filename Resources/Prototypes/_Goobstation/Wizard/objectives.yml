@@ -18,14 +18,14 @@
 - type: entity
   parent: [BaseWizardObjective, BaseSurviveObjective]
   id: WizardSurviveObjective
-  name: "Виживайте, створюючи якомога більше хаосу"
-  description: "Федерація Космічних Чарівників послала вас, щоб ви спричинили хаос на станції. Не розчаруй їх."
+  name: Survive, causing as much chaos as possible
+  description: Space Wizard Federation has sent you to wreck havoc on the station. Don't dissapoint them.
 
 - type: entity
   parent: [BaseWizardObjective, BaseKeepAliveObjective]
   id: KeepWizardAliveObjective
-  name: "Переконайтеся, що чарівник вижив"
-  description: "Захистіть людину, яка вас викликала, за будь-яку ціну."
+  name: Make sure the wizard survives
+  description: Protect the person who has summoned you at all costs.
   components:
   - type: TargetObjective
     title: objective-condition-wizard-alive-title

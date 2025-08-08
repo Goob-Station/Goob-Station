@@ -141,10 +141,10 @@
 #1D2L3U4R
 
 - type: entity
-  name: "Іан"
+  name: Ian
   parent: MobCorgi
   id: MobCorgiIan
-  description: "Улюблена домашня тварина коргі."
+  description: Favorite pet corgi.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -183,10 +183,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Старий Іан"
+  name: Old Ian
   parent: MobCorgiIan
   id: MobCorgiIanOld
-  description: "Досі улюблений домашній улюбленець коргі. Обожнюю його колеса."
+  description: Still the favorite pet corgi. Love his wheels.
   components:
   - type: Sprite
     layers:
@@ -208,10 +208,10 @@
     - id: MaterialHideCorgi
 
 - type: entity
-  name: "Ліза"
+  name: Lisa
   parent: MobCorgiIan
   id: MobCorgiLisa
-  description: "Улюблена коргі Іана."
+  description: Ian's favorite corgi.
   components:
   - type: Sprite
     layers:
@@ -231,10 +231,10 @@
       gender: female
 
 - type: entity
-  name: "справжня миша"
+  name: real mouse
   parent: MobCorgiIan
   id: MobCorgiMouse
-  description: "Це 100% справжня голодна миша."
+  description: It's 100% a real hungry mouse.
   components:
   - type: Sprite
     layers:
@@ -254,10 +254,10 @@
       gender: female
 
 - type: entity
-  name: "Цуценя Іан"
+  name: Puppy Ian
   parent: MobCorgiPuppy
   id: MobCorgiIanPup
-  description: "Улюблене цуценя коргі. Оууу."
+  description: Favourite puppy corgi. Awww.
   components:
   - type: Grammar
     attributes:
@@ -278,10 +278,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Авес"
+  name: Aves
   parent: MobCat
   id: MobCatRuntime
-  description: "Кіт, що гуляє сам по собі."
+  description: The cat who walks by himself.
   components:
   - type: NpcFactionMember
     factions:
@@ -307,10 +307,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Виняткун"
+  name: Exception
   id: MobCatException
   parent: MobCatCalico
-  description: "Попросіть ввічливо, і, можливо, вони віддадуть вам одне зі своїх вільних життів."
+  description: Ask nicely, and maybe they'll give you one of their spare lives.
   components:
   - type: NpcFactionMember
     factions:
@@ -333,10 +333,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Вусо-Лапо-Хвіст"
+  name: Floppa
   id: MobCatFloppa
   parent: MobCatCaracal
-  description: "Він тут. Його ім'я означає щось стародавнє"
+  description: He out here.
   components:
   - type: Fixtures
     fixtures:
@@ -366,10 +366,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Бандит"
+  name: Bandito
   parent: MobFerret
   id: MobBandito
-  description: "Просто дурний хлопчисько!"
+  description: Just a silly little guy!
   components:
   - type: Grammar
     attributes:
@@ -387,10 +387,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Бінгус"
+  name: Bingus
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobBingus
-  description: "Бінгус, коханий мій..."
+  description: Bingus my beloved...
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -450,10 +450,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "МакГріфф"
+  name: McGriff
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobMcGriff
-  description: "Цей собака відчуває, що тут чимось пахне, і це щось - ЗЛОЧИН!"
+  description: This dog can tell something smells around here, and that something is CRIME!
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -516,10 +516,10 @@
     stealGroup: AnimalMcGriff
 
 - type: entity
-  name: "Бібліотекар"
+  name: Paperwork
   parent: MobSloth
   id: MobPaperwork
-  description: "Отримав нову роботу - сортувати книги в бібліотеці після того, як його перевели з Космічної Станції 13. Схоже, йому це вдається так само повільно."
+  description: Took up a new job sorting books in the library after he got transferred from Space Station 13. He seems to be just as slow at this.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -556,10 +556,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Уолтер"
+  name: Walter
   parent: [SimpleMobBase, StripableInventoryBase]
   id: MobWalter
-  description: "Він любить ліки та геро... Уолтер..."
+  description: He likes chems and treats. Walter.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -622,10 +622,10 @@
     speechSounds: Dog
 
 - type: entity
-  name: "Морті"
+  name: Morty
   parent: MobPossum
   id: MobPossumMorty
-  description: "Мешканець станції, Опосум віргінський. Чутливий, але витривалий хлопець."
+  description: The station's resident Didelphis virginiana. A sensitive but resilient kind of guy.
   components:
   - type: InteractionPopup
     successChance: 1.0 # Hey, c'mon, this is Morty we're talking about here.
@@ -652,7 +652,7 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Морті"
+  name: Morty
   parent: MobPossumMorty
   id: MobPossumMortyOld
   suffix: Old sprite
@@ -671,10 +671,10 @@
         Base: possum_dead_old
 
 - type: entity
-  name: "Поппі" # the Safety Possum
+  name: Poppy # the Safety Possum
   parent: MobPossumMorty
   id: MobPossumPoppy
-  description: "Це опосум, невеликий сумчастий ссавець. Вона носить відповідні засоби захисту."
+  description: It's an opossum, a small scavenging marsupial. It's wearing appropriate personal protective equipment.
   components:
   - type: Grammar
     attributes:
@@ -694,10 +694,10 @@
         Base: poppy_dead
 
 - type: entity
-  name: "Єнотос Педрос"
+  name: Morticia
   parent: MobRaccoon
   id: MobRaccoonMorticia
-  description: "Могутнє створіння ночі. Його тіні завжди на місці."
+  description: A powerful creature of the night. Her eyeshadow is always on point.
   components:
   - type: InteractionPopup
     successChance: 0.7
@@ -722,10 +722,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Олександр"
+  name: Alexander
   parent: MobPig
   id: MobAlexander
-  description: "Найкращий колега шеф-кухаря."
+  description: Chef's finest colleague.
   components:
   - type: InteractionPopup
     successChance: 1
@@ -750,10 +750,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Рено"
+  name: Renault
   parent: MobFox
   id: MobFoxRenault
-  description: "Надійна лисиця капітана."
+  description: The captain's trustworthy fox.
   components:
   - type: InteractionPopup
     successChance: 1
@@ -786,10 +786,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Омак"
+  name: Hamlet
   parent: MobHamster
   id: MobHamsterHamlet
-  description: "Буркотливий, милий і пухнастий омак. Не питай його за гриби..."
+  description: A grumpy, cute and fluffy hamster.
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -848,10 +848,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Бодя"
+  name: Shiva
   parent: MobGiantSpider
   id: MobSpiderShiva
-  description: "Перший захисник станції."
+  description: The first defender of the station.
   components:
   - type: InteractionPopup
     successChance: 0.5 # spider is mean
@@ -919,10 +919,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Віллоу"
+  name: Willow
   parent: MobKangaroo
   id: MobKangarooWillow
-  description: "Верба - боксерський кенгуру."
+  description: Willow the boxing kangaroo.
   components:
   - type: InteractionPopup
     successChance: 0.8
@@ -956,10 +956,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Посміхунчик"
+  name: Smile
   id: MobSlimesPet
   parent: [MobAdultSlimes, StripableInventoryBase]
-  description: "Цей шедевр пройшов через тисячі експериментів. Але це наймиліше створіння у світі. Посміхнися, Слизняку!"
+  description: This masterpiece has gone through thousands of experiments. But it is the sweetest creature in the world. Smile Slime!
   components:
   - type: Sprite
     layers:
@@ -1045,10 +1045,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Пун-Пун"
+  name: Pun Pun
   parent: MobMonkey
   id: MobMonkeyPunpun
-  description: "Яскравий представник мавп з необмеженим доступом до алкоголю."
+  description: A prominent representative of monkeys with unlimited access to alcohol.
   components:
   - type: GhostRole
     prob: 1
@@ -1095,10 +1095,10 @@
     - TauCetiBasic
 
 - type: entity
-  name: "Містер Крабс"
+  name: Tropico
   parent: MobCrab
   id: MobCrabAtmos
-  description: "Благородний і стійкий захисник Атмосії. Віва!"
+  description: The noble and stalwart defender of Atmosia. Viva!
   components:
 #  - type: GhostRole
 #    prob: 1

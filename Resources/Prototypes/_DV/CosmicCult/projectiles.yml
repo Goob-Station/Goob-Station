@@ -9,8 +9,8 @@
 
 - type: entity
   id: ProjectileCosmicNova
-  name: "Астральна Нова"
-  description: "Ой-ой."
+  name: Astral Nova
+  description: Uh oh.
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -56,17 +56,17 @@
 - type: entity
   id: ProjectileRogueCosmicNova
   parent: ProjectileCosmicNova
-  name: "Узурпована Астральна Нова"
+  name: Usurped Astral Nova
   components:
     - type: CosmicAstralNova
       doStun: false
 
 - type: entity
   id: ProjectileCosmicRazor
-  name: "Астральний Болт"
+  name: Astral Bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: "Позначає ціль для нанесення додаткової шкоди."
+  description: Marks a target for additional damage.
   components:
   - type: Reflective
     reflective: Magic

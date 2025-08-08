@@ -8,9 +8,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "цвях"
+  name: nail
   parent: BaseItem
-  description: "Крихітна металева паличка. Ймовірно, використовується для кріплення стін."
+  description: A tiny metal stick. It is probably used to fix walls.
   id: Nail
   components:
   - type: Sprite
@@ -84,9 +84,9 @@
     reflective: NonEnergy
 
 - type: entity
-  name: "цвях (бронебійний)"
+  name: nail (armor-piercing)
   parent: [ Nail, BaseSyndicateContraband ]
-  description: "Важкий цвях, призначений для пробивання твердих поверхонь. Виглядає як звичайний цвях, поки раптово не вб'є вас."
+  description: A heavy nail designed to pierce through hard surfaces. Looks just like a regular nail, until it suddenly kills you.
   id: NailArmorPiercing
   components:
   - type: CartridgeAmmo
@@ -109,7 +109,7 @@
 - type: entity
   parent: BaseItem
   id: MagazineBoxNail
-  name: "коробка з цвяхами"
+  name: nail box
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -128,7 +128,7 @@
 - type: entity
   parent: [ MagazineBoxNail, BaseSyndicateContraband ]
   id: MagazineBoxNailArmorPiercing
-  name: "коробка з цвяхами (бронебійними)"
+  name: nail box (armor-piercing)
   components:
   - type: BallisticAmmoProvider
     proto: NailArmorPiercing

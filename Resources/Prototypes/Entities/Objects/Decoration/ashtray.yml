@@ -7,8 +7,8 @@
 - type: entity
   id: Ashtray
   parent: BaseItem
-  name: "попільничка"
-  description: "Доведено вченими, що вони покращують відчуття від куріння на 37%!"
+  name: ashtray
+  description: Proven by scientists to improve the smoking experience by 37%!
   components:
   - type: Sprite
     sprite: Objects/Decoration/ashtray.rsi

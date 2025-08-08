@@ -12,10 +12,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "великий щит"
+  name: greatshield
   parent: [BaseItem, ClothingSlotBase, BaseCentcommContraband]
   id: BlueShieldShield
-  description: "Культовий тезка цих солдатів, Блакитний щит. Відомий тим, що приймає постріли, призначені для високопосадовців."
+  description: The iconic namesake of these soldiers, the Blueshield. Known to take shots meant for high-ranking officials.
   components:
     - type: ContainerContainer
     - type: ItemToggle
@@ -120,7 +120,7 @@
   parent: BlueShieldShield
   id: BlueShieldShieldEvil
   suffix: Deathsquad
-  description: "Ідентифікаційний номер на цьому щиті стерто. Щось тут не так."
+  description: The identification number on this shield has been scratched off. Something feels wrong.
   components:
   - type: Battery
     maxCharge: 1800

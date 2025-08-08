@@ -34,8 +34,8 @@
 - type: entity
   parent: [BaseChangelingObjective, BaseSurviveObjective]
   id: ChangelingSurviveObjective
-  name: "Вижити"
-  description: "Ми повинні вижити за будь-яку ціну."
+  name: Survive
+  description: We must survive no matter what.
   components:
   - type: Objective
     icon:
@@ -91,7 +91,7 @@
 - type: entity
   parent: BaseChangelingObjective
   id: EscapeIdentityObjective
-  description: "Ми повинні втекти на евакуаційному шатлі. Під прикриттям."
+  description: We need to escape on the evacuation shuttle. Undercover.
   components:
   - type: Objective
     icon:
@@ -116,7 +116,7 @@
 - type: entity
   parent: [BaseChangelingSyndicateObjective, BaseKillObjective]
   id: LingKillRandomHeadObjective
-  description: "Наші шанувальники попросили нас усунути цю важливу ціль."
+  description: Our worshippers requested we eliminate this high value target.
   components:
   - type: Objective
     unique: true

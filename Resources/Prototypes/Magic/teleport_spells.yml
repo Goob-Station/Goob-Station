@@ -9,8 +9,8 @@
 
 - type: entity
   id: ActionBlink
-  name: "Моргнути"
-  description: "Телепортуватися у вибране місце."
+  name: Blink
+  description: Teleport to the clicked location.
   components:
   - type: WorldTargetAction
     useDelay: 10

@@ -49,8 +49,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimPaintObjective
-  name: "Пофарбуй станцію."
-  description: "Вокзал огидний. Треба все розфарбувати!"
+  name: Paint the station.
+  description: The station is hideous. You must color it all!
   components:
   - type: Objective
     icon:
@@ -60,8 +60,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimPristine
-  name: "Переконайтеся, що станція чиста."
-  description: "Приїжджає генеральний директор \"Нанотрасен\"! Переконайтеся, що станція знаходиться в абсолютно чистому стані."
+  name: Ensure the station is pristine.
+  description: The CEO of Nanotrasen is coming! Ensure the station is in absolutely pristine condition.
   components:
   - type: Objective
     icon:
@@ -71,8 +71,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimBlingFloor
-  name: "Замінити підлогу."
-  description: "Замініть всю підлогову плитку на дерево, килимове покриття, траву або блискітки."
+  name: Replace the floor.
+  description: Replace all the floor tiles with wood, carpeting, grass or bling.
   components:
   - type: Objective
     icon:
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimCorpseCollector
-  name: "Збирати трупи."
-  description: "Почніть збирати трупи. Не вбивайте людей, щоб отримати ці трупи."
+  name: Collect dead corpses.
+  description: Start a collection of corpses. Don't kill people to get these corpses.
   components:
   - type: Objective
     icon:
@@ -93,8 +93,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimParaplegic
-  name: "Паралітик."
-  description: "Переконайте екіпаж, що ви паралізовані."
+  name: Paraplegic.
+  description: Convince the crew that you are paraplegic.
   components:
   - type: Objective
     icon:
@@ -104,8 +104,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimHungry
-  name: "Вгамуй свій голод."
-  description: "Ти голодний. З'їжте стільки їжі, скільки зможете знайти."
+  name: Sate your hunger.
+  description: You are hungry. Eat as much food as you can find.
   components:
   - type: Objective
     icon:
@@ -115,8 +115,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimBlazeIt
-  name: "Хімічно покращуйте свій організм."
-  description: "Твій організм має бути оздоровлений. Вживайте якомога більше ліків."
+  name: Chemically improve your body.
+  description: Your body must be improved. Ingest as many drugs as you can.
   components:
   - type: Objective
     icon:
@@ -126,8 +126,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimSocialExperiment
-  name: "Це все брехня."
-  description: "Це секретний соціальний експеримент, який проводить компанія \"Нанотрасен\". Переконайте екіпаж, що це правда."
+  name: It's all a lie.
+  description: This is a secret social experiment conducted by Nanotrasen. Convince the crew that this is the truth.
   components:
   - type: Objective
     icon:
@@ -137,8 +137,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimVirtualInsanity
-  name: "ВСЕ НЕСПРАВЖНЄ."
-  description: "Все це повністю віртуальна симуляція в підземному сховищі. Переконайте екіпаж вирватися з кайданів віртуальної реальності."
+  name: NOTHING IS REAL.
+  description: It's all an entirely virtual simulation within an underground vault. Convince the crew to escape the shackles of VR.
   components:
   - type: Objective
     icon:
@@ -148,8 +148,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimGame
-  name: "Чат - це реально?"
-  description: "Переконати екіпаж, що ми в грі, не кажучи їм прямо, що ми в грі."
+  name: Chat is this real?
+  description: Convince the crew that we are in a game, without explicitly telling them we are in a game.
   components:
   - type: Objective
     icon:
@@ -159,8 +159,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimSaveAnimals
-  name: "Рятуйте тварин."
-  description: "Нанотрасен знущається над тваринами! Врятуйте якомога більше!"
+  name: Save the animals.
+  description: Nanotrasen is abusing the animals! Save as many as you can!
   components:
   - type: Objective
     icon:
@@ -170,8 +170,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimMusic
-  name: "Поділіться своєю музикою."
-  description: "Ти гориш пристрастю до музики. Поділіться своїм баченням. Якщо комусь це не подобається, вдарте його по голові своїм інструментом!"
+  name: Share your music.
+  description: You burn with passion for music. Share your vision. If anyone hates it, beat them on the head with your instrument!
   components:
   - type: Objective
     icon:
@@ -181,8 +181,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimStalker
-  name: "Переслідувати екіпаж."
-  description: "Хтось найняв вас зібрати досьє на всіх важливих членів екіпажу. Переконайтеся, що вони не знають, що ви цим займаєтеся."
+  name: Stalk the crew.
+  description: Someone hired you to compile dossiers on all important members of the crew. Be sure they don't know you're doing it.
   components:
   - type: Objective
     icon:
@@ -192,8 +192,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimConspiracy
-  name: "Змова."
-  description: "Керівники цієї станції приховують грандіозну, злу змову. Тільки ви можете дізнатися, в чому вона полягає, і викрити її перед людьми!"
+  name: The conspiracy.
+  description: The leaders of this station are hiding a grand, evil conspiracy. Only you can learn what it is, and expose it to the people!
   components:
   - type: Objective
     icon:
@@ -203,8 +203,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNarrator
-  name: "Розкажіть історію."
-  description: "Ви - оповідач цієї казки. Слідуйте за головними героями, щоб розповісти їхню історію."
+  name: Narrate the story.
+  description: You're the narrator of this tale. Follow around the protagonists to tell their story.
   components:
   - type: Objective
     icon:
@@ -214,8 +214,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimSixthsense
-  name: "Ти справді живий?"
-  description: "Ти помер там і потрапив до раю... чи до пекла? Здається, тут ніхто не знає, що вони мертві. Переконайте їх, і, можливо, вам вдасться вирватися з цієї безвиході."
+  name: Are you really alive?
+  description: You died back there and went to heaven... or is it hell? No one here seems to know they're dead. Convince them, and maybe you can escape this limbo.
   components:
   - type: Objective
     icon:
@@ -225,8 +225,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimParty
-  name: "ВЕЧІРКА!"
-  description: "Тобі потрібно влаштувати величезну вечірку. Зробіть це якомога крутіше, щоб приїхала вся команда... АБО ІНАКШЕ!"
+  name: PARTY!
+  description: You NEED to throw a huge rager. Make it as awesome as possible so the whole crew comes... OR ELSE!
   components:
   - type: Objective
     icon:
@@ -236,8 +236,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimDeadStationTheory
-  name: "Існує лише одна інша людина."
-  description: "Існує лише одна інша людина, просто вони дуже добре вміють прикидатися кількома людьми."
+  name: Only one other person exists.
+  description: There is only one other person in existence, they are just really good at pretending to be multiple people.
   components:
   - type: Objective
     icon:
@@ -247,8 +247,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimWeaknessOfMyFlesh
-  name: "Плоть гниє."
-  description: "Твоя плоть гниє з твого тіла. Боріться з неминучим і замініть свої зіпсовані кінцівки на абсолютно нові."
+  name: The flesh is rotting.
+  description: Your flesh is rotting from your body. Fight the inevitable, and replace your tainted limbs with entirely new ones.
   components:
   - type: Objective
     icon:
@@ -258,8 +258,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimInstructor
-  name: "Військовий інструктор."
-  description: "Ви - військовий інструктор. Ви повинні переконатися, що екіпаж у найкращій формі для війни проти синдикату!"
+  name: Military instructor.
+  description: You are a military instructor. You must make sure the crew is in top shape for the war against the syndicate!
   components:
   - type: Objective
     icon:
@@ -269,8 +269,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimActor
-  name: "Бойовик."
-  description: "Ви в бойовику. Ви повинні сказати якомога більше дешевих односкладових реплік."
+  name: Action movie.
+  description: You are in an action movie. You must say as many cheesy one-liners as possible.
   components:
   - type: Objective
     icon:
@@ -282,8 +282,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNations
-  name: "Нехай ваш відділ процвітає."
-  description: "Переконайтеся, що ваш відділ процвітає понад усе."
+  name: Make your department prosper.
+  description: Ensure your department prospers over all else.
   components:
   - type: Objective
     icon:
@@ -293,8 +293,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimPowerUnlimited
-  name: "Необмежена влада."
-  description: "Наповніть електромережу станції якомога більшою кількістю електроенергії."
+  name: Unlimited power.
+  description: Flood the station's powernet with as much electricity as you can.
   components:
   - type: Objective
     icon:
@@ -304,8 +304,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimBuild
-  name: "Розширити станцію."
-  description: "Станція занадто маленька, і ви це виправите."
+  name: Expand the station.
+  description: The station is too tiny, and you're going to fix that.
   components:
   - type: Objective
     icon:
@@ -315,8 +315,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimDefect
-  name: "Дезертир зі станції."
-  description: "До біса систему! Втечіть зі станції і заснуйте незалежну колонію в космосі, Гірничий аванпост або занедбану. Набирайте членів екіпажу, якщо можете."
+  name: Defect from the station.
+  description: Fuck the system! Defect from the station and start an independent colony in space, Mining Outpost or the derelict. Recruit crewmates if you can.
   components:
   - type: Objective
     icon:
@@ -326,8 +326,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimMonkeyTakeover
-  name: "Підніміть армію мавп."
-  description: "О'КЕЙ, О'КЕЙ, О'КЕЙ!!!"
+  name: Raise an army of monkeys.
+  description: OOK OOK AAH!!!
   components:
   - type: Objective
     icon:
@@ -337,8 +337,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimAverageFrontierPirate
-  name: "Вкрасти туфлі."
-  description: "Вкрасти якомога більше взуття."
+  name: Steal shoes.
+  description: Steal as many shoes as you can.
   components:
   - type: Objective
     icon:
@@ -348,8 +348,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNoClown
-  name: "Клоун не смішний."
-  description: "Клоун не смішний. Ти можеш краще! Візьміть на себе їхню роль і розсмішіть екіпаж!"
+  name: The clown is not funny.
+  description: The clown is not funny. You can do better! Take over their role and make the crew laugh!
   components:
   - type: Objective
     icon:
@@ -359,8 +359,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimReplacePets
-  name: "Замініть домашніх тварин."
-  description: "Всі домашні тварини тут відстійні. Треба зробити їх крутішими. Замініть їх на екзотичних звірів!"
+  name: Replace the pets.
+  description: All the pets around here suck. You need to make them cooler. Replace them with exotic beasts!
   components:
   - type: Objective
     icon:
@@ -370,8 +370,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimBald
-  name: "Врятуйте людей від нашестя волосся."
-  description: "Там живуть інопланетні паразити, що маскуються під людське волосся. Врятуйте людей від цієї навали."
+  name: Save people from the hair invasion.
+  description: There are alien parasites masquerading as people's hair. Save people from this invasion.
   components:
   - type: Objective
     icon:
@@ -383,8 +383,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNoWalls
-  name: "Руйнуйте стіни."
-  description: "Екіпаж повинен познайомитися один з одним ближче. Зламайте стіни всередині станції!"
+  name: Break down the walls.
+  description: The crew must get to know one another better. Break down the walls inside the station!
   components:
   - type: Objective
     icon:
@@ -394,8 +394,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimAbductception
-  name: "Помстися."
-  description: "Тебе змінили назавжди. Знайдіть прибульців, які зробили це з вами, і дайте їм спробувати їхні ж ліки."
+  name: Take revenge.
+  description: You have been changed forever. Find the aliens that did this to you and give them a taste of their own medicine.
   components:
   - type: Objective
     icon:
@@ -405,8 +405,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNoOxygen
-  name: "КИСЕНЬ ВБИВАЄ ВСІХ."
-  description: "Кисень вбиває їх усіх, а вони навіть не знають про це. Переконайтеся, що на станції немає кисню."
+  name: OXYGEN IS KILLING EVERYONE.
+  description: The oxygen is killing them all and they don't even know it. Make sure no oxygen is on the station.
   components:
   - type: NotJobRequirement
     job: AtmosphericTechnician # It would be too free for atmos techs :) CE is fair game though.
@@ -418,8 +418,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimEscapeStation
-  name: "Тікай зі станції."
-  description: "Ви повинні втекти зі станції! Викликай шатл!"
+  name: Escape the station.
+  description: You must escape the station! Get the shuttle called!
   components:
   - type: Objective
     icon:
@@ -430,8 +430,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimNoCloning
-  name: "Ніякого клонування."
-  description: "Не дозволяйте нікому бути клонованим."
+  name: No cloning.
+  description: Don't allow anyone to be cloned.
   components:
   - type: Objective
     icon:
@@ -441,8 +441,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimStealWeapons
-  name: "Вкрасти зброю."
-  description: "Вкрадіть стільки зброї, скільки зможете вмістити на собі."
+  name: Steal weapons.
+  description: Steal as many weapons as you can fit on your person.
   components:
   - type: Objective
     icon:
@@ -452,8 +452,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimDismantleComputers
-  name: "Вкрасти комп'ютери."
-  description: "Хвилі 7G, що йдуть від комп'ютерів, вбивають екіпаж, а вони цього не знають! Демонтуйте їх!"
+  name: Steal computers.
+  description: The 7G waves coming off from the computers are killing the crew and they dont know it! Dismantle them!
   components:
   - type: Objective
     icon:
@@ -463,8 +463,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimFinality
-  name: "Ніякого відродження."
-  description: "Смерть має бути остаточною, а сучасна медицина порушує природний порядок. Не дозволяйте нікому відроджуватися."
+  name: No revival.
+  description: Death should be final and modern medicine disrupts the natural order. Don't allow anyone to be revived.
   components:
   - type: Objective
     icon:
@@ -474,8 +474,8 @@
 - type: entity
   parent: BaseAbductorVictimObjective
   id: AbductorVictimHeretic
-  name: "ВОРОТА ВІДЧИНИЛИСЯ МІЙ РОЗУМ ВІДКРИТИЙ МІЙ РОЗУМ ВІДКРИТИЙ МІЙ РОЗУМ ВІДКРИТИЙ МІЙ РОЗУМ ВІДКРИТИЙ"
-  description: "Ти бачиш, ти бачиш те, чого вони не бачать, ти бачиш відчинені двері, ти бачиш, ти бачиш, ти бачиш, ти бачиш, ти бачиш, ти бачиш, ти бачиш, ти бачиш, ти бачиш, ти бачиш."
+  name: THE GATES HAVE OPENED MY MIND IS OPEN MY MIND IS OPEN MY MIND IS OPEN
+  description: You see you see what they cannot you see the open door you seeE you SEeEe you SEe yOU seEee SHOW THEM ALL.
   components:
   - type: ForceHereticObjective
   - type: Objective

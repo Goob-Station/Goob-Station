@@ -5,8 +5,8 @@
 
 - type: entity
   id: MouseMultiply
-  name: "Розмножитися"
-  description: "Використовує голод для розмноження."
+  name: Multiply
+  description: Uses hunger to multiply.
   components:
   - type: InstantAction
     icon:

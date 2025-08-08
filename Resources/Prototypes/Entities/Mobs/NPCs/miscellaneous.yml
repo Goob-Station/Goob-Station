@@ -98,10 +98,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "лазерний хижак"
+  name: laser raptor
   id: MobLaserRaptor
   parent: SimpleMobBase
-  description: "З часів вікінгів."
+  description: From the Viking age.
   components:
     - type: Body # Shitmed Change
       prototype: LaserRaptor
@@ -165,8 +165,8 @@
   - MobBloodstream
   - MobFlammable
   - MobCombat
-  name: "помідор-вбивця"
-  description: "Схоже, сьогодні не ви їсте помідори, а помідори їдять вас."
+  name: tomato killer
+  description: Looks like it's not you eating tomatoes today, it's the tomatoes eating you.
   components:
   - type: GhostRole
     prob: 0.05

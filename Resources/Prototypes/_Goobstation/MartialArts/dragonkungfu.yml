@@ -12,7 +12,7 @@
 
 - type: combo
   id: DragonClaw
-  name: "Кіготь Дракона"
+  name: Dragon Claw
   martialArtsForm: KungFuDragon
   attacks:
   - Disarm
@@ -24,7 +24,7 @@
 
 - type: combo
   id: DragonTail
-  name: "Хвіст Дракона"
+  name: Dragon Tail
   martialArtsForm: KungFuDragon
   attacks:
   - Disarm
@@ -39,7 +39,7 @@
 
 - type: combo
   id: DragonStrike
-  name: "Удар Дракона"
+  name: Dragon Strike
   martialArtsForm: KungFuDragon
   attacks:
   - Disarm

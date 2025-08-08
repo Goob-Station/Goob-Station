@@ -185,8 +185,8 @@
 - type: entity
   abstract: true
   id: SilverRingBase
-  name: "срібний перстень"
-  description: "Виглядає трохи менш цінним, ніж золотий."
+  name: silver ring
+  description: Looks slightly less valuable than a gold one.
   components:
     - type: PhysicalComposition
       materialComposition:

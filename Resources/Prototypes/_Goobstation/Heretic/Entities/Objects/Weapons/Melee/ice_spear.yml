@@ -1,8 +1,8 @@
 - type: entity
-  name: "Льодовиковий Спис"
+  name: Glacier Spear
   parent: [BaseItem, BaseMagicalContraband]
   id: SpearIceHeretic
-  description: "Коли завіса між морозом і думкою стоншується, спис вгризатиметься з могутністю Зимової Зорі."
+  description: When the veil between frost and thought thins, the spear shall bite with the might of the Winter Dawn.
   components:
   - type: EmbeddableProjectile
     offset: -0.15,0.0

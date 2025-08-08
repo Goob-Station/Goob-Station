@@ -1,7 +1,7 @@
 - type: job
   id: InterdyneShaftMiners
-  name: "шахтар Interdyne"
-  description: "видобувайте цінні ресурси для корпорації Interdyne у небезпечних умовах"
+  name: job-name-interdyne-shaft-miners
+  description: job-description-interdyne-shaft-miners
   icon: "JobIconInterdyneShaftMiners"
   canBeAntag: false
   playTimeTracker: JobInterdyneShaftMiners

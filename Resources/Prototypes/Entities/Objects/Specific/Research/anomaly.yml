@@ -100,8 +100,8 @@
 - type: entity
   parent: BaseItem
   id: AnomalyScanner
-  name: "сканер аномалій"
-  description: "Ручний сканер, створений для збору інформації про різні аномальні об'єкти."
+  name: anomaly scanner
+  description: A hand-held scanner built to collect information on various anomalous objects.
   components:
   - type: Sprite
     sprite: Objects/Specific/Research/anomalyscanner.rsi
@@ -128,8 +128,8 @@
 - type: entity
   id: AnomalyLocatorUnpowered
   parent: BaseItem
-  name: "локатор аномалій"
-  description: "Прилад, призначений для пошуку аномалій. Ви перевірили газовидобувників?"
+  name: anomaly locator
+  description: A device designed to aid in the locating of anomalies. Did you check the gas miners?
   suffix: Always Powered
   components:
   - type: Sprite
@@ -190,8 +190,8 @@
 - type: entity
   id: AnomalyLocatorWideUnpowered
   parent: AnomalyLocatorUnpowered
-  name: "локатор аномалій широкого спектру"
-  description: "Пристрій, який шукає аномалії з великої відстані, але не має можливості визначити відстань до них."
+  name: wide-spectrum anomaly locator
+  description: A device that looks for anomalies from an extended distance, but has no way to determine the distance to them.
   suffix: Always Powered
   components:
   - type: Sprite
@@ -223,10 +223,10 @@
         name: power-cell-slot-component-slot-name-default
 
 - type: entity
-  name: "Рукавичка G.O.R.I.L.L.A"
+  name: G.O.R.I.L.L.A. gauntlet
   parent: BaseItem
   id: WeaponGauntletGorilla
-  description: "Надійне дослідницьке обладнання. За допомогою аномального ядра один удар може запустити аномальні об'єкти в повітря."
+  description: A robust piece of research equipment. When powered with an anomaly core, a single blow can launch anomalous objects through the air.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/gorilla.rsi

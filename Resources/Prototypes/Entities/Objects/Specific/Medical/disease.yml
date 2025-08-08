@@ -81,8 +81,8 @@
 - type: entity
   parent: BaseItem
   id: DiseaseSwab
-  name: "стерильний тампон"
-  description: "Використовується для взяття та перенесення зразків. Стерильний до відкриття. Одноразового використання."
+  name: sterile swab
+  description: Used for taking and transferring samples. Sterile until open. Single use only.
   components:
   - type: Item
     size: Tiny
@@ -103,8 +103,8 @@
 - type: entity
   parent: BaseAmmoProvider # this is for cycling swabs out and not spawning 30 entities, trust
   id: BoxMouthSwab
-  name: "дозатор стерильних мазків"
-  description: "Видає 30 стерильних мазків, надзвичайно корисних для ботаніки."
+  name: sterile swab dispenser
+  description: Dispenses 30 sterile swabs, extremely useful for botany.
   components:
   - type: Sprite
     layers:
@@ -125,8 +125,8 @@
 - type: entity
   parent: BaseItem
   id: Vaccine
-  name: "вакцина"
-  description: "Запобігає зараженню людей, які ще не мають хвороби."
+  name: vaccine
+  description: Prevents people who DON'T already have a disease from catching it.
   components:
   - type: Item
     size: Tiny

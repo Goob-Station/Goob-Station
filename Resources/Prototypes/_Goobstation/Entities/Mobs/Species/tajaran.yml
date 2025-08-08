@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Уріст МакТаяран"
+  name: Urist McTajaran
   parent: BaseMobSpeciesOrganic
   id: BaseMobTajaran
   abstract: true
@@ -131,11 +131,11 @@
 
 - type: entity
   save: false
-  name: "Уріст МакХендс"
+  name: Urist McHands
   parent: MobHumanDummy
   id: MobTajaranDummy
   categories: [ HideSpawnMenu ]
-  description: "Фіктивний таджаран, призначений для використання в налаштуванні символів."
+  description: A dummy tajaran meant to be used in character setup.
   components:
   - type: HumanoidAppearance
     species: Tajaran

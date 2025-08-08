@@ -11,10 +11,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "регенеруюча пиріжкова гармата"
+  name: regenerating pie cannon
   parent: BaseStorageItem
   id: LauncherCreamPieRegenerating
-  description: "Пиріжкова гармата, що самостійно регенерує."
+  description: A self-regenerating pie cannon.
   suffix: Regenerating
   components:
   - type: PacifismAllowedGun
@@ -51,10 +51,10 @@
 # Lollypop stuff
 
 - type: entity
-  name: "роздавач льодяників з трикордазином"
+  name: tricordrazine lollypop dispenser
   parent: LauncherLollypopRegenerating
   id: LauncherLollypopRegeneratingTricordazine
-  description: "Використовує вбудований фабрикатор для створення льодяників з трикордазином з енергії."
+  description: Utilizes a in-built fabricator to generate tricordrazine lollypops from energy.
   suffix: Regenerating, DO NOT MAP
   categories: [ DoNotMap ]
   components:
@@ -68,10 +68,10 @@
     count: 3
 
 - type: entity
-  name: "роздавач льодяників з омнізином"
+  name: omnizine lollypop dispenser
   parent: LauncherLollypopRegenerating
   id: LauncherLollypopRegeneratingOmnizine
-  description: "Використовує вбудований фабрикатор для створення льодяників з омнізином з енергії."
+  description: Utilizes a in-built fabricator to generate omnizine lollypops from energy.
   suffix: Regenerating, DO NOT MAP
   categories: [ DoNotMap ]
   components:
@@ -85,10 +85,10 @@
     count: 2
 
 - type: entity
-  name: "роздавач льодяників \"вех!"
+  name: weh! lollypop dispenser
   parent: LauncherLollypopRegenerating
   id: LauncherLollypopRegeneratingWeh
-  description: "Використовує вбудований фабрикатор для створення льодяників \"Вех!\" з енергії. Вех!"
+  description: Utilizes a in-built fabricator to generate Weh! lollypops from energy. Weh!
   suffix: Regenerating, DO NOT MAP
   categories: [ DoNotMap ]
   components:
@@ -102,10 +102,10 @@
     count: 3
 
 - type: entity
-  name: "роздавач таємничих льодяників"
+  name: mystery lollypop dispenser
   parent: LauncherLollypopRegenerating
   id: LauncherLollypopRegeneratingMystery
-  description: "Використовує вбудований фабрикатор для створення випадкових льодяників з енергії."
+  description: Utilizes a in-built fabricator to generate randomized lollypops from energy.
   suffix: Regenerating, DO NOT MAP
   categories: [ DoNotMap ]
   components:
@@ -119,10 +119,10 @@
     count: 3
 
 - type: entity
-  name: "роздавач льодяників"
+  name: lollypop dispenser
   parent: BaseStorageItem
   id: LauncherLollypopRegenerating
-  description: "Використовує вбудований фабрикатор для створення льодяників з енергії."
+  description: Utilizes a in-built fabricator to generate lollypops from energy.
   suffix: Regenerating, DO NOT MAP
   categories: [ DoNotMap ]
   components:

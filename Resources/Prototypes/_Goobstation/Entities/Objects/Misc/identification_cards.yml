@@ -16,8 +16,8 @@
 - type: entity
   parent: IDCardStandard
   id: ChronoIDCard
-  name: "футуристичне посвідчення особи"
-  description: "Картка, яка спочатку давала доступ до всього у цьому всесвіті"
+  name: futuristic ID card
+  description: The card that originally accessed everything in this universe
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/id_cards.rsi
@@ -44,7 +44,7 @@
 - type: entity
   parent: SalvageIDCard
   id: HelldiverIDCard
-  name: "iD-картка сальваж-дайвера"
+  name: salvage diver ID card
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/id_cards.rsi
@@ -58,7 +58,7 @@
 - type: entity
   parent: IDCardStandard
   id: HecuIDCard
-  name: "ID-картка HECU"
+  name: HECU ID card
   components:
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
@@ -79,7 +79,7 @@
 - type: entity
   parent: IDCardStandard
   id: BlueshieldIDCard
-  name: "iD-карта Блюшилд"
+  name: blueshield officer ID card
   components:
   - type: Sprite
     layers:
@@ -97,7 +97,7 @@
 - type: entity
   parent: IDCardStandard
   id: NanotrasenRepresentativeIDCard
-  name: "iD-картка представника Nanotrasen"
+  name: nanotrasen representative ID card
   components:
   - type: Sprite
     layers:
@@ -115,7 +115,7 @@
 - type: entity
   parent: IDCardStandard
   id: NanotrasenCareerTrainerIDCard
-  name: "iD-картка кар'єрного тренера Nanotrasen"
+  name: nanotrasen career trainer ID card
   components:
   - type: Sprite
     layers:
@@ -130,8 +130,8 @@
 - type: entity
   parent: IDCardStandard
   id: ExecutiveIDCard
-  name: "картка доступу керівника"
-  description: "Співробітники Nanotrasen юридично зобов'язані слухати того, у кого є одна з цих карток. Вона також здатна обходити блокування доступу на більшості пристроїв."
+  name: executive access card
+  description: Nanotrasen employees are legally obligated to listen to someone with one of these. It's also capable of overriding access locks on most devices.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/executive.rsi
@@ -163,8 +163,8 @@
 - type: entity
   parent: ExecutiveIDCard
   id: ExecutiveIDCardChameleon
-  name: "картка доступу керівника"
-  description: "Ті ж функції, що й в оригінальній версії, але може змінювати зовнішній вигляд."
+  name: executive access card
+  description: Same features as the original version, but can change appearance.
   components:
   - type: AgentIDCard
   - type: ActivatableUI
@@ -189,7 +189,7 @@
 - type: entity
   parent: IDCardStandard
   id: CentcomIDCardNavyCaptain
-  name: "ID-картка капітана флоту"
+  name: Navy Captain's ID card
   components:
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
@@ -203,7 +203,7 @@
 - type: entity
   parent: CentcomIDCardNavyCaptain
   id: CentcomIDCardNavyOfficer
-  name: "ID-картка офіцера флоту"
+  name: Navy Officer's ID card
   components:
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
@@ -217,7 +217,7 @@
 - type: entity
   parent: CentcomIDCardNavyCaptain
   id: CentcomIDCardSpecialOperationsOfficer
-  name: "ID-картка офіцера спецоперацій"
+  name: Special Operations Officer's ID card
   components:
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
@@ -231,7 +231,7 @@
 - type: entity
   parent: CentcomIDCardNavyCaptain
   id: CentcomIDCardInspector
-  name: "iD-картка інспектора"
+  name: inspector's ID card
   components:
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
@@ -245,7 +245,7 @@
 - type: entity
   parent: CentcomIDCardNavyCaptain
   id: CentcomIDCardDiplomat
-  name: "ID-картка дипломата"
+  name: Diplomat's ID card
   components:
   - type: Sprite
     sprite: Objects/Misc/id_cards.rsi
@@ -262,8 +262,8 @@
 - type: entity
   parent: IDCardStandard
   id: GmanIDCard
-  name: "дивна ID-картка"
-  description: "Картка, яка спочатку давала доступ до всього у цьому всесвіті"
+  name: strange ID card
+  description: The card that originally accessed everything in this universe
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/id_cards.rsi
@@ -280,8 +280,8 @@
 - type: entity
   parent: SyndicateIDCard
   id: HighCommandIDCard
-  name: "iD-карта вищого командування"
-  description: "Особливо екстравагантна ідентифікаційна карта Синдикату. У неї вбудований зломщик доступу, що дозволяє відчинити майже будь-які двері."
+  name: high command ID card
+  description: A particularly extravagent Syndicate identification card. This one has an in-built access breaker to open nearly any door.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/id_cards.rsi

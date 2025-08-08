@@ -204,8 +204,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkColaCan
-  name: "банка Космічної Коли"
-  description: "Солодкий, газований безалкогольний напій."
+  name: Space Cola can
+  description: A sweet, carbonated soft drink.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -264,8 +264,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkIcedTeaCan
-  name: "банка чаю з льодом"
-  description: "Освіжаючу банку холодного чаю."
+  name: iced tea can
+  description: A refreshing can of iced tea.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -288,8 +288,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkLemonLimeCan
-  name: "банка \"Smite"
-  description: "Ви хотіли АПЕЛЬСИН. Він дав вам Лимон-Лайм."
+  name: Smite can
+  description: You wanted ORANGE. It gave you Lemon-Lime.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -312,8 +312,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkLemonLimeCranberryCan
-  name: "банка Smite з журавлиною"
-  description: "Хтось хоче Smite з журавлиною? Улюблений напій адміністраторів по всьому світу. Пийте в міру. Обмежена серія до свят!"
+  name: Smite Cranberry can
+  description: Y'all want a Smite Cranberry? Beloved by administrators everywhere. Drink in moderation. A limited run for the holidays!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -369,8 +369,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkGrapeCan
-  name: "банка виноградної газованої води"
-  description: "Підсолоджений напій з виноградним смаком та насиченим фіолетовим кольором."
+  name: grape soda can
+  description: Sweetened drink with a grape flavor and a deep purple color.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -393,8 +393,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkRootBeerCan
-  name: "банка з-під кореневого пива"
-  description: "Трохи смачного кореневого пива тепер у портативній бляшанці!"
+  name: root beer can
+  description: Some of that tasty root beer goodness, now in a portable can!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -420,8 +420,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkSodaWaterCan
-  name: "банка газованої води"
-  description: "Газована вода. Чому б не зробити віскі з содовою?"
+  name: soda water can
+  description: Soda water. Why not make a scotch and soda?
   components:
   - type: SolutionContainerManager
     solutions:
@@ -443,8 +443,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkSpaceMountainWindCan
-  name: "банка \"Космічний сонячний вітер"
-  description: "Продуває наскрізь, як сонячний вітер."
+  name: Space Solar Wind can
+  description: Blows right through you like a solar wind.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -467,8 +467,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkSpaceUpCan
-  name: "банка Space-Up"
-  description: "На смак як пробоїна в корпусі у вашому роті."
+  name: Space-Up can
+  description: Tastes like a hull breach in your mouth.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -491,8 +491,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkSolDryCan
-  name: "банка Sol Dry"
-  description: "Солодка імбирна газована вода з космосу!"
+  name: Sol Dry can
+  description: Sweet ginger soda from outer space!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -515,8 +515,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkStarkistCan
-  name: "банка Starkist"
-  description: "Смак зірки в рідкому вигляді. І трохи тунця...?"
+  name: Starkist can
+  description: The taste of a star in liquid form. And, a bit of tuna...?
   components:
   - type: SolutionContainerManager
     solutions:
@@ -539,8 +539,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkTonicWaterCan
-  name: "банка тонізуючої води"
-  description: "Хінін має кумедний смак, але принаймні він вбереже вас від космічної малярії."
+  name: tonic water can
+  description: Quinine tastes funny, but at least it'll keep that Space Malaria away.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -562,8 +562,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkFourteenLokoCan
-  name: "Чотирнадцять банок \"Локо"
-  description: "MBO повідомило членів екіпажу, що вживання \"Чотирнадцяти Локо\" може призвести до судом, сліпоти, сп'яніння або навіть смерті. Будь ласка, пийте відповідально."
+  name: Fourteen Loko can
+  description: The MBO has advised crew members that consumption of Fourteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -586,8 +586,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkChangelingStingCan
-  name: "банка \"Жало перевертня"
-  description: "Ви робите маленький ковток і відчуваєте печіння..."
+  name: Changeling Sting can
+  description: You take a tiny sip and feel a burning sensation...
   components:
   - type: SolutionContainerManager
     solutions:
@@ -611,8 +611,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkDrGibbCan
-  name: "Доктор Гібб може"
-  description: "Смачна суміш із 42 різних смаків."
+  name: Dr. Gibb can
+  description: A delicious blend of 42 different flavours.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -636,8 +636,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkNukieCan
-  name: "банка \"Криваво-червоного варива"
-  description: "Домашній напій, створений божевільними умами Синдикату. Не рекомендовано лікарями."
+  name: Blood-red Brew can
+  description: A home-brewed drink made from the crazed minds at the Syndicate. Not recommended by doctors.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -668,8 +668,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkEnergyDrinkCan
-  name: "банка \"Red Bool"
-  description: "Банка Red Bool, з достатньою кількістю кофеїну, щоб убити коня."
+  name: Red Bool can
+  description: A can of Red Bool, with enough caffeine to kill a horse.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -693,7 +693,7 @@
 - type: entity
   id: DrinkCanPack
   parent: BaseStorageItem
-  name: "6 упаковок"
+  name: 6pack
   components:
   - type: Sprite
     sprite: Objects/Misc/6pack.rsi
@@ -746,8 +746,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkShamblersJuiceCan
-  name: "банка \"Сік Шамблера"
-  description: "~Налий мені того Соку Шамблера!~"
+  name: Shambler's Juice can
+  description: ~Shake me up some of that Shambler's Juice!~
   components:
   - type: SolutionContainerManager
     solutions:
@@ -771,8 +771,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkPwrGameCan
-  name: "банка PWR Game"
-  description: "Єдиний напій з PWR, якого прагнуть справжні геймери. Коли геймер говорить про геймерське паливо, він буквально має на увазі саме це."
+  name: PWR Game can
+  description: The only drink with the PWR that true gamers crave. When a gamer talks about gamerfuel, this is what they're literally referring to.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -796,8 +796,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkBeerCan
-  name: "пивна банка"
-  description: "Маленька радість, великий смак, ніяких турбот!"
+  name: beer can
+  description: Small joy, big taste, no worries!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -824,8 +824,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkWineCan
-  name: "винна банка"
-  description: "Ваш шлях до того, щоб забути про всі турботи та розважитися!"
+  name: wine can
+  description: Your way to forgetting all worries and having fun!
   components:
   - type: SolutionContainerManager
     solutions:

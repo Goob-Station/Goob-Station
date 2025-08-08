@@ -1,7 +1,7 @@
 - type: job
   id: Interdyne
-  name: "оперативник Interdyne"
-  description: "виконуйте завдання, поставлені корпорацією Interdyne, використовуючи спеціалізовані навички та обладнання"
+  name: job-name-interdyne
+  description: job-description-interdyne
   icon: "JobIconInterdyne"
   canBeAntag: false
   playTimeTracker: JobInterdyne

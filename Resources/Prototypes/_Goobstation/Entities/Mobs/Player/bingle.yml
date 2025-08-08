@@ -18,10 +18,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "бінгл"
+  name: bingle
   id: MobBingle
   parent: MobSpaceBasic
-  description: "бінгл"
+  description: bingle
   components:
   - type: Bingle
   - type: GhostTakeoverAvailable
