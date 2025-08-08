@@ -130,7 +130,7 @@
     minimumTimeUntilFirstEvent: 600 # 10 min
     minMaxEventTiming:
       min: 300 # 5 min - Goob Edit
-      max: 5400 # 90 min - Goob edit
+      max: 5400 # 90 min - Goob Edit
     scheduledGameRules: !type:NestedSelector
       tableId: BasicMeteorSwarmEventsTable
 
