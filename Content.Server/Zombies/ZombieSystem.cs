@@ -250,7 +250,8 @@ namespace Content.Server.Zombies
                 return;
 
             var comp = EnsureComp<LanguageSpeakerComponent>(uid); // Ensure they can speak language before adding language.
-            comp.CurrentLanguage = component.ForcedLanguage;
+            if (!string.IsNullOrEmpty(component.ForcedLanguage)) // Should never be false, but security either way.
+                comp.CurrentLanguage = component.ForcedLanguage;
             _language.UpdateEntityLanguages(uid);
 
             _protoManager.TryIndex(component.EmoteSoundsId, out component.EmoteSounds);
