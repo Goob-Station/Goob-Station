@@ -124,6 +124,22 @@ public sealed partial class HumanoidAppearanceComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ProfileLoaded;
+
+    // begin Goobstation: port EE height/width sliders
+
+    /// <summary>
+    ///     The height of this humanoid.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Height = 1f;
+
+    /// <summary>
+    ///     The width of this humanoid.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Width = 1f;
+
+    // end Goobstation: port EE height/width sliders
 }
 
 [DataDefinition]

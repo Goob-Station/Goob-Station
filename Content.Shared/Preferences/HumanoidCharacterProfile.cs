@@ -135,6 +135,14 @@ namespace Content.Shared.Preferences
         [DataField]
         public Gender Gender { get; private set; } = Gender.Male;
 
+        // begin Goobstation: port EE height/width sliders
+        [DataField]
+        public float Height { get; private set; } = 1f;
+
+        [DataField]
+        public float Width { get; private set; } = 1f;
+        // end Goobstation: port EE height/width sliders
+
         /// <summary>
         /// <see cref="Appearance"/>
         /// </summary>
@@ -177,6 +185,8 @@ namespace Content.Shared.Preferences
             string name,
             string flavortext,
             string species,
+            float height, // Goobstation: port EE height/width sliders
+            float width, // Goobstation: port EE height/width sliders
             int age,
             Sex sex,
             Gender gender,
@@ -192,6 +202,8 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             Species = species;
+            Height = height; // Goobstation: port EE height/width sliders
+            Width = width; // Goobstation: port EE height/width sliders
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -223,6 +235,8 @@ namespace Content.Shared.Preferences
             : this(other.Name,
                 other.FlavorText,
                 other.Species,
+                other.Height, // Goobstation: port EE height/width sliders
+                other.Width, // Goobstation: port EE height/width sliders
                 other.Age,
                 other.Sex,
                 other.Gender,
@@ -342,6 +356,10 @@ namespace Content.Shared.Preferences
             return new(this) { Species = species };
         }
 
+        // begin Goobstation: port EE height/width sliders
+        public HumanoidCharacterProfile WithHeight(float height) => new(this) { Height = height };
+        public HumanoidCharacterProfile WithWidth(float width) => new(this) { Width = width };
+        // end Goobstation: port EE height/width sliders
 
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
