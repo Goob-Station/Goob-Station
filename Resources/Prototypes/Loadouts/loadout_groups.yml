@@ -1225,7 +1225,7 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
-  - Bodycam # Goobstation - Body cameras
+  - Bodycam # Pirate
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -1336,7 +1336,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
-  - Bodycam # Goobstation - Body cameras
+  - Bodycam # Pirate
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1360,7 +1360,7 @@
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
   - CadetJumpsuit
-  - RedJumpskirt
+#  - RedJumpskirt
 
 - type: loadoutGroup
   id: SurvivalSecurity

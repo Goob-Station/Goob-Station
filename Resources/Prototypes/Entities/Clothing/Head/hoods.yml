@@ -645,9 +645,9 @@
   name: warden's coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+    sprite: _Pirate/Clothing/Head/Hoods/Coat/hoodwarden.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodsec.rsi
+    sprite: _Pirate/Clothing/Head/Hoods/Coat/hoodwarden.rsi
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
