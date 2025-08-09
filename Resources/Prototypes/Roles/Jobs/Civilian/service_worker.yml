@@ -89,10 +89,12 @@
   - Kitchen
   extendedAccess:
   - Hydroponics
-
-- type: LanguageKnowledge # goob - Languages
-  understands:
-  - SpaceItalian
+  special: # goob - Languages
+  - !type:AddComponentSpecial # goob - Languages
+    - components:
+      - type: LanguageKnowledge
+        understands:
+        - SpaceItalian
 
 - type: startingGear
   id: ServiceWorkerGear
