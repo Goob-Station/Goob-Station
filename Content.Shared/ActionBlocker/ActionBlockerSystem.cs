@@ -59,7 +59,10 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -228,10 +231,11 @@ namespace Content.Shared.ActionBlocker
             return !itemEv.Cancelled;
         }
 
-        public bool CanSpeak(EntityUid uid)
+        // Goobstation - Port hypophonia trait from Harmony - added whisper boolean
+        public bool CanSpeak(EntityUid uid, bool whisper = false)
         {
             // This one is used as broadcast
-            var ev = new SpeakAttemptEvent(uid);
+            var ev = new SpeakAttemptEvent(uid, whisper);
             RaiseLocalEvent(uid, ev, true);
 
             return !ev.Cancelled;
