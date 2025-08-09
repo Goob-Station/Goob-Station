@@ -90,6 +90,10 @@
   extendedAccess:
   - Hydroponics
 
+- type: LanguageKnowledge # goob - Languages
+  understands:
+  - SpaceItalian
+
 - type: startingGear
   id: ServiceWorkerGear
   equipment:

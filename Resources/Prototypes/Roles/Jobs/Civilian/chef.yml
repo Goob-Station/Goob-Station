@@ -98,6 +98,12 @@
         startingStage: Hard # Goobstation - Martial Arts
         isBlocked: true # Goobstation - Martial Arts
 
+- type: LanguageKnowledge # goob - Languages
+  speaks:
+  - SpaceItalian
+  understands:
+  - SpaceItalian
+
 - type: startingGear
   id: ChefGear
   equipment:
