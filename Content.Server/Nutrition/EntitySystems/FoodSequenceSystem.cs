@@ -120,10 +120,12 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
-        if (ent.Comp.AcceptAll // Goobstation - anythingburgers
-            && !HasComp<EntityStorageComponent>(args.Used) // Goobstation - Prevent backpacks/pet carriers.
-            && !HasComp<StorageComponent>(args.Used))
-            EnsureComp<FoodSequenceElementComponent>(args.Used);
+        if (!HasComp<EntityStorageComponent>(args.Used)
+            || !HasComp<StorageComponent>(args.Used))
+            return; // Prevent Bakcpacks/Pet Carriers
+
+        if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
+                EnsureComp<FoodSequenceElementComponent>(args.Used);
 
         if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
             args.Handled = TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
