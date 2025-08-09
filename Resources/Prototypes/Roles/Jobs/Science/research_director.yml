@@ -157,7 +157,8 @@
   - ResearchDirector
   - Brig
   - Cryogenics
-  - External # goobstation
+  - External # Goobstation
+  - Xenobiology # Goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
