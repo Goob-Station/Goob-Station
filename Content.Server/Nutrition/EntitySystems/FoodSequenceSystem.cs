@@ -122,7 +122,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     {
         if (HasComp<EntityStorageComponent>(args.Used)
             || HasComp<StorageComponent>(args.Used))
-            return; // Prevent Bakcpacks/Pet Carriers
+            return; // Prevent Backpacks/Pet Carriers
 
         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
                 EnsureComp<FoodSequenceElementComponent>(args.Used);
