@@ -2135,7 +2135,7 @@
   sprite: /Textures/Tiles/hull_reinforced.png
   #goobstation
   baseTurf: Lattice
-  isSubfloor: true 
+  isSubfloor: true
   friction: 1.5 #same as normal plating
   footstepSounds:
     collection: FootstepHull
