@@ -373,7 +373,7 @@
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
   id: ClothingOuterArmorQueenCarapace
   name: queen's carapace
-  description: The head of an ancient Queen, repurposed for its protective properties.
+  description: The skull of the ancient Xeno Queen, reforged into an imposing chestpiece that turns her former menace into unyielding protection.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/queen_carapace.rsi

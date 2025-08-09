@@ -278,7 +278,7 @@
   - type: Sprite
     layers:
     - state: green
-    - state: nanites
+    - state: nanites_attack
       sprite: /Textures/_Goobstation/Mobs/Silicon/nanites.rsi
   - type: ConditionalSpawner
     prototypes:

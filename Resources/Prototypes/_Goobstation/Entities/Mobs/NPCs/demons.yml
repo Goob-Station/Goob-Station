@@ -199,3 +199,86 @@
     - type: Fauna # Lavaland Change
     - type: CombatPower # Goobstation
       factor: 3 # times more dangerous than a crew-member
+
+
+- type: entity
+  name: abyss crawler
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  id: MobAbyssCrawler
+  description: A pale mass of heaving flesh that gropes around in the gloom. It doesn't appear to have any eyes.
+  components:
+    - type: HTN
+      rootTask:
+        task: SimpleHostileCompound
+    - type: SpamEmitSound
+      minInterval: 5
+      maxInterval: 10
+      sound:
+        path: /Audio/_Goobstation/Animals/breath1.ogg
+        params:
+          volume: -5
+          maxDistance: 15
+          variation: 0.5
+    - type: NpcFactionMember
+      factions:
+        - SimpleHostile
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2
+      baseSprintSpeed: 2
+    - type: Sprite
+      sprite: _Goobstation/Mobs/Animals/abysscrawler.rsi
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: abyss_crawler
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: abyss_crawler
+        Dead:
+          Base: crawler_dead
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepThud
+    - type: Physics
+      bodyType: KinematicController
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.40
+          density: 100
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        300: Dead
+    - type: PassiveDamage
+      allowedStates:
+        - Alive
+      damage:
+        types:
+          Heat: -1
+        groups:
+          Brute: -1
+    - type: TileMovement
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+      damage:
+        types:
+          Piercing: 20
+          Slash: 10
+    - type: Butcherable
+      spawned:
+      - id: DiamondOre1 # not unprocessed
+        amount: 1
+    - type: Bloodstream
+      bloodMaxVolume: 300
+      bloodReagent: Haloperidol
+    - type: Fauna # Lavaland Change
+    - type: CombatPower # Goobstation
+      factor: 3 # times more dangerous than a crew-member
