@@ -1,0 +1,100 @@
+# Boxes
+- type: tileShape
+  id: DebugBoxFilled1
+  shape: !type:BoxTileShape
+    size: 1
+
+- type: tileShape
+  id: DebugBoxHollow1
+  shape: !type:BoxTileShape
+    hollow: true
+    size: 1
+
+- type: tileShape
+  id: DebugBoxFilled2
+  shape: !type:BoxTileShape
+    size: 2
+
+- type: tileShape
+  id: DebugBoxHollow2
+  shape: !type:BoxTileShape
+    hollow: true
+    size: 2
+
+- type: tileShape
+  id: DebugBoxFilled3
+  shape: !type:BoxTileShape
+    size: 3
+
+- type: tileShape
+  id: DebugBoxHollow3
+  shape: !type:BoxTileShape
+    hollow: true
+    size: 3
+
+- type: tileShape
+  id: DebugBoxFilled4
+  shape: !type:BoxTileShape
+    size: 4
+
+- type: tileShape
+  id: DebugBoxHollow4
+  shape: !type:BoxTileShape
+    hollow: true
+    size: 4
+
+- type: tileShape
+  id: DebugBoxFilled5
+  shape: !type:BoxTileShape
+    size: 5
+
+- type: tileShape
+  id: DebugBoxHollow5
+  shape: !type:BoxTileShape
+    hollow: true
+    size: 5
+
+# Crosses
+
+- type: tileShape
+  id: DebugCrossRook1
+  shape: !type:RookTileShape
+    size: 1
+
+- type: tileShape
+  id: DebugCrossBishop1
+  shape: !type:RookTileShape
+    size: 1
+
+- type: tileShape
+  id: DebugCrossRook5
+  shape: !type:RookTileShape
+    size: 5
+
+- type: tileShape
+  id: DebugCrossBishop5
+  shape: !type:RookTileShape
+    size: 5
+
+# Options
+
+- type: tileShape
+  id: DebugOptionsTest
+  shape: !type:GroupTileShape
+    children:
+    - id: DebugBoxFilled1
+      group: First
+    - id: DebugBoxFilled1
+      group: Second
+    - id: DebugCrossRook1
+      group: Third
+    options:
+      First:
+        groupSize: 5
+        offset: 0,10
+      Second:
+        groupSize: 3
+        offset: 0,-10
+      Third:
+        groupSize: 5
+        offset: 10,0

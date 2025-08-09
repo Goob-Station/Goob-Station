@@ -22,13 +22,19 @@
   - type: TimedDespawn
     lifetime: 1
   - type: DamageSquare
+    damageDelay: 0.7
     damage:
       types:
         Blunt: 10
         Heat: 10
+    damageWhitelist:
+      components:
+      - MobState
+    damageBlacklist:
+      components:
+      - HierophantImmune
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
-    damageDelay: 0.7
 
 - type: entity
   id: LavalandHierophantChaser
