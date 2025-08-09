@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
@@ -15,7 +16,7 @@ public sealed partial class HandheldTranslatorComponent : BaseTranslatorComponen
     /// <summary>
     ///   Whether interacting with this translator toggles it on and off.
     /// </summary>
-    [DataField("toggleOnInteract")] // goob edit
+    [DataField]
     public bool ToggleOnInteract = true;
 
     /// <summary>
@@ -25,7 +26,7 @@ public sealed partial class HandheldTranslatorComponent : BaseTranslatorComponen
     /// <remarks>
     ///      This should generally be used for translators that translate speech between two languages.
     /// </remarks>
-    [DataField("setLanguageOnInteract")] //goob edit
+    [DataField]
     public bool SetLanguageOnInteract = true;
 
     /// <summary>
@@ -34,6 +35,6 @@ public sealed partial class HandheldTranslatorComponent : BaseTranslatorComponen
     /// <remarks>
     ///     Added by Goob Station. This should be used for something like a magical object that grants a language to the user while they are holding/wearing it.
     /// </remarks>
-    [DataField ("showInfoOnExamine")] //goob
-    public bool ShowInfoOnExamine = true; // goob
+    [DataField]
+    public bool ShowInfoOnExamine = true;
 }

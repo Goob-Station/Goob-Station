@@ -148,6 +148,7 @@
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Weax <59857479+ImWeax@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -942,7 +943,7 @@
   - type: AddAccentClothing
     accent: ReplacementAccent
     replacement: italian
-  - type: HandheldTranslator # goob
+  - type: HandheldTranslator # Goob - Magic Moustache
     spoken:
     - SpaceItalian
     understood:
