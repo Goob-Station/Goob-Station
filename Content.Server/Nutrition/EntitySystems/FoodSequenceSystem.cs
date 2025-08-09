@@ -79,12 +79,14 @@
 using System.Numerics;
 using System.Text;
 using Content.Server.Nutrition.Components;
+using Content.Server.Storage.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Random;
@@ -114,7 +116,9 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
-        if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
+        if (ent.Comp.AcceptAll // Goobstation - anythingburgers
+            && !HasComp<EntityStorageComponent>(args.Used) // Goobstation - Prevent backpacks/pet carriers.
+            && !HasComp<StorageComponent>(args.Used))
             EnsureComp<FoodSequenceElementComponent>(args.Used);
 
         if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
