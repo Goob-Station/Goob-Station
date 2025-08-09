@@ -14,7 +14,7 @@
     sprite: /Textures/_Goobstation/Mobs/Silicon/nanites.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: nanites
+      state: nanites_attack
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -23,7 +23,7 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: nanites
+        Base: nanites_attack
       Critical:
         Base: nanites_crit
       Dead:
@@ -33,7 +33,7 @@
     - Critical
     damage:
       groups:
-        Brute: -12
+        Brute: -15
   - type: HTN
     rootTask:
       task: SimpleHostileCompound

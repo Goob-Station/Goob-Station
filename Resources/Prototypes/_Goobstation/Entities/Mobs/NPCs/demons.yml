@@ -170,7 +170,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        500: Dead
+        400: Dead
     - type: PassiveDamage
       allowedStates:
         - Alive
@@ -185,7 +185,7 @@
           amount: 3
         - id: WeaponBehonkerLaser
           amount: 1
-          prob: 0.1
+          prob: 0.05
     - type: MeleeWeapon
       soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
