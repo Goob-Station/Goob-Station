@@ -120,8 +120,8 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
-        if (!HasComp<EntityStorageComponent>(args.Used)
-            || !HasComp<StorageComponent>(args.Used))
+        if (HasComp<EntityStorageComponent>(args.Used)
+            || HasComp<StorageComponent>(args.Used))
             return; // Prevent Bakcpacks/Pet Carriers
 
         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
