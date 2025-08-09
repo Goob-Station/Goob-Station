@@ -10,3 +10,16 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterCap
+
+- type: loadout
+  id: CaptainFeatheryCloak
+  equipment:
+    neck: ClothingNeckCloakCaptainFeathery
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterCap
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 198000 # 55 hrs

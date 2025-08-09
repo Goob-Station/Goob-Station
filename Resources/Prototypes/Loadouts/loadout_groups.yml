@@ -319,6 +319,7 @@
   - CaptainCloak
   - CaptainCloakFormal
   - CaptainMantle
+  - CaptainFeatheryCloak # Goobstation
 
 - type: loadoutGroup
   id: CaptainBackpack
@@ -1226,6 +1227,7 @@
   - HeadofSecurityCloak
   - HeadofSecurityMantle
   - Bodycam # Goobstation - Body cameras
+  - HeadofSecurityFeatheryCloak # Goobstation
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing

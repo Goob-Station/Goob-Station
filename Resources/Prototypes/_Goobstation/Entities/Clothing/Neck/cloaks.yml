@@ -33,6 +33,61 @@
     sprite: _Goobstation/Clothing/Neck/Cloaks/breverb.rsi
 
 - type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSyndieFeathery
+  name: Syndicate fethered cape
+  description: When you want to feel yourself a real vulture. No real vulture was harmed (probably)
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/featherysyndie.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/featherysyndie.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakCaptainFeathery
+  name: Captain fethered cape
+  description: The garment worth of the true cock of this coop
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/featherycaptain.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/featherycaptain.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSecFeathery
+  name: Security fethered cape
+  description: Unfortunately, this cape wont allow you fly. But you can run down the hallway pretending you are a hawk chasing its prey.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/featherysec.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/featherysec.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSecSeniorFeathery
+  name: Security senior fethered cape
+  description: It is mandated by Nanotrasen, that you screech like an eagle when you beat clown for slipping you. This one feels softer than regular featherly cape
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/fetherysecsenior.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/fetherysecsenior.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakBrigmedFeathery
+  name: Brigmed fethered cape
+  description: You can now pretend you are an angel. A very bloody angel. Feathers feel sterile and smooth.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Cloaks/featherybrigmed.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Cloaks/featherybrigmed.rsi
+
+- type: entity
   parent: [ ClothingNeckBase, BaseMagicalContraband ]
   id: ClothingNeckCloakCarp
   name: carp cloak

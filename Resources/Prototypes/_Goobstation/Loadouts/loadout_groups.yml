@@ -199,6 +199,7 @@
   loadouts:
   - Bodycam # Goobstation - Body cameras
   - ClothingNeckCWPSec
+  - SecOffFeatheryCloak
 
 #honkops
 
@@ -288,8 +289,13 @@
   - BrigmedicDuffel
   - BrigmedicMessenger
 
-# Security
+- type: loadoutGroup
+  id: BrigmedicNeck
+  name: loadout-group-brigmedic-neck
+  loadouts:
+  - BrigmedicCloak
 
+# Security
 - type: loadoutGroup
   id: SecurityMelee
   name: loadout-group-security-melee

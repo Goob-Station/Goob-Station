@@ -48,3 +48,14 @@
   storage:
     back:
     - SpearTelescopic
+#Neck
+- type: loadout
+  id: SecOffFeatheryCloak
+  equipment:
+    neck: ClothingNeckCloakSecFeathery
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 198000 # 55 hrs
