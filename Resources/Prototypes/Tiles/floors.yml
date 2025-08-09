@@ -2129,7 +2129,7 @@
   name: tiles-hull-reinforced
   sprite: /Textures/Tiles/hull_reinforced.png
   baseTurf: Plating
-  isSubfloor: false
+  isSubfloor: true
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemSteel
