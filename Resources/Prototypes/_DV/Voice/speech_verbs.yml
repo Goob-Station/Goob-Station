@@ -45,3 +45,12 @@
   - chat-speech-verb-rodentia-2
   - chat-speech-verb-rodentia-3
   - chat-speech-verb-rodentia-4
+
+- type: speechVerb
+  id: Chitinid
+  name: chat-speech-verb-name-chitinid
+  speechVerbStrings:
+  - chat-speech-verb-chitinid-1
+  - chat-speech-verb-chitinid-2
+  - chat-speech-verb-chitinid-3
+  - chat-speech-verb-chitinid-4
