@@ -24,7 +24,6 @@
   - type: HereticRule
   - type: GameRule
     minPlayers: 15
-    chaosScore: 800
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective
@@ -37,6 +36,7 @@
     - prefRoles: [ Heretic ]
       max: 3
       playerRatio: 15
+      chaosScore: 250
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain, ] # GOOBSTATION
       blacklist:
