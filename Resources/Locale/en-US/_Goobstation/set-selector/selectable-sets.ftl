@@ -149,7 +149,8 @@ selectable-set-blueshield-chester-description =
 selectable-set-blueshield-syringe-name = medical set
 selectable-set-blueshield-syringe-description =
     Perfect for healing allies or poisioning foes in a pinch.
-    Includes: A combat injector, and several vials of medicine.
+    Includes: An explosive resistant chestrig, a combat injector, and
+    several vials of medicine.
 
 # Blueshield hardsuits
 
