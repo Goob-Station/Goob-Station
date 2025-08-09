@@ -2,9 +2,7 @@
   id: WhiteGloves
   equipment:
     gloves: ClothingHandsGlovesColorWhite
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: WhiteEnvirosuit

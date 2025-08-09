@@ -107,25 +107,19 @@
   id: StationEngineerHardhatYellow
   equipment:
     head: ClothingHeadHatHardhatYellow
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: StationEngineerHardhatOrange
   equipment:
     head: ClothingHeadHatHardhatOrange
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: StationEngineerHardhatRed
   equipment:
     head: ClothingHeadHatHardhatRed
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: SeniorEngineerBeret
@@ -133,41 +127,31 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
 
 # Jumpsuit
 - type: loadout
   id: StationEngineerJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineering
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: StationEngineerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtEngineering
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: StationEngineerHazardsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringHazard
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: SeniorEngineerJumpsuit
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorEngineer
 
@@ -176,8 +160,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
 
@@ -185,9 +167,7 @@
   id: EngiMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryEngineering
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 # Back
 - type: loadout

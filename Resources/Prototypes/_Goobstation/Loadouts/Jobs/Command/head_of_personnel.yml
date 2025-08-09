@@ -29,6 +29,3 @@
   id: HoPGloves
   equipment:
     gloves: ClothingHandsGlovesHop
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman

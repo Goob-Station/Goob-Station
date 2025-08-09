@@ -17,8 +17,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterChemist
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
   equipment:
     head: ClothingHeadHatUshanka
 

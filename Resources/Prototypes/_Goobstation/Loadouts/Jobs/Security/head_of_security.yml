@@ -13,8 +13,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterHoS
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
   equipment:
     head: ClothingHeadHatBeretHeadOfSecurityAdvanced
 

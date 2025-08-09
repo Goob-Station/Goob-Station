@@ -77,14 +77,10 @@
   id: PsychologistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitPsychologist
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: PsychologistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtPsychologist
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+

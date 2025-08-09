@@ -11,3 +11,9 @@
     parts:
     - LeftHand
     - RightHand
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - PlasmamanSafe

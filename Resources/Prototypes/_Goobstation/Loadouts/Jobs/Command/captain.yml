@@ -42,6 +42,3 @@
   id: CaptainGloves
   equipment:
     gloves: ClothingHandsGlovesCaptain
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman

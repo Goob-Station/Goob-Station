@@ -28,33 +28,25 @@
   id: BlueshieldOfficerHeadSwatHelmet
   equipment:
     head: ClothingHeadHelmetSwat
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: BlueshieldOfficerBeret
   equipment:
     head: ClothingHeadHatBeretBlueshield # Here's your beret back Gallagin.
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: BlueshieldOfficerHeadCowboy
   equipment:
     head: ClothingHeadHatCowboyBlueshield
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: BlueshieldOfficerGoidaHelmet
   equipment:
     head: ClothingHeadHatUshankaBlueshield
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: BlueshieldOfficerEnvirohelm
@@ -70,25 +62,19 @@
   id: BlueshieldOfficerInnerBlueshieldSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBlueshieldOfficer
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldShirt
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: BlueshieldOfficerEnvirosuit
@@ -113,9 +99,7 @@
   id: CombatGloves
   equipment:
     gloves: ClothingHandsGlovesCombat
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 # Outer
 - type: loadout

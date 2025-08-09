@@ -20,14 +20,10 @@
   id: ZookeeperHead
   equipment:
     head: ClothingHeadSafari
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: ZookeeperJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSafari
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+

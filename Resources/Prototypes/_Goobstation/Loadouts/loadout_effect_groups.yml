@@ -1,11 +1,3 @@
-- type: loadoutEffectGroup # Goobstation
-  id: EffectSpeciesNotPlasmaman
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Plasmaman
-    inverted: true
-
 - type: loadoutEffectGroup
   id: PlasmaBreather
   effects:

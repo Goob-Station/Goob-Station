@@ -29,6 +29,3 @@
   id: DetectiveGloves
   equipment:
     gloves: ClothingHandsGlovesForensic
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman

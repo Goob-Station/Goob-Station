@@ -8,26 +8,20 @@
   id: CargoTechnicianHeadMail
   equipment:
     head: ClothingHeadMailCarrier
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 # Jumpsuit
 - type: loadout
   id: CargoTechnicianJumpsuitMail
   equipment:
     jumpsuit: ClothingUniformMailCarrier
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 - type: loadout
   id: CargoTechnicianJumpskirtMail
   equipment:
     jumpsuit: ClothingUniformSkirtMailCarrier
-  effects:
-  - !type:GroupLoadoutEffect # Goobstation - EE Plasmeme Change.
-    proto: EffectSpeciesNotPlasmaman
+
 
 # OuterClothing
 - type: loadout
