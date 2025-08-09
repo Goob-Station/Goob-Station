@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: emoteSounds
+  id: AnimalSlime
+  sounds:
+    Squish:
+      collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Honk:
+      collection: BikeHorn
+    Weh:
+      collection: Weh
+  params:
+    variation: 0.125

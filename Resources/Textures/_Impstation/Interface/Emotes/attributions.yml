@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Attempted to keep the files in alphabetical order so its easier to audit.
+# Finding individual authors is an unfeasible task. If you can reference the author please do so.
+
+- files: ["crack.png"]
+  license: "CC-BY-SA-4.0"
+  copyright: "Spritework by Pinkbat5"
+  source: "https://github.com/Pinkbat5"
