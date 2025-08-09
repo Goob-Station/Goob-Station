@@ -93,3 +93,13 @@
   cost: 3200 # Goobstation # they're kinda bad compared to the other guns so should be cheap
   category: cargoproduct-category-name-armory
   group: market
+
+- type: cargoProduct
+  id: ArmoryRifle
+  icon:
+    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
+    state: icon
+  product: CrateArmoryRifle
+  cost: 8000
+  category: cargoproduct-category-name-armory
+  group: market

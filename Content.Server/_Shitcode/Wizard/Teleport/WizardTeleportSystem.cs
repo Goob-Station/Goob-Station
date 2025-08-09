@@ -15,6 +15,7 @@ using Content.Server.Warps;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Magic.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Physics;
@@ -72,7 +73,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
 
         var action = GetEntity(args.Action.Value);
 
-        if (!TryComp(action, out InstantActionComponent? instantAction) || !_actions.ValidAction(instantAction))
+        if (!TryComp(action, out ActionComponent? actionComp) || !_actions.ValidAction((action, actionComp)))
             return;
 
         var user = args.Actor;

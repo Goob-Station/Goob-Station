@@ -11,20 +11,20 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionForceWall
   name: Force Wall # Goob edit
   description: Create a magical barrier that only you can pass through. # Goob edit
   components:
-  - type: InstantAction
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
-    useDelay: 10
+  - type: Action
+    useDelay: 15
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: shield_greater # Goob edit
+      sprite: Objects/Magic/magicactions.rsi
+      state: shield
+  - type: InstantAction
     event: !type:InstantSpawnSpellEvent
       prototype: WallForce
       posData: !type:TargetInFront

@@ -8,6 +8,7 @@
 
 using Content.Goobstation.Shared.ChronoLegionnaire.EntitySystems;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

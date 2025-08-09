@@ -11,6 +11,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionRevertPolymorph
   name: Revert
   description: Revert back into your original form.
@@ -19,41 +20,43 @@
     event: !type:RevertPolymorphActionEvent
 
 - type: entity
-  id: ActionPolymorph
+  abstract: true
+  parent: BaseAction
+  id: BaseActionPolymorph
   components:
+  - type: Action
+    itemIconStyle: NoItem
+    useDelay: 60
   - type: InstantAction
     event: !type:PolymorphActionEvent
-    itemIconStyle: NoItem
 
 - type: entity
+  parent: BaseActionPolymorph
   id: ActionPolymorphWizardSpider
   name: Spider Polymorph
   description: Polymorphs you into a Spider.
   components:
-  - type: InstantAction
-    useDelay: 60
-    event: !type:PolymorphActionEvent
-      protoId: WizardSpider
-    itemIconStyle: NoItem
+  - type: Action
     icon:
       sprite: Mobs/Animals/spider.rsi
       state: tarantula
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: WizardSpider
 
 - type: entity
+  parent: BaseActionPolymorph
   id: ActionPolymorphWizardRod
   name: Rod Form
   description: Take on the form of an immovable rod, destroying everything in your path.
   components:
-  - type: InstantAction
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
-    useDelay: 25 # Goob edit
-    event: !type:PolymorphSpellEvent # Goob edit
-      protoId: WizardRod
-    itemIconStyle: NoItem
+  - type: Action
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: immrod # Goob edit
+      sprite: Objects/Fun/immovable_rod.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: WizardRod
   - type: SpeakOnAction
     sentence: action-speech-spell-rod-form # Goobstation
   - type: Magic # Goobstation
@@ -67,7 +70,9 @@
       4: ActionPolymorphWizardRodIV
       5: ActionPolymorphWizardRodV
 
+
 - type: entity
+  parent: BaseActionPolymorph
   id: ActionPolymorphJaunt
   name: Ethereal Jaunt
   description: Melt into the Ethereal Plane for a quick getaway!
@@ -78,17 +83,14 @@
   - type: Sprite # Goobstation - for apprentices
     sprite: _Goobstation/Wizard/actions.rsi
     state: jaunt
-  - type: InstantAction
+  - type: Action
     useDelay: 30
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
-    event: !type:PolymorphSpellEvent # Goob edit
-      protoId: Jaunt
-      makeWizard: false # Goobstation
-    itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: Jaunt
     # TODO: Effect ECS (from cardboard box)
   - type: ActionUpgrade
     effectedLevels:
@@ -96,37 +98,19 @@
       3: ActionPolymorphJauntIII
 
 - type: entity
-  id: ActionPolymorphJauntII
   parent: ActionPolymorphJaunt
+  id: ActionPolymorphJauntII
   name: Ethereal Jaunt II
   description: Melt into the Ethereal Plane for an even quicker getaway!
   components:
-  - type: InstantAction
-    useDelay: 22 # Goob edit
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
-    event: !type:PolymorphSpellEvent # Goob edit
-      protoId: Jaunt
-      makeWizard: false # Goobstation
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: jaunt
+  - type: Action
+    useDelay: 22
 
 - type: entity
-  id: ActionPolymorphJauntIII
   parent: ActionPolymorphJaunt
+  id: ActionPolymorphJauntIII
   name: Ethereal Jaunt III
   description: Are you even tangible anymore?
   components:
-  - type: InstantAction
-    useDelay: 14 # Goob edit
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
-    event: !type:PolymorphSpellEvent # Goob edit
-      protoId: Jaunt
-      makeWizard: false # Goobstation
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: jaunt
+  - type: Action
+    useDelay: 14

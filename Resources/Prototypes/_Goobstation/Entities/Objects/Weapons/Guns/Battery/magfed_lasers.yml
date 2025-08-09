@@ -191,7 +191,7 @@
     zeroNoAmmo: true
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
+      enum.ToggleableVisuals.Enabled:
         base:
           True: { state: on }
           False: { state: off }

@@ -28,6 +28,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
+using Content.Shared.Actions.Components;
 
 namespace Content.Goobstation.Shared.Vehicles;
 

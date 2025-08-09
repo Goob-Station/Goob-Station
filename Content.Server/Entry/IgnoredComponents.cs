@@ -81,6 +81,7 @@ namespace Content.Server.Entry
             "LightFade",
             "HolidayRsiSwap",
             "OptionsVisualizer",
+            "MultipartMachineGhost",
             "ToggleableLightWieldable", // Goobstation
             "HideClothingLayerClothing", // Goobstation
             "ItemSlotRenderer", // WWDP EDIT

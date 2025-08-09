@@ -103,12 +103,6 @@ public sealed partial class GasAnalyzerComponent : Component
                  ("gasAmount", Amount));
         }
     }
-
-    [Serializable, NetSerializable]
-    public sealed class GasAnalyzerDisableMessage : BoundUserInterfaceMessage
-    {
-
-    }
 }
 
 [Serializable, NetSerializable]

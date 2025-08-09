@@ -75,3 +75,6 @@ traitor-nvf-goal =  The Space Wizards Federation wants us to prove we can work w
 traitor-nvf-allies = Members of the Space Wizards Federation and other visionaries can be trusted. It's your choice whether to trust other Syndicate members.
 traitor-nvf-uplink = The federation has granted you an uplink in your PDA. Use it wisely.
 traitor-nvf-roundend = [color=violet]a Federation Visionary[/color]
+
+issuers-corporate-flavor-1 = NanoTrasen
+issuers-corporate-flavor-2 = Central Command

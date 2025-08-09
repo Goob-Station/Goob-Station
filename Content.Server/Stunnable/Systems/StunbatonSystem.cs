@@ -75,7 +75,6 @@ namespace Content.Server.Stunnable.Systems
             SubscribeLocalEvent<StunbatonComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<StunbatonComponent, SolutionContainerChangedEvent>(OnSolutionChange);
             SubscribeLocalEvent<StunbatonComponent, StaminaDamageOnHitAttemptEvent>(OnStaminaHitAttempt);
-            SubscribeLocalEvent<StunbatonComponent, ItemToggleActivateAttemptEvent>(TryTurnOn);
             SubscribeLocalEvent<StunbatonComponent, ChargeChangedEvent>(OnChargeChanged);
 
             SubscribeLocalEvent<StunbatonComponent, EmpPulseEvent>(OnEmp); // Goobstation
@@ -119,8 +118,10 @@ namespace Content.Server.Stunnable.Systems
             }
         }
 
-        private void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
+        protected override void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
         {
+            base.TryTurnOn(entity, ref args);
+
             if (!TryComp<BatteryComponent>(entity, out var battery) || battery.CurrentCharge < entity.Comp.EnergyPerUse)
             {
                 args.Cancelled = true;

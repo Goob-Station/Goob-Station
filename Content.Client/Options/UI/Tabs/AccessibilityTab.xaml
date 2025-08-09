@@ -11,8 +11,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <Control xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:ui="clr-namespace:Content.Client.Options.UI"
-         xmlns:ui1="clr-namespace:Content.Client._Shitcode.Options.UI">
+         xmlns:ui="clr-namespace:Content.Client.Options.UI">
     <BoxContainer Orientation="Vertical">
         <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
             <BoxContainer Orientation="Vertical" Margin="8">
@@ -24,12 +23,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <ui:OptionSlider Name="SpeechBubbleTextOpacitySlider" Title="{Loc 'ui-options-speech-bubble-text-opacity'}" />
                 <ui:OptionSlider Name="SpeechBubbleSpeakerOpacitySlider" Title="{Loc 'ui-options-speech-bubble-speaker-opacity'}" />
                 <ui:OptionSlider Name="SpeechBubbleBackgroundOpacitySlider" Title="{Loc 'ui-options-speech-bubble-background-opacity'}" />
-                <!-- Goobstation start -->
                 <CheckBox Name="AutoFillHighlightsCheckBox" Text="{Loc 'ui-options-auto-fill-highlights'}" />
-                <ui1:OptionColorSlider Name="HighlightsColorSlider"
-                    Title="{Loc 'ui-options-highlights-color'}"
+                <ui:OptionColorSlider Name="HighlightsColorSlider" 
+                    Title="{Loc 'ui-options-highlights-color'}" 
                     Example="{Loc 'ui-options-highlights-color-example'}"/>
-                <!-- Goobstation end -->
+                <Label Text="{Loc 'ui-options-accessability-header-content'}"
+                       StyleClasses="LabelKeyText"/>
+                <CheckBox Name="CensorNudityCheckBox" Text="{Loc 'ui-options-censor-nudity'}" />
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />

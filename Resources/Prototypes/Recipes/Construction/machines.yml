@@ -93,6 +93,7 @@
 
 - type: construction
   id: LightSwitchDirectionalRecipe
+  name: construction-recipe-light-switch-directional
   graph: LightSwitchDirectionalGraph
   startNode: start
   targetNode: LightSwitchDirectionalNode
@@ -107,6 +108,7 @@
 
 - type: construction
   id: SignalSwitchDirectionalRecipe
+  name: construction-recipe-signal-switch-directional
   graph: SignalSwitchDirectionalGraph
   startNode: start
   targetNode: SignalSwitchDirectionalNode
@@ -120,6 +122,7 @@
 
 - type: construction
   id: SignalButtonDirectionalRecipe
+  name: construction-recipe-signal-button-directional
   graph: SignalButtonDirectionalGraph
   startNode: start
   targetNode: SignalButtonDirectionalNode

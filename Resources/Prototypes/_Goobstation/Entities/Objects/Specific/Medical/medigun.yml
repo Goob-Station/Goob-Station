@@ -15,7 +15,7 @@
     layers:
     - state: icon
     - state: active_gun
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
       visible: false
   - type: Item
     sprite: _Goobstation/Objects/Specific/Medical/medigun.rsi
@@ -57,8 +57,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-     enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+     enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true}
           False: { visible: false}
 
@@ -86,11 +86,6 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/syndicate_medigun.rsi
-    #layers:
-    #- state: icon
-    #- state: active_gun
-    #  map: [ "enum.ToggleVisuals.Layer" ]
-    #  visible: false
   - type: Item
     sprite: _Goobstation/Objects/Specific/Medical/syndicate_medigun.rsi
     size: Normal

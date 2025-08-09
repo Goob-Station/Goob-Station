@@ -4,22 +4,26 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionEatMouse
-  name: action-name-eat-mouse
-  description: action-description-eat-mouse
+  name: Eat Mouse
+  description: Eat the mouse in your hand, gaining nutriment and a hairball charge.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: Nyanotrasen/Icons/verbiconfangs.png
+  - type: InstantAction
     event: !type:EatMouseActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionHairball
-  name: action-name-hairball
-  description: action-description-hairball
+  name: Cough Up Hairball
+  description: Purge some of your chemstream, and gain a cool hairball to throw at people.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: Nyanotrasen/Objects/Specific/Species/felinid.rsi, state: icon }
     useDelay: 30
+  - type: InstantAction
     event: !type:HairballActionEvent

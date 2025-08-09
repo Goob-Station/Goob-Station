@@ -74,11 +74,8 @@
           key: "enum.MechAssemblyVisuals.State"
           data: 8
 
-      - tag: CapacitorStockPart
-        name: construction-graph-tag-capacitor
-        icon:
-          sprite: Objects/Misc/stock_parts.rsi
-          state: capacitor
+      - material: Manipulator
+        amount: 1
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"

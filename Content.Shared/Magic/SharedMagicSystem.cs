@@ -491,9 +491,6 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer)) // Goob edit
             return;
 
-        if (ev.Coords == null) // Goob edit
-            return;
-
         ev.Handled = true;
 
         if (_net.IsClient) // Goobstation
@@ -501,7 +498,6 @@ public abstract class SharedMagicSystem : EntitySystem
 
         var xform = Transform(ev.Performer);
         var fromCoords = xform.Coordinates;
-        var toCoords = ev.Coords.Value; // Goob edit
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromMap = _transform.ToMapCoordinates(fromCoords);
@@ -512,7 +508,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var userVelocity = _physics.GetMapLinearVelocity(spawnCoords); // Goob edit
 
         var ent = Spawn(ev.Prototype, fromMap);
-        var direction = _transform.ToMapCoordinates(toCoords).Position -
+        var direction = _transform.ToMapCoordinates(ev.Target).Position -
                         fromMap.Position;
         _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Goob edit
 

@@ -38,14 +38,14 @@
     - state: icon
     - state: icon-ascended
       visible: false
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Item
     size: Ginormous
     sprite: _Goobstation/Objects/Weapons/Melee/hisgrace.rsi
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
 

@@ -75,8 +75,8 @@ public sealed partial class AccessibilityTab : Control
         Control.AddOptionPercentSlider(CCVars.SpeechBubbleTextOpacity, SpeechBubbleTextOpacitySlider);
         Control.AddOptionPercentSlider(CCVars.SpeechBubbleSpeakerOpacity, SpeechBubbleSpeakerOpacitySlider);
         Control.AddOptionPercentSlider(CCVars.SpeechBubbleBackgroundOpacity, SpeechBubbleBackgroundOpacitySlider);
-        Control.AddOptionCheckBox(GoobCVars.ChatAutoFillHighlights, AutoFillHighlightsCheckBox); // Goob
-        Control.AddOptionColorSlider(GoobCVars.ChatHighlightsColor, HighlightsColorSlider); // Goob
+        Control.AddOptionCheckBox(CCVars.ChatAutoFillHighlights, AutoFillHighlightsCheckBox);
+        Control.AddOptionColorSlider(CCVars.ChatHighlightsColor, HighlightsColorSlider);
 
         Control.Initialize();
     }

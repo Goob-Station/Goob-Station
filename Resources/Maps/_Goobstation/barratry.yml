@@ -132,9 +132,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -11350,14 +11348,6 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: ActionToggleLight
-  entities:
-  - uid: 5
-    components:
-    - type: Transform
-      parent: 4
-    - type: InstantAction
-      container: 4
 - proto: AirAlarm
   entities:
   - uid: 6
@@ -75101,24 +75091,6 @@ entities:
     - type: Transform
       pos: -60.600807,63.725067
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 5
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 5
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: True
-    - type: ActionsContainer
   - uid: 10252
     components:
     - type: Transform

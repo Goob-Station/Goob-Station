@@ -105,6 +105,8 @@
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   parent: [ScatteringGrenadeBase, BaseSyndicateContraband]
@@ -152,6 +154,8 @@
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"
+  - type: StaticPrice
+    price: 1000
 
 - type: entity
   parent: ScatteringGrenadeBase

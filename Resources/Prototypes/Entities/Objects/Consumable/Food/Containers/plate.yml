@@ -45,6 +45,11 @@
     shape:
     - 0,0,1,0
     storedOffset: 0,-6
+    inhandVisuals:
+      left:
+      - state: plate-inhand-left
+      right:
+      - state: plate-inhand-right
   - type: DamageOnLand
     damage:
       types:
@@ -117,6 +122,11 @@
     state: plate-small
   - type: Item
     storedOffset: 0,-3
+    inhandVisuals:
+      left:
+      - state: plate-inhand-left
+      right:
+      - state: plate-inhand-right
 # Needs the full thing because inherting is dumb sometimes.
   - type: Destructible
     thresholds:
@@ -165,6 +175,11 @@
     shape:
     - 0,0,1,0
     storedOffset: 0,-6
+    inhandVisuals:
+      left:
+      - state: plate-plastic-inhand-left
+      right:
+      - state: plate-plastic-inhand-right
   - type: Tag
     tags:
     - Trash
@@ -182,6 +197,11 @@
     shape:
     - 0,0,1,0
     storedOffset: 0,-3
+    inhandVisuals:
+      left:
+      - state: plate-plastic-inhand-left
+      right:
+      - state: plate-plastic-inhand-right
   - type: Tag
     tags:
     - Trash

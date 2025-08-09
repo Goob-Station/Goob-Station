@@ -171,6 +171,7 @@
   - type: ItemToggleSize
     activatedSize: Huge
   - type: ItemTogglePointLight
+    toggleableVisualsColorModulatesLights: true
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
@@ -209,7 +210,7 @@
     color: white
     netsync: false
   - type: Appearance
-  - type: ToggleableLightVisuals # Add support for multiple layers
+  - type: ToggleableVisuals # Add support for multiple layers
     spriteLayer: blade
     inhandVisuals:
       left:
@@ -258,6 +259,8 @@
       params:
         variation: 0.250
         volume: -2
+  - type: StaticPrice
+    price: 2500
 
 - type: entity
   name: energy dagger

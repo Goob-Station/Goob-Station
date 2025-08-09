@@ -17,6 +17,7 @@ using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
@@ -54,7 +55,7 @@ public sealed class ChangelingArmorTest
 
         EntityUid urist = EntityUid.Invalid;
         Goobstation.Shared.Changeling.Components.ChangelingIdentityComponent changelingIdentity = null;
-        Entity<InstantActionComponent> armorAction = (EntityUid.Invalid, null);
+        Entity<ActionComponent> armorAction = (EntityUid.Invalid, null);
 
         await server.WaitPost(() =>
         {
@@ -69,11 +70,11 @@ public sealed class ChangelingArmorTest
 
             // Give urist chitinous armor action
             var armorActionEnt = actionSys.AddAction(urist, actionProto);
-            armorAction = (armorActionEnt.Value, entMan.GetComponent<InstantActionComponent>(armorActionEnt.Value));
-            actionSys.SetUseDelay(armorAction, null);
+            armorAction = (armorActionEnt.Value, entMan.GetComponent<ActionComponent>(armorActionEnt.Value));
+            actionSys.SetUseDelay(armorAction.Owner, null);
 
             // Armor up
-            actionSys.PerformAction(urist, null, armorAction, armorAction.Comp, armorAction.Comp.BaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist, armorAction);
         });
 
         await server.WaitRunTicks(5);
@@ -92,7 +93,7 @@ public sealed class ChangelingArmorTest
         await server.WaitPost(() =>
         {
             // Armor down
-            actionSys.PerformAction(urist, null, armorAction, armorAction.Comp, armorAction.Comp.BaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist, armorAction);
         });
 
         await server.WaitRunTicks(5);
@@ -123,7 +124,7 @@ public sealed class ChangelingArmorTest
             Assert.That(invSys.TryEquip(urist, helm, "head", force: true));
 
             // Try to armor up, should fail due to helmet and not equip anything
-            actionSys.PerformAction(urist, null, armorAction, armorAction.Comp, armorAction.Comp.BaseEvent, timing.CurTime);
+            actionSys.PerformAction(urist, armorAction);
         });
 
         await server.WaitRunTicks(5);

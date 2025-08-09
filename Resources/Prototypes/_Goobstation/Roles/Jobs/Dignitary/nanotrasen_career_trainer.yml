@@ -38,3 +38,19 @@
     - Flash
     - TelescopicBatonAdvanced
     - CentralCommandBusinessCard
+
+- type: chameleonOutfit
+  id: NanotrasenCareerTrainerChameleonOutfit
+  job: NanotrasenCareerTrainer
+  equipment:
+    eyes: ClothingEyesGlassesCentComm
+    mask: ClothingMaskBreath
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    jumpsuit: ClothingUniformJumpsuitTrainer
+    id: TrainerPDA
+    back: ClothingBackpackSatchelLeather
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: ClothingOuterWinterCoatTrainer
+    head: ClothingHeadHatTrainer
+    neck: ClothingNeckChameleon

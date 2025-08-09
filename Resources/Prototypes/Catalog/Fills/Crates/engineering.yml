@@ -299,3 +299,14 @@
   - type: StorageFill
     contents:
       - id: ClothingBackpackFirefighterTank
+
+- type: entity
+  id: CrateAirGrenade
+  parent: CrateEngineering
+  name: air grenade crate
+  description: A crate containing 3 air grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: AirGrenade
+      amount: 3

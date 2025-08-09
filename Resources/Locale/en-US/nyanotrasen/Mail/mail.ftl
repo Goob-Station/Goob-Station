@@ -18,7 +18,6 @@ mail-unlocked-reward = Anti-tamper system unlocked. {$bounty} spesos have been a
 mail-penalty-lock = ANTI-TAMPER LOCK BROKEN. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
 mail-penalty-fragile = INTEGRITY COMPROMISED. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
 mail-penalty-expired = DELIVERY PAST DUE. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
-mail-item-name-unaddressed = mail
 mail-item-name-addressed = mail ({$recipient})
 
 command-mailto-description = Queue a parcel to be delivered to an entity. Example usage: `mailto 1234 5678 false false`. The target container's contents will be transferred to an actual mail parcel.

@@ -147,3 +147,18 @@
     back:
     - Flash
     - TelescopicBaton
+
+- type: chameleonOutfit
+  id: NanotrasenRepresentativeChameleonOutfit
+  job: NanotrasenRepresentative
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    mask: ClothingMaskBreath
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
+    id: NanotrasenRepresentativePDA
+    back: ClothingBackpackCentcomm
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatTophat
+    neck: ClothingNeckScarfStripedCentcom

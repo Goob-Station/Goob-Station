@@ -590,6 +590,11 @@ public enum LogType
     ShuttleImpact = 102,
 
     /// <summary>
+    /// Events relating to midi playback.
+    /// </summary>
+    Instrument = 103,
+    
+    /// <summary>
     /// SecretPlus related game interactions.
     /// </summary>
     SecretPlus = 10001, // Goobstation

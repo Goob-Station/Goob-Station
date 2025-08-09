@@ -119,7 +119,7 @@
     RDHardsuitStealObjective: 1
     NukeDiskStealObjective: 1
     MagbootsStealObjective: 1
-    CERocketLauncherStealObjective: 1
+    # CERocketLauncherStealObjective: 1
     CorgiMeatStealObjective: 1
     ClipboardStealObjective: 1
     CaptainGunStealObjective: 0.5
@@ -148,7 +148,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
   weights:
-    RandomTraitorAliveObjective: 1
+#    RandomTraitorAliveObjective: 1 - Removed because the objective was boring and didn't progress the round.
     RandomTraitorProgressObjective: 1
     RandomTraitorTargetAliveObjective: 0.5 # Goobstation - protect a player that is targeted by another traitor
 
@@ -191,7 +191,6 @@
     AmePartFlatpackStealObjective: 1
     #ExpeditionsCircuitboardStealObjective: 1 Goob edit - Removed because lavaland #sup
     CargoShuttleCircuitboardStealObjective: 1
-    SalvageShuttleCircuitboardStealObjective: 1
     ClothingEyesHudBeerStealObjective: 1                #srv
     BibleStealObjective: 1
     ClothingNeckGoldmedalStealObjective: 1              #other

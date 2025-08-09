@@ -11,8 +11,11 @@
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Kevin Zheng <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -36,6 +39,7 @@ namespace Content.Client.Atmos.UI
             base.Open();
 
             _window = this.CreateWindowCenteredLeft<GasAnalyzerWindow>();
+            _window.OnClose += Close;
         }
 
         protected override void ReceiveMessage(BoundUserInterfaceMessage message)
@@ -45,15 +49,6 @@ namespace Content.Client.Atmos.UI
             if (message is not GasAnalyzerUserMessage cast)
                 return;
             _window.Populate(cast);
-        }
-
-        /// <summary>
-        /// Closes UI and tells the server to disable the analyzer
-        /// </summary>
-        private void OnClose()
-        {
-            SendMessage(new GasAnalyzerDisableMessage());
-            Close();
         }
 
         protected override void Dispose(bool disposing)

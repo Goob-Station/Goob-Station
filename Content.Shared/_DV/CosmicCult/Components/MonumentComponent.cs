@@ -28,7 +28,7 @@ public sealed partial class MonumentComponent : Component
     /// the list of glyphs that this monument is allowed to scribe
     /// </summary>
     [DataField, AutoNetworkedField]
-    public HashSet<ProtoId<GlyphPrototype>> UnlockedGlyphs = [];
+    public HashSet<ProtoId<GlyphPrototype>> UnlockedGlyphs = new();
 
     /// <summary>
     /// the glyph that will be scribed when the button is pressed
