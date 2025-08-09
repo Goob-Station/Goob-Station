@@ -920,9 +920,15 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("hair_name");
 
+                    // begin Goobstation: port EE height/width sliders
                     b.Property<float>("Height")
                         .HasColumnType("real")
                         .HasColumnName("height");
+
+                    b.Property<float>("Width")
+                        .HasColumnType("real")
+                        .HasColumnName("width");
+                    // end Goobstation: port EE height/width sliders
 
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
@@ -958,10 +964,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("species");
-
-                    b.Property<float>("Width")
-                        .HasColumnType("real")
-                        .HasColumnName("width");
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
