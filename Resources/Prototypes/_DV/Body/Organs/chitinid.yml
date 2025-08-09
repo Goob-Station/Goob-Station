@@ -26,12 +26,7 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
   - type: Stomach
-  # The stomach metabolizes stuff like foods and drinks.
-  # TODO: Have it work off of the ent's solution container, and move this
-  # to intestines instead.
   - type: Metabolizer
-    # mm yummy
-    maxReagents: 3
     metabolizerTypes: [Animal]
     groups:
     - id: Food
@@ -48,7 +43,6 @@
   - type: Sprite
     state: liver
   - type: Metabolizer
-    maxReagents: 1
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol

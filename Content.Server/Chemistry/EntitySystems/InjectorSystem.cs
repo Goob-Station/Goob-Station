@@ -22,7 +22,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 
-using Content.Server.Abilities.Chitinid; // Delta-V
+using Content.Shared._DV.Chemistry.Components; // DeltaV
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Chemistry;

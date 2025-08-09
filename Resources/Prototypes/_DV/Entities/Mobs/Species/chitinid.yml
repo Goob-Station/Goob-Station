@@ -9,11 +9,9 @@
     species: Chitinid
     hideLayersOnEquip:
     - HeadTop
-
   - type: Hunger
     baseDecayRate: 0.0467 #needs to eat more to survive
   - type: Thirst
-
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
@@ -21,25 +19,19 @@
     softness: 5
     color: "#2CFA1F"
     autoRot: true
-
   - type: Carriable
-
   - type: Icon
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
     state: full
-
   - type: Body
     prototype: Chitinid
     requiredLegs: 2
-
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Chitinid
-
   - type: Speech
     speechVerb: Chitinid
     allowedEmotes: ['Chitter', 'Click', 'Hiss']
-
   - type: MeleeWeapon
     animation: WeaponArcBite
     soundHit:
@@ -47,34 +39,20 @@
     damage:
       types:
         Piercing: 5
-
-
   - type: TypingIndicator
-    proto: Chitinid
-
+    proto: chitinid
   - type: Butcherable
     butcheringType: Spike
     spawned:
     - id: FoodMeat
       amount: 5
-
   - type: Bloodstream
     bloodReagent: InsectBlood
-
-  - type: DamageVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#808A51"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-
   - type: Vocal
     sounds:
       Male: UnisexChitinid
       Female: UnisexChitinid
       Unsexed: UnisexChitinid
-
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -87,7 +65,6 @@
         - MobMask
         layer:
         - MobLayer
-
   - type: Temperature # Ants hate the cold
     heatDamageThreshold: 320
     coldDamageThreshold: 230
@@ -104,12 +81,12 @@
       289: 0.6
       275: 0.4
       250: 0.3
-
   - type: Sprite # sprite again because we want different layer ordering
     noRot: true
     drawdepth: Mobs
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Groin" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
@@ -151,6 +128,13 @@
         visible: false
   - type: Chitinid
   - type: BlockInjection
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - Moffic
+    understands:
+    - TauCetiBasic
+    - Moffic
 
 - type: entity
   parent: BaseSpeciesDummy

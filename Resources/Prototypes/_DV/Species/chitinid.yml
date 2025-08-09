@@ -17,7 +17,8 @@
   sprites:
     Head: MobChitinidHead
     Snout: MobHumanoidAnyMarking
-    Chest: MobChitinidTorso
+    Chest: MobChitinidChest
+    Groin: MobChitinidGroin
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -93,22 +94,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobChitinidTorso
+  id: MobChitinidChest
   baseSprite:
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobChitinidTorsoMale
+  id: MobChitinidChestMale
   baseSprite:
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobChitinidTorsoFemale
+  id: MobChitinidChestFemale
   baseSprite:
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobChitinidGroin
+  baseSprite:
+    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobChitinidGroinMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobChitinidGroinFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Chitinid/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobChitinidLLeg
