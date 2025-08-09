@@ -824,8 +824,10 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             // Result is the intermediate message derived from the perceived one via obfuscation
             // Wrapped message is the result wrapped in an "x says y" string
+            // Floof: handle languages that require LOS
             string result, wrappedMessage;
-            if (data.Range <= WhisperClearRange)
+            if (!language.SpeechOverride.RequireLOS && data.Range <= WhisperClearRange
+                || _examineSystem.InRangeUnOccluded(source, listener, WhisperClearRange))
             {
                 // Scenario 1: the listener can clearly understand the message
                 result = perceivedMessage;
@@ -839,6 +841,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
             else
             {
+                if (language.SpeechOverride.RequireLOS) // Floof - If there is no LOS, listener sees nothing.
+                    continue;
+
                 // Scenario 3: If listener is too far and has no line of sight, they can't identify the whisperer's identity
                 result = ObfuscateMessageReadability(perceivedMessage);
                 wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-unknown-wrap-message", string.Empty, result, language);
