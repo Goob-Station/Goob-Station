@@ -12,8 +12,6 @@ punctuation = false
 enable_during_round = false
 
 [atmos]
-space_wind = true
-space_wind_max_velocity = 22.0
 max_explosion_range = 10.0
 
 [shuttle]

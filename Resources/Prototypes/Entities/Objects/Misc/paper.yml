@@ -214,7 +214,8 @@
     size: Tiny
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Paper: 25
+      Paper: 100 # CorvaxGoob-Printer from 25 to 100
+  - type: Material # CorvaxGoob-TTS
 
 - type: entity
   name: paper

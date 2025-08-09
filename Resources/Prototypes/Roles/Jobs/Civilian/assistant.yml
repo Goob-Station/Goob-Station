@@ -87,10 +87,10 @@
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
   #goobcoins: 0 #Goob content Corvax-Goob-coins
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs
-      inverted: true # get a job you bum
+  # requirements: Removed by CorvaxGoob. Greytide rules
+  #   - !type:OverallPlaytimeRequirement
+  #     time: 36000 #10 hrs
+  #     inverted: true # get a job you bum
 #  access:
 #  - Maintenance
 

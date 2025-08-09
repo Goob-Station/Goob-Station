@@ -12,5 +12,5 @@
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000
-  weather: true
+  weather: false # CorvaxGoob
   indestructible: true

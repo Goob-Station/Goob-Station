@@ -503,6 +503,15 @@
         sound: /Audio/Misc/paradox_clone_greeting.ogg
       mindRoles:
       - MindRoleParadoxClone
+      components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
 
 - type: entity
   parent: BaseGameRule

@@ -146,6 +146,15 @@
       jobBlacklist: [ Chaplain ] # GOOBSTATION
       mindRoles:
       - MindRoleHeretic
+      components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
   - type: Tag
     tags:
       - MidroundAntag

@@ -74,6 +74,14 @@
           department: Security
           time: 7200 #2 hours
       - type: GhostTakeoverAvailable
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: NpcFactionMember
         factions:
           - SimpleHostile
@@ -153,6 +161,14 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: ActionGrant
         actions:
           - ActionReturnToShip
@@ -204,6 +220,14 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
       - type: ActionGrant
         actions:
           - ActionReturnToShip

@@ -34,6 +34,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using System.Diagnostics.Contracts;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 
@@ -97,7 +99,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         {
             Act = () => TryBurnContract(contract, (user, devilComp)),
             Text = Loc.GetString("burn-contract-prompt"),
-            Icon = new SpriteSpecifier.Rsi(new ("/Textures/Effects/fire.rsi"), "fire"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Effects/fire.rsi"), "fire"),
         };
 
         args.Verbs.Add(burnVerb);
@@ -107,7 +109,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         var coordinates = Transform(contract).Coordinates;
 
-        if (contract.Comp is not { IsContractFullySigned: true})
+        if (contract.Comp is not { IsContractFullySigned: true })
         {
             Spawn(devil.Comp.FireEffectProto, coordinates);
             _audio.PlayPvs(devil.Comp.FwooshPath, coordinates, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
@@ -256,6 +258,10 @@ public sealed partial class DevilContractSystem : EntitySystem
         var newWeight = 0;
 
         var matches = _clauseRegex.Matches(paper.Content);
+
+        if (!_prototypeManager.TryGetInstances<DevilClausePrototype>(out var clauses)) // CorvaxGoob-TTS
+            return;
+
         foreach (Match match in matches)
         {
             if (!match.Success)
@@ -263,11 +269,11 @@ public sealed partial class DevilContractSystem : EntitySystem
 
             var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
-            if (!_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clauseProto)
-                || !contract.Comp.CurrentClauses.Add(clauseProto))
-                continue;
-
-            newWeight += clauseProto.ClauseWeight;
+            if (TryGetClauseByKey(clauseKey, out var clauseProto)) // CorvaxGoob-TTS
+            {
+                contract.Comp.CurrentClauses.Add(clauseProto);
+                newWeight += clauseProto.ClauseWeight;
+            }
         }
 
         contract.Comp.ContractWeight = newWeight;
@@ -300,7 +306,7 @@ public sealed partial class DevilContractSystem : EntitySystem
                 continue;
             }
 
-            if (!_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clause))
+            if (!TryGetClauseByKey(clauseKey, out var clause)) // CorvaxGoob-TTS
             {
                 _sawmill.Warning($"Unknown contract clause: {clauseKey}");
                 continue;
@@ -470,4 +476,23 @@ public sealed partial class DevilContractSystem : EntitySystem
     }
 
     #endregion
+
+    // CorvaxGoob-TTS-Start
+    private bool TryGetClauseByKey(string clauseKey, [NotNullWhen(true)] out DevilClausePrototype? prototype)
+    {
+        prototype = null;
+
+        if (!_prototypeManager.TryGetInstances<DevilClausePrototype>(out var clauses))
+            return false;
+
+        foreach (var clauseProto in clauses)
+            if (clauseProto.Value.Name is not null && clauseProto.Value.Name.Trim().ToLowerInvariant().Replace(" ", "") == clauseKey)
+            {
+                prototype = clauseProto.Value;
+                return true;
+            }
+
+        return false;
+    }
+    // CorvaxGoob-TTS-En
 }

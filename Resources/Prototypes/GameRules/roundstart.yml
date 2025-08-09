@@ -350,6 +350,15 @@
   # TODO: uplink in yml
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
+    components:
+      - type: Skills # CorvaxGoob-Skills
+        skills:
+        - ShuttleControl
+        - Shooting
+        - AdvancedBuilding
+        - Surgery
+        - MedicalEquipment
+        - Butchering
 
 - type: entity
   abstract: true
