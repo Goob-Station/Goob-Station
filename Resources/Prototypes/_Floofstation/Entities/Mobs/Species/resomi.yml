@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 NotActuallyMarty <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
@@ -22,8 +23,10 @@
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - TauCetiBasic
+    - Schechi               # From Floof
     understands:
     - TauCetiBasic
+    - Schechi               # From Floof
   - type: Fixtures
     fixtures:
       fix1:

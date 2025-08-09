@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# PORTED FROM FLOOFSTATION
+# Vox language
+- type: language
+  id: NewKinPidgin
+  isVisibleLanguage: true
+  speech:
+    color: "#a489a0"
+    fontId: ChelseaMarket
+    fontSize: 12
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 4
+    replacement:
+    - ca
+    - ra
+    - ma
+    - sa
+    - na
+    - ta
+    - la
+    - sha
+    - ti
+    - hi
+    - ki
+    - ya
+    - ta
+    - ha
+    - ka
+    - ya
+    - chi
+    - cha
+    - kah
+    - skre
+    - ahk
+    - ek
+    - rawk
+    - kraa
+    - ii
+    - kri
+    - ka

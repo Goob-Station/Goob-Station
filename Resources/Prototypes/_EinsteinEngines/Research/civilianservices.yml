@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Tier 2
 - type: technology
   id: BasicTranslation
@@ -21,6 +27,8 @@
   - ChittinTranslator
   - SiikMaasTranslator
   - MarishTranslator
+  - NewKinPidginTranslator
+  - SchechiTranslator
   position: -4, 4
   technologyPrerequisites:
   - AdvancedEntertainment
@@ -48,6 +56,8 @@
   - ChittinTranslatorImplanter
   - SiikMaasTranslatorImplanter
   - MarishTranslatorImplanter
+  - SchechiTranslatorImplanter
+  - NewKinPidginTranslatorImplanter
   - AnimalTranslator
   - XenoTranslator
   position: -4, 5
