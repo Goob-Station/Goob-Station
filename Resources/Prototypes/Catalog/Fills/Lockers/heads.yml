@@ -124,6 +124,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
@@ -172,6 +173,7 @@
     - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
     - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
     - id: ClothingHandsKnucklesQuartermaster # Goobstation - ROCK THAT MF!!
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -209,6 +211,7 @@
       conditions:
       - !type:PlayerCountCondition
         max: 15
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # No laser table + Laser table
 - type: entityTable
@@ -296,6 +299,7 @@
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -335,6 +339,7 @@
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
     - id: MachinePowerTransmissionLaserFlatpack
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -407,6 +412,7 @@
     # Shitmed
     - id: MedicalBiofabricatorFlatpack
     # Goobstation End
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -467,6 +473,7 @@
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
     - id: MMI # Goobstation
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -529,6 +536,7 @@
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: ClothingBeltSheathHeadOfSecurityFilled # Goobstation - security revamp
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
