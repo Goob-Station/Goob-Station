@@ -78,10 +78,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoidAppearance.Height = height;
         humanoidAppearance.Width = width;
 
-        //TODO: get below code to work in order to get rid of obsolete methods
-        //_sprite.SetScale(sprite, new System.Numerics.Vector2(width, height));
-
-        sprite.Scale = new Vector2(width, height);
+        _sprite.SetScale((entity, sprite), new Vector2(width, height));
         // end Goobstation: port EE height/width sliders
 
         sprite[_sprite.LayerMapReserve((entity.Owner, sprite), HumanoidVisualLayers.Eyes)].Color = humanoidAppearance.EyeColor;
