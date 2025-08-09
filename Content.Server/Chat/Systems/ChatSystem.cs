@@ -702,7 +702,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         //     ("fontSize", speech.FontSize),
         //     ("message", FormattedMessage.EscapeText(message)));
 
-        var channel = ChatChannel.Local;
         var typeLOS = SpeakRespectsLOS;
         if (!language.SpeechOverride.RequireSpeech && language.SpeechOverride.RequireLOS)
         {
@@ -710,8 +709,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             var ent = Identity.Entity(source, EntityManager);
             name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
 
-            channel = ChatChannel.Emotes; // If it requires LOS and does not require speech, it's an emote (sign language).
-            typeLOS = EmoteRespectsLOS; // Make it an emote LOS as well.
+            typeLOS = EmoteRespectsLOS; // If it requires LOS and does not require speech, it's an emote (sign language).
         }
 
         // The chat message wrapped in a "x says y" string.
@@ -725,7 +723,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Einstein Engines - Language end
 
         SendInVoiceRange(
-            channel,
+            ChatChannel.Local,
             name,
             message,
             wrappedMessage,
