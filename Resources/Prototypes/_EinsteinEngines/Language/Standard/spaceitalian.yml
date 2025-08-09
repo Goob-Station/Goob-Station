@@ -9,7 +9,6 @@
   isVisibleLanguage: true
   speech:
     color: "#b54a4a"
-    fontId: NotoSansSC
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
