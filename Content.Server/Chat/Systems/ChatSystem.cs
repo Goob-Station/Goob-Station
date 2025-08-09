@@ -712,8 +712,12 @@ public sealed partial class ChatSystem : SharedChatSystem
         var wrappedObfuscated = WrapPublicMessage(source, name, obfuscated, language: language);
         // Einstein Engines - Language end
 
+        var channel = ChatChannel.Local; // Set a default here.
+        if (!language.requireSpeech && language.requireLOS)
+            channel = ChatChannel.Emotes; // If it requires LOS and does not require speech, it's an emote (sign language).
+
         SendInVoiceRange(
-            ChatChannel.Local,
+            channel,
             name,
             message,
             wrappedMessage,
