@@ -1,9 +1,12 @@
 # SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
@@ -581,7 +584,7 @@
 # Leg Markings
 - type: marking
   id: VulpPointsFeet
-  markingCategory: Overlay
+  markingCategory: RightFoot
   bodyPart: RFoot
   speciesRestriction: [Vulpkanin]
   sprites:
@@ -590,7 +593,7 @@
 
 - type: marking
   id: VulpPointsCrestLegs
-  markingCategory: Legs
+  markingCategory: LeftLeg
   bodyPart: LLeg
   speciesRestriction: [Vulpkanin]
   sprites:
@@ -599,7 +602,7 @@
 
 - type: marking
   id: VulpPointsFadeLegs
-  markingCategory: Legs
+  markingCategory: LeftLeg
   bodyPart: LLeg
   speciesRestriction: [Vulpkanin]
   sprites:
@@ -608,7 +611,7 @@
 
 - type: marking
   id: VulpPointsSharpLegs
-  markingCategory: Legs
+  markingCategory: LeftLeg
   bodyPart: LLeg
   speciesRestriction: [Vulpkanin]
   sprites:
@@ -618,7 +621,7 @@
 # Arm Markings
 - type: marking
   id: VulpPointsHands
-  markingCategory: Overlay
+  markingCategory: RightHand
   bodyPart: RHand
   speciesRestriction: [Vulpkanin]
   sprites:
@@ -627,7 +630,7 @@
 
 - type: marking
   id: VulpPointsCrestArms
-  markingCategory: Arms
+  markingCategory: LeftArm
   bodyPart: LArm
   speciesRestriction: [Vulpkanin]
   sprites:
@@ -636,7 +639,7 @@
 
 - type: marking
   id: VulpPointsFadeArms
-  markingCategory: Arms
+  markingCategory: LeftArm
   bodyPart: LArm
   speciesRestriction: [Vulpkanin]
   sprites:
@@ -645,7 +648,7 @@
 
 - type: marking
   id: VulpPointsSharpArms
-  markingCategory: Arms
+  markingCategory: LeftArm
   bodyPart: LArm
   speciesRestriction: [Vulpkanin]
   sprites:
