@@ -24,6 +24,14 @@
   markingLimits: MobHarpyMarkingLimits
   dollPrototype: MobHarpyDummy
   skinColoration: HumanToned
+  # begin Goobstation: port EE height/width sliders
+  minHeight: 0.6
+  defaultHeight: 0.8
+  maxHeight: 1.1
+  minWidth: 0.55
+  defaultWidth: 0.8
+  maxWidth: 1.15
+  # end Goobstation: port EE height/width sliders
 
 - type: speciesBaseSprites
   id: MobHarpySprites

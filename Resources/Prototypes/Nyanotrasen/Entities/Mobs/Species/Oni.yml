@@ -46,7 +46,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.42
+          radius: 0.35 # Goobstation: port EE height/width sliders
         density: 220
         restitution: 0.0
         mask:

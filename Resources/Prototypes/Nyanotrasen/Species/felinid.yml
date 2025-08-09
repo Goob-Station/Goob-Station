@@ -21,6 +21,14 @@
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
+  # begin Goobstation: port EE height/width sliders
+  minHeight: 0.65
+  defaultHeight: 0.8
+  maxHeight: 1.1
+  minWidth: 0.6
+  defaultWidth: 0.8
+  maxWidth: 1.15
+  # end Goobstation: port EE height/width sliders
 
 - type: markingPoints
   id: MobFelinidMarkingLimits

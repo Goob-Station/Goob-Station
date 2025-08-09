@@ -58,9 +58,10 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    scale: 1.1, 0.75 # goob value
-  - type: ScaleData # Goobstation
-    scale: 1.1, 0.75
+# Goobstation: port EE height/width sliders (below is not needed with height/width sliders implemented)
+#    scale: 1.1, 0.75 # goob value
+#  - type: ScaleData # Goobstation
+#    scale: 1.1, 0.75
   - type: Body
     prototype: Dwarf
     requiredLegs: 2
@@ -74,8 +75,7 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.32 # goob edit - reasoning below
-        # they r smaller
+          radius: 0.35 # Goobstation: port EE height/width sliders (previous value was lower (also a goobstation change), but the height/width sliders will lower this size automatically)
         density: 240 # goob edit - but they r buff
         restitution: 0.0
         mask:
@@ -120,7 +120,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    scale: 1, 0.8
+#    scale: 1, 0.8
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
