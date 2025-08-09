@@ -74,6 +74,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
@@ -102,9 +103,16 @@
       role: JobPassenger
       time: 72000 #20 hrs, fun mantle for the most experienced greytiders
 
+# Head # goob loadout rework addition
+
+- type: loadout
+  id: HeadbandBlack
+  equipment:
+    head: ClothingHeadBandBlack
+
 # Face
 - type: loadout
-  id: PassengerFace
+  id: GreyTiderMask
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
@@ -150,6 +158,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitAncient
 
+
 # Neck
 - type: loadout
   id: Mantle
@@ -180,9 +189,14 @@
   equipment:
     back: ClothingBackpackDuffel
 
+- type: loadout
+  id: LeatherSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
 # Gloves
 - type: loadout
-  id: PassengerGloves
+  id: GreyTiderGloves
   effects:
   - !type:GroupLoadoutEffect
     proto: GreyTider
@@ -194,6 +208,16 @@
   id: PassengerWintercoat
   equipment:
     outerClothing: ClothingOuterWinterCoat
+
+- type: loadout
+  id: SuitWitchRobes
+  equipment:
+    outerClothing: ClothingOuterSuitWitchRobes
+
+- type: loadout
+  id: Bomber
+  equipment:
+    outerClothing: ClothingOuterCoatBomber
 
 # Shoes
 - type: loadout
@@ -290,3 +314,5 @@
   id: ServiceMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryService
+
+
