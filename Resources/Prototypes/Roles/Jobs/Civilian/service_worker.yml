@@ -93,12 +93,9 @@
   - Kitchen
   extendedAccess:
   - Hydroponics
-  special: # goob - Languages
-  - !type:AddComponentSpecial # goob - Languages
-    - components:
-      - type: LanguageKnowledge
-        understands:
-        - SpaceItalian
+  special: # goob
+  - !type:AddImplantSpecial # Service workers can understand a chef's communications.
+    implants: [ BasicSpaceItalianTranslatorImplant ]
 
 - type: startingGear
   id: ServiceWorkerGear

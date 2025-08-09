@@ -940,6 +940,13 @@
   - type: AddAccentClothing
     accent: ReplacementAccent
     replacement: italian
+  - type: HandheldTranslator # goob
+    spoken:
+    - SpaceItalian
+    understood:
+    - SpaceItalian
+    ToggleOnInteract: false
+    SetLanguageOnInteract: false
 
 - type: entity
   parent: ClothingMaskBase

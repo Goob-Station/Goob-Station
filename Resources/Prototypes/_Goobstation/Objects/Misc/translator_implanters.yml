@@ -1,0 +1,17 @@
+# Gives ability to understand SpaceItalian. - Putting an implanter in for this would be bloat and I hate that I have to do any of this as an implant in the first place but doing it any other way would be a tremendous pain in the ass. I hate it here.
+#- type: entity
+#  id: BasicSpaceItalianTranslatorImplanter
+#  parent: BaseTranslatorImplanter
+#  name: basic space italian translator implanter
+#  components:
+#  - type: Implanter
+#    implant: BasicSpaceItalianTranslatorImplant
+
+# Gives both ability to speak and understand SpaceItalian.
+- type: entity
+  id: AdvancedSpaceItalianTranslatorImplanter
+  parent: BaseTranslatorImplanter
+  name: advanced space italian translator implanter
+  components:
+  - type: Implanter
+    implant: SpaceItalianTranslatorImplant
