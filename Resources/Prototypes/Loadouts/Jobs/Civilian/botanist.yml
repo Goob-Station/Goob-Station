@@ -81,10 +81,12 @@
   equipment:
     head: ClothingHeadHatTrucker
 
+
 - type: loadout
   id: BotanistBandana
   equipment:
     head: ClothingHeadBandBotany
+
 
 # Jumpsuit
 - type: loadout
@@ -92,20 +94,24 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitHydroponics
 
+
 - type: loadout
   id: BotanistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHydroponics
+
 
 - type: loadout
   id: BotanistOveralls
   equipment:
     jumpsuit: ClothingUniformOveralls
 
+
 - type: loadout # goob
   id: HydroMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryHydroponics
+
 
 # Back
 - type: loadout

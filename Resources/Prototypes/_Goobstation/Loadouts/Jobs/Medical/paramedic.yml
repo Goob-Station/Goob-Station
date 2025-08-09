@@ -14,3 +14,21 @@
     proto: CyberParamedic
   equipment:
     outerClothing: ClothingOuterDavidsJacket
+
+- type: loadout
+  id: ParamedicEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitParamedic
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ParamedicEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmParamedic
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

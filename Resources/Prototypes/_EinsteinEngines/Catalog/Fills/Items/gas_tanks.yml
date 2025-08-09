@@ -1,0 +1,108 @@
+- type: entity
+  parent: EmergencyOxygenTank
+  id: EmergencyPlasmaTank
+  name: emergency plasma tank
+  description: An easily portable tank for emergencies. Contains very little plasma, rated for survival use only.
+  components:
+  - type: Sprite
+    sprite: Objects/Tanks/emergency_red.rsi # TODO: emergency plasma tank sprite
+  - type: Item
+    sprite: Objects/Tanks/emergency_red.rsi
+  - type: Clothing
+    sprite: Objects/Tanks/emergency_red.rsi
+
+- type: entity
+  id: EmergencyPlasmaTankFilled
+  parent: EmergencyPlasmaTank
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 5.325
+    air:
+      # 16 minutes with Plasmaman lungs
+      volume: 0.66
+      moles:
+        - 0           # oxygen
+        - 0           # nitrogen
+        - 0           # CO2
+        - 0.270782035 # nitrogen
+      temperature: 293.15
+
+- type: entity
+  parent: ExtendedEmergencyOxygenTank
+  id: ExtendedEmergencyPlasmaTank
+  name: extended-capacity emergency plasma tank
+  description: An emergency tank with extended capacity. Technically rated for prolonged use.
+  components:
+  - type: Sprite
+    sprite: Objects/Tanks/emergency_extended_red.rsi # TODO: extended-capacity emergency plasma tank sprite
+  - type: Item
+    sprite: Objects/Tanks/emergency_extended_red.rsi
+  - type: Clothing
+    sprite: Objects/Tanks/emergency_extended_red.rsi
+
+- type: entity
+  id: ExtendedEmergencyPlasmaTankFilled
+  parent: ExtendedEmergencyPlasmaTank
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 5.325
+    air:
+      # 36 minutes with Plasmaman lungs
+      volume: 1.5
+      moles:
+        - 0           # oxygen
+        - 0           # nitrogen
+        - 0           # CO2
+        - 0.615413715 # plasma
+      temperature: 293.15
+
+- type: entity
+  parent: DoubleEmergencyOxygenTank
+  id: DoubleEmergencyPlasmaTank
+  name: plasma internals tank
+  description: A tank of plasma designed to be internals for Plasmamen.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+  - type: Item
+    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+
+- type: entity
+  id: DoubleEmergencyPlasmaTankFilled
+  parent: DoubleEmergencyPlasmaTank
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 5.325
+    air:
+      # 60 minutes with Plasmaman lungs
+      volume: 1.5
+      moles:
+        - 0           # oxygen
+        - 0           # nitrogen
+        - 0           # CO2
+        - 1.025689525 # plasma
+      temperature: 293.15
+
+- type: entity
+  id: PlasmaTankFilledInternals
+  parent: PlasmaTankFilled
+  name: plasma tank
+  suffix: Filled, Plasmaman Internals
+  components:
+  - type: GasTank
+    # 120 minutes with Plasmaman lungs
+    outputPressure: 5.325
+    air:
+      # 125.2 minutes with plasmaman lungs
+      volume: 5
+      moles:
+        - 0           # oxygen
+        - 0           # nitrogen
+        - 0           # CO2
+        - 2.051379050 # plasma
+      temperature: 293.15

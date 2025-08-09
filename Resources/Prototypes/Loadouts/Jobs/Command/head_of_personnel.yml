@@ -101,21 +101,25 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoP
 
+
 - type: loadout
   id: HoPJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoP
+
 
 - type: loadout # goob
   id: HoPJumpsuitMilitary
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryHoP
 
+
 # Head
 - type: loadout
   id: HoPHead
   equipment:
     head: ClothingHeadHatHopcap
+
 
 # Neck
 - type: loadout

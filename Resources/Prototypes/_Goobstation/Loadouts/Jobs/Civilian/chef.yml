@@ -1,0 +1,8 @@
+- type: loadout
+  id: ChefEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitChef
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

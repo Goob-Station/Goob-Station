@@ -1,0 +1,172 @@
+- type: species
+  id: Plasmaman
+  name: species-name-plasmaman
+  roundStart: true
+  prototype: MobPlasmaman
+  sprites: MobPlasmamanSprites
+  defaultSkinTone: "#a349a4"
+  markingLimits: MobPlasmamanMarkingLimits
+  dollPrototype: MobPlasmamanDummy
+  skinColoration: Hues
+  youngAge: 60
+  oldAge: 120
+  maxAge: 180
+  maleFirstNames: NamesPlasmaman
+  femaleFirstNames: NamesPlasmaman
+  naming: FirstRoman
+  sexes:
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobPlasmamanSprites
+  sprites:
+    Head: MobPlasmamanHead
+    Face: MobHumanoidAnyMarking
+    Chest: MobPlasmamanChest
+    Groin: MobPlasmamanGroin
+    Eyes: MobPlasmamanEyes
+    LArm: MobPlasmamanLArm
+    RArm: MobPlasmamanRArm
+    LHand: MobPlasmamanLHand
+    RHand: MobPlasmamanRHand
+    LLeg: MobPlasmamanLLeg
+    RLeg: MobPlasmamanRLeg
+    LFoot: MobPlasmamanLFoot
+    RFoot: MobPlasmamanRFoot
+
+- type: markingPoints
+  id: MobPlasmamanMarkingLimits
+  onlyWhitelisted: true # Hides the hair and facial hair options
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 0
+      required: false
+    Tail:
+      points: 0
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanHead
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanHeadMale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanHeadFemale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanEyes
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Customization/plasmaman.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanChest
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanChestMale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: chest_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanChestFemale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanGroin
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanGroinMale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanGroinFemale
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: groin_f
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanLLeg
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanLArm
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanLHand
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanLFoot
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanRLeg
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanRArm
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanRHand
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanRFoot
+  baseSprite:
+    sprite: _EinsteinEngines/Mobs/Species/Plasmaman/parts.rsi
+    state: r_foot

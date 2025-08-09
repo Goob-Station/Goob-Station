@@ -1,0 +1,17 @@
+- type: loadout
+  id: WardenEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitWarden
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: WardenEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmWarden
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

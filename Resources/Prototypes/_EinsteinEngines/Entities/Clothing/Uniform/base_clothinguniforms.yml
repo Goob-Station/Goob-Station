@@ -1,0 +1,179 @@
+
+- type: entity # For clothes that need suit sensors.
+  parent: [UnsensoredClothingUniformBase, BaseFoldable]
+  id: ClothingUniformBaseUnsensoredFlippable
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-unrollsleeves-verb
+    foldVerbText: fold-rollsleeves-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: flipped
+    foldedHeldPrefix: flipped
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_flipped
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity # For clothes that need suit sensors.
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingUniformBaseUnsensoredFlipped
+  suffix: flipped
+  abstract: true
+  components:
+  - type: Foldable
+    folded: true
+  - type: Clothing
+    equippedPrefix: flipped
+  - type: Item
+    heldPrefix: flipped
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+      visible: false
+    - state: icon_flipped
+      map: ["foldedLayer"]
+      visible: true
+
+- type: entity # For clothes that don't need suit sensors.
+  parent: ClothingUniformBaseUnsensoredFlippable
+  id: ClothingUniformBaseFlippable
+  abstract: true
+  components:
+  - type: SuitSensor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork
+
+- type: entity # For clothes that don't need suit sensors.
+  parent: ClothingUniformBaseFlippable
+  id: ClothingUniformBaseFlipped
+  suffix: flipped
+  abstract: true
+  components: # I *think* I can just disregard the components;
+              # and inherit from ClothingUniformBaseFlippable
+              # and ClothingUniformBaseUnsensoredFlipped but I don't want to
+              # test that right now.
+  - type: Foldable
+    folded: true
+  - type: Clothing
+    equippedPrefix: flipped
+  - type: Item
+    heldPrefix: flipped
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+      visible: false
+    - state: icon_flipped
+      map: ["foldedLayer"]
+      visible: true
+
+- type: entity
+  abstract: true
+  parent: UnsensoredClothingUniformBase
+  id: UnsensoredClothingUniformEnvirosuitBase
+  components:
+  - type: IgniteFromGasImmunity
+    parts:
+    - Chest
+    - Groin
+    - LeftArm
+    - RightArm
+    - LeftLeg
+    - RightLeg
+    - LeftFoot
+    - RightFoot
+  - type: Clothing
+    equipDelay: 0.4
+    unequipDelay: 0.6 # Slightly higher delay to protect against accidental unequips
+    femaleMask: NoMask
+  - type: SelfExtinguisher
+    cooldown: 100
+    requiresIgniteFromGasImmune: true
+    sound:
+      path: /Audio/Effects/extinguish.ogg
+  - type: LimitedCharges
+    maxCharges: 4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.85
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - PlasmamanSafe
+  - type: GuideHelp # While the playerbase is getting introduced to Plasmamen, add their guidebook here
+    guides: [ Plasmaman ]
+
+- type: entity
+  abstract: true
+  parent: UnsensoredClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitBase
+  components:
+  - type: SuitSensor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork
+
+- type: entity
+  abstract: true
+  parent: UnsensoredClothingUniformEnvirosuitBase
+  id: UnsensoredClothingUniformEnvirosuitCustomBase
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/custom.rsi
+    layers:
+    - state: icon
+      color: "#FFFFFF"
+    - state: accent-icon
+      color: "#FF0000"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#FFFFFF"
+      - state: accent-inhand-left
+        color: "#FF0000"
+      right:
+      - state: inhand-right
+        color: "#FFFFFF"
+      - state: accent-inhand-right
+        color: "#FF0000"
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Envirosuits/custom.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#FFFFFF"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#FF0000"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#FF0000"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa" # Recommended default soles color
+
+- type: entity
+  abstract: true
+  parent: UnsensoredClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitCustomBase
+  components:
+  - type: SuitSensor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SuitSensor
+  - type: WirelessNetworkConnection
+    range: 1200
+  - type: StationLimitedNetwork

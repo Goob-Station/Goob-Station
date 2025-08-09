@@ -154,6 +154,10 @@
     tags:
     - Kangaroo
     - WhitelistChameleon
+  - type: IgniteFromGasImmunity # Logical? No. Funny as shit? You bet.
+    parts:
+    - LeftHand
+    - RightHand
 
 - type: entity
   parent: ClothingHandsGlovesBoxingRed

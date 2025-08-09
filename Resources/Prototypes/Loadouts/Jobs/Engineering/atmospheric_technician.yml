@@ -83,20 +83,24 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmos
 
+
 - type: loadout
   id: AtmosphericTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtAtmos
+
 
 - type: loadout
   id: AtmosphericTechnicianJumpsuitCasual
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmosCasual
 
+
 - type: loadout # goob
   id: AtmosMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryAtmospherics
+
 
 # Back
 - type: loadout

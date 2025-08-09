@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: FirePunch
+  files:
+    - /Audio/Weapons/firepunch1.ogg
+    - /Audio/Weapons/firepunch2.ogg
+    - /Audio/Weapons/firepunch3.ogg
+    - /Audio/Weapons/firepunch4.ogg

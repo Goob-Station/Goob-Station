@@ -140,10 +140,12 @@ chat-speech-verb-reptilian-1 = hisses
 chat-speech-verb-reptilian-2 = snorts
 chat-speech-verb-reptilian-3 = huffs
 
-chat-speech-verb-name-skeleton = Skeleton
+chat-speech-verb-name-skeleton = Skeleton / Plasmaman
 chat-speech-verb-skeleton-1 = rattles
-chat-speech-verb-skeleton-2 = clacks
-chat-speech-verb-skeleton-3 = gnashes
+chat-speech-verb-skeleton-2 = ribs
+chat-speech-verb-skeleton-3 = bones
+chat-speech-verb-skeleton-4 = clacks
+chat-speech-verb-skeleton-5 = cracks
 
 chat-speech-verb-name-vox = Vox
 chat-speech-verb-vox-1 = screeches

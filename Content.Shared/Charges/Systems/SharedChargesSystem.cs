@@ -8,6 +8,13 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <comedian_vs_clown@hotmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -248,5 +255,19 @@ public abstract class SharedChargesSystem : EntitySystem
         return Math.Clamp(entity.Comp1.LastCharges + calculated,
             0,
             entity.Comp1.MaxCharges);
+    }
+
+    // Goob Change: I LOVE SET ACCESSORS.
+    public void SetMaxCharges(
+      EntityUid uid,
+      int charges,
+      LimitedChargesComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.MaxCharges = charges;
+        SetCharges(uid, Math.Clamp(charges, 0, component.MaxCharges));
+        Dirty(uid, component);
     }
 }

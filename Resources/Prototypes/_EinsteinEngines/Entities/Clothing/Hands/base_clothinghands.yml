@@ -1,0 +1,19 @@
+- type: entity
+  abstract: true
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ClothingHandsGlovesEnviroglovesBase
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.95
+  - type: IgniteFromGasImmunity
+    parts:
+    - LeftHand
+    - RightHand
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - PlasmamanSafe

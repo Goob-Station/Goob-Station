@@ -1,0 +1,17 @@
+- type: loadout
+  id: ChaplainEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitChaplain
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ChaplainEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmChaplain
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

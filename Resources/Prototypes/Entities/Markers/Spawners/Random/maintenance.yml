@@ -349,7 +349,12 @@
         - id: NitrogenTankFilled
         - id: DoubleEmergencyNitrogenTankFilled
       - id: EmergencyFunnyOxygenTankFilled
-        weight: 0.5
+      - !type:GroupSelector # EE Plasmeme Change
+        children:
+        - !type:EntSelector
+          id: PlasmaTankFilled
+        - !type:EntSelector
+          id: DoubleEmergencyPlasmaTankFilled
       - !type:GroupSelector
         weight: 3
         children:

@@ -1,0 +1,17 @@
+- type: loadout
+  id: QuartermasterEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitQM
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: QuartermasterEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmQM
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

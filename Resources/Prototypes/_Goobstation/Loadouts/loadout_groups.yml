@@ -19,6 +19,874 @@
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+# RD
+
+- type: loadoutGroup
+  id: ResearchDirectorEnvirohelm
+  name: loadout-group-research-director-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ResearchDirectorEnvirohelm
+
+- type: loadoutGroup
+  id: ResearchDirectorEnvirosuit
+  name: loadout-group-research-director-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ResearchDirectorEnvirosuit
+
+- type: loadoutGroup
+  id: ResearchDirectorEnvirogloves
+  name: loadout-group-research-director-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ResearchDirectorEnvirogloves
+  - WhiteEnvirogloves
+
+
+# Scientist
+
+- type: loadoutGroup
+  id: ScientistEnvirohelm
+  name: loadout-group-scientist-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ScientistEnvirohelm
+  - RoboticistEnvirohelm
+
+- type: loadoutGroup
+  id: ScientistEnvirosuit
+  name: loadout-group-scientist-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ScientistEnvirosuit
+  - RoboticistEnvirosuit
+
+- type: loadoutGroup
+  id: ScientistEnvirogloves
+  name: loadout-group-scientist-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - RoboticistEnvirogloves
+  - WhiteEnvirogloves
+
+# Research Assistant
+
+- type: loadoutGroup
+  id: ResearchAssistantEnvirohelm
+  name: loadout-group-research-assistant-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirohelm
+
+- type: loadoutGroup
+  id: ResearchAssistantEnvirosuit
+  name: loadout-group-research-assistant-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirosuit
+
+- type: loadoutGroup
+  id: ResearchAssistantEnvirogloves
+  name: loadout-group-research-assistant-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+
+# CMO
+
+- type: loadoutGroup
+  id: ChiefMedicalOfficerEnvirohelm
+  name: loadout-group-chief-medical-officer-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChiefMedicalOfficerEnvirohelm
+
+- type: loadoutGroup
+  id: ChiefMedicalOfficerEnvirosuit
+  name: loadout-group-chief-medical-officer-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChiefMedicalOfficerEnvirosuit
+
+- type: loadoutGroup
+  id: ChiefMedicalOfficerEnvirogloves
+  name: loadout-group-chief-medical-officer-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+  - NitrileEnvirogloves
+
+# Medical Doctor
+
+- type: loadoutGroup
+  id: MedicalDoctorEnvirohelm
+  name: loadout-group-medical-doctor-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MedicalDoctorEnvirohelm
+
+- type: loadoutGroup
+  id: MedicalDoctorEnvirosuit
+  name: loadout-group-medical-doctor-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MedicalDoctorEnvirosuit
+
+- type: loadoutGroup
+  id: MedicalDoctorEnvirogloves
+  name: loadout-group-medical-doctor-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+  - NitrileEnvirogloves
+
+# Medical Intern
+
+- type: loadoutGroup
+  id: MedicalInternEnvirohelm
+  name: loadout-group-medical-intern-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MedicalDoctorEnvirohelm
+
+- type: loadoutGroup
+  id: MedicalInternEnvirosuit
+  name: loadout-group-medical-intern-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MedicalDoctorEnvirosuit
+
+- type: loadoutGroup
+  id: MedicalInternEnvirogloves
+  name: loadout-group-medical-intern-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+
+# Paramedic
+
+- type: loadoutGroup
+  id: ParamedicEnvirohelm
+  name: loadout-group-paramedic-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ParamedicEnvirohelm
+
+- type: loadoutGroup
+  id: ParamedicEnvirosuit
+  name: loadout-group-paramedic-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ParamedicEnvirosuit
+
+- type: loadoutGroup
+  id: ParamedicEnvirogloves
+  name: loadout-group-paramedic-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+  - NitrileEnvirogloves
+
+# Psychologist
+
+- type: loadoutGroup
+  id: PsychologistEnvirohelm
+  name: loadout-group-psychologist-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PsychologistEnvirohelm
+
+- type: loadoutGroup
+  id: PsychologistEnvirosuit
+  name: loadout-group-psychologist-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PsychologistEnvirosuit
+
+- type: loadoutGroup
+  id: PsychologistEnvirogloves
+  name: loadout-group-psychologist-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+
+# Cargo Technician
+
+- type: loadoutGroup
+  id: CargoTechnicianEnvirohelm
+  name: loadout-group-cargo-technician-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CargoTechnicianEnvirohelm
+  - MailCarrierEnvirohelm
+
+- type: loadoutGroup
+  id: CargoTechnicianEnvirosuit
+  name: loadout-group-cargo-technician-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CargoTechnicianEnvirosuit
+  - MailCarrierEnvirosuit
+
+- type: loadoutGroup
+  id: CargoTechnicianEnvirogloves
+  name: loadout-group-cargo-technician-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CargoTechnicianEnvirogloves
+  - WhiteEnvirogloves
+
+# Quartermaster
+
+- type: loadoutGroup
+  id: QuartermasterEnvirohelm
+  name: loadout-group-quartermaster-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - QuartermasterEnvirohelm
+
+- type: loadoutGroup
+  id: QuartermasterEnvirosuit
+  name: loadout-group-quartermaster-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - QuartermasterEnvirosuit
+
+- type: loadoutGroup
+  id: QuartermasterEnvirogloves
+  name: loadout-group-quartermaster-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CargoTechnicianEnvirogloves
+
+# Station Engineer
+
+- type: loadoutGroup
+  id: StationEngineerEnvirohelm
+  name: loadout-group-station-engineer-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - StationEngineerEnvirohelm
+
+- type: loadoutGroup
+  id: StationEngineerEnvirosuit
+  name: loadout-group-station-engineer-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - StationEngineerEnvirosuit
+
+- type: loadoutGroup
+  id: StationEngineerEnvirogloves
+  name: loadout-group-station-engineer-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - StationEngineerEnvirogloves
+
+# Technical Assistant
+
+- type: loadoutGroup
+  id: TechnicalAssistantEnvirohelm
+  name: loadout-group-technical-assistant-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - StationEngineerEnvirohelm
+
+- type: loadoutGroup
+  id: TechnicalAssistantEnvirosuit
+  name: loadout-group-technical-assistant-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - StationEngineerEnvirosuit
+
+- type: loadoutGroup
+  id: TechnicalAssistantEnvirogloves
+  name: loadout-group-technical-assistant-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - StationEngineerEnvirogloves
+
+# Atmospheric Technician
+
+- type: loadoutGroup
+  id: AtmosEnvirohelm
+  name: loadout-group-atmos-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AtmosEnvirohelm
+
+- type: loadoutGroup
+  id: AtmosEnvirosuit
+  name: loadout-group-atmos-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AtmosEnvirosuit
+
+- type: loadoutGroup
+  id: AtmosEnvirogloves
+  name: loadout-group-atmos-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AtmosEnvirogloves
+
+# Chief Engineer
+
+- type: loadoutGroup
+  id: ChiefEngineerEnvirohelm
+  name: loadout-group-chief-engineer-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChiefEngineerEnvirohelm
+
+- type: loadoutGroup
+  id: ChiefEngineerEnvirosuit
+  name: loadout-group-chief-engineer-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChiefEngineerEnvirosuit
+
+- type: loadoutGroup
+  id: ChiefEngineerEnvirogloves
+  name: loadout-group-chief-engineer-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChiefEngineerEnvirogloves
+
+# Security Officer
+
+- type: loadoutGroup
+  id: SecurityOfficerEnvirohelm
+  name: loadout-group-security-officer-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityOfficerEnvirohelm
+
+- type: loadoutGroup
+  id: SecurityOfficerEnvirosuit
+  name: loadout-group-security-officer-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityOfficerEnvirosuit
+
+- type: loadoutGroup
+  id: SecurityOfficerEnvirogloves
+  name: loadout-group-security-officer-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackEnvirogloves
+
+# Security Cadet
+
+- type: loadoutGroup
+  id: SecurityCadetEnvirohelm
+  name: loadout-group-security-cadet-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityOfficerEnvirohelm
+
+- type: loadoutGroup
+  id: SecurityCadetEnvirosuit
+  name: loadout-group-security-cadet-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityOfficerEnvirosuit
+
+- type: loadoutGroup
+  id: SecurityCadetEnvirogloves
+  name: loadout-group-security-cadet-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackEnvirogloves
+
+# Detective
+
+- type: loadoutGroup
+  id: DetectiveEnvirohelm
+  name: loadout-group-detective-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DetectiveEnvirohelm
+
+- type: loadoutGroup
+  id: DetectiveEnvirosuit
+  name: loadout-group-detective-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DetectiveEnvirosuit
+
+- type: loadoutGroup
+  id: DetectiveEnvirogloves
+  name: loadout-group-detective-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DetectiveEnvirogloves
+
+- type: loadoutGroup
+  id: DetectiveGloves
+  name: loadout-group-detective-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DetectiveGloves
+
+# Warden
+
+- type: loadoutGroup
+  id: WardenEnvirohelm
+  name: loadout-group-warden-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WardenEnvirohelm
+
+- type: loadoutGroup
+  id: WardenEnvirosuit
+  name: loadout-group-warden-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WardenEnvirosuit
+
+- type: loadoutGroup
+  id: WardenEnvirogloves
+  name: loadout-group-warden-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackEnvirogloves
+
+# Head of Personnel
+
+- type: loadoutGroup
+  id: HoPEnvirohelm
+  name: loadout-group-hop-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HoPEnvirohelm
+
+- type: loadoutGroup
+  id: HoPEnvirosuit
+  name: loadout-group-hop-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HoPEnvirosuit
+
+- type: loadoutGroup
+  id: HoPEnvirogloves
+  name: loadout-group-hop-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HoPEnvirogloves
+
+- type: loadoutGroup
+  id: HoPGloves
+  name: loadout-group-hop-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HoPGloves
+
+# Centcomm Officer
+
+- type: loadoutGroup
+  id: CentComOfficerEnvirohelm
+  name: loadout-group-centcom-officer-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CentComOfficerEnvirohelm
+
+- type: loadoutGroup
+  id: CentComOfficerEnvirosuit
+  name: loadout-group-centcom-officer-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CentComOfficerEnvirosuit
+
+- type: loadoutGroup
+  id: CentComOfficerEnvirogloves
+  name: loadout-group-centcom-officer-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackEnvirogloves
+
+# Botanist
+
+- type: loadoutGroup
+  id: BotanistEnvirohelm
+  name: loadout-group-botanist-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BotanistEnvirohelm
+
+- type: loadoutGroup
+  id: BotanistEnvirosuit
+  name: loadout-group-botanist-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BotanistEnvirosuit
+
+- type: loadoutGroup
+  id: BotanistEnvirogloves
+  name: loadout-group-botanist-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - LeatherEnvirogloves
+
+# Chaplain
+
+- type: loadoutGroup
+  id: ChaplainEnvirohelm
+  name: loadout-group-chaplain-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChaplainEnvirohelm
+
+- type: loadoutGroup
+  id: ChaplainEnvirosuit
+  name: loadout-group-chaplain-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChaplainEnvirosuit
+
+- type: loadoutGroup
+  id: ChaplainEnvirogloves
+  name: loadout-group-chaplain-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackEnvirogloves
+
+# Clown
+
+- type: loadoutGroup
+  id: ClownEnvirohelm
+  name: loadout-group-clown-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClownEnvirohelm
+
+- type: loadoutGroup
+  id: ClownEnvirosuit
+  name: loadout-group-clown-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClownEnvirosuit
+
+- type: loadoutGroup
+  id: ClownEnvirogloves
+  name: loadout-group-clown-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClownEnvirogloves
+
+# Chef
+
+- type: loadoutGroup
+  id: ChefEnvirohelm
+  name: loadout-group-chef-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirohelm
+
+- type: loadoutGroup
+  id: ChefEnvirosuit
+  name: loadout-group-chef-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChefEnvirosuit
+
+- type: loadoutGroup
+  id: ChefEnvirogloves
+  name: loadout-group-chef-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+
+# Janitor
+
+- type: loadoutGroup
+  id: JanitorEnvirohelm
+  name: loadout-group-janitor-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - JanitorEnvirohelm
+
+- type: loadoutGroup
+  id: JanitorEnvirosuit
+  name: loadout-group-janitor-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - JanitorEnvirosuit
+
+- type: loadoutGroup
+  id: JanitorEnvirogloves
+  name: loadout-group-janitor-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - JanitorEnvirogloves
+
+# Librarian
+
+- type: loadoutGroup
+  id: LibrarianEnvirohelm
+  name: loadout-group-librarian-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AncientVoidEnvirohelm
+
+- type: loadoutGroup
+  id: LibrarianEnvirosuit
+  name: loadout-group-librarian-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - AncientVoidEnvirosuit
+
+- type: loadoutGroup
+  id: LibrarianEnvirogloves
+  name: loadout-group-librarian-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PrototypeEnvirogloves
+
+# Mime
+
+- type: loadoutGroup
+  id: MimeEnvirohelm
+  name: loadout-group-mime-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MimeEnvirohelm
+
+- type: loadoutGroup
+  id: MimeEnvirosuit
+  name: loadout-group-mime-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MimeEnvirosuit
+
+- type: loadoutGroup
+  id: MimeEnvirogloves
+  name: loadout-group-mime-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+
+- type: loadoutGroup
+  id: MimeGloves
+  name: loadout-group-mime-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteGloves
+
+# Assistant
+
+- type: loadoutGroup
+  id: AssistantEnvirohelm
+  name: loadout-group-assistant-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - GreyEnvirohelm
+
+- type: loadoutGroup
+  id: AssistantEnvirosuit
+  name: loadout-group-assistant-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - GreyEnvirosuit
+
+- type: loadoutGroup
+  id: AssistantEnvirogloves
+  name: loadout-group-assistant-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DarkGreyEnvirogloves
+
+# Musician
+
+- type: loadoutGroup
+  id: MusicianEnvirohelm
+  name: loadout-group-musician-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MusicianEnvirohelm
+
+- type: loadoutGroup
+  id: MusicianEnvirosuit
+  name: loadout-group-musician-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MusicianEnvirosuit
+
+- type: loadoutGroup
+  id: MusicianEnvirogloves
+  name: loadout-group-musician-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+
+# Service Worker
+
+- type: loadoutGroup
+  id: ServiceWorkerEnvirohelm
+  name: loadout-group-service-worker-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DarkGreenEnvirohelm
+
+- type: loadoutGroup
+  id: ServiceWorkerEnvirosuit
+  name: loadout-group-service-worker-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DarkGreenEnvirosuit
+
+- type: loadoutGroup
+  id: ServiceWorkerEnvirogloves
+  name: loadout-group-service-worker-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - DarkGreenEnvirogloves
+
+# Bartender
+
+- type: loadoutGroup
+  id: BartenderEnvirohelm
+  name: loadout-group-bartender-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirohelm
+
+- type: loadoutGroup
+  id: BartenderEnvirosuit
+  name: loadout-group-bartender-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - Enviroslacks
+
+- type: loadoutGroup
+  id: BartenderEnvirogloves
+  name: loadout-group-service-worker-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+
+# Lawyer
+
+- type: loadoutGroup
+  id: LawyerEnvirohelm
+  name: loadout-group-lawyer-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirohelm
+
+- type: loadoutGroup
+  id: LawyerEnvirosuit
+  name: loadout-group-lawyer-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - Enviroslacks
+
+- type: loadoutGroup
+  id: LawyerEnvirogloves
+  name: loadout-group-lawyer-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+
 # NTR
 
 - type: loadoutGroup
@@ -70,6 +938,36 @@
   - NanotrasenRepresentativeBoots
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
+
+- type: loadoutGroup
+  id: NanotrasenRepresentativeGloves
+  name: loadout-group-ntr-gloves
+  loadouts:
+  - NanotrasenRepresentativeGloves
+
+- type: loadoutGroup
+  id: NanotrasenRepresentativeEnvirohelm
+  name: loadout-group-ntr-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - NanotrasenRepresentativeEnvirohelm
+
+- type: loadoutGroup
+  id: NanotrasenRepresentativeEnvirosuit
+  name: loadout-group-ntr-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - NanotrasenRepresentativeEnvirosuit
+
+- type: loadoutGroup
+  id: NanotrasenRepresentativeEnvirogloves
+  name: loadout-group-ntr-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackEnvirogloves
 
 # BSO
 - type: loadoutGroup
@@ -129,6 +1027,38 @@
   - JackBoots
   - BlackCowboyBoots
   - SnowjacksBso
+
+- type: loadoutGroup
+  id: BlueshieldOfficerEnvirohelm
+  name: loadout-group-bso-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlueshieldOfficerEnvirohelm
+
+- type: loadoutGroup
+  id: BlueshieldOfficerEnvirosuit
+  name: loadout-group-bso-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlueshieldOfficerEnvirosuit
+
+- type: loadoutGroup
+  id: BlueshieldOfficerEnvirogloves
+  name: loadout-group-bso-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CombatEnvirogloves
+
+- type: loadoutGroup
+  id: BlueshieldOfficerGloves
+  name: loadout-group-bso-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CombatGloves
 
 # Career Trainer
 
@@ -190,6 +1120,30 @@
   loadouts:
   - NoPro
 
+- type: loadoutGroup
+  id: ReporterEnvirohelm
+  name: loadout-group-reporter-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ReporterEnvirohelm
+
+- type: loadoutGroup
+  id: ReporterEnvirosuit
+  name: loadout-group-reporter-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ReporterEnvirosuit
+
+- type: loadoutGroup
+  id: ReporterEnvirogloves
+  name: loadout-group-reporter-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ReporterEnvirogloves
+
 #sec
 
 - type: loadoutGroup
@@ -214,13 +1168,69 @@
 # Captain
 
 - type: loadoutGroup
+  id: CaptainEnvirohelm
+  name: loadout-group-captain-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CaptainEnvirohelm
+
+- type: loadoutGroup
+  id: CaptainEnvirosuit
+  name: loadout-group-captain-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CaptainEnvirosuit
+
+- type: loadoutGroup
+  id: CaptainEnvirogloves
+  name: loadout-group-captain-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CaptainEnvirogloves
+
+- type: loadoutGroup
+  id: CaptainGloves
+  name: loadout-group-captain-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CaptainGloves
+
+- type: loadoutGroup
   id: CaptainMask
   name: loadout-group-captain-mask
   minLimit: 0
   loadouts:
   - CaptainMask
 
-# Salvage specialist
+# Salvage / Miner
+
+- type: loadoutGroup
+  id: SalvageEnvirohelm
+  name: loadout-group-salvage-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SalvageEnvirohelm
+
+- type: loadoutGroup
+  id: SalvageEnvirosuit
+  name: loadout-group-salvage-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SalvageEnvirosuit
+
+- type: loadoutGroup
+  id: SalvageEnvirogloves
+  name: loadout-group-salvage-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SalvageEnvirogloves
 
 - type: loadoutGroup
   id: SalvageSpecialistNeck
@@ -240,6 +1250,31 @@
   - SeniorPhysicianBeret
   - ChemistUshanka # Da.
 
+- type: loadoutGroup
+  id: ChemistEnvirohelm
+  name: loadout-group-chemist-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChemistEnvirohelm
+
+- type: loadoutGroup
+  id: ChemistEnvirosuit
+  name: loadout-group-chemist-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ChemistEnvirosuit
+
+- type: loadoutGroup
+  id: ChemistEnvirogloves
+  name: loadout-group-chemist-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WhiteEnvirogloves
+  - NitrileEnvirogloves
+
 # HOS
 
 - type: loadoutGroup
@@ -250,6 +1285,37 @@
   - SecurityWinterBoots
   - AdvancedJackBoots
 
+- type: loadoutGroup
+  id: HeadofSecurityEnvirohelm
+  name: loadout-group-head-of-security-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HeadofSecurityEnvirohelm
+
+- type: loadoutGroup
+  id: HeadofSecurityEnvirosuit
+  name: loadout-group-head-of-security-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - HeadofSecurityEnvirosuit
+
+- type: loadoutGroup
+  id: HeadofSecurityEnvirogloves
+  name: loadout-group-head-of-security-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CombatEnvirogloves
+
+- type: loadoutGroup
+  id: HeadofSecurityGloves
+  name: loadout-group-head-of-security-gloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - CombatGloves
 # Brigmedic
 
 - type: loadoutGroup
@@ -288,6 +1354,30 @@
   - BrigmedicDuffel
   - BrigmedicMessenger
 
+- type: loadoutGroup
+  id: BrigmedicEnvirohelm
+  name: loadout-group-brigmedic-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicEnvirohelm
+
+- type: loadoutGroup
+  id: BrigmedicEnvirosuit
+  name: loadout-group-brigmedic-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BrigmedicEnvirosuit
+
+- type: loadoutGroup
+  id: BrigmedicEnvirogloves
+  name: loadout-group-brigmedic-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BlackEnvirogloves
+
 # Security
 
 - type: loadoutGroup
@@ -297,3 +1387,72 @@
   - SecurityMeleeKnife
   - SecurityMeleePolyBaton
   - SecurityMeleeSpear
+
+# Zookeeper
+
+- type: loadoutGroup
+  id: ZookeeperHead
+  name: loadout-group-zookeeper-head
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ZookeeperHead
+
+- type: loadoutGroup
+  id: ZookeeperJumpsuit
+  name: loadout-group-zookeeper-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ZookeeperJumpsuit
+
+- type: loadoutGroup
+  id: ZookeeperEnvirohelm
+  name: loadout-group-zookeeper-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ZookeeperEnvirohelm
+
+- type: loadoutGroup
+  id: ZookeeperEnvirosuit
+  name: loadout-group-zookeeper-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ZookeeperEnvirosuit
+
+- type: loadoutGroup
+  id: ZookeeperEnvirogloves
+  name: loadout-group-zookeeper-envirogloves
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PurpleEnvirogloves
+
+# Boxer
+
+- type: loadoutGroup
+  id: BoxerEnvirohelm
+  name: loadout-group-boxer-envirohelm
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BoxerEnvirohelm
+
+- type: loadoutGroup
+  id: BoxerEnvirosuit
+  name: loadout-group-boxer-envirosuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - BoxerEnvirosuit
+
+# Plasmamen
+
+- type: loadoutGroup
+  id: GroupEVATankPlasma
+  name: loadout-group-plasma-tank
+  hidden: true
+  loadouts:
+  - LoadoutSpeciesPlasma

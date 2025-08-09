@@ -74,8 +74,8 @@
 - type: startingGear
   id: ZookeeperGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSafari
-    head: ClothingHeadSafari
+    #jumpsuit: ClothingUniformJumpsuitSafari
+    #head: ClothingHeadSafari
     shoes: ClothingShoesColorWhite
     id: ZookeeperPDA
     ears: ClothingHeadsetService

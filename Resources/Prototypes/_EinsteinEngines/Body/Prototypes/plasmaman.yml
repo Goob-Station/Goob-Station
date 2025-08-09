@@ -1,0 +1,55 @@
+- type: body
+  id: Plasmaman
+  name: "plasmaman"
+  root: chest
+  slots:
+    head:
+      part: HeadPlasmaman
+      connections:
+      - chest
+      organs:
+        brain: OrganPlasmamanBrain
+        eyes: OrganPlasmamanEyes
+    chest:
+      part: ChestPlasmaman
+      connections:
+      - right arm
+      - left arm
+      - groin
+      - head
+      organs:
+        heart: OrganPlasmamanHeart
+        lungs: OrganPlasmamanLungs
+    groin:
+      part: GroinPlasmaman
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganPlasmamanStomach
+        liver: OrganPlasmamanLiver
+        kidneys: OrganPlasmamanKidneys
+    right arm:
+      part: RightArmPlasmaman
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmPlasmaman
+      connections:
+      - left hand
+    right hand:
+      part: RightHandPlasmaman
+    left hand:
+      part: LeftHandPlasmaman
+    right leg:
+      part: RightLegPlasmaman
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegPlasmaman
+      connections:
+      - left foot
+    right foot:
+      part: RightFootPlasmaman
+    left foot:
+      part: LeftFootPlasmaman

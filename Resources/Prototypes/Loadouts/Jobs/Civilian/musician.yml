@@ -87,10 +87,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMusician
 
+
 - type: loadout
   id: MusicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMusician
+
 
 # Outerclothing
 - type: loadout

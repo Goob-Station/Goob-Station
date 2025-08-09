@@ -10,3 +10,35 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: MasterCap
+
+- type: loadout
+  id: CaptainEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCaptain
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CaptainEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmCaptain
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CaptainEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesCaptain
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: CaptainGloves
+  equipment:
+    gloves: ClothingHandsGlovesCaptain
