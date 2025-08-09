@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseWeaponEnergyTurret, ConstructibleMachine]
   id: WeaponEnergyTurretStation
-  name: sentry turret
-  description: A high-tech autonomous weapons system designed to keep unauthorized personnel out of sensitive areas.
+  name: "сторожова турель"
+  description: "Високотехнологічна автономна система озброєння, призначена для запобігання проникненню сторонніх осіб у чутливі зони."
   components:
   
   # Physics
@@ -166,8 +166,8 @@
 - type: entity
   parent: WeaponEnergyTurretStation
   id: WeaponEnergyTurretAI
-  name: AI sentry turret
-  description: A high-tech autonomous weapons system under the direct control of a local artifical intelligence.
+  name: "сторожова турель ШІ"
+  description: "Високотехнологічна автономна система озброєння під безпосереднім контролем локального штучного інтелекту."
   components:
   - type: AccessReader
     access: [["StationAi"]]

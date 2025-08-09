@@ -13,8 +13,8 @@
 
 - type: entity
   id: TouchSpellMansus
-  name: mansus grasp
-  description: The power of the Old Gods, channeled through your grip.
+  name: "хватка мансуса"
+  description: "Сила Старих Богів, спрямована через твою руку."
   categories: [ HideSpawnMenu ]
   components:
   - type: Unremoveable

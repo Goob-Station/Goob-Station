@@ -9,7 +9,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: random syndicate item spawner
+  name: "спавнер випадкових предметів синдикату"
   id: SyndicateSpawner
   parent: MarkerBase
   components:

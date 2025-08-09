@@ -62,8 +62,8 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
-  name: stomach
-  description: "Gross. This is hard to stomach."
+  name: "шлунок"
+  description: "Гидота. Це складно переварити."
   components:
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
@@ -101,8 +101,8 @@
 - type: entity
   id: OrganArachnidLungs
   parent: BaseArachnidOrgan
-  name: lungs
-  description: "Filters oxygen from an atmosphere... just more greedily."
+  name: "легені"
+  description: "Фільтрує кисень з атмосфери... просто більш жадібно."
   components:
   - type: Sprite
     layers:
@@ -149,8 +149,8 @@
 - type: entity
   id: OrganArachnidHeart
   parent: BaseArachnidOrgan
-  name: heart
-  description: "A disgustingly persistent little biological pump made for spiders."
+  name: "серце"
+  description: "Огидно наполегливий маленький біологічний насос, створений для павуків."
   components:
   - type: Sprite
     state: heart-on
@@ -183,8 +183,8 @@
 - type: entity
   id: OrganArachnidLiver
   parent: BaseHumanOrgan
-  name: liver
-  description: "Pairing suggestion: chianti and fava beans."
+  name: "печінка"
+  description: "Поєднання: к'янті та квасоля фава."
   categories: [ HideSpawnMenu ]
   components:
   - type: Item
@@ -217,8 +217,8 @@
 - type: entity
   id: OrganArachnidKidneys
   parent: BaseHumanOrgan
-  name: kidneys
-  description: "Filters toxins from the bloodstream."
+  name: "нирки"
+  description: "Фільтрує токсини з кровотоку."
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ # Shitmed
@@ -251,8 +251,8 @@
 - type: entity
   id: OrganArachnidEyes
   parent: BaseArachnidOrgan
-  name: eyes
-  description: "Two was already too many."
+  name: "очі"
+  description: "Двох було вже забагато."
   components:
   - type: Sprite
     layers:
@@ -279,8 +279,8 @@
 - type: entity
   id: OrganArachnidTongue
   parent: BaseArachnidOrgan
-  name: tongue
-  description: "A fleshy muscle mostly used for lying."
+  name: "язик"
+  description: "М'яз із плоті, який здебільшого використовується для брехні."
   components:
   - type: Sprite
     state: tongue

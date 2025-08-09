@@ -15,7 +15,7 @@
 
 - type: entity
   id: HeadOni
-  name: "oni head"
+  name: "голова оні"
   parent: [PartOni, BaseHead]
   components:
   - type: Sprite
@@ -24,7 +24,7 @@
 
 - type: entity
   id: ChestOni
-  name: "oni chest"
+  name: "грудна клітка оні"
   parent: [PartOni, BaseChest]
   components:
   - type: Sprite
@@ -33,7 +33,7 @@
 
 - type: entity
   id: GroinOni
-  name: "oni groin"
+  name: "пах оні"
   parent: [PartOni, BaseGroin]
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
 
 - type: entity
   id: LeftArmOni
-  name: "left oni arm"
+  name: "ліва рука оні"
   parent: [PartOni, BaseLeftArm]
   components:
   - type: Sprite
@@ -51,7 +51,7 @@
 
 - type: entity
   id: RightArmOni
-  name: "right oni arm"
+  name: "права рука оні"
   parent: [PartOni, BaseRightArm]
   components:
   - type: Sprite
@@ -60,7 +60,7 @@
 
 - type: entity
   id: LeftHandOni
-  name: "left oni hand"
+  name: "ліва кисть оні"
   parent: [PartOni, BaseLeftHand]
   components:
   - type: Sprite
@@ -69,7 +69,7 @@
 
 - type: entity
   id: RightHandOni
-  name: "right oni hand"
+  name: "права кисть оні"
   parent: [PartOni, BaseRightHand]
   components:
   - type: Sprite
@@ -78,7 +78,7 @@
 
 - type: entity
   id: LeftLegOni
-  name: "left oni leg"
+  name: "ліва нога оні"
   parent: [PartOni, BaseLeftLeg]
   components:
   - type: Sprite
@@ -87,7 +87,7 @@
 
 - type: entity
   id: RightLegOni
-  name: "right oni leg"
+  name: "права нога оні"
   parent: [PartOni, BaseRightLeg]
   components:
   - type: Sprite
@@ -96,7 +96,7 @@
 
 - type: entity
   id: LeftFootOni
-  name: "left oni foot"
+  name: "ліва стопа оні"
   parent: [PartOni, BaseLeftFoot]
   components:
   - type: Sprite
@@ -105,7 +105,7 @@
 
 - type: entity
   id: RightFootOni
-  name: "right oni foot"
+  name: "права стопа оні"
   parent: [PartOni, BaseRightFoot]
   components:
   - type: Sprite

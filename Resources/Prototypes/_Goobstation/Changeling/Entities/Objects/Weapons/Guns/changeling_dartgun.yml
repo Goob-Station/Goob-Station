@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseItem
   id: DartGunChangeling
-  name: ranged stinger
-  description: Reagent stinger able to fire organic darts at targets.
+  name: "жало з широким діапазоном"
+  description: "Реагентне жало здатне стріляти органічними дротиками по мішенях."
   suffix: Unremoveable
   components:
   - type: Sprite
@@ -43,8 +43,8 @@
 - type: entity
   id: ChangelingDart
   parent: BaseBullet
-  name: organic dart
-  description: A needle thin dart formed of bone.
+  name: "органічний дротик"
+  description: "Голчастий тонкий дротик, сформований з кістки."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -71,7 +71,7 @@
 - type: entity
   id: ChangelingDartMute
   parent: ChangelingDart
-  name: mute organic dart
+  name: "німий органічний дротик"
   categories: [ HideSpawnMenu ]
   suffix: Mute
   components:
@@ -81,7 +81,7 @@
 - type: entity
   id: ChangelingDartBlind
   parent: ChangelingDart
-  name: blinding organic dart
+  name: "сліпучий органічний дротик"
   categories: [ HideSpawnMenu ]
   suffix: Blind
   components:
@@ -91,7 +91,7 @@
 - type: entity
   id: ChangelingDartCryo
   parent: ChangelingDart
-  name: cryogenic organic dart
+  name: "кріогенний органічний дротик"
   categories: [ HideSpawnMenu ]
   suffix: Cryo
   components:
@@ -101,7 +101,7 @@
 - type: entity
   id: ChangelingDartLethargic
   parent: ChangelingDart
-  name: lethargic organic dart
+  name: "летаргічний органічний дротик"
   categories: [ HideSpawnMenu ]
   suffix: Lethargic
   components:

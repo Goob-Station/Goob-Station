@@ -8,7 +8,7 @@
 - type: entity
   parent: MarkerBase
   id: RandomPainting
-  name: random painting spawner
+  name: "спавнер випадкового малюнку"
   components:
   - type: Sprite
     layers:

@@ -1,8 +1,8 @@
 - type: entity
   id: Pentagram
-  name: pentagram
+  name: "пентаграма"
   parent: Acidifier
-  description: A devilish summoning circle.
+  description: "Диявольське коло призову."
   components:
   - type: Sprite
     sprite: /Textures/_Goobstation/Effects/pentagram.rsi
@@ -24,8 +24,8 @@
 - type: entity
   id: PentagramHellHand
   parent: Pentagram
-  name: pentagram & hand
-  description: A devilish summoning circle with an equally devilish hand.
+  name: "пентаграма та рука"
+  description: "Диявольське коло призову з не менш диявольською рукою."
   components:
   - type: SpawnOnDespawn
     prototype: HellHand

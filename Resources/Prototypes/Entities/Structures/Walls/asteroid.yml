@@ -124,8 +124,8 @@
 - type: entity
   id: AsteroidRock
   parent: BaseWall
-  name: asteroid rock
-  description: A rocky asteroid.
+  name: "астероїдний камінь"
+  description: "Кам'янистий астероїд."
   components:
   - type: Transform
     noRot: true
@@ -525,7 +525,7 @@
 - type: entity
   id: AsteroidRockArtifactFragment
   parent: AsteroidRock
-  description: A rock wall. What's that sticking out of it?
+  description: "Кам'яна стіна. Що це з неї стирчить?"
   suffix: Artifact Fragment
   components:
     - type: OreVein
@@ -568,9 +568,9 @@
 - type: entity
   id: AsteroidRockMining
   parent: AsteroidRock
-  name: asteroid rock
+  name: "астероїдний камінь"
   suffix: higher ore yield .33
-  description: An asteroid.
+  description: "Астероїд."
   components:
   - type: OreVein
     oreChance: 0.33
@@ -579,9 +579,9 @@
 - type: entity
   id: IronRock
   parent: AsteroidRock
-  name: ironrock
+  name: "айронрок"
   suffix: Low Ore Yield
-  description: A rocky asteroid.
+  description: "Кам'янистий астероїд."
   components:
   - type: IconSmooth
     key: walls
@@ -606,9 +606,9 @@
 - type: entity
   id: IronRockMining
   parent: IronRock
-  name: ironrock
+  name: "айронрок"
   suffix: higher ore yield
-  description: An asteroid.
+  description: "Астероїд."
   components:
   - type: OreVein
     oreChance: 0.33
@@ -825,7 +825,7 @@
 - type: entity
   id: IronRockArtifactFragment
   parent: IronRock
-  description: A rock wall. What's that sticking out of it?
+  description: "Кам'яна стіна. Що це з неї стирчить?"
   suffix: Artifact Fragment
   components:
   - type: OreVein
@@ -892,7 +892,7 @@
 - type: entity
   id: WallRock
   parent: BaseWall
-  name: rock
+  name: "скеля"
   suffix: planetmap
   components:
     - type: Transform
@@ -1205,7 +1205,7 @@
 - type: entity
   id: WallRockArtifactFragment
   parent: WallRock
-  description: A rock wall. What's that sticking out of it?
+  description: "Кам'яна стіна. Що це з неї стирчить?"
   suffix: Artifact Fragment
   components:
   - type: EntityRemap
@@ -1266,7 +1266,7 @@
 # Basalt variants
 - type: entity
   id: WallRockBasalt
-  name: basalt
+  name: "базальт"
   parent: WallRock
   components:
   - type: Icon
@@ -1496,7 +1496,7 @@
 - type: entity
   id: WallRockBasaltArtifactFragment
   parent: WallRockBasalt
-  description: A rock wall. What's that sticking out of it?
+  description: "Кам'яна стіна. Що це з неї стирчить?"
   suffix: Artifact Fragment
   components:
     - type: OreVein
@@ -1543,7 +1543,7 @@
 # Snow variants
 - type: entity
   id: WallRockSnow
-  name: snowdrift
+  name: "сніговий замет"
   parent: WallRock
   components:
   - type: Icon
@@ -1773,7 +1773,7 @@
 - type: entity
   id: WallRockSnowArtifactFragment
   parent: WallRockSnow
-  description: A rock wall. What's that sticking out of it?
+  description: "Кам'яна стіна. Що це з неї стирчить?"
   suffix: Artifact Fragment
   components:
     - type: OreVein
@@ -1820,7 +1820,7 @@
 # Sand variants
 - type: entity
   id: WallRockSand
-  name: sandstone
+  name: "пісковик"
   parent: WallRock
   components:
   - type: Icon
@@ -2049,7 +2049,7 @@
 - type: entity
   id: WallRockSandArtifactFragment
   parent: WallRockSand
-  description: A rock wall. What's that sticking out of it?
+  description: "Кам'яна стіна. Що це з неї стирчить?"
   suffix: Artifact Fragment
   components:
     - type: OreVein
@@ -2096,7 +2096,7 @@
 # Chromite variants
 - type: entity
   id: WallRockChromite
-  name: chromite
+  name: "хроміт"
   parent: WallRock
   components:
   - type: Icon
@@ -2326,7 +2326,7 @@
 - type: entity
   id: WallRockChromiteArtifactFragment
   parent: WallRockChromite
-  description: A rock wall. What's that sticking out of it?
+  description: "Кам'яна стіна. Що це з неї стирчить?"
   suffix: Artifact Fragment
   components:
     - type: OreVein
@@ -2373,7 +2373,7 @@
 # Andesite variants
 - type: entity
   id: WallRockAndesite
-  name: andesite
+  name: "андезит"
   parent: WallRock
   components:
   - type: Icon
@@ -2603,7 +2603,7 @@
 - type: entity
   id: WallRockAndesiteArtifactFragment
   parent: WallRockAndesite
-  description: A rock wall. What's that sticking out of it?
+  description: "Кам'яна стіна. Що це з неї стирчить?"
   suffix: Artifact Fragment
   components:
     - type: OreVein

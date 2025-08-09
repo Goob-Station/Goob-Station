@@ -10,8 +10,8 @@
 - type: entity
   id: WallDirectional
   parent: BaseStructure
-  name: directional wall
-  description: Cheap and cheerful metal plating.
+  name: "спрямована стіна"
+  description: "Дешева та проста металева обшивка."
   placement:
     mode: SnapgridCenter
     snap:

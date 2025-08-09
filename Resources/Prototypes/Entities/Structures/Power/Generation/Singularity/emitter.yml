@@ -37,9 +37,9 @@
 
 - type: entity
   id: Emitter
-  name: emitter
+  name: "випромінювач"
   parent: SmallConstructibleMachine
-  description: A heavy duty industrial laser. Shoots non-stop when turned on.
+  description: "Надпотужний промисловий лазер. Стріляє безперервно, коли ввімкнений."
   placement:
     mode: SnapgridCenter
   components:

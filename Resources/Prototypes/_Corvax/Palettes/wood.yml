@@ -5,7 +5,7 @@
 
 - type: palette 
   id: WoodColors
-  name: Wood
+  name: "Дерево"
   colors:
     Light: "#a88661"
     Default: "#55391a"

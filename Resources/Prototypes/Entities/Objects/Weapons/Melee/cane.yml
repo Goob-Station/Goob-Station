@@ -21,8 +21,8 @@
 - type: entity
   parent: BaseItem
   id: Cane
-  name: cane
-  description: A standard wooden cane. Can help disabled people move easier. # Goobstation
+  name: "тростина"
+  description: "Стандартна дерев'яна тростина. Може допомогти людям з обмеженими можливостями легше пересуватися." # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane.rsi
@@ -49,10 +49,10 @@
   - type: MovementImpairedCorrection # Goobstation
 
 - type: entity
-  name: cane blade
+  name: "тростина-клинок"
   parent: [BaseItem, BaseSyndicateContraband]
   id: CaneBlade
-  description: A sharp blade with a cane shaped hilt. Enchanted with fire powers by a fellow book lover. # Goobstation
+  description: "Гострий клинок з руків'ям у формі тростини. Зачарований вогняними силами товаришем-книголюбом." # Goobstation
   components:
   - type: Sharp
   - type: Sprite

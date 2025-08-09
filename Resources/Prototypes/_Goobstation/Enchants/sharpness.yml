@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantSharpness
-  name: Sharpness
+  name: "Гострота"
   components:
   - type: Enchant
     whitelist:

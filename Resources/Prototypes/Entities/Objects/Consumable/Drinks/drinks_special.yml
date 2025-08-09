@@ -87,8 +87,8 @@
 - type: entity
   parent: BaseItem
   id: DrinkShaker
-  name: shaker
-  description: The trusty mixing buddy of the bartender.
+  name: "шейкер"
+  description: "Вірний помічник бармена у змішуванні напоїв."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -131,8 +131,8 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkShotGlass
-  name: shot glass
-  description: Perfect for slamming down onto the table angrily.
+  name: "чарка"
+  description: "Ідеально підходить для того, щоб сердито грюкнути нею об стіл."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -160,8 +160,8 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkJar
-  name: jar
-  description: The hipster's cup.
+  name: "банка"
+  description: "Чашка хіпстера."
   components:
   - type: Drink
   - type: Sprite
@@ -191,8 +191,8 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkJarWhat
-  name: jar of something
-  description: You can't really tell what this is.
+  name: "банку з чимось"
+  description: "Насправді не можна сказати, що це таке."
   components:
   - type: Drink
   - type: Sprite
@@ -221,8 +221,8 @@
 - type: entity
   parent: [BaseItem, BartenderMixer]
   id: DrinkJigger
-  name: jigger
-  description: Like a shaker, but smaller. Used to control the amount of ingredients.
+  name: "джиггер"
+  description: "Як шейкер, але менший. Використовується для контролю кількості інгредієнтів."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -246,8 +246,8 @@
 - type: entity
   parent: [BaseItem, BartenderMixer]
   id: DrinkIceBucket
-  name: ice bucket
-  description: A special bucket of refreshy ice. Prohibited use for challenge with the same name!
+  name: "відро з льодом"
+  description: "Спеціальне відерце з освіжаючим льодом. Заборонено використовувати для однойменного челенджу!"
   components:
   - type: SolutionContainerManager
     solutions:

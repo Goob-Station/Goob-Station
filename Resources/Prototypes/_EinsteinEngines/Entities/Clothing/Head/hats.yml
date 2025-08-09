@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadTinfoil
-  name: tinfoil hat
-  description: Protects you from all manner of psionic assaults.
+  name: "фольгова шапочка"
+  description: "Захищає вас від усіх видів псионних атак."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Head/Hats/tinfoil.rsi
@@ -22,8 +22,8 @@
 - type: entity
   parent: ClothingHeadTinfoil
   id: ClothingHeadCage
-  name: insulative headcage
-  description: Psionically insulates whoevers head is inside it. It takes time to resist out of.
+  name: "ізоляційний каркас"
+  description: "Психічно ізолює того, чия голова опиниться всередині. Потрібен час, щоб вийти з нього."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Head/Hats/cage.rsi
@@ -39,8 +39,8 @@
 - type: entity
   parent: ClothingHeadTinfoil
   id: ClothingHeadHelmetInsulated
-  name: insulative skullcap
-  description: Psionically insulates whoevers head is inside it. It has some protection from physical damage.
+  name: "ізоляційна тюбетейка"
+  description: "Психічно ізолює голову того, хто знаходиться всередині. Має певний захист від фізичних ушкоджень."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Head/Helmets/insulative_skullcap.rsi
@@ -59,8 +59,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFezMantis
-  name: mantis' fez
-  description: A fine red fez with a gold tassel.
+  name: "феска мантіса"
+  description: "Тонка червона феска із золотою китицею."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Head/Hats/mantis_fez.rsi
@@ -70,8 +70,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretMysta
-  name: mystagogue's beret
-  description: A purple beret with a blue epistemics emblem. Mystical and stylish.
+  name: "берет Наукового Директора"
+  description: "Фіолетовий берет із синьою емблемою відділу науки. Містично і стильно."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Head/Hats/beret_mysta.rsi

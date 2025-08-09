@@ -8,8 +8,8 @@
 - type: entity
   id: MailTeleporter
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: mail teleporter
-  description: Teleports mail addressed to the crew of this station.
+  name: "поштовий телепорт"
+  description: "Телепортує пошту, адресовану екіпажу цієї станції."
   components:
   - type: MailTeleporter
   - type: InteractionOutline

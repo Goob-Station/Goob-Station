@@ -7,8 +7,8 @@
 
 - type: entity
   id: ActionToggleInternals
-  name: Toggle Internals
-  description: Breathe from the equipped gas tank. Also requires equipped breath mask.
+  name: "Перемикання внутрішніх компонентів"
+  description: "Дихайте з обладнаного газового балона. Також потрібен обладнаний респіратор."
   components:
   - type: InstantAction
     icon:

@@ -18,7 +18,7 @@
 - type: entity
   id: BaseMachineCircuitboard
   parent: BaseItem
-  name: machine board
+  name: "плата верстата"
   abstract: true
   suffix: Machine Board
   components:

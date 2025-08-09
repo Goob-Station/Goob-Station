@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: visiting alien spawner
+  name: "спавнер прибульця-гостя"
   id: VisitorAlienSpawner
   parent: MarkerBase
   components:

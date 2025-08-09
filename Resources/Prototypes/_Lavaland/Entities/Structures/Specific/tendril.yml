@@ -23,9 +23,9 @@
 - type: entity
   id: LavalandTendrilBase
   parent: BaseStructure
-  name: tendril
+  name: "вусик"
   abstract: true
-  description: A huge structure.
+  description: "Величезна структура."
   components:
   - type: Sprite
     noRot: true
@@ -68,8 +68,8 @@
 - type: entity
   id: LavalandTendrilGoliath
   parent: LavalandTendrilBase
-  name: tendril
-  description: A huge structure.
+  name: "вусик"
+  description: "Величезна структура."
   suffix: Goliath
   components:
   - type: Tendril
@@ -82,8 +82,8 @@
 - type: entity
   id: LavalandTendrilLegion
   parent: LavalandTendrilBase
-  name: tendril
-  description: A huge structure.
+  name: "вусик"
+  description: "Величезна структура."
   suffix: Legion
   components:
   # TODO: Add Legioners
@@ -93,8 +93,8 @@
 - type: entity
   id: LavalandTendrilLavaWatcher
   parent: LavalandTendrilBase
-  name: tendril
-  description: A huge structure.
+  name: "вусик"
+  description: "Величезна структура."
   suffix: Watcher
   components:
   - type: Tendril
@@ -107,8 +107,8 @@
 - type: entity
   id: LavalandTendrilIcewingWatcher
   parent: LavalandTendrilBase
-  name: tendril
-  description: A huge structure.
+  name: "вусик"
+  description: "Величезна структура."
   suffix: Ice Watcher
   components:
   - type: Tendril
@@ -121,8 +121,8 @@
 - type: entity
   id: LavalandTendrilMagmawingWatcher
   parent: LavalandTendrilBase
-  name: tendril
-  description: A huge structure.
+  name: "вусик"
+  description: "Величезна структура."
   suffix: Magma Watcher
   components:
   - type: Tendril
@@ -135,8 +135,8 @@
 - type: entity
   id: LavalandTendrilSpaceCarp
   parent: LavalandTendrilBase
-  name: tendril
-  description: A huge structure.
+  name: "вусик"
+  description: "Величезна структура."
   suffix: Carp
   components:
   - type: Tendril

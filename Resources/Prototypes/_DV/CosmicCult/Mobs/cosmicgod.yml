@@ -1,8 +1,8 @@
 - type: entity
   abstract: true
   id: MobCosmicGodBase
-  name: The Unknown
-  description: Your mind begins to fracture and break as it fails to comprehend what looms before you.
+  name: "Невідоме"
+  description: "Ваш розум починає руйнуватися, не в змозі осягнути те, що нависає перед вами."
   components:
   - type: Sprite
     noRot: true

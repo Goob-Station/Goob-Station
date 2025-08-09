@@ -229,10 +229,10 @@
     - Ignition
 
 - type: entity
-  name: energy sword
+  name: "енергетичний меч"
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
   id: EnergySword
-  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
+  description: "Дуже гучний і небезпечний меч з променем з чистої, концентрованої плазми. Розсікає неброньовані цілі як масло."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword.rsi
@@ -260,10 +260,10 @@
         volume: -2
 
 - type: entity
-  name: energy dagger
+  name: "енергетичний кинджал"
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
   id: EnergyDaggerLoud
-  description: A not as loud and dangerous dagger with a beam made of pure, concentrated plasma. This one is completely undisguised.
+  description: "Не такий гучний і небезпечний кинджал з лезом із чистої, концентрованої плазми. Цей абсолютно не замаскований."
   components:
   - type: ItemToggle
     soundActivate:
@@ -328,11 +328,11 @@
     reflectProb: .25
 
 - type: entity
-  name: pen
+  name: "ручка"
   parent: BaseMeleeWeaponEnergy
   id: EnergyDagger
   suffix: E-Dagger
-  description: 'A dark ink pen.'
+  description: "Ручка з темним чорнилом."
   components:
   - type: ItemToggle
     soundActivate:
@@ -405,9 +405,9 @@
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: EnergyDaggerBox
-  name: e-dagger box
+  name: "коробка для електронних кинджалів"
   suffix: E-Dagger
-  description: A small box containing an e-dagger. Packaging disintegrates when opened, leaving no evidence behind.
+  description: "Невеличка коробочка з електронним кинджалом. Упаковка розпадається при відкритті, не залишаючи жодних доказів."
   components:
   - type: Item
     size: Tiny
@@ -421,10 +421,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: energy cutlass
+  name: "енергетичний абордажний меч"
   parent: [BaseMeleeWeaponEnergy, BaseMajorContraband]
   id: EnergyCutlass
-  description: An exotic energy weapon.
+  description: "Екзотична енергетична зброя."
   components:
   - type: ItemToggleMeleeWeapon
     activatedDamage:
@@ -451,11 +451,11 @@
         volume: -2
 
 - type: entity
-  name: double-bladed energy sword
+  name: "дволезовий енергетичний меч"
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
   id: EnergySwordDoubleBase # Goob edit
   abstract: true # Goob edit
-  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
+  description: "Стажери командування Синдикату вирішили, що одного леза на енергетичному мечі недостатньо. Можна зберігати в кишенях."
   components:
   - type: ItemToggle
     predictable: false # Goobstation - wielded weapons sound prediction is broken
@@ -538,8 +538,8 @@
 - type: entity
   parent: EnergySwordDouble
   id: HyperEutacticBlade
-  name: hypereutactic-blade
-  description: A supermassive weapon envisioned to cleave the very fabric of space and time itself in twain, the hypereutactic blade dynamically flash-forges a hypereutactic crystaline nanostructure capable of passing through most known forms of matter like a hot knife through butter.
+  name: "гіперударостійкий клинок"
+  description: "Надмасивна зброя, покликана розколоти саму тканину простору і часу навпіл, гіперреактивне лезо динамічно виковує гіперреактивну кристалічну наноструктуру, здатну проходити крізь більшість відомих форм матерії, наче гарячий ніж крізь масло."
   components:
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -592,7 +592,7 @@
   suffix: One-Handed, For Borgs
   parent: EnergySwordDoubleBase # Goob edit
   id: CyborgEnergySwordDouble # why is this invalid if ID is BorgEnergySwordDouble
-  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
+  description: "Стажери командування Синдикату вирішили, що одного леза на енергетичному мечі недостатньо. Спеціально розроблено для кіборгів синдикату."
   components: # could add energy-draining like the L6C
   - type: Wieldable
     freeHandsRequired: 0 # because borg has no off-hand to wield with.  Without this, it will be unable to activate the esword

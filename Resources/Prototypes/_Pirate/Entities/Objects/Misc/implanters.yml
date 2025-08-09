@@ -1,6 +1,6 @@
 - type: entity
   id: DeathRattleImplanterInterdyne
-  name: Імплант сповіщування про смерті в канал Інтердайна.
+  name: "Імплантер сповіщення про смерть в канал Interdyne"
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter
@@ -8,7 +8,7 @@
     
 - type: entity
   id: RadioImplanterInterdyne
-  name: Радіо імплант Інтердайну.
+  name: "Імплантер радіо Interdyne"
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter

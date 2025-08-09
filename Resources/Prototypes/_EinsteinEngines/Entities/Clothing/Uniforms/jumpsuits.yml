@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMantis
-  name: mantis' uniform
-  description: Modeled after an ancient infantry uniform, this uniform has superior mobility for tense situations.
+  name: "форма мантіса"
+  description: "Створена за зразком старовинної піхотної форми, ця форма має чудову мобільність для напружених ситуацій."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Jumpsuit/mantis_uniform.rsi
@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformSkirtMantis
-  name: mantis' jumpskirt
-  description: Adapted from an ancient infantry uniform, this jumpskirt has superior mobility for tense situations.
+  name: "спідниця мантіса"
+  description: "Адаптована зі старовинної піхотної форми, ця спідниця-комбінезон має чудову мобільність для напружених ситуацій."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/mantis_jumpskirt.rsi

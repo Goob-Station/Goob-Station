@@ -105,9 +105,9 @@
 - type: entity
   id: HandheldHealthAnalyzerUnpowered
   parent: BaseItem
-  name: health analyzer
+  name: "аналізатор здоров'я"
   suffix: Always Powered
-  description: A hand-held body scanner capable of distinguishing vital signs of the subject.
+  description: "Ручний сканер тіла, здатний розпізнавати життєво важливі ознаки суб'єкта."
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/healthanalyzer.rsi

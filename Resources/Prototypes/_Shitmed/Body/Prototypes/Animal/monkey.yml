@@ -13,7 +13,7 @@
 # Shitmed - this is just a copy of human body but with animal organs.
 - type: body
   id: Monkey
-  name: "Monkey"
+  name: "Мавпа"
   root: chest
   slots:
     head:

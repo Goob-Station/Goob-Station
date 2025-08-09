@@ -15,7 +15,7 @@
 
 - type: entity
   id: HighCaliberPelletShotgun
-  name: pellet (8 Gauge carpshot)
+  name: "дріб (8 калібр карпшот)"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -41,7 +41,7 @@
 
 - type: entity
   id: HighCaliberPelletShotgunIncendiary
-  name: pellet (8 Gauge incendiary)
+  name: "дріб (8 калібр запалювальний)"
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
@@ -70,7 +70,7 @@
 
 - type: entity
   id: HighCaliberPelletShotgunPractice
-  name: pellet (8 Gauge practice)
+  name: "дріб (8 калібр тренувальний)"
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
@@ -96,7 +96,7 @@
 
 - type: entity
   id: HighCaliberPelletShotgunUranium
-  name: pellet (8 Gauge uranium)
+  name: "дріб (8 калібр урановий)"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -123,7 +123,7 @@
 
 - type: entity
   id: PelletShotgunSlugHighCaliber
-  name: pellet (8 Gauge slug)
+  name: "дріб (8 калібр куля)"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -137,7 +137,7 @@
 
 - type: entity
   id: BulletSlugEnsnaring
-  name: bullet (8 Gauge ensnaring slug)
+  name: "куля (8 калібр сітка)"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -161,7 +161,7 @@
 
 - type: entity
   id: BulletSlugEMP
-  name: bullet (8 Gauge EMP slug)
+  name: "куля (8 калібр ЕМІ)"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -188,7 +188,7 @@
 
 - type: entity
   id: BulletSlugFlash
-  name: bullet (8 Gauge flash slug)
+  name: "куля (8 калібр спалах)"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -215,7 +215,7 @@
 
 - type: entity
   id: BulletSlugBeanbagHighCaliber
-  name: beanbag (8 Gauge)
+  name: "травматична куля (8 калібр)"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -231,7 +231,7 @@
 
 - type: entity
   id: BulletShotgunHeavySlugSarin
-  name: bullet (8 Gauge Sarin)
+  name: "куля (8 калібр зарин)"
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -256,7 +256,7 @@
 # Pellet
 - type: entity
   id: BulletPelletHeavyHighExplosive
-  name: pellet (2 gauge)
+  name: "дріб (2 калібр)"
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   components:
@@ -276,7 +276,7 @@
 
 - type: entity
   id: BulletShrapnelHeavyHighExplosive
-  name: explosive shrapnel
+  name: "вибуховий шрапнель"
   categories: [ HideSpawnMenu ]
   parent: BaseItem
   components:
@@ -304,7 +304,7 @@
 
 - type: entity
   id: BulletSlugHeavyHighExplosive
-  name: slug (2 gauge)
+  name: "куля (2 калібр)"
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   components:
@@ -336,7 +336,7 @@
 # MP-APERS
 - type: entity
   id: HighCaliberPelletGrenade
-  name: pellet (MP-APERS)
+  name: "дріб (MP-APERS)"
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:

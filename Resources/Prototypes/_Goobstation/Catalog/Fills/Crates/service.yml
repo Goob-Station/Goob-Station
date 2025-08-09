@@ -6,8 +6,8 @@
 - type: entity
   id: CrateFishingGoodies
   parent: CratePlastic
-  name: fishing goodies crate
-  description: A couple of fishing rods, a bear, and a hat. Everything you need to catch all fish on the station!
+  name: "ящик рибальських снастей"
+  description: "Пара вудок, ведмідь та капелюх. Усе, що потрібно, щоб виловити всю рибу на станції!"
   components:
   - type: StorageFill
     contents:

@@ -12,8 +12,8 @@
 - type: entity
   id: HandTeleporter
   parent: [BaseItem, BaseGrandTheftContraband]
-  name: hand teleporter
-  description: "A Nanotrasen signature item--only the finest bluespace tech. Instructions: Use once to create a portal which teleports at random. Use again to link it to a portal at your current location. Use again to clear all portals."
+  name: "ручний телепортер"
+  description: "Фірмова річ Nanotrasen - тільки найкращі технології bluespace. Інструкція: Використовуйте один раз, щоб створити портал, який телепортує у випадковому напрямку. Використайте ще раз, щоб зв'язати його з порталом у вашому поточному розташуванні. Використовуйте ще раз, щоб очистити всі портали."
   components:
   - type: Sprite
     sprite: /Textures/Objects/Devices/hand_teleporter.rsi
@@ -30,8 +30,8 @@
   id: HandTeleporterAdmeme
   suffix: Admeme
   parent: BaseItem
-  name: interdimensional teleporter
-  description: Allows you to open stable portal gates that are not limited by distance.
+  name: "міжвимірний телепортер"
+  description: "Дозволяє відкривати стабільні портальні ворота, які не обмежені відстанню."
   components:
   - type: Sprite
     sprite: /Textures/Objects/Devices/hand_teleporter.rsi

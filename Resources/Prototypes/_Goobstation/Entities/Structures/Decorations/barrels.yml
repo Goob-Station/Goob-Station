@@ -6,8 +6,8 @@
 - type: entity
   id: BaseBarrel
   parent: BaseStructureDynamic
-  name: black barrel
-  description: Do a barrel roll!
+  name: "чорна бочка"
+  description: "Зроби бочку!"
   components:
   - type: Anchorable
   - type: Sprite
@@ -45,8 +45,8 @@
 - type: entity
   id: BarrelFire
   parent: BaseBarrel
-  name: barrel fire
-  description: Perfectly warm for the perfectly jobless!
+  name: "вогнище в бочці"
+  description: "Ідеально тепло для ідеально безробітних!"
   components:
   - type: Sprite
     noRot: true

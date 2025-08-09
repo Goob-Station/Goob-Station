@@ -6,7 +6,7 @@
 
 - type: body
   id: Squackroach
-  name: "squackroach"
+  name: "сквак-тарган"
   root: torso
   slots:
     torso:

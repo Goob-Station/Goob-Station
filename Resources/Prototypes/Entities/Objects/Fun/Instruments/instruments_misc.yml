@@ -17,8 +17,8 @@
 - type: entity
   parent: BaseHandheldInstrument
   id: MusicalLungInstrument
-  name: musical lung
-  description: The spiritual and magical lung of a former opera singer. Though, to be honest, the vocal chords make the performance.
+  name: "музичні легені"
+  description: "Духовна і магічна легеня колишньої оперної співачки. Хоча, чесно кажучи, все це роблять голосові зв'язки."
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
@@ -31,8 +31,8 @@
 - type: entity
   parent: BaseHandheldInstrument
   id: SeashellInstrument
-  name: seashell
-  description: For laying down the shoreline beat.
+  name: "мушля"
+  description: "Для прокладання берегової лінії биття."
   components:
   - type: Sprite
     sprite: Objects/Fun/Instruments/otherinstruments.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseHandheldInstrument
   id: BirdToyInstrument
-  name: bird whistle
-  description: A delightful little whistle in the shape of a bird. It sings beautifully.
+  name: "пташиний свист"
+  description: "Чудовий маленький свисток у формі пташки. Чудово співає."
   components:
   - type: Sprite
     sprite: Objects/Fun/Instruments/otherinstruments.rsi
@@ -60,8 +60,8 @@
 - type: entity
   parent: BaseHandheldInstrument
   id: PhoneInstrument
-  name: red phone
-  description: Should anything ever go wrong...
+  name: "червоний телефон"
+  description: "Якщо щось піде не так..."
   components:
   - type: Sprite
     sprite: Objects/Fun/Instruments/otherinstruments.rsi
@@ -94,8 +94,8 @@
 - type: entity
   parent: PhoneInstrument
   id: PhoneInstrumentSyndicate
-  name: blood-red phone
-  description: For evil people to call their friends.
+  name: "криваво-червоний телефон"
+  description: "Щоб злі люди дзвонили своїм друзям."
   components:
   - type: Sprite
     sprite: Objects/Fun/Instruments/blood_red_phone.rsi
@@ -107,8 +107,8 @@
 - type: entity
   parent: BaseHandheldInstrument
   id: HelicopterInstrument
-  name: toy helicopter
-  description: Ch-ka-ch-ka-ch-ka-ch-ka-ch-ka-ch-ka...
+  name: "іграшковий вертоліт"
+  description: "Ch-ka-ch-ka-ch-ka-ch-ka-ch-ka-ch-ka..."
   components:
   - type: Sprite
     sprite: Objects/Fun/Instruments/otherinstruments.rsi
@@ -122,8 +122,8 @@
 - type: entity
   parent: BaseHandheldInstrument
   id: CannedApplauseInstrument
-  name: canned applause
-  description: Seems like someone already used it all up...
+  name: "консервовані оплески"
+  description: "Здається, хтось уже все використав..."
   components:
   - type: Sprite
     sprite: Objects/Fun/Instruments/otherinstruments.rsi
@@ -136,8 +136,8 @@
 - type: entity
   parent: BaseHandheldInstrument
   id: GunpetInstrument
-  name: gunpet
-  description: Why do you need to examine this? Is it not self-explanatory?
+  name: "килим"
+  description: "Навіщо вам це вивчати? Хіба це не зрозуміло?"
   components:
   - type: Instrument
     program: 127
@@ -154,8 +154,8 @@
 - type: entity
   parent: BaseHandheldInstrument
   id: BikeHornInstrument
-  name: gilded bike horn
-  description: An exquisitely decorated bike horn, capable of honking in a variety of notes.
+  name: "позолочений велосипедний клаксон"
+  description: "Вишукано декорований велосипедний клаксон, здатний сигналити різними нотами."
   components:
   - type: Instrument
     program: 1
@@ -175,8 +175,8 @@
 - type: entity
   parent: PhoneInstrument
   id: BananaPhoneInstrument
-  name: banana phone
-  description: A direct line to the Honkmother. Seems to always go to voicemail.
+  name: "банановий телефон"
+  description: "Пряма лінія до Honkmother. Здається, завжди переходить на голосову пошту."
   components:
   - type: Sprite
     state: banana_phone
@@ -213,8 +213,8 @@
 - type: entity
   parent: [BaseHandheldInstrument, Clothing, BaseSyndicateContraband]
   id: BloodredCasette
-  name: bloodred casette player
-  description: The least subtle way to enjoy your favorite tunes.
+  name: "криваво-червоний касетний плеєр"
+  description: "Найменш витончений спосіб насолоджуватися улюбленими мелодіями."
   components:
   - type: Instrument
     program: 62

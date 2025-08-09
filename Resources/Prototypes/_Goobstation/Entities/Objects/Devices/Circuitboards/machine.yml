@@ -10,8 +10,8 @@
 - type: entity
   id: MaterialSiloCircuitboard
   parent: BaseMachineCircuitboard
-  name: material silo machine board
-  description: A machine printed circuit board for a material silo.
+  name: "машинна плата матеріального силосу"
+  description: "Друкована плата машини силосу для матеріалів."
   components:
     - type: Sprite
       state: supply
@@ -26,8 +26,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: RoboticArmCircuitboard
-  name: robotic arm machine board
-  description: A machine printed circuit board for a robotic arm.
+  name: "плата роботизованої руки"
+  description: "Друкована плата для роботизованої руки."
   components:
   - type: Sprite
     state: engineering
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: ConstructorCircuitboard
-  name: constructor machine board
-  description: A machine printed circuit board for a constructor.
+  name: "плата конструктора"
+  description: "Друкована плата для конструктора."
   components:
   - type: Sprite
     state: engineering
@@ -65,8 +65,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StorageBinCircuitboard
-  name: storage bin machine board
-  description: A machine printed circuit board for a storage bin.
+  name: "плата контейнера для зберігання"
+  description: "Друкована плата для контейнера для зберігання."
   components:
   - type: MachineBoard
     prototype: StorageBin
@@ -78,8 +78,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: InteractorCircuitboard
-  name: interactor machine board
-  description: A machine printed circuit board for an interactor.
+  name: "плата інтерактора"
+  description: "Друкована плата для інтерактора."
   components:
   - type: Sprite
     state: engineering

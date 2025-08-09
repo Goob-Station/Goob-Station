@@ -8,7 +8,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantSlippery
-  name: Slippery
+  name: "Слизький"
   components:
   - type: Enchant
     blacklist:

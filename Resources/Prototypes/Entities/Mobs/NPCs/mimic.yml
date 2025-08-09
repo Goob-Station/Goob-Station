@@ -43,10 +43,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: mimic
+  name: "мімік"
   id: MobMimic
   parent: [ SimpleMobBase, MobCombat ]
-  description: Surprise. # When this gets a proper write this should use the object's actual description >:)
+  description: "Сюрприз." # When this gets a proper write this should use the object's actual description >:)
   components:
   - type: Tag
     tags:

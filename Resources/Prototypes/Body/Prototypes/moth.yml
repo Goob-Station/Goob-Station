@@ -12,7 +12,7 @@
 
 - type: body
   id: Moth
-  name: "moth"
+  name: "метелик"
   root: chest
   slots:
     head:

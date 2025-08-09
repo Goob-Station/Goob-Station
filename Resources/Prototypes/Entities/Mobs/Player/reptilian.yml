@@ -29,7 +29,7 @@
 
 - type: entity
   save: false
-  name: Urist McScales
+  name: "Уріст МакСкейлз"
   suffix: Urisst' Mzhand
   parent: BaseMobReptilian
   id: MobReptilian

@@ -17,7 +17,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryOpenIncision
-  name: Open Incision
+  name: "Відкритий розріз"
   components:
   - type: Surgery
     steps:
@@ -28,7 +28,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryStopBloodOutput
-  name: Stop Constant Blood Output
+  name: "Зупинити постійну кровотечу"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -41,7 +41,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryFixDismemberment
-  name: Fix Dismemberment Leftovers
+  name: "Виправити залишки відчленування"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -58,7 +58,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryCloseIncision
-  name: Close Incision
+  name: "Закритий розріз"
   components:
   - type: Surgery
     priority: 1
@@ -71,7 +71,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryOpenRibcage
-  name: Open Ribcage
+  name: "Розтин грудної клітки"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -84,7 +84,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemovePart
-  name: Remove Part
+  name: "Вийняти частину"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -100,7 +100,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryMendBones
-  name: Mend Bones
+  name: "Зростити кістки"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -117,7 +117,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryHealOrgans
-  name: Heal Organs
+  name: "Загоїти органи"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -136,7 +136,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachHead
-  name: Attach Head
+  name: "Прикріпити Голову"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -155,7 +155,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachGroin
-  name: Attach Groin
+  name: "Прикріпити пах"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -174,7 +174,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLeftArm
-  name: Attach Left Arm
+  name: "Прикріпити Ліву Руку"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -194,7 +194,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachRightArm
-  name: Attach Right Arm
+  name: "Прикріпити Праву Руку"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -214,7 +214,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLeftLeg
-  name: Attach Left Leg
+  name: "Прикріпити Ліву Ногу"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -234,7 +234,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachRightLeg
-  name: Attach Right Leg
+  name: "Прикріпити Праву Ногу"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -255,7 +255,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLeftHand
-  name: Attach Left Hand
+  name: "Прикріпити Ліву Долоню"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -276,7 +276,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachRightHand
-  name: Attach Right Hand
+  name: "Прикріпити Праву Долоню"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -297,7 +297,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLeftFoot
-  name: Attach Left Foot
+  name: "Прикріпити Ліву Стопу"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -318,7 +318,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachRightFoot
-  name: Attach Right Foot
+  name: "Прикріпити Праву Стопу"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -341,7 +341,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachLegs
-  name: Attach Legs
+  name: "Приєднати Ноги"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -358,7 +358,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachHands
-  name: Attach Hands
+  name: "Приєднати Долоні"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -375,7 +375,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachFeet
-  name: Attach Feet
+  name: "Приєднати Ступні"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -391,7 +391,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryAttachTail
-  name: Attach Tail
+  name: "Прикріпити хвіст"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -424,7 +424,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryTendWoundsBrute
-  name: Tend Bruise Wounds
+  name: "Обробити Рани від Ударів"
   components:
   - type: Surgery
     steps:
@@ -437,7 +437,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryTendWoundsBurn
-  name: Tend Burn Wounds
+  name: "Обробити Рани від Опіків"
   components:
   - type: Surgery
     steps:
@@ -450,7 +450,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryInsertItem
-  name: Cavity Implant
+  name: "Імплантувати в Порожнину"
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -467,7 +467,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveBrain
-  name: Remove Brain
+  name: "Видалити Мозок"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -484,7 +484,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveBorgBrain
-  name: Remove Positronic Brain
+  name: "Видалити позитронний мозок"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -502,7 +502,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryInsertBrain
-  name: Insert Brain
+  name: "Вставити Мозок"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -521,7 +521,7 @@
 - type: entity
   parent: SurgeryInsertBrain
   id: SurgeryInsertBorgBrain
-  name: Insert Positronic Brain
+  name: "Вставити позитронний мозок"
   components:
   - type: SurgeryOrganSlotCondition
     organSlot: posbrain
@@ -532,7 +532,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveHeart
-  name: Remove Heart
+  name: "Видалити Серце"
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -549,7 +549,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryInsertHeart
-  name: Insert Heart
+  name: "Вставити Серце"
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -570,7 +570,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveLiver
-  name: Remove Liver
+  name: "Видалити Печінку"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -587,7 +587,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryInsertLiver
-  name: Insert Liver
+  name: "Вставити Печінку"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -607,7 +607,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveLungs
-  name: Remove Lungs
+  name: "Видалити Легені"
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -624,7 +624,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryInsertLungs
-  name: Insert Lungs
+  name: "Вставити Легені"
   components:
   - type: Surgery
     requirement: SurgeryOpenRibcage
@@ -645,7 +645,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveStomach
-  name: Remove Stomach
+  name: "Видалити Шлунок"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -662,7 +662,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryInsertStomach
-  name: Insert Stomach
+  name: "Вставити Шлунок"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -682,7 +682,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryRemoveEyes
-  name: Remove Eyes
+  name: "Видалити Очі"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision
@@ -699,7 +699,7 @@
 - type: entity
   parent: SurgeryBase
   id: SurgeryInsertEyes
-  name: Insert Eyes
+  name: "Вставити Очі"
   components:
   - type: Surgery
     requirement: SurgeryOpenIncision

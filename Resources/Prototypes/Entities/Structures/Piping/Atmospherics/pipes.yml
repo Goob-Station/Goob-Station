@@ -112,8 +112,8 @@
   abstract: true
   id: GasPipeBase
   parent: BaseItem
-  name: pipe
-  description: Holds gas.
+  name: "труба"
+  description: "Тримає газ."
   placement:
     mode: SnapgridCenter
   components:
@@ -203,7 +203,7 @@
 - type: entity  # Goobstation - ventcrawl
   id: VentCrawlerHolder
   categories: [ HideSpawnMenu ]
-  name: vent craw holder
+  name: "тримач вентиляційного люка"
   components:
     - type: VentCrawlerHolder
     - type: InputMover
@@ -452,8 +452,8 @@
   id: GasPipeBroken
   # Goobstation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
-  name: broken pipe
-  description: It used to hold gas.
+  name: "прорвана труба"
+  description: "Там був газ."
   components:
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pipe.rsi

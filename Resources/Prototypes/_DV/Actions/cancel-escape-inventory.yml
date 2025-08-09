@@ -9,8 +9,8 @@
 
 - type: entity
   id: ActionCancelEscape
-  name: Stop escaping
-  description: Calm down and sit peacefuly in your carrier's inventory
+  name: "Припини тікати!"
+  description: "Заспокойтеся і спокійно сидіть в інвентарі вашого перевізника"
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

@@ -7,7 +7,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   id: BulletG8Demolishing
-  name: bullet (G8 demolishing "The Spear of Ares")
+  name: "куля (G8 руйнівна \"Спис Ареса\")"
   components:
   - type: Sprite
     layers:
@@ -27,7 +27,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   id: BulletG8Hypercharged
-  name: bullet (G8 hypercharged "The Bolt of Zeus")
+  name: "куля (G8 гіперзаряджена \"Блискавка Зевса\")"
   components:
   - type: Sprite
     layers:

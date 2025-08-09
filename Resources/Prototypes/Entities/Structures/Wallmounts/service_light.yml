@@ -76,8 +76,8 @@
 - type: entity
   parent: Poweredlight
   id: JanitorServiceLight
-  name: janitorial service light
-  description: A wall-mounted janitorial sign. If the light is blinking, a janitor's service is required.
+  name: "сигнальне світло для прибиральників"
+  description: "Настінний знак прибиральника. Якщо лампочка блимає, необхідна послуга у прибиральників."
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/service_light.rsi

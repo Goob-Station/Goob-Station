@@ -42,8 +42,8 @@
 
 - type: entity
   id: Chronofield
-  name: chronofield
-  description: ZA WARUDO!
+  name: "хронополе"
+  description: "ЗА ВАРУДО!"
   components:
   - type: TimedDespawn
     lifetime: 10
@@ -186,7 +186,7 @@
 
 - type: entity
   id: EffectSpark
-  name: sparks
+  name: "іскри"
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
@@ -417,7 +417,7 @@
 
 - type: entity
   id: BindSoulParticle
-  name: unholy energy
+  name: "нечиста енергія"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

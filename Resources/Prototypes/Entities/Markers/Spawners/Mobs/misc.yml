@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobGingerbreadAI
-  name: gingerbread man Spawner
+  name: "спавнер пряничного чоловічка"
   suffix: Ghostrole
   components:
   - type: Sprite
@@ -16,7 +16,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnHonkBot
-  name: honk bot spawner
+  name: "спавнер хонк-бота"
   components:
   - type: Sprite
     layers:

@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseItem, BaseMajorContraband ]
   id: NinjutsuScroll
-  name: ninjutsu scroll
-  description: A green scroll containing some Japanese script. Its lessons are written for those who strike unseen.
+  name: "сувій ніндзюцу"
+  description: "Зелений сувій, що містить японські письмена. Його уроки написані для тих, хто завдає ударів непомітно."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/martial_arts.rsi

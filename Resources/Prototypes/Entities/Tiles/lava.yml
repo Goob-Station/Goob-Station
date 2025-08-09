@@ -33,8 +33,8 @@
 
 - type: entity
   id: FloorLavaEntity
-  name: lava
-  description: Don't jump in. It's not worth it, no matter how funny it is.
+  name: "лава"
+  description: "Не застрибуй. Воно того не варте, хоч би яким смішним воно не було."
   placement:
     mode: SnapgridCenter
     snap:

@@ -103,43 +103,43 @@
 
 - type: jukebox
   id: skubstep
-  name: Finket - Skubstep
+  name: "Фінкет - Skubstep"
   path:
     path: /Audio/Lobby/skubstep.ogg
 
 - type: jukebox
   id: sneeds
-  name: Burgerchild - Sneeds Feed and Seed
+  name: "Burgerchild - Корм та Насіння Сніда"
   path:
     path: /Audio/Lobby/sneedsfeedandseed.ogg
 
 - type: jukebox
   id: clownwmv
-  name: Admiral Hippie - Clown.wmv
+  name: "Адмірал Хіппі - Клоун.wmv"
   path:
     path: /Audio/Lobby/clownwmv.ogg
 
 - type: jukebox
   id: clownalwayswins
-  name: NИTRODE - Clown Always Wins
+  name: "NИTRODE - Клоун завжди перемагає"
   path:
     path: /Audio/Lobby/clownalwayswins.ogg
 
 - type: jukebox
   id: horn
-  name: Scruq - Horn!
+  name: "Scruq - Ріг!"
   path:
     path: /Audio/Lobby/horn.ogg
 
 - type: jukebox
   id: thewizard
-  name: Chris Remo - The Wizard
+  name: "Chris Remo - Чарівник"
   path:
     path: /Audio/Lobby/thewizard.ogg
 
 - type: jukebox
   id: dawsonschristian
-  name: Vic Tyler - Dawson's Christian
+  name: "Vic Tyler - Християнин Доусона"
   path:
     path: /Audio/Lobby/dawsonschristian.ogg
 
@@ -151,132 +151,132 @@
 
 - type: jukebox
   id: violet
-  name: Mrjajkes - Violet
+  name: "Mrjajkes - Фіолетовий"
   path:
     path: /Audio/_Goobstation/Announcements/violet.ogg
 
 - type: jukebox
   id: redsun
-  name: Red Sun in the Sky
+  name: "Червоне сонце в небі"
   path:
     path: /Audio/Lobby/redsun.ogg
 
 - type: jukebox
   id: chollima
-  name: Pochonbo Electronic Ensemble - Chollima on the Wing
+  name: "Pochonbo Electronic Ensemble - Чхолліма на крилі"
   path:
     path: /Audio/Lobby/chollima.ogg
 
 - type: jukebox
   id: blatantly_nuclear
-  name: mrjajkes - Blatantly Nuclear
+  name: "mrjajkes - Відверто ядерний"
   path:
     path: /Audio/StationEvents/blatantly_nuclear.ogg
 
 - type: jukebox
   id: countdown
-  name: Qwertyqwerty - Countdown
+  name: "Qwertyqwerty - Відлік"
   path:
     path: /Audio/StationEvents/countdown.ogg
 
 - type: jukebox
   id: last_call
-  name: Mrjajkes - Last Call
+  name: "Mrjajkes - Останній дзвінок"
   path:
     path: /Audio/StationEvents/last_call.ogg
 
 - type: jukebox
   id: running_out
-  name: Bolgarich - Running Out
+  name: "Bolgarich - Час спливає"
   path:
     path: /Audio/StationEvents/running_out.ogg
 
 - type: jukebox
   id: sound_station_14
-  name: Donchan - Sound Station 14
+  name: "Donchan - Sound Station 14"
   path:
     path: /Audio/StationEvents/sound_station_14.ogg
 
 - type: jukebox
   id: tansume
-  name: Moranbong Band - Tansume
+  name: "Moranbong Band - Тансуме"
   path:
     path: /Audio/StationEvents/tansume.ogg
 
 - type: jukebox
   id: absconditus
-  name: ZhayTee - Absconditus
+  name: "ZhayTee - Absconditus"
   path:
     path: /Audio/Lobby/absconditus.ogg
 
 - type: jukebox
   id: spaceasshole
-  name: Chris Remo - Space Asshole
+  name: "Chris Remo - Космічний мудак"
   path:
     path: /Audio/Lobby/space_asshole.ogg
 
 - type: jukebox
   id: endless_space
-  name: SolusLunes - Endless Space
+  name: "SolusLunes - Нескінченний космос"
   path:
     path: /Audio/Lobby/endless_space.ogg
 
 - type: jukebox
   id: singuloose
-  name: Janis Schiedková - Singuloose
+  name: "Janis Schiedková - Сінгулуз"
   path:
     path: /Audio/Lobby/singuloose.ogg
 
 - type: jukebox
   id: comet_haley
-  name: Stellardrone - Comet Haley
+  name: "Stellardrone - Комета Галлея"
   path:
     path: /Audio/Lobby/comet_haley.ogg
 
 - type: jukebox
   id: title2
-  name: Eric Shumaker & Jonathan Dunn - Robocop / Title 2
+  name: "Eric Shumaker & Jonathan Dunn - Робокоп / Заголовок 2"
   path:
     path: /Audio/Lobby/title2.ogg
 
 - type: jukebox
   id: spac_stac
-  name: Hayabusa - Spac Stac
+  name: "Hayabusa - Spac Stac"
   path:
     path: /Audio/Lobby/Spac_Stac.ogg
 
 - type: jukebox
   id: pwmur
-  name: Alexander Divine - Phoron Will Make Us Rich
+  name: "Alexander Divine - Форон зробить нас багатими"
   path:
     path: /Audio/Lobby/pwmur.ogg
 
 - type: jukebox
   id: lasers_rip_apart_the_bulkhead
-  name: Alexander Divine - Lasers Rip Apart the Bulkhead
+  name: "Alexander Divine - Лазери розривають перегородку"
   path:
     path: /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
 
 - type: jukebox
   id: every_light_is_blinking_at_once
-  name: Alexander Divine - Every Light is Blinking at Once
+  name: "Alexander Divine - Кожне світло блимає одночасно"
   path:
     path: /Audio/Lobby/every_light_is_blinking_at_once.ogg
 
 - type: jukebox
   id: atomicamnesiammx
-  name: Philip Dyer - Atomic Amnesia MMX
+  name: "Philip Dyer - Атомна амнезія MMX"
   path:
     path: /Audio/Lobby/atomicamnesiammx.ogg
 
 - type: jukebox
   id: the_future_soon
-  name: Jonathan Coulton - The Future Soon
+  name: "Jonathan Coulton - Майбутнє незабаром"
   path:
     path: /Audio/Lobby/the_future_soon.ogg
 
 - type: jukebox
   id: running_in
-  name: Q/\ntum - Running In (feat Z.W.E.I.)
+  name: "Q/\ntum - Вбігаючи (feat Z.W.E.I.)"
   path:
     path: /Audio/_Goobstation/Music/running_in.ogg

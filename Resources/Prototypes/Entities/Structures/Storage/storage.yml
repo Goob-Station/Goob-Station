@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseStructure
   id: Rack
-  name: rack
-  description: A rack for storing things on.
+  name: "стійка"
+  description: "Стійка для зберігання речей."
   components:
   - type: MeleeSound
     soundGroups:

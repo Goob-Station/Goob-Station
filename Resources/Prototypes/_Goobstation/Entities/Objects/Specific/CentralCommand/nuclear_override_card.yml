@@ -5,11 +5,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: nuclear override card
+  name: "карта скасування ядерного вибуху"
   parent: [BaseItem, BaseCentcommContraband]
   id: NukeOverride
   suffix: DO NOT MAP
-  description: A surprisingly cheaply made plastic card, capable of overriding a nuclear devices safety protocols.
+  description: "Напрочуд дешево зроблена пластикова картка, здатна скасувати протоколи безпеки ядерного пристрою."
   components:
   - type: NukeDisk
     override: true

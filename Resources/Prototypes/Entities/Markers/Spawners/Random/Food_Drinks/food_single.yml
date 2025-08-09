@@ -74,7 +74,7 @@
 
 - type: entity
   id: RandomFoodSingle
-  name: random food spawner
+  name: "спавнер випадкової їжі"
   suffix: Single Serving
   parent: MarkerBase
   placement:

@@ -2,8 +2,8 @@
 - type: entity
   parent: PosterBase
   id: PosterContrabandSaucerNumberOne
-  name: "Saucer #1!"
-  description: "Out of every station in the NyanoTrasen jurisdiction, Saucer was rated #1 out of 5! Congratulations!"
+  name: "Тарілка №1!"
+  description: "З усіх станцій в юрисдикції Н'яноТрейзен, Тарілка отримала оцінку 1 з 5! Вітаємо!"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Vordenburg.rsi
@@ -12,8 +12,8 @@
 - type: entity
   parent: PosterBase
   id: PosterContrabandBreadLies
-  name: "Bread Lies"
-  description: "You have been lied to. There is no \"Big Bread.\" It is not real. Please stop looking for it."
+  name: "Хліб Бреше"
+  description: "Вам збрехали. Немає ніякого \"Великого Хліба\". Його не існує. Будь ласка, перестаньте його шукати."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Huvy.rsi
@@ -23,8 +23,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitDejaVu
-  name: "Deja Vu Area"
-  description: "This is your first time here. If this station feels familiar, immediately alert a NanoTrasen employee."
+  name: "Зона Дежавю"
+  description: "Ви тут вперше. Якщо ця станція здається вам знайомою, негайно повідомте про це співробітника НаноТрейзен."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Vordenburg.rsi
@@ -33,8 +33,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitDontPanic
-  name: "Don't Panic"
-  description: "If there was ever something so soothing enough to keep me from panicking, it was a green blob floating through space with a pair of hands, a shiny red tongue, and big round teeth."
+  name: "Без Паніки"
+  description: "Якщо щось і заспокоювало мене від паніки, так це зелений згусток, що плавав у просторі з парою рук, блискучим червоним язиком і великими круглими зубами."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Vordenburg.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitBarDrinks
-  name: "Bar Poster"
-  description: "The Bartender is always there to hear your woes and get you plastered all at the same time. Go have a visit!"
+  name: "Барна Афіша"
+  description: "Бармен завжди готовий вислухати ваші проблеми і одночасно налити вам випити. Заходьте в гості!"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Huvy.rsi
@@ -53,8 +53,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitBotanyFood
-  name: "Fruit Basket"
-  description: "Botany is always hard at work! Stop by and enjoy the best they can offer!"
+  name: "Кошик з Фруктами"
+  description: "Ботаніка завжди наполегливо працює! Завітайте до нас і насолоджуйтеся найкращим, що вони можуть запропонувати!"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Huvy.rsi
@@ -63,8 +63,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitHotDonkExplosion
-  name: "Donk!"
-  description: "Bite into a blast of flavour with any of our #1 rated fattening and unhealthy products for your enjoyment! DONK!"
+  name: "Донк!"
+  description: "Скуштуйте вибух смаку з будь-яким з наших жирних і шкідливих для здоров'я продуктів №1, щоб насолодитися! ДОНК!"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Huvy.rsi
@@ -73,8 +73,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitEatMeat
-  name: "Eat Meat!"
-  description: "Who needs fruit or veggies? EAT MEAT! Build those muscles and go fight in the arena to show them gains!"
+  name: "Їж М'ясо!"
+  description: "Кому потрібні фрукти чи овочі? ЇЖТЕ М'ЯСО! Нарощуй м'язи і виходь на арену, щоб показати їм свої досягнення!"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Huvy.rsi
@@ -83,8 +83,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitMoreBread
-  name: "More Bread!"
-  description: "There is not enough bread! MAKE MORE!"
+  name: "Більше Хліба!"
+  description: "Хліба не вистачає! ЗРОБІТЬ БІЛЬШЕ!"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Huvy.rsi
@@ -93,8 +93,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitPieSlice
-  name: "Pie Poster"
-  description: "Pies are healthy and delicious! Beg your chef to start making some."
+  name: "Постер Пирога"
+  description: "Пироги - це корисно і смачно! Попросіть шеф-кухаря почати їх готувати."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Huvy.rsi
@@ -103,8 +103,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitPizzaHope
-  name: "Pizza Hope"
-  description: "In the darkest of times there is only one hope, PIZZA! Harass your local Logistics Officer to order an emergency crate of pizza now!" # DeltaV - Logistics Department replacing Cargo
+  name: "Надія - Піца"
+  description: "У найтемніші часи є лише одна надія - ПІЦЦА! Попросіть місцевого офіцера з логістики замовити екстрену доставку піци прямо зараз!" # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Huvy.rsi
@@ -113,8 +113,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitMedicate
-  name: "Take Your Meds"
-  description: "Possible side effects may include: nausea, upset stomach, inflammation, swelling of the face/throat, rash, fever, headache, dizziness, vomiting and/or diarrhea, easy bruising, seizures, insuppressible yawning, general feeling of discomfort or illness, hives, loss of voice, bleeding gums and/or eyeballs, loss of appetite, increased appetite, sudden onset of explosive crying, x-ray vision, slurred speech, impromptu levitation, incontinence, abrupt uncontrollable outburst of yodeling, insomnia, narcolepsy, leprosy, spontaneous growth of new limbs/genitalia, unstoppable back hair growth, weight loss, weight gain, shrinkage, colorblindness, rectal numbness, acute ability to taste colors, unquenchable bloodlust, restless fingernails, light-sensitivity, compulsion to wear schoolgirl uniforms, scurvy, eagerness to pursue mercenary life, violent craving for goat's blood, insurgent desire to develop a gambling addiction, itchy bumhole. Call your doctor for medical advice about these or any other side effects you may experience." #credit Chris Zappa
+  name: "Приймайте Ліки"
+  description: "Можливі побічні ефекти можуть включати нудота, розлад шлунку, запалення, набряк обличчя/горла, висип, лихоманка, головний біль, запаморочення, блювання та/або діарея, легкі синці, судоми, нестримна позіхання, загальне відчуття дискомфорту або хвороби, кропив'янка втрата голосу, кровоточивість ясен та/або очних яблук, втрата апетиту, підвищений апетит, раптовий приступ вибухового плачу, рентгенівське бачення, невиразна мова, імпровізована левітація, нетримання сечі, раптовий неконтрольований спалах йодлювання, безсоння, нарколепсія, проказа, спонтанний ріст нових кінцівок/геніталій, нестримний ріст волосся на спині, втрата ваги, збільшення ваги, зморщування, дальтонізм, оніміння прямої кишки, загострена здатність відчувати кольори, невгамовна жага крові, неспокійні нігті, світлочутливість, примус до носіння шкільної форми, цинга, прагнення до життя найманця, несамовита тяга до козячої крові, повстанське бажання розвинути залежність від азартних ігор, свербіж у задньому проході. Зверніться до лікаря за медичною консультацією щодо цих або будь-яких інших побічних ефектів, які ви можете відчути." #credit Chris Zappa
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Velcroboy.rsi
@@ -123,8 +123,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitNoTouching
-  name: "No Touching"
-  description: "No touching!"
+  name: "Не Чіпати"
+  description: "Не Чіпати!"
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/Velcroboy.rsi
@@ -133,8 +133,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitChknDnnr
-  name: "Winner Winner Chicken Dinner"
-  description: "An advertisement for crispy fried chicken."
+  name: "Переможець Переможець Куряча вечеря"
+  description: "Реклама хрусткої смаженої курки."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/CerebralError.rsi
@@ -143,8 +143,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitCornzza
-  name: "Corncob Crust!"
-  description: "NEW Cornzza! Corn pizza, with a corncob crust that'll make you say 'why does this exist?'."
+  name: "Кукурудзяна Скоринка!"
+  description: "НОВА Кукуцца! Кукурудзяна піца зі скоринкою з кукурудзяних качанів, яка змусить вас запитати: \"Навіщо вона існує?\"."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/rosysyntax.rsi
@@ -153,8 +153,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitFuckAround
-  name: Fuck Around...
-  description: ...and find out. Sponsored by the Intergalactic Bartenders' Federation, Delta branch.
+  name: "Відчепися..."
+  description: "...і дізнайтеся. Спонсор: Міжгалактична федерація барменів, філія Дельта."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/TJohnson.rsi
@@ -167,8 +167,8 @@
 - type: entity
   parent: PosterBase
   id: PosterContrabandSafetyMothSyndie
-  name: Syndie Moth - Nuclear Operation
-  description: Syndie Moth™ tells the viewer to keep the nuclear authentication disk unsecured. "Peace was never an option!"
+  name: "Syndie Moth - Ядерна операція"
+  description: "Syndie Moth™ радить глядачеві тримати ядерний аутентифікаційний диск незахищеним. \"Мир ніколи не був варіантом!\""
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -177,8 +177,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSafetyMothPoisoning
-  name: Safety Moth - Poisoning
-  description: Safety Moth™ tells the viewer not to poison the station donuts.
+  name: "Безпечний метелик - отруєння"
+  description: "Safety Moth™ застерігає глядача не отруїтися пончиками на станції."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -187,8 +187,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSafetyMothBoH
-  name: Safety Moth - Bag of Holding
-  description: Safety Moth™ informs the viewer of the dangers of Bags of Holding. "Remember! Bags of Holding may be pretty, but they're also pretty dangerous! Never put one inside another!"
+  name: "Safety Moth - сумка для утримання"
+  description: "Safety Moth™ інформує глядача про небезпеку мішків для зберігання. \"Пам'ятайте! Пакети для зберігання можуть бути гарними, але вони також досить небезпечні! Ніколи не кладіть один в інший!\""
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -197,8 +197,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSafetyMothFires
-  name: Safety Moth - Fires
-  description: Safety Moth™ promotes safe handling of plasma and to keep firefighting equipment within hand reach.
+  name: "Метелик безпеки - Пожежі"
+  description: "Safety Moth™ сприяє безпечному поводженню з плазмою та дозволяє тримати протипожежне обладнання під рукою."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -207,8 +207,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSafetyMothPills
-  name: Safety Moth - Pill Bottles
-  description: Safety Moth™ informs the viewer that leaving pills unsupervised on tables could lead to unforeseen consequences. "Hungry critters love to eat everything! Keep your pills safe in crates and pill bottles!"
+  name: "Безпечна моль - флакони для таблеток"
+  description: "Safety Moth™ інформує глядача про те, що залишення таблеток на столі без нагляду може призвести до непередбачуваних наслідків. \"Голодні тварини люблять їсти все підряд! Зберігайте свої пігулки в безпеці в коробочках та пляшечках!\""
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -217,8 +217,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSafetyMothGlimmer
-  name: Safety Moth - Glimmer Safety Precautions
-  description: Safety Moth™ tells the viewer to wear insulative equipments and hide in lockers when the glimmer gets within critical levels. Evacuating might be a better strategy.
+  name: "Safety Moth - Заходи безпеки при мерехтінні"
+  description: "Safety Moth™ закликає глядачів вдягти ізоляційні засоби і сховатися в шафках, коли мерехтіння досягне критичного рівня. Евакуація може бути кращою стратегією."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Wallmounts/Posters/safetymoth.rsi

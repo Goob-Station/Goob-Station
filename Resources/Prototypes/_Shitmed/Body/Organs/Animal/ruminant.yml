@@ -7,8 +7,8 @@
 - type: entity
   parent: OrganAnimalRuminantStomach
   id: OrganAnimalRuminantStomach2
-  name: ruminant stomach 2
-  description: electric boogaloo
+  name: "шлунок жуйної тварини 2"
+  description: "електричне бугалу"
   components:
   - type: Organ
     slotId: stomach2

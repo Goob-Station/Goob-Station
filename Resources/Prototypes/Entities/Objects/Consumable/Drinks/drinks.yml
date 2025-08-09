@@ -268,8 +268,8 @@
 
 # Transformable container - normal glass
 - type: entity
-  name: metamorphic glass
-  description: A metamorphic glass that automagically turns into a glass appropriate for the drink within. There's a sanded off patent number on the bottom.
+  name: "метаморфна склянка"
+  description: "Метаморфна склянка, яка автоматично перетворюється на склянку, що відповідає напою всередині. На дні є зашліфований номер патенту."
   parent: DrinkGlassBase
   id: DrinkGlass
   components:
@@ -298,8 +298,8 @@
   - type: TransformableContainer
 
 - type: entity
-  name: coupe glass
-  description: A classic thin neck coupe glass, the icon of fragile labels on crates around the galaxy.
+  name: "скляний келих"
+  description: "Класичний келих купе з тонким горлом, ікона тендітних етикеток на ящиках по всій галактиці."
   parent: DrinkGlassBase
   id: DrinkGlassCoupeShaped
   components:
@@ -1264,7 +1264,7 @@
   parent: DrinkGlass
   id: DrinkHoochGlass
   suffix: hooch
-  description: You've really hit rock bottom now... your liver packed its bags and left last night.
+  description: "Ви дійсно досягли дна... Ваша печінка спакувала валізи і пішла вчора ввечері."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -2314,8 +2314,8 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkTeapot
-  name: teapot  # short and stout
-  description: An elegant teapot. It simply oozes class.
+  name: "чайник"  # short and stout
+  description: "Елегантний чайник. Він просто випромінює клас."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -2536,8 +2536,8 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkWaterJug
-  name: water jug
-  description: Stay hydrated.
+  name: "глечик з водою"
+  description: "Не забувайте пити воду."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -2856,7 +2856,7 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkShakeBlue
-  name: blue milkshake
+  name: "блакитний молочний коктейль"
   description: ''
   components:
   - type: Drink
@@ -2866,7 +2866,7 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkShakeEmpty
-  name: shakeempty
+  name: "трясця, трясця"
   description: ''
   components:
   - type: Drink
@@ -2876,7 +2876,7 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkShakeMeat
-  name: meat shake
+  name: "м'ясний коктейль"
   description: ''
   components:
   - type: Drink
@@ -2886,7 +2886,7 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkShakeRobo
-  name: robo shake
+  name: "робо-шейк"
   description: ''
   components:
   - type: Drink
@@ -2896,7 +2896,7 @@
 - type: entity
   parent: DrinkGlassBase
   id: DrinkShakeWhite
-  name: white shake
+  name: "білий шейк"
   description: ''
   components:
   - type: Drink
@@ -2923,7 +2923,7 @@
   parent: DrinkGlass
   id: DrinkBacchusBlessing
   suffix: bacchus blessing
-  description: You didn't think it was possible for a liquid to be so utterly revolting. Are you sure about this...?
+  description: "Ви не думали, що рідина може бути настільки огидною. Ви впевнені в цьому...?"
   components:
   - type: SolutionContainerManager
     solutions:

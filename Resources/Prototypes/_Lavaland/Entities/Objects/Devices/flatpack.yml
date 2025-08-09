@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseFlatpack
   id: GatewayFlatpackLavaland
-  name: lavaland gateway flatpack # "lavaland" only in name since that's what it's used for, to be clear to players
-  description: A flatpack used to bluespace in a gateway for travel to Lavaland.
+  name: "розкладні ворота до Лаваленду" # "lavaland" only in name since that's what it's used for, to be clear to players
+  description: "Розкладний пакет, що використовується для телепортації воріт для подорожей до Лаваленду."
   components:
   - type: Flatpack
     entity: GatewayLavalandStation

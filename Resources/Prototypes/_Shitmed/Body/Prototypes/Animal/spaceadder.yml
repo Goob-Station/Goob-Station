@@ -10,7 +10,7 @@
 
 - type: body
   id: SpaceAdder
-  name: "space adder"
+  name: "космічна гадюка"
   root: chest
   slots:
     chest:
