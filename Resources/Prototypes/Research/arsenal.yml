@@ -56,6 +56,7 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
@@ -106,7 +107,6 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
-  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
   # - MagazineLightRifleIncendiary # Goobstation - remove light rifle
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
@@ -154,7 +154,6 @@
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
-  - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
   - WeaponDisabler
   - WeaponMechCombatDisabler # Goobstation
   # Goobstation R&D Console rework start
@@ -183,7 +182,6 @@
   # - MagazineBoxLightRifleUranium # Goobstation - remove light rifle
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
-  - MagazineBoxShotgunUraniumHighCaliber # Goobstation
   # Goobstation R&D Console rework start
   position: 3,2
   technologyPrerequisites:

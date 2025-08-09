@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+Baptr0b0t@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Baptr0b0t <bapt.buriot@gmail.com>
 # SPDX-FileCopyrightText: 2025 CliveOcelot <165305605+Orion-416@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
@@ -365,22 +366,25 @@
   content:
     - BSOManual
 
-- type: selectableSet
-  id: BSOChesterSet
-  name: selectable-set-blueshield-chester-name
-  description: selectable-set-blueshield-chester-description
-  sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
-    state: base
-  content:
-  # Guaranteed items
-  - WeaponLeverChester
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineShotgunLeverRifleEmpty
-  - MagazineBoxShotgunHighCaliberEMP
-  - MagazineBoxShotgunHighCaliberEnsnaring
-#  tables:
-#  - ChesterRandomAmmoTable
+# Disabled until chester gets reverted to previous balance.
+# Just because some fuck gave antags an overpowered bullshit toy doesn't mean you can add one to crew too
+# What you should be doing is reverting the scumfuck braindead addition someone else made.
+# - type: selectableSet
+#  id: BSOChesterSet
+#  name: selectable-set-blueshield-chester-name
+#  description: selectable-set-blueshield-chester-description
+#  sprite:
+#    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+#    state: base
+#  content:
+#  # Guaranteed items
+#  - WeaponLeverChester
+#  - MagazineShotgunLeverRifleEmpty
+#  - MagazineShotgunLeverRifleEmpty
+#  - MagazineBoxShotgunHighCaliberEMP
+#  - MagazineBoxShotgunHighCaliberEnsnaring
+##  tables:
+##  - ChesterRandomAmmoTable
 
 - type: selectableSet
   id: BSOSyringeSet
