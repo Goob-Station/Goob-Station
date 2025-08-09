@@ -74,6 +74,10 @@ public abstract partial class SharedHereticAbilitySystem
 
     private void OnBeforeBladeStaminaDamage(EntityUid uid, Component component, ref BeforeStaminaDamageEvent args)
     {
+        if (args.Value <= 0
+            || args.Source == uid)
+            return;
+
         args.Cancelled = true;
     }
 }

@@ -20,9 +20,9 @@ public sealed class StaminaRegenerationSystem : EntitySystem
     }
 
     private void OnStaminaRegenerationStartup(EntityUid uid, StaminaRegenerationComponent component, ComponentStartup args) =>
-      _staminaSystem.ToggleStaminaDrain(uid, component.RegenerationRate, true, false, component.RegenerationKey);
+      _staminaSystem.ToggleStaminaDrain(uid, component.RegenerationRate, true, false, component.RegenerationKey, uid);
 
     private void OnStaminaRegenerationShutdown(EntityUid uid, StaminaRegenerationComponent component, ComponentShutdown args) =>
-      _staminaSystem.ToggleStaminaDrain(uid, component.RegenerationRate, false, false, component.RegenerationKey);
+      _staminaSystem.ToggleStaminaDrain(uid, component.RegenerationRate, false, false, component.RegenerationKey, uid);
 
 }

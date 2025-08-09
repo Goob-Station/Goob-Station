@@ -355,10 +355,10 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false)
     {
         if (!Resolve(uid, ref component, false)
-        || value == 0) // no damage???
+        || value == 0) // no damage???s
             return;
 
-        var ev = new BeforeStaminaDamageEvent(value);
+        var ev = new BeforeStaminaDamageEvent(value, source);
         RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
             return;
@@ -435,7 +435,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     }
 
     // Goob edit - stamina drains
-    public void ToggleStaminaDrain(EntityUid target, float drainRate, bool enabled, bool modifiesSpeed, string key, EntityUid? source = null)
+    public void ToggleStaminaDrain(EntityUid target, float drainRate, bool enabled, bool modifiesSpeed, string key, EntityUid? source = null, bool applyResistances = false)
     {
         if (!TryComp<StaminaComponent>(target, out var stamina))
             return;
@@ -445,7 +445,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
         if (enabled)
         {
-            stamina.ActiveDrains.TryAdd(key, (drainRate, modifiesSpeed, GetNetEntity(actualSource)));
+            stamina.ActiveDrains.TryAdd(key, (drainRate, modifiesSpeed, GetNetEntity(actualSource), applyResistances));
             EnsureComp<ActiveStaminaComponent>(target);
         }
         else
@@ -463,7 +463,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             return;
 
         if (component.ActiveDrains.ContainsKey(key))
-            component.ActiveDrains[key] = (newValue, component.ActiveDrains[key].Item2, component.ActiveDrains[key].Item3);
+            component.ActiveDrains[key] = (newValue, component.ActiveDrains[key].Item2, component.ActiveDrains[key].Item3, component.ActiveDrains[key].Item4);
 
         Dirty(target, component);
     }
@@ -485,12 +485,13 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 continue;
             }
             if (comp.ActiveDrains.Count > 0)
-                foreach (var (drainRate, _, source) in comp.ActiveDrains.Values)
+                foreach (var (drainRate, _, source, applyResistances) in comp.ActiveDrains.Values)
                     TakeStaminaDamage(uid,
                     drainRate * frameTime,
                     comp,
                     source: GetEntity(source),
-                    visual: false);
+                    visual: false,
+                    applyResistances: applyResistances);
 
             // Shouldn't need to consider paused time as we're only iterating non-paused stamina components.
             var nextUpdate = comp.NextUpdate;

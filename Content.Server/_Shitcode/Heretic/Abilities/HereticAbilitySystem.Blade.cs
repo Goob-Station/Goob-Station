@@ -60,7 +60,7 @@ public sealed partial class HereticAbilitySystem
             if (stam.StaminaDamage >= stam.CritThreshold)
                 _stam.ExitStamCrit(ent, stam);
 
-            _stam.ToggleStaminaDrain(ent, args.StaminaRegenRate, true, true, args.StaminaRegenKey);
+            _stam.ToggleStaminaDrain(ent, args.StaminaRegenRate, true, true, args.StaminaRegenKey, ent);
             Dirty(ent, stam);
         }
 
