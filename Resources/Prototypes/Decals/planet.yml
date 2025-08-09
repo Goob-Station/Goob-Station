@@ -6,6 +6,7 @@
 # Flowers
 - type: decal
   id: FlowersBROne
+  parent: Flower
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -14,6 +15,7 @@
 
 - type: decal
   id: FlowersBRTwo
+  parent: Flower
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -22,6 +24,7 @@
 
 - type: decal
   id: FlowersBRThree
+  parent: Flower
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -31,6 +34,7 @@
 # Grass
 - type: decal
   id: BushAOne
+  parent: Bush
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -39,6 +43,7 @@
 
 - type: decal
   id: BushATwo
+  parent: Bush
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -47,6 +52,7 @@
 
 - type: decal
   id: BushAThree
+  parent: Bush
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -55,6 +61,7 @@
 
 - type: decal
   id: BushCOne
+  parent: Bush
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -63,6 +70,7 @@
 
 - type: decal
   id: BushCTwo
+  parent: Bush
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -71,6 +79,7 @@
 
 - type: decal
   id: BushCThree
+  parent: Bush
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -79,6 +88,7 @@
 
 - type: decal
   id: BushDOne
+  parent: Bush
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -87,6 +97,7 @@
 
 - type: decal
   id: BushDTwo
+  parent: Bush
   snapCardinals: true
   defaultSnap: false
   sprite:
@@ -95,6 +106,7 @@
 
 - type: decal
   id: BushDThree
+  parent: Bush
   snapCardinals: true
   defaultSnap: false
   sprite:

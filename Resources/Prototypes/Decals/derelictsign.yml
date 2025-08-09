@@ -1,12 +1,22 @@
 # SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 poemota <142114334+poeMota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
 #
 # SPDX-License-Identifier: MIT
 #This has to be split up like this because tiles remove the decal under them, and the derelict sign is bigger then 32x32 when combined.
 
+- type: decal
+  id: DerelictSign
+  abstract: true
+
 #Bottom
 - type: decal
   id: DerelictSignBottom1
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -14,6 +24,7 @@
 
 - type: decal
   id: DerelictSignBottom2
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -21,6 +32,7 @@
 
 - type: decal
   id: DerelictSignBottom3
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -28,6 +40,7 @@
 
 - type: decal
   id: DerelictSignBottom4
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -35,6 +48,7 @@
 
 - type: decal
   id: DerelictSignBottom5
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -42,6 +56,7 @@
 
 - type: decal
   id: DerelictSignBottom6
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -49,6 +64,7 @@
 
 - type: decal
   id: DerelictSignBottom7
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -56,6 +72,7 @@
 
 - type: decal
   id: DerelictSignBottom8
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -64,6 +81,7 @@
 #Top
 - type: decal
   id: DerelictSignTop1
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -71,6 +89,7 @@
 
 - type: decal
   id: DerelictSignTop2
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -78,6 +97,7 @@
 
 - type: decal
   id: DerelictSignTop3
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -85,6 +105,7 @@
 
 - type: decal
   id: DerelictSignTop4
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -92,6 +113,7 @@
 
 - type: decal
   id: DerelictSignTop5
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -99,6 +121,7 @@
 
 - type: decal
   id: DerelictSignTop6
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -106,6 +129,7 @@
 
 - type: decal
   id: DerelictSignTop7
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi
@@ -113,6 +137,7 @@
 
 - type: decal
   id: DerelictSignTop8
+  parent: DerelictSign
   tags: ["station"]
   sprite:
     sprite: Decals/derelictsign.rsi

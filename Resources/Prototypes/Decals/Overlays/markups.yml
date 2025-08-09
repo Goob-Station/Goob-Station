@@ -61,6 +61,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 poemota <142114334+poeMota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -70,11 +71,21 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: decal
+  id: Markup
+  parent: Overlays
+  abstract: true
+
+- type: decal
   id: MarkupSquare
+  parent: Markup
   tags: ["overlay"]
   defaultCustomColor: true
   sprite:
@@ -83,6 +94,7 @@
 
 - type: decal
   id: MarkupRectangle1x2
+  parent: Markup
   tags: ["overlay"]
   defaultCustomColor: true
   sprite:
@@ -91,6 +103,7 @@
 
 - type: decal
   id: MarkupRectangle1x2Center
+  parent: Markup
   tags: ["overlay"]
   defaultCustomColor: true
   sprite:
@@ -99,6 +112,7 @@
 
 - type: decal
   id: MarkupSquareQuater
+  parent: Markup
   tags: ["overlay"]
   defaultCustomColor: true
   sprite:
@@ -107,6 +121,7 @@
 
 - type: decal
   id: MarkupSquareQuaterCenter
+  parent: Markup
   tags: ["overlay"]
   defaultCustomColor: true
   sprite:
