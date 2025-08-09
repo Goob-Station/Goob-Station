@@ -1,4 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Discoded <33738298+Discoded@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 john git <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -11,3 +14,18 @@
   - type: StorageFill
     contents:
     - id: MachinePowerTransmissionLaserFlatpack
+
+- type: entity
+  id: CrateEngineeringTEGKit
+  parent: CrateEngineeringSecure
+  name: TEG construction kit crate
+  description: A 'build your own TEG' kit. Some assembly required.
+  components:
+  - type: StorageFill
+    contents:
+      - id: TegCirculatorPartFlatpack
+      - id: TegCirculatorPartFlatpack
+      - id: TegCenterPartFlatpack
+      - id: GasAnalyzer
+      - id: SheetSteel
+        amount: 1
