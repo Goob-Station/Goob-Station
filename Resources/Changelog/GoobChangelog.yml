@@ -13002,3 +13002,9 @@ Entries:
       message: Salvage of meta
   id: 1439
   time: '2025-08-06T06:01:57.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Added EORG to the MRP Rulebook
+  id: 1440
+  time: '2025-08-08T04:28:18.0000000+00:00'
