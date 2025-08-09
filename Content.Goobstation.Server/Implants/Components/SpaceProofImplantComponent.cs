@@ -18,4 +18,9 @@ public sealed partial class SpaceProofImplantComponent : Component
     /// </summary>
     [DataField] public bool NeededAir = false;
 
+    /// <summary>
+    /// Was the entity low temp immune before being implanted?
+    /// </summary>
+    [DataField] public bool WasntLowTempProof = false;
+
 }
