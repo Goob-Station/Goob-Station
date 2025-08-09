@@ -942,7 +942,7 @@
   - type: AddAccentClothing
     accent: ReplacementAccent
     replacement: italian
-  - type: HandheldTranslator # goob
+  - type: HandheldTranslator # Goob - Magic Moustache
     spoken:
     - SpaceItalian
     understood:
