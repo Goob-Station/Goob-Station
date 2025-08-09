@@ -236,14 +236,15 @@
 - type: startingGear
   id: BrigmedicGear
   equipment: # Heavily goob edited
-    eyes: ClothingEyesGlassesMed
+    eyes: ClothingEyesGlassesMedSec
     id: BrigmedicPDA
-    ears: ClothingHeadsetAltSecurityRegular # Intentionally no medical channel
+    ears: ClothingHeadsetAltSecurityRegular
     belt: ClothingBeltMedicalEMTFilled
-    pocket1: WeaponDisabler
+    pocket1: WeaponPistolMk58
   storage:
     back:
     - Flash
+    - MagazinePistol
     - ClothingMaskBreathMedicalSecurity
 
 # Aghost

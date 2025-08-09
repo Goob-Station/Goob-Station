@@ -3,6 +3,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+#regarding the decucking pr, I ran it past the rest of the admins AND DURK during the Aug. 9th, 2025 staff meeting. It's been approved. -ShieldAcrados
+
 - type: job
   id: Brigmedic
   name: job-name-brigmedic
@@ -20,16 +22,19 @@
   supervisors: job-supervisors-hos
   canBeAntag: false
   goobcoins: 35
-  access: # intentionally no medical access, not even hos has it, ask chemists instead of silently stealing meds
+  access:
   - Security
   - Brig
   - Maintenance
   - Service
   - External
   - Cryogenics
+  - Medical # BrigMEDIC should have MEDICAL access, if they want chems they can talk to the CHEMISTS like NORMAL DOCTORS/PARAMEDS DO
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
-    components: # Intentionally no surgery buff, you're reliable but not powerful as a real doctor
+    components: 
     - type: SecurityStaff
+    - type: SurgerySpeedModifier
+      speedModifier: 1.25 # Same as Paramedic

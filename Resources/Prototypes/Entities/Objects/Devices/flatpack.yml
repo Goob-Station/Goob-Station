@@ -297,3 +297,12 @@
     guides:
     - Botany
     - Chemicals
+
+- type: entity
+  parent: BaseFlatpack
+  id: StasisBedFlatpack
+  name: fax machine flatpack
+  description: A flatpack used for constructing a stasis bed.
+  components:
+  - type: Flatpack
+    entity: StasisBed
