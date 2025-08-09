@@ -1,0 +1,11 @@
+- type: stack
+  id: MetalHydrogen
+  name: stack-metal-hydrogen
+  spawn: MetalHydrogen1
+  maxCount: 30
+
+- type: stack
+  id: Zaukerite
+  name: stack-zaukerite
+  spawn: Zaukerite1
+  maxCount: 30
