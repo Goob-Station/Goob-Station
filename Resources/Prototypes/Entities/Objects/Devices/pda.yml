@@ -422,7 +422,7 @@
        pda-interncadet
   - type: PdaBorderColor
     borderColor: "#717059"
-    accentVColor: "#A32D26"
+    accentVColor: "#324155" # Pirate
   - type: Icon
     state: pda-interncadet
 
@@ -1053,7 +1053,7 @@
        !type:String
        pda-hos
   - type: PdaBorderColor
-    borderColor: "#A32D26"
+    borderColor: "#324155" # Pirate
     accentHColor: "#447987"
   - type: Icon
     state: pda-hos
@@ -1081,7 +1081,7 @@
        !type:String
        pda-warden
   - type: PdaBorderColor
-    borderColor: "#A32D26"
+    borderColor: "#324155" # Pirate
     accentVColor: "#949137"
   - type: Icon
     state: pda-warden
@@ -1100,7 +1100,7 @@
        !type:String
        pda-security
   - type: PdaBorderColor
-    borderColor: "#A32D26"
+    borderColor: "#324155" # Pirate
   - type: Icon
     state: pda-security
 
@@ -1512,7 +1512,7 @@
        !type:String
        pda-brigmedic
   - type: PdaBorderColor
-    borderColor: "#A32D26"
+    borderColor: "#324155" # Pirate
     accentHColor: "#d7d7d0"
     accentVColor: "#d7d7d0"
   - type: Icon
@@ -1627,7 +1627,7 @@
        !type:String
        pda-seniorofficer
   - type: PdaBorderColor
-    borderColor: "#A32D26"
+    borderColor: "#324155" # Pirate
     accentVColor: "#DFDFDF"
   - type: Icon
     state: pda-seniorofficer
