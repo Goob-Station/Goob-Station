@@ -56,12 +56,9 @@ public sealed partial class HereticAbilitySystem
         if (TryComp<StaminaComponent>(ent, out var stam))
         {
             if (stam.StaminaDamage >= stam.CritThreshold)
-            {
                 _stam.ExitStamCrit(ent, stam);
-            }
 
-            stam.StaminaDamage = 0;
-            RemComp<ActiveStaminaComponent>(ent);
+            _stam.ToggleStaminaDrain(ent, args.StaminaRegenRate, true, true, args.StaminaRegenKey);
             Dirty(ent, stam);
         }
 

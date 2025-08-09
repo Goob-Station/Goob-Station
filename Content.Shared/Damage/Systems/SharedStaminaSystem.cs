@@ -491,6 +491,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                     comp,
                     source: GetEntity(source),
                     visual: false);
+
             // Shouldn't need to consider paused time as we're only iterating non-paused stamina components.
             var nextUpdate = comp.NextUpdate;
 
@@ -501,7 +502,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             if (comp.Critical)
                 ExitStamCrit(uid, comp);
             // Goob - If theres no active drains, recover stamina.
-            if (comp.ActiveDrains.Count == 0)
+            if (!comp.ActiveDrains.Values.Any(x => x.DrainRate > 0))
                 TakeStaminaDamage(
                     uid,
                     comp.AfterCritical ? -comp.Decay * comp.AfterCritDecayMultiplier : -comp.Decay, // Recover faster after crit

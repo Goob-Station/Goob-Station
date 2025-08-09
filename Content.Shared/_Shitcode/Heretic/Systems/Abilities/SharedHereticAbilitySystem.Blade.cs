@@ -11,6 +11,8 @@ namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
 public abstract partial class SharedHereticAbilitySystem
 {
+    [Dependency] private readonly SharedStaminaSystem _stam = default!;
+
     protected virtual void SubscribeBlade()
     {
         // Protective blades prevent that
@@ -27,7 +29,11 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<RealignmentComponent, SlipAttemptEvent>(OnBladeSlipAttempt);
         SubscribeLocalEvent<RealignmentComponent, BeforeHarmfulActionEvent>(OnBladeHarmfulAction);
         SubscribeLocalEvent<RealignmentComponent, StatusEffectEndedEvent>(OnStatusEnded);
+        SubscribeLocalEvent<RealignmentComponent, ComponentRemove>(OnComponentRemove);
     }
+
+    private void OnComponentRemove(Entity<RealignmentComponent> ent, ref ComponentRemove args) =>
+        _stam.ToggleStaminaDrain(ent, 0, false, true, ent.Comp.StaminaRegenKey);
 
     private void OnStatusEnded(Entity<RealignmentComponent> ent, ref StatusEffectEndedEvent args)
     {

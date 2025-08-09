@@ -206,6 +206,7 @@
       enum.RevivalContractUiKey.Key: # Goobstation - Devil
         type: RevivalContractBoundUserInterface
         requireInputValidation: false
+  - type: Sprinter
 
 # proto for player ghosts specifically
 - type: entity

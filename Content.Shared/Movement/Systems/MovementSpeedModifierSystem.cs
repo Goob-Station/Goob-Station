@@ -105,7 +105,7 @@ namespace Content.Shared.Movement.Systems
         private float _frictionModifier;
         private float _airDamping;
         private float _offGridDamping;
-        private float _maxSpeed = 3.8f; // Goobstation Change, actual value is given by Cvar, this is a fallback.
+        private float _maxSpeed = 2.7f; // Goobstation Change, actual value is given by Cvar, this is a fallback.
         public override void Initialize()
         {
             base.Initialize();

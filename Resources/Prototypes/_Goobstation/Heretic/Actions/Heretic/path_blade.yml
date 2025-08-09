@@ -15,7 +15,7 @@
   - type: InstantAction
     checkCanInteract: false
     checkConsciousness: false
-    useDelay: 10
+    useDelay: 20
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi

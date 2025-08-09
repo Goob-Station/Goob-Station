@@ -132,7 +132,14 @@ public sealed partial class HereticVoidVisionEvent : EntityEventArgs { } // done
 // blade (+ upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticCuttingEdgeEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticDanceOfTheBrandEvent : EntityEventArgs { }
-public sealed partial class EventHereticRealignment : InstantActionEvent { }
+public sealed partial class EventHereticRealignment : InstantActionEvent
+{
+    [DataField]
+    public float StaminaRegenRate = -9f; // Same value as default stamina consumption for non humans.
+
+    [DataField]
+    public string StaminaRegenKey = "Realignment";
+}
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticChampionStanceEvent : EntityEventArgs { }
 public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
 
