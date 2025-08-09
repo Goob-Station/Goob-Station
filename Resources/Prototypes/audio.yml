@@ -5,6 +5,10 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -12,7 +16,7 @@
   id: Morgue
   sound:
     params:
-      volume: -6
+      volume: -12
     collection: AmbienceSpooky
   rules: NearMorgue
   priority: 4
@@ -21,7 +25,7 @@
   id: SpookyFog
   sound:
     params:
-      volume: -6
+      volume: -12
     collection: AmbienceSpookyFog
   rules: NearSpookyFog
   priority: 5
@@ -30,7 +34,7 @@
   id: Holy
   sound:
     params:
-      volume: -8
+      volume: -12
     collection: AmbienceHoly
   rules: NearPrayable
   priority: 4
@@ -39,7 +43,7 @@
   id: Train
   sound:
     params:
-      volume: -4
+      volume: -8
     collection: AmbienceTrain
   rules: NearTrain
   priority: 4
@@ -49,7 +53,7 @@
   id: Medical
   sound:
     params:
-      volume: -6
+      volume: -12
     collection: AmbienceMedical
   rules: NearMedical
   priority: 3
@@ -58,7 +62,7 @@
   id: Engineering
   sound:
     params:
-      volume: -6
+      volume: -12
     collection: AmbienceEngineering
   rules: NearEngineering
   priority: 3
@@ -68,7 +72,7 @@
   id: Maintenance
   sound:
     params:
-      volume: -6
+      volume: -12
     collection: AmbienceMaintenance
   rules: NearMaintenance
   priority: 2
@@ -77,7 +81,7 @@
   id: Space
   sound:
     params:
-      volume: -5
+      volume: -10
     collection: AmbienceSpace
   fadeIn: true
   interruptable: true
@@ -88,7 +92,7 @@
   id: Mining
   sound:
     params:
-      volume: -6
+      volume: -12
     collection: AmbienceMining
   rules: OnMapGrid
   fadeIn: true
@@ -100,7 +104,7 @@
   id: General
   sound:
     params:
-      volume: -6
+      volume: -12
     collection: AmbienceGeneral
   rules: AlwaysTrue
 
