@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/6fde5cf64e584727ce66d92d81352801670e172f",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "we_open"
+    },
+    {
+      "name": "bazaar"
+    }
+  ]
+}

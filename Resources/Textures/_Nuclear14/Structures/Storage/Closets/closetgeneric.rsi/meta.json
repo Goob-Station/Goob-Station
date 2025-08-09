@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/734c2aba4549814549d0fa7a9aa2e2d03ec1a2da/mojave/icons/structure/storage.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "closet"
+    },
+    {
+      "name": "closet_door"
+    },
+    {
+      "name": "closet_open"
+    },
+    {
+      "name": "welded"
+    }
+  ]
+}

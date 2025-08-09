@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from F13-Dusty-Trails at https://github.com/F13-Dusty-Trails/F13-Dusty-Trails/blob/568f8ca4f18ea48293c44e66d18adef52d862a80/icons/fallout/farming/farming_structures.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "soil"
+    },
+    {
+      "name": "plantpot"
+    },
+    {
+      "name": "rainwater_tank"
+    },
+    {
+      "name": "barrel"
+    },
+    {
+      "name": "barrel_open"
+    },
+    {
+      "name": "drying_rack"
+    },
+    {
+      "name": "drying_rack_filled"
+    },
+    {
+      "name": "drying_rack_drying",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "loom"
+    },
+    {
+      "name": "compostbin"
+    },
+    {
+      "name": "compostbin_empty"
+    },
+    {
+      "name": "sextractor_manual"
+    },
+    {
+      "name": "gardentool",
+      "directions": 4
+    },
+    {
+      "name": "gardentool-1",
+      "directions": 4
+    },
+    {
+      "name": "gardentool-2",
+      "directions": 4
+    },
+    {
+      "name": "gardentool-3",
+      "directions": 4
+    },
+    {
+      "name": "gardentool-4",
+      "directions": 4
+    },
+    {
+      "name": "gardentool-5",
+      "directions": 4
+    },
+    {
+      "name": "rack-broken"
+    },
+    {
+      "name": "seedbin"
+    },
+    {
+      "name": "seedbin-1"
+    },
+    {
+      "name": "seedbin-2"
+    },
+    {
+      "name": "seedbin-3"
+    },
+    {
+      "name": "seedbin-4"
+    },
+    {
+      "name": "seedbin-5"
+    },
+    {
+      "name": "seedbin-broken"
+    },
+    {
+      "name": "grownbin"
+    },
+    {
+      "name": "grownbin-1"
+    },
+    {
+      "name": "grownbin-2"
+    },
+    {
+      "name": "grownbin-3"
+    },
+    {
+      "name": "grownbin-4"
+    },
+    {
+      "name": "grownbin-5"
+    },
+    {
+      "name": "grownbin-broken"
+    },
+    {
+      "name": "drying_rack-off"
+    }
+  ]
+}

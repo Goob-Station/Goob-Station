@@ -1,0 +1,75 @@
+﻿- type: constructionGraph
+  id: N14WoodWall
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Frame
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+
+        - to: logWall
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+    - node: Frame
+      entity: N14WallWoodFrame
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity {}
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+        - to: WoodWall
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+    - node: logWall
+      entity: N14WallWoodLog
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+    - node: WoodWall
+      entity: N14WallWoodSlanted
+      edges:
+        - to: Frame
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 10

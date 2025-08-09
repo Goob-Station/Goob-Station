@@ -1,0 +1,25 @@
+stack-metal-floor-blue = metal floor blue
+stack-metal-floor-blue-solid = metal floor blue solid
+stack-metal-floor-green = metal floor green
+stack-metal-floor-green-solid = metal floor green solid
+stack-metal-floor-grey = metal floor grey
+stack-metal-floor-grey-solid = metal floor grey solid
+stack-metal-floor-grey-dark = metal floor grey dark
+stack-metal-floor-grey-dark-solid = metal floor grey dark solid
+stack-metal-floor-purple = metal floor purple
+stack-metal-floor-purple-solid = metal floor purple solid
+stack-metal-floor-red = metal floor red
+stack-metal-floor-red-solid = metal floor red solid
+stack-metal-floor-teal = metal floor teal
+stack-metal-floor-teal-solid = metal floor teal solid
+stack-metal-floor-white = metal floor white
+stack-metal-floor-white-solid = metal floor white solid
+stack-metal-floor-yellow = metal floor yellow
+stack-metal-floor-yellow-solid = metal floor yellow solid
+stack-metal-floor-freezer = metal floor freezer
+stack-carpet-floor = carpet floor
+stack-industrial-floor = industrial floor
+stack-metal-tile-floor = metal tile floor
+stack-metal-grate-floor = metal grate floor
+stack-metal-solid-floor = metal solid floor
+

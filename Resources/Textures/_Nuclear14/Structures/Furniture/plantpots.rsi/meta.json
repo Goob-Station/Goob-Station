@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Modified by Peptide90 based on TGStation sprites.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pot-1"
+    },
+    {
+      "name": "pot-1-broken"
+    },
+    {
+      "name": "pot-1-dirty"
+    },
+    {
+      "name": "pot-2"
+    },
+    {
+      "name": "pot-2-broken"
+    },
+    {
+      "name": "pot-2-dirty"
+    },
+    {
+      "name": "pot-3"
+    },
+    {
+      "name": "pot-3-dirty"
+    },
+    {
+      "name": "pot-4"
+    },
+    {
+      "name": "pot-4-broken"
+    },
+    {
+      "name": "pot-4-dirty"
+    },
+    {
+      "name": "pot-5"
+    },
+    {
+      "name": "pot-5-broken"
+    },
+    {
+      "name": "pot-3-broken"
+    }
+  ]
+}

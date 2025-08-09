@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/734c2aba4549814549d0fa7a9aa2e2d03ec1a2da/mojave/icons/structure/storage.dmi, additional states modified by Peptide",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "generic",
+	  "directions": 4
+    },
+    {
+      "name": "generic_door",
+	  "directions": 4
+    },
+    {
+      "name": "generic_open",
+	  "directions": 4
+    },
+    {
+      "name": "generic_on",
+      "delays": [
+        [
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08
+        ]
+      ]
+    }
+  ]
+}
