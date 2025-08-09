@@ -194,7 +194,6 @@
         Holy: 10
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-  - type: GrabbingItem
   - type: IgniteOnMeleeHit # emphasis on FLAMING GIFT!!
     fireStacks: 0.25
   - type: Cautery
