@@ -120,6 +120,17 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SMGPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SMGDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SMGDrop
+  # Goobstation edit end
   - type: Multishot # Goobstation V
   - type: AltFireMelee
     attackType: Heavy

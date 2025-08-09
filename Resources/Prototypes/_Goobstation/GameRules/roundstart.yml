@@ -22,6 +22,7 @@
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
@@ -53,7 +54,10 @@
     - prefRoles: [ Changeling ]
       max: 4
       playerRatio: 12
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -86,6 +90,9 @@
       whitelist:
         components:
         - CommandStaff
+      blacklist:
+        components:
+        - Condemned # Stops the NTR from rolling it
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -103,9 +110,9 @@
     - prefRoles: [ Traitor ]
       max: 3
       playerRatio: 15
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
         - Changeling
       lateJoinAdditional: true
@@ -129,6 +136,9 @@
     - prefRoles: [ Changeling ]
       max: 2
       playerRatio: 15
+      blacklist:
+        components:
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -220,7 +230,9 @@
     - prefRoles: [ HeadRev ]
       max: 1
       playerRatio: 20
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      blacklist:
+        components:
+        - CommandStaff
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -258,9 +270,10 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
       briefing:
         text: blob-carrier-role-greeting
