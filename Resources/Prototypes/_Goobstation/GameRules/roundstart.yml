@@ -406,3 +406,38 @@
   - type: Tag
     tags:
     - RoundstartAntag
+
+- type: entity
+  parent: BaseMalfAIGamerule
+  id: MalfAI
+  components:
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: malf-roundend-name
+    definitions:
+    - prefRoles: [ MalfunctionalAI ]
+      max: 1
+      playerRatio: 20
+      allowNonHumans: true
+      whitelist:
+        components:
+        - StationAiHeld
+      mindRoles:
+      - MindRoleMalfAI
+      briefing:
+        text: malf-role-greeting
+        color: Red
+        sound: "/Audio/_Goobstation/Ambience/Antag/malf_start.ogg"
+      components:
+      - type: UserInterface
+        interfaces:
+          enum.StoreUiKey.Key:
+            type: StoreBoundUserInterface
+      - type: Store
+        categories:
+        - MalfAIAbilities
+        currencyWhitelist:
+        - ProcessingPower
+  - type: Tag
+    tags:
+    - RoundstartAntag
