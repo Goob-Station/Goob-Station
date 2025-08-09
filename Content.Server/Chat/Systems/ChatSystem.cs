@@ -470,7 +470,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 SendDeadChat(source, player, message, hideChat);
                 break;
             case InGameOOCChatType.Looc:
-                SendLOOC(source, player, message, hideChat, checkLOS: LocalOOCRespectsLOS); // Floofstation - Check LOS
+                SendLOOC(source, player, message, hideChat);
                 break;
         }
     }
@@ -702,6 +702,18 @@ public sealed partial class ChatSystem : SharedChatSystem
         //     ("fontSize", speech.FontSize),
         //     ("message", FormattedMessage.EscapeText(message)));
 
+        var channel = ChatChannel.Local;
+        var typeLOS = SpeakRespectsLOS;
+        if (!language.SpeechOverride.RequireSpeech && language.SpeechOverride.RequireLOS)
+        {
+            // Since this is basically an emote, make it act like an emote for identity.
+            var ent = Identity.Entity(source, EntityManager);
+            name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
+
+            channel = ChatChannel.Emotes; // If it requires LOS and does not require speech, it's an emote (sign language).
+            typeLOS = EmoteRespectsLOS; // Make it an emote LOS as well.
+        }
+
         // The chat message wrapped in a "x says y" string.
         var wrappedMessage = WrapPublicMessage(source, name, message, language: language);
         // The chat message obfuscated via language obfuscation.
@@ -711,10 +723,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         // The language-obfuscated message wrapped in a "x says y" string.
         var wrappedObfuscated = WrapPublicMessage(source, name, obfuscated, language: language);
         // Einstein Engines - Language end
-
-        var channel = ChatChannel.Local; // Set a default here.
-        if (!language.requireSpeech && language.requireLOS)
-            channel = ChatChannel.Emotes; // If it requires LOS and does not require speech, it's an emote (sign language).
 
         SendInVoiceRange(
             channel,
@@ -726,7 +734,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             source,
             range,
             languageOverride: language, // Einstein Engines - Language
-            checkLOS: SpeakRespectsLOS // Floofstation - Check Line-Of-Sight
+            checkLOS: typeLOS // Floofstation - Check Line-Of-Sight
             );
 
         var ev = new EntitySpokeEvent(source, message, null, false, language); // Einstein Engines - Language
