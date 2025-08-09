@@ -66,6 +66,7 @@
     - type: Sprite
       drawdepth: WallMountedItems
       sprite: _Goobstation/Supermatter/supermatter.rsi
+      offset: 0, 0.25 # Corvax-Goob-SupermatterSpriteOffset
       state: supermatter
     - type: Icon
       sprite: _Goobstation/Supermatter/supermatter.rsi
