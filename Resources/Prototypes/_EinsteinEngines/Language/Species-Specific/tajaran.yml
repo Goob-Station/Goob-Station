@@ -82,6 +82,7 @@
   speech:
     allowRadio: false
     requireSpeech: false
+    requireLOS: true # Floofstation - Check Line-Of-Sight
     color: "#dddddd"
     messageWrapOverrides:
       Speak: chat-sign-tajaran-language-message-wrap

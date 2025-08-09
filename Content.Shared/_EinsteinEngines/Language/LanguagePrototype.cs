@@ -80,6 +80,12 @@ public sealed partial class SpeechOverrideInfo
     public bool RequireSpeech = true;
 
     /// <summary>
+    ///     If true, the listener must have a line of sight on the speaker to hear the message.
+    /// </summary>
+    [DataField]
+    public bool RequireLOS = false; // Floofstation - Check Line-Of-Sight
+
+    /// <summary>
     ///     If not null, all messages in this language will be forced to be spoken in this chat type.
     /// </summary>
     [DataField]
