@@ -35,9 +35,9 @@
     openingAnimationTime: 1.2
     closingAnimationTime: 1.2
     openSound:
-      path: /Audio/_goobstation/Flock/flockdrone_door.ogg
+      path: /Audio/_Goobstation/Flock/flockdrone_door.ogg
     closeSound:
-      path: /Audio/_goobstation/Flock/flockdrone_door.ogg
+      path: /Audio/_Goobstation/Flock/flockdrone_door.ogg
   - type: NavMapDoor
   - type: Appearance
   - type: GenericVisualizer

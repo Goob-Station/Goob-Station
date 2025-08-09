@@ -582,7 +582,7 @@
 
 - type: entity
   parent: WallFlockZoneBase
-  id: WallFlockZoneShuttke
+  id: WallFlockZoneShuttle
   components:
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/Walls/flockzone.rsi
