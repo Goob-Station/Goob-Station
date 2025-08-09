@@ -261,7 +261,7 @@
           min: 3
         - !type:OrganType
           type: Dwarf
-        amount: 1 
+        amount: 1
       - !type:ChemVomit
         probability: 0.04
         conditions:
