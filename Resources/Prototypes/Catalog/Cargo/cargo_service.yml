@@ -36,6 +36,12 @@
 # SPDX-FileCopyrightText: 2024 elee-github <elee2020@yahoo.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Johnly <Jonhlybr@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Super7522 <Jonhlybr@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -65,6 +71,16 @@
     sprite: Objects/Power/light_bulb.rsi
     state: normal
   product: CrateServiceHolidayLights
+  cost: 800
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ServiceLightsColorful
+  icon:
+    sprite: Objects/Power/light_bulb.rsi
+    state: normal
+  product: CrateServiceColorfulLights
   cost: 800
   category: cargoproduct-category-name-service
   group: market
@@ -259,3 +275,12 @@
   category: cargoproduct-category-name-service
   group: market
 
+- type: cargoProduct
+  id: ServiceHolySupplies
+  icon:
+    sprite: Objects/Specific/Chapel/bible.rsi
+    state: icon
+  product: CrateHolySupplies
+  cost: 2000
+  category: cargoproduct-category-name-service
+  group: market

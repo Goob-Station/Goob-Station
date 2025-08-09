@@ -9,7 +9,7 @@ highlights-captain = Captain, "Cap", Bridge, Command
 highlights-head-of-personnel = Head Of Personnel, "HoP", HoPline, Service, Bridge, Command
 highlights-chief-engineer = Chief Engineer, "CE", Atmos, Atmosia, Atmospherics, Engi, Engineer, Engineering, Bridge, Command
 highlights-chief-medical-officer = Chief Medical Officer, "CMO", Doctor, "Doc", "Medic", Medbay, "Med", Medical, Chemistry, "Chem", Chemlab, Chemical Lab, Bridge, Command
-highlights-head-of-security = Head of Security, "HoS", Security, Shitsec, Shitcurity, Brig, "Sec", "Law", "Perma", Permabrig, Bridge, Command
+highlights-head-of-security = Head of Security, "HoS", Security, Shitsec, Shitcurity, Brig, "Sec", "Law", Bobby, "Perma", Permabrig, Bridge, Command
 highlights-quartermaster = Quartermaster, "QM", "Cargo", Cargonia, Bridge, Command
 highlights-research-director = Research Director, "RD", Scientist, Science, "Sci", "RnD", Robotics, "Robo", Bridge, Command
 highlights-nanotrasen-representative = Nanotrasen Representative, Representative, "NTR"
@@ -17,9 +17,10 @@ highlights-blueshield-officer = Blueshield Officer, Blueshield, "BSO", Bridge, C
 
 # Security
 highlights-detective = Detective, "Det", Security, Shitsec, Shitcurity, Brig, "Sec", "Law"
-highlights-security-cadet = Cadet, Secoff, Officer, Security, Shitsec, Shitcurity, Brig, "Sec", "Law"
-highlights-security-officer = Secoff, Officer, Security, Shitsec, Shitcurity, Brig, "Sec", "Law"
+highlights-security-cadet = Cadet, Secoff, Officer, Security, Shitsec, Shitcurity, Brig, "Sec", "Law", Bobby
+highlights-security-officer = Secoff, Officer, Security, Shitsec, Shitcurity, Brig, "Sec", "Law", Bobby
 highlights-warden = Warden, "Ward", Security, Shitsec, Shitcurity, Brig, "Sec", "Law", "Perma", Permabrig
+highlights-brigmedic = Brigmedic, Brigmed, Security, Shitsec, Shitcurity, Brig, "Sec", "Law", Doctor, "Doc", "Medic"
 
 # Cargo
 highlights-cargo-technician = Cargo Technician, Cargotech, Cargo Tech, Mailman, Cargo, Cargonia

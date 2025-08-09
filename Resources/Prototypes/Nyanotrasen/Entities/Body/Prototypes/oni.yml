@@ -1,0 +1,60 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: body
+  id: Oni
+  name: "oni"
+  root: chest
+  slots:
+    head:
+      part: HeadOni
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestOni
+      connections:
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganHumanLungs
+    groin:
+      part: GroinOni
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganHumanStomach
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmOni
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmOni
+      connections:
+      - left hand
+    right hand:
+      part: RightHandOni
+    left hand:
+      part: LeftHandOni
+    right leg:
+      part: RightLegOni
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegOni
+      connections:
+      - left foot
+    right foot:
+      part: RightFootOni
+    left foot:
+      part: LeftFootOni

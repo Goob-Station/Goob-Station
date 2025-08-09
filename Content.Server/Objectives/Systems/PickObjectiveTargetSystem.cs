@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -73,7 +82,8 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         if (target.Target != null)
             return;
 
-        var allHumans = _mind.GetAliveHumans(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId,
+            ent.Comp.NeedsOrganic, ent.Comp.ExcludeChangeling); // Goob edit - exclude IPCs and/or changelings
 
         // Can't have multiple objectives to kill the same person
         foreach (var objective in args.Mind.Objectives)
@@ -122,8 +132,12 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
                 allHeads.Add(person);
         }
 
+        // Goobstation - Cancel if there is no command staff
         if (allHeads.Count == 0)
-            allHeads = allHumans; // fallback to non-head target
+        {
+            args.Cancelled = true;
+            return;
+        }
 
         _target.SetTarget(ent.Owner, _random.Pick(allHeads), target);
     }

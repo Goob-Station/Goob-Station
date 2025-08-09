@@ -64,7 +64,6 @@
 # SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2024 TheWaffleJesus <106146578+TheWaffleJesus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
@@ -72,7 +71,6 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
@@ -104,6 +102,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
@@ -111,7 +110,11 @@
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Verm <32827189+Vermidia@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -136,6 +139,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: GhostTakeoverAvailable
+    - type: IdBind
 
 - type: randomHumanoidSettings
   id: EventHumanoidMindShielded
@@ -156,6 +160,15 @@
   speciesWhitelist: Human
 # Goobstation end
 
+- type: randomHumanoidSettings
+  id: EventHumanoidCentcomm
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants:
+    - DeathRattleImplantCentcomm
+
 ## Death Squad
 
 - type: entity
@@ -170,16 +183,17 @@
       nameSegments:
         - NamesMilitaryFirstLeader
         - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: DeathSquad
 
 - type: randomHumanoidSettings
   id: DeathSquad
   parent: CentcommHumanoid # Goobstation
-  randomizeName: false
   components:
     - type: AutoImplant
-      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant] # Goobstation
+      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm] # Goobstation
+    - type: DeathSquadMember # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description
@@ -200,6 +214,7 @@
       nameSegments:
         - NamesMilitaryFirstLeader
         - NamesMilitaryLast
+      nameFormat: name-format-ert
 
 
 ## ERT Leader
@@ -216,13 +231,13 @@
       nameSegments:
       - NamesMilitaryFirstLeader
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTLeader
 
 - type: randomHumanoidSettings
   id: ERTLeader
   parent: CentcommHumanoid # Goobstation
-  randomizeName: false
   components:
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
@@ -242,11 +257,12 @@
       prototypes: [ ERTLeaderGear ]
       roleLoadout: [ RoleSurvivalExtended ]
     - type: AutoImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ] # Goobstation
     - type: RandomMetadata
       nameSegments:
       - NamesMilitaryFirstLeader
       - NamesMilitaryLast
+      nameFormat: name-format-ert
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
@@ -290,6 +306,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTChaplain
 
@@ -309,6 +326,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTChaplainGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -355,6 +373,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTJanitor
 
@@ -373,6 +392,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTJanitorGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -419,6 +439,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTEngineer
 
@@ -444,6 +465,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTEngineerGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -490,6 +512,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTSecurity
 
@@ -508,6 +531,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -582,6 +606,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: RandomHumanoidSpawner
       settings: ERTMedical
 
@@ -600,6 +625,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -657,7 +683,7 @@
 
 - type: randomHumanoidSettings
   id: CBURNAgent
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid
   components:
     - type: AutoImplant
       implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
@@ -681,6 +707,7 @@
       nameSegments:
       - NamesMilitaryFirst
       - NamesMilitaryLast
+      nameFormat: name-format-ert
 
 ## Central Command
 
@@ -696,7 +723,7 @@
 
 - type: randomHumanoidSettings
   id: CentcomOfficial
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   components:
     - type: AutoImplant
       implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
@@ -766,6 +793,7 @@
       nameSegments:
       - NamesFirst
       - NamesLast
+      nameFormat: name-format-standard
 
 - type: randomHumanoidSettings
   id: Cluwne

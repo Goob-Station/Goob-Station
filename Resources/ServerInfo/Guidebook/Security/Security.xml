@@ -18,11 +18,12 @@ Ensuring the safety of both station and crew is number one for [color=#cb0000]Se
 They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Operatives" link="NuclearOperatives"], [textlink="Zombies" link="Zombies"] and unruly staff.
 
 ## Personnel
-[color=#cb0000]Security[/color]'s staff is made up of Security Cadets, Security Officers, and the Detective. [color=#cb0000]Security[/color] is run by the Warden and Head of Security.
+[color=#cb0000]Security[/color]'s staff is made up of Security Cadets, Security Officers, the Detective and the Brigmedic. [color=#cb0000]Security[/color] is run by the Warden and Head of Security.
 
   <Box>
     <GuideEntityEmbed Entity="ToyFigurineSecurity" Caption="Secoff"/>
     <GuideEntityEmbed Entity="ToyFigurineDetective" Caption="Detective"/>
+    <GuideEntityEmbed Entity="ToyFigurineBrigmedic" Caption="Brigmedic"/>
     <GuideEntityEmbed Entity="ToyFigurineWarden" Caption="Warden"/>
     <GuideEntityEmbed Entity="ToyFigurineHeadOfSecurity" Caption="HoS"/>
   </Box>

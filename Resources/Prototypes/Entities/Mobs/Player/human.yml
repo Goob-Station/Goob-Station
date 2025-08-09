@@ -189,8 +189,8 @@
   - type: NukeOperative
   - type: RandomMetadata
     nameSegments:
-    - nukeops-role-operator
     - NamesSyndicateNormal
+    nameFormat: name-format-nukie-operator
   - type: Loadout
     prototypes: [SyndicateOperativeReinforcementGear] # goobstation - duke nukies
 
@@ -220,6 +220,7 @@
     nameSegments:
     - NamesSyndicatePrefix
     - NamesSyndicateNormal
+    nameFormat: name-format-nukie-generic
   - type: NpcFactionMember
     factions:
     - Syndicate

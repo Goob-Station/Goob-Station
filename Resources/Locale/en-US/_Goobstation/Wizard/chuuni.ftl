@@ -14,6 +14,7 @@ chuuni-invocation-holy = By the grace of the holy one, I summon the light of sal
 chuuni-invocation-psychic = By the secret of the hidden one, I reveal the truth of creation. Let my mind expand. O, Mystery! Enlighten me!
 chuuni-invocation-mime = O, Silence! Embrace my soul and amplify my gesture. Let me create the illusion and manipulate the perception!
 chuuni-invocation-restoration = I invoke the name of the goddess of mercy, hear my plea and grant your blessing to this soul! Divine Grace!
+chuuni-invocation-explosion = Darkness blacker than black and darker than dark, I beseech thee, combine with my deep crimson. I desire for my torrent of power a destructive force: a destructive force without equal! Return all creation to cinders! Explosion!!!
 chuuni-invocation-evocation = Behold, the ultimate power of the Dark Flame Master! I call upon the ancient forces of chaos and destruction to unleash their wrath upon my enemies!
 chuuni-invocation-transmutation = I invoke the law of equivalent exchange, the balance of the cosmos. As I offer this sacrifice, I demand a new creation. Reveal, the mystery of transmutation!
 chuuni-invocation-translocation = By the power of the spatial rifts, I bend the fabric of reality and move across the dimensions! Let nothing stand in my way as I travel to my destination!

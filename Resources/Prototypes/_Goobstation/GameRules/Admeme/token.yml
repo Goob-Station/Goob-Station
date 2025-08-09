@@ -38,6 +38,7 @@
         nameSegments:
         - NamesNinjaTitle
         - NamesNinja
+        nameFormat: name-format-ninja
       mindRoles:
       - MindRoleNinja
 
@@ -84,8 +85,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - NamesSyndicatePrefix
         - NamesSyndicateNormal
+        nameFormat: name-format-nukie-agent
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -169,12 +170,11 @@
         - AbductorNames
       - type: Tag
         tags:
-         - Abductor
-         - AbductorScientist
-         - CanPilot
-         - FootstepSound
-         - DoorBumpOpener
-         - AbductorMind
+        - Abductor
+        - AbductorScientist
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: Sanitized
@@ -206,8 +206,9 @@
       - type: Wizard
       - type: RandomMetadata
         nameSegments:
-        - wizard_first
-        - wizard_last
+        - WizardFirst
+        - WizardLast
+        nameFormat: name-format-standard
       - type: NpcFactionMember
         factions:
         - Wizard

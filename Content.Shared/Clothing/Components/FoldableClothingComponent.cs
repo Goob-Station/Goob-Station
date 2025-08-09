@@ -25,7 +25,6 @@ public sealed partial class FoldableClothingComponent : Component
     [DataField]
     public SlotFlags? UnfoldedSlots;
 
-
     /// <summary>
     /// What equipped prefix does this have while in folded form?
     /// </summary>
@@ -42,11 +41,11 @@ public sealed partial class FoldableClothingComponent : Component
     /// Which layers does this hide when Unfolded? See <see cref="HumanoidVisualLayers"/> and <see cref="HideLayerClothingComponent"/>
     /// </summary>
     [DataField]
-    public HashSet<HumanoidVisualLayers> UnfoldedHideLayers = new();
+    public HashSet<HumanoidVisualLayers>? UnfoldedHideLayers = new();
 
     /// <summary>
     /// Which layers does this hide when folded? See <see cref="HumanoidVisualLayers"/> and <see cref="HideLayerClothingComponent"/>
     /// </summary>
     [DataField]
-    public HashSet<HumanoidVisualLayers> FoldedHideLayers = new();
+    public HashSet<HumanoidVisualLayers>? FoldedHideLayers = new();
 }

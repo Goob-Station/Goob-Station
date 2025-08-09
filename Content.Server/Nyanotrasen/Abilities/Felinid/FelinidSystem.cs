@@ -1,6 +1,9 @@
 // SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -23,6 +26,7 @@ using Content.Server.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
+using Content.Shared.Charges.Systems;
 
 namespace Content.Server.Abilities.Felinid;
 
@@ -38,6 +42,7 @@ public sealed partial class FelinidSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedChargesSystem _sharedChargesSystem = default!;
 
     public override void Initialize()
     {
@@ -145,13 +150,13 @@ public sealed partial class FelinidSystem : EntitySystem
 
         if (component.HairballAction != null)
         {
-            _actionsSystem.SetCharges(component.HairballAction, 1); // You get the charge back and that's it. Tough.
+            _sharedChargesSystem.SetCharges(component.HairballAction.Value, 1); // You get the charge back and that's it. Tough.
             _actionsSystem.SetEnabled(component.HairballAction, true);
         }
         Del(component.EatActionTarget.Value);
         component.EatActionTarget = null;
 
-        _audio.PlayPvs("/Audio/DeltaV/Items/eatfood.ogg", uid, AudioHelpers.WithVariation(0.15f));
+        _audio.PlayPvs("/Audio/_DV/Items/eatfood.ogg", uid, AudioHelpers.WithVariation(0.15f));
 
         _hungerSystem.ModifyHunger(uid, 50f, hunger);
 

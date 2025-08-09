@@ -5,25 +5,20 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
+- type: localizedDataset
   id: NamesMilitaryFirstHighRank
   values:
-  - Admiral
-  - Fleet Admiral
-  - Captain
+    prefix: names-military-first-high-rank-dataset-
+    count: 3
 
-- type: dataset
+- type: localizedDataset
   id: NamesMilitaryFirstPolitical
   values:
-  - Ambassador
-  - Counsellor
-  - Minister Counsellor
+    prefix: names-military-first-political-dataset-
+    count: 3
 
-- type: dataset
+- type: localizedDataset
   id: NamesFirstInspector
   values:
-  - Auditor
-  - Senior Auditor
-  - Inspector
-  - Senior Inspector
-
+    prefix: names-first-inspector-dataset-
+    count: 4

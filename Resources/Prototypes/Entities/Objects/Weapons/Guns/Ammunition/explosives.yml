@@ -106,7 +106,11 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Rockets
@@ -186,7 +190,7 @@
 
 - type: entity
   id: GrenadeBaton
-  name: baton grenade
+  name: baton grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -199,11 +203,15 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: baton
-    suffix: false
+  - type: Tag
+    tags:
+     - Grenade # Goobstation
+     - NonLethalGrenade # Goobstation
+#    suffix: false - Goobstation
 
 - type: entity
   id: GrenadeBlast
-  name: blast grenade
+  name: blast grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -216,11 +224,11 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: blast
-    suffix: false
+#    suffix: false - Goobstation
 
 - type: entity
   id: GrenadeFlash
-  name: flash grenade
+  name: flash grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -233,11 +241,15 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: flash
-    suffix: false
+  - type: Tag
+    tags:
+     - Grenade # Goobstation
+     - NonLethalGrenade # Goobstation
+#    suffix: false - Goobstation
 
 - type: entity
   id: GrenadeFrag
-  name: frag grenade
+  name: frag grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -250,11 +262,28 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: frag
+#    suffix: false - Goobstation
+
+- type: entity
+  parent: BaseGrenade
+  id: GrenadeCleanade
+  name: cleanade grenade round
+  components:
+  - type: CartridgeAmmo
+    proto: BulletGrenadeCleanade
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: cleanade
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
     suffix: false
 
 - type: entity
   id: GrenadeEMP
-  name: EMP grenade
+  name: EMP grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -266,8 +295,12 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
-    state: frag
-    suffix: false
+    state: emp
+  - type: Tag
+    tags:
+     - Grenade # Goobstation
+     - NonLethalGrenade # Goobstation
+#    suffix: false - Goobstation
 
 # Cannon Balls
 

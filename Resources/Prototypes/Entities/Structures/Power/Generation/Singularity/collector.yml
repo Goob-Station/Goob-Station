@@ -23,11 +23,16 @@
 # SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 holorain <scratchysenior@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: RadiationCollector
+  parent: ConstructibleMachine # Goobstation
   name: radiation collector
   suffix: Empty tank
   description: A machine that collects radiation and turns it into power. Requires plasma gas to function.
@@ -85,7 +90,7 @@
     sprite: Structures/Power/Generation/Singularity/collector.rsi
     state: static
   - type: RadiationCollector
-    chargeModifier: 7500
+    chargeModifier: 15000
     radiationReactiveGases:
       - reactantPrototype: Plasma
         powerGenerationEfficiency: 1
@@ -102,6 +107,8 @@
   - type: ContainerContainer
     containers:
       gas_tank: !type:ContainerSlot {}
+      machine_board: !type:Container # Goobstation
+      machine_parts: !type:Container # Goobstation
   - type: ItemSlots
     slots:
       gas_tank:
@@ -109,8 +116,24 @@
         whitelist:
           components:
           - GasTank
+  - type: RadCollectorSignal # Goobstation
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotGasTank
+      output: AutomationSlotGasTank
+      slotId: gas_tank
+    - !type:AutomatedPorts
+      sources:
+      - RadEmpty
+      - RadLow
+      - RadFull
   - type: UseDelay
     delay: 1
+  - type: LightningTarget # Goobstation
+    lightningExplode: false # Goobstation
+  - type: Machine # Goobstation
+    board: RadiationCollectorCircuitboard # Goobstation
 
 - type: entity
   id: RadiationCollectorNoTank

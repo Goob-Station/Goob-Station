@@ -31,14 +31,14 @@
   result: Beaker
   completetime: 2
   materials:
-    Glass: 100
+    Glass: 200
 
 - type: latheRecipe
   id: LargeBeaker
   result: LargeBeaker
   completetime: 2
   materials:
-    Glass: 200
+    Glass: 400
 
 - type: latheRecipe
   id: CryostasisBeaker
@@ -117,6 +117,14 @@
   materials:
     Plastic: 100
     Steel: 250
+
+- type: latheRecipe
+  id: BaseChemistryEmptyVial
+  result: BaseChemistryEmptyVial
+  completetime: 2
+  materials:
+    Glass: 50
+    Wood: 20
 
 - type: latheRecipe
   id: ClothingEyesGlassesChemical

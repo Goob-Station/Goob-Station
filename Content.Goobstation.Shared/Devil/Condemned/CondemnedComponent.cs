@@ -14,6 +14,9 @@ namespace Content.Goobstation.Shared.Devil.Condemned;
 /// Marks an entity as having sold their soul.
 /// When you die, do NOT collect 200, do NOT pass go. Go directly to hell
 /// </summary>
+/// <remarks>
+/// This should *really* be two components.
+/// </remarks>
 [RegisterComponent]
 public sealed partial class CondemnedComponent : Component
 {

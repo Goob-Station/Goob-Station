@@ -28,7 +28,6 @@
       state: knock
     event: !type:KnockSpellEvent
       range: 3 # Goob edit
-      speech: action-speech-spell-knock
   - type: Magic # Goobstation
     requiresSpeech: true
     school: Transmutation
@@ -36,3 +35,5 @@
     effectedLevels:
       2: ActionKnockII
       3: ActionKnockIII
+  - type: SpeakOnAction
+    sentence: action-speech-spell-knock

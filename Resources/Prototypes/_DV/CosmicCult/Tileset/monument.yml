@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 
  ########### COSMIC MONUMENT, BASE ABSTRACT #############
 
@@ -24,7 +30,7 @@
         hard: false
   - type: Visibility
     layer: 16
-  - type: SpriteFade
+#  - type: SpriteFade # - Supercode breaks clickability with this.
   - type: Sprite
     sprite: _DV/CosmicCult/Tileset/monument.rsi
     layers:
@@ -114,6 +120,7 @@
  ########### SPAWN-IN ANIMATION #############
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   id: MonumentCosmicCultSpawnIn
   name: The Monument
   parent: BaseStructure
@@ -171,6 +178,7 @@
  ########### RELOCATION ANIMATIONS #############
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   id: MonumentCosmicCultMoveStart
   name: The Monument
   parent: BaseStructure
@@ -225,6 +233,7 @@
        reverseWhenFinished: true
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   id: MonumentCosmicCultMoveEnd
   name: The Monument
   parent: BaseStructure
@@ -282,6 +291,7 @@
  ########### COLLIDER LAY-Z FIX #############
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   id: MonumentCollider
   suffix: Debug, DO NOT MAP
   parent: BaseStructure
@@ -304,6 +314,7 @@
  ########### TIER 3 SUPPRESSION AURA #############
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   id: MonumentSlowZone
   suffix: Debug, DO NOT MAP
   placement:

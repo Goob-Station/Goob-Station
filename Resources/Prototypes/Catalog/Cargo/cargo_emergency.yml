@@ -17,6 +17,8 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -86,7 +88,7 @@
     sprite: Objects/Tanks/red.rsi
     state: icon
   product: CrateNitrogenInternals
-  cost: 350
+  cost: 400 # Goobstation
   category: cargoproduct-category-name-emergency
   group: market
 

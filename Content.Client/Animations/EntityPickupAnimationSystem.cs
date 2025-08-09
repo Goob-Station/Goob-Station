@@ -22,6 +22,7 @@ public sealed class EntityPickupAnimationSystem : EntitySystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animations = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
@@ -63,8 +64,8 @@ public sealed class EntityPickupAnimationSystem : EntitySystem
         }
 
         var sprite = Comp<SpriteComponent>(animatableClone);
-        sprite.CopyFrom(sprite0);
-        sprite.Visible = true;
+        _sprite.CopySprite((uid, sprite0), (animatableClone, sprite));
+        _sprite.SetVisible((animatableClone, sprite), true);
 
         var animations = Comp<AnimationPlayerComponent>(animatableClone);
 

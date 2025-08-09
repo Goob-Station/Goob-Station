@@ -10,6 +10,9 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 liltenhead <104418166+liltenhead@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 IrisTheAmped <iristheamped@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -32,7 +35,7 @@ public sealed partial class PendingZombieComponent : Component
     {
         DamageDict = new ()
         {
-            { "Poison", 0.2 },
+            { "Poison", 1.8 }, ///Goobchange
         }
     };
 
@@ -55,19 +58,19 @@ public sealed partial class PendingZombieComponent : Component
     /// The minimum amount of time initial infected have before they start taking infection damage.
     /// </summary>
     [DataField]
-    public TimeSpan MinInitialInfectedGrace = TimeSpan.FromMinutes(12.5f);
+    public TimeSpan MinInitialInfectedGrace = TimeSpan.FromMinutes(1.0f); ///Goobchange
 
     /// <summary>
     /// The maximum amount of time initial infected have before they start taking damage.
     /// </summary>
     [DataField]
-    public TimeSpan MaxInitialInfectedGrace = TimeSpan.FromMinutes(15f);
+    public TimeSpan MaxInitialInfectedGrace = TimeSpan.FromMinutes(2.0f); ///Goobchange
 
     /// <summary>
     /// The chance each second that a warning will be shown.
     /// </summary>
     [DataField("infectionWarningChance")]
-    public float InfectionWarningChance = 0.0166f;
+    public float InfectionWarningChance = 0.1f; ///Goobchange
 
     /// <summary>
     /// Infection warnings shown as popups

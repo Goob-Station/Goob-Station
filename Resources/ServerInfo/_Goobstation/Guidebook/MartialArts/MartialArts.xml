@@ -1,0 +1,82 @@
+<Document>
+
+  # Martial Arts
+
+  Martial Arts are combat styles that characters can learn and use in-game which grants them special combat abilities
+  that are usually done through a certain action combo, but can also be passive abilities or action-based.
+
+  These abilities can range from new defensive measures such as deflecting projectiles to combo attacks
+  that can quickly incapacitate an assailant or deal significant damage in comparison to standard punches.
+
+  How to acquire martial arts are just as variable as the forms that are available;
+  some martial arts are only available to certain antagonists, others are used by certain jobs.
+
+  One can only know one martial art. If you already know one, you will fail to learn
+  another one, and some characters, like Changelings, are unable to use Martial Arts at all.
+
+  ## Intents
+
+  As said before, most martial arts rely on performing a certain action combo on the opponent.
+  There are essentially 4 types of "actions" in the game (most martial arts only use three), which will be referred to as intents.
+  Intents are a concept from Space Station 13, where instead of just one combat mod
+  players would have 4 modes to choose the type of interaction from.
+  Space Station 14 only has one mode, the combat one, but it utilizes other buttons to compensate for that.
+  The intents themselves are available to use for everyone, but martial artists can perform combos using them. Intents are:
+
+  ### Help intent
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHelp" Caption=""/>
+  </Box>
+
+  To perform help, simply press [bold] Left Mouse Button [/bold] on someone with [color=Red] Harm Mode [/color] turned OFF.
+
+  Usually, if your target is a humanoid and your hands are free, this would make you hug them. If your hand is occupied,
+  this would make you interact with the target with your held item. This can be useful in combat with items like the
+  Heretic's Mansus Grasp, but is rarely used in martial art combos, and where it is, only unarmed actions (hugs) count.
+
+  ### Harm intent
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  To perform harm, press [bold] Left Mouse Button [/bold] with [color=Red] Harm Mode [/color] turned ON.
+
+  Usually, you will attempt to punch at the place of your cursor, be it with your bare hands or with a held item.
+  If you are holding a gun, you will shoot at the place of your cursor with it.
+  Attacking with a melee weapon or shooting a gun does not count as a successful Harm action for combo purposes.
+
+  ### Disarm intent
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  To perform disarm, press [bold] Right Mouse Button [/bold] with [color=Red] Harm Mode [/color] turned ON.
+
+  If you are unarmed, you will try to shove at the place of your cursor. Shoving will push affected characters,
+  dealing some [color=Cyan] Stamina [/color] damage, and it has a chance to knock an item out of the opponent's hands.
+  If you are armed with a melee weapon, you will swing it, attacking everyone you hit and taking some stamina damage yourself.
+  Swinging a weapon is not a real "Disarm", and does not count as a successful Disarm action for combo purposes.
+
+  ### Grab intent
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  To perform grab, press [bold] Left Mouse Button [/bold] on someone while holding [bold] CTRL [/bold] with [color=Red] Harm Mode [/color] turned ON.
+
+  If you have a free hand, you will start grabbing the target. If you've already grabbed them, this will reinforce the grab.
+  Your chances of escaping from the grab rely on your and your opponent's weights. There are three stages of grabs:
+
+  Soft grab is easy to escape from and works similar to regular pulling for the most part.
+
+  Hard grab is relatively hard to escape. Martial artists will instantly hard grab you if you're knocked down.
+  You can throw someone you're holding in a hard grab the same way throw a regular item, dealing some stamina damage.
+
+  Choke harm takes both your hands (you can still punch the opponent with your head), but mutes the opponent and is very hard to escape.
+  You can table-slam someone you're holding in a choke grab by performing a harm intent on a nearby table.
+
+</Document>

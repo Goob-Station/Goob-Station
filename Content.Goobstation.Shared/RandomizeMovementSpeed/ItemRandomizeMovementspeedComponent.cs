@@ -58,7 +58,7 @@ public sealed partial class ItemRandomizeMovementspeedComponent : Component
     /// The Uid of the entity that picked up the item.
     /// </summary>
     [DataField]
-    public EntityUid? EntityUid;
+    public EntityUid? User;
 
     /// <summary>
     /// What to restrict the item to

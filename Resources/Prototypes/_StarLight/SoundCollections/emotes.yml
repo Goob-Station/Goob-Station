@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marty <martynashagriefer@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: soundCollection
+  id: ResomiChirp
+  files:
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp1.ogg
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp2.ogg
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp3.ogg
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp4.ogg
+    - /Audio/_Starlight/Voice/Resomi/resomi_chirp5.ogg

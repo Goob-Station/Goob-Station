@@ -20,7 +20,8 @@ advertisement-medibot-11 = Hopefully you won't need to come back!
 advertisement-medibot-12 = Remember to brush your teeth.
 advertisement-medibot-13 = I wish I had hands.
 advertisement-medibot-14 = I'm here to help!
-advertisement-medibot-15 = Ask a doctor for a lollipop!
+advertisement-medibot-15 = Ask a doctor for a lollypop!
+# Goobstation - Typo fix
 advertisement-medibot-16 = Feel better soon!
 advertisement-medibot-17 = An apple a day keeps the doctor away!
 # Goobstation - Medibot AM advertisement

@@ -80,7 +80,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: CrowbarRed
       - id: VariantCubeBox
       - id: BoxMousetrap
         amount: 2
@@ -147,7 +146,7 @@
       - id: ClothingHandsGlovesLeather
       - id: ClothingOuterApronBotanist
       - id: ClothingHeadBandBotany
-      - id: RobustHarvestChemistryBottle
+      - id: ChemistryBottleRobustHarvest
         prob: 0.3
       - id: ClothingBeltPlant
       - id: PlantBag ##Some maps don't have nutrivend

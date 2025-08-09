@@ -2,7 +2,9 @@
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -10,89 +12,89 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Coordinates;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Throwing;
-using Content.Shared.Weapons.Melee.Components;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Timing;
+using Robust.Shared.Map;
 
 namespace Content.Goobstation.Shared.Boomerang;
 
-/// <summary>
-/// This system handles boomerang-like behavior to make entities return to the thrower
-/// </summary>
 public sealed class BoomerangSystem : EntitySystem
 {
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
+
+    private List<(EntityUid, EntityCoordinates, float, EntityUid?)> _toThrow = new();
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<BoomerangComponent, LandEvent>(OnLanded);
         SubscribeLocalEvent<BoomerangComponent, ThrownEvent>(OnThrown);
-
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var queryEnum = EntityQueryEnumerator<BoomerangComponent>();
-        while (queryEnum.MoveNext(out var uid, out var boomerangThrowComponent))
+
+        foreach (var (uid, coords, speed, thrower) in _toThrow)
         {
-            if (!boomerangThrowComponent.SendBack || _gameTiming.CurTime < boomerangThrowComponent.TimeToReturn || boomerangThrowComponent.Thrower == null)
-                continue;
-            var inRange = _lookupSystem.GetEntitiesInRange(uid.ToCoordinates(), 3f);
-            foreach (var entity in inRange)
-            {
-                if (entity == boomerangThrowComponent.Thrower)
-                    _handsSystem.TryPickup(boomerangThrowComponent.Thrower.Value, uid);
-            }
-            ReturnToThrower(uid, boomerangThrowComponent);
+            if (!TerminatingOrDeleted(uid) && (thrower == null || !TerminatingOrDeleted(thrower)))
+                _throwingSystem.TryThrow(uid, coords, speed, user: thrower, recoil: false, playSound: false);
         }
+
+        _toThrow.Clear();
     }
 
     private void OnThrown(Entity<BoomerangComponent> ent, ref ThrownEvent args)
     {
-        ent.Comp.Thrower = args.User;
-
-        if (ent.Comp.Thrower == null
-            || !TryComp<MeleeThrowOnHitComponent>(ent, out var meleeThrowOnHitComponent))
-            return;
-
-        meleeThrowOnHitComponent.ActivateOnThrown = true;
-
+        if (ent.Comp.Thrower == null)
+            SetThrower(ent, args.User);
     }
 
     private void OnLanded(Entity<BoomerangComponent> ent, ref LandEvent args)
     {
-        if(args.User == null)
+        if (ent.Comp.Thrower == null)
             return;
-        ent.Comp.TimeToReturn = _gameTiming.CurTime.Add(TimeSpan.FromSeconds(0.25));
-        ent.Comp.SendBack = true;
+
+        var thrower = ent.Comp.Thrower.Value;
+
+        if (TerminatingOrDeleted(thrower) || ent.Comp.CurrentHops >= ent.Comp.MaxHops)
+        {
+            SetThrower(ent, null);
+            return;
+        }
+
+        var xform = Transform(ent);
+        var throwerXform = Transform(thrower);
+
+        if (!xform.Coordinates.TryDistance(EntityManager, throwerXform.Coordinates, out var distance))
+        {
+            SetThrower(ent, null);
+            return;
+        }
+
+        if (distance < ent.Comp.PickupDistance)
+        {
+            // if we fail to pick up throw with no user so it can hit you
+            if (!_handsSystem.TryPickup(thrower, ent))
+                _toThrow.Add((ent, throwerXform.Coordinates, ent.Comp.ReturnSpeed, null));
+
+            SetThrower(ent, null); // don't throw it anymore
+            return;
+        }
+
+        // everything is fine and it's out-of-range, re-throw to thrower on next frame (or it breaks)
+        _toThrow.Add((ent, throwerXform.Coordinates, ent.Comp.ReturnSpeed, thrower));
+        ent.Comp.CurrentHops++;
     }
 
-    private void ReturnToThrower(EntityUid uid, BoomerangComponent component)
+    /// <summary>
+    /// Sets the entity a boomerang should return to and resets the hops counter
+    /// </summary>
+    public void SetThrower(Entity<BoomerangComponent> ent, EntityUid? newThrower)
     {
-        if (component.Thrower == null || !Exists(component.Thrower.Value))
-            return;
-
-        // Get thrower coordinates
-        var throwerCoords = component.Thrower.Value.ToCoordinates();
-
-        // Simply throw it back to the thrower
-        if (!TryComp<PhysicsComponent>(uid, out var boomerangPhysicsComponent))
-            return;
-
-        _physicsSystem.SetBodyStatus(uid, boomerangPhysicsComponent, BodyStatus.InAir);
-        _throwingSystem.TryThrow(uid, throwerCoords, user: component.Thrower.Value);
-        component.SendBack = false;
-        if(!TryComp<MeleeThrowOnHitComponent>(uid, out var meleeThrowOnHitComponent))
-            return;
-        meleeThrowOnHitComponent.ActivateOnThrown = false;
+        ent.Comp.Thrower = newThrower;
+        ent.Comp.CurrentHops = 0;
+        Dirty(ent);
     }
 }

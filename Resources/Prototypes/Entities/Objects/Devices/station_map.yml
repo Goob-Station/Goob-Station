@@ -50,7 +50,7 @@
   parent:
   - BaseHandheldStationMap
   - BaseHandheldComputer
-  suffix: Handheld, Powered
+  suffix: Handheld
 
 - type: entity
   id: HandheldStationMapEmpty
@@ -65,4 +65,4 @@
 - type: entity
   id: HandheldStationMapUnpowered
   parent: BaseHandheldStationMap
-  suffix: Handheld, Unpowered
+  suffix: Handheld, Always Powered

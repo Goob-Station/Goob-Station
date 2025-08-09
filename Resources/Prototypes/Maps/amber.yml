@@ -18,14 +18,20 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 spanky-spanky <scott@wearejacob.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Damn Feds <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ToxicSonicFan04 <167356917+ToxicSonicFan04@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: gameMap
   id: Amber
   mapName: 'Amber'
-  mapPath: /Maps/amber.yml
+  mapPath: /Maps/_Goobstation/amber.yml
   minPlayers: 7
   maxPlayers: 50
   stations:
@@ -44,6 +50,8 @@
             #service
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
             Chef: [ 1, 1 ]
@@ -87,3 +95,10 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
+
+   # Goobstation blob-config-start MEDIUM
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 300
+          stageTheEnd: 750
+        # backmen blob-config-end

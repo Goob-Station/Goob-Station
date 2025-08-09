@@ -7,6 +7,7 @@
 changeling-roundend-name = changeling
 
 objective-issuer-hivemind = [color=orange]The Hive[/color]
+objective-issuer-tiger = [color=crimson]Tiger Cooperative[/color]
 
 roundend-prepend-changeling-absorbed-named = [color=white]{$name}[/color] has absorbed a total of [color=red]{$number}[/color] organics.
 roundend-prepend-changeling-stolen-named = [color=white]{$name}[/color] has extracted a total of [color=orange]{$number}[/color] DNA samples.

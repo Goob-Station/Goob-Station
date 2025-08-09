@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas.kaemper@5minds.de>
+// SPDX-FileCopyrightText: 2022 Andreas K�mper <andreas.kaemper@5minds.de>
 // SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
 // SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
@@ -20,6 +20,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Systems;
+using Content.Server.Destructible;
+using Content.Server.Examine;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Server.Storage.Components;
@@ -50,6 +52,7 @@ public sealed class ImmovableRodSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly DestructibleSystem _destructible = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!; // Goobstation
@@ -171,7 +174,7 @@ public sealed class ImmovableRodSystem : EntitySystem
 
         _entityStorage.EmptyContents(ent); // Goobstation
 
-        QueueDel(ent);
+        _destructible.DestroyEntity(ent);
     }
 
     private void OnExamined(EntityUid uid, ImmovableRodComponent component, ExaminedEvent args)

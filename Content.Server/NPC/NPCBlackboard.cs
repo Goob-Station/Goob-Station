@@ -9,6 +9,8 @@
 // SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -38,6 +40,9 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
         {"InteractRange", SharedInteractionSystem.InteractionRange},
         {"MaximumIdleTime", 7f},
         {MedibotInjectRange, 4f},
+        {WeldbotWeldRange, 4f}, // Einstein Engines
+        {FillbotPickupRange, 10f}, // Einstein Engines
+        {PlantbotServiceRange, 4f}, // Einstein Engines
         {MeleeMissChance, 0.3f},
         {"MeleeRange", 1f},
         {"MinimumIdleTime", 2f},
@@ -317,6 +322,9 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
     public const string FollowTarget = "FollowTarget";
     public const string Inventory = "Inventory";
     public const string MedibotInjectRange = "MedibotInjectRange";
+    public const string WeldbotWeldRange = "WeldbotWeldRange"; // Einstein Engines
+    public const string FillbotPickupRange = "FillbotPickupRange"; // Einstein Engines
+    public const string PlantbotServiceRange = "PlantbotServiceRange"; // Einstein Engines
 
     public const string MeleeMissChance = "MeleeMissChance";
 

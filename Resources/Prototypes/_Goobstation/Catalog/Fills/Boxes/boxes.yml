@@ -1,8 +1,13 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -25,6 +30,7 @@
   name: combat injector box
   parent: BoxCardboard
   id: BoxCombatInjector
+  suffix: DO NOT MAP
   description: A box containing a combat injector and a few healing chemicals.
   components:
   - type: StorageFill
@@ -41,5 +47,22 @@
         amount: 1
       - id: EbifinlLazideChemistryVial
         amount: 1
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/boxes.rsi
+
+- type: entity
+  name: autoinjector cartridge box
+  parent: BoxCardboard
+  id: BoxAutoinjectorCartidges
+  description: A box with autoinjector cartridges.
+  components:
+  - type: StorageFill
+    contents:
+    - id: CartridgeSaline
+      amount: 3
+    - id: CartridgeBicaridine
+      amount: 3
+    - id: CartridgeDermaline
+      amount: 3
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/boxes.rsi

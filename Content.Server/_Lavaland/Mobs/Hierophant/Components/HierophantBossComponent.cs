@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -19,15 +20,28 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Threading;
+
 namespace Content.Server._Lavaland.Mobs.Hierophant.Components;
 
 [RegisterComponent]
-public sealed partial class HierophantBossComponent : MegafaunaComponent
+public sealed partial class HierophantBossComponent : Component
 {
     /// <summary>
     /// Amount of time for one damaging tile to charge up and deal the damage to anyone above it.
     /// </summary>
     public const float TileDamageDelay = 0.6f;
+
+    /// <summary>
+    ///     Whether it should power trip aggressors or random locals
+    /// </summary>
+    [DataField] public bool Aggressive;
+
+    /// <summary>
+    ///     Used for all the timers that get assigned to the boss.
+    ///     In theory all bosses should use it so i'll just leave it here.
+    /// </summary>
+    [NonSerialized] public CancellationTokenSource CancelToken = new();
 
     /// <summary>
     ///     Gets calculated automatically in the <see cref="HierophantSystem"/>.

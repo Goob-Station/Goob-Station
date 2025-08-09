@@ -4,11 +4,16 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <159829224+loltart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -19,6 +24,7 @@
   - type: HereticRule
   - type: GameRule
     minPlayers: 15
+    chaosScore: 800
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective
@@ -29,10 +35,13 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 5
+      max: 3
       playerRatio: 15
       lateJoinAdditional: true
-      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      jobBlacklist: [ Chaplain, ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
       mindRoles:
       - MindRoleHeretic
       components:
@@ -59,10 +68,13 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 3
-      playerRatio: 15
+      max: 2
+      playerRatio: 20
       lateJoinAdditional: true
       jobBlacklist: [ Chaplain ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
       mindRoles:
       - MindRoleHeretic
       components:

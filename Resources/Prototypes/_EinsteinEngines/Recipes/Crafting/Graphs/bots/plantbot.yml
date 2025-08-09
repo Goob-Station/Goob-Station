@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: PlantBot
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bot
+      steps:
+      - tag: Bucket
+        icon:
+          sprite: Objects/Tools/bucket.rsi
+          state: icon
+        name: construction-graph-tag-bucket
+      - tag: ProximitySensor
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: construction-graph-tag-proximity-sensor
+        doAfter: 2
+      - tag: BorgArm
+        icon:
+          sprite: Mobs/Silicon/drone.rsi
+          state: l_hand
+        name: construction-graph-tag-borg-arm
+      - tag: HydroponicsToolClippers
+        icon:
+          sprite: Objects/Tools/Hydroponics/clippers.rsi
+          state: icon
+        name: construction-graph-tag-plant-clipper
+        doAfter: 2
+  - node: bot
+    entity: MobPlantbot

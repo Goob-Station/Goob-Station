@@ -9,8 +9,12 @@
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 portfiend <109661617+portfiend@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Pgriha <133212269+Pgriha@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -135,7 +139,7 @@
   id: TattooEyeRight
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -149,7 +153,7 @@
   id: TattooEyeLeft
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -163,7 +167,7 @@
   id: TattooTribal1
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -177,7 +181,7 @@
   id: TattooLoops
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -196,3 +200,61 @@
   sprites:
   - sprite: Mobs/Customization/scars.rsi
     state: buff
+    
+- type: marking
+  id: TattooEyeMothRight
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_moth_r
+
+- type: marking
+  id: TattooEyeMothLeft
+  bodyPart: Eyes
+  markingCategory: Overlay
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_moth_l
+  
+- type: marking
+  id: TattooEyeRightGlowy
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_r
+  shader: unshaded
+
+- type: marking
+  id: TattooEyeLeftGlowy
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_l
+  shader: unshaded

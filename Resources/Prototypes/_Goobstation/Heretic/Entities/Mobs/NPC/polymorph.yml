@@ -158,9 +158,10 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
-    - MansusLinkMind
   - type: CollectiveMind
     defaultChannel: MansusLink
+    channels:
+    - MansusLink
   - type: Examiner
   - type: Pullable
   - type: Reflect

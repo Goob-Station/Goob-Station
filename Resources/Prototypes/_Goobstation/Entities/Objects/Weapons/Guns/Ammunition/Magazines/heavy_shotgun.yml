@@ -1,0 +1,64 @@
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseMagazineShotgunHeavy
+  name: ammo drum (2 gauge shells)
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MagazineShotgunHeavy
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ShellShotgunHeavier
+    capacity: 15
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-5
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineShotgunHeavy
+  name: ammo drum (2 gauge HE pellet)
+  parent: BaseMagazineShotgunHeavy
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunHeavyHighExplosive
+
+- type: entity
+  id: MagazineShotgunHeavySlug
+  name: ammo drum (2 gauge HE slug)
+  parent: BaseMagazineShotgunHeavy
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlugHeavyHighExplosive
+  - type: Sprite
+    layers:
+    - state: base2
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-5
+      map: ["enum.GunVisualLayers.Mag"]

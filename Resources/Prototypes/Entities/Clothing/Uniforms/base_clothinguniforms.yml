@@ -27,6 +27,23 @@
   parent: Clothing
   id: UnsensoredClothingUniformBase
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/cloth_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/cloth_drop.ogg
+      params:
+        volume: -4
+  # Goobstation edit end
   - type: Sprite
     state: icon
   - type: Clothing
@@ -38,6 +55,9 @@
     spawned:
     - id: MaterialCloth1
       amount: 3
+  - type: PhysicalComposition # 50% of the amount of cloth you'd obtain upon butchering
+    materialComposition:
+      Cloth: 150
   - type: Food
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
@@ -50,6 +70,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - WhitelistChameleon
     - Skirt # Goobstation
 

@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseAnts
+  parent: BaseStructureDynamic
+  name: ant hill
+  description: Best not to provoke them.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/ants.rsi
+    state: ants_0
+
+- type: entity
+  id: Ants1
+  parent: BaseAnts
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/ants.rsi
+    state: ants_1
+
+- type: entity
+  id: Ants2
+  parent: BaseAnts
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/ants.rsi
+    state: ants_2
+
+- type: entity
+  id: Ants3
+  parent: BaseAnts
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/ants.rsi
+    state: ants_3
+

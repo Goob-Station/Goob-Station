@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2019 Swept <49448379+SweptWasTaken@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
@@ -27,6 +27,8 @@
 # SPDX-FileCopyrightText: 2024 PECK <74548962+PeccNeck@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -35,16 +37,16 @@
   result: SheetSteel1
   completetime: 0
   materials:
-    RawIron: 100
-    Coal: 30
+    RawIron: 20 # Goobstation - was 100
+    Coal: 10 # Goobstation - was 30
 
 - type: latheRecipe
   id: SheetSteel30
   result: SheetSteel
   completetime: 2
   materials:
-    RawIron: 3000
-    Coal: 1000
+    RawIron: 600 # Goobstation - was 3000
+    Coal: 300 # Goobstation - was 1000
 
 - type: latheRecipe
   id: SheetGlass1
@@ -276,3 +278,10 @@
   completetime: 1
   materials:
     Wood: 50
+
+- type: latheRecipe
+  id: MaterialClothCotton
+  result: MaterialCloth1
+  completetime: 1
+  materials:
+    Cotton: 200 #my pyrocloth keeps catching on fire whenever I make it!

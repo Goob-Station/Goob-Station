@@ -5,18 +5,29 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Shared.Bible;
+using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Possession;
 using Content.Goobstation.Shared.Religion;
+using Content.Server.Actions;
+using Content.Server.Polymorph.Components;
+using Content.Server.Polymorph.Systems;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared.Actions;
+using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Coordinates;
+using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Heretic;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Content.Shared.Zombies;
 using Robust.Server.Containers;
 using Robust.Shared.Audio.Systems;
@@ -37,13 +48,19 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
-
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+    [Dependency] private readonly ActionsSystem _action = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PossessedComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<PossessedComponent, ComponentRemove>(OnComponentRemoved);
+
         SubscribeLocalEvent<PossessedComponent, ExaminedEvent>(OnExamined);
+
+        SubscribeLocalEvent<PossessedComponent, EndPossessionEarlyEvent>(OnEarlyEnd);
     }
 
     public override void Update(float frameTime)
@@ -60,52 +77,82 @@ public sealed partial class PossessionSystem : EntitySystem
         }
     }
 
-    private void OnInit(EntityUid uid, PossessedComponent comp, MapInitEvent args)
+    private void OnInit(Entity<PossessedComponent> possessed, ref MapInitEvent args)
     {
-        if (!HasComp<WeakToHolyComponent>(uid))
-            AddComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
+        if (!HasComp<WeakToHolyComponent>(possessed))
+            AddComp<WeakToHolyComponent>(possessed).AlwaysTakeHoly = true;
         else
-            comp.WasWeakToHoly = true;
+            possessed.Comp.WasWeakToHoly = true;
 
-        comp.PossessedContainer = _container.EnsureContainer<Container>(uid, "PossessedContainer");
+        if (possessed.Comp.HideActions)
+            possessed.Comp.HiddenActions = _action.HideActions(possessed);
+
+        _action.AddAction(possessed, ref possessed.Comp.ActionEntity, possessed.Comp.EndPossessionAction);
+
+        _tag.AddTag(possessed, "CannotSuicideAny");
+
+        possessed.Comp.PossessedContainer = _container.EnsureContainer<Container>(possessed, "PossessedContainer");
     }
-    private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
+
+    private void OnEarlyEnd(EntityUid uid, PossessedComponent comp, ref EndPossessionEarlyEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        // if polymorphed, undo
+        _polymorph.Revert(uid);
+        RemCompDeferred(uid, comp);
+
+        args.Handled = true;
+    }
+    private void OnComponentRemoved(Entity<PossessedComponent> possessed, ref ComponentRemove args)
     {
         MapCoordinates? coordinates = null;
 
-        // Remove associated components.
-        if (!comp.WasPacified)
-            RemComp<PacifiedComponent>(comp.OriginalEntity);
+        _action.RemoveAction(possessed, possessed.Comp.ActionEntity);
 
-        if (!comp.WasWeakToHoly)
-            RemComp<WeakToHolyComponent>(comp.OriginalEntity);
+        if (possessed.Comp.HideActions)
+            _action.UnHideActions(possessed, possessed.Comp.HiddenActions);
+
+        if (possessed.Comp.PolymorphEntity && HasComp<PolymorphedEntityComponent>(possessed))
+            _polymorph.Revert(possessed.Owner);
+
+        _tag.RemoveTag(possessed, "CannotSuicideAny");
+
+        // Remove associated components.
+        if (!possessed.Comp.WasPacified)
+            RemComp<PacifiedComponent>(possessed.Comp.OriginalEntity);
+
+        if (!possessed.Comp.WasWeakToHoly)
+            RemComp<WeakToHolyComponent>(possessed.Comp.OriginalEntity);
 
         // Return the possessors mind to their body, and the target to theirs.
-        if (!TerminatingOrDeleted(comp.PossessorMindId))
-            _mind.TransferTo(comp.PossessorMindId, comp.PossessorOriginalEntity);
-        if (!TerminatingOrDeleted(comp.OriginalMindId))
-            _mind.TransferTo(comp.OriginalMindId, comp.OriginalEntity);
+        if (!TerminatingOrDeleted(possessed.Comp.PossessorMindId))
+            _mind.TransferTo(possessed.Comp.PossessorMindId, possessed.Comp.PossessorOriginalEntity);
+        if (!TerminatingOrDeleted(possessed.Comp.OriginalMindId))
+            _mind.TransferTo(possessed.Comp.OriginalMindId, possessed.Comp.OriginalEntity);
 
-        if (!TerminatingOrDeleted(comp.OriginalEntity))
-            coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
+        if (!TerminatingOrDeleted(possessed.Comp.OriginalEntity))
+            coordinates = _transform.ToMapCoordinates(possessed.Comp.OriginalEntity.ToCoordinates());
 
         // Paralyze, so you can't just magdump them.
-        _stun.TryParalyze(uid, TimeSpan.FromSeconds(10), false);
-        _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", uid)), uid, PopupType.LargeCaution);
+        _stun.TryParalyze(possessed, TimeSpan.FromSeconds(10), false);
+        _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", possessed)), possessed, PopupType.LargeCaution);
 
         // Teleport to the entity, kinda like you're popping out of their head!
-        if (!TerminatingOrDeleted(comp.PossessorOriginalEntity) && coordinates is not null)
-            _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates.Value);
+        if (!TerminatingOrDeleted(possessed.Comp.PossessorOriginalEntity) && coordinates is not null)
+            _transform.SetMapCoordinates(possessed.Comp.PossessorOriginalEntity, coordinates.Value);
 
-        _container.CleanContainer(comp.PossessedContainer);
+        _container.CleanContainer(possessed.Comp.PossessedContainer);
     }
 
-    private void OnExamined(EntityUid uid, PossessedComponent comp, ExaminedEvent args)
+    private void OnExamined(Entity<PossessedComponent> possessed, ref ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange || args.Examined != args.Examiner)
+        if (!args.IsInDetailsRange
+            || args.Examined != args.Examiner)
             return;
 
-        var timeRemaining = Math.Floor(comp.PossessionTimeRemaining.TotalSeconds);
+        var timeRemaining = Math.Floor(possessed.Comp.PossessionTimeRemaining.TotalSeconds);
         args.PushMarkup(Loc.GetString("possessed-component-examined", ("timeremaining", timeRemaining)));
     }
 
@@ -117,7 +164,9 @@ public sealed partial class PossessionSystem : EntitySystem
     /// <param name="possessionDuration">How long does the possession last in seconds.</param>
     /// <param name="pacifyPossessed">Should the possessor be pacified while inside the possessed body?</param>
     /// <param name="doesMindshieldBlock">Does having a mindshield block being possessed?</param>
-    public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false)
+    /// <param name="doesChaplainBlock">Is the chaplain immune to this possession?</param>
+    /// <param name="HideActions">Should all actions be hidden during?</param>
+    public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false, bool doesChaplainBlock = true, bool hideActions = true, bool polymorphPossessor = true)
     {
         // Possessing a dead guy? What.
         if (_mobState.IsIncapacitated(possessed) || HasComp<ZombieComponent>(possessed))
@@ -133,6 +182,12 @@ public sealed partial class PossessionSystem : EntitySystem
             return false;
         }
 
+        if (doesChaplainBlock && HasComp<BibleUserComponent>(possessed))
+        {
+            _popup.PopupClient(Loc.GetString("possession-fail-target-chaplain"), possessor, possessor);
+            return false;
+        }
+
         if (HasComp<PossessedComponent>(possessed))
         {
             _popup.PopupClient(Loc.GetString("possession-fail-target-already-possessed"), possessor, possessor);
@@ -142,6 +197,7 @@ public sealed partial class PossessionSystem : EntitySystem
         List<(Type, string)> blockers =
         [
             (typeof(ChangelingComponent), "changeling"),
+            (typeof(DevilComponent), "devil"),
             (typeof(HereticComponent), "heretic"),
             (typeof(GhoulComponent), "ghoul"),
             (typeof(GhostComponent), "ghost"),
@@ -156,18 +212,20 @@ public sealed partial class PossessionSystem : EntitySystem
                 return false;
         }
 
-        if (!_mind.TryGetMind(possessor, out var possessorMind, out var possessorMindComp))
+        if (!_mind.TryGetMind(possessor, out var possessorMind, out _))
             return false;
 
-        DoPossess(possessed, possessor, possessionDuration, pacifyPossessed, possessorMind, possessorMindComp);
+        DoPossess(possessed, possessor, possessionDuration, possessorMind, pacifyPossessed, hideActions, polymorphPossessor);
         return true;
     }
 
-    private void DoPossess(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, EntityUid possessorMind, MindComponent possessorMindComp)
+    private void DoPossess(EntityUid? possessedNullable, EntityUid possessor, TimeSpan possessionDuration,  EntityUid possessorMind, bool pacifyPossessed, bool hideActions, bool polymorphPossessor)
     {
-        _mind.TryGetMind(possessed, out var possessedMind, out var possessedMindComp);
+        if (possessedNullable is not { } possessed)
+            return;
 
         var possessedComp = EnsureComp<PossessedComponent>(possessed);
+        possessedComp.HideActions = hideActions;
 
         if (pacifyPossessed)
         {
@@ -176,6 +234,10 @@ public sealed partial class PossessionSystem : EntitySystem
             else
                 possessedComp.WasPacified = true;
         }
+
+        possessedComp.PolymorphEntity = polymorphPossessor;
+        if (polymorphPossessor)
+            _polymorph.PolymorphEntity(possessor, possessedComp.Polymorph);
 
         // Get the possession time.
         possessedComp.PossessionEndTime = _timing.CurTime + possessionDuration;
@@ -186,12 +248,17 @@ public sealed partial class PossessionSystem : EntitySystem
 
         // Store possessed original info
         possessedComp.OriginalEntity = possessed;
-        possessedComp.OriginalMindId = possessedMind;
 
-        // Nobodies gonna know.
-        var dummy = Spawn("FoodSnackLollypop", MapCoordinates.Nullspace);
-        _container.Insert(dummy, possessedComp.PossessedContainer);
-        _mind.TransferTo(possessedMind, dummy);
+        if (_mind.TryGetMind(possessed, out var possessedMind, out _))
+        {
+            possessedComp.OriginalMindId = possessedMind;
+
+            // Nobodies gonna know.
+            var dummy = Spawn("FoodSnackLollypop", MapCoordinates.Nullspace);
+            _container.Insert(dummy, possessedComp.PossessedContainer);
+
+            _mind.TransferTo(possessedMind, dummy);
+        }
 
         // Transfer into target
         _mind.TransferTo(possessorMind, possessed);
@@ -200,6 +267,9 @@ public sealed partial class PossessionSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("possession-popup-self"), possessedMind, possessedMind, PopupType.LargeCaution);
         _popup.PopupEntity(Loc.GetString("possession-popup-others", ("target", possessed)), possessed, PopupType.MediumCaution);
         _audio.PlayPvs(possessedComp.PossessionSoundPath, possessed);
+
+        Log.Info($"{ToPrettyString(possessor)} possessed {ToPrettyString(possessed)}");
+        _admin.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(possessor)} possessed {ToPrettyString(possessed)}");
     }
 
     private bool CheckMindswapBlocker(Type type, string message, EntityUid possessed, EntityUid possessor)

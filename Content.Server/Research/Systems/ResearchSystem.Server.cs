@@ -73,7 +73,7 @@ public sealed partial class ResearchSystem
     public void RegisterClient(EntityUid client, EntityUid server, ResearchClientComponent? clientComponent = null,
         ResearchServerComponent? serverComponent = null,  bool dirtyServer = true)
     {
-        if (!Resolve(client, ref clientComponent) || !Resolve(server, ref serverComponent))
+        if (!Resolve(client, ref clientComponent, false) || !Resolve(server, ref serverComponent, false))
             return;
 
         if (serverComponent.Clients.Contains(client))
@@ -83,7 +83,7 @@ public sealed partial class ResearchSystem
         clientComponent.Server = server;
         SyncClientWithServer(client, clientComponent: clientComponent);
 
-        if (dirtyServer)
+        if (dirtyServer && !TerminatingOrDeleted(server))
             Dirty(server, serverComponent);
 
         var ev = new ResearchRegistrationChangedEvent(server);
@@ -118,14 +118,14 @@ public sealed partial class ResearchSystem
     public void UnregisterClient(EntityUid client, EntityUid server, ResearchClientComponent? clientComponent = null,
         ResearchServerComponent? serverComponent = null, bool dirtyServer = true)
     {
-        if (!Resolve(client, ref clientComponent) || !Resolve(server, ref serverComponent))
+        if (!Resolve(client, ref clientComponent, false) || !Resolve(server, ref serverComponent, false))
             return;
 
         serverComponent.Clients.Remove(client);
         clientComponent.Server = null;
         SyncClientWithServer(client, clientComponent: clientComponent);
 
-        if (dirtyServer)
+        if (dirtyServer && !TerminatingOrDeleted(server))
         {
             Dirty(server, serverComponent);
         }

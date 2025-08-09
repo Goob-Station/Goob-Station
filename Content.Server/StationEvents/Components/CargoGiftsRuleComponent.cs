@@ -42,6 +42,12 @@ public sealed partial class CargoGiftsRuleComponent : Component
     public LocId Dest = "cargo-gift-default-dest";
 
     /// <summary>
+    /// Account the gifts are deposited into
+    /// </summary>
+    [DataField]
+    public ProtoId<CargoAccountPrototype> Account = "Cargo";
+
+    /// <summary>
     /// Cargo that you would like gifted to the station, with the quantity for each
     /// Use Ids from cargoProduct Prototypes
     /// </summary>

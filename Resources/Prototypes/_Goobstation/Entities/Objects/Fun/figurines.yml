@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineDevil
+  name: demon figure
+  description: A figurine depicting a Demon sporting a freshly tailored suit.
+  components:
+  - type: Sprite
+    state: lawyer
+  - type: SpeakOnTrigger
+    pack: FigurinesDevil
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyFigurineBrigmedic
+  name: brigmedic figurine
+  description: A figurine depicting a Brigmedic holding a combat medkit, poised to pois... treat prisoners.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/figurines.rsi
+    state: brigmedic
+  - type: SpeakOnTrigger
+    pack: FigurinesBrigmedic

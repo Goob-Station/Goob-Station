@@ -17,7 +17,6 @@
 // SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
 // SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
@@ -73,7 +72,6 @@
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
@@ -86,6 +84,12 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Dia <diatomic.ge@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -98,6 +102,7 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using JetBrains.Annotations;
+using Robust.Shared.Collections;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -134,19 +139,37 @@ public abstract class SharedItemSystem : EntitySystem
 
     public void SetSize(EntityUid uid, ProtoId<ItemSizePrototype> size, ItemComponent? component = null)
     {
-        if (!Resolve(uid, ref component, false))
+        if (!Resolve(uid, ref component, false) || component.Size == size)
             return;
 
         component.Size = size;
         Dirty(uid, component);
+        var ev = new ItemSizeChangedEvent(uid);
+        RaiseLocalEvent(uid, ref ev, broadcast: true);
     }
 
     public void SetShape(EntityUid uid, List<Box2i>? shape, ItemComponent? component = null)
     {
-        if (!Resolve(uid, ref component, false))
+        if (!Resolve(uid, ref component, false) || component.Shape == shape)
             return;
 
         component.Shape = shape;
+        Dirty(uid, component);
+        var ev = new ItemSizeChangedEvent(uid);
+        RaiseLocalEvent(uid, ref ev, broadcast: true);
+    }
+
+    /// <summary>
+    /// Sets the offset used for the item's sprite inside the storage UI.
+    /// Dirties.
+    /// </summary>
+    [PublicAPI]
+    public void SetStoredOffset(EntityUid uid, Vector2i newOffset, ItemComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return;
+
+        component.StoredOffset = newOffset;
         Dirty(uid, component);
     }
 
@@ -282,15 +305,21 @@ public abstract class SharedItemSystem : EntitySystem
     public IReadOnlyList<Box2i> GetAdjustedItemShape(Entity<ItemComponent?> entity, Angle rotation, Vector2i position)
     {
         if (!Resolve(entity, ref entity.Comp))
-            return new Box2i[] { };
+            return [];
 
+        var adjustedShapes = new List<Box2i>();
+        GetAdjustedItemShape(adjustedShapes, entity, rotation, position);
+        return adjustedShapes;
+    }
+
+    public void GetAdjustedItemShape(List<Box2i> adjustedShapes, Entity<ItemComponent?> entity, Angle rotation, Vector2i position)
+    {
         var shapes = GetItemShape(entity);
         var boundingShape = shapes.GetBoundingBox();
         var boundingCenter = ((Box2) boundingShape).Center;
         var matty = Matrix3Helpers.CreateTransform(boundingCenter, rotation);
         var drift = boundingShape.BottomLeft - matty.TransformBox(boundingShape).BottomLeft;
 
-        var adjustedShapes = new List<Box2i>();
         foreach (var shape in shapes)
         {
             var transformed = matty.TransformBox(shape).Translated(drift);
@@ -299,8 +328,6 @@ public abstract class SharedItemSystem : EntitySystem
 
             adjustedShapes.Add(translated);
         }
-
-        return adjustedShapes;
     }
 
     /// <summary>
@@ -317,6 +344,7 @@ public abstract class SharedItemSystem : EntitySystem
             {
                 // Set the deactivated shape to the default item's shape before it gets changed.
                 itemToggleSize.DeactivatedShape ??= new List<Box2i>(GetItemShape(item));
+                Dirty(uid, itemToggleSize);
                 SetShape(uid, itemToggleSize.ActivatedShape, item);
             }
 
@@ -324,7 +352,8 @@ public abstract class SharedItemSystem : EntitySystem
             {
                 // Set the deactivated size to the default item's size before it gets changed.
                 itemToggleSize.DeactivatedSize ??= item.Size;
-                SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.ActivatedSize, item);
+                Dirty(uid, itemToggleSize);
+                SetSize(uid, (ProtoId<ItemSizePrototype>)itemToggleSize.ActivatedSize, item);
             }
         }
         else
@@ -336,33 +365,43 @@ public abstract class SharedItemSystem : EntitySystem
 
             if (itemToggleSize.DeactivatedSize != null)
             {
-                SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.DeactivatedSize, item);
+                SetSize(uid, (ProtoId<ItemSizePrototype>)itemToggleSize.DeactivatedSize, item);
             }
         }
 
-        if (Container.TryGetContainingContainer((uid, null, null), out var container)) // Goobstation - reinsert item in storage because size changed
+        if (Container.TryGetContainingContainer((uid, null, null), out var container) &&
+            !_handsSystem.IsHolding(container.Owner, uid)) // Funkystation - Don't move items in hands.
         {
-            if (TryComp(container.Owner, out StorageComponent? storage))
+            // Funkystation - Check if the item is in a pocket.
+            var wasInPocket = false;
+            if (_inventory.TryGetContainerSlotEnumerator(container.Owner, out var enumerator, SlotFlags.POCKET))
+            {
+                while (enumerator.NextItem(out var slotItem, out var slot))
+                {
+                    if (slotItem == uid)
+                    {
+                        // Funkystation - We found it in a pocket.
+                        wasInPocket = true;
+
+                        if (!_inventory.CanEquip(container.Owner, uid, slot.Name, out var _, slot))
+                        {
+                            // Funkystation - It no longer fits, so try to hand it to whoever toggled it.
+                            _transform.AttachToGridOrMap(uid);
+                            _handsSystem.PickupOrDrop(args.User, uid, animate: true);
+                        }
+                        break;
+                    }
+                }
+            }
+
+            if (!wasInPocket && TryComp(container.Owner,
+                out StorageComponent? storage)) // Goobstation - reinsert item in storage because size changed
             {
                 _transform.AttachToGridOrMap(uid);
                 if (!_storage.Insert(container.Owner, uid, out _, null, storage, false))
-                    _handsSystem.PickupOrDrop(args.User, uid, animate: false);
-            }
-            else if (TryComp(container.Owner, out InventoryComponent? inventory))
-            {
-                var fitsInPockets = GetSizePrototype(item.Size) <= GetSizePrototype(InventorySystem.PocketableItemSize);
-                if (!fitsInPockets)
                 {
-                    var enumerator = _inventory.GetSlotEnumerator(container.Owner, SlotFlags.POCKET);
-                    while (enumerator.NextItem(out var slotItem))
-                    {
-                        if (slotItem != uid)
-                            continue;
-
-                        _transform.AttachToGridOrMap(uid);
-                        _handsSystem.PickupOrDrop(args.User, uid, animate: false);
-                        break;
-                    }
+                    // Funkystation - It didn't fit, so try to hand it to whoever toggled it.
+                    _handsSystem.PickupOrDrop(args.User, uid, animate: false);
                 }
             }
         }

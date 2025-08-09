@@ -70,7 +70,6 @@
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
@@ -93,12 +92,14 @@
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
@@ -109,6 +110,7 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
@@ -118,8 +120,13 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.MartialArts; // Goobstation - Martial Arts
+using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared._Shitmed.Weapons.Melee.Events; // Shitmed Change
 using Content.Shared.ActionBlocker;
+using Content.Shared.Actions.Events;
+using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared.Coordinates;
@@ -130,22 +137,35 @@ using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Hands.EntitySystems; // Shitmed Change
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using ItemToggleMeleeWeaponComponent = Content.Shared.Item.ItemToggle.Components.ItemToggleMeleeWeaponComponent;
 
@@ -153,21 +173,50 @@ namespace Content.Shared.Weapons.Melee;
 
 public abstract class SharedMeleeWeaponSystem : EntitySystem
 {
-    [Dependency] protected readonly ISharedAdminLogManager   AdminLogger     = default!;
-    [Dependency] protected readonly ActionBlockerSystem      Blocker         = default!;
-    [Dependency] protected readonly SharedCombatModeSystem   CombatMode      = default!;
-    [Dependency] protected readonly DamageableSystem         Damageable      = default!;
-    [Dependency] protected readonly SharedInteractionSystem  Interaction     = default!;
-    [Dependency] protected readonly IMapManager              MapManager      = default!;
-    [Dependency] protected readonly SharedPopupSystem        PopupSystem     = default!;
-    [Dependency] protected readonly IGameTiming              Timing          = default!;
-    [Dependency] protected readonly SharedTransformSystem    TransformSystem = default!;
-    [Dependency] private   readonly InventorySystem         _inventory       = default!;
-    [Dependency] private   readonly MeleeSoundSystem        _meleeSound      = default!;
-    [Dependency] private   readonly SharedPhysicsSystem     _physics         = default!;
-    [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
-    [Dependency] private   readonly StaminaSystem           _stamina         = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly IMapManager MapManager = default!;
+    [Dependency] private   readonly INetManager _netMan = default!;
+    [Dependency] private   readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private   readonly IRobustRandom _random = default!;
+    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
+    [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
+    [Dependency] protected readonly DamageableSystem Damageable = default!;
+    [Dependency] private   readonly InventorySystem _inventory = default!;
+    [Dependency] private   readonly MeleeSoundSystem _meleeSound = default!;
+    [Dependency] protected readonly MobStateSystem MobState = default!;
+    [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] protected readonly SharedCombatModeSystem CombatMode = default!;
+    [Dependency] protected readonly SharedInteractionSystem Interaction = default!;
+    [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
+    [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
+    [Dependency] private   readonly ContestsSystem _contests = default!;
+    [Dependency] private   readonly ThrowingSystem _throwing = default!;
+    [Dependency] private   readonly INetConfigurationManager _config = default!;
+    [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
 
+    //Goob - Shove
+    private float _shoveRange;
+    private float _shoveSpeed;
+    private float _shoveMass;
+    //Goob - Shove
+
+    // Goobstation - Shove
+    private void SetShoveRange(float value)
+    {
+        _shoveRange = value;
+    }
+
+    private void SetShoveSpeed(float value)
+    {
+        _shoveSpeed = value;
+    }
+
+    private void SetShoveMass(float value)
+    {
+        _shoveMass = value;
+    }
+    //Goob - Shove
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -199,6 +248,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         SubscribeAllEvent<DisarmAttackEvent>(OnDisarmAttack);
         SubscribeAllEvent<StopAttackEvent>(OnStopAttack);
 
+        Subs.CVar(_config, GoobCVars.ShoveRange, SetShoveRange, true);
+        Subs.CVar(_config, GoobCVars.ShoveSpeed, SetShoveSpeed, true);
+        Subs.CVar(_config, GoobCVars.ShoveMassFactor, SetShoveMass, true);
+
 #if DEBUG
         SubscribeLocalEvent<MeleeWeaponComponent,
                             MapInitEvent>                   (OnMapInit);
@@ -225,7 +278,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (gun.NextFire > component.NextAttack)
         {
             component.NextAttack = gun.NextFire;
-            Dirty(uid, component);
+            DirtyField(uid, component, nameof(MeleeWeaponComponent.NextAttack));
         }
     }
 
@@ -249,7 +302,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         component.NextAttack = minimum;
-        Dirty(uid, component);
+        DirtyField(uid, component, nameof(MeleeWeaponComponent.NextAttack));
     }
 
     private void OnGetBonusMeleeDamage(EntityUid uid, BonusMeleeDamageComponent component, ref GetMeleeDamageEvent args)
@@ -289,7 +342,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         weapon.Attacking = false;
-        Dirty(weaponUid, weapon);
+        DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.Attacking));
     }
 
     private void OnLightAttack(LightAttackEvent msg, EntitySessionEventArgs args)
@@ -503,9 +556,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                 if (!Blocker.CanAttack(user, target, (weaponUid, weapon), true))
                     return false;
-
-                if (weaponUid == target) // Goobstatiom
-                    return false;
                 break;
             default:
                 if (!weapon.CanHeavyAttack) // Goobstation
@@ -530,11 +580,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             swings++;
         }
 
-        Dirty(weaponUid, weapon);
+        DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.NextAttack));
 
         // Do this AFTER attack so it doesn't spam every tick
-        var ev = new AttemptMeleeEvent(user); // Lavaland Change: WHY ARENT YOU FUCKS PASSING THE USER RAHHHHHHHHHHH
+        var ev = new AttemptMeleeEvent(user, weaponUid, weapon); // Lavaland Change: WHY ARENT YOU FUCKS PASSING THE USER RAHHHHHHHHHHH
         RaiseLocalEvent(weaponUid, ref ev);
+        RaiseLocalEvent(user, ref ev); // Shitmed Change
 
         if (ev.Cancelled)
         {
@@ -545,6 +596,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             return false;
         }
+        // Shitmed Change End
 
         // Attack confirmed
         for (var i = 0; i < swings; i++)
@@ -558,7 +610,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     DoLightAttack(user, light, weaponUid, weapon, session);
                     break;
                 case DisarmAttackEvent disarm:
-                    DoDisarm(user, disarm, weaponUid, weapon, session); // Goob edit
+                    if (!DoDisarm(user, disarm, weaponUid, weapon, session)) // Goob edit
+                        return false;
 
                     animation = weapon.DisarmAnimation; // WWDP
                     DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
@@ -581,10 +634,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         RaiseLocalEvent(user, ref attackEv);
 
         weapon.Attacking = true;
+        DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.Attacking));
         return true;
     }
 
-    protected abstract bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session);
+    public abstract bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session); // Goob edit
 
     // Goob edit
     public virtual void DoLightAttack(EntityUid user, LightAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session) // Goobstation - Edit
@@ -620,7 +674,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     $"{ToPrettyString(user):actor} melee attacked (light) using {ToPrettyString(meleeUid):tool} and missed");
             }
             var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, null, GetCoordinates(ev.Coordinates)); // Goob edit
-            RaiseLocalEvent(meleeUid, missEvent);
+            RaiseLocalEvent(meleeUid, missEvent, true); // Goob station - broadcast
             _meleeSound.PlaySwingSound(user, meleeUid, component);
             DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(ev.Coordinates), component.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
             return;
@@ -637,7 +691,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         // Raise event before doing damage so we can cancel damage if the event is handled
         var hitEvent = new MeleeHitEvent(new List<EntityUid> { target.Value }, user, meleeUid, damage, null, GetCoordinates(ev.Coordinates)); // Goob edit
-        RaiseLocalEvent(meleeUid, hitEvent);
+        RaiseLocalEvent(meleeUid, hitEvent, true); // Goob station - broadcast
 
 
         if (hitEvent.Handled)
@@ -659,9 +713,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // For stuff that cares about it being attacked.
         var attackedEvent = new AttackedEvent(meleeUid, user, targetXform.Coordinates);
         RaiseLocalEvent(target.Value, attackedEvent);
-
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
-        var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin: user, canEvade: true, partMultiplier: component.ClickPartDamageMultiplier, armorPenetration: component.ArmorPenetration); // Shitmed Change
+        modifiedDamage = DamageSpecifier.ApplyModifierSets(modifiedDamage, attackedEvent.ModifiersList); // Goobstation
+        var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin: user, partMultiplier: component.ClickPartDamageMultiplier); // Shitmed Change
         var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Harm);
         RaiseLocalEvent(user, comboEv);
 
@@ -731,7 +785,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     $"{ToPrettyString(user):actor} melee attacked (heavy) using {ToPrettyString(meleeUid):tool} and missed");
             }
             var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, direction, GetCoordinates(ev.Coordinates)); // Goob edit
-            RaiseLocalEvent(meleeUid, missEvent);
+            RaiseLocalEvent(meleeUid, missEvent, true); // Goob station - broadcast
 
             // immediate audio feedback
             _meleeSound.PlaySwingSound(user, meleeUid, component);
@@ -787,7 +841,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         // Raise event before doing damage so we can cancel damage if the event is handled
         var hitEvent = new MeleeHitEvent(targets, user, meleeUid, damage, direction, GetCoordinates(ev.Coordinates)); // Goob edit
-        RaiseLocalEvent(meleeUid, hitEvent);
+        RaiseLocalEvent(meleeUid, hitEvent, true); // Goob station - broadcast
 
         if (hitEvent.Handled)
             return true;
@@ -824,9 +878,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             var attackedEvent = new AttackedEvent(meleeUid, user, GetCoordinates(ev.Coordinates));
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
-
-            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, canEvade: true, partMultiplier: component.HeavyPartDamageMultiplier, armorPenetration: component.ArmorPenetration, heavyAttack: true); // Shitmed Change // Goobstation
-
+            modifiedDamage = DamageSpecifier.ApplyModifierSets(modifiedDamage, attackedEvent.ModifiersList); // Goobstation
+            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, partMultiplier: component.HeavyPartDamageMultiplier); // Shitmed Change
             var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
             RaiseLocalEvent(user, comboEv);
 
@@ -867,9 +920,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // goob edit - stunmeta
-        if (TryComp<StaminaComponent>(user, out var stamina))
+        if (TryComp<StaminaComponent>(user, out var stamina) && entities.Count != 0)
             // make it not immediate to prevent annoying stamcrits
-            _stamina.TakeStaminaDamage(user, component.HeavyStaminaCost, stamina, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(user, component.HeavyStaminaCost * (entities.Count - 1), stamina, visual: false, immediate: false);
 
         return true;
     }
@@ -949,38 +1002,162 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         return highestDamageType;
     }
 
-    protected virtual bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
+    private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, CombatModeComponent disarmerComp)
     {
-        var target = GetEntity(ev.Target);
+        if (HasComp<DisarmProneComponent>(disarmer))
+            return 1.0f;
 
-        if (Deleted(target)
-            || user == target)
+        if (HasComp<DisarmProneComponent>(disarmed))
+            return 0.0f;
+
+        var chance = 1 - disarmerComp.BaseDisarmFailChance;
+
+        // Goob - Shove Rework disarm based on health & stamina
+        chance *= Math.Clamp(
+            _contests.StaminaContest(disarmer, disarmed)
+            * _contests.HealthContest(disarmer, disarmed),
+            0f,
+            1f);
+
+        if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
+            chance *= 1 - malus.Malus; // Goob - Shove Rework edit
+
+        if (TryComp<ShovingComponent>(disarmer, out var shoving))
+            chance *= 1 + shoving.DisarmBonus; // Goob - Shove Rework edit
+
+        return chance;
+
+    }
+
+    // Goob - Shove Rework shove stamina damage based on mass
+    private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
+    {
+        var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;
+
+        return
+            baseStaminaDamage
+            * _contests.MassContest(disarmer, disarmed, false, 4f);
+    }
+
+    protected virtual bool DoDisarm(EntityUid user,
+        DisarmAttackEvent ev,
+        EntityUid meleeUid,
+        MeleeWeaponComponent component,
+        ICommonSession? session) // Goobstation - Shove Rework
+    {
+        if (!ev.Target.HasValue)
+            return false;
+
+        var target = GetEntity(ev.Target.Value);
+
+        if (Deleted(target))
+            return false;
+
+        if (user == target) // Goobstation
         {
+            _meleeSound.PlaySwingSound(user, meleeUid, component);
+            var selfComboEv = new ComboAttackPerformedEvent(user, user, meleeUid, ComboAttackType.Disarm);
+            RaiseLocalEvent(user, selfComboEv);
             return false;
         }
 
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm == false) // WWDP
-        {
-            return false;
-        }
+        EntityUid? inTargetHand = null;
 
-        if (!InRange(user, target.Value, component.Range, session)) // WWDP
-        {
+        if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
-        }
 
-        // Play a sound to give instant feedback; same with playing the animations
-        _meleeSound.PlaySwingSound(user, meleeUid, component);
+        if (!InRange(user, target, component.Range, session))
+            return false;
 
         // Goobstation start
         var beforeEvent = new BeforeHarmfulActionEvent(user, HarmfulActionType.Disarm);
-        RaiseLocalEvent(target.Value, beforeEvent);
+        RaiseLocalEvent(target, beforeEvent);
         if (beforeEvent.Cancelled)
             return false;
+
+        var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboEv);
         // Goobstation end
 
+        PhysicalShove(user, target);
+        Interaction.DoContactInteraction(user, target);
+
+        if (MobState.IsIncapacitated(target))
+            return true;
+
+        if (!TryComp<PhysicsComponent>(target, out var targetPhysicsComponent))
+            return false;
+
+        if (!TryComp<HandsComponent>(target, out var targetHandsComponent))
+        {
+            if (!TryComp<StatusEffectsComponent>(target, out var status) ||
+                !status.AllowedEffects.Contains("KnockedDown"))
+            {
+                return true;
+            }
+        }
+
+        if (targetHandsComponent?.ActiveHand is { IsEmpty: false })
+        {
+            inTargetHand = targetHandsComponent.ActiveHand.HeldEntity!.Value;
+        }
+
+        var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
+        if (inTargetHand != null)
+        {
+            RaiseLocalEvent(inTargetHand.Value, ref attemptEvent);
+        }
+
+        RaiseLocalEvent(target, ref attemptEvent);
+
+        if (attemptEvent.Cancelled)
+            return true;
+
+        var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
+
+        _audio.PlayPredicted(combatMode.DisarmSuccessSound,
+            user, user,
+            AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
+        AdminLogger.Add(LogType.DisarmedAction,
+            $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
+
+        var staminaDamage = CalculateShoveStaminaDamage(user, target);
+
+        var eventArgs = new DisarmedEvent(target,user,chance)
+        {
+            StaminaDamage = staminaDamage,
+        };
+        RaiseLocalEvent(target, ref eventArgs);
+
+        if (!eventArgs.Handled)
+        {
+            ShoveOrDisarmPopup(false);
+            return true;
+        }
+
+        ShoveOrDisarmPopup(true);
+
         return true;
+
+        // Goob - Shove Rework edit (moved to function)
+        void ShoveOrDisarmPopup(bool disarm)
+        {
+            var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
+            var msgPrefix = "disarm-action-";
+
+            if (!disarm)
+                msgPrefix = "disarm-action-shove-";
+
+            var msgOther = Loc.GetString(
+                msgPrefix + "popup-message-other-clients",
+                ("performerName", Identity.Entity(user, EntityManager)),
+                ("targetName", Identity.Entity(target, EntityManager)));
+
+            var msgUser = Loc.GetString(msgPrefix + "popup-message-cursor", ("targetName", Identity.Entity(target, EntityManager)));
+
+            PopupSystem.PopupPredicted(msgOther, target, null, filterOther, false);
+            PopupSystem.PopupClient(msgUser, user);
+        }
     }
 
     private void DoLungeAnimation(EntityUid user, EntityUid weapon, Angle angle, MapCoordinates coordinates, float length, string? animation, Angle spriteRotation, bool flipAnimation)
@@ -1007,6 +1184,19 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         DoLunge(user, weapon, angle, localPos, animation, spriteRotation, flipAnimation);
     }
 
+    private void PhysicalShove(EntityUid user, EntityUid target)
+    {
+        var force = _shoveRange * _contests.MassContest(user, target, rangeFactor: _shoveMass);
+
+        var userPos = TransformSystem.ToMapCoordinates(user.ToCoordinates()).Position;
+        var targetPos = TransformSystem.ToMapCoordinates(target.ToCoordinates()).Position;
+        var pushVector = (targetPos - userPos).Normalized() * force;
+
+        var animated = HasComp<ItemComponent>(target);
+
+        _throwing.TryThrow(target, pushVector, force * _shoveSpeed, animated: animated);
+    }
+
     public abstract void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool flipAnimation, bool predicted = true);
 
     /// <summary>
@@ -1024,15 +1214,21 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 //Setting deactivated damage to the weapon's regular value before changing it.
                 itemToggleMelee.DeactivatedDamage ??= meleeWeapon.Damage;
                 meleeWeapon.Damage = itemToggleMelee.ActivatedDamage;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.Damage));
             }
 
-            meleeWeapon.HitSound = itemToggleMelee.ActivatedSoundOnHit;
+            if (meleeWeapon.HitSound?.Equals(itemToggleMelee.ActivatedSoundOnHit) != true)
+            {
+                meleeWeapon.HitSound = itemToggleMelee.ActivatedSoundOnHit;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.HitSound));
+            }
 
             if (itemToggleMelee.ActivatedSoundOnHitNoDamage != null)
             {
                 //Setting the deactivated sound on no damage hit to the weapon's regular value before changing it.
                 itemToggleMelee.DeactivatedSoundOnHitNoDamage ??= meleeWeapon.NoDamageSound;
                 meleeWeapon.NoDamageSound = itemToggleMelee.ActivatedSoundOnHitNoDamage;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.NoDamageSound));
             }
 
             if (itemToggleMelee.ActivatedSoundOnSwing != null)
@@ -1040,28 +1236,41 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 //Setting the deactivated sound on no damage hit to the weapon's regular value before changing it.
                 itemToggleMelee.DeactivatedSoundOnSwing ??= meleeWeapon.SwingSound;
                 meleeWeapon.SwingSound = itemToggleMelee.ActivatedSoundOnSwing;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.SwingSound));
             }
 
             if (itemToggleMelee.DeactivatedSecret)
+            {
                 meleeWeapon.Hidden = false;
+            }
         }
         else
         {
             if (itemToggleMelee.DeactivatedDamage != null)
+            {
                 meleeWeapon.Damage = itemToggleMelee.DeactivatedDamage;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.Damage));
+            }
 
             meleeWeapon.HitSound = itemToggleMelee.DeactivatedSoundOnHit;
+            DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.HitSound));
 
             if (itemToggleMelee.DeactivatedSoundOnHitNoDamage != null)
+            {
                 meleeWeapon.NoDamageSound = itemToggleMelee.DeactivatedSoundOnHitNoDamage;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.NoDamageSound));
+            }
 
             if (itemToggleMelee.DeactivatedSoundOnSwing != null)
+            {
                 meleeWeapon.SwingSound = itemToggleMelee.DeactivatedSoundOnSwing;
+                DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.SwingSound));
+            }
 
             if (itemToggleMelee.DeactivatedSecret)
+            {
                 meleeWeapon.Hidden = true;
+            }
         }
-
-        Dirty(uid, meleeWeapon);
     }
 }

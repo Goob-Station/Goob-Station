@@ -16,7 +16,7 @@ namespace Content.Shared.Damage.Prototypes;
 /// <summary>
 ///     Prototype for examinable damage messages.
 /// </summary>
-[Prototype("examinableDamage")]
+[Prototype]
 public sealed partial class ExaminableDamagePrototype : IPrototype
 {
     [IdDataField]

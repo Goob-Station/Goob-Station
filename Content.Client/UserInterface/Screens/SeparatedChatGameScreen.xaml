@@ -27,6 +27,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Widgets"
     xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
+    xmlns:us="clr-namespace:Content.Client._Shitcode.UserActions"
     Name="SeparatedChatHud"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
@@ -49,9 +50,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <graphics:StyleBoxFlat BackgroundColor="#2B2C3B" />
             </PanelContainer.PanelOverride>
 
-            <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">
-                <menuBar:GameTopMenuBar Name="TopBar" HorizontalExpand="True" Access="Protected" />
-                <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">
+                    <menuBar:GameTopMenuBar Name="TopBar" HorizontalExpand="True" Access="Protected" />
+                    <SplitContainer State="Auto" VerticalExpand="True" Orientation="Vertical">
+                        <us:UserActionsPanel Name="UserActionsPanel" Access="Public"></us:UserActionsPanel>
+                        <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
+                    </SplitContainer>
+                </BoxContainer>
             </BoxContainer>
         </PanelContainer>
     </SplitContainer>

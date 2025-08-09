@@ -21,6 +21,8 @@
 # SPDX-FileCopyrightText: 2024 mubururu_ <139181059+muburu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -36,9 +38,15 @@
       state: brain-slime
     - type: Stomach
     - type: Organ
+      intCap: 60 # to prevent slimes from getting oneshot
+      integrity: 60
+      integrityThresholds:
+        Normal: 60
+        Damaged: 27
+        Destroyed: 0
       slotId: core
     - type: Metabolizer
-      maxReagents: 2 # Shitmed
+      maxPoisonsProcessable: 2 # Shitmed
       metabolizerTypes: [ Slime ]
       removeEmpty: true
       groups:
@@ -54,14 +62,18 @@
         stomach:
           maxVol: 50.0
         food:
-          maxVol: 5
+          maxVol: 10 # goob edit
           reagents:
-          - ReagentId: GreyMatter
-            Quantity: 5
+            - ReagentId: GreyMatter
+              Quantity: 5
+            - ReagentId: Cognizine # goob edit
+              Quantity: 5 # goob edit
         organ:
           reagents:
-          - ReagentId: Slime
-            Quantity: 10
+            - ReagentId: Slime
+              Quantity: 10
+            - ReagentId: Cognizine # goob edit
+              Quantity: 5 # goob edit
     - type: Item
       size: Small
       heldPrefix: brain
@@ -79,6 +91,12 @@
       - state: lung-l-slime
       - state: lung-r-slime
   - type: Organ # Shitmed
+    intCap: 21 #
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 14
+      Destroyed: 0
     slotId: lungs
   - type: Lung
     alert: LowNitrogen

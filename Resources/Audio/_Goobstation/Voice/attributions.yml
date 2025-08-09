@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -7,3 +10,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Sound taken from https://www.myinstants.com/en/instant/bad-to-the-bone-riff-10536/ and turned into .ogg by @LuciferEOS"
   source: "https://www.myinstants.com/en/instant/bad-to-the-bone-riff-10536/"
+
+- files: ["gulpexotic.ogg"]
+  license: "CC0-1.0"
+  copyright: "Stock sounds from Pixabay"
+  source: "https://pixabay.com/sound-effects/gulp-48452/"

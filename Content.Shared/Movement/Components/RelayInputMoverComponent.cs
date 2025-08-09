@@ -16,6 +16,6 @@ namespace Content.Shared.Movement.Components;
 [Access(typeof(SharedMoverController))]
 public sealed partial class RelayInputMoverComponent : Component
 {
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public EntityUid RelayEntity;
 }

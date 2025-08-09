@@ -43,7 +43,6 @@ public sealed partial class StationJobsSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     private Dictionary<int, HashSet<string>> _jobsByWeight = default!;
@@ -381,8 +380,6 @@ public sealed partial class StationJobsSystem
             RaiseLocalEvent(ref ev);
 
             List<string>? availableJobs = null;
-            ICommonSession? session = null; //GOOBSTATION
-            bool hasSession = _playerManager.TryGetSessionById(player, out session); //GOOBSTATION
 
             foreach (var jobId in profileJobs)
             {
@@ -395,13 +392,13 @@ public sealed partial class StationJobsSystem
                     continue;
 
                 // Check if this job is blacklisted for the player's session || GOOBSTATION
-                if (hasSession && session != null && antagBlacklists.TryGetValue(session, out var blacklistedJobs))
+                if (_player.TryGetSessionById(player, out var session) && antagBlacklists.TryGetValue(session, out var blacklistedJobs))
                 {
                     if (blacklistedJobs.Contains(jobId))
                         continue;
                 }
 
-                if (!job.CanBeAntag && (!_playerManager.TryGetSessionById(player, out var newSession) || antagBlocked.Contains(newSession)))
+                if (!job.CanBeAntag && (!_player.TryGetSessionById(player, out session) || antagBlocked.Contains(session)))
                     continue;
 
                 if (weight is not null && job.Weight != weight.Value)

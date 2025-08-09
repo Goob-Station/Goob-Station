@@ -5,16 +5,25 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
+using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
@@ -23,6 +32,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Store.Systems;
+using Content.Shared._Shitmed.Damage;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -67,6 +77,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Chat;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
 using Content.Shared.Mech.Components;
@@ -74,6 +85,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Standing;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
 using Robust.Server.Containers;
 
@@ -91,7 +103,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly MobStateSystem _mobstate = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly StaminaSystem _stam = default!;
+    [Dependency] private readonly SharedStaminaSystem _stam = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly DoAfterSystem _doafter = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
@@ -107,6 +119,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
@@ -131,7 +144,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
         var list = new List<EntityUid>();
-        var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, range);
+        var lookup = _lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, range);
 
         foreach (var look in lookup)
         {
@@ -157,6 +170,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         SubscribeLocalEvent<HereticComponent, EventHereticLivingHeart>(OnLivingHeart);
         SubscribeLocalEvent<HereticComponent, EventHereticLivingHeartActivate>(OnLivingHeartActivate);
+
+        SubscribeLocalEvent<HereticComponent, HereticVoidVisionEvent>(OnVoidVision);
 
         SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
@@ -336,7 +351,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 
-    public ProtoId<TagPrototype> MansusLinkTag = "MansusLinkMind";
+    public ProtoId<CollectiveMindPrototype> MansusLinkMind = "MansusLink";
     private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
     {
         if (!TryUseAbility(ent, args))
@@ -348,7 +363,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             return;
         }
 
-        if (_tag.HasTag(args.Target, MansusLinkTag))
+        if (TryComp<CollectiveMindComponent>(args.Target, out var mind) && mind.Channels.Contains(MansusLinkMind))
         {
             Popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
@@ -370,10 +385,26 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         if (args.Cancelled)
             return;
 
-        _tag.AddTag(ent, MansusLinkTag);
+        EnsureComp<CollectiveMindComponent>(args.Target).Channels.Add(MansusLinkMind);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
+    }
+
+    private void OnVoidVision(Entity<HereticComponent> ent, ref HereticVoidVisionEvent args)
+    {
+        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
+        thermalVision.Color = Color.FromHex("#b4babf");
+        thermalVision.LightRadius = 7.5f;
+        thermalVision.FlashDurationMultiplier = 1f;
+        thermalVision.ActivateSound = null;
+        thermalVision.DeactivateSound = null;
+        thermalVision.ToggleAction = null;
+
+        AddComp(ent, thermalVision);
+
+        var toggleEvent = new ToggleThermalVisionEvent();
+        RaiseLocalEvent(ent, toggleEvent);
     }
 
     public override void Update(float frameTime)
@@ -438,7 +469,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                     damageable,
                     null,
                     false,
-                    targetPart: TargetBodyPart.All);
+                    targetPart: TargetBodyPart.All,
+                    splitDamage: SplitDamageBehavior.SplitEnsureAll);
             }
 
             if (bloodQuery.TryComp(uid, out var blood))
@@ -516,7 +548,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                     _dmg.TryChangeDamage(uid,
                         siliconDamage,
                         ignoreResistances: true,
-                        targetPart: TargetBodyPart.Torso);
+                        targetPart: TargetBodyPart.Chest);
 
                     // Don't popup to mech
                     if (isMech)

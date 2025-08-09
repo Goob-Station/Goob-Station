@@ -103,8 +103,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Alpha-Two <92269094+Alpha-Two@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
@@ -127,6 +131,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTLeaderGear
@@ -201,6 +208,8 @@
     components:
     - type: BibleUser #Lets them heal with bibles
     - type: CanEnchant #GoobStation
+  - !type:AddImplantSpecial
+     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTChaplainGear
@@ -225,12 +234,12 @@
     - DrinkWaterMelonJuiceJug
     - Lantern
     - Lantern
-    - ChaplainUndeterminedBible
+    - ChaplainUndeterminedBible # Goobstation
     - CrowbarRed
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - FoodBakedBunHotX
-    - Nullrod
+    - Nullrod # Goobstation
     - Lighter
     - ExecutiveIDCard # Goobstation - Executive Access!
 
@@ -257,13 +266,14 @@
     - DrinkWaterMelonJuiceJug
     - Lantern
     - Lantern
-    - ChaplainUndeterminedBible
+    - ChaplainUndeterminedBible # Goobstation
     - CrowbarRed
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - Lighter
+    - Nullrod # Goobstation
     - ExecutiveIDCard # Goobstation - Executive Access!
 
 # Engineer
@@ -284,6 +294,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTEngineerGear
@@ -361,6 +374,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
 
 - type: startingGear
   id: ERTSecurityGear
@@ -457,6 +473,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTMedicalGear
@@ -479,12 +498,13 @@
     - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
-    - OmnizineChemistryBottle
+    - ChemistryBottleOmnizine
     - JugOxandrolone
     - JugSalicylicAcid
     - ParamedHypo
     - CartridgeAtropine
     - CartridgeAtropine
+    - MedicalBeamGunBattery
 
 - type: startingGear
   id: ERTMedicalGearEVA
@@ -511,6 +531,7 @@
     - ParamedHypo
     - CartridgeAtropine
     - CartridgeAtropine
+    - MedicalBeamGunBattery
 
 # Janitor
 - type: job
@@ -530,6 +551,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant, DeathRattleImplantCentcomm]
 
 - type: startingGear
   id: ERTJanitorGear

@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: HisGrace
+  name: his grace
+  description: An otherworldly entity bound within the confines of a seemingly ordinary toolbox. Feed it, before it feeds on you.
+  parent: [BaseItem, BaseSyndicateContraband]
+  components:
+  - type: HisGrace # easily editable for you YAML warriors
+    hungerOnDevourMultiplier: 0.2
+    tickDelay: 3
+    healing:
+      groups:
+        Brute: -16
+        Burn: -16
+        Airloss: -10
+        Toxin: -10
+    damageOnFail:
+      types:
+        Slash: 300
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: MeleeWeapon
+    heavyStaminaCost: 10
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/hisgrace.rsi
+    layers:
+    - state: icon
+    - state: icon-ascended
+      visible: false
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation/Objects/Weapons/Melee/hisgrace.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+

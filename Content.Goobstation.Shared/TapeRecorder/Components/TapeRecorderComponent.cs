@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -62,7 +64,7 @@ public sealed partial class TapeRecorderComponent : Component
     /// What sound is used when play mode is activated
     /// </summary>
     [DataField]
-    public SoundSpecifier PlaySound = new SoundPathSpecifier("/Audio/DeltaV/Items/TapeRecorder/play.ogg")
+    public SoundSpecifier PlaySound = new SoundPathSpecifier("/Audio/_DV/Items/TapeRecorder/play.ogg")
     {
         Params = AudioParams.Default.WithVolume(-2f).WithMaxDistance(3f)
     };
@@ -71,7 +73,7 @@ public sealed partial class TapeRecorderComponent : Component
     /// What sound is used when stop mode is activated
     /// </summary>
     [DataField]
-    public SoundSpecifier StopSound = new SoundPathSpecifier("/Audio/DeltaV/Items/TapeRecorder/stop.ogg")
+    public SoundSpecifier StopSound = new SoundPathSpecifier("/Audio/_DV/Items/TapeRecorder/stop.ogg")
     {
         Params = AudioParams.Default.WithVolume(-2f).WithMaxDistance(3f)
     };
@@ -80,7 +82,7 @@ public sealed partial class TapeRecorderComponent : Component
     /// What sound is used when rewind mode is activated
     /// </summary>
     [DataField]
-    public SoundSpecifier RewindSound = new SoundPathSpecifier("/Audio/DeltaV/Items/TapeRecorder/rewind.ogg")
+    public SoundSpecifier RewindSound = new SoundPathSpecifier("/Audio/_DV/Items/TapeRecorder/rewind.ogg")
     {
         Params = AudioParams.Default.WithVolume(-2f).WithMaxDistance(3f)
     };

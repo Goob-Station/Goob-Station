@@ -25,7 +25,6 @@
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
 # SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
 # SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
@@ -38,7 +37,6 @@
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 # SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
@@ -55,10 +53,15 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -66,6 +69,7 @@
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -103,12 +107,12 @@
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
   - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
-  - MagazineLightRifleIncendiary
+  # - MagazineLightRifleIncendiary # Goobstation - remove light rifle
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
-  - MagazineBoxLightRifleIncendiary
+  # - MagazineBoxLightRifleIncendiary # Goobstation - remove light rifle
   - MagazineBoxRifleIncendiary
   # Goobstation R&D Console rework start
   position: 2,2
@@ -130,10 +134,11 @@
   - WeaponTemperatureGun # Goobstation
   - WeaponMechCombatFiredartLaser # Goobstation
   - WeaponEnergyIonRifle # Goobstation - CR second energy bolt update(and ion)
+  - PowerCellIonRevolver # Goobstation
   # Goobstation R&D Console rework start
   position: 4,0
   technologyPrerequisites:
-  - WeaponPlasmaRifleTech
+  - WeaponLaserCellRevolverTech
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -171,11 +176,11 @@
   - MagazineRifleUranium
   - MagazinePistolUranium
   - MagazinePistolSubMachineGunUranium
-  - MagazineLightRifleUranium
+  # - MagazineLightRifleUranium # Goobstation - remove light rifle
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
-  - MagazineBoxLightRifleUranium
+  # - MagazineBoxLightRifleUranium # Goobstation - remove light rifle
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
   - MagazineBoxShotgunUraniumHighCaliber # Goobstation
@@ -200,7 +205,6 @@
   - HoloprojectorSecurity
   - WeaponDisablerSMG
   # Goobstation R&D Console rework start
-  - Terminus
   position: 3,3
   technologyPrerequisites:
   - NonlethalAmmunition
@@ -221,6 +225,7 @@
   position: 4,3
   technologyPrerequisites:
   - AdvancedRiotControl
+  - RestraintTechnology
   # Goobstation R&D Console rework end
 
 # Tier 2
@@ -255,6 +260,9 @@
   recipeUnlocks:
   - WeaponXrayCannon
   - HoloprojectorSecurityAdvanced # Goobstation
+  - PowerCellXrayRevolver # Goobstation
+  - PowerCellXraySMG # Goobstation
+  - PowerCellXraySniper # Goobstation
   # Goobstation R&D Console rework start
   technologyPrerequisites:
   - WeaponizedLaserManipulation
@@ -300,6 +308,9 @@
   - PortableRecharger
   - WeaponMechCombatImmolationGun # Goobstation
   - EnergyMagRifleOverchargeLethal # Goobstation - CR second energy bolt update(and ion)
+  - PowerCellOverchargedRevolver # Goobstation
+  - PowerCellOverchargedSMG # Goobstation
+  - PowerCellOverchargedSniper # Goobstation
   # Goobstation R&D Console rework start
   position: 6,0
   technologyPrerequisites:

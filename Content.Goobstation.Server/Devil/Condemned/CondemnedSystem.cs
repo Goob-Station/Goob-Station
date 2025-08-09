@@ -4,10 +4,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Religion;
+using Content.Server.IdentityManagement;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Examine;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Polymorph;
@@ -24,7 +27,6 @@ public sealed partial class CondemnedSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -45,38 +47,39 @@ public sealed partial class CondemnedSystem : EntitySystem
             switch (comp.CurrentPhase)
             {
                 case CondemnedPhase.PentagramActive:
-                    UpdatePentagramPhase(uid, comp, frameTime);
+                    UpdatePentagramPhase(uid, frameTime, comp);
                     break;
                 case CondemnedPhase.HandActive:
-                    UpdateHandPhase(uid, comp, frameTime);
+                    UpdateHandPhase(uid, frameTime, comp);
                     break;
             }
         }
     }
 
-    private void OnStartup(EntityUid uid, CondemnedComponent comp, MapInitEvent args)
+    private void OnStartup(Entity<CondemnedComponent> condemned, ref MapInitEvent args)
     {
-        if (comp.SoulOwnedNotDevil)
+        if (condemned.Comp.SoulOwnedNotDevil)
             return;
 
-        if (HasComp<WeakToHolyComponent>(uid))
-            comp.WasWeakToHoly = true;
+        if (HasComp<WeakToHolyComponent>(condemned))
+            condemned.Comp.WasWeakToHoly = true;
         else
-            EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
+            EnsureComp<WeakToHolyComponent>(condemned).AlwaysTakeHoly = true;
     }
 
-    private void OnRemoved(EntityUid uid, CondemnedComponent comp, ComponentRemove args)
+    private void OnRemoved(Entity<CondemnedComponent> condemned, ref ComponentRemove args)
     {
-        if (comp.SoulOwnedNotDevil)
+        if (condemned.Comp.SoulOwnedNotDevil)
             return;
 
-        if (!comp.WasWeakToHoly)
-            RemComp<WeakToHolyComponent>(uid);
+        if (!condemned.Comp.WasWeakToHoly)
+            RemComp<WeakToHolyComponent>(condemned);
     }
 
-    private void OnMoveAttempt(EntityUid uid, CondemnedComponent comp, ref UpdateCanMoveEvent args)
+    private void OnMoveAttempt(Entity<CondemnedComponent> condemned, ref UpdateCanMoveEvent args)
     {
-        if (!comp.FreezeDuringCondemnation || comp.CurrentPhase != CondemnedPhase.Waiting)
+        if (!condemned.Comp.FreezeDuringCondemnation
+            || condemned.Comp.CurrentPhase != CondemnedPhase.Waiting)
             return;
 
         args.Cancel();
@@ -106,8 +109,11 @@ public sealed partial class CondemnedSystem : EntitySystem
         comp.CondemnedBehavior = behavior;
     }
 
-    private void UpdatePentagramPhase(EntityUid uid, CondemnedComponent comp, float frameTime)
+    private void UpdatePentagramPhase(EntityUid uid, float frameTime, CondemnedComponent? comp = null)
     {
+        if (!Resolve(uid, ref comp))
+            return;
+
         comp.PhaseTimer += frameTime;
 
         if (comp.PhaseTimer < 3f)
@@ -124,20 +130,26 @@ public sealed partial class CondemnedSystem : EntitySystem
         comp.PhaseTimer = 0f;
     }
 
-    private void UpdateHandPhase(EntityUid uid, CondemnedComponent comp, float frameTime)
+    private void UpdateHandPhase(EntityUid uid, float frameTime, CondemnedComponent? comp = null)
     {
+        if (!Resolve(uid, ref comp))
+            return;
+
         comp.PhaseTimer += frameTime;
 
         if (comp.PhaseTimer < comp.HandDuration)
             return;
 
-        TryDoCondemnedBehavior(uid, comp);
+        DoCondemnedBehavior(uid, comp);
 
         comp.CurrentPhase = CondemnedPhase.Complete;
     }
 
-    private void TryDoCondemnedBehavior(EntityUid uid, CondemnedComponent comp)
+    private void DoCondemnedBehavior(EntityUid uid, CondemnedComponent? comp = null)
     {
+        if (!Resolve(uid, ref comp))
+            return;
+
         switch (comp)
         {
             case { CondemnedBehavior: CondemnedBehavior.Delete }:
@@ -148,12 +160,21 @@ public sealed partial class CondemnedSystem : EntitySystem
                 break;
         }
 
-        RemComp(uid, comp);
+        RemCompDeferred(uid, comp);
     }
 
-    private void OnExamined(EntityUid uid, CondemnedComponent comp, ExaminedEvent args)
+    private void OnExamined(Entity<CondemnedComponent> condemned, ref ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !comp.SoulOwnedNotDevil)
-            args.PushMarkup(Loc.GetString("condemned-component-examined", ("target", uid)));
+        if (!args.IsInDetailsRange
+            || condemned.Comp.SoulOwnedNotDevil)
+            return;
+
+        var ev = new IsEyesCoveredCheckEvent();
+        RaiseLocalEvent(condemned, ev);
+
+        if (ev.IsEyesProtected)
+            return;
+
+        args.PushMarkup(Loc.GetString("condemned-component-examined", ("target", Identity.Entity(condemned, EntityManager) )));
     }
 }

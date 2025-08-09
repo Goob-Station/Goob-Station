@@ -285,4 +285,4 @@
         layer:
         - HighImpassable
   - type: Transform
-    noRot: true
+    noRot: false

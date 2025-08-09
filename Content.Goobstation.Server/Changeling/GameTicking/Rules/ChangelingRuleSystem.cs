@@ -4,6 +4,8 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -46,6 +48,8 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
     public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
+
+    public readonly int StartingCurrency = 16;
 
     [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
 
@@ -96,7 +100,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 16);
+        store.Balance.Add(Currency, StartingCurrency);
 
         rule.ChangelingMinds.Add(mindId);
 

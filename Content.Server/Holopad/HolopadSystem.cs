@@ -1,6 +1,15 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -11,10 +20,12 @@ using Content.Server.Speech.Components;
 using Content.Server.Telephone;
 using Content.Shared.Access.Systems;
 using Content.Shared.Audio;
+using Content.Shared.Chat; // Einstein Engines - Language
 using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Holopad;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Labels.Components;
+using Content.Shared.Power;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech;
 using Content.Shared.Telephone;
@@ -80,6 +91,8 @@ public sealed class HolopadSystem : SharedHolopadSystem
         SubscribeLocalEvent<HolopadUserComponent, JumpToCoreEvent>(OnJumpToCore);
         SubscribeLocalEvent<HolopadComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleProjectorVerb);
         SubscribeLocalEvent<HolopadComponent, EntRemovedFromContainerMessage>(OnAiRemove);
+        SubscribeLocalEvent<HolopadComponent, EntParentChangedMessage>(OnParentChanged);
+        SubscribeLocalEvent<HolopadComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
     #region: Holopad UI bound user interface messages
@@ -312,7 +325,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
                 if (receiverHolopad.Comp.Hologram == null)
                     continue;
 
-                _appearanceSystem.SetData(receiverHolopad.Comp.Hologram.Value.Owner, TypingIndicatorVisuals.IsTyping, ev.IsTyping);
+                _appearanceSystem.SetData(receiverHolopad.Comp.Hologram.Value.Owner, TypingIndicatorVisuals.State, ev.State);
             }
         }
     }
@@ -438,6 +451,17 @@ public sealed class HolopadSystem : SharedHolopadSystem
         _telephoneSystem.EndTelephoneCalls((entity, entityTelephone));
     }
 
+    private void OnParentChanged(Entity<HolopadComponent> entity, ref EntParentChangedMessage args)
+    {
+        UpdateHolopadControlLockoutStartTime(entity);
+    }
+
+    private void OnPowerChanged(Entity<HolopadComponent> entity, ref PowerChangedEvent args)
+    {
+        if (args.Powered)
+            UpdateHolopadControlLockoutStartTime(entity);
+    }
+
     #endregion
 
     public override void Update(float frameTime)
@@ -446,23 +470,25 @@ public sealed class HolopadSystem : SharedHolopadSystem
 
         _updateTimer += frameTime;
 
-        if (_updateTimer >= UpdateTime)
+        // <Goobstation> - update timer fix ported from EE at e1d701bee25e124ee0e7a9390b46300fc044761f (https://github.com/Simple-Station/Einstein-Engines/pull/2470)
+        if (_updateTimer < UpdateTime)
+            return;
+
+        _updateTimer = 0f;
+
+        var query = AllEntityQuery<HolopadComponent, TelephoneComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var holopad, out var telephone, out var xform))
         {
-            _updateTimer -= UpdateTime;
+            UpdateUIState((uid, holopad), telephone);
 
-            var query = AllEntityQuery<HolopadComponent, TelephoneComponent, TransformComponent>();
-            while (query.MoveNext(out var uid, out var holopad, out var telephone, out var xform))
+            if (holopad.User != null &&
+                !HasComp<IgnoreUIRangeComponent>(holopad.User) &&
+                !_xformSystem.InRange((holopad.User.Value, Transform(holopad.User.Value)), (uid, xform), telephone.ListeningRange))
             {
-                UpdateUIState((uid, holopad), telephone);
-
-                if (holopad.User != null &&
-                    !HasComp<IgnoreUIRangeComponent>(holopad.User) &&
-                    !_xformSystem.InRange((holopad.User.Value, Transform(holopad.User.Value)), (uid, xform), telephone.ListeningRange))
-                {
-                    UnlinkHolopadFromUser((uid, holopad), holopad.User.Value);
-                }
+                UnlinkHolopadFromUser((uid, holopad), holopad.User.Value);
             }
         }
+        // </Goobstation>
     }
 
     public void UpdateUIState(Entity<HolopadComponent> entity, TelephoneComponent? telephone = null)
@@ -552,7 +578,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
             entity.Comp.User = (user.Value, holopadUser);
         }
 
-        // Add the new user to PVS and sync their appearance with any 
+        // Add the new user to PVS and sync their appearance with any
         // holopads connected to the one they are using
         _pvs.AddGlobalOverride(user.Value);
         SyncHolopadHologramAppearanceWithTarget(entity, entity.Comp.User);
@@ -583,7 +609,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
                 continue;
 
             if (user == null)
-                _appearanceSystem.SetData(linkedHolopad.Comp.Hologram.Value.Owner, TypingIndicatorVisuals.IsTyping, false);
+                _appearanceSystem.SetData(linkedHolopad.Comp.Hologram.Value.Owner, TypingIndicatorVisuals.State, false);
 
             linkedHolopad.Comp.Hologram.Value.Comp.LinkedEntity = user;
             Dirty(linkedHolopad.Comp.Hologram.Value);
@@ -684,11 +710,10 @@ public sealed class HolopadSystem : SharedHolopadSystem
         _telephoneSystem.TerminateTelephoneCalls(sourceTelephoneEntity);
 
         // Find all holopads in range of the source
-        var sourceXform = Transform(source);
         var receivers = new HashSet<Entity<TelephoneComponent>>();
 
-        var query = AllEntityQuery<HolopadComponent, TelephoneComponent, TransformComponent>();
-        while (query.MoveNext(out var receiver, out var receiverHolopad, out var receiverTelephone, out var receiverXform))
+        var query = AllEntityQuery<HolopadComponent, TelephoneComponent>();
+        while (query.MoveNext(out var receiver, out var receiverHolopad, out var receiverTelephone))
         {
             var receiverTelephoneEntity = new Entity<TelephoneComponent>(receiver, receiverTelephone);
 
@@ -749,6 +774,33 @@ public sealed class HolopadSystem : SharedHolopadSystem
         }
 
         return linkedHolopads;
+    }
+
+    private void UpdateHolopadControlLockoutStartTime(Entity<HolopadComponent> source)
+    {
+        if (!TryComp<TelephoneComponent>(source, out var sourceTelephone))
+            return;
+
+        var sourceTelephoneEntity = new Entity<TelephoneComponent>(source, sourceTelephone);
+        var isDirty = false;
+
+        var query = AllEntityQuery<HolopadComponent, TelephoneComponent>();
+        while (query.MoveNext(out var receiver, out var receiverHolopad, out var receiverTelephone))
+        {
+            var receiverTelephoneEntity = new Entity<TelephoneComponent>(receiver, receiverTelephone);
+
+            if (!_telephoneSystem.IsSourceInRangeOfReceiver(sourceTelephoneEntity, receiverTelephoneEntity))
+                continue;
+
+            if (receiverHolopad.ControlLockoutStartTime > source.Comp.ControlLockoutStartTime)
+            {
+                source.Comp.ControlLockoutStartTime = receiverHolopad.ControlLockoutStartTime;
+                isDirty = true;
+            }
+        }
+
+        if (isDirty)
+            Dirty(source);
     }
 
     private void SetHolopadAmbientState(Entity<HolopadComponent> entity, bool isEnabled)

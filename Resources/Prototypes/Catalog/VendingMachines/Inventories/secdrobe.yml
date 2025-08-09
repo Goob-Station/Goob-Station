@@ -21,8 +21,13 @@
 # SPDX-FileCopyrightText: 2024 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -38,6 +43,7 @@
     ClothingHeadHatBeretSecurity: 3
     ClothingHeadHatSecsoft: 3
     ClothingHeadBandRed: 3
+    ClothingHeadHatBeretBrigmedic: 1 # Goobstation
     SurveillanceWirelessCameraBodySecurity: 5 # Goobstation
     ClothingMaskNeckGaiterRed: 3
     ClothingHandsGlovesColorBlack: 3
@@ -46,19 +52,25 @@
     ClothingUniformJumpsuitSecGrey: 3
     ClothingUniformJumpskirtSecGrey: 3
     ClothingUniformJumpsuitSecBlue: 3
+    ClothingUniformJumpsuitBrigmedic: 1 # Goobstation
+    ClothingUniformJumpskirtBrigmedic: 1 # Goobstation
     ClothingHeadsetAltSecurityRegular: 3 # Goobstation
     ClothingOuterWinterSec: 2
+    ClothingOuterWinterSecArmored : 2 # Goobstation
     ClothingOuterArmorBasic: 2
+    ClothingOuterCoatAMG: 1 # Goobstation
     ClothingNeckScarfStripedRed: 3
     ClothingOuterArmorBasicSlim: 2
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2
+    ClothingShoesWinterCombatBoots : 2 # Goobstation
     ClothingHeadHelmetJustice: 1
     ClothingHeadHelmetBasic: 2
     ClothingHeadHelmetBasicAlt: 2
   contrabandInventory:
     ClothingMaskClownSecurity: 1
     ToyFigurineSecurity: 1
+    ToyFigurineBrigmedic: 1 # Goobstation
     ToyFigurineWarden: 1
     ToyFigurineHeadOfSecurity: 1

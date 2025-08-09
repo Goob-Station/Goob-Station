@@ -14,12 +14,17 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 nikitosych <boriszyn@gmail.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -64,11 +69,11 @@ public sealed partial class StaminaComponent : Component
     public float CritThreshold = 100f;
 
     /// <summary>
-    /// A dictionary of active stamina drains, with the key being the source of the drain,
+    /// Goob Edit: A dictionary of active stamina drains, with the key being the source of the drain,
     /// DrainRate how much it changes per tick, and ModifiesSpeed if it should slow down the user.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<EntityUid, (float DrainRate, bool ModifiesSpeed)> ActiveDrains = new();
+    public Dictionary<string, (float DrainRate, bool ModifiesSpeed, NetEntity? Source)> ActiveDrains = new();
 
     /// <summary>
     /// How long will this mob be stunned for?
@@ -86,6 +91,25 @@ public sealed partial class StaminaComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> StaminaAlert = "Stamina";
 
+    // Goobstation
     [DataField]
     public float StaminaOnShove = 7.5f;
+
+    /// <summary>
+    /// This flag indicates whether the value of <see cref="StaminaDamage"/> decreases after the entity exits stamina crit.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool AfterCritical;
+
+    /// <summary>
+    /// This float determines how fast stamina will regenerate after exiting the stamina crit.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float AfterCritDecayMultiplier = 5f;
+
+    /// <summary>
+    /// Thresholds that determine an entity's slowdown as a function of stamina damage.
+    /// </summary>
+    [DataField]
+    public Dictionary<FixedPoint2, float> StunModifierThresholds = new() { {0, 1f }, { 60, 0.7f }, { 80, 0.5f } };
 }

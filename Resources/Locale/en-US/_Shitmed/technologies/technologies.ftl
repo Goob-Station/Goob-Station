@@ -6,4 +6,5 @@
 
 research-technology-advanced-treatment = Advanced Treatment
 research-technology-high-end-surgery = High End Surgical Tools
-research-technology-cybernetic-enhancements = Cybernetic Enhancements
+research-technology-basic-cybernetics = Basic Cybernetic Enhancements
+research-technology-advanced-cybernetics = Advanced Cybernetic Enhancements

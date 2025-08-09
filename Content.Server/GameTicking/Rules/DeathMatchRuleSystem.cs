@@ -16,6 +16,8 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -76,7 +78,7 @@ public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponen
             var mob = mobMaybe!.Value;
 
             _mind.TransferTo(newMind, mob);
-            SetOutfitCommand.SetOutfit(mob, dm.Gear, EntityManager);
+            SetOutfitCommand.SetOutfit(mob, dm.Gear, false, EntityManager); // Goobstation
             EnsureComp<KillTrackerComponent>(mob);
             _respawn.AddToTracker(ev.Player.UserId, (uid, tracker));
 

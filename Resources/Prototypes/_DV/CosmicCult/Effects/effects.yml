@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   categories: [ HideSpawnMenu ]
   id: WeaponArcCosmic
@@ -56,14 +62,12 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   id: BaseCosmicVFX
-  placement:
-    mode: SnapgridCenter
   components:
   - type: TimedDespawn
     lifetime: 1.75
   - type: Transform
     noRot: true
-    anchored: true
+    anchored: false
   - type: Sprite
     netsync: false
     drawdepth: Mobs
@@ -287,3 +291,63 @@
     energy: 1.6
     castShadows: false
     color: "#42a4ae"
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: NoosphericVFX2
+  components:
+  - type: TimedDespawn
+    lifetime: 2.025
+  - type: Sprite
+    layers:
+    - sprite: _DV/CosmicCult/Effects/effect_ns_flarevfx.rsi
+      state: vfx
+      shader: unshaded
+  - type: PointLight
+    color: "#a35d7b"
+    radius: 1.5
+    energy: 2.5
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.575
+      maxDuration: 1.575
+      startValue: 0.1
+      endValue: 2
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCosmicVFX
+  id: NoosphericVFX1
+  components:
+  - type: TimedDespawn
+    lifetime: 2.025
+  - type: Sprite
+    layers:
+    - sprite: _DV/CosmicCult/Effects/effect_ns_reboundvfx.rsi
+      state: vfx
+      shader: unshaded
+  - type: PointLight
+    color: "#a35d7b"
+    radius: 1.5
+    energy: 2.5
+    castShadows: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      interpolate: Linear
+      minDuration: 1.125
+      maxDuration: 1.125
+      startValue: 0.1
+      endValue: 2
+      property: Energy
+      enabled: true
+      isLooped: true
+      reverseWhenFinished: true

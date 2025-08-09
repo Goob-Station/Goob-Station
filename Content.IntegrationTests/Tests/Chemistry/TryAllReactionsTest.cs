@@ -82,7 +82,32 @@ namespace Content.IntegrationTests.Tests.Chemistry
                         Assert.That(reactant.Amount, Is.EqualTo(quantity));
 #pragma warning restore NUnit2045
                     }
+                    // Goobstation - this part of the test disallows many interesting temperature dependent chemical reactions
+                    /*
+                    //Get all possible reactions with the current reagents
+                    var possibleReactions = prototypeManager.EnumeratePrototypes<ReactionPrototype>()
+                        .Where(x => x.Reactants.All(id => solution.Contents.Any(s => s.Reagent.Prototype == id.Key)))
+                        .ToList();
 
+                    //Check if the reaction is the first to occur when heated
+                    foreach (var possibleReaction in possibleReactions.OrderBy(r => r.MinimumTemperature))
+                    {
+                        if (possibleReaction.MinimumTemperature < reactionPrototype.MinimumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
+                        {
+                            Assert.Fail($"The {possibleReaction.ID} reaction may occur before {reactionPrototype.ID} when heated.");
+                        }
+                    }
+
+                    //Check if the reaction is the first to occur when freezing
+                    foreach (var possibleReaction in possibleReactions.OrderBy(r => r.MaximumTemperature))
+                    {
+                        if (possibleReaction.MaximumTemperature > reactionPrototype.MaximumTemperature && possibleReaction.MixingCategories == reactionPrototype.MixingCategories)
+                        {
+                            Assert.Fail($"The {possibleReaction.ID} reaction may occur before {reactionPrototype.ID} when freezing.");
+                        }
+                    }
+                    */
+                    //Now safe set the temperature and mix the reagents
                     solutionContainerSystem.SetTemperature(solutionEnt.Value, reactionPrototype.MinimumTemperature);
 
                     if (reactionPrototype.MixingCategories != null)

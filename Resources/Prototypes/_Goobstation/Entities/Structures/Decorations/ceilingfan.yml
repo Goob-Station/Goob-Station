@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CeilingFan
+  parent: BaseStructure
+  name: ceiling fan
+  description: An antiquated method of cooling the room, but it sure has a charm to it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Goobstation/Structures/Decoration/ceilingfan.rsi
+    state: ceilingfan
+    drawdepth: OverMobs
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -1
+    range: 6
+    sound:
+      path: /Audio/_Goobstation/Ambience/fan_drone.ogg

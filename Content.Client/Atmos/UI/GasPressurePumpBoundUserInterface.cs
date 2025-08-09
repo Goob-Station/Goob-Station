@@ -6,8 +6,11 @@
 // SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -24,17 +27,10 @@ namespace Content.Client.Atmos.UI;
 /// Initializes a <see cref="GasPressurePumpWindow"/> and updates it when new server messages are received.
 /// </summary>
 [UsedImplicitly]
-public sealed class GasPressurePumpBoundUserInterface : BoundUserInterface
+public sealed class GasPressurePumpBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [ViewVariables]
-    private const float MaxPressure = Atmospherics.MaxOutputPressure;
-
-    [ViewVariables]
     private GasPressurePumpWindow? _window;
-
-    public GasPressurePumpBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-    {
-    }
 
     protected override void Open()
     {
@@ -47,7 +43,7 @@ public sealed class GasPressurePumpBoundUserInterface : BoundUserInterface
         Update();
     }
 
-    public void Update()
+    public override void Update()
     {
         if (_window == null)
             return;
@@ -64,7 +60,9 @@ public sealed class GasPressurePumpBoundUserInterface : BoundUserInterface
 
     private void OnToggleStatusButtonPressed()
     {
-        if (_window is null) return;
+        if (_window is null)
+            return;
+
         SendPredictedMessage(new GasPressurePumpToggleStatusMessage(_window.PumpStatus));
     }
 

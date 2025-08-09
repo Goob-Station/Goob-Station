@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["experimentalsyndicateteleport.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Taken from White Dream"
+  source: "https://github.com/frosty-dev/ss14-core/blob/master/Resources/Audio/White/Devices/expsyndicateteleport.ogg"

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109",
+  "copyright": "From tgstation - https://github.com/tgstation/tgstation/pull/59109 - resomi edit by Marty using basehardsuit files",
   "size": {
     "x": 32,
     "y": 32
@@ -19,6 +19,14 @@
 		},
 		{
 			"name": "equipped-OUTERCLOTHING-sealed",
+			"directions": 4
+		},
+    {
+			"name": "equipped-OUTERCLOTHING-resomi",
+			"directions": 4
+		},
+		{
+			"name": "equipped-OUTERCLOTHING-sealed-resomi",
 			"directions": 4
 		}
   ]

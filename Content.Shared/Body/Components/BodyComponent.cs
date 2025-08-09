@@ -7,16 +7,22 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Body.Systems;
+using Content.Shared._Shitmed.Body;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using System; // Goobstation
 
 namespace Content.Shared.Body.Components;
 
@@ -59,4 +65,15 @@ public sealed partial class BodyComponent : Component
     [DataField, AutoNetworkedField]
     public bool ThermalVisibility = true;
     // WD EDIT END
+
+    // Shitmed Change - Fuck borgs.
+    [DataField]
+    public BodyType BodyType = BodyType.Complex;
+
+    // Goobstation
+    /// <summary>
+    /// When should  wounds on this be healed.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField, Access(Other = AccessPermissions.ReadWrite)]
+    public TimeSpan HealAt;
 }

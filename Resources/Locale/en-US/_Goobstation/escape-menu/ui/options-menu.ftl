@@ -9,3 +9,5 @@ ui-options-highlights-color-example = This is an highlighted text!
 ui-options-function-resist-grab = Resist Grab
 ui-options-coalesce-identical-messages = Coalesce identical messages in chat
 ui-options-detailed-examine = Show detailed examine text
+
+ui-options-hud-theme-coscult = Cosmic Cult

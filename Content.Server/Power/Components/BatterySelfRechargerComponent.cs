@@ -7,6 +7,9 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -42,5 +45,11 @@ namespace Content.Server.Power.Components
         /// Do not auto recharge if this timestamp has yet to happen, set for the auto recharge pause system.
         /// </summary>
         [DataField] public TimeSpan NextAutoRecharge = TimeSpan.FromSeconds(0f);
+
+        // Goobstation
+        /// <summary>
+        /// Whether to disable recharging when EMPed for the EMP's specified duration.
+        /// </summary>
+        [DataField] public bool CanEmp = false;
     }
 }

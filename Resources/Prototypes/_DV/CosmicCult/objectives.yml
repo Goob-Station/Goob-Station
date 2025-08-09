@@ -8,8 +8,7 @@
     issuer: objective-issuer-cosmiccult
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - CosmicCultRole
+    - CosmicCultRole
 
 ############################### COSMIC CULT'S OBJECTIVES
 
@@ -71,8 +70,7 @@
     issuer: rogue-ascended-objective-issuer
   - type: RoleRequirement
     roles:
-      mindRoles:
-      - RogueAscendedRole
+    - RogueAscendedRole
 
 - type: entity
   parent: BaseRogueAscendedObjective

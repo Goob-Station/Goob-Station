@@ -7,25 +7,30 @@
 - type: body
   id: Abductor
   name: Abductor
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadAbductor
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganAbductorBrain
         eyes: OrganAbductorEyes
-    torso:
-      part: TorsoAbductor
+    chest:
+      part: ChestAbductor
       connections:
+      - groin
       - right arm
       - left arm
-      - right leg
-      - left leg
       organs:
         heart: OrganAbductorHeart
         lungs: OrganAbductorLungs
+    groin:
+      part: GroinAbductor
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganAbductorStomach
         liver: OrganAbductorLiver
         kidneys: OrganAbductorKidneys

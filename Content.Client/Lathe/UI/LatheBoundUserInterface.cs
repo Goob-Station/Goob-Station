@@ -26,6 +26,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Soup-Byte07 <soupbyte30@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -41,6 +42,7 @@
 
 using Content.Shared._DV.Salvage; // DeltaV
 using Content.Shared.Lathe;
+using Content.Goobstation.Shared.Lathe; // Goobstation
 using Content.Shared.Research.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
@@ -67,6 +69,7 @@ namespace Content.Client.Lathe.UI
             {
                 SendMessage(new ConsoleServerSelectionMessage());
             };
+            _menu.OnResetQueueListButtonPressed += _ => SendMessage(new LatheQueueResetMessage()); // Goobstation
 
             _menu.RecipeQueueAction += (recipe, amount) =>
             {

@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Electrocution;
 using Content.Shared.Explosion;

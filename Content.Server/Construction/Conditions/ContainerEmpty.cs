@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 // SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
 // SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
@@ -55,8 +55,9 @@ namespace Content.Server.Construction.Conditions
 
             var entity = args.Examined;
 
-            if (!IoCManager.Resolve<IEntityManager>().TryGetComponent(entity, out ContainerManagerComponent? containerManager) ||
-                !containerManager.TryGetContainer(Container, out var container)) return false;
+            var entityManager = IoCManager.Resolve<IEntityManager>();
+            if (!entityManager.TryGetComponent(entity, out ContainerManagerComponent? containerManager) ||
+                !entityManager.System<SharedContainerSystem>().TryGetContainer(entity, Container, out var container, containerManager)) return false;
 
             if (container.ContainedEntities.Count == 0)
                 return false;

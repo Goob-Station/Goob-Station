@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Parallax.Biomes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Procedural.Loot;
@@ -14,6 +15,6 @@ namespace Content.Shared.Procedural.Loot;
 /// </summary>
 public sealed partial class BiomeTemplateLoot : IDungeonLoot
 {
-    [DataField("proto", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<BiomeTemplatePrototype>))]
-    public string Prototype = string.Empty;
+    [DataField("proto", required: true)]
+    public ProtoId<BiomeTemplatePrototype> Prototype = string.Empty;
 }

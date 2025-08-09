@@ -1,52 +1,32 @@
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
 # SPDX-FileCopyrightText: 2022 Neith <95721684+Phantom-Lily@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-# SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
 # SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Grid
+  engineVersion: 251.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 06/02/2025 19:19:59
+  entityCount: 167
+maps: []
+grids:
+- 1
+orphans:
+- 1
+nullspace: []
 tilemap:
   0: Space
   110: FloorWhiteDiagonalMini
@@ -65,7 +45,7 @@ entities:
       name: NT-Briggle
     - type: Transform
       pos: -0.5104167,-0.625
-
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -169,6 +149,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -193,7 +177,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -347.64847
+      secondsUntilStateChange: -452.78085
       state: Opening
 - proto: AirlockSecurityGlassLocked
   entities:
@@ -385,13 +369,30 @@ entities:
     - type: Transform
       pos: 2.5,-8.5
       parent: 1
-- proto: CableMV
+- proto: CableHVUncuttable
   entities:
-  - uid: 51
+  - uid: 60
     components:
     - type: Transform
       pos: 1.5,-8.5
       parent: 1
+  - uid: 61
+    components:
+    - type: Transform
+      pos: 0.5,-8.5
+      parent: 1
+  - uid: 150
+    components:
+    - type: Transform
+      pos: -0.5,-8.5
+      parent: 1
+  - uid: 167
+    components:
+    - type: Transform
+      pos: -0.5,-9.5
+      parent: 1
+- proto: CableMV
+  entities:
   - uid: 52
     components:
     - type: Transform
@@ -406,6 +407,19 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-7.5
+      parent: 1
+  - uid: 58
+    components:
+    - type: Transform
+      pos: -0.5,-9.5
+      parent: 1
+- proto: CableTerminalUncuttable
+  entities:
+  - uid: 59
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,-8.5
       parent: 1
 - proto: Chair
   entities:
@@ -460,48 +474,6 @@ entities:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
-- proto: CrateGenericSteel
-  entities:
-  - uid: 56
-    components:
-    - type: Transform
-      anchored: True
-      pos: -0.5,-8.5
-      parent: 1
-    - type: Physics
-      bodyType: Static
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 61
-          - 60
-          - 59
-          - 58
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: DisposalBend
   entities:
   - uid: 106
@@ -585,15 +557,6 @@ entities:
     - type: Transform
       pos: 1.5,-0.5
       parent: 1
-- proto: FlashlightSeclite
-  entities:
-  - uid: 58
-    components:
-    - type: Transform
-      parent: 56
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: GasPassiveVent
   entities:
   - uid: 94
@@ -754,6 +717,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,-4.5
       parent: 1
+- proto: GeneratorBasic15kW
+  entities:
+  - uid: 41
+    components:
+    - type: Transform
+      pos: 1.5,-8.5
+      parent: 1
 - proto: GravityGeneratorMini
   entities:
   - uid: 97
@@ -761,8 +731,6 @@ entities:
     - type: Transform
       pos: 1.5,0.5
       parent: 1
-    - type: GravityGenerator
-      chargeRate: 0.2
 - proto: Grille
   entities:
   - uid: 119
@@ -843,38 +811,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.5,0.5
       parent: 1
-- proto: Paper
-  entities:
-  - uid: 150
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.49200684,-8.508412
-      parent: 1
-    - type: Paper
-      content: >2-
-
-        Jim,
-
-
-        I left you some plasma for the generator on the Briggle.
-
-        Don't forget to retool it for medium voltage, and I swear to god, if you run out of power in the middle of nowhere and I have to ask the QM to come save you one more time I'm going to blow a gasket.
-
-
-        The dock's containment field works again, but I had the intern set it up, so you might want to double check that he turned the containment generators on.
-
-
-        Try not to let the Briggle get banged up this time okay? Body work isn't cheap.
-
-
-        Best,
-
-        --
-
-        Glip Glorp,
-
-        NanoTrasen Motorpool Division
 - proto: PlushieRouny
   entities:
   - uid: 83
@@ -883,16 +819,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -0.53599805,-6.526394
       parent: 1
-- proto: PortableGeneratorPacman
-  entities:
-  - uid: 41
-    components:
-    - type: Transform
-      anchored: True
-      pos: 1.5,-8.5
-      parent: 1
-    - type: Physics
-      bodyType: Static
 - proto: Poweredlight
   entities:
   - uid: 143
@@ -931,31 +857,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-0.5
       parent: 1
-- proto: RadioHandheld
-  entities:
-  - uid: 61
-    components:
-    - type: Transform
-      parent: 56
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: SheetPlasma
-  entities:
-  - uid: 59
-    components:
-    - type: Transform
-      parent: 56
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 60
-    components:
-    - type: Transform
-      parent: 56
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ShuttleWindow
   entities:
   - uid: 2
@@ -1051,6 +952,21 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-7.5
+      parent: 1
+- proto: SMESBasic
+  entities:
+  - uid: 56
+    components:
+    - type: Transform
+      pos: -0.5,-8.5
+      parent: 1
+- proto: SubstationWallBasic
+  entities:
+  - uid: 51
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-9.5
       parent: 1
 - proto: Thruster
   entities:

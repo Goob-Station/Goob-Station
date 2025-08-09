@@ -60,8 +60,6 @@ public sealed partial class AtmosphereSystem
 
     private void OnGridAtmosphereInit(EntityUid uid, GridAtmosphereComponent component, ComponentInit args)
     {
-        base.Initialize();
-
         EnsureComp<GasTileOverlayComponent>(uid);
         foreach (var tile in component.Tiles.Values)
         {

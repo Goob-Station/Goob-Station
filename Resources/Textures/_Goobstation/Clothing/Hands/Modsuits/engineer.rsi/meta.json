@@ -20,6 +20,14 @@
 		{
 			"name": "equipped-HAND-sealed",
 			"directions": 4
+		},
+    		{
+			"name": "equipped-HAND-resomi",
+			"directions": 4
+		},
+		{
+			"name": "equipped-HAND-sealed-resomi",
+			"directions": 4
 		}
   ]
 }

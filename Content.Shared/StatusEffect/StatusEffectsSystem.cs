@@ -36,7 +36,6 @@ namespace Content.Shared.StatusEffect
     public sealed class StatusEffectsSystem : EntitySystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
         private List<EntityUid> _toRemove = new();
@@ -144,7 +143,7 @@ namespace Content.Shared.StatusEffect
                 return true;
 
             EntityManager.AddComponent<T>(uid);
-            status.ActiveEffects[key].RelevantComponent = _componentFactory.GetComponentName<T>();
+            status.ActiveEffects[key].RelevantComponent = Factory.GetComponentName<T>();
             return true;
 
         }
@@ -168,7 +167,7 @@ namespace Content.Shared.StatusEffect
 
             // If we already have this component, overwrite it, since new component could have diffrent data
             EntityManager.AddComponent(uid, component, true);
-            status.ActiveEffects[key].RelevantComponent = _componentFactory.GetComponentName(component.GetType());
+            status.ActiveEffects[key].RelevantComponent = Factory.GetComponentName(component.GetType());
 
             return true;
         }
@@ -182,9 +181,9 @@ namespace Content.Shared.StatusEffect
             if (TryAddStatusEffect(uid, key, time, refresh, status))
             {
                 // If they already have the comp, we just won't bother updating anything.
-                if (!EntityManager.HasComponent(uid, _componentFactory.GetRegistration(component).Type))
+                if (!EntityManager.HasComponent(uid, Factory.GetRegistration(component).Type))
                 {
-                    var newComponent = (Component) _componentFactory.GetComponent(component);
+                    var newComponent = (Component) Factory.GetComponent(component);
                     EntityManager.AddComponent(uid, newComponent);
                     status.ActiveEffects[key].RelevantComponent = component;
                 }
@@ -320,7 +319,7 @@ namespace Content.Shared.StatusEffect
             // There are cases where a status effect component might be server-only, so TryGetRegistration...
             if (remComp
                 && state.RelevantComponent != null
-                && _componentFactory.TryGetRegistration(state.RelevantComponent, out var registration))
+                && Factory.TryGetRegistration(state.RelevantComponent, out var registration))
             {
                 var type = registration.Type;
                 EntityManager.RemoveComponent(uid, type);

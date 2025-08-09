@@ -4,8 +4,8 @@
 # SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
 # SPDX-FileCopyrightText: 2020 Injazz <injazza@gmail.com>
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 # SPDX-FileCopyrightText: 2021 Caj Jones <dellevelled@yahoo.com>
 # SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
@@ -112,11 +112,32 @@
     sprite: Structures/smalldispensers.rsi
     drawdepth: SmallObjects
     state: soda
-  - type: ReagentDispenser
-    storageWhitelist:
+  - type: Storage
+    openOnActivate: false
+    whitelist:
       tags:
       - DrinkBottle
-    pack: SodaDispenserInventory
+  - type: StorageFill
+    contents:
+    - id: DrinkCoconutWaterJug
+    - id: DrinkCoffeeJug
+    - id: DrinkColaBottleFull
+    - id: DrinkCreamCartonXL
+    - id: DrinkDrGibbJug
+    - id: DrinkEnergyDrinkJug
+    - id: DrinkGreenTeaJug
+    - id: DrinkIceJug
+    - id: DrinkJuiceLimeCartonXL
+    - id: DrinkJuiceOrangeCartonXL
+    - id: DrinkLemonLimeJug
+    - id: DrinkRootBeerJug
+    - id: DrinkSodaWaterBottleFull
+    - id: DrinkSpaceMountainWindBottleFull
+    - id: DrinkSpaceUpBottleFull
+    - id: DrinkSugarJug
+    - id: DrinkTeaJug
+    - id: DrinkTonicWaterBottleFull
+    - id: DrinkWaterMelonJuiceJug
   - type: Transform
     noRot: false
   - type: Machine
@@ -130,9 +151,3 @@
   parent: SodaDispenser
   id: SodaDispenserEmpty
   suffix: Empty
-  components:
-  - type: ReagentDispenser
-    storageWhitelist:
-      tags:
-      - DrinkBottle
-    pack: EmptyInventory

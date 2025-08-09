@@ -26,6 +26,7 @@ using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Collections;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -40,6 +41,8 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> HardsuitTag = "Hardsuit";
 
     public override void Initialize()
     {

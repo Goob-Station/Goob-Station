@@ -38,6 +38,13 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Eris <eris@erisws.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -196,6 +203,19 @@
   components:
   - type: Sprite
     sprite: Structures/Power/recharger.rsi
+    layers:
+    # WWDP Edit begin
+    - map: ["enum.PowerChargerVisualLayers.Base"]
+      state: "empty"
+    - map: ["enum.PowerChargerVisualLayers.Light"]
+      state: "light-off"
+      shader: "unshaded"
+    - map: ["enum.PowerChargerVisualLayers.ItemDisplay"]
+      shader: "FlickerHologram"
+      color: "#ffffffaa"
+      offset: 0,0.45
+      scale: 0.5,0.5
+    # WWDP Edit end
   - type: Machine
     board: WeaponCapacitorRechargerCircuitboard
   # no powercellslot since stun baton etc arent powercells
@@ -208,11 +228,17 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
-        blacklist:  # Goobstation
+        # Goobstation
+          tags:
+          - FitsInCharger
+        blacklist:
           tags:
           - WizardWand
           components:
           - MaterialEnergy
+  - type: ItemSlotRenderer # WWDP
+    mapping:
+      charger_slot: enum.PowerChargerVisualLayers.ItemDisplay
 
 - type: entity
   parent: BaseItemRecharger
@@ -222,6 +248,19 @@
   components:
   - type: Sprite
     sprite: Structures/Power/turbo_recharger.rsi
+    layers:
+    # WWDP Edit begin
+    - map: ["enum.PowerChargerVisualLayers.Base"]
+      state: "empty"
+    - map: ["enum.PowerChargerVisualLayers.Light"]
+      state: "light-off"
+      shader: "unshaded"
+    - map: ["enum.PowerChargerVisualLayers.ItemDisplay"]
+      shader: "FlickerHologram"
+      color: "#ffffffaa"
+      offset: 0,0.45
+      scale: 0.5,0.5
+    # WWDP Edit end
   - type: Machine
     board: TurboItemRechargerCircuitboard
   - type: Charger
@@ -242,6 +281,9 @@
           - WizardWand # Goobstation
           components:  # Goobstation
           - MaterialEnergy
+  - type: ItemSlotRenderer # WWDP
+    mapping:
+      charger_slot: enum.PowerChargerVisualLayers.ItemDisplay
 
 - type: entity
   parent: BaseItemRecharger
@@ -256,6 +298,13 @@
     - map: ["enum.PowerChargerVisualLayers.Light"]
       state: "light-off"
       shader: "unshaded"
+      # WWDP Edit begin
+    - map: ["enum.PowerChargerVisualLayers.ItemDisplay"]
+      shader: "FlickerHologram"
+      color: "#ffffffaa"
+      offset: 0,0.45
+      scale: 0.5,0.5
+      # WWDP Edit end
   - type: WallMount
   - type: Charger
     chargeRate: 25
@@ -271,6 +320,9 @@
         blacklist:  # Goobstation
           tags:
           - WizardWand
+  - type: ItemSlotRenderer # WWDP
+    mapping:
+      charger_slot: enum.PowerChargerVisualLayers.ItemDisplay
 
 - type: entity
   parent: BaseRecharger
@@ -344,6 +396,7 @@
     whitelist:
       components:
       - BorgChassis
+      - Silicon #Goobstation, allows IPCs to use cyborg chargers
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -36,7 +37,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Lavaland.Audio;
 
-public sealed class BossMusicSystem : EntitySystem
+public sealed class BossMusicSystem : SharedBossMusicSystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
@@ -58,16 +59,13 @@ public sealed class BossMusicSystem : EntitySystem
     private readonly List<EntityUid> _fadeToRemove = new();
 
     private const float MinVolume = -32f;
-    private const float DefaultDuration = 2f;
+    private const float DefaultDuration = 1f;
 
     public override void Initialize()
     {
         base.Initialize();
 
         Subs.CVar(_configManager, CCVars.LobbyMusicVolume, BossVolumeCVarChanged, true);
-
-        SubscribeNetworkEvent<BossMusicStartupEvent>(OnBossInit);
-        SubscribeNetworkEvent<BossMusicStopEvent>(OnBossDefeated);
 
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnMindRemoved);
         SubscribeLocalEvent<ActorComponent, MobStateChangedEvent>(OnPlayerDeath);
@@ -95,39 +93,48 @@ public sealed class BossMusicSystem : EntitySystem
     {
         _volumeSlider = SharedAudioSystem.GainToVolume(obj);
 
-        if (_bossMusicStream != null && _musicProto != null)
-        {
+        if (_bossMusicStream != null
+            && _musicProto != null)
             _audio.SetVolume(_bossMusicStream, _musicProto.Sound.Params.Volume + _volumeSlider);
-        }
     }
 
-    private void OnBossInit(BossMusicStartupEvent args)
+    public override void StartBossMusic(ProtoId<BossMusicPrototype> music)
     {
         if (_musicProto != null || _bossMusicStream != null)
             return;
 
         _audioContent.DisableAmbientMusic();
 
-        var sound = _proto.Index(args.MusicId);
+        var sound = _proto.Index(music);
         _musicProto = sound;
 
-        var strim = _audio.PlayGlobal(
+        var stream = _audio.PlayGlobal(
             sound.Sound,
             Filter.Local(),
             false,
             AudioParams.Default.WithVolume(sound.Sound.Params.Volume + _volumeSlider).WithLoop(true));
 
-
-        if (_musicProto.FadeIn && strim != null)
+        if (_musicProto.FadeIn
+            && stream != null)
         {
-            _bossMusicStream = (strim.Value.Entity, strim.Value.Component);
-            FadeIn(_bossMusicStream, strim.Value.Component, sound.FadeInTime);
+            _bossMusicStream = (stream.Value.Entity, stream.Value.Component);
+            FadeIn(_bossMusicStream, stream.Value.Component, sound.FadeInTime);
         }
     }
 
-    private void OnBossDefeated(BossMusicStopEvent args)
+    public override void EndAllMusic()
     {
-        EndAllMusic();
+        if (_musicProto == null
+            || _bossMusicStream == null)
+            return;
+
+        if (_musicProto.FadeIn)
+            FadeOut(_bossMusicStream, duration: _musicProto.FadeOutTime);
+        else
+            _audio.Stop(_bossMusicStream);
+
+        _musicProto = null;
+        _bossMusicStream = null;
     }
 
     private void OnMindRemoved(LocalPlayerDetachedEvent args)
@@ -157,25 +164,6 @@ public sealed class BossMusicSystem : EntitySystem
         _bossMusicStream = _audio.Stop(_bossMusicStream);
     }
 
-    private void EndAllMusic()
-    {
-        if (_musicProto == null || _bossMusicStream == null)
-            return;
-
-        if (_musicProto.FadeIn)
-        {
-
-            FadeOut(_bossMusicStream, duration: _musicProto.FadeOutTime);
-        }
-        else
-        {
-            _audio.Stop(_bossMusicStream);
-        }
-
-        _musicProto = null;
-        _bossMusicStream = null;
-    }
-
     #region Fades
 
     private void FadeOut(EntityUid? stream, AudioComponent? component = null, float duration = DefaultDuration)
@@ -183,8 +171,6 @@ public sealed class BossMusicSystem : EntitySystem
         if (stream == null || duration <= 0f || !Resolve(stream.Value, ref component))
             return;
 
-        // Just in case
-        // TODO: Maybe handle the removals by making it seamless?
         _fadingIn.Remove(stream.Value);
         var diff = component.Volume - MinVolume;
         _fadingOut.Add(stream.Value, diff / duration);

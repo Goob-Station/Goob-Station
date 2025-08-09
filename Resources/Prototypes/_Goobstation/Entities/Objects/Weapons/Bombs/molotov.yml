@@ -1,0 +1,155 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: UnlitMolotov
+  name: Unlit molotov
+  description: Soon to be a throwable firely explosive.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Bombs/Molotov.rsi
+    layers:
+    - state: unlit
+  - type: Construction
+    graph: MolotovConstruction
+    node: UnlitMolotov
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Explosive
+    explosionType: Molotov
+    totalIntensity: 1
+    intensitySlope: 5
+    maxIntensity: 1
+    canCreateVacuum: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          molotovfire:
+            min: 1
+            max: 1
+
+- type: entity
+  parent: BaseItem
+  id: Molotov
+  name: molotov
+  description: Throwable firely explosive
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Bombs/Molotov.rsi
+    layers:
+    - state: lit
+  - type: ActiveTimerTrigger
+    timeRemaining: 10
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Bombs/Molotov.rsi
+  - type: Explosive
+    explosionType: Molotov
+    totalIntensity: 1
+    intensitySlope: 5
+    maxIntensity: 1
+    canCreateVacuum: false
+  - type: PointLight
+    enabled: true
+    color: "#E25822"
+    radius: 2.0
+    energy: 1.0
+  - type: ExplodeOnTrigger
+  - type: Appearance
+  - type: AnimationPlayer
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:ExplodeBehavior
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          molotovfire:
+            min: 1
+            max: 1
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 15
+  - type: Construction
+    graph: MolotovConstruction
+    node: LitMolotov
+  - type: LandAtCursor
+
+- type: entity
+  id: molotovfire
+  name: fire
+  description: It is burning
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: IgnitionSource
+    temperature: 400
+    ignited: true
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+    triggerGroups:
+      types:
+        - Lava
+  - type: TileEntityEffect
+    effects:
+    - !type:FlammableReaction
+      multiplier: 3.75
+      multiplierOnExisting: 0.75
+    - !type:Ignite
+  - type: AlwaysHot
+  - type: PointLight
+    radius: 5
+    energy: 3
+    color: "#FFC90C"
+  - type: Sprite
+    sprite: Effects/fire.rsi
+    layers:
+    - state: 1
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu

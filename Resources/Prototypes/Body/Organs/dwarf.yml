@@ -30,6 +30,12 @@
   - type: Sprite
     state: stomach
   - type: Organ
+    intCap: 38
+    integrity: 38
+    integrityThresholds:
+      Normal: 38
+      Damaged: 22
+      Destroyed: 0
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -42,5 +48,5 @@
   - type: Stomach
   - type: Metabolizer
     # mm very yummy
-    maxReagents: 5
+    maxPoisonsProcessable: 5
     metabolizerTypes: [Dwarf]

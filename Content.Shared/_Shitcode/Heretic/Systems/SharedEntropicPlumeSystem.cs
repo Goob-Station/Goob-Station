@@ -6,6 +6,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared._Goobstation.Wizard.Traps;
@@ -22,6 +24,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Inventory;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -47,6 +50,7 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -64,6 +68,10 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
 
         if (!HasComp<MobStateComponent>(args.OtherEntity) || HasComp<HereticComponent>(args.OtherEntity) ||
             HasComp<GhoulComponent>(args.OtherEntity))
+            return;
+
+        if (_inventory.GetHandOrInventoryEntities(args.OtherEntity, SlotFlags.WITHOUT_POCKET)
+            .Any(item => HasComp<DivineInterventionComponent>(item)))
             return;
 
         ent.Comp.AffectedEntities.Add(args.OtherEntity);

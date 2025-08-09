@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ActionActivateMedigunUber
+  name: activate-medigun-uber-action-name
+  description: activate-medigun-uber-action-desc
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _Goobstation/Actions/medigun.rsi
+        state: activate
+      event: !type:MediGunUberActivateActionEvent
+      #itemIconStyle: BigAction
+      useDelay: 10.0

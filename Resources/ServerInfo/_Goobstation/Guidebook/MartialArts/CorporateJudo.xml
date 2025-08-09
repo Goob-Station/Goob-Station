@@ -1,0 +1,74 @@
+<Document>
+
+  # Corporate Judo
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingBeltCorporateJudo" Caption=""/>
+  </Box>
+
+  Corporate Judo, or simply Judo, is a [textlink="martial art" link="MartialArts"] that focuses on restraining your opponent with more
+  complex but effective moves. You will see this style most used by Security Officers, as they get access to the belts in their department.
+  Harness the art and strike any tider that gets in your way. A good understanding of intents is required.
+
+  ## Special abilities
+
+  Judo users are better at Harm intent, as their unarmed attacks will deal extra damage to the opponent.
+
+  ### Stunbaton Scorn
+
+  A Judo user is unable to use stunbatons. A true master relies on technique, using the
+  body’s leverage and strength to subdue, leaving the need for electrified force behind.
+
+  ## Combo attacks
+
+  ### Discombobulate
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  Slows the opponent down and deals some Stamina damage.
+
+  ### Eye Poke
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Blinds the opponent and blurs their vision, regardless of eye protection, and deals some Blunt damage.
+
+  ### Judo Throw
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
+
+  Can only be perfomed while standing. Only works on standing opponents, dealing Stamina damage and knocking them down.
+  Knockdown duration is affected by their Stamina resistance.
+
+  ### Armbar
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  Only works on downed opponents. Inflicts Stamina damage, disarms them, and locks them in an armbar until they manage to stand up.
+  Armbar works similarly to a knockdown and choke grab, and its duration is affected by their Stamina resistance.
+
+  ### Wheel Throw
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Only works on opponents locked in an armbar. Flips the opponent over the shoulder,
+  inflicting massive Stamina damage, and forces the user back on their feet.
+
+</Document>

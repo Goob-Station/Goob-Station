@@ -25,7 +25,8 @@
       sprite: _Goobstation/Wizard/actions.rsi # todo - change this
       state: gib
     event: !type:SmiteSpellEvent
-      speech: action-speech-implant-vaporize
+  - type: SpeakOnAction
+    sentence: action-speech-implant-vaporize
 
 - type: entity
   id: ActionBlinkFreeman
@@ -78,7 +79,8 @@
       sprite: _Goobstation/Wizard/actions.rsi # Todo - Change this, but idc.
       state: time
     event: !type:StopTimeEvent
-      speech: action-speech-implant-stoptime
+  - type: SpeakOnAction
+    sentence: action-speech-implant-stoptime
   - type: Magic
     requiresClothes: false
     requiresSpeech: true

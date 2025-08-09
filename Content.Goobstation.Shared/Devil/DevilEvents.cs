@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Devil.Contract;
+using Content.Shared.Inventory;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Devil;
@@ -25,6 +26,18 @@ public record struct PowerLevelChangedEvent(EntityUid User, DevilPowerLevel NewL
 /// <param name="Amount">How many souls they are gaining.</param>
 [ByRefEvent]
 public record struct SoulAmountChangedEvent(EntityUid User, EntityUid Victim, int Amount);
+
+/// <summary>
+/// Raised on an entity to see if their eyes are covered.
+/// This just checks for the identity blocker comp.
+/// </summary>
+/// <param name="Target"></param>
+public sealed class IsEyesCoveredCheckEvent : EntityEventArgs, IInventoryRelayEvent
+{
+    public SlotFlags TargetSlots => SlotFlags.EYES | SlotFlags.MASK | SlotFlags.HEAD;
+
+    public bool IsEyesProtected;
+}
 
 // Contract Events
 
@@ -53,3 +66,6 @@ public sealed partial class DevilContractLoseLegEvent : BaseDevilContractEvent;
 
 [DataDefinition, Serializable]
 public sealed partial class DevilContractLoseOrganEvent : BaseDevilContractEvent;
+
+[DataDefinition, Serializable]
+public sealed partial class DevilContractChanceEvent : BaseDevilContractEvent;

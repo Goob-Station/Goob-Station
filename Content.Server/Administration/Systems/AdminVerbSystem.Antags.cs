@@ -61,7 +61,6 @@
 // SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
@@ -72,10 +71,13 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Pancake <Pangogie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -84,11 +86,13 @@ using Content.Server._Goobstation.Wizard.Components;
 using Content.Server._DV.CosmicCult.Components; // DeltaV
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
+using Content.Shared.Humanoid;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
@@ -102,6 +106,7 @@ public sealed partial class AdminVerbSystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     [ValidatePrototypeId<EntityPrototype>]
     private const string DefaultTraitorRule = "Traitor";
@@ -120,6 +125,8 @@ public sealed partial class AdminVerbSystem
 
     [ValidatePrototypeId<StartingGearPrototype>]
     private const string PirateGearId = "PirateGear";
+
+    private readonly EntProtoId _paradoxCloneRuleId = "ParadoxCloneSpawn";
 
     // All antag verbs have names so invokeverb works.
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)
@@ -206,7 +213,7 @@ public sealed partial class AdminVerbSystem
             Act = () =>
             {
                 // pirates just get an outfit because they don't really have logic associated with them
-                SetOutfitCommand.SetOutfit(args.Target, PirateGearId, EntityManager);
+                SetOutfitCommand.SetOutfit(args.Target, PirateGearId, false, EntityManager);
             },
             Impact = LogImpact.High,
             Message = string.Join(": ", pirateName, Loc.GetString("admin-verb-make-pirate")),
@@ -243,6 +250,30 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(thief);
 
+        var paradoxCloneName = Loc.GetString("admin-verb-text-make-paradox-clone");
+        Verb paradox = new()
+        {
+            Text = paradoxCloneName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "ParadoxClone"),
+            Act = () =>
+            {
+                var ruleEnt = _gameTicker.AddGameRule(_paradoxCloneRuleId);
+
+                if (!TryComp<ParadoxCloneRuleComponent>(ruleEnt, out var paradoxCloneRuleComp))
+                    return;
+
+                paradoxCloneRuleComp.OriginalBody = args.Target; // override the target player
+
+                _gameTicker.StartGameRule(ruleEnt);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", paradoxCloneName, Loc.GetString("admin-verb-make-paradox-clone")),
+        };
+
+        if (HasComp<HumanoidAppearanceComponent>(args.Target)) // only humanoids can be cloned
+            args.Verbs.Add(paradox);
+
         // goobstation - heretics
         var hereticName = Loc.GetString("admin-verb-text-make-heretic");
         Verb heretic = new()
@@ -273,6 +304,7 @@ public sealed partial class AdminVerbSystem
             Impact = LogImpact.High,
             Message = string.Join(": ", wizardName, Loc.GetString("admin-verb-make-wizard")),
         };
+        args.Verbs.Add(wizard);
 
         // Begin DeltaV Additions
         var cosmicCultName = Loc.GetString("admin-verb-text-make-cosmiccultist");

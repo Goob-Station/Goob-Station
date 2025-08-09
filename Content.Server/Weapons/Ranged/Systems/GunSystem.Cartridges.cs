@@ -57,7 +57,7 @@ public sealed partial class GunSystem
             return null;
 
         if (entityProto.Components
-            .TryGetValue(_factory.GetComponentName(typeof(ProjectileComponent)), out var projectile))
+            .TryGetValue(Factory.GetComponentName<ProjectileComponent>(), out var projectile))
         {
             var p = (ProjectileComponent) projectile.Component;
 
@@ -105,12 +105,12 @@ public sealed partial class GunSystem
     private int GetProjectilePenetration(string proto)
     {
         if (!ProtoManager.TryIndex<EntityPrototype>(proto, out var entityProto)
-        || !entityProto.Components.TryGetValue(_factory.GetComponentName<ProjectileComponent>(), out var projectile))
+        || !entityProto.Components.TryGetValue(Factory.GetComponentName<ProjectileComponent>(), out var projectile))
             return 0;
 
         var p = (ProjectileComponent) projectile.Component;
 
-        return p.IgnoreResistances ? 100 : (int)Math.Round(p.ArmorPenetration * 100);
+        return p.IgnoreResistances ? 100 : (int)Math.Round(p.Damage.ArmorPenetration * 100);
     }
     // Goobstation end
 }

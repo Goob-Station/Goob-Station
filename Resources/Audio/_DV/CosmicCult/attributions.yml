@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files:
   - antag_cosmic_deconvert.ogg
   - antag_cosmic_briefing.ogg
@@ -14,6 +20,8 @@
   source: "https://linktr.ee/nahupyrope"
 
 - files:
+  - projectile_razor_hit.ogg
+  - projectile_razor_reload.ogg
   - projectile_razor.ogg
   - insert_entropy.ogg
   - tier2.ogg

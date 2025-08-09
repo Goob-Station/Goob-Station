@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Disposals.Tube.Components;
+using Content.Goobstation.Server.Disposals.Tube;
 using Content.Server.Disposal.Tube;
 using Robust.Shared.Random;
 

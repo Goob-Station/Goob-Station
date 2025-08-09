@@ -18,14 +18,20 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using Content.Goobstation.Common.CCVar; // Goob Edit
+using Content.Goobstation.Common.Mech; // Goobstation
+using Content.Shared._vg.TileMovement; // Goobstation
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -169,6 +175,9 @@ public abstract class SharedMechSystem : EntitySystem
 
         var rider = EnsureComp<MechPilotComponent>(pilot);
 
+        if (HasComp<TileMovementComponent>(pilot)) // Goob change - Prevent mech jank.
+            EnsureComp<TileMovementComponent>(mech);
+
         // Warning: this bypasses most normal interaction blocking components on the user, like drone laws and the like.
         var irelay = EnsureComp<InteractionRelayComponent>(pilot);
 
@@ -188,6 +197,9 @@ public abstract class SharedMechSystem : EntitySystem
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
     {
+        if (HasComp<TileMovementComponent>(mech)) // Goob change - Prevent mech jank.
+            RemComp<TileMovementComponent>(mech);
+
         if (!RemComp<MechPilotComponent>(pilot))
             return;
         RemComp<RelayInputMoverComponent>(pilot);
@@ -420,7 +432,12 @@ public abstract class SharedMechSystem : EntitySystem
         SetupUser(uid, toInsert.Value);
         _container.Insert(toInsert.Value, component.PilotSlot);
         UpdateAppearance(uid, component);
-        UpdateHands(toInsert.Value, uid, true); // Goobstation
+        // <Goobstation>
+        UpdateHands(toInsert.Value, uid, true);
+
+        var ev = new MechInsertedEvent(uid);
+        RaiseLocalEvent(toInsert.Value, ev);
+        // </Goobstation>
         return true;
     }
 
@@ -445,7 +462,12 @@ public abstract class SharedMechSystem : EntitySystem
         RemoveUser(uid, pilot.Value);
         _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
-        UpdateHands(pilot.Value, uid, false); // Goobstation
+        // <Goobstation>
+        UpdateHands(pilot.Value, uid, false);
+
+        var ev = new MechEjectedEvent(uid);
+        RaiseLocalEvent(pilot.Value, ev);
+        // </Goobstation>
         return true;
     }
 

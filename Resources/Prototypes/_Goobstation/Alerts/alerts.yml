@@ -1,10 +1,12 @@
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -69,3 +71,61 @@
     state: byond
   name: alerts-curse-of-byond-name
   description: alerts-curse-of-byond-desc
+
+- type: alert
+  id: DragonPower
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/dragonpower.rsi
+    state: icon
+  name: alerts-dragon-power-name
+  description: alerts-dragon-power-desc
+
+- type: alert
+  id: SneakAttack
+  category: Ninjutsu
+  icons:
+  - sprite: /Textures/Objects/Weapons/Melee/energykatana.rsi
+    state: icon
+  name: alerts-sneak-attack-name
+  description: alerts-sneak-attack-desc
+
+- type: alert
+  id: LossOfSurprise
+  category: Ninjutsu
+  icons:
+  - sprite: /Textures/Structures/Storage/closet.rsi
+    state: cardboard_special
+  name: alerts-loss-of-surprise-name
+  description: alerts-loss-of-surprise-desc
+
+- type: alert
+  id: MedigunUberBattery
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery0
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery1
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery2
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery3
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery4
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery5
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery6
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery7
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery8
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery9
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: battery10
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: ubercharge
+  name: alerts-medigun-uber-name
+  description: alerts-medigun-uber-desc
+  minSeverity: 0
+  maxSeverity: 11

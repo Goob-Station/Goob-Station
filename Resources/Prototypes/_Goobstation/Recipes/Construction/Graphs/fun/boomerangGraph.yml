@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2025 Arraydeess <arraygitbash@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: boomerangGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: boomerangIncomplete
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 2
+    - node: boomerangIncomplete 
+      entity: boomerangIncomplete # Create a piece of wood to work with
+      edges: 
+        - to: boomerangFinish
+          steps:
+            - tool: Slicing     # Carve the boomerang out of the wood
+              doAfter: 4
+    - node: boomerangFinish
+      entity: boomerang

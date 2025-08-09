@@ -188,7 +188,6 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         _damageable.TryChangeDamage(xform.ParentUid,
             damage,
             origin: args.Origin,
-            canSever: args.CanSever,
             interruptsDoAfters: args.InterruptsDoAfters);
     }
 

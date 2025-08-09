@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
@@ -73,6 +75,10 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
     /// For dragging mostly
     /// </summary>
     private Vector2 _position = new Vector2(45, 250);
+    private float _zoom = 1f;
+    private const float MinZoom = 0.5f;
+    private const float MaxZoom = 2f;
+    private const float ZoomSpeed = 0.125f;
 
     public FancyResearchConsoleMenu()
     {
@@ -82,6 +88,8 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         _sprite = _entity.System<SpriteSystem>();
         _accessReader = _entity.System<AccessReaderSystem>();
         StaticSprite.SetFromSpriteSpecifier(new SpriteSpecifier.Rsi(new("_Goobstation/Interface/rnd-static.rsi"), "static"));
+        StaticSprite.DisplayRect.CanShrink = true;
+        StaticSprite.DisplayRect.Stretch = TextureRect.StretchMode.Scale;
 
         ServerButton.OnPressed += _ => OnServerButtonPressed?.Invoke();
         DragContainer.OnKeyBindDown += OnKeybindDown;
@@ -108,7 +116,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
             DragContainer.AddChild(control);
 
             // Set position for all tech, relating to _position
-            LayoutContainer.SetPosition(control, _position + proto.Position * 150);
+            LayoutContainer.SetPosition(control, _position + proto.Position * 150 * _zoom);
             control.SelectAction += SelectTech;
 
             if (tech.Key == CurrentTech)
@@ -177,6 +185,34 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         }
     }
 
+    protected override void MouseWheel(GUIMouseWheelEventArgs args)
+    {
+        base.MouseWheel(args);
+
+        var oldZoom = _zoom;
+
+        if (args.Delta.Y > 0)
+            _zoom += ZoomSpeed;
+        else
+            _zoom -= ZoomSpeed;
+
+        _zoom = Math.Clamp(_zoom, MinZoom, MaxZoom);
+
+        if (MathHelper.CloseTo(oldZoom, _zoom))
+            return;
+
+        foreach (var child in DragContainer.Children)
+        {
+            if (child is not FancyResearchConsoleItem research)
+                continue;
+
+            var pos = research.Prototype.Position * 150;
+            LayoutContainer.SetPosition(child, _position + pos * _zoom);
+            research.SetScale(_zoom);
+        }
+        args.Handle();
+    }
+
     /// <summary>
     /// Raised when LMB is pressed at <see cref="DragContainer"/>
     /// </summary>
@@ -227,7 +263,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
             if (item is not FancyResearchConsoleItem research)
                 continue;
 
-            LayoutContainer.SetPosition(item, _position + research.Prototype.Position * 150);
+            LayoutContainer.SetPosition(item, _position + research.Prototype.Position * 150 * _zoom);
         }
     }
 

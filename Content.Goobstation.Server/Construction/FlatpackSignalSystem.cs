@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.DeviceLinking.Events;
+using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Construction.Components;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Prototypes;

@@ -3,8 +3,8 @@
 // SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
 // SPDX-FileCopyrightText: 2020 Injazz <injazza@gmail.com>
 // SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 // SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 silicons <2003111+silicons@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
@@ -75,7 +75,6 @@
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
@@ -106,12 +105,17 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections.Frozen;
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using System.Text.Json.Serialization;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Prototypes;
@@ -119,8 +123,9 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.EntityEffects;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Nutrition;
+using Content.Shared.Prototypes;
+using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -131,7 +136,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Chemistry.Reagent
 {
-    [Prototype("reagent")]
+    [Prototype]
     [DataDefinition]
     public sealed partial class ReagentPrototype : IPrototype, IInheritingPrototype
     {
@@ -210,11 +215,31 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public bool MetamorphicChangeColor { get; private set; } = true;
 
+        // Goobstation
         /// <summary>
-        /// If this reagent is part of a puddle is it slippery.
+        /// If false, reagent will be put back into the puddle after slip on puddle.
         /// </summary>
         [DataField]
-        public bool Slippery;
+        public bool SticksToSkin = true;
+
+
+        /// <summary>
+        /// If not null, makes something slippery. Also defines slippery interactions like stun time and launch mult.
+        /// </summary>
+        [DataField]
+        public SlipperyEffectEntry? SlipData;
+
+        /// <summary>
+        /// The speed at which the reagent evaporates over time.
+        /// </summary>
+        [DataField]
+        public FixedPoint2 EvaporationSpeed = FixedPoint2.Zero;
+
+        /// <summary>
+        /// If this reagent can be used to mop up other reagents.
+        /// </summary>
+        [DataField]
+        public bool Absorbent = false;
 
         /// <summary>
         /// How easily this reagent becomes fizzy when aggitated.
@@ -229,6 +254,13 @@ namespace Content.Shared.Chemistry.Reagent
         /// </summary>
         [DataField]
         public float Viscosity;
+
+        /// <summary>
+        /// Linear Friction Multiplier for a reagent
+        /// 0 - frictionless, 1 - no effect on friction
+        /// </summary>
+        [DataField]
+        public float Friction = 1.0f;
 
         /// <summary>
         /// Should this reagent work on the dead?
@@ -258,7 +290,7 @@ namespace Content.Shared.Chemistry.Reagent
         public float PricePerUnit;
 
         [DataField]
-        public SoundSpecifier FootstepSound = new SoundCollectionSpecifier("FootstepWater", AudioParams.Default.WithVolume(6));
+        public SoundSpecifier FootstepSound = new SoundCollectionSpecifier("FootstepPuddle");
 
         public FixedPoint2 ReactionTile(TileRef tile, FixedPoint2 reactVolume, IEntityManager entityManager, List<ReagentData>? data)
         {
@@ -323,7 +355,7 @@ namespace Content.Shared.Chemistry.Reagent
                 .ToDictionary(x => x.Key, x => x.Item2);
             if (proto.PlantMetabolisms.Count > 0)
             {
-                PlantMetabolisms = new List<string> (proto.PlantMetabolisms
+                PlantMetabolisms = new List<string>(proto.PlantMetabolisms
                     .Select(x => x.GuidebookEffectDescription(prototype, entSys))
                     .Where(x => x is not null)
                     .Select(x => x!)

@@ -10,7 +10,7 @@ namespace Content.Shared.Chat.TypingIndicator;
 [Serializable, NetSerializable]
 public enum TypingIndicatorVisuals : byte
 {
-    IsTyping
+    State
 }
 
 [Serializable]

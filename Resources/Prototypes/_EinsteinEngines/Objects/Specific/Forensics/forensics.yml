@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ScentTrackEffect
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    scale: "0.08, 0.08"
+    color: "#ffff00"
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer

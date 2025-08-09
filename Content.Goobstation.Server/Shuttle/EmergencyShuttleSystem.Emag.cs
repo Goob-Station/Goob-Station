@@ -50,7 +50,7 @@ public sealed class GoobEmergencyShuttleSystem : EntitySystem
         EnsureComp<EmaggedComponent>(ent);
 
         if (args.Used != null)
-            _charge.UseCharge(args.Used.Value);
+            _charge.TryUseCharge(args.Used.Value);
     }
 
     private void OnEmagged(EntityUid uid, EmergencyShuttleConsoleComponent component, ref GotEmaggedEvent args)

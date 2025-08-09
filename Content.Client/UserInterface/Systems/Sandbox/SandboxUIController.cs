@@ -11,8 +11,10 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 SpaceManiac <tad@platymuus.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -56,7 +58,6 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
     [UISystemDependency] private readonly DebugPhysicsSystem _debugPhysics = default!;
     [UISystemDependency] private readonly MarkerSystem _marker = default!;
     [UISystemDependency] private readonly SandboxSystem _sandbox = default!;
-    [UISystemDependency] private readonly SubFloorHideSystem _subfloorHide = default!;
 
     private SandboxWindow? _window;
 
@@ -134,10 +135,11 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
 
         _window.OnOpen += () => { SandboxButton!.Pressed = true; };
         _window.OnClose += () => { SandboxButton!.Pressed = false; };
+
+        // TODO: These need moving to opened so at least if they're not synced properly on open they work.
         _window.ToggleLightButton.Pressed = !_light.Enabled;
         _window.ToggleFovButton.Pressed = !_eye.CurrentEye.DrawFov;
         _window.ToggleShadowsButton.Pressed = !_light.DrawShadows;
-        _window.ToggleSubfloorButton.Pressed = _subfloorHide.ShowAll;
         _window.ShowMarkersButton.Pressed = _marker.MarkersVisible;
         _window.ShowBbButton.Pressed = (_debugPhysics.Flags & PhysicsDebugFlags.Shapes) != 0x0;
 
@@ -221,7 +223,7 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
         return _sandbox.Copy(session, coords, uid);
     }
 
-    private void ToggleWindow()
+    public void ToggleWindow()
     {
         if (_window == null)
             return;
@@ -236,4 +238,16 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
             _window.Close();
         }
     }
+
+    #region Buttons
+
+    public void SetToggleSubfloors(bool value)
+    {
+        if (_window == null)
+            return;
+
+        _window.ToggleSubfloorButton.Pressed = value;
+    }
+
+    #endregion
 }

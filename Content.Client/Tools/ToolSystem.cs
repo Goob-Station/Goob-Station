@@ -24,6 +24,8 @@ namespace Content.Client.Tools
 {
     public sealed class ToolSystem : SharedToolSystem
     {
+        [Dependency] private readonly SpriteSystem _sprite = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -51,7 +53,7 @@ namespace Content.Client.Tools
             {
                 var current = multiple.Entries[multiple.CurrentEntry];
                 if (current.Sprite != null)
-                    sprite.LayerSetSprite(0, current.Sprite);
+                    _sprite.LayerSetSprite((uid, sprite), 0, current.Sprite);
             }
         }
     }

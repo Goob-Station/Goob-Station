@@ -25,6 +25,7 @@
       tags:
       - ClothMade
       - Paper
+      - Pill
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -35,7 +36,7 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
   - type: Metabolizer
-    maxReagents: 3
+    maxPoisonsProcessable: 3
     metabolizerTypes: [ Moth ]
     removeEmpty: true
     groups:

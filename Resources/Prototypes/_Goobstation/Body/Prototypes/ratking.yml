@@ -9,10 +9,10 @@
 - type: body
   id: RatKing
   name: "animal"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoRat
+    chest:
+      part: ChestRat
       connections:
       - legs
       organs:

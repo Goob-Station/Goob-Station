@@ -9,9 +9,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Station.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
+using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Cargo.Components;
@@ -25,15 +27,19 @@ public sealed partial class StationCargoOrderDatabaseComponent : Component
     /// <summary>
     /// Maximum amount of orders a station is allowed, approved or not.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("capacity")]
+    [DataField]
     public int Capacity = 20;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("orders")]
-    public List<CargoOrderData> Orders = new();
+    [ViewVariables]
+    public IEnumerable<CargoOrderData> AllOrders => Orders.SelectMany(p => p.Value);
+
+    [DataField]
+    public Dictionary<ProtoId<CargoAccountPrototype>, List<CargoOrderData>> Orders = new();
 
     /// <summary>
     /// Used to determine unique order IDs
     /// </summary>
+    [ViewVariables]
     public int NumOrdersCreated;
 
     /// <summary>
@@ -41,6 +47,16 @@ public sealed partial class StationCargoOrderDatabaseComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), DataField]
     public Dictionary<string, TimeSpan> ProductCooldownTime = new Dictionary<string, TimeSpan>();
+
+    /// <summary>
+    /// An all encompassing determiner of what markets can be ordered from.
+    /// Not every console can order from every market, but a console can't order from a market not on this list.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<CargoMarketPrototype>> Markets = new()
+    {
+        "market",
+    };
 
     // TODO: Can probably dump this
     /// <summary>

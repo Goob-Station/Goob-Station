@@ -103,9 +103,13 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Singularity;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Components;
 using Content.Server.Singularity.Events;
@@ -135,13 +139,19 @@ public sealed class ContainmentFieldSystem : EntitySystem
     {
         var otherBody = args.OtherEntity;
 
+        // Goobstation
+        var ev = new ContainmentFieldThrowEvent(uid);
+        RaiseLocalEvent(otherBody, ref ev);
+        if (ev.Cancelled)
+            return;
+
         if (component.DestroyGarbage && HasComp<SpaceGarbageComponent>(otherBody))
         {
             _popupSystem.PopupEntity(Loc.GetString("comp-field-vaporized", ("entity", otherBody)), uid, PopupType.LargeCaution);
             QueueDel(otherBody);
         }
 
-        if (TryComp<PhysicsComponent>(otherBody, out var physics) && physics.Mass <= component.MaxMass && physics.Hard)
+        if (TryComp<PhysicsComponent>(otherBody, out var physics) && physics.Hard) // Goobstation - removed mass check
         {
             var fieldDir = _transformSystem.GetWorldPosition(uid);
             var playerDir = _transformSystem.GetWorldPosition(otherBody);

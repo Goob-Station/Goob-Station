@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseBlueshieldObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-nanotrasen
+  - type: NotJobRequirement
+    job: BlueshieldOfficer
+    inverted: true
+
+
+- type: entity
+  parent: [BaseBlueshieldObjective, BaseKeepAliveObjective]
+  id: BlueshieldRandomCommandAliveObjective
+  description: Protect your assigned command member.
+  components:
+  - type: Objective
+    difficulty: 2
+    icon:
+      sprite: Objects/Misc/folders.rsi
+      state: folder-white
+  - type: TargetObjective
+    title: objective-condition-other-head-alive-title
+  - type: PickRandomHead
+
+- type: entity
+  id: JobObjectiveRule
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: JobObjectiveRule

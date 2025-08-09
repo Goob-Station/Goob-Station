@@ -1,0 +1,73 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SomethingUnbearable <mewatcher102@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseItem
+  id: MiscSignallerBase
+  name: "misc signaller base"
+  abstract: true
+  components:
+  - type: MiscSignaller
+  - type: StaticPrice
+    price: 40
+  - type: DeviceLinkSource
+    ports: 
+      - Triggered
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 40
+
+# voice signaller
+- type: entity
+  parent: MiscSignallerBase
+  id: VoiceSignaller
+  name: voice signaller
+  description: A device that transmits a signal when its activation word has been spoken. Comes with an inbuilt recorder. 
+  components:
+   - type: Sprite
+     sprite: _Goobstation/Objects/Devices/miscsignallers.rsi
+     state: voicesignaller
+   - type: Item
+     inhandVisuals:
+       left:
+       - state: voicesignaller_inhand_left
+       right:
+       - state: voicesignaller_inhand_right
+   - type: TriggerOnVoice
+   - type: PhysicalComposition
+     materialComposition:
+      Steel: 25
+      Plastic: 50
+      Glass: 25
+      Silver: 25
+
+# proximity signaller 
+- type: entity
+  parent: MiscSignallerBase
+  id: ProximitySignaller
+  name: proximity signaller
+  description: A device that transmits a signal when something is nearby. You may be able not to trigger it if you move slowly enough. Needs to be anchored.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Devices/miscsignallers.rsi
+      state: proxysignaller_on
+    - type: TriggerOnProximity
+      enabled: true
+      cooldown: 3 
+      shape:
+        !type:PhysShapeCircle
+          radius: 2
+      repeating: true
+    - type: Anchorable
+    - type: PhysicalComposition
+      materialComposition:
+        Steel: 25
+        Plastic: 50
+        Glass: 25
+        Gold: 50
+    - type: StaticPrice
+      price: 55

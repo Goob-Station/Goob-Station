@@ -54,29 +54,30 @@ selectable-set-syndicate-spy-name = Spy Bundle
 selectable-set-syndicate-spy-description =
     Complete your objectives quietly with this compilation of stealthy items.
     Contains: chameleon thieving gloves, chameleon kit, voice mask,
-    agent ID card, an empty hypopen, radio jammer, stealth box,
-    syndicate jaws of life, and a syndicate encryption key.
+    agent ID card, a hypopen with a nocturine bottle, camera bug,
+    stealth box, syndicate jaws of life, and a syndicate encryption key.
 
 selectable-set-syndicate-hitman-name = Hitman Bundle
 selectable-set-syndicate-hitman-description =
     Find and eliminate your targets quietly and effectively with this bundle.
     Contains: Cobra pistol with 3 extra mags, CQC manual,
-    special armor vest, no-slip shoes, Interdyne herbals packet,
+    a special invisible armor vest, Interdyne herbals packet,
     combat medkit, a stylish look and a syndicate encryption key.
 
 selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
-    Contains: holoparasite kit, EMP, scram, freedom,
-    smoke, krav maga and syndicate radio implanters.
+    Contains: nutriment pump, scram, freedom, smoke,
+    krav maga and syndicate radio implanters, Sandevistan
+    and paired mantis blades autosurgeons, and a cool jacket.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
     A bundle with everything you need to hack into and disrupt the Station itself,
     the station AI, its cyborgs and the Security team. HACK THE PLANET!
-    Contains: Antimov law circuit, authentication disruptor, EMAG,
-    camera bug, filled toolbox, contortionist suit,
-    cool glasses and both binary and syndicate encryption keys.
+    Contains: Antimov law board, authentication disruptor, EMAG,
+    radio jammer, filled toolbox, experimental syndicate teleporter,
+    cool glasses, binary decoder implanter and a syndicate encryption key.
 
 selectable-set-syndicate-desword-name = Dark Lord Bundle
 selectable-set-syndicate-desword-description =
@@ -87,25 +88,38 @@ selectable-set-syndicate-desword-description =
 selectable-set-syndicate-grenadier-name = Grenadier Bundle
 selectable-set-syndicate-grenadier-description =
     Some explosives to ensure you can blast your way through any situation.
-    Contains: syndicate encryption key, minibomb, C4, and then incendiary,
-    explosive, shrapnel, EMP, whitehole, supermatter, smoke and flash grenades.
+    Contains: syndicate encryption key, bomb suit, grenadier belt rig,
+    explosive-resistant backpack and so many grenades you'll fall asleep reading.
 
 selectable-set-syndicate-fluclear-name = Fluclear Operative Bundle
 selectable-set-syndicate-fluclear-description =
     Declare your allegiance to the Syndicate with this bundle, get dat fuckin' disk!
     Contains: C-20R SMG, 3 extra mags, energy shield, jetpack,
-    and some basic nuclear operative gear (including the hardsuit).
+    a blood-red voidsuit and some basic nuclear operative gear.
 
 selectable-set-syndicate-friendship-name = Friendship Bundle
 selectable-set-syndicate-friendship-description =
     Friendship is magic! Go find yourself some friends with this bundle!
-    Contains: Contractor baton, handcuffs, 2 mindcontrol implanters,
-    3 Mosin rifles and 3 syndicate encryption keys for all of you.
+    Contains: a contractor baton and handcuffs for you, 4 mindcontrol implanters
+    and Mosin rifles for your friends, and 5 syndicate encryption keys for you all.
 
 selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =
     Grr! Rrrr! Grr... Grrow?! KOWABUNGA!
-    Contains: Sleeping Carp, 10 dehydrated carp and a syndicate encryption key.
+    Contains: a scroll of the Way of The Sleeping Carp, 10 dehydrated carp
+    (half of which are holo), a carp voidsuit and a syndicate encryption key.
+
+selectable-set-syndicate-sus-name = Suspicion Bundle
+selectable-set-syndicate-sus-description =
+    When the traitor is sus. The traitor is you, of course.
+    Contains: an advanced contortionist jumpsuit, betrayal knife, miniature
+    energy crossbow, stealth suit, and a syndicate encryption key.
+
+selectable-set-syndicate-builder-name = Builder Bundle
+selectable-set-syndicate-builder-description =
+    It is funnier to pull down than to build. But it is not as effective.
+    Contains: 2 disposable ballistic turrets, a telecrystal miner flatpack,
+    some tools and materials to get you started, and a syndicate encryption key.
 
 # Blueshield
 
@@ -120,11 +134,11 @@ selectable-set-blueshield-revolver-description =
     Includes: The EG-4 energy revolver, capable of firing bolts using
     recharging speedloaders, both lethal and not, and a shoulder holster.
 
-selectable-set-blueshield-cqc-name = close quarters combat set
-selectable-set-blueshield-cqc-description =
+selectable-set-blueshield-dragon-name = kung fu manual set
+selectable-set-blueshield-dragon-description =
     Sometimes you need to get your hands dirty.
     Includes: A book capable of teaching the user
-    advanced close-quarters-combat.
+    advanced kung fu martial art.
 
 selectable-set-blueshield-chester-name = chester set
 selectable-set-blueshield-chester-description =
@@ -137,15 +151,15 @@ selectable-set-blueshield-syringe-description =
     Perfect for healing allies or poisioning foes in a pinch.
     Includes: A combat injector, and several vials of medicine.
 
-# Blieshield hardsuits
+# Blueshield hardsuits
 
-selectable-set-blueshield-hardsuit-light-name = light hardsuit
+selectable-set-blueshield-hardsuit-light-name = armoured voidsuit
 selectable-set-blueshield-hardsuit-light-description =
-    A lighter hardsuit, allowing for more speed at the cost of protection.
+    An armoured voidsuit, allowing for more speed at the cost of protection.
 
-selectable-set-blueshield-hardsuit-heavy-name = heavy hardsuit
-selectable-set-blueshield-hardsuit-heavy-description =
-    A heavier hardsuit, allowing for more armor at the cost of speed.
+selectable-set-blueshield-modsuit-name = blueshield hardsuit
+selectable-set-blueshield-modsuit-description =
+    A custom hardsuit, allowing for more customisation, at the cost of requiring power.
 
 # ERT
 
@@ -161,3 +175,71 @@ selectable-set-ert-pulse-description =
     in a firefight.
     Includes: A modified pulse carbine.
     EG-4 revolver, pulse cells.
+
+# Voidsuit selectors
+
+selectable-set-paramedic-voidsuit-name = Paramedic voidsuit
+selectable-set-paramedic-voidsuit-desc =
+    A light voidsuit with minimal protection
+    but a fast movement speed.
+
+selectable-set-paramedic-modsuit-name = Sanitater hardsuit
+selectable-set-paramedic-modsuit-desc =
+    A modular hardsuit with heavier plates
+    to shrug off a bullet or two, hopefully.
+
+selectable-set-security-voidsuit-name = Security voidsuit
+selectable-set-security-voidsuit-desc =
+    A light voidsuit with an in-built plate carrier to provide
+    moderate protection while remaining mobile for low intensity kinetic ops.
+
+selectable-set-security-modsuit-name = Security 'soldat' hardsuit
+selectable-set-security-modsuit-desc =
+    A modular hardsuit with ceramic inserts to provide more protection
+    than the voidsuit counterpart, but with less mobility.
+
+selectable-set-headofsecurity-voidsuit-name = Head of security's voidsuit
+selectable-set-headofsecurity-voidsuit-desc =
+    A light voidsuit with material cut from non-vital areas to slightly increase
+    the armour value of the vital organs and increase mobility
+    compared to the standard security voidsuit.
+
+selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' hardsuit
+selectable-set-headofsecurity-modsuit-desc =
+    A modular hardsuit with expensive plastitanium armour for the head of security's use.
+    Comes equipped with an AI operated on-board intravenous stim injector
+
+selectable-set-engineering-voidsuit-name = Engineering voidsuit
+selectable-set-engineering-voidsuit-desc =
+    A light voidsuit for low-intensity repairs around the station
+
+selectable-set-engineering-modsuit-name = Engineering 'sapper' hardsuit
+selectable-set-engineering-modsuit-desc =
+    A modular hardsuit with increased blast plating and the large vulnerable visor
+    replaced with external cameras to better protect against explosions
+    and other external threats.
+
+selectable-set-captain-voidsuit-name = Captain's parade voidsuit
+selectable-set-captain-voidsuit-desc =
+    Captain's light voidsuit made custom fitted for formal occasions, lightly
+    armored to protect during a calm shift, all while still retaining
+    common spacewalking capabilities.
+
+selectable-set-captain-modsuit-name = Captain's 'Magnate' hardsuit
+selectable-set-captain-modsuit-desc =
+    A modular hardsuit perfectly shined, adorned, and armored for the best of
+    the best, fitted with custom plating, cooling fluid, and diamonds to
+    make even the toughest of times leading seem like nothing to you.
+
+
+selectable-set-research-director-voidsuit-name = RD's voidsuit
+selectable-set-research-director-voidsuit-desc =
+    The Research Director's light voidsuit fitted for experiments, lightly
+    armored to protect from assistants breaking in, all while still retaining
+    common spacewalking capabilities.
+
+selectable-set-research-director-modsuit-name = RD's 'Minerva' hardsuit
+selectable-set-research-director-modsuit-desc =
+    A modular hardsuit armored perfectly to turn you into a research tank,
+    not even the most dangerous of experiments will harm you in this,
+    and the worst of assistants will think twice before breaking in sci.

@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: nail gun
+  parent: [BaseItem, BaseEngineeringContraband]
+  id: WeaponNailgun
+  description: Standard-issue Nanotrasen tool that fires high-velocity nails. Ideal for quick wall repairs, and occasionally for kicking tiders out of your department.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Nailgun/nailgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Normal
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Nailgun/nailgun.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    projectileSpeed: 30
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/nailgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineNailgun
+        priority: 1
+        whitelist:
+          tags:
+          - MagazineNailgun
+        whitelistFailPopup: gun-magazine-whitelist-fail
+        insertSound: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/hpistol_magout.ogg
+  - type: Tag
+    tags:
+    - Nailgun
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+  - type: Appearance
+  - type: StaticPrice
+    price: 250

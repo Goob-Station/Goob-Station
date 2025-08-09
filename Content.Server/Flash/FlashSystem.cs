@@ -15,6 +15,7 @@
 // SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Tomás Alves <tomasalves35@gmail.com>
+// SPDX-FileCopyrightText: 2022 Tom�s Alves <tomasalves35@gmail.com>
 // SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
@@ -39,21 +40,29 @@
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tim <timfalken@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Timfa <timfalken@hotmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Common.Flash; // Goob edit
+using Content.Goobstation.Shared.Flashbang; // Goob edit
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
@@ -84,7 +93,7 @@ namespace Content.Server.Flash
     {
         [Dependency] private readonly AppearanceSystem _appearance = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
-        [Dependency] private readonly SharedChargesSystem _charges = default!;
+        [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
         [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
@@ -95,6 +104,7 @@ namespace Content.Server.Flash
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
 
+        private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
         public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
 
         public override void Initialize()
@@ -141,18 +151,18 @@ namespace Content.Server.Flash
                 return false;
 
             TryComp<LimitedChargesComponent>(uid, out var charges);
-            if (_charges.IsEmpty(uid, charges))
+            if (_sharedCharges.IsEmpty((uid, charges)))
                 return false;
 
-            _charges.UseCharge(uid, charges);
+            _sharedCharges.TryUseCharge((uid, charges));
             _audio.PlayPvs(comp.Sound, uid);
             comp.Flashing = true;
             _appearance.SetData(uid, FlashVisuals.Flashing, true);
 
-            if (_charges.IsEmpty(uid, charges))
+            if (_sharedCharges.IsEmpty((uid, charges)))
             {
                 _appearance.SetData(uid, FlashVisuals.Burnt, true);
-                _tag.AddTag(uid, "Trash");
+                _tag.AddTag(uid, TrashTag);
                 _popup.PopupEntity(Loc.GetString("flash-component-becomes-empty"), user);
             }
 
@@ -175,7 +185,9 @@ namespace Content.Server.Flash
             TimeSpan? stunDuration = null)
         {
             // Goob edit start
-            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag))
+            if (used == null
+                || !_tag.HasTag(used.Value, IgnoreResistancesTag)
+                && !HasComp<FlashVulnerableComponent>(target))
             {
                 var attempt = new FlashAttemptEvent(target, user, used);
                 RaiseLocalEvent(target, attempt, true);
@@ -210,15 +222,6 @@ namespace Content.Server.Flash
             {
                 _popup.PopupEntity(Loc.GetString("flash-component-user-blinds-you",
                     ("user", Identity.Entity(user.Value, EntityManager))), target, target);
-            }
-
-            if (melee)
-            {
-                var ev = new AfterFlashedEvent(target, user, used);
-                if (user != null)
-                    RaiseLocalEvent(user.Value, ref ev);
-                if (used != null)
-                    RaiseLocalEvent(used.Value, ref ev);
             }
         }
 
@@ -294,24 +297,6 @@ namespace Content.Server.Flash
         public readonly EntityUid? Used;
 
         public FlashAttemptEvent(EntityUid target, EntityUid? user, EntityUid? used)
-        {
-            Target = target;
-            User = user;
-            Used = used;
-        }
-    }
-    /// <summary>
-    ///     Called after a flash is used via melee on another person to check for rev conversion.
-    ///     Raised on the target hit by the flash, the user of the flash and the flash used.
-    /// </summary>
-    [ByRefEvent]
-    public readonly struct AfterFlashedEvent
-    {
-        public readonly EntityUid Target;
-        public readonly EntityUid? User;
-        public readonly EntityUid? Used;
-
-        public AfterFlashedEvent(EntityUid target, EntityUid? user, EntityUid? used)
         {
             Target = target;
             User = user;

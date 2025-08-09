@@ -4,6 +4,10 @@
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -18,6 +22,7 @@ namespace Content.Client.PowerCell;
 public sealed class PowerCellSystem : SharedPowerCellSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -53,19 +58,20 @@ public sealed class PowerCellSystem : SharedPowerCellSystem
         if (args.Sprite == null)
             return;
 
-        if (!args.Sprite.TryGetLayer((int) PowerCellVisualLayers.Unshaded, out var unshadedLayer))
+        if (!_sprite.LayerExists((uid, args.Sprite), PowerCellVisualLayers.Unshaded))
             return;
 
         if (_appearance.TryGetData<byte>(uid, PowerCellVisuals.ChargeLevel, out var level, args.Component))
         {
             if (level == 0)
             {
-                unshadedLayer.Visible = false;
+                _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, false);
                 return;
             }
 
-            unshadedLayer.Visible = true;
-            args.Sprite.LayerSetState(PowerCellVisualLayers.Unshaded, $"o{level}");
+            // Goobstation - Not sure why this was false, but i think it was wizden bug and it should be replaced with wizden code on upstream
+            _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, true);
+            _sprite.LayerSetRsiState((uid, args.Sprite), PowerCellVisualLayers.Unshaded, $"o{level}");
         }
     }
 

@@ -11,7 +11,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.NameIdentifier;
 
-[Prototype("nameIdentifierGroup")]
+[Prototype]
 public sealed partial class NameIdentifierGroupPrototype : IPrototype
 {
     [IdDataField]

@@ -88,15 +88,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                     <Control HorizontalExpand="True"/>
                                     <LineEdit Name="AgeEdit" MinSize="40 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
-                                <!-- Goobstation - Preferred Borg Name Container-->
-                                <!-- Borg Name -->
-                                <BoxContainer HorizontalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-borgname-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <LineEdit Name="BorgNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
-                                    <Button Name="BorgNameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" />
-                                </BoxContainer>
-                                <!-- End of Goobstation-->
                                 <!-- Sex -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-sex-label'}" />
