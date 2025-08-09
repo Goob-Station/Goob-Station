@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: antag
+  id: Werewolf
+  name: roles-antag-werewolf-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-werewolf-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 36000 #10 hrs
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - IPC
+  # guides: [ Werewolf ]

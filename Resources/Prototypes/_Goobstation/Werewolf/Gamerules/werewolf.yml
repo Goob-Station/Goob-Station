@@ -1,0 +1,48 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseGameRule
+  id: Werewolf
+  components:
+  - type: WerewolfRule
+  - type: GameRule
+    chaosScore: 350 # todo: adjust this
+    minPlayers: 15
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: werewolf-roundend-name
+    definitions:
+    - prefRoles: [ Werewolf ]
+      max: 1
+      playerRatio: 20
+      # jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster ]
+      mindRoles:
+      - MindRoleWerewolf
+      components:
+      - type: ActionGrant
+        actions:
+        - ActionTransformWerewolf
+        - ActionOpenMutationShop
+        - ActionHeightenedSenses
+      - type: WerewolfTransform
+        currentWerewolfForm: DefaultFormWerewolf
+        unlockedWerewolfForms:
+          - DefaultFormWerewolf
+          - ExplosiveFormWerewolf
+      - type: WerewolfMutationShop
+      - type: WerewolfHeightenedSenses
+      - type: ThermalVision
+        toggleAction: null
+        activateSound: null
+        deactivateSound: null
+      - type: UserInterface
+        interfaces:
+          enum.MutationUiKey.Key:
+            type: MutationBoundUserInterface
+            requireInputValidation: false
+  - type: Tag
+    tags:
+    - RoundstartAntag
