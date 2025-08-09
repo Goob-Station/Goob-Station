@@ -3,9 +3,13 @@
 // SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Morgue.Components;
@@ -19,6 +23,21 @@ public sealed partial class CrematoriumComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public int CookTime = 5;
 
+    [ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier Damage = new()
+    {
+        DamageDict = new()
+        {
+            { "Heat", 10000.0 },
+        },
+    };
+
+    /// <summary>
+    /// Do we need to strip the mob we are tryng to cremate
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool DemandStrip = true;
+
     [DataField("cremateStartSound")]
     public SoundSpecifier CremateStartSound = new SoundPathSpecifier("/Audio/Items/Lighters/lighter1.ogg");
 
@@ -27,4 +46,7 @@ public sealed partial class CrematoriumComponent : Component
 
     [DataField("cremateFinishSound")]
     public SoundSpecifier CremateFinishSound = new SoundPathSpecifier("/Audio/Machines/ding.ogg");
+
+    [DataField]
+    public SoundSpecifier CremateDeniedSound = new SoundPathSpecifier("/Audio/Machines/custom_deny.ogg");
 }
