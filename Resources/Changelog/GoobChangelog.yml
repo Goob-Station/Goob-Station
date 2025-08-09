@@ -13008,3 +13008,9 @@ Entries:
       message: Added EORG to the MRP Rulebook
   id: 1440
   time: '2025-08-08T04:28:18.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: Mothroaches now can dash just like humanoid moths.
+  id: 1441
+  time: '2025-08-09T20:04:47.0000000+00:00'
