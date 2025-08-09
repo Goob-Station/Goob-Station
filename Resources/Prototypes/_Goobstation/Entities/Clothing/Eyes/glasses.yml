@@ -184,6 +184,26 @@
     lightRadius: 15
 
 - type: entity
+  parent: [ClothingEyesHudOmni, BaseCentcommContraband]
+  id: ClothingEyesGlassesCentCommNoThermal
+  suffix: No thermals, DO NOT MAP
+  name: central command shades
+  description: A pair of shades designed for central command personnel. Comes with more features than you could imagine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
   parent: [ClothingEyesBase, ShowHealthRelatedIcons, BaseCentcommContraband, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesBSO
   name: blueshield officer glasses
