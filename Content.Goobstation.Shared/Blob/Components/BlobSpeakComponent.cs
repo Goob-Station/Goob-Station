@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -31,7 +32,7 @@ public sealed partial class BlobSpeakComponent : Component
     /// Hide entity name
     /// </summary>
     [DataField]
-    public bool OverrideName = true;
+    public bool OverrideName = false; // Goob Edit, no overriding default name.
 
     [DataField]
     public LocId Name = "speak-vv-blob";
