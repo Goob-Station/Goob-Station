@@ -1,0 +1,27 @@
+- type: entity
+  id: MachineFTLDriveCircuitboard
+  parent: BaseMachineCircuitboard
+  name: FSS-512 bluespace drive board
+  description: A machine board for a bluespace drive.
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: MachineFTLDrive
+    stackRequirements:
+      Steel: 5
+      Manipulator: 5
+
+- type: entity
+  id: MachineFTLDriveHighCircuitboard
+  parent: BaseMachineCircuitboard
+  name: CTLA-2048 bluespace drive board
+  description: A machine board for a bluespace drive.
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: MachineFTLDriveHigh
+    stackRequirements:
+      Steel: 15
+      Manipulator: 5
