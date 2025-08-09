@@ -773,4 +773,14 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         var bleedChange = deltaBleed * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
         TryModifyBleedAmount(ent, bleedChange.Float(), ent);
     }
+
+    // begin Goobstation: port EE height/width sliders
+    public void SetBloodMaxVolume(EntityUid uid, FixedPoint2 volume, BloodstreamComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.BloodMaxVolume = volume;
+    }
+    // end Goobstation: port EE height/width sliders
 }

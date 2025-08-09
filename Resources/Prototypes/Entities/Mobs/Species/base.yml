@@ -563,6 +563,8 @@
   - type: FootprintOwner # Corvax-Next-Footprints
   - type: Carriable # Goobstation
   - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
+  - type: BloodstreamAffectedByMass # Goobstation: port EE height/width sliders. Also, lol at the comment above.
+    power: 0.6
 
 - type: entity
   save: false
