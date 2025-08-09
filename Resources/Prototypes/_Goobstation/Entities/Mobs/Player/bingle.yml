@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
@@ -97,8 +98,10 @@
   - type: Speech
     speechVerb: Bingle
     speechSounds: Slime
-  - type: ReplacementAccent # prevent talking
-    accent: bingle
+  - type: LanguageKnowledge
+    speaks:
+    - Bingle
+    understands: []
   - type: CollectiveMind
     defaultChannel: Binglemind
     respectAccents: true
