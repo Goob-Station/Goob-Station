@@ -1360,7 +1360,7 @@
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
   - CadetJumpsuit
-  - RedJumpskirt
+  #- RedJumpskirt
 
 - type: loadoutGroup
   id: SurvivalSecurity
