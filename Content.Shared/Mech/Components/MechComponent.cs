@@ -9,11 +9,16 @@
 // SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Whitelist;
+using Content.Shared.Damage;
+using Content.Shared.Random;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -70,11 +75,22 @@ public sealed partial class MechComponent : Component
     public readonly string BatterySlotId = "mech-battery-slot";
 
     /// <summary>
-    /// A multiplier used to calculate how much of the damage done to a mech
-    /// is transfered to the pilot
+    /// Thresholds for pilot damage.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MechToPilotDamageMultiplier;
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField] // Goobstation
+    public DamageSpecifier MechArmor = new()
+    {
+        DamageDict = new()
+        {
+            { "Blunt", 0 },
+            { "Slash", 0 },
+            { "Piercing", 0 },
+            { "Heat", 0 },
+            { "Cold", 0 },
+            { "Shock", 0 },
+        }
+    };
 
     /// <summary>
     /// Whether the mech has been destroyed and is no longer pilotable.
@@ -105,6 +121,12 @@ public sealed partial class MechComponent : Component
     public int MaxEquipmentAmount = 3;
 
     /// <summary>
+    /// Same with MaxEquipmentAmount, but for armor plates
+    /// </summary>
+    [DataField("maxArmorAmount"), ViewVariables(VVAccess.ReadWrite)]
+    public int MaxArmorAmount = 3;
+
+    /// <summary>
     /// A whitelist for inserting equipment items.
     /// </summary>
     [DataField]
@@ -119,8 +141,17 @@ public sealed partial class MechComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public Container EquipmentContainer = default!;
 
+    /// <summary>
+    /// Same with EquipmentContainer, but for armor plates
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Container ArmorContainer = default!;
+
     [ViewVariables]
     public readonly string EquipmentContainerId = "mech-equipment-container";
+
+    [ViewVariables]
+    public readonly string ArmorContainerId = "mech-armor-container";
 
     /// <summary>
     /// How long it takes to enter the mech.
@@ -159,23 +190,32 @@ public sealed partial class MechComponent : Component
     public List<EntProtoId> StartingEquipment = new();
 
     #region Action Prototypes
+
     [DataField]
     public EntProtoId MechCycleAction = "ActionMechCycleEquipment";
+
     [DataField]
     public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action
+
     [DataField]
     public EntProtoId MechUiAction = "ActionMechOpenUI";
+
     [DataField]
     public EntProtoId MechEjectAction = "ActionMechEject";
+
     #endregion
 
     #region Visualizer States
+
     [DataField]
     public string? BaseState;
+
     [DataField]
     public string? OpenState;
+
     [DataField]
     public string? BrokenState;
+
     #endregion
 
     [DataField] public EntityUid? MechCycleActionEntity;
