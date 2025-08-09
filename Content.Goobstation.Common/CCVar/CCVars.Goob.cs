@@ -544,6 +544,13 @@ public sealed partial class GoobCVars
 
     #endregion
 
+    #region Movement
+
+    public static readonly CVarDef<float> MaxSpeed =
+        CVarDef.Create("movement.max_speed", 2.7f, CVar.SERVER | CVar.REPLICATED);
+
+    #endregion
+
     #region Misc
 
     /// <summary>

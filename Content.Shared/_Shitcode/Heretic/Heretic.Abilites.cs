@@ -6,7 +6,9 @@
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 the biggest bruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
@@ -132,7 +134,14 @@ public sealed partial class HereticVoidVisionEvent : EntityEventArgs { } // done
 // blade (+ upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticCuttingEdgeEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticDanceOfTheBrandEvent : EntityEventArgs { }
-public sealed partial class EventHereticRealignment : InstantActionEvent { }
+public sealed partial class EventHereticRealignment : InstantActionEvent
+{
+    [DataField]
+    public float StaminaRegenRate = -9f; // Same value as default stamina consumption for non humans.
+
+    [DataField]
+    public string StaminaRegenKey = "Realignment";
+}
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticChampionStanceEvent : EntityEventArgs { }
 public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
 
