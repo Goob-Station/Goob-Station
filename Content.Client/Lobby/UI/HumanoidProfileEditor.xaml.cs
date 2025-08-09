@@ -394,6 +394,7 @@ namespace Content.Client.Lobby.UI
             var prototype = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
 
             UpdateHeightWidthSliders();
+            UpdateDimensions(SliderUpdate.Both);
 
             HeightSlider.OnValueChanged += _ => UpdateDimensions(SliderUpdate.Height);
             WidthSlider.OnValueChanged += _ => UpdateDimensions(SliderUpdate.Width);
@@ -1462,15 +1463,15 @@ namespace Content.Client.Lobby.UI
         private void SetProfileHeight(float height)
         {
             Profile = Profile?.WithHeight(height);
-            IsDirty = true;
             ReloadProfilePreview();
+            IsDirty = true;
         }
 
         private void SetProfileWidth(float width)
         {
             Profile = Profile?.WithWidth(width);
-            IsDirty = true;
             ReloadProfilePreview();
+            IsDirty = true;
         }
         // end Goobstation: port EE height/width sliders
 
