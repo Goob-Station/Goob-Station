@@ -2134,10 +2134,11 @@
   id: FloorHullReinforced
   name: tiles-hull-reinforced
   sprite: /Textures/Tiles/hull_reinforced.png
-  #goobstation
+  #goobstation start
   baseTurf: Lattice
   isSubfloor: true
   friction: 1.5 #same as normal plating
+  #goobstation end
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemSteel
