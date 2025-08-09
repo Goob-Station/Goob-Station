@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: SyringeCase
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  name: syringe case
+  description: A robust carrying case that helps keep travel supplies of medicine organized.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Objects/Misc/syringecase.rsi
+    layers:
+    - state: closed
+    - state: open
+      map: ["openLayer"]
+      visible: false
+    - state: syr1
+      map: ["syr1"]
+      visible: false
+    - state: syr2
+      map: ["syr2"]
+      visible: false
+    - state: bot1
+      map: ["bot1"]
+      visible: false
+    - state: bot2
+      map: ["bot2"]
+      visible: false
+    - state: pen1
+      map: ["pen1"]
+      visible: false
+    - state: pen2
+      map: ["pen2"]
+      visible: false
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 62
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,0,1
+  - type: Storage
+    grid:
+    - 0,0,4,1
+    whitelist:
+      tags:
+      - Bottle
+      - CentrifugeCompatible
+      - Dropper
+      - Syringe
+      - Medipen
+
+  - type: ItemCounter # i do not have the spoons to make itemmapper work with opening/closing so you get this
+    count:
+      components: [Item]
+    composite: true
+    layerStates:
+    - syr1
+    - bot1
+    - pen1
+    - syr2
+    - pen2
+    - bot2
+  - type: Appearance
