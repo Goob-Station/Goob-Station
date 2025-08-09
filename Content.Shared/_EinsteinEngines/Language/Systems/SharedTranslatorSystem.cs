@@ -18,6 +18,9 @@ public abstract class SharedTranslatorSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, HandheldTranslatorComponent component, ExaminedEvent args)
     {
+        if (!component.ShowInfoOnExamine) // goob
+            return;
+
         var understoodLanguageNames = component.UnderstoodLanguages
             .Select(it => Loc.GetString($"language-{it}-name"));
         var spokenLanguageNames = component.SpokenLanguages

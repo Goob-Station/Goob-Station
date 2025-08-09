@@ -21,4 +21,13 @@ public sealed partial class HandheldTranslatorComponent : BaseTranslatorComponen
     /// </remarks>
     [DataField]
     public bool SetLanguageOnInteract = true;
+
+    /// <summary>
+    ///     Whether to display details about the translator when the object is examined.
+    /// </summary>
+    /// <remarks>
+    ///     Added by Goob Station. This should be used for something like a magical object that grants a language to the user while they are holding/wearing it.
+    /// </remarks>
+    [DataField]
+    public bool ShowInfoOnExamine = true;
 }

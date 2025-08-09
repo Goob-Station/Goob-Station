@@ -947,6 +947,7 @@
     - SpaceItalian
     ToggleOnInteract: false
     SetLanguageOnInteract: false
+    ShowInfoOnExamine: false
 
 - type: entity
   parent: ClothingMaskBase
