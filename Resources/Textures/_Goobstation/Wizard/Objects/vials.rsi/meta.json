@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/ParadiseSS13/Paradise/commit/171c0d2d6cbcce67e5f1f09a741933ef1e7a1751",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "vial",
+      "delays": [
+        [0.1, 0.1, 0.1, 0.1]
+      ]
+    },
+    {
+      "name": "vialtickles",
+      "delays": [
+        [0.1, 0.1, 0.1, 0.1]
+      ]
+    }
+  ]
+}
