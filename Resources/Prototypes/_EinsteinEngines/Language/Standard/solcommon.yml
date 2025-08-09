@@ -1,10 +1,16 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Spoken by people from Earth. Chinese tidbits.
 - type: language
   id: SolCommon
   isVisibleLanguage: true
   speech:
     color: "#8282fbaa"
-    fontId: NotoSansSC
+    fontId: NotoSansSC # Goob Edit - Chinese Characters Font
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

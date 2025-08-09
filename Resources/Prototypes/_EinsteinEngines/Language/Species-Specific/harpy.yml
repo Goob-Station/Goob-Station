@@ -1,11 +1,18 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Language spoken by Harpies and Squackroaches.
 # Based on Polish, Greek, Serbian, Turkish.
 - type: language
   id: ValyrianStandard
   isVisibleLanguage: true
   speech:
-    # fontId: Cambria #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
-    color: "#008ecc"
+    fontId: Delius # Goob Edit - Different Font
+    fontSize: 13 # Goob Edit - Increased by 1 to account for slight size difference.
+    color: "#46ce83" # Goob Edit - Original "#008ecc"
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # One of 5 languages that Tajara could speak, lore-wise best choice since others (lore wise) rely on gesticulation too
 # Short name is Maas
 # To quote: "The traditionally employed tongue of Adhomai, comprised of expressive yowls and chirps. Native to the Tajara"
@@ -5,7 +11,7 @@
   id: SiikMaas
   isVisibleLanguage: true
   speech:
-    color: "#da954bee"
+    color: "#d6a36eee" # Goob Edit - Make more unique from Vulpkanin
     # fontId: Noganas # Rugged, like the people and the land #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED
   obfuscation:
     !type:SyllableObfuscation
