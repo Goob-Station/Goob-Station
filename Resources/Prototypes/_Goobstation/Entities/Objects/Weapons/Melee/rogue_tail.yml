@@ -1,0 +1,20 @@
+- type: entity
+  name: rogue king's tail
+  parent: BaseSword
+  id: RogueTailWeapon
+  description: The tail of an ancient rogue king, the ultimate trophy for a big game hunter.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/rogue_tail.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -60
+    damage:
+      types:
+        Slash: 20
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeDash
+  - type: UseDelay
+    delay: 1.5
+  - type: StaticPrice
+    price: 50000

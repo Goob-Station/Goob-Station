@@ -154,6 +154,7 @@
 
 - type: entity
   id: GunBot
+  name: gunbot
   parent: MobGunbotBase
 
 - type: entity

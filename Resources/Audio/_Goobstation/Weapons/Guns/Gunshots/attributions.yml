@@ -26,3 +26,8 @@
   license: "CC0-1.0"
   copyright: "sheepguard"
   source: "https://freesound.org/people/sheepguard/sounds/583574/"
+
+- files: ["TaserGoon"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"

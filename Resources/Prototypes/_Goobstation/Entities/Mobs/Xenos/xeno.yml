@@ -1,14 +1,15 @@
 - type: entity
-  name: Base xeno
-  id: BaseXenoOld
+  name: ancient base xeno
+  id: CMBaseXeno
   parent: SimpleSpaceMobBase
   description: An alien drone.
   abstract: true
   components:
-  - type: Insulated
   - type: CombatMode
   - type: InputMover
   - type: MobMover
+  - type: Sprinter
+    canSprint: false
   - type: HTN
     rootTask:
       task: XenoCompound
@@ -93,7 +94,7 @@
         Base: dead
   - type: Puller
   - type: Butcherable
-    butcheringType: Spike
+    butcheringType: Knife
     spawned:
     - id: FoodMeatXeno
       amount: 5
@@ -102,7 +103,7 @@
     allowSpeech: true
     makeSentient: true
     name: ghost-role-information-xeno-name
-    description: ghost-role-information-xeno-description
+    description: ghost-role-information-ancient-xeno-description
     rules: ghost-role-information-xeno-rules
     raffle:
       settings: default
@@ -128,15 +129,34 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Alive
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+  - type: Insulated # Goobstation
+    coefficient: 0.5
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#d14343"
+    activateSound: null
+    deactivateSound: null
+  - type: TileMovement
   - type: VentCrawler
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
   - type: CombatPower # Goobstation
     factor: 1 # times more dangerous than a crew-member
   - type: Fauna # Lavaland Change
 
 - type: entity
-  name: drone
-  id: MobXenoDroneOld
-  parent: BaseXenoOld
+  name: ancient drone
+  id: CMMobXenoDrone
+  parent: CMBaseXeno
   components:
   - type: Fixtures
     fixtures:
@@ -151,9 +171,9 @@
         - MobLayer
 
 - type: entity
-  name: Burrower
-  id: MobXenoBurrowerOld
-  parent: BaseXenoOld
+  name: ancient Burrower
+  id: CMMobXenoBurrower
+  parent: CMBaseXeno
   description: A beefy alien with sharp claws.
   components:
   - type: Sprite
@@ -185,9 +205,9 @@
     factor: 1 # times more dangerous than a crew-member
 
 - type: entity
-  name: warrior
-  id: MobXenoWarriorOld
-  parent: BaseXenoOld
+  name: ancient warrior
+  id: CMMobXenoWarrior
+  parent: CMBaseXeno
   description: A beefy alien with an armored carapace.
   components:
   - type: Sprite
@@ -227,9 +247,9 @@
     factor: 1.8 # times more dangerous than a crew-member
 
 - type: entity
-  name: crusher
-  id: MobXenoCrusherOld
-  parent: BaseXenoOld
+  name: ancient crusher
+  id: CMMobXenoCrusher
+  parent: CMBaseXeno
   description: A huge alien with an enormous armored crest.
   components:
   - type: Sprite
@@ -269,9 +289,9 @@
     factor: 2 # times more dangerous than a crew-member
 
 - type: entity
-  name: ravager
-  id: MobXenoRavagerOld
-  parent: BaseXenoOld
+  name: ancient ravager
+  id: CMMobXenoRavager
+  parent: CMBaseXeno
   description: A huge, nasty red alien with enormous scythed claws.
   components:
   - type: Sprite
@@ -304,13 +324,15 @@
         Base: crit
       Dead:
         Base: dead
+  - type: DashAction
+    actionProto: ActionDashGeneric
   - type: CombatPower # Goobstation
     factor: 2.5 # times more dangerous than a crew-member
 
 - type: entity
-  name: king
-  id: MobXenoKingOld
-  parent: BaseXenoOld
+  name: ancient king
+  id: CMMobXenoKing
+  parent: CMBaseXeno
   description: A massive alien covered in spines and armoured plates.
   components:
   - type: Sprite
@@ -327,7 +349,7 @@
     animation: WeaponArcBite
     damage:
         types:
-          Slash: 20
+          Slash: 25
           Structural: 50
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
@@ -335,8 +357,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      450: Critical
-      500: Dead
+      500: Critical
+      600: Dead
   - type: DamageStateVisuals
     rotate: true
     states:
@@ -346,18 +368,38 @@
         Base: crit
       Dead:
         Base: dead
+  - type: SpamEmitSound
+    minInterval: 60
+    maxInterval: 120
+    sound:
+      collection: XenoEchoRoar
+      params:
+        volume: -8
+        maxDistance: 50
+        variation: 0.05
+  - type: DashAction
+    actionProto: ActionDashGeneric
   - type: FootstepModifier
     footstepSoundCollection:
       collection: XenoFootstepLarge
       params:
         volume: -6
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-ancient-king-name
+    description: ghost-role-information-ancient-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: CombatPower # Goobstation
-    factor: 4 # times more dangerous than a crew-member
+    factor: 5 # times more dangerous than a crew-member
 
 - type: entity
-  name: queen
-  id: MobXenoQueenOld
-  parent: BaseXenoOld
+  name: ancient queen
+  id: CMMobXenoQueen
+  parent: CMBaseXeno
   description: The Queen, in all her glory.
   components:
   - type: Sprite
@@ -376,14 +418,15 @@
         types:
           Piercing: 15
           Slash: 15
-          Structural: 60
+          Blunt: 5
+          Structural: 80
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
   - type: MobThresholds
     thresholds:
       0: Alive
-      700: Critical
+      750: Critical
       800: Dead
   - type: DamageStateVisuals
     rotate: true
@@ -408,6 +451,10 @@
       collection: XenoFootstepLarge
       params:
         volume: -6
+  - type: Butcherable
+    spawned:
+    - id: ClothingOuterArmorQueenCarapace
+      amount: 1
   - type: Devourer
     foodPreference: Humanoid
     shouldStoreDevoured: true
@@ -419,5 +466,87 @@
       - Door
       tags:
       - Wall
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-ancient-queen-name
+    description: ghost-role-information-ancient-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
   - type: CombatPower # Goobstation
-    factor: 4 # times more dangerous than a crew-member
+    factor: 5 # times more dangerous than a crew-member
+
+- type: entity
+  name: ancient rogue king
+  id: CMMobXenoRogueKing
+  parent: CMMobXenoQueen
+  description: Driven into isolation, after all these years, this King has grown to be an unstoppable killing machine.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Xenos/king.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: rogue
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+        types:
+          Piercing: 15
+          Slash: 15
+          Blunt: 10
+          Structural: 100
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      800: Critical
+      900: Dead
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: rogue
+      Critical:
+        Base: critrogue
+      Dead:
+        Base: deadrogue
+  - type: SpamEmitSound
+    minInterval: 30
+    maxInterval: 80
+    sound:
+      path: /Audio/_RMC14/Xeno/xenos_roaring.ogg
+      params:
+        volume: 4
+        maxDistance: 60
+        variation: 0.5
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: XenoFootstepLarge
+      params:
+        volume: 1
+  - type: DashAction
+    actionProto: ActionDashGeneric
+  - type: Butcherable
+    spawned:
+    - id: RogueTailWeapon
+      amount: 1
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-ancient-rogue-king-name
+    description: ghost-role-information-ancient-rogue-king-description
+    rules: ghost-role-information-ancient-rogue-king-rules
+    raffle:
+      settings: default
+  - type: CombatPower # Goobstation
+    factor: 9 # times more dangerous than a crew-member

@@ -16,6 +16,19 @@
         },
         {
             "name": "crit"
+        },
+        {
+            "name": "rogue",
+            "directions": 4
+        },
+        {
+            "name": "deadrogue"
+        },
+        {
+            "name": "critrogue"
+        },
+        {
+            "name": "sleep"
         }
     ]
 }

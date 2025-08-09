@@ -17,7 +17,7 @@
   parent:
   - BaseWall
   - CMBaseXenoStructure
-  id: CMBaseWallXeno
+  id: BaseWallXeno
   name: resin wall
   abstract: true
   placement:
@@ -36,7 +36,7 @@
     - Wall
 
 - type: entity
-  parent: CMBaseWallXeno
+  parent: BaseWallXeno
   id: WallXenoResin
   name: resin wall
   description: Weird slime solidified into a wall.
@@ -82,7 +82,7 @@
         acts: ["Destruction"]
 
 - type: entity
-  parent: CMBaseWallXeno
+  parent: BaseWallXeno
   id: BaseMembraneXeno
   name: resin membrane
   abstract: true

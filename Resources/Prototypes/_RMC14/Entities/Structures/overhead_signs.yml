@@ -39,18 +39,6 @@
     color: "#ECFFFF"
     mask: /Textures/_RMC14/Effects/LightMasks/quad_cone.png
 
-# Signs
-
-- type: entity
-  parent: RMCOverheadSign
-  id: RMCOverheadSignBarCrow
-  name: The Drowning Crow Bar
-  description: A sign for 'The Drowning Crow' bar. The sign is old and delapitated.
-  components:
-  - type: Sprite
-    state: crow_bar
-    offset: -0.15,0.75
-
 # Neon Signs
 
 - type: entity
