@@ -7,7 +7,7 @@
   parent: BaseSubdermalImplant
   id: BasicSpaceItalianTranslatorImplant
   name: basic space italian translator implant
-  description: Provides your friends the ability to understand the ability to understand the residents of the kitchen.
+  description: Provides you the ability to understand the residents of the kitchen.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -18,7 +18,7 @@
   parent: BaseSubdermalImplant
   id: SpaceItalianTranslatorImplant
   name: advanced space italian translator implant
-  description: Provides your friends the ability to understand the ability to speak the language of the kitchen.
+  description: Provides you the ability to speak the language of the kitchen.
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
