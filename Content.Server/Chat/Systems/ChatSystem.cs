@@ -702,14 +702,12 @@ public sealed partial class ChatSystem : SharedChatSystem
         //     ("fontSize", speech.FontSize),
         //     ("message", FormattedMessage.EscapeText(message)));
 
-        var typeLOS = SpeakRespectsLOS;
+        var typeLOS = SpeakRespectsLOS || language.SpeechOverride.RequireLOS;
         if (!language.SpeechOverride.RequireSpeech && language.SpeechOverride.RequireLOS)
         {
             // Since this is basically an emote, make it act like an emote for identity.
             var ent = Identity.Entity(source, EntityManager);
             name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
-
-            typeLOS = EmoteRespectsLOS; // If it requires LOS and does not require speech, it's an emote (sign language).
         }
 
         // The chat message wrapped in a "x says y" string.
