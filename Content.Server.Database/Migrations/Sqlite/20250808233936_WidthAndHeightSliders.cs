@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+// SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
