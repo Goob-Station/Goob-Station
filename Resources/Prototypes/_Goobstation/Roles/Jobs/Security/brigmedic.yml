@@ -36,5 +36,6 @@
   - !type:AddComponentSpecial
     components: 
     - type: SecurityStaff
+  - !type:AddComponentSpecial
     - type: SurgerySpeedModifier
       speedModifier: 1.25 # Same as Paramedic

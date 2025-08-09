@@ -301,7 +301,7 @@
 - type: entity
   parent: BaseFlatpack
   id: StasisBedFlatpack
-  name: fax machine flatpack
+  name: stasis bed flatpack
   description: A flatpack used for constructing a stasis bed.
   components:
   - type: Flatpack
