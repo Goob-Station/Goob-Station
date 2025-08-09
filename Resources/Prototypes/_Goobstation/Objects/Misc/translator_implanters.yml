@@ -5,6 +5,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Gives the ability to understand SpaceItalian
 - type: entity
   id: BasicSpaceItalianTranslatorImplanter
   parent: BaseTranslatorImplanter
