@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprites taken from Goonstation 13",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "fermid_small",
+            "directions": 4
+        },
+        {
+            "name": "fermid_small_dead"
+        },
+        {
+            "name": "fermid_large",
+            "directions": 4
+        },
+        {
+            "name": "fermid_large_dead"
+        }
+    ]
+}

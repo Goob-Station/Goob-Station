@@ -1,0 +1,259 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation 13",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "flock_wall00",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall01",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall02",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall03",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall04",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall05",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall06",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall07",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall08",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall09",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall10",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall11",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall12",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall13",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall14",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall15",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall16",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall17",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall18",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall19",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall20",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall21",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall22",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall23",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall24",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall25",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall26",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall27",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall28",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall29",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall30",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall31",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall32",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall33",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall34",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall35",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall36",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall37",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall38",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall39",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall40",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall41",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall42",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall43",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall44",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall45",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall46",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall47",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall48",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall49",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall50",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall51",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall52",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall53",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall54",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall55",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall56",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall57",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall58",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall59",
+            "directions": 1
+        },
+        {
+            "name": "flock_wall60",
+            "directions": 1
+        },
+        {
+            "name": "FZ1_Wall",
+            "directions": 1
+        }
+    ]
+}
