@@ -18,8 +18,16 @@ public sealed partial class DelayedDeathComponent : Component
     public float DeathTime = 60;
 
     /// <summary>
+    /// If true, will prevent *almost* all types of revival.
+    /// Right now, this just means it won't allow devils to revive.
+    /// </summary>
+    [DataField]
+    public bool PreventAllRevives;
+
+    /// <summary>
     /// How long it has been since the delayed death timer started.
     /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
     public float DeathTimer;
 
     /// <summary>
