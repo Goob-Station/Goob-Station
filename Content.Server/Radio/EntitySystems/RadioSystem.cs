@@ -27,6 +27,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -254,11 +255,18 @@ public sealed class RadioSystem : EntitySystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
 
+        // Goobstation Edit - Custom Bold Fonts begin
+        var boldId = language.SpeechOverride.BoldFontId ?? speech.FontId;
+        if (language.SpeechOverride.BoldFontId == null && language.SpeechOverride.FontId != null)
+            boldId = language.SpeechOverride.FontId;
+        // Goobstation Edit - end
+
         return Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
             ("color", channel.Color),
             ("languageColor", languageColor),
             ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
             ("fontSize", language.SpeechOverride.FontSize ?? speech.FontSize),
+            ("boldFontType", boldId), // Goob Edit - Custom Bold Fonts
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
             ("name", name),
