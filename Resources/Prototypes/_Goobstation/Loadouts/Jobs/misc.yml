@@ -26,7 +26,7 @@
 - type: loadout
   id: Bodycam
   equipment:
-    neck: Bodycam # Pirate
+    neck: SurveillanceWirelessCameraBodySecurity
 
 - type: loadout
   id: NoPro

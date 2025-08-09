@@ -158,7 +158,7 @@
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingUniformJumpsuitSecGrey
         prob: 0.3
-      - id: ClothingHeadHelmetBasicAlt # Pirate
+      - id: ClothingHeadHelmetBasic
       - id: ClothingOuterArmorBasic
       - id: ClothingBeltSecurityFilled
         orGroup: Belt # Goobstation - Martial Arts - start
@@ -178,7 +178,6 @@
         prob: 0.6
       - id: BookSpaceLaw
         prob: 0.5
-      - id: Bodycam # Pirate
 
 - type: entity
   id: LockerBrigmedicFilled
