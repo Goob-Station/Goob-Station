@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Gives ability to understand SpaceItalian. - Putting an implanter in for this would be bloat and I hate that I have to do any of this as an implant in the first place but doing it any other way would be a tremendous pain in the ass. I hate it here.
 #- type: entity
 #  id: BasicSpaceItalianTranslatorImplanter
