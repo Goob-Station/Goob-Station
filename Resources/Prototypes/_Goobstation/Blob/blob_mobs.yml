@@ -127,6 +127,9 @@
     - type: GuideHelp
       guides:
       - Blob
+    - type: IgniteFromGasImmunity # Plasmamen change lmao
+      parts:
+      - Head
 
 # Blobbernaut
 - type: entity
