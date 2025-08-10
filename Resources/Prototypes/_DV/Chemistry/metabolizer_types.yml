@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # If your species wants to metabolize stuff differently,
 # you'll likely have to tag its metabolizers with something other than Human.
 
