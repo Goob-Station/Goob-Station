@@ -14,6 +14,13 @@
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Chitinid/parts.rsi
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+        color: "#507846"
+      Burn:
+        sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
   - type: Extractable
     juiceSolution:
       reagents:
@@ -21,6 +28,8 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
+  - type: Damageable # Shitmed
+    damageModifierSet: Chitinid
 
 - type: entity
   id: ChestChitinid

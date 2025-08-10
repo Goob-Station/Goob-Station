@@ -37,7 +37,8 @@ public sealed partial class ChitinidSystem : EntitySystem
 
             comp.NextUpdate += comp.UpdateInterval;
 
-            if (comp.AmountAbsorbed >= comp.MaximumAbsorbed || _mobState.IsDead(uid))
+            if (comp.AmountAbsorbed >= comp.MaximumAbsorbed
+                || _mobState.IsDead(uid))
                 continue;
 
             if (_damageable.TryChangeDamage(uid, comp.Healing, damageable: damageable) is not {} delta)
@@ -51,13 +52,8 @@ public sealed partial class ChitinidSystem : EntitySystem
     }
 
     private void OnMapInit(Entity<ChitinidComponent> ent, ref MapInitEvent args)
-    {
-        ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.UpdateInterval;
-    }
+        => ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.UpdateInterval;
 
     private void OnItemCoughedUp(Entity<ChitinidComponent> ent, ref ItemCoughedUpEvent args)
-    {
-        // start healing radiation again
-        ent.Comp.AmountAbsorbed = 0f;
-    }
+        => ent.Comp.AmountAbsorbed = 0f;
 }

@@ -40,16 +40,13 @@ public sealed class ItemCougherSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_net.IsClient)
-            return;
-
         var query = EntityQueryEnumerator<CoughingUpItemComponent, ItemCougherComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var coughing, out var comp, out var xform))
         {
             if (_timing.CurTime < coughing.NextCough)
                 continue;
 
-            var spawned = Spawn(comp.Item, xform.Coordinates);
+            var spawned = PredictedSpawnAtPosition(comp.Item, xform.Coordinates);
             RemCompDeferred(uid, coughing);
 
             var ev = new ItemCoughedUpEvent(spawned);
@@ -67,9 +64,9 @@ public sealed class ItemCougherSystem : EntitySystem
 
     private void OnCoughItemAction(Entity<ItemCougherComponent> ent, ref CoughItemActionEvent args)
     {
-        if (_inventory.TryGetSlotEntity(ent, "mask", out var maskUid) &&
-            TryComp<MaskComponent>(maskUid, out var mask) &&
-            !mask.IsToggled)
+        if (_inventory.TryGetSlotEntity(ent, "mask", out var maskUid)
+            && TryComp<MaskComponent>(maskUid, out var mask)
+            && !mask.IsToggled)
         {
             _popup.PopupClient(Loc.GetString("item-cougher-mask", ("mask", maskUid)), ent, ent);
             return;
@@ -93,13 +90,12 @@ public sealed class ItemCougherSystem : EntitySystem
     /// Other systems have to call this, this is not used internally.
     /// </summary>
     public void EnableAction(Entity<ItemCougherComponent?> ent)
-    {
-        SetActionEnabled(ent, true);
-    }
+        => SetActionEnabled(ent, true);
 
     public void SetActionEnabled(Entity<ItemCougherComponent?> ent, bool enabled)
     {
-        if (!_query.Resolve(ent, ref ent.Comp) || ent.Comp.ActionEntity is not {} action)
+        if (!_query.Resolve(ent, ref ent.Comp)
+        || ent.Comp.ActionEntity is not {} action)
             return;
 
         _actions.SetEnabled(action, enabled);
