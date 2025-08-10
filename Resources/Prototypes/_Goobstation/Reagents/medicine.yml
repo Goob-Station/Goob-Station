@@ -1646,7 +1646,7 @@
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
-          min: 71
+          min: 70
       - !type:MovespeedModifier
         conditions:
         - !type:ReagentThreshold
