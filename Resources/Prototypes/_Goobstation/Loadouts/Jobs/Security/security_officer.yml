@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GnKonkort <nlok3@yandex.ru>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Jarl <140098675+JarlElbowses@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Jarl <elliotacline@gmail.com>
@@ -48,3 +49,14 @@
   storage:
     back:
     - SpearTelescopic
+#Neck
+- type: loadout
+  id: SecOffFeatheryCloak
+  equipment:
+    neck: ClothingNeckCloakSecFeathery
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 198000 # 55 hrs
