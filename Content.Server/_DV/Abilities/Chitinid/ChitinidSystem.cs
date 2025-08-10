@@ -50,10 +50,8 @@ public sealed partial class ChitinidSystem : EntitySystem
         }
     }
 
-    private void OnMapInit(Entity<ChitinidComponent> ent, ref MapInitEvent args)
-    {
+    private void OnMapInit(Entity<ChitinidComponent> ent, ref MapInitEvent args) =>
         ent.Comp.NextUpdate = _timing.CurTime + ent.Comp.UpdateInterval;
-    }
 
     private void OnItemCoughedUp(Entity<ChitinidComponent> ent, ref ItemCoughedUpEvent args)
     {
