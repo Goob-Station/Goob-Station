@@ -12,7 +12,8 @@ namespace Content.Shared.Damage.Events;
 /// Raised before stamina damage is dealt to allow other systems to cancel or modify it.
 /// </summary>
 [ByRefEvent]
-public record struct BeforeStaminaDamageEvent(float Value, EntityUid? Source = null, bool Cancelled = false) : IInventoryRelayEvent
+// Goobstation change, added Source param.
+public record struct BeforeStaminaDamageEvent(float Value, EntityUid? Source = null, bool Cancelled = false) : IInventoryRelayEvent 
 {
     SlotFlags IInventoryRelayEvent.TargetSlots =>  ~SlotFlags.POCKET;
 }
