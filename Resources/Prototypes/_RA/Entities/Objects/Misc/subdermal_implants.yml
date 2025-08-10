@@ -25,6 +25,7 @@
     - type: MimePowers
       preventWriting: false # Explicit in case upstream changes its mind on this.
 
+# Custom Implant for Sunday
 - type: entity
   parent: BaseSubdermalImplant
   id: MutingImplant
