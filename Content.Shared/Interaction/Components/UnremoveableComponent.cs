@@ -29,6 +29,6 @@ namespace Content.Shared.Interaction.Components
         /// You MUST set this to false if you want to set delete on drop to true. - Goobstation
         /// </summary>
         [DataField]
-        public bool PreventContainerRemoval = true;
+        public bool PreventContainerRemoval = false;
     }
 }
