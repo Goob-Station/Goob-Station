@@ -145,7 +145,8 @@
 - type: startingGear
   id: MimeGear
   equipment:
-    gloves: ClothingHandsGlovesColorWhite
+    #gloves: ClothingHandsGlovesColorWhite - Goobstation, moved to loadouts
+    shoes: ClothingShoesColorWhite
     id: MimePDA
     pocket1: CrayonMime
     ears: ClothingHeadsetService

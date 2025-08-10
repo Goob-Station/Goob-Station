@@ -134,25 +134,30 @@
   equipment:
     head: ClothingHeadHatBeretMedic
 
+
 - type: loadout
   id: BlueSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapBlue
+
 
 - type: loadout
   id: GreenSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapGreen
 
+
 - type: loadout
   id: PurpleSurgeryCap
   equipment:
     head: ClothingHeadHatSurgcapPurple
 
+
 - type: loadout
   id: NurseHat
   equipment:
     head: ClothingHeadNurseHat
+
 
 # Jumpsuit
 - type: loadout
@@ -160,10 +165,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
 
+
 - type: loadout
   id: MedicalDoctorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
+
 
 - type: loadout
   id: SeniorPhysicianJumpsuit
@@ -186,15 +193,18 @@
   equipment:
     jumpsuit: UniformScrubsColorBlue
 
+
 - type: loadout
   id: MedicalGreenScrubs
   equipment:
     jumpsuit: UniformScrubsColorGreen
 
+
 - type: loadout
   id: MedicalPurpleScrubs
   equipment:
     jumpsuit: UniformScrubsColorPurple
+
 
 - type: loadout # goob
   id: MedicMJ
@@ -261,6 +271,7 @@
   id: NitrileGloves
   equipment:
     gloves: ClothingHandsGlovesNitrile
+
 
 #Masks
 - type: loadout

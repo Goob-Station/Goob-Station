@@ -88,6 +88,7 @@
   equipment:
     head: ClothingHeadHatBowlerHat
 
+
 # Jumpsuit
 - type: loadout
   id: BartenderJumpsuit
@@ -97,6 +98,7 @@
   id: BartenderJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBartender
+
 - type: loadout
   id: BartenderJumpsuitPurple
   equipment:
@@ -105,6 +107,7 @@
   id: WaitressUniform
   equipment:
     jumpsuit: ClothingUniformJumpskirtWaitress
+
 
 # Outer clothing
 - type: loadout

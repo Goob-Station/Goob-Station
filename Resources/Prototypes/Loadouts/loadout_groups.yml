@@ -256,9 +256,11 @@
   minLimit: 3
   hidden: true
   loadouts:
-    - EmergencyNitrogen
-    - EmergencyOxygen
-    - LoadoutSpeciesVoxNitrogen
+  - EmergencyNitrogen
+  - EmergencyOxygen
+  - EmergencyPlasma
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -848,9 +850,12 @@
   minLimit: 2
   hidden: true
   loadouts:
-    - EmergencyNitrogenClown
-    - EmergencyOxygenClown
-    - LoadoutSpeciesVoxNitrogen
+  - EmergencyNitrogenClown
+  - EmergencyOxygenClown
+  - EmergencyPlasmaClown
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+
 - type: loadoutGroup
   id: MimeHead
   name: loadout-group-mime-head
@@ -892,10 +897,13 @@
   minLimit: 2
   hidden: true
   loadouts:
-    - EmergencyNitrogenMime
-    - EmergencyOxygenMime
-    - EmergencySpeciesMothMime
-    - LoadoutSpeciesVoxNitrogen
+  - EmergencyNitrogenMime
+  - EmergencyOxygenMime
+  - EmergencySpeciesMothMime
+  - EmergencyPlasmaMime
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+
 - type: loadoutGroup
   id: MusicianJumpsuit
   name: loadout-group-musician-jumpsuit
@@ -1173,9 +1181,11 @@
   minLimit: 2
   hidden: true
   loadouts:
-    - EmergencyNitrogenExtended
-    - EmergencyOxygenExtended
-    - LoadoutSpeciesVoxNitrogen
+  - EmergencyNitrogenExtended
+  - EmergencyOxygenExtended
+  - EmergencyPlasmaExtended
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 # Science
 - type: loadoutGroup
@@ -1431,9 +1441,12 @@
   minLimit: 2
   hidden: true
   loadouts:
-    - EmergencyNitrogenSecurity
-    - EmergencyOxygenSecurity
-    - LoadoutSpeciesVoxNitrogen
+  - EmergencyNitrogenSecurity
+  - EmergencyOxygenSecurity
+  - EmergencyPlasmaSecurity
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+
 - type: loadoutGroup
   id: SecurityStar
   name: loadout-group-security-star
@@ -1628,9 +1641,11 @@
   minLimit: 2
   hidden: true
   loadouts:
-    - EmergencyNitrogenMedical
-    - EmergencyOxygenMedical
-    - LoadoutSpeciesVoxNitrogen
+  - EmergencyNitrogenMedical
+  - EmergencyOxygenMedical
+  - EmergencyPlasmaMedical
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 # Wildcards
 - type: loadoutGroup
@@ -1671,9 +1686,12 @@
   minLimit: 2
   hidden: true
   loadouts:
-    - EmergencyNitrogenSyndicate
-    - EmergencyOxygenSyndicate
-    - LoadoutSpeciesVoxNitrogen
+  - EmergencyNitrogenSyndicate
+  - EmergencyOxygenSyndicate
+  - EmergencyPlasmaSyndicate
+  - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
+
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
   name: loadout-group-breath-tool

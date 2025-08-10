@@ -106,6 +106,7 @@
   equipment:
     head: ClothingHeadHatPurplesoft
 
+
 # Jumpsuit
 - type: loadout
   id: JanitorJumpsuit
@@ -119,6 +120,7 @@
   id: MaidOutfitJanitor
   equipment:
     jumpsuit: UniformMaid
+
 
 # Gloves
 - type: loadout
@@ -134,6 +136,7 @@
   equipment:
     gloves: ClothingHandsGlovesColorPurple
 
+
 # Outer clothing
 - type: loadout
   id: JanitorWintercoat
@@ -147,4 +150,5 @@
     - !type:GroupLoadoutEffect
       proto: SeniorJanitorial
   storage:
-    back: [GoldenPlunger]
+    back:
+    - GoldenPlunger
