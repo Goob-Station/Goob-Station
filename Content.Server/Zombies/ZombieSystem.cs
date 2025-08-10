@@ -246,13 +246,16 @@ namespace Content.Server.Zombies
 
         private void OnStartup(EntityUid uid, ZombieComponent component, ComponentStartup args)
         {
-            if (component.EmoteSoundsId == null || TerminatingOrDeleted(uid))
+            if (component.EmoteSoundsId == null
+                || TerminatingOrDeleted(uid)) // Goob Change
                 return;
 
+            // Goobstation Change Start
             var comp = EnsureComp<LanguageSpeakerComponent>(uid); // Ensure they can speak language before adding language.
             if (!string.IsNullOrEmpty(component.ForcedLanguage)) // Should never be false, but security either way.
                 comp.CurrentLanguage = component.ForcedLanguage;
             _language.UpdateEntityLanguages(uid);
+            // Goobstation Change End
 
             _protoManager.TryIndex(component.EmoteSoundsId, out component.EmoteSounds);
         }
@@ -408,8 +411,7 @@ namespace Content.Server.Zombies
         /// </summary>
         private void OnLanguageApply(Entity<ZombieComponent> ent, ref DetermineEntityLanguagesEvent args)
         {
-            if (ent.Comp.LifeStage is
-                ComponentLifeStage.Removing
+            if (ent.Comp.LifeStage is ComponentLifeStage.Removing
                 or ComponentLifeStage.Stopping
                 or ComponentLifeStage.Stopped)
                 return;
