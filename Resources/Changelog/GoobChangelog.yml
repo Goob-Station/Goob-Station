@@ -13048,3 +13048,13 @@ Entries:
       message: Modsuits now default to satchel size
   id: 1443
   time: '2025-08-09T21:08:46.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Ling arm and Godhand no longer command grab.
+    - type: Add
+      message: Ling arm now has poison and debuff infliction on attack
+    - type: Add
+      message: Godhand can pry doors open like the jaws of life
+  id: 1444
+  time: '2025-08-10T00:31:29.0000000+00:00'
