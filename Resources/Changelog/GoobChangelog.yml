@@ -13070,3 +13070,14 @@ Entries:
       message: Conveyor sprite changed to show where it's going.
   id: 1446
   time: '2025-08-10T02:01:31.0000000+00:00'
+- author: Skubman
+  changes:
+    - type: Add
+      message: >-
+        The Plasmaman species has arrived! They need to breathe plasma to live,
+        and a special jumpsuit to prevent oxygen from igniting them. In
+        exchange, they deal formidable unarmed Heat damage, are never hungry nor
+        thirsty, and are immune to cold and radiation damage. Read more about
+        Plasmamen in their Guidebook entry.
+  id: 1447
+  time: '2025-08-10T04:47:50.0000000+00:00'
