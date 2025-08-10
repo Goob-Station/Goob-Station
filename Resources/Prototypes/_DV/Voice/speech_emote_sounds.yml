@@ -388,3 +388,9 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
+    Sigh:
+      collection: MaleSigh
+    Whistle:
+      collection: Whistles
+    Gulp: # Goob
+      path: /Audio/_Goobstation/Voice/gulpexotic.ogg
