@@ -38,6 +38,8 @@
   components:
   - type: Sprite
     state: "chest_m"
+  - type: Icon
+    state: "chest_m"
   - type: Extractable
     juiceSolution:
       reagents:

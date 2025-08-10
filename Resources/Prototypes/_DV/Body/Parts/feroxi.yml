@@ -6,11 +6,30 @@
   components:
     - type: Sprite
       sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    - type: Damageable # Shitmed
+      damageModifierSet: Feroxi
+    - type: WoundableVisuals
+      damageOverlayGroups:
+        Brute:
+          sprite: _Shitmed/Mobs/Effects/brute_damage.rsi
+          color: "#3d909c"
+        Burn:
+          sprite: _Shitmed/Mobs/Effects/burn_damage.rsi
 
 - type: entity
   parent: [ PartFeroxiBase, BaseTorso ]
-  id: TorsoFeroxi
-  name: feroxi torso
+  id: ChestFeroxi
+  name: feroxi chest
+
+- type: entity
+  parent: [ PartFeroxiBase, BaseGroin ]
+  id: GroinFeroxi
+  name: "feroxi groin"
+  components:
+  - type: Sprite
+    state: "groin_m"
+  - type: Icon
+    state: "groin_m"
 
 - type: entity
   parent: [ PartFeroxiBase, BaseHead ]
