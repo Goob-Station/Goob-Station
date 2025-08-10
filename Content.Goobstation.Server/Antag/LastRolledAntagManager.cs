@@ -36,7 +36,7 @@ public sealed class LastRolledAntagManager : ILastRolledAntagManager
     /// </summary>
     public TimeSpan SetLastRolled(NetUserId userId, TimeSpan to)
     {
-        var oldTime = Task.Run(() => SetTimeAsync(userId, to)).GetAwaiter().GetResult();
+        var oldTime = SetTimeAsync(userId, to).GetAwaiter().GetResult();
         _sawmill.Info($"Setting {userId} last rolled antag to {to} from {oldTime}");
         return oldTime;
     }
