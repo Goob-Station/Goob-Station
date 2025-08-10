@@ -38,6 +38,8 @@
     implantAction: ActionActivateDeathAcidifier
   - type: TriggerImplantAction
   - type: GibOnTrigger
+  - type: SpawnOnTrigger
+    proto: Acidifier
   - type: AddComponentsImplant
     componentsToAdd:
     - type: MimePowers
