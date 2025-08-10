@@ -31,10 +31,18 @@ public sealed partial class CCVars
         CVarDef.Create("heightadjust.modifies_bloodstream", true, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Whether height & width sliders adjust a player's sprinting speed and stamina drain.
+    ///     Whether height & width sliders adjust a player's sprinting speed.
     /// <remarks>
-    ///     This can be configured more precisely by modifying SprintingAffectedByMassComponent.
+    ///     This can be configured more precisely by modifying SprintingAffectedByScaleComponent.
     /// </remarks>
     public static readonly CVarDef<bool> HeightAdjustModifiesSprinting =
         CVarDef.Create("heightadjust.modifies_sprinting", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Whether height & width sliders adjust a harpy's flight speed and stamina drain.
+    /// <remarks>
+    ///     This can be configured more precisely by modifying FlightAffectedByScaleComponent.
+    /// </remarks>
+    public static readonly CVarDef<bool> HeightAdjustModifiesFlight =
+        CVarDef.Create("heightadjust.modifies_flight", true, CVar.SERVERONLY);
 }

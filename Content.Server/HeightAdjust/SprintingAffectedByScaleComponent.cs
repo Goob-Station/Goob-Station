@@ -18,7 +18,7 @@ namespace Content.Server.HeightAdjust;
 public sealed partial class SprintingAffectedByScaleComponent : Component
 {
     /// <summary>
-    ///     Minimum and maximum resulting sprint speed + stamina drain factors.
+    ///     Minimum and maximum resulting sprint speed.
     ///     A minimum value of 0.5 means that the resulting sprint speed will be at least 50% of the original.
     /// </summary>
     /// <remarks>
