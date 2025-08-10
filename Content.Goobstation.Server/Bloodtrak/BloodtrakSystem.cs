@@ -147,7 +147,13 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
                 return false;
 
             // Tracking duration scales linearly with freshness.
-            pinpointer.ExpirationTime = _gameTiming.CurTime + pinpointer.MaximumTrackingDuration - (_gameTiming.CurTime - pinpointer.Freshness);
+            var newExpirationTime = _gameTiming.CurTime + pinpointer.MaximumTrackingDuration - (_gameTiming.CurTime - pinpointer.Freshness);
+            if (newExpirationTime <= _gameTiming.CurTime)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-sample-expired"), uid);
+                return false;
+            }
+            pinpointer.ExpirationTime = newExpirationTime;
         }
 
         SetActive(uid, isActive, pinpointer);
