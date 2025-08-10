@@ -22,18 +22,14 @@ public sealed class LastRolledAntagManager : ILastRolledAntagManager
     private readonly List<Task> _pendingSaveTasks = new();
     private ISawmill _sawmill = default!;
 
-    public void Initialize()
-    {
+    public void Initialize() =>
         _sawmill = Logger.GetSawmill("last_antag");
-    }
 
     /// <summary>
     /// Saves last rolled values to the database before allowing the server to shutdown.
     /// </summary>
-    public void Shutdown()
-    {
+    public void Shutdown() =>
         _task.BlockWaitOnTask(Task.WhenAll(_pendingSaveTasks));
-    }
 
     /// <summary>
     /// Sets a player's last rolled antag time.
@@ -48,10 +44,9 @@ public sealed class LastRolledAntagManager : ILastRolledAntagManager
     /// <summary>
     /// Gets a player's last rolled antag time.
     /// </summary>
-    public TimeSpan GetLastRolled(NetUserId userId)
-    {
-        return GetTimeAsync(userId).GetAwaiter().GetResult();
-    }
+    /// <remarks>This is blocking, if possible - use <see cref="GetTimeAsync"/></remarks>
+    public TimeSpan GetLastRolled(NetUserId userId) =>
+        GetTimeAsync(userId).GetAwaiter().GetResult();
 
     #region Internal/Async tasks
 
@@ -83,10 +78,8 @@ public sealed class LastRolledAntagManager : ILastRolledAntagManager
     /// <summary>
     /// Gets a player's last rolled antag time.
     /// </summary>
-    private async Task<TimeSpan> GetTimeAsync(NetUserId userId)
-    {
-        return await _db.GetLastRolledAntag(userId);
-    }
+    private async Task<TimeSpan> GetTimeAsync(NetUserId userId) =>
+        await _db.GetLastRolledAntag(userId);
 
     /// <summary>
     /// Track a database save task to make sure we block server shutdown on it.
