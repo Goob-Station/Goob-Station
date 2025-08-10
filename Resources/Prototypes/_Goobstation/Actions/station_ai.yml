@@ -3,6 +3,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Station AI
 - type: entity
   id: ActionOpenCameraWarpMenu
   name: Jump to camera
@@ -17,3 +18,109 @@
     icon:
       sprite: Interface/Actions/actions_ai.rsi
       state: camera_jump
+
+# Malf AI
+- type: entity
+  id: ActionMalfAIShop
+  name: View Modules
+  description: Spend processing power on modules.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:MalfAIOpenShopAction
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: modules_menu
+
+- type: entity
+  id: ActionMalfAIDoomsDay
+  name: malf-ai-doom-device-name
+  description: malf-ai-doom-device-desc
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:DoomsDayActionEvent
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: reactivate_cameras
+  - type: LimitedCharges
+    maxCharges: 1
+    lastCharges: 1
+    removeActionOnNoCharges: true
+
+- type: entity
+  id: ActionMalfAIOverload
+  name: malf-ai-overload-name
+  description: malf-ai-overload-desc
+  components:
+  - type: EntityTargetAction
+    checkCanInteract: false
+    useDelay: 10
+    itemIconStyle: BigAction
+    event: !type:MachineOverloadActionEvent
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: overload_machine
+  - type: Explosive # Powerful explosion in a small radius. Breaks underplating.
+    explosionType: Default
+    totalIntensity: 60
+    intensitySlope: 3
+    maxIntensity: 30
+    canCreateVacuum: true
+  - type: LimitedCharges
+    maxCharges: 2
+    lastCharges: 2
+    removeActionOnNoCharges: true
+
+- type: entity
+  id: ActionMalfAILockdown
+  name: malf-ai-lockdown-name
+  description: malf-ai-lockdown-desc
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:HostileLockdownActionEvent
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: lockdown
+  - type: LimitedCharges
+    maxCharges: 1
+    lastCharges: 1
+    removeActionOnNoCharges: true
+
+- type: entity
+  id: ActionMalfAIUpgradeCameras
+  name: malf-ai-upgrade-cams-name
+  description: malf-ai-upgrade-cams-desc
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:UpgradeCamerasActionEvent
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: reactivate_cameras
+  - type: LimitedCharges
+    maxCharges: 1
+    lastCharges: 1
+    removeActionOnNoCharges: true
+
+- type: entity
+  id: ActionMalfAIReactivateCamera
+  name: malf-ai-reactivate-cam-name
+  description: malf-ai-reactivate-cam-desc
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:ReactivateCameraActionEvent
+    icon:
+      sprite: _Goobstation/Interface/Actions/actions_malfai.rsi
+      state: reactivate_cameras
+  - type: LimitedCharges
+    maxCharges: 30
+    lastCharges: 30
+    removeActionOnNoCharges: true

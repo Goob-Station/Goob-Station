@@ -25,10 +25,14 @@
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ThunderBear2006 <bearthunder06@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Silicon.MalfAI.Components;
 using Content.Server.Emp;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -160,7 +164,13 @@ public sealed class ApcSystem : EntitySystem
 
         if (apc.LastChargeStateTime == null || apc.LastChargeStateTime + ApcComponent.VisualsChangeDelay < _gameTiming.CurTime)
         {
-            var newState = CalcChargeState(uid, battery.NetworkBattery);
+            // Goobstation edit start
+            var hacked = TryComp<MalfStationAIHackableComponent>(uid, out var hackComp) && hackComp.Hacked;
+
+            // var newState = CalcChargeState(uid, battery.NetworkBattery);
+            var newState = hacked ? ApcChargeState.Emag : CalcChargeState(uid, battery.NetworkBattery);
+            // Goobstation edit end
+
             if (newState != apc.LastChargeState)
             {
                 apc.LastChargeState = newState;

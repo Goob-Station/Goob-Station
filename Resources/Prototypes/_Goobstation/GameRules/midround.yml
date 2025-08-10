@@ -223,3 +223,46 @@
   - type: Tag
     tags:
       - MidroundAntag
+
+- type: entity
+  parent: BaseMalfAIGamerule
+  id: MalfAIMidround
+  components:
+  - type: StationEvent
+    weight: 2
+    earliestStart: 75
+    minimumPlayers: 30
+    duration: null
+    maxOccurrences: 1
+    chaos:
+      Hostile: 300
+      Medical: 300
+      Death: 300
+    eventType: HostilesSpawn
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: malf-roundend-name
+    definitions:
+    - prefRoles: [ MalfunctionalAI ]
+      max: 1
+      playerRatio: 20
+      allowNonHumans: true
+      lateJoinAdditional: true
+      whitelist:
+        components:
+        - StationAiHeld
+      mindRoles:
+      - MindRoleMalfAI
+      briefing:
+        text: malf-role-greeting
+        color: Red
+        sound: "/Audio/_Goobstation/Ambience/Antag/malf_start.ogg"
+      components:
+      - type: Store
+        categories:
+        - MalfAIAbilities
+        currencyWhitelist:
+        - ProcessingPower
+  - type: Tag
+    tags:
+    - MidroundAntag

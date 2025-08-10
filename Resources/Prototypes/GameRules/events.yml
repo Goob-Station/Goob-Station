@@ -194,6 +194,8 @@
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
     - id: BingleSpawn #Goobstation - Bingle
+    - id: MalfAI # Goobstation - Malf AI
+    - id: MalfAIMidround
 
 - type: entity
   id: BaseStationEvent
