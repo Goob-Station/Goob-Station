@@ -35,9 +35,6 @@
     clothingVisuals:
       head:
       - state: equipped-HEAD
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: Armor
     coverage:
     - Head
@@ -47,6 +44,15 @@
       BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
+  - type: IgniteFromGasImmunity
+    parts:
+    - Head
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+    - Envirohelm
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
   abstract: true
@@ -155,13 +161,6 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
-  - type: Tag
-    tags:
-    - PlasmamanSafe
-    - Envirohelm
-  - type: IgniteFromGasImmunity
-    parts:
-    - Head
 
 - type: entity
   parent: BaseClothingModsuitHelmet

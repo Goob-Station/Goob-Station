@@ -13,6 +13,23 @@
 
 - type: entity
   parent: ClothingHandsBase
+  id: ClothingModsuitGauntletsBase
+  name: base hardsuit gauntlets
+  description: Special modular suit gloves that protect wearer from electric shock.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteFromGasImmunity
+    parts:
+    - LeftHand
+    - RightHand
+  - type: Tag
+    tags:
+    - PlasmamanSafe
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsStandard
   name: standard hardsuit gauntlets
   description: Special modular suit gloves that protect wearer from electric shock.
@@ -42,13 +59,14 @@
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
   - type: SealableClothingVisuals
-    spriteLayer: sealed
+    spriteLsayer: sealed
     clothingVisuals:
       gloves:
       - state: equipped-HAND-sealed
 
+
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsSecurity
   name: soldat hardsuit gauntlets
   description: Robust modular suit gloves for gripping perps and guns tight.
@@ -84,7 +102,7 @@
       - state: equipped-HAND-sealed
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsParamedic
   name: sanitater hardsuit gauntlets
   description: Black and white modular suit gloves for gripping percs and patients tight.
@@ -126,7 +144,7 @@
         Piercing: 0.9
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsHeadOfSecurity
   name: bulwark hardsuit gauntlets
   description: Robust modular suit gloves for gripping perps and guns tight. Insulated.
@@ -170,7 +188,7 @@
         Shock: 0.75
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsEngineer
   name: sapper hardsuit gauntlets
   description: Oil stained modular suit gloves for easily pushing buttons on an RCD.
@@ -216,7 +234,7 @@
         Shock: 0.5
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsAtmostech
   name: aeolus hardsuit gauntlets
   description: Asbestos-lined modular suit gloves for easily pushing buttons on an RPD.
@@ -263,7 +281,7 @@
         Shock: 0.75
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsResearchDirector
   name: minerva hardsuit gauntlets
   description: For keeping your digits at 10 after the artifact goes thermonuclear on you.
@@ -307,7 +325,7 @@
         Shock: 0.75
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: ClothingModsuitGauntletsBase
   id: ClothingModsuitGauntletsCaptain
   name: magnate hardsuit gauntlets
   description: Has specialised grooves and cuts for holding dat fukn diiisskk easier.

@@ -99,6 +99,9 @@
   - type: Tag
     tags:
     - ClownSuit
+    - PlasmamanSafe
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingUniformEnvirosuitBase
