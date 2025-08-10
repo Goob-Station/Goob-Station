@@ -8,15 +8,18 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
 
+
 - type: loadout
   id: BrigmedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBrigmedic
 
+
 - type: loadout
   id: BrigmedicBeret
   equipment:
     head: ClothingHeadHatBeretBrigmedic
+
 
 - type: loadout
   id: BrigmedicAMG
@@ -42,3 +45,21 @@
   id: BrigmedicMessenger
   equipment:
     back: ClothingBackpackMessengerBrigmedic
+
+- type: loadout
+  id: BrigmedicEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: BrigmedicEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmBrigmedic
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
