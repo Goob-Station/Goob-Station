@@ -156,7 +156,7 @@
     implantTime: 5
     drawTime: 5
     # Added for event purposes
-    allowDeimplantAll: true
+    allowDeimplantAll: false
 
 - type: entity
   id: BaseImplantOnlyImplanter
