@@ -8,6 +8,7 @@
 // SPDX-FileCopyrightText: 2025 Sapphire <98045970+sapphirescript@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
@@ -27,6 +28,7 @@ namespace Content.Shared.Humanoid.Markings
         Head,
         HeadTop,
         HeadSide,
+        Face, // Plasmeme Port
         Snout,
         Chest,
         RightArm,
@@ -54,7 +56,7 @@ namespace Content.Shared.Humanoid.Markings
             return layer switch
             {
                 HumanoidVisualLayers.Special => MarkingCategories.Special,
-                HumanoidVisualLayers.Face => MarkingCategories.Face,
+                HumanoidVisualLayers.Face => MarkingCategories.Face, // Plasmeme Port
                 HumanoidVisualLayers.Hair => MarkingCategories.Hair,
                 HumanoidVisualLayers.FacialHair => MarkingCategories.FacialHair,
                 HumanoidVisualLayers.Head => MarkingCategories.Head,
