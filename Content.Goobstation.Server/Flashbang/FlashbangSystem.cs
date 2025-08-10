@@ -4,11 +4,14 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Flash;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Server.Flash;
 using Content.Server.Stunnable;
@@ -63,8 +66,8 @@ public sealed class FlashbangSystem : EntitySystem
             return;
 
         var protectionRange = args.Range;
-
-        if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag) && !_tag.HasTag(args.Target, FlashSystem.FlashVulnerableTag))
+        if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag)
+            && !HasComp<FlashVulnerableComponent>(args.Target))
         {
             var ev = new GetFlashbangedEvent(MathF.Max(args.Range, ent.Comp.MinProtectionRange + 1f));
             RaiseLocalEvent(args.Target, ev);
