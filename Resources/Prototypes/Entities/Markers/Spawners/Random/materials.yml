@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Normal materials spawners
 - type: entity
-  name: "точка появи матеріалів"
+  name: materials spawner
   id: LootSpawnerMaterials
   suffix: Construction Materials
   parent: MarkerBase
@@ -29,7 +29,7 @@
       offset: 0.0
 
 - type: entity
-  name: "точка появи матеріалів"
+  name: materials spawner
   suffix: Supplementary Materials
   id: LootSpawnerMaterialsSupplementary
   parent: MarkerBase
@@ -50,7 +50,7 @@
 # High-value materials spawners
 # Maybe these should use the 10-in-stack variants?
 - type: entity
-  name: "точка появи високоцінних будівельних матеріалів"
+  name: high-value materials spawner
   suffix: Construction Materials
   id: LootSpawnerMaterialsHighValueConstruction
   parent: MarkerBase
@@ -71,7 +71,7 @@
       offset: 0.0
 
 - type: entity
-  name: "точка появи високоцінних будівельних матеріалів"
+  name: high-value materials spawner
   id: LootSpawnerMaterialsHighValue
   parent: MarkerBase
   components:
@@ -95,7 +95,7 @@
 # Intended use case: randomly place in maintenance or in storage areas.
 # Does not include weirdo stuff like Bronze or Paper since those are intended to be gimmicks.
 - type: entity
-  name: "точка появи надлишкових матеріалів"
+  name: surplus materials spawner
   id: LootSpawnerMaterialsSurplus
   parent: MarkerBase
   components:
@@ -128,7 +128,7 @@
 
 # Cable coil spawner
 - type: entity
-  name: "точка появи кабельної котушки"
+  name: cable coil spawner
   id: LootSpawnerCableCoil
   parent: MarkerBase
   components:

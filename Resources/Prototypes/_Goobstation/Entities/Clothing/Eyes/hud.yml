@@ -24,8 +24,8 @@
 - type: entity
   parent: ClothingEyesHudOmni
   id: ClothingEyesHudChrono
-  name: "футуристичний козирок"
-  description: "Візитер з майбутнього, здатний показати майже все, що завгодно."
+  name: futuristic visor
+  description: A visior from the future, capable of displaying almost anything.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Hud/chrono.rsi
@@ -42,8 +42,8 @@
 - type: entity 
   parent: [ClothingEyesBase, ShowHealthRelatedIcons]
   id: ClothingEyesHudDiagnosticMedical
-  name: "меддіагностичний HUD"
-  description: "Проєкційний дисплей, що поєднує медичну та діагностичну інформацію."
+  name: meddiag hud
+  description: A heads-up display combining both medical and diagnostic information.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi

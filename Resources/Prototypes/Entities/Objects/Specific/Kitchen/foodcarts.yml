@@ -12,11 +12,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "візок для їжі"
+  name: food cart
   id: FoodCartBase
   abstract: true
   parent: BaseStructureDynamic
-  description: "Візок для їжі."
+  description: A cart for food.
   components:
     - type: Sprite
       netsync: false
@@ -80,10 +80,10 @@
     #      startingItem: PowerCellMedium
 
 - type: entity
-  name: "візок з гарячою їжею"
+  name: hot food cart
   id: FoodCartHot
   parent: FoodCartBase
-  description: "Виходьте на вулицю і розмовляйте з собаками на сленгу."
+  description: Get out there and slang some dogs.
   components:
     - type: Sprite
       netSync: false
@@ -161,10 +161,10 @@
         ketchup_slot: !type:ContainerSlot {}
 
 - type: entity
-  name: "візок для холодних продуктів"
+  name: cold food cart
   id: FoodCartCold
   parent: FoodCartBase
-  description: "Це Морозивник! Це Морозивник!"
+  description: It's the Ice Cream Man! It's the Ice Cream Man!
   components:
     - type: Sprite
       netSync: false

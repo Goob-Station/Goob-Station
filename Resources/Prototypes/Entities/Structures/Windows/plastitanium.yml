@@ -66,8 +66,8 @@
   id: PlastitaniumWindowBase
   parent: BaseStructure
   abstract: true
-  name: "пластитанове вікно"
-  description: "Не заляпуйте скло там, унизу."
+  name: plastitanium window
+  description: Don't smudge up the glass down there.
   placement:
     mode: SnapgridCenter
     snap:
@@ -113,7 +113,7 @@
 - type: entity
   id: PlastitaniumWindowSquareBase
   abstract: true
-  name: "пластитанове вікно"
+  name: plastitanium window
   parent: PlastitaniumWindowBase
   components:
   - type: Sprite
@@ -138,13 +138,13 @@
 
 - type: entity
   id: PlastitaniumWindowIndestructible
-  name: "пластитанове вікно"
+  name: plastitanium window
   parent: PlastitaniumWindowSquareBase
   suffix: indestructible
 
 - type: entity
   id: PlastitaniumWindow
-  name: "пластитанове вікно"
+  name: plastitanium window
   parent: PlastitaniumWindowSquareBase
   components:
   - type: Destructible
@@ -188,7 +188,7 @@
 - type: entity
   id: PlastitaniumWindowDiagonalBase
   abstract: true
-  name: "пластитанове вікно"
+  name: plastitanium window
   parent: PlastitaniumWindowBase
   suffix: diagonal
   components:
@@ -228,13 +228,13 @@
 
 - type: entity
   id: PlastitaniumWindowDiagonalIndestructible
-  name: "пластитанове вікно"
+  name: plastitanium window
   parent: PlastitaniumWindowDiagonalBase
   suffix: diagonal, indestructible
 
 - type: entity
   id: PlastitaniumWindowDiagonal
-  name: "пластитанове вікно"
+  name: plastitanium window
   parent: PlastitaniumWindowDiagonalBase
   suffix: diagonal
   components:

@@ -6,9 +6,9 @@
 
 - type: entity
   parent: BaseItem
-  name: "мітла"
+  name: broomstick
   id: Broomstick
-  description: "Щоб бути здоровим, потрібно підмітати щонайменше 8 годин на день!"
+  description: To stay healthy, you need to sweep at least 8 hours a day!
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Janitorial/broomstick.rsi
@@ -53,8 +53,8 @@
 - type: entity
   id: MagicBroomstickVehicle
   parent: [ BaseVehicle, BaseFoldable, BaseItem, BaseMagicalContraband, Broomstick]
-  name: "чарівна мітла"
-  description: "Мітла, що ширяє в повітрі. Не забудьте одягнути відьомський капелюх для безпеки!"
+  name: magic broomstick
+  description: Broomstick that floats in the middle of the air. Remember to put on a witch hat for safety!
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Vehicles/broomstick.rsi

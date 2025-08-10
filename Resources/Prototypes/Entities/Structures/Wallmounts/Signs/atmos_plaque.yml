@@ -17,7 +17,7 @@
 - type: entity
   parent: MarkerBase
   id: PlaqueAtmos
-  name: "спавнер таблички атмос"
+  name: atmos plaque spawner
   suffix: Spawner
   components:
   - type: Sprite
@@ -43,8 +43,8 @@
 - type: entity
   parent: BaseSign
   id: PlaqueAtmosFEA
-  name: "табличка відділу атмосферики FEA"
-  description: "Ця табличка вшановує пам'ять про падіння відділу атмосферики FEA. За всіх обвуглених, запаморочених і крихких людей, що загинули в його руках."
+  name: FEA Atmospherics Division plaque
+  description: This plaque commemorates the fall of the Atmos FEA division. For all the charred, dizzy, and brittle men who have died in its hands.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -53,23 +53,23 @@
 - type: entity
   parent: PlaqueAtmosFEA
   id: PlaqueAtmosLINDA
-  name: "табличка відділу атмосферики LINDA"
-  description: "Ця табличка вшановує пам'ять про падіння відділу атмосферики LINDA. За всіх обвуглених, запаморочених і крихких людей, що загинули в його руках."
+  name: LINDA Atmospherics Division plaque
+  description: This plaque commemorates the fall of the Atmos LINDA division. For all the charred, dizzy, and brittle men who have died in its hands.
   categories: [ HideSpawnMenu ]
 
 - type: entity
   parent: PlaqueAtmosFEA
   id: PlaqueAtmosZAS
-  name: "табличка відділу атмосферики ZAS"
-  description: "Ця табличка вшановує пам'ять про падіння відділу атмосферики ZAS. За всіх обвуглених, запаморочених і крихких людей, що загинули в його руках."
+  name: ZAS Atmospherics Division plaque
+  description: This plaque commemorates the fall of the Atmos ZAS division. For all the charred, dizzy, and brittle men who have died in its hands.
   categories: [ HideSpawnMenu ]
 
 # If you get the ZUM plaque it means your round will be blessed with good engineering luck.
 - type: entity
   parent: PlaqueAtmosFEA
   id: PlaqueAtmosZUM
-  name: "табличка відділу атмосферики ZUM"
-  description: "Ця табличка вшановує піднесення відділу атмосферики ZUM. Нехай вони несуть смолоскип, який залишили після себе відділи Atmos ZAS, LINDA та FEA."
+  name: ZUM Atmospherics Division plaque
+  description: This plaque commemorates the rise of the Atmos ZUM division. May they carry the torch that the Atmos ZAS, LINDA and FEA divisions left behind.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

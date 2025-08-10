@@ -22,8 +22,8 @@
 - type: entity
   parent: CrateGenericSteel
   id: LavalandCrateNecropolis
-  name: "скриня некрополя"
-  description: "Сталева та міцна."
+  name: necropolis chest
+  description: Steel and strong.
   components:
   - type: Icon
     sprite: _Lavaland/Structures/Storage/Crates/necropolechest.rsi

@@ -6,8 +6,8 @@
 - type: entity
   parent: [ OrganHumanHeart, BaseSyndicateContraband ]
   id: OrganHeartSandevistan
-  name: "Сандевістан"
-  description: "Незаконне кібернетичне програмне забезпечення, яке замінює серце користувача і дозволяє йому значно збільшити свою швидкість ціною витривалості."
+  name: Sandevistan
+  description: Illegal cyberware that replaces the user's heart and allows them to greatly increase their speed for the cost of the endurance.
   components:
   - type: Cybernetics
   - type: Sprite

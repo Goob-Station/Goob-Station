@@ -24,8 +24,8 @@
 - type: entity
   id: APCElectronics
   parent: BaseElectronics
-  name: "плата АПЦ"
-  description: "Схема, що використовується в будівництві АПЦ."
+  name: APC electronics
+  description: Circuit used in APC construction.
   components:
     - type: ApcElectronics
     - type: Sprite
@@ -43,8 +43,8 @@
 - type: entity
   id: WallmountSubstationElectronics
   parent: BaseElectronics
-  name: "прилад настінної підстанції"
-  description: "Контур для побудови настінної підстанції."
+  name: wallmount substation electronics
+  description: Circuit used to construct a wallmount substation.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -60,8 +60,8 @@
 - type: entity
   parent: BaseElectronics
   id: WallmountGeneratorElectronics
-  name: "електроніка настінного генератора"
-  description: "Схема для побудови настінного генератора."
+  name: wallmount generator electronics
+  description: Circuit used to construct a wallmount generator.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -80,8 +80,8 @@
 - type: entity
   id: WallmountGeneratorAPUElectronics
   parent: BaseElectronics
-  name: "настінна електроніка APU"
-  description: "Схема для побудови настінного блоку живлення."
+  name: wallmount APU electronics
+  description: Circuit used to construct a wallmount APU.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
@@ -97,8 +97,8 @@
 - type: entity
   parent: BaseElectronics
   id: SolarTrackerElectronics
-  name: "електроніка сонячного трекера"
-  description: "Просунута плата, що використовується для відстеження найближчої зірки."
+  name: solar tracker electronics
+  description: Advanced circuit board used to track the nearest star.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi

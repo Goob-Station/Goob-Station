@@ -42,10 +42,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "цивільний"
+  name: civilian
   parent: BaseMobHuman
   id: MobCivilian
-  description: "Жалюгідна купа секретів."
+  description: A miserable pile of secrets.
   components:
   - type: InputMover
   - type: MobMover
@@ -57,7 +57,7 @@
   - type: PartialAbsorbable # Goobstation - changelings
 
 - type: entity
-  name: "утилізатор"
+  name: salvager
   parent: BaseMobHuman
   id: MobSalvager
   components:
@@ -75,10 +75,10 @@
     - type: PartialAbsorbable # Goobstation - changelings
 
 - type: entity
-  name: "п'яний пірат"
+  name: spirate
   parent: BaseMobHuman
   id: MobSpirate
-  description: "Ярр!"
+  description: Yarr!
   components:
   - type: NpcFactionMember
     factions:
@@ -94,7 +94,7 @@
   - type: PartialAbsorbable # Goobstation - changelings
 
 - type: entity
-  name: "синдикатський піхотинець"
+  name: syndicate footsoldier
   parent: BaseMobHuman
   id: MobSyndicateFootsoldier
   components:
@@ -112,7 +112,7 @@
     - type: PartialAbsorbable # Goobstation - changelings
 
 - type: entity
-  name: "пілот шатла синдикату"
+  name: syndicate shuttle pilot
   parent: MobSyndicateFootsoldier
   id: MobSyndicateFootsoldierPilot
 
@@ -121,8 +121,8 @@
   suffix: Dead
   save: false # mobs are currently not saveable.
   id: SalvageHumanCorpse
-  name: "невпізнане тіло"
-  description: "Думаю, вони мертві."
+  name: unidentified corpse
+  description: I think they're dead.
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -140,8 +140,8 @@
 - type: entity
   parent: MobHuman
   id: MobCluwne
-  name: "людина"
-  description: "Поліморфний нещасний."
+  name: person
+  description: A polymorphed unfortunate.
   components:
   - type: Cluwne
   - type: Speech

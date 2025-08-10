@@ -10,7 +10,7 @@
 
 - type: body
   id: SpaceCobra
-  name: "космічна кобра"
+  name: "space cobra"
   root: chest
   slots:
     chest:

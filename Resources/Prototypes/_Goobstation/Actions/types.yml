@@ -13,8 +13,8 @@
 - type: entity
   parent: BaseSuicideAction
   id: ActionActivateBluespaceLifeline
-  name: "Активуйте Bluespace Lifeline"
-  description: "Активує ваш імплантат рятувального круга, телепортуючи вас дуже далеко від цієї станції. Ти не зможеш повернутися."
+  name: Activate Bluespace Lifeline
+  description: Activates your bluespace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
   components:
   - type: InstantAction
     checkCanInteract: false
@@ -28,8 +28,8 @@
 
 - type: entity
   id: ActionHorn
-  name: "Посигналь!"
-  description: "Посигнальте тому, кого збираєтесь переїхати."
+  name: Honk!
+  description: Beep the horn at whoever you will run over.
   components:
   - type: InstantAction
     useDelay: 1
@@ -38,8 +38,8 @@
 
 - type: entity
   id: ActionSiren
-  name: "Сирена"
-  description: "Сповістіть свою жертву про свою присутність."
+  name: Siren
+  description: Alert your victim to your presence.
   components:
   - type: InstantAction
     useDelay: 1
@@ -48,8 +48,8 @@
 
 - type: entity
   id: ActivateSmokeImplant
-  name: "Випустити хмару диму"
-  description: "Випускає хмару диму навколо вас."
+  name: Release a cloud of smoke
+  description: Releases a cloud of smoke around you.
   components:
   - type: InstantAction
     useDelay: 30
@@ -62,8 +62,8 @@
 
 - type: entity
   id: ActionDashMoth
-  name: "Ривок крилами"
-  description: "Різко змахніть крилами, щоб зробити ривок убік!"
+  name: Wing dash
+  description: Sharply flap your wings, dashing to the side!
   categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
@@ -80,8 +80,8 @@
 
 - type: entity
   id: ActionToggleRightMantisBlade
-  name: "Перемкнути праве лезо-богомол"
-  description: "Висунути або втягнути лезо-богомол у правій руці."
+  name: Toggle Right Mantis Blade
+  description: Extend or retract the mantis blade in your right arm.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -95,8 +95,8 @@
 
 - type: entity
   id: ActionToggleLeftMantisBlade
-  name: "Перемкнути ліве лезо-богомол"
-  description: "Висунути або втягнути лезо-богомол у лівій руці."
+  name: Toggle Left Mantis Blade
+  description: Extend or retract the mantis blade in your left arm.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -108,8 +108,8 @@
 
 - type: entity
   id: ActionToggleSandevistan
-  name: "Перемкнути Сандевістан"
-  description: "Увімкнути або вимкнути покращені рефлекси, що надаються Сандевістаном."
+  name: Toggle Sandevistan
+  description: Enable or disable your improved reflexes provided by the Sandevistan.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

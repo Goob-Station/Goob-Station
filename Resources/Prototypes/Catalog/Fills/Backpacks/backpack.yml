@@ -9,8 +9,8 @@
 - type: entity
   parent: ClothingBackpackSyndicateBundle
   id: ClothingBackpackSyndicateRaidBundle
-  name: "набір рейдового костюма Синдикату"
-  description: "Містить міцний рейдовий бронекостюм Синдикату."
+  name: syndicate raid suit bundle
+  description: "Contains the Syndicate's durable raid armor suit."
   components:
   - type: StorageFill
     contents:

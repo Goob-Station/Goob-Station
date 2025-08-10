@@ -5,8 +5,8 @@
 
 - type: entity
   id: ActionAGhostShowStationMap
-  name: "Інтерфейс карти станції"
-  description: "Переглянути інтерфейс карти станції."
+  name: Station Map Interface
+  description: View a Station Map Interface.
   components:
   - type: InstantAction
     # TODO: Make a sprite for the station map interface.

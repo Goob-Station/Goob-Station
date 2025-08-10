@@ -8,10 +8,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "бананове мило"
+  name: Banana soap
   id: SoapHomemadeBanana
   parent: Soap
-  description: "Саморобний шматок мила. Пахне бананом."
+  description: A homemade bar of soap. Smells of banana.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Janitorial/soap.rsi

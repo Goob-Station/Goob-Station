@@ -71,8 +71,8 @@
   parent: BaseStructure
   id: BaseRailing
   abstract: true
-  name: "перила"
-  description: "Базові перила, призначені для захисту ідіотів, як ви, від падіння."
+  name: railing
+  description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     drawdepth: SmallObjects

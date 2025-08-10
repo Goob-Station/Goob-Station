@@ -3,8 +3,8 @@
   - Incorporeal
   - BaseMob
   id: MobTelegnosisObserver
-  name: "псіонічна проєкція"
-  description: "Душа, що танцює крізь світло снів"
+  name: psionic projection
+  description: A soul dancing across the dreamlight
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

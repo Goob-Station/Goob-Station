@@ -1,8 +1,8 @@
 - type: entity
   id: WeaponEnergyTurretStationMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: "друкована плата сторожової турелі"
-  description: "Друкована плата машини для сторожової турелі."
+  name: sentry turret machine board
+  description: A machine printed circuit board for a sentry turret.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -26,8 +26,8 @@
 - type: entity
   id: WeaponEnergyTurretAIMachineCircuitboard
   parent: WeaponEnergyTurretStationMachineCircuitboard
-  name: "друкована плата сторожової турелі ШІ"
-  description: "Друкована плата машини для сторожової турелі ШІ."
+  name: AI sentry turret machine board
+  description: A machine printed circuit board for an AI sentry turret.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

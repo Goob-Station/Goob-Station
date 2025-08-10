@@ -6,7 +6,7 @@
 
 - type: tile
   id: FloorAbductor
-  name: "плитка-відбивач-підлога"
+  name: tiles-abductor-floor
   sprite: /Textures/_Shitmed/Tiles/abductor_tile.png
   isSubfloor: true
   footstepSounds:

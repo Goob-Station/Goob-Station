@@ -11,7 +11,7 @@
 
 - type: entity
   id: PelletClusterRubber
-  name: "картеч (куля, гумова)"
+  name: pellet (ball, rubber)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -30,7 +30,7 @@
 
 - type: entity
   id: PelletClusterLethal
-  name: "картеч (куля, летальна)"
+  name: pellet (ball, lethal)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -47,7 +47,7 @@
 
 - type: entity
   id: PelletClusterIncendiary
-  name: "дробинка (кулька, запальна)"
+  name: pellet (ball, incendiary)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:

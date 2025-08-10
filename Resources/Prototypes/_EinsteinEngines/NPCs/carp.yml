@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "космічна золота рибка"
+  name: space goldfish
   parent: BaseMobCarp
   id: MobCarpGoldfish
-  description: "Одомашнений різновид космічного коропа, значно менший, але не менш агресивний."
+  description: A domesticated variety of space carp, much smaller but no less aggressive.
   components:
     - type: HTN
       rootTask:

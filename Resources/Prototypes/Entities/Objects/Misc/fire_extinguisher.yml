@@ -69,10 +69,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "вогнегасник"
+  name: fire extinguisher
   parent: BaseItem
   id: FireExtinguisher
-  description: "Він гасить пожежі."
+  description: It extinguishes fires.
   components:
   - type: Sprite
     sprite: Objects/Misc/fire_extinguisher.rsi
@@ -149,8 +149,8 @@
 - type: entity
   parent: FireExtinguisher
   id: BorgFireExtinguisher
-  name: "маневровий двигун"
-  description: "Заснований на технології вогнегасника, маневровий двигун... ну так, це просто більший вогнегасник."
+  name: maneuvering jet
+  description: Based on fire extinguisher technology, the maneuvering jet is... well yes, its just a bigger fire extinguisher.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -161,7 +161,7 @@
           Quantity: 200
 
 - type: entity
-  name: "вогнегасник спрей"
+  name: extinguisher spray
   id: ExtinguisherSpray
   parent: Vapor
   categories: [ HideSpawnMenu ]
@@ -179,10 +179,10 @@
     animationState: extinguish
 
 - type: entity
-  name: "кишеньковий вогнегасник"
+  name: pocket fire extinguisher
   parent: FireExtinguisher
   id: FireExtinguisherMini
-  description: "Легка та компактна модель вогнегасника зі склопластиковим каркасом. Вміщує менше води, ніж його більший брат."
+  description: A light and compact fibreglass-framed model fire extinguisher. It holds less water than its bigger brother.
   components:
   - type: Sprite
     sprite: Objects/Misc/fire_extinguisher_mini.rsi
@@ -215,8 +215,8 @@
 - type: entity
   parent: [ FireExtinguisher, BaseXenoborgContraband ]
   id: SelfRechargingFireExtinguisher
-  name: "самозарядний вогнегасник"
-  description: "Він гасить пожежі. Він повільно наповнюється водою."
+  name: self-recharging fire extinguisher
+  description: It extinguishes fires. it slowly refills with water.
   components:
   - type: SolutionRegeneration
     solution: spray

@@ -119,8 +119,8 @@
   parent: AirlockRCDResistant
   id: AirlockShuttle
   suffix: Docking
-  name: "шаттл-шлюз"
-  description: "Він відкривається, закривається і, можливо, розчавить вас. Необхідний для з'єднання двох космічних кораблів між собою."
+  name: external airlock
+  description: Necessary for connecting two space craft together.
   components:
   - type: Docking
   - type: DockingSignalControl
@@ -181,9 +181,9 @@
 - type: entity
   id: AirlockGlassShuttle
   parent: AirlockShuttle
-  name: "шаттл-шлюз"
+  name: external airlock
   suffix: Glass, Docking
-  description: "Він відкривається, закривається і, можливо, розчавить вас. Необхідний для з'єднання двох космічних кораблів між собою."
+  description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
@@ -202,9 +202,9 @@
 - type: entity
   id: AirlockShuttleAssembly
   parent: AirlockAssembly
-  name: "зовнішній шлюз у зборі"
+  name: external airlock assembly
   suffix: Docking
-  description: "Незавершена конструкція, необхідна для з'єднання двох космічних апаратів разом."
+  description: An incomplete structure necessary for connecting two space craft together.
   components:
   - type: Transform
     anchored: true
@@ -221,9 +221,9 @@
 - type: entity
   id: AirlockGlassShuttleSyndicate
   parent: AirlockGlassShuttle
-  name: "шаттл-шлюз"
+  name: external airlock
   suffix: Glass, Docking
-  description: "Він відкривається, закривається і, можливо, розчавить вас. Необхідний для з'єднання двох космічних кораблів між собою."
+  description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi
@@ -232,8 +232,8 @@
   parent: AirlockShuttle
   id: AirlockShuttleSyndicate
   suffix: Docking
-  name: "шаттл-шлюз"
-  description: "Він відкривається, закривається і, можливо, розчавить вас. Необхідний для з'єднання двох космічних кораблів між собою."
+  name: external airlock
+  description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi

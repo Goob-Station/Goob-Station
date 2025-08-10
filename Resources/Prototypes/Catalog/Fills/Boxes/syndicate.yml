@@ -23,7 +23,7 @@
 - type: entity
   id: ElectricalDisruptionKit
   parent: [BoxCardboard, BaseSyndicateContraband]
-  name: "коробка проти перебоїв у електропостачанні"
+  name: electrical disruption kit
   suffix: Filled
   components:
     - type: StorageFill
@@ -36,8 +36,8 @@
 - type: entity
   parent: [BoxVial, BaseSyndicateContraband]
   id: ChemicalSynthesisKit
-  name: "набір для хімічного синтезу"
-  description: "Стартовий набір для початківця-хіміка, що особливо включає хімічний заряд і таймер, шприц з гіперзином і два флакони вестину для всіх ваших злочинних потреб!" # Goobstation
+  name: chemical synthesis kit
+  description: A starter kit for the aspiring chemist, notably includes a chemical payload and timer, a hyperzine syringe, and two vials of vestine for all your criminal needs! # Goobstation
   components:
   - type: Storage
     grid:
@@ -57,8 +57,8 @@
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: ThrowingKnivesKit
-  name: "набір метальних ножів"
-  description: "Набір з 4 фірмових метальних ножів синдикату, які ідеально підходять для встромляння в тіло жертви."
+  name: throwing knives kit
+  description: A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
   components:
   - type: Storage
     grid:
@@ -73,10 +73,10 @@
       - state: throwing_knives
 
 - type: entity
-  name: "коробка з імплантами \"передсмертний хрип"
+  name: deathrattle implant box
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: BoxDeathRattleImplants
-  description: "Шість імплантів \"передсмертний хрип\" для всього загону."
+  description: Six deathrattle implants for the whole squad.
   components:
   - type: Sprite
     layers:
@@ -93,8 +93,8 @@
 - type: entity
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: CombatBakeryKit
-  name: "бойовий хлібопекарський набір"
-  description: "Комплект підпільної зброї, що випікається підпільно."
+  name: combat bakery kit
+  description: A kit of clandestine baked weapons.
   components:
   - type: Sprite
     layers:

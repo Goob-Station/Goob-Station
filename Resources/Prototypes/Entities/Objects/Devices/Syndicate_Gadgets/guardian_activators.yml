@@ -82,10 +82,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ін'єктор голопаразитів"
+  name: holoparasite injector
   id: HoloparasiteInjector
   parent: [BaseItem, BaseSyndicateContraband]
-  description: "Складний витвір ручної техніки, що дозволяє користувачеві приймати у себе охоронця-голопаразита."
+  description: A complex artwork of handheld machinery allowing the user to host a holoparasite guardian.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
@@ -94,19 +94,19 @@
     guardianProto: MobHoloparasiteGuardian
 
 - type: entity
-  name: "інжектор холоклоуна"
+  name: holoclown injector
   parent: HoloparasiteInjector
   id: HoloClownInjector
-  description: "Складний витвір мистецтва з ручної техніки, що дозволяє користувачеві приймати опікуна-голоклоуна."
+  description: A complex artwork of handheld machinery allowing the user to host a holoclown guardian.
   components:
   - type: GuardianCreator
     guardianProto: MobHoloClownGuardian
 
 - type: entity
-  name: "чарівна лампа"
+  name: magical lamp
   id: MagicalLamp
   parent: [ArabianLamp, BaseMagicalContraband] # Goob edit
-  description: "Федерація чарівників мусила якось скоротити витрати після скандалу з товарами для джинів."
+  description: The wizard federation had to cut costs after the jinn merchandise scandal somehow.
   components:
   - type: GuardianCreator
     guardianProto: MobIfritGuardian
@@ -114,10 +114,10 @@
     access: [ [ "Wizard" ] ]
 
 - type: entity
-  name: "коробка з голопаразитом"
+  name: holoparasite box
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: BoxHoloparasite
-  description: "Коробка, що містить ін'єктор голопаразита."
+  description: A box containing a holoparasite injector.
   components:
   - type: StorageFill
     contents:
@@ -130,10 +130,10 @@
       - state: holo
 
 - type: entity
-  name: "коробка з голоклоуном"
+  name: holoclown box
   parent: [BoxCardboard, BaseSyndicateContraband]
   id: BoxHoloclown
-  description: "Коробка, що містить ін'єктор голоклоуна."
+  description: A box containing a holoclown injector.
   components:
   - type: StorageFill
     contents:

@@ -24,8 +24,8 @@
 - type: entity
   parent: BaseCartridgeG8
   id: CartridgeG8Demolishing
-  name: "патрон (G8 руйнівний)"
-  description: "Стріляє кулею \"Спис Ареса\", руйнуючи цілі лінії стін, завдаючи величезної шкоди витривалості людям і перевантажуючи енергетичні вихори."
+  name: cartridge (G8 demolishing)
+  description: Shots "The Spear of Ares" bullet, demolishing whole lines of walls, dealing massive stamina damage to people and overcharging energy vortexes.
   components:
   - type: CartridgeAmmo
     proto: BulletG8Demolishing
@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseCartridgeG8
   id: CartridgeG8Hypercharged
-  name: "патрон (G8 гіперзаряджений)"
-  description: "Стріляє кулею \"Блискавка Зевса\", шокуючи всіх на своєму шляху і створюючи енергетичний вихор у кінцевій точці, який створює масивний вибух при перевантаженні."
+  name: cartridge (G8 hypercharged)
+  description: Shots "The Bolt of Zeus" bullet, shocking everyone on its way and creating an energy vortex at its destination point, that creates a massive explosion on overcharge.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Casings/anomalous_casing.rsi

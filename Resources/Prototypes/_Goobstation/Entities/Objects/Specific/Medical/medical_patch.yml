@@ -89,8 +89,8 @@
 - type: entity
   parent: BaseHealingItem
   id: BaseMedicalPatch
-  name: "базовий пластир"
-  description: "Пластир для поступового введення ліків пацієнтам."
+  name: base patch
+  description: A patch for applying medicine over time to patients.
   abstract: true
   components:
   - type: Item
@@ -129,8 +129,8 @@
 - type: entity
   parent: BaseMedicalPatch
   id: MedicalPatchBasic
-  name: "пластир"
-  description: "Базовий пластир для поступового введення ліків пацієнтам."
+  name: patch
+  description: A basic patch for applying medicine over time to patients.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -156,8 +156,8 @@
 - type: entity
   parent: BaseHealingItem
   id: UsedMedicalPatch
-  name: "використаний пластир"
-  description: "...фу."
+  name: used patch
+  description: ...ew.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -173,7 +173,7 @@
 - type: entity
   parent: UsedMedicalPatch
   id: UsedMedicalPatchMakeshift
-  name: "використаний пластир"
+  name: used patch
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -182,8 +182,8 @@
 - type: entity
   parent: MedicalPatchBasic
   id: MedicalPatchRapid
-  name: "швидкий пластир"
-  description: "Пластир для швидшого введення ліків. На ньому намальовані гоночні машини."
+  name: rapid patch
+  description: A patch used for more rapid application of medicine. It has race cars drawn on it.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -200,8 +200,8 @@
 - type: entity
   parent: MedicalPatchBasic
   id: MedicalPatchTherapeutic
-  name: "терапевтичний пластир"
-  description: "Пластир, що вводить дозу протягом довшого періоду часу, ніж інші пластирі."
+  name: therapeutic patch
+  description: A patch that applies a dose over a longer period of time than other patches.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -218,8 +218,8 @@
 - type: entity
   parent: MedicalPatchBasic
   id: MedicalPatchLarge
-  name: "великий пластир"
-  description: "Більший пластир підвищеної місткості, що використовується для дійсно великих \"бу-бу\". Не рекомендується з хімікатами, які легко передозувати."
+  name: large patch
+  description: A larger, higher-capacity patch, used for the really big boo-boos. Not recommended with easily-overdosed chemicals.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
@@ -241,8 +241,8 @@
 - type: entity
   parent: BaseMedicalPatch
   id: MedicalPatchMakeshift
-  name: "саморобний пластир"
-  description: "Це не виглядає гігієнічно. Сподіваюся, він впорається."
+  name: makeshift patch
+  description: This doesn't look hygienic. Hopefully it does the job.
   components:
   - type: Sprite
     state: MakeshiftPatch

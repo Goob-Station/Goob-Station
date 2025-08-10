@@ -9,8 +9,8 @@
 - type: entity
   id: WeaponSprayNozzle
   parent: BaseItem
-  name: "розпилювач"
-  description: "Потужна розпилювальна насадка, що використовується в поєднанні з резервуаром для води, що кріпиться до рюкзака."
+  name: spray nozzle
+  description: A high-powered spray nozzle used in conjunction with a backpack-mounted water tank.
   components:
   - type: Tag
     tags:

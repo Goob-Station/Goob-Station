@@ -5,7 +5,7 @@
 
 - type: entity
   id: Butt
-  name: "дупа"
+  name: "butt"
   parent: [BaseItem]
   components:
   - type: Sprite

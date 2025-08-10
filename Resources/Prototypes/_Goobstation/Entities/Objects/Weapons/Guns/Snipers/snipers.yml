@@ -5,10 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "HE1S-G8"
+  name: HE1S-G8
   parent: [ BaseItem, BaseGunWieldable, BaseSyndicateContraband ]
   id: WeaponSniperHE1SG8
-  description: "Високоенергетична однозарядна гвинтівка. На боці дешевим чорним маркером написано \"веде нас все далі й далі\". Приймає патрони Gauss-8."
+  description: High Energy One-Shell rifle. On its side, "leading us on and on" is written using a cheap black marker. Takes Gauss-8 cartridges.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi

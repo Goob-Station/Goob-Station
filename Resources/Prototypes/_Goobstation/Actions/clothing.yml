@@ -10,8 +10,8 @@
 
 - type: entity
   id: ActionClothingSeal
-  name: "Загерметизувати одяг"
-  description: "Герметизує ваш поточний одяг."
+  name: Seal clothing
+  description: Seals your current clothing.
   categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
@@ -32,8 +32,8 @@
 
 - type: entity
   id: ActionActivateProjector
-  name: "Перемкнути клона"
-  description: "Створює або розсіює вашого підключеного близнюка."
+  name: Toggle Clone
+  description: Generates or dissipates your connected gemini.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

@@ -8,7 +8,7 @@
 - type: entity
   parent: OrganAnimalLungs
   id: OrganSpaceAnimalLungs
-  name: "легені космічних тварин"
+  name: space animal lungs
   components:
   - type: Organ
     intCap: 28
@@ -23,7 +23,7 @@
 - type: entity
   parent: OrganAnimalHeart
   id: OrganSpaceAnimalHeart
-  name: "серце космічної тварини"
+  name: space animal heart
   components:
   - type: Organ
     intCap: 21
@@ -38,7 +38,7 @@
 - type: entity
   parent: OrganAnimalHeart
   id: OrganGoliathHeart
-  name: "серце голіафа"
+  name: goliath heart
   components:
   - type: Organ
     onAdd:
@@ -50,7 +50,7 @@
 - type: entity
   parent: OrganAnimalLungs
   id: OrganDragonLungs
-  name: "драконячі легені"
+  name: dragon lungs
   components:
   - type: Organ
     onAdd:
@@ -61,7 +61,7 @@
 - type: entity
   parent: OrganHumanEyes
   id: OrganLaserEyes
-  name: "лазерні очі хижака"
+  name: laser raptor eyes
   components:
   - type: Organ
     onAdd:
@@ -85,7 +85,7 @@
 - type: entity
   parent: OrganAnimalHeart
   id: OrganCobraHeart
-  name: "залоза кобри"
+  name: cobra gland
   components:
   - type: Organ
     onAdd:

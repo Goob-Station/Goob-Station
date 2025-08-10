@@ -9,7 +9,7 @@
 
 - type: body
   id: Drone
-  name: "дрон"
+  name: "drone"
   root: torso
   slots:
     torso:
