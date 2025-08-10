@@ -25,6 +25,8 @@
     parts:
     - Head
   - type: Armor
+    coverage:
+    - Head
     modifiers:
       coefficients:
         Caustic: 0.90

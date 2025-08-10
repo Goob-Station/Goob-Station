@@ -66,6 +66,8 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
   - type: Armor
+    coverage:
+    - Hand
     modifiers:
       coefficients:
         Blunt: 0.9

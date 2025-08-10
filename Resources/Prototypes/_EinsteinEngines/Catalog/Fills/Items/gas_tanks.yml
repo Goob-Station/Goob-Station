@@ -61,8 +61,8 @@
 - type: entity
   parent: DoubleEmergencyOxygenTank
   id: DoubleEmergencyPlasmaTank
-  name: plasma internals tank
-  description: A tank of plasma designed to be internals for Plasmamen.
+  name: double extended plasma tank
+  description: A high-grade dual-tank emergency life support container. It holds a decent amount of plasma for its small size. It can hold 2.5 L of gas.
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Tanks/double_extended_plasma.rsi

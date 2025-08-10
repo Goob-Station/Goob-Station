@@ -38,7 +38,7 @@
   <Box>
     <GuideEntityEmbed Entity="ClothingUniformEnvirosuit" Caption="envirosuit"/>
     <GuideEntityEmbed Entity="ClothingHeadEnvirohelm" Caption="envirosuit helmet"/>
-    <GuideEntityEmbed Entity="DoubleEmergencyPlasmaTankFilled" />
+    <GuideEntityEmbed Entity="PlasmaTankFilled" />
   </Box>
 
   All Plasmamen start with an envirosuit, an envirosuit helmet, and a plasma internals tank.

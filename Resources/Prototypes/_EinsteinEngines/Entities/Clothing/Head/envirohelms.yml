@@ -162,8 +162,6 @@
   - type: Clothing
     sprite: _EinsteinEngines/Clothing/Head/Envirohelms/hos.rsi
   - type: Armor # Special beret ig
-    coverage:
-    - Head
     traumaDeductions:
       Dismemberment: 0.2
       OrganDamage: 0.2
@@ -1135,8 +1133,6 @@
         color: "#0044d4"
       - state: visor-equipped-HELMET
   - type: Armor
-    coverage:
-    - Head
     traumaDeductions:
       Dismemberment: 0.3
       OrganDamage: 0.3

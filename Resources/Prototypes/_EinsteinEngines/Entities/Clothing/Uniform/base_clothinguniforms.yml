@@ -105,6 +105,13 @@
   - type: LimitedCharges
     maxCharges: 4
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Caustic: 0.85
