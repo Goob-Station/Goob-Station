@@ -62,8 +62,9 @@
     maxSyllables: 8 # They locked me in a room...
     replacement:
     # CorvaxGoob-Localization-Start
-    - о
-    - к
+    - А
+    - Г
+    - У
     # CorvaxGoob-Localization-End
 
 - type: language

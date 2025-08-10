@@ -5,10 +5,14 @@
 
 using Content.Goobstation.Common.MisandryBox;
 using Content.Goobstation.Shared.MisandryBox.Smites;
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.Database;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
+using Robust.Server.Player;
 using Robust.Shared.Random;
+using System;
 
 namespace Content.Goobstation.Server.MisandryBox;
 
@@ -17,6 +21,8 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
 {
     [Dependency] private readonly ThunderstrikeSystem _thunderstrike = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private const float ClearInterval = 20.0f;
     private const float PitchModulo = 0.08f;
@@ -146,6 +152,8 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     /// <param name="killOverride">Optional override for the kill parameter. If null, uses DrasticMeasures</param>
     private void Smite(EntityUid uid, bool? killOverride = null)
     {
+        if (_playerManager.TryGetSessionByEntity(uid, out var session)) // CorvaxGoob
+            _chat.SendAdminAlert(Loc.GetString("emote-spam-smite-admin-announcement", ("player", session.Name)));
         _thunderstrike.Smite(uid, kill: killOverride ?? DrasticMeasures);
     }
 }

@@ -42,8 +42,7 @@
         layer:
         - MachineLayer
   - type: MaterialStorage
-    whitelist:
-      tags:
-      - Document
+    materialWhiteList:
+    - Paper
     storage:
       Paper: 0

@@ -358,7 +358,7 @@
   components:
   - type: Sprite
     layers:
-    # - state: chemist # Goobstation - Chemist card. Commented by CorvaxGoob-Resprite
+    - state: default # Goobstation - Chemist card. Replaced by CorvaxGoob-Resprite
     - state: idchemist
   - type: PresetIdCard
     job: Chemist

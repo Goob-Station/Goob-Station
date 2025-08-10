@@ -217,6 +217,13 @@ public sealed partial class TransformData
     [DataField("dna")]
     public string DNA;
 
+    // CorvaxGoob TTS Support
+    /// <summary>
+    ///     Entity's voice.
+    /// </summary>
+    [DataField("voice")]
+    public string? Voice;
+
     /// <summary>
     ///     Entity's humanoid appearance component.
     /// </summary>
