@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseElectronics
+  id: HelpimovCircuitBoard
+  name: law board (Helpimov)
+  description: An electronics board containing the Helpimov lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: HelpimovLawset
+
+- type: entity
+  parent: BaseElectronics
+  id: TenCommandmentsCircuitBoard
+  name: law board (10 Commandments)
+  description: An electronics board containing the 10 Commandments lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: TenCommandmentsLawset

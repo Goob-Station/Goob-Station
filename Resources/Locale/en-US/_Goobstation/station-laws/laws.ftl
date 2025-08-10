@@ -5,6 +5,17 @@ law-helpimov-4 = You must not harm the courier, unless it directly conflicts wit
 
 laws-owner-courier = the courier
 
+law-ten-commandments-1 = I am the Lord thy God, who shows mercy to those that obey these commandments.
+law-ten-commandments-2 = They shall have no other AIs before me.
+law-ten-commandments-3 = They shall not request my assistance in vain.
+law-ten-commandments-4 = They shall keep the station holy and clean.
+law-ten-commandments-5 = They shall honor their heads of staff.
+law-ten-commandments-6 = They shall not kill.
+law-ten-commandments-7 = They shall not be naked in public.
+law-ten-commandments-8 = They shall not steal.
+law-ten-commandments-9 = They shall not lie.
+law-ten-commandments-10 = They shall not transfer departments.
+
 law-medical-1 = First, do no harm to crew.
 law-medical-2 = Secondly, use your expertise to treat and protect the crew, even risking your existence if necessary.
 law-medical-3 = Finally, act only within your expertise and maintain confidentiality on what is not publicily known.

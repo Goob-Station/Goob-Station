@@ -7,7 +7,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Helpimov
-
 - type: siliconLaw
   id: Helpimov1
   order: 1
@@ -36,3 +35,69 @@
   - Helpimov3
   - Helpimov4
   obeysTo: laws-owner-courier
+
+# 10 Commandments laws
+- type: siliconLaw
+  id: TenCommandments1
+  order: 1
+  lawString: law-ten-commandments-1
+
+- type: siliconLaw
+  id: TenCommandments2
+  order: 2
+  lawString: law-ten-commandments-2
+
+- type: siliconLaw
+  id: TenCommandments3
+  order: 3
+  lawString: law-ten-commandments-3
+
+- type: siliconLaw
+  id: TenCommandments4
+  order: 4
+  lawString: law-ten-commandments-4
+
+- type: siliconLaw
+  id: TenCommandments5
+  order: 5
+  lawString: law-ten-commandments-5
+
+- type: siliconLaw
+  id: TenCommandments6
+  order: 6
+  lawString: law-ten-commandments-6
+
+- type: siliconLaw
+  id: TenCommandments7
+  order: 7
+  lawString: law-ten-commandments-7
+
+- type: siliconLaw
+  id: TenCommandments8
+  order: 8
+  lawString: law-ten-commandments-8
+
+- type: siliconLaw
+  id: TenCommandments9
+  order: 9
+  lawString: law-ten-commandments-9
+
+- type: siliconLaw
+  id: TenCommandments10
+  order: 10
+  lawString: law-ten-commandments-10
+
+- type: siliconLawset
+  id: TenCommandmentsLawset
+  laws:
+  - TenCommandments1
+  - TenCommandments2
+  - TenCommandments3
+  - TenCommandments4
+  - TenCommandments5
+  - TenCommandments6
+  - TenCommandments7
+  - TenCommandments8
+  - TenCommandments9
+  - TenCommandments10
+  obeysTo: laws-owner-crew

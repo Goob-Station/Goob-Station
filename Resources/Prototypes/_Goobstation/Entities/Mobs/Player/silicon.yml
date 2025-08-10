@@ -15,18 +15,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  id: HelpimovCircuitBoard
-  parent: BaseElectronics
-  name: law board (Helpimov)
-  description: An electronics board containing the Helpimov lawset.
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
-  - type: SiliconLawProvider
-    laws: HelpimovLawset
-
-- type: entity
   id: PlayerBorgDerelictSyndicateAssaultBattery
   parent: BorgChassisDerelictSyndicateAssault
   suffix: Battery, Module, Operative, Derelict
