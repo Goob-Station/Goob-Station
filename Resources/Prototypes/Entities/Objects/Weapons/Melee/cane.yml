@@ -78,7 +78,7 @@
     fireStacks: 0.5
 
 - type: entity
-  parent: Cane
+  parent: [Cane, VoiceLock]
   id: CaneSheath
   suffix: Empty
   components:
@@ -94,6 +94,9 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+  - type: ItemSlotsLock
+    slots:
+    - item
   - type: ItemSlots
     slots:
       item:
