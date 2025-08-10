@@ -1,0 +1,7 @@
+- files:
+  - plasmaman_scream_1.ogg
+  - plasmaman_scream_2.ogg
+  - plasmaman_scream_3.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from https://github.com/tgstation/tgstation/commit/436ba869ebcd0b60b63973fb7562f447ee655205 and volume reduced by Skubman"
+  source: "https://github.com/tgstation/tgstation"
