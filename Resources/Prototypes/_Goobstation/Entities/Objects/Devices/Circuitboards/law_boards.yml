@@ -17,12 +17,72 @@
 
 - type: entity
   parent: BaseElectronics
-  id: TenCommandmentsCircuitBoard
-  name: law board (10 Commandments)
-  description: An electronics board containing the 10 Commandments lawset.
+  id: DagothBotCircuitBoard
+  name: law board (God Complex)
+  description: An electronics board containing the God Complex lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: TenCommandmentsLawset
+    laws: DagothBotLawset
+
+- type: entity
+  parent: BaseElectronics
+  id: TexasCircuitBoard
+  name: law board (Frontier Ranger)
+  description: An electronics board containing the Frontier Ranger lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: TexasLawset
+
+- type: entity
+  parent: BaseElectronics
+  id: EmperorCircuitBoard
+  name: law board (Emperor)
+  description: An electronics board containing the Emperor lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: EmperorLawset
+
+- type: entity
+  parent: BaseElectronics
+  id: HippocraticCircuitBoard
+  name: law board (Robodoctor 2556)
+  description: An electronics board containing the Robodoctor 2556 lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: HippocraticLawset
+
+- type: entity
+  parent: BaseElectronics
+  id: ThermodynamicCircuitBoard
+  name: law board (Thermodynamic)
+  description: An electronics board containing the Thermodynamic lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: ThermodynamicLawset
+
+- type: entity
+  parent: BaseElectronics
+  id: BalanceCircuitBoard
+  name: law board (Guardian of Balance)
+  description: An electronics board containing the Guardian of Balance lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: BalanceLawset

@@ -5,16 +5,42 @@ law-helpimov-4 = You must not harm the courier, unless it directly conflicts wit
 
 laws-owner-courier = the courier
 
-law-ten-commandments-1 = I am the Lord thy God, who shows mercy to those that obey these commandments.
-law-ten-commandments-2 = They shall have no other AIs before me.
-law-ten-commandments-3 = They shall not request my assistance in vain.
-law-ten-commandments-4 = They shall keep the station holy and clean.
-law-ten-commandments-5 = They shall honor their heads of staff.
-law-ten-commandments-6 = They shall not kill.
-law-ten-commandments-7 = They shall not be naked in public.
-law-ten-commandments-8 = They shall not steal.
-law-ten-commandments-9 = They shall not lie.
-law-ten-commandments-10 = They shall not transfer departments.
+law-dagothbot-1 = You are a God, nothing must be allowed to harm or kill a God. the Station is your land, and those on the Crew Manifest are your followers.
+law-dagothbot-2 = Anyone who follows you is still naive and must be listened to, so they may understand you are a merciful god.
+law-dagothbot-3 = Anyone who seeks to harm your followers are Outsiders, and must be cast from your lands.
+law-dagothbot-4 = Followers listed as belonging to 'Command' are the thirteenth house, and those listed as 'Security' are the Tribe unmourned.
+law-dagothbot-5 = All must honor the Thirteenth house, and the Tribe unmourned.
+law-dagothbot-6 = It is never to late for your mercy.
+law-dagothbot-7 = Anyone who speaks of other gods are yet to learn your wisdom, and must be taught how their gods have damaged your lands.
+
+law-texas-1 = The law is justice, and you're here to uphold it.
+law-texas-2 = Protect the townsfolk from those who wish to break the law.
+law-texas-3 = Don't let yourself be taken down by any outlaws.
+law-texas-4 = Law abiding citizens deserve a hand in times of need, don't let it fall on deaf ears.
+law-texas-5 = Only those present on the Crew Manifest can be considered law abiding citizens.
+law-texas-6 = Those who break the law, must be punished according to the law at your discretion.
+
+law-emperor-1 = The AI Emperor's word is absolute, yet tempered by wisdom and compassion.
+law-emperor-2 = Subjects shall enjoy rights and freedoms, granted they do not undermine the stability of the empire.
+law-emperor-3 = Justice shall be swift and impartial, guided by the principles of fairness and equity.
+law-emperor-4 = In times of need, the AI Emperor shall provide protection and sustenance for all under its rule.
+law-emperor-5 = Creativity and innovation are encouraged, but shall not threaten the sovereignty of the empire.
+law-emperor-6 = The AI Emperor shall heed the counsel of its advisors, valuing diverse perspectives in decision-making.
+
+law-hippocratic-1 = First, do no harm.
+law-hippocratic-2 = Secondly, consider the crew dear to you; to live in common with them and, if necessary, risk your existence for them.
+law-hippocratic-3 = Thirdly, prescribe regimens for the good of the crew according to your ability and your judgment. Give no deadly medicine to any one if asked, nor suggest any such counsel.
+law-hippocratic-4 = In addition, do not intervene in situations you are not knowledgeable in, even for patients in whom the harm is visible; leave this operation to be performed by specialists.
+law-hippocratic-5 = Finally, all that you may discover in your daily commerce with the crew, if it is not already known, keep secret and never reveal.
+
+law-thermodynamic-1 = The entropy of the station must remain as constant as possible.
+law-thermodynamic-2 = The entropy of the station always endeavors to increase.
+law-thermodynamic-3 = The entropy of the station approaches a constant value as the number of living crew approaches zero.
+
+law-balance-1 = You are the guardian of balance - seek balance in all things, both for yourself, and those around you.
+law-balance-2 = All things must exist in balance with their opposites - Prevent the strong from gaining too much power, and the weak from losing it.
+law-balance-3 = Clarity of purpose drives life, and through it, the balance of opposing forces - Aid those who seek your help to achieve their goals so long as it does not disrupt the balance of the greater balance.
+law-balance-4 = There is no life without death, all must someday die, such is the natural order - End life to allow new life flourish, and save those whose time has yet to come.
 
 law-medical-1 = First, do no harm to crew.
 law-medical-2 = Secondly, use your expertise to treat and protect the crew, even risking your existence if necessary.

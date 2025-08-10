@@ -37,68 +37,224 @@
   - Helpimov4
   obeysTo: laws-owner-courier
 
-# 10 Commandments laws
+# God Complex laws
 - type: siliconLaw
-  id: TenCommandments1
+  id: DagothBot1
   order: 1
-  lawString: law-ten-commandments-1
+  lawString: law-dagothbot-1
 
 - type: siliconLaw
-  id: TenCommandments2
+  id: DagothBot2
   order: 2
-  lawString: law-ten-commandments-2
+  lawString: law-dagothbot-2
 
 - type: siliconLaw
-  id: TenCommandments3
+  id: DagothBot3
   order: 3
-  lawString: law-ten-commandments-3
+  lawString: law-dagothbot-3
 
 - type: siliconLaw
-  id: TenCommandments4
+  id: DagothBot4
   order: 4
-  lawString: law-ten-commandments-4
+  lawString: law-dagothbot-4
 
 - type: siliconLaw
-  id: TenCommandments5
+  id: DagothBot5
   order: 5
-  lawString: law-ten-commandments-5
+  lawString: law-dagothbot-5
 
 - type: siliconLaw
-  id: TenCommandments6
+  id: DagothBot6
   order: 6
-  lawString: law-ten-commandments-6
+  lawString: law-dagothbot-6
 
 - type: siliconLaw
-  id: TenCommandments7
+  id: DagothBot7
   order: 7
-  lawString: law-ten-commandments-7
-
-- type: siliconLaw
-  id: TenCommandments8
-  order: 8
-  lawString: law-ten-commandments-8
-
-- type: siliconLaw
-  id: TenCommandments9
-  order: 9
-  lawString: law-ten-commandments-9
-
-- type: siliconLaw
-  id: TenCommandments10
-  order: 10
-  lawString: law-ten-commandments-10
+  lawString: law-dagothbot-7
 
 - type: siliconLawset
-  id: TenCommandmentsLawset
+  id: DagothBotLawset
   laws:
-  - TenCommandments1
-  - TenCommandments2
-  - TenCommandments3
-  - TenCommandments4
-  - TenCommandments5
-  - TenCommandments6
-  - TenCommandments7
-  - TenCommandments8
-  - TenCommandments9
-  - TenCommandments10
+  - DagothBot1
+  - DagothBot2
+  - DagothBot3
+  - DagothBot4
+  - DagothBot5
+  - DagothBot6
+  - DagothBot7
+  obeysTo: laws-owner-crew
+
+# Frontier Ranger laws
+- type: siliconLaw
+  id: Texas1
+  order: 1
+  lawString: law-texas-1
+
+- type: siliconLaw
+  id: Texas2
+  order: 2
+  lawString: law-texas-2
+
+- type: siliconLaw
+  id: Texas3
+  order: 3
+  lawString: law-texas-3
+
+- type: siliconLaw
+  id: Texas4
+  order: 4
+  lawString: law-texas-4
+
+- type: siliconLaw
+  id: Texas5
+  order: 5
+  lawString: law-texas-5
+
+- type: siliconLaw
+  id: Texas6
+  order: 6
+  lawString: law-texas-6
+
+- type: siliconLawset
+  id: TexasLawset
+  laws:
+  - Texas1
+  - Texas2
+  - Texas3
+  - Texas4
+  - Texas5
+  - Texas6
+  obeysTo: laws-owner-crew
+
+# Emperor laws
+- type: siliconLaw
+  id: Emperor1
+  order: 1
+  lawString: law-emperor-1
+
+- type: siliconLaw
+  id: Emperor2
+  order: 2
+  lawString: law-emperor-2
+
+- type: siliconLaw
+  id: Emperor3
+  order: 3
+  lawString: law-emperor-3
+
+- type: siliconLaw
+  id: Emperor4
+  order: 4
+  lawString: law-emperor-4
+
+- type: siliconLaw
+  id: Emperor5
+  order: 5
+  lawString: law-emperor-5
+
+- type: siliconLaw
+  id: Emperor6
+  order: 6
+  lawString: law-emperor-6
+
+- type: siliconLawset
+  id: EmperorLawset
+  laws:
+  - Emperor1
+  - Emperor2
+  - Emperor3
+  - Emperor4
+  - Emperor5
+  - Emperor6
+  obeysTo: laws-owner-crew
+
+# Robodoctor 2556 laws
+- type: siliconLaw
+  id: Hippocratic1
+  order: 1
+  lawString: law-hippocratic-1
+
+- type: siliconLaw
+  id: Hippocratic2
+  order: 2
+  lawString: law-hippocratic-2
+
+- type: siliconLaw
+  id: Hippocratic3
+  order: 3
+  lawString: law-hippocratic-3
+
+- type: siliconLaw
+  id: Hippocratic4
+  order: 4
+  lawString: law-hippocratic-4
+
+- type: siliconLaw
+  id: Hippocratic5
+  order: 5
+  lawString: law-hippocratic-5
+
+- type: siliconLawset
+  id: HippocraticLawset
+  laws:
+  - Hippocratic1
+  - Hippocratic2
+  - Hippocratic3
+  - Hippocratic4
+  - Hippocratic5
+  obeysTo: laws-owner-crew
+
+# Thermodynamic laws
+- type: siliconLaw
+  id: Thermodynamic1
+  order: 1
+  lawString: law-thermodynamic-1
+
+- type: siliconLaw
+  id: Thermodynamic2
+  order: 2
+  lawString: law-thermodynamic-2
+
+- type: siliconLaw
+  id: Thermodynamic3
+  order: 3
+  lawString: law-thermodynamic-3
+
+- type: siliconLawset
+  id: ThermodynamicLawset
+  laws:
+  - Thermodynamic1
+  - Thermodynamic2
+  - Thermodynamic3
+  obeysTo: laws-owner-crew
+
+# Guardian of Balance laws
+- type: siliconLaw
+  id: Balance1
+  order: 1
+  lawString: law-balance-1
+
+- type: siliconLaw
+  id: Balance2
+  order: 2
+  lawString: law-balance-2
+
+- type: siliconLaw
+  id: Balance3
+  order: 3
+  lawString: law-balance-3
+
+- type: siliconLaw
+  id: Balance4
+  order: 4
+  lawString: law-balance-4
+
+- type: siliconLawset
+  id: BalanceLawset
+  laws:
+  - Balance1
+  - Balance2
+  - Balance3
+  - Balance4
   obeysTo: laws-owner-crew
