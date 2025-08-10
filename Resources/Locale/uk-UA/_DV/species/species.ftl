@@ -13,3 +13,5 @@
 species-name-vulpkanin = Вульпканін
 species-name-harpy = Гарпія
 species-name-rodentia = Родентія
+
+species-name-chitinid = Хітиноїд
