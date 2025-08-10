@@ -151,7 +151,14 @@ public sealed class FootprintSystem : EntitySystem
         var volume = standing ? GetFootprintVolume(entity, solution.Value) : GetBodyprintVolume(entity, solution.Value);
 
         if (volume < entity.Comp.MinFootprintVolume)
+        {
+            // blood freshness start
+            // after footprints stop, some of the solution remains forever which causes some unexpected behavior
+            // removing all solution once footprints stop helps resolve this issue, the amount of reagent lost is negligible
+            _solution.RemoveAllSolution(solution.Value);
+            // blood freshness end
             return;
+        }
 
         if (!TryGetAnchoredEntity<FootprintComponent>(grid, tile, out var footprint))
         {

@@ -84,6 +84,9 @@ public sealed partial class DnaData : ReagentData
     [DataField]
     public string DNA = String.Empty;
 
+    [DataField] // Goobstation
+    public TimeSpan Freshness = TimeSpan.Zero; // Goobstation
+
     public override ReagentData Clone() => this;
 
     public override bool Equals(ReagentData? other)

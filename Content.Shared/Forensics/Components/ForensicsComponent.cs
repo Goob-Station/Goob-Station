@@ -23,7 +23,7 @@ namespace Content.Shared.Forensics.Components // Goob/Einstein Engins - Shared F
         public HashSet<string> Fibers = new();
 
         [DataField, AutoNetworkedField] // Einstein Engines - Network that shit
-        public HashSet<string> DNAs = new();
+        public HashSet<(string, TimeSpan)> DNAs = new(); // Goobstation
 
         [DataField, AutoNetworkedField] // Einstein Engines - Scent Tracking
         public string Scent = String.Empty;

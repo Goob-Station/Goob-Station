@@ -108,13 +108,14 @@ namespace Content.Server.Forensics
         /// DNA that the forensic scanner found from the <see cref="DNAComponent"/> on an entity.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly), DataField("dnas")]
-        public List<string> TouchDNAs = new();
+        public List<(string, TimeSpan)> TouchDNAs = new(); // Goobstation
 
         /// <summary>
         /// DNA that the forensic scanner found from the solution containers in an entity.
+        /// Second field includes freshness.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly), DataField]
-        public List<string> SolutionDNAs = new();
+        public List<(string, TimeSpan)> SolutionDNAs = new(); // Goobstation
 
         /// <summary>
         /// Residue that the forensic scanner found from the <see cref="ForensicsComponent"/> on an entity.

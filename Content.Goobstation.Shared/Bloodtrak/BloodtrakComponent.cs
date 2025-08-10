@@ -25,10 +25,10 @@ namespace Content.Goobstation.Shared.Bloodtrak;
 public sealed partial class BloodtrakComponent : Component
 {
     /// <summary>
-    /// The duration the tracker will remain on, before shutting off automatically.
+    /// The maximum time the pinpointer will work from given puddle freshness.
     /// </summary>
     [DataField]
-    public TimeSpan TrackingDuration = TimeSpan.FromSeconds(30f);
+    public TimeSpan MaximumTrackingDuration = TimeSpan.FromMinutes(8f);
 
     /// <summary>
     /// The distance defined as being a medium distance away.
@@ -101,6 +101,18 @@ public sealed partial class BloodtrakComponent : Component
 
     [ViewVariables]
     public bool HasTarget => DistanceToTarget != Distance.Unknown;
+
+    [ViewVariables]
+    public TimeSpan Freshness = TimeSpan.Zero;
+
+    [ViewVariables]
+    public EntityUid? LastScannedTarget = null;
+
+    [ViewVariables]
+    public List<(string, TimeSpan, EntityUid)> ResultList = new();
+
+    [ViewVariables]
+    public int ResultListOffset = 0;
 
 }
 
