@@ -466,6 +466,7 @@
       prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
+    - id: XenobiologyBountyComputerCircuitboard # Goobstation
     - id: MMI # Goobstation
 
 # Hardsuit table, used for suit storage as well
