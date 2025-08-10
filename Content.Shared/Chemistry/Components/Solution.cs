@@ -966,34 +966,7 @@ namespace Content.Shared.Chemistry.Components
                     {
                         found = true;
                         Contents[j] = new ReagentQuantity(reagent, quantity + otherQuantity);
-                        // Goobstation Start
-                        // blood freshness start
-                        // the goal is to set the DNA freshness  to the fresher of the two solutions
-                        var existingReagent = Contents[j].Reagent.Data;
-                        if (existingReagent is not null)
-                        {
-                            var existingReagentsWithDNA = existingReagent.FindAll(x => x is DnaData);
-                            foreach (var existingReagentWithDNA in existingReagentsWithDNA)
-                            {
-                                var otherReagents = otherSolution.Contents[i].Reagent.Data;
-                                if (otherReagents is not null)
-                                {
-                                    var otherReagentsWithDNA = otherReagents.FindAll(x => x is DnaData);
-                                    foreach (var otherReagentWithDNA in otherReagentsWithDNA)
-                                    {
-                                        if (((DnaData) existingReagentWithDNA).DNA.Equals(((DnaData) otherReagentWithDNA).DNA))
-                                        {
-                                            if (((DnaData) otherReagentWithDNA).Freshness > ((DnaData) existingReagentWithDNA).Freshness)
-                                            {
-                                                ((DnaData) existingReagentWithDNA).Freshness = ((DnaData) otherReagentWithDNA).Freshness;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        // blood freshness end
-                        // Goobstation End
+
                         break;
                     }
                 }
@@ -1003,6 +976,46 @@ namespace Content.Shared.Chemistry.Components
                     Contents.Add(new ReagentQuantity(otherReagent, otherQuantity));
                 }
             }
+            // Goobstation Start
+            Dictionary<string, TimeSpan> DNAs = new();
+
+            for (var i = 0; i < otherSolution.Contents.Count; i++)
+            {
+                otherSolution.Contents[i].Reagent.Data?.ForEach(data =>
+                {
+                    if (data is DnaData dna)
+                    {
+                        if (DNAs.ContainsKey(dna.DNA))
+                        {
+                            // if dna older than current, replace it
+                            if (DNAs[dna.DNA] < dna.Freshness)
+                                DNAs[dna.DNA] = dna.Freshness;
+                        }
+                        else
+                        {
+                            DNAs[dna.DNA] = dna.Freshness;
+                        }
+                    }
+                });
+            }
+
+            for (var i = 0; i < Contents.Count; i++)
+            {
+                Contents[i].Reagent.Data?.ForEach(data =>
+                {
+                    if (data is DnaData dna)
+                    {
+                        // if other solution had this dna
+                        if (DNAs.ContainsKey(dna.DNA))
+                        {
+                            // if other solution is fresher, replace current
+                            if (DNAs[dna.DNA] > dna.Freshness)
+                                dna.Freshness = DNAs[dna.DNA];
+                        }
+                    }
+                });
+            }
+            // Goobstation End
 
             _heatCapacity += otherSolution._heatCapacity;
             CheckRecalculateHeatCapacity();
