@@ -13081,3 +13081,9 @@ Entries:
         Plasmamen in their Guidebook entry.
   id: 1447
   time: '2025-08-10T04:47:50.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added Chitinids
+  id: 1448
+  time: '2025-08-10T04:50:06.0000000+00:00'
