@@ -113,10 +113,6 @@
   id: LightBrownGloves
   equipment:
     gloves: ClothingHandsGlovesColorLightBrown
-- type: loadout
-  id: WhiteGloves
-  equipment:
-    gloves: ClothingHandsGlovesColorWhite
 
 # Masks
 - type: loadout
