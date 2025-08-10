@@ -1537,7 +1537,7 @@
         amount: -50
         time: 12
 
-- type: reagent
+- type: reagent # now watch this drive
   id: Determination
   name: reagent-name-determination
   group: Medicine
@@ -1607,7 +1607,6 @@
         key: Drunk
         time: 10
         type: Remove
-      - !type:ChemCleanBloodstream
       - !type:AdjustTemperature # leporazine tempfix
         conditions:
         - !type:Temperature
@@ -1618,10 +1617,10 @@
         - !type:Temperature
           min: 293.15
         amount: -10000
-      - !type:PopupMessage
+      - !type:PopupMessage # hallucinations that get worse the closer you are to death
         conditions:
         - !type:ReagentThreshold
-          max: 30
+          max: 40
         visualType: Medium
         messages: [ "determination-effect-hands", "determination-effect-hallucination", "determination-effect-heartbeat", "determination-effect-melt", "determination-effect-focus", "determination-effect-free" ]
         type: Local
@@ -1629,7 +1628,7 @@
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
-          min: 30
+          min: 40
           max: 70
         visualType: Medium
         messages: [ "determination-effect-run", "determination-effect-worth", "determination-effect-mortal", "determination-effect-time", "determination-effect-choice" ]
@@ -1658,11 +1657,11 @@
         - !type:ReagentThreshold
           min: 71
         emote: Scream
-        probability: 0.3
-      - !type:HealthChange
+        probability: 0.4
+      - !type:HealthChange # 60 second death trigger, gibs
         conditions:
         - !type:ReagentThreshold
-          min: 75 # 60 second death trigger
+          min: 75
         damage:
           types:
             Blunt: 800
@@ -1672,3 +1671,22 @@
           min: 75
         reagent: Determination
         amount: -75
+    Poison:
+      metabolismRate: 1
+      effects:
+      - !type:ChemCleanBloodstream
+      - !type:AdjustReagent
+        amount: -25
+        reagent: AmmoniatedMercury
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Calomel
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Charcoal
+      - !type:AdjustReagent
+        amount: -25
+        reagent: Musiver
+      - !type:AdjustReagent
+        amount: -25
+        reagent: PentenicAcid
