@@ -110,6 +110,10 @@
   equipment:
     head: ClothingHeadHatSyndieMAA
 
+- type: loadout
+  id: ClothingHeadHatCentcomcap
+  equipment:
+    head: ClothingHeadHatCentcomcap
 
 - type: loadout
   id: NanotrasenRepresentativeEnvirohelm
@@ -132,6 +136,11 @@
   id: ClothingNeckScarfStripedCentcom
   equipment:
     neck: ClothingNeckScarfStripedCentcom
+
+- type: loadout
+  id: ClothingNeckCloakCentcom
+  equipment:
+    neck: ClothingNeckCloakCentcom
 
 # Backpacks
 - type: loadout

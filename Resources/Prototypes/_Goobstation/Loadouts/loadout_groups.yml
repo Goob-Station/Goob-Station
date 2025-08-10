@@ -899,6 +899,7 @@
   - NanotrasenRepresentativeBowler
   - NanotrasenRepresentativeOutlaw
   - NanotrasenRepresentativeMAA
+  - ClothingHeadHatCentcomcap
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeNeck
@@ -906,6 +907,7 @@
   minLimit: 0
   loadouts:
   - ClothingNeckScarfStripedCentcom
+  - ClothingNeckCloakCentcom
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
