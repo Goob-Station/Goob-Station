@@ -294,7 +294,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             return;
 
         // goobstation
-        var hitEvent = new BeforeStaminaDamageEvent(1f);
+        var hitEvent = new Event(1f);
         RaiseLocalEvent(target, ref hitEvent);
 
         var damage = component.Damage;
@@ -358,7 +358,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         || value == 0) // no damage???
             return;
 
-        var ev = new BeforeStaminaDamageEvent(value, source);
+        var ev = new BeforeStaminaDamageEvent(value, source); // Goob change: Added source param.
         RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
             return;
