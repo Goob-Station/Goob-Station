@@ -197,7 +197,7 @@
         prob: 0.1
       - id: MedkitOxygenFilled
       - id: MedkitAdvancedFilled
-      - id: BoxBodyBag
+      - id: BoxBodyBag  # Goobstation
 
 - type: entity
   id: LockerDetectiveFilled
