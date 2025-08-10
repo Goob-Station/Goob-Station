@@ -51,6 +51,6 @@
       types:
         Caustic: 30
         Heat: 10
-        Asphyxiation: 100
+        Asphyxiation: 40
         Piercing: 20
 
