@@ -218,7 +218,7 @@
 # Feroxi
 - type: emote
   id: Gnash
-  name: delta-chat-emote-name-gnash
+  name: chat-emote-name-gnash
   category: Vocal
   available: false
   whitelist:

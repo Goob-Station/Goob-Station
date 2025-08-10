@@ -13,7 +13,6 @@
       - Crayon
       - Paper
   - type: Metabolizer
-    maxReagents: 2
     metabolizerTypes: [ Feroxi, Animal ]
   - type: SolutionContainerManager
     solutions:
@@ -37,7 +36,6 @@
     - state: lung-l
     - state: lung-r
   - type: Organ
-    removable: false
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
