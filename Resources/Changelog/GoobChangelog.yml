@@ -13008,3 +13008,65 @@ Entries:
       message: Added EORG to the MRP Rulebook
   id: 1440
   time: '2025-08-08T04:28:18.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: Mothroaches now can dash just like humanoid moths.
+  id: 1441
+  time: '2025-08-09T20:04:47.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Fix
+      message: >-
+        Shadowkin's flash vulnerability is now connected to their eyes, so by
+        implanting normal eyes you can finally use flash protection.
+  id: 1442
+  time: '2025-08-09T20:13:14.0000000+00:00'
+- author: NotActuallyMarty
+  changes:
+    - type: Add
+      message: >-
+        Attached clothing (Hardsuit helmets, winter hoods, modsuit parts) can
+        now be unequipped or stripped by others using the strip menu
+    - type: Fix
+      message: Modsuits no longer trap you inside
+    - type: Fix
+      message: Modsuits will break seal if anything is equipped on top (such as blob)
+    - type: Fix
+      message: Modsuit Toggle seals now shows on players and shows at all times
+    - type: Tweak
+      message: >-
+        Toggling someone else's modsuit will automatically start the sealing
+        process
+    - type: Tweak
+      message: Toggling your own modsuit will only unseal it if sealed
+    - type: Tweak
+      message: Modsuit error sound is less aggressive.
+    - type: Tweak
+      message: Unsealed toggled modsuits can now be unequipped (like a hardsuit)
+    - type: Tweak
+      message: Modsuits now default to satchel size
+  id: 1443
+  time: '2025-08-09T21:08:46.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Ling arm and Godhand no longer command grab.
+    - type: Add
+      message: Ling arm now has poison and debuff infliction on attack
+    - type: Add
+      message: Godhand can pry doors open like the jaws of life
+  id: 1444
+  time: '2025-08-10T00:31:29.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: Sanabi.
+  id: 1445
+  time: '2025-08-10T01:54:33.0000000+00:00'
+- author: dvir01
+  changes:
+    - type: Tweak
+      message: Conveyor sprite changed to show where it's going.
+  id: 1446
+  time: '2025-08-10T02:01:31.0000000+00:00'
