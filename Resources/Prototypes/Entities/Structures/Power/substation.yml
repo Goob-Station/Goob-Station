@@ -124,6 +124,9 @@
     supplyRampTolerance: 5000
     supplyRampRate: 1000
   - type: StationInfiniteBatteryTarget
+  - type: Tag # Goobstation - Added tag for substation fault event
+    tags:
+      - Substation
 
   # Interface
   - type: BatteryInterface
