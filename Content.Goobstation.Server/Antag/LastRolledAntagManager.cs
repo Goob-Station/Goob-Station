@@ -50,7 +50,7 @@ public sealed class LastRolledAntagManager : ILastRolledAntagManager
     /// </summary>
     public TimeSpan GetLastRolled(NetUserId userId)
     {
-        return Task.Run(() => GetTimeAsync(userId)).GetAwaiter().GetResult();
+        return GetTimeAsync(userId).GetAwaiter().GetResult();
     }
 
     #region Internal/Async tasks
@@ -75,7 +75,7 @@ public sealed class LastRolledAntagManager : ILastRolledAntagManager
     /// </summary>
     private async Task<TimeSpan> SetTimeAsync(NetUserId userId, TimeSpan to)
     {
-        var oldTime = GetLastRolled(userId);
+        var oldTime = await GetTimeAsync(userId);
         await SetTimeAsyncInternal(userId, to, oldTime);
         return oldTime;
     }
