@@ -618,7 +618,12 @@
   weights:
     # Goob-Start
     HelpimovLawset: 0.6
-    TenCommandmentsLawset: 0.5
+    DagothBotLawset: 0.5
+    TexasLawset: 0.5
+    EmperorLawset: 0.5
+    HippocraticLawset: 0.7
+    ThermodynamicLawset: 0.5
+    BalanceLawset: 1
     # Goob-End
     # its crewsimov by default dont be lame
     Crewsimov: 0.25
