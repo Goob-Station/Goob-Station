@@ -94,6 +94,9 @@
       - SmokeImplant
       # - StypticStimulatorImplant # Uncomment if given to traitors, currently it's DS only implant
       - BinaryImplant
+      # - RAE Implants, Mime and Faith are from DV/NF
+      - MimePowersImplant
+      - BibleUserImplant
       deimplantFailureDamage:
         types:
           Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
@@ -152,6 +155,8 @@
     blacklist: null
     implantTime: 5
     drawTime: 5
+    # Added for event purposes
+    allowDeimplantAll: true
 
 - type: entity
   id: BaseImplantOnlyImplanter
