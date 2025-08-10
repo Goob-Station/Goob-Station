@@ -355,7 +355,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false)
     {
         if (!Resolve(uid, ref component, false)
-        || value == 0) // no damage???s
+        || value == 0) // no damage???
             return;
 
         var ev = new BeforeStaminaDamageEvent(value, source);
