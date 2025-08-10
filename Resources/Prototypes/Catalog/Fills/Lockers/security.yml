@@ -196,8 +196,7 @@
         prob: 0.1
       - id: MedkitOxygenFilled
       - id: MedkitAdvancedFilled
-      - id: OmnimedTool 
-      - id: StasisBedFlatpack 
+      - id: BoxBodyBag
 
 - type: entity
   id: LockerDetectiveFilled
