@@ -120,13 +120,6 @@
     species:
     - Plasmaman
 
-# Gloves
-- type: loadout
-  id: NanotrasenRepresentativeGloves
-  equipment:
-    gloves: ClothingHandsGlovesHeavyGoldenTrim
-
-
 # Neck
 - type: loadout
   id: ClothingNeckScarfStripedCentcom

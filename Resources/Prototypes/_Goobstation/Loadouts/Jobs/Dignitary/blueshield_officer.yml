@@ -95,12 +95,6 @@
     species:
     - Plasmaman
 
-- type: loadout
-  id: CombatGloves
-  equipment:
-    gloves: ClothingHandsGlovesCombat
-
-
 # Outer
 - type: loadout
   id: BlueshieldOfficerOuterBlueshieldArmorVest

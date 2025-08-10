@@ -180,7 +180,7 @@
   equipment:
     shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesSunglasses
-    #gloves: ClothingHandsGlovesCaptain - Goobstation, moved to loadouts
+    gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
   storage:

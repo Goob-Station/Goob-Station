@@ -4,3 +4,11 @@
   - !type:SpeciesLoadoutEffect
     species:
     - Plasmaman
+
+- type: loadoutEffectGroup
+  id: Abominations
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Plasmaman
+    - Vox

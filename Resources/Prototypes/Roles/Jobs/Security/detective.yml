@@ -97,7 +97,7 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     id: DetectivePDA
-    #gloves: ClothingHandsGlovesForensic - Goobstation, moved to loadouts
+    gloves: ClothingHandsGlovesForensic
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltHolsterFilled
   storage:

@@ -81,7 +81,7 @@
   id: BlueshieldOfficerGear
   equipment:
     eyes: ClothingEyesGlassesBSO
-    #gloves: ClothingHandsGlovesCombat - Goobstation, moved to loadouts
+    gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
     ears: ClothingHeadsetAltBlueshield
     belt: ClothingBeltAssaultFilled

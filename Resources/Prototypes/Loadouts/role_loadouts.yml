@@ -133,7 +133,6 @@
   - CaptainEnvirohelm
   - CaptainEnvirosuit
   - CaptainEnvirogloves
-  - CaptainGloves
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -153,7 +152,7 @@
   - HoPEnvirohelm
   - HoPEnvirosuit
   - HoPEnvirogloves
-  - HoPGloves
+
 # Silicons
 - type: roleLoadout
   id: JobBorg
@@ -369,7 +368,6 @@
   - MimeEnvirohelm
   - MimeEnvirosuit
   - MimeEnvirogloves
-  - MimeGloves
 
 - type: roleLoadout
   id: JobMusician
@@ -600,7 +598,6 @@
   - HeadofSecurityEnvirohelm
   - HeadofSecurityEnvirosuit
   - HeadofSecurityEnvirogloves
-  - HeadofSecurityGloves
 
 - type: roleLoadout
   id: JobWarden
@@ -663,7 +660,6 @@
   - DetectiveEnvirohelm
   - DetectiveEnvirosuit
   - DetectiveEnvirogloves
-  - DetectiveGloves
 
 - type: roleLoadout
   id: JobSecurityCadet

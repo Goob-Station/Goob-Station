@@ -103,7 +103,6 @@
   - Animals
   - GroupSpeciesBreathTool
   - Survival
-  - NanotrasenRepresentativeGloves
   # Goobstation - EE Plasmeme Change.
   - NanotrasenRepresentativeEnvirohelm
   - NanotrasenRepresentativeEnvirosuit
@@ -127,7 +126,6 @@
   - BlueshieldOfficerEnvirohelm
   - BlueshieldOfficerEnvirosuit
   - BlueshieldOfficerEnvirogloves
-  - BlueshieldOfficerGloves
 
 - type: roleLoadout
   id: JobNanotrasenCareerTrainer

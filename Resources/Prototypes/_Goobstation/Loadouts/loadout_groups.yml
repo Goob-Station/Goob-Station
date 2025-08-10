@@ -473,14 +473,6 @@
   loadouts:
   - DetectiveEnvirogloves
 
-- type: loadoutGroup
-  id: DetectiveGloves
-  name: loadout-group-detective-gloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - DetectiveGloves
-
 # Warden
 
 - type: loadoutGroup
@@ -532,14 +524,6 @@
   maxLimit: 1
   loadouts:
   - HoPEnvirogloves
-
-- type: loadoutGroup
-  id: HoPGloves
-  name: loadout-group-hop-gloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - HoPGloves
 
 # Centcomm Officer
 
@@ -749,14 +733,6 @@
   loadouts:
   - WhiteEnvirogloves
 
-- type: loadoutGroup
-  id: MimeGloves
-  name: loadout-group-mime-gloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - WhiteGloves
-
 # Assistant
 
 - type: loadoutGroup
@@ -940,12 +916,6 @@
   - NanotrasenRepresentativeHeels
 
 - type: loadoutGroup
-  id: NanotrasenRepresentativeGloves
-  name: loadout-group-ntr-gloves
-  loadouts:
-  - NanotrasenRepresentativeGloves
-
-- type: loadoutGroup
   id: NanotrasenRepresentativeEnvirohelm
   name: loadout-group-ntr-envirohelm
   minLimit: 1
@@ -1051,14 +1021,6 @@
   maxLimit: 1
   loadouts:
   - CombatEnvirogloves
-
-- type: loadoutGroup
-  id: BlueshieldOfficerGloves
-  name: loadout-group-bso-gloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - CombatGloves
 
 # Career Trainer
 
@@ -1192,14 +1154,6 @@
   - CaptainEnvirogloves
 
 - type: loadoutGroup
-  id: CaptainGloves
-  name: loadout-group-captain-gloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - CaptainGloves
-
-- type: loadoutGroup
   id: CaptainMask
   name: loadout-group-captain-mask
   minLimit: 0
@@ -1308,14 +1262,6 @@
   maxLimit: 1
   loadouts:
   - CombatEnvirogloves
-
-- type: loadoutGroup
-  id: HeadofSecurityGloves
-  name: loadout-group-head-of-security-gloves
-  minLimit: 1
-  maxLimit: 1
-  loadouts:
-  - CombatGloves
 # Brigmedic
 
 - type: loadoutGroup

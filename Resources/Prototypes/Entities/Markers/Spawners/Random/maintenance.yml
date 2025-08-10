@@ -352,9 +352,11 @@
       - !type:GroupSelector # EE Plasmeme Change
         children:
         - !type:EntSelector
-          id: PlasmaTankFilled
-        - !type:EntSelector
-          id: DoubleEmergencyPlasmaTankFilled
+          id: EmergencyPlasmaTankFilled
+        - !type:GroupSelector
+          children:
+          - id: PlasmaTankFilled
+          - id: DoubleEmergencyPlasmaTankFilled
       - !type:GroupSelector
         weight: 3
         children:
