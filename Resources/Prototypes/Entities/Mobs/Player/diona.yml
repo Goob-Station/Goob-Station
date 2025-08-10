@@ -39,7 +39,7 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
-    - type: Sprinter # bro you're a literal bundle of roots what did you expect
+    - type: Sprinter # Goob Change: bro you're a literal bundle of roots what did you expect
       canSprint: false
 
 # Reformed Diona
@@ -50,4 +50,4 @@
   name: Reformed Diona
   components:
     - type: IsDeadIC
-    - type: RandomHumanoidAppearance 
+    - type: RandomHumanoidAppearance

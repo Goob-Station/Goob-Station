@@ -295,7 +295,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             return;
 
         // goobstation
-        var hitEvent = new Event(1f);
+        var hitEvent = new BeforeStaminaDamageEvent(1f);
         RaiseLocalEvent(target, ref hitEvent);
 
         var damage = component.Damage;

@@ -150,7 +150,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: Sprinter # human major
+  - type: Sprinter # Goob Change: human major
     staminaDrainRate: 8
 
 
