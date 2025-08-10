@@ -21,7 +21,6 @@ namespace Content.Shared.Humanoid.Markings
     [Serializable, NetSerializable]
     public enum MarkingCategories : byte
     {
-        Face,
         Special,
         Hair,
         FacialHair,
