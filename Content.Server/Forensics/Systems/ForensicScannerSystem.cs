@@ -318,14 +318,30 @@ namespace Content.Server.Forensics
             text.AppendLine(Loc.GetString("forensic-scanner-interface-dnas"));
             foreach (var dna in component.TouchDNAs)
             {
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - dna.Item2;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(dna.Item1 + " " + Math.Ceiling(timePassed.TotalSeconds) + " " + Loc.GetString("forensic-scanner-interface-freshness-below-minute"));
+                }
+                else
+                {
+                    text.AppendLine(dna.Item1 + " " + Math.Ceiling(timePassed.TotalMinutes) + " " + Loc.GetString("forensic-scanner-interface-freshness-over-minute"));
+                }
             }
             foreach (var dna in component.SolutionDNAs)
             {
-                Log.Debug(dna);
+                Log.Debug(dna.Item1);
                 if (component.TouchDNAs.Contains(dna))
                     continue;
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - dna.Item2;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(dna.Item1 + " " + Math.Ceiling(timePassed.TotalSeconds) + " " + Loc.GetString("forensic-scanner-interface-freshness-below-minute"));
+                }
+                else
+                {
+                    text.AppendLine(dna.Item1 + " " + Math.Ceiling(timePassed.TotalMinutes) + " " + Loc.GetString("forensic-scanner-interface-freshness-over-minute"));
+                }
             }
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-residues"));

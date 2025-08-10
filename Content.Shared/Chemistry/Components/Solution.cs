@@ -963,6 +963,32 @@ namespace Content.Shared.Chemistry.Components
                     {
                         found = true;
                         Contents[j] = new ReagentQuantity(reagent, quantity + otherQuantity);
+                        // blood freshness start
+                        // the goal is to set the DNA freshness  to the fresher of the two solutions
+                        var existingReagent = Contents[j].Reagent.Data;
+                        if (existingReagent is not null)
+                        {
+                            var existingReagentsWithDNA = existingReagent.FindAll(x => x is DnaData);
+                            foreach (var existingReagentWithDNA in existingReagentsWithDNA)
+                            {
+                                var otherReagents = otherSolution.Contents[i].Reagent.Data;
+                                if (otherReagents is not null)
+                                {
+                                    var otherReagentsWithDNA = otherReagents.FindAll(x => x is DnaData);
+                                    foreach (var otherReagentWithDNA in otherReagentsWithDNA)
+                                    {
+                                        if (((DnaData) existingReagentWithDNA).DNA.Equals(((DnaData) otherReagentWithDNA).DNA))
+                                        {
+                                            if (((DnaData) otherReagentWithDNA).Freshness > ((DnaData) existingReagentWithDNA).Freshness)
+                                            {
+                                                ((DnaData) existingReagentWithDNA).Freshness = ((DnaData) otherReagentWithDNA).Freshness;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        // blood freshness end
                         break;
                     }
                 }

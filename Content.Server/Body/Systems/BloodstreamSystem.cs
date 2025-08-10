@@ -748,7 +748,10 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         var dnaData = new DnaData();
 
         if (TryComp<DnaComponent>(uid, out var donorComp) && donorComp.DNA != null)
+        {
             dnaData.DNA = donorComp.DNA;
+            dnaData.Freshness = _gameTiming.CurTime;
+        }
         else
             dnaData.DNA = Loc.GetString("forensics-dna-unknown");
 

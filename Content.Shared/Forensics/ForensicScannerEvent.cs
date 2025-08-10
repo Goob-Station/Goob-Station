@@ -89,8 +89,8 @@ namespace Content.Shared.Forensics
     {
         public readonly List<string> Fingerprints = new();
         public readonly List<string> Fibers = new();
-        public readonly List<string> TouchDNAs = new();
-        public readonly List<string> SolutionDNAs = new();
+        public readonly List<(string, TimeSpan)> TouchDNAs = new();
+        public readonly List<(string, TimeSpan)> SolutionDNAs = new();
         public readonly List<string> Residues = new();
         public readonly string LastScannedName = string.Empty;
         public readonly TimeSpan PrintCooldown = TimeSpan.Zero;
@@ -99,8 +99,8 @@ namespace Content.Shared.Forensics
         public ForensicScannerBoundUserInterfaceState(
             List<string> fingerprints,
             List<string> fibers,
-            List<string> touchDnas,
-            List<string> solutionDnas,
+            List<(string, TimeSpan)> touchDnas,
+            List<(string, TimeSpan)> solutionDnas,
             List<string> residues,
             string lastScannedName,
             TimeSpan printCooldown,

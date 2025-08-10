@@ -112,6 +112,8 @@ using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory.Events;
+using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Server.Forensics
 {
@@ -122,6 +124,7 @@ namespace Content.Server.Forensics
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         public override void Initialize()
         {
@@ -148,7 +151,7 @@ namespace Content.Server.Forensics
             if (soln.Count > 0)
             {
                 var comp = EnsureComp<ForensicsComponent>(ent.Owner);
-                foreach (string dna in soln)
+                foreach (var dna in soln)
                 {
                     comp.DNAs.Add(dna);
                 }
@@ -204,7 +207,7 @@ namespace Content.Server.Forensics
             foreach (EntityUid part in args.GibbedParts)
             {
                 var partComp = EnsureComp<ForensicsComponent>(part);
-                partComp.DNAs.Add(dna);
+                partComp.DNAs.Add((dna, TimeSpan.Zero));
                 partComp.CanDnaBeCleaned = false;
                 Dirty(part, partComp); // Einstein Engines
             }
@@ -219,7 +222,13 @@ namespace Content.Server.Forensics
                 foreach (EntityUid hitEntity in args.HitEntities)
                 {
                     if (TryComp<DnaComponent>(hitEntity, out var hitEntityComp) && hitEntityComp.DNA != null)
-                        component.DNAs.Add(hitEntityComp.DNA);
+                    {
+                        // remove old DNA if it exists because need to refresh the freshness timestamp
+                        // seems to be shitcode but why is it a hashset in the first place, it never gets large so why not just use a list?
+                        component.DNAs.RemoveWhere(x => x.Item1 == hitEntityComp.DNA);
+
+                        component.DNAs.Add((hitEntityComp.DNA, _timing.CurTime));
+                    }
                 }
             }
             Dirty(uid, component); // Einstein Engines
@@ -259,9 +268,9 @@ namespace Content.Server.Forensics
             }
         }
 
-        public List<string> GetSolutionsDNA(EntityUid uid)
+        public List<(string, TimeSpan)> GetSolutionsDNA(EntityUid uid)
         {
-            List<string> list = new();
+            List<(string, TimeSpan)> list = new();
             if (TryComp<SolutionContainerManagerComponent>(uid, out var comp))
             {
                 foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((uid, comp)))
@@ -272,16 +281,16 @@ namespace Content.Server.Forensics
             return list;
         }
 
-        public List<string> GetSolutionsDNA(Solution soln)
+        public List<(string, TimeSpan)> GetSolutionsDNA(Solution soln)
         {
-            List<string> list = new();
+            List<(string, TimeSpan)> list = new();
             foreach (var reagent in soln.Contents)
             {
                 foreach (var data in reagent.Reagent.EnsureReagentData())
                 {
                     if (data is DnaData)
                     {
-                        list.Add(((DnaData) data).DNA);
+                        list.Add((((DnaData) data).DNA, ((DnaData) data).Freshness));
                     }
                 }
             }
@@ -465,7 +474,7 @@ namespace Content.Server.Forensics
                 return;
 
             var recipientComp = EnsureComp<ForensicsComponent>(args.Recipient);
-            recipientComp.DNAs.Add(component.DNA);
+            recipientComp.DNAs.Add((component.DNA, TimeSpan.Zero));
             recipientComp.CanDnaBeCleaned = args.CanDnaBeCleaned;
         }
 
@@ -511,7 +520,7 @@ namespace Content.Server.Forensics
             if (TryComp<DnaComponent>(donor, out var donorComp) && donorComp.DNA != null)
             {
                 EnsureComp<ForensicsComponent>(recipient, out var recipientComp);
-                recipientComp.DNAs.Add(donorComp.DNA);
+                recipientComp.DNAs.Add((donorComp.DNA, TimeSpan.Zero));
                 recipientComp.CanDnaBeCleaned = canDnaBeCleaned;
             }
         }
