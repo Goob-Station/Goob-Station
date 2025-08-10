@@ -614,6 +614,10 @@
 - type: weightedRandom
   id: IonStormLawsets
   weights:
+    # Goob-Start
+    HelpimovLawset: 0.6
+    TenCommandmentsLawset: 0.5
+    # Goob-End
     # its crewsimov by default dont be lame
     Crewsimov: 0.25
     Corporate: 1
@@ -628,6 +632,5 @@
     PainterLawset: 1
     AntimovLawset: 0.25
     NutimovLawset: 0.5
-    HelpimovLawset: 0.6
     Drone: 0.5
     Ninja: 0.25
