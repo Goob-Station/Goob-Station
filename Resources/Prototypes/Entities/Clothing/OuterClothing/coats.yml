@@ -649,7 +649,7 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, BaseSecurityContraband] # Goobstation
+  parent: [ClothingOuterStorageBase, BaseSecurityContraband, AllowSuitStorageClothing] # Goobstation
   id: ClothingOuterCoatAMG
   name: armored medical gown
   description: The version of the medical gown, with elements of a bulletproof vest, looks strange, but your heart is protected.
@@ -667,7 +667,7 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.4
+        Piercing: 0.6
         Heat: 0.7
         Caustic: 0.4
   - type: ModifyDelayedKnockdown # Goobstation

@@ -42,3 +42,21 @@
   id: BrigmedicMessenger
   equipment:
     back: ClothingBackpackMessengerBrigmedic
+
+- type: loadout
+  id: SecurityMeleeKnife
+  storage:
+    back:
+    - CombatKnife
+
+- type: loadout
+  id: SecurityMeleePolyBaton
+  storage:
+    back:
+    - PolymerBaton
+
+- type: loadout
+  id: SecurityMeleeSpear
+  storage:
+    back:
+    - SpearTelescopic

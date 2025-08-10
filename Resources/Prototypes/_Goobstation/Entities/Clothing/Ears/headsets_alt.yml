@@ -104,7 +104,7 @@
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseSecurityContraband]
-  id: ClothingHeadsetAltBrigmedicRegular
+  id: ClothingHeadsetAltBrigmedic
   name: brigmedic over-ear headset
   components:
   - type: ContainerFill
