@@ -8799,7 +8799,7 @@ entities:
     - type: Transform
       pos: -21.5,-18.5
       parent: 2
-- proto: AirlockExternalGlassShuttleMining
+- proto: AirlockExternalGlassShuttleMiningFilled
   entities:
   - uid: 69
     components:
