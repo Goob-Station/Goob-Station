@@ -98,9 +98,12 @@
     - type: Battery
       maxCharge: 600
       startingCharge: 600
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 20
     - type: RechargeableBlocking
-      dischargedRechargeRate: 0
-      chargedRechargeRate: 0
+      dischargedRechargeRate: 10
+      chargedRechargeRate: 20
     - type: ItemSlots
       slots:
         item:
