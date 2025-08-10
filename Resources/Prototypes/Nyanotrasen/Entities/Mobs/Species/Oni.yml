@@ -30,9 +30,9 @@
   - type: HumanoidAppearance
     species: Oni
   - type: Sprite
-    scale: 1.2, 1.2
+    # scale: 1.2, 1.2 # Goobstation: port EE height/width sliders
   - type: ScaleData # Goobstation
-    scale: 1.2, 1.2
+    # scale: 1.2, 1.2 # Goobstation: port EE height/width sliders
   - type: Oni
     modifiers:
       coefficients:
