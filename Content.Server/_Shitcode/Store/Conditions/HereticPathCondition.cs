@@ -38,6 +38,9 @@ public sealed partial class HereticPathCondition : ListingCondition
         if (!ent.TryGetComponent<HereticComponent>(args.Buyer, out var hereticComp))
             return false;
 
+        if (hereticComp.IgnorePathRestrictions)
+            return true;
+
         if (RequiresCanAscend && !hereticComp.CanAscend)
             return false;
 

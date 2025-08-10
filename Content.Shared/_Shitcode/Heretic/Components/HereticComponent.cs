@@ -38,6 +38,9 @@ public sealed partial class HereticComponent : Component
     };
 
     [DataField, AutoNetworkedField]
+    public bool IgnorePathRestrictions;
+
+    [DataField, AutoNetworkedField]
     public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
 
     [DataField]

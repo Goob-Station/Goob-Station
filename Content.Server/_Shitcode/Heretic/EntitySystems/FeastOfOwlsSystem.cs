@@ -72,6 +72,7 @@ public sealed class FeastOfOwlsSystem : EntitySystem
             _status.TryRemoveStatusEffect(uid, "Stun", status);
             _status.TryRemoveStatusEffect(uid, "KnockedDown", status);
             RemCompDeferred(uid, comp);
+            heretic.IgnorePathRestrictions = true;
         }
     }
 }
