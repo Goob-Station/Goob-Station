@@ -14178,7 +14178,7 @@ entities:
     - type: Transform
       pos: 4.5,0.5
       parent: 26654
-- proto: AirlockExternalGlassShuttleMining
+- proto: AirlockExternalGlassShuttleMiningFilled
   entities:
   - uid: 326
     components:
