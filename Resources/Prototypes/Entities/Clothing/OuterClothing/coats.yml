@@ -669,7 +669,7 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.6
+        Piercing: 0.6 # Goobstation - From 0.4
         Heat: 0.7
         Caustic: 0.4
   - type: ModifyDelayedKnockdown # Goobstation
