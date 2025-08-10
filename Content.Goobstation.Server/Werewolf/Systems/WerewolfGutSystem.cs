@@ -13,7 +13,9 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Server.Werewolf.Systems;
@@ -28,12 +30,16 @@ public sealed class WerewolfGutSystem : EntitySystem
 {
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<WerewolfGutComponent, WerewolfGutEvent>(OnWerewolfGut);
+
+        // todo: add doafter
     }
 
     private void OnWerewolfGut(Entity<WerewolfGutComponent> ent, ref WerewolfGutEvent args) =>
@@ -41,23 +47,19 @@ public sealed class WerewolfGutSystem : EntitySystem
 
     private void TryGut(EntityUid target, WerewolfGutComponent comp)
     {
-        if (!HasOrgans(target))
+        if (!HasOrgans(target) ||
+            !_mobState.IsDead(target))
             return;
 
-        foreach (var (organId, _) in _body.GetBodyOrgans(target))
-        {
-            if (!_whitelist.IsValid(comp.Whitelist, organId))
-                return;
-
-            _body.RemoveOrgan(organId);
-        }
-
-        if (!TryComp<BloodstreamComponent>(target, out var blood))
-            return;
-
-        _bloodstream.SpillAllSolutions(target, blood);
+        RemoveOrgansAndSpillBlood(target, comp);
     }
 
+    #region Helpers
+    /// <summary>
+    ///  Checks if a target is a robot, or is humanoid.
+    /// </summary>
+    /// <param name="target"></param> The target being checked
+    /// <returns></returns>
     private bool HasOrgans(EntityUid target)
     {
         if (HasComp<BorgChassisComponent>(target) ||
@@ -68,4 +70,40 @@ public sealed class WerewolfGutSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    ///  Removes all organs and spills the blood of a target
+    /// </summary>
+    /// <param name="target"></param> The target of the Gut ability
+    /// <param name="comp"></param> The component of the Gut ability
+    private void RemoveOrgansAndSpillBlood(EntityUid target, WerewolfGutComponent comp)
+    {
+        foreach (var (organId, _) in _body.GetBodyOrgans(target))
+        {
+            if (!_whitelist.IsValid(comp.Whitelist, organId))
+                continue;
+
+            AttachFuryToOrgans(target, organId, comp);
+            _body.TryRemoveOrgan(organId);
+        }
+
+        if (!TryComp<BloodstreamComponent>(target, out var blood))
+            return;
+
+        _bloodstream.SpillAllSolutions(target, blood);
+    }
+
+    /// <summary>
+    ///  Makes the organs provide fury to the werewolf
+    /// </summary>
+    /// <param name="target"></param> The target of the Gut ability
+    /// <param name="organ"></param> The organ of the target
+    /// <param name="comp"></param> The component of the Gut ability
+    private void AttachFuryToOrgans(EntityUid target, EntityUid organ, WerewolfGutComponent comp)
+    {
+        if (_tag.HasTag(target, comp.VimPilotTag))
+            return;
+
+        EnsureComp<GrantsFuryComponent>(organ);
+    }
+    #endregion
 }

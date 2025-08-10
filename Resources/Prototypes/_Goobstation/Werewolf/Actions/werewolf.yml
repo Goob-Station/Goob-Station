@@ -70,6 +70,7 @@
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
+    range: 16
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi # todo: change
       state: hammer
