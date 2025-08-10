@@ -1,0 +1,107 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatInspector
+  name: slim trench coat
+  description: A slim minimalist trench coat best worn unbuttoned.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/insp_coat.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/insp_coat.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterCoatModern
+  name: modern coat
+  description: A coat that has a nice finished feel.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/modern_coat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/modern_coat.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterTailcoat
+  name: tailcoat
+  description: A fancy Victorian-style tailcoat.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/tailcoat.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/tailcoat.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterCoatVictorian
+  name: black victorian coat
+  description: A fancy Victorian-style coat.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/victorian_coat.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/victorian_coat.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterCoatVictorianRed
+  name: red victorian coat
+  description: A fancy Victorian-style coat in a red hue.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/victorian_coat_red.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/victorian_coat_red.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatPeacoat
+  name: peacoat
+  description: A well-tailored, stylish peacoat.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/peacoat.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/peacoat.rsi
+
+- type: entity
+  parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCoatPeacoat]
+  id: ClothingOuterCoatPeacoatOpened
+  name: peacoat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatAsymmetric
+  name: asymmetric coat
+  description: A solid sleeveless coat that only covers the upper body and the back of the legs.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/asymmetric_coat.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/asymmetric_coat.rsi
+
+- type: entity
+  parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCoatAsymmetric]
+  id: ClothingOuterCoatAsymmetricOpened
+  name: asymmetric coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatSubmariner
+  name: submariner coat
+  description: A leather jacket with a synthetic fur collar perfect for exploring the caves of Submarine.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/submariner.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Coats/submariner.rsi
+
+- type: entity
+  parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCoatSubmariner]
+  id: ClothingOuterCoatSubmarinerOpened
+  name: submariner coat

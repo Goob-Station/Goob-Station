@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckFurWrap
+  name: fur mantle
+  description: A synthetic fur decoration for the neck.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Neck/fur_wrap.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Neck/fur_wrap.rsi
+
+

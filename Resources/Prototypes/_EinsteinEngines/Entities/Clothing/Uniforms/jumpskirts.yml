@@ -1,0 +1,488 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressAsymmetric
+  name: asymmetric dress
+  description: This dress forced the mothermatter to deyassinate in slaygineering.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/asymmetric_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/asymmetric_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressEvening
+  name: evening gown
+  description: A floor-length dress to impress.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/evening_gown.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/evening_gown.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressMidi
+  name: midi dress
+  description: Contrary to popular belief, you can't play music with this dress.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/midi_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/midi_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressTea
+  name: tea-length dress
+  description: Perfect for tea time!
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/tea_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/tea_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressSleeveless
+  name: sleeveless A-line dress
+  description: A simple sleeveless dress with a flared bottom.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/sleeveless_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/sleeveless_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressLongSleeve
+  name: long sleeve A-line dress
+  description: A dress with a flared bottom and sleeves that cover the arms.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/longsleeve_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/longsleeve_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressBlackAndGold
+  name: black and gold gown
+  description: Luckily it's not a white and blue gown.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/black_and_gold.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/black_and_gold.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressBlackTango
+  name: black tango dress
+  description: An earthen black tango dress.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/black_tango.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/black_tango.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressCheongsamBlue
+  name: blue cheongsam
+  description: A Chinese dress that hugs the body. This one is blue, the fabric styled with flowering tree branches.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsamblue.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsamblue.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressCheongsamGreen
+  name: green cheongsam
+  description: A Chinese dress that hugs the body. This one is green, patterned with overlapping jade fans.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsamgreen.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsamgreen.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressCheongsamPurple
+  name: purple cheongsam
+  description: A Chinese dress that hugs the body. This one is purple, embroidered with plum blossoms.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsampurple.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsampurple.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressCheongsamRed
+  name: red cheongsam
+  description: A Chinese dress that hugs the body. This one is red, with a golden leaf trim that climbs up the garment.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsamred.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsamred.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressCheongsamWhite
+  name: white cheongsam
+  description: A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsamwhite.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/cheongsamwhite.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSuitBlueBlazer
+  name: blue blazer skirt
+  description: A bold yet conservative outfit, a red pencil skirt and a navy blazer.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/blue_blazer.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/blue_blazer.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressBlueSundress
+  name: long blue sundress
+  description: A long blue sun dress with white frills towards the bottom.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/blue_sundress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/blue_sundress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressClub
+  name: club dress
+  description: This well-tailored dress ate and left no crumbs.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/club_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/club_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressCoveter
+  name: coveter dress
+  description: Others will covet how your outfit slays with this dress.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/coveter.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/coveter.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressFlamenco
+  name: flamenco dress
+  description: A Mexican flamenco dress.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/flamenco.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/flamenco.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressFire
+  name: flame dress
+  description: A small black dress with a blue flames print on it.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/dress_fire.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/dress_fire.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressOrange
+  name: orange dress
+  description: A fancy orange gown for those who like to show leg.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/dress_orange.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/dress_orange.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressYellow
+  name: yellow dress
+  description: A flirty, little yellow dress.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/dress_yellow.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/dress_yellow.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressFlowergirl
+  name: flower dress
+  description: What did the flowers do to deserve this?
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/flowergirl.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/flowergirl.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressFluffy
+  name: fluffy dress
+  description: A lovely fluffed out dress with a black lacy top.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/fluffy.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/fluffy.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressFormalRed
+  name: formal red dress
+  description: A big formal red dress, a totally regular outfit in NanoTrasen stations.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/formalred.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/formalred.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressGothic
+  name: gothic dress
+  description: A black dress with a sheer mesh over it, tastefully old-school goth.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/gothic.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/gothic.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtKimonoColor
+  name: kimono
+  description: A traditional Japanese kimono.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/kimono_color.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/kimono_color.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressLacyGown
+  name: lacy gown
+  description: A beautiful lacy gown with laces at the bottom.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/lacy_gown.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/lacy_gown.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressLong
+  name: long dress
+  description: A long dress that reaches the floor.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/long_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/long_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressLongFlared
+  name: long flared dress
+  description: A long dress that flares out at the bottom.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/long_flared_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/long_flared_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtQipao
+  name: qipao
+  description: A traditional Solarian garment, typically made of (synthetic) silk.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/qipao.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/qipao.rsi
+
+- type: entity
+  parent: ClothingUniformJumpskirtQipao
+  id: ClothingUniformJumpskirtQipaoSlim
+  name: slim qipao
+  description: A traditional Solarian garment, typically made of (synthetic) silk. This one is fairly slim.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/qipao_slim.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/qipao_slim.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressRedSwept
+  name: red swept dress
+  description: A red dress that sweeps to the side.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/red_swept_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/red_swept_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtPencilSkirtGymBra
+  name: pencil skirt and gym bra
+  description: A fashion-forward pair popularized by an iconic space influencer.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/skirt_pencil_gym_bra.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/skirt_pencil_gym_bra.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressPuffy
+  name: puffy dress
+  description: An iconic dress with a very puffy bottom.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/puffydress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/puffydress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSailor
+  name: sailor dress
+  description: Formal wear for the leader.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/sailor_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/sailor_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressShort
+  name: short dress
+  description: A short, plain dress.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/short_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/short_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressSpider
+  name: spider dress
+  description: A black dress with spider web patterns that instills fear in your arachnophobic enemies.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/spider.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/spider.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressStriped
+  name: striped dress
+  description: Fashion in space.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/striped_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/striped_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressSundress
+  name: sundress
+  description: Makes you want to frolic in a field of daisies.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/sundress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/sundress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressSundressWhite
+  name: white sundress
+  description: A white sundress decorated with purple lilies.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/sundress_white.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/sundress_white.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressVictorianBlack
+  name: black victorian dress
+  description: A black Victorian-style dress often paired with the black Victorian coat.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/victorian_black_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/victorian_black_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressVictorianRed
+  name: red victorian dress
+  description: A red Victorian-style dress often paired with the red Victorian coat.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/victorian_red_dress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/victorian_red_dress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtWaitress
+  name: waitress's outfit
+  description: Waitress! Waitress! More serves with that outfit please!
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/waitress.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/waitress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtDressYellowSwoop
+  name: yellow swooped dress
+  description: A yellow dress that swoops to the side.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/yellowswoop.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/Uniforms/Jumpskirt/yellowswoop.rsi

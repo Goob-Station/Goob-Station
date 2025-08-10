@@ -1,0 +1,171 @@
+# SPDX-FileCopyrightText: 2025 BloodfiendishOperator <141253729+Diggy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterSuitJacket
+  name: suit jacket
+  description: A snappy dress jacket.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/suit_jacket.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/suit_jacket.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterSuitJacket]
+  id: ClothingOuterSuitJacketOpened
+  name: suit jacket
+
+- type: entity
+  parent: ClothingOuterFoldableBase
+  id: ClothingOuterCardigan
+  name: cardigan
+  description: Only slightly worse than a blanket.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cardigan.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cardigan.rsi
+
+- type: entity
+  parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCardigan]
+  id: ClothingOuterCardiganOpened
+  name: cardigan
+
+- type: entity
+  parent: ClothingOuterFoldableBase
+  id: ClothingOuterCardiganSweater
+  name: sweater cardigan
+  description: Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cardigan_sweater.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cardigan_sweater.rsi
+
+- type: entity
+  parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCardiganSweater]
+  id: ClothingOuterCardiganSweaterOpened
+  name: sweater cardigan
+
+- type: entity
+  parent: ClothingOuterFoldableBase
+  id: ClothingOuterCardiganArgyle
+  name: argyle cardigan
+  description: You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again because of how horrible it is.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cardigan_argyle.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cardigan_argyle.rsi
+
+- type: entity
+  parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCardiganArgyle]
+  id: ClothingOuterCardiganArgyleOpened
+  name: argyle cardigan
+
+- type: entity
+  parent: ClothingOuterFoldableBase
+  id: ClothingOuterCardiganSlim
+  name: slim cardigan
+  description: A cozy sleek cardigan in a classic style.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cardigan_slim.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cardigan_slim.rsi
+
+- type: entity
+  parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCardiganSlim]
+  id: ClothingOuterCardiganSlimOpened
+  name: slim cardigan
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterCowboyDuster
+  name: cowboy duster
+  description: A duster commonly seen on cowboys from Earth's late 1800's.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cowboy_duster.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/cowboy_duster.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterBlazer
+  name: blazer
+  description: A charming jacket for when you want to play ball sports like an aristocrat.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer.rsi
+
+- type: entity
+  parent: [ClothingOuterFoldableBaseOpened, ClothingOuterBlazer]
+  id: ClothingOuterBlazerOpened
+  name: blazer
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterBlazerLong
+  name: long blazer
+  description: A charming long jacket that almost substitutes for a coat.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_long.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_long.rsi
+
+- type: entity
+  parent: [ClothingOuterFoldableBaseOpened, ClothingOuterBlazerLong]
+  id: ClothingOuterBlazerLongOpened
+  name: long blazer
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterBlazerFormal
+  name: formal blazer
+  description: A slim-fit blazer suitable for both smart casual and formal outfits.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_formal.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_formal.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterBlazerLooseSleeve
+  name: loose sleeve blazer
+  description: One of those hippie-formal wannabe blazers.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_loose_sleeve.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_loose_sleeve.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterBlazerFlatCollar
+  name: flat collar blazer
+  description: For those grown ups that didn't wanna.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_flat_collar.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_flat_collar.rsi
+
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterBlazerPosh
+  name: posh blazer
+  description: This is a bit fancy, like the new service worker in Saltern who is trying too hard to impress the heads.
+  components:
+  - type: Sprite
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_posh.rsi
+  - type: Clothing
+    sprite: _EinsteinEngines/Clothing/OuterClothing/Misc/blazer_posh.rsi
