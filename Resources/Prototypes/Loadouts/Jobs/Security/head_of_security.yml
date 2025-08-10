@@ -96,11 +96,13 @@
     jumpsuit: ClothingUniformJumpsuitHoS
   groupBy: "jumpsuit"
 
+
 - type: loadout
   id: HeadofSecurityJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoS
   groupBy: "jumpskirt"
+
 
 - type: loadout
   id: HeadofSecurityTurtleneck
@@ -108,11 +110,13 @@
     jumpsuit: ClothingUniformJumpsuitHoSAlt
   groupBy: "jumpsuit"
 
+
 - type: loadout
   id: HeadofSecurityTurtleneckSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSAlt
   groupBy: "jumpskirt"
+
 
 - type: loadout
   id: HeadofSecurityFormalSuit
@@ -120,11 +124,13 @@
     jumpsuit: ClothingUniformJumpsuitHosFormal
   groupBy: "jumpsuit"
 
+
 - type: loadout
   id: HeadofSecurityFormalSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHosFormal
   groupBy: "jumpskirt"
+
 
 # Head
 - type: loadout
@@ -132,10 +138,12 @@
   equipment:
     head: ClothingHeadHatHoshat
 
+
 - type: loadout
   id: HeadofSecurityBeret
   equipment:
     head: ClothingHeadHatBeretHoS
+
 
 # Neck
 - type: loadout
