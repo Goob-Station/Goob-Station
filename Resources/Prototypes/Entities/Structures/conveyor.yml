@@ -27,6 +27,7 @@
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Dvir <39403717+dvir001@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
@@ -53,6 +54,7 @@
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -73,7 +75,7 @@
   - type: Transform
     anchored: true
   - type: Sprite
-    sprite: Structures/conveyor.rsi
+    sprite: _NF/Structures/conveyor.rsi # Frontier
     state: conveyor_stopped_cw
     drawdepth: HighFloorObjects
   - type: ApcPowerReceiver
