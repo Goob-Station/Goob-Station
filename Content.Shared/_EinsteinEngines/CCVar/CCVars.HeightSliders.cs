@@ -29,4 +29,12 @@ public sealed partial class CCVars
     /// </remarks>
     public static readonly CVarDef<bool> HeightAdjustModifiesBloodstream =
         CVarDef.Create("heightadjust.modifies_bloodstream", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Whether height & width sliders adjust a player's sprinting speed and stamina drain.
+    /// <remarks>
+    ///     This can be configured more precisely by modifying SprintingAffectedByMassComponent.
+    /// </remarks>
+    public static readonly CVarDef<bool> HeightAdjustModifiesSprinting =
+        CVarDef.Create("heightadjust.modifies_sprinting", true, CVar.SERVERONLY);
 }

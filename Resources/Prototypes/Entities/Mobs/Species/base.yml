@@ -492,6 +492,7 @@
     penetrateDamage: 50
     damagePenalty: 0.2
   - type: ExaminableCharacter # WWDP
+  - type: SprintingAffectedByScale # Goobstation: port EE height/width sliders
 
 - type: entity
   save: false
