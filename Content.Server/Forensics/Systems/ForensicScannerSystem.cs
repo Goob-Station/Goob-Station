@@ -316,17 +316,35 @@ namespace Content.Server.Forensics
             }
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-dnas"));
-            foreach (var dna in component.TouchDNAs)
+            // Goobstation Start
+            foreach (var (dna, freshnessTimestamp) in component.TouchDNAs)
             {
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - freshnessTimestamp;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalSeconds) + " " + Loc.GetString("forensic-scanner-interface-freshness-below-minute"));
+                }
+                else
+                {
+                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalMinutes) + " " + Loc.GetString("forensic-scanner-interface-freshness-over-minute"));
+                }
             }
-            foreach (var dna in component.SolutionDNAs)
+            foreach (var (dna, freshnessTimestamp) in component.SolutionDNAs)
             {
                 Log.Debug(dna);
-                if (component.TouchDNAs.Contains(dna))
+                if (component.TouchDNAs.Contains((dna, freshnessTimestamp)))
                     continue;
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - freshnessTimestamp;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalSeconds) + " " + Loc.GetString("forensic-scanner-interface-freshness-below-minute"));
+                }
+                else
+                {
+                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalMinutes) + " " + Loc.GetString("forensic-scanner-interface-freshness-over-minute"));
+                }
             }
+            // Goobstation End
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-residues"));
             foreach (var residue in component.Residues)

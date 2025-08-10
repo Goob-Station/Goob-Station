@@ -136,16 +136,34 @@ namespace Content.Client.Forensics
             }
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-dnas"));
-            foreach (var dna in msg.TouchDNAs)
+            // Goobstation Start
+            foreach (var (dna, freshnessTimestamp) in msg.TouchDNAs)
             {
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - freshnessTimestamp;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalSeconds) + " " + Loc.GetString("forensic-scanner-interface-freshness-below-minute"));
+                }
+                else
+                {
+                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalMinutes) + " " + Loc.GetString("forensic-scanner-interface-freshness-over-minute"));
+                }
             }
-            foreach (var dna in msg.SolutionDNAs)
+            foreach (var (dna, freshnessTimestamp) in msg.SolutionDNAs)
             {
-                if (msg.TouchDNAs.Contains(dna))
+                if (msg.TouchDNAs.Contains((dna, freshnessTimestamp)))
                     continue;
-                text.AppendLine(dna);
+                var timePassed = _gameTiming.CurTime - freshnessTimestamp;
+                if (timePassed < TimeSpan.FromMinutes(1f))
+                {
+                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalSeconds) + " " + Loc.GetString("forensic-scanner-interface-freshness-below-minute"));
+                }
+                else
+                {
+                    text.AppendLine(dna + " " + Math.Ceiling(timePassed.TotalMinutes) + " " + Loc.GetString("forensic-scanner-interface-freshness-over-minute"));
+                }
             }
+            // Goobstation End
             text.AppendLine();
             text.AppendLine(Loc.GetString("forensic-scanner-interface-residues"));
             foreach (var residue in msg.Residues)
