@@ -1534,3 +1534,139 @@
         identifier: Suffocation
         amount: -50
         time: 12
+
+- type: reagent
+  id: Determination
+  name: reagent-name-determination
+  group: Medicine
+  desc: reagent-desc-determination
+  physicalDesc: reagent-physical-desc-burning
+  flavor: medicine
+  color: "#fcefef"
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        reagent: Determination
+        amount: 2
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          max: 14.9
+        reagent: Determination
+        amount: -15 # must be injected with a syringe, voluntarily, in one dose - invalidates hypospray use
+      - !type:HealthChange # obscenely strong heal - practically unkillable, though two people focusing fire can outburst it due to the 1/s meta rate
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          groups:
+            Brute: -300
+            Burn: -400
+            Airloss: -200
+            Toxin: -200
+      - !type:SuppressPain
+        conditions:
+        - !type:ReagentThreshold
+          max: 70
+        amount: 400
+        time: 2
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          max: 70
+        walkSpeedModifier: 1.2
+        sprintSpeedModifier: 1.2
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 10
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Drunk
+        time: 10
+        type: Remove
+      - !type:ChemCleanBloodstream
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 293.15
+        amount: 100000 # thermal energy, not temperature!
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 293.15
+        amount: -10000
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          max: 30
+        visualType: Medium
+        messages: [ "determination-effect-hands", "determination-effect-hallucination", "determination-effect-heartbeat", "determination-effect-melt" ]
+        type: Local
+        probability: 0.5
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+          max: 70
+        visualType: Medium
+        messages: [ "determination-effect-run", "determination-effect-worth", "determination-effect-mortal", "determination-effect-time" ]
+        type: Local
+        probability: 0.5
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 70
+        visualType: Large
+        messages: [ "determination-effect-tear" ]
+        type: Local
+        probability: 1
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 70
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          min: 70
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 70
+        emote: Scream
+        probability: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 75 # 60 second death trigger - kills the user and prevents cloning
+        damage:
+          types:
+            Blunt: 2000
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentThreshold
+          min: 75
+        reagent: Determination
+        amount: -75

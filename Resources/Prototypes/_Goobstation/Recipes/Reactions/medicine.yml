@@ -421,3 +421,22 @@
       catalyst: true
   products:
     Oxycodone: 1
+
+- type: reaction
+  id: Determination
+  maxtemp: 100
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Aluite:
+      amount: 6 # 180u aluite synthesises 30u determination
+    Aranesp:
+      amount: 1
+    Nostalgia:
+      amount: 1
+    Happiness:
+      amount: 1
+    Ash:
+      amount: 1
+  products:
+    Determination: 0.5
