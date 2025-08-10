@@ -136,6 +136,8 @@
       groups:
         Brute: -0.5
         Burn: -0.5
+  - type: StaticPrice
+    price: 3000
   - type: Insulated # Goobstation
     coefficient: 0.5
   - type: NightVision # Goobstation - Nigthvision

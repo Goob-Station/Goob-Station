@@ -339,3 +339,17 @@
   - type: ConditionalSpawner
     prototypes:
     - MobFlockBit
+
+- type: entity
+  name: Abyss crawler Spawner
+  id: SpawnMobAbyssCrawler
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: abyss_crawler
+      sprite: /Textures/_Goobstation/Mobs/Animals/abysscrawler.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobAbyssCrawler

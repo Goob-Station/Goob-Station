@@ -69,6 +69,8 @@
     damage:
       types:
         Slash: 5
+  - type: StaticPrice
+    price: 1000
   - type: NoSlip
   - type: Fauna # Lavaland Change
   - type: CombatPower # Goobstation
@@ -146,6 +148,8 @@
     availableModes:
     - SemiAuto
     soundGunshot: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: StaticPrice
+    price: 2000
   - type: CombatMode
   - type: NoSlip
   - type: Fauna # Lavaland Change
@@ -186,6 +190,8 @@
     availableModes:
     - SemiAuto
     soundGunshot: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: StaticPrice
+    price: 3000
   - type: CombatPower # Goobstation
     factor: 2 # times more dangerous than a crew-member
   - type: Destructible

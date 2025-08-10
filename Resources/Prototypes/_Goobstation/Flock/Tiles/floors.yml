@@ -33,6 +33,7 @@
       collection: FootstepCosmic
   - type: Physics
     bodyType: Static
+    canCollide: False
   - type: PointLight
     radius: 1.5
     energy: 1.6

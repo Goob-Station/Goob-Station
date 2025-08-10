@@ -193,6 +193,8 @@
         types:
           Piercing: 20
           Slash: 10
+    - type: StaticPrice
+      price: 3000
     - type: Bloodstream
       bloodMaxVolume: 300
       bloodReagent: Laughter
@@ -264,6 +266,8 @@
           Heat: -1
         groups:
           Brute: -1
+    - type: StaticPrice
+      price: 3000
     - type: TileMovement
     - type: MeleeWeapon
       soundHit:
