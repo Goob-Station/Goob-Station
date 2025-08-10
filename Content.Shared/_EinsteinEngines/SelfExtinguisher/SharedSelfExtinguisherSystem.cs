@@ -63,7 +63,10 @@ public abstract partial class SharedSelfExtinguisherSystem : EntitySystem
 
     private void OnGetVerbs(EntityUid uid, SelfExtinguisherComponent component, GetVerbsEvent<EquipmentVerb> args)
     {
-        if (!_inventory.TryGetContainingSlot(uid, out var _))
+        if (!_inventory.TryGetContainingSlot(uid, out var _)
+            || !args.CanInteract
+            || !args.CanAccess
+            || args.User != args.Target)
             return;
 
         var verb = new EquipmentVerb()

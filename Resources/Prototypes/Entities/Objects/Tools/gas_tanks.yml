@@ -371,13 +371,13 @@
   description: Contains dangerous plasma. Do not inhale, unless you're a plasmaman. Extremely flammable. It can hold 5 L of gas.
   components:
   - type: Sprite
-    sprite: Objects/Tanks/plasma.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/plasma.rsi # Plasmaman change - Better sprites
   - type: Item
-    sprite: Objects/Tanks/plasma.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/plasma.rsi # Plasmaman change - Better sprites
   - type: GasTank
     outputPressure: 101.3
   - type: Clothing
-    sprite: Objects/Tanks/plasma.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/plasma.rsi # Plasmaman change - Better sprites
     slots:
-    - Belt
+    - Back
     - suitStorage

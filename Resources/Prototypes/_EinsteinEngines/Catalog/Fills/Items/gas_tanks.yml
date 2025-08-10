@@ -5,11 +5,11 @@
   description: An easily portable tank for emergencies. Contains very little plasma, rated for survival use only.
   components:
   - type: Sprite
-    sprite: Objects/Tanks/emergency_red.rsi # TODO: emergency plasma tank sprite
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
   - type: Item
-    sprite: Objects/Tanks/emergency_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
   - type: Clothing
-    sprite: Objects/Tanks/emergency_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
 
 - type: entity
   id: EmergencyPlasmaTankFilled
@@ -35,11 +35,11 @@
   description: An emergency tank with extended capacity. Technically rated for prolonged use.
   components:
   - type: Sprite
-    sprite: Objects/Tanks/emergency_extended_red.rsi # TODO: extended-capacity emergency plasma tank sprite
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
   - type: Item
-    sprite: Objects/Tanks/emergency_extended_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
   - type: Clothing
-    sprite: Objects/Tanks/emergency_extended_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
 
 - type: entity
   id: ExtendedEmergencyPlasmaTankFilled
@@ -65,11 +65,11 @@
   description: A tank of plasma designed to be internals for Plasmamen.
   components:
   - type: Sprite
-    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/double_extended_plasma.rsi
   - type: Item
-    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/double_extended_plasma.rsi
   - type: Clothing
-    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/double_extended_plasma.rsi
 
 - type: entity
   id: DoubleEmergencyPlasmaTankFilled
