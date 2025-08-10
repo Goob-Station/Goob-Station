@@ -13064,3 +13064,9 @@ Entries:
       message: Sanabi.
   id: 1445
   time: '2025-08-10T01:54:33.0000000+00:00'
+- author: dvir01
+  changes:
+    - type: Tweak
+      message: Conveyor sprite changed to show where it's going.
+  id: 1446
+  time: '2025-08-10T02:01:31.0000000+00:00'
