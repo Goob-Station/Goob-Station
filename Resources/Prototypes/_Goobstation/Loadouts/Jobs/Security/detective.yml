@@ -31,6 +31,6 @@
     gloves: ClothingHandsGlovesForensic
 
 - type: loadout
-  id: DetectiveCoatGrey
+  id: DetectiveCoatWinter
   equipment:
     outerClothing: ClothingOuterCoatDetectiveWinter
