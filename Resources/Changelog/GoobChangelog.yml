@@ -13101,3 +13101,11 @@ Entries:
       message: Fixed His Grace deleting itself. (Okay, but for real this time. :3)
   id: 1450
   time: '2025-08-11T05:19:44.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Fix
+      message: Most species should now have right arm markings.
+    - type: Fix
+      message: Tajarans now have more markings (I forgor)
+  id: 1451
+  time: '2025-08-11T05:25:04.0000000+00:00'
