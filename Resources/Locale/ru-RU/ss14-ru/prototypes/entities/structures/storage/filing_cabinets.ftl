@@ -7,6 +7,7 @@ ent-filingCabinetTall = высокий шкаф
     .desc = { ent-BaseFilingCabinet.desc }
 ent-filingCabinetDrawer = комод
     .desc = Маленький шкафчик для хранения предметов. Теперь на колёсиках!
+    .suffix = Пустой
 ent-BaseBureaucraticStorageFill = { "" }
     .suffix = Заполненный
     .desc = { "" }

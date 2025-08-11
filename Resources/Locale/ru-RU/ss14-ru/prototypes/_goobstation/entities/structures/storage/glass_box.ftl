@@ -1,6 +1,6 @@
 ent-GlassBoxLawbringer = { ent-GlassBox }
-    .desc = Budget cuts hit NTs hos harder than alchoholism.
-    .suffix = Lawbringer
+    .desc = Сокращение бюджета ударило по Главе Службы Безопасности сильнее чем алкоголизм.
+    .suffix = Законодатель
 ent-GlassBoxLawbringerFilled = { ent-GlassBoxLawbringer }
-    .suffix = Lawbringer, Filled
+    .suffix = Законодатель, Заполненный
     .desc = { ent-GlassBoxLawbringer.desc }

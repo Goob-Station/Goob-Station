@@ -76,3 +76,5 @@ alerts-revenant-essence-name = Эссенция
 alerts-revenant-essence-desc = Сила душ. Поддерживает вас и используется при использовании способностей. Медленно восстанавливается с течением времени.
 alerts-revenant-corporeal-name = Материальность
 alerts-revenant-corporeal-desc = Вы физически воплотились. Окружающие могут видеть и наносить вам вред.
+alerts-rooted-name = Корни
+alerts-rooted-desc = Вы укоренились к полу. Вы не можете поскользнуться, но поглощаете жидкости под собой.

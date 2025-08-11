@@ -52,5 +52,7 @@ ent-ActionToggleEyes = Открыть/закрыть глаза
     .desc = Закройте глаза, чтобы защитить их, или откройте, чтобы насладиться яркими цветами.
 ent-ActionToggleWagging = Махать хвостом
     .desc = Начать/перестать махать хвостом.
+ent-ActionToggleRootable = action-name-toggle-rootable
+    .desc = action-description-toggle-rootable
 ent-FakeMindShieldToggleAction = [color=green]Переключить фальшивый Щит разума[/color]
     .desc = Переключить трансляцию фальшивого Щита разума

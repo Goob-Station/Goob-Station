@@ -1,2 +1,2 @@
-ent-MobTrevor = Trevor
+ent-MobTrevor = Тревор
     .desc = Тысяча лет космоэволюции, и это лучшее, на что мы способны.
