@@ -1362,6 +1362,7 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
+  - DetectiveCoatWinter
 
 - type: loadoutGroup
   id: SecurityCadetJumpsuit
