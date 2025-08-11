@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System;
+using Content.Goobstation.Common.Standing;
 using Robust.Shared.Analyzers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
@@ -15,7 +16,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.ViewVariables;
 
-namespace Content.Goobstation.Common.Standing;
+namespace Content.Shared._White.Standing;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class LayingDownComponent : Component
