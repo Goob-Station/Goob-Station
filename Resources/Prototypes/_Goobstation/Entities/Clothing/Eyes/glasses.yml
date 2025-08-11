@@ -16,6 +16,7 @@
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -91,6 +92,25 @@
       Steel: 125
   - type: StaticPrice
     price: 38
+
+- type: entity
+  parent: [ClothingEyesBase, ClothingEyesGlassesSunglasses]
+  id: ClothingEyesGlassesDiag
+  name: diagnostic glasses
+  description: Sunglasses with a diagnostic hud.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/diagglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/diagglasses.rsi
+  - type: Construction
+    graph: GlassesDiagHUD
+    node: glassesDiag
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons, ClothingEyesGlassesSunglasses]

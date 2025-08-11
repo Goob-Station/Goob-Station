@@ -7,13 +7,14 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Bloodstream;
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
@@ -34,7 +35,7 @@ public sealed class ChampionStanceSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ChampionStanceComponent, DamageModifyEvent>(OnDamageModify);
-        SubscribeLocalEvent<ChampionStanceComponent, TakeStaminaDamageEvent>(OnTakeStaminaDamage);
+        SubscribeLocalEvent<ChampionStanceComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<ChampionStanceComponent, GetBloodlossDamageMultiplierEvent>(OnGetBloodlossMultiplier);
         SubscribeLocalEvent<ChampionStanceComponent, ComponentStartup>(OnChampionStartup);
         SubscribeLocalEvent<ChampionStanceComponent, ComponentShutdown>(OnChampionShutdown);
@@ -89,12 +90,12 @@ public sealed class ChampionStanceSystem : EntitySystem
         args.Damage = args.OriginalDamage / 2f;
     }
 
-    private void OnTakeStaminaDamage(Entity<ChampionStanceComponent> ent, ref TakeStaminaDamageEvent args)
+    private void OnBeforeStaminaDamage(Entity<ChampionStanceComponent> ent, ref BeforeStaminaDamageEvent args)
     {
         if (!Condition(ent))
             return;
 
-        args.Multiplier /= 2.5f;
+        args.Value *= 0.4f;
     }
 
     private void OnBodyPartAdded(Entity<ChampionStanceComponent> ent, ref BodyPartAddedEvent args)

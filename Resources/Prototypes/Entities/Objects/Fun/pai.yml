@@ -213,6 +213,46 @@
       components:
         - SecretStash
         - WrappedParcel
+  # Einstein Engines - Language begin
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic # Add individual languages so they can speak in said language for privacy.
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    understands:
+    - TauCetiBasic # Add individual languages so they can understand without understanding animals.
+    - Canilunzt
+    - Bubblish
+    - Nekomimetic
+    - Draconic
+    - SolCommon
+    - RootSpeak
+    - Moffic
+    - ValyrianStandard
+    - Chittin
+    - SiikMaas
+    - RobotTalk
+    - DroneTalk
+    - Marish
+    - Elyran
+    - Freespeak
+    - Tradeband
+    - Sign # Should know it but not speak it, for obvious reasons.
+  # Einstein Engines - Language end
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

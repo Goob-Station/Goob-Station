@@ -1,5 +1,8 @@
+# SPDX-FileCopyrightText: 2025 AgentePanela <agentepanela@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,7 +20,7 @@
       sprite: Interface/Actions/actions_ai.rsi
       state: ai_core
     event: !type:ReturnMindIntoAiEvent
-    
+
 - type: entity
   id: ActionOpenRemoteDevicesMenu
   name: Open list of remote devices
@@ -30,5 +33,5 @@
     itemIconStyle: BigAction
     event: !type:ToggleRemoteDevicesScreenEvent
     icon:
-      sprite: Mobs/Silicon/chassis.rsi
-      state: robot
+      sprite: Interface/Actions/actions_ai.rsi
+      state: borg_control

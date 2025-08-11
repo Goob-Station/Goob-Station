@@ -280,6 +280,14 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: LanguageSpeaker # Einstein Engines - Languages
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - TauCetiBasic
+    - RobotTalk
+    understands:
+    - TauCetiBasic
+    - RobotTalk
 
 - type: entity
   parent: VendingMachine

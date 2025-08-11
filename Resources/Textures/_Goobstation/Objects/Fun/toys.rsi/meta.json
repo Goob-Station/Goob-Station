@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy",
+    "copyright": "BeeRobynn, George Gimme, and Ahti, Abductor by Shy Bandit, plushie_jvne by Jvne, plushie_samantha by SolsticeOfTheWinter, fern by Bobbble, plushie_nigel by SS14:gorgan_freemen/Discord:Dummy, plushie_brizby and plushie_baldzby by Zethine",
     "size": {
         "x": 32,
         "y": 32
@@ -53,6 +53,28 @@
         },
         {
             "name": "bongle",
+            "directions": 4
+        },
+        {
+            "name": "plushie_brizby"
+        },
+        {
+            "name": "plushiebrizby-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushiebrizby-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_baldzby"
+        },
+        {
+            "name": "plushiebaldzby-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushiebaldzby-inhand-right",
             "directions": 4
         },
         {

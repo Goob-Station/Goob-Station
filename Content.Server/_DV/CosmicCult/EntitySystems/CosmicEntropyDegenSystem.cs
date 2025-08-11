@@ -1,6 +1,9 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -26,11 +29,17 @@ public sealed partial class CosmicEntropyDegenSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<CosmicEntropyDebuffComponent, ComponentStartup>(OnInit);
+        SubscribeLocalEvent<CosmicEntropyNonCultistComponent, ComponentStartup>(OnInitNonCultist); // Goobstation change. For non-cultist equipment debuff
     }
 
     private void OnInit(EntityUid uid, CosmicEntropyDebuffComponent comp, ref ComponentStartup args)
     {
-        _damageable.TryChangeDamage(uid, comp.Degen, true, false);
+        comp.CheckTimer = _timing.CurTime + comp.CheckWait;
+    }
+
+    // Goobstation change. For non-cultist equipment debuff
+    private void OnInitNonCultist(EntityUid uid, CosmicEntropyNonCultistComponent comp, ref ComponentStartup args)
+    {
         comp.CheckTimer = _timing.CurTime + comp.CheckWait;
     }
 
@@ -46,9 +55,18 @@ public sealed partial class CosmicEntropyDegenSystem : EntitySystem
 
             component.CheckTimer = _timing.CurTime + component.CheckWait;
             _damageable.TryChangeDamage(uid, component.Degen, true, false, targetPart: TargetBodyPart.All);
-
-            if (_random.Prob(component.PopupChance))
-                _popup.PopupEntity(Loc.GetString("entropy-effect-numb"), uid, uid, PopupType.SmallCaution);
         }
+
+        // Goobstation change. For non-cultist equipment Debuff
+        var nonCultistQuery = EntityQueryEnumerator<CosmicEntropyNonCultistComponent>();
+        while (nonCultistQuery.MoveNext(out var uid, out var component))
+        {
+            if (_timing.CurTime < component.CheckTimer)
+                continue;
+
+            component.CheckTimer = _timing.CurTime + component.CheckWait;
+            _damageable.TryChangeDamage(uid, component.Degen, true, false, targetPart: TargetBodyPart.All);
+        }
+
     }
 }

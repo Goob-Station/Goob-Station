@@ -21,7 +21,9 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -54,7 +56,7 @@ public sealed partial class TraitorRuleComponent : Component
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> CodewordVerbs = "Verbs";
 
-    [DataField]
+    [DataField("objectiveIssuers")]
     public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor"; // Goobstation
 
     /// <summary>

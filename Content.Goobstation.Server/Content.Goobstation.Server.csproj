@@ -7,18 +7,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-      <TargetFramework>$(TargetFramework)</TargetFramework>
-      <LangVersion>12</LangVersion>
-      <IsPackable>false</IsPackable>
-      <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-      <OutputPath>..\bin\Content.Server\</OutputPath>
-      <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-      <NoWarn>1998</NoWarn>
-      <WarningsAsErrors>nullable</WarningsAsErrors>
-      <Nullable>enable</Nullable>
-      <ServerGarbageCollection>true</ServerGarbageCollection>
-    </PropertyGroup>
+  <PropertyGroup>
+    <!-- Work around https://github.com/dotnet/project-system/issues/4314 -->
+    <TargetFramework>$(TargetFramework)</TargetFramework>
+    <LangVersion>12</LangVersion>
+    <IsPackable>false</IsPackable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\bin\Content.Server\</OutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <OutputType Condition="'$(FullRelease)' != 'True'">Exe</OutputType>
+    <NoWarn>1998</NoWarn>
+    <WarningsAsErrors>nullable</WarningsAsErrors>
+    <Nullable>enable</Nullable>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Concentus" />
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />

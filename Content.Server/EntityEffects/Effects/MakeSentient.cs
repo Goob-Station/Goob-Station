@@ -8,13 +8,25 @@
 // SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 FoxxoTrystan <45297731+FoxxoTrystan@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Mnemotechnican <69920617+Mnemotechnician@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Ghost.Roles.Components;
+using Content.Server._EinsteinEngines.Language;
 using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
+using Content.Shared._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language.Systems;
 using Content.Shared.Mind.Components;
+using Content.Shared.Humanoid;
+using Content.Shared._EinsteinEngines.Language.Components;
+using Content.Shared._EinsteinEngines.Language.Events;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.EntityEffects.Effects;
@@ -34,6 +46,21 @@ public sealed partial class MakeSentient : EntityEffect
         // We call this before the mind check to allow things like player-controlled mice to be able to benefit from the effect
         entityManager.RemoveComponent<ReplacementAccentComponent>(uid);
         entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
+
+        // Einstein Engines - Language begin
+        // Make sure the entity knows at least fallback (Tau-Ceti Basic).
+        var speaker = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
+        var knowledge = entityManager.EnsureComponent<LanguageKnowledgeComponent>(uid);
+        var fallback = SharedLanguageSystem.FallbackLanguagePrototype;
+
+        if (!knowledge.UnderstoodLanguages.Contains(fallback))
+            knowledge.UnderstoodLanguages.Add(fallback);
+
+        if (!knowledge.SpokenLanguages.Contains(fallback))
+            knowledge.SpokenLanguages.Add(fallback);
+
+        IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<LanguageSystem>().UpdateEntityLanguages(uid);
+        // Einstein Engines - Language end
 
         // Stops from adding a ghost role to things like people who already have a mind
         if (entityManager.TryGetComponent<MindContainerComponent>(uid, out var mindContainer) && mindContainer.HasMind)

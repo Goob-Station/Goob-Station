@@ -9,12 +9,14 @@ using Content.Shared.Nyanotrasen.Holograms;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Shared.CloneProjector;
 
 public abstract class SharedCloneProjectorSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -38,7 +40,8 @@ public abstract class SharedCloneProjectorSystem : EntitySystem
         // Don't be a shitter.
         foreach (var hitEntity in args.HitEntities)
         {
-            if (hitEntity != host)
+            if (hitEntity != host
+                || !_container.IsEntityOrParentInContainer(clone))
                 continue;
 
             args.BonusDamage = -args.BaseDamage;
