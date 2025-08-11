@@ -21,13 +21,25 @@ namespace Content.Goobstation.Common.Standing;
 public sealed partial class LayingDownComponent : Component
 {
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float StandingUpTime { get; set; } = 1.5f;
+    public TimeSpan StandingUpTime { get; set; } = TimeSpan.FromSeconds(1.5f); // Einstein Engines - Crawling Under Tables
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float SpeedModify { get; set; } = .3f;
+    public float LyingSpeedModifier = .3f,
+                CrawlingUnderSpeedModifier = 0.5f; // Einstein Engines - Crawling Under Tables
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool AutoGetUp = true;
+
+    // Einstein Engines begin
+    /// <summary>
+    ///     If true, the entity is choosing to crawl under furniture. This is purely visual and has no effect on physics.
+    /// </summary>
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public bool IsCrawlingUnder = false;
+
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public int NormalDrawDepth = (int)DrawDepth.DrawDepth.Mobs,
+                CrawlingUnderDrawDepth = (int)DrawDepth.DrawDepth.SmallMobs;
 }
 
 [Serializable, NetSerializable]

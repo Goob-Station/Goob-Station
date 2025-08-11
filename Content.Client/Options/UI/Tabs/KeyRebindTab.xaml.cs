@@ -237,6 +237,7 @@ namespace Content.Client.Options.UI.Tabs
             AddCheckBox("ui-options-hotkey-default-walk", _cfg.GetCVar(CCVars.DefaultWalk), HandleDefaultWalk);
             AddButton(ContentKeyFunctions.Sprint);
             AddButton(ContentKeyFunctions.ToggleStanding);
+            AddButton(ContentKeyFunctions.ToggleCrawlingUnder); // Einstein Engines - Crawl Under Table
             AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(GoobCVars.AutoGetUp), HandleToggleAutoGetUp); // WD EDIT
             InitToggleWalk();
 
