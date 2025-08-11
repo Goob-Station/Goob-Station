@@ -185,6 +185,7 @@
   cost: 7500
   recipeUnlocks:
   - StasisBedMachineCircuitboard
+  - StasisOperatingTableCircuitboard # Corvax-Goob-StasisOperatingTable
   - CryoPodMachineCircuitboard
   - CryostasisBeaker
   - SyringeCryostasis
