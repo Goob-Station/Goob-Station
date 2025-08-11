@@ -4,8 +4,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server.Antag;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
+using Content.Server.Roles;
 using Content.Server.Stunnable;
 using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Administration.Logs;
@@ -22,21 +24,25 @@ using Robust.Shared.Timing;
 namespace Content.Goobstation.Server.SplitPersonality;
 public sealed partial class SplitPersonalitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly CollectiveMindUpdateSystem _collective = default!;
-    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
+    [Dependency] private readonly SharedMindSystem           _mind       = null!;
+    [Dependency] private readonly ContainerSystem            _container  = null!;
+    [Dependency] private readonly MetaDataSystem             _meta       = null!;
+    [Dependency] private readonly IGameTiming                _timing     = null!;
+    [Dependency] private readonly IRobustRandom              _random     = null!;
+    [Dependency] private readonly PopupSystem                _popup      = null!;
+    [Dependency] private readonly StunSystem                 _stun       = null!;
+    [Dependency] private readonly CollectiveMindUpdateSystem _collective = null!;
+    [Dependency] private readonly ISharedAdminLogManager     _admin      = null!;
+    [Dependency] private readonly AntagSelectionSystem       _antag      = null!;
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<SplitPersonalityComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<SplitPersonalityComponent, ComponentRemove>(OnRemove);
+
+        SubscribeLocalEvent<SplitPersonalityComponent, BeforePolymorphedEvent>(OnBeforePolymorphed);
 
         SubscribeLocalEvent<SplitPersonalityDummyComponent, TakeGhostRoleEvent>(OnGhostRoleTaken);
         SubscribeLocalEvent<SplitPersonalityDummyComponent, SpeakAttemptEvent>(OnSpeakAttempt);
@@ -44,18 +50,6 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
     private void OnInit(Entity<SplitPersonalityComponent> ent, ref MapInitEvent args)
     {
-        if (!_mind.TryGetMind(ent, out var hostMindId, out var hostMind))
-            return;
-
-        var collectiveMind = EnsureComp<CollectiveMindComponent>(ent);
-        collectiveMind.Channels.Add(ent.Comp.CollectiveMind);
-        collectiveMind.DefaultChannel = ent.Comp.CollectiveMind;
-
-        _collective.CreateOrJoinWeb(ent, ent.Comp.CollectiveMind);
-
-        ent.Comp.NextSwapAttempt = _timing.CurTime + ent.Comp.SwapAttemptDelay;
-        ent.Comp.MindsContainer = _container.EnsureContainer<Container>(ent, "SplitPersonalityContainer");
-
         if (ent.Comp.DoStartFlavor)
         {
             var popup = Loc.GetString("split-personality-start-popup");
@@ -63,16 +57,30 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
             _stun.TryParalyze(ent, TimeSpan.FromSeconds(6), true);
         }
 
-        ent.Comp.OriginalMind = hostMindId;
-        ent.Comp.MindRoles.AddRange(hostMind.MindRoles);
-        ent.Comp.Objectives.AddRange(hostMind.Objectives);
-
-        ent.Comp.AdditionalMindsCount = Math.Max(1, ent.Comp.AdditionalMindsCount);
-
-        for (var i = 0; i < ent.Comp.AdditionalMindsCount; i++)
-            SpawnDummy(ent);
-
+        SplitMind(ent);
     }
+    private void OnRemove(Entity<SplitPersonalityComponent> ent, ref ComponentRemove args)
+    {
+        if (ent.Comp.OriginalMind is not { } originalMind
+            || TerminatingOrDeleted(ent.Comp.OriginalMind)
+            || TerminatingOrDeleted(ent))
+            return;
+
+        _mind.TransferTo(originalMind, ent);
+        _container.CleanContainer(ent.Comp.MindsContainer);
+
+        foreach (var dummyNullable in ent.Comp.GhostRoleDummies)
+        {
+            if (dummyNullable is { } dummy)
+                QueueDel(dummy);
+        }
+
+        ent.Comp.GhostRoleDummies.Clear();
+
+        if (TryComp<CollectiveMindComponent>(ent, out var collective))
+            collective.Channels.Remove(ent.Comp.CollectiveMind);
+    }
+
     private void OnGhostRoleTaken(Entity<SplitPersonalityDummyComponent> dummy, ref TakeGhostRoleEvent args)
     {
         // Transfer the mind to visit the host entity
@@ -88,24 +96,11 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
         foreach (var objective in hostComp.Objectives)
             _mind.AddObjective(dummyMind, mindComponent, objective);
+
+        var briefing = Loc.GetString("split-personality-role-greeting", ("hostName", Name(host)));
+        _antag.SendBriefing(dummy, briefing, Color.CornflowerBlue, null);
     }
 
-    private void OnRemove(Entity<SplitPersonalityComponent> ent, ref ComponentRemove args)
-    {
-        if (ent.Comp.OriginalMind is not { } originalMind
-            || TerminatingOrDeleted(ent.Comp.OriginalMind)
-            || TerminatingOrDeleted(ent))
-            return;
-
-        _mind.TransferTo(originalMind, ent);
-        _container.CleanContainer(ent.Comp.MindsContainer);
-
-        if (ent.Comp.GhostRoleDummies.Count > 0)
-            ent.Comp.GhostRoleDummies.Clear();
-
-        if (TryComp<CollectiveMindComponent>(ent, out var collective))
-            collective.Channels.Remove(ent.Comp.CollectiveMind);
-    }
     private bool TryAlternateMind(SplitPersonalityComponent comp)
     {
         if (!_random.Prob(comp.SwapProbability))
@@ -128,10 +123,38 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         return TrySwapMinds(host, selectedDummy);
     }
 
+    private void OnBeforePolymorphed(Entity<SplitPersonalityComponent> ent, ref BeforePolymorphedEvent args) =>
+        RemCompDeferred(ent, ent.Comp); // surely this won't be abused :clueless:
+
     private void OnSpeakAttempt(Entity<SplitPersonalityDummyComponent> ent, ref SpeakAttemptEvent args) =>
         args.Cancel();
 
     #region Helper Methods
+
+    private Entity<SplitPersonalityComponent>? SplitMind(EntityUid uid, SplitPersonalityComponent? comp = null)
+    {
+        if (!Resolve(uid, ref comp)
+            || !_mind.TryGetMind(uid, out var hostMindId, out var hostMind))
+            return null;
+
+        var collectiveMind = EnsureComp<CollectiveMindComponent>(uid);
+        collectiveMind.Channels.Add(comp.CollectiveMind);
+        collectiveMind.DefaultChannel = comp.CollectiveMind;
+
+        _collective.CreateOrJoinWeb(uid, comp.CollectiveMind);
+
+        comp.NextSwapAttempt = _timing.CurTime + comp.SwapAttemptDelay;
+        comp.MindsContainer  = _container.EnsureContainer<Container>(uid, "SplitPersonalityContainer");
+
+        comp.OriginalMind = hostMindId;
+        comp.MindRoles.AddRange(hostMind.MindRoles);
+        comp.Objectives.AddRange(hostMind.Objectives);
+
+        for (var i = 0; i < comp.AdditionalMindsCount; i++)
+            SpawnDummy((uid, comp));
+
+        return (uid, comp);
+    }
 
     private bool TrySwapMinds(EntityUid controlled, EntityUid controlling)
     {
@@ -175,13 +198,8 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         if (dummy == EntityUid.Invalid)
             return;
 
-        if (!_container.Insert(dummy, host.Comp.MindsContainer))
-        {
-            Del(dummy);
+        if (!TryInsertDummy(host, dummy))
             return;
-        }
-
-        host.Comp.GhostRoleDummies.Add(dummy);
 
         var name = Loc.GetString("split-personality-dummy-name", ("host", Name(host)), ("count", host.Comp.GhostRoleDummies.Count));
         _meta.SetEntityName(dummy, name);
@@ -189,11 +207,6 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         var ghostRole = EnsureComp<GhostRoleComponent>(dummy);
 
         ghostRole.RoleName = name;
-        ghostRole.RoleDescription = Loc.GetString("split-personality-dummy-description");
-        ghostRole.RoleRules = Loc.GetString("ghost-role-information-freeagent-rules");
-
-
-        EnsureComp<SplitPersonalityDummyComponent>(dummy).Host = host;
 
         if (!TryComp<CollectiveMindComponent>(host, out var hostCollective)
             || !hostCollective.WebMemberships.TryGetValue(host.Comp.CollectiveMind.Id, out var hostMembership))
@@ -205,6 +218,20 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         collectiveMind.DefaultChannel = host.Comp.CollectiveMind;
 
         _collective.CreateOrJoinWeb(dummy, host.Comp.CollectiveMind, hostMembership.WebId);
+    }
+
+    private bool TryInsertDummy(Entity<SplitPersonalityComponent> host, EntityUid dummy)
+    {
+        if (_container.Insert(dummy, host.Comp.MindsContainer))
+        {
+            host.Comp.GhostRoleDummies.Add(dummy);
+            EnsureComp<SplitPersonalityDummyComponent>(dummy).Host = host;
+
+            return true;
+        }
+
+        QueueDel(dummy);
+        return false;
     }
 
     #endregion

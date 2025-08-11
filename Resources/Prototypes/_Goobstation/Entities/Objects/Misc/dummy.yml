@@ -9,11 +9,20 @@
   name: Split Personality
   description: A fragment of someone's psyche.
   components:
-  - type: GhostRole
+  - type: GhostRole # Name is set in the C#
+    description: split-personality-dummy-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: default
     makeSentient: true
+  - type: GhostTakeoverAvailable
   - type: LagCompensation
   - type: Actions
   - type: Alerts
   - type: Eye
   - type: Examiner
   - type: MindContainer
+  - type: Emoting
+    enabled: false

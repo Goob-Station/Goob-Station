@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Construction.Completions;
 using Content.Server.StationEvents.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -49,9 +48,9 @@ public sealed class AddComponentRandomRule : StationEventSystem<AddComponentRand
 
         foreach (var entity in chosenEntities)
         {
+            EntityManager.AddComponents(entity, component.Components, false);
             foreach (var comp in component.Components)
             {
-                EntityManager.AddComponent(entity, comp.Value);
                 Log.Debug($"Added {comp.Value} to: {ToPrettyString(entity)}.");
                 _adminLogger.Add(LogType.AntagSelection, $"Added {comp} to: {ToPrettyString(entity)}.");
             }
