@@ -13157,3 +13157,9 @@ Entries:
       message: You can no longer peform surgery on Gemini's.
   id: 1457
   time: '2025-08-11T07:40:09.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Secret+ should now be more stable in terms of roundstart antag count.
+  id: 1458
+  time: '2025-08-11T16:46:43.0000000+00:00'
