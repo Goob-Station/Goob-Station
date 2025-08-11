@@ -13133,3 +13133,9 @@ Entries:
       message: Changed the color for several languages that had same/similar colors!
   id: 1454
   time: '2025-08-11T05:35:43.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Drag and drop climbing works once again.
+  id: 1455
+  time: '2025-08-11T05:44:37.0000000+00:00'
