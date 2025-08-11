@@ -1620,6 +1620,7 @@
       - !type:PopupMessage # hallucinations that get worse the closer you are to death
         conditions:
         - !type:ReagentThreshold
+          min: 15
           max: 40
         visualType: Medium
         messages: [ "determination-effect-hands", "determination-effect-hallucination", "determination-effect-heartbeat", "determination-effect-melt", "determination-effect-focus", "determination-effect-free" ]
