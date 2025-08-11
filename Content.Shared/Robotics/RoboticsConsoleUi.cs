@@ -11,6 +11,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 ﻿using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
@@ -30,9 +32,15 @@ public sealed class RoboticsConsoleState : BoundUserInterfaceState
     /// </summary>
     public Dictionary<string, CyborgControlData> Cyborgs;
 
-    public RoboticsConsoleState(Dictionary<string, CyborgControlData> cyborgs)
+    /// <summary>
+    /// If the UI will have the buttons to disable and destroy.
+    /// </summary>
+    public bool AllowBorgControl;
+
+    public RoboticsConsoleState(Dictionary<string, CyborgControlData> cyborgs, bool allowBorgControl)
     {
         Cyborgs = cyborgs;
+        AllowBorgControl = allowBorgControl;
     }
 }
 
@@ -96,6 +104,12 @@ public partial record struct CyborgControlData
     public float Charge;
 
     /// <summary>
+    /// HP level from 0 to 1.
+    /// </summary>
+    [DataField]
+    public float HpPercent; // 0.0 to 1.0
+
+    /// <summary>
     /// How many modules this borg has, just useful information for roboticists.
     /// Lets them keep track of the latejoin borgs that need new modules and stuff.
     /// </summary>
@@ -127,12 +141,13 @@ public partial record struct CyborgControlData
     public bool IsAiControllable;
     // Corvax-Next-AiRemoteControl-End
 
-    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, int moduleCount, bool hasBrain, bool canDisable, bool isAiControllable) // Corvax-Next-AiRemoteControl
+    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, float hpPercent, int moduleCount, bool hasBrain, bool canDisable, bool isAiControllable) // Corvax-Next-AiRemoteControl
     {
         ChassisSprite = chassisSprite;
         ChassisName = chassisName;
         Name = name;
         Charge = charge;
+        HpPercent = hpPercent;
         ModuleCount = moduleCount;
         HasBrain = hasBrain;
         CanDisable = canDisable;
