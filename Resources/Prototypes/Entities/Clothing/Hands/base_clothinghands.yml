@@ -95,6 +95,12 @@
     state: icon
   - type: Clothing
     slots: [gloves]
+  # Goobstation edit start
+    equipSound:
+      path: /Audio/_Goobstation/Items/handling/generic_equip2.ogg
+      params:
+        volume: -4
+  # Goobstation edit end
   - type: Food
     requiresSpecialDigestion: true
   - type: Item
