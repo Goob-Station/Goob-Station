@@ -32,7 +32,6 @@ public sealed partial class ClowncarComponent : Component
     public EntProtoId QuietInTheBackAction = "ActionQuietBackThere";
 
     [DataField]
-    [ViewVariables]
     public EntProtoId DrunkDrivingAction = "ActionDrivingWithStyle";
 
     [DataField]

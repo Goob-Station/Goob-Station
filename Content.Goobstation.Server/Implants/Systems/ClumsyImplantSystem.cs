@@ -14,8 +14,10 @@ public sealed class ClumsyImplantSystem : EntitySystem
     }
     public void OnImplanted(Entity<ClumsyImplantComponent> ClumsyImplant, ref ImplantImplantedEvent ev)
     {
-        if (ev.Implanted.HasValue)
-            EnsureComp<ClumsyComponent>(ev.Implanted.Value);
+        if (ev.Implanted is not { } implanted)
+             return;
+             
+        EnsureComp<ClumsyComponent>(implanted);
     }
 
     public void OnUnimplanted(Entity<ClumsyComponent> ent, ref ImplantRemovedFromEvent args)

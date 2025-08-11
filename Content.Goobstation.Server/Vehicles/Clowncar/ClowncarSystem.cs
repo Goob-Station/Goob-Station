@@ -176,14 +176,14 @@ public sealed class ClowncarSystem : SharedClowncarSystem
         args.Handled = true;
     }
 
-    private void OnDrunkDriving(EntityUid uid, ClowncarComponent component, DrivingWithStyleActionEvent args)
+    private void OnDrunkDriving(Entity<ClowncarComponent> clownCar, ref DrivingWithStyleActionEvent args)
     {
         var audioParams = new AudioParams
         {
             Volume = 1f,
             MaxDistance = 12f
         };
-        _audioSystem.PlayPvs(ClownMusic, uid, audioParams);
+        _audioSystem.PlayPvs(ClownMusic, clownCar, audioParams);
         args.Handled = true;
     }
 
