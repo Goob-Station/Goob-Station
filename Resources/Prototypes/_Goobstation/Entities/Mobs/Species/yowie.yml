@@ -84,6 +84,13 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - CannotCrawlUnderTables
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -64,6 +64,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - Oni
+    - CannotCrawlUnderTables
 
 - type: entity
   save: false

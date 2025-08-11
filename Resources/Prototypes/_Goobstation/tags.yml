@@ -90,6 +90,9 @@
   id: BreathMask
 
 - type: Tag
+  id: CannotCrawlUnderTables
+
+- type: Tag
   id: CartridgeHighCaliber
 
 - type: Tag
