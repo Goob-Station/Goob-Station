@@ -475,7 +475,7 @@
           Piercing: 15
           Slash: 15
           Blunt: 10
-          Structural: 100
+          Structural: 120
   - type: MovementSpeedModifier
     baseWalkSpeed: 5
     baseSprintSpeed: 5
@@ -494,14 +494,14 @@
       Dead:
         Base: deadrogue
   - type: SpamEmitSound
-    minInterval: 30
-    maxInterval: 80
+    minInterval: 15
+    maxInterval: 45
     sound:
       path: /Audio/_RMC14/Xeno/xenos_roaring.ogg
       params:
         volume: 4
         maxDistance: 60
-        variation: 0.5
+        variation: 0.3
   - type: FootstepModifier
     footstepSoundCollection:
       collection: XenoFootstepLarge

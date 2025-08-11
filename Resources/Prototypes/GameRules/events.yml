@@ -1040,7 +1040,7 @@
   - type: StationEvent
     earliestStart: 20
     weight: 8
-    duration: 50
+    duration: 10
     minimumPlayers: 45
     chaos: # Goobstation
       Hostile: 100
