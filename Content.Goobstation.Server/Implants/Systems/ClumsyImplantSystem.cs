@@ -20,7 +20,7 @@ public sealed class ClumsyImplantSystem : EntitySystem
 
     public void OnUnimplanted(Entity<ClumsyComponent> ent, ref ImplantRemovedFromEvent args)
     {
-        if (HasComp<Components.ClumsyImplantComponent>(args.Implant))
+        if (HasComp<ClumsyImplantComponent>(args.Implant))
             RemComp<ClumsyComponent>(ent);
     }
 }
