@@ -13147,3 +13147,13 @@ Entries:
         take ghost roles before shuttle FTL
   id: 1456
   time: '2025-08-11T05:45:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: His Grace being undroppable has been removed pending bugfixes.
+    - type: Fix
+      message: Gemini's are no longer clonable but for real this time.
+    - type: Fix
+      message: You can no longer peform surgery on Gemini's.
+  id: 1457
+  time: '2025-08-11T07:40:09.0000000+00:00'
