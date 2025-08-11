@@ -13095,3 +13095,9 @@ Entries:
         spread speed.
   id: 1449
   time: '2025-08-11T05:13:53.0000000+00:00'
+- author: His Grace
+  changes:
+    - type: Fix
+      message: Fixed His Grace deleting itself. (Okay, but for real this time. :3)
+  id: 1450
+  time: '2025-08-11T05:19:44.0000000+00:00'
