@@ -13087,3 +13087,79 @@ Entries:
       message: Added Chitinids
   id: 1448
   time: '2025-08-10T04:50:06.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Halved kudzu, fleshkudzu (meat anom), floralkudzu (plant anom) vine
+        spread speed.
+  id: 1449
+  time: '2025-08-11T05:13:53.0000000+00:00'
+- author: His Grace
+  changes:
+    - type: Fix
+      message: Fixed His Grace deleting itself. (Okay, but for real this time. :3)
+  id: 1450
+  time: '2025-08-11T05:19:44.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Fix
+      message: Most species should now have right arm markings.
+    - type: Fix
+      message: Tajarans now have more markings (I forgor)
+  id: 1451
+  time: '2025-08-11T05:25:04.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Reduced power consumption from automation machines.
+  id: 1452
+  time: '2025-08-11T05:25:55.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed Syndiroaches not understanding Tau-Ceti Basic!
+  id: 1453
+  time: '2025-08-11T05:31:57.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added more fonts for the languages, check them out!
+    - type: Add
+      message: Added more variations of word combos to the Bubblish language!
+    - type: Add
+      message: Added Skeleton Comic Sans; Prepare to hate Skeletons even more (maybe)!
+    - type: Tweak
+      message: Changed the color for several languages that had same/similar colors!
+  id: 1454
+  time: '2025-08-11T05:35:43.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Drag and drop climbing works once again.
+  id: 1455
+  time: '2025-08-11T05:44:37.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: >-
+        Shuttle related roles won't be sent into null dimension if you didn't
+        take ghost roles before shuttle FTL
+  id: 1456
+  time: '2025-08-11T05:45:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: His Grace being undroppable has been removed pending bugfixes.
+    - type: Fix
+      message: Gemini's are no longer clonable but for real this time.
+    - type: Fix
+      message: You can no longer peform surgery on Gemini's.
+  id: 1457
+  time: '2025-08-11T07:40:09.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Secret+ should now be more stable in terms of roundstart antag count.
+  id: 1458
+  time: '2025-08-11T16:46:43.0000000+00:00'
