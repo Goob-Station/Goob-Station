@@ -13087,3 +13087,11 @@ Entries:
       message: Added Chitinids
   id: 1448
   time: '2025-08-10T04:50:06.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Halved kudzu, fleshkudzu (meat anom), floralkudzu (plant anom) vine
+        spread speed.
+  id: 1449
+  time: '2025-08-11T05:13:53.0000000+00:00'
