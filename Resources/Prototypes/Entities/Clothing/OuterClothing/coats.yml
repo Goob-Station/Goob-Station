@@ -177,13 +177,16 @@
   parent: [ClothingOuterCoatDetectiveLoadout]
   id: ClothingOuterCoatDetectiveWinter
   name: detective winter trenchcoat
-  description: A Soviet eta styled trenchcoat. Keeps you warm in the Moscow Winters.
+  description: A Soviet eta styled trenchcoat with armour weaved threads. Keeps you warm in the Moscow Winters.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
-  
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1
+
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
   id: ClothingOuterCoatDetectiveLoadoutGrey
