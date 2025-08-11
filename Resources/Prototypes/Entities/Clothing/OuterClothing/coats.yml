@@ -175,6 +175,17 @@
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
+  id: ClothingOuterCoatDetectiveWinter
+  name: detective winter trenchcoat
+  description: A Soviet eta styled trenchcoat. Keeps you warm in the Moscow Winters.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
+  
+- type: entity
+  parent: [ClothingOuterCoatDetectiveLoadout]
   id: ClothingOuterCoatDetectiveLoadoutGrey
   name: noir trenchcoat
   description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
