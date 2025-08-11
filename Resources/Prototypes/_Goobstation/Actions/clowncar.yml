@@ -30,3 +30,17 @@
       state: clowncar
     event: !type:QuietBackThereActionEvent
     useDelay: 30 # 30 sec delay
+
+- type: entity
+  id: ActionDrivingWithStyle
+  name: Driving with style
+  description: Show everyone how you drive
+  components:
+  - type: InstantAction
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
+      state: clowncar
+    event: !type:DrivingWithStyleActionEvent
+

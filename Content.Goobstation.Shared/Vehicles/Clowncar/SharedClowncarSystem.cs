@@ -94,6 +94,7 @@ public abstract partial class SharedClowncarSystem : EntitySystem
     private void OnBuckle(EntityUid uid, ClowncarComponent component, ref StrappedEvent args)
     {
         _actionsSystem.AddAction(args.Buckle.Owner, component.QuietInTheBackAction, uid);
+        _actionsSystem.AddAction(args.Buckle.Owner, component.DrunkDrivingAction, uid);
         component.ThankCounter = 0;
     }
 
@@ -103,8 +104,12 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         {
             if (!TryComp(actionId, out MetaDataComponent? metaData))
                 continue;
-            if (metaData.EntityPrototype != null && metaData.EntityPrototype == component.QuietInTheBackAction)
+            if (metaData.EntityPrototype != null &&
+                (metaData.EntityPrototype == component.QuietInTheBackAction ||
+                 metaData.EntityPrototype == component.DrunkDrivingAction))
+            {
                 _actionsSystem.RemoveAction(actionId);
+            }
         }
     }
 
@@ -142,6 +147,7 @@ public sealed partial class ClownCarOpenTrunkDoAfterEvent : SimpleDoAfterEvent {
 public sealed partial class ThankRiderActionEvent : InstantActionEvent { }
 public sealed partial class ClowncarFireModeActionEvent : InstantActionEvent { }
 public sealed partial class QuietBackThereActionEvent : InstantActionEvent { }
+public sealed partial class DrivingWithStyleActionEvent : InstantActionEvent { }
 
 [Serializable, NetSerializable]
 public enum ClowncarVisuals : byte
