@@ -129,13 +129,13 @@
     Biomass: 70
     Plasma: 250
 
-- type: latheRecipe
-  id: ChitinidCube
-  result: ChitinidCube
-  completetime: 30
-  materials:
-    Biomass: 70
-    Plasma: 250
+# - type: latheRecipe
+#   id: ChitinidCube
+#   result: ChitinidCube
+#   completetime: 30
+#   materials:
+#     Biomass: 70
+#     Plasma: 250
 
 - type: latheRecipe
   id: FeroxiCube

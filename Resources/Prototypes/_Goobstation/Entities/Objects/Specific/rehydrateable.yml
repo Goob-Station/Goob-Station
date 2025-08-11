@@ -144,14 +144,14 @@
     possibleSpawns:
     - MobShadowkinRandom
 
-- type: entity
-  parent: MonkeyCube
-  id: ChitinidCube
-  name: chitinid cube
-  components:
-  - type: Rehydratable
-    possibleSpawns:
-    - MobChitinidRandom
+# - type: entity
+#   parent: MonkeyCube
+#   id: ChitinidCube
+#   name: chitinid cube
+#   components:
+#   - type: Rehydratable
+#     possibleSpawns:
+#     - MobChitinidRandom
 
 - type: entity
   parent: MonkeyCube
