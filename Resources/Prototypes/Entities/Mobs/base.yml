@@ -127,6 +127,7 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
+  - type: Sprinter
 
 - type: entity
   save: false

@@ -351,6 +351,9 @@
     selectionTime: PostPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
+      blacklist: # Goobstation
+        components:
+        - CommandStaff
       mindRoles:
       - MindRoleTraitorReinforcement
 
@@ -366,9 +369,9 @@
     - prefRoles: [ Traitor ]
       max: 8
       playerRatio: 10
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
+        - CommandStaff # Goobstation
         - AntagImmune
         - Changeling # Goobstation
       lateJoinAdditional: true
@@ -389,7 +392,10 @@
     - prefRoles: [ HeadRev ]
       max: 3
       playerRatio: 15
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative, Mime ] # Goobstation
+      blacklist:
+        components:
+        - CommandStaff # Goobstation
+      jobBlacklist: [ Mime ] # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -485,9 +491,10 @@
     - prefRoles: [ InitialInfected ]
       max: 4
       playerRatio: 15
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
+        - CommandStaff # Goobstation
         - ZombieImmune
       briefing:
         text: zombie-patientzero-role-greeting
