@@ -13121,3 +13121,15 @@ Entries:
       message: Fixed Syndiroaches not understanding Tau-Ceti Basic!
   id: 1453
   time: '2025-08-11T05:31:57.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added more fonts for the languages, check them out!
+    - type: Add
+      message: Added more variations of word combos to the Bubblish language!
+    - type: Add
+      message: Added Skeleton Comic Sans; Prepare to hate Skeletons even more (maybe)!
+    - type: Tweak
+      message: Changed the color for several languages that had same/similar colors!
+  id: 1454
+  time: '2025-08-11T05:35:43.0000000+00:00'
