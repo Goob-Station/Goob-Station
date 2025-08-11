@@ -13139,3 +13139,11 @@ Entries:
       message: Drag and drop climbing works once again.
   id: 1455
   time: '2025-08-11T05:44:37.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: >-
+        Shuttle related roles won't be sent into null dimension if you didn't
+        take ghost roles before shuttle FTL
+  id: 1456
+  time: '2025-08-11T05:45:55.0000000+00:00'
