@@ -51,6 +51,10 @@ public sealed partial class ClowncarComponent : Component
     [DataField]
     public SoundSpecifier FartSound = new SoundPathSpecifier("/Audio/_Goobstation/Vehicle/Clowncar/clowncar_fart.ogg");
 
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
+    public SoundSpecifier ClownMusic = new SoundPathSpecifier("/Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg");
+
     #endregion
 
 }

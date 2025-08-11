@@ -33,8 +33,6 @@ public sealed class ClowncarSystem : SharedClowncarSystem
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
-    private static readonly SoundSpecifier ClownMusic = new SoundPathSpecifier("/Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg");
-
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -183,7 +181,7 @@ public sealed class ClowncarSystem : SharedClowncarSystem
             Volume = 1f,
             MaxDistance = 12f
         };
-        _audioSystem.PlayPvs(ClownMusic, clownCar, audioParams);
+        var v = _audioSystem.PlayPvs(ClownMusic, clownCar, audioParams);
         args.Handled = true;
     }
 
