@@ -37,7 +37,7 @@ namespace Content.Client.Actions.UI
         /// </summary>
         public (TimeSpan Start, TimeSpan End)? Cooldown { get; set; }
 
-        public ActionAlertTooltip(FormattedMessage name, FormattedMessage? desc, string? requires = null, FormattedMessage? charges = null)
+        public ActionAlertTooltip(FormattedMessage name, FormattedMessage? desc, string? requires = null)
         {
             _gameTiming = IoCManager.Resolve<IGameTiming>();
 
@@ -66,17 +66,6 @@ namespace Content.Client.Actions.UI
                 };
                 description.SetMessage(desc);
                 vbox.AddChild(description);
-            }
-
-            if (charges != null && !string.IsNullOrWhiteSpace(charges.ToString()))
-            {
-                var chargesLabel = new RichTextLabel
-                {
-                    MaxWidth = TooltipTextMaxWidth,
-                    StyleClasses = { StyleNano.StyleClassTooltipActionCharges }
-                };
-                chargesLabel.SetMessage(charges);
-                vbox.AddChild(chargesLabel);
             }
 
             vbox.AddChild(_cooldownLabel = new RichTextLabel
