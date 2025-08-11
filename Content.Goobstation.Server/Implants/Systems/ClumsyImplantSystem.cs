@@ -3,6 +3,7 @@ using Content.Shared.Clumsy;
 using Content.Shared.Implants;
 
 namespace Content.Goobstation.Server.Implants.Systems;
+
 public sealed class ClumsyImplantSystem : EntitySystem
 {
     public override void Initialize()
