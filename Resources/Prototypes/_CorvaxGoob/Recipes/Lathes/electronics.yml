@@ -1,0 +1,15 @@
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: MachineBluespaceHarvesterCircuitboard
+  result: MachineBluespaceHarvesterCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: MachineBluespaceTransitorCircuitboard
+  result: MachineBluespaceTransitorCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  icon: { sprite: _CorvaxGoob/Structures/Machines/stasis_operation_table.rsi, state: icon_lathe }
+  id: StasisOperatingTableCircuitboard
+  result: StasisOperatingTableCircuitboard
