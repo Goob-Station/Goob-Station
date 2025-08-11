@@ -13048,3 +13048,112 @@ Entries:
       message: Modsuits now default to satchel size
   id: 1443
   time: '2025-08-09T21:08:46.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Remove
+      message: Ling arm and Godhand no longer command grab.
+    - type: Add
+      message: Ling arm now has poison and debuff infliction on attack
+    - type: Add
+      message: Godhand can pry doors open like the jaws of life
+  id: 1444
+  time: '2025-08-10T00:31:29.0000000+00:00'
+- author: Rouden
+  changes:
+    - type: Add
+      message: Sanabi.
+  id: 1445
+  time: '2025-08-10T01:54:33.0000000+00:00'
+- author: dvir01
+  changes:
+    - type: Tweak
+      message: Conveyor sprite changed to show where it's going.
+  id: 1446
+  time: '2025-08-10T02:01:31.0000000+00:00'
+- author: Skubman
+  changes:
+    - type: Add
+      message: >-
+        The Plasmaman species has arrived! They need to breathe plasma to live,
+        and a special jumpsuit to prevent oxygen from igniting them. In
+        exchange, they deal formidable unarmed Heat damage, are never hungry nor
+        thirsty, and are immune to cold and radiation damage. Read more about
+        Plasmamen in their Guidebook entry.
+  id: 1447
+  time: '2025-08-10T04:47:50.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added Chitinids
+  id: 1448
+  time: '2025-08-10T04:50:06.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Halved kudzu, fleshkudzu (meat anom), floralkudzu (plant anom) vine
+        spread speed.
+  id: 1449
+  time: '2025-08-11T05:13:53.0000000+00:00'
+- author: His Grace
+  changes:
+    - type: Fix
+      message: Fixed His Grace deleting itself. (Okay, but for real this time. :3)
+  id: 1450
+  time: '2025-08-11T05:19:44.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Fix
+      message: Most species should now have right arm markings.
+    - type: Fix
+      message: Tajarans now have more markings (I forgor)
+  id: 1451
+  time: '2025-08-11T05:25:04.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Reduced power consumption from automation machines.
+  id: 1452
+  time: '2025-08-11T05:25:55.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed Syndiroaches not understanding Tau-Ceti Basic!
+  id: 1453
+  time: '2025-08-11T05:31:57.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added more fonts for the languages, check them out!
+    - type: Add
+      message: Added more variations of word combos to the Bubblish language!
+    - type: Add
+      message: Added Skeleton Comic Sans; Prepare to hate Skeletons even more (maybe)!
+    - type: Tweak
+      message: Changed the color for several languages that had same/similar colors!
+  id: 1454
+  time: '2025-08-11T05:35:43.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Drag and drop climbing works once again.
+  id: 1455
+  time: '2025-08-11T05:44:37.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: >-
+        Shuttle related roles won't be sent into null dimension if you didn't
+        take ghost roles before shuttle FTL
+  id: 1456
+  time: '2025-08-11T05:45:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: His Grace being undroppable has been removed pending bugfixes.
+    - type: Fix
+      message: Gemini's are no longer clonable but for real this time.
+    - type: Fix
+      message: You can no longer peform surgery on Gemini's.
+  id: 1457
+  time: '2025-08-11T07:40:09.0000000+00:00'
