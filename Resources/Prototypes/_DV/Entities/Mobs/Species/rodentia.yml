@@ -158,8 +158,8 @@
     mouthProto: CheekStorage
     openStorageAction: ActionOpenMouthStorage
     spitDamageThreshold: 3
-  - type: CrawlUnderObjects
-    actionProto: ActionToggleSneakMode
+  # - type: CrawlUnderObjects # Removed in favor of universal crawling.
+  #   actionProto: ActionToggleSneakMode
 
 - type: entity
   save: false
