@@ -1,2 +1,2 @@
-ent-NavyOfficerSabre = navy officer's sabre
-    .desc = A ceremonial weapon belonging to a high ranking Central Command official.
+ent-NavyOfficerSabre = сабля офицера ЦК
+    .desc = Церемониальное оружие, принадлежащее высокопоставленному офицеру Центрального Командования.

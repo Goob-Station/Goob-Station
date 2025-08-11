@@ -1,8 +1,8 @@
 ent-PartReptilian = часть тела унатха
     .desc = { ent-BaseItem.desc }
-ent-ChestReptilian = reptilian chest
+ent-ChestReptilian = грудь унатха
     .desc = { ent-PartReptilian.desc }
-ent-GroinReptilian = reptilian groin
+ent-GroinReptilian = пах унатха
     .desc = { ent-PartReptilian.desc }
 ent-HeadReptilian = голова унатха
     .desc = { ent-PartReptilian.desc }

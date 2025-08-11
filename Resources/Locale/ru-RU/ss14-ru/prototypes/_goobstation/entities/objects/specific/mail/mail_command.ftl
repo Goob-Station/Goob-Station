@@ -1,12 +1,12 @@
 ent-MailCommandPipebombIntern = { ent-BaseMailLarge }
-    .suffix = Command smoke and drink
+    .suffix = Сигареты командования и выпивка
     .desc = { ent-BaseMailLarge.desc }
 ent-MailHoPSupplement = { ent-BaseMailLarge }
-    .suffix = HoP supplement
+    .suffix = припасы Главы Персонала
     .desc = { ent-BaseMailLarge.desc }
 ent-MailMedkit = { ent-BaseMailLarge }
-    .suffix = Medkit
+    .suffix = Аптечка
     .desc = { ent-BaseMailLarge.desc }
 ent-MailResearchDisk = { ent-BaseMail }
-    .suffix = Research Disk
+    .suffix = Диск исследовательских очков
     .desc = { ent-BaseMail.desc }

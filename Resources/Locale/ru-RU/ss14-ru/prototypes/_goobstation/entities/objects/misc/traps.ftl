@@ -1,2 +1,2 @@
-ent-ReverseBearTrapKey = reverse bear trap key
-    .desc = The keys to unlock the reverse bear trap.
+ent-ReverseBearTrapKey = ключ от обратного медвежьего капкана
+    .desc = Ключи для разблокировки обратного медвежьего капкана.

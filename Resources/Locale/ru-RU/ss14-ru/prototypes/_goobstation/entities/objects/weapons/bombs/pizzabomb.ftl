@@ -1,3 +1,3 @@
-ent-FoodBoxPizzaBomb = pizza box
-    .desc = A cardboard box for storing things.
-    .suffix = Bomb
+ent-FoodBoxPizzaBomb = коробка пиццы
+    .desc = Картонная коробка для хранения вещей.
+    .suffix = Бомба

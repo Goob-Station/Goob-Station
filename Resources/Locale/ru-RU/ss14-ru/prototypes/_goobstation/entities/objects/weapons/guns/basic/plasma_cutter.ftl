@@ -1,5 +1,5 @@
-ent-WeaponPlasmaCutter = plasma cutter
-    .desc = A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+ent-WeaponPlasmaCutter = плазменный резак
+    .desc = Оружие самообороны, которое истощает органические цели, ослабляя их до тех пор, пока они не сколлапсируют.
 ent-WeaponPlasmaCutterEmpty = { ent-WeaponPlasmaCutter }
-    .suffix = Empty
+    .suffix = Пустой
     .desc = { ent-WeaponPlasmaCutter.desc }

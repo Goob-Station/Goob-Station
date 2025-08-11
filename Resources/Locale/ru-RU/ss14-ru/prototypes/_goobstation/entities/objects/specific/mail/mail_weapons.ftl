@@ -1,6 +1,6 @@
 ent-MailKnife = { ent-BaseMailLarge }
-    .suffix = Knifes
+    .suffix = Ножи
     .desc = { ent-BaseMailLarge.desc }
 ent-MailSword = { ent-BaseMailLarge }
-    .suffix = Swords
+    .suffix = Мечи
     .desc = { ent-BaseMailLarge.desc }

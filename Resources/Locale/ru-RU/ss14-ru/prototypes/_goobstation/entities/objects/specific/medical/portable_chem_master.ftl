@@ -1,4 +1,4 @@
-ent-portableChemicalMixer = portable chemical mixer
-    .desc = A "Tider" grade chemical manipulator
-ent-portableChemicalMixerIncomplete = Incomplete portable chemical mixer
-    .desc = A incompleted "Tider" grade chemical manipulator
+ent-portableChemicalMixer = переносной ХимМастер
+    .desc = Манипулятор химическими веществами класса "Тайд".
+ent-portableChemicalMixerIncomplete = незавершённый переносной ХимМастер
+    .desc = Незавершённый манипулятор химическими веществами класса "Тайд".

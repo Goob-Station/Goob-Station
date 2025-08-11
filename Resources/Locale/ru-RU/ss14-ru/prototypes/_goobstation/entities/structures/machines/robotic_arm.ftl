@@ -1,2 +1,2 @@
-ent-RoboticArm = robotic arm
-    .desc = A high-tech robotic arm capable of moving items to and from machines that have automation upgrades.
+ent-RoboticArm = роботизированная рука
+    .desc = Высокотехнологичная роботизированная рука, способная перемещать предметы к машинам с улучшениями автоматизации и обратно.
