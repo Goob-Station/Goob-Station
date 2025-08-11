@@ -352,8 +352,7 @@ namespace Content.Shared.Interaction
         ///
         private void OnRemoveAttempt(EntityUid uid, UnremoveableComponent item, ContainerGettingRemovedAttemptEvent args)
         {
-            if (item.PreventContainerRemoval) // Goobstation - Otherwise, woundmed breaks this.
-                args.Cancel();
+            args.Cancel();
         }
 
         /// <summary>
