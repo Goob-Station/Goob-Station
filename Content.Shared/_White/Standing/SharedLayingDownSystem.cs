@@ -22,7 +22,6 @@ using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.Body.Components;
-using Content.Shared.CCVar;
 using Content.Shared.DoAfter;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
@@ -97,7 +96,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             newState = false; // If the entity is already standing, this function only serves a fallback method to fix its draw depth
 
         // Do not allow to begin crawling under if it's disabled in config. We still, however, allow to stop it, as a failsafe.
-        if (newState && !_config.GetCVar(CCVars.CrawlUnderTables))
+        if (newState && !_config.GetCVar(GoobCVars.CrawlUnderTables))
         {
             _popups.PopupEntity(Loc.GetString("crawling-under-tables-disabled-popup"), uid, session);
             return;
