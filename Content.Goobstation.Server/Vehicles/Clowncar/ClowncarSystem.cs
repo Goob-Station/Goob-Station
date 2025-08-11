@@ -34,6 +34,8 @@ public sealed class ClowncarSystem : SharedClowncarSystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
     /// <inheritdoc/>
+
+    private static readonly SoundSpecifier ClownMusic = new SoundPathSpecifier("/Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg");
     public override void Initialize()
     {
         base.Initialize();
@@ -83,7 +85,8 @@ public sealed class ClowncarSystem : SharedClowncarSystem
         if (!TryComp<VehicleComponent>(uid, out var vehicle))
             return;
 
-        if (vehicle.Driver == null){
+        if (vehicle.Driver == null)
+        {
             AlternativeVerb verb = new();
             verb.Text = "Enter Driver seat";
             verb.Act = () => EnterDriverSeatVerb(uid, verbs.User, component);
@@ -174,15 +177,15 @@ public sealed class ClowncarSystem : SharedClowncarSystem
         args.Handled = true;
     }
 
-    private void OnDrunkDriving(Entity<ClowncarComponent> clownCar, ref DrivingWithStyleActionEvent args)
+    private void OnDrunkDriving(EntityUid uid, ClowncarComponent component, DrivingWithStyleActionEvent args)
     {
         var audioParams = new AudioParams
         {
             Volume = 1f,
             MaxDistance = 12f
         };
-        var v = _audioSystem.PlayPvs(ClownMusic, clownCar, audioParams);
+        _audioSystem.PlayPvs(ClownMusic, uid, audioParams);
         args.Handled = true;
-    }
 
+    }
 }

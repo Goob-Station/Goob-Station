@@ -104,9 +104,9 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         {
             if (!TryComp(actionId, out MetaDataComponent? metaData))
                 continue;
-            if (metaData.EntityPrototype != null 
-            && (metaData.EntityPrototype == component.QuietInTheBackAction
-            || metaData.EntityPrototype == component.DrunkDrivingAction))
+            if (metaData.EntityPrototype != null &&
+                (metaData.EntityPrototype == component.QuietInTheBackAction ||
+                 metaData.EntityPrototype == component.DrunkDrivingAction))
             {
                 _actionsSystem.RemoveAction(actionId);
             }

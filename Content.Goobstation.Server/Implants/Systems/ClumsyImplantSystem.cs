@@ -12,12 +12,10 @@ public sealed class ClumsyImplantSystem : EntitySystem
         SubscribeLocalEvent<Components.ClumsyImplantComponent, ImplantImplantedEvent>(OnImplanted);
         SubscribeLocalEvent<ClumsyComponent, ImplantRemovedFromEvent>(OnUnimplanted);
     }
-    public void OnImplanted(Entity<ClumsyImplantComponent> ClumsyImplant, ref ImplantImplantedEvent ev)
+    public void OnImplanted(EntityUid uid, Components.ClumsyImplantComponent comp, ref ImplantImplantedEvent ev)
     {
-        if (ev.Implanted is not { } implanted)
-             return;
-             
-        EnsureComp<ClumsyComponent>(implanted);
+        if (ev.Implanted.HasValue)
+            EnsureComp<ClumsyComponent>(ev.Implanted.Value);
     }
 
     public void OnUnimplanted(Entity<ClumsyComponent> ent, ref ImplantRemovedFromEvent args)
