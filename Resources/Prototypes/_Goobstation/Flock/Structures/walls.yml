@@ -22,7 +22,7 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageModifierSet: Wood
+    damageModifierSet: RGlass
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
@@ -35,6 +35,9 @@
   - type: Airtight
   - type: SunShadowCast
   - type: Occluder
+  - type: Tag
+    tags:
+      - Wall
   - type: AmbientSound
     volume: -10
     range: 2
@@ -66,14 +69,19 @@
     state: FZShuttle2
 
 - type: entity
-  parent: WallFlockZoneBase
+  parent: BaseStructure
   id: WallDiagonalFeatherZone
   suffix: Diagonal
+  name: strange glass wall
+  description: You can hear faint humming coming from within.
   components:
+  - type: InteractionOutline
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
     state: FZDiagonal
+    drawdepth: BlastDoors
     noRot: false
+  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
@@ -83,14 +91,41 @@
             - "-0.5,-0.5"
             - "0.5,0.5"
             - "0.5,-0.5"
-  - type: Tag
-    tags:
-    - Diagonal
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageModifierSet: RGlass
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
     - South
     - East
+  - type: Tag
+    tags:
+    - Wall
+    - Diagonal
+  - type: AmbientSound
+    volume: -10
+    range: 2
+    sound:
+      path: /Audio/Ambience/Objects/gravity_gen_hum.ogg
+  - type: PointLight
+    radius: 4
+    energy: 1.6
+    color: "#0fb79a"
+    castShadows: true
+    netsync: false
 
 - type: entity
   parent: WallFlockZoneBase

@@ -17,12 +17,13 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-2.5, -1, 2.5, 2"
+          bounds: "-2.5, 0, 2.5, 2"
         density: 50
         mask:
         - LargeMobMask
         layer:
         - MidImpassable, LowImpassable, BulletImpassable
+  - type: Airtight
   - type: AmbientSound
     volume: -10
     range: 3
@@ -103,12 +104,17 @@
   parent: BaseStructure
   name: strange glass wing
   description: Looks sharp enough to tear through rock.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
   components:
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Flock/Structures/96x96/wing.rsi
     state: flock_wing1
     drawdepth: Walls
+  - type: WallMount
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -137,7 +143,12 @@
   parent: BaseStructure
   name: strange glass wing
   description: Looks sharp enough to tear through rock.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
   components:
+  - type: WallMount
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Flock/Structures/96x96/wing.rsi
@@ -171,7 +182,12 @@
   parent: BaseStructure
   name: broken glass wing
   description: A delapidated wing.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
   components:
+  - type: WallMount
   - type: Sprite
     noRot: true
     sprite: _Goobstation/Flock/Structures/96x96/wing.rsi

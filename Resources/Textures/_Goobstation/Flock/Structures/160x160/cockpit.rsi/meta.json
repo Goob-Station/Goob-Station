@@ -9,7 +9,7 @@
     "states": [
         {
             "name": "cockpit",
-            "directions": 1
+            "directions": 4
         }
     ]
 }
