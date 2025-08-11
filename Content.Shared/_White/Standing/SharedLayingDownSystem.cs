@@ -29,9 +29,11 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Standing;
@@ -42,6 +44,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly INetConfigurationManager _cfg = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Goob Edit
 
     // Einstein Engines begin
     [Dependency] private readonly IConfigurationManager _config = default!;
@@ -49,6 +52,8 @@ public abstract class SharedLayingDownSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     // Einstein Engines end
+
+    private static readonly ProtoId<TagPrototype> CrawlingTag = "CannotCrawlUnderTables"; // Goob Edit
 
     public override void Initialize()
     {
@@ -98,9 +103,21 @@ public abstract class SharedLayingDownSystem : EntitySystem
         // Do not allow to begin crawling under if it's disabled in config. We still, however, allow to stop it, as a failsafe.
         if (newState && !_config.GetCVar(GoobCVars.CrawlUnderTables))
         {
-            _popups.PopupEntity(Loc.GetString("crawling-under-tables-disabled-popup"), uid, session);
+            _popups.PopupEntity(Loc.GetString("crawling-under-tables-server-disabled-popup"), uid, session);
             return;
         }
+        else if (newState && _tag.HasTag(uid, CrawlingTag)) // Goob Edit - Do not allow to begin crawling under if the species is not supported (tagged).
+        {
+            _popups.PopupPredicted(Loc.GetString("crawling-under-tables-species-disabled-popup"), uid, uid);
+            return;
+        }
+
+        // Goob Edit begin
+        if (newState)
+            _popups.PopupPredicted(Loc.GetString("crawling-under-tables-enabled-popup"), uid, uid);
+        else
+            _popups.PopupPredicted(Loc.GetString("crawling-under-tables-disabled-popup"), uid, uid);
+        // Goob Edit end
 
         layingDown.IsCrawlingUnder = newState;
         _speed.RefreshMovementSpeedModifiers(uid);
