@@ -98,16 +98,6 @@
     spawned:
     - id: FoodMeatXeno
       amount: 5
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-xeno-name
-    description: ghost-role-information-ancient-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
   - type: TypingIndicator
     proto: alien
   - type: Temperature
@@ -386,15 +376,6 @@
       collection: XenoFootstepLarge
       params:
         volume: -6
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-ancient-king-name
-    description: ghost-role-information-ancient-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
   - type: CombatPower # Goobstation
     factor: 5 # times more dangerous than a crew-member
 
@@ -468,15 +449,6 @@
       - Door
       tags:
       - Wall
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-ancient-queen-name
-    description: ghost-role-information-ancient-xeno-description
-    rules: ghost-role-information-xeno-rules
-    raffle:
-      settings: default
   - type: CombatPower # Goobstation
     factor: 5 # times more dangerous than a crew-member
 
@@ -541,6 +513,126 @@
     spawned:
     - id: RogueTailWeapon
       amount: 1
+  - type: CombatPower # Goobstation
+    factor: 9 # times more dangerous than a crew-member
+
+- type: entity
+  id: CMMobXenoDroneSentient
+  parent: CMMobXenoDrone
+  suffix: Sentient
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-ancient-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: CMMobXenoBurrowerSentient
+  parent: CMMobXenoBurrower
+  suffix: Sentient
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-ancient-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: CMMobXenoWarriorSentient
+  parent: CMMobXenoWarrior
+  suffix: Sentient
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-ancient-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: CMMobXenoCrusherSentient
+  parent: CMMobXenoCrusher
+  suffix: Sentient
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-ancient-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: CMMobXenoRavagerSentient
+  parent: CMMobXenoRavager
+  suffix: Sentient
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-ancient-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: CMMobXenoKingSentient
+  parent: CMMobXenoKing
+  suffix: Sentient
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-ancient-king-name
+    description: ghost-role-information-ancient-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: CMMobXenoQueenSentient
+  parent: CMMobXenoQueen
+  suffix: Sentient
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-ancient-queen-name
+    description: ghost-role-information-ancient-xeno-description
+    rules: ghost-role-information-xeno-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: CMMobXenoRogueKingSentient
+  parent: CMMobXenoRogueKing
+  suffix: Sentient
+  components:
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -550,5 +642,6 @@
     rules: ghost-role-information-ancient-rogue-king-rules
     raffle:
       settings: default
-  - type: CombatPower # Goobstation
-    factor: 9 # times more dangerous than a crew-member
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
+  - type: GhostTakeoverAvailable
