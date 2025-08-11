@@ -564,5 +564,11 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> UseDynamicHostname =
         CVarDef.Create("hub.use_dynamic_hostname", false, CVar.SERVERONLY);
 
+    /// <summary>
+    ///     When true, players can choose to crawl under tables while laying down, using the designated keybind.
+    /// </summary>
+    public static readonly CVarDef<bool> CrawlUnderTables =
+        CVarDef.Create("rest.crawlundertables", true, CVar.SERVER | CVar.ARCHIVE); // Einstein Engines - Crawl Under Tables
+
     #endregion
 }
