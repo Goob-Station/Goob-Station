@@ -13087,3 +13087,131 @@ Entries:
       message: Added Chitinids
   id: 1448
   time: '2025-08-10T04:50:06.0000000+00:00'
+- author: DeusMaldPr
+  changes:
+    - type: Tweak
+      message: >-
+        Halved kudzu, fleshkudzu (meat anom), floralkudzu (plant anom) vine
+        spread speed.
+  id: 1449
+  time: '2025-08-11T05:13:53.0000000+00:00'
+- author: His Grace
+  changes:
+    - type: Fix
+      message: Fixed His Grace deleting itself. (Okay, but for real this time. :3)
+  id: 1450
+  time: '2025-08-11T05:19:44.0000000+00:00'
+- author: Diggy0
+  changes:
+    - type: Fix
+      message: Most species should now have right arm markings.
+    - type: Fix
+      message: Tajarans now have more markings (I forgor)
+  id: 1451
+  time: '2025-08-11T05:25:04.0000000+00:00'
+- author: cheetah1984
+  changes:
+    - type: Tweak
+      message: Reduced power consumption from automation machines.
+  id: 1452
+  time: '2025-08-11T05:25:55.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed Syndiroaches not understanding Tau-Ceti Basic!
+  id: 1453
+  time: '2025-08-11T05:31:57.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added more fonts for the languages, check them out!
+    - type: Add
+      message: Added more variations of word combos to the Bubblish language!
+    - type: Add
+      message: Added Skeleton Comic Sans; Prepare to hate Skeletons even more (maybe)!
+    - type: Tweak
+      message: Changed the color for several languages that had same/similar colors!
+  id: 1454
+  time: '2025-08-11T05:35:43.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Drag and drop climbing works once again.
+  id: 1455
+  time: '2025-08-11T05:44:37.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: >-
+        Shuttle related roles won't be sent into null dimension if you didn't
+        take ghost roles before shuttle FTL
+  id: 1456
+  time: '2025-08-11T05:45:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: His Grace being undroppable has been removed pending bugfixes.
+    - type: Fix
+      message: Gemini's are no longer clonable but for real this time.
+    - type: Fix
+      message: You can no longer peform surgery on Gemini's.
+  id: 1457
+  time: '2025-08-11T07:40:09.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Secret+ should now be more stable in terms of roundstart antag count.
+  id: 1458
+  time: '2025-08-11T16:46:43.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Capped maximum speed at about 12-13 via a CVAR.
+    - type: Fix
+      message: Fixed mechs and vehicles being able to sprint.
+    - type: Fix
+      message: >-
+        Fixed harpies being able to sprint into flying without disabling one of
+        them, all it'd do is just drain 2x stamina while weightless.
+    - type: Fix
+      message: >-
+        Fixed the default sprint binding being set to shift instead of C unlike
+        stated in the changelog :wellregardedindividual:
+    - type: Tweak
+      message: Capoeira wont rip off heads in one hit anymore.
+    - type: Tweak
+      message: Capoeira doesn't regenerate stamina anymore.
+    - type: Tweak
+      message: Sprinting now is a 40% speed modifier instead of 60%.
+    - type: Tweak
+      message: Slipping while sprinting now deals 10 damage.
+    - type: Tweak
+      message: Moth dash now consumes 30 stamina
+    - type: Tweak
+      message: >-
+        Ninjutsu cant make you swing faster than light now. (Assassinate damage
+        nerf incoming in another PR).
+    - type: Tweak
+      message: >-
+        Ninjas boots dont give innate fast-walk speed anymore, they now make
+        your slow walk 1.3x faster though.
+    - type: Tweak
+      message: >-
+        Due to supercode, realignment has been changed to not reset your stamina
+        component, and instead apply a persistent 12 stamina regeneration while
+        active.
+    - type: Tweak
+      message: >-
+        Realignment's cooldown has changed from 10s to 15s, which removes the
+        ability to sprint infinitely, and instead lets you do it for about 2
+        procs back-to-back before stamcritting.
+    - type: Fix
+      message: >-
+        Fixed negative stamina drains such as the one on cybernetic lungs
+        disabling normal stamina regeneration.
+    - type: Fix
+      message: >-
+        Things that shouldn't be able to sprint now behave as expected
+        :clueless: player ghosts are still able to sprint.
+  id: 1459
+  time: '2025-08-11T18:39:15.0000000+00:00'
