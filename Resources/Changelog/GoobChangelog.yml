@@ -13115,3 +13115,9 @@ Entries:
       message: Reduced power consumption from automation machines.
   id: 1452
   time: '2025-08-11T05:25:55.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed Syndiroaches not understanding Tau-Ceti Basic!
+  id: 1453
+  time: '2025-08-11T05:31:57.0000000+00:00'
