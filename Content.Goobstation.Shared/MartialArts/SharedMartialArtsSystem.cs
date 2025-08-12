@@ -108,6 +108,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeDragon();
         InitializeNinjutsu();
         InitializeCanPerformCombo();
+        InitializeWerewolf();
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, CheckGrabOverridesEvent>(CheckGrabStageOverride);

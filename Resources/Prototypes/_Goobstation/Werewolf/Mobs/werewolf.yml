@@ -48,4 +48,5 @@
   - type: WerewolfHowl
     oldDamageModifier: Werewolf
     newDamageModifier: WerewolfHowl
+  - type: GrantWerewolfMoves
 
