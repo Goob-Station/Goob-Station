@@ -13,9 +13,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -614,6 +616,15 @@
 - type: weightedRandom
   id: IonStormLawsets
   weights:
+    # Goob-Start
+    HelpimovLawset: 0.6
+    DagothBotLawset: 0.5
+    TexasLawset: 0.5
+    EmperorLawset: 0.5
+    HippocraticLawset: 0.7
+    ThermodynamicLawset: 0.5
+    BalanceLawset: 1
+    # Goob-End
     # its crewsimov by default dont be lame
     Crewsimov: 0.25
     Corporate: 1
@@ -628,6 +639,5 @@
     PainterLawset: 1
     AntimovLawset: 0.25
     NutimovLawset: 0.5
-    HelpimovLawset: 0.6
     Drone: 0.5
     Ninja: 0.25
