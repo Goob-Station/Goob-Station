@@ -39,6 +39,10 @@
     - type: Loadout
       prototypes: [ VisitorCaptain, VisitorCaptainAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
+      - Shooting
 
 - type: randomHumanoidSettings
   id: VisitorCE
@@ -50,6 +54,10 @@
     - type: Loadout
       prototypes: [ VisitorCE, VisitorCEAlt ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
+      - AdvancedBuilding
 
 - type: randomHumanoidSettings
   id: VisitorCMO
@@ -61,6 +69,11 @@
     - type: Loadout
       prototypes: [ VisitorCMO, VisitorCMOAlt ]
       roleLoadout: [ RoleSurvivalMedical ]
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
+      - Surgery
+      - MedicalEquipment
 
 - type: randomHumanoidSettings
   id: VisitorHOP
@@ -72,6 +85,9 @@
     - type: Loadout
       prototypes: [ VisitorHOP, VisitorHOPAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
 
 - type: randomHumanoidSettings
   id: VisitorHOS
@@ -83,6 +99,10 @@
     - type: Loadout
       prototypes: [ VisitorHOS, VisitorHOSAlt ]
       roleLoadout: [ RoleSurvivalSecurity ]
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
+      - Shooting
 
 - type: randomHumanoidSettings
   id: VisitorResearchDirector
@@ -94,8 +114,12 @@
     - type: Loadout
       prototypes: [ VisitorRD, VisitorRDAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
+      - AdvancedBuilding
 
-- type: randomHumanoidSettings
+-  type: randomHumanoidSettings
   id: VisitorQM
   parent: VisitorHead
   components:
@@ -105,6 +129,9 @@
     - type: Loadout
       prototypes: [ VisitorQM, VisitorQMAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
 
 # Security
 # Following use EventHumanoidMindShielded since they are heads and probably should have mindshields
@@ -266,6 +293,7 @@
         settings: short
     - type: Skills # CorvaxGoob-Skills
       skills:
+      - ShuttleControl
       - Surgery
       - MedicalEquipment
 
@@ -363,6 +391,7 @@
         settings: short
     - type: Skills # CorvaxGoob-Skills
       skills:
+      - ShuttleControl
       - AdvancedBuilding
 
 - type: randomHumanoidSettings
@@ -397,6 +426,9 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
 
 - type: randomHumanoidSettings
   id: VisitorBartender
@@ -451,6 +483,7 @@
       roleLoadout: [ RoleSurvivalStandard ]
     - type: Skills # CorvaxGoob-Skills
       skills:
+      - ShuttleControl
       - Butchering
 
 - type: randomHumanoidSettings
@@ -587,14 +620,6 @@
     - type: Loadout
       prototypes: [ BananaClown ]
       roleLoadout: [ RoleSurvivalClown ]
-    - type: Skills # CorvaxGoob-Skills kekw
-      skills:
-        - ShuttleControl
-        - Shooting
-        - AdvancedBuilding
-        - Surgery
-        - MedicalEquipment
-        - Butchering
 
 # Misc
 
