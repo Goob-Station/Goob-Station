@@ -1,0 +1,56 @@
+- type: entity
+  id: BibleUserImplanter
+  name: faith implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: BibleUserImplant
+
+- type: entity
+  id: MimePowersImplanter
+  name: mime vow implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: MimePowersImplant
+
+# Custom Implant for Sunday
+- type: entity
+  id: MutingImplanter
+  name: mysterious implanter
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. This one looks thicker, with a stronger spring for delivering a larger payload.
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: MutingImplant
+
+- type: entity
+  parent: BaseImplanter
+  id: ImplanterDe-Antag
+  name: de-antagonization implanter
+  suffix: Admeme
+  description: An advanced implanting device with built in amnestics injectors. It is purpose built for the curing and removal of harmful implants and influences.
+  components:
+  - type: Implanter
+    currentMode: Draw
+    whitelist: null
+    blacklist: null
+    implantTime: 30
+    drawTime: 60
+    # Added for event purposes
+    allowDeimplantAll: false
+    deimplantWhitelist:
+      - AntagImplantSpaceNinja
+      - AntagImplantHeretic
+      - AntagImplantChangeling
+      - NaniteMenderImplant
+      - MutingImplant
+      - SpaceProofImplant
+      - BluespaceLifelineImplant
+    deimplantFailureDamage:
+      types:
+        Caustic: 30
+        Heat: 10
+        Asphyxiation: 40
+        Piercing: 20
+

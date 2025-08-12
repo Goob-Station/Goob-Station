@@ -1,0 +1,49 @@
+- type: entity
+  parent: BaseSubdermalImplant
+  id: BibleUserImplant
+  name: faith implant
+  description: This implant binds the user to the gods.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: false
+  - type: AddComponentsImplant
+    componentsToAdd:
+      - type: BibleUser
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MimePowersImplant
+  name: mime vow implant
+  description: This implant lets the user take the mime's vow.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: false
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: MimePowers
+      preventWriting: false # Explicit in case upstream changes its mind on this.
+
+# Custom Implant for Sunday
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MutingImplant
+  name: experimental control implant
+  description: This implant is purpose built, restricting the throat painfully to limit speech. It looks worn and burnt.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: false
+    implantAction: ActionActivateDeathAcidifier
+  - type: TriggerImplantAction
+  - type: GibOnTrigger
+  - type: SpawnOnTrigger
+    proto: Acidifier
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: MimePowers
+      vowCooldown: 5
+      punishmentChance: 0
+      wallPrototype: Paper
+      preventWriting: false
