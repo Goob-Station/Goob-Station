@@ -1,0 +1,19 @@
+- type: sourcePort
+  id: SignalShuttleConsole1
+  name: signal-port-name-shuttle-1
+  description: signal-port-description-shuttle-1
+
+- type: sourcePort
+  id: SignalShuttleConsole2
+  name: signal-port-name-shuttle-2
+  description: signal-port-description-shuttle-2
+
+- type: sourcePort
+  id: SignalShuttleConsole3
+  name: signal-port-name-shuttle-3
+  description: signal-port-description-shuttle-3
+
+- type: sourcePort
+  id: SignalShuttleConsole4
+  name: signal-port-name-shuttle-4
+  description: signal-port-description-shuttle-4
