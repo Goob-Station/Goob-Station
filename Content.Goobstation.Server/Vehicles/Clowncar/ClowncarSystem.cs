@@ -35,7 +35,6 @@ public sealed class ClowncarSystem : SharedClowncarSystem
 
     /// <inheritdoc/>
 
-    private static readonly SoundSpecifier ClownMusic = new SoundPathSpecifier("/Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg");
     public override void Initialize()
     {
         base.Initialize();
@@ -177,14 +176,9 @@ public sealed class ClowncarSystem : SharedClowncarSystem
         args.Handled = true;
     }
 
-    private void OnDrunkDriving(EntityUid uid, ClowncarComponent component, DrivingWithStyleActionEvent args)
+    private void OnDrunkDriving(Entity<ClowncarComponent> clownCar, ref DrivingWithStyleActionEvent args)
     {
-        var audioParams = new AudioParams
-        {
-            Volume = 1f,
-            MaxDistance = 12f
-        };
-        _audioSystem.PlayPvs(ClownMusic, uid, audioParams);
+        _audioSystem.PlayPvs(clownCar.Comp.ClownMusic, clownCar);
         args.Handled = true;
 
     }

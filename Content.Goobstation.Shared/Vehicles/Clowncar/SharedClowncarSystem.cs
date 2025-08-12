@@ -100,13 +100,13 @@ public abstract partial class SharedClowncarSystem : EntitySystem
 
     private void OnUnBuckle(EntityUid uid, ClowncarComponent component, ref UnstrappedEvent args)
     {
-        foreach (var ( actionId, comp ) in _actionsSystem.GetActions(args.Buckle.Owner))
+        foreach (var (actionId, comp) in _actionsSystem.GetActions(args.Buckle.Owner))
         {
             if (!TryComp(actionId, out MetaDataComponent? metaData))
                 continue;
-            if (metaData.EntityPrototype != null &&
-                (metaData.EntityPrototype == component.QuietInTheBackAction ||
-                 metaData.EntityPrototype == component.DrunkDrivingAction))
+            if (metaData.EntityPrototype != null
+            && (metaData.EntityPrototype == component.QuietInTheBackAction
+            || metaData.EntityPrototype == component.DrunkDrivingAction))
             {
                 _actionsSystem.RemoveAction(actionId);
             }
@@ -127,7 +127,7 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         if (args.Container.ID != component.Container)
             return;
 
-        foreach (var ( actionId, comp ) in _actionsSystem.GetActions(args.Entity))
+        foreach (var (actionId, comp) in _actionsSystem.GetActions(args.Entity))
         {
             if (!TryComp(actionId, out MetaDataComponent? metaData))
                 continue;

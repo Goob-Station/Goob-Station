@@ -1,4 +1,4 @@
-
+using Content.Goobstation.Server.Implants.Components;
 using Content.Shared.Clumsy;
 using Content.Shared.Implants;
 
@@ -9,18 +9,21 @@ public sealed class ClumsyImplantSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<Components.ClumsyImplantComponent, ImplantImplantedEvent>(OnImplanted);
         SubscribeLocalEvent<ClumsyComponent, ImplantRemovedFromEvent>(OnUnimplanted);
     }
-    public void OnImplanted(EntityUid uid, Components.ClumsyImplantComponent comp, ref ImplantImplantedEvent ev)
+    public void OnImplanted(Entity<ClumsyImplantComponent> clumsyImplant, ref ImplantImplantedEvent ev)
     {
-        if (ev.Implanted.HasValue)
-            EnsureComp<ClumsyComponent>(ev.Implanted.Value);
+        if (ev.Implanted is not { } implanted)
+            return;
+
+        EnsureComp<ClumsyComponent>(implanted);
     }
 
     public void OnUnimplanted(Entity<ClumsyComponent> ent, ref ImplantRemovedFromEvent args)
     {
-        if (HasComp<Components.ClumsyImplantComponent>(args.Implant))
+        if (HasComp<ClumsyImplantComponent>(args.Implant))
             RemComp<ClumsyComponent>(ent);
     }
 }
