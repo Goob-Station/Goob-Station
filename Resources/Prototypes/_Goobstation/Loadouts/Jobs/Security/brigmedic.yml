@@ -42,3 +42,15 @@
   id: BrigmedicMessenger
   equipment:
     back: ClothingBackpackMessengerBrigmedic
+
+#Corvax-Goob-brigmedic-loadout-update-start
+- type: loadout
+  id: BrigmedicBeretSecurityMedic
+  equipment:
+    head: ClothingHeadHatBeretSecurityMedic
+
+- type: loadout
+  id: BrigmedicSecurityMedicalRespirator
+  equipment:
+    mask: ClothingMaskSecurityMedicalRespirator
+#Corvax-Goob-brigmedic-loadout-update-end

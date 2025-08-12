@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingMaskBreathMedical
+  id: ClothingMaskSecurityMedicalRespirator
+  name: security medical respirator
+  description: A respirator that provides protection against viruses, dust and more.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _CorvaxGoob/Clothing/Mask/securitymedicalrespirator.rsi
+  - type: Clothing
+    sprite: _CorvaxGoob/Clothing/Mask/securitymedicalrespirator.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95

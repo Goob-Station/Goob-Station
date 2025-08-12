@@ -33,6 +33,7 @@
    components:
    - type: StorageFill
      contents:
+       - id: ClothingMaskSecurityMedicalRespirator #Corvax-Goob-brigmedic-loadout-update
        - id: ClothingOuterBioSecurity
        - id: ClothingHeadHatHoodBioSecurity
 
