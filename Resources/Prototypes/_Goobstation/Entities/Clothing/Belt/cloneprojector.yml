@@ -25,11 +25,6 @@
       groups:
         Brute: 10
     addedComponents:
-    - type: InteractionPopup
-      successChance: 0.6
-      interactSuccessString: petting-success-gemini
-      interactFailureString: petting-failure-gemini
-      interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     - type: GhostTakeoverAvailable
     - type: AntagImmune
     - type: MovementIgnoreGravity
@@ -38,7 +33,6 @@
     - type: NoSlip
     - type: ZombieImmune
     - type: CrematoriumImmune
-    - type: Uncloneable
     - type: TypingIndicator
       proto: robot
     - type: Speech
@@ -46,7 +40,7 @@
       speechSounds: Borg
     - type: Silicon
       entityType: enum.SiliconType.Player
-      batteryPowered: false # Needs to also have a battery!
+      batteryPowered: false
       chargeThresholdMid: null
       chargeThresholdLow: null
       chargeThresholdCritical: null
@@ -85,6 +79,7 @@
       - Unimplantable
     removedComponents:
     - type: Destructible
+    - type: SurgeryTarget
     - type: Deathgasp
     - type: Polymorphable
     - type: HealthExaminable
@@ -163,7 +158,7 @@
   parent: [ ClothingBeltBaseCloneProjector, BaseCentcommContraband ]
   id: ClothingBeltMonozygoticHoloProjector
   name: ax-48 "monozygotic" holo-projector rig
-  description: An custom made, experimental variant of the ax-32, retrofitted for use by Central Command. The name "C. Ward" is small text on the front.
+  description: An custom made, experimental variant of the ax-32, retrofitted for use by Central Command.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/geminiprojector.rsi
