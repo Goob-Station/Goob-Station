@@ -32,9 +32,9 @@
   - type: GameRule
     chaosScore: 150
   - type: StationEvent
-    weight: 6 # Rare, but not AS rare
-    earliestStart: 15
-    reoccurrenceDelay: 20
+    weight: 2 # Very rare. Fuck you. Who thought it was a good idea to give an extremely powerful almost always crew alligned valid hunter for the crew to use against antags every single round?
+    earliestStart: 30
+    reoccurrenceDelay: 30
     minimumPlayers: 4
     duration: null
   - type: SpaceSpawnRule
