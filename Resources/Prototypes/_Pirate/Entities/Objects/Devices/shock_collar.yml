@@ -1,0 +1,26 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBaseShockCollar
+  name: shock collar
+  description: Shocking. # DeltaV: sprite is fine
+  suffix: SelfUnremovable
+  components:
+  - type: Sprite
+    sprite: _Pirate/Clothing/Neck/Misc/shock.rsi
+  - type: Clothing
+    sprite: _Pirate/Clothing/Neck/Misc/shock.rsi
+    equipDelay: 5
+    unequipDelay: 10
+  - type: ShockCollar
+  - type: UseDelay
+    delay: 3 # DeltaV: prevent clocks instakilling people
+  - type: SelfUnremovableClothing
+  - type: TriggerOnSignal
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
