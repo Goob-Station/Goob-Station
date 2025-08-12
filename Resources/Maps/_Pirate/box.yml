@@ -4,7 +4,7 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/31/2025 13:59:00
+  time: 08/12/2025 23:16:25
   entityCount: 29080
 maps:
 - 1
@@ -12677,7 +12677,7 @@ entities:
       pos: -13.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -24750.637
+      secondsUntilStateChange: -24924.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13646,6 +13646,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -67.5,-9.5
       parent: 2
+  - uid: 317
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -44.5,-30.5
+      parent: 2
+    - type: GridFill
+      path: /Maps/_Pirate/Shuttles/shuttle_salvage.yml
 - proto: AirlockExternalGlassShuttleLocked
   entities:
   - uid: 316
@@ -13653,12 +13661,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -44.5,-28.5
-      parent: 2
-  - uid: 317
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -44.5,-30.5
       parent: 2
 - proto: AirlockExternalGlassShuttleMiningFilled
   entities:
@@ -14571,7 +14573,7 @@ entities:
       pos: 41.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -125358.86
+      secondsUntilStateChange: -125532.5
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -74008,11 +74010,6 @@ entities:
     - type: Transform
       pos: -26.5,-36.5
       parent: 2
-  - uid: 11408
-    components:
-    - type: Transform
-      pos: -25.5,-36.5
-      parent: 2
 - proto: ComputerCargoBounty
   entities:
   - uid: 11409
@@ -74311,6 +74308,13 @@ entities:
     components:
     - type: Transform
       pos: 30.5,-105.5
+      parent: 2
+- proto: ComputerSalvageExpedition
+  entities:
+  - uid: 11408
+    components:
+    - type: Transform
+      pos: -25.5,-36.5
       parent: 2
 - proto: ComputerShuttleCargo
   entities:
@@ -75962,7 +75966,7 @@ entities:
       pos: 28.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -63922.8
+      secondsUntilStateChange: -64096.445
       state: Opening
   - uid: 11643
     components:
@@ -89962,7 +89966,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -199093.39
+      secondsUntilStateChange: -199267.05
       state: Closing
   - uid: 13875
     components:
@@ -90396,7 +90400,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -190841.12
+      secondsUntilStateChange: -191014.78
       state: Closing
   - uid: 13961
     components:
