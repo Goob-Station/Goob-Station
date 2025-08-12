@@ -26,6 +26,10 @@
         {
             "name": "FZDiagonal",
             "directions": 1
+        },
+        {
+            "name": "FZ1_Wall",
+            "directions": 1
         }
     ]
 }
