@@ -118,6 +118,17 @@
     difficulty: 3 # Slightly more than normal as it does not fit into storage implant
 
 - type: entity
+  parent: BaseTraitorStealObjective
+  id: ExecutiveBriefcaseStealObjective
+  components:
+  - type: Objective
+    difficulty: 3 # its an item that you cant store anywhere without being noticed, good luck
+  - type: NotJobRequirement
+    job: NanotrasenRepresentative
+  - type: StealCondition
+    stealGroup: ExecutiveBriefcase
+
+- type: entity
   parent: BaseRDStealObjective
   id: GeminiProjectorStealObjective
   components:

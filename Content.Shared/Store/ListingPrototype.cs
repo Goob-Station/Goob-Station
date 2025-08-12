@@ -174,6 +174,15 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     [DataField]
     public HashSet<ProtoId<ListingPrototype>> BlockRefundListings = new();
 
+    [DataField]
+    public bool ResetRestockOnPurchase = false; // goob edit
+
+    [DataField]
+    public TimeSpan RestockDuration = TimeSpan.FromMinutes(10); // goob edit
+
+    [DataField]
+    public TimeSpan? RestockAfterPurchase { get; private set; } // goob edit
+
     public bool Equals(ListingData? listing)
     {
         if (listing == null)
@@ -187,6 +196,8 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductAction != listing.ProductAction ||
             RaiseProductEventOnUser != listing.RaiseProductEventOnUser || // Goobstation
             DisableRefund != listing.DisableRefund || // Goobstation
+            ResetRestockOnPurchase != listing.ResetRestockOnPurchase || // Goobstation
+            RestockAfterPurchase != listing.RestockAfterPurchase || // Goobstation
             RestockTime != listing.RestockTime)
             return false;
 
@@ -241,6 +252,8 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
             DisableRefund = DisableRefund, // goob edit
             BlockRefundListings = BlockRefundListings, // goob edit
+            ResetRestockOnPurchase = ResetRestockOnPurchase, // goob edit
+            RestockAfterPurchase = RestockAfterPurchase, // goob edit
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
             // WD START
