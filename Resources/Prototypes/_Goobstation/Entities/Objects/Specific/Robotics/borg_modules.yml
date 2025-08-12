@@ -22,9 +22,9 @@
     - state: icon-syndicate
   - type: ItemBorgModule
     moduleId: SyndicateWeaponAdvanced
-    items:
-    - WeaponPistolAnaconda
-    - EnergySword
+    hands:
+    - item: WeaponPistolAnaconda
+    - item: EnergySword
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
@@ -40,10 +40,10 @@
       sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     moduleId: Lollypop
-    items:
-    - LauncherLollypopRegenerating
-    - LauncherLollypopRegeneratingTricordazine
-    - LauncherLollypopRegeneratingMystery # I <3 GAMBLING
+    hands:
+    - item: LauncherLollypopRegenerating
+    - item: LauncherLollypopRegeneratingTricordazine
+    - item: LauncherLollypopRegeneratingMystery # I <3 GAMBLING
   - type: BorgModuleIcon
     icon: { sprite: _Goobstation/Actions/actions_borg.rsi, state: lollypop-module }
 
@@ -57,12 +57,15 @@
     - state: cargo
     - state: icon-pka
       sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
-  - type: DroppableBorgModule
+  - type: ItemBorgModule
     moduleId: PKA
-    items:
-    - id: WeaponProtoKineticAccelerator
-      whitelist:
-        components:
-        - PressureDamageChange
+    hands:
+    - item: WeaponProtoKineticAccelerator
+      hand:
+        emptyLabel: borg-slot-pka-empty
+        emptyRepresentative: WeaponProtoKineticAccelerator
+        whitelist:
+          components:
+          - PressureDamageChange
   - type: BorgModuleIcon
     icon: { sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi, state: icon }
