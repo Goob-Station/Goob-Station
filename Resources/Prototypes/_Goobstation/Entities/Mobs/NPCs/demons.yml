@@ -182,7 +182,7 @@
     - type: Butcherable
       spawned:
         - id: MaterialBananium1
-          amount: 3
+          amount: 5
         - id: WeaponBehonkerLaser
           amount: 1
           prob: 0.05

@@ -1,8 +1,8 @@
 - type: entity
   id: TableFeatherzone
   parent: BaseStructure
-  name: strange glass table
-  description: Seems extremely sharp, dangerously so. Don't climb on it!
+  name: humming surface
+  description: A table? An alien supercomputer? Well, it's flat, you can put stuff on it.
   components:
   - type: Sprite
     sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
@@ -10,11 +10,11 @@
   - type: GlassTable
     climberDamage:
       types:
-        Slash: 50
+        Slash: 30
     tableDamage:
       types:
         Blunt: 10
-    tableMassLimit: 120
+    tableMassLimit: 10
   - type: Destructible
     thresholds:
     - trigger:

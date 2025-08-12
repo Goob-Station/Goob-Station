@@ -58,6 +58,11 @@
   - type: HTN
     rootTask:
       task: SimpleRangedHostileCompound
+  - type: Butcherable
+    spawned:
+      - id: MaterialFlockCube
+        amount: 1
+        prob: 0.25
   - type: MobThresholds
     thresholds:
       0: Alive
