@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
+# SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -39,6 +40,7 @@
       - Sign
       - Monkey
       - Kobold
+      - SpaceItalian
     understood:
       - Eldritch
       - Chittin
@@ -67,3 +69,26 @@
       - Sign
       - Monkey
       - Kobold
+      - SpaceItalian
+
+  id: BasicSpaceItalianTranslatorImplant
+  name: basic space italian translator implant
+  description: Provides you the ability to understand the residents of the kitchen.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - SpaceItalian
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SpaceItalianTranslatorImplant
+  name: advanced space italian translator implant
+  description: Provides you the ability to speak the language of the kitchen.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    understood:
+    - SpaceItalian
+    spoken:
+    - SpaceItalian
