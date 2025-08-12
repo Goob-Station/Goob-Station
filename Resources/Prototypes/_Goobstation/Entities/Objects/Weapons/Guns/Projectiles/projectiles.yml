@@ -453,7 +453,7 @@
         Holy: 4
 
 - type: entity
-  name : disorienting bolt
+  name : stun bolt
   id: BulletFlock
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -467,9 +467,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/stunbolt.rsi
     layers:
-    - state: omnilaser
+    - state: stunbolt
       shader: unshaded
   - type: Physics
   - type: Fixtures
