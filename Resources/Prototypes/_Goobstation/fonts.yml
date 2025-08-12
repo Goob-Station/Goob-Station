@@ -18,7 +18,7 @@
 - type: font
   id: Schoolbell # Used for resomi font
   path: /Fonts/_Goobstation/Schoolbell/Schoolbell.ttf
-  
+
 - type: font # Bubblish (Slimes)
   id: SourGummy
   path: /Fonts/_Goobstation/Sour_Gummy/SourGummy-Regular.ttf
