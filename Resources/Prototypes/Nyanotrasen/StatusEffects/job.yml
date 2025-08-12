@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2023 Fluffiest Floofers <thebluewulf@gmail.com>
+# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPrisonGuard
+  icon:
+    sprite: DeltaV/Interface/Misc/job_icons.rsi
+    state: nyanoPrisonGuard
+  jobName: job-name-detective
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMartialArtist
+  icon:
+    sprite: DeltaV/Interface/Misc/job_icons.rsi
+    state: nyanoMartialArtist
+  jobName: job-name-detective
