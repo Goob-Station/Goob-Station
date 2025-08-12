@@ -13215,3 +13215,9 @@ Entries:
         :clueless: player ghosts are still able to sprint.
   id: 1459
   time: '2025-08-11T18:39:15.0000000+00:00'
+- author: ImWeax
+  changes:
+    - type: Add
+      message: Space Italian! The language of the kitchen!
+  id: 1460
+  time: '2025-08-12T12:05:40.0000000+00:00'
