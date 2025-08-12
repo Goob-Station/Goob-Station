@@ -312,7 +312,7 @@
     size: Small
     sprite: Clothing/Shoes/Specific/large_clown.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
+    walkModifier: 0.8
     sprintModifier: 0.8
 
 - type: entity
