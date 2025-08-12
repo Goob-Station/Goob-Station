@@ -68,3 +68,8 @@
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Effects/glass_break1.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialFlockCube:
+            min: 1
+            max: 1
