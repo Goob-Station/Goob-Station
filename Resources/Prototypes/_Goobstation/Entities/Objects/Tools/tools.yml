@@ -239,3 +239,14 @@
   - type: AutoRecharge
     rechargeDuration: 10
 
+- type: entity
+  parent: RCD
+  id: RCDRechargingCe
+  name: experimental RCD
+  description: Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 20
+  - type: AutoRecharge
+    rechargeDuration: 10
