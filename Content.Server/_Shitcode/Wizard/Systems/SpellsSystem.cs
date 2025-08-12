@@ -72,6 +72,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Actions.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
@@ -403,12 +404,10 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         MapCoordinates targetMap;
 
-        if (ev.Coords != null)
-            targetMap = TransformSystem.ToMapCoordinates(ev.Coords.Value);
-        else if (TryComp(ev.Entity, out TransformComponent? xform))
+        targetMap = TransformSystem.ToMapCoordinates(ev.Target);
+
+        if (TryComp(ev.Entity, out TransformComponent? xform))
             targetMap = TransformSystem.GetMapCoordinates(ev.Entity.Value, xform);
-        else
-            return;
 
         var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 
