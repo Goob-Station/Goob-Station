@@ -19,3 +19,23 @@
     energy: 1.6
     color: "#0fb79a"
     castShadows: true
+
+- type: entity
+  id: MaterialFlockOrb
+  parent: MaterialFlockCube
+  name: strange glass orb
+  components:
+  - type: StaticPrice
+    price: 5000
+  - type: Sprite
+    sprite: _Goobstation/Flock/Objects/orb.rsi
+    layers:
+    - state: orb
+  - type: Item
+    sprite: _Goobstation/Flock/Objects/orb.rsi
+    size: Normal
+  - type: PointLight
+    radius: 3
+    energy: 2
+    color: "#0fb79a"
+    castShadows: true
