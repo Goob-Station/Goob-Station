@@ -47,3 +47,13 @@
   license: "CC-BY-3.0"
   copyright: "Taken from Goonstation 13"
   source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flockdrone_door"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flockdrone_door_deny"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
