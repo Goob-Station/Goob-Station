@@ -1,138 +1,4 @@
-# SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArkiveDev <95712736+ArkiveDev@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AutoOtter <joshuademorris@gmail.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DieselMohawk <gavin.drinka@gmail.com>
-# SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Doomsdrayk <robotdoughnut@comcast.net>
-# SPDX-FileCopyrightText: 2024 DrEnzyme <DrEnzyme@gmail.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Elysium206 <151651971+Elysium206@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Floofi <126319569+Shadowtheprotogen546@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Geekyhobo <66805063+Geekyhobo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 MetalSage <74924875+MetalSage@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MetalSage <metalsage.official@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MisterMecky <mrmecky@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
-# SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unisol <1929445+Unisol@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 WarMechanic <69510347+WarMechanic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 marbow <152051971+marboww@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 mhamster <81412348+mhamsterr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <oskariwjarvinen@gmail.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MossyGreySlope <mossygreyslope@gmail.com>
-# SPDX-FileCopyrightText: 2025 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Schrödinger <132720404+Schrodinger71@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-AdminOnly: true
+﻿AdminOnly: true
 Entries:
 - author: DrSmugleaf
   changes:
@@ -1160,5 +1026,160 @@ Entries:
   id: 121
   time: '2025-04-08T14:54:14.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/36396
+- author: Errant
+  changes:
+  - message: Кнопка "Копіювати" на панелі гравця тепер копіює лише ім'я користувача, а не весь рядок.
+    type: Fix
+  id: 122
+  time: '2025-04-11T21:04:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36468
+- author: slarticodefast
+  changes:
+  - message: Додано дію для швидкого огляду сутності розуму гравця через VV.
+    type: Add
+  id: 123
+  time: '2025-04-12T13:37:07.0000000+00:00'
+  url: https/github.com/space-wizards/space-station-14/pull/36474
+- author: Errant
+  changes:
+  - message: На панелі гравця тепер є кнопка "Слідувати".
+    type: Add
+  id: 124
+  time: '2025-04-12T20:00:47.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36466
+- author: slarticodefast
+  changes:
+  - message: Виправлено команду огляду розуму, яка не працювала для інших гравців.
+    type: Fix
+  id: 125
+  time: '2025-04-14T14:45:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36558
+- author: eoineoineoin
+  changes:
+  - message: Додано команду "chatwindow" для відкриття додаткового вікна чату.
+    type: Add
+  - message: Додано команду "achatwindow" для відкриття додаткового вікна чату, попередньо налаштованого для моніторингу каналів адміністраторів.
+    type: Add
+  id: 126
+  time: '2025-04-14T15:37:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/33548
+- author: Samuka
+  changes:
+  - message: Додано миттєвий ефект "Блюспейс" до меню спавну.
+    type: Add
+  id: 127
+  time: '2025-04-16T02:26:20.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36607
+- author: Errant
+  changes:
+  - message: Ролі розуму тепер мають підтипи, які можуть точніше вказувати, що це за роль. Наприклад, залежно від налаштувань на стороні клієнта, Зрадник може відображатися як "СОЛО-АНТАГОНІСТ" або "ЗРАДНИК" як в оверлеї адміністратора, так і в списку гравців. Перегляньте параметри адміністратора для доступних налаштувань. (Примітка: багато другорядних ролей ((наразі)) не мають налаштованого підтипу і за замовчуванням будуть показувати свій тип ролі).
+    type: Tweak
+  id: 128
+  time: '2025-04-16T17:04:48.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35359
+- author: Errant
+  changes:
+  - message: Теги антагоністів у сповіщеннях адміністратора тепер точно показують, яким саме типом антагоніста є цей моб.
+    type: Tweak
+  id: 129
+  time: '2025-04-16T22:59:36.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36640
+- author: IProduceWidgets
+  changes:
+  - message: Команди toolshed для stationevent тепер знову повинні працювати для надання статистики подій.
+    type: Fix
+  id: 130
+  time: '2025-04-18T07:44:29.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/32200
+- author: Errant
+  changes:
+  - message: Команда setgamepreset більше не змінює пресет назавжди. При використанні лише з одним параметром (для пресету, який буде використовуватися), вона внесе цю зміну на наступний раунд, що розпочнеться. Необов'язковий другий параметр може вказувати кількість наступних раундів, які будуть використовувати вказаний пресет. Якщо ви хочете змінити ігровий пресет назавжди, встановіть довільно велике число як другий параметр, або, що краще, просто змініть cvar game.defaultpreset.
+    type: Tweak
+  id: 131
+  time: '2025-04-18T12:24:39.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/30812
+- author: Tayrtahn
+  changes:
+  - message: Додано компоненти MarkerOne, MarkerTwo та MarkerThree для тестування та відстеження.
+    type: Add
+  id: 132
+  time: '2025-04-20T19:08:41.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36776
+- author: sowelipililimute
+  changes:
+  - message: Комп'ютер розподілу фінансування тепер має CVar для увімкнення налаштування основної частки (за замовчуванням вимкнено).
+    type: Add
+  - message: Комп'ютер розподілу фінансування тепер має CVar для увімкнення налаштування частки сейфа (за замовчуванням увімкнено).
+    type: Add
+  - message: Комп'ютер розподілу фінансування тепер має CVar для увімкнення приховування основного рахунку від розподілу коштів (за замовчуванням увімкнено).
+    type: Add
+  id: 133
+  time: '2025-04-22T12:34:53.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36790
+- author: qrwas
+  changes:
+  - message: 'Додано новий Cvar: game.contraband_examine_only_in_hud для відображення контрабанди лише в окулярах служби безпеки **(за замовчуванням вимкнено)**.'
+    type: Add
+  id: 134
+  time: '2025-04-26T21:06:35.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36412
+- author: K-Dynamic
+  changes:
+  - message: Співробітники ЦК тепер носять панцир Центкому як броню, який має ідентичні характеристики з командним панциром.
+    type: Add
+  id: 135
+  time: '2025-04-30T00:40:27.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/35301
+- author: Samuka
+  changes:
+  - message: Конфігурація універсального доступу тепер починається з універсального ID.
+    type: Tweak
+  - message: Адміністратори тепер можуть використовувати будь-яку конфігурацію доступу з будь-якого діапазону.
+    type: Fix
+  id: 136
+  time: '2025-05-01T05:20:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37079
+- author: perryprog
+  changes:
+  - message: Кара "Вказівна стрілка" тепер не триває вічно.
+    type: Fix
+  id: 137
+  time: '2025-05-02T01:07:15.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37102
+- author: ScarKy0
+  changes:
+  - message: Додано нову дію для відладки "Роздягнути все". Використовується для зняття всіх предметів з інвентарю та викидання предметів з рук.
+    type: Add
+  id: 138
+  time: '2025-05-15T20:56:58.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37426
+- author: VerinSenpai
+  changes:
+  - message: Елементи керування раундом у вікні адміністратора тепер вимагають підтвердження. Це можна обійти за допомогою консолі.
+    type: Tweak
+  id: 139
+  time: '2025-05-26T02:37:21.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37836
+- author: perryprog
+  changes:
+  - message: Кнопка вимкнення сервера у вікні адміністратора тепер вимагає підтвердження. Це можна обійти за допомогою консолі.
+    type: Tweak
+  id: 140
+  time: '2025-05-27T23:44:15.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37849
+- author: Samuka
+  changes:
+  - message: Команда solution:adjreagent тепер дійсно працює і більше не потребує "FixedPoint2" для вказання кількості.
+    type: Fix
+  id: 141
+  time: '2025-06-08T03:47:37.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38134
+- author: ScarKy0
+  changes:
+  - message: 'Команди addaction/rmaction. ПРИМІТКА: Addaction не працюватиме коректно, якщо дія вимагає наявності у сутності компонента (наприклад, "Пожирання" у Дракона).'
+    type: Add
+  id: 142
+  time: '2025-06-16T10:25:44.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38317
 Name: Admin
 Order: 2
