@@ -17,9 +17,11 @@
 using System.Numerics;
 using Content.Client.Cooldown;
 using Content.Client.UserInterface.Systems.Inventory.Controls;
+using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.UserInterface.Controls
 {
@@ -36,6 +38,7 @@ namespace Content.Client.UserInterface.Controls
         public CooldownGraphic CooldownDisplay { get; }
 
         private SpriteView SpriteView { get; }
+        private EntityPrototypeView ProtoView { get; }
 
         public EntityUid? Entity => SpriteView.Entity;
 
@@ -157,6 +160,13 @@ namespace Content.Client.UserInterface.Controls
                 SetSize = new Vector2(DefaultButtonSize, DefaultButtonSize),
                 OverrideDirection = Direction.South
             });
+            AddChild(ProtoView = new EntityPrototypeView
+            {
+                Visible = false,
+                Scale = new Vector2(2, 2),
+                SetSize = new Vector2(DefaultButtonSize, DefaultButtonSize),
+                OverrideDirection = Direction.South
+            });
 
             AddChild(HoverSpriteView = new SpriteView
             {
@@ -225,10 +235,33 @@ namespace Content.Client.UserInterface.Controls
             HoverSpriteView.SetEntity(null);
         }
 
+        /// <summary>
+        /// Causes the control to display a placeholder prototype, optionally faded
+        /// </summary>
         public void SetEntity(EntityUid? ent)
         {
             SpriteView.SetEntity(ent);
+            SpriteView.Visible = true;
+            ProtoView.Visible = false;
             UpdateButtonTexture();
+        }
+
+        /// <summary>
+        /// Causes the control to display a placeholder prototype, optionally faded
+        /// </summary>
+        public void SetPrototype(EntProtoId? proto, bool fade)
+        {
+            ProtoView.SetPrototype(proto);
+            SpriteView.Visible = false;
+            ProtoView.Visible = true;
+
+            UpdateButtonTexture();
+
+            if (ProtoView.Entity is not { } ent || !fade)
+                return;
+
+            var sprites = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SpriteSystem>();
+            sprites.SetColor((ent.Owner, ent.Comp1), Color.DarkGray.WithAlpha(0.65f));
         }
 
         private void UpdateButtonTexture()

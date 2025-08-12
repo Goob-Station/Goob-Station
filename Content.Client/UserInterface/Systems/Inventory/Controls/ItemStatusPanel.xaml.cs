@@ -31,6 +31,7 @@ public sealed partial class ItemStatusPanel : Control
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     [ViewVariables] private EntityUid? _entity;
+    [ViewVariables] private Hand? _hand;
 
     // Tracked so we can re-run SetSide() if the theme changes.
     private HandUILocation _side;
@@ -115,29 +116,45 @@ public sealed partial class ItemStatusPanel : Control
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
-        UpdateItemName();
+        UpdateItemName(_hand);
     }
 
-    public void Update(EntityUid? entity)
+    public void Update(EntityUid? entity, Hand? hand)
     {
-        ItemNameLabel.Visible = entity != null;
-        NoItemLabel.Visible = entity == null;
+        if (entity == _entity && hand == _hand)
+            return;
 
+        _hand = hand;
         if (entity == null)
         {
-            ItemNameLabel.Text = "";
             ClearOldStatus();
             _entity = null;
+
+            if (hand?.EmptyLabel is { } label)
+            {
+                ItemNameLabel.Visible = true;
+                NoItemLabel.Visible = false;
+
+                ItemNameLabel.Text = Loc.GetString(label);
+            }
+            else
+            {
+                ItemNameLabel.Visible = false;
+                NoItemLabel.Visible = true;
+
+                ItemNameLabel.Text = "";
+            }
+
             return;
         }
 
-        if (entity != _entity)
-        {
-            _entity = entity.Value;
-            BuildNewEntityStatus();
+        ItemNameLabel.Visible = true;
+        NoItemLabel.Visible = false;
 
-            UpdateItemName();
-        }
+        _entity = entity.Value;
+        BuildNewEntityStatus();
+
+        UpdateItemName(hand);
     }
 
     public void UpdateHighlight(bool highlight)
@@ -145,14 +162,14 @@ public sealed partial class ItemStatusPanel : Control
         HighlightPanel.Visible = highlight;
     }
 
-    private void UpdateItemName()
+    private void UpdateItemName(Hand? hand)
     {
         if (_entity == null)
             return;
 
         if (!_entityManager.TryGetComponent<MetaDataComponent>(_entity, out var meta) || meta.Deleted)
         {
-            Update(null);
+            Update(null, hand);
             return;
         }
 

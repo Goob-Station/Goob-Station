@@ -38,4 +38,6 @@
         Glass: 125
         Steel: 25
       chemicalComposition:
-        Silicon: 5
+        Silicon: 20
+    - type: Circuitboard
+
