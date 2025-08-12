@@ -661,6 +661,34 @@
   objectType: Structure
   placementMode: SnapgridCenter
 
+
+- type: construction
+  id: uraniumWindowDirectional
+  graph: WindowDirectional
+  startNode: start
+  targetNode: uraniumWindowDirectional
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  id: uraniumReinforcedWindowDirectional
+  graph: WindowDirectional
+  startNode: start
+  targetNode: uraniumReinforcedWindowDirectional
+  category: construction-category-structures
+  canBuildInImpassable: true
+  conditions:
+  - !type:EmptyOrWindowValidInTile
+  - !type:NoWindowsInTile
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+
 - type: construction
   id: Firelock
   graph: Firelock
