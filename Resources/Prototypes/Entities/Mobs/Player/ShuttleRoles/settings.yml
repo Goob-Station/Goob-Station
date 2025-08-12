@@ -119,7 +119,7 @@
       - ShuttleControl
       - AdvancedBuilding
 
--  type: randomHumanoidSettings
+- type: randomHumanoidSettings
   id: VisitorQM
   parent: VisitorHead
   components:
