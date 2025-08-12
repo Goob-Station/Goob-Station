@@ -1,0 +1,13 @@
+- type: typingIndicator
+  id: plasmaman
+  spritePath: /Textures/_EinsteinEngines/Effects/speech.rsi
+  typingState: plasmaman0
+  idleState: plasmaman1
+  offset: 0, 0.125
+
+- type: typingIndicator
+  id: skeleton
+  spritePath: /Textures/_EinsteinEngines/Effects/speech.rsi
+  typingState: skeleton0
+  idleState: skeleton1
+  offset: 0, 0.125
