@@ -387,6 +387,7 @@
   - type: AntagObjectives
     objectives:
     - DevilContractObjective
+    - DevilWeightObjective
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: devil-roundend-name
