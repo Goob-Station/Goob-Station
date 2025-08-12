@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 #
@@ -72,3 +73,17 @@
   - type: ConditionalSpawner
     prototypes:
     - MobLivingCurse
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobCarpNukie
+  name: Cayenne Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: icon
+      sprite: Mobs/Aliens/Carps/space.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCarpNukie
