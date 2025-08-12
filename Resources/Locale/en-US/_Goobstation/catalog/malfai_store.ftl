@@ -18,6 +18,6 @@ malf-ai-reactivate-cam-name = Reactivate Camera
 malf-ai-reactivate-cam-desc = Reactivates a camera in an area.
 
 malf-ai-doom-device-name = Doomsday Device
-malf-ai-doom-device-desc = 
-    Activate a weapon that will disintegrate all organic life on the station after a 450 second delay.
-	Can only be used while on the station, will fail if your core is moved off station or destroyed.
+malf-ai-doom-device-desc =
+    Activate a weapon that will disintegrate all organic life on the station after a seven and a half minute delay.
+    Can only be used while on the station, will fail if your core is moved off station or destroyed.
