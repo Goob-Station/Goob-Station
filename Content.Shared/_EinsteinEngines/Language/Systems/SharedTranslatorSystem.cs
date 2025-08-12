@@ -48,6 +48,6 @@ public abstract class SharedTranslatorSystem : EntitySystem
         if (comp == null && !TryComp(translator, out comp))
             return;
 
-        _appearance.SetData(translator, ToggleVisuals.Toggled, comp.Enabled);
+        _appearance.SetData(translator, ToggleableVisuals.Enabled, comp.Enabled);
     }
 }
