@@ -1,2 +1,2 @@
-ent-TorchWall = torch
-    .desc = A torch
+ent-TorchWall = факел
+    .desc = Просто факел.

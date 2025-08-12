@@ -1,8 +1,8 @@
 ent-BaseKey = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
-ent-VehicleKeySecway = ключи от сигвея
+ent-VehicleKeySecway = ключи от сегвея
     .desc = Ключи от будущего.
-ent-VehicleKeySyndicateSegway = ключи от сигвея Синдиката
+ent-VehicleKeySyndicateSegway = ключи от сегвея Синдиката
     .desc = Выполнены в стиле культового дизайна EMAG.
 ent-VehicleKeyATV = ключи от квадроцикла
     .desc = Думаешь это просто один ключ? КВАДроцикл, а "quad" это четыре!

@@ -1,2 +1,2 @@
-ent-TimelineDisruptor = timeline disruptor
-    .desc = A device capable of extracting an object placed inside from the current timeline.
+ent-TimelineDisruptor = разрушитель реальности
+    .desc = Устройство, способное извлечь помещённый внутрь объект из текущей линии времени.

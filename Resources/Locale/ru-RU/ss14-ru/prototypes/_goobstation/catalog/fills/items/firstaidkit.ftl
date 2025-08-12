@@ -11,5 +11,5 @@ ent-MedkitCombatBlueFilled = { ent-MedkitCombatBlue }
     .suffix = Заполненный, Таблетки
     .desc = { ent-MedkitCombatBlue.desc }
 ent-MedkitCombatPurpleFilled = { ent-MedkitCombatPurple }
-    .suffix = Заполненный, ВКД
+    .suffix = Заполненный, КПБ
     .desc = { ent-MedkitCombatPurple.desc }

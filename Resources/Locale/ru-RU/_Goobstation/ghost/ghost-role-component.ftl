@@ -13,10 +13,10 @@
 
 ghost-role-information-nukie-reinforcement-name = Ядерный Оперативник
 ghost-role-information-nukie-reinforcement-description = Ядерным оперативникам требуется подкрепление. Ты — агент подкрепления, который им поможет.
-ghost-role-information-nukie-reinforcement-rules = Ты — [color=red][bold]Командный антагонист[/bold][/color], помогайте оперативникам, которые вас вызвали.
+ghost-role-information-nukie-reinforcement-rules = Ты — [color=red][bold]командный антагонист[/bold][/color], помогайте оперативникам, которые вас вызвали.
 ghost-role-information-SyndiRoach-name = СиндиТаракан
 ghost-role-information-SyndiRoach-description = Ты — верный обученный питомец ядерных оперативников с микробомбой. Служи хозяину до смерти!
-ghost-role-information-SyndiRoach-rules = Ты — [color=red][bold]враг в команде[/bold][/color] с агентом, который тебя вызвал.
+ghost-role-information-SyndiRoach-rules = Ты — [color=red][bold]командный антагонист[/bold][/color] с агентом, который тебя вызвал.
 ghost-role-information-skibidi-toilet-name = Скибиди Туалет
 ghost-role-information-skibidi-toilet-description = Уничтожай людей своим скибиди-огайо риццем.
 ghost-role-information-skibidi-toilet-rules = Ты — [color=red][bold]враг[/bold][/color] с целью уничтожить как можно больше огайоан.

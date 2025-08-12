@@ -109,7 +109,7 @@ uplink-whimsy-bundle-name = Комплект радости и веселья С
 uplink-whimsy-bundle-desc = Любишь радость и веселье? Donk Co. имеет решение! В комплекте ЛИМИТИРОВАННЫЙ топор и столько сладостей, что убьют человека.
 uplink-m7s-name = M7S «Вентилятор»
 uplink-m7s-desc = Плотность разброса этого ПП уменьшается при длительной стрельбе. Оружие бесшумное. Очень удобно.
-uplink-combat-shotgun-name = Боевик «Боевик»
+uplink-combat-shotgun-name = Боевой дробовик "Боевик"
 uplink-combat-shotgun-desc = Надёжный помповый дробовик 8-го калибра, магазин на 5 патронов.
 uplink-he1sg8-bundle-name = Комплект HE1S-G8
 uplink-he1sg8-bundle-desc = В комплекте 10 разрушительных и 9 гиперзаряженных патронов Gauss-8.
@@ -163,7 +163,7 @@ uplink-high-caliber-shotgun-box-sarin-desc = 16 патронов 8 калибр�
 
 # Grenades
 
-uplink-sarin-gas-grenade-name = Граната с газом сарин
+uplink-sarin-gas-grenade-name = Граната с газом зарин
 uplink-M172LAW-name = M172 Light Anti-structure Weapon
 uplink-M172LAW-desc = A single shot disposable rocket launcher for taking out singular walls/machines with minimal collateral damage. can be stored in your backpack conveniently.
 uplink-RPOA-name = RPO-A 'Shmel'

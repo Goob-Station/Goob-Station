@@ -1,2 +1,2 @@
-ent-RandomHumanoidVisitorAlien = visiting alien ghost role
+ent-RandomHumanoidVisitorAlien = посетитель пришелец роль призрака
     .desc = { "" }

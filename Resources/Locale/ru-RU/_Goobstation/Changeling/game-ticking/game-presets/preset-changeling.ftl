@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-changeling-roundend-name = Шейпшифтер
+changeling-roundend-name = Генокрадов
 objective-issuer-hivemind = [color=orange]Улей[/color]
 objective-issuer-tiger = [color=crimson]Tiger Cooperative[/color]
 roundend-prepend-changeling-absorbed-named = [color=white]{ $name }[/color] поглотил всего [color=red]{ $number }[/color] организмов.
