@@ -411,7 +411,7 @@
   id: ArmDollJointsTattooRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -425,7 +425,7 @@
   id: ArmHeavyTattoosRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson ]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -441,7 +441,7 @@
   id: ArmProstheticRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   coloring:
     default:
       type:
@@ -455,7 +455,7 @@
   id: ArmTwistingRight
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Humanoid/rarm.rsi
     state: twisting
@@ -464,7 +464,7 @@
   id: TattooCode4
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   followSkinColor: false
   forcedColoring: false
   coloring:
@@ -480,7 +480,7 @@
   id: TattooCode5
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   followSkinColor: false
   forcedColoring: false
   coloring:
@@ -496,7 +496,7 @@
   id: TattooHeartR
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [ Human, Arachnid, Dwarf, Reptilian, SlimePerson]
+  speciesRestriction: [Human, Dwarf, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Shadowkin, Vulpkanin, Rodentia]
   followSkinColor: false
   forcedColoring: false
   coloring:
