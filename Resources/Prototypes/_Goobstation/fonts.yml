@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: font
   id: NotoSansSC
   path: /Fonts/NotoSans/NotoSansSC-Regular.ttf
+
+- type: font # Bubblish (Slimes)
+  id: SourGummy
+  path: /Fonts/_Goobstation/Sour_Gummy/SourGummy-Regular.ttf
+
+- type: font # Valyrian Standard (Harpies/Squackroaches)
+  id: Delius
+  path: /Fonts/_Goobstation/Delius/Delius-Regular.ttf

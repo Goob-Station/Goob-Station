@@ -63,5 +63,12 @@
     - DeterrentCaseFilled
   inhand:
   - WeaponPulseRifle
-
     # Goobstation End
+
+- type: chameleonOutfit
+  id: DeathSquadChameleonOutfit
+  job: DeathSquad
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetHardsuitDeathsquad
+    neck: ClothingNeckBronzeheart

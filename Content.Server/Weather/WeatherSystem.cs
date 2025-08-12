@@ -105,7 +105,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
 
         var mapId = new MapId(mapInt);
 
-        if (!MapManager.MapExists(mapId))
+        if (!_mapSystem.MapExists(mapId))
             return;
 
         if (!_mapSystem.TryGetMap(mapId, out var mapUid))
