@@ -130,6 +130,7 @@
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -489,6 +490,7 @@
       startingGear: ParadoxCloneGear
       roleLoadout:
       - RoleSurvivalVoxTank # give vox something to breath in case they don't get a copy
+      - RoleSurvivalPlasmaTank # Goobstation
       briefing:
         text: paradox-clone-role-greeting
         color: lightblue
@@ -888,7 +890,6 @@
     eventType: HostilesSpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: 500
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -897,6 +898,7 @@
       min: 1
       max: 2
       playerRatio: 10
+      chaosScore: 200 # Goobstation - same as roundstart traitor gamerule
       blacklist:
         components:
         - AntagImmune
