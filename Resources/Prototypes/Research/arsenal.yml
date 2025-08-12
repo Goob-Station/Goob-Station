@@ -187,7 +187,7 @@
   # Goobstation R&D Console rework start
   position: 3,2
   technologyPrerequisites:
-  - DraconicMunitions
+  - DraconicMunittextures collarionstextures coltextures collarlar
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -221,6 +221,7 @@
   cost: 5000
   recipeUnlocks:
   - ClothingBackpackElectropack
+  - ClothingNeckBaseShockCollar # Pirate
   # Goobstation R&D Console rework start
   position: 4,3
   technologyPrerequisites:

@@ -86,6 +86,7 @@
   - TelescopicShield
   - ClothingHeadHelmetInsulated # PIRATE psionic
   - ClothingHeadCage # PIRATE psionic
+  - ClothingNeckBaseShockCollar # PIRATE
 
 - type: latheRecipePack
   id: SecurityBoards
