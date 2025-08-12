@@ -14,6 +14,7 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -449,12 +450,12 @@ public sealed partial class CloneProjectorSystem : SharedCloneProjectorSystem
     private void DoCooldown(Entity<CloneProjectorComponent> projector)
     {
         if (projector.Comp.ActionEntity is not { } actionEntity
-            || !TryComp<InstantActionComponent>(actionEntity, out var actionComp))
+            || !TryComp<ActionComponent>(actionEntity, out var actionComp))
             return;
 
-        actionComp.Cooldown = (_timing.CurTime, _timing.CurTime + projector.Comp.DestroyedCooldown);
+        _actions.SetCooldown(projector.Owner, _timing.CurTime + projector.Comp.DestroyedCooldown);
 
-        _actions.UpdateAction(actionEntity, actionComp);
+        _actions.UpdateAction((actionEntity, actionComp));
         Dirty(actionEntity, actionComp);
     }
 

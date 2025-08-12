@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 #
@@ -11,7 +13,7 @@
   parent: BaseItem
   id: ArmClawChangeling
   name: hand claw
-  description: A grotesque claw made out of bone and flesh that cleaves through people as a hot knife through butter.
+  description: A grotesque claw made out of bone and flesh that injects dangerous poison on hits.
   suffix: Unremoveable
   components:
   - type: Sprite
@@ -35,4 +37,18 @@
   - type: Unremoveable
   - type: DisarmMalus
     malus: 0
-  - type: GrabbingItem
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: Amatoxin
+        Quantity: 5
+      - ReagentId: MuteToxin
+        Quantity: 10
+  - type: MeleeChemicalInjector
+    transferAmount: 2
+    solution: melee
