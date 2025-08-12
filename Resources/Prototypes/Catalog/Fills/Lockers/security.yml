@@ -188,7 +188,7 @@
     contents: # heavily good edited
 #      - id: BoxAutoinjectorCartidges  REPLACED WITH BELOW CARTS DURING SIZE CHANGE, FUCK STORAGEFILLBRO # Goobstation start
       - id: CartridgeSaline
-       amount: 3
+        amount: 3
       - id: CartridgeBicaridine
         amount: 3
       - id: CartridgeDermaline
