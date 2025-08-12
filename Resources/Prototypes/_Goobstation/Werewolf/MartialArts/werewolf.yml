@@ -1,0 +1,48 @@
+- type: martialArt
+  id: Werewolf
+  martialArtsForm: Werewolf
+  roundstartCombos: WerewolfMoves
+
+- type: comboList
+  id: WerewolfMoves
+  combos:
+  - OpenVein
+  - ViciousToss
+  - Dismemberment
+
+- type: combo
+  id: OpenVein
+  name: Open Vein
+  martialArtsForm: Werewolf
+  attacks:
+  - Grab
+  - Harm
+  - Harm
+  event: !type:OpenVeinPerformedEvent
+    bleedAmount: -50
+  damageType: Blunt
+  extraDamage: 30
+
+- type: combo
+  id: ViciousToss
+  name: Vicious Toss
+  martialArtsForm: Werewolf
+  attacks:
+  - Disarm
+  - Grab
+  event: !type:ViciousTossPerformedEvent
+    #sound:
+    #  path: /Audio/Weapons/genhit3.ogg
+
+- type: combo
+  id: Dismemberment
+  name: Dismemberment
+  martialArtsForm: Werewolf
+  attacks:
+  - Harm
+  - Grab
+  - Harm
+  - Harm
+  event: !type:DismembermentPerformedEvent
+    #sound:
+  #  path: /Audio/Weapons/genhit3.ogg

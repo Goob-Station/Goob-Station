@@ -1,0 +1,86 @@
+<ui:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
+                xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                Title="Mutations"
+             MinWidth="800"
+             MinHeight="600">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True">
+        <!-- Header with currency display -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 10">
+            <Label Text="Mutations" StyleClasses="LabelHeading" HorizontalExpand="True" Margin="35 0 0 0" />
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextureRect Name="CurrencyIcon"
+                             MinSize="24 24"
+                             Margin="0 0 5 0"
+                             Stretch="KeepAspectCentered"
+                             VerticalAlignment="Center" />
+                <Label Name="FuryLabel"
+                       Text="0"
+                       StyleClasses="LabelHeading"
+                       VerticalAlignment="Center"
+                       FontColorOverride="#AB4E3C"
+                       ClipText="False"
+                       Margin="0 0 15 0"/>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Main content area -->
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True" >
+            <!-- Left panel - Form selection with scrollable grid -->
+            <ScrollContainer HorizontalExpand="False" VerticalExpand="True"
+                           MinSize="150 400"
+                           HScrollEnabled="False"
+                           Margin="15 0 10 0">
+                <GridContainer Name="FormsGrid"
+                              Columns="5"
+                              HSeparationOverride="5"
+                              VSeparationOverride="20"
+                              MinSize="150 200">
+                    <!-- Form icons will be added here dynamically -->
+                </GridContainer>
+            </ScrollContainer>
+
+            <PanelContainer VerticalExpand="False" HorizontalExpand="False" MinWidth="5" Margin="0 0">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#c0c0c0" /> <!-- Dark gray color with 100% opacity -->
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+
+            <!-- Right panel - Description and claim button -->
+            <PanelContainer VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="10" VerticalExpand="True">
+                    <!-- Form name -->
+                    <Label Name="FormNameLabel"
+                           Text="Select a form"
+                           StyleClasses="LabelHeading"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 10" />
+
+                    <!-- Description scroll area -->
+                    <ScrollContainer VerticalExpand="True"
+                                   HScrollEnabled="False"
+                                   Margin="0 0 0 10">
+                        <BoxContainer Orientation="Vertical">
+                            <RichTextLabel Name="FormDescriptionLabel"
+                                          Text="Click on a form to view its description."
+                                          VerticalExpand="True"
+                                          HorizontalAlignment="Center"/>
+
+                            <!-- Cost information -->
+                            <Label Name="FormCostLabel"
+                                   StyleClasses="LabelSecondaryColor"
+                                   Margin="0 10 0 0" />
+                        </BoxContainer>
+                    </ScrollContainer>
+
+                    <!-- Claim button -->
+                    <Button Name="MutationCloseButton"
+                            Text="Claim Form"
+                            Disabled="True"
+                            HorizontalAlignment="Right"
+                            MinHeight="32" />
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</ui:FancyWindow>

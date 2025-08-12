@@ -11,6 +11,8 @@
 using Content.Goobstation.Shared.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 
@@ -22,10 +24,15 @@ namespace Content.Goobstation.Server.MartialArts;
 public sealed class MartialArtsSystem : SharedMartialArtsSystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
+    private EntityQuery<BloodstreamComponent> _bloodstreamQuery;
     public override void Initialize()
     {
         base.Initialize();
+
+        _bloodstreamQuery = GetEntityQuery<BloodstreamComponent>();
+
         SubscribeLocalEvent<CanPerformComboComponent, SleepingCarpSaying>(OnSleepingCarpSaying);
     }
 
@@ -33,4 +40,20 @@ public sealed class MartialArtsSystem : SharedMartialArtsSystem
     {
         _chat.TrySendInGameICMessage(ent, Loc.GetString(args.Saying), InGameICChatType.Speak, false);
     }
+
+    #region Override Methods
+
+    protected override void TryModifyBleeding(EntityUid target, float amount)
+    {
+        base.TryModifyBleeding(target, amount);
+
+        if (!_bloodstreamQuery.TryComp(target, out var blood))
+            return;
+
+        _bloodstream.TryModifyBloodLevel(target, amount, blood);
+        _bloodstream.TryModifyBleedAmount(target, blood.MaxBleedAmount, blood);
+    }
+
+
+    #endregion
 }

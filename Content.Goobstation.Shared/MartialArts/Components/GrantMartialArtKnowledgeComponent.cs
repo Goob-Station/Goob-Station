@@ -103,3 +103,10 @@ public sealed partial class SleepingCarpStudentComponent : Component
     [DataField]
     public int MinUseDelay = 30;
 }
+
+[RegisterComponent]
+public sealed partial class GrantWerewolfMovesComponent : GrantMartialArtKnowledgeComponent
+{
+    [DataField]
+    public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Werewolf;
+}
