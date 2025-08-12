@@ -24,6 +24,10 @@
             "directions": 1
         },
         {
+            "name": "north",
+            "directions": 1
+        },
+        {
             "name": "fullRight",
             "directions": 1
         },

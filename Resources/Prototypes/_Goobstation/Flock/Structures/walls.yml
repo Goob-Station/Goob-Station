@@ -161,6 +161,15 @@
 
 - type: entity
   parent: WallFlockBase
+  id: northWallFlock
+  suffix: "north"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: north
+
+- type: entity
+  parent: WallFlockBase
   id: middleFullWallFlock
   suffix: "middleFull"
   components:
