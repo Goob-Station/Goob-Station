@@ -20,9 +20,7 @@ entities:
       name: map 2215
     - type: Transform
     - type: Map
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
