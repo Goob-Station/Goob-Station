@@ -22,6 +22,7 @@ using Content.Shared.Implants;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary; // GoobStation
 using Content.Shared.Revolutionary.Components;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Mindshield;
