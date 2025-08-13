@@ -869,7 +869,7 @@ LightTree06: LightTree
 
 # 2024-12-22 # Lavaland Change: Migrations
 VendingMachineRestockSalvageEquipment: null
-ComputerSalvageExpedition: ComputerShuttleMiningLavaland
+#ComputerSalvageExpedition: ComputerShuttleMiningLavaland
 SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard
 
 # 2025-01-06
