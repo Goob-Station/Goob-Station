@@ -7,9 +7,9 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: _CorvaxGoob/Clothing/Mask/securitymedicalrespirator.rsi
+    sprite: _CorvaxGoob/Clothing/Masks/securitymedicalrespirator.rsi
   - type: Clothing
-    sprite: _CorvaxGoob/Clothing/Mask/securitymedicalrespirator.rsi
+    sprite: _CorvaxGoob/Clothing/Masks/securitymedicalrespirator.rsi
   - type: Armor
     modifiers:
       coefficients:

@@ -199,7 +199,7 @@
        #Corvax-Goob-brigmedic-loadout-update-start
       - id: BoxBodyBag
       - id: Defibrillator
-      - id: ClothingMaskSecurityMedicalRespirator 
+      - id: ClothingMaskSecurityMedicalRespirator
        #Corvax-Goob-brigmedic-loadout-update-end
 
 - type: entity
