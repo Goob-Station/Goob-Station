@@ -1,0 +1,17 @@
+- type: loadout
+  id: MusicianEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitMusician
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: MusicianEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmMusician
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman

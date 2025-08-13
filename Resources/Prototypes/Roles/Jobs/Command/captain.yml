@@ -180,7 +180,7 @@
   equipment:
     shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesSunglasses
-    gloves: ClothingHandsGlovesCaptain
+    #gloves: ClothingHandsGlovesCaptain - Goobstation, moved to loadouts
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
   storage:
@@ -188,3 +188,13 @@
     - Flash
     - TelescopicBaton # Goobstation
     # - StationCharter
+
+- type: chameleonOutfit
+  id: CaptainChameleonOutfit
+  job: Captain
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatCapcap
+    eyes: ClothingEyesGlassesCommand
+    mask: ClothingMaskGasCaptain
+    neck: ClothingNeckCloakCap
