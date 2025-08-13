@@ -1,4 +1,5 @@
 using Content.Server._DV.Objectives.Events;
+using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.Popups;
 using Content.Server.Radio.Components;
@@ -26,6 +27,7 @@ public sealed class CosmicFragmentationSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
 
     private ProtoId<RadioChannelPrototype> _cultRadio = "CosmicRadio";
 
@@ -53,6 +55,8 @@ public sealed class CosmicFragmentationSystem : EntitySystem
         comp.CosmicImpositionDuration = CosmicCultComponent.DefaultCosmicImpositionDuration;
         comp.CosmicBlankDuration = CosmicCultComponent.DefaultCosmicBlankDuration;
         comp.CosmicBlankDelay = CosmicCultComponent.DefaultCosmicBlankDelay;
+        _actions.RemoveAction(ent, comp.CosmicFragmentationActionEntity);
+        comp.CosmicFragmentationActionEntity = null;
     }
 
     private void OnCosmicFragmentation(Entity<CosmicCultComponent> ent, ref EventCosmicFragmentation args)

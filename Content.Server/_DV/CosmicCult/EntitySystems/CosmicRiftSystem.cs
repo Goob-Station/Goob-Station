@@ -63,12 +63,6 @@ public sealed class CosmicRiftSystem : EntitySystem
             return;
         }
 
-        if (cultist.WasEmpowered)
-        {
-            _popup.PopupEntity(Loc.GetString("cosmiccult-rift-wasempowered"), args.User, args.User);
-            return;
-        }
-
         args.Handled = true;
         uid.Comp.Occupied = true;
         _popup.PopupEntity(Loc.GetString("cosmiccult-rift-beginabsorb"), args.User, args.User);
@@ -144,7 +138,7 @@ public sealed class CosmicRiftSystem : EntitySystem
         var actionEnt = _actions.AddAction(uid, uid.Comp.CosmicFragmentationAction);
         Spawn(uid.Comp.AbsorbVFX, tgtpos);
         comp.ActionEntities.Add(actionEnt);
-        comp.WasEmpowered = true;
+        comp.CosmicFragmentationActionEntity = actionEnt;
         comp.CosmicEmpowered = true;
         comp.CosmicSiphonQuantity = 2;
         comp.CosmicGlareRange = 10;

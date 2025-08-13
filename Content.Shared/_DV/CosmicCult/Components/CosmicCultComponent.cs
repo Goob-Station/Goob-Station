@@ -147,10 +147,6 @@ public sealed partial class CosmicCultComponent : Component
     /// Wether or not this cultist has been empowered by a Malign Rift.
     /// </summary>
     [DataField, AutoNetworkedField] public bool CosmicEmpowered;
-    /// <summary>
-    /// Wether or not this cultist was previously empowered by a Malign Rift.
-    /// </summary>
-    [DataField, AutoNetworkedField] public bool WasEmpowered;
 
     /// <summary>
     /// Whether or not this cultist needs to respirate.
@@ -175,6 +171,10 @@ public sealed partial class CosmicCultComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype> EntropyAlert = "CosmicEntropy";
+
+    [DataField]
+    public EntityUid? CosmicFragmentationActionEntity;
+
     #endregion
 
     /// <summary>
