@@ -560,6 +560,7 @@
   - type: Tag
     tags:
       - DroneUsable # Goobstation
+      - NoStatModifyingItems # Goobstation - STOP PUTTING JACKBOOTS IN HERE
 
 - type: entity
   parent: VendingMachine
@@ -596,6 +597,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - NoStatModifyingItems # Goobstation - STOP PUTTING JACKBOOTS IN HERE
 
 - type: entity
   parent: VendingMachine
@@ -1555,6 +1557,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - NoStatModifyingItems # Goobstation - STOP PUTTING JACKBOOTS IN HERE
 
 - type: entity
   parent: VendingMachine

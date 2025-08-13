@@ -315,7 +315,7 @@
     node: boots
 
 - type: entity
-  parent: ClothingShoesMilitaryBase
+  parent: ClothingShoesBase # Goobstation - Either these stay in the autodrobe, or they lose stats. You don't get both.
   id: ClothingShoesBootsCowboyBrown
   name: brown cowboy boots
   description: They got spurs that jingle and/or jangle.
