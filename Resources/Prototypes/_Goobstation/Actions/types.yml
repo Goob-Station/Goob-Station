@@ -91,10 +91,10 @@
 - type: entity
   id: ActionDashGeneric
   name: Dash
+  parent: ActionDashMoth
   description: Dash forward.
-  categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
     checkCanAccess: false
     range: 0
     useDelay: 6.5
@@ -104,7 +104,6 @@
       path: /Audio/Effects/thudswoosh.ogg
       params:
         volume: 6.5
-    event: !type:DashActionEvent
 
 - type: entity
   parent: BaseAction
