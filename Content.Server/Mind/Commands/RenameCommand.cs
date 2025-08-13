@@ -21,7 +21,6 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration;
-using Content.Shared.Access.Components;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Robust.Server.Player;
@@ -80,5 +79,13 @@ public sealed class RenameCommand : LocalizedEntityCommands
 
         entityUid = EntityUid.Invalid;
         return false;
+    }
+
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        if (args.Length == 1)
+            return CompletionResult.FromOptions(CompletionHelper.SessionNames());
+
+        return CompletionResult.Empty;
     }
 }
