@@ -330,6 +330,10 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: 0,-7
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
   - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
@@ -373,6 +377,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    storedOffset: 0,-5
   - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
     - Oni
@@ -403,6 +409,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    storedOffset: 0,-4
   - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
     - Oni
@@ -430,6 +438,10 @@
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/tesla_gun.rsi
     layers:
@@ -454,11 +466,13 @@
   - type: Appearance
 
 - type: entity
-  name: practice laser carbine # Goobstation
+  name: practice laser carbine
   parent: [BaseWeaponBattery, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
-  description: A modified laser carbine that fires nearly harmless beams in the 40-watt range, for target practice or training scenarios. # Goobstation
+  description: This modified laser carbine fires nearly harmless beams in the 40-watt range, for target practice.
   components:
+  - type: Item
+    size: Large
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
     layers:
@@ -490,39 +504,21 @@
 
 
 - type: entity
-  name: laser carbine # Goobstation
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  name: laser carbine
+  parent: [WeaponLaserCarbinePractice, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
   description: An ergonomic and light laser weapon favored by NanoTrasen security teams because of its low capacity for structural damage. # Goobstation
   components:
   - type: StaticPrice
     price: 420
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-  - type: Gun
-    fireRate: 4 # Goobstation
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 50 # Goobstation
-  - type: Item
-    size: Large
-
+  - type: Gun # Goobstation
+    fireRate: 4 # <- its for this
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
 
 - type: entity
   name: pulse pistol
@@ -538,6 +534,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    storedOffset: -2,-5
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -567,6 +565,8 @@
   id: WeaponPulseCarbine
   description: A state-of-the-art laser carbine that fires a rapidly pulsing beam. Cheaper than its advanced counterpart, though lacks the ability to self-recharge. # Goobstation
   components:
+  - type: Item
+    size: Large
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
     layers:
@@ -624,6 +624,10 @@
   id: WeaponPulseRifle
   description: A weapon almost as infamous as its users. # Goobstation - Sometimes less is more.
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
     layers:
@@ -678,6 +682,10 @@
   id: WeaponLaserCannon
   description: A heavy and advanced laser weapon that trades out the capacity of a carbine for greatly increased power. Known to inflict third-degree burns straight through bulletproof armor.
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
     layers:
@@ -754,6 +762,10 @@
   id: WeaponXrayCannon
   description: An experimental laser weapon that fires a dense x-ray beam. Leaves intense radiation burns.
   components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/xray.rsi
     layers:
@@ -805,6 +817,8 @@
     - state: mag-unshaded-0
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    storedOffset: -1,-5
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
     quickEquip: false
@@ -877,6 +891,8 @@
   components:
   - type: Item
     size: Large
+    shape:
+    - 0,0,2,1
   - type: Tag
     tags:
       - Taser
@@ -972,6 +988,10 @@
   id: WeaponAntiqueLaser
   description: A premium laser pistol from another age, customised with a mahogany grip and sleek chrome filigree. The chamber glows with menacing spikes of energy. There are clown and captain stick figures scratched into the side plate. The clown is dead. The captain is striking a heroic pose. # Goobstation
   components:
+  #- type: Item # Goob we want the L shaped gun
+    #size: Normal
+    #shape:
+    #- 0,0,1,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
     layers:
@@ -1017,7 +1037,9 @@
   description: An experimental laser pistol fitted with a self-charging nuclear battery. # Goobstation
   components:
   - type: Item
-    # size: Normal  # Intentionally larger than other pistols # Goobstation - no fuck you
+    #size: Normal # Goob we want the L shaped size
+    #shape:
+    #- 0,0,1,1
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
     layers:
@@ -1067,6 +1089,8 @@
       visible: false
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: Item
+    storedOffset: 0,-6
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
