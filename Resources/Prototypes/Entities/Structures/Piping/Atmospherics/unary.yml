@@ -146,7 +146,7 @@
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
+          state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_off
           map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
@@ -198,7 +198,7 @@
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
+          state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_passive
           map: [ "enum.SubfloorLayers.FirstLayer" ]
@@ -253,7 +253,7 @@
       noRot: true
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
-          state: pipeHalf
+          state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: scrub_off
           map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
@@ -300,7 +300,7 @@
       drawdepth: FloorObjects
       sprite: Structures/Piping/Atmospherics/outletinjector.rsi
       layers:
-        - state: pipeHalf
+        - state: pipeUnaryConnectors
           sprite: Structures/Piping/Atmospherics/pipe.rsi
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: injector
@@ -309,6 +309,7 @@
           shader: unshaded
           map: [ "enum.LightLayers.Unshaded" ]
           color: "#990000"
+    - type: Appearance
     - type: GenericVisualizer
       visuals:
        # toggle color of the unshaded light:
@@ -316,7 +317,6 @@
          enum.LightLayers.Unshaded:
            True: { color: "#5eff5e" }
            False: { color: "#990000" }
-    - type: Appearance
     - type: PipeColorVisuals
     - type: GasOutletInjector
     - type: Construction
@@ -356,6 +356,12 @@
     - type: Rotatable
     - type: GasThermoMachine
     - type: AtmosPipeColor
+    - type: AtmosPipeLayers
+      spriteLayersRsiPaths:
+        enum.PipeVisualLayers.Pipe:
+          Primary: Structures/Piping/Atmospherics/thermomachine.rsi
+          Secondary: Structures/Piping/Atmospherics/thermomachine_alt1.rsi
+          Tertiary: Structures/Piping/Atmospherics/thermomachine_alt2.rsi
     - type: AtmosDevice
     - type: UserInterface
       interfaces:
@@ -366,8 +372,7 @@
       key: enum.ThermomachineUiKey.Key
     - type: WiresPanel
     - type: WiresVisuals
-  # Goobstation - Allow device-on-pipe stacking
-  # - type: PipeRestrictOverlap
+    - type: PipeRestrictOverlap
     - type: NodeContainer
       nodes:
         pipe:
@@ -534,6 +539,7 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
     - state: trans
+  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
@@ -543,14 +549,18 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 7
     fillBaseName: fill-
-  - type: Appearance
   - type: PipeColorVisuals
   - type: Rotatable
   - type: GasCondenser
   - type: AtmosPipeColor
+  - type: AtmosPipeLayers
+    spriteLayersRsiPaths:
+      enum.PipeVisualLayers.Pipe:
+        Primary: Structures/Piping/Atmospherics/condenser.rsi
+        Secondary: Structures/Piping/Atmospherics/condenser_alt1.rsi
+        Tertiary: Structures/Piping/Atmospherics/condenser_alt2.rsi
   - type: AtmosDevice
-  # Goobstation - Allow device-on-pipe stacking
-  # - type: PipeRestrictOverlap
+  - type: PipeRestrictOverlap
   - type: ApcPowerReceiver
     powerLoad: 10000
   - type: Machine
@@ -600,3 +610,4 @@
   - type: GuideHelp
     guides:
     - GasCondensing
+

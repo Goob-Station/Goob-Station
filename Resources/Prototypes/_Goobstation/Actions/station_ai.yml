@@ -4,16 +4,18 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionOpenCameraWarpMenu
   name: Jump to camera
   description: Quickly jump to a camera on the station for ease of navigation!
   components:
-  - type: InstantAction
+  - type: Action
     checkConsciousness: false
     checkCanInteract: false
     priority: -9
     itemIconStyle: BigAction
-    event: !type:ToggleCameraWarpScreenEvent
     icon:
       sprite: Interface/Actions/actions_ai.rsi
       state: camera_jump
+  - type: InstantAction
+    event: !type:ToggleCameraWarpScreenEvent
