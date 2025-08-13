@@ -13,10 +13,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Objectives.Components;
-using Content.Server.Roles;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Warps;
 using Robust.Shared.Random;
 
