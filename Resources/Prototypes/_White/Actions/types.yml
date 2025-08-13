@@ -5,33 +5,37 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ToggleNightVision
   name: Toggle Night Vision
   description: Toggles night vision.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     priority: -20
     useDelay: 1
     icon:
       sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
       state: icon
+  - type: InstantAction
     event: !type:ToggleNightVisionEvent
 
 - type: entity
+  parent: BaseAction
   id: ToggleThermalVision
   name: Toggle Thermal Vision
   description: Toggles thermal vision.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     priority: -20
     useDelay: 1
     icon:
       sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
       state: icon
+  - type: InstantAction
     event: !type:ToggleThermalVisionEvent
 
 - type: entity
@@ -41,5 +45,5 @@
   description: Activate thermal vision temporarily.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 4
