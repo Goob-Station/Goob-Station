@@ -229,11 +229,6 @@
 
 - type: latheRecipe
   parent: BaseMaintTileRecipe
-  id: FloorTileItemTechmaintDark
-  result: FloorTileItemTechmaintDark
-
-- type: latheRecipe
-  parent: BaseMaintTileRecipe
   id: FloorTileItemSteelMaint
   result: FloorTileItemSteelMaint
 
