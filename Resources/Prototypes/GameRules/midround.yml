@@ -60,6 +60,9 @@
         - CommandStaff
       components:
       - type: Pacified
+      - type: Thieving
+        stripTimeReduction: 2
+        stealthy: true
       mindRoles:
       - MindRoleThief
       briefing:
