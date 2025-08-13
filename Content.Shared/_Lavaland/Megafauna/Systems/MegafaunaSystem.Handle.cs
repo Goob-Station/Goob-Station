@@ -6,6 +6,15 @@ namespace Content.Shared._Lavaland.Megafauna.Systems;
 
 public sealed partial class MegafaunaSystem
 {
+    private void InitializeHandle()
+    {
+        SubscribeLocalEvent<MegafaunaAiComponent, MegafaunaStartupEvent>(OnMegafaunaStartup);
+        SubscribeLocalEvent<MegafaunaAiComponent, MegafaunaShutdownEvent>(OnMegafaunaShutdown);
+        SubscribeLocalEvent<MegafaunaAiComponent, AggressorAddedEvent>(OnAggressorAdded);
+        SubscribeLocalEvent<MegafaunaAiComponent, AggressorRemovedEvent>(OnAggressorRemoved);
+        SubscribeLocalEvent<MegafaunaAiComponent, MobStateChangedEvent>(OnStateChanged);
+    }
+
     private void OnMegafaunaStartup(Entity<MegafaunaAiComponent> ent, ref MegafaunaStartupEvent args)
     {
         var nextAction = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.StartingDelay);
@@ -37,9 +46,10 @@ public sealed partial class MegafaunaSystem
 
     private void OnStateChanged(Entity<MegafaunaAiComponent> ent, ref MobStateChangedEvent args)
     {
-        if (!ent.Comp.Active)
+        if (!ent.Comp.Active
+            || !_mobState.IsDead(ent))
             return;
 
-        ShutdownMegafauna(ent, true);
+        KillMegafauna(ent);
     }
 }

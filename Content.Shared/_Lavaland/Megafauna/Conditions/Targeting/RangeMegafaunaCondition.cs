@@ -4,7 +4,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Shared._Lavaland.Megafauna.Components;
 
 namespace Content.Shared._Lavaland.Megafauna.Conditions;
 
@@ -12,7 +11,7 @@ namespace Content.Shared._Lavaland.Megafauna.Conditions;
 /// Condition that returns true if the target is at specific range from the boss.
 /// Returns false if out of range, or target is null.
 /// </summary>
-public sealed partial class RangeMegafaunaCondition : MegafaunaCondition
+public sealed partial class RangeMegafaunaCondition : MegafaunaTargetCondition
 {
     [DataField]
     public float? MinRange;
@@ -25,14 +24,8 @@ public sealed partial class RangeMegafaunaCondition : MegafaunaCondition
         var entMan = args.EntityManager;
         var transformSys = entMan.System<SharedTransformSystem>();
 
-        if (!entMan.TryGetComponent<MegafaunaTargetingComponent>(args.AiEntity, out var targetingComp)
-            || targetingComp.TargetEntity == null)
-            return false;
-
-        var target = targetingComp.TargetEntity.Value;
-
         var bossPos = transformSys.GetMapCoordinates(args.BossEntity);
-        var targetPos = transformSys.GetMapCoordinates(target);
+        var targetPos = transformSys.GetMapCoordinates(Target);
 
         if (bossPos.MapId != targetPos.MapId)
             return false;

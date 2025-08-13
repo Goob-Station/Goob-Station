@@ -36,7 +36,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-// ReSharper disable EnforceForStatementBraces
 namespace Content.Shared._Lavaland.Hierophant;
 
 public sealed class HierophantSystem : EntitySystem
@@ -124,11 +123,10 @@ public sealed class HierophantSystem : EntitySystem
     private void OnChasersAction(Entity<HierophantMagicComponent> ent, ref HierophantChasersActionEvent args)
     {
         if (args.Handled
-            || _net.IsClient)
+            || _net.IsClient) // No spawn/random prediction
             return;
 
-        var calculator =
-            new MegafaunaCalculationBaseArgs(ent.Owner, null, EntityManager, _protoMan, _random.GetRandom());
+        var calculator = new MegafaunaCalculationBaseArgs(ent.Owner, EntityManager, _protoMan, _random.GetRandom());
 
         var speed = args.SpeedSelector.Get(calculator);
         var steps = args.StepsSelector.GetRounded(calculator);

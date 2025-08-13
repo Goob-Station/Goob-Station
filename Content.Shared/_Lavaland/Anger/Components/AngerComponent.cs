@@ -6,7 +6,7 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Lavaland.Anger;
+namespace Content.Shared._Lavaland.Anger.Components;
 
 /// <summary>
 /// Makes megafauna stronger when it takes more damage.
@@ -24,36 +24,38 @@ public sealed partial class AngerComponent : Component
 
     /// <summary>
     /// Total HP of a boss.
-    /// Gets set to Dead MobThreshold when megafauna
-    /// initializes, and backwards when shutting down.
     /// </summary>
-    [DataField(required: true)]
+    [DataField(required: true), AutoNetworkedField]
     public FixedPoint2 TotalHp = 1;
 
-    [DataField]
-    public float AngerScalingFactor = 1.2f;
-
-    [DataField]
-    public float HealthScalingFactor = 1.15f;
+    /// <summary>
+    /// Minimal amount of anger.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float DefaultMinAnger;
 
     /// <summary>
-    /// If specified, anger will be scaled not just according to scaled BaseTotalHp, but
-    /// instead of BaseTotalHp this value will be used.
-    /// Great to use when you want to balance anger better.
+    /// Soft-cap for anger that can be obtained with low HP.
+    /// Other sources can make it even higher than this value.
     /// </summary>
-    [DataField]
-    public FixedPoint2? HpAgressionLimit;
+    [DataField, AutoNetworkedField]
+    public float DefaultMaxAnger = 1f;
 
-    [DataField]
-    public float AdjustAngerOnAttack = 0.1f;
+    /// <summary>
+    /// Hard-cap for anger, that no matter what cannot be overcome.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float AngerHardcap = 5f;
 
-    [DataField]
+    /// <summary>
+    /// Dynamic minimum anger that can be scaled by other sources.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
     public float MinAnger;
 
     /// <summary>
-    /// The maximum value of anger that always stays the same.
-    /// Prevents some crazy bugs when AI kills the server by spamming with a lot of things with crazy high anger.
+    /// Dynamic maximum anger that can be scaled by other sources.
     /// </summary>
-    [DataField]
-    public float MaxAnger = 2f;
+    [ViewVariables, AutoNetworkedField]
+    public float MaxAnger;
 }

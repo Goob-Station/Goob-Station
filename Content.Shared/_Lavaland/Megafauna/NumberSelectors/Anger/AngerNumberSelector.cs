@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._Lavaland.Anger;
+using Content.Shared._Lavaland.Anger.Systems;
 
 namespace Content.Shared._Lavaland.Megafauna.NumberSelectors;
 
@@ -22,15 +22,7 @@ public sealed partial class AngerNumberSelector : MegafaunaNumberSelector
     {
         var entMan = args.EntityManager;
         var uid = args.BossEntity;
-
-        if (!entMan.TryGetComponent<AngerComponent>(uid, out var angerComp))
-            return Range.X; // Minimal possible value as if anger was 0
-
-        var maxAnger = angerComp.MaxAnger;
-        var anger = angerComp.CurrentAnger;
-        var progress = anger / maxAnger;
-        return Inverse
-            ? Range.Y + (Range.X - Range.Y) * (1f - progress)
-            : Range.X + (Range.Y - Range.X) * progress;
+        var angerSystem = entMan.System<AngerSystem>();
+        return angerSystem.GetAngerScale(uid, Range.X, Range.Y, Inverse);
     }
 }

@@ -40,10 +40,4 @@ public sealed partial class MegafaunaAiComponent : Component
     /// </summary>
     [DataField]
     public float StartingDelay = 0.5f;
-
-    /// <summary>
-    /// Dummy entity that stores information in components across multiple actions.
-    /// </summary>
-    [ViewVariables]
-    public EntityUid? AiEntity;
 }

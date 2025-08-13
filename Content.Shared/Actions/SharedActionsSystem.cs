@@ -387,56 +387,7 @@ public abstract class SharedActionsSystem : EntitySystem
         if (args.SenderSession.AttachedEntity is not { } user)
             return;
 
-        if (!_actionsQuery.TryComp(user, out var component))
-            return;
-
-        var actionEnt = GetEntity(ev.Action);
-
-        if (!TryComp(actionEnt, out MetaDataComponent? metaData))
-            return;
-
-        var name = Name(actionEnt, metaData);
-
-        // Does the user actually have the requested action?
-        if (!component.Actions.Contains(actionEnt))
-        {
-            _adminLogger.Add(LogType.Action,
-                $"{ToPrettyString(user):user} attempted to perform an action that they do not have: {name}.");
-            return;
-        }
-
-        if (GetAction(actionEnt) is not {} action)
-            return;
-
-        DebugTools.Assert(action.Comp.AttachedEntity == user);
-        if (!action.Comp.Enabled)
-            return;
-
-        var curTime = GameTiming.CurTime;
-        if (IsCooldownActive(action, curTime))
-            return;
-
-        // check for action use prevention
-        // TODO: make code below use this event with a dedicated component
-        var attemptEv = new ActionAttemptEvent(user);
-        RaiseLocalEvent(action, ref attemptEv);
-        if (attemptEv.Cancelled)
-            return;
-
-        // Validate request by checking action blockers and the like
-        var provider = action.Comp.Container ?? user;
-        var validateEv = new ActionValidateEvent()
-        {
-            Input = ev,
-            User = user,
-            Provider = provider
-        };
-        RaiseLocalEvent(action, ref validateEv);
-        if (validateEv.Invalid)
-            return;
-
-        // All checks passed. Perform the action!
-        PerformAction((user, component), action);
+        TryPerformAction(user, ev); // Goobstation - port contents of this event to API
     }
 
     private void OnValidate(Entity<ActionComponent> ent, ref ActionValidateEvent args)
@@ -702,6 +653,65 @@ public abstract class SharedActionsSystem : EntitySystem
         var performed = new ActionPerformedEvent(performer);
         RaiseLocalEvent(action, ref performed);
     }
+
+    /// <summary>
+    /// Goobstation
+    /// Performs an action WITH all condition checks.
+    /// </summary>
+    public void TryPerformAction(EntityUid user, RequestPerformActionEvent ev)
+    {
+        if (!_actionsQuery.TryComp(user, out var component))
+            return;
+
+        var actionEnt = GetEntity(ev.Action);
+
+        if (!TryComp(actionEnt, out MetaDataComponent? metaData))
+            return;
+
+        var name = Name(actionEnt, metaData);
+
+        // Does the user actually have the requested action?
+        if (!component.Actions.Contains(actionEnt))
+        {
+            _adminLogger.Add(LogType.Action,
+                $"{ToPrettyString(user):user} attempted to perform an action that they do not have: {name}.");
+            return;
+        }
+
+        if (GetAction(actionEnt) is not {} action)
+            return;
+
+        DebugTools.Assert(action.Comp.AttachedEntity == user);
+        if (!action.Comp.Enabled)
+            return;
+
+        var curTime = GameTiming.CurTime;
+        if (IsCooldownActive(action, curTime))
+            return;
+
+        // check for action use prevention
+        // TODO: make code below use this event with a dedicated component
+        var attemptEv = new ActionAttemptEvent(user);
+        RaiseLocalEvent(action, ref attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+
+        // Validate request by checking action blockers and the like
+        var provider = action.Comp.Container ?? user;
+        var validateEv = new ActionValidateEvent()
+        {
+            Input = ev,
+            User = user,
+            Provider = provider
+        };
+        RaiseLocalEvent(action, ref validateEv);
+        if (validateEv.Invalid)
+            return;
+
+        // All checks passed. Perform the action!
+        PerformAction((user, component), action);
+    }
+
     #endregion
 
     #region AddRemoveActions
