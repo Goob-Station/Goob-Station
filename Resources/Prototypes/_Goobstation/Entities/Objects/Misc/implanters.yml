@@ -209,6 +209,14 @@
   - type: Implanter
     implant: BinaryImplant
 
+- type: entity
+  id: BinaryImplanterNT
+  name: binary decoder implanter
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: BinaryImplant
+
 # Admeme
 
 - type: entity
