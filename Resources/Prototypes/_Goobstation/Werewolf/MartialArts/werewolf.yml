@@ -18,6 +18,7 @@
   - Grab
   - Harm
   - Harm
+  - Disarm
   event: !type:OpenVeinPerformedEvent
     bleedAmount: -50
   damageType: Blunt
@@ -31,8 +32,10 @@
   - Disarm
   - Grab
   event: !type:ViciousTossPerformedEvent
-    #sound:
-    #  path: /Audio/Weapons/genhit3.ogg
+    damageThrow:
+      types:
+        Blunt: 200
+  staminaDamage: 50
 
 - type: combo
   id: Dismemberment
@@ -44,5 +47,3 @@
   - Harm
   - Harm
   event: !type:DismembermentPerformedEvent
-    #sound:
-  #  path: /Audio/Weapons/genhit3.ogg

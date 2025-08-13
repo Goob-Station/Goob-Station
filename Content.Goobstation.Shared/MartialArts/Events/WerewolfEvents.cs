@@ -1,5 +1,7 @@
 using Content.Shared.Damage;
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.MartialArts.Events;
@@ -20,7 +22,18 @@ public sealed partial class OpenVeinPerformedEvent : BaseWerewolfMoveEvent
 };
 
 [Serializable, NetSerializable, DataDefinition]
-public sealed partial class ViciousTossPerformedEvent : BaseWerewolfMoveEvent;
+public sealed partial class ViciousTossPerformedEvent : BaseWerewolfMoveEvent
+{
+    [DataField]
+    public DamageSpecifier DamageThrow;
+
+    [DataField]
+    public float ThrowSpeed = 20;
+};
 
 [Serializable, NetSerializable, DataDefinition]
-public sealed partial class DismembermentPerformedEvent: BaseWerewolfMoveEvent;
+public sealed partial class DismembermentPerformedEvent : BaseWerewolfMoveEvent
+{
+    [DataField]
+    public ProtoId<TagPrototype> Head = "Head";
+};

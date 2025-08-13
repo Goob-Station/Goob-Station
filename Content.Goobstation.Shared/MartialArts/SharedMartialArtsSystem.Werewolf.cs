@@ -1,6 +1,12 @@
+using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
+using Content.Shared.Movement.Pulling.Components;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
@@ -15,6 +21,8 @@ public partial class SharedMartialArtsSystem
 
         // Combos
         SubscribeLocalEvent<CanPerformComboComponent, OpenVeinPerformedEvent>(OnOpenVeinPerformed);
+        SubscribeLocalEvent<CanPerformComboComponent, ViciousTossPerformedEvent>(OnViciousTossPerformed);
+        SubscribeLocalEvent<CanPerformComboComponent, DismembermentPerformedEvent>(OnDismembermentPerformed);
     }
 
     #region Generic Events
@@ -57,6 +65,62 @@ public partial class SharedMartialArtsSystem
         ent.Comp.LastAttacks.Clear();
     }
 
+    private void OnViciousTossPerformed(Entity<CanPerformComboComponent> ent, ref ViciousTossPerformedEvent args)
+    {
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
+            || downed
+            || !TryComp<PullerComponent>(ent, out _)
+            || !TryComp<PullableComponent>(target, out var pullable))
+            return;
+
+        _pulling.TryStopPull(target, pullable, ent.Owner, true);
+        _grabThrowing.Throw(
+            target,
+            ent.Owner,
+            _transform.GetWorldRotation(ent).ToWorldVec(),
+            args.ThrowSpeed,
+            args.DamageThrow);
+
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+
+        ComboPopup(ent.Owner, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
+    }
+
+    private void OnDismembermentPerformed(Entity<CanPerformComboComponent> ent, ref DismembermentPerformedEvent args)
+    {
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
+            || downed
+            || !TryComp<BodyComponent>(target, out var body))
+            return;
+
+        RipLimb(target, body);
+
+        ComboPopup(ent.Owner, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
+    }
+
+    #endregion
+
+    #region Generic Methods
+
+    private void RipLimb(EntityUid target, BodyComponent body)
+    {
+        var hands = _body.GetBodyChildrenOfType(target, BodyPartType.Hand, body).ToList();
+
+        if (hands.Count <= 0)
+            return;
+
+        var pick = _random.Pick(hands);
+
+        if (!TryComp<WoundableComponent>(pick.Id, out var woundable)
+            || !woundable.ParentWoundable.HasValue)
+            return;
+
+        _wounds.AmputateWoundableSafely(woundable.ParentWoundable.Value, pick.Id, woundable);
+    }
     #endregion
 
     #region Server-Side
