@@ -92,8 +92,8 @@
   - type: Sprite
   - type: Item
     size: Huge
-    shape: # Goobstation
-    - 0,0,4,2
+    shape:
+    - 0,0,3,2
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
@@ -281,7 +281,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Gun
-    fireRate: 5
+    fireRate: 5 # Goobstation?
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
   - type: ItemSlots
@@ -309,7 +309,7 @@
       gun_chamber: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
-    steps: 1
+    steps: 1 # Goobstation?
     zeroVisible: true
   - type: Appearance
 
@@ -326,6 +326,9 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+  #- type: Item # Goob
+  #  shape:
+  #  - 0,0,4,2
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
   - type: Gun
@@ -388,7 +391,9 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
   - type: Item
-    sprite: Objects/Weapons/Guns/Rifles/foam_rifle_inhand_64x.rsi
+    sprite: Objects/Fun/Foam/foam_rifle_inhand_64x.rsi
+    shape:
+    - 0,0,3,0
   - type: BallisticAmmoProvider
     whitelist:
       tags:
