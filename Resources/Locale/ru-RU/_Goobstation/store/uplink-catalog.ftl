@@ -96,8 +96,8 @@ uplink-l6-saw-desc = Легендарный лёгкий пулемёт.
 uplink-m90-name = M-90
 uplink-estoc-name = эсток
 uplink-estoc-desc = Штурмовая винтовка с прицелом средней дальности, рассчитана для боя на дистанции.
-uplink-syndicate-disabler-name = syndicate disabler
-uplink-syndicate-disabler-desc = An advanced disabler built from a reverse-engineered Nanotrasen prototype. While it lacks a bit of stopping power, it makes up for it with a recharging cell.
+uplink-syndicate-disabler-name = Станнер синдиката
+uplink-syndicate-disabler-desc = Продвинутый станнер, созданный на основе прототипа Нанотрейзен. Хоть ему и не хватает мощности, это компенсируется самозаряжающейся батареей.
 uplink-m90-desc = Боевая винтовка M-90.
 uplink-dualetta-bundle-name = Комплект Дуалетта
 uplink-dualetta-bundle-desc = В комплекте 2 пистолета Дуалетта, 2 магазина, перчатки, костюм нуар, тренч детектива и шнурованные ботинки.
@@ -164,10 +164,10 @@ uplink-high-caliber-shotgun-box-sarin-desc = 16 патронов 8 калибр�
 # Grenades
 
 uplink-sarin-gas-grenade-name = Граната с газом зарин
-uplink-M172LAW-name = M172 Light Anti-structure Weapon
-uplink-M172LAW-desc = A single shot disposable rocket launcher for taking out singular walls/machines with minimal collateral damage. can be stored in your backpack conveniently.
-uplink-RPOA-name = RPO-A 'Shmel'
-uplink-RPOA-desc = A single shot disposable thermobaric rocket launcher, which lights hostiles and hostages on fire in a wide radius. can be stored in your backpack.
+uplink-M172LAW-name = M172 LAW
+uplink-M172LAW-desc = Одноразовый 84-мм лёгкий противоструктурный гранатомёт для точечного уничтожения объектов с минимальными сопутствующими разрушениями. Складывается для удобного хранения. НЕ ПЫТАЙТЕСЬ ИЗВЛЕЧЬ РАКЕТУ ИЗ ТРУБЫ.
+uplink-RPOA-name = РПО-А "Шмель"
+uplink-RPOA-desc = Одноразовый 93-мм термобарический противопехотный гранатомёт, классифицируемый производителем как огнемёт. Складывается для удобного хранения.
 uplink-sarin-gas-grenade-desc = Жестокий нейротоксин, который оглушает, ослепляет и отравляет всех, кто вдохнёт газ, а также обжигает тех, кто без скафандра, оставляя их корчиться в агонии и умолять об облегчении.
 
 # Mechs
@@ -182,16 +182,16 @@ uplink-mech-teleporter-assault-desc = Содержит лёгкий бронир
 uplink-lollypop-bundle-name = Коробка леденцов Donk Co.
 uplink-lollypop-bundle-desc = Содержит 9 случайных леденцов. Что они могут содержать?
 uplink-lollypop-bundle-big-name = Набор конфет Donk Co.
-uplink-medical-beam-gun-name = Medical Beam Gun
-uplink-medical-beam-gun-desc = Heal your teammates with this new device! Runs on internal battery, and automatically recharges after discharging. You can heal only one teammate at once.
+uplink-medical-beam-gun-name = Лечебная пушка
+uplink-medical-beam-gun-desc = Лечите своих товарищей при помощи этого нового устройства! Работает от внутренней батареи и автоматически перезаряжается после разрядки. Можно лечить только одного товарища за раз.
 uplink-lollypop-bundle-big-desc = Содержит огромное количество конфет. Что они могут содержать?
 uplink-advanced-combat-medipen-name = Продвинутый боевой медипен
 uplink-advanced-combat-medipen-desc = Одноразовый медипен с химикатами, которые быстро лечат большинство повреждений, полученных в бою.
 uplink-syringe-pistol-name = Пистолет-шприц
-uplink-combat-medkit-pills-name = Combat Medical Kit (Pills)
-uplink-combat-medkit-pills-desc = Contains most medicines you need to recover from injuries and illnesses, all in a convenient pill form.
-uplink-combat-medkit-ipc-name = Combat Medical Kit (IPC)
-uplink-combat-medkit-ipc-desc = Contains everything you need to heal an IPC; includes LV wire, industrial welder, a high capacity cell and meson goggles.
+uplink-combat-medkit-pills-name = Боевая аптечка (Таблетки)
+uplink-combat-medkit-pills-desc = Содержит большинство лекарств, необходимых для восстановления после травм и болезней, всё в удобной форме таблеток.
+uplink-combat-medkit-ipc-name = Боевая аптечка (КПБ)
+uplink-combat-medkit-ipc-desc = Содержит всё необходимое для лечения КПБ; включает ВВ провод, промышленную сварку, аккумулятор высокой ёмкости и инженерные очки.
 uplink-syringe-pistol-desc = Оружие, использующее шприцы в качестве боеприпасов и вводящее их содержимое жертвам. Вводит быстрее обычных шприцевых пушек и помещается в карман.
 
 # Implants
@@ -201,15 +201,15 @@ uplink-smoke-implant-desc = Выпускает облако дыма при ак
 uplink-nutriment-implant-name = Имплантат подачи питательных веществ
 uplink-nutriment-implant-desc = Устраняет необходимость в приёме пищи и напитков.
 uplink-jaunter-implanter-name = Имплантатор Джонтер
-uplink-binary-implant-name = Binary Decoder Implanter
-uplink-binary-implant-desc = Lets the user tap into the silicons' binary channel. Talking on it is ill-advised though, at least until the AI goes malf.
-uplink-autosurgeon-right-mantis-blade-name = Right Mantis Blade Autosurgeon
-uplink-autosurgeon-left-mantis-blade-name = Left Mantis Blade Autosurgeon
-uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Mantis Blade cyberware extending from it at will, works best when paired. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
-uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
-uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan, a synthetic organ that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
-uplink-davids-jacket-name = Edgerunner Jacket
-uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.
+uplink-binary-implant-name = Имплантер бинарный декодер
+uplink-binary-implant-desc = Позволяет пользователю подключиться к бинарному каналу. Однако говорить в нём не рекомендуется, по крайней мере, пока ИИ не выйдет из-под контроля.
+uplink-autosurgeon-right-mantis-blade-name = Автооперация (правые клинки богомола)
+uplink-autosurgeon-left-mantis-blade-name = Автооперация (левые клинки богомола)
+uplink-autosurgeon-mantis-blade-desc = Модифицирует руку пользователя, добавляя в неё имплант "Клинок богомола", выдвигающийся по желанию. Лучше работает в паре. Требует слишком тонкой настройки, чтобы человек мог её выполнить, поэтому поставляется с одноразовой автооперацией для установки.
+uplink-autosurgeon-sandevistan-name = Автооперация (сандевистан)
+uplink-autosurgeon-sandevistan-desc = Заменяет сердце пользователя на сандевистан — синтетический орган, который значительно увеличивает скорость пользователя ценой его выносливости. Требует слишком тонкой настройки, чтобы человек мог её выполнить, поэтому поставляется с одноразовой автооперацией для установки.
+uplink-davids-jacket-name = Куртка эджраннера
+uplink-davids-jacket-desc = Куртка для тех, кто особенно заинтересован в улучшении своего тела. Например таких как вы.
 uplink-jaunter-implanter-desc = Меняет местами пользователя и цель при активации. Перезаряжается пассивно.
 uplink-krav-maga-implant-name = Имплантатор Крав Мага
 uplink-krav-maga-implant-desc = Позволяет выполнять различные приёмы Крав Мага.
@@ -217,10 +217,10 @@ uplink-krav-maga-implant-desc = Позволяет выполнять разли
 # Wearables
 
 uplink-heat-lamp-name = Обогреватель Cybersun
-uplink-belt-rig-name = Grenadier Belt
-uplink-belt-rig-desc = A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can also store a sidearm and magazines for it.
+uplink-belt-rig-name = РПС гренадера
+uplink-belt-rig-desc = Специализированная разгрузочная поясная система, позволяющая носить столько гранат, что устанете их бросать. Также может хранить пистолет и магазины к нему.
 uplink-heat-lamp-desc = Дизайн Cybersun, часто используется холоднокровными мародёрами Gorlex в осадах. Также эффективен как оружие ближнего боя.
-uplink-helmet-swat-name = Шлем спецназа Syndicate
+uplink-helmet-swat-name = Шлем спецназа синдиката
 uplink-helmet-swat-desc = Надёжный шлем, обеспечивающий хорошую защиту и частично подавляющий звуки светошумовых гранат.
 uplink-reverse-bear-trap-name = Обратная медвежья ловушка
 uplink-reverse-bear-trap-desc = Изощрённое орудие казни, надеваемое на голову. При активации запускает таймер (30-120 секунд), после чего челюсти ловушки распахиваются, мгновенно убивая жертву, разрывая её челюсть. Для активации ударьте им по человеку без головного снаряжения.
@@ -232,8 +232,8 @@ uplink-clothing-explosive-gloves-desc = Перчатки, выглядящие �
 
 # Disruption
 
-uplink-capoeira-name = Capoeira Manual
-uplink-capoeira-desc = A manual that teaches a single user Capoeira before self-destructing. Capoeira focuses on swift attacks that link into flowing combos, with each move faster and harder than the last one, fueled by relentless momentum.
+uplink-capoeira-name = Хореографическое пособие
+uplink-capoeira-desc = Учебник, обучающий одного пользователя капоэйре, после чего самоуничтожается. Капоэйра сосредоточена на быстрых атаках, переходящих в плавные комбо, где каждый следующий удар быстрее и сильнее предыдущего, подпитываемый неуклонным темпом.
 uplink-syndicate-weapon-module-advanced-name = Продвинутый боевой модуль
 uplink-syndicate-weapon-module-advanced-desc = Улучшает киборга, давая ему энергетический меч и пистолет Anaconda.
 
@@ -251,10 +251,10 @@ uplink-dimension-pot-desc = Портал в собственное карман�
 uplink-pizza-bomb-name = Пицца-бомба
 uplink-pizza-bomb-desc = Первоначально разработана террористами, теперь используется синдикатом для устранения высокоприоритетных целей. Не открывайте до взрыва.
 uplink-pizza-party-crate-name = Ящик для пицца-вечеринки
-uplink-tcminer-name = Telecrystal miner
-uplink-tcminer-desc = Contains a flatpack with telecrystal miner, A very loud machine that uses bluespace blockchain technology to generate telecrystals every 10 seconds when powered. Requires 10kW of energy and a connection to the primary station's grid. Multitool not included.
-uplink-bloodred-casette-name = Bloodred Casette Player
-uplink-bloodred-casette-desc = Provided by the most egotistical fashion designers of Cybersun, a portable music player!
+uplink-tcminer-name = Телекристальный майнер
+uplink-tcminer-desc = Содержит плоский комплект для сборки майнера телекристаллов — очень шумной машины, использующей блюспейс-блокчейн-технологию для генерации телекристаллов каждые 10 секунд при наличии питания. Требует 10 кВт энергии и подключения к основной сети станции. Мультитул в комплект не входит.
+uplink-bloodred-casette-name = Плеер Синдиката
+uplink-bloodred-casette-desc = Представленный самыми самовлюблёнными модными дизайнерами Cybersun, портативный музыкальный плеер!
 uplink-pizza-party-crate-desc = Ящик в виде коробки для пиццы, наполненный пиццами и пицца-бомбами для самой взрывной пицца-вечеринки. К сожалению, сложно определить, какая бомба где.
 uplink-undetermined-bundle-name = Неопределённый набор
 uplink-undetermined-bundle-desc = Ящик с тремя случайными наборами, из которых можно выбрать один. Гарантированно содержит ключ шифрования Синдиката.
