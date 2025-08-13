@@ -9,6 +9,8 @@
   - type: Battery
     maxCharge: 360 # same as a small-cap
     startingCharge: 360
+  - type: StaticPrice
+    price: 5
   - type: PhysicalComposition
     materialComposition:
       Plastic: 6
