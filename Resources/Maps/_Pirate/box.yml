@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 08/13/2025 00:23:27
-  entityCount: 29086
+  time: 08/13/2025 00:31:09
+  entityCount: 29088
 maps:
 - 1
 grids:
@@ -12677,7 +12677,7 @@ entities:
       pos: -13.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25181.67
+      secondsUntilStateChange: -25313.865
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14573,7 +14573,7 @@ entities:
       pos: 41.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -125789.89
+      secondsUntilStateChange: -125922.086
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18330,11 +18330,6 @@ entities:
     components:
     - type: Transform
       pos: -2.5,23.5
-      parent: 2
-  - uid: 1041
-    components:
-    - type: Transform
-      pos: -6.5,31.5
       parent: 2
   - uid: 1042
     components:
@@ -72992,6 +72987,11 @@ entities:
     - type: Transform
       pos: 20.572916,-36.34928
       parent: 2
+  - uid: 29088
+    components:
+    - type: Transform
+      pos: -9.255636,30.467669
+      parent: 2
 - proto: ClothingMaskClown
   entities:
   - uid: 11238
@@ -75971,7 +75971,7 @@ entities:
       pos: 28.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -64353.836
+      secondsUntilStateChange: -64486.03
       state: Opening
   - uid: 11643
     components:
@@ -89971,7 +89971,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -199524.44
+      secondsUntilStateChange: -199656.64
       state: Closing
   - uid: 13875
     components:
@@ -90405,7 +90405,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -191272.17
+      secondsUntilStateChange: -191404.38
       state: Closing
   - uid: 13961
     components:
@@ -132434,6 +132434,11 @@ entities:
       parent: 2
 - proto: MedicalBed
   entities:
+  - uid: 1041
+    components:
+    - type: Transform
+      pos: -6.5,31.5
+      parent: 2
   - uid: 19872
     components:
     - type: Transform
@@ -133197,6 +133202,11 @@ entities:
     components:
     - type: Transform
       pos: 54.482033,-24.522997
+      parent: 2
+  - uid: 29087
+    components:
+    - type: Transform
+      pos: -9.552511,30.57712
       parent: 2
 - proto: NTDefaultCircuitBoard
   entities:
