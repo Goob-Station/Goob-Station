@@ -14,20 +14,23 @@ SPDX-License-Identifier: MIT
     <BoxContainer Orientation="Horizontal">
         <!-- Goobstation  start -->
         <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
-            <ui:SurveillanceCameraConsoleNavMapControl Name="NavMap" Margin="5 5" VerticalExpand="True" HorizontalExpand="True" />
-        </BoxContainer>
+            <ui:SurveillanceCameraConsoleNavMapControl Name="NavMap" Margin="5 5 5 5" VerticalExpand="True" HorizontalExpand="True" />
+            <BoxContainer Orientation="Vertical">
+                <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+                    <!-- lazy -->
+                    <OptionButton Name="SubnetSelector" />
+                    <Button Name="SubnetRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-subnets'}" />
+                    <Button Name="CameraRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-cameras'}" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <Label Name="CameraStatus" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal">
+                    <Button Name="CameraDisconnectButton" Text="{Loc 'surveillance-camera-monitor-ui-disconnect'}" />
+                </BoxContainer>
+                </BoxContainer>
+            </BoxContainer>
         <!-- Goobstation  end -->
-        <BoxContainer Orientation="Vertical" MinWidth="350" VerticalExpand="True">
-            <!-- lazy -->
-            <OptionButton Name="SubnetSelector" />
-            <Button Name="SubnetRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-subnets'}" />
-            <ScrollContainer VerticalExpand="True">
-                <ItemList Name="SubnetList" />
-            </ScrollContainer>
-            <Button Name="CameraRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-cameras'}" />
-            <Button Name="CameraDisconnectButton" Text="{Loc 'surveillance-camera-monitor-ui-disconnect'}" />
-            <Label Name="CameraStatus" />
-        </BoxContainer>
         <Control VerticalExpand="True" HorizontalExpand="True" Margin="5 5 5 5" Name="CameraViewBox">
             <viewport:ScalingViewport Name="CameraView"
                                       VerticalExpand="True"

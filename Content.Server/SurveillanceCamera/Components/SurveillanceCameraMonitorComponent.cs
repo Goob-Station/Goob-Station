@@ -7,6 +7,8 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Robust.Shared.Map; // Goobstation
+
 namespace Content.Server.SurveillanceCamera;
 
 [RegisterComponent]
@@ -50,4 +52,10 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
     [ViewVariables]
     // The subnets known by this camera monitor.
     public Dictionary<string, string> KnownSubnets { get; } = new();
+
+    // Goobstation Start
+    // Camera NetEntities for the NavMap
+    [ViewVariables]
+    public List<(NetEntity, NetCoordinates)> KnownCamerasEntities { get; } = new();
+    // Goobstation End
 }

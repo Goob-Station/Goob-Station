@@ -5,7 +5,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Client.Pinpointer.UI; // Goobstation
 using Content.Client.Resources;
 using Content.Client.UserInterface.Controls; // Goobstation
@@ -20,6 +19,7 @@ using Robust.Shared.Graphics;
 using Robust.Shared.Map; // Goobstation
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility; // Goobstation
+using System.Linq;
 
 namespace Content.Client.SurveillanceCamera.UI;
 
@@ -31,6 +31,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     [Dependency] private IEntityManager _entManager = default!; // Goobstation
 
     public event Action<string>? CameraSelected;
+    public event Action<NetEntity>? CameraSelectedNavMap; // Goobstation
     public event Action<string>? SubnetOpened;
     public event Action? CameraRefresh;
     public event Action? SubnetRefresh;
@@ -74,16 +75,18 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         CameraViewBackground.Texture = texture;
         CameraViewBackground.ShaderOverride = shader;
 
-        SubnetList.OnItemSelected += OnSubnetListSelect;
-
         // Set trackable entity selected action - Camera Selection
         NavMap.TrackedEntitySelectedAction += SetTrackedEntityFromNavMap; // Goobstation
 
+        // Goobstation start
         SubnetSelector.OnItemSelected += args =>
         {
             // piss
             SubnetOpened!((string) args.Button.GetItemMetadata(args.Id)!);
         };
+        // Goobstation edit - no longer want to be selecting subnet, all cameras available to the monitor should be visible
+
+        // Goobstation end
         SubnetRefreshButton.OnPressed += _ => SubnetRefresh!();
         CameraRefreshButton.OnPressed += _ => CameraRefresh!();
         CameraDisconnectButton.OnPressed += _ => CameraDisconnect!();
@@ -93,12 +96,10 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     // need to translate entity to string and then call the same method the list does
     private void SetTrackedEntityFromNavMap(NetEntity? netEntity)
     {
-        if (netEntity == null)
+        if (!netEntity.HasValue)
             return;
 
-        // do whatever it is needed to figure out the camera
-
-        //CameraSelected!((string) SubnetList[args.ItemIndex].Metadata!);
+        CameraSelectedNavMap!(netEntity.Value);
     }
 
     public EntityUid Entity;
@@ -137,8 +138,9 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
 
     // Add a particular camera
-    private void AddTrackedEntityToNavMap(NetEntity ent, EntityCoordinates coords, string cameraName)
+    private void AddTrackedEntityToNavMap(NetEntity ent, NetCoordinates coordinates)
     {
+        var coords = _entManager.GetCoordinates(coordinates);
         var texture = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_square.png"));
         var color = Color.Yellow;
         var blink = false;
@@ -152,7 +154,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
     // The UI class should get the eye from the entity, and then
     // pass it here so that the UI can change its view.
-    public void UpdateState(IEye? eye, HashSet<string> subnets, string activeAddress, string activeSubnet, Dictionary<string, string> cameras)
+    public void UpdateState(IEye? eye, HashSet<string> subnets, string activeAddress, string activeSubnet, Dictionary<string, string> cameras, List<(NetEntity, NetCoordinates)> camerasByEntity) // Goobstation
     {
         _currentAddress = activeAddress;
         SetCameraView(eye);
@@ -196,17 +198,13 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
             SubnetSelector.Select(subnetId);
         }
 
-        PopulateCameraList(cameras);
-    }
-
-    private void PopulateCameraList(Dictionary<string, string> cameras)
-    {
-        var entries = cameras.Select(i => new ItemList.Item(SubnetList) {
-            Text = $"{i.Value}: {i.Key}",
-            Metadata = i.Key
-        }).ToList();
-        entries.Sort((a, b) => string.Compare(a.Text, b.Text, StringComparison.Ordinal));
-        SubnetList.SetItems(entries, (a,b) => string.Compare(a.Text, b.Text));
+        // Goobstation Start
+        NavMap.TrackedEntities.Clear();
+        foreach (var (ent, coordinates) in camerasByEntity)
+        {
+            AddTrackedEntityToNavMap(ent, coordinates);
+        }
+        // Goobstation End
     }
 
     private void SetCameraView(IEye? eye)
@@ -259,10 +257,5 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         SubnetSelector.SetItemMetadata(SubnetSelector.ItemCount - 1, subnet);
 
         return SubnetSelector.ItemCount - 1;
-    }
-
-    private void OnSubnetListSelect(ItemList.ItemListSelectedEventArgs args)
-    {
-        CameraSelected!((string) SubnetList[args.ItemIndex].Metadata!);
     }
 }

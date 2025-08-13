@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Robust.Shared.Map; // Goobstation
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.SurveillanceCamera;
@@ -29,13 +30,17 @@ public sealed class SurveillanceCameraMonitorUiState : BoundUserInterfaceState
     // Known cameras, by address and name.
     public Dictionary<string, string> Cameras { get; }
 
-    public SurveillanceCameraMonitorUiState(NetEntity? activeCamera, HashSet<string> subnets, string activeAddress, string activeSubnet, Dictionary<string, string> cameras)
+    public List<(NetEntity, NetCoordinates)> CamerasByEntity { get; } // Goobstation
+
+    public SurveillanceCameraMonitorUiState(NetEntity? activeCamera, HashSet<string> subnets, string activeAddress,
+        string activeSubnet, Dictionary<string, string> cameras, List<(NetEntity, NetCoordinates)> camerasByEntity) // Goobstation
     {
         ActiveCamera = activeCamera;
         Subnets = subnets;
         ActiveAddress = activeAddress;
         ActiveSubnet = activeSubnet;
         Cameras = cameras;
+        CamerasByEntity = camerasByEntity; // Goobstation
     }
 }
 
@@ -49,6 +54,19 @@ public sealed class SurveillanceCameraMonitorSwitchMessage : BoundUserInterfaceM
         Address = address;
     }
 }
+
+// Goobstation Start
+[Serializable, NetSerializable]
+public sealed class SurveillanceCameraMonitorNavMapSwitchMessage : BoundUserInterfaceMessage
+{
+    public NetEntity NetEntity { get; }
+
+    public SurveillanceCameraMonitorNavMapSwitchMessage(NetEntity ent)
+    {
+        NetEntity = ent;
+    }
+}
+// Goobstation End
 
 [Serializable, NetSerializable]
 public sealed class SurveillanceCameraMonitorSubnetRequestMessage : BoundUserInterfaceMessage
