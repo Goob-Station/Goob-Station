@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 08/12/2025 23:16:25
-  entityCount: 29080
+  time: 08/13/2025 00:23:27
+  entityCount: 29086
 maps:
 - 1
 grids:
@@ -12677,7 +12677,7 @@ entities:
       pos: -13.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -24924.28
+      secondsUntilStateChange: -25181.67
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14573,7 +14573,7 @@ entities:
       pos: 41.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -125532.5
+      secondsUntilStateChange: -125789.89
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17977,7 +17977,7 @@ entities:
   - uid: 979
     components:
     - type: Transform
-      pos: 63.5,-7.5
+      pos: 62.506294,-7.4618998
       parent: 2
 - proto: BananaPhoneInstrument
   entities:
@@ -72739,7 +72739,12 @@ entities:
   - uid: 11196
     components:
     - type: Transform
-      pos: -6.591975,45.713867
+      pos: -7.6675434,45.40586
+      parent: 2
+  - uid: 19917
+    components:
+    - type: Transform
+      pos: -5.4644184,45.40586
       parent: 2
 - proto: ClothingHeadHatCowboyRed
   entities:
@@ -74003,13 +74008,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 42.5,-19.5
       parent: 2
-- proto: ComputerBroken
-  entities:
-  - uid: 11407
-    components:
-    - type: Transform
-      pos: -26.5,-36.5
-      parent: 2
 - proto: ComputerCargoBounty
   entities:
   - uid: 11409
@@ -74150,6 +74148,13 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-29.5
+      parent: 2
+- proto: ComputerFrame
+  entities:
+  - uid: 20106
+    components:
+    - type: Transform
+      pos: -26.5,-36.5
       parent: 2
 - proto: ComputerId
   entities:
@@ -74485,10 +74490,10 @@ entities:
       parent: 2
 - proto: ConstructionBarricade
   entities:
-  - uid: 11485
+  - uid: 11407
     components:
     - type: Transform
-      pos: -7.5,45.5
+      pos: -6.5,45.5
       parent: 2
 - proto: ContainmentFieldGenerator
   entities:
@@ -75966,7 +75971,7 @@ entities:
       pos: 28.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -64096.445
+      secondsUntilStateChange: -64353.836
       state: Opening
   - uid: 11643
     components:
@@ -89966,7 +89971,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -199267.05
+      secondsUntilStateChange: -199524.44
       state: Closing
   - uid: 13875
     components:
@@ -90400,7 +90405,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -191014.78
+      secondsUntilStateChange: -191272.17
       state: Closing
   - uid: 13961
     components:
@@ -132680,6 +132685,11 @@ entities:
       parent: 2
 - proto: MopBucketFull
   entities:
+  - uid: 11485
+    components:
+    - type: Transform
+      pos: 10.5,23.5
+      parent: 2
   - uid: 19914
     components:
     - type: Transform
@@ -132697,17 +132707,17 @@ entities:
       parent: 2
     - type: Pullable
       prevFixedRotation: True
-  - uid: 19917
+  - uid: 23546
     components:
     - type: Transform
-      pos: -13.5,42.5
+      pos: -14.5,40.5
       parent: 2
 - proto: MopItem
   entities:
   - uid: 19918
     components:
     - type: Transform
-      pos: -13.416729,42.36579
+      pos: -14.563323,40.6047
       parent: 2
   - uid: 19919
     components:
@@ -132748,6 +132758,11 @@ entities:
     components:
     - type: Transform
       pos: 5.5582485,-36.455353
+      parent: 2
+  - uid: 29083
+    components:
+    - type: Transform
+      pos: 10.489876,23.512457
       parent: 2
 - proto: Morgue
   entities:
@@ -133235,6 +133250,13 @@ entities:
     components:
     - type: Transform
       pos: 53.5,-22.5
+      parent: 2
+- proto: OracleSpawner
+  entities:
+  - uid: 29081
+    components:
+    - type: Transform
+      pos: 67.5,-3.5
       parent: 2
 - proto: OreProcessor
   entities:
@@ -134053,13 +134075,6 @@ entities:
              призведе до розгерметизації приміщення.
         [color=#1b487e]▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰[/color]
                                     ⠀          [italic]Місце для печаток[/italic]
-  - uid: 20106
-    components:
-    - type: Transform
-      pos: -25.484888,-36.54078
-      parent: 2
-    - type: Paper
-      content: Забіг якийсь мудак і зламав консолі. Покличте інженера.
   - uid: 20107
     components:
     - type: Transform
@@ -134095,7 +134110,7 @@ entities:
   - uid: 20113
     components:
     - type: Transform
-      pos: -7.519591,45.46369
+      pos: -6.4956684,45.452766
       parent: 2
     - type: Paper
       content: Вихід в космос був забудованний з зв'язку з будівницством доку для шатла Служби Безпеки
@@ -140397,6 +140412,28 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-14.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - uid: 29085
+    components:
+    - type: Transform
+      pos: -3.5,-14.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - uid: 29086
+    components:
+    - type: Transform
+      pos: 63.5,-7.5
       parent: 2
     - type: TechnologyDatabase
       supportedDisciplines:
@@ -153122,6 +153159,13 @@ entities:
       parent: 13589
     - type: Physics
       canCollide: False
+- proto: SophicScribeSpawner
+  entities:
+  - uid: 29082
+    components:
+    - type: Transform
+      pos: 71.5,-3.5
+      parent: 2
 - proto: SpaceVillainArcadeComputerCircuitboard
   entities:
   - uid: 23282
@@ -154648,12 +154692,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 81.5,-1.5
-      parent: 2
-  - uid: 23546
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 10.5,23.5
       parent: 2
   - uid: 23547
     components:
@@ -161302,12 +161340,12 @@ entities:
   - uid: 24597
     components:
     - type: Transform
-      pos: -13.218813,42.230278
+      pos: -14.3055105,40.370163
       parent: 2
   - uid: 24598
     components:
     - type: Transform
-      pos: -13.375063,42.15731
+      pos: -14.188323,40.463974
       parent: 2
   - uid: 24599
     components:
@@ -161343,6 +161381,11 @@ entities:
     components:
     - type: Transform
       pos: 2.6832485,-34.158478
+      parent: 2
+  - uid: 29084
+    components:
+    - type: Transform
+      pos: 10.818001,23.442097
       parent: 2
 - proto: TrashBagBlue
   entities:
