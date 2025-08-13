@@ -95,8 +95,6 @@
   description: Dash forward.
   components:
   - type: Action
-    checkCanAccess: false
-    range: 0
     useDelay: 6.5
     icon: { sprite: _Goobstation/Actions/dash.rsi, state: icon }
     itemIconStyle: NoItem
