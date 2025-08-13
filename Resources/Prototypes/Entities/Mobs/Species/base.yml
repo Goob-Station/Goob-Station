@@ -482,6 +482,15 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: LayingDown # WD EDIT
+  - type: EmoteOnDamage # CorvaxGoob-AutoEmote
+    emotes:
+      20: ["Scream"] # >80 of alive HP. Scream only
+      60: ["Scream", "Crying"] # Precrit. Crying and scream
+    emoteChance: 0.6
+    withChat: true
+    hiddenFromChatWindow: true
+    emoteCooldown: 8
+
   - type: Targeting # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
   - type: Consciousness
