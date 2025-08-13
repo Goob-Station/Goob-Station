@@ -31,7 +31,6 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     [Dependency] private IEntityManager _entManager = default!; // Goobstation
 
     public event Action<string>? CameraSelected;
-    public event Action<NetEntity>? CameraSelectedNavMap; // Goobstation
     public event Action<string>? SubnetOpened;
     public event Action? CameraRefresh;
     public event Action? SubnetRefresh;
@@ -43,6 +42,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     private readonly FixedEye _defaultEye = new();
     private readonly Dictionary<string, int> _subnetMap = new();
     private readonly SpriteSystem _spriteSystem; // Goobstation
+    private readonly Dictionary<NetEntity, string> _reverseCameras = new(); // Goobstation
 
     private string? SelectedSubnet
     {
@@ -78,19 +78,17 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         // Set trackable entity selected action - Camera Selection
         NavMap.TrackedEntitySelectedAction += SetTrackedEntityFromNavMap; // Goobstation
 
-        // Goobstation start
         SubnetSelector.OnItemSelected += args =>
         {
             // piss
             SubnetOpened!((string) args.Button.GetItemMetadata(args.Id)!);
         };
-        // Goobstation edit - no longer want to be selecting subnet, all cameras available to the monitor should be visible
 
-        // Goobstation end
         SubnetRefreshButton.OnPressed += _ => SubnetRefresh!();
         CameraRefreshButton.OnPressed += _ => CameraRefresh!();
         CameraDisconnectButton.OnPressed += _ => CameraDisconnect!();
     }
+
     // Goobstation start
     // 
     // need to translate entity to string and then call the same method the list does
@@ -99,7 +97,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         if (!netEntity.HasValue)
             return;
 
-        CameraSelectedNavMap!(netEntity.Value);
+        CameraSelected!(_reverseCameras[netEntity.Value]);
     }
 
     public EntityUid Entity;
@@ -126,23 +124,23 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
             var msg = new FormattedMessage();
             msg.AddMarkupOrThrow(Loc.GetString("power-monitoring-window-station-name", ("stationName", stationName)));
 
-            //StationName.SetMessage(msg);
+            StationName.SetMessage(msg);
         }
 
         else
         {
-            //StationName.SetMessage(stationName);
+            StationName.SetMessage(stationName);
             NavMap.Visible = false;
         }
     }
 
 
     // Add a particular camera
-    private void AddTrackedEntityToNavMap(NetEntity ent, NetCoordinates coordinates)
+    private void AddTrackedEntityToNavMap(NetEntity ent, NetCoordinates coordinates, bool selected)
     {
         var coords = _entManager.GetCoordinates(coordinates);
         var texture = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_square.png"));
-        var color = Color.Yellow;
+        var color = selected ? Color.Green : Color.Red;
         var blink = false;
         var modulator = Color.White;
 
@@ -154,7 +152,7 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
     // The UI class should get the eye from the entity, and then
     // pass it here so that the UI can change its view.
-    public void UpdateState(IEye? eye, HashSet<string> subnets, string activeAddress, string activeSubnet, Dictionary<string, string> cameras, List<(NetEntity, NetCoordinates)> camerasByEntity) // Goobstation
+    public void UpdateState(IEye? eye, HashSet<string> subnets, string activeAddress, string activeSubnet, Dictionary<string, (NetEntity, NetCoordinates)> cameras) // Goobstation
     {
         _currentAddress = activeAddress;
         SetCameraView(eye);
@@ -199,13 +197,16 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         }
 
         // Goobstation Start
+        _reverseCameras.Clear();
         NavMap.TrackedEntities.Clear();
-        foreach (var (ent, coordinates) in camerasByEntity)
+        foreach (var (camera, (ent, coordinates)) in cameras)
         {
-            AddTrackedEntityToNavMap(ent, coordinates);
+            _reverseCameras[ent] = camera;
+            AddTrackedEntityToNavMap(ent, coordinates, camera.Equals(_currentAddress) ? true : false);
         }
-        // Goobstation End
     }
+
+    // Goobstation End
 
     private void SetCameraView(IEye? eye)
     {

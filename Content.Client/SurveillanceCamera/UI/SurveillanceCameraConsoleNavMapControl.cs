@@ -5,10 +5,6 @@ namespace Content.Client.SurveillanceCamera.UI
 {
     public sealed partial class SurveillanceCameraConsoleNavMapControl : NavMapControl
     {
-        [Dependency] private readonly IEntityManager _entManager = default!;
-
-        private Dictionary<Color, Color> _sRGBLookUp = new Dictionary<Color, Color>();
-        private MapGridComponent? _grid;
 
         public SurveillanceCameraConsoleNavMapControl() : base()
         {

@@ -106,7 +106,6 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
             subs.Event<SurveillanceCameraDisconnectMessage>(OnDisconnectMessage);
             subs.Event<SurveillanceCameraMonitorSubnetRequestMessage>(OnSubnetRequest);
             subs.Event<SurveillanceCameraMonitorSwitchMessage>(OnSwitchMessage);
-            subs.Event<SurveillanceCameraMonitorNavMapSwitchMessage>(OnSwitchMessageNavMap); // Goobstation
             subs.Event<BoundUIClosedEvent>(OnBoundUiClose);
         });
     }
@@ -217,15 +216,8 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
                     if (!component.KnownCameras.ContainsKey(address))
                     {
-                        component.KnownCameras.Add(address, name);
+                        component.KnownCameras.Add(address, netEntity.Value); // Goobstation
                     }
-
-                    // Goobstation Start
-                    if (netEntity.HasValue && !component.KnownCamerasEntities.Contains(netEntity.Value))
-                    {
-                        component.KnownCamerasEntities.Add(netEntity.Value);
-                    }
-                    // Goobstation End
 
                     UpdateUserInterface(uid, component);
                     break;
@@ -253,7 +245,6 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         SurveillanceCameraRefreshCamerasMessage message)
     {
         component.KnownCameras.Clear();
-        component.KnownCamerasEntities.Clear(); // Goobstation
         RequestActiveSubnetInfo(uid, component);
     }
 
@@ -270,13 +261,6 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         // do the switch
         TrySwitchCameraByAddress(uid, message.Address, component);
     }
-
-    // Goobstation Start
-    private void OnSwitchMessageNavMap(EntityUid uid, SurveillanceCameraMonitorComponent component, SurveillanceCameraMonitorNavMapSwitchMessage message)
-    {
-        TrySwitchCameraByUid(uid, GetEntity(message.NetEntity));
-    }
-    // Goobstation End
 
     private void OnPowerChanged(EntityUid uid, SurveillanceCameraMonitorComponent component, ref PowerChangedEvent args)
     {
@@ -589,7 +573,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         }
 
         var state = new SurveillanceCameraMonitorUiState(GetNetEntity(monitor.ActiveCamera), monitor.KnownSubnets.Keys.ToHashSet(),
-            monitor.ActiveCameraAddress, monitor.ActiveSubnet, monitor.KnownCameras, monitor.KnownCamerasEntities); // Goobstation
+            monitor.ActiveCameraAddress, monitor.ActiveSubnet, monitor.KnownCameras); // Goobstation
         _userInterface.SetUiState(uid, SurveillanceCameraMonitorUiKey.Key, state);
     }
 }
