@@ -201,7 +201,7 @@
   path: /Maps/_Lavaland/Lavaland/ruin_stash_4.yml
   priority: 23
 
-## WIZDEN RUINS
+## WIZDEN RUINS man
 - type: lavalandGridRuin
   id: CargoWreck
   name: lavaland-ruin-cargo2
