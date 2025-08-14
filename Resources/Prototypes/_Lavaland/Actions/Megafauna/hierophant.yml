@@ -1,35 +1,40 @@
-# Hierophant boss
+# Base
 - type: entity
-  id: ActionHierophantAttackBoss
+  id: ActionBaseHierophantAttack
   name: Spawn attack
   description: Spawns an attack on the target position.
+  abstract: true
   components:
-  - type: WorldTargetAction
-    icon:
-      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
-      state: icon
-    itemIconStyle: NoItem
-    event: !type:HierophantAttackActionEvent
+  - type: Action
     checkCanAccess: false
     range: 20
     priority: -21
-    useDelay: 0.1 # Dynamic
-
-- type: entity
-  id: ActionHierophantBlinkBoss
-  name: Blink
-  description: Teleports you to the target position.
-  components:
-  - type: WorldTargetAction
+    useDelay: 2
     icon:
       sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
       state: icon
     itemIconStyle: NoItem
-    event: !type:HierophantBlinkActionEvent
+  - type: WorldTargetAction
+    event: !type:HierophantAttackActionEvent
+
+- type: entity
+  id: ActionHierophantBlink
+  name: Blink
+  description: Teleports you to the target position.
+  components:
+  - type: Action
     checkCanAccess: true
     range: 20
     priority: -22
-    useDelay: 6
+    useDelay: 10
+    icon:
+      sprite: _Lavaland/Objects/Weapons/hierophant_club.rsi
+      state: icon
+    itemIconStyle: NoItem
+  - type: WorldTargetAction
+    event: !type:HierophantBlinkActionEvent
+
+# Hierophant boss
 
 - type: entity
   id: ActionHierophantTileChasers
@@ -51,9 +56,28 @@
     event: !type:HierophantBeatActionEvent
     useDelay: 0.1 # Dynamic
 
+## Hierophant boss attacks
+- type: entity
+  id: ActionHierophantAttackBox
+  name: Expanding Box
+  description: Spawns an expanding box on the target position.
+  components:
+  - type: WorldTargetAction
+    event: !type:HierophantAttackActionEvent
+      spawn: HierophantShapeBoxExpanding
+
+- type: entity
+  id: ActionHierophantAttackBox
+  name: Sequence Crosses
+  description: Spawns a sequence of crosses on the target position.
+  components:
+  - type: EntityTargetAction
+  - type: WorldTargetAction
+    event: !type:HierophantAttackActionEvent
+      spawn: HierophantShapeBoxExpanding
+      attachToTarget: true
+
 # Hierophant club
-
-
 - type: entity
   id: ActionHierophantTileMovement
   name: Curse of Tile Movement
@@ -73,3 +97,13 @@
       - MindContainer
     event: !type:HierophantBeatActionEvent
     useDelay: 60
+
+## Hierophant club attacks
+- type: entity
+  id: ActionHierophantAttackBox
+  name: Random Cross
+  description: Spawns a random cross on the target position.
+  components:
+  - type: WorldTargetAction
+    event: !type:HierophantAttackActionEvent
+      spawn: HierophantShapeBoxExpanding

@@ -13,20 +13,17 @@
 
 # Crosses
 - type: entity
-  parent: MarkerBase
+  parent: BaseHierophantShape
   id: HierophantShapeCrossBishop
   name: hierophant attack cross bishop spawner
   components:
-  - type: Sprite
-    state: red
   - type: ShapeSpawner
-    spawn: LavalandHierophantSquare
     shape: !type:NestedTileShape
       id: BishopCross
       size: 11
 
 - type: entity
-  parent: MarkerBase
+  parent: BaseHierophantShape
   id: HierophantShapeCrossRook
   name: hierophant attack cross rook spawner
   components:
@@ -36,7 +33,7 @@
       size: 11
 
 - type: entity
-  parent: MarkerBase
+  parent: BaseHierophantShape
   id: HierophantShapeCrossQueen
   name: hierophant attack cross queen spawner
   components:
@@ -45,10 +42,9 @@
       id: QueenCross
       size: 11
 
-# Boxes
-
+# Blink
 - type: entity
-  parent: MarkerBase
+  parent: BaseHierophantShape
   id: HierophantShapeBlink
   name: hierophant attack blink spawner
   components:
@@ -57,6 +53,7 @@
       id: BoxFilled
       size: 3
 
+# Expanding box
 - type: entity
   parent: MarkerBase
   id: HierophantShapeBoxExpanding

@@ -25,7 +25,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Lavaland.Damage;
+namespace Content.Shared._Lavaland.Damage.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DamageSquareComponent : Component

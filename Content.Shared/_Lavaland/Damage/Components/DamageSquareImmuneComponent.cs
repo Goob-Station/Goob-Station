@@ -1,12 +1,12 @@
 ﻿using Robust.Shared.GameStates;
 
-namespace Content.Shared._Lavaland.Hierophant.Components;
+namespace Content.Shared._Lavaland.Damage.Components;
 
 /// <summary>
-/// Marker component that makes this entity immune to Hierophant's damage tiles.
+/// Marker component that makes this entity immune to all damage tiles.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class HierophantImmuneComponent : Component
+public sealed partial class DamageSquareImmuneComponent : Component
 {
     /// <summary>
     /// Time when this immunity will end and component will remove itself.

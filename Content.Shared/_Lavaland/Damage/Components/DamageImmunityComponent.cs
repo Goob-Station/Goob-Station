@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -20,11 +21,22 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Lavaland.HierophantClub;
+namespace Content.Shared._Lavaland.Damage.Components;
 
 /// <summary>
-/// Marker component that is required for entity to use Hierophant actions.
+/// Actor having this component will not get damaged by damage squares.
 /// </summary>
+/// <remarks>
+/// TODO: cool shader for this fella
+/// Also, maybe we should move this thing to DamageableSystem if it ever gets predictions
+/// </remarks>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class HierophantMagicComponent : Component;
+[AutoGenerateComponentState, AutoGenerateComponentPause]
+public sealed partial class DamageImmunityComponent : Component
+{
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField, AutoNetworkedField]
+    public TimeSpan? ImmunityEndTime;
+}

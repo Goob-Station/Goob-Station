@@ -5,13 +5,13 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.EntityShapes.Components;
 
 /// <summary>
-/// Spawns an entity shape on MapInit.
+/// Spawns different shapes in order
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class ShapeSpawnerComponent : Component
+public sealed partial class SequenceShapeSpawnerComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]
-    public EntityShape Shape;
+    public Dictionary<int, EntityShape> Scheduler;
 
     [DataField, AutoNetworkedField]
     public EntProtoId Spawn;

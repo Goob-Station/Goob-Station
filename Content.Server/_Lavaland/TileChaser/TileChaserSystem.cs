@@ -23,6 +23,8 @@
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using System.Numerics;
+using Content.Shared._Lavaland.Anger.Systems;
+using Content.Shared._Lavaland.Megafauna;
 using Content.Shared._Lavaland.TileChaser;
 
 namespace Content.Server._Lavaland.TileChaser;
@@ -33,6 +35,7 @@ namespace Content.Server._Lavaland.TileChaser;
 /// </summary>
 public sealed class TileChaserSystem : EntitySystem
 {
+    [Dependency] private readonly AngerSystem _anger = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -44,6 +47,26 @@ public sealed class TileChaserSystem : EntitySystem
         new(-1,  0),
         new ( 0, -1),
     };
+
+    private EntityQuery<TileChaserComponent> _chaserQuery;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<AngerTileChaserComponent, SpawnedByActionEvent>(OnSpawned);
+        _chaserQuery = GetEntityQuery<TileChaserComponent>();
+    }
+
+    private void OnSpawned(Entity<AngerTileChaserComponent> ent, ref SpawnedByActionEvent args)
+    {
+        if (!_chaserQuery.TryComp(ent.Owner, out var chaserComp))
+            return;
+
+        var anger = ent.Comp;
+        chaserComp.MaxSteps = _anger.GetAngerScale(args.User, anger.StepsRange.X, anger.StepsRange.Y, anger.Inverse);
+        chaserComp.Speed = _anger.GetAngerScale(args.User, anger.SpeedRange.X, anger.SpeedRange.Y, anger.Inverse);
+        chaserComp.Target = args.Target;
+    }
 
     public override void Update(float frameTime)
     {

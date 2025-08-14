@@ -64,7 +64,7 @@ public sealed partial class MegafaunaSystem
         if (picked == null)
             return false;
 
-        var targetComp = EnsureComp<MegafaunaTargetingComponent>(args.BossEntity);
+        var targetComp = EnsureComp<MegafaunaAiTargetingComponent>(args.BossEntity);
         targetComp.TargetEntity = picked;
         return true;
     }

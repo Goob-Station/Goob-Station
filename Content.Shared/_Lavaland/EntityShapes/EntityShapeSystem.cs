@@ -3,50 +3,45 @@ using Content.Shared._Lavaland.EntityShapes.Shapes;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.EntityShapes;
 
 public sealed class EntityShapeSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ShapeSpawnerComponent, MapInitEvent>(OnSpawnerInit);
-    }
 
-    private void OnSpawnerInit(Entity<ShapeSpawnerComponent> ent, ref MapInitEvent args)
-        => SpawnTileShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _);
+        SubscribeLocalEvent<ShapeSpawnerComponent, MapInitEvent>(OnSpawnerInit);
+        SubscribeLocalEvent<ShapeSpawnerCounterComponent, MapInitEvent>(OnCounterInit);
+
+        SubscribeLocalEvent<ExpandingShapeSpawnerComponent, SpawnCounterEntityShapeEvent>(OnExpandingShapeTrigger);
+        SubscribeLocalEvent<SequenceShapeSpawnerComponent, SpawnCounterEntityShapeEvent>(OnSequenceShapeTrigger);
+    }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ExpandingShapeSpawnerComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var spawnerComp, out var xform))
+        var query = EntityQueryEnumerator<ShapeSpawnerCounterComponent>();
+        while (query.MoveNext(out var uid, out var counterComp))
         {
-            spawnerComp.Accumulator += frameTime;
-            if (spawnerComp.Accumulator < spawnerComp.SpawnPeriod)
+            if (counterComp.NextSpawn < _timing.CurTime)
                 continue;
-            spawnerComp.Accumulator = 0f;
 
-            spawnerComp.Counter++;
-            var counter = spawnerComp.Counter;
+            counterComp.NextSpawn = _timing.CurTime + counterComp.SpawnPeriod;
 
-            if (spawnerComp.CounterOffset != null)
-                spawnerComp.Shape.DefaultOffset = spawnerComp.CounterOffset.Value * counter;
+            counterComp.Counter++;
 
-            if (spawnerComp.CounterSize != null)
-                spawnerComp.Shape.DefaultSize = (int) Math.Round(spawnerComp.CounterSize.Value * counter);
+            var ev = new SpawnCounterEntityShapeEvent(counterComp.Counter);
+            RaiseLocalEvent(uid, ref ev);
 
-            if (spawnerComp.CounterStepSize != null)
-                spawnerComp.Shape.DefaultStepSize = (int) Math.Round(spawnerComp.CounterStepSize.Value * counter);
-
-            SpawnTileShape(spawnerComp.Shape, xform.Coordinates, spawnerComp.Spawn, out _);
-
-            if (counter == spawnerComp.MaxCounter)
+            if (counterComp.Counter == counterComp.MaxCounter)
                 QueueDel(uid);
         }
     }
@@ -71,5 +66,35 @@ public sealed class EntityShapeSystem : EntitySystem
             var ent = PredictedSpawnAtPosition(spawnId, coord);
             spawned.Add(ent);
         }
+    }
+
+    private void OnSpawnerInit(Entity<ShapeSpawnerComponent> ent, ref MapInitEvent args)
+        => SpawnTileShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _);
+
+    private void OnCounterInit(Entity<ShapeSpawnerCounterComponent> ent, ref MapInitEvent args)
+        => ent.Comp.NextSpawn = _timing.CurTime + ent.Comp.SpawnPeriod;
+
+    private void OnExpandingShapeTrigger(Entity<ExpandingShapeSpawnerComponent> ent, ref SpawnCounterEntityShapeEvent args)
+    {
+        var comp = ent.Comp;
+
+        if (comp.CounterOffset != null)
+            comp.Shape.DefaultOffset = comp.CounterOffset.Value * args.Counter;
+
+        if (comp.CounterSize != null)
+            comp.Shape.DefaultSize = (int) Math.Round(comp.CounterSize.Value * args.Counter);
+
+        if (comp.CounterStepSize != null)
+            comp.Shape.DefaultStepSize = (int) Math.Round(comp.CounterStepSize.Value * args.Counter);
+
+        SpawnTileShape(comp.Shape, Transform(ent).Coordinates, comp.Spawn, out _);
+    }
+
+    private void OnSequenceShapeTrigger(Entity<SequenceShapeSpawnerComponent> ent, ref SpawnCounterEntityShapeEvent args)
+    {
+        if (!ent.Comp.Scheduler.TryGetValue(args.Counter, out var shape))
+            return;
+
+        SpawnTileShape(shape, Transform(ent).Coordinates, ent.Comp.Spawn, out _);
     }
 }

@@ -121,6 +121,22 @@ public sealed class AngerSystem : EntitySystem
     }
 
     /// <summary>
+    /// Returns the scaled number that is between min and max based on current anger level.
+    /// </summary>
+    public int GetAngerScale(Entity<AngerComponent?> ent, int min = 0, int max = 10, bool inverse = false)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp, false))
+            return min; // Minimal possible value as if anger was 0
+
+        var maxAnger = ent.Comp.MaxAnger;
+        var anger = Math.Max(ent.Comp.CurrentAnger - ent.Comp.DefaultMinAnger, 0f);
+        var progress = anger / maxAnger;
+        return inverse
+            ? (int) Math.Round(max + (min - max) * (1f - progress))
+            : (int) Math.Round(min + (max - min) * progress);
+    }
+
+    /// <summary>
     /// Returns the scaled time that is between min and max based on current anger level.
     /// </summary>
     public TimeSpan GetAngerScale(Entity<AngerComponent?> ent, TimeSpan min, TimeSpan max, bool inverse = false)

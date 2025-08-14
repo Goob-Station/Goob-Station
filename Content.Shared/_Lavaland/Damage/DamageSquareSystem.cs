@@ -20,6 +20,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Lavaland.Damage.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Whitelist;
@@ -31,7 +32,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared._Lavaland.Damage;
 
 /// <summary>
-///     We have to use it's own system even for the damage field because WIZDEN SYSTEMS FUCKING SUUUUUUUUUUUCKKKKKKKKKKKKKKK
+///     We have to use our own system even for the damage field because WIZDEN SYSTEMS FUCKING SUUUUUUUUUUUCKKKKKKKKKKKKKKK
 /// </summary>
 public sealed class DamageSquareSystem : EntitySystem
 {
@@ -44,16 +45,20 @@ public sealed class DamageSquareSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
 
     private EntityQuery<DamageableComponent> _damageQuery;
+    private EntityQuery<DamageImmunityComponent> _immuneQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<DamageSquareComponent, ComponentStartup>(OnMapInit);
-        SubscribeLocalEvent<DamageImmunityFramesComponent, BeforeDamageChangedEvent>(BeforeDamage);
 
         _damageQuery = GetEntityQuery<DamageableComponent>();
+        _immuneQuery = GetEntityQuery<DamageImmunityComponent>();
     }
+
+    private void OnMapInit(Entity<DamageSquareComponent> ent, ref ComponentStartup args)
+        => ent.Comp.DamageTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.DamageDelay);
 
     public override void Update(float frameTime)
     {
@@ -70,16 +75,16 @@ public sealed class DamageSquareSystem : EntitySystem
 
             Damage((uid, damage));
         }
-    }
 
-    private void OnMapInit(Entity<DamageSquareComponent> ent, ref ComponentStartup args)
-        => ent.Comp.DamageTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.DamageDelay);
+        var immuneQuery = EntityQueryEnumerator<DamageImmunityComponent>();
+        while (immuneQuery.MoveNext(out var uid, out var immune))
+        {
+            if (immune.ImmunityEndTime == null
+                || _timing.CurTime < immune.ImmunityEndTime)
+                continue;
 
-    private void BeforeDamage(Entity<DamageImmunityFramesComponent> ent, ref BeforeDamageChangedEvent args)
-    {
-        if (args.CanBeCancelled
-            && HasImmunity((ent.Owner, ent.Comp)))
-            args.Cancelled = true;
+            RemComp(uid, immune);
+        }
     }
 
     private void Damage(Entity<DamageSquareComponent> field)
@@ -99,7 +104,7 @@ public sealed class DamageSquareSystem : EntitySystem
         foreach (var target in lookup)
         {
             if (!_damageQuery.TryComp(target, out var damageable)
-                || HasImmunity(target)
+                || _immuneQuery.HasComp(target)
                 || _whitelist.IsWhitelistFail(field.Comp.DamageWhitelist, target)
                 || _whitelist.IsBlacklistPass(field.Comp.DamageBlacklist, target))
                 continue;
@@ -108,18 +113,10 @@ public sealed class DamageSquareSystem : EntitySystem
             if (_net.IsServer) // One must imagine DamageableSystem prediction.
                 _damage.TryChangeDamage(target, field.Comp.Damage, damageable: damageable, origin: field.Owner, targetPart: TargetBodyPart.All);
 
-            EnsureComp<DamageImmunityFramesComponent>(target).HasImmunityUntil =
+            EnsureComp<DamageImmunityComponent>(target).ImmunityEndTime =
                 _timing.CurTime + TimeSpan.FromSeconds(field.Comp.ImmunityTime);
         }
 
         RemComp(field, field.Comp);
-    }
-
-    private bool HasImmunity(Entity<DamageImmunityFramesComponent?> ent)
-    {
-        if (!Resolve(ent, ref ent.Comp, false))
-            return false;
-
-        return ent.Comp.HasImmunityUntil > _timing.CurTime;
     }
 }

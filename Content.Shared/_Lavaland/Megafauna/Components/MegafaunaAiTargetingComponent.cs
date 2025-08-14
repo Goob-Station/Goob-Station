@@ -7,7 +7,7 @@ namespace Content.Shared._Lavaland.Megafauna.Components;
 /// Component that stores data for what Megafauna had targeted.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class MegafaunaTargetingComponent : Component
+public sealed partial class MegafaunaAiTargetingComponent : Component
 {
     [ViewVariables, AutoNetworkedField]
     public EntityUid? TargetEntity;

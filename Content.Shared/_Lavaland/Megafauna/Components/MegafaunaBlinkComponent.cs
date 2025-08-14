@@ -6,8 +6,9 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Lavaland.Hierophant.Components;
+namespace Content.Shared._Lavaland.Megafauna.Components;
 
 /// <summary>
 /// Signifies that this entity is being blink-teleported to some spot.
@@ -15,15 +16,15 @@ namespace Content.Shared._Lavaland.Hierophant.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState, AutoGenerateComponentPause]
-public sealed partial class HierophantActiveBlinkComponent : Component
+public sealed partial class MegafaunaBlinkComponent : Component
 {
     [DataField, AutoNetworkedField]
     public TimeSpan DefaultDelay = TimeSpan.FromSeconds(0.9f);
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
 
-    [ViewVariables]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoNetworkedField, AutoPausedField]
     public TimeSpan? BlinkTime;
 

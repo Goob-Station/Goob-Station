@@ -7,7 +7,7 @@ namespace Content.Shared._Lavaland.Megafauna.Selectors;
 
 /// <summary>
 /// Performs an action and if required, tries to get target positions
-/// from <see cref="MegafaunaTargetingComponent"/>.
+/// from <see cref="MegafaunaAiTargetingComponent"/>.
 /// </summary>
 public sealed partial class PerformActionSelector : MegafaunaSelector
 {
@@ -28,8 +28,8 @@ public sealed partial class PerformActionSelector : MegafaunaSelector
                 continue;
 
             var netAction = entMan.GetNetEntity(uid);
-            var netTarget = entMan.GetNetEntity(entMan.GetComponentOrNull<MegafaunaTargetingComponent>(args.BossEntity)?.TargetEntity);
-            var netCoords = entMan.GetNetCoordinates(entMan.GetComponentOrNull<MegafaunaTargetingComponent>(args.BossEntity)?.TargetCoordinate);
+            var netTarget = entMan.GetNetEntity(entMan.GetComponentOrNull<MegafaunaAiTargetingComponent>(args.BossEntity)?.TargetEntity);
+            var netCoords = entMan.GetNetCoordinates(entMan.GetComponentOrNull<MegafaunaAiTargetingComponent>(args.BossEntity)?.TargetCoordinate);
             var ev = new RequestPerformActionEvent(netAction, netTarget, netCoords);
 
             actionSys.TryPerformAction(args.BossEntity, ev);
