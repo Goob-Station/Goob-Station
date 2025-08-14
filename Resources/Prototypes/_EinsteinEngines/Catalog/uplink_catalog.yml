@@ -1,0 +1,16 @@
+- type: listing
+  id: UplinkBribePlasmaman
+  name: uplink-bribe-plasmaman-name
+  description: uplink-bribe-plasmaman-desc
+  productEntity: BriefcaseSyndieLobbyingBundlePlasmamanFilled
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+ #  Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+    - UplinkDeception
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Plasmaman
