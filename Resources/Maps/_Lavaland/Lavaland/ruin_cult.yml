@@ -1,15 +1,10 @@
-# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 7
   category: Grid
-  engineVersion: 260.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 07/20/2025 14:20:44
+  time: 08/14/2025 09:24:18
   entityCount: 94
 maps: []
 grids:
@@ -399,7 +394,7 @@ entities:
   - uid: 38
     components:
     - type: Transform
-      pos: -0.5,-0.5
+      pos: 1.5,1.5
       parent: 1
   - uid: 39
     components:
@@ -409,37 +404,37 @@ entities:
   - uid: 40
     components:
     - type: Transform
-      pos: -0.5,1.5
+      pos: 1.5,0.5
       parent: 1
   - uid: 41
     components:
     - type: Transform
-      pos: 0.5,-0.5
+      pos: 0.5,0.5
       parent: 1
   - uid: 42
     components:
     - type: Transform
-      pos: 1.5,-0.5
+      pos: 0.5,-0.5
       parent: 1
   - uid: 43
     components:
     - type: Transform
-      pos: 1.5,0.5
+      pos: -0.5,1.5
       parent: 1
   - uid: 44
     components:
     - type: Transform
-      pos: 1.5,1.5
+      pos: -0.5,-0.5
       parent: 1
   - uid: 45
     components:
     - type: Transform
-      pos: 0.5,0.5
+      pos: 0.5,1.5
       parent: 1
   - uid: 46
     components:
     - type: Transform
-      pos: 0.5,1.5
+      pos: 1.5,-0.5
       parent: 1
 - proto: PlushieCosmicCult
   entities:
