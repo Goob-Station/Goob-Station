@@ -280,3 +280,9 @@
   name: Q/\ntum - Running In (feat Z.W.E.I.)
   path:
     path: /Audio/_Goobstation/Music/running_in.ogg
+
+- type: jukebox
+  id: abductor
+  name: Crockitz - Abductor
+  path:
+    path: /Audio/_Goobstation/Music/Abductor.ogg
