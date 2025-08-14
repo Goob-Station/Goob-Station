@@ -175,11 +175,11 @@ objective-condition-victory-desc = Beckon The Unknown, and herald the final curt
 
 cosmiccult-radio-tier1-progress = The Monument is beckoned unto the station...
 
-cosmiccult-announce-tier2-progress = An unnerving numbness prickles your senses.
-cosmiccult-announce-tier2-warning = Scanners detect a notable increase in Λ-CDM! Rifts in realspace may appear shortly. Please alert your station's chaplain if sighted.
+cosmiccult-announce-tier3-progress = An unnerving numbness prickles your senses.
+cosmiccult-announce-tier3-warning = Scanners detect an abnormal increase in Λ-CDM! Report any unnatural phenomena to security or epistemics.
 
-cosmiccult-announce-tier3-progress = Arcs of noospheric energy crackle across the station's groaning structure. The end draws near.
-cosmiccult-announce-tier3-warning = Critical increase in Λ-CDM detected. Infected personnel are to be subdued or neutralized on sight.
+cosmiccult-announce-pre-finale-progress = Arcs of noospheric energy crackle across the station's groaning structure. The end draws near.
+cosmiccult-announce-pre-finale-warning = Critical increase in Λ-CDM detected! We are monitoring the situation. Await further instructions.
 
 cosmiccult-announce-finale-warning = All station crew. The Λ-CDM anomaly is going supercritical, instruments failing; noospheric-to-real transitional event horizon IMMINENT. If you are not already on counter-protocol, immediately sortie and intervene. Repeat: Intervene immediately or die.
 

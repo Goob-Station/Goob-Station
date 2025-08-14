@@ -196,6 +196,28 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             component.PrepareFinaleTimer = null;
 
+            var sender = Loc.GetString("cosmiccult-announcement-sender");
+            var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-pre-finale-progress"), sender, false, null, Color.FromHex("#4cabb3"));
+            _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-pre-finale-warning"), null, false, null, Color.FromHex("#cae8e8"));
+            _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
+
+            EnsureComp<ParallaxComponent>(mapData, out var parallax);
+            parallax.Parallax = "CosmicFinaleParallax";
+            Dirty(mapData, parallax);
+
+            EnsureComp<MapLightComponent>(mapData, out var mapLight);
+            mapLight.AmbientLightColor = Color.FromHex("#210746");
+            Dirty(mapData, mapLight);
+
+            var lights = EntityQueryEnumerator<PoweredLightComponent>();
+            while (lights.MoveNext(out var light, out _))
+            {
+                if (!_rand.Prob(0.50f))
+                    continue;
+                _ghost.DoGhostBooEvent(light);
+            }
+
             if (TryComp<CosmicFinaleComponent>(component.MonumentInGame, out var finaleComp))
             {
                 _monument.ReadyFinale(component.MonumentInGame, finaleComp);
@@ -218,15 +240,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
             _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier3-progress"), sender, false, null, Color.FromHex("#4cabb3"));
             _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier3-warning"), null, false, null, Color.FromHex("#cae8e8"));
-            _audio.PlayGlobal(_tier3Sound, Filter.Broadcast(), false, AudioParams.Default);
-
-            EnsureComp<ParallaxComponent>(mapData, out var parallax);
-            parallax.Parallax = "CosmicFinaleParallax";
-            Dirty(mapData, parallax);
-
-            EnsureComp<MapLightComponent>(mapData, out var mapLight);
-            mapLight.AmbientLightColor = Color.FromHex("#210746");
-            Dirty(mapData, mapLight);
+            _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
 
             var lights = EntityQueryEnumerator<PoweredLightComponent>();
             while (lights.MoveNext(out var light, out _))
@@ -257,17 +271,13 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             component.Tier2DelayTimer = null;
             component.ExtraRiftTimer = _timing.CurTime + TimeSpan.FromSeconds(15);
 
-            //do spooky effects
+            //don't spooky effects
+            /*
             var sender = Loc.GetString("cosmiccult-announcement-sender");
             var mapData = _map.GetMap(_transform.GetMapId(component.MonumentInGame.Owner.ToCoordinates()));
             _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-progress"), sender, false, null, Color.FromHex("#4cabb3"));
             _chatSystem.DispatchStationAnnouncement(component.MonumentInGame, Loc.GetString("cosmiccult-announce-tier2-warning"), null, false, null, Color.FromHex("#cae8e8"));
             _audio.PlayGlobal(_tier2Sound, Filter.Broadcast(), false, AudioParams.Default);
-
-            for (var i = 0; i < component.TotalCrew / 6; i++) // spawn # malign rifts equal to 16.67% of the playercount
-            {
-                SpawnRift();
-            }
 
             var lights = EntityQueryEnumerator<PoweredLightComponent>();
             while (lights.MoveNext(out var light, out _))
@@ -276,6 +286,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                     continue;
 
                 _ghost.DoGhostBooEvent(light);
+            }
+            */
+
+            for (var i = 0; i < Convert.ToInt16(component.TotalCrew / 6); i++) // spawn # malign rifts equal to 16.67% of the playercount
+            {
+                SpawnRift();
             }
 
             _monument.SetCanTierUp(component.MonumentInGame, true);
