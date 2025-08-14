@@ -71,7 +71,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
@@ -254,10 +253,8 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
             component.NextCameraAddress = null;
             // Goobstation start
             foreach (var subnetwork in component.KnownSubnets.Values)
-            {
                 DisconnectFromSubnet(uid, subnetwork);
-            }
-            // Goobstation stop
+            // Goobstation end
         }
     }
 
@@ -288,7 +285,8 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
     private void SendHeartbeat(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
     {
-        if (!Resolve(uid, ref monitor) || monitor.LastHeartbeatSent < _heartbeatDelay) // Goobstation
+        if (!Resolve(uid, ref monitor)
+            || monitor.LastHeartbeatSent < _heartbeatDelay) // Goobstation
         {
             return;
         }
@@ -351,7 +349,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
     }
 
     // Goobstation start
-    private void ReconnectToSubnets(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null) // Goobstation
+    private void ReconnectToSubnets(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
     {
         if (!Resolve(uid, ref monitor))
         {
@@ -369,7 +367,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
     // Goobstation end
 
     // Goobstation start
-    private void PingCameraNetwork(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null) // Goobstation
+    private void PingCameraNetwork(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
     {
         if (!Resolve(uid, ref monitor))
         {
@@ -382,7 +380,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         };
         _deviceNetworkSystem.QueuePacket(uid, null, payload);
     }
-    // Goobstation stop
+    // Goobstation end
 
     // Goobstation start
     private void RequestKnownSubnetsInfo(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
@@ -401,7 +399,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
             _deviceNetworkSystem.QueuePacket(uid, subnetAddress, payload);
         }
     }
-    // Goobstation stop
+    // Goobstation end
 
     private void DisconnectFromSubnet(EntityUid uid, string subnet, SurveillanceCameraMonitorComponent? monitor = null)
     {
@@ -494,7 +492,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
     private void TrySwitchCameraByAddress(EntityUid uid, string address,
         SurveillanceCameraMonitorComponent? monitor = null)
     {
-        if (!Resolve(uid, ref monitor)) // Goobstation
+        if (!Resolve(uid, ref monitor)) // Goobstation - removed extra checks since no more active subnet
         {
             return;
         }
@@ -511,7 +509,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
             monitor.NextCameraAddress = address;
             _deviceNetworkSystem.QueuePacket(uid, subnetAddress, payload);
         }
-        // Goobstation stop
+        // Goobstation end
     }
 
     // Attempts to switch over the current viewed camera on this monitor

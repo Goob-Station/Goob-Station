@@ -1,5 +1,7 @@
+// Goobstation Start
+// I really want to put this in the goobstation namespace
+// but it breaks references in the xaml and as a result the the xaml.cs
 using Content.Client.Pinpointer.UI;
-using Robust.Shared.Map.Components;
 
 namespace Content.Client.SurveillanceCamera.UI
 {
@@ -10,9 +12,8 @@ namespace Content.Client.SurveillanceCamera.UI
         {
             // Set colors
             TileColor = new Color(30, 57, 67);
-            WallColor = new Color(102, 164, 217);
+            WallColor = new Color(192, 192, 192);
             BackgroundColor = Color.FromSrgb(TileColor.WithAlpha(BackgroundOpacity));
-            //PostWallDrawingAction += DrawAllCameras;
         }
 
         protected override void UpdateNavMap()
@@ -21,3 +22,4 @@ namespace Content.Client.SurveillanceCamera.UI
         }
     }
 }
+// Goobstation End

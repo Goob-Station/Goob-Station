@@ -10,9 +10,9 @@ SPDX-License-Identifier: MIT
                xmlns:viewport="clr-namespace:Content.Client.Viewport"
                xmlns:ui="clr-namespace:Content.Client.SurveillanceCamera.UI"
                Title="{Loc 'surveillance-camera-monitor-ui-window'}"
-               Resizable="True"
-               SetSize="1420 850"
-               MinSize="1420 850">
+               Resizable="False"
+               SetSize="1500 780"
+               MinSize="1500 780">
     <!-- Goobstation  end -->
     <BoxContainer Orientation="Horizontal">
         <!-- Goobstation  start -->
@@ -34,16 +34,15 @@ SPDX-License-Identifier: MIT
                     <Label Name="CameraStatus" />
                 </BoxContainer>
             </BoxContainer>
+            <!-- Goobstation end -->
         </BoxContainer>
-        <!-- Goobstation  end -->
         <Control VerticalExpand="True" HorizontalExpand="True" Margin="5 5 5 5" Name="CameraViewBox">
             <viewport:ScalingViewport Name="CameraView"
                                       VerticalExpand="True"
                                       HorizontalExpand="True"
-                                      MinSize="500 500"
+                                      MinSize="770 770"
                                       MouseFilter="Ignore" />
-            <TextureRect VerticalExpand="True" HorizontalExpand="True" MinSize="500 500" Name="CameraViewBackground" />
+            <TextureRect VerticalExpand="True" HorizontalExpand="True" MinSize="770 770" Name="CameraViewBackground" />
         </Control>
     </BoxContainer>
 </controls:FancyWindow><!-- Goobstation -->
-
