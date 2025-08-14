@@ -86,6 +86,7 @@
     groups:
     - Brig
     - Security
+    - Maintenance
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
