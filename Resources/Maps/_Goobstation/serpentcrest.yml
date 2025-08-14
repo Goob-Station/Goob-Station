@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 03:18:51
-  entityCount: 28281
+  time: 08/14/2025 15:02:20
+  entityCount: 28282
 maps:
 - 1
 grids:
@@ -149116,6 +149116,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,38.5
+      parent: 2
+- proto: SpawnMobHorseTrevor
+  entities:
+  - uid: 24547
+    components:
+    - type: Transform
+      pos: -5.5,14.5
       parent: 2
 - proto: SpawnMobKangarooWillow
   entities:
