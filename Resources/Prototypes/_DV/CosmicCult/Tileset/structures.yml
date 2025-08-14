@@ -355,6 +355,76 @@
     color: "#42a4ae"
 
 - type: entity
+  id: CosmicRadioJammer
+  parent: BaseStructureDynamic
+  name: multispectral inhibitor
+  description: Radiates powerful cosmic energy, preventing radio communications within a large area.
+  components:
+  - type: CosmicJammer
+    range: 24
+  - type: CosmicCultExamine
+    cultistText: cosmic-examine-text-forthecult
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.375,0.25,0.4"
+        density: 200
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Sprite
+    sprite: _DV/CosmicCult/Tileset/cosmicradiojammer.rsi
+    offset: 0, 0.5
+    layers:
+      - state: base
+        map: ["base"]
+      - state: overlay
+        map: ["vfx"]
+        shader: unshaded
+        visible: false
+    drawdepth: Mobs
+    noRot: true
+  - type: GenericVisualizer
+    visuals:
+      enum.AnchorVisuals.Anchored:
+        vfx:
+          True: {visible: True}
+          False: {visible: False}
+  - type: Appearance
+  - type: AmbientSound
+    enabled: false
+    volume: -5
+    range: 15
+    sound:
+      path: /Audio/_DV/CosmicCult/spire_draining.ogg
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  - type: PointLight
+    radius: 2
+    energy: 1.6
+    enabled: false
+    castShadows: false
+    color: "#42a4ae"
+
+- type: entity
   id: AltarCosmic
   parent: AltarNanotrasen
   name: cosmic altar

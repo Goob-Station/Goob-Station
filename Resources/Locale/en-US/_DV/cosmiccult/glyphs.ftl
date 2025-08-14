@@ -18,6 +18,6 @@ cult-glyph-name-blades = Communion of Blades
 cult-glyph-description-blades = Blades. Transmutes and extrudes sharp objects into more lethal weaponry.
 
 cult-glyph-name-cessation = Concord of Cessation
-cult-glyph-description-cessation = Cessation. Transmutes a portable atmospherics scrubber into a Vacuous Spire for our use.
+cult-glyph-description-cessation = Cessation. Transmutes various machinery into mysterious devices for our use.
 cult-glyph-name-truth = Concord of Truth
 cult-glyph-description-truth = Truth. Instills the pure, indelible truth. Able to convert absolutely anyone to join our ranks.
