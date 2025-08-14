@@ -5,7 +5,7 @@
 
 - type: entity
   name: Trevor
-  parent: MobHorse
+  parent: [MobHorse, ShowSecurityIcons]
   id: MobTrevor
   description: A thousand years of space evolution and this is the best we could come up with.
   components:
@@ -76,3 +76,24 @@
     attributes:
       proper: true
       gender: male
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: Access
+    enabled: true
+    groups:
+    - Brig
+    - Security
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Security
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Security
+  - type: Puller
+    needsHands: false
