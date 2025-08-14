@@ -11,4 +11,3 @@ species-name-skeleton = Скелет
 species-name-vox = Вокс
 species-name-arachne = Арахна
 snail-hurt-by-salt-popup = Солоний розчин пече, як кислота!
-species-name-plasmaman = Плазмамен

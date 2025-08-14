@@ -32,3 +32,9 @@ chat-speech-verb-rodentia-1 = пищить
 chat-speech-verb-rodentia-2 = піпікає
 chat-speech-verb-rodentia-3 = цокоче
 chat-speech-verb-rodentia-4 = верещить
+
+chat-speech-verb-name-chitinid = Хітиноїд
+chat-speech-verb-chitinid-1 = клацає
+chat-speech-verb-chitinid-2 = цвірчить
+chat-speech-verb-chitinid-3 = шипить
+chat-speech-verb-chitinid-4 = дзижчить

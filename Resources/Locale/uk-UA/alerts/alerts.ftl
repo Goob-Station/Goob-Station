@@ -117,11 +117,10 @@ alerts-deflecting-desc = У вас є шанс відхилити снаряди
 alerts-mana-name = Рівень мани
 alerts-mana-desc = Скільки мани ви можете витратити на свої здібності.
 mana-alert = [font size=12][color=purple]Мана: {$mana}/{$manaMax}[/color][/font]
-alerts-low-plasma-name = [color=red]Низька плазма[/color]
-alerts-low-plasma-desc = У повітрі, яким ви дихаєте, [color=red]недостатньо плазми[/color]. Вдягніть [color=green]внутрішні засоби[/color].
-alerts-high-oxygen-name = [color=red]Високий вміст кисню[/color]
-alerts-high-oxygen-desc = У повітрі, яким ви дихаєте, [color=red]забагато кисню[/color]. Одягніть [color=green]внутрішні засоби[/color].
 alerts-adrenaline-name = [color=red]Адреналін[/color]
 alerts-adrenaline-desc = Ви сповнені адреналіну: біль вас не сповільнить.
 alerts-rooted-name = Вкорінений
 alerts-rooted-desc = Ви прикріплені до землі. Ви не можете послизнутися, але поглинаєте рідини під собою.
+
+alerts-stealthy-name = Кишенькова крадіжка
+alerts-stealthy-desc = Показує, чи ви зараз здійснюєте кишенькову крадіжку. Натисніть, щоб перемкнути.

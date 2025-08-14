@@ -146,3 +146,7 @@ construction-graph-tag-spationaut-hardsuit = скафандр спаціонав
 soil-construction-graph-any-mushroom = будь-який гриб
 
 # іграшки
+construction-graph-tag-manipulator = модульна частина машини
+construction-graph-tag-apron = фартух
+construction-graph-tag-utility-belt = пояс для інструментів
+construction-graph-tag-backpack = наплічник

@@ -69,14 +69,14 @@ flavor-complex-mustard = як гірчиця.
 ## Харчові хімікати. На випадок, якщо ви з'їсте щось, що має це всередині.
 flavor-complex-nutriment = як живлення
 flavor-complex-vitamin = як вітаміни
-flavor-complex-protein = як протеїни 
+flavor-complex-protein = як протеїни
 
 ## Generic food taste. This should be replaced with an actual flavor profile,
 ## if you have food that looks like this.
 flavor-complex-food = як їжа
 
 ## Basic foodstuffs (ingredients, generic flavors)
-flavor-complex-bun = наче булочка 
+flavor-complex-bun = наче булочка
 flavor-complex-bread = наче шмат хлібу
 flavor-complex-batter = як тісто
 flavor-complex-butter = як масло
@@ -220,7 +220,7 @@ flavor-complex-black-russian = як алкогольна кава
 flavor-complex-white-russian = як алкогольна підсолоджена кава
 flavor-complex-moonshine = як чистий спирт
 flavor-complex-singulo = як ожиріння 3 стадії
-flavor-complex-syndie-bomb = як бабаха 
+flavor-complex-syndie-bomb = як бабаха
 flavor-complex-tequila-sunrise = як 10 годин блекауту взимку
 flavor-complex-irish-coffee = як призив до революції
 flavor-complex-iced-beer = як заморожена сеча бармена
@@ -280,7 +280,6 @@ flavor-complex-true-nature = як справжня природа реально
 flavor-complex-false-meat = не зовсім схоже на м'ясо
 flavor-complex-paper = як кашоподібна м'якоть
 flavor-complex-compressed-meat = як пресоване м'ясо
-flavor-complex-plasma = як плазма
 flavor-complex-supernova = наче наднова, застигла на піку
 flavor-complex-xelthia = ніби якийсь екзотичний вид кислуватих кальмарів
 flavor-complex-daiquiri = модний
@@ -361,3 +360,9 @@ flavor-base-trashy = сміттєвий
 
 # Складні смаки. Додайте смак сюди, якщо хочете щось більш
 # конкретне.
+
+flavor-complex-dog-food = як собачий корм
+
+# Специфічні смаки напоїв.
+
+## Загальний смак алкоголю/содової. Це слід замінити на справжній смаковий профіль.

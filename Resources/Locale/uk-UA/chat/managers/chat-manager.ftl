@@ -161,8 +161,8 @@ chat-manager-cult-channel-name = Культ Крові
 
 chat-manager-language-prefix = ({ $language }){" "}
 
-chat-speech-verb-skeleton-4 = Клацання
-chat-speech-verb-skeleton-5 = Тріск
+chat-speech-verb-skeleton-4 = клацання
+chat-speech-verb-skeleton-5 = тріск
 chat-speech-verb-name-supermatter = Надматерія
 chat-speech-verb-supermatter = Стани
 

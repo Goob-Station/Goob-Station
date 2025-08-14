@@ -78,17 +78,11 @@
 - type: loadout
   id: CadetJumpsuit # Pirate
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCadet
+    jumpsuit: ClothingUniformJumpsuitCadet # Pirate
+
 
 - type: loadout
   id: RedJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRed
 
-# Pirate
-# OuterClothing
-- type: loadout
-  id: ArmorCadet
-  equipment:
-    outerClothing: ClothingOuterArmorCadet
-# Pirate end

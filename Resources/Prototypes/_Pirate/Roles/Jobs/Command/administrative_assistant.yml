@@ -50,3 +50,11 @@
   id: AdminAssistantGear
   equipment:
     id: AdminAssistantPDA
+
+- type: chameleonOutfit
+  id: AdministrativeAssistantChameleonOutfit
+  job: AdministrativeAssistant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCommandGeneric
+    shoes: ClothingShoesColorBlack
+    ears: ClothingHeadsetAltCommand

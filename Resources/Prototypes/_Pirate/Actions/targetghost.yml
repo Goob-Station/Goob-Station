@@ -4,17 +4,19 @@
   description: "Сконцентруйся на істоті, щоб вона змогла тебе побачити."
   categories: [ HideSpawnMenu ]
   components:
-    - type: EntityTargetAction
+    - type: Action
       useDelay: 5
+      icon: Interface/Actions/manifest.png
+      checkCanInteract: false
+      itemIconStyle: NoItem
+    - type: TargetAction
+      interactOnMiss: false
+    - type: EntityTargetAction
       whitelist:
         components:
         - Eye
       canTargetSelf: false
-      interactOnMiss: false
-      icon: Interface/Actions/manifest.png
       event: !type:SetTargetGhostActionEvent {}
-      checkCanInteract: false
-      itemIconStyle: NoItem
 
 
 - type: entity
@@ -23,12 +25,13 @@
   description: "Забути про обрану істоту та повернутись у тінь."
   categories: [ HideSpawnMenu ]
   components:
-    - type: InstantAction
+    - type: Action
       icon: Interface/Actions/blight.png
       useDelay: 1
-      event: !type:ClearTargetGhostActionEvent
       priority: 0
       raiseOnUser: true
+    - type: InstantAction
+      event: !type:ClearTargetGhostActionEvent
 
 
 - type: entity
@@ -37,13 +40,14 @@
   description: "Перетворися на духа чи повернись у свою тілесну форму."
   categories: [ HideSpawnMenu ]
   components:
-    - type: InstantAction
+    - type: Action
       icon: Interface/Actions/eyeopen.png
       iconOn: Interface/Actions/eyeclose.png
       useDelay: 1
-      event: !type:ToggleGhostFormActionEvent
       priority: 0
       raiseOnUser: true
+    - type: InstantAction
+      event: !type:ToggleGhostFormActionEvent
 
 
 - type: entity
@@ -52,8 +56,9 @@
   description: "Перемістись на невелику відстань, розчиняючись у повітрі."
   categories: [ HideSpawnMenu ]
   components:
-    - type: InstantAction
+    - type: Action
       icon: _Goobstation/Wizard/Icons/spellblade.rsi/blink.png
       useDelay: 3
-      event: !type:GhostBlinkActionEvent
       raiseOnUser: true
+    - type: InstantAction
+      event: !type:GhostBlinkActionEvent
