@@ -4,7 +4,7 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 00:56:21
+  time: 08/14/2025 02:25:30
   entityCount: 28284
 maps:
 - 1
@@ -7591,12 +7591,6 @@ entities:
       parent: 2
 - proto: ActionToggleInternals
   entities:
-  - uid: 6515
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 5964
   - uid: 7099
     mapInit: true
     paused: true
@@ -7617,12 +7611,6 @@ entities:
     components:
     - type: Transform
       parent: 7334
-  - uid: 6514
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 5964
 - proto: AdvancedBoneGel
   entities:
   - uid: 9253
@@ -15265,6 +15253,16 @@ entities:
       parent: 2
 - proto: AtmosFixFreezerMarker
   entities:
+  - uid: 6579
+    components:
+    - type: Transform
+      pos: 4.5,-8.5
+      parent: 2
+  - uid: 6580
+    components:
+    - type: Transform
+      pos: 4.5,-4.5
+      parent: 2
   - uid: 26408
     components:
     - type: Transform
@@ -124307,24 +124305,18 @@ entities:
       parent: 2
 - proto: JetpackBlackFilled
   entities:
-  - uid: 5964
+  - uid: 629
     components:
     - type: Transform
-      pos: 12.455455,21.520123
+      pos: 12.495198,21.48332
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 6515
-    - type: Jetpack
-      toggleActionEntity: 6514
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 6514
-          - 6515
 - proto: JetpackMiniFilled
   entities:
+  - uid: 1794
+    components:
+    - type: Transform
+      pos: 42.4972,42.48316
+      parent: 2
   - uid: 1900
     components:
     - type: Transform
@@ -124337,27 +124329,22 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 6579
+  - uid: 5964
     components:
     - type: Transform
-      pos: 42.524597,42.497246
-      parent: 2
-  - uid: 6580
-    components:
-    - type: Transform
-      pos: 42.524597,42.66912
+      pos: 42.4972,42.67066
       parent: 2
 - proto: JetpackSecurityFilled
   entities:
-  - uid: 629
+  - uid: 6514
     components:
     - type: Transform
-      pos: 12.642955,20.457623
+      pos: 12.370198,20.54582
       parent: 2
-  - uid: 1794
+  - uid: 6515
     components:
     - type: Transform
-      pos: 12.31483,20.691998
+      pos: 12.635823,20.467695
       parent: 2
 - proto: KitchenElectricGrill
   entities:
