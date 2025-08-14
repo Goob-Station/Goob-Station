@@ -83,10 +83,10 @@
     - TauCetiBasic
   - type: Access
     enabled: true
-    groups:
-    - Brig
-    - Security
+    tags:
     - Maintenance
+    - Security
+    - Brig
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
