@@ -411,26 +411,30 @@
         task: SimpleHumanoidHostileCompound
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionToggleGuardian
   name: Toggle Guardian
   description: Either manifests the guardian or recalls it back into your body
   components:
-  - type: InstantAction
+  - type: Action
     icon: Interface/Actions/manifest.png
-    event: !type:GuardianToggleActionEvent
     useDelay: 2
     checkCanInteract: false
     checkConsciousness: false
+  - type: InstantAction
+    event: !type:GuardianToggleActionEvent
 
 # Goobstation
 - type: entity
+  parent: BaseMentalAction
   id: ActionSelfToggleGuardian
   name: Recall Self
   description: Recalls yourself back into your host's body
   components:
-  - type: InstantAction
+  - type: Action
     icon: Interface/Actions/manifest.png
-    event: !type:GuardianToggleSelfActionEvent # can only recall
     useDelay: 2
     checkCanInteract: false
     checkConsciousness: false
+  - type: InstantAction
+    event: !type:GuardianToggleSelfActionEvent # can only recall
