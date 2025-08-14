@@ -7,3 +7,4 @@ tech-disk-ui-name = термінал дисків технологій
 tech-disk-ui-total-label = На вибраному сервері є {$amount} очок
 tech-disk-ui-cost-label = Друк кожного диска коштує {$amount} очок
 tech-disk-ui-print-button = Надрукувати Диск
+tech-disk-name-format = {$baseName} ({$technology})

@@ -3,9 +3,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-ui-options-auto-fill-highlights = Автоматично заповнювати виділення інформацією про персонажа
-ui-options-highlights-color = Колір виділення:
-ui-options-highlights-color-example = Це виділений текст!
 ui-options-function-resist-grab = Протистояти захопленню
 ui-options-coalesce-identical-messages = Об'єднувати однакові повідомлення в чаті
 ui-options-detailed-examine = Показувати детальний текст огляду

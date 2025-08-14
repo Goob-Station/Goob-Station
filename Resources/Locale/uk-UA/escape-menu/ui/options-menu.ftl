@@ -403,3 +403,6 @@ ui-options-function-hotbar-shift7 = Слот швидкого доступу Shi
 ui-options-function-hotbar-shift8 = Слот швидкого доступу Shift+8
 ui-options-function-hotbar-shift9 = Слот швидкого доступу Shift+9
 ui-options-function-hotbar-shift0 = Слот швидкого доступу Shift+0
+ui-options-auto-fill-highlights = Автоматично заповнювати підсвічування інформацією про персонажа
+ui-options-highlights-color = Колір підсвічування:
+ui-options-highlights-color-example = Це підсвічений текст!

@@ -121,3 +121,6 @@ alerts-adrenaline-name = [color=red]Адреналін[/color]
 alerts-adrenaline-desc = Ви сповнені адреналіну: біль вас не сповільнить.
 alerts-rooted-name = Вкорінений
 alerts-rooted-desc = Ви прикріплені до землі. Ви не можете послизнутися, але поглинаєте рідини під собою.
+
+alerts-stealthy-name = Кишенькова крадіжка
+alerts-stealthy-desc = Показує, чи ви зараз здійснюєте кишенькову крадіжку. Натисніть, щоб перемкнути.
