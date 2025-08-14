@@ -530,6 +530,7 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: ShowElectrocutionHUD
 
 - type: entity
   id: BaseBorgChassisSyndicate
