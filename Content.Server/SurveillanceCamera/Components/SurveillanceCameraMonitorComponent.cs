@@ -40,10 +40,6 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
     // Set of viewers currently looking at this monitor.
     public HashSet<EntityUid> Viewers { get; } = new();
 
-    // Current active subnet.
-    [ViewVariables]
-    public string ActiveSubnet { get; set; } = default!;
-
     // Known cameras in this subnet by address with name values.
     // This is cleared when the subnet is changed.
     [ViewVariables]

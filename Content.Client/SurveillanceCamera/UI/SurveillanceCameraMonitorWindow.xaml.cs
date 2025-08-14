@@ -31,7 +31,6 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     [Dependency] private IEntityManager _entManager = default!; // Goobstation
 
     public event Action<string>? CameraSelected;
-    public event Action<string>? SubnetOpened;
     public event Action? CameraRefresh;
     public event Action? SubnetRefresh;
     public event Action? CameraSwitchTimer;
@@ -43,20 +42,6 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
     private readonly Dictionary<string, int> _subnetMap = new();
     private readonly SpriteSystem _spriteSystem; // Goobstation
     private readonly Dictionary<NetEntity, string> _reverseCameras = new(); // Goobstation
-
-    private string? SelectedSubnet
-    {
-        get
-        {
-            if (SubnetSelector.ItemCount == 0
-                || SubnetSelector.SelectedMetadata == null)
-            {
-                return null;
-            }
-
-            return (string) SubnetSelector.SelectedMetadata;
-        }
-    }
 
     public SurveillanceCameraMonitorWindow()
     {
@@ -77,12 +62,6 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
         // Set trackable entity selected action - Camera Selection
         NavMap.TrackedEntitySelectedAction += SetTrackedEntityFromNavMap; // Goobstation
-
-        SubnetSelector.OnItemSelected += args =>
-        {
-            // piss
-            SubnetOpened!((string) args.Button.GetItemMetadata(args.Id)!);
-        };
 
         SubnetRefreshButton.OnPressed += _ => SubnetRefresh!();
         CameraRefreshButton.OnPressed += _ => CameraRefresh!();
@@ -134,7 +113,6 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         }
     }
 
-
     // Add a particular camera
     private void AddTrackedEntityToNavMap(NetEntity ent, NetCoordinates coordinates, bool selected)
     {
@@ -152,49 +130,10 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
 
     // The UI class should get the eye from the entity, and then
     // pass it here so that the UI can change its view.
-    public void UpdateState(IEye? eye, HashSet<string> subnets, string activeAddress, string activeSubnet, Dictionary<string, (NetEntity, NetCoordinates)> cameras) // Goobstation
+    public void UpdateState(IEye? eye, string activeAddress, Dictionary<string, (NetEntity, NetCoordinates)> cameras) // Goobstation
     {
         _currentAddress = activeAddress;
         SetCameraView(eye);
-
-        if (subnets.Count == 0)
-        {
-            SubnetSelector.AddItem(Loc.GetString("surveillance-camera-monitor-ui-no-subnets"));
-            SubnetSelector.Disabled = true;
-            return;
-        }
-
-        if (SubnetSelector.Disabled && subnets.Count != 0)
-        {
-            SubnetSelector.Clear();
-            SubnetSelector.Disabled = false;
-        }
-
-        // That way, we have *a* subnet selected if this is ever opened.
-        if (string.IsNullOrEmpty(activeSubnet))
-        {
-            SubnetOpened!(subnets.First());
-            return;
-        }
-
-        // if the subnet count is unequal, that means
-        // we have to rebuild the subnet selector
-        if (SubnetSelector.ItemCount != subnets.Count)
-        {
-            SubnetSelector.Clear();
-            _subnetMap.Clear();
-
-            foreach (var subnet in subnets)
-            {
-                var id = AddSubnet(subnet);
-                _subnetMap.Add(subnet, id);
-            }
-        }
-
-        if (_subnetMap.TryGetValue(activeSubnet, out var subnetId))
-        {
-            SubnetSelector.Select(subnetId);
-        }
 
         // Goobstation Start
         _reverseCameras.Clear();
@@ -244,19 +183,5 @@ public sealed partial class SurveillanceCameraMonitorWindow : FancyWindow // Goo
         CameraStatus.Text = Loc.GetString("surveillance-camera-monitor-ui-status",
                             ("status", Loc.GetString("surveillance-camera-monitor-ui-status-connected")),
                             ("address", _currentAddress));
-    }
-
-    private int AddSubnet(string subnet)
-    {
-        var name = subnet;
-        if (_prototypeManager.TryIndex<DeviceFrequencyPrototype>(subnet, out var frequency))
-        {
-            name = Loc.GetString(frequency.Name ?? subnet);
-        }
-
-        SubnetSelector.AddItem(name);
-        SubnetSelector.SetItemMetadata(SubnetSelector.ItemCount - 1, subnet);
-
-        return SubnetSelector.ItemCount - 1;
     }
 }

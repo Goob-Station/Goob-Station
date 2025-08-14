@@ -19,22 +19,19 @@ SPDX-License-Identifier: MIT
         <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
             <controls:StripeBack>
                 <PanelContainer>
-                    <RichTextLabel Name="StationName" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5 0 3"/>
+                    <RichTextLabel Name="StationName" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </PanelContainer>
             </controls:StripeBack>
-            <ui:SurveillanceCameraConsoleNavMapControl Name="NavMap" Margin="5 5 5 5" VerticalExpand="True" HorizontalExpand="True" />
+            <ui:SurveillanceCameraConsoleNavMapControl Name="NavMap" VerticalExpand="True" HorizontalExpand="True" />
             <BoxContainer Orientation="Vertical">
                 <BoxContainer Orientation="Horizontal" VerticalExpand="True">
                     <!-- lazy -->
-                    <OptionButton Name="SubnetSelector" />
                     <Button Name="SubnetRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-subnets'}" />
                     <Button Name="CameraRefreshButton" Text="{Loc 'surveillance-camera-monitor-ui-refresh-cameras'}" />
+                    <Button Name="CameraDisconnectButton" Text="{Loc 'surveillance-camera-monitor-ui-disconnect'}" />
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal">
                     <Label Name="CameraStatus" />
-                </BoxContainer>
-                <BoxContainer Orientation="Horizontal">
-                    <Button Name="CameraDisconnectButton" Text="{Loc 'surveillance-camera-monitor-ui-disconnect'}" />
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>
