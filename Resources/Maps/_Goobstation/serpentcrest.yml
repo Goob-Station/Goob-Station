@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/14/2025 02:25:30
-  entityCount: 28284
+  time: 08/14/2025 03:18:51
+  entityCount: 28281
 maps:
 - 1
 grids:
@@ -4687,7 +4687,8 @@ entities:
           1,5:
             0: 61166
           2,5:
-            0: 32767
+            0: 20479
+            1: 12288
           3,4:
             0: 4112
             3: 256
@@ -7589,28 +7590,6 @@ entities:
     - type: Transform
       pos: -62.40383,26.552698
       parent: 2
-- proto: ActionToggleInternals
-  entities:
-  - uid: 7099
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 7334
-  - uid: 24548
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 24547
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 6139
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 7334
 - proto: AdvancedBoneGel
   entities:
   - uid: 9253
@@ -68471,29 +68450,18 @@ entities:
       parent: 2
 - proto: ClothingShoesBootsMagSyndie
   entities:
-  - uid: 5923
+  - uid: 1900
+    components:
+    - type: Transform
+      pos: 42.594814,41.54493
+      parent: 2
+  - uid: 6139
     components:
     - type: Transform
       parent: 5922
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 7334
-    components:
-    - type: Transform
-      pos: 42.6349,41.59591
-      parent: 2
-    - type: GasTank
-      toggleActionEntity: 7099
-    - type: Jetpack
-      toggleActionEntity: 6139
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 6139
-          - 7099
 - proto: ClothingShoesBootsSalvage
   entities:
   - uid: 27841
@@ -124317,11 +124285,6 @@ entities:
     - type: Transform
       pos: 42.4972,42.48316
       parent: 2
-  - uid: 1900
-    components:
-    - type: Transform
-      pos: 35.46132,-39.417015
-      parent: 2
   - uid: 4122
     components:
     - type: Transform
@@ -124333,6 +124296,11 @@ entities:
     components:
     - type: Transform
       pos: 42.4972,42.67066
+      parent: 2
+  - uid: 6544
+    components:
+    - type: Transform
+      pos: 35.4869,-39.500267
       parent: 2
 - proto: JetpackSecurityFilled
   entities:
@@ -128013,33 +127981,25 @@ entities:
       parent: 2
 - proto: NitrousOxideTankFilled
   entities:
-  - uid: 6544
+  - uid: 5923
     components:
     - type: Transform
-      pos: 55.356712,37.731724
+      pos: -2.6809032,-44.509205
+      parent: 2
+  - uid: 7099
+    components:
+    - type: Transform
+      pos: 55.33438,37.528694
+      parent: 2
+  - uid: 7334
+    components:
+    - type: Transform
+      pos: -2.515503,-57.5342
       parent: 2
   - uid: 7464
     components:
     - type: Transform
-      pos: -2.4179842,-57.424187
-      parent: 2
-  - uid: 24547
-    components:
-    - type: Transform
-      pos: -2.5935888,-44.27822
-      parent: 2
-    - type: GasTank
-      toggleActionEntity: 24548
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 24548
-  - uid: 24551
-    components:
-    - type: Transform
-      pos: -2.3748388,-44.40322
+      pos: -2.2902782,-44.571705
       parent: 2
 - proto: NodeScanner
   entities:
@@ -151252,6 +151212,28 @@ entities:
     - type: Transform
       pos: 9.5,23.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -151276,13 +151258,35 @@ entities:
     - type: Transform
       pos: 8.5,23.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 5923
+          - 6139
   - uid: 5924
     components:
     - type: Transform
