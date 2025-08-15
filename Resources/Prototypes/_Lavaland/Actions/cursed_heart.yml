@@ -21,17 +21,19 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionPumpCursedHeart
-  name: action-pump-heart
-  description: action-pump-heart-desc
+  name: Heartbeat
+  description: Pump your own blood to live!
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
       state: cursed_heart
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: BigAction
-    event: !type:PumpHeartActionEvent
     useDelay: 1
+  - type: InstantAction
+    event: !type:PumpHeartActionEvent
