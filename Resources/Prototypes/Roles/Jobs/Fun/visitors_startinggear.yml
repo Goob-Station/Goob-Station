@@ -1750,7 +1750,7 @@
   id: ChallengeVictimHOS
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoSParadeMale
-    shoes: ClothingShoesBootsCowboyBlackFilled
+    shoes: ClothingShoesBootsJack # ClothingShoesBootsCowboyBlackFilled - Goobstation
     gloves: ClothingHandsGlovesCombat
     head: ClothingHeadHatHoshat
     neck: ClothingNeckCloakHos
