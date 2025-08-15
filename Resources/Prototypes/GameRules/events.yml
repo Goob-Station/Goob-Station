@@ -175,7 +175,7 @@
     - id: MothroachSpawn # DeltaV
     - id: XenoVents # DeltaV
     - id: DerelictCyborgSyndicateSpawn # Goobstation - usually calm
-    - id: WireBurnout
+    - id: WireBurnout # Goobstation 
 
 - type: entityTable
   id: BasicAntagEventsTable
