@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/15/2025 22:22:13
-  entityCount: 24928
+  time: 08/15/2025 22:35:27
+  entityCount: 24958
 maps:
 - 1
 grids:
@@ -12227,7 +12227,7 @@ entities:
       pos: 0.5,-0.5
       parent: 24940
     - type: Door
-      secondsUntilStateChange: -5778.871
+      secondsUntilStateChange: -6174.1113
       changeAirtight: False
       state: Opening
     - type: DeviceLinkSource
@@ -12690,7 +12690,7 @@ entities:
       pos: 42.5,2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6009.838
+      secondsUntilStateChange: -6405.078
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12702,7 +12702,7 @@ entities:
       pos: 42.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6009.304
+      secondsUntilStateChange: -6404.5444
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13052,7 +13052,7 @@ entities:
       pos: 35.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6012.071
+      secondsUntilStateChange: -6407.311
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14764,6 +14764,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 38.5,-2.5
+      parent: 2
+  - uid: 24113
+    components:
+    - type: Transform
+      pos: -27.5,3.5
       parent: 2
   - uid: 24951
     components:
@@ -32647,6 +32652,16 @@ entities:
     - type: Transform
       pos: -33.5,-18.5
       parent: 2
+  - uid: 24124
+    components:
+    - type: Transform
+      pos: -27.5,2.5
+      parent: 2
+  - uid: 24125
+    components:
+    - type: Transform
+      pos: -27.5,3.5
+      parent: 2
   - uid: 24959
     components:
     - type: Transform
@@ -49341,6 +49356,56 @@ entities:
     components:
     - type: Transform
       pos: -9.5,-10.5
+      parent: 2
+  - uid: 24130
+    components:
+    - type: Transform
+      pos: -26.5,-2.5
+      parent: 2
+  - uid: 24142
+    components:
+    - type: Transform
+      pos: -26.5,-1.5
+      parent: 2
+  - uid: 24161
+    components:
+    - type: Transform
+      pos: -26.5,-0.5
+      parent: 2
+  - uid: 24162
+    components:
+    - type: Transform
+      pos: -27.5,-0.5
+      parent: 2
+  - uid: 24163
+    components:
+    - type: Transform
+      pos: -27.5,0.5
+      parent: 2
+  - uid: 24164
+    components:
+    - type: Transform
+      pos: -27.5,1.5
+      parent: 2
+  - uid: 24165
+    components:
+    - type: Transform
+      pos: -27.5,2.5
+      parent: 2
+  - uid: 24166
+    components:
+    - type: Transform
+      pos: -27.5,3.5
+      parent: 2
+  - uid: 24167
+    components:
+    - type: Transform
+      pos: -27.5,-1.5
+      parent: 2
+  - uid: 24172
+    components:
+    - type: Transform
+      pos: -25.5,-1.5
       parent: 2
   - uid: 25034
     components:
@@ -132628,6 +132693,11 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Command Airlock
+  - uid: 23774
+    components:
+    - type: Transform
+      pos: -1.5,-0.5
+      parent: 2
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 20368
@@ -132932,6 +133002,40 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: Communications
+  - uid: 24046
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,18.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Engi break
+  - uid: 24047
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,29.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraEngineering
+      nameSet: True
+      id: Engi main upper
+  - uid: 24049
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,30.5
+      parent: 2
+  - uid: 24094
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 19.5,19.5
+      parent: 2
 - proto: SurveillanceCameraGeneral
   entities:
   - uid: 20399
@@ -133348,6 +133452,17 @@ entities:
     - type: Transform
       pos: -14.5,7.5
       parent: 2
+  - uid: 23776
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -22.5,15.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Chapel
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 20441
@@ -133588,6 +133703,95 @@ entities:
       - SurveillanceCameraScience
       nameSet: True
       id: Xenobio entrance
+  - uid: 23962
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -39.5,14.5
+      parent: 2
+  - uid: 23999
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -30.5,14.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: Robotics
+  - uid: 24000
+    components:
+    - type: Transform
+      pos: -53.5,11.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: artifact 2
+  - uid: 24001
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -46.5,17.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: artifact 1
+  - uid: 24007
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -57.5,-0.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: anomaly
+  - uid: 24008
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -45.5,-9.5
+      parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: front
+  - uid: 24009
+    components:
+    - type: Transform
+      pos: -35.5,-24.5
+      parent: 2
+  - uid: 24010
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-0.5
+      parent: 2
+  - uid: 24012
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-11.5
+      parent: 2
+  - uid: 24013
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -22.5,-22.5
+      parent: 2
+  - uid: 24028
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -18.5,-16.5
+      parent: 2
 - proto: SurveillanceCameraSecurity
   entities:
   - uid: 11129
