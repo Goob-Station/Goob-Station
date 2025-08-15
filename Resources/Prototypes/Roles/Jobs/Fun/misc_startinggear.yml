@@ -240,7 +240,7 @@
   equipment: # Heavily goob edited
     eyes: ClothingEyesGlassesMedSec
     id: BrigmedicPDA
-    ears: ClothingHeadsetAltSecurityRegular
+    ears: ClothingHeadsetAltBrigmedic
     belt: ClothingBeltMedicalEMTFilled
     pocket1: WeaponDisabler
   storage:
