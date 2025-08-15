@@ -29,10 +29,10 @@
   # begin Goobstation: port EE height/width sliders
   minHeight: 0.75
   defaultHeight: 0.80
-  maxHeight: 1.10
+  maxHeight: 1.0
   minWidth: 0.80
   defaultWidth: 0.80
-  maxWidth: 1.05
+  maxWidth: 1.0
   # end Goobstation: port EE height/width sliders
 
 - type: speciesBaseSprites
