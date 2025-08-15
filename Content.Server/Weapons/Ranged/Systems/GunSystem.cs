@@ -145,7 +145,7 @@ using Robust.Shared.Containers;
 using Content.Server.PowerCell;
 using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
 using Content.Shared._CorvaxGoob.Skills;
-using Content.Server._CorvaxGoob.Skills;
+using Content.Goobstation.Common.Weapons.NoWieldNeeded;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -210,7 +210,7 @@ public sealed partial class GunSystem : SharedGunSystem
         var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
 
         // CorvaxGoob-Skills-Start
-        if (gun.RequiresSkill && _skills.IsSkillsEnabled() && user is not null && !_skills.HasSkill(user!.Value, Skills.Shooting))
+        if (gun.RequiresSkill && _skills.IsSkillsEnabled() && user is not null && !_skills.HasSkill(user!.Value, Skills.Shooting) && !HasComp<NoWieldNeededComponent>(user!.Value))
         {
             var spread = -SpreadWithoutSkill / 2 + Random.NextFloat() * SpreadWithoutSkill;
 

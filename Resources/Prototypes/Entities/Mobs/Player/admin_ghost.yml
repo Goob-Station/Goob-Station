@@ -262,8 +262,8 @@
       - Butchering
   # Corvax-Start
   - type: MovementSpeedModifier
-    baseSprintSpeed: 30
-    baseWalkSpeed: 12
+    baseSprintSpeed: 12
+    baseWalkSpeed: 30
   # Corvax-End
 
 - type: entity

@@ -18,6 +18,9 @@
       nameSegments:
         - AbductorNames
         - AbductorNames
+    - type: Skills # CorvaxGoob-Skills
+      skills:
+      - ShuttleControl
     - type: Loadout
       prototypes: [ VisitorAlien ]
       roleLoadout: [ RoleSurvivalStandard ]

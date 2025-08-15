@@ -308,7 +308,7 @@
 - type: entity
   name: white office chair
   id: ChairOfficeLight
-  parent: RollingOfficeChairBase # Goobstation - make the rolly chairs roll!
+  parent: OfficeChairBase # Goobstation - make the rolly chairs roll! CorvaxGoob Changes : Reverted
   components:
   - type: Sprite
     state: office-white

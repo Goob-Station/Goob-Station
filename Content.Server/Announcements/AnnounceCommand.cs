@@ -86,7 +86,7 @@ public sealed class AnnounceCommand : LocalizedEntityCommands
         // CorvaxGoob-TTS-Start
         if (args.Length >= 5)
         {
-            _tts.SendTTSAdminAnnouncement(message, args[4]);
+            _tts.SendTTSAdminAnnouncement(message, args[4], args[3]);
 
         }
          // CorvaxGoob-TTS-Start
