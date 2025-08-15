@@ -319,6 +319,8 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: DynamicRuleCost
+    cost: 200
 
 # Goobstation
 - type: entity
@@ -341,9 +343,13 @@
     sets:
     - groups: TraitorObjectiveGroups
     maxDifficulty: 5
+  - type: AntagSelection
+    agentName: traitor-round-end-agent-name
+  - type: DynamicRuleCost
+    cost: 100
 
 # Goobstation - order swapped since admin verbs use .Last() for some reason
-# TODO: Fix that
+# TODO GOOBSTATION: Fix that
 - type: entity
   id: TraitorReinforcement
   parent: BaseTraitorRuleNoObjectives # Goobstation
@@ -368,8 +374,11 @@
   components:
   - type: GameRule
     minPlayers: 5
+    delay: # NotGoobstation - I know what you're thinking. I think having 4 minutes of non-chaos is fine?
+      min: 240
+      max: 420
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn # Goobstation
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
       max: 8
@@ -380,7 +389,7 @@
         - CommandStaff # Goobstation
         - AntagImmune
         - Changeling # Goobstation
-      lateJoinAdditional: true
+      lateJoinAdditional: true # Goobstation
       mindRoles:
       - MindRoleTraitor
 
@@ -412,6 +421,8 @@
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
+  - type: DynamicRuleCost
+    cost: 200
 
 - type: entity
   id: Sandbox
@@ -471,10 +482,13 @@
 #        - Wizard
 #      - type: RandomMetadata
 #        nameSegments:
-#        - names_wizard_first
-#        - names_wizard_last
+#        - NamesWizardFirst
+#        - NamesWizardLast
+#        nameFormat: name-format-wizard
 #      mindRoles:
 #      - MindRoleWizard
+#  - type: DynamicRuleCost
+#    cost: 150
 
 - type: entity
   id: Zombie
@@ -493,10 +507,11 @@
     - LoneRunRule
   - type: ZombieRule
   - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ InitialInfected ]
-      max: 4
-      playerRatio: 15
+      max: 4 # Goobstation
+      playerRatio: 15 # Goobstation
       jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
@@ -514,6 +529,8 @@
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
+  - type: DynamicRuleCost
+    cost: 200
 
 # This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
 # Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
@@ -543,6 +560,8 @@
       - !type:NestedSelector
         tableId: BasicAntagEventsTable
       - !type:NestedSelector
+        tableId: ModerateAntagEventsTable
+      - !type:NestedSelector
         tableId: CargoGiftsTable
       - !type:NestedSelector
         tableId: CalmPestEventsTable
@@ -550,6 +569,21 @@
         tableId: SpicyPestEventsTable
 
 - type: entityTable
+  id: DynamicGameRulesTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - !type:NestedSelector
+      tableId: BasicCalmEventsTable
+    - !type:NestedSelector
+      tableId: BasicAntagEventsTable
+    - !type:NestedSelector
+      tableId: CargoGiftsTable
+    - !type:NestedSelector
+      tableId: CalmPestEventsTable
+    - !type:NestedSelector
+      tableId: SpicyPestEventsTable
+
+- type: entityTable #Goobstation?
   id: BasicGameRulesTableNoAntag
   table: !type:AllSelector
     children:
@@ -562,7 +596,7 @@
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
 
-- type: entityTable
+- type: entityTable #Goobstation?
   id: AllGameRulesTable
   table: !type:AllSelector
     children:
@@ -591,6 +625,14 @@
       tableId: BasicGameRulesTable
 
 - type: entity
+  id: DynamicStationEventScheduler # this isn't the dynamic mode, but rather the station event scheduler used for dynamic
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: DynamicGameRulesTable
+
+- type: entity # Goobstation?
   id: AntagStationEventScheduler
   parent: BaseGameRule
   components:
@@ -609,7 +651,7 @@
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
 
-- type: entity
+- type: entity # Goobstation?
   id: BasicStationEventSchedulerNoAntag
   parent: BaseGameRule
   components:
