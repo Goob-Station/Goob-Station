@@ -218,6 +218,8 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: MeleeRequiresWield # Goob edit end
   - type: GunRequiresWield
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   name: Hristov
@@ -251,6 +253,8 @@
   - type: EyeCursorOffset
     maxOffset: 8 # Goobstation - Sniper rifles buff
     pvsIncrease: 0.8 # Goobstation - Sniper rifles buff
+  - type: StaticPrice
+    price: 3500
 
 - type: entity
   name: musket
