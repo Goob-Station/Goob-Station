@@ -1,4 +1,5 @@
 using Content.Server.StationEvents.Events;
+
 namespace Content.Goobstation.Server.StationEvents.Components;
 
 /// <summary>

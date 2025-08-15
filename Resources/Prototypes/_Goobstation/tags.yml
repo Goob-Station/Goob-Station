@@ -517,9 +517,6 @@
   id: Stomach
 
 - type: Tag
-  id: Substation
-
-- type: Tag
   id: SummonSimiansMaxLevelAction
 
 - type: Tag
