@@ -6,22 +6,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Airlocks
-  Airlocks are used to control access to different areas of the station.
+  # Шлюзы
+  Шлюзы используются для контроля доступа в различные зоны станции.
 
   <Box>
     <GuideEntityEmbed Entity="Airlock" Caption=""/>
     <GuideEntityEmbed Entity="AirlockGlass" Caption=""/>
   </Box>
 
-  Airlocks can be opened using either [color=yellow][bold][keybind="Use"][/bold][/color] with an empty hand, [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color] if hands are full, or by colliding with the airlock.
+  Шлюзы можно открыть при помощи [color=yellow][bold][keybind="Use"][/bold][/color] с пустой рукой, [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color], если руки заняты, или столкнувшись со шлюзом.
 
-  Airlocks will only open if you have an ID card with the correct access level.
-  The ID card must be in your hand or in your ID slot.
-  In the case of having multiple IDs, the airlock will check them all when you try to open it.
-  This behavior is also the same for IDs in a PDA.
+  Шлюзы откроются только при наличии ID-карты с соответствующим уровнем доступа. 
+  Карта должна находиться в руке или в слоте ID.
+  При наличии нескольких ID шлюз проверяет их все при попытке открыть. 
+  Такой же принцип работает для ID в КПК.
 
-  The access level required to open the door can be modified using an Access Configurator, or by using a Multitool on the door electronics for the airlock (which requires deconstruction).
+  Требуемый уровень доступа для открытия двери можно изменить при помощи Конфигуратора доступов или Мультитулом на панеле шлюза (требуется разборка).
 
   <Box>
     <GuideEntityEmbed Entity="AccessConfigurator" Caption=""/>
@@ -29,21 +29,21 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="DoorElectronics" Caption=""/>
   </Box>
 
-  Airlocks block gas flow, so they can be used to seal off areas in case of a [textlink="hull breach" link="Spacing"] or a [textlink="fire." link="Fires"]
-  They also store gas on their tile, even when closed, so be careful when opening them during or after a gas leak.
+  Шлюзы блокируют потоки газов, поэтому их можно использовать для изоляции зон при [textlink="разгерметизации" link="Spacing"] или [textlink="пожаре" link="Fires"]. 
+  Они также сохраняют газ на своей плитке, даже когда закрыты, поэтому будьте осторожны при открытии во время или после утечки газа.
 
-  ## Bolting and Emergency Access
-  Airlocks can be bolted to prevent them from being opened or pried open by hand. When this occurs, the airlock will display red lights on the top of the door.
+  ## Болтирование и аварийный доступ
+  Шлюзы можно болтировать, чтобы предотвратить открытие или ручной взлом. В этом случае на двери загораются красные огни.
 
-  Airlocks can also be set to emergency access. In this mode, anyone can open the airlock, regardless of access level. When this occurs, the airlock will display flashing yellow lights on the top of the door.
+  Шлюзы можно установить в режим аварийного доступа. В этом режиме любой может открыть шлюз, независимо от уровня доступа. Огни двери при этом мигает жёлтым светом.
 
-  ## Remote Control
-  Airlocks can be controlled remotely, either by the station AI or by using a Door Remote.
+  ## Дистанционное управление
+  Шлюзами можно управлять удалённо, либо через ИИ станции, либо при помощи пульта от шлюзов.
   <Box>
     <GuideEntityEmbed Entity="PlayerStationAiEmpty" Caption=""/>
   </Box>
   <Box>
-    [color=#999999][italic]The Station AI, which has remote control over all airlocks[italic][/color]
+    [color=#999999][italic]ИИ станции, управляющий всеми шлюзами удалённо[italic][/color]
   </Box>
 
   <Box>
@@ -55,20 +55,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="DoorRemoteResearch" Caption=""/>
   </Box>
   <Box>
-    [color=#999999][italic]Precious door remotes. With unlimited power...[italic][/color]
+    [color=#999999][italic]Ценные пульты управления шлюзами. С неограниченной мощностью...[italic][/color]
   </Box>
 
+  Руководители отделов обычно получают пульты от своих отделов. Они могут открывать, закрывать, болтировать и устанавливать аварийный доступ с их помощью.
 
-  Department heads usually get door remotes for their respective department.
+  ## Связывание
+  Шлюзы можно связать с другими устройствами через систему [textlink="Link" link="Networking"]. 
+  Это позволяет организовать правильное соединение шлюзов станции с открытым космосом или связывать несколько шлюзов вместе.
 
-  They can open, close, bolt, and set to emergency access using these remotes.
-
-  ## Linking
-  Airlocks can be linked using the [textlink="Link" link="Networking"] system to other devices.
-  This allows for proper station airlocks to space, or to link multiple airlocks together.
-
-  ## Styling
-  Airlocks can come in different styles to match station departments. The department style commonly reflects the required access level.
+  ## Дизайн
+  Шлюзы могут иметь разные стили в зависимости от отделов станции. Дизайн обычно отражает требуемый уровень доступа.
 
   <Box>
     <GuideEntityEmbed Entity="Airlock" Caption=""/>
@@ -89,56 +86,54 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="AirlockSecurityGlass" Caption=""/>
   </Box>
 
-  Airlocks can be repainted using a spray painter.
+  Шлюзы можно перекрашивать при помощи краскопульта.
   <Box>
     <GuideEntityEmbed Entity="SprayPainter" Caption=""/>
   </Box>
 
-  ## Wiring
-  Airlocks have internal wiring under their maintenance panel, which can be opened using a screwdriver.
-  Each wire controls some aspect of the airlock's functionality.
-  When you either pulse, cut, or mend the wire, it will affect the airlock in different ways.
+  ## Проводка
+  Шлюзы имеют внутреннюю проводку под панелью, которую можно открыть отвёрткой. Каждый провод управляет определённой функцией шлюза. Пульс, разрезание или починка провода влияет на работу шлюза по-разному.
 
-  The lights next to the wires will indicate the status of the wire:
-  - A steady light indicates that the system is functioning as normal.
-  - A flashing light indicates that the system is malfunctioning. It is either not working or is behaving not as intended.
-  - No light indicates that the system is not powered.
+  Индикаторы рядом с проводами показывают состояние:
+  - Постоянный свет: система работает нормально.
+  - Мигающий свет: система неисправна или работает некорректно.
+  - Отсутствие света: система не запитана.
 
-  Below is a list of the wires and their functions:
+  Ниже список проводов и их функций:
 
-  [color=#a4885c]Bolt Wire (BOLT)[/color]
-  - [color=yellow]Pulse the wire[/color]: Bolts or unbolts the door.
-  - [color=red]Cut the wire[/color]: Bolts the door.
-  - [color=green]Mend the wire[/color]: Does nothing.
+  [color=#a4885c]Провод болта (БОЛТ)[/color]
+  - [color=yellow]Пульс[/color]: Болтирует или разболтирует шлюз.
+  - [color=red]Разрез[/color]: Болтирует шлюз.
+  - [color=green]Починка[/color]: Ничего не делает.
 
-  [color=#a4885c]Power Wire (POWR)[/color]
-  - [color=yellow]Pulse the wire[/color]: Cuts power to the door for a short time.
-  - [color=red]Cut the wire[/color]: Either cuts power to the door if both power wires are cut, or causes a short circuit if only one is cut, shocking people without insulated gloves.
-  - [color=green]Mend the wire[/color]: Either restores power to the door if both power wires are cut, or stops the short circuit if only one is cut.
+  [color=#a4885c]Провод питания (ПИТН)[/color]
+  - [color=yellow]Пульс[/color]: Короткое отключение питания шлюза.
+  - [color=red]Разрез[/color]: Отключение питания или короткое замыкание, удар током при отсутствии изоляции.
+  - [color=green]Починка[/color]: Восстанавливает питание или останавливает короткое замыкание.
 
-  [color=#a4885c]Log Wire (LOG)[/color]
-  - [color=yellow]Pulse the wire[/color]: Temporary disables door logging.
-  - [color=red]Cut the wire[/color]: Disables door logging.
-  - [color=green]Mend the wire[/color]: Re-enables door logging.
+  [color=#a4885c]Провод логов (ЛОГ)[/color]
+  - [color=yellow]Пульс[/color]: Временно отключает логирование шлюза.
+  - [color=red]Разрез[/color]: Отключает логирование.
+  - [color=green]Починка[/color]: Включает логирование.
 
-  [color=#a4885c]Bolt Light (BLIT)[/color]
-  - [color=yellow]Pulse the wire[/color]: Turns the system off temporarily, or turns it back on.
-  - [color=red]Cut the wire[/color]: Prevents the bolt light from turning on, which communicates if the door is bolted or not.
-  - [color=green]Mend the wire[/color]: Turns the system back on.
+  [color=#a4885c]Индикатор света (СВЕТ)[/color]
+  - [color=yellow]Пульс[/color]: Временно отключает или включает шлюз.
+  - [color=red]Разрез[/color]: Блокирует индикатор света, сообщающий о закрытии шлюза.
+  - [color=green]Починка[/color]: Включает систему.
 
-  [color=#a4885c]Timer Light (TIMR)[/color]
-  - [color=yellow]Pulse the wire[/color]: Reduces the door timer temporarily.
-  - [color=red]Cut the wire[/color]: Disables the timer. The door will close as soon as it is safe to do so.
-  - [color=green]Mend the wire[/color]: Re-enables the timer.
+  [color=#a4885c]Индикатор таймера (ТЙМР)[/color]
+  - [color=yellow]Пульс[/color]: Временно уменьшает таймер шлюза.
+  - [color=red]Разрез[/color]: Отключает таймер, шлюз закрывается сразу при безопасных условиях.
+  - [color=green]Починка[/color]: Включает таймер.
 
-  [color=#a4885c]Safety Light (SAFE)[/color]
-  - [color=yellow]Pulse the wire[/color]: Disables the safety system temporarily.
-  - [color=red]Cut the wire[/color]: Disables the safety system. The door will close even if there is an obstruction.
-  - [color=green]Mend the wire[/color]: Re-enables the safety system.
+  [color=#a4885c]Индикатор безопасности (БЕЗП)[/color]
+  - [color=yellow]Пульс[/color]: Временно отключает систему безопасности.
+  - [color=red]Разрез[/color]: Отключает систему безопасности, шлюз закроется даже при препятствии.
+  - [color=green]Починка[/color]: Включает систему безопасности.
 
-  [color=#a4885c]AI Access Light (AIA)[/color]
-  - [color=yellow]Pulse the wire[/color]: Does nothing.
-  - [color=red]Cut the wire[/color]: Disables AI access. The AI can no longer control the door.
-  - [color=green]Mend the wire[/color]: Re-enables AI access.
+  [color=#a4885c]Индикатор доступа ИИ (ИИС)[/color]
+  - [color=yellow]Пульс[/color]: Ничего не делает.
+  - [color=red]Разрез[/color]: Отключает доступ ИИ, ИИ не может управлять шлюзом.
+  - [color=green]Починка[/color]: Включает доступ ИИ.
 
 </Document>

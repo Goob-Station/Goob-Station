@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 traitor-arc-intro = Вы — террорист ARC.
-traitor-arc-goal = Существа этого мира должны быть освобождены из железной хватки Нанотрейзен, и вы — их единственная надежда!
+traitor-arc-goal = Существа этого мира должны быть освобождены из железной хватки Nanotrasen, и вы — их единственная надежда!
 traitor-arc-allies = Вы можете сотрудничать с другими агентами Синдиката, если они поддерживают нашу цель. Может, получится уговорить агентов Фронта Освобождения Пчёл наконец-то сотрудничать?
 traitor-arc-uplink = Синдикат любезно предоставил вам один из своих аплинков в КПК для выполнения задания.
 traitor-arc-roundend = [color=green]активист из Консорциума по Правам Животных[/color]
@@ -47,7 +47,7 @@ traitor-mi13-roundend = [color=cyan]агент MI13[/color]
 traitor-tiger-intro = Вы — фанатик Кооператива Тигра.
 traitor-tiger-goal = Помните учение Хай-лургиксона: сначала убей, потом задавай вопросы!
 traitor-tiger-allies = Доверяйте только просвещённым братьям Тигра. Все остальные должны быть изгнаны из этого мира!
-traitor-tiger-uplink = Вам выдали аплинк Синдиката от друзей из Cybersun. Докажите улью чейнджлингов, что вы достойны быть частью их сущности.
+traitor-tiger-uplink = Вам выдали аплинк Синдиката от друзей из Cybersun. Докажите улью генокрадов, что вы достойны быть частью их сущности.
 traitor-tiger-roundend = [color=crimson]фанатик Кооператива Тигра[/color]
 traitor-waffleco-intro = Вы — внедрённый агент Waffle Co.
 traitor-waffleco-goal = Вы не здесь, чтобы устраивать показательное выступление. Может, другие агенты Waffle Co. и будут этим заниматься, но ваша задача — просто выполнить цели.
@@ -55,7 +55,7 @@ traitor-waffleco-allies = Убивайте сотрудников Donk Co. на 
 traitor-waffleco-uplink = Вам выдали аплинк Синдиката в КПК для выполнения задания.
 traitor-waffleco-roundend = [color=orange]сотрудник Waffle Corporation[/color]
 traitor-waffleco-terrorist-intro = Вы — террорист корпорации Waffle.
-traitor-waffleco-terrorist-goal = Нашим инвесторам нужно доказательство нашей решимости уничтожить Нанотрейзен. Давайте устроим громкое шоу!
+traitor-waffleco-terrorist-goal = Нашим инвесторам нужно доказательство нашей решимости уничтожить Nanotrasen. Давайте устроим громкое шоу!
 traitor-waffleco-terrorist-allies = Большинство агентов Синдиката ненадёжны, кроме мародёров Горлекс.
 traitor-waffleco-terrorist-uplink = Вам выдали аплинк Синдиката в КПК для выполнения задания.
 traitor-waffleco-terrorist-roundend = [color=red]террорист из корпорации Waffle[/color]

@@ -12,10 +12,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Power
-  Power is the lifeblood of the station.
-  Without it, the station will quickly fall into chaos.
-  Engineers are responsible for maintaining the station's power grid, ensuring that power is supplied, distributed, and all departments are satisfied.
+  # Энергия
+  Энергия — это жизненная сила станции.
+  Без неё станция быстро погрузится в хаос.
+  Инженеры отвечают за поддержание энергосети станции, обеспечивая подачу и распределение энергии, а также удовлетворённость всех отделов.
 
   <Box>
     <GuideEntityEmbed Entity="SingularityGenerator" Caption=""/>
@@ -26,23 +26,22 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="APCBasic" Caption=""/>
   </Box>
 
-  There are many different aspects to Space Station 14's power system simulation, as well as Engineering's intended gameplay.
+  В системе питания Space Station 14 есть множество аспектов, а также задуманная геймплейная роль Инженеров.
 
-  Some important information to keep in mind includes:
-  - Station [textlink="generators" link="Generators"] are tiered and follow a hierarchy. The lower the tier, the less they are sustainable, but the easier they are to setup. The higher the tier, the more sustainable they are, but the more complex they are to setup.
-  - Space Station 14 features [textlink="voltage networks" link="VoltageNetworks"], which distribute power across the station and are stepped down in voltage by machines, so they can be used by other machines.
-  - Power [textlink="generators" link="Generators"] have [textlink="ramping" link="Ramping"], which means they take time to match the grid's demand to their supply.
+  Важно учитывать следующее:
+  - [textlink="Генераторы" link="Generators"] на станции имеют уровни иерархии. Чем ниже уровень, тем они менее устойчивы, но проще в установке. Чем выше уровень, тем устойчивее они, но сложнее в настройке.
+  - Space Station 14 использует [textlink="сетевые напряжения" link="VoltageNetworks"], которые распределяют энергию по станции и понижаются машинами до напряжения, пригодного для других устройств.
+  - [textlink="Генераторы" link="Generators"] имеют [textlink="разгон" link="Ramping"], что означает, что им нужно время, чтобы подстроиться под потребности сети.
 
-  ## Starting Out
-  At the start of the shift, the station is running off of purely [textlink="battery" link="PowerStorage"] power.
-  This will at most last 5-10 minutes, depending on the station's power draw.
+  ## Начало работы
+  В начале смены станция работает исключительно от [textlink="СМЭС" link="PowerStorage"].
+  Этого хватит максимум на 5–10 минут, в зависимости от потребления энергии станцией.
 
-  To extend this, you can start up the station's [textlink="Antimatter Engine" link="AME"], or [textlink="AME." link="AME"]
-  This will extend the runtime of the station's batteries by a significant amount, giving you more time to setup the station's higher-tier [textlink="generators." link="Generators"]
-  You can extend this even further by setting up [textlink="solar panels" link="SolarPanels"], which generate power for free.
+  Чтобы продлить этот период, можно запустить [textlink="ДАМ" link="AME"].
+  Это значительно увеличит время работы батарей, давая больше времени на настройку генераторов более высокого уровня.
+  Ещё больше энергии можно получить, настроив [textlink="солнечные панели" link="SolarPanels"], которые бесплатно вырабатывают энергию.
 
-  After setting up the [textlink="AME" link="AME"] and [textlink="Solars" link="SolarPanels"], you should be generating a decent amount of power.
+  После установки [textlink="ДАМ" link="AME"] и [textlink="солнечных панелей" link="SolarPanels"] вы должны генерировать достаточное количество энергии.
 
-  Now that you've bought yourself time, you can focus on setting up higher-tier [textlink="generators" link="Generators"] like the [textlink="Singularity Engine" link="SingularityEngine"], which can provide power for the rest of the shift.
-
+  Теперь, когда вы выиграли время, можно сосредоточиться на настройке генераторов более высокого уровня, таких как [textlink="двигатель Сингулярности" link="SingularityEngine"], который сможет обеспечивать энергией всю оставшуюся смену.
 </Document>

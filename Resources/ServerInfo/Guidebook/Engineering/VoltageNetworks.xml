@@ -6,11 +6,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Voltage Networks
-  In Space Station 14, power distribution is divided into three separate voltage networks.
-  These networks are the [color=green]Low Voltage[/color] Network, the [color=Yellow]Medium Voltage[/color] Network, and the [color=orange]High Voltage[/color] Network.
+  # Сети напряжения
+  В Space Station 14 распределение энергии разделено на три отдельные сети напряжения.
+  Эти сети — это [color=green]сеть низкого напряжения[/color], [color=Yellow]сеть среднего напряжения[/color] и [color=orange]сеть высокого напряжения[/color].
 
-  These networks power different types of machinery on the station.
+  Эти сети питают разные типы оборудования на станции.
 
   <Box>
     <GuideEntityEmbed Entity="CableHVStack"/>
@@ -18,8 +18,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="CableApcStack"/>
   </Box>
 
-  ## Low Voltage Network
-  The [color=green]Low Voltage[/color] Network is used for powering almost all small machines on the station. This includes things like lights, computers, and other small devices.
+  ## Сеть низкого напряжения
+  [color=green]Сеть низкого напряжения[/color] используется для питания почти всех небольших машин на станции. Это включает такие вещи, как лампы, компьютеры и другие небольшие устройства.
 
   <Box>
     <GuideEntityEmbed Entity="PoweredSmallLight" Caption=""/>
@@ -31,18 +31,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="AlwaysPoweredWallLight" Caption=""/>
   </Box>
 
-  [color=green]Low Voltage[/color] power is provided by APCs, which are wall-mounted devices that convert power from the [color=Yellow]Medium Voltage[/color] Network to [color=green]Low Voltage[/color].
+  [color=green]Электроэнергия низкого напряжения[/color] подается от ЛКП — настенных устройств, которые преобразуют энергию из [color=Yellow]сети среднего напряжения[/color] в [color=green]низкое напряжение[/color].
 
   <Box>
     <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  [color=green]Low Voltage[/color] wire doesn't have to be directly run to every machine, as it can power multiple machines as long as the wire is close enough to the machine.
-  It can power machines within 2 tiles radially, and 3 tiles in each cardinal direction.
+  Провод [color=green]низкого напряжения[/color] не обязательно должен напрямую подходить к каждой машине, так как он может питать несколько машин, если находится достаточно близко к ним.
+  Он может питать машины в радиусе 2 плиток по диагонали и в 3 плитках в каждом из четырех направлений.
 
-  ## Medium Voltage Network
-  The [color=Yellow]Medium Voltage[/color] Network is used for powering APCs and other power-hungry machinery that can only accept [color=Yellow]Medium Voltage[/color] power.
-  The Particle Accelerator is an example, as it operates on [color=Yellow]Medium Voltage[/color] power.
+  ## Сеть среднего напряжения
+  [color=Yellow]Сеть среднего напряжения[/color] используется для питания АРС и других энергоемких машин, которые могут принимать только [color=Yellow]среднее напряжение[/color].
+  Примером может служить ускоритель частиц, который работает на [color=Yellow]среднем напряжении[/color].
 
   <Box>
     <GuideEntityEmbed Entity="ParticleAcceleratorEndCap" Caption="" Margin="0"/>
@@ -65,12 +65,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   </Box>
 
   <Box>
-    [color=#999999][italic]The Particle Accelerator[italic][/color]
+    [color=#999999][italic]Ускоритель частиц[italic][/color]
   </Box>
 
-  [color=Yellow]Medium Voltage[/color] power is provided by Substations, which are large machines that convert power from the [color=Orange]High Voltage[/color] Network to [color=Yellow]Medium Voltage[/color].
+  Электроэнергия [color=Yellow]среднего напряжения[/color] подается от подстанций — крупных машин, которые преобразуют энергию из [color=Orange]сети высокого напряжения[/color] в [color=Yellow]среднее напряжение[/color].
 
-  There are also wallmount variants of these substations for compact spaces, like shuttles.
+  Существуют также настенные варианты этих подстанций для компактных помещений, например, шаттлов.
   <Box HorizontalAlignment="Stretch">
     <Box>
       <GuideEntityEmbed Entity="SubstationBasic"/>
@@ -80,10 +80,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </Box>
   </Box>
 
-  ## High Voltage Network
-  The [color=Orange]High Voltage[/color] Network is used for moving large amount of power across the station. It is used to power most power handling equipment, such as SMES units and Substations.
+  ## Сеть высокого напряжения
+  [color=Orange]Сеть высокого напряжения[/color] используется для передачи больших объемов энергии по станции. Она питает большинство устройств, работающих с электроэнергией, таких как блоки СМЭС и подстанции.
 
-  Most high-output generators output power to the [color=Orange]High Voltage[/color] Network.
+  Большинство генераторов высокой мощности выдают энергию в [color=Orange]сеть высокого напряжения[/color].
 
   <Box>
     <GuideEntityEmbed Entity="SMESBasic"/>
@@ -92,11 +92,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="SubstationBasic"/>
   </Box>
 
-  ## Shock Damage
-  If you are shocked by a cable carrying power, you will take damage. The amount of damage you take is based on the voltage of the cable that shocked you.
+  ## Поражение током
+  Если вас ударит током от кабеля под напряжением, вы получите урон. Количество урона зависит от напряжения кабеля, который вас ударил.
 
-  [color=green]Low Voltage[/color] cables will deal less damage than [color=Yellow]Medium Voltage[/color] cables, which will deal less damage than [color=Orange]High Voltage[/color] cables.
+  Кабели [color=green]низкого напряжения[/color] наносят меньше урона, чем кабели [color=Yellow]среднего напряжения[/color], которые, в свою очередь, наносят меньше урона, чем кабели [color=Orange]высокого напряжения[/color].
 
-  Energized [color=Orange]High Voltage[/color] and [color=Yellow]Medium Voltage[/color] cabling hurts, so be sure to wear insulated gloves when working with it.
+  Под напряжением [color=Orange]кабели высокого напряжения[/color] и [color=Yellow]среднего напряжения[/color] опасны, поэтому всегда используйте изолированные перчатки при работе с ними.
 
 </Document>

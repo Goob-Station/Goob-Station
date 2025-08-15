@@ -11,42 +11,40 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Shuttle-craft
+# Шаттл
 
-  Shuttle construction is straightforward, albeit rather expensive and hard to pull off within an hour.
+  Постройка шаттла — это хорошее занятие, если у вас есть свободное время и вы ищете небольшое испытание.
 
-  It's a good activity if you have a significant amount of spare time on your hands and want a bit of a challenge.
-
-  ## Getting started
-  <Box>Required parts:</Box>
+  ## Начало работы
+  <Box>Необходимые детали:</Box>
   <Box>
-  <GuideEntityEmbed Entity="Thruster"/>
-  <GuideEntityEmbed Entity="Gyroscope"/>
-  <GuideEntityEmbed Entity="ComputerShuttle"/>
-  <GuideEntityEmbed Entity="SubstationBasic"/>
-  <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="Thruster"/>
+    <GuideEntityEmbed Entity="Gyroscope"/>
+    <GuideEntityEmbed Entity="ComputerShuttle"/>
+    <GuideEntityEmbed Entity="SubstationBasic"/>
+    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="CableHVStack"/>
-  <GuideEntityEmbed Entity="CableMVStack"/>
-  <GuideEntityEmbed Entity="CableApcStack"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
+    <GuideEntityEmbed Entity="CableHVStack"/>
+    <GuideEntityEmbed Entity="CableMVStack"/>
+    <GuideEntityEmbed Entity="CableApcStack"/>
+    <GuideEntityEmbed Entity="APCBasic"/>
   </Box>
 
-  <Box>Optional parts:</Box>
+  <Box>Опциональные детали:</Box>
   <Box>
-  <GuideEntityEmbed Entity="AirCanister"/>
-  <GuideEntityEmbed Entity="LightTube" Caption="lighting"/>
-  <GuideEntityEmbed Entity="AirlockGlassShuttle"/>
-  <GuideEntityEmbed Entity="SMESBasic"/>
+    <GuideEntityEmbed Entity="AirCanister"/>
+    <GuideEntityEmbed Entity="LightTube" Caption="освещение"/>
+    <GuideEntityEmbed Entity="AirlockGlassShuttle"/>
+    <GuideEntityEmbed Entity="SMESBasic"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobCorgiIan"/>
-  <GuideEntityEmbed Entity="NuclearBomb"/>
+    <GuideEntityEmbed Entity="MobCorgiIan"/>
+    <GuideEntityEmbed Entity="NuclearBomb"/>
   </Box>
 
-  ## Foundation
-  For this step you'll need steel sheets, metal rods, and floor tiles (optional).
+  ## Основание
+  Для этого шага вам понадобятся стальные листы, металлические стержни и напольные плиты (по желанию).
 
   <Box>
     <GuideEntityEmbed Entity="SheetSteel" Caption=""/>
@@ -58,32 +56,32 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="FloorTileItemWhite" Caption=""/>
   </Box>
 
-  Head out into space with steel sheets and metal rods in hand and click on the edge of the station to place lattice.
+  Отправляйтесь в космос с листами стали и металлическими стержнями и кликните по краю станции, чтобы разместить решётку.
 
-  Place a line of lattice about 3-4 tiles away from the station, then start building a platform with lattice.
+  Постройте линию решётки примерно в 3-4 тайлах от станции, затем начните формировать платформу из решётки.
 
-  Keep doing this until you have a platform that is at least 3x3 in size, which is connected to the station via a single lattice line.
+  Продолжайте строить, пока платформа не станет размером хотя бы 3x3 тайла и будет соединена со станцией одной линией решётки.
 
-  Once you're finished constructing the base of your shuttle, you can use wirecutters to snip the connecting lattice that joins your new ship and the station.
+  Когда основание шаттла готово, можно использовать кусачки, чтобы отрезать соединяющую решётку между новой платформой и станцией.
 
-  This platform is considered a different grid from the station and thus will not have any gravity or be held in place by a station anchor — it can move around freely.
+  Эта платформа считается отдельной сеткой от станции, поэтому на ней нет гравитации и она не закреплена якорем станции — она может свободно перемещаться.
 
-  You can expand your lattice platform further by clicking just off the edge with some rods in hand.
+  Вы можете расширить платформу, кликая за край со стержнями в руке.
 
-  ## Docking Ports
-  Shuttle airlocks serve as docking ports, where ships can dock to stations safely.
+  ## Стыковочные шлюзы
+  Стыковочные шлюзы служат доковыми портами, где корабли могут безопасно пристыковаться к станции.
 
-  The orientation of docking ports is important, as it determines on which face the shuttle will dock.
+  Ориентация стыковочных шлюзов важна, так как она определяет, на какой грани шаттл будет пристыкован.
 
-  The little numb on the bottom of the docking port determines the direction of the docking port.
+  Маленькая лампочка сверху стыковочного шлюза определяет направление порта.
 
   <Box>
     <GuideEntityEmbed Entity="AirlockShuttle"/>
     <GuideEntityEmbed Entity="AirlockGlassShuttle"/>
   </Box>
 
-  ## Directional Control
-  From there, once you have the shape you want, bring out and install thrusters at the edges.
+  ## Управление движением
+  После того как вы сформировали нужную форму, установите двигатели на края платформы.
 
   <Box>
     <GuideEntityEmbed Entity="Thruster" Caption="" Rotation="0"/>
@@ -92,28 +90,28 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="Thruster" Caption="" Rotation="270"/>
   </Box>
 
-  It's a good idea to install four thrusters, one on each side of the platform, to ensure you can move in any direction.
+  Рекомендуется установить четыре двигателя, по одному на каждой стороне платформы, чтобы можно было двигаться в любом направлении.
 
-  They must be pointing outward into space to function and will not fire if there's a tile in the way of the nozzle.
-  You can rotate thrusters—even anchored ones—using either [color=yellow][bold][keybind="RotateObjectClockwise"][/bold][/color] or [color=yellow][bold][keybind="RotateObjectCounterclockwise"][/bold][/color] to rotate clockwise or counterclockwise.
+  Они должны быть направлены наружу в космос, иначе не будут работать. Двигатели можно вращать, даже закреплённые, при помощи [color=yellow][bold][keybind="RotateObjectClockwise"][/bold][/color] или [color=yellow][bold][keybind="RotateObjectCounterclockwise"][/bold][/color].
 
-  Thrusters can be disabled or enabled using [color=yellow][bold][keybind="Use"][/bold][/color] with an empty hand or [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color].
+  Двигатели можно включать и отключать с помощью [color=yellow][bold][keybind="Use"][/bold][/color] пустой рукой или [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color].
 
-  ## Rotational Control
-  Now that you have directional control, you'll need to install a gyroscope to control your rotation.
+  ## Управление вращением
+  Для контроля вращения необходимо установить гироскоп.
 
   <Box>
     <GuideEntityEmbed Entity="Gyroscope"/>
   </Box>
-  The placement of the gyroscope is not as important as the thrusters, but it should be somewhere convenient for you to access and power.
 
-  Note for large mass objects, you may need more than one gyroscope to rotate effectively.
+  Расположение гироскопа не так критично, как у двигателей, но он должен быть доступен для управления и питания.
 
-  ## Power
-  Now that you have all the systems in place, you'll need to power them.
+  Для объектов большой массы может потребоваться несколько гироскопов для эффективного вращения.
 
-  For small shuttles, a J.R.P.A.C.M.A.N.-type portable generator is a good choice. It provides straight LV power, so you don't have to worry about transformers.
-  Fuel for the generator is also commonly found in maintenance tunnels.
+  ## Электропитание
+  Когда все системы на месте, нужно их запитать.
+
+  Для маленьких шаттлов портативный генератор типа М.И.Н.И.П.А.К.М.А.Н. — хороший выбор. Он выдаёт НВ-мощность, без необходимости использования трансформаторов.
+  Топливо для генератора обычно можно найти в технических туннелях.
 
   <Box HorizontalAlignment="Stretch">
     <Box>
@@ -124,9 +122,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </Box>
   </Box>
 
-  Some stations, however, provide much better generators and compact solutions like the Shuttle APU or the static generator.
-  These output HV and will have to be stepped down to MV and LV.
-  Luckily, these stations also usually provide wallmount substation boards for this purpose.
+  На некоторых шаттлах есть более мощные генераторы и компактные решения, такие как ВСУ или большие генераторы.
+  Они выдают ВВ и требуют понижения до СВ и НВ.
+  К счастью, такие шаттлы обычно предоставляют настенные подстанции для этого.
 
   <Box HorizontalAlignment="Stretch">
     <Box>
@@ -140,9 +138,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </Box>
   </Box>
 
-  ## Piloting
-  Finally, install the shuttle computer wherever it is convenient and ensure all your thrusters and gyroscopes are receiving power (remember to wire the MV and LV networks!).
-  If they are, congratulations! You should have a functional shuttle!
+  ## Пилотирование
+  Установите консоль управления шаттлом в удобное место и убедитесь, что все двигатели и гироскопы получают питание (не забудьте подключить СВ и НВ кабеля!).
+  Если всё подключено, поздравляем! Ваш шаттл готов к эксплуатации!
 
-  Making it livable and good-looking is left as an exercise to the reader.
+  Сделать его пригодным для жизни и красивым остаётся на усмотрение игроков.
 </Document>

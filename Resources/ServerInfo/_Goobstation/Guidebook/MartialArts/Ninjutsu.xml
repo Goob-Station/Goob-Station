@@ -1,89 +1,89 @@
 <Document>
 
-  # Ninjutsu
+  # Ниндзюцу
 
   <Box>
     <GuideEntityEmbed Entity="ClothingMaskNinja" Caption=""/>
   </Box>
 
-  Ninjutsu is a [textlink="martial art" link="MartialArts"] thoroughly developed by the Spider Clan.
-  Space Ninjas are true masters of this technique, yet Space Wizards may also unravel its secrets.
-  Remember your four teachings. Never move around loud. Only strike when unseen. Patience prevails, haste fails. Death comes in silence.
+  Ниндзюцу — это [textlink="боевое искусство" link="MartialArts"], досконально разработанное Кланом Паука.
+  Космические ниндзя — истинные мастера этой техники, но и маги могут постичь её тайны.
+  Помни свои четыре учения. Никогда не передвигайся шумно. Ударяй только тогда, когда тебя не видят. Терпение побеждает, спешка губит. Смерть приходит в тишине.
 
-  ## Special abilities
+  ## Особые способности
 
-  ### Sneak Attack
+  ### Скрытая атака
 
   <Box>
     <GuideEntityEmbed Entity="EnergyKatana" Caption=""/>
   </Box>
 
-  In the shadow of stillness, the Ninja's strike shall echo with the force of two. Doubles the damage for next melee attack.
-  Once harm is dealt, the sneakiness fades, retreating into swiftness, waiting for the next chance to rise.
-  Enables Ninjutsu Takedown and Assassinate, disables Swift Strike.
+  В тени неподвижности удар ниндзя отзовётся силой, умноженной на два. Удваивает урон следующей атаки в ближнем бою.
+  Как только нанесён урон, скрытность исчезает, уступая место быстроте, в ожидании нового шанса.
+  Активирует "Захват ниндзюцу" и "Умерщвление", отключает "Быстрый удар".
 
-  ### Loss of Surprise
+  ### Потеря неожиданности
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookLossOfSurprise" Caption=""/>
   </Box>
 
-  In the silence of an opening, the ninja moves like a whisper in the wind.
-  Speed is their weapon, and the moment to strike is fleeting, like a shadow in the dark.
-  Lasts 5 seconds. Disables Ninjutsu Takedown and Assassinate but enables Swift Strike.
+  В тишине начала боя ниндзя движется, как шёпот ветра.
+  Скорость — его оружие, а момент для удара мимолётен, словно тень в ночи.
+  Длится 5 секунд. Отключает "Захват ниндзюцу" и "Умерщвление", но активирует "Быстрый удар".
 
-  ### Escape Plan
+  ### План побега
 
-  Your target has perished. It is time to leave and plan your next attack.
+  Твоя цель повержена. Пора уйти и спланировать следующую атаку.
 
-  After a successful kill, the ninja's spirit sharpens and quickens. Their movement speed increases temporally,
-  gliding through shadow and blood alike — unseen, unstoppable, and already gone before the next breath is drawn.
+  После успешного убийства дух ниндзя обостряется и ускоряется. Его скорость передвижения временно увеличивается,
+  позволяя скользить сквозь тень и кровь — незамеченным, неудержимым и уже исчезнувшим, прежде чем будет сделан следующий вдох.
 
-  ## Combo attacks
+  ## Комбо-атаки
 
-  ### Assasinate
+  ### Умерщвление
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Deals massive damage to target's chest if Sneak Attack is active. Damage is easily stopped by armor.
-  Works in unarmed combat or Left Mouse Button attacks using a Slash damage weapon.
+  Наносит огромный урон в грудь цели, если активна "Скрытая атака". Урон легко блокируется бронёй.
+  Работает в рукопашном бою или при атаках Левой Кнопкой Мыши с оружием, наносящим режущий урон.
 
-  ### Ninjutsu Takedown
+  ### Захват ниндзюцу
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHelp" Caption=""/>
   </Box>
 
-  Only works with active Sneak Attack. Slows the opponent down significantly and mutes them.
-  Works better if performed from behind.
+  Работает только при активной "Скрытой атаке". Значительно замедляет противника и лишает его голоса.
+  Эффективнее, если выполняется сзади.
 
-  ### Swift Strike
+  ### Быстрый удар
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  When the foe is knocked down, melee weapon dealing slash strike comes faster than the eye can follow.
-  And unarmed, each attack will drain the opponent's stamina. Only works with Loss of Surprise active.
+  Когда противник повержен, удар оружием ближнего боя с режущим уроном наносится быстрее, чем успевает уловить глаз.
+  А без оружия каждый удар будет отнимать у противника выносливость. Работает только при активной "Потере неожиданности".
 
-  ### Bite The Dust
+  ### Кануть в пыль
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Temporarily knocks the opponent down. As well as dealing blunt damage.
+  Временно сбивает противника с ног, нанося при этом ушибы.
 
-  ### Dirty Kill
+  ### Грязное убийство
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
   </Box>
 
-  Temporarily stuns a knocked down opponent. Target cannot be stunned for longer than they are knocked down.
+  Временно оглушает поверженного противника. Цель не может быть оглушена дольше, чем она находится на земле.
 
 </Document>

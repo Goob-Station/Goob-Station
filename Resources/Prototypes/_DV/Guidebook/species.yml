@@ -13,5 +13,5 @@
 
 - type: guideEntry
   id: Oni
-  name: species-name-oni
+  name: "Они" # Corvax-Goob-Locale
   text: "/ServerInfo/Guidebook/Mobs/_DV/Oni.xml"

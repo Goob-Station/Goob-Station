@@ -6,8 +6,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-job-supervisors-ntr-centcom = Представитель НаноТрейзен и Центральному Командования
+job-supervisors-ntr-centcom = Представитель Nanotrasen и Центрального Командования
 job-supervisors-commander = Капитан ВКФ
 job-supervisors-null = никто, кроме тебя самого.
-job-supervisor-syndicate = The Spinward Syndicate
-job-supervisors-credits = The Highest Bidders
+job-supervisor-syndicate = Представитель Синдиката
+job-supervisors-credits = Представитель Спинварда

@@ -1,5 +1,5 @@
 ent-SpawnPointGhostBlob = Блоб
-    .suffix = НЕ МАППИТЬ, спавнер
+    .suffix = НЕ МАППИТЬ, Спавнер
     .desc = { ent-MarkerBase.desc }
 ent-CoreBlobTile = Ядро блоба
     .desc = Самая важная часть блоба. Его мозг и сердце.

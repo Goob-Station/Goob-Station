@@ -6,7 +6,10 @@ SPDX-License-Identifier: MIT
 -->
 
 <Document>
-# Toxins
-The chemicals in this list contain toxins that induce certain effects and can cause death. Use responsibly.
+# Токсины
+
+Химические вещества в этом списке содержат токсины, вызывающие определённые эффекты и способные привести к смерти. Используйте с осторожностью.
+
 <GuideReagentGroupEmbed Group="Toxins"/>
+
 </Document>

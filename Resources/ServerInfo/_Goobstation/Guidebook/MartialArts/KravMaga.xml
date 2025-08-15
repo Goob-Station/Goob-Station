@@ -1,46 +1,46 @@
 <Document>
 
-  # Krav Maga
+  # Крав-мага
 
   <Box>
     <GuideEntityEmbed Entity="ClothingHandsGlovesKravMaga" Caption=""/>
   </Box>
 
-  Krav Maga is a self-defence [textlink="martial art" link="MartialArts"] that was developed by ancient militaries on Terra six centuries ago.
-  It can be learned through years of training or be given to a user by advanced nanomachines stored inside gloves.
-  On the station, a singular pair of Krav Maga Gloves can be found the Warden's locker. Syndicate antagonists can use Krav Maga Implant for the same effect.
+  Крав-мага — это [textlink="боевое искусство" link="MartialArts"] самообороны, разработанное древними армиями Земли шесть веков назад.
+  Её можно освоить годами тренировок или получить с помощью передовых наномашин, встроенных в перчатки.
+  На станции единственная пара перчаток крав-мага находится в шкафчике смотрителя. Антагонисты Синдиката могут использовать имплант крав-мага для того же эффекта.
 
-  ## Action Combat
+  ## Боевая система действий
 
-  Krav Maga attacks aren't like the combos of most martial arts. The user must instead ready the attack they
-  wish to use in the action bar, then follow it up by performing Harm action on the opponent as normal.
+  Атаки крав-мага отличаются от комбо большинства боевых искусств. Вместо этого пользователь должен заранее подготовить нужную атаку
+  на панели действий, а затем атаковать противника как обычно.
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  ### Leg Sweep
+  ### Подсечка
 
   <Box>
     <GuideEntityEmbed Entity="ActionLegSweep" Caption=""/>
   </Box>
 
-  Sweeps the legs out from under an opponent to knock them down.
+  Сбивает ноги противника, повергнув его на землю.
 
-  ### Neck Chop
+  ### Удар по шее
 
   <Box>
     <GuideEntityEmbed Entity="ActionNeckChop" Caption=""/>
   </Box>
 
-  A hard swing with the side of the user's hand temporally disables the opponent's ability to speak.
+  Сильный удар ребром ладони временно лишает противника способности говорить.
 
-  ### Lung Punch
+  ### Удар по лёгким
 
   <Box>
     <GuideEntityEmbed Entity="ActionLungPunch" Caption=""/>
   </Box>
 
-  Deals Stamina damage and temporally disables the opponent's ability to breath.
+  Наносит урон выносливости и временно лишает противника способности дышать.
 
 </Document>

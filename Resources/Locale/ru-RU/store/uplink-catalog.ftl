@@ -2,8 +2,8 @@
 uplink-pistol-viper-name = Гадюка
 uplink-pistol-viper-desc = Небольшой, легко скрываемый, но маломощный пистолет. Оснащён полностью автоматическим ресивером. Использует патроны калибра .35 авто.
 uplink-revolver-python-name = Питон
-uplink-estoc-bundle-name = Estoc DMR
-uplink-estoc-bundle-desc = A designated marksman rifle, fitted with a mid-range optic for longer-range combat. Bundled with two rifle magazines (.20 rifle).
+uplink-estoc-bundle-name = Эсток
+uplink-estoc-bundle-desc = Марксманская винтовка для снайперской поддержки, оснащённая прицелом средней дальности для боя на дальние расстояния. В комплекте два магазина для винтовки (.20).
 uplink-revolver-python-desc = Брутально простой, эффективный и громкий револьвер Синдиката. Поставляется с бронебойными патронами. Использует патроны калибра .45 магнум.
 uplink-pistol-cobra-name = Кобра
 uplink-gloves-knuckleduster-name = Syndicate Knuckle Dusters
@@ -98,7 +98,7 @@ uplink-reinforcement-radio-name = Телепорт подкрепления
 uplink-reinforcement-radio-traitor-desc = Телепортирует в качестве подкрепления сомнительного качества агента. Не имеет кнопки отключения, покупайте его только если вы готовы к вечеринке. Вызовите медика, шпиона или вора, чтобы они помогли вам. Удачи.
 uplink-reinforcement-radio-nukeops-name = Телепорт Ядерного оперативника
 uplink-reinforcement-radio-nukeops-desc = Телепортирует в качестве подкрепления сомнительного качества ядерного оперативника. Не имеет кнопки отключения, покупайте его только если вы готовы к вечеринке. У них будет базовое снаряжение ядерного оперативника.
-uplink-reinforcement-radio-cyborg-assault-name = Телепорт штурмового киборга Синдиката
+uplink-reinforcement-radio-cyborg-assault-name = Телепорт штурмового борга Синдиката
 uplink-reinforcement-radio-cyborg-assault-desc = Машина для убийств с доступом к энергомечу, пулемёту, криптографическому секвенсору и пинпоинтеру.
 uplink-stealth-box-name = Стелс-коробка
 uplink-stealth-box-desc = Ящик, оснащённый технологией невидимости. Пробирайтесь незамеченными, но не двигайтесь слишком быстро, иначе вы раскроете себя!
@@ -118,9 +118,9 @@ uplink-radio-jammer-name = Глушитель связи
 # Corvax-HiddenDesc-Start
 uplink-radio-jammer-desc = При активации это устройство блокирует любую исходящую поблизости радиосвязь и скрывает датчики комбинезонов с мониторов. Замаскирован под оценочный инструмент.
 # Corvax-HiddenDesc-End
-uplink-syndicate-weapon-module-name = Оружейный модуль киборга
-uplink-syndicate-weapon-module-desc = Модернизирует киборга с помощью мачете и продвинутого лазерного пистолета.
-uplink-syndicate-martyr-module-name = Модуль киборга Мученик
+uplink-syndicate-weapon-module-name = Оружейный модуль борга
+uplink-syndicate-weapon-module-desc = Модернизирует борга с помощью мачете и продвинутого лазерного пистолета.
+uplink-syndicate-martyr-module-name = Модуль борга Мученик
 uplink-syndicate-martyr-module-desc = Превратите с помощью этого модуля своего емагнутого друга-борга в ходячую бомбу. Убедитесь, что они верны вашему делу, результаты могут варьироваться.
 uplink-singularity-beacon-name = Маяк сингулярности
 uplink-singularity-beacon-desc = Устройство, притягивающее сингулярность. Должно быть закреплено и запитано. Будучи поглощённым, заставляет сингулярность расти.

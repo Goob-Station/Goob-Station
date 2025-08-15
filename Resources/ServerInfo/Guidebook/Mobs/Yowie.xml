@@ -11,28 +11,27 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Yowie
+  # Йови
 
   <Box>
     <GuideEntityEmbed Entity="MobYowie" Caption=""/>
   </Box>
 
-  Yowie are a once-thought urban myth, turned newly discovered mystical species of bipedal hairy creature.
-  Their body is larger than most other species in stature, with the downside of them [color=#AAFF00]not being able to fit into most Nanotrasen external wear or shoes[/color] (they can barely squeeze into softsuits), or [color=#AAFF00] being able to be carried by others[/color].
-  Their fur also allows them to take [color=#baf2ef]less cold damage[/color].
+  Йови — это ранее считавшееся городской легендой, недавно открытая мистическая двуногая шерстяная раса. 
+  Их тело больше, чем у большинства других рас, с недостатком в том, что они [color=#AAFF00]не могут носить большинство внешней одежды или обуви Нанотрейзен[/color] (едва помещаются в костюмы защиты), и [color=#AAFF00]их трудно перенести другим персонажем[/color].
+  Их шерсть позволяет им получать [color=#baf2ef]меньше урона от холода[/color].
 
-  Their stature makes their unarmed punch deal [color=#ec3a3a]2x the damage[/color] of a human punch.
+  Их рост делает их удары кулаком [color=#ec3a3a]в 2 раза сильнее[/color], чем у человека.
 
-  They are larger, making them easier to hit in combat, but they take 25% less Blunt, Slash and Piercing damage.
-  They also weigh more, allowing them to pull lighter species with ease.
+  Они крупнее, что делает их легче уязвимыми в бою, но при этом получают на 25% меньше урона от урона [color=#ec3a3a]ушибами, режущим и колющим[/color]. 
+  Они также весят больше, что позволяет им легко тянуть более лёгкие расы.
 
-  ## Fuckin' skiz, mate
+  ## Пиздец балдеж бро
   <Box>
     <GuideEntityEmbed Entity="Joint" Caption=""/>
   </Box>
 
-  From discussions had between our species, it seems historically they were living beside humanity during its existence on Earth in parts of Australia, lending them to develop a thick australian accent with slang included.
-  They seem to have spent most of their time experimenting with some of the most dangerous and experimental drugs, and on review, they've built up a bigger tolerance to most chemicals. Uniquely, their liver carries out the task of metabolizing chemicals.
-
+  Исторически они жили рядом с человечеством на Земле в некоторых частях Австралии, что повлияло на формирование у них густого австралийского акцента со сленгом. 
+  Большую часть времени они проводили, экспериментируя с опасными и странными веществами, благодаря чему у них развилась повышенная толерантность к большинству химических веществ. Их печень уникально способна эффективно метаболизировать химические вещества.
 
 </Document>

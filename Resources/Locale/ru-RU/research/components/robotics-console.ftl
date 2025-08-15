@@ -1,6 +1,6 @@
 robotics-console-window-title = Роботехническая консоль
-robotics-console-no-cyborgs = Киборги отсутствуют!
-robotics-console-select-cyborg = Выберите киборга из списка выше.
+robotics-console-no-cyborgs = Борги отсутствуют!
+robotics-console-select-cyborg = Выберите борга из списка выше.
 robotics-console-model = [color=gray]Модель:[/color] { $name }
 # name is not formatted to prevent players trolling
 robotics-console-designation = [color=gray]Назначение:[/color]

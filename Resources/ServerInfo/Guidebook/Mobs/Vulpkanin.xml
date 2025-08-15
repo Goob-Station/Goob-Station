@@ -8,13 +8,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Vulpkanin
+  # Вульпканин
+
   <Box>
     <GuideEntityEmbed Entity="MobVulpkanin" Caption=""/>
   </Box>
 
-  Vulpkanin are canine-like humanoids, sporting distinct ears and tails. They see the world in reds and greens,
-  deal [color=#ec3a3a]blunt [/color]and [color=#ec3a3a]slash [/color] damage with their claws, and their fur
-  insulates them from environment temperature at the cost of making them 15% more vulnerable to Heat damage.
+  Вульпканины — это гуманоиды, похожие на лис, с характерными ушами и хвостами. Они видят мир в красных и зелёных тонах,
+  наносят урон [color=#ec3a3a]ушибами[/color] и [color=#ec3a3a]режущий[/color] когтями, а их шерсть
+  защищает от воздействия окружающей температуры, но делает их на 15% более уязвимыми к урону от жары.
 
 </Document>

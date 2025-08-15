@@ -6,10 +6,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Wire Panels
-  Some station devices like airlocks, vending machines, and arcade consoles have wire panels, which control certain aspects of their functionality.
+  # Панели с проводами
+  Некоторые устройства на станции, такие как шлюзы, торговые автоматы и игровые автоматы, имеют панели с проводами, которые управляют определенными аспектами их работы.
 
-  These panels can be opened using a screwdriver to access the wiring inside.
+  Эти панели можно открыть с помощью отвертки, чтобы получить доступ к проводке внутри.
 
   <Box>
     <GuideEntityEmbed Entity="Wirecutter"/>
@@ -17,20 +17,19 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="Multitool"/>
   </Box>
 
-  From here you can use wirecutters and a multitool to interact with the wiring. Note that interacting with the wiring often requires insulated gloves, as if the wire is live, you can get shocked.
+  Отсюда можно использовать кусачки и мультитул для взаимодействия с проводкой. Имейте в виду, что для работы с проводкой часто нужны изолированные перчатки, так как при работе под напряжением можно получить удар током.
 
   <Box>
     <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow"/>
   </Box>
 
-  You can cut and mend wires using the wirecutters and pulse wires using the multitool.
+  Кусачки позволяют резать и чинить провода, а мультитул — подавать импульс на провода.
 
-  Cutting wires often completely disables or restores functionality to a device.
-  It may also trigger unintended functionality like shocking people, dropping door bolts, or exploding.
+  Перерезка проводов часто полностью отключает или восстанавливает работу устройства.
+  Это также может вызвать непреднамеренные эффекты, такие как удар током, сброс болтов шлюзов или взрыв.
 
-  Pulsing wires can have a variety of effects, but oftentimes it either temporarily disables or enables functionality.
+  Подача импульса на провода может иметь разные эффекты, но чаще всего она временно отключает или включает функции устройства.
 
-  You can't pulse wires if the wire you're trying to pulse is cut. You have to mend the wire first.
-
+  Нельзя подать импульс на провод, если он перерезан. Сначала его нужно починить.
 
 </Document>

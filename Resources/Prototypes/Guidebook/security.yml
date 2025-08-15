@@ -21,7 +21,7 @@
   - Forensics
   - Defusal
   - CriminalRecords
-  - SpaceLaw # Goobstation
+  #- SpaceLaw # Goobstation / Corvax-Goob-Locale
 
 - type: guideEntry
   id: Forensics

@@ -20,18 +20,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   Чтобы не отравиться кислородом в атмосфере станции, они должны постоянно использовать дыхательные приспособления.
   Для приёма пищи или питья вам придётся снимать дыхательную маску, хотя вариант введения пищи в жидком виде вполне возможен.
 
-  Vox always spawn wearing working nitrogen internals equipment.
-  A spare breathing mask and an emergency nitrogen canister is provided in their survival box.
+  Воксы всегда появляются в рабочем азотном снаряжении для дыхания.
+  В их наборе выживания есть запасная маска и аварийный баллон с азотом.
 
-  In addition to regular foods, Vox can also eat various snack packaging, banana peels, eggshells, and raw meat without any ill effects. They also like to drink welding fuel.
+  Помимо обычной пищи, Воксы могут есть упаковку от закусок, банановые кожуры, яичную скорлупу и сырое мясо без вреда для себя. Им также нравится пить топливо для сварки.
 
-  Vox [color=#1e90ff]slowly recover from low levels of poison damage[/color] on their own,
-  so long as they are careful not to exceed 20 poison damage.
-  This allows them to endure breathing station air for up to thirty seconds at a time without lasting damage,
-  letting them quickly eat, drink, take oral medication, and so on.
-  A thirty second oxygen exposure takes them two minutes to recover from.
-  If their health does not seem to improve within a minute of oxygen exposure, they should seek medical attention.
+  Воксы [color=#1e90ff]самостоятельно медленно восстанавливаются после лёгкого отравления[/color],
+  если суммарный урон ядом не превышает 20 единиц.
+  Это позволяет им переносить дыхание атмосферой станции до тридцати секунд без длительных последствий,
+  чтобы быстро поесть, попить, принять лекарства и т.д.
+  На восстановление после тридцатисекундного контакта с кислородом уходит две минуты.
+  Если здоровье не восстанавливается в течение минуты после контакта с кислородом, следует обратиться к врачу.
 
-  Они используют когти в рукопашном бою, и их атаки наносят режущий урон вместо ударного.
+  Они используют когти в рукопашном бою, и их атаки наносят режущий урон вместо ушибов.
 
 </Document>

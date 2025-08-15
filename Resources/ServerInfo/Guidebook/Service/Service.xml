@@ -6,36 +6,35 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-# Service
-[color=#9fed58]Service[/color] keeps the station clean, efficient and sane so that all other departments can do their jobs better and keep their staff happy. They also end up doing most of the paperwork on the station.
+# Сервис
+[color=#9fed58]Сервисный отдел[/color] поддерживает станцию в чистоте, порядке и здравомыслии, чтобы все другие отделы могли работать эффективнее и поддерживать сотрудников в хорошем настроении. Также сотрудники службы выполняют большую часть бумажной работы на станции.
 
-## Personnel
-[color=#9fed58]Service[/color]'s staff is made up of Service Workers, Chefs, Botanists, Bartenders, Janitors, Chaplains, Clowns, Mimes, Musicians, Lawyers, Librarians and Passengers. Service is run by the Head of Personnel.
+## Персонал
+[color=#9fed58]Сервисный отдел[/color] состоит из сервисных работников, поваров, ботаников, барменов, уборщиков, священников, клоунов, мимов, музыкантов, библиотекарей и пассажиров. Сервисным отделом руководит Глава Персонала.
 
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineChef" Caption="Chef"/>
-    <GuideEntityEmbed Entity="ToyFigurineBotanist" Caption="Botanist"/>
-    <GuideEntityEmbed Entity="ToyFigurineBartender" Caption="Bartender"/>
-    <GuideEntityEmbed Entity="ToyFigurineJanitor" Caption="Janitor"/>
+    <GuideEntityEmbed Entity="ToyFigurineChef" Caption="Повар"/>
+    <GuideEntityEmbed Entity="ToyFigurineBotanist" Caption="Ботаник"/>
+    <GuideEntityEmbed Entity="ToyFigurineBartender" Caption="Бармен"/>
+    <GuideEntityEmbed Entity="ToyFigurineJanitor" Caption="Уборщик"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineChaplain" Caption="Chaplain"/>
-    <GuideEntityEmbed Entity="ToyFigurineClown" Caption="Clown"/>
-    <GuideEntityEmbed Entity="ToyFigurineMime" Caption="Mime"/>
-    <GuideEntityEmbed Entity="ToyFigurineMusician" Caption="Musician"/>
+    <GuideEntityEmbed Entity="ToyFigurineChaplain" Caption="Капеллан"/>
+    <GuideEntityEmbed Entity="ToyFigurineClown" Caption="Клоун"/>
+    <GuideEntityEmbed Entity="ToyFigurineMime" Caption="Мим"/>
+    <GuideEntityEmbed Entity="ToyFigurineMusician" Caption="Музыкант"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="ToyFigurineLawyer" Caption="Lawyer"/>
-    <GuideEntityEmbed Entity="ToyFigurineLibrarian" Caption="Librarian"/>
-    <GuideEntityEmbed Entity="ToyFigurinePassenger" Caption="Passenger"/>
-    <GuideEntityEmbed Entity="ToyFigurineHeadOfPersonnel" Caption="HoP"/>
+    <GuideEntityEmbed Entity="ToyFigurineLawyer" Caption="Юрист"/>
+    <GuideEntityEmbed Entity="ToyFigurineLibrarian" Caption="Библиотекарь"/>
+    <GuideEntityEmbed Entity="ToyFigurinePassenger" Caption="Пассажир"/>
+    <GuideEntityEmbed Entity="ToyFigurineHeadOfPersonnel" Caption="Начальник персонала"/>
   </Box>
 
-## Working Together
-[color=#9fed58]Service[/color], despite being the most diverse, tends to be the most [color=#a4885c]interlinked[/color] department by far.
-Most [color=#9fed58]Service[/color] jobs require [color=#a4885c]cooperation[/color] between workers.
-Chefs often need ingredients that only botanists can grow efficiently. The bartender may request bananas that only clowns carry in abundance.
-The lawyer may invite the mime to play charades to convince the judge that their client is innocent.
+## Совместная работа
+[color=#9fed58]Сервисный отдел[/color], несмотря на своё разнообразие, как правило, является самым [color=#a4885c]взаимосвязанным[/color] отделом.
+Большинство работ в [color=#9fed58]Сервисе[/color] требуют [color=#a4885c]взаимодействия[/color] между сотрудниками.
+Повар часто нуждается в ингредиентах, которые эффективно выращивают только ботаники. Бармен может попросить бананы, которых в изобилии только у клоунов.
 
-A lot of [color=#a4885c]collaboration[/color] is necessary within and without [color=#9fed58]Service[/color]. Often times, [color=#9fed58]Service[/color] is required by other departments, so be on your toes.
+Много [color=#a4885c]взаимодействия[/color] необходимо как внутри, так и за пределами [color=#9fed58]Севрсного отдела[/color]. Часто [color=#9fed58]Сервис[/color] требуется другим отделам, поэтому будьте наготове.
 </Document>
