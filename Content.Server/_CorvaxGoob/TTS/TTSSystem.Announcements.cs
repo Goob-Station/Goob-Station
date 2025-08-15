@@ -1,4 +1,3 @@
-using Content.Server.Chat.Systems;
 using Content.Server.Communications;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
@@ -37,8 +36,8 @@ public sealed partial class TTSSystem
 
         _isPlaying = false;
 
-        foreach (var recipient in _filterToSend.Recipients) if (recipient.AttachedEntity.HasValue)
-                RaiseNetworkEvent(new TTSAnnouncedEvent(_soundDataToSend!), recipient);
+        foreach (var recipient in _filterToSend.Recipients)
+            RaiseNetworkEvent(new TTSAnnouncedEvent(_soundDataToSend!), recipient);
 
         _soundDataToSend = null;
         _filterToSend = null;
@@ -63,17 +62,17 @@ public sealed partial class TTSSystem
             return;
 
         if (ev.Component.Global)
-            SendGlobalAnnouncement(ev.Text, protoVoice.Speaker);
+            SendGlobalAnnouncement(ev.Text, protoVoice.Speaker, ev.Component.Sound);
         else
-            SendStationAnnouncement(ev.Uid, ev.Text, protoVoice.Speaker);
+            SendStationAnnouncement(ev.Uid, ev.Text, protoVoice.Speaker, ev.Component.Sound);
     }
 
-    async private void SendGlobalAnnouncement(string text, string voice)
+    async private void SendGlobalAnnouncement(string text, string voice, SoundSpecifier announcementSound)
     {
-        SendTTS(Filter.Broadcast(), text, voice);
+        SendTTS(Filter.Broadcast(), text, voice, announcementSound);
     }
 
-    async private void SendStationAnnouncement(EntityUid consoleUid, string text, string voice)
+    async private void SendStationAnnouncement(EntityUid consoleUid, string text, string voice, SoundSpecifier announcementSound)
     {
         var station = _stationSystem.GetOwningStation(consoleUid);
 
@@ -83,13 +82,13 @@ public sealed partial class TTSSystem
         if (!TryComp<StationDataComponent>(station, out var stationDataComp))
             return;
 
-        SendTTS(_stationSystem.GetInStation(stationDataComp), text, voice, ChatSystem.CentComAnnouncementSound);
+        SendTTS(_stationSystem.GetInStation(stationDataComp), text, voice, announcementSound);
     }
-    async private void SendTTS(Filter filter, string text, string voice, string announcementSound = ChatSystem.DefaultAnnouncementSound)
+    async private void SendTTS(Filter filter, string text, string voice, SoundSpecifier announcementSound)
     {
         _filterToSend = filter;
         _isPlaying = true;
-        _sendTTSAt = _timing.CurTime + _audio.GetAudioLength(_audio.ResolveSound(new SoundPathSpecifier(announcementSound)));
+        _sendTTSAt = _timing.CurTime + _audio.GetAudioLength(_audio.ResolveSound(announcementSound)) + TimeSpan.FromSeconds(0.25);
 
         _soundDataToSend = await GenerateTTS(text, voice);
     }

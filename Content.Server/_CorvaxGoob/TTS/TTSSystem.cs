@@ -7,6 +7,7 @@ using Content.Shared._CorvaxGoob.TTS;
 using Content.Shared._EinsteinEngines.Language;
 using Content.Shared.GameTicking;
 using Content.Shared.Players.RateLimiting;
+using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -185,7 +186,7 @@ public sealed partial class TTSSystem : EntitySystem
         return await _ttsManager.ConvertTextToSpeech(speaker, textSsml);
     }
 
-    public void SendTTSAdminAnnouncement(string text, string voice)
+    public void SendTTSAdminAnnouncement(string text, string voice, string announcementPath = ChatSystem.CentComAnnouncementSound)
     {
         if (_isPlaying)
             return;
@@ -198,6 +199,6 @@ public sealed partial class TTSSystem : EntitySystem
         if (!_prototypeManager.TryIndex<TTSVoicePrototype>(voice, out var protoVoice))
             return;
 
-        SendTTS(Filter.Broadcast(), text, protoVoice.Speaker);
+        SendTTS(Filter.Broadcast(), text, protoVoice.Speaker, new SoundPathSpecifier(announcementPath));
     }
 }

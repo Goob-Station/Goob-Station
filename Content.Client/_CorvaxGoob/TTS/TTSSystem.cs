@@ -9,7 +9,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
 using Content.Shared._CorvaxGoob;
-using Robust.Shared.Timing;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._CorvaxGoob.TTS;
 
@@ -22,7 +22,7 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IResourceManager _res = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private ISawmill _sawmill = default!;
     private static MemoryContentRoot _contentRoot = new();
@@ -55,8 +55,6 @@ public sealed partial class TTSSystem : EntitySystem
         _cfg.OnValueChanged(CCCVars.TTSVolume, OnTtsVolumeChanged, true);
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
         SubscribeNetworkEvent<TTSAnnouncedEvent>(OnAnnounced);
-
-        _startSoundLength = _audio.GetAudioLength(_audio.ResolveSound(_startSound!));
     }
 
     public override void Shutdown()
