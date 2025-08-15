@@ -41,6 +41,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._CorvaxGoob.Skills;
 using Content.Server.Construction.Components;
 using Content.Server.Stack;
 using Content.Shared._CorvaxGoob.Skills;
@@ -65,7 +66,7 @@ namespace Content.Server.Construction
         [Dependency] private readonly ContainerSystem _container = default!;
         [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-        [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills-Start
+        [Dependency] private readonly SkillsSystem _skills = default!; // CorvaxGoob-Skills-Start
 
         // CorvaxGoob-Skills-Start
         private const float DelayModifierWithoutSkill = 30;

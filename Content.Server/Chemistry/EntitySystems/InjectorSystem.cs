@@ -34,6 +34,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared._CorvaxGoob.Skills;
+using Content.Server._CorvaxGoob.Skills;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -42,7 +43,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
-    [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills
+    [Dependency] private readonly SkillsSystem _skills = default!; // CorvaxGoob-Skills
 
     private const float DelayModifierWithoutSkill = 5; // CorvaxGoob-Skills
 
@@ -225,7 +226,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
         }
 
         // CorvaxGoob-Skills-Start
-        if (!_skills.HasSkill(user, Skills.MedicalEquipment))
+        if (_skills.IsSkillsEnabled() && !_skills.HasSkill(user, Skills.MedicalEquipment))
             actualDelay *= DelayModifierWithoutSkill;
         // CorvaxGoob-Skills-End
 

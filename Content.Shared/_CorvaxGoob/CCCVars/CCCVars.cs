@@ -77,4 +77,10 @@ public sealed class CCCVars
     /// </summary>
     public static readonly CVarDef<int> TTSRateLimitCount =
         CVarDef.Create("tts.rate_limit_count", 3, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Will skills be applied to players.
+    /// </summary>
+    public static readonly CVarDef<bool> SkillsEnabled =
+        CVarDef.Create("skills.enabled", true, CVar.SERVERONLY);
 }
