@@ -17,10 +17,11 @@
   dollPrototype: MobDwarfDummy
   skinColoration: HumanToned
   # begin Goobstation: port EE height/width sliders
-  minHeight: 0.65
-  defaultHeight: 0.80
-  maxHeight: 0.85
-  minWidth: 0.85
-  defaultWidth: 0.95
-  maxWidth: 1.05
+  sizeRatio: 1.3
+  minHeight: 0.7
+  defaultHeight: 0.8
+  maxHeight: 0.9
+  minWidth: 0.9
+  defaultWidth: 1
+  maxWidth: 1.1
   # end Goobstation: port EE height/width sliders
