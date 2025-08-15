@@ -19,6 +19,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System;
 using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Server.Chat.Systems;
@@ -72,6 +73,8 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     [Dependency] private readonly SharedMagicSystem _magic = default!;
 
     public static readonly SoundSpecifier DefaultSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
+
+    private readonly Random _random = new();
 
     public static readonly LocId DefaultInvocation = "heretic-speech-mansusgrasp";
 
@@ -247,13 +250,36 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
     public void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent>? ent)
     {
-        var (sound, invocation) = ent == null
-            ? (DefaultSound, DefaultInvocation)
-            : (ent.Value.Comp.Sound, ent.Value.Comp.Invocation);
+        // The sound pool we'll pick from
+        List<SoundSpecifier?> soundPool;
+        string invocation;
 
-        _audio.PlayPvs(sound, user);
+        if (ent == null)
+        {
+            // Wrap the single DefaultSound into a list for uniform handling
+            soundPool = new List<SoundSpecifier?> { DefaultSound };
+            invocation = DefaultInvocation;
+        }
+        else
+        {
+            // Use the component's list of sounds
+            soundPool = ent.Value.Comp.soundPool;
+            invocation = ent.Value.Comp.Invocation;
+        }
+
+        if (soundPool != null && soundPool.Count > 0)
+        {
+            // Pick a random sound from the pool
+            var randIndex = _random.Next(0, soundPool.Count);
+            var sound = soundPool[randIndex];
+            if (sound != null)
+                _audio.PlayPvs(sound, user);
+        }
+
+        // Send the invocation message
         _chat.TrySendInGameICMessage(user, Loc.GetString(invocation), InGameICChatType.Speak, false);
     }
+
 
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
     {

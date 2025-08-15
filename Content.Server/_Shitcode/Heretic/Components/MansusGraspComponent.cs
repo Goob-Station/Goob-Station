@@ -40,7 +40,12 @@ public sealed partial class MansusGraspComponent : Component
     public TimeSpan AffectedTime = TimeSpan.FromMinutes(5);
 
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
+    public List<SoundSpecifier?> soundPool = new()
+{
+    new SoundPathSpecifier("/Audio/_Goobstation/Effects/Scare/scare_1.ogg"),
+    new SoundPathSpecifier("/Audio/_Goobstation/Effects/Scare/scare_2.ogg"),
+    new SoundPathSpecifier("/Audio/_Goobstation/Effects/Scare/scare_3.ogg"),
+};
 
     [DataField]
     public LocId Invocation = "heretic-speech-mansusgrasp";
