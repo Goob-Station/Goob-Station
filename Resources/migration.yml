@@ -204,11 +204,13 @@ BenchParkRight: null
 BenchPewLeft: null
 BenchPewMiddle: null
 BenchPewRight: null
-BenchSofaCorpLeft: null
-BenchSofaCorpMiddle: null
-BenchSofaCorpRight: null
-BenchSofaLeft: null
-BenchSofaRight: null
+# CorvaxGoob-FurnitureFix-Start
+# BenchSofaCorpLeft: null
+# BenchSofaCorpMiddle: null
+# BenchSofaCorpRight: null
+# BenchSofaLeft: null
+# BenchSofaRight: null
+# CorvaxGoob-FurnitureFix-End
 BenchSteelLeft: null
 BenchSteelMiddle: null
 BenchSteelRight: null
