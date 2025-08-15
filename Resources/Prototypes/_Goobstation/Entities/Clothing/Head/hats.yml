@@ -361,3 +361,15 @@
     sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/sanabi.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadLehmin
+  name: lehmin's hat
+  suffix: ADMIN
+  description: Chemistry. Adminning. Something else.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/lehmin.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/lehmin.rsi

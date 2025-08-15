@@ -573,3 +573,69 @@
         Blunt: 0
     soundHit:
       path: /Audio/_DV/Voice/Vulpkanin/dog_whine.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBoggle
+  name: Boggle plushie
+  description: Did you know I beat Nigel in a 1v1? I barely think about it every day.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_boggle
+  - type: Item
+    heldPrefix: plushieboggle
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/kaching.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/kaching.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieLehmin
+  name: Lehmin plushie
+  description: Insert corny description here.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_lehmin
+  - type: Item
+    heldPrefix: plushielehmin
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Effects/Chemistry/bubbles.ogg
