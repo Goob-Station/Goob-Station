@@ -1,0 +1,28 @@
+{
+	"version": 1,
+	"license": "CC-BY-NC-SA-3.0",
+	"copyright": "sprited by @LuciferEOS for slon station",
+	"size": {
+		"x": 32,
+		"y": 32
+	},
+	"states": [
+		{
+			"name": "sm_cascade",
+            "delays": [
+              [
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+              ]
+            ]
+		}
+	]
+}
