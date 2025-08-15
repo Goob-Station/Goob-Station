@@ -15,8 +15,8 @@
 - type: entity
   parent: ParticleAcceleratorFinishedPart
   id: ParticleAcceleratorEmitterPort
-  name: "Випромінювач герметизації порту PA"
-  description: "Це запускає альфа-частинки, можливо, ви не захочете стояти біля цього кінця."
+  name: PA port containment emitter
+  description: This launchs the Alpha particles, might not want to stand near this end.
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/emitter_port.rsi
@@ -29,8 +29,8 @@
 - type: entity
   parent: ParticleAcceleratorFinishedPart
   id: ParticleAcceleratorEmitterFore
-  name: "Випромінювач передньої захисної оболонки PA"
-  description: "Це запускає альфа-частинки, можливо, ви не захочете стояти біля цього кінця."
+  name: PA fore containment emitter
+  description: This launchs the Alpha particles, might not want to stand near this end.
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/emitter_fore.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: ParticleAcceleratorFinishedPart
   id: ParticleAcceleratorEmitterStarboard
-  name: "Випромінювач захисної оболонки правого борту PA"
-  description: "Це запускає альфа-частинки, можливо, ви не захочете стояти біля цього кінця."
+  name: PA starboard containment emitter
+  description: This launchs the Alpha particles, might not want to stand near this end.
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/emitter_starboard.rsi
@@ -59,9 +59,9 @@
 - type: entity
   parent: ParticleAcceleratorUnfinishedBase
   id: ParticleAcceleratorEmitterPortUnfinished
-  name: "Випромінювач герметизації порту PA"
+  name: PA port containment emitter
   suffix: Unfinished, Port
-  description: "Це запускає альфа-частинки, можливо, ви не захочете стояти біля цього кінця. Виглядає незавершеним."
+  description: This launchs the Alpha particles, might not want to stand near this end. It looks unfinished.
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/emitter_port.rsi
@@ -72,9 +72,9 @@
 - type: entity
   parent: ParticleAcceleratorUnfinishedBase
   id: ParticleAcceleratorEmitterForeUnfinished
-  name: "Випромінювач передньої захисної оболонки PA"
+  name: PA fore containment emitter
   suffix: Unfinished, Fore
-  description: "Це запускає альфа-частинки, можливо, ви не захочете стояти біля цього кінця. Виглядає незавершеним."
+  description: This launchs the Alpha particles, might not want to stand near this end. It looks unfinished.
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/emitter_fore.rsi
@@ -85,9 +85,9 @@
 - type: entity
   parent: ParticleAcceleratorUnfinishedBase
   id: ParticleAcceleratorEmitterStarboardUnfinished
-  name: "Випромінювач захисної оболонки правого борту PA"
+  name: PA starboard containment emitter
   suffix: Unfinished, Starboard
-  description: "Це запускає альфа-частинки, можливо, ви не захочете стояти біля цього кінця. Виглядає незавершеним."
+  description: This launchs the Alpha particles, might not want to stand near this end. It looks unfinished.
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/emitter_starboard.rsi

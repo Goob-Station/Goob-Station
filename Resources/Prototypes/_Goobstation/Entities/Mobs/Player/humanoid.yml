@@ -19,7 +19,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "спавнер сальважера загубленого фронтиру"
+  name: lost frontier salvager spawner
   id: LostFrontierSalvagerSpawner
   parent: MarkerBase
   components:
@@ -35,7 +35,7 @@
 
 - type: entity
   id: RandomHumanoidLostFrontierSalvager
-  name: "роль привида загубленого сальважера"
+  name: lost salvager ghost role
   components:
     - type: Sprite
       sprite: Objects/Tools/appraisal-tool.rsi
@@ -60,7 +60,7 @@
 - type: entity
   parent: MobHuman
   id: MobHumanRandom
-  name: "Уріст МакЛюдина"
+  name: Urist McHuman
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -73,7 +73,7 @@
 - type: entity
   parent: MobDiona
   id: MobDionaRandom
-  name: "Уріст МакРослина"
+  name: Urist McPlants
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -86,7 +86,7 @@
 - type: entity
   parent: MobFelinid
   id: MobFelinidRandom
-  name: "Уріст МакФелінід"
+  name: Urist McFelinid
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -99,7 +99,7 @@
 - type: entity
   parent: MobTajaran
   id: MobTajaranRandom
-  name: "Уріст МакТаяран"
+  name: Urist McTajaran
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -113,7 +113,7 @@
 - type: entity
   parent: MobGingerbread
   id: MobGingerbreadRandom
-  name: "Уріст МакПечиво"
+  name: Urist McCookie
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -126,7 +126,7 @@
 - type: entity
   parent: MobMoth
   id: MobMothRandom
-  name: "Уріст МакПухнастик"
+  name: Urist McFluff
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -139,7 +139,7 @@
 - type: entity
   parent: MobDwarf
   id: MobDwarfRandom
-  name: "Уріст МакДварф"
+  name: Urist McDwarf
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -152,7 +152,7 @@
 - type: entity
   parent: MobHarpy
   id: MobHarpyRandom
-  name: "Уріст МакГарпія"
+  name: Urist McHarpy
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -165,7 +165,7 @@
 - type: entity
   parent: MobRodentia
   id: MobRodentiaRandom
-  name: "Уріст МакЩур"
+  name: Urist McRat
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -178,7 +178,7 @@
 - type: entity
   parent: MobReptilian
   id: MobReptilianRandom
-  name: "Уріст МакЛускатий"
+  name: Urist McScales
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -189,7 +189,7 @@
 - type: entity
   parent: MobVulpkanin
   id: MobVulpkaninRandom
-  name: "Уріст МакВулп"
+  name: Urist McVulp
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -202,7 +202,7 @@
 - type: entity
   parent: MobSlimePerson
   id: MobSlimePersonRandom
-  name: "Уріст МакСлайм"
+  name: Urist McSlime
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -215,7 +215,7 @@
 - type: entity
   parent: MobYowie
   id: MobYowieRandom
-  name: "Уріст МакЙов"
+  name: Urist McYow
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -226,7 +226,7 @@
 - type: entity
   parent: MobVox
   id: MobVoxRandom
-  name: "Урістіті МакВокс"
+  name: Uristiti McVox
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -237,7 +237,7 @@
 - type: entity
   parent: MobShadowkin
   id: MobShadowkinRandom
-  name: "Уріст МакТінелюд"
+  name: Urist McShadowkin
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -249,7 +249,7 @@
 - type: entity
   parent: MobChitinid
   id: MobChitinidRandom
-  name: "Уріст МакМураха"
+  name: Urist McAnt
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance

@@ -8,7 +8,7 @@
 - type: entity
   id: PartShadowkin
   parent: [BaseItem, BasePart]
-  name: "частина тіла Шедовкіна"
+  name: "Shadowkin body part"
   abstract: true
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
 
 - type: entity
   id: ChestShadowkin
-  name: "Груди тінелюда"
+  name: "Shadowkin chest"
   parent: [PartShadowkin, BaseChest]
   components:
     - type: Sprite
@@ -40,7 +40,7 @@
 
 - type: entity
   id: GroinShadowkin
-  name: "Пах тінелюда"
+  name: "Shadowkin groin"
   parent: [PartShadowkin, BaseGroin]
   components:
     - type: Sprite
@@ -50,7 +50,7 @@
 
 - type: entity
   id: HeadShadowkin
-  name: "голова Шедовкіна"
+  name: "Shadowkin head"
   parent: [PartShadowkin, BaseHead]
   components:
     - type: Sprite
@@ -60,7 +60,7 @@
 
 - type: entity
   id: LeftArmShadowkin
-  name: "ліва рука Шедовкіна"
+  name: "left Shadowkin arm"
   parent: [PartShadowkin, BaseLeftArm]
   components:
     - type: Sprite
@@ -70,7 +70,7 @@
 
 - type: entity
   id: RightArmShadowkin
-  name: "права рука Шедовкіна"
+  name: "right Shadowkin arm"
   parent: [PartShadowkin, BaseRightArm]
   components:
     - type: Sprite
@@ -80,7 +80,7 @@
 
 - type: entity
   id: LeftHandShadowkin
-  name: "ліва кисть Шедовкіна"
+  name: "left Shadowkin hand"
   parent: [PartShadowkin, BaseLeftHand]
   components:
     - type: Sprite
@@ -90,7 +90,7 @@
 
 - type: entity
   id: RightHandShadowkin
-  name: "права кисть Шедовкіна"
+  name: "right Shadowkin hand"
   parent: [PartShadowkin, BaseRightHand]
   components:
     - type: Sprite
@@ -100,7 +100,7 @@
 
 - type: entity
   id: LeftLegShadowkin
-  name: "ліва нога Шедовкіна"
+  name: "left Shadowkin leg"
   parent: [PartShadowkin, BaseLeftLeg]
   components:
     - type: Sprite
@@ -110,7 +110,7 @@
 
 - type: entity
   id: RightLegShadowkin
-  name: "права нога Шедовкіна"
+  name: "right Shadowkin leg"
   parent: [PartShadowkin, BaseRightLeg]
   components:
     - type: Sprite
@@ -120,7 +120,7 @@
 
 - type: entity
   id: LeftFootShadowkin
-  name: "ліва ступня Шедовкіна"
+  name: "left Shadowkin foot"
   parent: [PartShadowkin, BaseLeftFoot]
   components:
     - type: Sprite
@@ -130,7 +130,7 @@
 
 - type: entity
   id: RightFootShadowkin
-  name: "права ступня Шедовкіна"
+  name: "right Shadowkin foot"
   parent: [PartShadowkin, BaseRightFoot]
   components:
     - type: Sprite

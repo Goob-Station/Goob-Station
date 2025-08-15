@@ -13,7 +13,7 @@
 
 - type: body
   id: Resomi
-  name: "ресомі"
+  name: "resomi"
   root: chest
   slots:
     head:

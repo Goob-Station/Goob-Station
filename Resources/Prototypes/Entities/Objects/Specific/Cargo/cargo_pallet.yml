@@ -16,8 +16,8 @@
 - type: entity
   id: BaseCargoPallet
   parent: BaseStructure
-  name: "вантажний піддон"
-  description: "Звичайний атрибут логістики та вантажних перевезень. Тонке нагадування про те, куди ставити ящики під час транспортування, щоб уникнути синців на гомілках."
+  name: cargo pallet
+  description: Common fixture of logistics and cargo. Subtle reminder where crates go during transport to avoid bruised shins.
   abstract: true
   components:
   - type: InteractionOutline
@@ -76,8 +76,8 @@
 
 - type: entity
   id: CargoPalletSell
-  name: "вантажний піддон для продажу"
-  description: "Позначає предмети, які можна продати. Виготовлений з пластитану, щоб відлякувати надокучливих вандалів."
+  name: cargo selling pallet
+  description: Designates valid items to sell. Made of plastitanium to discourage pesky vandals.
   parent: BaseCargoPallet
   components:
   - type: CargoPallet
@@ -93,8 +93,8 @@
 
 - type: entity
   id: CargoPalletBuy
-  name: "вантажний піддон для купівлі"
-  description: "Визначає, де з'являться замовлення після покупки. Виготовлений з пластитану, щоб відлякувати надокучливих вандалів."
+  name: cargo buying pallet
+  description: Designates where orders will appear when purchased. Made of plastitanium to discourage pesky vandals.
   parent: BaseCargoPallet
   components:
   - type: CargoPallet

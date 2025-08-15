@@ -42,8 +42,8 @@
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]
   id: ClothingOuterVestWeb
-  name: "розвантажувальний жилет"
-  description: "Синтетичний бронежилет. На цей додали розгрузку та балістичні пластини."
+  name: web vest
+  description: A synthetic armor vest. This one has added webbing and ballistic plates.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/webvest.rsi
@@ -76,8 +76,8 @@
 - type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]
   id: ClothingOuterVestWebElite
-  name: "елітний розвантажувальний жилет"
-  description: "Синтетичний бронежилет. Цей має додаткові стропи та термостійкі волокна."
+  name: elite web vest
+  description: A synthetic armor vest. This one has added webbing and heat resistant fibers.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/elitevest.rsi
@@ -117,8 +117,8 @@
 - type: entity
   parent: [ BaseMajorContraband, ClothingOuterVestWeb] #web vest so it should have some pockets for ammo
   id: ClothingOuterVestWebMerc
-  name: "нагрудний жилет найманця"
-  description: "Високоякісний броньований жилет з твердого синтетичного матеріалу. Він напрочуд гнучкий і легкий, незважаючи на значну бронепластину."
+  name: mercenary web vest
+  description: A high-quality armored vest made from a hard synthetic material. It's surprisingly flexible and light, despite formidable armor plating.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/mercwebvest.rsi
@@ -151,8 +151,8 @@
 - type: entity
   parent: [ClothingOuterArmorBase, BaseSecurityContraband]
   id: ClothingOuterVestDetective
-  name: "бронежилет детектива"
-  description: "Бронежилет запеклого приватного детектива."
+  name: detective's vest
+  description: A hard-boiled private investigator's armored vest.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
@@ -163,8 +163,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterVestHazard
-  name: "сигнальний жилет"
-  description: "Жилет підвищеної видимості, що використовується в робочих зонах."
+  name: hi-viz vest
+  description: A high-visibility vest used in work zones.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/hazard.rsi
@@ -201,8 +201,8 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterVest
-  name: "жилет"
-  description: "Товстий жилет з гумовою, водостійкою оболонкою."
+  name: vest
+  description: A thick vest with a rubbery, water-resistant shell.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/vest.rsi
@@ -213,8 +213,8 @@
 - type: entity
   parent: [ClothingOuterBase, AllowSuitStorageClothingGasTanks]
   id: ClothingOuterVestTank
-  name: "упряж для балона"
-  description: "Проста упряж, що може тримати газовий балон."
+  name: tank harness
+  description: A simple harness that can hold a gas tank.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/tankharness.rsi

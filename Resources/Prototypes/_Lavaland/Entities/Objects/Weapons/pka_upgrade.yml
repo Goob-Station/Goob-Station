@@ -24,8 +24,8 @@
 - type: entity
   id: BasePKAUpgrade
   parent: [BaseItem, BaseSecurityCargoContraband]
-  name: "модифікація ПКА"
-  description: "Модифікація для протокінетичного прискорювача."
+  name: PKA modkit
+  description: A modkit for a proto-kinetic accelerator.
   abstract: true
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
 - type: entity
   id: PKAUpgradeDamage
   parent: BasePKAUpgrade
-  name: "модифікація ПКА (пошкодження)"
+  name: PKA modkit (damage)
   components:
   - type: Sprite
     layers:
@@ -65,7 +65,7 @@
 - type: entity
   id: PKAUpgradeRange
   parent: BasePKAUpgrade
-  name: "модифікація ПКА (дальність)"
+  name: PKA modkit (range)
   components:
   - type: Sprite
     layers:
@@ -86,7 +86,7 @@
 - type: entity
   id: PKAUpgradeFireRate
   parent: BasePKAUpgrade
-  name: "модифікація ПКА (швидкострільність)"
+  name: PKA modkit (fire rate)
   components:
   - type: Sprite
     layers:
@@ -107,7 +107,7 @@
 - type: entity
   id: PKAUpgradeLight
   parent: BasePKAUpgrade
-  name: "модифікація ПКА (світло)"
+  name: PKA modkit (light)
   components:
   - type: Sprite
     layers:
@@ -134,7 +134,7 @@
 - type: entity
   id: PKAUpgradePressure
   parent: [BaseSyndicateContraband, BasePKAUpgrade]
-  name: "мод-кіт PKA (тиск)"
+  name: PKA modkit (pressure)
   components:
   - type: Sprite
     layers:

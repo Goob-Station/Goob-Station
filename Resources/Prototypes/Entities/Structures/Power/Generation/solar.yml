@@ -35,7 +35,7 @@
 - type: entity
   id: SolarPanelBasePhysSprite
   categories: [ HideSpawnMenu ]
-  name: "сонячна панель"
+  name: solar panel
   placement:
     mode: SnapgridCenter
   components:
@@ -91,8 +91,8 @@
 - type: entity
   id: SolarPanelPlasma
   parent: SolarPanelBasePhysSprite
-  name: "плазмова сонячна панель"
-  description: "Кілька листів плазмового скла, які генерують електроенергію при попаданні на них фотонів."
+  name: solar panel plasma
+  description: A few sheets of plasma glass that generate electricity when hit by photons.
   components:
   - type: PowerSupplier
     supplyRampTolerance: 500
@@ -134,8 +134,8 @@
 - type: entity
   id: SolarPanelUranium
   parent: SolarPanelBasePhysSprite
-  name: "уранова сонячна панель"
-  description: "Кілька листів уранового скла, які генерують електроенергію при попаданні на них фотонів."
+  name: solar panel uranium
+  description: A few sheets of uranium glass that generate electricity when hit by photons.
   components:
   - type: PowerSupplier
     supplyRampTolerance: 500
@@ -177,8 +177,8 @@
 - type: entity
   id: SolarPanel
   parent: SolarPanelBasePhysSprite
-  name: "сонячна панель"
-  description: "Кілька листів скла, які генерують електроенергію при попаданні на них фотонів."
+  name: solar panel
+  description: A few sheets of glass that generate electricity when hit by photons.
   components:
   - type: PowerSupplier
     supplyRampTolerance: 500
@@ -220,8 +220,8 @@
 - type: entity
   id: SolarPanelBroken
   parent: SolarPanelBasePhysSprite
-  name: "сонячна панель"
-  description: "Розбита сонячна панель."
+  name: solar panel
+  description: A broken solar panel.
   suffix: Broken
   components:
   - type: Sprite
@@ -261,8 +261,8 @@
 - type: entity
   id: SolarPanelPlasmaBroken
   parent: SolarPanelBasePhysSprite
-  name: "плазмова сонячна панель"
-  description: "Розбита плазмова сонячна панель. Ця, схоже, зламана."
+  name: plasma solar panel
+  description: A broken plasma solar panel.
   suffix: Broken
   components:
   - type: Sprite
@@ -302,8 +302,8 @@
 - type: entity
   id: SolarPanelUraniumBroken
   parent: SolarPanelBasePhysSprite
-  name: "уранова сонячна панель"
-  description: "Розбита уранова сонячна панель. Ця, схоже, зламана."
+  name: uranium solar panel
+  description: A broken uranium solar panel.
   suffix: Broken
   components:
   - type: Sprite
@@ -342,8 +342,8 @@
 
 - type: entity
   id: SolarAssembly
-  name: "сонячна збірка"
-  description: "Сонячна збірка. Вставте скло, щоб побудувати сонячну панель." # Goobstation
+  name: solar assembly
+  description: A solar assembly. Insert glass to build a solar panel. # Goobstation
   placement:
     mode: SnapgridCenter
   components:
@@ -398,8 +398,8 @@
 
 - type: entity
   id: SolarTracker
-  name: "сонячний трекер"
-  description: "Сонячний трекер. Відстежує найближчу зірку."
+  name: solar tracker
+  description: A solar tracker. Tracks the nearest star.
   placement:
     mode: SnapgridCenter
   components:

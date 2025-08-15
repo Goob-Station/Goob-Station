@@ -25,7 +25,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "мішок для сміття"
+  name: trash bag
   id: TrashBag
   parent: BaseStorageItem
   components:
@@ -69,7 +69,7 @@
       Plastic: 25
 
 - type: entity
-  name: "мішок для сміття"
+  name: trash bag
   id: TrashBagBlue
   parent: TrashBag
   components:
@@ -83,7 +83,7 @@
     fillBaseName: blue-icon
 
 - type: entity
-  name: "заклинання всепоглинаючої чистоти"
+  name: spell of all-consuming cleanliness
   id: BagOfSummoningGarbage
   parent: TrashBagBlue
   components:
@@ -98,8 +98,8 @@
 - type: entity
   parent: TrashBag
   id: BorgTrashBag
-  name: "внутрішній мішок для сміття"
-  description: "Модернізований мішок для сміття з більшим внутрішнім об'ємом, встановлений безпосередньо в кіборга-прибиральника."
+  name: internal trash bag
+  description: An upgraded trash bag with a larger internal volume, installed directly into a custodial cyborg.
   components:
   - type: Storage
     maxItemSize: Huge

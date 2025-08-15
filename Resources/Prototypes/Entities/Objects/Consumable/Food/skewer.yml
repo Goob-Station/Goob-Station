@@ -89,10 +89,10 @@
 # Kebabs
 
 - type: entity
-  name: "шампур"
+  name: skewer
   parent: BaseItem
   id: FoodKebabSkewer
-  description: "Тонкий металевий стрижень, на який нанизували практично все, що завгодно, і готували."
+  description: A thin rod of metal used to skewer just about anything and cook it.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/skewer.rsi

@@ -1,6 +1,6 @@
 - type: entity
   id: RightArmSiliconIndestructible
-  name: "права кремнієва рука"
+  name: "right silicon arm"
   parent: [PartSiliconBase, BaseRightArm]
   components:
   - type: Sprite
@@ -10,7 +10,7 @@
 
 - type: entity
   id: RightHandSiliconIndestructible
-  name: "права кремнієва кисть"
+  name: "right silicon hand"
   parent: [PartSiliconBase, BaseRightHand]
   components:
   - type: Sprite

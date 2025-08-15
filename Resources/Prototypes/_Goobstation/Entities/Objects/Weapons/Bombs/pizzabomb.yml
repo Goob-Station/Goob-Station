@@ -8,9 +8,9 @@
 - type: entity
   parent: [GrenadeBase, FoodBoxPizza]
   id: FoodBoxPizzaBomb
-  name: "коробка для піци"
+  name: pizza box
   suffix: Bomb
-  description: "Картонна коробка для зберігання речей."
+  description: A cardboard box for storing things.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Bombs/Pizzabomb.rsi

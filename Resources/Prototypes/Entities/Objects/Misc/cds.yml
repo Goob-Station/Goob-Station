@@ -6,10 +6,10 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: "диск координат"
+  name: coordinates disk
   parent: BaseItem
   id: CoordinatesDisk
-  description: "Диск, що містить координати місця в просторі. Необхідний для того, щоб будь-який корабель, який подорожує на надсвітлових швидкостях, досягнув місця призначення. Вміщується в консолях шатлів."
+  description: A disk containing the coordinates to a location in space. Necessary for any FTL-traversing vessel to reach their destination. Fits inside shuttle consoles.
   components:
   - type: Sprite
     sprite: Objects/Misc/cd.rsi

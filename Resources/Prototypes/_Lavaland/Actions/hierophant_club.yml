@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHierophantPlaceMarker
-  name: "Встановити маркер телепортації"
-  description: "Дозволяє вам встановити точку, до якої ви завжди зможете телепортуватися."
+  name: Place teleportation marker
+  description: Let's you place a point where you can always teleport to.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -39,8 +39,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHierophantTeleport
-  name: "Блимання Ієрофанта"
-  description: "Телепортує вас до вже встановленого маркера."
+  name: Hierophant blink
+  description: Teleports you to already placed marker.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -56,8 +56,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHierophantSpawnCross
-  name: "Хрест"
-  description: "Створює хрест, що завдає незначної шкоди цілі."
+  name: Cross
+  description: Spawns a cross that deals minor damage to the target.
   components:
   - type: Action
     icon:
@@ -76,8 +76,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHierophantTileMovement
-  name: "Надати рух по плитках"
-  description: "Надає вказаній цілі рух по плитках та прискорення."
+  name: Grant tile movement
+  description: Grants a given target tile movement and a speed buff.
   components:
   - type: Action
     icon:

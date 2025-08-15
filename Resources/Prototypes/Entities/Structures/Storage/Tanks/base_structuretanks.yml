@@ -39,8 +39,8 @@
 - type: entity
   id: StorageTank
   parent: BaseStructureDynamic
-  name: "резервуар для зберігання"
-  description: "Резервуар для зберігання рідин."
+  name: storage tank
+  description: A liquids storage tank.
   abstract: true
   components:
   - type: Animateable

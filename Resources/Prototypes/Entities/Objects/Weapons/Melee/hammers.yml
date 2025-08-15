@@ -11,10 +11,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "кувалда"
+  name: sledgehammer
   parent: BaseItem
   id: Sledgehammer
-  description: "Ідеальний інструмент для безглуздої різанини."
+  description: The perfect tool for wanton carnage.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/sledgehammer.rsi
@@ -39,8 +39,8 @@
 - type: entity
   id: Mjollnir
   parent: BaseItem
-  name: "Мйольнір"
-  description: "Зброя, гідна бога, здатна завдавати ударів з силою блискавки. Вона тріщить від ледь стримуваної енергії."
+  name: Mjollnir
+  description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
   components:
   - type: Wieldable
     useDelayOnWield: false # GoobStation Edit
@@ -84,8 +84,8 @@
 - type: entity
   id: SingularityHammer
   parent: BaseItem
-  name: "Молот Сингулярності"
-  description: "Вершина технології ближнього бою, молот використовує силу мініатюрної сингулярності для нанесення нищівних ударів."
+  name: Singularity Hammer
+  description: The pinnacle of close combat technology, the hammer harnesses the power of a miniaturized singularity to deal crushing blows.
   components:
   - type: Wieldable
     useDelayOnWield: false

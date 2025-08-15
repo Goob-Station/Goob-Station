@@ -6,7 +6,7 @@
 - type: entity
   id: SpawnPointNukies
   parent: MarkerBase
-  name: "ядерники"
+  name: nukies
   components:
   - type: SpawnPoint
   - type: Sprite

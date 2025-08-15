@@ -43,8 +43,8 @@
 - type: entity
   id: GravityGenerator
   parent: BaseMachinePowered
-  name: "гравітаційний генератор"
-  description: "Це те, що утримує вас на підлозі."
+  name: gravity generator
+  description: It's what keeps you to the floor.
   placement:
     mode: AlignTileAny
   components:
@@ -129,8 +129,8 @@
 - type: entity
   id: GravityGeneratorMini
   parent: [ GravityGenerator, ConstructibleMachine ]
-  name: "міні-гравітаційний генератор"
-  description: "Це те, що утримує вас на підлозі, тепер у смішному розмірі."
+  name: mini gravity generator
+  description: It's what keeps you to the floor, now in fun size.
   components:
   - type: StationAiWhitelist
   - type: Sprite

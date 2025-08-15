@@ -23,7 +23,7 @@
 
 - type: entity
   id: RapidBulletKinetic
-  name: "швидкий кінетичний снаряд"
+  name: rapid kinetic bolt
   parent: BulletKinetic
   categories: [ HideSpawnMenu ]
   components:

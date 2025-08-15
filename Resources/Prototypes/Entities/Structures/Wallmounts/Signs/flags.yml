@@ -90,8 +90,8 @@
 - type: entity
   parent: BaseFlag
   id: BlankFlag
-  name: "чистий прапор"
-  description: "Якийсь шматок білої тканини. Точно не прапор Франції."
+  name: blank flag
+  description: Some piece of white cloth. Definitely not the flag of France.
   components:
   - type: Sprite
     state: blank_flag
@@ -99,8 +99,8 @@
 - type: entity
   parent: BaseFlag
   id: NTFlag
-  name: "прапор Нанотрейзен"
-  description: "Слава НТ! Зачекайте, вони справді зробили прапор для корпорації?"
+  name: Nanotrasen flag
+  description: Glory to NT! Wait, they really made a flag for a corporation?
   components:
   - type: Sprite
     state: NT_flag
@@ -108,8 +108,8 @@
 - type: entity
   parent: BaseFlag
   id: SyndieFlag
-  name: "прапор синдикату"
-  description: "Пахне кров'ю. Смерть НТ!"
+  name: syndicate flag
+  description: Smells bloody. Death to NT!
   components:
   - type: Sprite
     state: syndie_flag
@@ -117,8 +117,8 @@
 - type: entity
   parent: BaseFlag
   id: LGBTQFlag
-  name: "прапор ЛГБТК"
-  description: "Прапор \"Будь геєм, роби злочини\"."
+  name: LGBTQ flag
+  description: "\"Be gay do crime\" flag."
   components:
   - type: Sprite
     state: lgbtq_flag
@@ -126,8 +126,8 @@
 - type: entity
   parent: BaseFlag
   id: PirateFlag
-  name: "піратський прапор"
-  description: "Підніміть веселий роджер, виродки!"
+  name: pirate flag
+  description: Raise the jolly roger, scallywags!
   components:
   - type: Sprite
     state: pirate_flag

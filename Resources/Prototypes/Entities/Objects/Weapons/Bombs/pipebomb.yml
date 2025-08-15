@@ -7,8 +7,8 @@
 - type: entity
   parent: [ GrenadeBase, BaseMinorContraband ]
   id: PipeBomb
-  name: "трубна бомба"
-  description: "Саморобна вибухівка з труб та дроту."
+  name: pipe bomb
+  description: An improvised explosive made from pipes and wire.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Bombs/pipebomb.rsi
@@ -40,8 +40,8 @@
 - type: entity
   parent: [ BaseItem, BaseMinorContraband ]
   id: PipeBombGunpowder
-  name: "трубна бомба"
-  description: "Саморобна вибухівка, зроблена з труби. Тут немає пороху."
+  name: pipe bomb
+  description: An improvised explosive made from a pipe. This one has no gunpowder.
   suffix: Gunpowder
   components:
   - type: Sprite
@@ -55,8 +55,8 @@
 - type: entity
   parent: [ BaseItem, BaseMinorContraband ]
   id: PipeBombCable
-  name: "трубна бомба"
-  description: "Саморобна вибухівка, зроблена з труби. Ця без кабелю."
+  name: pipe bomb
+  description: An improvised explosive made from a pipe. This one has no cable.
   suffix: Cable
   components:
   - type: Sprite

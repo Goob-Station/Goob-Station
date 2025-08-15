@@ -6,8 +6,8 @@
 - type: entity
   parent: GasFilterBase
   id: GasFilterInline
-  name: "вбудований газовий фільтр"
-  description: "Фільтрує гази з трубопровідної мережі, не розділяючи її на дві частини."
+  name: inline gas filter
+  description: Filters gases from a pipenet without splitting it in two.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Piping/inlinegasfilter.rsi

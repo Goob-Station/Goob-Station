@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticFleshSurgery
-  name: "хірургія плоті"
-  description: "Видаліть у когось випадковий орган або зціліть своїх товаришів по команді."
+  name: flesh surgery
+  description: Remove a random organ from someone, or heal your teammates.
   components:
   - type: Action
     useDelay: 30

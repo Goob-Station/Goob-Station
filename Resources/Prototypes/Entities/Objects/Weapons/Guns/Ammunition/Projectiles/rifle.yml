@@ -33,7 +33,7 @@
 
 - type: entity
   id: BulletRifle
-  name: "куля (0,20 гвинтівка)"
+  name: bullet (0.20 rifle)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -45,7 +45,7 @@
 
 - type: entity
   id: BulletRiflePractice
-  name: "куля (0.20 стрільби з гвинтівки)"
+  name: bullet (0.20 rifle practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
   components:
@@ -57,7 +57,7 @@
 - type: entity
   id: BulletRifleIncendiary
   parent: BaseBulletIncendiary
-  name: "куля (0.20 гвинтівковий запальний)"
+  name: bullet (0.20 rifle incendiary)
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -69,7 +69,7 @@
 - type: entity
   id: BulletRifleUranium
   parent: BaseBulletUranium
-  name: "куля (0,20 гвинтівкового урану)"
+  name: bullet (0.20 rifle uranium)
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile

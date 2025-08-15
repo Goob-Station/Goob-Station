@@ -6,8 +6,8 @@
 
 - type: entity
   id: ChronoPortal
-  name: "тахіонний портал"
-  description: "Виглядає футуристично."
+  name: tachyon portal
+  description: Looks futuristic.
   parent: [ BasePortal, BaseShadow ]
   components:
   - type: Portal

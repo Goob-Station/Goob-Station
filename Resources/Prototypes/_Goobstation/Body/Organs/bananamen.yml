@@ -7,9 +7,9 @@
 - type: entity
   id: OrganBananaMenStomach
   parent: [ OrganHumanStomach, FoodBanana ]
-  name: "банан"
+  name: banana
   suffix: OrganStomach
-  description: "Дуже дивний на вигляд банан, схоже, що всередині нього є місце для зберігання їжі."
+  description: "A very odd-looking banana, it looks like it's got room inside to store food ."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
@@ -18,9 +18,9 @@
 - type: entity
   id: OrganBananaMenLiver
   parent: [ OrganHumanLiver, FoodBanana ]
-  name: "банан"
+  name: banana
   suffix: OrganLiver
-  description: "Дуже дивний на вигляд банан, він виглядає так, ніби всередині нього є місце для метаболізму хімічних речовин"
+  description: "A very odd-looking banana, it looks like if it has room inside to metabolize chemicals"
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
@@ -31,9 +31,9 @@
 - type: entity
   id: OrganBananaMenHeart
   parent: [ OrganHumanHeart, FoodBanana ]
-  name: "банан"
+  name: banana
   suffix: OrganHeart
-  description: "Дуже дивний на вигляд банан, виглядає так, ніби його майже побили."
+  description: "A very odd-looking banana, it looks like its almost beating."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
@@ -44,9 +44,9 @@
 - type: entity
   id: OrganBananaMenLungs
   parent: [ OrganHumanLungs, FoodBanana ]
-  name: "банан"
+  name: banana
   suffix: OrganLungs
-  description: "Дуже дивний на вигляд банан, він виглядає досить в'ялим, ніби зберігає повітря або щось подібне."
+  description: "A very odd-looking banana, it looks flabby enough to store air or something."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
@@ -57,9 +57,9 @@
 - type: entity
   id: OrganBananaMenKidneys
   parent: [ OrganHumanKidneys, FoodBanana ]
-  name: "банан"
+  name: banana
   suffix: OrganKidneys
-  description: "Дуже дивний на вигляд банан, схоже, що його можна було б використовувати для фільтрації забруднень."
+  description:  "A very odd-looking banana, it looks like it could be used to filter contaminants."
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi

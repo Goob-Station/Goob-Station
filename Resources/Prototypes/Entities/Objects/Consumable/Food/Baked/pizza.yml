@@ -210,10 +210,10 @@
 # Pizza
 
 - type: entity
-  name: "піца \"Маргарита"
+  name: margherita pizza
   parent: FoodPizzaBase
   id: FoodPizzaMargherita
-  description: "Аромат Італії."
+  description: The flavor of Italy.
   components:
   - type: FlavorProfile
     flavors:
@@ -227,10 +227,10 @@
     slice: FoodPizzaMargheritaSlice
 
 - type: entity
-  name: "шматочок піци \"Маргарита"
+  name: slice of margherita pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaMargheritaSlice
-  description: "Шматочок Італії."
+  description: A slice of Italy.
   components:
   - type: FlavorProfile
     flavors:
@@ -244,10 +244,10 @@
     heldPrefix: margherita-slice
 
 - type: entity
-  name: "м'ясна піца"
+  name: meat pizza
   parent: FoodPizzaBase
   id: FoodPizzaMeat
-  description: "Жирна піца зі смачним м'ясом."
+  description: Greasy pizza with delicious meat.
   components:
   - type: FlavorProfile
     flavors:
@@ -266,10 +266,10 @@
     - Pizza
 
 - type: entity
-  name: "шматок м'ясної піци"
+  name: slice of meat pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaMeatSlice
-  description: "Поживний шматочок м'ясної піци."
+  description: A nutritious slice of meatpizza.
   components:
   - type: FlavorProfile
     flavors:
@@ -290,10 +290,10 @@
 # Tastes like crust, tomato, cheese, meat.
 
 - type: entity
-  name: "грибна піца"
+  name: mushroom pizza
   parent: FoodPizzaBase
   id: FoodPizzaMushroom
-  description: "Дуже особлива піца."
+  description: Very special pizza.
   components:
   - type: FlavorProfile
     flavors:
@@ -307,10 +307,10 @@
     slice: FoodPizzaMushroomSlice
 
 - type: entity
-  name: "шматочок грибної піци"
+  name: slice of mushroom pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaMushroomSlice
-  description: "Можливо, це останній шматок піци у вашому житті."
+  description: Maybe it is the last slice of pizza in your life.
   components:
   - type: FlavorProfile
     flavors:
@@ -325,10 +325,10 @@
 # Tastes like crust, tomato, cheese, mushroom.
 
 - type: entity
-  name: "овочева піца"
+  name: vegetable pizza
   parent: FoodPizzaBase
   id: FoodPizzaVegetable
-  description: "Вегетаріанці станції будуть вдячні вам за це."
+  description: The station's vegetarians will thank you for making this.
   components:
   - type: FlavorProfile
     flavors:
@@ -356,10 +356,10 @@
           Quantity: 5
 
 - type: entity
-  name: "шматочок овочевої піци"
+  name: slice of vegetable pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaVegetableSlice
-  description: "Одного шматочка вистачить, щоб задовольнити навіть найвибагливіших працівників вокзалу."
+  description: A slice of this is enough to satisfy even the pickiest station personnel.
   components:
   - type: FlavorProfile
     flavors:
@@ -390,10 +390,10 @@
 # Tastes like crust, tomato, cheese, carrot.
 
 - type: entity
-  name: "піца з ослячої кишені"
+  name: donk-pocket pizza
   parent: FoodPizzaBase
   id: FoodPizzaDonkpocket
-  description: "Хто подумав, що це хороша ідея?"
+  description: Who thought this would be a good idea?
   components:
   - type: FlavorProfile
     flavors:
@@ -421,10 +421,10 @@
 
 
 - type: entity
-  name: "шматок піци з ослиною кишенею"
+  name: slice of donk-pocket pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaDonkpocketSlice
-  description: "Смердить ослиною кишенею."
+  description: Smells like donk-pocket.
   components:
   - type: FlavorProfile
     flavors:
@@ -453,10 +453,10 @@
 # Tastes like crust, tomato, cheese, meat, laziness.
 
 - type: entity
-  name: "мокра піца"
+  name: dank pizza
   parent: FoodPizzaBase
   id: FoodPizzaDank
-  description: "Піца за вибором хіпі."
+  description: The hippie's pizza of choice.
   components:
   - type: FlavorProfile
     flavors:
@@ -480,10 +480,10 @@
           Quantity: 30
 
 - type: entity
-  name: "шматок мокрої піци"
+  name: slice of dank pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaDankSlice
-  description: "Так добре, чувак..."
+  description: So good, man...
   components:
   - type: FlavorProfile
     flavors:
@@ -508,10 +508,10 @@
 # Tastes like crust, tomato, cheese, meat, satisfaction.
 
 - type: entity
-  name: "піца з салямі"
+  name: sassysage pizza
   parent: FoodPizzaBase
   id: FoodPizzaSassysage
-  description: "Ви дійсно відчуваєте запах нахабства."
+  description: You can really smell the sassiness.
   components:
   - type: FlavorProfile
     flavors:
@@ -530,10 +530,10 @@
     - Pizza
 
 - type: entity
-  name: "шматочок піци з салямі"
+  name: slice of sassysage pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaSassysageSlice
-  description: "Смачно нахабно."
+  description: Deliciously sassy.
   components:
   - type: FlavorProfile
     flavors:
@@ -554,10 +554,10 @@
 # Tastes like crust, tomato, cheese, sausage, sass.
 
 - type: entity
-  name: "гавайська піца"
+  name: Hawaiian pizza
   parent: FoodPizzaBase
   id: FoodPizzaPineapple
-  description: "Змушує людей розплакатися. Сльозами радості чи суму, залежить від любові людини до ананасів."
+  description: Makes people burst into tears. Tears of joy or sadness depends on the person's fondness for pineapple.
   components:
   - type: FlavorProfile
     flavors:
@@ -577,10 +577,10 @@
     - Pizza
 
 - type: entity
-  name: "шматок гавайської піци"
+  name: slice of Hawaiian pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaPineappleSlice
-  description: "Шматочок радості/гріха."
+  description: A slice of joy/sin.
   components:
   - type: FlavorProfile
     flavors:
@@ -603,10 +603,10 @@
 
 #TODO: This is a meme pizza from /tg/. It has specially coded mechanics.
 - type: entity
-  name: "Піца Арнольда"
+  name: Arnold's pizza
   parent: FoodPizzaBase
   id: FoodPizzaArnold
-  description: "Привіт, ви подзвонили в піцерію Арнольда. Мене зараз немає, я пішов вбивати пепероні."
+  description: Hello, you've reached Arnold's pizza shop. I'm not here now, I'm out killing pepperoni.
   components:
   - type: FlavorProfile
     flavors:
@@ -639,10 +639,10 @@
     - Pizza
 
 - type: entity
-  name: "шматок піци Арнольда"
+  name: slice of Arnold's pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaArnoldSlice
-  description: "Я приходжу, можливо, даю тобі піцу, можливо, відламую тобі руку."
+  description: I come over, maybe I give you a pizza, maybe I break off your arm.
   components:
   - type: FlavorProfile
     flavors:
@@ -678,10 +678,10 @@
 
 #TODO: Make this do poison damage and make cut pizza slices eventually rot into this.
 - type: entity
-  name: "шматок запліснявілої піци"
+  name: slice of moldy pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaMoldySlice
-  description: "Колись це був чудовий шматок піци, але тепер він лежить тут, прогірклий і вкритий спорами."
+  description: Once a perfectly good slice of pizza pie, but now it lies here, rancid and bursting with spores.
   components:
   - type: FlavorProfile
     flavors:
@@ -711,10 +711,10 @@
 # Tastes like stale crust, rancid cheese, mushroom.
 
 - type: entity
-  name: "гостра кам'яна піца"
+  name: spicy rock pizza
   parent: FoodPizzaBase
   id: FoodPizzaUranium
-  description: "Гостра піца, вкрита перцем та ураном."
+  description: Spicy pizza covered in peppers and uranium.
   components:
   - type: FlavorProfile
     flavors:
@@ -747,10 +747,10 @@
           Quantity: 16
 
 - type: entity
-  name: "шматок гострої кам'яної піци"
+  name: slice of spicy rock pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaUraniumSlice
-  description: "Сяючий шматок гострої кам'яної піци."
+  description: A glowing slice of spicy rock pizza.
   components:
   - type: FlavorProfile
     flavors:
@@ -786,10 +786,10 @@
 # Tastes like crust, tomato, cheese, radiation.
 
 - type: entity
-  name: "бавовняна піца"
+  name: cotton pizza
   parent: FoodPizzaBase
   id: FoodPizzaCotton
-  description: "Пласке тканинне бавовняне тісто з бавовняною начинкою. Неймовірно."
+  description: Flat fabric cotton dough with cotton topping. Incredible.
   components:
   - type: FlavorProfile
     flavors:
@@ -819,10 +819,10 @@
           Quantity: 10
 
 - type: entity
-  name: "шматок бавовняної піци"
+  name: slice of cotton pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaCottonSlice
-  description: "Шматок бавовняної піци. Бавовна в комплекті."
+  description: A slice of cotton pizza. Cotton included.
   components:
   - type: FlavorProfile
     flavors:
@@ -851,10 +851,10 @@
           Quantity: 1.5
 
 - type: entity
-  name: "світова піца"
+  name: world peazza
   parent: FoodPizzaBase
   id: FoodPizzaWorldpeas
-  description: "Сучасна дипломатія у формі диска."
+  description: Modern diplomacy in the shape of a disc.
   components:
   - type: FlavorProfile
     flavors:
@@ -878,10 +878,10 @@
           Quantity: 8
 
 - type: entity
-  name: "шматок світової піци"
+  name: slice of world peazza
   parent: FoodPizzaSliceBase
   id: FoodPizzaWorldpeasSlice
-  description: "Розділити світ - це невелика ціна за гармонію."
+  description: Dividing the world up is a small price to pay for harmony.
   components:
   - type: FlavorProfile
     flavors:

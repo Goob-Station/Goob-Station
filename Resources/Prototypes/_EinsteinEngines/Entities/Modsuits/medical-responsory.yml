@@ -14,8 +14,8 @@
 - type: entity
   parent: [ ClothingModsuitStandard, BaseCentcommContraband ]
   id: ClothingModsuitResponsoryMedical
-  name: "блок керування медичним скафандром швидкого реагування" # Goob edit
-  description: "Основний контролер для медичного скафандра швидкого реагування." # Goob edit
+  name: Medical Responsory hardsuit control unit # Goob edit
+  description: The main controller for a Medical Responsory hardsuit. # Goob edit
   components:
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/medical-responsory.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: ClothingModsuitGauntletsStandard
   id: ClothingModsuitGauntletsResponsoryMedical
-  name: "медичні рукавиці від скафандру швидкого реагування" # Goob edit
-  description: "Пара рукавиць, створених для медичного скафандра швидкого реагування." # Goob edit
+  name: Medical Responsory hardsuit gauntlets # Goob edit
+  description: A pair of gauntlets made for the Medical Responsory hardsuit. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -62,8 +62,8 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
   id: ClothingModsuitHelmetResponsoryMedical
-  name: "медичний шолом від скафандру швидкого реагування" # Goob edit
-  description: "Сучасний шолом, розроблений NanoTrasen для медичного скафандра швидкого реагування. Має вбудований HUD." # Goob edit
+  name: Medical Responsory hardsuit helmet # Goob edit
+  description: A state-of-the-art helmet designed by NanoTrasen for the Medical Responsory hardsuit. It includes a built-in HUD. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -108,8 +108,8 @@
 - type: entity
   parent: ClothingModsuitChestplateStandard
   id: ClothingModsuitChestplateResponsoryMedical
-  name: "медичний нагрудник від скафандру швидкого реагування" # Goob edit
-  description: "Сучасний нагрудник, розроблений NanoTrasen для медичного скафандра швидкого реагування. Він включає силові сервоприводи для зменшення навантаження від обладнання." # Goob edit
+  name: Medical Responsory hardsuit chestplate # Goob edit
+  description: A state of the art chestplate designed by NanoTrasen for the Medical Responsory hardsuit. It incorporates powered servos to reduce the equipment load. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
@@ -146,8 +146,8 @@
 - type: entity
   parent: ClothingModsuitBootsStandard
   id: ClothingModsuitBootsResponsoryMedical
-  name: "медичні черевики від скафандру швидкого реагування" # Goob edit
-  description: "Сучасна пара магнітних черевиків для медичного скафандра швидкого реагування." # Goob edit
+  name: Medical Responsory hardsuit boots # Goob edit
+  description: A state-of-the-art pair of magboots for the Medical Responsory hardsuit. # Goob edit
   categories: [HideSpawnMenu]
   components:
     - type: Appearance

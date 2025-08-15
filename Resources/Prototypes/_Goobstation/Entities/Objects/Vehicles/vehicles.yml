@@ -104,8 +104,8 @@
 - type: entity
   id: VehicleSecway
   parent: [ BaseVehicle, BaseSecurityContraband ]
-  name: "секвей"
-  description: "Майбутнє транспорту. Популяризований святим Яковом, покровителем співробітників служб безпеки та модераторів інтернет-форумів."
+  name: secway
+  description: The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/secway.rsi
@@ -137,8 +137,8 @@
 - type: entity
   id: VehicleSyndicateSegway
   parent: [ BaseSyndicateContraband, VehicleSecway ]
-  name: "синдикатський сегвей"
-  description: "Будьте ворогом корпорації, але стильно."
+  name: syndicate segway
+  description: Be an enemy of the corporation, in style.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/syndicatesegway.rsi
@@ -161,8 +161,8 @@
 - type: entity
   id: VehicleATV
   parent: BaseVehicle
-  name: "Квадроцикл"
-  description: "Цілісний транспортний засіб."
+  name: ATV
+  description: All-Tile Vehicle.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/atv.rsi
@@ -191,8 +191,8 @@
 - type: entity
   id: VehicleJanicart
   parent: BaseVehicle
-  name: "дженікарт"
-  description: "Вірний кінь двірника."
+  name: janicart
+  description: The janitor's trusty steed.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/janicart.rsi
@@ -225,8 +225,8 @@
 - type: entity
   id: VehicleWheelchair
   parent: [ BaseVehicle, BaseFoldable, BaseItem ]
-  name: "інвалідний візок"
-  description: "Стілець з великими колесами. Виглядає так, ніби ти можеш пересуватися на ньому самостійно."
+  name: wheelchair
+  description: A chair with big wheels. It looks like you can move in these on your own.
   components:
   - type: Sprite
     sprite: Objects/Vehicles/wheelchair.rsi
@@ -269,8 +269,8 @@
 - type: entity
   id: VehicleHoverchair
   parent: BaseVehicle
-  name: "крісло на повітряній подушці"
-  description: "Розкішне крісло на повітряній подушці, розслабтеся та відпочиньте."
+  name: hoverchair
+  description: A luxury hoverchair, kick back and relax.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Vehicles/hoverchair.rsi

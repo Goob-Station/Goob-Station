@@ -271,8 +271,8 @@
 - type: entity
   parent: BaseItem
   id: BorgBeaker
-  name: "вбудований хімічний стакан"
-  description: "Внутрішній відсік, встановлений у кіборга. Розрахований на 50 одиниць будь-якої рідини."
+  name: integrated beaker
+  description: An internal compartment installed into a cyborg. Rated for 50 units of any liquid.
   components:
   # 3 morbillion components are to avoid inheriting breakable since borgs can't replace beakers.
   - type: Tag
@@ -389,9 +389,9 @@
   - type: DnaSubstanceTrace
 
 - type: entity
-  name: "мензурка"
+  name: beaker
   parent: BaseBeaker
-  description: "Використовується для зберігання помірної кількості хімічних речовин і розчинів."
+  description: Used to contain a moderate amount of chemicals and solutions.
   id: Beaker
   components:
   - type: Spillable
@@ -423,9 +423,9 @@
           Quantity: 50
 
 - type: entity
-  name: "велика мензурка"
+  name: large beaker
   parent: BaseBeaker
-  description: "Використовується для зберігання великої кількості хімічних речовин або розчинів."
+  description: Used to contain a large amount of chemicals or solutions.
   id: LargeBeaker
   components:
   - type: Spillable
@@ -457,9 +457,9 @@
     price: 20
 
 - type: entity
-  name: "кріостазисна мензурка"
+  name: cryostasis beaker
   parent: BaseBeakerMetallic
-  description: "Використовується для утримання хімічних речовин або розчинів, що не вступають у реакцію."
+  description: Used to contain chemicals or solutions without reactions.
   id: CryostasisBeaker
   components:
   - type: Spillable
@@ -481,9 +481,9 @@
       Plastic: 12
 
 - type: entity
-  name: "блюспейс мензурка"
+  name: bluespace beaker
   parent: BaseBeakerMetallic
-  description: "Працює на експериментальній технології bluespace."
+  description: Powered by experimental bluespace technology.
   id: BluespaceBeaker
   components:
   - type: Spillable
@@ -508,9 +508,9 @@
     price: 65
 
 - type: entity
-  name: "піпетка"
+  name: dropper
   parent: BaseItem
-  description: "Використовується для переміщення невеликих кількостей хімічного розчину між контейнерами."
+  description: Used to transfer small amounts of chemical solution between containers.
   id: Dropper
   components:
   - type: Sprite
@@ -563,8 +563,8 @@
 - type: entity
   parent: Dropper
   id: BorgDropper
-  name: "гідравлічна піпетка"
-  description: "Сучасна гідравлічна піпетка, створена для кіборгів. Вона має більшу ємність, ніж ручні піпетки, і здатна вмістити 15 одиниць рідини."
+  name: hydraulic pipette
+  description: State-of-the-art hydraulic dropper built for cyborgs. It features a higher capacity than hand-powered droppers, able to hold 15 units of liquid.
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/dropper.rsi
@@ -581,9 +581,9 @@
     sprite: Objects/Specific/Chemistry/dropper.rsi
 
 - type: entity
-  name: "шприц"
+  name: syringe
   parent: BaseItem
-  description: "Використовується для відбору зразків крові у натовпу або для ін'єкцій реагентів."
+  description: Used to draw blood samples from mobs, or to inject them with reagents.
   id: BaseSyringe
   abstract: true
   components:
@@ -769,8 +769,8 @@
 - type: entity
   id: SyringeBluespace
   parent: BaseSyringe
-  name: "блюспейс шприц"
-  description: "Ін'єкції за допомогою передової технології bluespace."
+  name: bluespace syringe
+  description: Injecting with advanced bluespace technology.
   components:
   - type: Sprite
     layers:
@@ -810,8 +810,8 @@
 - type: entity
   id: SyringeCryostasis
   parent: BaseSyringe
-  name: "шприц для кріостазу"
-  description: "Покращений шприц, що використовується для зберігання хімічних речовин або розчинів без реакцій." # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+  name: cryostasis syringe
+  description: An improved syringe used to contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   components:
   - type: Sprite
     layers:
@@ -846,10 +846,10 @@
 
 
 - type: entity
-  name: "таблетка"
+  name: pill
   parent: BaseItem
   id: Pill
-  description: "Це не супозиторії."
+  description: It's not a suppository.
   components:
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi
@@ -896,10 +896,10 @@
     - Pill
 
 - type: entity
-  name: "контейнер для таблеток"
+  name: pill canister
   id: PillCanister
   parent: BaseStorageItem
-  description: "Вміщує до 15 таблеток." # Goobstation
+  description: Holds up to 15 pills. # Goobstation
   components:
   - type: Item
     size: Tiny

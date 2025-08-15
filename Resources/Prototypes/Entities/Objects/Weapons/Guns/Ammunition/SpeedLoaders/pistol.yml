@@ -19,7 +19,7 @@
 
 - type: entity
   id: BaseSpeedLoaderPistol
-  name: "швидкісний зарядник (.35 auto)"
+  name: "speed loader (.35 auto)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -41,7 +41,7 @@
 
 - type: entity
   id: SpeedLoaderPistol
-  name: "швидкісний зарядник (.35 auto)"
+  name: "speed loader (.35 auto)"
   parent: BaseSpeedLoaderPistol
   components:
   - type: BallisticAmmoProvider
@@ -60,7 +60,7 @@
 
 - type: entity
   id: SpeedLoaderPistolPractice
-  name: "швидкісний зарядник (.35 автопрактика)"
+  name: "speed loader (.35 auto practice)"
   parent: BaseSpeedLoaderPistol
   components:
   - type: BallisticAmmoProvider

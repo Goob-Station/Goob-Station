@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticJaunt
-  name: "Попелястий пасаж"
-  description: "Заклинання малої дальності дії, що дозволяє безперешкодно проходити крізь стіни."
+  name: Ashen Passage
+  description: A short range spell that allows you to pass unimpeded through walls.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -32,8 +32,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVolcanoBlast
-  name: "Вулканічний Вибух"
-  description: "Заряджайте вибух вогню, який замикає ланцюг між сусідніми цілями, підпалюючи їх."
+  name: Volcanic Blast
+  description: Charge up a blast of fire that chains between nearby targets, setting them ablaze.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -52,8 +52,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticNightwatcherRebirth
-  name: "Відродження Нічного Вартового"
-  description: "Зливи довколишніх язичників охопили полум'ям їхню життєву силу."
+  name: Nightwatcher's Rebirth
+  description: Drains nearby heathens engulfed in flames of their life force.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -72,8 +72,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticAscension1
-  name: "Клятва полум'я"
-  description: "Створіть навколо себе вогняне кільце."
+  name: Oath of Flame
+  description: Create a ring of fire around you.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -92,8 +92,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticAscension2
-  name: "Пожежний каскад"
-  description: "Спалюйте все на великій відстані."
+  name: Fire Cascade
+  description: Burn everything in a large distance.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

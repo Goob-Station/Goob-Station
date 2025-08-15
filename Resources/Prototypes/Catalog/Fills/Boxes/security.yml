@@ -34,10 +34,10 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  name: "коробка з наручниками"
+  name: handcuff box
   parent: BoxCardboard
   id: BoxHandcuff
-  description: "Коробка, повна наручників."
+  description: A box full of handcuffs.
   components:
   - type: StorageFill
     contents:
@@ -49,10 +49,10 @@
     - state: handcuff
 
 - type: entity
-  name: "коробка стяжок"
+  name: ziptie box
   parent: BoxCardboard
   id: BoxZiptie
-  description: "Коробка, повна стяжок."
+  description: A box full of zipties.
   components:
   - type: StorageFill
     contents:
@@ -64,10 +64,10 @@
     - state: ziptie
 
 - type: entity
-  name: "коробка світлошумових гранат"
+  name: flashbang box
   parent: BoxCardboard
   id: BoxFlashbang
-  description: "ПОПЕРЕДЖЕННЯ: Ці пристрої надзвичайно небезпечні і можуть спричинити сліпоту або глухоту при повторних використаннях."
+  description: 'WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use.'
   components:
   - type: StorageFill
     contents:
@@ -79,10 +79,10 @@
     - state: flashbang
 
 - type: entity
-  name: "коробка з жалячими гранатами"
+  name: stinger grenade box
   parent: BoxCardboard
   id: BoxStinger
-  description: "Коробка, повна жалячих гранат. Розсіюйтеся!"
+  description: A box full of stinger grenades. Disperse!
   components:
   - type: StorageFill
     contents:
@@ -94,10 +94,10 @@
     - state: flashbang
 
 - type: entity
-  name: "коробка зі сльозогінним газом"
+  name: tear gas grenade box
   parent: BoxCardboard
   id: BoxTearGas
-  description: "Коробка, повна гранат зі сльозогінним газом. Затамуйте подих."
+  description: A box full of tear gas grenades. Hold your breath.
   components:
   - type: StorageFill
     contents:
@@ -109,10 +109,10 @@
     - state: flashbang
 
 - type: entity
-  name: "коробка з sechud"
+  name: sechud box
   parent: BoxCardboard
   id: BoxSechud
-  description: "Коробка з sechuds."
+  description: A box of sechuds.
   components:
   - type: StorageFill
     contents:
@@ -124,10 +124,10 @@
     - state: sechud
 
 - type: entity
-  name: "коробка з окулярами СБ"
+  name: secglasses box
   parent: BoxCardboard
   id: BoxSecglasses
-  description: "Коробка з окулярами служби безпеки."
+  description: A box of security glasses.
   components:
   - type: StorageFill
     contents:
@@ -139,10 +139,10 @@
     - state: secglasses
 
 - type: entity
-  name: "коробка з сонцезахисними окулярами"
+  name: sunglasses box
   parent: BoxCardboard
   id: BoxSunglasses
-  description: "Коробка з крутими сонцезахисними окулярами, що захищають від спалахів."
+  description: A box of cool flash-proof sunglasses.
   components:
   - type: StorageFill
     contents:
@@ -154,10 +154,10 @@
     - state: sunglasses
 
 - type: entity
-  name: "коробка з криміналістичним папером"
+  name: forensic pad box
   parent: BoxCardboard
   id: BoxForensicPad
-  description: "Коробка криміналістичного папіру."
+  description: A box of forensic pads.
   components:
   - type: Item
     shape:

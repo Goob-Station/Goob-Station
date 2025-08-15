@@ -18,8 +18,8 @@
 - type: entity
   parent: ParticleAcceleratorFinishedPart
   id: ParticleAcceleratorPowerBox
-  name: "Блок живлення прискорювача частинок"
-  description: "Формально відома як ЕМ-лінза, що фокусує частинки. Він використовує електромагнітні хвилі для фокусування альфа-частинок."
+  name: PA power box
+  description: Formally known as the Particle Focusing EM Lens. This uses electromagnetic waves to focus the Alpha-Particles.
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/power_box.rsi
@@ -39,9 +39,9 @@
 - type: entity
   parent: ParticleAcceleratorUnfinishedBase
   id: ParticleAcceleratorPowerBoxUnfinished
-  name: "Блок живлення прискорювача частинок"
+  name: PA power box
   suffix: Unfinished
-  description: "Формально відома як ЕМ-лінза, що фокусує частинки. Вона використовує електромагнітні хвилі для фокусування альфа-частинок. Виглядає незавершеним."
+  description: Formally known as the Particle Focusing EM Lens. This uses electromagnetic waves to focus the Alpha-Particles. It looks unfinished.
   components:
   - type: Sprite
     sprite: Structures/Power/Generation/PA/power_box.rsi

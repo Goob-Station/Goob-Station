@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCancelEscape
-  name: "Припини тікати!"
-  description: "Заспокойтеся і спокійно сидіть в інвентарі вашого перевізника"
+  name: Stop escaping
+  description: Calm down and sit peacefuly in your carrier's inventory
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

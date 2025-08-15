@@ -223,8 +223,8 @@
 
 - type: listing
   id: SpellbookStaffAnimation
-  name: "книга-заклинань-посох-анімація-назва"
-  description: "книга-заклинань-посох-анімація-опис"
+  name: spellbook-staff-animation-name
+  description: spellbook-staff-animation-description
   productEntity: AnimationStaff
   cost:
     WizCoin: 3

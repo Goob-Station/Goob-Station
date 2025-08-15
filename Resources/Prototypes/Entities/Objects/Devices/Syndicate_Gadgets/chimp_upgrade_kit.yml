@@ -8,10 +8,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Мікросхема модернізації ручної гармати C.H.I.M.P"
+  name: C.H.I.M.P. handcannon upgrade chip
   parent: [BaseItem, BaseSyndicateContraband]
   id: WeaponPistolCHIMPUpgradeKit
-  description: "Експериментальний комплект для модернізації C.H.I.M.P."
+  description: An experimental upgrade kit for the C.H.I.M.P.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

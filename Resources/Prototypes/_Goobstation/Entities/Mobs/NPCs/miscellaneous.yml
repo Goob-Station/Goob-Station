@@ -16,8 +16,8 @@
 - type: entity
   id: MobRevenantToken
   parent: MobRevenant
-  name: "ревенант"
-  description: "Моторошний привид."
+  name: revenant
+  description: A spooky ghostie.
   components:
   - type: GhostRole
     makeSentient: true

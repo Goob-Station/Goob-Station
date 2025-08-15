@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieRed
-  name: "червона краватка"
-  description: "Червона краватка на застібці з неошовку."
+  name: red-tie
+  description: A neosilk clip-on red tie.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Ties/redtie.rsi
@@ -32,8 +32,8 @@
 - type: entity
   parent: ClothingNeckTieRed
   id: ClothingNeckTieDet
-  name: "краватка детектива"
-  description: "Вільно зав'язана краватка - ідеальний аксесуар для перевантаженого роботою детектива."
+  name: detective's tie
+  description: A loosely tied necktie, a perfect accessory for the over-worked detective.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Ties/dettie.rsi
@@ -43,8 +43,8 @@
 - type: entity
   parent: ClothingNeckTieRed
   id: ClothingNeckTieSci
-  name: "краватка вченого"
-  description: "Чому ми всі повинні носити ці безглузді краватки?"
+  name: scientist's tie
+  description: Why do we all have to wear these ridiculous ties?
   components:
   - type: Sprite
     sprite: Clothing/Neck/Ties/scitie.rsi

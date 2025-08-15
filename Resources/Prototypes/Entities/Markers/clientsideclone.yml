@@ -10,7 +10,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "clientsideclone"
+  name: clientsideclone
   id: clientsideclone
   categories: [ HideSpawnMenu ]
   components:
