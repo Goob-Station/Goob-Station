@@ -146,6 +146,9 @@
 # WallSolid: Window
 # Table: null
 
+# Goobstation - Drip or functionality. You don't get both.
+ClothingShoesBootsCowboyBlackFilled: null
+
 # Goobstation - Submarine from DeltaV
 AirlockBoxerGlassLocked: AirlockServiceGlassLocked
 AirlockClownGlassLocked: AirlockServiceGlassLocked
