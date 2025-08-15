@@ -186,15 +186,22 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: ClosetSkeleton
-    - id: DragonSpawn
     - id: KingRatMigration
+    - id: RevenantSpawn
+    - id: DerelictCyborgSpawn
+
+- type: entityTable
+  id: ModerateAntagEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: DragonSpawn
     - id: NinjaSpawn
     - id: ParadoxCloneSpawn
     #- id: RevenantSpawn  # GoobStation - removed till rework
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
-    - id: DerelictCyborgSpawn
+    - id: DerelictCyborgSpawn #Goobstation?
     - id: BlobSpawn # Goobstation - Blob
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
@@ -211,6 +218,7 @@
     #- id: WraithMidround # Goobstation - Wraith
     #TODO when midrounds are "reviewed" by the chudmins add them back
     #TODO When Slasher is Ready - id: SlasherSpawn # Goobstation - The Slasher
+    #- id: WizardSpawn # Goob. Unless?
 
 - type: entity
   id: BaseStationEvent
@@ -399,6 +407,8 @@
       pickPlayer: false
       mindRoles:
       - MindRoleDragon
+  - type: DynamicRuleCost
+    cost: 75
 
 - type: entity
   parent: BaseGameRule
@@ -470,6 +480,8 @@
         nameFormat: name-format-ninja
       mindRoles:
       - MindRoleNinja
+  - type: DynamicRuleCost
+    cost: 75
 
 - type: entity
   parent: BaseGameRule
@@ -516,6 +528,8 @@
         sound: /Audio/Misc/paradox_clone_greeting.ogg
       mindRoles:
       - MindRoleParadoxClone
+  - type: DynamicRuleCost
+    cost: 50
 
 #- type: entity   Goobstaion start - disabled until rework
 #  parent: BaseGameRule
@@ -838,6 +852,8 @@
       - type: InitialInfected
       mindRoles:
       - MindRoleInitialInfected
+  - type: DynamicRuleCost
+    cost: 200
 
 - type: entity
   parent: BaseNukeopsRule
@@ -868,7 +884,7 @@
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
-      unequipOldGear: true
+      unequipOldGear: true # Goobstation?
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -883,6 +899,8 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: DynamicRuleCost
+    cost: 75
   - type: AntagLoadProfileRule # Goobstation
     speciesOverride: Human
     alwaysUseSpeciesOverride: true
