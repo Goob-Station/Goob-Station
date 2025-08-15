@@ -124,7 +124,7 @@ public sealed partial class CreditsWindow : DefaultWindow
 
     private async void PopulateAttributions(BoxContainer attributionsContainer, int count)
     {
-        attributionsContainer.DisposeAllChildren();
+        attributionsContainer.RemoveAllChildren();
 
         if (_attributions.Count == 0)
         {
@@ -297,6 +297,8 @@ public sealed partial class CreditsWindow : DefaultWindow
 
     private void PopulateLicenses(BoxContainer licensesContainer)
     {
+        licensesContainer.RemoveAllChildren();
+
         foreach (var entry in CreditsManager.GetLicenses(_resourceManager).OrderBy(p => p.Name))
         {
             licensesContainer.AddChild(new Label
@@ -313,6 +315,8 @@ public sealed partial class CreditsWindow : DefaultWindow
 
     private void PopulatePatrons(BoxContainer patronsContainer)
     {
+        patronsContainer.RemoveAllChildren();
+
         var patrons = LoadPatrons();
 
             var linkPatreon = _cfg.GetCVar(CCVars.InfoLinksPatreon);
@@ -361,6 +365,8 @@ public sealed partial class CreditsWindow : DefaultWindow
 
     private void PopulateContributors(BoxContainer ss14ContributorsContainer)
     {
+        ss14ContributorsContainer.RemoveAllChildren();
+
         Button contributeButton;
 
         ss14ContributorsContainer.AddChild(new BoxContainer
