@@ -43,6 +43,7 @@ using System.Linq;
 using Content.Goobstation.Common.Flash;
 using Content.Shared.Mobs.Components; // Goobstation
 using Content.Shared.Movement.Systems;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
@@ -244,7 +245,8 @@ public abstract class SharedFlashSystem : EntitySystem
         foreach (var entity in _entSet)
         {
             // TODO: Use RandomPredicted https://github.com/space-wizards/RobustToolbox/pull/5849
-            var rand = new System.Random((int)_timing.CurTick.Value + GetNetEntity(entity).Id);
+            var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(entity).Id });
+            var rand = new System.Random(seed);
             if (!rand.Prob(probability))
                 continue;
 
