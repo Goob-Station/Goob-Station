@@ -1,0 +1,1128 @@
+# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
+# SPDX-FileCopyrightText: 2021 FoLoKe <36813380+FoLoKe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
+# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 CrzyPotato <75244093+CrzyPotato@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Snowni <101532866+Snowni@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Colin-Tel <113523727+Colin-Tel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Mr. 27 <45323883+27alaing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
+# SPDX-FileCopyrightText: 2023 pofitlo <107665898+pofitlo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 ravage <142820619+ravage123321@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArkiveDev <95712736+ArkiveDev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Doomsdrayk <robotdoughnut@comcast.net>
+# SPDX-FileCopyrightText: 2024 DrEnzyme <DrEnzyme@gmail.com>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Elysium206 <151651971+Elysium206@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Floofi <126319569+Shadowtheprotogen546@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MetalSage <74924875+MetalSage@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MetalSage <metalsage.official@gmail.com>
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Stomf <5dorkydorks@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Velcroboy <velcroboy333@hotmail.com>
+# SPDX-FileCopyrightText: 2024 WarMechanic <69510347+WarMechanic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 YourUsername <you@example.com>
+# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 marbow <152051971+marboww@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 mhamster <81412348+mhamsterr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 nao fujiwara <awkwarddryad@gmail.com>
+# SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 reverie collection <revsys413@gmail.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 zHonys <69396539+zHonys@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Bounds Guide
+#1D2L3U4R
+
+- type: entity
+  name: Ian
+  parent: MobCorgi
+  id: MobCorgiIan
+  description: Favorite pet corgi.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/corgi.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: ian
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: ian
+      Critical:
+        Base: ian_dead
+      Dead:
+        Base: ian_dead
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatCorgi
+      amount: 2
+    - id: MaterialHideCorgi
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalIan
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
+
+- type: entity
+  name: Old Ian
+  parent: MobCorgiIan
+  id: MobCorgiIanOld
+  description: Still the favorite pet corgi. Love his wheels.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: old_ian
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: old_ian
+      Critical:
+        Base: old_ian_dead
+      Dead:
+        Base: old_ian_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatCorgi
+      amount: 2
+    - id: SheetSteel1
+    - id: MaterialHideCorgi
+
+- type: entity
+  name: Lisa
+  parent: MobCorgiIan
+  id: MobCorgiLisa
+  description: Ian's favorite corgi.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: lisa
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lisa
+      Critical:
+        Base: lisa_dead
+      Dead:
+        Base: lisa_dead
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+
+- type: entity
+  name: real mouse
+  parent: MobCorgiIan
+  id: MobCorgiMouse
+  description: It's 100% a real hungry mouse.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: real_mouse
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: real_mouse
+      Critical:
+        Base: real_mouse_dead
+      Dead:
+        Base: real_mouse_dead
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+
+- type: entity
+  name: Puppy Ian
+  parent: MobCorgiPuppy
+  id: MobCorgiIanPup
+  description: Favourite puppy corgi. Awww.
+  components:
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Butcherable # A puppy? You monster...
+    spawned:
+    - id: FoodMeatCorgi
+      amount: 2
+    - id: MaterialHideCorgi
+  - type: StealTarget
+    stealGroup: AnimalIan
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
+
+- type: entity
+  name: Aves
+  parent: MobCat
+  id: MobCatRuntime
+  description: The cat who walks by himself.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalNamedCat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
+    - TauCetiBasic
+
+- type: entity
+  name: Exception
+  id: MobCatException
+  parent: MobCatCalico
+  description: Ask nicely, and maybe they'll give you one of their spare lives.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalNamedCat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
+    - TauCetiBasic
+
+- type: entity
+  name: Floppa
+  id: MobCatFloppa
+  parent: MobCatCaracal
+  description: He out here.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 40
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalNamedCat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
+    - TauCetiBasic
+
+- type: entity
+  name: Bandito
+  parent: MobFerret
+  id: MobBandito
+  description: Just a silly little guy!
+  components:
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
+
+- type: entity
+  name: Bingus
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobBingus
+  description: Bingus my beloved...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/bingus.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bingus
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 12
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: cat
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bingus
+      Critical:
+        Base: bingus_dead
+      Dead:
+        Base: bingus_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: InteractionPopup
+    successChance: 0.9
+    interactSuccessString: petting-success-bingus
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/cat_meow.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: epicene
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalNamedCat
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Cat
+    understands:
+    - Cat
+    - TauCetiBasic
+
+- type: entity
+  name: McGriff
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobMcGriff
+  description: This dog can tell something smells around here, and that something is CRIME!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/mcgriff.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mcgriff
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: puppy
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mcgriff
+      Critical:
+        Base: mcgriff_dead
+      Dead:
+        Base: mcgriff_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Speech
+    speechVerb: Canine
+    speechSounds: Dog
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalMcGriff
+
+- type: entity
+  name: Paperwork
+  parent: MobSloth
+  id: MobPaperwork
+  description: Took up a new job sorting books in the library after he got transferred from Space Station 13. He seems to be just as slow at this.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/paperwork.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: paperwork
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: paperwork
+      Critical:
+        Base: paperwork_dead
+      Dead:
+        Base: paperwork_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-sloth
+    interactFailureString: petting-failure-sloth
+    interactSuccessSpawn: EffectHearts
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
+
+- type: entity
+  name: Walter
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobWalter
+  description: He likes chems and treats. Walter.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/walter.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: walter
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: dog
+    templateId: pet
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: walter
+      Critical:
+        Base: walter_dead
+      Dead:
+        Base: walter_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/small_dog_bark_happy.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalWalter
+  - type: Speech
+    speechVerb: Canine
+    speechSounds: Dog
+
+- type: entity
+  name: Morty
+  parent: MobPossum
+  id: MobPossumMorty
+  description: The station's resident Didelphis virginiana. A sensitive but resilient kind of guy.
+  components:
+  - type: InteractionPopup
+    successChance: 1.0 # Hey, c'mon, this is Morty we're talking about here.
+    interactSuccessString: petting-success-possum
+    interactFailureString: petting-failure-possum
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/snake_hiss.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalMorty
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
+
+- type: entity
+  name: Morty
+  parent: MobPossumMorty
+  id: MobPossumMortyOld
+  suffix: Old sprite
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Animals/possum_old.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: possum_old
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: possum_old
+      Dead:
+        Base: possum_dead_old
+
+- type: entity
+  name: Poppy # the Safety Possum
+  parent: MobPossumMorty
+  id: MobPossumPoppy
+  description: It's an opossum, a small scavenging marsupial. It's wearing appropriate personal protective equipment.
+  components:
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Animals/possum.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: poppy
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: poppy
+      Dead:
+        Base: poppy_dead
+
+- type: entity
+  name: Morticia
+  parent: MobRaccoon
+  id: MobRaccoonMorticia
+  description: A powerful creature of the night. Her eyeshadow is always on point.
+  components:
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-raccoon
+    interactFailureString: petting-failure-raccoon
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/raccoon_chatter.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
+
+- type: entity
+  name: Alexander
+  parent: MobPig
+  id: MobAlexander
+  description: Chef's finest colleague.
+  components:
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-pig
+    interactFailureString: petting-failure-pig
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/pig_oink.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Pig
+    understands:
+    - Pig
+    - TauCetiBasic
+
+- type: entity
+  name: Renault
+  parent: MobFox
+  id: MobFoxRenault
+  description: The captain's trustworthy fox.
+  components:
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      collection: Fox
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+    - id: Telecrystal25 # Goobstation - Telecrystal rework
+      amount: 1
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalRenault
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Fox
+    understands:
+    - Fox
+    - TauCetiBasic
+
+- type: entity
+  name: Hamlet
+  parent: MobHamster
+  id: MobHamsterHamlet
+  description: A grumpy, cute and fluffy hamster.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: Mobs/Pets/hamlet.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: hamster-0
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: hamster-moving-0
+    noMovementLayers:
+      movement:
+        state: hamster-0
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-hamlet-name
+    description: ghost-role-information-hamlet-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-hamster
+    interactFailureString: petting-failure-hamster
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - Hamster
+    - VimPilot
+    - ChefPilot
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - sadness
+  # Goobstation - hamlet is unique so higher chance to actually get faxed
+  - type: FaxSlip
+    slipChance: 0.5
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Mouse
+    understands:
+    - Mouse
+    - TauCetiBasic
+
+- type: entity
+  name: Shiva
+  parent: MobGiantSpider
+  id: MobSpiderShiva
+  description: The first defender of the station.
+  components:
+  - type: InteractionPopup
+    successChance: 0.5 # spider is mean
+    interactSuccessString: petting-success-tarantula
+    interactFailureString: petting-failure-hamster
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/snake_hiss.ogg
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: shiva
+      sprite: Mobs/Pets/shiva.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: shiva-moving
+    noMovementLayers:
+      movement:
+        state: shiva
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Physics
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: shiva
+      Dead:
+        Base: shiva_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 8
+        Poison: 8
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+    - DoorBumpOpener
+    - FootstepSound
+  - type: StealTarget
+    stealGroup: AnimalShiva
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Xeno
+    understands:
+    - Xeno
+    - TauCetiBasic
+
+- type: entity
+  name: Willow
+  parent: MobKangaroo
+  id: MobKangarooWillow
+  description: Willow the boxing kangaroo.
+  components:
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-kangaroo
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/kangaroo_grunt.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - FootstepSound
+  - type: GhostRole
+    prob: 0.25
+    name: ghost-role-information-willow-name
+    description: ghost-role-information-willow-description
+    rules: ghost-role-information-nonantagonist-rules
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [ BoxingKangarooGear ]
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Kangaroo
+    understands:
+    - Kangaroo
+    - TauCetiBasic
+
+- type: entity
+  name: Smile
+  id: MobSlimesPet
+  parent: [MobAdultSlimes, StripableInventoryBase]
+  description: This masterpiece has gone through thousands of experiments. But it is the sweetest creature in the world. Smile Slime!
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: rainbow_baby_slime
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: aslime-_3
+      shader: unshaded
+    - map: [ "head" ]
+  - type: Inventory
+    speciesId: slime
+    templateId: head
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/Smile/smile_displacement.rsi
+            state: head
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSlime
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+    - CannotSuicide
+    - VimPilot
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: rainbow_baby_slime
+        BaseUnshaded: aslime-_3
+      Dead:
+        Base: rainbow_baby_slime_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+      amount: 1
+    - id: MaterialSmileExtract
+      amount: 1
+  - type: Damageable
+    damageModifierSet: SlimePet
+  - type: Bloodstream
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.8
+  - type: Temperature
+    heatDamageThreshold: 800
+    coldDamageThreshold: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1
+        Caustic: 1
+  - type: MultiHandedItem
+  - type: Item
+    sprite: Mobs/Pets/Smile/smile.rsi
+    size: Huge
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-slime
+  - type: MobPrice
+    price: 3000 # it is a truly valuable creature
+  - type: GhostRole
+    name: ghost-role-information-smile-name
+    description: ghost-role-information-smile-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle: null
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: female
+  - type: LanguageSpeaker # Einstein Engines - Language (might not have it on base mob, so reassuring here)
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Bubblish # I am not giving them universal like EE. They are a slime, they can do slime speak.
+    understands:
+    - Bubblish
+    - TauCetiBasic
+
+- type: entity
+  name: Pun Pun
+  parent: MobMonkey
+  id: MobMonkeyPunpun
+  description: A prominent representative of monkeys with unlimited access to alcohol.
+  components:
+  - type: GhostRole
+    prob: 1
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-punpun-name
+    description: ghost-role-information-punpun-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:RoleTimeRequirement
+      role: JobBartender
+      time: 54000 #15 hour
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+  - type: GhostTakeoverAvailable
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+    - id: DrinkTequilaBottleFull
+      amount: 1
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - VimPilot
+    - AnomalyHost
+  - type: Loadout
+    prototypes: [ MobMonkeyGear ]
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Monkey
+    understands:
+    - Monkey
+    - Kobold
+    - TauCetiBasic
+
+- type: entity
+  name: Tropico
+  parent: MobCrab
+  id: MobCrabAtmos
+  description: The noble and stalwart defender of Atmosia. Viva!
+  components:
+#  - type: GhostRole
+#    prob: 1
+#    makeSentient: true
+#    allowSpeech: true
+#    allowMovement: true
+#    name: ghost-role-information-tropico-name
+#    description: ghost-role-information-tropico-description
+#    rules: ghost-role-information-nonantagonist-rules
+#  - type: GhostTakeoverAvailable
+  - type: Tag
+    tags:
+    - VimPilot
+    - CannotSuicide
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+#  - type: AlwaysRevolutionaryConvertible
+  - type: StealTarget
+    stealGroup: AnimalTropico
+  - type: LanguageKnowledge # Einstein Engines - Language
+    speaks:
+    - Crab
+    understands:
+    - Crab
+    - TauCetiBasic

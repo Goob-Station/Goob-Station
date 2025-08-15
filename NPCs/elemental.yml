@@ -1,0 +1,735 @@
+# SPDX-FileCopyrightText: 2023 Alex <129697969+Lomcastar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
+# SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArkiveDev <95712736+ArkiveDev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Doomsdrayk <robotdoughnut@comcast.net>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tonydatguy <154929293+Tonydatguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 liltenhead <104418166+liltenhead@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  id: MobElementalBase
+  components:
+  - type: LagCompensation
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
+  - type: Clickable
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 3
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: MovedByPressure
+  - type: Physics
+    bodyType: KinematicController # Same for all inheritors
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - Electrocution
+  - type: Pullable
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: Stamina
+    critThreshold: 120
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:TriggerBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Input
+    context: "human"
+  - type: InputMover
+  - type: MobMover
+  - type: ZombieImmune
+  - type: ProtectedFromStepTriggers
+  - type: Fauna # Lavaland Change
+
+- type: entity
+  abstract: true
+  id: MobOreCrab
+  name: ore crab
+  parent: [ MobElementalBase, MobCombat ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Elemental/orecrab.rsi
+    state: uranium_crab
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    damage:
+      types:
+        Blunt: 6
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 2.5
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: Damageable
+    damageContainer: StructuralInorganic
+
+- type: entity
+  parent: MobOreCrab
+  id: MobQuartzCrab
+  description: An ore crab made from Quartz.
+  suffix: Quartz
+  components:
+  - type: Sprite
+    state: quartz_crab
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SpaceQuartz1:
+            min: 2
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MobOreCrab
+  id: MobIronCrab
+  description: An ore crab made from iron.
+  suffix: Iron
+  components:
+  - type: Sprite
+    state: iron_crab
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.5
+    baseSprintSpeed : 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SteelOre1:
+            min: 2
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MobOreCrab
+  id: MobCoalCrab
+  description: An ore crab made from coal.
+  suffix: Coal
+  components:
+  - type: Sprite
+    state: coal_crab
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2.5
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.0
+    baseSprintSpeed : 1.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Coal1:
+            min: 2
+            max: 4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MobOreCrab
+  id: MobUraniumCrab
+  description: An ore crab made from uranium.
+  suffix: Uranium
+  components:
+  - type: FactionException
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: NpcFactionMember
+    factions:
+      - SimpleNeutral
+  - type: RadiationSource
+    intensity: 2
+    slope: 0.3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          UraniumOre1:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    radius: 2
+    energy: 3
+    color: "#06DF24"
+
+- type: entity
+  parent: MobOreCrab
+  id: MobBananiumCrab
+  description: An ore crab made from bananium.
+  suffix: Bananium
+  components:
+  - type: Sprite
+    state: bananium_crab
+  - type: FactionException
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: NpcFactionMember
+    factions:
+      - SimpleNeutral
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          BananiumOre1:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Slippery
+    slipData:
+      launchForwardsMultiplier: 2
+  - type: StepTrigger
+    intersectRatio: 0.2
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        hard: false
+        layer:
+          - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 3
+
+- type: entity
+  parent: MobOreCrab
+  id: MobSilverCrab
+  description: An ore crab made from silver.
+  suffix: Silver
+  components:
+  - type: Sprite
+    state: silver_crab
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SilverOre1:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MobOreCrab
+  id: MobGoldCrab
+  description: An ore crab made from gold.
+  suffix: Gold
+  components:
+  - type: Sprite
+    state: gold_crab
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 70
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          GoldOre1:
+            min: 1
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: reagent slime
+  id: ReagentSlime
+  suffix: Water
+  parent: [ MobAdultSlimes, MobCombat ]
+  description: It consists of a liquid, and it wants to dissolve you in itself.
+  components:
+  - type: GhostRole
+    prob: 0
+    description: ghost-role-information-angry-slimes-description
+    rules: ghost-role-information-angry-slimes-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: short
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#75b1f0"
+  - type: PointLight
+    radius: 2.0
+    energy: 3.5
+    color: "#75b1f0" # Edited through the LiquidAnomalySystem
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      50: 0.4
+  - type: Bloodstream
+    bloodReagent: Water
+    chemicalMaxVolume: 100
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+    - Electrocution
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 8
+  - type: MeleeChemicalInjector
+    solution: bloodstream
+    transferAmount: 5
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Tag
+    tags:
+      - FootstepSound
+      - CannotSuicide
+      - DoorBumpOpener
+  - type: NoSlip
+  - type: ZombieImmune
+  - type: ExaminableSolution
+    solution: bloodstream
+  - type: InjectableSolution
+    solution: bloodstream
+  - type: DrainableSolution
+    solution: bloodstream
+  - type: Fauna # Lavaland Change
+
+- type: entity
+  name: Reagent Slime Spawner
+  id: ReagentSlimeSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Mobs/Aliens/elemental.rsi
+          state: alive
+    - type: RandomSpawner
+      prototypes:
+        - ReagentSlime
+        - ReagentSlimeBeer
+        - ReagentSlimePax
+        - ReagentSlimeNocturine
+        - ReagentSlimeTHC
+        - ReagentSlimeBicaridine
+        - ReagentSlimeToxin
+        - ReagentSlimeNapalm
+        - ReagentSlimeOmnizine
+        - ReagentSlimeMuteToxin
+        - ReagentSlimeNorepinephricAcid
+        - ReagentSlimeEphedrine
+        - ReagentSlimeRobustHarvest
+      chance: 1
+
+- type: entity
+  id: ReagentSlimeBeer
+  parent: ReagentSlime
+  suffix: Beer
+  components:
+  - type: Bloodstream
+    bloodReagent: Beer
+  - type: PointLight
+    color: "#cfa85f"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#cfa85f"
+
+- type: entity
+  id: ReagentSlimePax
+  parent: ReagentSlime
+  suffix: Pax
+  components:
+  - type: Bloodstream
+    bloodReagent: Pax
+  - type: PointLight
+    color: "#AAAAAA"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#AAAAAA"
+  - type: MeleeChemicalInjector
+    solution: bloodstream
+    transferAmount: 1
+
+- type: entity
+  id: ReagentSlimeNocturine
+  parent: ReagentSlime
+  suffix: Nocturine
+  components:
+  - type: Bloodstream
+    bloodReagent: Nocturine
+  - type: PointLight
+    color: "#128e80"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#128e80"
+  - type: MeleeChemicalInjector
+    solution: bloodstream
+    transferAmount: 3
+
+- type: entity
+  id: ReagentSlimeTHC
+  parent: ReagentSlime
+  suffix: THC
+  components:
+  - type: Bloodstream
+    bloodReagent: THC
+  - type: PointLight
+    color: "#808080"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#808080"
+
+- type: entity
+  id: ReagentSlimeBicaridine
+  parent: ReagentSlime
+  suffix: Bicaridine
+  components:
+  - type: Bloodstream
+    bloodReagent: Bicaridine
+  - type: PointLight
+    color: "#ffaa00"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#ffaa00"
+
+- type: entity
+  id: ReagentSlimeToxin
+  parent: ReagentSlime
+  suffix: Toxin
+  components:
+  - type: Bloodstream
+    bloodReagent: Toxin
+  - type: PointLight
+    color: "#cf3600"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#cf3600"
+
+- type: entity
+  id: ReagentSlimeNapalm
+  parent: ReagentSlime
+  suffix: Napalm
+  components:
+  - type: Bloodstream
+    bloodReagent: Napalm
+  - type: PointLight
+    color: "#FA00AF"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#FA00AF"
+
+- type: entity
+  id: ReagentSlimeOmnizine
+  parent: ReagentSlime
+  suffix: Omnizine
+  components:
+  - type: Bloodstream
+    bloodReagent: Omnizine
+  - type: PointLight
+    color: "#fcf7f9"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#fcf7f9"
+
+- type: entity
+  id: ReagentSlimeMuteToxin
+  parent: ReagentSlime
+  suffix: Mute Toxin
+  components:
+  - type: Bloodstream
+    bloodReagent: MuteToxin
+  - type: PointLight
+    color: "#0f0f0f"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#0f0f0f"
+
+- type: entity
+  id: ReagentSlimeNorepinephricAcid
+  parent: ReagentSlime
+  suffix: Norepinephric Acid
+  components:
+  - type: Bloodstream
+    bloodReagent: NorepinephricAcid
+  - type: PointLight
+    color: "#96a8b5"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#96a8b5"
+
+- type: entity
+  id: ReagentSlimeEphedrine
+  parent: ReagentSlime
+  suffix: Ephedrine
+  components:
+  - type: Bloodstream
+    bloodReagent: Ephedrine
+  - type: PointLight
+    color: "#D2FFFA"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#D2FFFA"
+
+- type: entity
+  id: ReagentSlimeRobustHarvest
+  parent: ReagentSlime
+  suffix: Robust Harvest
+  components:
+  - type: Bloodstream
+    bloodReagent: RobustHarvest
+  - type: PointLight
+    color: "#3e901c"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#3e901c"

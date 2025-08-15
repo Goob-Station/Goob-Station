@@ -1,0 +1,37 @@
+- type: entity
+  id: MobKaiChisaki
+  parent: MobHuman  # Use default human mob
+  name: Kai Chisaki
+  description: A dangerous Yakuza leader with the Overhaul quirk. His touch can destroy or rebuild.
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi  # Default human sprite
+    layers:
+    - map: ["enum.HumanoidVisualLayers.Chest"]
+      state: body_m
+    - map: ["enum.HumanoidVisualLayers.Hair"]
+      state: short1  # Generic short hair for simplicity
+  - type: HumanoidAppearance
+    species: Human
+    skinColor: "#D2A679"  # Pale skin tone for Overhaul's vibe
+    hair:
+      style: Short1  # Matches sprite state
+    facialHair: None
+  - type: Damageable
+    damageContainer: Biological
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 4.0
+  - type: Input
+    context: human
+  - type: Hands
+  - type: Overhaul  # Attach the quirk component
+  - type: NpcFactionMember
+    factions:
+    - Syndicate  # For antagonistic behavior; can change to custom Yakuza later
+  - type: InteractionOutline
