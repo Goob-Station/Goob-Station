@@ -83,3 +83,8 @@
   - HandheldCrewMonitor
   - DefibrillatorCompact
   - ClothingHandsGlovesSurgical
+
+- type: latheRecipePack
+  id: EnvirosuitExtinguisherRefill
+  recipes:
+  - EnvirosuitExtinguisherRefill

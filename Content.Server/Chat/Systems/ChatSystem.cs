@@ -661,7 +661,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
 
         // The Original Message [-] Einstein Engines - Language
-        var message = TransformSpeech(source, originalMessage, language);
+        var message = FormattedMessage.RemoveMarkupOrThrow(originalMessage);  // Remove markup before transforming.
+        message = TransformSpeech(source, message, language);
 
         if (message.Length == 0)
             return;

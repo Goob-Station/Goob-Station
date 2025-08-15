@@ -6,6 +6,8 @@
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 loltart <lo1tartyt@gmail.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ## Static
@@ -82,7 +84,7 @@
   - MedkitBrute
   - MedkitAdvanced
   - MedkitRadiation
-  - MedkitCombat
+#  - MedkitCombat #goob - Move combat kit to research
 
 - type: latheRecipePack
   id: MedicalBoardsStatic
@@ -105,6 +107,7 @@
   - BluespaceBeaker
   - SyringeBluespace
   - HeatLampTierThree # Goobstation
+  - MedkitCombat #goob - Move combat kit to research
 
 - type: latheRecipePack
   id: MedicalBoards

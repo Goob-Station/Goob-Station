@@ -156,6 +156,23 @@
         Slash: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/knife_pickup.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/knife_drop.ogg
+      params:
+        volume: -8
+  # Goobstation edit end
   - type: Sprite
   - type: Item
     size: Small
@@ -458,3 +475,5 @@
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
   - type: ThrowingAngle
     angle: 225
+  - type: StaticPrice
+    price: 500 # 2000 for a set of 4

@@ -132,6 +132,11 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - CaptainEnvirohelm
+  - CaptainEnvirosuit
+  - CaptainEnvirogloves
+  - CaptainGloves
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -148,7 +153,11 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
-
+  # Goobstation - EE Plasmeme Change.
+  - HoPEnvirohelm
+  - HoPEnvirosuit
+  - HoPEnvirogloves
+  - HoPGloves
 # Silicons
 - type: roleLoadout
   id: JobBorg
@@ -178,6 +187,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - AssistantEnvirohelm
+  - AssistantEnvirosuit
+  - AssistantEnvirogloves
 
 - type: roleLoadout
   id: JobBartender
@@ -193,6 +206,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - BartenderEnvirohelm
+  - BartenderEnvirosuit
+  - BartenderEnvirogloves
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -206,6 +223,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ServiceWorkerEnvirohelm
+  - ServiceWorkerEnvirosuit
+  - ServiceWorkerEnvirogloves
 
 - type: roleLoadout
   id: JobChef
@@ -222,6 +243,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ChefEnvirohelm
+  - ChefEnvirosuit
+  - ChefEnvirogloves
 
 - type: roleLoadout
   id: JobLibrarian
@@ -235,6 +260,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - LibrarianEnvirohelm
+  - LibrarianEnvirosuit
+  - LibrarianEnvirogloves
 
 - type: roleLoadout
   id: JobLawyer
@@ -249,6 +278,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - LawyerEnvirohelm
+  - LawyerEnvirosuit
+  - LawyerEnvirogloves
 
 - type: roleLoadout
   id: JobChaplain
@@ -266,6 +299,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ChaplainEnvirohelm
+  - ChaplainEnvirosuit
+  - ChaplainEnvirogloves
 
 - type: roleLoadout
   id: JobJanitor
@@ -283,6 +320,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - JanitorEnvirohelm
+  - JanitorEnvirosuit
+  - JanitorEnvirogloves
 
 - type: roleLoadout
   id: JobBotanist
@@ -298,6 +339,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - BotanistEnvirohelm
+  - BotanistEnvirosuit
+  - BotanistEnvirogloves
 
 - type: roleLoadout
   id: JobClown
@@ -314,6 +359,10 @@
   - Trinkets
   - Animals
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ClownEnvirohelm
+  - ClownEnvirosuit
+  - ClownEnvirogloves
 
 - type: roleLoadout
   id: JobMime
@@ -331,6 +380,11 @@
   - Trinkets
   - Animals
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - MimeEnvirohelm
+  - MimeEnvirosuit
+  - MimeEnvirogloves
+  - MimeGloves
 
 - type: roleLoadout
   id: JobMusician
@@ -346,6 +400,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - MusicianEnvirohelm
+  - MusicianEnvirosuit
+  - MusicianEnvirogloves
 
 # Cargo
 - type: roleLoadout
@@ -364,6 +422,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - QuartermasterEnvirohelm
+  - QuartermasterEnvirosuit
+  - QuartermasterEnvirogloves
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -380,6 +442,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - CargoTechnicianEnvirohelm
+  - CargoTechnicianEnvirosuit
+  - CargoTechnicianEnvirogloves
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -395,6 +461,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - SalvageEnvirohelm
+  - SalvageEnvirosuit
+  - SalvageEnvirogloves
 
 # Engineering
 - type: roleLoadout
@@ -412,6 +482,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ChiefEngineerEnvirohelm
+  - ChiefEngineerEnvirosuit
+  - ChiefEngineerEnvirogloves
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -424,6 +498,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - TechnicalAssistantEnvirohelm
+  - TechnicalAssistantEnvirosuit
+  - TechnicalAssistantEnvirogloves
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -440,6 +518,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - StationEngineerEnvirohelm
+  - StationEngineerEnvirosuit
+  - StationEngineerEnvirogloves
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -455,6 +537,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - AtmosEnvirohelm
+  - AtmosEnvirosuit
+  - AtmosEnvirogloves
 
 # Science
 - type: roleLoadout
@@ -474,6 +560,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ResearchDirectorEnvirosuit
+  - ResearchDirectorEnvirohelm
+  - ResearchDirectorEnvirogloves
 
 - type: roleLoadout
   id: JobScientist
@@ -493,6 +583,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ScientistEnvirohelm
+  - ScientistEnvirosuit
+  - ScientistEnvirogloves
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -506,6 +600,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ResearchAssistantEnvirohelm
+  - ResearchAssistantEnvirosuit
+  - ResearchAssistantEnvirogloves
 
 # Security
 - type: roleLoadout
@@ -525,6 +623,11 @@
   - Animals
   - GroupSpeciesBreathToolSecurity
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - HeadofSecurityEnvirohelm
+  - HeadofSecurityEnvirosuit
+  - HeadofSecurityEnvirogloves
+  - HeadofSecurityGloves
 
 - type: roleLoadout
   id: JobWarden
@@ -543,6 +646,10 @@
   - Animals
   - GroupSpeciesBreathToolSecurity
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - WardenEnvirohelm
+  - WardenEnvirosuit
+  - WardenEnvirogloves
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -562,6 +669,10 @@
   - Animals
   - GroupSpeciesBreathToolSecurity
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - SecurityOfficerEnvirohelm
+  - SecurityOfficerEnvirosuit
+  - SecurityOfficerEnvirogloves
 
 - type: roleLoadout
   id: JobDetective
@@ -578,6 +689,11 @@
   - Animals
   - GroupSpeciesBreathToolSecurity
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - DetectiveEnvirohelm
+  - DetectiveEnvirosuit
+  - DetectiveEnvirogloves
+  - DetectiveGloves
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -592,6 +708,10 @@
   - Animals
   - GroupSpeciesBreathToolSecurity
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - SecurityCadetEnvirohelm
+  - SecurityCadetEnvirosuit
+  - SecurityCadetEnvirogloves
 
 # Medical
 - type: roleLoadout
@@ -612,6 +732,10 @@
   - Animals
   - GroupSpeciesBreathToolMedical
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ChiefMedicalOfficerEnvirohelm
+  - ChiefMedicalOfficerEnvirosuit
+  - ChiefMedicalOfficerEnvirogloves
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -631,6 +755,10 @@
   - Animals
   - GroupSpeciesBreathToolMedical
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - MedicalDoctorEnvirohelm
+  - MedicalDoctorEnvirosuit
+  - MedicalDoctorEnvirogloves
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -644,6 +772,10 @@
   - Animals
   - GroupSpeciesBreathToolMedical
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - MedicalInternEnvirohelm
+  - MedicalInternEnvirosuit
+  - MedicalInternEnvirogloves
 
 - type: roleLoadout
   id: JobChemist
@@ -661,6 +793,10 @@
   - Animals
   - GroupSpeciesBreathToolMedical
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ChemistEnvirohelm
+  - ChemistEnvirosuit
+  - ChemistEnvirogloves
 
 - type: roleLoadout
   id: JobParamedic
@@ -679,11 +815,17 @@
   - Animals
   - GroupSpeciesBreathToolMedical
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ParamedicEnvirohelm
+  - ParamedicEnvirosuit
+  - ParamedicEnvirogloves
 
 # Wildcards
 - type: roleLoadout
   id: JobZookeeper
   groups:
+  - ZookeeperHead
+  - ZookeeperJumpsuit
   - GroupTankHarness
   - CommonBackpack
   - Glasses
@@ -692,6 +834,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - ZookeeperEnvirohelm
+  - ZookeeperEnvirosuit
+  - ZookeeperEnvirogloves
 
 - type: roleLoadout
   id: JobReporter
@@ -706,7 +852,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
-
+  # Goobstation - EE Plasmeme Change.
+  - ReporterEnvirohelm
+  - ReporterEnvirosuit
+  - ReporterEnvirogloves
 
 - type: roleLoadout
   id: JobPsychologist
@@ -720,6 +869,10 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - PsychologistEnvirohelm
+  - PsychologistEnvirosuit
+  - PsychologistEnvirogloves
 
 - type: roleLoadout
   id: JobBoxer
@@ -734,6 +887,9 @@
   - Animals
   - GroupSpeciesBreathTool
   - GroupSpeciesHeatingTool # Goobstation
+  # Goobstation - EE Plasmeme Change.
+  - BoxerEnvirohelm
+  - BoxerEnvirosuit
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit

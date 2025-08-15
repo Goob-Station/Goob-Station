@@ -105,6 +105,11 @@
   - GroupSpeciesBreathTool
   - Survival
   - GroupSpeciesHeatingTool
+  - NanotrasenRepresentativeGloves
+  # Goobstation - EE Plasmeme Change.
+  - NanotrasenRepresentativeEnvirohelm
+  - NanotrasenRepresentativeEnvirosuit
+  - NanotrasenRepresentativeEnvirogloves
 
 - type: roleLoadout
   id: JobBlueshieldOfficer
@@ -121,6 +126,11 @@
   - GroupSpeciesBreathTool
   - SurvivalSecurity
   - GroupSpeciesHeatingTool
+  # Goobstation - EE Plasmeme Change.
+  - BlueshieldOfficerEnvirohelm
+  - BlueshieldOfficerEnvirosuit
+  - BlueshieldOfficerEnvirogloves
+  - BlueshieldOfficerGloves
 
 - type: roleLoadout
   id: JobNanotrasenCareerTrainer
@@ -138,6 +148,10 @@
   - GroupSpeciesBreathTool
   - Survival
   - GroupSpeciesHeatingTool
+  # Goobstation - EE Plasmeme Change.
+  - CentComOfficerEnvirohelm
+  - CentComOfficerEnvirosuit
+  - CentComOfficerEnvirogloves
 
 - type: roleLoadout
   id: RoleSurvivalNukieHonkops
@@ -165,3 +179,15 @@
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
   - GroupSpeciesHeatingTool
+  # Goobstation - EE Plasmeme Change.
+  - BrigmedicEnvirohelm
+  - BrigmedicEnvirosuit
+  - BrigmedicEnvirogloves
+
+
+# gives plasmaman a plasma breathing tank
+# other species get nothing
+- type: roleLoadout
+  id: RoleSurvivalPlasmaTank
+  groups:
+  - GroupEVATankPlasma

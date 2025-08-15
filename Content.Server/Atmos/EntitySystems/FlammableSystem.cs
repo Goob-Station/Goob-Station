@@ -96,15 +96,18 @@
 // SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -414,7 +417,7 @@ namespace Content.Server.Atmos.EntitySystems
             // This is intended so that matches & candles can re-use code for un-shaded layers on in-hand sprites.
             // However, this could cause conflicts if something is ACTUALLY both a toggleable light and flammable.
             // if that ever happens, then fire visuals will need to implement their own in-hand sprite management.
-            _appearance.SetData(uid, ToggleableLightVisuals.Enabled, flammable.OnFire, appearance);
+            _appearance.SetData(uid, ToggleableVisuals.Enabled, flammable.OnFire, appearance);
         }
 
         public void AdjustFireStacks(EntityUid uid, float relativeFireStacks, FlammableComponent? flammable = null, bool ignite = false)
@@ -453,6 +456,7 @@ namespace Content.Server.Atmos.EntitySystems
             _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):entity} stopped being on fire damage");
             flammable.OnFire = false;
             flammable.FireStacks = 0;
+            flammable.IgnoreFireProtection = false; // EE Plasmamen Change
 
             _ignitionSourceSystem.SetIgnited(uid, false);
 
@@ -460,10 +464,12 @@ namespace Content.Server.Atmos.EntitySystems
             RaiseLocalEvent(uid, ref extinguished);
 
             UpdateAppearance(uid, flammable);
+            _alertsSystem.ClearAlert(uid, flammable.FireAlert); // Goob Edit - Fix Fire Alert
         }
-                                          // Goobstation - now nullable
+
+        // Goobstation - now nullable
         public void Ignite(EntityUid uid, EntityUid? ignitionSource = null, FlammableComponent? flammable = null,
-            EntityUid? ignitionSourceUser = null)
+            EntityUid? ignitionSourceUser = null, bool ignoreFireProtection = false) // EE Plasmamen Change
         {
             if (!Resolve(uid, ref flammable, false)) // Lavaland Change: SHUT THE FUCK UP FLAMMABLE
                 return;
@@ -486,6 +492,9 @@ namespace Content.Server.Atmos.EntitySystems
                 var extinguished = new IgnitedEvent();
                 RaiseLocalEvent(uid, ref extinguished);
             }
+
+            if (ignoreFireProtection) // EE Plasmamen Change
+                flammable.IgnoreFireProtection = ignoreFireProtection;
 
             UpdateAppearance(uid, flammable);
         }
@@ -534,7 +543,7 @@ namespace Content.Server.Atmos.EntitySystems
             uid.SpawnTimer(2000, () =>
             {
                 flammable.Resisting = false;
-                flammable.FireStacks -= 1f;
+                flammable.FireStacks -= flammable.FirestackFade * 10f; // EE Plasmamen Change
                 UpdateAppearance(uid, flammable);
             });
         }
@@ -608,15 +617,21 @@ namespace Content.Server.Atmos.EntitySystems
                     if (TryComp(uid, out TemperatureComponent? temp))
                         _temperatureSystem.ChangeHeat(uid, _addHeatFirestack * flammable.FireStacks, false, temp); // goob edit: 12500 -> 1500
 
-                    var ev = new GetFireProtectionEvent(uid); // Goobstation
-                    // let the thing on fire handle it
-                    RaiseLocalEvent(uid, ref ev);
-                    // and whatever it's wearing
-                    if (_inventoryQuery.TryComp(uid, out var inv))
-                        _inventory.RelayEvent((uid, inv), ref ev);
+                    var multiplier = 1f; // EE Plasmamen Change
+                    if (!flammable.IgnoreFireProtection) // EE Plasmamen Change
+                    {
+                        var ev = new GetFireProtectionEvent(uid); // Goobstation
+                        // let the thing on fire handle it
+                        RaiseLocalEvent(uid, ref ev);
+                        // and whatever it's wearing
+                        if (_inventoryQuery.TryComp(uid, out var inv))
+                            _inventory.RelayEvent((uid, inv), ref ev);
 
-                    if (ev.Multiplier > 0f && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
-                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false, partMultiplier: 2f); // Lavaland: Nerf fire delimbing
+                        multiplier = ev.Multiplier;
+                    }
+
+                    if (multiplier > 0f && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
+                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * multiplier, interruptsDoAfters: false, partMultiplier: 2f); // Lavaland: Nerf fire delimbing
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
                 }

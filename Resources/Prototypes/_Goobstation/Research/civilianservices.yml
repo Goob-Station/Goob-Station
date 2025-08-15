@@ -32,6 +32,7 @@
   - VehicleHoverchairSci
   - PrescriptionGlasses
   - HeatLampTierTwo
+  - EnvirosuitExtinguisherRefill
   position: 3,4
   technologyPrerequisites:
   - AdvancedEntertainment
