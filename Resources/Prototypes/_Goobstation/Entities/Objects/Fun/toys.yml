@@ -578,7 +578,7 @@
   parent: BasePlushie
   id: PlushieBoggle
   name: Boggle plushie
-  description: Did you know I beat Nigel in a 1v1? I barely think about it every day.
+  description: You can feel money inside.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -611,7 +611,7 @@
   parent: BasePlushie
   id: PlushieLehmin
   name: Lehmin plushie
-  description: Insert corny description here.
+  description: Smells like chemicals, you feel uneasy holding it.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi

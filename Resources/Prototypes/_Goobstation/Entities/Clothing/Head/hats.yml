@@ -365,7 +365,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadLehmin
-  name: lehmin's hat
+  name: top CMO headgear
   suffix: ADMIN
   description: Chemistry. Adminning. Something else.
   components:
