@@ -1,0 +1,9 @@
+- type: entity
+  parent: ExtinguisherCabinetFilled
+  id: ExtinguisherCabinetDirectionalFilled
+  suffix: Directional, Filled
+  components:
+  - type: WallMount
+    arc: 175
+  - type: Sprite
+    snapCardinals: false
