@@ -50,9 +50,9 @@
 - type: entity
   parent: BaseFoodCondiment
   id: BaseFoodCondimentPacket
-  name: condiment packet
+  name: "пакет приправ"
   abstract: true
-  description: A small plastic pack with condiments to put on your food.
+  description: "Невелика пластикова упаковка з приправами, щоб посипати їжу."
   components:
   - type: Item
     size: Tiny
@@ -99,8 +99,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketAstrotame
-  name: Astrotame
-  description: The sweetness of a thousand sugars but none of the calories.
+  name: "Астротам"
+  description: "Солодкість тисячі цукрів, але жодної калорії."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -127,8 +127,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketBbq
-  name: BBQ sauce
-  description: Hand wipes not included.
+  name: "Соус барбекю"
+  description: "Серветки для рук не входять до комплекту."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -147,8 +147,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketCornoil
-  name: corn oil
-  description: Corn oil. A delicious oil used in cooking. Made from corn.
+  name: "кукурудзяна олія"
+  description: "Кукурудзяна олія. Смачна олія, яку використовують у кулінарії. Виготовляється з кукурудзи."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -167,8 +167,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketColdsauce
-  name: coldsauce
-  description: Coldsauce. Leaves the tongue numb in its passage.
+  name: "холодний соус"
+  description: "Холодний соус. Залишає язик онімілим."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -187,8 +187,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketHorseradish
-  name: horseradish sauce
-  description: A packet of smelly horseradish sauce.
+  name: "соус з хрону"
+  description: "Пачка смердючого соусу з хроном."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -207,8 +207,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketHotsauce
-  name: hotsauce
-  description: You can almost TASTE the stomach ulcers now!
+  name: "гострий соус"
+  description: "Тепер ви можете майже СМАКУВАТИ виразку шлунка!"
   components:
   - type: SolutionContainerManager
     solutions:
@@ -227,8 +227,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketKetchup
-  name: ketchup
-  description: You feel more American already.
+  name: "кетчуп"
+  description: "Ти вже відчуваєш себе більш американцем."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -247,8 +247,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketMustard
-  name: mustard
-  description: A condiment made from the ground-up seeds of the Mustard plant.
+  name: "гірчиця"
+  description: "Приправа, виготовлена з розтертого насіння гірчиці."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -266,8 +266,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketPepper
-  name: black pepper
-  description: Often used to flavor food or make people sneeze.
+  name: "чорний перець"
+  description: "Часто використовується для ароматизації їжі або для того, щоб змусити людей чхати."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -285,8 +285,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketSalt
-  name: salt
-  description: Salt. From space oceans, presumably.
+  name: "сіль"
+  description: "Сіль. З космічних океанів, імовірно."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -313,8 +313,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketSoy
-  name: soy sauce
-  description: A salty soy-based flavoring.
+  name: "соєвий соус"
+  description: "Солоний ароматизатор на основі сої."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -332,8 +332,8 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketSugar
-  name: sugar
-  description: Tasty spacey sugar!
+  name: "цукор"
+  description: "Смачний космічний цукор!"
   components:
   - type: SolutionContainerManager
     solutions:
@@ -354,8 +354,8 @@
   parent: BaseFoodCondiment
   id: BaseFoodCondimentBottle
   abstract: true
-  name: condiment bottle
-  description: A thin glass bottle used to store condiments.
+  name: "пляшка для приправ"
+  description: "Тонка скляна пляшка для зберігання приправ."
   components:
   - type: Drink
     solution: food
@@ -394,8 +394,8 @@
 - type: entity
   parent: BaseFoodCondimentBottle
   id: FoodCondimentBottleColdsauce
-  name: coldsauce bottle
-  description: Leaves the tongue numb in its passage.
+  name: "пляшка для холодного соусу"
+  description: "Залишає язик онімілим при проходженні."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -420,8 +420,8 @@
 - type: entity
   parent: BaseFoodCondimentBottle
   id: FoodCondimentBottleEnzyme
-  name: universal enzyme
-  description: Used in cooking various dishes.
+  name: "універсальний фермент"
+  description: "Використовується в приготуванні різних страв."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -446,8 +446,8 @@
 - type: entity
   parent: BaseFoodCondimentBottle
   id: FoodCondimentBottleVinegar
-  name: vinegar bottle
-  description: Used in cooking to enhance flavor.
+  name: "пляшка оцту"
+  description: "Використовується в кулінарії для підсилення смаку."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -469,8 +469,8 @@
 - type: entity
   parent: BaseFoodCondimentBottle
   id: FoodCondimentBottleHotsauce
-  name: hotsauce bottle
-  description: You can almost TASTE the stomach ulcers now!
+  name: "пляшка з гострим соусом"
+  description: "Тепер ви можете майже СМАКУВАТИ виразку шлунка!"
   components:
   - type: SolutionContainerManager
     solutions:
@@ -495,8 +495,8 @@
 - type: entity
   parent: BaseFoodCondimentBottle
   id: FoodCondimentBottleKetchup
-  name: ketchup bottle
-  description: You feel more American already.
+  name: "пляшка з-під кетчупу"
+  description: "Ти вже відчуваєш себе більш американцем."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -521,8 +521,8 @@
 - type: entity
   parent: BaseFoodCondimentBottle
   id: FoodCondimentBottleBBQ
-  name: BBQ sauce bottle
-  description: Hand wipes not included.
+  name: "Пляшка з соусом для барбекю"
+  description: "Серветки для рук не входять до комплекту."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -551,8 +551,8 @@
   parent: BaseFoodCondiment
   id: BaseFoodShaker
   abstract: true
-  name: empty shaker
-  description: A shaker used to store and dispense spices.
+  name: "порожній шейкер"
+  description: "Шейкер для зберігання та дозування спецій."
   components:
   - type: Item
     size: Tiny
@@ -592,8 +592,8 @@
 - type: entity
   parent: BaseFoodShaker
   id: FoodShakerSalt
-  name: salt shaker
-  description: Salt. From space oceans, presumably.
+  name: "сільничка"
+  description: "Сіль. З космічних океанів, імовірно."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -612,8 +612,8 @@
 - type: entity
   parent: BaseFoodShaker
   id: FoodShakerPepper
-  name: pepper shaker
-  description: Often used to flavor food or make people sneeze.
+  name: "шейкер для перцю"
+  description: "Часто використовується для ароматизації їжі або для того, щоб змусити людей чхати."
   components:
   - type: SolutionContainerManager
     solutions:

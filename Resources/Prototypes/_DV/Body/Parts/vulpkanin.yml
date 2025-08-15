@@ -28,7 +28,7 @@
 - type: entity
   parent: [ PartVulpkaninBase, BaseChest ]
   id: ChestVulpkanin
-  name: "vulpkanin chest"
+  name: "грудна клітка вульпканіна"
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
@@ -40,7 +40,7 @@
 - type: entity
   parent: [ PartVulpkaninBase, BaseGroin ]
   id: GroinVulpkanin
-  name: "vulpkanin groin"
+  name: "пах вульпканіна"
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
@@ -52,44 +52,44 @@
 - type: entity
   parent: [ PartVulpkaninBase, BaseHead ]
   id: HeadVulpkanin
-  name: "vulpkanin head"
+  name: "голова вульпи"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseLeftArm ]
   id: LeftArmVulpkanin
-  name: "left vulpkanin arm"
+  name: "ліва рука вульпи"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseRightArm ]
   id: RightArmVulpkanin
-  name: "right vulpkanin arm"
+  name: "права рука вульпи"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseLeftHand ]
   id: LeftHandVulpkanin
-  name: "left vulpkanin hand"
+  name: "ліва долоня вульпи"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseRightHand ]
   id: RightHandVulpkanin
-  name: "right vulpkanin hand"
+  name: "права долоня вульпи"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseLeftLeg ]
   id: LeftLegVulpkanin
-  name: "left vulpkanin leg"
+  name: "ліва нога вульпи"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseRightLeg ]
   id: RightLegVulpkanin
-  name: "right vulpkanin leg"
+  name: "права нога вульпи"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseLeftFoot ]
   id: LeftFootVulpkanin
-  name: "left vulpkanin foot"
+  name: "ліва стопа вульпи"
 
 - type: entity
   parent: [ PartVulpkaninBase, BaseRightFoot ]
   id: RightFootVulpkanin
-  name: "right vulpkanin foot"
+  name: "права стопа вульпи"

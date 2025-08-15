@@ -12,7 +12,7 @@
 - type: entity
   parent: MonkeyCube
   id: HumanCube
-  name: human cube
+  name: "людський куб"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -21,7 +21,7 @@
 - type: entity
   parent: MonkeyCube
   id: DionaCube
-  name: diona cube
+  name: "куб діони"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -30,7 +30,7 @@
 - type: entity
   parent: MonkeyCube
   id: FelinidCube
-  name: felinid cube
+  name: "куб фелініда"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -39,7 +39,7 @@
 - type: entity
   parent: MonkeyCube
   id: GingerbreadCube
-  name: gingerbread cube
+  name: "імбирний куб"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -48,7 +48,7 @@
 - type: entity
   parent: MonkeyCube
   id: MothCube
-  name: moth person cube
+  name: "куб моффа"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -57,7 +57,7 @@
 - type: entity
   parent: MonkeyCube
   id: DwarfCube
-  name: dwarf cube
+  name: "куб дварфа"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -66,7 +66,7 @@
 - type: entity
   parent: MonkeyCube
   id: HarpyCube
-  name: harpy cube
+  name: "куб гарпії"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -75,7 +75,7 @@
 - type: entity
   parent: MonkeyCube
   id: RodentiaCube
-  name: rodentia cube
+  name: "куб гризуна"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -84,7 +84,7 @@
 - type: entity
   parent: MonkeyCube
   id: ReptilianCube
-  name: reptilian person cube
+  name: "куб рептилоїда"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -93,7 +93,7 @@
 - type: entity
   parent: MonkeyCube
   id: VulpkaninCube
-  name: vulpkanin cube
+  name: "куб вулпканіна"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -102,7 +102,7 @@
 - type: entity
   parent: MonkeyCube
   id: SlimePersonCube
-  name: slime person cube
+  name: "куб слайма"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -111,7 +111,7 @@
 - type: entity
   parent: MonkeyCube
   id: TajaranCube
-  name: tajaran cube
+  name: "куб таярана"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -120,7 +120,7 @@
 - type: entity
   parent: MonkeyCube
   id: YowieCube
-  name: yowie cube
+  name: "куб йові"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -129,7 +129,7 @@
 - type: entity
   parent: MonkeyCube
   id: VoxCube
-  name: vox cube
+  name: "куб вокса"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -138,7 +138,7 @@
 - type: entity
   parent: MonkeyCube
   id: ShadowkinCube
-  name: Shadowkin cube
+  name: "куб тінелюда"
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -147,7 +147,7 @@
 - type: entity
   parent: MonkeyCube
   id: ChitinidCube
-  name: Chitinid cube
+  name: "Хітинідовий куб"
   components:
   - type: Rehydratable
     possibleSpawns:

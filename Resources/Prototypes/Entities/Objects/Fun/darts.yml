@@ -86,8 +86,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: dart
-  description: Light throwing dart for playing darts. Don't get in the eye!
+  name: "дротик"
+  description: "Легкий метальний дротик для гри в дартс. Не потрапте в око!"
   parent: BaseItem
   id: Dart
   components:
@@ -223,10 +223,10 @@
     maxTransferAmount: 7
 
 - type: entity
-  name: dartboard
+  name: "дартс"
   id: TargetDarts
   parent: BaseStructureDynamic
-  description: A target for playing darts.
+  description: "Мішень для гри в дартс."
   components:
   - type: Sprite
     sprite: Objects/Fun/Darts/target.rsi
@@ -286,9 +286,9 @@
 - type: entity
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: HypoDartBox
-  name: hypodart box
+  name: "коробка з гіподротиком"
   suffix: HypoDart
-  description: A small box containing a hypodart. Packaging disintegrates when opened, leaving no evidence behind.
+  description: "Невелика коробка, що містить гіподротик. Упаковка розпадається при відкритті, не залишаючи доказів."
   components:
   - type: Sprite
     sprite: Objects/Fun/Darts/dartbox.rsi

@@ -14,10 +14,10 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
 
 - type: entity
-  name: taco shell
+  name: "тортилья для тако"
   parent: FoodMealBase
   id: FoodTacoShell
-  description: A taco shell, easy to hold, but falls on its side when put down.
+  description: "Тортилья для тако, яку легко тримати, але вона падає на бік, коли її кладуть."
   components:
   - type: Item
     storedRotation: -90

@@ -9,8 +9,8 @@
 - type: entity
   id: SignalTimerElectronics
   parent: BaseElectronics
-  name: signal timer electronics
-  description: An electronics board used in timer circuitry. Looks like you could use a screwdriver to change the board type.
+  name: "електроніка таймера сигналу"
+  description: "Електронна плата, що використовується в схемах таймерів. Схоже, що для зміни типу плати можна використати викрутку."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
@@ -28,7 +28,7 @@
 - type: entity
   id: ScreenTimerElectronics
   parent: SignalTimerElectronics
-  name: screen timer electronics
+  name: "електроніка екранного таймера"
   components:
   - type: Construction
     deconstructionTarget: null
@@ -41,7 +41,7 @@
 - type: entity
   id: BrigTimerElectronics
   parent: SignalTimerElectronics
-  name: brig timer electronics
+  name: "електроніка таймера бригу"
   components:
   - type: Construction
     deconstructionTarget: null

@@ -93,8 +93,8 @@
 - type: entity
   parent: BaseItem
   id: TimerTrigger
-  name: timer trigger
-  description: A configurable timer.
+  name: "таймер-тригер"
+  description: "Таймер, який можна налаштувати."
   components:
   - type: Sprite
     sprite: Objects/Devices/timer.rsi
@@ -121,8 +121,8 @@
 - type: entity
   parent: TimerTrigger
   id: SignalTrigger
-  name: signal trigger
-  description: Adds a machine link that is triggered by signals.
+  name: "тригер сигналу"
+  description: "Додає машинний зв'язок, який спрацьовує за сигналами."
   components:
   - type: Sprite
     sprite: Objects/Devices/signaltrigger.rsi
@@ -152,8 +152,8 @@
 - type: entity
   parent: BaseItem
   id: VoiceTrigger
-  name: voice trigger
-  description: Adds a machine link that is triggered by vocal keywords.
+  name: "голосовий тригер"
+  description: "Додає машинне посилання, яке спрацьовує за ключовими словами."
   components:
   - type: Sprite
     sprite: Objects/Devices/voice.rsi

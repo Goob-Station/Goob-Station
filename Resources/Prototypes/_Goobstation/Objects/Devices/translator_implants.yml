@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: BasicSpaceItalianTranslatorImplant
-  name: basic space italian translator implant
-  description: Provides you the ability to understand the residents of the kitchen.
+  name: "базовий імплант космічного італійського перекладача"
+  description: "Надає вам можливість розуміти мешканців кухні."
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -17,8 +17,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: SpaceItalianTranslatorImplant
-  name: advanced space italian translator implant
-  description: Provides you the ability to speak the language of the kitchen.
+  name: "просунутий імплант космічного італійського перекладача"
+  description: "Надає вам можливість говорити мовою кухні."
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant

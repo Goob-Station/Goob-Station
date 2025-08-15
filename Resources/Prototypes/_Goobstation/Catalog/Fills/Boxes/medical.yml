@@ -7,10 +7,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: pax syringe box
+  name: "шприц-бокс pax"
   parent: BoxCardboard
   id: BoxSyringePax
-  description: A box full of tranquilizer syringes.
+  description: "Коробка, повна шприців із транквілізаторами."
   components:
   - type: StorageFill
     contents:
@@ -22,10 +22,10 @@
       - state: syringe
 
 - type: entity
-  name: poison syringe box
+  name: "коробка шприців з отрутою"
   parent: BoxCardboard
   id: BoxSyringePoison
-  description: A box full of quick-acting poison syringes.
+  description: "Коробка, повна шприців з отрутою швидкої дії."
   components:
   - type: StorageFill
     contents:

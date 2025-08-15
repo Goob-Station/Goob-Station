@@ -14,8 +14,8 @@
 
 - type: entity
   id: HereticRuneRitual
-  name: transmutation rune
-  description: An ancient drawing used by sinister individuals for sacrifices.
+  name: "руна трансформації"
+  description: "Давній малюнок, що використовувався зловісними особами для жертвоприношень."
   placement:
     mode: SnapgridCenter
   components:
@@ -62,8 +62,8 @@
 
 - type: entity
   id: HereticRuneRitualDrawAnimation
-  name: unfinished transmutation rune
-  description: An unfinished ancient drawing used by sinister individuals for sacrifices.
+  name: "руна незавершеної трансформації"
+  description: "Незавершений стародавній малюнок, що використовувався зловісними особами для жертвоприношень."
   categories: [ HideSpawnMenu ]
   placement:
     mode: SnapgridCenter
@@ -86,8 +86,8 @@
 
 - type: entity
   id: HereticRuneRitualAnimation
-  name: transmutation rune
-  description: you shouldn't be seeing this description
+  name: "руна трансформації"
+  description: "ви не повинні бачити цей опис"
   placement:
     mode: SnapgridCenter
   categories: [ HideSpawnMenu ]

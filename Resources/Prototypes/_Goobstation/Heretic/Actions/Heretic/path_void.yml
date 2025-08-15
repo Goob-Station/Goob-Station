@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVoidBlast
-  name: Void Blast
-  description: Fire off a cone of ice in front of you.
+  name: "Вибух порожнечі"
+  description: "Випустіть конус льоду перед собою."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -30,8 +30,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVoidPhase
-  name: Void Phase
-  description: Shift through the void, knocking down everyone around you.
+  name: "Порожня фаза"
+  description: "Пронесіться крізь порожнечу, збиваючи з ніг усіх навколо."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -53,8 +53,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticVoidPull
-  name: Void Pull
-  description: Pull and damage nearby heathens.
+  name: "Порожній потяг"
+  description: "Потягніть і пошкодьте сусідніх язичників."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

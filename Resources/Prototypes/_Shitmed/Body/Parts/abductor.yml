@@ -31,7 +31,7 @@
 - type: entity
   parent: [ PartAbductorBase, BaseChest ]
   id: ChestAbductor
-  name: "abductor chest"
+  name: "груди викрадача"
   components:
   - type: Sprite
     state: chest
@@ -48,7 +48,7 @@
 - type: entity
   parent: [ PartAbductorBase, BaseGroin ]
   id: GroinAbductor
-  name: "abductor groin"
+  name: "пах викрадача"
   components:
   - type: Sprite
     state: groin
@@ -65,7 +65,7 @@
 - type: entity
   parent: [ PartAbductorBase, BaseHead ]
   id: HeadAbductor
-  name: "abductor head"
+  name: "голова викрадача"
   components:
   - type: Sprite
     state: head
@@ -75,39 +75,39 @@
 - type: entity
   parent: [ PartAbductorBase, BaseLeftArm ]
   id: LeftArmAbductor
-  name: "left abductor arm"
+  name: "ліва рука викрадача"
 
 - type: entity
   parent: [ PartAbductorBase, BaseRightArm ]
   id: RightArmAbductor
-  name: "right abductor arm"
+  name: "права абдукторна рука"
 
 - type: entity
   parent: [ PartAbductorBase, BaseLeftHand ]
   id: LeftHandAbductor
-  name: "left abductor hand"
+  name: "ліва рука викрадача"
 
 - type: entity
   parent: [ PartAbductorBase, BaseRightHand ]
   id: RightHandAbductor
-  name: "right abductor hand"
+  name: "права рука викрадача"
 
 - type: entity
   parent: [ PartAbductorBase, BaseLeftLeg ]
   id: LeftLegAbductor
-  name: "left abductor leg"
+  name: "ліва нога викрадача"
 
 - type: entity
   parent: [ PartAbductorBase, BaseRightLeg ]
   id: RightLegAbductor
-  name: "right abductor leg"
+  name: "права абдукторна нога"
 
 - type: entity
   parent: [ PartAbductorBase, BaseLeftFoot ]
   id: LeftFootAbductor
-  name: "left abductor foot"
+  name: "ліва абдукторна стопа"
 
 - type: entity
   parent: [ PartAbductorBase, BaseRightFoot ]
   id: RightFootAbductor
-  name: "right abductor foot"
+  name: "права абдукторна стопа"

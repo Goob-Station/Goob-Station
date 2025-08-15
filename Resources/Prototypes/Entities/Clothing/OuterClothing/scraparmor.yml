@@ -2,10 +2,10 @@
 # Listed from first step of crafting to the final armor
 
 - type: entity
-  name: wired apron
+  name: "фартух з проводами"
   parent: BaseItem
   id: WiredApronBase
-  description: An apron threaded with cabling. It looks incomplete.
+  description: "Фартух, прошитий кабелем. Виглядає незавершеним."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/scrap_armor.rsi
@@ -18,10 +18,10 @@
     node: wiredapron
 
 - type: entity
-  name: steel-covered apron
+  name: "фартух, покритий сталлю"
   parent: BaseItem
   id: SteelApronBase
-  description: An apron with steel plating haphazardly affixed by spare cabling. In it's current state, it would fall apart immediately if worn.
+  description: "Фартух зі сталевими пластинами, безладно прикріпленими запасним кабелем. У своєму нинішньому стані він розвалиться, якщо його одягнути."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/scrap_armor.rsi
@@ -34,10 +34,10 @@
     node: steelapron
 
 - type: entity
-  name: welded steel apron
+  name: "фартух з привареної сталі"
   parent: BaseItem
   id: WeldedSteelApronBase
-  description: An apron affixed with welded steel plating attached to spare cabling. The armor is no longer in danger of falling apart, but requires additional work to be worn securely.
+  description: "Фартух з привареними сталевими пластинами, прикріпленими до запасного кабелю. Броня більше не ризикує розвалитися, але потребує додаткової роботи, щоб її можна було надійно носити."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/scrap_armor.rsi
@@ -53,8 +53,8 @@
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseMajorContraband]
   id: ClothingOuterArmorScrap
-  name: scrap armor
-  description: A tider's gleaming plate mail. Bail up, or you're a dead man.
+  name: "броня з брухту"
+  description: "Блискуча латна броня тайдера. Здавайся, або ти небіжчик."
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/scrap_armor.rsi

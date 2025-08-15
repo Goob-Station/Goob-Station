@@ -6,8 +6,8 @@
 - type: entity
   id: HolopadMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: holopad machine board
-  description: A machine printed circuit board for a holopad.
+  name: "плата верстата holopad"
+  description: "Машинна друкована плата для голопаду."
   components:
     - type: MachineBoard
       prototype: Holopad

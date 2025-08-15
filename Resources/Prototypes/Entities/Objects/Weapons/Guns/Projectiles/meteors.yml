@@ -20,8 +20,8 @@
 
 - type: entity
   id: BaseMeteor
-  name: meteor
-  description: You prefer them when they're burning up in the atmosphere.
+  name: "метеор"
+  description: "Ви віддаєте перевагу їм, коли вони згорають в атмосфері."
   abstract: true
   components:
   - type: Sprite
@@ -70,8 +70,8 @@
 - type: entity
   parent: BaseMeteor
   id: MeteorSpaceDust
-  name: space dust
-  description: Makes a station sneeze.
+  name: "космічний пил"
+  description: "Змушує станцію чхати."
   components:
   - type: Sprite
     state: space_dust
@@ -215,8 +215,8 @@
 - type: entity
   parent: BaseMeteor
   id: MeteorUrist
-  name: Urist McMeteor
-  description: As a successful member of society with a stable unflinching psyche and limitless drive, natural affinity for finance and domination, you have been selected, no, you have been effortlessly guided by divine (biological) trauma towards this moment. The gates of destiny fling open, and once again you're left standing on pulsating nothingness. A strobing headache of the soul.
+  name: "Уріст МакМетеор"
+  description: "Як успішний член суспільства зі стабільною непохитною психікою та безмежним прагненням, природною схильністю до фінансів та домінування, ви були обрані, ні, ви були без зусиль керовані божественною (біологічною) травмою до цього моменту. Ворота долі розчиняються, і ви знову стоїте на пульсуючій нікчемності. Пульсуючий головний біль душі."
   suffix: Meteor
   components:
   - type: Sprite
@@ -256,8 +256,8 @@
 - type: entity
   parent: BaseMeteor
   id: MeteorCow
-  name: Cosmic cow
-  description: Moo-ving at relativistic speeds!
+  name: "Космічна корова"
+  description: "Му-у-у-читься на релятивістських швидкостях!"
   suffix: Meteor
   components:
   - type: Sprite
@@ -298,8 +298,8 @@
 - type: entity
   parent: BaseMeteor
   id: MeteorClown
-  name: Honksteroid
-  description: The final honkening!
+  name: "Хонкстероїд"
+  description: "Фінальний хонк!"
   suffix: Meteor
   components:
   - type: Sprite
@@ -343,8 +343,8 @@
 - type: entity
   parent: BaseMeteor
   id: MeteorPotato
-  name: Space potato
-  description: A starchy threat from the depths of the space. Contains 200% of your daily sodium intake!
+  name: "Космічна картопля"
+  description: "Крохмальна загроза з глибин космосу. Містить 200% вашої добової норми натрію!"
   components:
   - type: Sprite
     state: potato

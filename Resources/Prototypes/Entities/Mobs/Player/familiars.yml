@@ -70,10 +70,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: Remilia
+  name: "Ремілія"
   parent: BaseMobPsionicFamiliar # Pirate psionics
   id: MobBatRemilia
-  description: The chaplain's familiar. Likes fruit.
+  description: "Фамільяр капелана. Любить фрукти."
   components:
   - type: GhostRole
     makeSentient: true
@@ -124,10 +124,10 @@
 #Pirate psionics ^^^
 
 - type: entity
-  name: Cerberus
+  name: "Цербер"
   parent: MobCorgiNarsi
   id: MobCorgiCerberus
-  description: This pupper is not wholesome.
+  description: "Це цуценя не є милим."
   components:
   - type: GhostRole
     makeSentient: true

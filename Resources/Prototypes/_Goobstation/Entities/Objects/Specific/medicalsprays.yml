@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity # Not very specific anymore but whatever
-  name: styptic powder spray bottle
+  name: "розпилювач з кровоспинним порошком"
   id: SprayBottleStypticPowder
   suffix: Filled, Styptic powder
   parent: SprayBottle
@@ -24,7 +24,7 @@
           Quantity: 100
 
 - type: entity
-  name: silver sulfadiazine spray bottle
+  name: "розпилювач з сульфадіазином срібла"
   id: SprayBottleSilverSulfadiazine
   suffix: Filled, Silver sulfadiazine
   parent: SprayBottle

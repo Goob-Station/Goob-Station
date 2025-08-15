@@ -64,11 +64,11 @@
     suffocationThreshold: -5
 
 - type: entity
-  name: monkey
+  name: "мавпа"
   id: MobMonkeyAngry
   parent: MobBaseAncestor
   suffix: Angry
-  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  description: "Нова церква неодарвіністів насправді вірить, що КОЖНА тварина походить від мавпи. На смак вони схожі на свинину, а вбивати їх і весело, і приємно."
   components:
   - type: NameIdentifier
     group: Monkey
@@ -84,10 +84,10 @@
       task: SimpleHumanoidHostileCompound
 
 - type: entity
-  name: kobold
+  name: "кобольд"
   id: MobKoboldAngry
   parent: MobBaseKobold
-  description: Cousins to the sentient race of lizard people, kobolds blend in with their natural habitat and are as nasty as monkeys; ready to pull out your hair and stab you to death.
+  description: "Двоюрідні брати розумної раси ящерів, кобольди зливаються зі своїм природним середовищем існування і такі ж мерзенні, як мавпи; готові вирвати вам волосся і зарізати до смерті."
   components:
   - type: NpcFactionMember
     factions:

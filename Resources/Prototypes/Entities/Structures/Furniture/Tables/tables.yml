@@ -42,8 +42,8 @@
   id: TableFrame
   # BaseStructure and not BaseTable, since these shouldn't be climbable/placeable.
   parent: BaseStructure
-  name: table frame
-  description: Pieces of metal that make the frame of a table.
+  name: "каркас столу"
+  description: "Шматки металу, з яких складається каркас столу."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/frame.rsi
@@ -98,8 +98,8 @@
 - type: entity
   id: CounterWoodFrame
   parent: BaseStructure
-  name: wooden counter frame
-  description: Pieces of wood that make the frame of a table.
+  name: "дерев'яна рама прилавка"
+  description: "Шматки дерева, з яких складається каркас столу."
   components:
   - type: SpriteFade
   - type: Sprite
@@ -156,8 +156,8 @@
 - type: entity
   id: CounterMetalFrame
   parent: CounterWoodFrame
-  name: metal counter frame
-  description: Pieces of metal that make the frame of a table.
+  name: "металевий каркас прилавка"
+  description: "Шматки металу, з яких складається каркас столу."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/frame.rsi
@@ -201,8 +201,8 @@
 - type: entity
   id: Table
   parent: TableBase
-  name: table
-  description: A square piece of metal standing on four metal legs.
+  name: "сталевий стіл"
+  description: "Квадратний шматок металу, що стоїть на чотирьох металевих ніжках."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/generic.rsi
@@ -248,8 +248,8 @@
 - type: entity
   id: TableReinforced
   parent: TableBase
-  name: reinforced table
-  description: A square piece of metal standing on four metal legs. Extra robust.
+  name: "посилений сталевий стіл"
+  description: "Квадратний шматок металу, що стоїть на чотирьох металевих ніжках. Дуже міцний."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/reinforced.rsi
@@ -297,8 +297,8 @@
 - type: entity
   id: TableGlass
   parent: TableBase
-  name: glass table
-  description: A square piece of glass, standing on four metal legs.
+  name: "скляний стіл"
+  description: "Квадратний шматок скла, що стоїть на чотирьох металевих ніжках."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/glass.rsi
@@ -353,8 +353,8 @@
 - type: entity
   id: TableReinforcedGlass
   parent: TableBase
-  name: reinforced glass table
-  description: A square piece of glass, standing on four metal legs. Extra robust.
+  name: "стіл з армованого скла"
+  description: "Квадратний шматок скла, що стоїть на чотирьох металевих ніжках. Дуже міцний."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/r_glass.rsi
@@ -412,8 +412,8 @@
 - type: entity
   id: TablePlasmaGlass
   parent: TableBase
-  name: plasma glass table
-  description: A square piece of plasma glass, standing on four metal legs. Pretty!
+  name: "стіл із плазмового скла"
+  description: "Квадратний шматок плазмового скла, що стоїть на чотирьох металевих ніжках. Гарно!"
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/plasma.rsi
@@ -471,8 +471,8 @@
 - type: entity
   id: TableBrass
   parent: TableBase
-  name: brass table
-  description: A shiny, corrosion resistant brass table. Steampunk!
+  name: "латунний стіл"
+  description: "Блискучий, стійкий до корозії латунний стіл. Стимпанк!"
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/brass.rsi
@@ -516,8 +516,8 @@
 - type: entity
   id: TableWood
   parent: TableBase
-  name: wood table
-  description: Do not apply fire to this. Rumour says it burns easily.
+  name: "дерев'яний стіл"
+  description: "Не підносьте до нього вогонь. Подейкують, що він легко горить."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/wood.rsi
@@ -568,8 +568,8 @@
 - type: entity
   id: TableCarpet
   parent: TableBase
-  name: gambling table
-  description: Play em' cowboy.
+  name: "покерний стіл"
+  description: "Квадратний шматок дерева, що стоїть на чотирьох ніжках, вкритий тканиною. (Чого ви очікували?)"
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/carpet.rsi
@@ -623,8 +623,8 @@
 - type: entity
   id: TableStone
   parent: TableBase
-  name: stone table
-  description: Literally the sturdiest thing you have ever seen.
+  name: "кам'яний стіл"
+  description: "Буквально найміцніша річ, яку ви коли-небудь бачили."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/stone.rsi
@@ -652,8 +652,8 @@
 - type: entity
   id: TableWeb
   parent: TableBase
-  name: web table
-  description: Really smooth and surprisingly durable.
+  name: "павутинний стіл"
+  description: "Необхідний для будь-якої серйозної веб-розробки."
   components:
   - type: Damageable
     damageModifierSet: Web
@@ -691,8 +691,8 @@
   id: TableFancyBase
   abstract: true
   parent: TableBase
-  name: fancy table
-  description: Expensive and rich.
+  name: "вишуканий стіл"
+  description: "Дорогий і багатий."
   components:
   - type: Damageable
     damageModifierSet: Wood
@@ -867,8 +867,8 @@
 - type: entity
   id: TableDebug
   parent: TableBase
-  name: table
-  description: PUT ON THEM CODERSOCKS!!
+  name: "сталевий стіл"
+  description: "ВДЯГНІТЬ НА НИХ ГАМІВНІ СОРОЧКИ!!!"
   suffix: DEBUG
   components:
   - type: Tag
@@ -893,8 +893,8 @@
 - type: entity
   id: TableCounterWood
   parent: CounterBase
-  name: wood counter
-  description: Do not apply fire to this. Rumour says it burns easily.
+  name: "дерев'яний прилавок"
+  description: "Не підносьте до нього вогонь. Подейкують, що він легко горить."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/counterwood.rsi
@@ -939,8 +939,8 @@
 - type: entity
   id: TableCounterMetal
   parent: CounterBase
-  name: metal counter
-  description: Looks like a good place to put a drink down.
+  name: "металевий прилавок"
+  description: "Виглядає як гарне місце, щоб поставити випивку."
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/countermetal.rsi

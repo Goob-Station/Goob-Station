@@ -5,10 +5,10 @@
 
 
 - type: entity
-  name: living curse
+  name: "живе прокляття"
   id: MobLivingCurse
   parent: [ SimpleSpaceMobBase, MobCombat ]
-  description: Exceedingly slow, but is immune to all forms of damage, except holy.
+  description: "Надзвичайно повільне, але невразливе до всіх видів шкоди, окрім святої."
   components:
   - type: Bloodstream
     bloodMaxVolume: 5

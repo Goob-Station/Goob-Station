@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: EnvirosuitExtinguisherRefill
-  name: envirosuit extinguisher refill
-  description: A cartridge loaded with a compressed extinguisher mix, used to refill the self-extinguisher on plasma envirosuits.
+  name: "заправка вогнегасника для екокостюму"
+  description: "Картридж зі спресованою вогнегасною сумішшю, що використовується для перезарядки самогасителя на плазмових аерокостюмах."
   components:
   - type: Sprite
     sprite: _EinsteinEngines/Objects/Misc/extinguisher_refill.rsi

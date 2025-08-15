@@ -11,7 +11,7 @@
 - type: entity
   id: ProjectileMagicMissile
   parent: BaseBullet
-  name: magic missile
+  name: "чарівна ракета"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -59,7 +59,7 @@
 - type: entity
   id: ProjectileToolboxHoming
   parent: BaseBullet
-  name: homing toolbox
+  name: "інструментарій самонаведення"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -103,8 +103,8 @@
 - type: entity
   id: ProjectileSpellCardRedNoHoming
   parent: BaseBullet
-  name: enchanted card
-  description: A piece of paper enchanted to give it extreme durability and stiffness, along with a very hot burn to anyone unfortunate enough to get hit by a charged one.
+  name: "зачарована карта"
+  description: "Шматок паперу, зачарований, щоб надати йому надзвичайної міцності та жорсткості, а також дуже сильного опіку для тих, кому не пощастило потрапити під заряджений папірець."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -197,7 +197,7 @@
     color: "#AA00FFDD"
 
 - type: entity
-  name: red card spread
+  name: "розкладка червоних карток"
   id: ProjectileSpellCardRedSpread
   categories: [ HideSpawnMenu ]
   parent: ProjectileSpellCardRedNoHoming
@@ -208,7 +208,7 @@
     spread: 10
 
 - type: entity
-  name: purple card spread
+  name: "фіолетовий розворот карти"
   id: ProjectileSpellCardPurpleSpread
   categories: [ HideSpawnMenu ]
   parent: ProjectileSpellCardPurpleNoHoming
@@ -221,7 +221,7 @@
 - type: entity
   id: ProjectileArcaneBarrage
   parent: BaseBullet
-  name: arcane bolt
+  name: "таємничий болт"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -263,7 +263,7 @@
 
 - type: entity
   id: BulletMagic
-  name: magic bullet
+  name: "чарівна куля"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -286,8 +286,8 @@
 
 - type: entity
   id: ProjectileWabbajack
-  name: bolt of change
-  description: Wabbajack, Wabbajack!
+  name: "болт змін"
+  description: "Ваббаджек, Ваббаджек!"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -334,8 +334,8 @@
 
 - type: entity
   id: ProjectileDeathBolt
-  name: bolt of death
-  description: You are already dead, you just don't know it yet.
+  name: "смертельний болт"
+  description: "Ви вже мертві, просто ще не знаєте про це."
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -374,8 +374,8 @@
 
 - type: entity
   id: ProjectileTeleBolt
-  name: bolt of teleportation
-  description: Don't blink or you'll miss yourself teleporting away.
+  name: "болт телепортації"
+  description: "Не кліпайте, а то проґавите, як телепортуєтесь геть."
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -405,8 +405,8 @@
 
 - type: entity
   id: ProjectileFieryBolt
-  name: fiery bolt
-  description: Stop drop and roll.
+  name: "вогняний болт"
+  description: "Припини падати і котитися."
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -432,8 +432,8 @@
 
 - type: entity
   id: ProjectileIceCubeBolt
-  name: ice bolt
-  description: It will let you slide.
+  name: "крижаний болт"
+  description: "Це дозволить вам ковзати."
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -459,8 +459,8 @@
 
 - type: entity
   id: ProjectileSwapBolt
-  name: swapping bolt
-  description: Let us dance.
+  name: "змінний болт"
+  description: "Потанцюймо."
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -502,8 +502,8 @@
 
 - type: entity
   id: ProjectileBeeBolt
-  name: bee bolt
-  description: NOT THE BEES!
+  name: "бджолиний болт"
+  description: "НЕ БДЖОЛИ!"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -531,8 +531,8 @@
 
 - type: entity
   id: ProjectileXRayBolt
-  name: x-ray bolt
-  description: Walls are not an obstacle.
+  name: "рентгенівський болт"
+  description: "Стіни не є перешкодою."
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -554,8 +554,8 @@
 
 - type: entity
   id: ProjectileEmpBolt
-  name: electromagnetic bolt
-  description: Energy low!!!
+  name: "електромагнітний засув"
+  description: "Енергія на нулі!!!"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -580,8 +580,8 @@
 
 - type: entity
   id: ProjectileSmokeBolt
-  name: smoke bolt
-  description: Don't inhale it.
+  name: "димовий затвор"
+  description: "Не вдихайте його."
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -617,8 +617,8 @@
 
 - type: entity
   id: ProjectileBlindingBolt
-  name: blinding bolt
-  description: Just follow the smells.
+  name: "сліпий болт"
+  description: "Просто йди за запахами."
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -647,8 +647,8 @@
 
 - type: entity
   id: ProjectileVampiricBolt
-  name: bolt of vampirism
-  description: Looks like it's going to be a long night.
+  name: "болт вампіризму"
+  description: "Схоже, це буде довга ніч."
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -689,7 +689,7 @@
 - type: entity
   id: ProjectileMagicMissileLesser
   parent: BaseBullet
-  name: lesser magic missile
+  name: "менша магічна ракета"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -729,8 +729,8 @@
 - type: entity
   id: ProjectileBananaPeel
   parent: BaseItem
-  name: magical banana peel
-  description: Step on me.
+  name: "чарівна бананова шкірка"
+  description: "Наступи на мене."
   components:
   - type: InteractionOutline
   - type: MovedByPressure

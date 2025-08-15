@@ -12,7 +12,7 @@
 - type: entity
   id: PartTajaran
   parent: [BaseItem, BasePart]
-  name: "Tajaran body part"
+  name: "частина тіла таджара"
   abstract: true
   components:
   - type: Extractable
@@ -29,7 +29,7 @@
 
 - type: entity
   id: ChestTajaran
-  name: "Tajaran chest"
+  name: "груди таджари"
   parent: [PartTajaran, BaseChest]
   components:
   - type: Sprite
@@ -48,7 +48,7 @@
 
 - type: entity
   id: GroinTajaran
-  name: "Tajaran groin"
+  name: "пах таджари"
   parent: [PartTajaran, BaseGroin]
   components:
   - type: Sprite
@@ -67,7 +67,7 @@
 
 - type: entity
   id: HeadTajaran
-  name: "Tajaran head"
+  name: "Таджаранська голова"
   parent: [PartTajaran, BaseHead]
   components:
   - type: Sprite
@@ -83,7 +83,7 @@
 
 - type: entity
   id: LeftArmTajaran
-  name: "left tajaran arm"
+  name: "ліва рука таджара"
   parent: [PartTajaran, BaseLeftArm]
   components:
   - type: Sprite
@@ -92,7 +92,7 @@
 
 - type: entity
   id: RightArmTajaran
-  name: "right tajaran arm"
+  name: "права рука таджара"
   parent: [PartTajaran, BaseRightArm]
   components:
   - type: Sprite
@@ -101,7 +101,7 @@
 
 - type: entity
   id: LeftHandTajaran
-  name: "left tajaran hand"
+  name: "ліва кисть таджара"
   parent: [PartTajaran, BaseLeftHand]
   components:
   - type: Sprite
@@ -110,7 +110,7 @@
 
 - type: entity
   id: RightHandTajaran
-  name: "right tajaran hand"
+  name: "права кисть таджара"
   parent: [PartTajaran, BaseRightHand]
   components:
   - type: Sprite
@@ -119,7 +119,7 @@
 
 - type: entity
   id: LeftLegTajaran
-  name: "left tajaran leg"
+  name: "ліва нога таджара"
   parent: [PartTajaran, BaseLeftLeg]
   components:
   - type: Sprite
@@ -128,7 +128,7 @@
 
 - type: entity
   id: RightLegTajaran
-  name: "right tajaran leg"
+  name: "права нога таджара"
   parent: [PartTajaran, BaseRightLeg]
   components:
   - type: Sprite
@@ -137,7 +137,7 @@
 
 - type: entity
   id: LeftFootTajaran
-  name: "left tajaran foot"
+  name: "ліва ступня таджара"
   parent: [PartTajaran, BaseLeftFoot]
   components:
   - type: Sprite
@@ -146,7 +146,7 @@
 
 - type: entity
   id: RightFootTajaran
-  name: "right tajaran foot"
+  name: "права ступня таджара"
   parent: [PartTajaran, BaseRightFoot]
   components:
   - type: Sprite

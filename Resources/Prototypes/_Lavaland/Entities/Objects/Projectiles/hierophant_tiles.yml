@@ -8,7 +8,7 @@
   id: LavalandHierophantSquare
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
-  name: hierophant square
+  name: "площа ієрофанта"
   placement:
     mode: SnapgridCenter
     snap:
@@ -34,7 +34,7 @@
   id: LavalandHierophantChaser
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
-  name: hierophant chaser
+  name: "переслідувач ієрофанта"
   placement:
     mode: SnapgridCenter
     snap:

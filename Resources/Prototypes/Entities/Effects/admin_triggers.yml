@@ -6,7 +6,7 @@
 - type: entity
   id: AdminInstantEffectBase
   abstract: true
-  name: instant effect
+  name: "миттєвий ефект"
   components:
   - type: Sprite
     sprite: /Textures/Objects/Fun/goldbikehorn.rsi

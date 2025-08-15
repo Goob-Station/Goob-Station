@@ -9,7 +9,7 @@
 - type: entity
   id: BasicSpaceItalianTranslatorImplanter
   parent: BaseTranslatorImplanter
-  name: basic space italian translator implanter
+  name: "базовий імплантер космічного італійського перекладача"
   components:
   - type: Implanter
     implant: BasicSpaceItalianTranslatorImplant
@@ -18,7 +18,7 @@
 - type: entity
   id: AdvancedSpaceItalianTranslatorImplanter
   parent: BaseTranslatorImplanter
-  name: advanced space italian translator implanter
+  name: "просунутий імплантер космічного італійського перекладача"
   components:
   - type: Implanter
     implant: SpaceItalianTranslatorImplant

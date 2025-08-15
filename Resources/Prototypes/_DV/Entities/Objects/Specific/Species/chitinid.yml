@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: Chitzite
-  name: chitzite
-  description: A small radioactive stone formed in the chest cavity of a radioactive chitinid, gross.... but kinda pretty?
+  name: "хіцит"
+  description: "Невеликий радіоактивний камінь, що утворився в грудній порожнині з радіоактивного хітиніду, бридкий...., але симпатичний?"
   components:
   - type: Sprite
     sprite: _DV/Objects/Specific/Species/chitinid.rsi

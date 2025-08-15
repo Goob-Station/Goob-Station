@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseAction
   id: ActionChronoBlink
-  name: Temporary shift
-  description: Changes your coordinates, allowing you to teleport to nearby locations
+  name: "Тимчасова зміна"
+  description: "Змінює ваші координати, дозволяючи телепортуватися в сусідні локації"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

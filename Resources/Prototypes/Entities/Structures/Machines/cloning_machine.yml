@@ -43,8 +43,8 @@
 - type: entity
   id: CloningPod
   parent: BaseMachinePowered
-  name: cloning pod
-  description: A Cloning Pod. 50% reliable.
+  name: "капсула для клонування"
+  description: "Клонуюча капсула. Надійність 50%."
   components:
   - type: CloningPod
   - type: DeviceList

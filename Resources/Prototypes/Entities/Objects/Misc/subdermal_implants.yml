@@ -97,8 +97,8 @@
 
 - type: entity
   id: BaseSubdermalImplant
-  name: implant
-  description: A microscopic chip that's injected under the skin.
+  name: "імплант"
+  description: "Мікроскопічний чіп, який вводиться під шкіру."
   abstract: true
   components:
   - type: SubdermalImplant
@@ -112,8 +112,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: SadTromboneImplant
-  name: sad trombone implant
-  description: This implant plays a sad tune when the user dies.
+  name: "імплант сумного тромбона"
+  description: "Цей імплант грає сумну мелодію, коли користувач помирає."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -132,8 +132,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: LightImplant
-  name: light implant
-  description: This implant emits light from the user's skin on activation.
+  name: "імплант світла"
+  description: "Цей імплант випромінює світло від шкіри користувача при активації."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -154,8 +154,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: BikeHornImplant
-  name: bike horn implant
-  description: This implant lets the user honk anywhere at any time.
+  name: "імплант велосипедного клаксона"
+  description: "Цей імплант дозволяє користувачеві хонкати будь-де і будь-коли."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -175,8 +175,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: TrackingImplant
-  name: tracking implant
-  description: This implant has a tracking device attached to the suit sensor network.
+  name: "імплант відстеження"
+  description: "Цей імплант має пристрій відстеження, підключений до мережі сенсорів костюма."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -201,8 +201,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: StorageImplant
-  name: storage implant
-  description: This implant grants hidden storage within a person's body using bluespace technology.
+  name: "імплант зберігання"
+  description: "Цей імплант забезпечує приховане зберігання даних у тілі людини за допомогою технології bluespace."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -225,8 +225,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: FreedomImplant
-  name: freedom implant
-  description: This implant lets the user break out of hand restraints up to three times before ceasing to function anymore.
+  name: "імплант свободи"
+  description: "Цей імплант дозволяє користувачеві до трьох разів звільнитися від наручників, перш ніж він перестане функціонувати."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -238,8 +238,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: RadioImplant
-  name: radio implant
-  description: This implant grants access to the Syndicate channel without a headset.
+  name: "радіоімплант"
+  description: "Цей імплант надає доступ до каналу Синдикату без гарнітури."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -250,8 +250,8 @@
 - type: entity
   parent: [ BaseSubdermalImplant, StorePresetUplink ]
   id: UplinkImplant
-  name: uplink implant
-  description: This implant lets the user access a hidden Syndicate uplink at will.
+  name: "імплант аплінку"
+  description: "Цей імплант дозволяє користувачеві отримати доступ до прихованого каналу зв'язку Синдикату за власним бажанням."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -270,8 +270,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: EmpImplant
-  name: EMP implant
-  description: This implant creates an electromagnetic pulse when activated.
+  name: "імплант ЕМІ"
+  description: "Цей імплант створює електромагнітний імпульс при активації."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -285,8 +285,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: ScramImplant
-  name: scram implant
-  description: This implant randomly teleports the user within a large radius when activated.
+  name: "імплант телепортера"
+  description: "При активації цей імплант випадковим чином телепортує користувача у великому радіусі."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -300,8 +300,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: DnaScramblerImplant
-  name: DNA scrambler implant
-  description: This implant lets the user randomly change their appearance and name once.
+  name: "Імплант скремблера ДНК"
+  description: "Цей імплант дозволяє користувачеві один раз випадковим чином змінити свою зовнішність та ім'я."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -314,8 +314,8 @@
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseSubdermalImplant
   id: ChameleonControllerImplant
-  name: chameleon controller implant
-  description: This implant allows you to instantly change the appearance of all worn chameleon clothing.
+  name: "імплант-контролер хамелеон"
+  description: "Цей імплант дозволяє миттєво змінювати зовнішній вигляд усього одягу-хамелеона."
   components:
   - type: ChameleonControllerImplant
   - type: SubdermalImplant
@@ -332,8 +332,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: MicroBombImplant
-  name: micro-bomb implant
-  description: This implant detonates the user upon activation or upon death.
+  name: "імплант мікробомби"
+  description: "Цей імплант підриває користувача при активації або після смерті."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -363,8 +363,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: MacroBombImplant
-  name: macro-bomb implant
-  description: This implant creates a large explosion on death after a preprogrammed countdown.
+  name: "імплант макробомби"
+  description: "Цей імплант створює великий вибух при смерті після запрограмованого відліку часу."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -399,8 +399,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: DeathAcidifierImplant
-  name: death-acidifier implant
-  description: This implant melts the user and their equipment upon death.
+  name: "імплант смертельного розплавлення"
+  description: "Цей імплант розплавляє користувача та його обладнання після смерті."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -424,8 +424,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: DeathRattleImplant
-  name: death rattle implant
-  description: This implant will inform the Syndicate radio channel should the user fall into critical condition or die.
+  name: "імплант брязкальця смерті"
+  description: "Цей імплант повідомить радіоканал Синдикату, якщо користувач потрапить у критичний стан або помре."
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -443,8 +443,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: FakeMindShieldImplant
-  name: fake mindshield implant
-  description: This implant allows the implanter to produce a fake signal that NT security huds use to identify individuals implanted with a mindshield.
+  name: "фальшивий імплант захисту розуму"
+  description: "Цей імплант дозволяє імплантованому генерувати фальшивий сигнал, який використовують HUD безпеки NT для ідентифікації осіб, імплантованих захистом розуму."
   categories: [ HideSpawnMenu ]
   components:
       - type: SubdermalImplant
@@ -456,8 +456,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: MindShieldImplant
-  name: mindshield implant
-  description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
+  name: "імплант захисту розуму"
+  description: "Цей імплант забезпечить лояльність до НаноТрейзен та запобіжить пристроям контролю розуму."
   categories: [ HideSpawnMenu ]
   components:
    - type: SubdermalImplant
@@ -468,8 +468,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: RadioImplantCentcomm
-  name: radio implant
-  description: This implant grants access to the Centcomm channel without a headset. Only authorized for Centcomm employees.
+  name: "радіоімплант"
+  description: "Цей імплант надає доступ до каналу ЦентКому без гарнітури. Дозволено тільки для співробітників ЦентКому."
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
@@ -480,8 +480,8 @@
 - type: entity
   parent: DeathRattleImplant
   id: DeathRattleImplantCentcomm
-  name: centcomm death rattle implant
-  description: This implant will inform the Centcomm radio channel should the user fall into critical condition or die.
+  name: "імплант передсмертного хрипу ЦентКому"
+  description: "Цей імплант повідомить радіоканал ЦентКому, якщо користувач впаде в критичний стан або помре."
   categories: [ HideSpawnMenu ]
   components:
   - type: Rattle

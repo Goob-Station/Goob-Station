@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRustConstruction
-  name: Rust Formation
-  description: Transforms a rusted floor into a full wall of rust. Creating a wall underneath a mob will harm it.
+  name: "Формування Іржі"
+  description: "Перетворює іржаву підлогу на суцільну стіну з іржі. Створення стіни під мобом завдасть йому шкоди."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -30,8 +30,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticAggressiveSpread
-  name: Aggressive Spread
-  description: Spreads rust onto nearby surfaces.
+  name: "Агресивне Поширення"
+  description: "Поширює іржу на найближчі поверхні."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -56,8 +56,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticEntropicPlume
-  name: Entropic Plume
-  description: Spews forth a disorienting plume that causes enemies to strike each other, briefly blinds them and poisons them. Also spreads rust in the path of the plume.
+  name: "Ентропійний Шлейф"
+  description: "Вивергає дезорієнтуючий шлейф, який змушує ворогів атакувати один одного, ненадовго засліплює та отруює їх. Також поширює іржу на шляху шлейфу."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -79,8 +79,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRustWave
-  name: Patron's Reach
-  description: Release a toxic wave of rust.
+  name: "Дотик Покровителя"
+  description: "Випускає токсичну хвилю іржі."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

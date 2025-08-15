@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticIceSpear
-  name: Mysteries of Creation
-  description: Activate to create the Glacier Spear or summon already existing spear.
+  name: "Таємниці Створення"
+  description: "Активуйте, щоб створити Льодовиковий Спис або викликати вже існуючий."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -33,8 +33,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticCleave
-  name: Cleave
-  description: Causes severe bleeding on a target and several targets around them.
+  name: "Розсічення"
+  description: "Спричиняє сильну кровотечу у цілі та кількох цілей навколо неї."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -56,8 +56,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticRustCharge
-  name: Rust Charge
-  description: A charge that must be started on a rusted tile and will destroy any rusted objects you come into contact with, will deal high damage to others and rust around you during the charge. As it is the rust that empowers you with this ability, no focus is needed.
+  name: "Іржавий Ривок"
+  description: "Ривок, який потрібно починати на іржавій плитці. Він знищить будь-які іржаві об'єкти, з якими ви зіткнетеся, завдасть великої шкоди іншим і поширить іржу навколо вас під час ривка. Оскільки саме іржа наділяє вас цією здатністю, фокус не потрібен."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

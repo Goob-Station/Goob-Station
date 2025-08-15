@@ -10,7 +10,7 @@
 
 - type: body
   id: Arachnid
-  name: "arachnid"
+  name: "арахнід"
   root: chest
   slots:
     head:

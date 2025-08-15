@@ -6,8 +6,8 @@
 
 - type: entity
   id: TorchWall
-  name: torch
-  description: "A torch"
+  name: "смолоскип"
+  description: "Смолоскип"
   components:
   - type: Construction
     graph: WallTorchGraph

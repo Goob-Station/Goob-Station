@@ -1,5 +1,5 @@
 - type: entity
-  name: Wisp
+  name: "Іскра"
   parent: [ BaseSimpleMob, FlyingMobBase ]
   id: MobCosmicWisp
   components:

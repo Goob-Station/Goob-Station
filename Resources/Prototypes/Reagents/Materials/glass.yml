@@ -55,7 +55,7 @@
 - type: material
   id: BrassGlass
   stackEntity: SheetClockworkGlass1
-  name: materials-clockwork-glass
+  name: "годинникове скло"
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: cglass }
   color: "#9b6f07"
   price: 0.225 # average of glass and brass.
@@ -63,7 +63,7 @@
 - type: material
   id: UraniumGlass
   stackEntity: SheetUGlass1
-  name: materials-uranium-glass
+  name: "уранове скло"
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: uglass }
   color: "#3cab38"
   price: 1.0 # 1-1 mix of uranium and glass.
@@ -71,7 +71,7 @@
 - type: material
   id: ReinforcedUraniumGlass
   stackEntity: SheetRUGlass1
-  name: materials-reinforced-uranium-glass
+  name: "армоване уранове скло"
   icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: ruglass }
   color: "#2d872a"
   price: 1.075 # 2-2-1 mix of uranium, glass, and metal.

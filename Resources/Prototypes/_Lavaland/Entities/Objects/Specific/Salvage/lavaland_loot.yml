@@ -22,8 +22,8 @@
 - type: entity
   id: LavalandCursedHeart
   parent: BaseHumanOrgan
-  name: heart
-  description: "I feel bad for the heartless bastard who lost this."
+  name: "прокляте серце"
+  description: "Мені шкода безсердечного покидька, який його загубив."
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
@@ -35,7 +35,7 @@
 - type: entity
   id: LavalandVampirismCrystal
   parent: BasePKAUpgrade
-  name: a red crystal
+  name: "кристал вампіризму"
   components:
   - type: Sprite
     sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi

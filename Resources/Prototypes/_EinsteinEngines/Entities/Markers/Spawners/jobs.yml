@@ -2,7 +2,7 @@
 - type: entity
   id: SpawnPointForensicMantis
   parent: SpawnPointJobBase
-  name: mantis
+  name: "мантіс"
   components:
   - type: SpawnPoint
     job_id: ForensicMantis

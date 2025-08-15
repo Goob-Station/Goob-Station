@@ -12,8 +12,8 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatHoodZeusHood
   categories: [ HideSpawnMenu ]
-  name: zeus hood
-  description: Guaranteed to not fly off when leaping from skyscraper to skyscraper.
+  name: "капюшон Зевса"
+  description: "Гарантовано не злетить під час стрибків з хмарочоса на хмарочос."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hoods/mercer_hood.rsi
@@ -30,7 +30,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterBso
   categories: [ HideSpawnMenu ]
-  name: blueshield's winter coat hood
+  name: "капюшон зимового пальто синього щита"
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hoods/bso_winter_hood.rsi
@@ -41,7 +41,7 @@
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHatHoodWinterCapFancy
   categories: [ HideSpawnMenu ]
-  name: captain's fancy winter coat hood
+  name: "капюшон від вишуканої зимової куртки капітана"
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Hoods/cap_winter_hood.rsi

@@ -2,7 +2,7 @@
 - type: entity
   id: SpawnPointAdminAssistant
   parent: SpawnPointJobBase
-  name: administrative assistant
+  name: "адміністративний асистент"
   components:
   - type: SpawnPoint
     job_id: AdministrativeAssistant

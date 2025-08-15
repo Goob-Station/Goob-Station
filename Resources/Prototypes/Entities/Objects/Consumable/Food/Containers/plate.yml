@@ -33,10 +33,10 @@
 # Large Plate
 
 - type: entity
-  name: large plate
+  name: "велика тарілка"
   parent: BaseItem
   id: FoodPlate
-  description: A large plate, excellent for bread.
+  description: "Велика тарілка, відмінно підходить для хліба."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
@@ -92,10 +92,10 @@
         Blunt: 5
 
 - type: entity
-  name: broken plate
+  name: "розбита тарілка"
   parent: BaseItem
   id: FoodPlateTrash
-  description: A broken plate. Useless.
+  description: "Розбита тарілка. Марно."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
@@ -112,10 +112,10 @@
 # Small Plate
 
 - type: entity
-  name: small plate
+  name: "маленька тарілка"
   parent: FoodPlate
   id: FoodPlateSmall
-  description: A small plate. Delicate.
+  description: "Маленька тарілочка. Делікатна."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
@@ -163,10 +163,10 @@
 # Plastic Plate
 
 - type: entity
-  name: plastic plate
+  name: "пластикова пластина"
   parent: BaseItem
   id: FoodPlatePlastic
-  description: A large blue plastic plate, excellent for a birthday cake.
+  description: "Велика синя пластикова тарілка, чудово підходить для святкового торта."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
@@ -185,10 +185,10 @@
     - Trash
 
 - type: entity
-  name: plastic plate
+  name: "пластикова пластина"
   parent: BaseItem
   id: FoodPlateSmallPlastic
-  description: A blue plastic plate, excellent for slices of birthday cake.
+  description: "Блакитна пластикова тарілка, ідеально підходить для шматочків святкового торта."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
@@ -209,10 +209,10 @@
 # Pie Tin
 
 - type: entity
-  name: pie tin
+  name: "форма для пирога"
   parent: BaseItem
   id: FoodPlateTin
-  description: A cheap foil tin for pies.
+  description: "Дешева фольгована форма для пирогів."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
@@ -233,10 +233,10 @@
 # Muffin Tin
 
 - type: entity
-  name: muffin tin
+  name: "форма для мафінів"
   parent: BaseItem
   id: FoodPlateMuffinTin
-  description: A cheap foil tin for muffins.
+  description: "Дешева фольгована форма для мафінів."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi

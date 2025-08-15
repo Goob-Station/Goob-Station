@@ -15,8 +15,8 @@
 - type: entity
   id: RGBStaff
   parent: BaseItem
-  name: RGB staff
-  description: Helps fix the underabundance of RGB gear on the station.
+  name: "RGB посох"
+  description: "Допомагає виправити нестачу RGB-обладнання на станції."
   components:
   - type: LimitedCharges
     maxCharges: 25
@@ -51,8 +51,8 @@
 - type: entity
   id: AnimationStaff
   parent: BaseItem
-  name: staff of animation
-  description: Brings inanimate objects to life!
+  name: "посох анімації"
+  description: "Оживляє неживі предмети!"
   components:
   - type: LimitedCharges
     maxCharges: 5

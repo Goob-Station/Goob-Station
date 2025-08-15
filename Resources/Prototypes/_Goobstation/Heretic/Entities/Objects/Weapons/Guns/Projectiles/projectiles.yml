@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseBulletTrigger
   id: FireballChain
-  name: twisted fireball
-  description: Uh oh.
+  name: "кручена вогняна куля"
+  description: "Ой-йой."
   categories: [ HideSpawnMenu ]
   components:
   - type: ChainFireball
@@ -39,8 +39,8 @@
 - type: entity
   parent: BaseBullet
   id: ProjectileWaveRust
-  name: patron's reach
-  description: Toxic.
+  name: "дотик покровителя"
+  description: "Токсично."
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

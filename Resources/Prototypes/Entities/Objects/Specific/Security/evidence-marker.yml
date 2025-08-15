@@ -8,8 +8,8 @@
   abstract: true
   parent: BaseItem
   id: EvidenceMarker
-  name: evidence marker
-  description: A numbered yellow marker, useful for labeling evidence on a crime scene.
+  name: "маркер доказів"
+  description: "Пронумерований жовтий маркер, корисний для маркування доказів на місці злочину."
   components:
   - type: Sprite
     sprite: Objects/Specific/Detective/evidence_marker.rsi
@@ -81,10 +81,10 @@
     state: nine
 
 - type: entity
-  name: evidence marker box
+  name: "коробка для маркування доказів"
   parent: BoxCardboard
   id: BoxEvidenceMarkers
-  description: A pack of numbered yellow markers, useful for labeling evidence on a crime scene.
+  description: "Пачка пронумерованих жовтих маркерів, корисних для маркування доказів на місці злочину."
   components:
     - type: Item
       shape:

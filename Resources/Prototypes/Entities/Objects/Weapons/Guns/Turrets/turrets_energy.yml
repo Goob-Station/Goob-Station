@@ -2,8 +2,8 @@
   abstract: true
   parent: [BaseWeaponEnergyTurret, ConstructibleMachine]
   id: WeaponEnergyTurretStationBase
-  name: sentry turret
-  description: A high-tech autonomous weapons system designed to keep unauthorized personnel out of sensitive areas.
+  name: "вартова турель"
+  description: "Високотехнологічна автономна збройна система, призначена для утримання неавторизованого персоналу поза межами чутливих зон."
   components:
   - type: Fixtures
     fixtures:

@@ -35,7 +35,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseChest ]
   id: ChestHarpy
-  name: "harpy chest"
+  name: "грудна клітка гарпії"
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
@@ -47,7 +47,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseGroin ]
   id: GroinHarpy
-  name: "harpy groin"
+  name: "пах гарпії"
   components:
   - type: Sprite
     sprite: _DV/Mobs/Species/Harpy/parts.rsi
@@ -59,17 +59,17 @@
 - type: entity
   parent: [ PartHarpyBase, BaseHead ]
   id: HeadHarpy
-  name: "harpy head"
+  name: "голова гарпії"
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftArm ]
   id: LeftArmHarpy
-  name: "left harpy arm"
+  name: "ліва рука гарпії"
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightArm ]
   id: RightArmHarpy
-  name: "right harpy arm"
+  name: "права рука гарпії"
   components:
   - type: BodyPart
     onAdd: # Shitmed Change
@@ -83,17 +83,17 @@
 - type: entity
   parent: [ PartHarpyBase, BaseLeftHand ]
   id: LeftHandHarpy
-  name: "left harpy hand"
+  name: "ліва долоня гарпії"
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightHand ]
   id: RightHandHarpy
-  name: "right harpy hand"
+  name: "права долоня гарпії"
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftLeg ]
   id: LeftLegHarpy
-  name: "left harpy leg"
+  name: "ліва нога гарпії"
   components:
   - type: MovementBodyPart # Goobstation
     sprintSpeed: 5
@@ -101,7 +101,7 @@
 - type: entity
   parent: [ PartHarpyBase, BaseRightLeg ]
   id: RightLegHarpy
-  name: "right harpy leg"
+  name: "права нога гарпії"
   components:
   - type: MovementBodyPart # Goobstation
     sprintSpeed: 5
@@ -109,9 +109,9 @@
 - type: entity
   parent: [ PartHarpyBase, BaseLeftFoot ]
   id: LeftFootHarpy
-  name: "left harpy foot"
+  name: "ліва стопа гарпії"
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightFoot ]
   id: RightFootHarpy
-  name: "right harpy foot"
+  name: "права стопа гарпії"

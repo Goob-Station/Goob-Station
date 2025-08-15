@@ -5,7 +5,7 @@
 
 - type: entity
   id: CartridgeLowCaliber
-  name: cartridge (5x23mm)
+  name: "патрон (5x23мм)"
   parent: BaseCartridge
   components:
   - type: Sprite

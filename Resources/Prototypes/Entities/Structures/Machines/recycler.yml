@@ -34,8 +34,8 @@
 - type: entity
   id: Recycler
   parent: BaseMachinePowered
-  name: recycler
-  description: A large crushing machine used to recycle small items inefficiently. There are lights on the side.
+  name: "переробник"
+  description: "Велика дробильна машина, що використовується для неефективної переробки дрібних предметів. Збоку є ліхтарі."
   components:
   - type: AmbientSound
     enabled: false

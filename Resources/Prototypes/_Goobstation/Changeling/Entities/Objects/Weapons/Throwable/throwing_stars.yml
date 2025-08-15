@@ -14,7 +14,7 @@
 - type: entity
   parent: ThrowingStar
   id: ThrowingStarChangeling
-  name: bone shard
+  name: "осколок кістки"
   components:
   - type: Sprite
     sprite: _Goobstation/Changeling/bone_shard.rsi

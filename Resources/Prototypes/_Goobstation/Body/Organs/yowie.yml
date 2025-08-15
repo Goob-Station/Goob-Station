@@ -26,7 +26,7 @@
 - type: entity
   id: OrganYowieStomach
   parent: OrganHumanStomach
-  name: yowie stomach
+  name: "шлунок йові"
   components:
   - type: Sprite
     state: stomach
@@ -49,7 +49,7 @@
 - type: entity
   id: OrganYowieLiver
   parent: OrganHumanLiver
-  name: yowie liver
+  name: "печінка йові"
   components:
   - type: Metabolizer
     metabolizerTypes: [Yowie]
@@ -67,7 +67,7 @@
 - type: entity
   id: OrganYowieHeart
   parent: OrganHumanHeart
-  name: yowie heart
+  name: "серце йові"
   components:
   - type: Metabolizer
     metabolizerTypes: [Yowie]
@@ -76,8 +76,8 @@
 - type: entity
   id: OrganYowieLungs
   parent: OrganHumanLungs
-  name: lungs
-  description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
+  name: "легені"
+  description: "Фільтрує кисень з атмосфери, який потім надходить у кров для використання як переносник електронів."
   components:
   - type: Metabolizer
     removeEmpty: true

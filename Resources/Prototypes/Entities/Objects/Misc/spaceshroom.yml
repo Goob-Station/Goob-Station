@@ -8,11 +8,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: spaceshroom
+  name: "космічний гриб"
   parent: BaseStructure
   id: Spaceshroom
   suffix: Structure
-  description: A cluster of wild mushrooms that likes to grow in dark, moist environments.
+  description: "Скупчення дикорослих грибів, які люблять рости в темному, вологому середовищі."
   components:
     - type: Sprite
       sprite: Objects/Misc/spaceshroom.rsi
@@ -49,10 +49,10 @@
               acts: [ "Destruction" ]
 
 - type: entity
-  name: spaceshroom
+  name: "космічний гриб"
   parent: FoodProduceBase
   id: FoodSpaceshroom
-  description: A wild mushroom. There's no telling what effect it could have...
+  description: "Дикий гриб. Невідомо, який ефект він може мати..."
   components:
   - type: Produce
   - type: Sprite
@@ -132,10 +132,10 @@
 
 # Cooked Object
 - type: entity
-  name: cooked spaceshroom
+  name: "варений космічний гриб"
   parent: FoodProduceBase
   id: FoodSpaceshroomCooked
-  description: A wild mushroom that has been cooked through. It seems the heat has removed its chemical effects.
+  description: "Лісовий гриб, який прожарили наскрізь. Здається, що тепло зняло його хімічну дію."
   components:
   - type: FlavorProfile
     flavors:

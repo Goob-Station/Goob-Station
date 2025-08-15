@@ -18,8 +18,8 @@
 - type: entity
   parent: [ BaseItem, BaseMinorContraband ]
   id: FireBomb
-  name: fire bomb
-  description: A weak, improvised incendiary device.
+  name: "запальна бомба"
+  description: "Слабкий, саморобний запальний пристрій."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Bombs/ied.rsi
@@ -71,9 +71,9 @@
 - type: entity
   parent: [ DrinkColaCanEmpty, BaseMinorContraband ]
   id: FireBombEmpty
-  name: fire bomb
+  name: "запальна бомба"
   suffix: empty
-  description: A weak, improvised incendiary device. This one has no fuel.
+  description: "Слабкий, саморобний запальний пристрій. Цей без палива."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Bombs/ied.rsi
@@ -100,7 +100,7 @@
   parent: FireBombEmpty
   id: FireBombFuel
   suffix: fuel
-  description: A weak, improvised incendiary device. This one is missing wires.
+  description: "Слабкий, саморобний запальний пристрій. Цьому бракує дротів."
   components:
   - type: Sprite
     layers:

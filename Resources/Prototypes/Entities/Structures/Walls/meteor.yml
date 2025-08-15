@@ -74,8 +74,8 @@
 - type: entity
   id: MeteorRock
   parent: AsteroidRock
-  name: meteorite rock
-  description: What remains of a meteorite.
+  name: "метеоритний камінь"
+  description: "Те, що залишилося від метеорита."
   components:
   - type: Destructible
     thresholds:

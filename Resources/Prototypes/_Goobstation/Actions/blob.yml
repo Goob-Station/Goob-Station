@@ -8,8 +8,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateBlobFactory
-  name: Place Factory Blob (80)
-  description: Turns selected normal blob into a factory blob, which will produce up to 3 spores and a blobbernaut if placed next to a core or a node.
+  name: "Розмістити Фабричну Краплю (80)"
+  description: "Перетворює обрану звичайну краплю на фабричну краплю, яка вироблятиме до 3 спор та блобернаута, якщо розміщена поруч з ядром або вузлом."
   components:
   - type: Action
     icon:
@@ -27,8 +27,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateBlobResource
-  name: Place Resource Blob (60)
-  description: Turns selected normal blob into a resource blob which will generates resources if placed next to a core or a node.
+  name: "Розмістити Ресурсну Краплю (60)"
+  description: "Перетворює обрану звичайну краплю на ресурсну краплю, яка генеруватиме ресурси, якщо розміщена поруч з ядром або вузлом."
   components:
   - type: Action
     icon:
@@ -46,8 +46,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateBlobNode
-  name: Place Node Blob (50)
-  description: Turns selected normal blob into a node blob. A node blob will activate effects of factory and resource blobs, heal other blobs and slowly expand, destroying walls and creating normal blobs.
+  name: "Розмістити Вузлову Краплю (50)"
+  description: "Перетворює обрану звичайну краплю на вузлову краплю. Вузлова крапля активує ефекти фабричних та ресурсних крапель, лікує інші краплі та повільно розширюється, руйнуючи стіни та створюючи звичайні краплі."
   components:
   - type: Action
     icon:
@@ -65,8 +65,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateBlobbernaut
-  name: Produce a Blobbernaut (60)
-  description: Creates a blobbernaut on the selected factory. Each factory can only do this once. The blobbernaut will take damage outside of blob tiles and heal when close to nodes.
+  name: "Створити Блобернаута (60)"
+  description: "Створює блобернаута на обраній фабриці. Кожна фабрика може зробити це лише один раз. Блобернаут отримуватиме шкоду поза плитками краплі та лікуватиметься поблизу вузлів."
   components:
   - type: Action
     itemIconStyle: BigAction
@@ -82,8 +82,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSplitBlobCore
-  name: Split Core (400)
-  description: You can only do this once. Turns selected node into an independent core that will act on its own.
+  name: "Розділити Ядро (400)"
+  description: "Ви можете зробити це лише один раз. Перетворює обраний вузол на незалежне ядро, яке діятиме самостійно."
   components:
   - type: Action
     icon:
@@ -99,8 +99,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSwapBlobCore
-  name: Relocate core (200)
-  description: Swaps the location of your core and the selected node.
+  name: "Перемістити ядро (200)"
+  description: "Міняє місцями ваше ядро та обраний вузол."
   components:
   - type: Action
     icon:
@@ -116,8 +116,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTeleportBlobToCore
-  name: Jump to Core
-  description: Teleports you to your Blob Core.
+  name: "Стрибнути до Ядра"
+  description: "Телепортує вас до вашого Ядра Краплі."
   components:
   - type: Action
     icon:
@@ -131,8 +131,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSwapBlobChem
-  name: Swap chemicals (70)
-  description: Lets you swap your current chemical.
+  name: "Змінити хімікати (70)"
+  description: "Дозволяє змінити ваш поточний хімікат."
   components:
   - type: Action
     icon:
@@ -145,8 +145,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTransformToBlob
-  name: Transform into a blob
-  description: Instantly destoys your body and creates a blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
+  name: "Перетворитися на краплю"
+  description: "Миттєво знищує ваше тіло та створює ядро краплі. Переконайтеся, що ви стоїте на плитці підлоги, інакше ви просто зникнете."
   components:
   - type: Action
     icon:
@@ -158,8 +158,8 @@
 - type: entity
   parent: BaseAction
   id: ActionDowngradeBlob
-  name: Downgrade blob
-  description: Turns the selected tile back into a normal blob to install other types of cages.
+  name: "Понизити краплю"
+  description: "Перетворює обрану плитку назад на звичайну краплю, щоб встановити інші типи кліток."
   components:
   - type: Action
     icon:

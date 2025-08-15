@@ -9,7 +9,7 @@
 - type: entity
   id: GhostBarSpawner
   parent: MarkerBase
-  name: ghost bar spawn point
+  name: "точка спавну в барі \"Привид"
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi

@@ -14,8 +14,8 @@
 - type: entity
   parent: BaseStructureDynamic
   id: SmartFridge
-  name: SmartFridge
-  description: A refrigerated storage unit for keeping items cold and fresh.
+  name: "SmartFridge"
+  description: "Холодильна камера для зберігання продуктів у холодному та свіжому вигляді."
   categories: [ HideSpawnMenu ] # DeltaV - apparently we can't migrate abstract/disabled prototypes
   components:
   - type: StationAiWhitelist
