@@ -116,7 +116,10 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Hagvan <22118902+Hagvan@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -963,6 +966,7 @@ namespace Content.Shared.Chemistry.Components
                     {
                         found = true;
                         Contents[j] = new ReagentQuantity(reagent, quantity + otherQuantity);
+
                         break;
                     }
                 }
@@ -972,6 +976,46 @@ namespace Content.Shared.Chemistry.Components
                     Contents.Add(new ReagentQuantity(otherReagent, otherQuantity));
                 }
             }
+            // Goobstation Start
+            Dictionary<string, TimeSpan> DNAs = new();
+
+            for (var i = 0; i < otherSolution.Contents.Count; i++)
+            {
+                otherSolution.Contents[i].Reagent.Data?.ForEach(data =>
+                {
+                    if (data is DnaData dna)
+                    {
+                        if (DNAs.ContainsKey(dna.DNA))
+                        {
+                            // if dna older than current, replace it
+                            if (DNAs[dna.DNA] < dna.Freshness)
+                                DNAs[dna.DNA] = dna.Freshness;
+                        }
+                        else
+                        {
+                            DNAs[dna.DNA] = dna.Freshness;
+                        }
+                    }
+                });
+            }
+
+            for (var i = 0; i < Contents.Count; i++)
+            {
+                Contents[i].Reagent.Data?.ForEach(data =>
+                {
+                    if (data is DnaData dna)
+                    {
+                        // if other solution had this dna
+                        if (DNAs.ContainsKey(dna.DNA))
+                        {
+                            // if other solution is fresher, replace current
+                            if (DNAs[dna.DNA] > dna.Freshness)
+                                dna.Freshness = DNAs[dna.DNA];
+                        }
+                    }
+                });
+            }
+            // Goobstation End
 
             _heatCapacity += otherSolution._heatCapacity;
             CheckRecalculateHeatCapacity();
