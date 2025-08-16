@@ -1,7 +1,75 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: LibrarianTranslatorImplant
+  name: librarian translator implant
+  description: An implant giving the ability to understand and speak most languages.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TranslatorImplant
+    spoken:
+      - Eldritch
+      - Chittin
+      - RootSpeak
+      - ValyrianStandard
+      - Marish
+      - Moffic
+      - Nekomimetic
+      - Draconic
+      - Azaziba
+      - Calcic
+      - Bubblish
+      - SiikMaas
+      - NalRasan
+      - SiikTajr
+      - YaSsa
+      - Delvahii
+      - Canilunzt
+      - Elyran
+      - Freespeak
+      - NovuNederic
+      - SolCommon
+      - TauCetiBasic
+      - Tradeband
+      - Mouse
+      - Sign
+      - Monkey
+      - Kobold
+      - SpaceItalian
+    understood:
+      - Eldritch
+      - Chittin
+      - RootSpeak
+      - ValyrianStandard
+      - Marish
+      - Moffic
+      - Nekomimetic
+      - Draconic
+      - Azaziba
+      - Calcic
+      - Bubblish
+      - SiikMaas
+      - NalRasan
+      - SiikTajr
+      - YaSsa
+      - Delvahii
+      - Canilunzt
+      - Elyran
+      - Freespeak
+      - NovuNederic
+      - SolCommon
+      - TauCetiBasic
+      - Tradeband
+      - Mouse
+      - Sign
+      - Monkey
+      - Kobold
+      - SpaceItalian
 
 - type: entity
   parent: BaseSubdermalImplant
