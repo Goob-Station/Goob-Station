@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation 13",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "full",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "center",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "middle",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "middleV",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "north",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "south",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "left",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "right",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "TNorth",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "TSouth",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "TLeft",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "TRight",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "NECorner",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "NWCorner",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "SECorner",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        },
+        {
+            "name": "SWCorner",
+            "delays": [ [ 0.1, 0.1, 0.1, 0.1 ] ]
+        }
+    ]
+}

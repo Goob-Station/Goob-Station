@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["flockdrone_beep1"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flockdrone_beep2"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flockdrone_beep3"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flockdrone_beep4"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flock_Reactor"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+  
+- files: ["flock_sound"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flock_grump1"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flock_grump2"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flock_grump3"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flockdrone_door"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"
+
+- files: ["flockdrone_door_deny"]
+  license: "CC-BY-3.0"
+  copyright: "Taken from Goonstation 13"
+  source: "https://github.com/goonstation/goonstation/tree/master/sound"

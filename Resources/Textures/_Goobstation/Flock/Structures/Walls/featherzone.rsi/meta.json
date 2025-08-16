@@ -1,0 +1,167 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Goonstation 13",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "full",
+            "directions": 1
+        },
+        {
+            "name": "fullCenter",
+            "directions": 1
+        },
+        {
+            "name": "fullLeft",
+            "directions": 1
+        },
+        {
+            "name": "fullNorth",
+            "directions": 1
+        },
+        {
+            "name": "north",
+            "directions": 1
+        },
+        {
+            "name": "fullRight",
+            "directions": 1
+        },
+        {
+            "name": "gridfull",
+            "directions": 1
+        },
+        {
+            "name": "InnerNECorner",
+            "directions": 1
+        },
+        {
+            "name": "InnerNWCorner",
+            "directions": 1
+        },
+        {
+            "name": "InnerSECorner",
+            "directions": 1
+        },
+        {
+            "name": "InnerSWCorner",
+            "directions": 1
+        },
+        {
+            "name": "left",
+            "directions": 1
+        },
+        {
+            "name": "middle",
+            "directions": 1
+        },
+        {
+            "name": "middleFull",
+            "directions": 1
+        },
+        {
+            "name": "NECorner",
+            "directions": 1
+        },
+        {
+            "name": "NECornerAlt",
+            "directions": 1
+        },
+        {
+            "name": "NECornerFull",
+            "directions": 1
+        },
+        {
+            "name": "NECornerFullAlt",
+            "directions": 1
+        },
+        {
+            "name": "NWCorner",
+            "directions": 1
+        },
+        {
+            "name": "NWCornerAlt",
+            "directions": 1
+        },
+        {
+            "name": "NWCornerFull",
+            "directions": 1
+        },
+        {
+            "name": "NWCornerFullAlt",
+            "directions": 1
+        },
+        {
+            "name": "right",
+            "directions": 1
+        },
+        {
+            "name": "SECorner",
+            "directions": 1
+        },
+        {
+            "name": "SECornerAlt",
+            "directions": 1
+        },
+        {
+            "name": "SECornerFull",
+            "directions": 1
+        },
+        {
+            "name": "SECornerFullAlt",
+            "directions": 1
+        },
+        {
+            "name": "south",
+            "directions": 1
+        },
+        {
+            "name": "SWCorner",
+            "directions": 1
+        },
+        {
+            "name": "SWCornerAlt",
+            "directions": 1
+        },
+        {
+            "name": "SWCornerFull",
+            "directions": 1
+        },
+        {
+            "name": "SWCornerFullAlt",
+            "directions": 1
+        },
+        {
+            "name": "TCornerNE",
+            "directions": 1
+        },
+        {
+            "name": "TMiddle",
+            "directions": 1
+        },
+        {
+            "name": "TNorth",
+            "directions": 1
+        },
+        {
+            "name": "TNorthFull",
+            "directions": 1
+        },
+        {
+            "name": "TRight",
+            "directions": 1
+        },
+        {
+            "name": "TSouth",
+            "directions": 1
+        },
+        {
+            "name": "VMiddle",
+            "directions": 1
+        }
+    ]
+}

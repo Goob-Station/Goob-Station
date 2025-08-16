@@ -1,0 +1,200 @@
+#There's no other way I know to make these work, since each sprite is animated. I don't think we have IconSmooth for animated sprites
+- type: entity
+  id: BaseTableFlock
+  parent: BaseStructure
+  name: humming surface
+  description: A table? An alien supercomputer? Well, it's flat, you can put stuff on it.
+  suffix: "Full"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: full
+  - type: GlassTable
+    climberDamage:
+      types:
+        Slash: 30
+    tableDamage:
+      types:
+        Blunt: 10
+    tableMassLimit: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  - type: Animateable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: PlaceableSurface
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+        - BulletImpassable # Goobstation - Crawling
+  - type: Climbable
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Slash: 15
+  - type: Clickable
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHull
+  - type: Tag
+    tags:
+    - ForceFixRotations
+  - type: RequireProjectileTarget # Goobstation - Crawling
+    ignoreThrow: true
+
+# Core / middle variants
+- type: entity
+  id: CenterTableFlock
+  parent: BaseTableFlock
+  suffix: "center"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: center
+
+- type: entity
+  id: middleTableFlock
+  parent: BaseTableFlock
+  suffix: "middle"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: middle
+
+- type: entity
+  id: middleVTableFlock
+  parent: BaseTableFlock
+  suffix: "middleV"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: middleV
+
+# Directional (straight) tables
+- type: entity
+  id: northTableFlock
+  parent: BaseTableFlock
+  suffix: "north"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: north
+
+- type: entity
+  id: southTableFlock
+  parent: BaseTableFlock
+  suffix: "south"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: south
+
+- type: entity
+  id: leftTableFlock
+  parent: BaseTableFlock
+  suffix: "left"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: left
+
+- type: entity
+  id: rightTableFlock
+  parent: BaseTableFlock
+  suffix: "right"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: right
+
+# T-shaped tables
+- type: entity
+  id: TNorthTableFlock
+  parent: BaseTableFlock
+  suffix: "TNorth"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: TNorth
+
+- type: entity
+  id: TSouthTableFlock
+  parent: BaseTableFlock
+  suffix: "TSouth"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: TSouth
+
+- type: entity
+  id: TLeftTableFlock
+  parent: BaseTableFlock
+  suffix: "TLeft"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: TLeft
+
+- type: entity
+  id: TRightTableFlock
+  parent: BaseTableFlock
+  suffix: "TRight"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: TRight
+
+# Corner tables
+- type: entity
+  id: NECornerTableFlock
+  parent: BaseTableFlock
+  suffix: "NECorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: NECorner
+
+- type: entity
+  id: NWCornerTableFlock
+  parent: BaseTableFlock
+  suffix: "NWCorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: NWCorner
+
+- type: entity
+  id: SECornerTableFlock
+  parent: BaseTableFlock
+  suffix: "SECorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: SECorner
+
+- type: entity
+  id: SWCornerTableFlock
+  parent: BaseTableFlock
+  suffix: "SWCorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Furnitures/table.rsi
+    state: SWCorner

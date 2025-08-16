@@ -89,6 +89,21 @@
 
 
 - type: entity
+  id: ActionDashGeneric
+  name: Dash
+  parent: ActionDashMoth
+  description: Dash forward.
+  components:
+  - type: Action
+    useDelay: 6.5
+    icon: { sprite: _Goobstation/Actions/dash.rsi, state: icon }
+    itemIconStyle: NoItem
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/thudswoosh.ogg
+      params:
+        volume: 6.5
+
+- type: entity
   parent: BaseAction
   id: ActionToggleRightMantisBlade
   name: Toggle Right Mantis Blade

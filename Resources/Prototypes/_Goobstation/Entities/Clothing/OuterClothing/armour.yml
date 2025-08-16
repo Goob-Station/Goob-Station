@@ -368,3 +368,44 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 0
     knockdownTimeDelta: 0
+
+- type: entity
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
+  id: ClothingOuterArmorQueenCarapace
+  name: queen's carapace
+  description: The skull of the ancient Xeno Queen, reforged into an imposing chestpiece that turns her former menace into unyielding protection.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/queen_carapace.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Armor/queen_carapace.rsi
+  - type: Armor
+    coverage:
+    - Chest
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.4
+      BoneDamage: 0.8
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 1.2
+        Caustic: 0.1
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: GroupExamine
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
+  - type: StaminaResistance # Goobstation
+    damageCoefficient: 0.6
+  - type: StaticPrice # Goob
+    price: 30000

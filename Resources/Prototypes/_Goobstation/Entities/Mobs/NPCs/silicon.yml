@@ -1,0 +1,212 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: nanite swarm
+  id: MobNanites
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  description: A swarm of angry nanites.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Mobs/Silicon/nanites.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: nanites_attack
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      150: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: nanites_attack
+      Critical:
+        Base: nanites_crit
+      Dead:
+        Base: nanites_dead
+  - type: PassiveDamage #passive Healing
+    allowedStates:
+    - Critical
+    damage:
+      groups:
+        Brute: -15
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: Butcherable
+    spawned:
+    - id: SheetPlasteel1
+      amount: 2
+  - type: Bloodstream
+    bloodMaxVolume: 10
+    bloodReagent: Oil
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 3
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Machines/cutter.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 5
+  - type: StaticPrice
+    price: 1000
+  - type: NoSlip
+  - type: Fauna # Lavaland Change
+  - type: CombatPower # Goobstation
+    factor: 0.5 # times more dangerous than a crew-member
+
+- type: entity
+  name: gunbot
+  id: MobGunbotBase
+  abstract: true
+  parent: [ BaseMob, MobCombat ]
+  description: A Security Robot, something seems a bit off.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi
+    layers:
+    - map: ["movement"]
+      state: gunbot
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: gunbot_moving
+    noMovementLayers:
+      movement:
+        state: gunbot
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 80
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              DiamondOre1Unprocessed:
+                min: 1
+                max: 1
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletPistol
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 10 # Goob - allows you to actually dodge the projectiles
+    fireRate: 0.4 # Goob - accounts for damage and also to be less annoying
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: StaticPrice
+    price: 2000
+  - type: CombatMode
+  - type: NoSlip
+  - type: Fauna # Lavaland Change
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
+
+- type: entity
+  id: GunBot
+  name: gunbot
+  parent: MobGunbotBase
+
+- type: entity
+  id: NukeBot
+  parent: MobGunbotBase
+  name: syndicate gunbot
+  description: An older model of the syndicate assault borg, specialized for close quarter combat.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Mobs/Silicon/Bots/gunbot.rsi
+    layers:
+    - map: ["movement"]
+      state: nukebot
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: nukebot_moving
+    noMovementLayers:
+      movement:
+        state: nukebot
+  - type: ProjectileBatteryAmmoProvider
+    proto: BaseBulletIncendiary
+    fireCost: 50
+  - type: Gun
+    projectileSpeed: 10 # Goob - allows you to actually dodge the projectiles
+    fireRate: 0.5 # Goob - accounts for damage and also to be less annoying
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: StaticPrice
+    price: 3000
+  - type: CombatPower # Goobstation
+    factor: 2 # times more dangerous than a crew-member
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 140
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              DiamondOre1Unprocessed:
+                min: 2
+                max: 3

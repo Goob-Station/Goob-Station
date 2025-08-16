@@ -1048,7 +1048,7 @@
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
   - type: HitscanBatteryAmmoProvider
@@ -1056,7 +1056,7 @@
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 10
   - type: StaticPrice
     price: 750
 

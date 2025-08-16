@@ -1,0 +1,136 @@
+- type: entity
+  name: base flock
+  id: MobFlockBase
+  parent: [ SimpleSpaceMobBase, MobCombat ]
+  abstract: true
+  description: Is it broccoli? A glass chicken? A peacock? A green roomba? A shiny discobot? A crystal turkey? A bugbird? A radio pigeon??
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Flock/Mobs/drone.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: flock_drone
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      collection: FlockBeep
+      params:
+        volume: -5
+        maxDistance: 10
+        variation: 0.05
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Fauna # Lavaland Change
+
+- type: entity
+  name: flockDrone
+  id: MobFlockDrone
+  parent: MobFlockBase
+  components:
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletFlock
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 10
+    fireRate: 0.2 
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/_Goobstation/Weapons/Guns/Gunshots/TaserGoon.ogg
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+  - type: Butcherable
+    spawned:
+      - id: MaterialFlockCube
+        amount: 1
+        prob: 0.25
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: flock_drone
+      Critical:
+        Base: flock_drone_crit
+      Dead:
+        Base: flock_drone_dead
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: CombatPower # Goobstation
+    factor: 1 # times more dangerous than a crew-member
+
+
+- type: entity
+  name: flockBit
+  id: MobFlockBit
+  parent: MobFlockBase
+  description: The inferior version of the byte. Thankfully, it does not bite.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: /Textures/_Goobstation/Flock/Mobs/bit.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: flock_bit
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: flock_bit
+  - type: SpamEmitSound
+    minInterval: 15
+    maxInterval: 45
+    sound:
+      path: /Audio/_Goobstation/Flock/flockdrone_beep1.ogg
+      params:
+        volume: -5
+        maxDistance: 10
+        variation: 0.05
+  - type: NpcFactionMember
+    factions:
+      - SimpleNeutral
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 10
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+

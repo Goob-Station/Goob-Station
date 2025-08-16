@@ -1,0 +1,75 @@
+- type: entity
+  parent: BaseWeaponBallisticTurret
+  id: WeaponTurretFlock
+  name: flock totem
+  description: This totem summons pain instead of rain.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Flock/Mobs/totem.rsi
+    noRot: true
+    layers:
+    - state: flocktotem
+  - type: BallisticAmmoProvider
+    proto: BulletFlock
+    capacity: 500
+  - type: Gun
+    fireRate: 0.8
+    selectedMode: FullAuto
+    soundGunshot: /Audio/_Goobstation/Weapons/Guns/Gunshots/TaserGoon.ogg
+  - type: HTN
+    rootTask:
+      task: TurretCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Flock/flockdrone_grump1.ogg
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Goobstation/Flock/flock_sound.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          WeaponTurretFlockBroken:
+            min: 1
+            max: 1
+
+- type: entity
+  parent: BaseStructure
+  id: WeaponTurretFlockBroken
+  name: flock totem
+  description: A broken totem. Looks like it contains something valuable.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Flock/Mobs/totem.rsi
+    noRot: true
+    layers:
+    - state: totemdead
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/glass_break1.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialFlockCube:
+            min: 1
+            max: 1

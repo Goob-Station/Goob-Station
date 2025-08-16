@@ -1,0 +1,508 @@
+- type: entity
+  parent: BaseStructure
+  id: WallFlockBase
+  name: strange glass wall
+  abstract: true
+  description: You can hear faint humming coming from within.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: full
+    drawdepth: Walls
+    noRot: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageModifierSet: RGlass
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Airtight
+  - type: SunShadowCast
+  - type: Occluder
+  - type: Tag
+    tags:
+      - Wall
+  - type: AmbientSound
+    volume: -10
+    range: 2
+    sound:
+      path: /Audio/Ambience/Objects/gravity_gen_hum.ogg
+  - type: PointLight
+    radius: 4
+    energy: 1.6
+    color: "#0fb79a"
+    castShadows: true
+    netsync: false
+
+# Variants
+- type: entity
+  parent: WallFlockBase
+  id: fullWallFlock
+  suffix: "full"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: full
+
+- type: entity
+  parent: WallFlockBase
+  id: fullCenterWallFlock
+  suffix: "fullCenter"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: fullCenter
+
+- type: entity
+  parent: WallFlockBase
+  id: fullLeftWallFlock
+  suffix: "fullLeft"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: fullLeft
+
+- type: entity
+  parent: WallFlockBase
+  id: fullNorthWallFlock
+  suffix: "fullNorth"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: fullNorth
+
+- type: entity
+  parent: WallFlockBase
+  id: fullRightWallFlock
+  suffix: "fullRight"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: fullRight
+
+- type: entity
+  parent: WallFlockBase
+  id: gridfullWallFlock
+  suffix: "gridfull"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: gridfull
+
+- type: entity
+  parent: WallFlockBase
+  id: InnerNECornerWallFlock
+  suffix: "InnerNECorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: InnerNECorner
+
+- type: entity
+  parent: WallFlockBase
+  id: InnerNWCornerWallFlock
+  suffix: "InnerNWCorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: InnerNWCorner
+
+- type: entity
+  parent: WallFlockBase
+  id: InnerSECornerWallFlock
+  suffix: "InnerSECorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: InnerSECorner
+
+- type: entity
+  parent: WallFlockBase
+  id: InnerSWCornerWallFlock
+  suffix: "InnerSWCorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: InnerSWCorner
+
+- type: entity
+  parent: WallFlockBase
+  id: leftWallFlock
+  suffix: "left"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: left
+
+- type: entity
+  parent: WallFlockBase
+  id: middleWallFlock
+  suffix: "middle"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: middle
+
+- type: entity
+  parent: WallFlockBase
+  id: northWallFlock
+  suffix: "north"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: north
+
+- type: entity
+  parent: WallFlockBase
+  id: middleFullWallFlock
+  suffix: "middleFull"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: middleFull
+
+- type: entity
+  parent: WallFlockBase
+  id: NECornerWallFlock
+  suffix: "NECorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: NECorner
+
+- type: entity
+  parent: WallFlockBase
+  id: NECornerAltWallFlock
+  suffix: "NECornerAlt"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: NECornerAlt
+
+- type: entity
+  parent: WallFlockBase
+  id: NECornerFullWallFlock
+  suffix: "NECornerFull"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: NECornerFull
+
+- type: entity
+  parent: WallFlockBase
+  id: NECornerFullAltWallFlock
+  suffix: "NECornerFullAlt"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: NECornerFullAlt
+
+- type: entity
+  parent: WallFlockBase
+  id: NWCornerWallFlock
+  suffix: "NWCorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: NWCorner
+
+- type: entity
+  parent: WallFlockBase
+  id: NWCornerAltWallFlock
+  suffix: "NWCornerAlt"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: NWCornerAlt
+
+- type: entity
+  parent: WallFlockBase
+  id: NWCornerFullWallFlock
+  suffix: "NWCornerFull"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: NWCornerFull
+
+- type: entity
+  parent: WallFlockBase
+  id: NWCornerFullAltWallFlock
+  suffix: "NWCornerFullAlt"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: NWCornerFullAlt
+
+- type: entity
+  parent: WallFlockBase
+  id: rightWallFlock
+  suffix: "right"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: right
+
+- type: entity
+  parent: WallFlockBase
+  id: SECornerWallFlock
+  suffix: "SECorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: SECorner
+
+- type: entity
+  parent: WallFlockBase
+  id: SECornerAltWallFlock
+  suffix: "SECornerAlt"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: SECornerAlt
+
+- type: entity
+  parent: WallFlockBase
+  id: SECornerFullWallFlock
+  suffix: "SECornerFull"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: SECornerFull
+
+- type: entity
+  parent: WallFlockBase
+  id: SECornerFullAltWallFlock
+  suffix: "SECornerFullAlt"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: SECornerFullAlt
+
+- type: entity
+  parent: WallFlockBase
+  id: southWallFlock
+  suffix: "south"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: south
+
+- type: entity
+  parent: WallFlockBase
+  id: SWCornerWallFlock
+  suffix: "SWCorner"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: SWCorner
+
+- type: entity
+  parent: WallFlockBase
+  id: SWCornerAltWallFlock
+  suffix: "SWCornerAlt"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: SWCornerAlt
+
+- type: entity
+  parent: WallFlockBase
+  id: SWCornerFullWallFlock
+  suffix: "SWCornerFull"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: SWCornerFull
+
+- type: entity
+  parent: WallFlockBase
+  id: SWCornerFullAltWallFlock
+  suffix: "SWCornerFullAlt"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: SWCornerFullAlt
+
+- type: entity
+  parent: WallFlockBase
+  id: TCornerNEWallFlock
+  suffix: "TCornerNE"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: TCornerNE
+
+- type: entity
+  parent: WallFlockBase
+  id: TMiddleWallFlock
+  suffix: "TMiddle"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: TMiddle
+
+- type: entity
+  parent: WallFlockBase
+  id: TNorthWallFlock
+  suffix: "TNorth"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: TNorth
+
+- type: entity
+  parent: WallFlockBase
+  id: TNorthFullWallFlock
+  suffix: "TNorthFull"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: TNorthFull
+
+- type: entity
+  parent: WallFlockBase
+  id: TRightWallFlock
+  suffix: "TRight"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: TRight
+
+- type: entity
+  parent: WallFlockBase
+  id: TSouthWallFlock
+  suffix: "TSouth"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: TSouth
+
+- type: entity
+  parent: WallFlockBase
+  id: VMiddleWallFlock
+  suffix: "VMiddle"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/featherzone.rsi
+    state: VMiddle
+
+
+#Diagonal
+- type: entity
+  parent: BaseStructure
+  id: WallDiagonalFeatherZone
+  suffix: Diagonal
+  name: strange glass wall
+  description: You can hear faint humming coming from within.
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
+    state: FZDiagonal
+    drawdepth: BlastDoors
+    noRot: false
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PolygonShape
+            vertices:
+            - "-0.5,-0.5"
+            - "0.5,0.5"
+            - "0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageModifierSet: RGlass
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
+  - type: Tag
+    tags:
+    - Wall
+    - Diagonal
+  - type: AmbientSound
+    volume: -10
+    range: 2
+    sound:
+      path: /Audio/Ambience/Objects/gravity_gen_hum.ogg
+  - type: PointLight
+    radius: 4
+    energy: 1.6
+    color: "#0fb79a"
+    castShadows: true
+    netsync: false
+
+#Shuttle
+- type: entity
+  parent: WallFlockBase
+  id: WallFeatherZoneShuttle
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
+    state: FZ1_Wall
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Physics
+    bodyType: Static
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+
+- type: entity
+  parent: WallFlockBase
+  id: WallFeatherZoneShuttle1
+  name: strange shuttle wall
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
+    state: FZShuttle1
+
+- type: entity
+  parent: WallFlockBase
+  id: WallFeatherZoneShuttle2
+  name: strange shuttle wall
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Flock/Structures/Walls/shuttle.rsi
+    state: FZShuttle2
+
