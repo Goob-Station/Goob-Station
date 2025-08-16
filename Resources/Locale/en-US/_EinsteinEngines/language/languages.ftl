@@ -183,3 +183,15 @@ language-Shadowmind-description =
 language-Qiilour-name = Qiilour
 language-Qiilour-description =
     The native and principal language of the Xelthia, Qiilour is spoken by nearly all members of their species to some degree. It is a refined fusion of several ancient tongues—such as Telenarii, Voskarn, and Old Xelthec—each now lost to history.
+
+# Ported from Floofstation:
+
+language-Schechi-name = Schechi
+language-Schechi-description =
+    The language of Resomi, primarily featuring frontal sounds made without rounding. Fluent speakers sound quite close to birdsong.
+
+language-NewKinPidgin-name = Ka'rakk
+language-NewKinPidgin-description = A debased dialect cobbled together by lower-caste Vox, mangled beyond recognition.
+    While a primitive and clumsy attempt resulting in a dull, simplified mockery of their true language,
+    higher-caste Vox can still discern meaning within the crude approximations.
+    It sounds like chaotic shrieking to everyone else.
