@@ -1,5 +1,7 @@
 ﻿using Content.Shared._Lavaland.Megafauna.Components;
-using Content.Shared._Lavaland.Megafauna.Conditions;
+using Content.Shared._Lavaland.Megafauna.Conditions.Targeting;
+using Content.Shared._Lavaland.Megafauna.Events;
+using Content.Shared.Actions;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems;
 
@@ -25,6 +27,19 @@ public sealed partial class MegafaunaSystem
     }
 
     /// <summary>
+    /// Helper method that constructs new <see cref="RequestPerformActionEvent"/> for megafauna AI to use an action.
+    /// </summary>
+    public RequestPerformActionEvent GetPerformEvent(EntityUid boss, EntityUid action)
+    {
+        var targetingComp = CompOrNull<MegafaunaAiTargetingComponent>(boss);
+        var netAction = GetNetEntity(boss);
+        var netTarget = GetNetEntity(targetingComp?.TargetEntity);
+        var netCoords = GetNetCoordinates(targetingComp?.TargetCoordinate);
+
+        return new RequestPerformActionEvent(netAction, netTarget, netCoords);
+    }
+
+    /// <summary>
     /// Picks a new target based on bosses AggressiveComponent.
     /// </summary>
     public bool TryPickTargetAggressive(MegafaunaCalculationBaseArgs args, List<MegafaunaTargetCondition> conditions)
@@ -38,8 +53,7 @@ public sealed partial class MegafaunaSystem
             var fails = 0;
             foreach (var condition in conditions)
             {
-                condition.Target = target;
-                if (!condition.Evaluate(args))
+                if (!condition.Evaluate(args, target))
                     fails++;
             }
 

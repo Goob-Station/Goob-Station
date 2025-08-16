@@ -6,7 +6,6 @@
 using Content.Shared._Lavaland.Megafauna.Conditions;
 using Content.Shared._Lavaland.Megafauna.NumberSelectors;
 using JetBrains.Annotations;
-using Robust.Shared.Random;
 
 namespace Content.Shared._Lavaland.Megafauna.Selectors;
 
@@ -28,29 +27,8 @@ public abstract partial class MegafaunaSelector
     [DataField]
     public float Weight = 1;
 
-    /// <summary>
-    /// A simple chance that the selector will run.
-    /// </summary>
-    [DataField]
-    public double Prob = 1;
-
     [DataField]
     public int Priority;
-
-    /// <summary>
-    /// Represents this attack's order from other attacks that are called via
-    /// <see cref="SequenceMegafauna"/>. Use this variable to make time-progressive actions.
-    /// </summary>
-    [DataField]
-    public int? Counter;
-
-    /// <summary>
-    /// If true, allows some actions to use the Counter variable in order to create sequence attacks
-    /// instead of just repeating the same attack multiple times.
-    /// Using this you can create more complex actions that are called with <see cref="SequenceMegafauna"/>.
-    /// </summary>
-    [DataField]
-    public bool? IsSequence;
 
     /// <summary>
     /// A list of conditions that must evaluate to 'true' for the selector to apply.
@@ -101,19 +79,10 @@ public abstract partial class MegafaunaSelector
 
     public float Invoke(MegafaunaCalculationBaseArgs args)
     {
-        if (!CheckConditions(args)
-            || !args.Random.Prob(Prob))
+        if (!CheckConditions(args))
             return FailDelay;
 
         return InvokeImplementation(args);
-    }
-
-    public void CopyFrom(MegafaunaSelector parent)
-    {
-        if (parent.Counter != null)
-            Counter = parent.Counter;
-        if (parent.IsSequence != null)
-            IsSequence = parent.IsSequence;
     }
 
     protected abstract float InvokeImplementation(MegafaunaCalculationBaseArgs args);

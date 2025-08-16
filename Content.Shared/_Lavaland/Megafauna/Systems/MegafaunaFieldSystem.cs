@@ -22,6 +22,7 @@
 using System.Linq;
 using Content.Shared._Lavaland.EntityShapes;
 using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Shared._Lavaland.Megafauna.Events;
 using Robust.Shared.Threading;
 
 // ReSharper disable EnforceForeachStatementBraces
@@ -67,7 +68,7 @@ public sealed class MegafaunaFieldSystem : EntitySystem
     private void SpawnField(Entity<MegafaunaFieldGeneratorComponent> ent)
     {
         var comp = ent.Comp;
-        _entityShape.SpawnTileShape(comp.WallShape, ent.Owner, comp.WallId, out comp.Walls);
+        _entityShape.SpawnEntityShape(comp.WallShape, ent.Owner, comp.WallId, out comp.Walls);
     }
 
     public void DeactivateField(Entity<MegafaunaFieldGeneratorComponent> ent)

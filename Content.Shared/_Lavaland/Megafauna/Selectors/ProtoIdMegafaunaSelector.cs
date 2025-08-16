@@ -3,7 +3,7 @@
 namespace Content.Shared._Lavaland.Megafauna.Selectors;
 
 /// <summary>
-/// Works like NestedTileShape, but also has serialization,
+/// Works like NestedEntityShape, but also has serialization,
 /// so you can just type id: in prototypes and it will work.
 /// </summary>
 public sealed partial class ProtoIdMegafaunaSelector : MegafaunaSelector
@@ -15,8 +15,6 @@ public sealed partial class ProtoIdMegafaunaSelector : MegafaunaSelector
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
-        var action = args.PrototypeMan.Index(Id).Action;
-        action.CopyFrom(this);
-        return action.Invoke(args);
+        return args.PrototypeMan.Index(Id).Selector.Invoke(args);
     }
 }

@@ -354,7 +354,7 @@ public sealed class BodySetupTest
                 .Where(p => !p.Abstract
                             && p.Components.ContainsKey("MobState")
                             && !p.Components.ContainsKey("Godmode")
-                            && !p.Components.ContainsKey("HierophantBoss")) // Hiero is immune to attacks without an origin.
+                            && !p.Components.ContainsKey("MegafaunaGodmode")) // Lavaland Change
                 .ToList();
 
             foreach (var entityProto in entityPrototypes)

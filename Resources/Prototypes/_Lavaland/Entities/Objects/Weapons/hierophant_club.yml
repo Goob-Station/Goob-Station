@@ -47,16 +47,14 @@
         Heat: 5
   - type: ActionGrant
     actions:
-    - ActionHierophantSpawnCross
-    - ActionHierophantPlaceMarker
-    - ActionHierophantTeleport
-    - ActionHierophantTileMovement
+    - ActionHierophantClubTileMovement
+    - ActionHierophantClubAttackCross
+    - ActionHierophantClubAttackBox
   - type: ItemActionGrant
     actions:
-    - ActionHierophantSpawnCross
-    - ActionHierophantPlaceMarker
-    - ActionHierophantTeleport
-    - ActionHierophantTileMovement
+    - ActionHierophantClubTileMovement
+    - ActionHierophantClubAttackCross
+    - ActionHierophantClubAttackBox
 
 - type: entity
   id: LavalandHierophantMarker

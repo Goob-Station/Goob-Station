@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.Megafauna;
 
 /// <summary>
-/// Contains one or multiple TileShapes to create a pattern.
+/// Contains one or multiple EntityShapes to create a pattern.
 /// </summary>
 [Prototype]
 public sealed partial class MegafaunaSelectorPrototype : IPrototype
@@ -14,5 +14,5 @@ public sealed partial class MegafaunaSelectorPrototype : IPrototype
     public string ID { get; } = default!;
 
     [DataField(required: true)]
-    public MegafaunaSelector Action = default!;
+    public MegafaunaSelector Selector = default!;
 }

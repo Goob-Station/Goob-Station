@@ -12,8 +12,6 @@ public sealed partial class NestedMegafaunaSelector : MegafaunaSelector
 
     protected override float InvokeImplementation(MegafaunaCalculationBaseArgs args)
     {
-        var action = args.PrototypeMan.Index(Id).Action;
-        action.CopyFrom(this);
-        return action.Invoke(args);
+        return args.PrototypeMan.Index(Id).Selector.Invoke(args);
     }
 }

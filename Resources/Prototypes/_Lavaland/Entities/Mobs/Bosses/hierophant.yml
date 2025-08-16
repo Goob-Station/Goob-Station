@@ -41,6 +41,11 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    sprite: _Lavaland/Mobs/Bosses/hierophant.rsi
+    state: hierophant
   - type: Clickable
   - type: InteractionOutline
   - type: InputMover
@@ -61,15 +66,10 @@
     active: False
   - type: CombatMode
   - type: MobState
-  # Actual boss from here
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Hierophant
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
-    sprite: _Lavaland/Mobs/Bosses/hierophant.rsi
-    state: hierophant
+  - type: NoSlip
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5
     baseSprintSpeed: 1.5
@@ -80,35 +80,41 @@
   - type: Tag
     tags:
     - CannotSuicide
-  - type: NoSlip
-  - type: BossMusic
-    soundId: Hierophant
+  # Actual boss from here
+  - type: ActionGrant
+    actions:
+    - ActionHierophantBox
+    - ActionHierophantCrosses
+    - ActionHierophantChasers
+    - ActionHierophantBlink
   - type: Fauna
-  - type: HierophantBoss
-    teleportShape: !type:NestedTileShape
-      id: BoxFilled
-      size: 3
-  - type: HierophantImmune
-  - type: SpawnLootOnDeath
-    loot: LavalandHierophantClub
-    deleteOnDeath: true
-  - type: MegafaunaAi
-    actionDelay: !type:AngerNumberSelector
-      range: 0.3,1.8
-      inverse: true
-    selector: !type:NestedMegafaunaSelector
-      id: Hierophant
-  - type: MegafaunaFieldGenerator
-    wallId: WallHierophantArenaTemporary
-    wallShape: !type:NestedTileShape
-      id: BoxHollow
-      size: 23 # Equals to the size of the arena
-  - type: MegafaunaAnchor
   - type: Anger
     totalHp: 2500
+  - type: Aggressive
+    forgiveRange: 25
   - type: MobPhases
     phaseThresholds:
       0:    1
       2000: 2
-  - type: Aggressive
-    forgiveRange: 25
+  - type: BossMusic
+    soundId: Hierophant
+  - type: DamageSquareImmunity
+  - type: SpawnLootOnDeath
+    loot: LavalandHierophantClub
+    deleteOnDeath: true
+  - type: MegafaunaAi
+    actionDelay: 0.5
+    selector: !type:NestedMegafaunaSelector
+      id: Hierophant
+  - type: MegafaunaFieldGenerator
+    wallId: WallHierophantArenaTemporary
+    wallShape: !type:NestedEntityShape
+      id: BoxHollow
+      size: 23 # Equals to the size of the arena
+  - type: MegafaunaAnchor
+  - type: MegafaunaBlink
+    spawnOnTarget: HierophantShapeBlink
+    spawnOnUsed: HierophantShapeBlink
+  - type: MegafaunaBlinkInactive
+  - type: MegafaunaGodmode
+  - type: MegafaunaRejuvenate

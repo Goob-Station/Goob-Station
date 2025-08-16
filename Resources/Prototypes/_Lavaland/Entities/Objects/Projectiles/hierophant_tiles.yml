@@ -30,9 +30,6 @@
     damageWhitelist:
       components:
       - MobState
-    damageBlacklist:
-      components:
-      - HierophantImmune
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
 
@@ -48,5 +45,5 @@
   components:
   - type: Transform
     anchored: true
-  - type: HierophantChaser
-    spawnPrototype: LavalandHierophantSquare
+  - type: TileChaser
+    spawn: LavalandHierophantSquare

@@ -1,4 +1,4 @@
 - type: megafaunaSelector
   id: PickTargetSimple
-  action: !type:PickTargetSelector
+  selector: !type:PickTargetSelector
     priority: 10

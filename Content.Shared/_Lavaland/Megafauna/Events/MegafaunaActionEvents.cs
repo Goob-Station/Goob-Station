@@ -2,7 +2,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Lavaland.Megafauna;
+namespace Content.Shared._Lavaland.Megafauna.Events;
 
 public sealed partial class SpawnEntityActionEvent : WorldTargetActionEvent
 {
@@ -14,6 +14,13 @@ public sealed partial class SpawnEntityActionEvent : WorldTargetActionEvent
     /// </summary>
     [DataField]
     public bool AttachToTarget;
+
+    /// <summary>
+    /// If this is true and <see cref="AttachToTarget"/> is false,
+    /// will spawn the entity right at user's position.
+    /// </summary>
+    [DataField]
+    public bool SpawnAtUser;
 }
 
 /// <summary>
@@ -22,25 +29,6 @@ public sealed partial class SpawnEntityActionEvent : WorldTargetActionEvent
 [ByRefEvent]
 public readonly record struct SpawnedByActionEvent(EntityUid User, EntityUid? Target);
 
-public sealed partial class MegafaunaBlinkActionEvent : WorldTargetActionEvent
-{
-    /// <summary>
-    /// Entity that will be spawned on a target blink position.
-    /// </summary>
-    [DataField]
-    public EntProtoId? SpawnOnTarget;
-
-    /// <summary>
-    /// Entity that will be spawned on original position when before teleportation.
-    /// </summary>
-    [DataField]
-    public EntProtoId? SpawnOnUsed;
-
-    [DataField]
-    public TimeSpan Duration;
-
-    [DataField]
-    public SoundSpecifier? Sound;
-}
+public sealed partial class MegafaunaBlinkActionEvent : WorldTargetActionEvent;
 
 public sealed partial class ToggleTileMovementActionEvent : EntityTargetActionEvent;

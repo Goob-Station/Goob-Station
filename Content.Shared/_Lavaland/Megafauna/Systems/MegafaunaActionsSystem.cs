@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared._Lavaland.Movement;
 using Content.Shared.Actions.Components;
 using Robust.Shared.Map;
@@ -30,6 +31,8 @@ public sealed class MegafaunaActionsSystem : EntitySystem
         if (args.Entity != null
             && args.AttachToTarget)
             spawned = PredictedSpawnAttachedTo(args.Spawn, new EntityCoordinates(args.Entity.Value, Vector2.Zero));
+        else if (args.SpawnAtUser)
+            spawned = PredictedSpawnAtPosition(args.Spawn, Transform(args.Performer).Coordinates);
         else
             spawned = PredictedSpawnAtPosition(args.Spawn, args.Target);
 

@@ -13,6 +13,6 @@ public sealed partial class ShapeSpawnerComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public EntityShape Shape;
 
-    [DataField, AutoNetworkedField]
+    [DataField(required: true), AutoNetworkedField]
     public EntProtoId Spawn;
 }

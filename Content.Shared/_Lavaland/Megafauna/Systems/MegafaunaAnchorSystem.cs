@@ -1,4 +1,5 @@
 ﻿using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Shared._Lavaland.Megafauna.Events;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems;
 

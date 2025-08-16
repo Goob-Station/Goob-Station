@@ -21,7 +21,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Lavaland.Megafauna;
+namespace Content.Shared._Lavaland.Megafauna.Events;
 
 /// <summary>
 /// Raised when boss is fully defeated.
@@ -37,12 +37,3 @@ public sealed class MegafaunaStartupEvent : EntityEventArgs;
 /// Raised when boss doesn't die but for any reason deactivates.
 /// </summary>
 public sealed class MegafaunaShutdownEvent : EntityEventArgs;
-
-/// <summary>
-/// Arguments that are used for Megafauna Actions and Conditions.
-/// </summary>
-public record struct MegafaunaCalculationBaseArgs(
-    EntityUid BossEntity,
-    IEntityManager EntityManager,
-    IPrototypeManager PrototypeMan,
-    System.Random Random);

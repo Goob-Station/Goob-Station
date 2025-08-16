@@ -17,7 +17,6 @@ public sealed partial class AllMegafaunaSelector : MegafaunaSelector
 
         foreach (var child in sortedChildren)
         {
-            child.CopyFrom(this);
             var delay = child.Invoke(args);
             if (delay > maxDelay)
                 maxDelay = delay;

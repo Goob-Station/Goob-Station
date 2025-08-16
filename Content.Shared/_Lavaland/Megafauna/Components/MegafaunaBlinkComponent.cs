@@ -5,8 +5,7 @@
 
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.Megafauna.Components;
 
@@ -15,19 +14,24 @@ namespace Content.Shared._Lavaland.Megafauna.Components;
 /// TODO: cool shader for this fella
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState, AutoGenerateComponentPause]
+[AutoGenerateComponentState]
 public sealed partial class MegafaunaBlinkComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public TimeSpan DefaultDelay = TimeSpan.FromSeconds(0.9f);
+    public TimeSpan Delay = TimeSpan.FromSeconds(0.9f);
 
     [DataField, AutoNetworkedField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoNetworkedField, AutoPausedField]
-    public TimeSpan? BlinkTime;
+    /// <summary>
+    /// Entity that will be spawned on a target blink position.
+    /// </summary>
+    [DataField]
+    public EntProtoId? SpawnOnTarget;
 
-    [ViewVariables, AutoNetworkedField]
-    public EntityCoordinates Coordinates;
+    /// <summary>
+    /// Entity that will be spawned on original position when before teleportation.
+    /// </summary>
+    [DataField]
+    public EntProtoId? SpawnOnUsed;
 }

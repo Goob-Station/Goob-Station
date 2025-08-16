@@ -1,4 +1,5 @@
 ﻿using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.Coordinates.Helpers;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -17,17 +18,26 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    private EntityQuery<MegafaunaBlinkComponent> _blinkQuery;
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MegafaunaBlinkComponent, MegafaunaBlinkActionEvent>(OnBlinkAction);
+
+        SubscribeLocalEvent<MegafaunaBlinkInactiveComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<MegafaunaBlinkInactiveComponent, MegafaunaStartupEvent>(OnStartup);
+        SubscribeLocalEvent<MegafaunaBlinkInactiveComponent, MegafaunaShutdownEvent>(OnShutdown);
+        SubscribeLocalEvent<MegafaunaBlinkInactiveComponent, EntityTerminatingEvent>(OnDelete);
+
+        _blinkQuery = GetEntityQuery<MegafaunaBlinkComponent>();
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var blinkQuery = EntityQueryEnumerator<MegafaunaBlinkComponent>();
+        var blinkQuery = EntityQueryEnumerator<MegafaunaActiveBlinkComponent>();
         while (blinkQuery.MoveNext(out var uid, out var blink))
         {
             if (blink.BlinkTime == null
@@ -51,13 +61,14 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
         if (args.Handled)
             return;
 
-        Blink(ent, args.Target, args.Duration, args.Sound);
+        var comp = ent.Comp;
+        Blink(ent, args.Target, comp.Delay, comp.Sound);
 
-        if (args.SpawnOnUsed != null)
-            PredictedSpawnAtPosition(args.SpawnOnUsed.Value, Transform(ent).Coordinates);
+        if (comp.SpawnOnUsed != null)
+            PredictedSpawnAtPosition(comp.SpawnOnUsed.Value, Transform(ent).Coordinates);
 
-        if (args.SpawnOnTarget != null)
-            PredictedSpawnAtPosition(args.SpawnOnTarget.Value, args.Target);
+        if (comp.SpawnOnTarget != null)
+            PredictedSpawnAtPosition(comp.SpawnOnTarget.Value, args.Target);
 
         args.Handled = true;
     }
@@ -65,11 +76,11 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
     public void Blink(
         EntityUid ent,
         EntityCoordinates coords,
-        TimeSpan? duration = null,
+        TimeSpan duration,
         SoundSpecifier? sound = null)
     {
-        var blinkComp = EnsureComp<MegafaunaBlinkComponent>(ent);
-        blinkComp.BlinkTime = _timing.CurTime + duration ?? blinkComp.DefaultDelay;
+        var blinkComp = EnsureComp<MegafaunaActiveBlinkComponent>(ent);
+        blinkComp.BlinkTime = _timing.CurTime + duration;
         blinkComp.Coordinates = coords;
         blinkComp.Sound = sound;
         Dirty(ent, blinkComp);
@@ -78,7 +89,37 @@ public sealed class MegafaunaBlinkSystem : EntitySystem
     public void Blink(
         EntityUid ent,
         EntityUid target,
-        TimeSpan? duration = null,
+        TimeSpan duration,
         SoundSpecifier? sound = null)
         => Blink(ent, Transform(target).Coordinates, duration, sound);
+
+    private void OnMapInit(Entity<MegafaunaBlinkInactiveComponent> ent, ref MapInitEvent args)
+    {
+        if (ent.Comp.FixedPosition)
+            ent.Comp.Marker = Spawn(ent.Comp.MarkerId, Transform(ent).Coordinates);
+    }
+
+    private void OnStartup(Entity<MegafaunaBlinkInactiveComponent> ent, ref MegafaunaStartupEvent args)
+    {
+        if (!ent.Comp.FixedPosition
+            && ent.Comp.Marker == null)
+            ent.Comp.Marker = Spawn(ent.Comp.MarkerId, Transform(ent).Coordinates);
+    }
+
+    private void OnShutdown(Entity<MegafaunaBlinkInactiveComponent> ent, ref MegafaunaShutdownEvent args)
+    {
+        if (ent.Comp.Marker == null
+            || !_blinkQuery.TryComp(ent, out var blinkComp))
+            return;
+
+        Blink(ent.Owner, ent.Comp.Marker.Value, blinkComp.Delay, blinkComp.Sound);
+        QueueDel(ent.Comp.Marker);
+        ent.Comp.Marker = null;
+    }
+
+    private void OnDelete(Entity<MegafaunaBlinkInactiveComponent> ent, ref EntityTerminatingEvent args)
+    {
+        QueueDel(ent.Comp.Marker);
+        ent.Comp.Marker = null;
+    }
 }

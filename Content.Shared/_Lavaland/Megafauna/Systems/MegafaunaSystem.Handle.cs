@@ -1,5 +1,6 @@
 ﻿using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.Mobs;
 
 namespace Content.Shared._Lavaland.Megafauna.Systems;

@@ -1,5 +1,7 @@
-﻿using Content.Shared._Lavaland.EntityShapes.Components;
+﻿using Content.Shared._Lavaland.Anger.Systems;
+using Content.Shared._Lavaland.EntityShapes.Components;
 using Content.Shared._Lavaland.EntityShapes.Shapes;
+using Content.Shared._Lavaland.Megafauna.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -9,9 +11,12 @@ namespace Content.Shared._Lavaland.EntityShapes;
 
 public sealed class EntityShapeSystem : EntitySystem
 {
+    [Dependency] private readonly AngerSystem _anger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+
+    private EntityQuery<ShapeSpawnerCounterComponent> _counterQuery;
 
     public override void Initialize()
     {
@@ -20,8 +25,11 @@ public sealed class EntityShapeSystem : EntitySystem
         SubscribeLocalEvent<ShapeSpawnerComponent, MapInitEvent>(OnSpawnerInit);
         SubscribeLocalEvent<ShapeSpawnerCounterComponent, MapInitEvent>(OnCounterInit);
 
+        SubscribeLocalEvent<AngerShapeSpawnerComponent, SpawnedByActionEvent>(OnActionSpawned);
+
         SubscribeLocalEvent<ExpandingShapeSpawnerComponent, SpawnCounterEntityShapeEvent>(OnExpandingShapeTrigger);
-        SubscribeLocalEvent<SequenceShapeSpawnerComponent, SpawnCounterEntityShapeEvent>(OnSequenceShapeTrigger);
+
+        _counterQuery = GetEntityQuery<ShapeSpawnerCounterComponent>();
     }
 
     public override void Update(float frameTime)
@@ -46,14 +54,14 @@ public sealed class EntityShapeSystem : EntitySystem
         }
     }
 
-    public void SpawnTileShape(EntityShape shape, EntityUid target, EntProtoId spawnId, out List<EntityUid> spawned)
-        => SpawnTileShape(shape, Transform(target).Coordinates, spawnId, out spawned);
+    public void SpawnEntityShape(EntityShape shape, EntityUid target, EntProtoId spawnId, out List<EntityUid> spawned)
+        => SpawnEntityShape(shape, Transform(target).Coordinates, spawnId, out spawned);
 
     /// <remarks>
     /// Use this only if you need to get all spawned entities by this shape,
     /// otherwise it's better to spawn an entity with ShapeSpawnerComponent.
     /// </remarks>
-    public void SpawnTileShape(EntityShape shape, EntityCoordinates coords, EntProtoId spawnId, out List<EntityUid> spawned)
+    public void SpawnEntityShape(EntityShape shape, EntityCoordinates coords, EntProtoId spawnId, out List<EntityUid> spawned)
     {
         spawned = new List<EntityUid>();
 
@@ -69,10 +77,34 @@ public sealed class EntityShapeSystem : EntitySystem
     }
 
     private void OnSpawnerInit(Entity<ShapeSpawnerComponent> ent, ref MapInitEvent args)
-        => SpawnTileShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _);
+        => SpawnEntityShape(ent.Comp.Shape, ent.Owner, ent.Comp.Spawn, out _);
 
     private void OnCounterInit(Entity<ShapeSpawnerCounterComponent> ent, ref MapInitEvent args)
         => ent.Comp.NextSpawn = _timing.CurTime + ent.Comp.SpawnPeriod;
+
+    private void OnActionSpawned(Entity<AngerShapeSpawnerComponent> ent, ref SpawnedByActionEvent args)
+    {
+        if (!_counterQuery.TryComp(ent, out var counterComp))
+            return;
+
+        var anger = ent.Comp;
+
+        if (anger.MaxCounterRange != null)
+        {
+            counterComp.MaxCounter = _anger.GetAngerScale(args.User,
+                anger.MaxCounterRange.Value.X,
+                anger.MaxCounterRange.Value.Y,
+                anger.InverseCounter);
+        }
+
+        if (anger.SpawnPeriodRange != null)
+        {
+            counterComp.SpawnPeriod = _anger.GetAngerScale(args.User,
+                TimeSpan.FromSeconds(anger.SpawnPeriodRange.Value.X),
+                TimeSpan.FromSeconds(anger.SpawnPeriodRange.Value.Y),
+                anger.InverseCounter);
+        }
+    }
 
     private void OnExpandingShapeTrigger(Entity<ExpandingShapeSpawnerComponent> ent, ref SpawnCounterEntityShapeEvent args)
     {
@@ -87,14 +119,6 @@ public sealed class EntityShapeSystem : EntitySystem
         if (comp.CounterStepSize != null)
             comp.Shape.DefaultStepSize = (int) Math.Round(comp.CounterStepSize.Value * args.Counter);
 
-        SpawnTileShape(comp.Shape, Transform(ent).Coordinates, comp.Spawn, out _);
-    }
-
-    private void OnSequenceShapeTrigger(Entity<SequenceShapeSpawnerComponent> ent, ref SpawnCounterEntityShapeEvent args)
-    {
-        if (!ent.Comp.Scheduler.TryGetValue(args.Counter, out var shape))
-            return;
-
-        SpawnTileShape(shape, Transform(ent).Coordinates, ent.Comp.Spawn, out _);
+        SpawnEntityShape(comp.Shape, Transform(ent).Coordinates, comp.Spawn, out _);
     }
 }

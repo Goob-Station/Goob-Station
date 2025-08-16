@@ -1,4 +1,4 @@
-﻿using Content.Shared._Lavaland.Megafauna.Conditions;
+﻿using Content.Shared._Lavaland.Megafauna.Conditions.Targeting;
 using Content.Shared._Lavaland.Megafauna.Systems;
 
 namespace Content.Shared._Lavaland.Megafauna.Selectors;

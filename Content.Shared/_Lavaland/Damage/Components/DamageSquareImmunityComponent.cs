@@ -34,7 +34,7 @@ namespace Content.Shared._Lavaland.Damage.Components;
 /// </remarks>
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState, AutoGenerateComponentPause]
-public sealed partial class DamageImmunityComponent : Component
+public sealed partial class DamageSquareImmunityComponent : Component
 {
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField, AutoNetworkedField]

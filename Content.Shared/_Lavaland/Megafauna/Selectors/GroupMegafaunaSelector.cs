@@ -26,8 +26,6 @@ public sealed partial class GroupMegafaunaSelector : MegafaunaSelector
             return FailDelay;
 
         var pick = SharedRandomExtensions.Pick(children, args.Random);
-        pick.CopyFrom(this);
-
         return pick.Invoke(args);
     }
 }

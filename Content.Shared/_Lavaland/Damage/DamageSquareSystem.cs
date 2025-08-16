@@ -45,7 +45,7 @@ public sealed class DamageSquareSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
 
     private EntityQuery<DamageableComponent> _damageQuery;
-    private EntityQuery<DamageImmunityComponent> _immuneQuery;
+    private EntityQuery<DamageSquareImmunityComponent> _immuneQuery;
 
     public override void Initialize()
     {
@@ -54,7 +54,7 @@ public sealed class DamageSquareSystem : EntitySystem
         SubscribeLocalEvent<DamageSquareComponent, ComponentStartup>(OnMapInit);
 
         _damageQuery = GetEntityQuery<DamageableComponent>();
-        _immuneQuery = GetEntityQuery<DamageImmunityComponent>();
+        _immuneQuery = GetEntityQuery<DamageSquareImmunityComponent>();
     }
 
     private void OnMapInit(Entity<DamageSquareComponent> ent, ref ComponentStartup args)
@@ -76,7 +76,7 @@ public sealed class DamageSquareSystem : EntitySystem
             Damage((uid, damage));
         }
 
-        var immuneQuery = EntityQueryEnumerator<DamageImmunityComponent>();
+        var immuneQuery = EntityQueryEnumerator<DamageSquareImmunityComponent>();
         while (immuneQuery.MoveNext(out var uid, out var immune))
         {
             if (immune.ImmunityEndTime == null
@@ -113,7 +113,7 @@ public sealed class DamageSquareSystem : EntitySystem
             if (_net.IsServer) // One must imagine DamageableSystem prediction.
                 _damage.TryChangeDamage(target, field.Comp.Damage, damageable: damageable, origin: field.Owner, targetPart: TargetBodyPart.All);
 
-            EnsureComp<DamageImmunityComponent>(target).ImmunityEndTime =
+            EnsureComp<DamageSquareImmunityComponent>(target).ImmunityEndTime =
                 _timing.CurTime + TimeSpan.FromSeconds(field.Comp.ImmunityTime);
         }
 

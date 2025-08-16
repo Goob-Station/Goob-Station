@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Shared._Lavaland.Megafauna.Conditions.Targeting;
 
 namespace Content.Shared._Lavaland.Megafauna.Conditions;
 
@@ -19,13 +20,13 @@ public sealed partial class RangeMegafaunaCondition : MegafaunaTargetCondition
     [DataField]
     public float? MaxRange;
 
-    public override bool EvaluateImplementation(MegafaunaCalculationBaseArgs args)
+    public override bool EvaluateImplementation(MegafaunaCalculationBaseArgs args, EntityUid target)
     {
         var entMan = args.EntityManager;
         var transformSys = entMan.System<SharedTransformSystem>();
 
         var bossPos = transformSys.GetMapCoordinates(args.BossEntity);
-        var targetPos = transformSys.GetMapCoordinates(Target);
+        var targetPos = transformSys.GetMapCoordinates(target);
 
         if (bossPos.MapId != targetPos.MapId)
             return false;

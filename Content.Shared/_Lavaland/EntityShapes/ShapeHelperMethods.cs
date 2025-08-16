@@ -13,7 +13,7 @@ namespace Content.Shared._Lavaland.EntityShapes;
 /// <summary>
 /// Some static helper methods that help to create some tile patterns with ease.
 /// Allows to reuse already written methods for generating shapes, so making new
-/// TileShape classes becomes much easier.
+/// EntityShape classes becomes much easier.
 /// </summary>
 public static class ShapeHelperMethods
 {

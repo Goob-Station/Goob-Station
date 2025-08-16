@@ -11,8 +11,14 @@ namespace Content.Shared._Lavaland.EntityShapes.Shapes;
 public abstract partial class EntityShape
 {
     /// <summary>
+    /// A weight used to pick between shapes.
+    /// </summary>
+    [DataField]
+    public float Weight = 1;
+
+    /// <summary>
     /// If specified, will add this shape into a shapes group,
-    /// that can be customized via <see cref="GroupEntityShape"/>.
+    /// that can be customized via <see cref="AllEntityShape"/>.
     /// That way you can change size or offset for groups of tiles
     /// instead of individually changing values.
     /// </summary>

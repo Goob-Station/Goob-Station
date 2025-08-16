@@ -1,141 +1,49 @@
 # Main selector
 - type: megafaunaSelector
   id: Hierophant
-  action: !type:GroupMegafaunaSelector
-    children:
-    - id: HierophantBoxExpandingTarget
-    - id: HierophantSpawnChasersTarget
-    - id: HierophantCrossSequenceTarget
-    - id: HierophantBlinkTarget
-      conditions:
-      - !type:PhaseMegafaunaCondition
-        phases:
-        - 1
-      - !type:RangeMegafaunaCondition
-        minRange: 3
-        maxRange: 21
-
-# Targeting attacks
-- type: megafaunaSelector
-  id: HierophantBoxExpandingTarget
-  action: !type:AllMegafaunaSelector
+  selector: !type:AllMegafaunaSelector
     children:
     - id: PickTargetSimple
-    - id: HierophantBoxExpanding
+    - id: HierophantActions
 
+# Actions
 - type: megafaunaSelector
-  id: HierophantCrossSequenceTarget
-  action: !type:AllMegafaunaSelector
+  id: HierophantActions
+  selector: !type:GroupMegafaunaSelector
     children:
-    - id: PickTargetSimple
-    - id: HierophantCrossSequence
+    - id: ActionHierophantBox
+    - id: ActionHierophantCrosses
+    - id: ActionHierophantChasers
+    - id: ActionHierophantBlink
 
 - type: megafaunaSelector
-  id: HierophantSpawnChasersTarget
-  action: !type:AllMegafaunaSelector
-    children:
-    - id: PickTargetSimple
-    - id: HierophantSpawnChasers
+  id: ActionHierophantBox
+  selector: !type:PerformActionSelector
+    actionId: ActionHierophantBox
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantBox
 
 - type: megafaunaSelector
-  id: HierophantBlinkTarget
-  action: !type:AllMegafaunaSelector
-    children:
-    - id: PickTargetSimple
-    - id: HierophantBlink
-
-# Sequence attacks
-- type: megafaunaSelector
-  id: HierophantBoxExpanding
-  action: !type:SequenceMegafaunaSelector
-    isSequence: true
-    counterModifier: !type:MegafaunaOddNumberSelector
-    selector: !type:NestedMegafaunaSelector
-      id: HierophantBox
-    rolls: !type:AngerNumberSelector
-      range: 3,8
-      inverse: true
+  id: ActionHierophantCrosses
+  selector: !type:PerformActionSelector
+    actionId: ActionHierophantCrosses
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantCrosses
 
 - type: megafaunaSelector
-  id: HierophantCrossSequence
-  action: !type:SequenceMegafaunaSelector
-    selector: !type:NestedMegafaunaSelector
-      id: HierophantRandomCross
-    rolls: !type:AngerNumberSelector
-      range: 1,3
-
-# Basic patterns
-- type: megafaunaSelector
-  id: HierophantBox
-  action: !type:SpawnPatternSelector
-    spawnId: LavalandHierophantSquare
-    shape: !type:NestedTileShape
-      id: BoxHollow
-    delay: !type:AngerNumberSelector
-      range: 0.5,0.9
-      inverse: true
+  id: ActionHierophantChasers
+  selector: !type:PerformActionSelector
+    actionId: ActionHierophantChasers
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantChasers
 
 - type: megafaunaSelector
-  id: HierophantRookCross
-  action: !type:SpawnPatternSelector
-    spawnId: LavalandHierophantSquare
-    shape: !type:NestedTileShape
-      id: RookCross
-      size: 11
-    delay: !type:AngerNumberSelector
-      range: 0.6,1.1
-      inverse: true
-
-- type: megafaunaSelector
-  id: HierophantBishopCross
-  action: !type:SpawnPatternSelector
-    spawnId: LavalandHierophantSquare
-    shape: !type:NestedTileShape
-      id: BishopCross
-      size: 11
-    delay: !type:AngerNumberSelector
-      range: 0.6,1.1
-      inverse: true
-
-- type: megafaunaSelector
-  id: HierophantQueenCross
-  action: !type:SpawnPatternSelector
-    shape: !type:NestedTileShape
-      id: QueenCross
-      size: 11
-    spawnId: LavalandHierophantSquare
-    delay: !type:AngerNumberSelector
-      range: 0.7,1.2
-      inverse: true
-
-- type: megafaunaSelector
-  id: HierophantRandomCross
-  action: !type:GroupMegafaunaSelector
-    children:
-    - id: HierophantRookCross
-    - id: HierophantBishopCross
-    - id: HierophantQueenCross
-      weight: 0.8
-      conditions:
-      - !type:PhaseMegafaunaCondition
-        phases:
-        - 2
-
-# Specific actions
-# TODO: after action rework remake this into actual actions
-- type: megafaunaSelector
-  id: HierophantSpawnChasers
-  action: !type:HierophantChasersSelector
-    speedSelector: !type:AngerNumberSelector
-      range: 2,5
-    stepsSelector: !type:AngerNumberSelector
-      range: 20,50
-    amountSelector: !type:AngerNumberSelector
-      range: 1,3
-
-- type: megafaunaSelector
-  id: HierophantBlink
-  action: !type:HierophantBlinkSelector
-    teleportShape: !type:NestedTileShape
-      id: BoxFilled
-      size: 3
+  id: ActionHierophantBlink
+  selector: !type:PerformActionSelector
+    actionId: ActionHierophantBlink
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantBlink

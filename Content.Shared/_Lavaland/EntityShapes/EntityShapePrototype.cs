@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.EntityShapes;
 
 /// <summary>
-/// Contains one or multiple TileShapes to create a pattern.
+/// Contains one or multiple EntityShapes to create a pattern.
 /// </summary>
 [Prototype]
 public sealed partial class EntityShapePrototype : IPrototype

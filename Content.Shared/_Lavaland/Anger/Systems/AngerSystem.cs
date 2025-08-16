@@ -5,7 +5,7 @@
 
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Anger.Components;
-using Content.Shared._Lavaland.Megafauna;
+using Content.Shared._Lavaland.Megafauna.Events;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Damage;
@@ -41,6 +41,9 @@ public sealed class AngerSystem : EntitySystem
 
     public void AdjustAggression(Entity<AngerComponent?> ent, float value)
     {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
         ent.Comp.CurrentAnger += value;
         UpdateAggression(ent.Owner);
     }

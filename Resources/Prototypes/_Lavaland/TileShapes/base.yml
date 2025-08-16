@@ -1,23 +1,23 @@
-- type: tileShape
+- type: entityShape
   id: BoxFilled
-  shape: !type:BoxTileShape
+  shape: !type:BoxEntityShape
 
-- type: tileShape
+- type: entityShape
   id: BoxHollow
-  shape: !type:BoxTileShape
+  shape: !type:BoxEntityShape
     hollow: true
 
-- type: tileShape
+- type: entityShape
   id: RookCross
-  shape: !type:RookTileShape
+  shape: !type:RookEntityShape
 
-- type: tileShape
+- type: entityShape
   id: BishopCross
-  shape: !type:BishopTileShape
+  shape: !type:BishopEntityShape
 
-- type: tileShape
+- type: entityShape
   id: QueenCross
-  shape: !type:GroupTileShape
+  shape: !type:AllEntityShape
     children:
     - id: RookCross
     - id: BishopCross

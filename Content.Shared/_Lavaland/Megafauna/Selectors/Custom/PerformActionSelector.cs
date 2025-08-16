@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using Content.Shared._Lavaland.Megafauna.Components;
+﻿using Content.Shared._Lavaland.Megafauna.Components;
+using Content.Shared._Lavaland.Megafauna.Systems;
 using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
 
@@ -18,23 +18,13 @@ public sealed partial class PerformActionSelector : MegafaunaSelector
     {
         var entMan = args.EntityManager;
         var actionSys = entMan.System<SharedActionsSystem>();
-        var actions = actionSys.GetActions(args.BossEntity).ToList();
+        var megafaunaSys = entMan.System<MegafaunaSystem>();
 
-        foreach (var (uid, _) in actions)
-        {
-            var entityPrototypeId = entMan.GetComponent<MetaDataComponent>(uid).EntityPrototype?.ID;
-            if (entityPrototypeId == null
-                || entityPrototypeId != ActionId)
-                continue;
+        if (!actionSys.TryGetActionById(args.BossEntity, ActionId, out var action))
+            return FailDelay;
 
-            var netAction = entMan.GetNetEntity(uid);
-            var netTarget = entMan.GetNetEntity(entMan.GetComponentOrNull<MegafaunaAiTargetingComponent>(args.BossEntity)?.TargetEntity);
-            var netCoords = entMan.GetNetCoordinates(entMan.GetComponentOrNull<MegafaunaAiTargetingComponent>(args.BossEntity)?.TargetCoordinate);
-            var ev = new RequestPerformActionEvent(netAction, netTarget, netCoords);
-
-            actionSys.TryPerformAction(args.BossEntity, ev);
-            break;
-        }
+        var ev = megafaunaSys.GetPerformEvent(args.BossEntity, action.Value.Owner);
+        actionSys.TryPerformAction(args.BossEntity, ev);
 
         return DelaySelector.Get(args);
     }

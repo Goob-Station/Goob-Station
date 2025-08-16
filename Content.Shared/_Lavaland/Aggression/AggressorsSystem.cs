@@ -21,7 +21,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Lavaland.Audio;
-using Content.Shared._Lavaland.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Robust.Shared.GameStates;
@@ -40,7 +39,6 @@ public sealed class AggressorsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AggressiveComponent, BeforeDamageChangedEvent>(OnBeforeDamageChanged);
         SubscribeLocalEvent<AggressiveComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<AggressiveComponent, EntityTerminatingEvent>(OnDeleted);
         SubscribeLocalEvent<AggressiveComponent, MobStateChangedEvent>(OnStateChange);
@@ -106,13 +104,6 @@ public sealed class AggressorsSystem : EntitySystem
 
             AddAggressor(ent, aggressor.Value);
         }
-    }
-
-    private void OnBeforeDamageChanged(Entity<AggressiveComponent> ent, ref BeforeDamageChangedEvent args)
-    {
-        if (args.Origin == null
-            || HasComp<UnmannedWeaponryComponent>(args.Origin.Value))
-            args.Cancelled = true;
     }
 
     private void OnDamageChanged(Entity<AggressiveComponent> ent, ref DamageChangedEvent args)

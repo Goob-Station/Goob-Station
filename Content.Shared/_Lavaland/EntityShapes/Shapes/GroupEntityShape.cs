@@ -1,54 +1,30 @@
 ﻿using System.Linq;
 using System.Numerics;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Lavaland.EntityShapes.Shapes;
 
 /// <summary>
-/// Tile shape that is made of multiple other shapes.
+/// Picks one shape out of a list of children using weights to randomize between them.
 /// </summary>
 public sealed partial class GroupEntityShape : EntityShape
 {
     [DataField(required: true)]
     public List<EntityShape> Children = new();
 
-    [DataField]
-    public Dictionary<string, GroupTileShapeOptions>? Options;
-
     protected override List<Vector2> GetShapeImplementation(System.Random rand, IPrototypeManager proto)
     {
-        var result = new List<Vector2>();
+        var children = new Dictionary<EntityShape, float>(Children.Count);
         foreach (var child in Children)
         {
-            Vector2? offset = null;
-            int? size = null;
-            int? stepSize = null;
-
-            if (Options != null
-                && child.OverrideGroup != null
-                && Options.TryGetValue(child.OverrideGroup, out var options))
-            {
-                offset = options.Offset;
-                size = options.GroupSize;
-                stepSize = options.GroupStepSize;
-            }
-
-            result.AddRange(child.GetShape(rand, proto, offset, size, stepSize));
+            children.Add(child, child.Weight);
         }
 
-        return result.Distinct().ToList();
+        if (children.Count == 0)
+            return Enumerable.Empty<Vector2>().ToList();
+
+        var pick = SharedRandomExtensions.Pick(children, rand);
+        return pick.GetShape(rand, proto);
     }
-}
-
-[DataDefinition]
-public partial record struct GroupTileShapeOptions
-{
-    [DataField]
-    public Vector2? Offset;
-
-    [DataField]
-    public int? GroupSize;
-
-    [DataField]
-    public int? GroupStepSize;
 }
