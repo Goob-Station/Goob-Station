@@ -203,7 +203,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadHatBeret
+  parent: [ClothingHeadHatBeret, BaseSecurityContraband] #goobstation - contraband marking
   id: ClothingHeadHatBeretSecurity
   name: security beret
   description: A stylish clothing option for security officers.
@@ -235,7 +235,7 @@
         Heat: 0.8
 
 - type: entity
-  parent: ClothingHeadHatBeret
+  parent: [ClothingHeadHatBeret, BaseSecurityContraband] #goobstation - contraband marking
   id: ClothingHeadHatSecurityTrooper
   name: trooper hat
   description: A campaign hat for the Nanotrasen Troopers, comes with a case too, but you lost it.
