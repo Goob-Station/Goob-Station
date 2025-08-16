@@ -93,25 +93,30 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCMO
 
+
 - type: loadout
   id: ChiefMedicalOfficerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCMO
+
 
 - type: loadout
   id: ChiefMedicalOfficerTurtleneckJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCMOTurtle
 
+
 - type: loadout
   id: ChiefMedicalOfficerTurtleneckJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCMOTurtle
 
+
 - type: loadout # goob
   id: CMOMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCMO
+
 
 # Head
 - type: loadout
@@ -119,10 +124,12 @@
   equipment:
     head: ClothingHeadHatBeretCmo
 
+
 - type: loadout
   id: CMOMedicalHeadMirror
   equipment:
     head: ClothingHeadMirror
+
 
 # Neck
 - type: loadout

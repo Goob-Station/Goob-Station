@@ -111,9 +111,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -6569,28 +6567,6 @@ entities:
     - type: Transform
       pos: 48.345963,-21.521229
       parent: 2
-- proto: ActionToggleInternals
-  entities:
-  - uid: 5
-    components:
-    - type: Transform
-      parent: 4
-    - type: InstantAction
-      container: 4
-  - uid: 7
-    components:
-    - type: Transform
-      parent: 6
-    - type: InstantAction
-      container: 6
-- proto: ActionToggleLight
-  entities:
-  - uid: 9
-    components:
-    - type: Transform
-      parent: 8
-    - type: InstantAction
-      container: 8
 - proto: AirAlarm
   entities:
   - uid: 10
@@ -43098,14 +43074,6 @@ entities:
     - type: Transform
       pos: 74.515,18.613554
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 5
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 5
 - proto: DresserBlueshieldOfficerFilled
   entities:
   - uid: 5667
@@ -67743,22 +67711,6 @@ entities:
     - type: Transform
       pos: 40.512142,35.84228
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 9
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 9
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
 - proto: LargeBeaker
   entities:
   - uid: 10120
@@ -68825,14 +68777,6 @@ entities:
     - type: Transform
       pos: 44.5341,28.548758
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 7
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 7
   - uid: 10284
     components:
     - type: Transform
