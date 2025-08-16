@@ -43,6 +43,7 @@
     - Tajaran
     - Shadowkin
     - Chitinid
+    - Feroxi
   - type: ActivatableUI
     key: enum.WizardMirrorUiKey.Key
     singleUser: true

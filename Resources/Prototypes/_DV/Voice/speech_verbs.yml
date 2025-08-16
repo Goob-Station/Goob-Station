@@ -54,3 +54,12 @@
   - chat-speech-verb-chitinid-2
   - chat-speech-verb-chitinid-3
   - chat-speech-verb-chitinid-4
+
+- type: speechVerb
+  id: Feroxi
+  name: chat-speech-verb-name-feroxi
+  speechVerbStrings:
+  - chat-speech-verb-feroxi-1
+  - chat-speech-verb-feroxi-2
+  - chat-speech-verb-feroxi-3
+  - chat-speech-verb-feroxi-4
