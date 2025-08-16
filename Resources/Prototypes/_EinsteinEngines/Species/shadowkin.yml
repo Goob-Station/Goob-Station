@@ -24,6 +24,14 @@
   sexes:
     - Male
     - Female
+  # begin Goobstation: port EE height/width sliders
+  minHeight: 0.75
+  defaultHeight: 0.85
+  maxHeight: 1.15
+  minWidth: 0.77
+  defaultWidth: 0.85
+  maxWidth: 1.15
+  # end Goobstation: port EE height/width sliders
 
 - type: speciesBaseSprites
   id: MobShadowkinSprites
