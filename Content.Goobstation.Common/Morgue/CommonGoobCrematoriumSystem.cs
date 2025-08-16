@@ -1,0 +1,17 @@
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Diagnostics.CodeAnalysis;
+
+namespace Content.Goobstation.Common.Morgue;
+
+// Le experimental way to communicate between core and custom
+public abstract class CommonGoobCrematoriumSystem : EntitySystem
+{
+    public abstract bool IsAllowed(EntityUid uid, EntityUid user);
+    public abstract bool CanCremate(EntityUid uid, EntityUid target, [NotNullWhen(false)] out string? reason);
+    public abstract void Execute(EntityUid uid, EntityUid target);
+    public abstract void LogPassedChecks(EntityUid user, EntityUid target);
+}
