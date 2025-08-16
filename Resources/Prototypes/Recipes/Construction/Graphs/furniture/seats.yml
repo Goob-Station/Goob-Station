@@ -40,12 +40,12 @@
             - material: Brass
               amount: 1
               doAfter: 1
-        - to: chairOffice
+        - to: rollingChairOffice # CorvaxGoob-OfficeChairsMappingFix
           steps:
             - material: Steel
               amount: 2
               doAfter: 1
-        - to: chairOfficeDark
+        - to: rollingChairOfficeDark # CorvaxGoob-OfficeChairsMappingFix
           steps:
             - material: Steel
               amount: 2
@@ -170,6 +170,32 @@
             - tool: Screwing
               doAfter: 1
 
+    # CorvaxGoob-OfficeChairsMappingFix-Start
+    - node: rollingChairOffice
+      entity: RollingChairOfficeLight
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+
+    - node: rollingChairOfficeDark
+      entity: RollingChairOfficeDark
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    # CorvaxGoob-OfficeChairsMappingFix-End
+
     - node: chairComfy
       entity: ComfyChair
       edges:
@@ -273,7 +299,6 @@
               doAfter: 1
             - tool: Screwing
               doAfter: 1
-
     - node: blueComfBench
       entity: BenchBlueComfy
       edges:
