@@ -107,7 +107,7 @@
   parent: Clothing
   id: ClothingBackpackFirefighterTank
   name: firefighter water tank backpack
-  description: A refrigerated water tank backpack that can switch modes to launch ATMOS resin or work as a high pressure extinguisher. 
+  description: A refrigerated water tank backpack that can switch modes to launch ATMOS resin or work as a high pressure extinguisher.
   components:
   - type: Tag
     tags:

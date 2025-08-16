@@ -1,0 +1,309 @@
+- type: crystallizerRecipe
+  id: metalHydrogenRecipe
+  name: Metal Hydrogen
+  minimumTemperature: 50000
+  maximumTemperature: 150000
+  energyRelease: -2500000
+  products:
+    MetalHydrogen1: 1
+  dangerous: false
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 50    # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 300   # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+
+- type: crystallizerRecipe
+  id: healiumCrystalRecipe
+  name: Healium Crystal
+  minimumTemperature: 200
+  maximumTemperature: 400
+  energyRelease: -2000000
+  products:
+    HealiumCrystal: 1
+  dangerous: false
+  minimumRequirements:
+  - 120   # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 50    # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 100   # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+
+- type: crystallizerRecipe
+  id: protoNitrateCrystalRecipe
+  name: Proto-Nitrate Crystal
+  minimumTemperature: 200
+  maximumTemperature: 400
+  energyRelease: 1500000
+  products:
+    ProtoNitrateCrystal: 1
+  dangerous: false
+  minimumRequirements:
+  - 80    # oxygen
+  - 80    # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 100   # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+
+- type: crystallizerRecipe
+  id: ammoniaCrystalRecipe
+  name: Ammonia Crystal
+  minimumTemperature: 200
+  maximumTemperature: 240
+  energyRelease: 950000
+  products:
+    AmmoniaCrystal: 2
+  dangerous: false
+  minimumRequirements:
+  - 0     # oxygen
+  - 40    # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 50    # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+
+- type: crystallizerRecipe
+  id: supermatterSliverRecipe
+  name: Supermatter Sliver
+  minimumTemperature: 10
+  maximumTemperature: 20
+  energyRelease: 3500000
+  products:
+    SupermatterSliver: 1
+  dangerous: true
+  minimumRequirements:
+  - 4500  # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 5000  # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 200   # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 250   # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 250   # antinob
+
+- type: crystallizerRecipe
+  id: nitrousOxideCrystalRecipe
+  name: Nitrous Oxide Crystal
+  minimumTemperature: 50
+  maximumTemperature: 350
+  energyRelease: 3500000
+  products:
+    NitrousOxideCrystal: 1
+  dangerous: false
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 150   # n2o
+  - 0     # frezon
+  - 30    # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+
+- type: crystallizerRecipe
+  id: diamondRecipe
+  name: Diamond
+  minimumTemperature: 10000
+  maximumTemperature: 30000
+  energyRelease: 9500000
+  products:
+    MaterialDiamond1: 1
+  dangerous: false
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 1500  # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+
+- type: crystallizerRecipe
+  id: plasmaSheetRecipe
+  name: Plasma Sheet
+  minimumTemperature: 10
+  maximumTemperature: 20
+  energyRelease: 3500000
+  products:
+    SheetPlasma1: 1
+  dangerous: false
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 450   # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 0     # helium
+  - 0     # antinob
+
+- type: crystallizerRecipe
+  id: crystalCellRecipe
+  name: Crystal Cell
+  minimumTemperature: 50
+  maximumTemperature: 90
+  energyRelease: -800000
+  products:
+    CrystalCell: 1
+  dangerous: false
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 800   # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 50    # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 0     # zauker
+  - 0     # halon
+  - 100   # helium
+  - 0     # antinob
+
+- type: crystallizerRecipe
+  id: zaukeriteRecipe
+  name: Zaukerite
+  minimumTemperature: 5
+  maximumTemperature: 20
+  energyRelease: 2900000
+  products:
+    Zaukerite1: 1
+  dangerous: false
+  minimumRequirements:
+  - 0     # oxygen
+  - 0     # nitrogen
+  - 0     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 7.5   # bz
+  - 0     # healium
+  - 0     # nitrium
+  - 0     # pluox
+  - 0     # hydrogen
+  - 0     # hypernob
+  - 0     # protonitrate
+  - 20    # zauker
+  - 0     # halon
+  - 0     # helium
+  - 5     # antinob

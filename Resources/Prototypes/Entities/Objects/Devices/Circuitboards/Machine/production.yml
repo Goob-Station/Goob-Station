@@ -522,7 +522,7 @@
     prototype: GasThermoMachineHellfireFreezer
     stackRequirements:
       Manipulator: 4
-      Plasma: 1
+      Uranium: 1
   - type: Construction
     deconstructionTarget: null
     graph: ThermomachineBoard
@@ -540,7 +540,7 @@
     prototype: GasThermoMachineHellfireHeater
     stackRequirements:
       Manipulator: 4
-      Plasma: 1
+      Uranium: 1
   - type: Construction
     graph: ThermomachineBoard
     deconstructionTarget: null

@@ -1,0 +1,6 @@
+# Assmos - /tg/ gases - this is a separate category because the new reagents
+- type: guideEntry
+  id: AtmosGases
+  name: guide-entry-atmosgases
+  text: "/ServerInfo/_Funkystation/Guidebook/ChemicalTabs/AtmosGases.xml"
+  filterEnabled: True
