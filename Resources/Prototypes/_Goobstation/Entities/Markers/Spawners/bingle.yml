@@ -27,7 +27,7 @@
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
-    prototype: MobBingle
+    prototype: MobBingleRandom
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
