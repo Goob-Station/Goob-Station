@@ -8,6 +8,8 @@
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
@@ -35,20 +37,21 @@
     cost: 150
   - id: Soap
     cost: 200
-  - id: PKAUpgradeLight
-    cost: 500
   - id: SeismicCharge
     cost: 250
-  - id: WeaponGrapplingGun
+  - id: Flare
     cost: 300
   # TODO: laser pointer 300, toy facehugger 300
   # TODO: stabilizing serum for 400
   - id: FultonBeacon
     cost: 400
-  # TODO: bluespace shelter capsule for 400
+  - id: PowerCellMedium
+    cost: 450
   - id: ClothingEyesGlassesGarMeson
     cost: 500
   - id: ClothingBeltSalvageWebbing
+    cost: 500
+  - id: PKAUpgradeLight
     cost: 500
   - id: ClothingShoesBootsJack
     cost: 550
@@ -58,6 +61,10 @@
     cost: 600
   - id: MedkitBurnFilled
     cost: 600
+  - id: DoubleEmergencyOxygenTankFilled
+    cost: 650
+  - id: DoubleEmergencyNitrogenTankFilled
+    cost: 650
   - id: LavalandJaunter
     cost: 750
   - id: WeaponCrusher
@@ -68,6 +75,8 @@
     cost: 750
   - id: SurvivalMedipen
     cost: 800
+  - id: PowerCellHigh
+    cost: 900
   - id: Fulton
     cost: 1000
   - id: PKAUpgradeRange
