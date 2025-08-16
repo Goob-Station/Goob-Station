@@ -146,6 +146,7 @@ using Content.Server.PowerCell;
 using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
 using Content.Shared._CorvaxGoob.Skills;
 using Content.Goobstation.Common.Weapons.NoWieldNeeded;
+using Content.Server._CorvaxGoob.Skills;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
