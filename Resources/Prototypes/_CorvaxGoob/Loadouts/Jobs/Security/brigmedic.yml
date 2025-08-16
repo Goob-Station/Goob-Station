@@ -15,6 +15,11 @@
 
 # Маска
 - type: loadout
+  id: BrigmedicSecurityMedicalRespirator
+  equipment:
+    mask: ClothingMaskSecurityMedicalRespirator
+
+- type: loadout
   id: BrigmedicGasSecurity
   equipment:
     mask: ClothingMaskGasSecurity

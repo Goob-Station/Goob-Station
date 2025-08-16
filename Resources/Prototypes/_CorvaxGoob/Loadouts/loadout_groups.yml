@@ -57,3 +57,11 @@
   name: loadout-group-pilot-outerclothing
   loadouts:
   - OuterWinterPilot
+
+- type: loadoutGroup
+  id: BrigmedicMask
+  name: loadout-group-brigmedic-mask
+  loadouts:
+  - BrigmedicSecurityMedicalRespirator
+  - BrigmedicGasSecurity
+  - BrigmedicMedicalSecurity

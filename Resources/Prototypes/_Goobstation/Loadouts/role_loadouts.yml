@@ -146,10 +146,8 @@
   id: JobBrigmedic
   groups:
   - BrigmedicHead
-  #Corvax-Goob-brigmedic-loadout-update-start
   #- MedicalMask
-  - BrigmedicMask
-  #Corvax-Goob-brigmedic-loadout-update-end
+  - BrigmedicMask # CorvaxGoob-Brigmedic-Loadout : Replaced from MedicalMask
   - BrigmedicJumpsuit
   - BrigmedicOuterClothing
   - MedicalGloves

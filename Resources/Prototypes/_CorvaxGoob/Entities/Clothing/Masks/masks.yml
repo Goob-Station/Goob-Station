@@ -4,8 +4,6 @@
   name: security medical respirator
   description: A respirator that provides protection against viruses, dust and more.
   components:
-  - type: Item
-    size: Tiny
   - type: Sprite
     sprite: _CorvaxGoob/Clothing/Masks/securitymedicalrespirator.rsi
   - type: Clothing

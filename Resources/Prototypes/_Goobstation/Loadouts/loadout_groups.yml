@@ -264,22 +264,12 @@
   name: loadout-group-brigmedic-head
   minLimit: 0
   loadouts:
-  - BrigmedicBeretSecurityMedic #Corvax-Goob-brigmedic-loadout-update
+  - BrigmedicSecurityHat #Corvax-Goob-brigmedic-loadout-update
   - BrigmedicBeret
   - CMOMedicalHeadMirror
   - SecurityBeret
   - SecurityHat
   - TrooperHat
-
-  #Corvax-Goob-brigmedic-loadout-update-start
-- type: loadoutGroup
-  id: BrigmedicMask
-  name: loadout-group-brigmedic-mask
-  loadouts:
-  - BrigmedicSecurityMedicalRespirator
-  - BrigmedicGasSecurity
-  - BrigmedicMedicalSecurity
-  #Corvax-Goob-brigmedic-loadout-update-end
 
 - type: loadoutGroup
   id: BrigmedicOuterClothing
