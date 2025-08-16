@@ -141,7 +141,7 @@
     channels:
     - Syndicate
     defaultChannel: Syndicate
-    fontsizeIncrease: 18
+    fontSizeIncrease: 18
   - type: Sprite
     layers:
     - state: crypt_red
