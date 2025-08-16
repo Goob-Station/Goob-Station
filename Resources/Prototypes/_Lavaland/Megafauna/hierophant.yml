@@ -1,0 +1,49 @@
+# Main selector
+- type: megafaunaSelector
+  id: Hierophant
+  selector: !type:AllMegafaunaSelector
+    children:
+    - id: PickTargetSimple
+    - id: HierophantActions
+
+# Actions
+- type: megafaunaSelector
+  id: HierophantActions
+  selector: !type:GroupMegafaunaSelector
+    children:
+    - id: ActionHierophantBox
+    - id: ActionHierophantCrosses
+    - id: ActionHierophantChasers
+    - id: ActionHierophantBlink
+
+- type: megafaunaSelector
+  id: ActionHierophantBox
+  selector: !type:PerformActionSelector
+    actionId: ActionHierophantBox
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantBox
+
+- type: megafaunaSelector
+  id: ActionHierophantCrosses
+  selector: !type:PerformActionSelector
+    actionId: ActionHierophantCrosses
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantCrosses
+
+- type: megafaunaSelector
+  id: ActionHierophantChasers
+  selector: !type:PerformActionSelector
+    actionId: ActionHierophantChasers
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantChasers
+
+- type: megafaunaSelector
+  id: ActionHierophantBlink
+  selector: !type:PerformActionSelector
+    actionId: ActionHierophantBlink
+    conditions:
+    - !type:ActionAvailableCondition
+      actionId: ActionHierophantBlink
