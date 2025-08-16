@@ -20,7 +20,7 @@ public sealed class AddComponentsImplantSystem : EntitySystem
 
         foreach (var component in ent.Comp.ComponentsToAdd)
         {
-            // Don't add the component if it already exists
+            // Don't add the component if it already exists.
             if (EntityManager.HasComponent(target, _factory.GetComponent(component.Key).GetType()))
                 continue;
 

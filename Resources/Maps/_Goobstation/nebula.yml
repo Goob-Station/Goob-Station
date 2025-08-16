@@ -50944,6 +50944,7 @@ entities:
   - uid: 8277
     components:
     - type: MetaData
+      name: spent syndicate implanter
       desc: A gift from a not-so-friendly friend. Whoever it was meant for knows what it does.
     - type: Transform
       parent: 16802

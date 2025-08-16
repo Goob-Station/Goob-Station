@@ -6,7 +6,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    permanent: true
+    permanent: false
   - type: AddComponentsImplant
     componentsToAdd:
       - type: BibleUser
@@ -19,12 +19,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    permanent: true
+    permanent: false
   - type: AddComponentsImplant
     componentsToAdd:
     - type: MimePowers
       preventWriting: false # Explicit in case upstream changes its mind on this.
 
+# Custom Implant for Sunday
 - type: entity
   parent: BaseSubdermalImplant
   id: MutingImplant
@@ -33,11 +34,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    permanent: true
+    permanent: false
+    implantAction: ActionActivateDeathAcidifier
+  - type: TriggerImplantAction
+  - type: GibOnTrigger
+  - type: SpawnOnTrigger
+    proto: Acidifier
   - type: AddComponentsImplant
     componentsToAdd:
     - type: MimePowers
       vowCooldown: 5
       punishmentChance: 0
       wallPrototype: Paper
-      preventWriting: false # Explicit in case upstream changes its mind on this.
+      preventWriting: false

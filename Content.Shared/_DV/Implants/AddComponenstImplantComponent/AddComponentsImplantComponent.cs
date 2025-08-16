@@ -7,7 +7,7 @@ namespace Content.Shared._DV.Implants.AddComponentsImplant;
 /// </summary>
 /// <remarks>
 ///     Warning: Multiple implants with this component adding the same components will not properly remove components
-///     unless removed in the inverse order of their injection (Last in, first out).
+///     unless removed in the inverse order of their injection (Last in, first out)
 /// </remarks>
 [RegisterComponent]
 public sealed partial class AddComponentsImplantComponent : Component
