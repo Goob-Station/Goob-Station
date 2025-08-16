@@ -219,3 +219,7 @@ chatsan-replacement-70 = shut your bitch ass up
 chatsan-word-71 = icl
 chatsan-replacement-71 = i can't lie
 # goob end
+
+chatsan-word-72 = imho
+chatsan-replacement-72 = in my humble opinion
+
