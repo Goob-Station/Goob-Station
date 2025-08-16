@@ -1,4 +1,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ShieldAcrados <222141571+ShieldAcrados@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -47,6 +50,25 @@
     back: ClothingBackpackMessengerBrigmedic
 
 - type: loadout
+
+  id: SecurityMeleeKnife
+  storage:
+    back:
+    - CombatKnife
+
+- type: loadout
+  id: SecurityMeleePolyBaton
+  storage:
+    back:
+    - PolymerBaton
+
+- type: loadout
+  id: SecurityMeleeSpear
+  storage:
+    back:
+    - SpearTelescopic
+
+- type: loadout
   id: BrigmedicEnvirosuit
   equipment:
     jumpsuit: ClothingUniformEnvirosuitBrigmedic
@@ -63,3 +85,4 @@
   - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
     species:
     - Plasmaman
+
