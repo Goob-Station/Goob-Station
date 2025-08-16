@@ -35,7 +35,7 @@
 # Loud keys for command
 
 - type: entity
-  parent: [ EncryptionKey, BaseCargoContraband ]
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyCargoLoud
   name: cargo encryption key loudspeaker
   description: An encryption key used by supply employees.
@@ -54,7 +54,7 @@
     - EncryptionCargo
 
 - type: entity
-  parent: [ EncryptionKey, BaseEngineeringContraband ]
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyEngineeringLoud
   name: engineering encryption key loudspeaker
   description: An encryption key used by the engineers.
@@ -73,7 +73,7 @@
     - EncryptionEngineering
 
 - type: entity
-  parent: [ EncryptionKey, BaseMedicalContraband ]
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyMedicalLoud
   name: medical encryption key loudspeaker
   description: An encryption key used by those who save lives.
@@ -92,7 +92,7 @@
     - EncryptionMedical
 
 - type: entity
-  parent: [ EncryptionKey, BaseScienceContraband ]
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyScienceLoud
   name: science encryption key loudspeaker
   description: An encryption key used by scientists. Maybe it is plasmaproof?
@@ -111,7 +111,7 @@
     - EncryptionScience
 
 - type: entity
-  parent: [ EncryptionKey, BaseSecurityLawyerContraband ]
+  parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeySecurityLoud
   name: security encryption key Loudspeaker
   description: An encryption key used by security.
