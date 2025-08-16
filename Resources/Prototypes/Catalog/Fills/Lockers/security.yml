@@ -104,7 +104,7 @@
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
       - id: ClothingBackpackElectropack
-        amount: 2
+      - id: ClothingNeckBaseShockCollar # Pirate
       - id: RemoteSignaller
         amount: 2
       - id: Multitool # Goobstation
@@ -137,7 +137,7 @@
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
       - id: ClothingBackpackElectropack
-        amount: 2
+      - id: ClothingNeckBaseShockCollar # Pirate
       - id: RemoteSignaller
         amount: 2
       - id: Binoculars

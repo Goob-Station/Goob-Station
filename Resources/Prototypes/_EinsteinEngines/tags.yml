@@ -1,4 +1,10 @@
 - type: Tag
+  id: Envirohelm
+
+- type: Tag
+  id: PlasmamanSafe
+
+- type: Tag
   id: ShadowkinEmotes
 
 - type: Tag

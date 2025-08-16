@@ -232,3 +232,5 @@ stack-astro-snow-floor = астро-снігова підлога
 stack-large-wood-floor = велика дерев'яна підлога
 stack-red-circuit-floor = підлога з червоних схем
 stack-asteroid-astro-sand-floor = астро-піщана підлога астероїда
+
+stack-black-carpet-tile = чорна килимова плитка

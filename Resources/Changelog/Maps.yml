@@ -1,67 +1,362 @@
-Order: 1
-Entries:
+﻿Entries:
 - author: ArtisticRoomba
   changes:
-  - message: The mapping changelog has been added! This primarily serves as a way to make players aware of large changes or important fixes to maps, without cluttering the main changelog.
+  - message: Додано список змін мап! В основному це слугує для того, щоб сповіщати гравців
+      про великі зміни або важливі виправлення на мапах, не захаращуючи основний список
+      змін.
     type: Add
   id: 1
   time: '2025-02-03T01:29:24.112Z'
 - author: ArtisticRoomba
   changes:
-  - message: A chemical dispenser has been added to the nukie planet, allowing new agents to work in a familiar environment.
+  - message: На планету ядерних оперативників додано хімічний дозатор, що дозволяє
+      новим агентам працювати у знайомому середовищі.
     type: Add
   id: 2
   time: '2025-01-27T07:10:24.000Z'
 - author: ArtisticRoomba
   changes:
-  - message: On many stations, power has been rebalanced to allow more time for engineering to setup power. This should allow time for activities like TA mentoring and more complex power setups.
+  - message: На багатьох станціях було змінено баланс енергомережі, щоб дати інженерам
+      більше часу на налаштування живлення. Це має надати час для таких дій, як навчання
+      асистентів та створення складніших енергетичних систем.
     type: Tweak
   id: 3
   time: '2025-01-27T07:10:24.000Z'
 - author: Nox, ToxicSonicFan04
   changes:
-  - message: Station armory contents have been tweaked to balance security gear to the amount of security personnel.
+  - message: Вміст збройової кімнати на станції було змінено, щоб збалансувати спорядження
+      служби безпеки відповідно до кількості її персоналу.
     type: Tweak
   id: 4
   time: '2025-01-27T07:10:24.000Z'
 - author: ArtisticRoomba
   changes:
-  - message: On Meta, Engineering and Atmospherics now share a distinct HV subnet seperate from the station's main power grid. Previously Engineering and Atmos couldn't share power, and one side would be discharged depending on who setup power first.
+  - message: На станції "Мета" інженерний та атмосферний відділи тепер використовують
+      спільну високовольтну підмережу, окрему від основної енергомережі станції.
+      Раніше інженерний та атмосферний відділи не могли ділити енергію, і одна зі
+      сторін розряджалася залежно від того, хто першим налаштував живлення.
     type: Fix
   id: 5
   time: '2025-01-26T12:00:00Z'
 - author: Southbridge
   changes:
-  - message: On many stations, uncleanable dirt decals have been made cleanable.
+  - message: На багатьох станціях бруд, який неможливо було прибрати, тепер можна
+      відмити.
     type: Fix
   id: 6
   time: '2025-01-12T12:00:00Z'
 - author: Compilatron144
   changes:
-  - message: Plasma station's population limit has been raised to make it into a high population station.
+  - message: Ліміт населення на станції "Плазма" було збільшено, щоб зробити її станцією
+      з високою чисельністю населення.
     type: Tweak
   id: 7
   time: '2025-01-19T12:00:00Z'
 - author: IProduceWidgets
   changes:
-  - message: On Oasis, the genpop prison has been added.
+  - message: На станції "Оазис" додано загальну тюремну зону (genpop).
     type: Add
-  - message: On Oasis, Security has been given a large department rework.
+  - message: На станції "Оазис" відділ безпеки було значно перероблено.
     type: Tweak
   id: 8
   time: '2025-04-29T09:04:07.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37031
 - author: LaCumbiaDelCoronavirus
   changes:
-  - message: Added a new salvage ruin, Telescience.
+  - message: Додано нові уламки для утилізації - Телепортаційна наука.
     type: Add
   id: 9
   time: '2025-04-30T14:49:36.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/36653
 - author: Southbridge
   changes:
-  - message: 'New salvage ruin: Atmos Interchange'
+  - message: 'Нові уламки для утилізації: Атмосферна розв''язка'
     type: Add
   id: 10
   time: '2025-05-02T15:45:46.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/37115
+- author: spanky-spanky
+  changes:
+  - message: На станції "Омега" оновлено та додано загальну тюремну зону (genpop).
+    type: Add
+  id: 11
+  time: '2025-05-03T21:19:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37157
+- author: Southbridge
+  changes:
+  - message: На станції "Бейгл" прибрали дуже зручно розташовану ID-картку капітана,
+      що знаходилась у відкритому космосі.
+    type: Remove
+  id: 12
+  time: '2025-05-04T07:20:33.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37171
+- author: Spessmann
+  changes:
+  - message: На станції "Конвекс" реконструйовано загальну тюремну зону (genpop).
+      Тепер вона може вмістити 8 в'язнів.
+    type: Tweak
+  - message: На станції "Конвекс" прибрано кімнату для виходу в'язнів у космос.
+    type: Remove
+  id: 13
+  time: '2025-05-06T06:56:34.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37216
+- author: Southbridge, Flipsie27
+  changes:
+  - message: На станції "Амбер" капітану видали третю ID-картку.
+    type: Add
+  - message: На станції "Амбер" атмосферному відділу надали власну стійку реєстрації
+      навпроти відділу безпеки.
+    type: Add
+  - message: На станції "Амбер" ботанічному відділу надали великий контейнер для
+      води.
+    type: Tweak
+  - message: На станції "Амбер" відділ безпеки було перероблено для впровадження
+      загальної тюремної зони (GenPop).
+    type: Tweak
+  - message: На станції "Амбер" супутник ШІ було перероблено та переміщено на східну
+      сторону мапи, збільшивши його для розміщення турелей ШІ в майбутньому.
+    type: Tweak
+  id: 14
+  time: '2025-05-08T01:39:09.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37262
+- author: Deerstop
+  changes:
+  - message: На станції "Елк-Рідж" зону ботаніки було покращено додатковими лотками,
+      вентиляційними отворами та скруберами.
+    type: Tweak
+  - message: На станції "Елк-Рідж" до відділу безпеки додано протипожежні шлюзи та
+      аварійне освітлення.
+    type: Fix
+  - message: На станції "Елк-Рідж" закулісна зона тепер доступна для персоналу з
+      сервісним та театральним доступом.
+    type: Tweak
+  - message: На станції "Елк-Рідж" консоль запитів на обслуговування тепер знаходиться
+      за лаштунками.
+    type: Tweak
+  id: 15
+  time: '2025-05-11T00:49:26.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37206
+- author: spanky-spanky
+  changes:
+  - message: На станції "Омега" кнопки вибухозахисних дверей камери згоряння TEG
+      тепер вимагають інженерного доступу замість атмосферного.
+    type: Fix
+  - message: На станції "Омега" служба безпеки тепер отримує скафандри.
+    type: Fix
+  id: 16
+  time: '2025-05-16T02:10:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37490
+- author: Spessmann
+  changes:
+  - message: На станції "Конвекс" додано вікно до сховища для виходу в космос служби
+      безпеки.
+    type: Add
+  id: 17
+  time: '2025-05-17T04:49:02.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37533
+- author: Southbridge
+  changes:
+  - message: На станції "Амбер" утилізаційному відділу надали дошку завдань.
+    type: Add
+  - message: На станції "Амбер" наглядачу видали синій ящик з інструментами.
+    type: Add
+  id: 18
+  time: '2025-05-18T07:23:21.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37565
+- author: Minemoder
+  changes:
+  - message: Кімнату стикування АТС було перебудовано, щоб запобігти крадіжкам з
+      неї та додати шатл-майнери для відновлення тиску в АТС.
+    type: Tweak
+  id: 19
+  time: '2025-05-18T08:12:47.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37560
+- author: Spessmann
+  changes:
+  - message: На станції "Конвекс" до утилізаційного відсіку додано комп'ютер з дошкою
+      завдань.
+    type: Add
+  - message: На станції "Конвекс" з утилізаційного відсіку прибрано зайву пару сканерів
+      маси та консолей експедиції.
+    type: Remove
+  id: 20
+  time: '2025-05-18T17:43:43.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37579
+- author: Southbridge
+  changes:
+  - message: На станції "Коробка" додано дошку завдань для утилізації.
+    type: Add
+  - message: На станції "Коробка" пристрої в морозильній камері замінено на їхні
+      морозильні варіанти.
+    type: Tweak
+  - message: На станції "Коробка" зону утримання було змінено, щоб вона була більш
+      інтуїтивно зрозумілою як для сингулярності, так і для тесли.
+    type: Tweak
+  - message: На станції "Коробка" трубопровід TEG було змінено для більшої логічності.
+    type: Tweak
+  id: 21
+  time: '2025-05-19T08:16:47.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37602
+- author: Deerstop
+  changes:
+  - message: На станції "Елк-Рідж" утилізаційний відсік було значно перероблено,
+      включно з додаванням нового комп'ютера з дошкою завдань.
+    type: Tweak
+  id: 22
+  time: '2025-05-19T18:55:41.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37600
+- author: spanky-spanky
+  changes:
+  - message: На станції "Фланд" додано дошку завдань для утилізації.
+    type: Add
+  id: 23
+  time: '2025-05-20T23:27:31.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37653
+- author: spanky-spanky
+  changes:
+  - message: На станції "Бейгл" додано дошку завдань для утилізації.
+    type: Add
+  id: 24
+  time: '2025-05-20T23:27:57.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37652
+- author: spanky-spanky
+  changes:
+  - message: На станції "Марафон" додано дошку завдань для утилізації.
+    type: Add
+  - message: На станції "Марафон" стандартний TEG було покращено.
+    type: Tweak
+  id: 25
+  time: '2025-05-20T23:29:45.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37654
+- author: spanky-spanky
+  changes:
+  - message: На станції "Омега" додано дошку завдань для утилізації.
+    type: Add
+  id: 26
+  time: '2025-05-20T23:35:59.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37655
+- author: spanky-spanky
+  changes:
+  - message: На станції "Запакована" додано дошку завдань для утилізації.
+    type: Add
+  id: 27
+  time: '2025-05-21T00:12:15.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37656
+- author: Southbridge
+  changes:
+  - message: На станції "Коробка" відділ безпеки було перероблено для додавання загальної
+      тюремної зони (GenPop).
+    type: Tweak
+  id: 28
+  time: '2025-05-21T05:00:52.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37663
+- author: spanky-spanky
+  changes:
+  - message: На станції "Досяжність" додано всі останні нововведення контенту.
+    type: Add
+  id: 29
+  time: '2025-05-21T07:51:21.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37669
+- author: Southbridge
+  changes:
+  - message: На станції "Амбер" до ядра ШІ, збройової та сховища додано сторожові
+      турелі.
+    type: Add
+  id: 30
+  time: '2025-05-27T23:08:34.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37859
+- author: Southbridge
+  changes:
+  - message: Додано спавнери декалей
+    type: Add
+  id: 31
+  time: '2025-05-27T23:55:48.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37066
+- author: ArtisticRoomba
+  changes:
+  - message: АТС було оновлено, щоб дозволити атмосферним технікам легко заправляти
+      АТС повітрям після розгерметизації.
+    type: Tweak
+  id: 32
+  time: '2025-05-28T07:52:52.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37891
+- author: Spessmann
+  changes:
+  - message: Випадкові технічні приміщення тепер використовують спавнери декалей,
+      що запобігає їх неправильній орієнтації
+    type: Tweak
+  id: 33
+  time: '2025-05-29T05:03:47.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37916
+- author: Southbridge
+  changes:
+  - message: На станції "Коробка" до ядра ШІ, збройової та сховища додано сторожові
+      турелі.
+    type: Add
+  id: 34
+  time: '2025-05-30T07:25:31.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37860
+- author: K-Dynamic
+  changes:
+  - message: На станції "Елк-Рідж" тепер є турелі в ядрі ШІ, сховищі та збройовій
+    type: Add
+  - message: На станції "Елк-Рідж" тепер є комп'ютер з кримінальними записами поруч
+      із загальною тюремною зоною (genpop) у вестибюлі служби безпеки
+    type: Add
+  id: 35
+  time: '2025-05-30T12:52:06.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37961
+- author: Boaz1111
+  changes:
+  - message: На станції "Марафон" тепер є загальна тюремна зона (Genpop).
+    type: Add
+  id: 36
+  time: '2025-06-01T19:38:39.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37687
+- author: Mixelz
+  changes:
+  - message: На станції "Плазма" додано загальну тюремну зону (Genpop), дошку завдань
+      для утилізації та турелі ШІ! Разом з кількома іншими виправленнями та збалансованим
+      лутом у технічних тунелях.
+    type: Add
+  id: 37
+  time: '2025-06-03T04:30:22.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38028
+- author: JpegOfAFrog
+  changes:
+  - message: На евакуаційному шатлі станції "Плазма" газові баки тепер заповнюються,
+      коли шатл прибуває.
+    type: Tweak
+  id: 38
+  time: '2025-06-03T05:58:25.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/37768
+- author: Spessmann
+  changes:
+  - message: На станції "Конвекс" до ядра ШІ додано турелі.
+    type: Add
+  id: 39
+  time: '2025-06-03T23:08:53.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38053
+- author: spanky-spanky
+  changes:
+  - message: На станції "Омега" до ядра ШІ та сховища додано сторожові турелі.
+    type: Add
+  id: 40
+  time: '2025-06-04T20:37:12.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38066
+- author: spanky-spanky
+  changes:
+  - message: На станції "Фланд" до ШІ, сховища та збройової додано сторожові турелі.
+    type: Add
+  id: 41
+  time: '2025-06-04T21:41:38.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38068
+- author: spanky-spanky
+  changes:
+  - message: Більшість евакуаційних шатлів було дещо перероблено для зменшення шкоди
+      від розгерметизації.
+    type: Tweak
+  id: 42
+  time: '2025-06-09T22:56:33.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/38186
+Order: 1

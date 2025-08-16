@@ -5,6 +5,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Content.Shared.Actions.Components;
 
 
 namespace Content.Server.Abilities.Psionics;
@@ -33,10 +34,13 @@ public sealed class AnoigoPowerSystem : EntitySystem
         var ev = new AnoigoEvent();
         RaiseLocalEvent(args.Target, ev);
 
-        if (!ev.Handled || !_actions.TryGetActionData(args.Action, out var actionData))
+        if (!ev.Handled)
             return;
-        if (actionData is { UseDelay: not null })
-            _actions.SetCooldown(args.Action, actionData.UseDelay.Value / component.CurrentDampening);
+
+        var action = _actions.GetAction((EntityUid) args.Action);
+
+        if (action?.Comp.UseDelay is { } delay)
+            _actions.SetCooldown((EntityUid) args.Action, delay / component.CurrentDampening);
 
         args.Handled = true;
         _psionics.LogPowerUsed(args.Performer, "anoigo");

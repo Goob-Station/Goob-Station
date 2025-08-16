@@ -11,6 +11,7 @@
 using Content.Goobstation.Shared.Hailer;
 using Content.Server.Chat.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Chat;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -59,6 +60,7 @@ public sealed class HailerSystem : EntitySystem
         "/Audio/_Goobstation/Hailer/floor.ogg",
         "/Audio/_Goobstation/Hailer/freeze.ogg",
         "/Audio/_Goobstation/Hailer/halt.ogg",
+        "/Audio/_Pirate/Hailer/militia.ogg", // Pirate
     ];
     Dictionary<EntityUid, TimeSpan> _delays = new Dictionary<EntityUid, TimeSpan>();
     TimeSpan _fixed_delay = TimeSpan.FromSeconds(2);

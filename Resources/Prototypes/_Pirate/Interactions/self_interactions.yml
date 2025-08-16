@@ -1,0 +1,46 @@
+- type: Interaction
+  id: SelfInteractionBase
+  parent: [BaseHands, BaseGlobal]
+  abstract: true
+  allowSelfInteract: true
+  hideByRequirement: true
+  effectFailure:
+    popup: SubtleFail
+  effectDelayed:
+    popup: Subtle
+  requirement:
+    !type:SelfTargetRequirement
+  failPopup:
+    others: null
+
+- type: Interaction
+  id: PinchSelf
+  parent: SelfInteractionBase
+  delay: 1
+  action:
+    !type:ComplexAction
+    actions:
+    - !type:ModifyHealthAction
+      damage:
+        types: {Blunt: 5}
+    # 45% chance to cause yelp
+    - !type:ConditionalAction
+      condition:
+        !type:ChanceRequirement
+        chance: 0.45
+      true:
+        !type:ChatMessageAction
+        numMessages: 3
+
+# Sleeping on the floor is real
+- type: Interaction
+  id: MakeSleepSelf
+  parent: [SelfInteractionBase, MakeSleepOther]
+  delay: 4.5
+  requirement:
+    !type:ComplexRequirement
+    requirements:
+    - !type:SelfTargetRequirement
+    - !type:StandingStateRequirement
+      allowLaying: true
+      allowKnockedDown: true

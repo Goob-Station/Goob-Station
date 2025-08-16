@@ -16,11 +16,12 @@
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
-  id: JobAdminAssistant
+  id: JobAdministrativeAssistant
   groups:
   - GroupTankHarness
   - AdminAssistantHeadset
   - AdminAssistantJumpsuit
+  - AdminAssistantShoes
   - CommonBackpack
   - Glasses
   - Survival

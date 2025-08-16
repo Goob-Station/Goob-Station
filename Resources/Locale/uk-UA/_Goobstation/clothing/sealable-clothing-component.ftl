@@ -18,7 +18,7 @@ sealable-clothing-seal-down = {$partName} розгерметизовується
 sealable-clothing-seal-down-helmet = {$partName} з шипінням відкривається
 sealable-clothing-seal-down-gauntlets = {$partName} слабшають навколо ваших пальців
 sealable-clothing-seal-down-chestplate = {$partName} звільняє ваші груди
-sealable-clothing-seal-down-boots = {$partName} послаблюють хватку на ваших ногах
+sealable-clothing-seal-down-boots = {$partName} послаблює хватку на ваших ногах
 
 sealable-clothing-sealed-process-toggle-fail = Костюм уже вимикається!
 sealable-clothing-unsealed-process-toggle-fail = Костюм уже вмикається!
@@ -27,3 +27,5 @@ sealable-clothing-sealed-toggle-fail = Спочатку деактивуйте �
 sealable-clothing-not-powered = Костюм не живиться!
 sealable-clothing-open-sealed-panel-fail = Панель проводки занадто щільно загерметизована!
 sealable-clothing-close-panel-first = Спочатку закрийте панель проводки!
+
+sealable-clothing-seal-was-broken = Герметичність костюма порушено!

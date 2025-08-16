@@ -25,7 +25,6 @@
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2024 Timemaster99 <57200767+Timemaster99@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
@@ -43,8 +42,11 @@
 // SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 nikitosych <boriszyn@gmail.com>
@@ -357,7 +359,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         || value == 0) // no damage???
             return;
 
-        var ev = new BeforeStaminaDamageEvent(value);
+        var ev = new BeforeStaminaDamageEvent(value, source); // Goob change: Added source param.
         RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
             return;
@@ -383,7 +385,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 component.NextUpdate = nextUpdate;
         }
 
-        AdjustSlowdown(uid);
+        AdjustSlowdown(uid, visual); // Goob edit
 
         SetStaminaAlert(uid, component);
 
@@ -433,7 +435,8 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         }
     }
 
-    public void ToggleStaminaDrain(EntityUid target, float drainRate, bool enabled, bool modifiesSpeed, EntityUid? source = null)
+    // Goob edit - stamina drains
+    public void ToggleStaminaDrain(EntityUid target, float drainRate, bool enabled, bool modifiesSpeed, string key, EntityUid? source = null, bool applyResistances = false)
     {
         if (!TryComp<StaminaComponent>(target, out var stamina))
             return;
@@ -443,13 +446,27 @@ public abstract partial class SharedStaminaSystem : EntitySystem
 
         if (enabled)
         {
-            stamina.ActiveDrains[actualSource] = (drainRate, modifiesSpeed);
+            stamina.ActiveDrains.TryAdd(key, (drainRate, modifiesSpeed, GetNetEntity(actualSource), applyResistances));
             EnsureComp<ActiveStaminaComponent>(target);
         }
         else
-            stamina.ActiveDrains.Remove(actualSource);
+        {
+            if (stamina.ActiveDrains.ContainsKey(key))
+                stamina.ActiveDrains.Remove(key);
+        }
 
         Dirty(target, stamina);
+    }
+
+    public void ModifyStaminaDrain(EntityUid target, string key, float newValue, StaminaComponent? component = null)
+    {
+        if (!Resolve(target, ref component, false))
+            return;
+
+        if (component.ActiveDrains.ContainsKey(key))
+            component.ActiveDrains[key] = (newValue, component.ActiveDrains[key].Item2, component.ActiveDrains[key].Item3, component.ActiveDrains[key].Item4);
+
+        Dirty(target, component);
     }
 
     public override void Update(float frameTime)
@@ -461,7 +478,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
         var curTime = _timing.CurTime;
         while (query.MoveNext(out var uid, out _))
         {
-            // Just in case we have active but not stamina we'll check and account for it.
+            // Goob Edit: Just in case we have active but not stamina we'll check and account for it.
             if (!stamQuery.TryGetComponent(uid, out var comp) ||
                 comp.StaminaDamage <= 0f && !comp.Critical && comp.ActiveDrains.Count == 0)
             {
@@ -469,12 +486,14 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 continue;
             }
             if (comp.ActiveDrains.Count > 0)
-                foreach (var (source, (drainRate, modifiesSpeed)) in comp.ActiveDrains)
+                foreach (var (drainRate, _, source, applyResistances) in comp.ActiveDrains.Values)
                     TakeStaminaDamage(uid,
                     drainRate * frameTime,
                     comp,
-                    source: source,
-                    visual: false);
+                    source: GetEntity(source),
+                    visual: false,
+                    applyResistances: applyResistances);
+
             // Shouldn't need to consider paused time as we're only iterating non-paused stamina components.
             var nextUpdate = comp.NextUpdate;
 
@@ -485,7 +504,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
             if (comp.Critical)
                 ExitStamCrit(uid, comp);
             // Goob - If theres no active drains, recover stamina.
-            if (comp.ActiveDrains.Count == 0)
+            if (!comp.ActiveDrains.Values.Any(x => x.DrainRate > 0))
                 TakeStaminaDamage(
                     uid,
                     comp.AfterCritical ? -comp.Decay * comp.AfterCritDecayMultiplier : -comp.Decay, // Recover faster after crit
@@ -562,7 +581,7 @@ public abstract partial class SharedStaminaSystem : EntitySystem
     /// speed modifier using the stun system. If no threshold is met then the entity's speed is restored to normal.
     /// </summary>
     /// <param name="ent">Entity to update</param>
-    private void AdjustSlowdown(Entity<StaminaComponent?> ent)
+    private void AdjustSlowdown(Entity<StaminaComponent?> ent, bool visual = true) // Goob edit
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
@@ -578,6 +597,6 @@ public abstract partial class SharedStaminaSystem : EntitySystem
                 closest = thres.Key;
         }
 
-        _stunSystem.UpdateStunModifiers(ent, ent.Comp.StunModifierThresholds[closest]);
+        _stunSystem.UpdateStunModifiers(ent, ent.Comp.StunModifierThresholds[closest], visual: visual); // Goob edit
     }
 }

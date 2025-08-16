@@ -1,0 +1,11 @@
+- type: latheRecipe
+  id: ClothingNeckBaseShockCollar
+  icon:
+    sprite: _Pirate/Clothing/Neck/Misc/shock.rsi
+    state: icon
+  result: ClothingNeckBaseShockCollar
+  completetime: 2
+  materials:
+    Steel: 300
+    Glass: 100
+    Plastic: 100

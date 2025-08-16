@@ -61,7 +61,7 @@
             Botanist: [ 2, 3 ]
             Chef: [ 2, 2 ]
             Janitor: [ 1, 2 ]
-            Chaplain: [ 1, 1 ]
+            Chaplain: [ 2, 2 ] #Pirate changes
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             #engineering

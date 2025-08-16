@@ -29,3 +29,4 @@ turret-controls-window-footer = Несанкціонований персона�
 
 # Попередження
 turret-controls-access-denied = Доступ заборонено
+turret-controls-window-turret-broken = ***НЕСПРАВНА***

@@ -23,11 +23,12 @@ injector-component-cannot-toggle-inject-message = Нічого вводити!
 
 ## mob-inject doafter повідомлення
 
-injector-component-drawing-user = Починаєш набирати голкою.
-injector-component-injecting-user = Ви почали вводити голкою.
+injector-component-drawing-user = Ви починаєте набирати голкою.
+injector-component-injecting-user = Ви починаєте вводити голкою.
 injector-component-drawing-target = {CAPITALIZE(THE($user))} намагається голкою набрати кров вашого тіла!
 injector-component-injecting-target = {CAPITALIZE($user)} намагається встромити в вас голку!
 injector-component-deny-chitinid = Екзоскелет {CAPITALIZE(THE($target))} занадто товстий, щоб голка могла його пробити.
 injector-spent-text = Витрачено
 onetime-injector-simple-volume-label = Обсяг: [color=white]{$currentVolume}[/color] Режим: [color=white]{$modeString}[/color]
 injector-component-injecting-locked-text = Блокування для ін'єкцій
+injector-component-deny-user = Екзоскелет занадто товстий!

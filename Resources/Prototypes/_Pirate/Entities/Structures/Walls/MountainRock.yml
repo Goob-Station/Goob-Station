@@ -1,0 +1,37 @@
+- type: entity
+  id: MountainRock
+  parent: BaseStructure
+  name: Гірська порода
+  suffix: Un-mineable
+  description: Скеляста гірська стіна. Її надто важко видобути.
+  components:
+  - type: Sprite
+    sprite: _Pirate/Structures/Walls/mountain_rock.rsi
+    state: full
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Occluder
+  - type: Airtight
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: IconSmooth
+    key: walls
+    base: rock_

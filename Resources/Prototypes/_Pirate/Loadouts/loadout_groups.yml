@@ -13,6 +13,14 @@
   - AdminAssistantHeadset
   - AdminAssistantHeadsetAlt
 
+- type: loadoutGroup
+  id: AdminAssistantShoes
+  name: loadout-group-admin-assistant-shoes
+  loadouts:
+  - BrownShoes
+  - BlackShoes
+  - WinterBoots
+
 # Sience
 - type: loadoutGroup
   id: MantisHead

@@ -1,0 +1,1 @@
+flavor-complex-plasma = як плазма

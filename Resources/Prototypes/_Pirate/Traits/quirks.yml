@@ -123,4 +123,17 @@
   components:
     - type: BloodDeficiency # By default, start taking bloodloss damage at around ~21.4 minutes,
       bloodLossPercentage: 0.0002333333  # then become crit ~10 minutes
+
+- type: trait
+  id: psionic
+  name: trait-psionic-name
+  description: trait-psionic-desc
+  category: Quirks
+  cost: 2
+  components:
+    - type: Psionic
+      ignoreStomachRequirement: false # crutch, instead of trait requirements
+    - type: InnatePsionicPowers
+      powersToAdd:
+        - TelepathyPower
 #endregion

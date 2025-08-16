@@ -119,7 +119,7 @@
             Botanist: [ 2, 3 ]
             Chef: [ 2, 2 ]
             Janitor: [ 3, 3 ]
-            Chaplain: [ 1, 1 ]
+            Chaplain: [ 2, 2 ] #Pirate changes
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             Zookeeper: [ 1, 1 ]

@@ -331,7 +331,7 @@
         Radiation: 0.1
         Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -708,7 +708,7 @@
         Radiation: 0.0
         Caustic: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
+    walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -755,7 +755,7 @@
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.4
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.95
     sprintModifier: 0.95
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -898,7 +898,7 @@
         Radiation: 0.15
         Caustic: 0.8
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
+    walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -966,6 +966,8 @@
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.45
+  - type: StaticPrice
+    price: 5000
   - type: DamageOnShootProtection #imp # Pirate V
     slots: OUTERCLOTHING
     damageProtection:
@@ -1039,9 +1041,9 @@
         Caustic: 0.4
   - type: Item
     size: Huge
-  - type: ClothingSpeedModifier # goobstation - duke nukies
-    walkModifier: 1.0
-    sprintModifier: 1.0
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -1138,7 +1140,7 @@
         Radiation: 0.2
         Caustic: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
+    walkModifier: 0.65
     sprintModifier: 0.65
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -1152,6 +1154,7 @@
   - type: Tag
     tags:
     - MonkeyWearable
+    - WhitelistChameleon
   - type: DamageOnShootProtection #imp # Pirate V
     slots: OUTERCLOTHING
     damageProtection:
