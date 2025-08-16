@@ -1,0 +1,194 @@
+- type: entity
+  id: ProjectilePolyboltMouseTimed
+  parent: ProjectilePolyboltBase
+  name: миша
+  description: Ні, я не хочу бути мишою!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardMouse
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ProjectilePolyboltCluwneTimed
+  parent: ProjectilePolyboltBase
+  name: клувне
+  description: Ні, я не хочу бути клувне!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: ArtifactCluwne
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ProjectilePolyboltBreadTimed
+  parent: ProjectilePolyboltBase
+  name: хліб
+  description: Ні, я не хочу бути хлібом!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardBread
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ProjectilePolyboltChickenTimed
+  parent: ProjectilePolyboltBase
+  name: курка
+  description: Ні, я не хочу бути куркою!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardChicken
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ProjectilePolyboltMonkeyTimed
+  parent: ProjectilePolyboltBase
+  name: монке
+  description: Ні, я не хочу бути куркою!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardMonkey
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ProjectilePolyboltGoatTimed
+  parent: ProjectilePolyboltBase
+  name: козел
+  description: Ні, я не хочу бути куркою!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardGoat
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ProjectilePolyboltCowTimed
+  parent: ProjectilePolyboltBase
+  name: корова
+  description: Ні, я не хочу бути куркою!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardCow
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ProjectilePolyboltPigTimed
+  parent: ProjectilePolyboltBase
+  name: свиня
+  description: Ні, я не хочу бути куркою!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardPig
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+- type: entity
+  id: ProjectilePolyboltHamsterTimed
+  parent: ProjectilePolyboltBase
+  name: омак
+  description: Ні, я не хочу бути куркою!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardHamster
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ProjectilePolyboltWizardCatTimed
+  parent: ProjectilePolyboltBase
+  name: кіт
+  description: Ні, я не хочу бути куркою!
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardCat
+  - type: TriggerWhitelist
+    whitelist:
+      components:
+      - Body
+
+- type: entity
+  id: ProjectileIceBurst
+  name: ice burst
+  description: Brrrrr.
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Cold: 20
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: ice
+      shader: unshaded
+  - type: StaminaDamageOnHit
+    damage: 25
+
+- type:  entity
+  parent: BaseBullet
+  id: ProjectileMagicTesla
+  name: magic tesla ball
+  description: 2 bajillion volts
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Sprite
+    sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
+    layers:
+    - state: tesla_projectile
+      shader: unshaded
+  - type: StaminaDamageOnCollide
+    damage: 15
+  - type: EmbeddableProjectile
+  - type: Projectile
+    deleteOnCollide: true
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+  - type: LightningArcShooter
+    arcDepth: 1
+    maxLightningArc: 3
+    shootMinInterval: 2.5
+    shootMaxInterval: 4.5
+    shootRange: 5
+    lightningPrototype: Lightning
+  - type: Electrified
+    requirePower: false
+
+- type: entity
+  name: spellsword bolt
+  id: SpellswordBolt
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: orangered
+  - type: Projectile
+     #   soundHit:  Waiting on serv3
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 15

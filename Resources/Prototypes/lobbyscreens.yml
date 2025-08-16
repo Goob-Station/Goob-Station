@@ -259,3 +259,10 @@
   background: /Textures/LobbyScreens/enlist.webp
   name: Nanotrasen wants YOU.
   artist: thebiggestbruh
+
+# Pirate
+- type: lobbyBackground
+  id: Cyberpsychosis
+  background: /Textures/LobbyScreens/Cyberpsychosis.webp
+  name: Cyberpsychosis
+  artist: Redmon

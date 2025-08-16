@@ -34,10 +34,12 @@
         hand1: MantisBlackBlade
       force: false
   #- type: BaseCultSpell PIRATE
+  #- type: SpeakOnAction Return this when SpeakOnAction has emote
+  #  sentence: "thrusts their open hand to the side. A black blade forms from nothingness into their waiting hand. Whispering demonic voices echo around the sword..."
 
 - type: entity
   name: black sword
-  parent: BaseItem
+  parent: [ BaseItem, BaseMantisContraband ]
   id: MantisBlackBlade
   description: A huge black sword covered in strange runes. It whispers incessantly to its wielder.
   components:
@@ -63,7 +65,7 @@
         Slash: 1.5
         Holy: 2
   - type: Item
-    size: Normal
+    size: Ginormous
   - type: Clothing
     slots:
     - back

@@ -2,7 +2,7 @@
   id: CartridgePistolMindbreaker
   name: cartridge (.35 auto mindbreaker)
   description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns.
-  parent: BaseCartridgePistol
+  parent: [ BaseCartridgePistol, BaseMantisContraband ]
   components:
   - type: CartridgeAmmo
     proto: BulletPistolMindbreaker

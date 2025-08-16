@@ -1,0 +1,121 @@
+# sprite: _NF/Objects/Weapons/Guns/Bow/crossbow.rsi
+# ammo tag: CrossbowBolt
+# Parents
+- type: entity
+  name: crossbow
+  parent: BaseItem
+  id: BaseCrossbow
+  description: The original rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Bow/crossbow.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+  - type: GunWieldBonus
+    minAngle: -33
+    maxAngle: -33
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/Weapons/Guns/Misc/arrow_nock.ogg
+  - type: UseDelay
+    delay: 2
+  - type: Gun
+    angleDecay: 35
+    minAngle: 34
+    maxAngle: 36
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
+  - type: ItemSlots
+    slots:
+      bolt:
+        name: bolt
+        startingItem: null
+        insertSound: /Audio/Items/bow_pull.ogg
+  - type: ContainerContainer
+    containers:
+      bolt: !type:ContainerSlot
+  - type: ContainerAmmoProvider
+    container: bolt
+
+- type: entity
+  id: CrossbowImprovised
+  parent: BaseCrossbow
+  name: impovised crossbow
+  components:
+  - type: Sprite
+    layers:
+    - state: unwielded
+      map: [ base ]
+    - state: unwielded-bolt
+      map: [ bolt ]
+      visible: false
+  # to elucidate whats intended here:
+  # arrow is inserted -> ItemMapper sets layer with map `arrow` to visible
+  # bow is wielded -> generic vis sets states of layers with map `arrow` and `base`
+  # arrow is removed -> itemmapper sets layer with map `arrow` to invisible
+  - type: Appearance
+  - type: ItemMapper
+    spriteLayers:
+    - bolt
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        bolt:
+          True: { state: wielded-bolt }
+          False: { state: unwielded-bolt }
+        base:
+          True: { state: wielded }
+          False: { state: unwielded }
+  # - type: Construction
+  #   graph: ImprovisedCrossbow
+  #   node: ImprovisedCrossbow
+
+
+- type: entity
+  id: MagicCrossbow
+  parent: CrossbowImprovised
+  name: impovised crossbow
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _Pirate/Objects/Weapons/Guns/Bow/magic_crossbow.rsi
+    layers:
+    - state: unwielded
+      map: [ base ]
+    - state: unwielded-bolt
+      map: [ bolt ]
+      visible: false
+  # to elucidate whats intended here:
+  # arrow is inserted -> ItemMapper sets layer with map `arrow` to visible
+  # bow is wielded -> generic vis sets states of layers with map `arrow` and `base`
+  # arrow is removed -> itemmapper sets layer with map `arrow` to invisible
+  - type: Appearance
+  - type: ItemMapper
+    spriteLayers:
+    - bolt
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        bolt:
+          True: { state: wielded-bolt }
+          False: { state: unwielded-bolt }
+        base:
+          True: { state: wielded }
+          False: { state: unwielded }
+  # - type: Construction
+  #   graph: ImprovisedCrossbow
+  #   node: ImprovisedCrossbow
+  - type: Tag
+    tags:
+    - WizardCrossbow

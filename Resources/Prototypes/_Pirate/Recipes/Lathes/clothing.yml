@@ -1,0 +1,29 @@
+- type: latheRecipe
+  id: AdminAssistantHeadMaid
+  icon:
+    sprite: _Pirate/Clothing/Uniforms/Jumpskirt/headmaid.rsi
+    state: icon
+  result: ClothingUniformSkirtMantis
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtAdminAssistant
+  icon:
+    sprite: _Pirate/Clothing/Uniforms/Jumpskirt/admin_assistant.rsi
+    state: icon
+  result: ClothingUniformSkirtMantis
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpsuitAdminAssistant
+  icon:
+    sprite: _Pirate/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
+    state: icon
+  result: ClothingUniformJumpsuitMantis
+  completetime: 4
+  materials:
+    Cloth: 300
