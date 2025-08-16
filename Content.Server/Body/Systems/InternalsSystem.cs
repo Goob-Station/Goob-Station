@@ -141,7 +141,7 @@ public sealed class InternalsSystem : SharedInternalsSystem
         if (!_respirator.CanMetabolizeGas(uid, tank.Value.Comp.Air))
             return;
 
-        ToggleInternals(uid, uid, force: false, component);
+        ToggleInternals(uid, uid, force: false, component, ToggleMode.On);
     }
 
     private void OnInhaleLocation(Entity<InternalsComponent> ent, ref InhaleLocationEvent args)
