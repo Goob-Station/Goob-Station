@@ -29,6 +29,7 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -40,6 +41,10 @@
   components:
   - type: MobMover
   - type: Mech
+    pilotBlacklist: # Goobstation Change
+      components:
+      - Zombie
+      - ZombieBlob
   - type: MechAir
   - type: AirFilter
     # everything except oxygen and nitrogen
@@ -210,7 +215,6 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -259,7 +263,6 @@
     pilotWhitelist:
       components:
       - HumanoidAppearance
-      - BorgChassis # Goobstation - Let borgs pilot mechs
 
 - type: entity
   parent: MechHonker
