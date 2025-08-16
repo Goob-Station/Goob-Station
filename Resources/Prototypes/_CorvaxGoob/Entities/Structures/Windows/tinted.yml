@@ -1,0 +1,73 @@
+- type: entity
+  id: WindowTintedDirectional
+  parent: WindowDirectionalRCDResistant
+  name: directional tinted window
+  description: Don't smudge up the glass down there.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: Sprite
+    sprite: Structures/Windows/directional.rsi
+    state: frosted_window
+  - type: Icon
+    sprite: Structures/Windows/directional.rsi
+    state: frosted_window
+  - type: RCDDeconstructable
+    cost: 4
+    delay: 4
+    fx: EffectRCDDeconstruct4
+  - type: Occluder
+    boundingBox: "-0.5, -0.5, 0.5, -0.3"
+  - type: TintedWindow
+    arc: 170
+  - type: Damageable
+    damageModifierSet: RGlass
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,-0.28125"
+        density: 1500
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+        - Opaque
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+    - trigger:
+        !type:DamageTrigger
+        damage: 37
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlassReinforced:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Appearance
+  - type: DamageVisuals
+    thresholds: [5, 10, 20]
+    damageDivisor: 1.5
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Structures/Windows/cracks_directional.rsi
+  - type: Penetratable # Corvax-Next - Better snipers
+    penetrateDamage: 25
+    damagePenalty: 0.1
