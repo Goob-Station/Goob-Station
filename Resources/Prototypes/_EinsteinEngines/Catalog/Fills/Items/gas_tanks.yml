@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: EmergencyOxygenTank
   id: EmergencyPlasmaTank
@@ -5,11 +11,11 @@
   description: An easily portable tank for emergencies. Contains very little plasma, rated for survival use only.
   components:
   - type: Sprite
-    sprite: Objects/Tanks/emergency_red.rsi # TODO: emergency plasma tank sprite
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
   - type: Item
-    sprite: Objects/Tanks/emergency_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
   - type: Clothing
-    sprite: Objects/Tanks/emergency_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
 
 - type: entity
   id: EmergencyPlasmaTankFilled
@@ -25,7 +31,7 @@
         - 0           # oxygen
         - 0           # nitrogen
         - 0           # CO2
-        - 0.270782035 # nitrogen
+        - 0.270782035 # plasma
       temperature: 293.15
 
 - type: entity
@@ -35,11 +41,11 @@
   description: An emergency tank with extended capacity. Technically rated for prolonged use.
   components:
   - type: Sprite
-    sprite: Objects/Tanks/emergency_extended_red.rsi # TODO: extended-capacity emergency plasma tank sprite
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
   - type: Item
-    sprite: Objects/Tanks/emergency_extended_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
   - type: Clothing
-    sprite: Objects/Tanks/emergency_extended_red.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/emergency_plasma.rsi
 
 - type: entity
   id: ExtendedEmergencyPlasmaTankFilled
@@ -61,15 +67,15 @@
 - type: entity
   parent: DoubleEmergencyOxygenTank
   id: DoubleEmergencyPlasmaTank
-  name: plasma internals tank
-  description: A tank of plasma designed to be internals for Plasmamen.
+  name: double extended plasma tank
+  description: A high-grade dual-tank emergency life support container. It holds a decent amount of plasma for its small size. It can hold 2.5 L of gas.
   components:
   - type: Sprite
-    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/double_extended_plasma.rsi
   - type: Item
-    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/double_extended_plasma.rsi
   - type: Clothing
-    sprite: _EinsteinEngines/Objects/Tanks/plasmaman.rsi
+    sprite: _EinsteinEngines/Objects/Tanks/double_extended_plasma.rsi
 
 - type: entity
   id: DoubleEmergencyPlasmaTankFilled
@@ -95,14 +101,14 @@
   suffix: Filled, Plasmaman Internals
   components:
   - type: GasTank
-    # 120 minutes with Plasmaman lungs
     outputPressure: 5.325
     air:
-      # 125.2 minutes with plasmaman lungs
-      volume: 5
+      # 60 minutes with Plasmaman lungs
+      volume: 1.5
       moles:
         - 0           # oxygen
         - 0           # nitrogen
         - 0           # CO2
-        - 2.051379050 # plasma
+        - 1.025689525 # plasma
       temperature: 293.15
+
