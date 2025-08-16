@@ -26,7 +26,7 @@ public sealed partial class VentClogRuleComponent : Component
     [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<ReagentPrototype>))]
     public IReadOnlyList<string> SafeishVentChemicals = new[]
     {
-        "Water", "Blood", "Slime", "SpaceDrugs", "SpaceCleaner", "Nutriment", "Sugar", "SpaceLube", "Ephedrine", "Ale", "Beer", "Ephedrine", "Lead", "Cryptobiolin", "PulpedBananaPeel", "Tricordrazine", "Psicodine", "THC"
+        "Water", "Blood", "SpaceDrugs", "SpaceCleaner", "Nutriment", "Sugar", "Ephedrine", "Ale", "Beer", "Ephedrine", "Lead", "Cryptobiolin", "PulpedBananaPeel", "Tricordrazine", "Psicodine", "THC"
     };
 
     /// <summary>
@@ -59,7 +59,7 @@ public sealed partial class VentClogRuleComponent : Component
     [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<ReagentPrototype>))]
     public IReadOnlyList<string> WeakReagents = new[]
     {
-        "SpaceLube", "SpaceGlue"
+        "SpaceCleaner"
     };
 
     /// <summary>
