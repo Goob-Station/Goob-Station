@@ -66,7 +66,7 @@
     startAnnouncement: station-event-unknown-shuttle-incoming
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 10 # 10 default
+    weight: 4 #Common, but not every round
     reoccurrenceDelay: 30
     earliestStart: 20 # Goobstation
     duration: 1
@@ -134,7 +134,7 @@
   components:
   - type: StationEvent
     startAnnouncement: null # It should be silent.
-    weight: 5 # lower because weird freelance roles
+    weight: 4 # lower because weird freelance roles
     maxOccurrences: 2 # should be the same as [copies] in shuttle_incoming_event.yml
   - type: LoadMapRule
     preloadedGrid: SyndieEvacPod
@@ -298,7 +298,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
-    weight: 11 # this is higher because its just a little generic personal shuttle
+    weight: 4
     maxOccurrences: 4
   - type: LoadMapRule
     preloadedGrid: Microshuttle
