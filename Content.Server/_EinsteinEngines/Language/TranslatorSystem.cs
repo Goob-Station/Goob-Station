@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -148,8 +150,9 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
 
     private void OnPowerCellChanged(EntityUid translator, HandheldTranslatorComponent component, PowerCellChangedEvent args)
     {
-        component.Enabled = !args.Ejected;
-        _powerCell.SetDrawEnabled(translator, !args.Ejected);
+        var hasCharge = _powerCell.HasActivatableCharge(translator);
+        component.Enabled = hasCharge;
+        _powerCell.SetDrawEnabled(translator, hasCharge);
         OnAppearanceChange(translator, component);
 
         if (_containers.TryGetContainingContainer((translator, null, null), out var holderCont) && HasComp<LanguageSpeakerComponent>(holderCont.Owner))
@@ -158,8 +161,11 @@ public sealed class TranslatorSystem : SharedTranslatorSystem
 
     private void OnItemToggled(EntityUid translator, HandheldTranslatorComponent component, ItemToggledEvent args)
     {
-        component.Enabled = args.Activated;
-        _powerCell.SetDrawEnabled(translator, args.Activated);
+        var hasCharge = _powerCell.HasActivatableCharge(translator);
+        var shouldEnable = args.Activated && hasCharge;
+
+        component.Enabled = shouldEnable;
+        _powerCell.SetDrawEnabled(translator, shouldEnable);
         OnAppearanceChange(translator, component);
 
         if (_containers.TryGetContainingContainer((translator, null, null), out var holderCont) && HasComp<LanguageSpeakerComponent>(holderCont.Owner))
