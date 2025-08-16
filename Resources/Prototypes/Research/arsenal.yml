@@ -221,6 +221,7 @@
   cost: 5000
   recipeUnlocks:
   - ClothingBackpackElectropack
+  - ClothingNeckBaseShockCollar # Pirate
   # Goobstation R&D Console rework start
   position: 4,3
   technologyPrerequisites:

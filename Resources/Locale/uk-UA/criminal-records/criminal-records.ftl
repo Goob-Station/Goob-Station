@@ -68,3 +68,5 @@ criminal-records-console-perma = {$name} ({$job}) був засуджений д
 criminal-records-console-not-perma = {$officer} звільнив {$name} ({$job}) з перми.
 criminal-records-console-dangerous = {$officer} позначив {$name} ({$job}) як небезпечного через: {$reason}.
 criminal-records-console-not-dangerous = {$officer} зняв статус загрози з {$name} ({$job}).
+criminal-records-job-filter = Робота
+criminal-records-species-filter = Вид

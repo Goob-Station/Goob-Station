@@ -21,8 +21,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 ## Медицина
 <GuideReagentGroupEmbed Group="Medicine"/>
 
-## Наркотики
-<GuideReagentGroupEmbed Group="Narcotics"/>
+<!--## Наркотики-->
+<!--<GuideReagentGroupEmbed Group="Narcotics"/>-->
 
 ## Піротехніка
 <GuideReagentGroupEmbed Group="Pyrotechnic"/>

@@ -37,3 +37,12 @@ lathe-category-boxes = Ящики
 lathe-category-magazines = Магазини
 
 # Уніформа
+lathe-category-tiles = Плитка
+lathe-category-concrete = Бетон
+lathe-category-dark = Темний
+lathe-category-maints = Техобслуговування
+lathe-category-steel = Сталь
+lathe-category-white = Білий
+lathe-category-wood = Дерево
+
+# Наука

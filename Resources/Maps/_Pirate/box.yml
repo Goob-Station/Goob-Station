@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 07/31/2025 13:59:00
-  entityCount: 29080
+  time: 08/13/2025 00:31:09
+  entityCount: 29088
 maps:
 - 1
 grids:
@@ -87,9 +87,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -10868,35 +10866,6 @@ entities:
     - type: InstantAction
       container: 13
       originalIconColor: '#FFFFFFFF'
-- proto: ActionToggleLight
-  entities:
-  - uid: 16
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 15
-    - type: InstantAction
-      container: 15
-      originalIconColor: '#FFFFFFFF'
-  - uid: 18
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 17
-    - type: InstantAction
-      container: 17
-      originalIconColor: '#FFFFFFFF'
-  - uid: 20
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 19
-    - type: InstantAction
-      container: 19
-      originalIconColor: '#FFFFFFFF'
 - proto: AdminAssistantPDA
   entities:
   - uid: 22
@@ -12677,7 +12646,7 @@ entities:
       pos: -13.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -24750.637
+      secondsUntilStateChange: -25313.865
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13646,6 +13615,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -67.5,-9.5
       parent: 2
+  - uid: 317
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -44.5,-30.5
+      parent: 2
+    - type: GridFill
+      path: /Maps/_Pirate/Shuttles/shuttle_salvage.yml
 - proto: AirlockExternalGlassShuttleLocked
   entities:
   - uid: 316
@@ -13653,12 +13630,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -44.5,-28.5
-      parent: 2
-  - uid: 317
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -44.5,-30.5
       parent: 2
 - proto: AirlockExternalGlassShuttleMiningFilled
   entities:
@@ -14571,7 +14542,7 @@ entities:
       pos: 41.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -125358.86
+      secondsUntilStateChange: -125922.086
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17975,7 +17946,7 @@ entities:
   - uid: 979
     components:
     - type: Transform
-      pos: 63.5,-7.5
+      pos: 62.506294,-7.4618998
       parent: 2
 - proto: BananaPhoneInstrument
   entities:
@@ -18328,11 +18299,6 @@ entities:
     components:
     - type: Transform
       pos: -2.5,23.5
-      parent: 2
-  - uid: 1041
-    components:
-    - type: Transform
-      pos: -6.5,31.5
       parent: 2
   - uid: 1042
     components:
@@ -72737,7 +72703,12 @@ entities:
   - uid: 11196
     components:
     - type: Transform
-      pos: -6.591975,45.713867
+      pos: -7.6675434,45.40586
+      parent: 2
+  - uid: 19917
+    components:
+    - type: Transform
+      pos: -5.4644184,45.40586
       parent: 2
 - proto: ClothingHeadHatCowboyRed
   entities:
@@ -72984,6 +72955,11 @@ entities:
     components:
     - type: Transform
       pos: 20.572916,-36.34928
+      parent: 2
+  - uid: 29088
+    components:
+    - type: Transform
+      pos: -9.255636,30.467669
       parent: 2
 - proto: ClothingMaskClown
   entities:
@@ -74001,18 +73977,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 42.5,-19.5
       parent: 2
-- proto: ComputerBroken
-  entities:
-  - uid: 11407
-    components:
-    - type: Transform
-      pos: -26.5,-36.5
-      parent: 2
-  - uid: 11408
-    components:
-    - type: Transform
-      pos: -25.5,-36.5
-      parent: 2
 - proto: ComputerCargoBounty
   entities:
   - uid: 11409
@@ -74153,6 +74117,13 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-29.5
+      parent: 2
+- proto: ComputerFrame
+  entities:
+  - uid: 20106
+    components:
+    - type: Transform
+      pos: -26.5,-36.5
       parent: 2
 - proto: ComputerId
   entities:
@@ -74311,6 +74282,13 @@ entities:
     components:
     - type: Transform
       pos: 30.5,-105.5
+      parent: 2
+- proto: ComputerSalvageExpedition
+  entities:
+  - uid: 11408
+    components:
+    - type: Transform
+      pos: -25.5,-36.5
       parent: 2
 - proto: ComputerShuttleCargo
   entities:
@@ -74481,10 +74459,10 @@ entities:
       parent: 2
 - proto: ConstructionBarricade
   entities:
-  - uid: 11485
+  - uid: 11407
     components:
     - type: Transform
-      pos: -7.5,45.5
+      pos: -6.5,45.5
       parent: 2
 - proto: ContainmentFieldGenerator
   entities:
@@ -75962,7 +75940,7 @@ entities:
       pos: 28.5,-5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -63922.8
+      secondsUntilStateChange: -64486.03
       state: Opening
   - uid: 11643
     components:
@@ -89962,7 +89940,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -199093.39
+      secondsUntilStateChange: -199656.64
       state: Closing
   - uid: 13875
     components:
@@ -90396,7 +90374,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -190841.12
+      secondsUntilStateChange: -191404.38
       state: Closing
   - uid: 13961
     components:
@@ -90471,306 +90449,6 @@ entities:
     components:
     - type: Transform
       pos: -10.669638,-34.384842
-      parent: 2
-- proto: FlashlightLantern
-  entities:
-  - uid: 15
-    components:
-    - type: Transform
-      pos: -28.628149,-32.252506
-      parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 16
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 16
-    - type: ActionsContainer
-  - uid: 17
-    components:
-    - type: Transform
-      pos: -28.492733,-32.481834
-      parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 18
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 18
-    - type: ActionsContainer
-  - uid: 13972
-    components:
-    - type: Transform
-      pos: 53.45759,-48.32746
-      parent: 2
-  - uid: 13973
-    components:
-    - type: Transform
-      pos: 49.435802,16.306866
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13974
-    components:
-    - type: Transform
-      pos: 48.529552,11.266704
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13975
-    components:
-    - type: Transform
-      pos: 48.47014,7.514141
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13976
-    components:
-    - type: Transform
-      pos: 66.53939,6.4304285
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13977
-    components:
-    - type: Transform
-      pos: 70.51346,12.480552
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13978
-    components:
-    - type: Transform
-      pos: 67.42922,18.532057
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13979
-    components:
-    - type: Transform
-      pos: 55.583378,18.000807
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13980
-    components:
-    - type: Transform
-      pos: -43.273075,5.5487127
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13981
-    components:
-    - type: Transform
-      pos: -45.601074,22.357426
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13982
-    components:
-    - type: Transform
-      pos: -48.703045,1.6598
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13983
-    components:
-    - type: Transform
-      pos: -19.5,-6.5
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13984
-    components:
-    - type: Transform
-      pos: -10.388388,-34.587967
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        cellslot_cell_container: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 13985
-    components:
-    - type: Transform
-      pos: 6.4398823,-54.452927
-      parent: 2
-  - uid: 13986
-    components:
-    - type: Transform
-      pos: 6.5805073,-54.6248
-      parent: 2
-  - uid: 13987
-    components:
-    - type: Transform
-      pos: 69.14265,-78.04858
-      parent: 2
-  - uid: 13988
-    components:
-    - type: Transform
-      pos: 69.42417,-53.31951
-      parent: 2
-  - uid: 13989
-    components:
-    - type: Transform
-      pos: 69.5648,-53.522636
-      parent: 2
-  - uid: 13990
-    components:
-    - type: Transform
-      pos: -19.543085,-5.225024
-      parent: 2
-  - uid: 13991
-    components:
-    - type: Transform
-      pos: -43.302475,5.7392464
-      parent: 2
-  - uid: 13992
-    components:
-    - type: Transform
-      pos: 12.378976,32.716896
-      parent: 2
-  - uid: 13993
-    components:
-    - type: Transform
-      pos: 12.519601,32.51377
-      parent: 2
-  - uid: 13994
-    components:
-    - type: Transform
-      pos: -12.485467,9.712326
-      parent: 2
-  - uid: 13995
-    components:
-    - type: Transform
-      pos: -12.391717,9.571701
-      parent: 2
-  - uid: 13996
-    components:
-    - type: Transform
-      pos: 5.435224,-70.28384
-      parent: 2
-  - uid: 13997
-    components:
-    - type: Transform
-      pos: 5.653974,-70.51821
-      parent: 2
-  - uid: 13998
-    components:
-    - type: Transform
-      pos: 5.966474,-70.25259
-      parent: 2
-  - uid: 13999
-    components:
-    - type: Transform
-      pos: 6.185224,-70.45571
       parent: 2
 - proto: FlippoLighter
   entities:
@@ -130235,29 +129913,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 55.599792,-42.98822
       parent: 2
-- proto: LampBanana
-  entities:
-  - uid: 19
-    components:
-    - type: Transform
-      pos: 16.723581,6.1640053
-      parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 20
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 20
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
 - proto: LampGold
   entities:
   - uid: 19702
@@ -132425,6 +132080,11 @@ entities:
       parent: 2
 - proto: MedicalBed
   entities:
+  - uid: 1041
+    components:
+    - type: Transform
+      pos: -6.5,31.5
+      parent: 2
   - uid: 19872
     components:
     - type: Transform
@@ -132676,6 +132336,11 @@ entities:
       parent: 2
 - proto: MopBucketFull
   entities:
+  - uid: 11485
+    components:
+    - type: Transform
+      pos: 10.5,23.5
+      parent: 2
   - uid: 19914
     components:
     - type: Transform
@@ -132693,17 +132358,17 @@ entities:
       parent: 2
     - type: Pullable
       prevFixedRotation: True
-  - uid: 19917
+  - uid: 23546
     components:
     - type: Transform
-      pos: -13.5,42.5
+      pos: -14.5,40.5
       parent: 2
 - proto: MopItem
   entities:
   - uid: 19918
     components:
     - type: Transform
-      pos: -13.416729,42.36579
+      pos: -14.563323,40.6047
       parent: 2
   - uid: 19919
     components:
@@ -132744,6 +132409,11 @@ entities:
     components:
     - type: Transform
       pos: 5.5582485,-36.455353
+      parent: 2
+  - uid: 29083
+    components:
+    - type: Transform
+      pos: 10.489876,23.512457
       parent: 2
 - proto: Morgue
   entities:
@@ -133179,6 +132849,11 @@ entities:
     - type: Transform
       pos: 54.482033,-24.522997
       parent: 2
+  - uid: 29087
+    components:
+    - type: Transform
+      pos: -9.552511,30.57712
+      parent: 2
 - proto: NTDefaultCircuitBoard
   entities:
   - uid: 19966
@@ -133231,6 +132906,13 @@ entities:
     components:
     - type: Transform
       pos: 53.5,-22.5
+      parent: 2
+- proto: OracleSpawner
+  entities:
+  - uid: 29081
+    components:
+    - type: Transform
+      pos: 67.5,-3.5
       parent: 2
 - proto: OreProcessor
   entities:
@@ -134039,9 +133721,9 @@ entities:
         1. Переведення блоку в аварійний доступ дозволено лише
              в випадках надзвичайних ситуації.
         2. Дозвіл на переведення блок в аварійний доступ мають
-             тільки працівники СБ, командування і ЦК або особи з їх 
-             дозволу. Переведення блоку в аварійний доступ не 
-             уповноваженими особами буде розцінюватися як 
+             тільки працівники СБ, командування і ЦК або особи з їх
+             дозволу. Переведення блоку в аварійний доступ не
+             уповноваженими особами буде розцінюватися як
              порушення КЗ по статтям 308 і 400.
         3. В випадку придушення надзвичайної ситуації
              аварійний доступ має бути деактивований.
@@ -134049,13 +133731,6 @@ entities:
              призведе до розгерметизації приміщення.
         [color=#1b487e]▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰[/color]
                                     ⠀          [italic]Місце для печаток[/italic]
-  - uid: 20106
-    components:
-    - type: Transform
-      pos: -25.484888,-36.54078
-      parent: 2
-    - type: Paper
-      content: Забіг якийсь мудак і зламав консолі. Покличте інженера.
   - uid: 20107
     components:
     - type: Transform
@@ -134091,7 +133766,7 @@ entities:
   - uid: 20113
     components:
     - type: Transform
-      pos: -7.519591,45.46369
+      pos: -6.4956684,45.452766
       parent: 2
     - type: Paper
       content: Вихід в космос був забудованний з зв'язку з будівницством доку для шатла Служби Безпеки
@@ -134132,7 +133807,7 @@ entities:
 
         ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
-        Опис препарату:нестабільний та важкоконтрольований препарат.Пацієнти стають на рівні агресивних тварин. 
+        Опис препарату:нестабільний та важкоконтрольований препарат.Пацієнти стають на рівні агресивних тварин.
 
         Симптоми:
 
@@ -134156,7 +133831,7 @@ entities:
         Скуштуй Справжню Космічну Насолоду!
 
 
-        ПІЦА “ГОСТРА КАМʼЯНА” 
+        ПІЦА “ГОСТРА КАМʼЯНА”
 
         Тільки сьогодні!
 
@@ -140393,6 +140068,28 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-14.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - uid: 29085
+    components:
+    - type: Transform
+      pos: -3.5,-14.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - uid: 29086
+    components:
+    - type: Transform
+      pos: 63.5,-7.5
       parent: 2
     - type: TechnologyDatabase
       supportedDisciplines:
@@ -153118,6 +152815,13 @@ entities:
       parent: 13589
     - type: Physics
       canCollide: False
+- proto: SophicScribeSpawner
+  entities:
+  - uid: 29082
+    components:
+    - type: Transform
+      pos: 71.5,-3.5
+      parent: 2
 - proto: SpaceVillainArcadeComputerCircuitboard
   entities:
   - uid: 23282
@@ -154644,12 +154348,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 81.5,-1.5
-      parent: 2
-  - uid: 23546
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 10.5,23.5
       parent: 2
   - uid: 23547
     components:
@@ -161298,12 +160996,12 @@ entities:
   - uid: 24597
     components:
     - type: Transform
-      pos: -13.218813,42.230278
+      pos: -14.3055105,40.370163
       parent: 2
   - uid: 24598
     components:
     - type: Transform
-      pos: -13.375063,42.15731
+      pos: -14.188323,40.463974
       parent: 2
   - uid: 24599
     components:
@@ -161339,6 +161037,11 @@ entities:
     components:
     - type: Transform
       pos: 2.6832485,-34.158478
+      parent: 2
+  - uid: 29084
+    components:
+    - type: Transform
+      pos: 10.818001,23.442097
       parent: 2
 - proto: TrashBagBlue
   entities:

@@ -21,6 +21,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Ghost;
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._RMC14.GhostColor;
 using Content.Shared.Popups;
@@ -188,9 +189,13 @@ namespace Content.Pirate.Server.Systems
             // Видаляємо всі action entity, якщо вони були додані
             if (ghost.Comp.ActionEntities != null)
             {
-                foreach (var ent in ghost.Comp.ActionEntities)
+                var actionsSystem = EntityManager.System<ActionsSystem>();
+                if (TryComp<ActionsComponent>(ghost, out var actionsComp))
                 {
-                    EntityManager.System<ActionsSystem>().RemoveAction(ghost, ent);
+                    foreach (var ent in ghost.Comp.ActionEntities)
+                    {
+                        actionsSystem.RemoveAction((ghost, actionsComp), ent);
+                    }
                 }
                 ghost.Comp.ActionEntities.Clear();
             }
@@ -272,9 +277,9 @@ namespace Content.Pirate.Server.Systems
                 SetupEyePhysicsVisibility(uid, comp, ghostMode: true);
                 comp.IsGhost = true;
 
-                if (EntityManager.TryGetComponent<InstantActionComponent>(actionEntity, out var actionComp))
+                if (EntityManager.TryGetComponent<ActionComponent>(actionEntity, out var actionComp))
                 {
-                    actionComp.Icon = new Robust.Shared.Utility.SpriteSpecifier.Texture(new ResPath("Interface/Actions/eyeclose.png"));
+                    EntityManager.System<SharedActionsSystem>().SetIcon(actionEntity, new Robust.Shared.Utility.SpriteSpecifier.Texture(new ResPath("Interface/Actions/eyeclose.png")));
                 }
                 popupSys.PopupEntity("Ви перетворилися на привида!", uid, PopupType.Medium);
             }
@@ -288,9 +293,9 @@ namespace Content.Pirate.Server.Systems
                 ClearSavedState(comp);
                 comp.IsGhost = false;
 
-                if (EntityManager.TryGetComponent<InstantActionComponent>(actionEntity, out var actionComp))
+                if (EntityManager.TryGetComponent<ActionComponent>(actionEntity, out var actionComp))
                 {
-                    actionComp.Icon = new Robust.Shared.Utility.SpriteSpecifier.Texture(new ResPath("Interface/Actions/eyeopen.png"));
+                    EntityManager.System<SharedActionsSystem>().SetIcon(actionEntity, new Robust.Shared.Utility.SpriteSpecifier.Texture(new ResPath("Interface/Actions/eyeopen.png")));
                 }
                 popupSys.PopupEntity("Ви повернули свою стару форму!", uid, PopupType.Medium);
             }
@@ -456,15 +461,15 @@ namespace Content.Pirate.Server.Systems
 
         private void UpdateActionIcon(EntityUid action, ToggleGhostFormActionEvent args, bool ghostMode)
         {
-            if (EntityManager.TryGetComponent<InstantActionComponent>(action, out var actionComp))
+            if (EntityManager.TryGetComponent<ActionComponent>(action, out var actionComp))
             {
                 if (ghostMode)
                 {
-                    actionComp.Icon = new Robust.Shared.Utility.SpriteSpecifier.Texture(new ResPath("Interface/Actions/eyeclose.png"));
+                    EntityManager.System<SharedActionsSystem>().SetIcon(action, new Robust.Shared.Utility.SpriteSpecifier.Texture(new ResPath("Interface/Actions/eyeclose.png")));
                 }
                 else
                 {
-                    actionComp.Icon = new Robust.Shared.Utility.SpriteSpecifier.Texture(new ResPath("Interface/Actions/eyeopen.png"));
+                    EntityManager.System<SharedActionsSystem>().SetIcon(action, new Robust.Shared.Utility.SpriteSpecifier.Texture(new ResPath("Interface/Actions/eyeopen.png")));
                 }
             }
         }

@@ -5,6 +5,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Content.Shared.Popups;
 using Content.Pirate.Shared.BloodCult;
+using Content.Shared.Actions.Components;
 
 namespace Content.Pirate.Server.BloodCult
 {
@@ -31,7 +32,7 @@ namespace Content.Pirate.Server.BloodCult
                 if (!_hands.TryPickupAnyHand(ev.Performer, entity))
                 {
                     _popup.PopupEntity(Loc.GetString("cult-magic-no-empty-hand"), ev.Performer, ev.Performer);
-                    _actions.SetCooldown(ev.Action, TimeSpan.FromSeconds(1));
+                    _actions.SetCooldown((EntityUid)ev.Action, TimeSpan.FromSeconds(1));
                     QueueDel(entity);
                     ev.Handled = true;
                     return;

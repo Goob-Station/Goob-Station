@@ -7,6 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -42,7 +43,7 @@
     - Changeling
     - SubGamemodesRule
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
 
@@ -58,7 +59,7 @@
     - CalmLing
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
 
@@ -75,7 +76,7 @@
     - Calmops
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
 
@@ -91,7 +92,7 @@
     - Calmops
     - CalmLing
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
 
@@ -108,7 +109,7 @@
     - CalmRevs
     - CalmTraitor
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
@@ -123,7 +124,7 @@
     - CalmRevs
     - CalmLing
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
@@ -154,7 +155,7 @@
     - Honkops
     - SubGamemodesRule
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler

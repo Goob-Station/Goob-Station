@@ -306,13 +306,13 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#C12D30"
+        color: "#335E87" # Pirate
         sprite: Clothing/Uniforms/Jumpskirt/color.rsi
       - state: overlay-inhand-left
         sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
       right:
       - state: inhand-right
-        color: "#C12D30"
+        color: "#335E87" # Pirate
         sprite: Clothing/Uniforms/Jumpskirt/color.rsi
       - state: overlay-inhand-right
         sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
@@ -526,13 +526,13 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#C12D30"
+        color: "#335E87" # Pirate
         sprite: Clothing/Uniforms/Jumpskirt/color.rsi
       - state: overlay-inhand-left
         sprite: Clothing/Uniforms/Jumpsuit/security.rsi
       right:
       - state: inhand-right
-        color: "#C12D30"
+        color: "#335E87" # Pirate
         sprite: Clothing/Uniforms/Jumpskirt/color.rsi
       - state: overlay-inhand-right
         sprite: Clothing/Uniforms/Jumpsuit/security.rsi
@@ -552,13 +552,13 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#C12D30"
+        color: "#2D3644" # Pirate
         sprite: Clothing/Uniforms/Jumpskirt/color.rsi
       - state: overlay-inhand-left
         sprite: Clothing/Uniforms/Jumpsuit/warden.rsi
       right:
       - state: inhand-right
-        color: "#C12D30"
+        color: "#2D3644" # Pirate
         sprite: Clothing/Uniforms/Jumpskirt/color.rsi
       - state: overlay-inhand-right
         sprite: Clothing/Uniforms/Jumpsuit/warden.rsi
@@ -640,6 +640,8 @@
     sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   parent: ClothingUniformSkirtBase

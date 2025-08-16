@@ -46,3 +46,6 @@ reagent-desc-weh = Чиста есенція плюшевої ящірки. Зм
 
 reagent-name-hew = сік, що змушує х'юкати
 reagent-desc-hew = Чиста есенція інвертованого плюшевого ящера. Змушує вас х'юкати!
+
+reagent-name-corgiessence = коргіум
+reagent-desc-corgiessence = Смакує як собачий корм. Очевидно, смак на любителя.

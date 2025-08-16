@@ -49,3 +49,8 @@
   - GenpopEnter
   - GenpopLeave
   - Mantis
+
+- type: accessGroup
+  id: General
+  tags:
+  - Maintenance
