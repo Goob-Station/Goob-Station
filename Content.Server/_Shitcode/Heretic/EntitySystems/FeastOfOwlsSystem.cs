@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Chat.Systems;
 using Content.Server.Jittering;
 using Content.Server.Popups;
@@ -72,6 +78,7 @@ public sealed class FeastOfOwlsSystem : EntitySystem
             _status.TryRemoveStatusEffect(uid, "Stun", status);
             _status.TryRemoveStatusEffect(uid, "KnockedDown", status);
             RemCompDeferred(uid, comp);
+            heretic.IgnorePathRestrictions = true;
         }
     }
 }

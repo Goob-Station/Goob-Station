@@ -36,9 +36,9 @@ heretic-ritual-basic-reminiscence-desc = Transmute a chair to instantly return o
 
 heretic-ritual-basic-owls = Feast of Owls
 heretic-ritual-basic-owls-desc =
-    Under the soft glow of unreason there is a beast that stalks the night. I shall bring it forth and let it enter my presence. It will feast upon my amibitions and leave knowledge in its wake.
+    Under the soft glow of unreason there is a beast that stalks the night. I shall bring it forth and let it enter my presence. It will feast upon my amibitions and leave knowledge in its wake, also allowing me to partake in the ritual of their false gods in the process.
 
-    Allows you to undergo a ritual that gives you 5 knowledge points but locks you out of ascension. This can only be done once and cannot be reverted.
+    Allows you to undergo a ritual that gives you 5 knowledge points and permits you to purchase skills from other paths, but locks you out of ascension. This can only be done once and cannot be reverted.
 
 heretic-ritual-fail-sacrifice = There is no corpse to sacrifice.
 heretic-ritual-fail-sacrifice-ineligible = The rune refuses to accept this sacrifice.
