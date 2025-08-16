@@ -28,6 +28,7 @@
 # SPDX-FileCopyrightText: 2024 Ramlik <105449767+Ramlik@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Bokser815 <70928915+Bokser815@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
@@ -76,3 +77,6 @@
     FoodDonutHomer: 12
     FoodBoxDonut: 2
     #box evidence
+  emaggedInventory: # Goobstation
+    SarinGasGrenade: 1
+    WeaponFlareGunSecurity: 2
