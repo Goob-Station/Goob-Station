@@ -1330,6 +1330,7 @@
   name: loadout-group-brigmedic-head
   minLimit: 0
   loadouts:
+  - BrigmedicSecurityHat #Corvax-Goob-brigmedic-loadout-update
   - BrigmedicBeret
   - CMOMedicalHeadMirror
   - SecurityBeret
@@ -1344,6 +1345,12 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
+  #Corvax-Goob-brigmedic-loadout-update-start
+  - BrigmedicCoatLab
+  - BrigmedicVest
+  - BrigmedicOuterWinterSec
+  - BrigmedicVestArmor
+  #Corvax-Goob-brigmedic-loadout-update-end
 
 - type: loadoutGroup
   id: BrigmedicBackpack

@@ -160,7 +160,8 @@
   id: JobBrigmedic
   groups:
   - BrigmedicHead
-  - MedicalMask
+  #- MedicalMask
+  - BrigmedicMask # CorvaxGoob-Brigmedic-Loadout : Replaced from MedicalMask
   - BrigmedicJumpsuit
   - BrigmedicOuterClothing
   - MedicalGloves
