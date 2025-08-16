@@ -185,6 +185,7 @@
   equipment:
     neck: SyndicateWhistle
     pocket2: BaseUplinkRadio350TC # goobstation - im rich :fire::fire:
+    ears: ClothingHeadsetAltSyndicateCommander # Goobstation loud command
     #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
   inhand:
   - NukeOpsDeclarationOfWar
@@ -239,3 +240,4 @@
   equipment:
     # Goobstation - Telecrystal rework
     pocket2: BaseUplinkRadio350TC
+    ears: ClothingHeadsetAltSyndicateCommander # Goobstation loud command
