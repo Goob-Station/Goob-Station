@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: SpellCardFun
+  name: spell card
+  parent: BaseItem
+  description: A spell card in form of an item, that speaks of your presence for all living beings around you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Projectiles/spellcard.rsi
+    state: red
+  - type: SpecialAnimationOnUse
+    overrideText: "Special Attack: 65 STRIKE!!!!"
+  - type: UseDelay
+    delay: 5

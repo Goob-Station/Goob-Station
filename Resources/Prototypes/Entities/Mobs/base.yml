@@ -74,6 +74,8 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -131,6 +133,7 @@
   - type: LanguageSpeaker # Einstein Engines - Language. This component is required to support speech, but it does not define known languages.
   - type: Fart
   - type: CollectiveMind # Goobstation - Starlight collective mind port
+  - type: SpecialAnimationViewer # Goobstation - Cool Animations!!!!
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
