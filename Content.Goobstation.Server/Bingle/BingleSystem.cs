@@ -50,11 +50,19 @@ public sealed class BingleSystem : EntitySystem
         else
         {
             var query = EntityQueryEnumerator<BinglePitComponent>();
+            EntityUid? closestPit = null;
+            float closestPitDistance = 999999.0f;
             while (query.MoveNext(out var queryUid, out var _))
             {
-                if (cords == Transform(queryUid).Coordinates)
-                    component.MyPit = queryUid;
+                Transform(queryUid).Coordinates.TryDistance(EntityManager, cords, out var closenessOfPit);
+                Log.Debug($"Checking for pits ${closestPitDistance} vs ${closenessOfPit}");
+                if (closenessOfPit < closestPitDistance)
+                {
+                    closestPit = queryUid;
+                    closestPitDistance = closenessOfPit;
+                }
             }
+            component.MyPit = closestPit;
         }
     }
 
@@ -65,7 +73,7 @@ public sealed class BingleSystem : EntitySystem
             return;
 
         var polyComp = EnsureComp<PolymorphableComponent>(uid);
-        _polymorph.CreatePolymorphAction("BinglePolymorph",(uid, polyComp ));
+        _polymorph.CreatePolymorphAction(component.PolymorphName, (uid, polyComp));
 
         _popup.PopupEntity(Loc.GetString("bingle-upgrade-success"), uid, uid);
         component.Upgraded = true;

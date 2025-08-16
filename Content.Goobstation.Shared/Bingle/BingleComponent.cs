@@ -11,6 +11,8 @@
 
 using System;
 using Robust.Shared.GameObjects;
+using Content.Shared.Polymorph;
+using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
@@ -26,6 +28,8 @@ public sealed partial class BingleComponent : Component
     public bool Prime = false;
     [DataField]
     public EntityUid? MyPit;
+    [DataField]
+    public ProtoId<PolymorphPrototype> PolymorphName;
 }
 
 [Serializable, NetSerializable]

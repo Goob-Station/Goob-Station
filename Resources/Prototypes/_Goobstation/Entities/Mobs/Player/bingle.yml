@@ -31,7 +31,7 @@
     table: !type:GroupSelector
       children:
       - id: MobBingle
-        weight: 49    # 49/50
+        weight: 1    # 49/50
       - id: MobTurkle
         weight: 1     # 01/50
 
@@ -43,6 +43,7 @@
   description: bingle
   components:
   - type: Bingle
+    polymorphName: BinglePolymorph
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bingle-name
@@ -195,6 +196,8 @@
   parent: MobBingle
   description: a bingle but far worse
   components:
+  - type: Bingle
+    polymorphName: TurklePolymorph
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Mobs/Bingle/turkle.rsi
@@ -218,7 +221,7 @@
 
 - type: entity
   id: MobTurkleUpgraded
-  parent: MobTurkle
+  parent: MobBingleUpgraded
   suffix: Upgraded
   components:
   - type: Bingle
