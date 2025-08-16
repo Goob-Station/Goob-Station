@@ -114,6 +114,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Shared._CorvaxGoob.Skills;
+using Content.Server._CorvaxGoob.Skills;
 
 namespace Content.Server.Kitchen.EntitySystems;
 
@@ -128,7 +129,7 @@ public sealed class SharpSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills
+    [Dependency] private readonly SkillsSystem _skills = default!; // CorvaxGoob-Skills
 
     private const float ButcherDelayModifierWithoutSkill = 5; // CorvaxGoob-Skills
 
@@ -180,7 +181,7 @@ public sealed class SharpSystem : EntitySystem
         var needHand = user != knife;
 
         // CorvaxGoob-Skills-Start
-        var delayModifier = hasMobState && !_skills.HasSkill(user, Skills.Butchering) ? ButcherDelayModifierWithoutSkill : 1;
+        var delayModifier = hasMobState && _skills.IsSkillsEnabled() && !_skills.HasSkill(user, Skills.Butchering) ? ButcherDelayModifierWithoutSkill : 1;
 
         var doAfter = new DoAfterArgs(
             EntityManager,

@@ -246,7 +246,7 @@ namespace Content.Server.Construction
             var steps = new List<ConstructionGraphStep>();
             var used = new HashSet<EntityUid>();
 
-            bool hasSkill = _skills.HasSkill(user, Skills.AdvancedBuilding); // CorvaxGoob-Skills
+            bool hasSkill = _skills.IsSkillsEnabled() && _skills.HasSkill(user, Skills.AdvancedBuilding); // CorvaxGoob-Skills
 
             foreach (var step in edge.Steps)
             {

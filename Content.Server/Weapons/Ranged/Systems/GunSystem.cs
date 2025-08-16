@@ -146,6 +146,7 @@ using Content.Server.PowerCell;
 using Content.Shared._Lavaland.Weapons.Ranged.Events; // Lavaland Change
 using Content.Shared._CorvaxGoob.Skills;
 using Content.Goobstation.Common.Weapons.NoWieldNeeded;
+using Content.Server._CorvaxGoob.Skills;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -158,7 +159,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!; // Goobstation
-    [Dependency] private readonly SharedSkillsSystem _skills = default!; // CorvaxGoob-Skills
+    [Dependency] private readonly SkillsSystem _skills = default!; // CorvaxGoob-Skills
     [Dependency] private readonly SharedMapSystem _map = default!;
 
     private const float DamagePitchVariation = 0.05f;
@@ -210,7 +211,7 @@ public sealed partial class GunSystem : SharedGunSystem
         var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
 
         // CorvaxGoob-Skills-Start
-        if (gun.RequiresSkill && user is not null && !_skills.HasSkill(user!.Value, Skills.Shooting) && !HasComp<NoWieldNeededComponent>(user!.Value))
+        if (gun.RequiresSkill && _skills.IsSkillsEnabled() && user is not null && !_skills.HasSkill(user!.Value, Skills.Shooting) && !HasComp<NoWieldNeededComponent>(user!.Value))
         {
             var spread = -SpreadWithoutSkill / 2 + Random.NextFloat() * SpreadWithoutSkill;
 
