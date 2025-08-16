@@ -96,7 +96,7 @@
   - type: ZombieImmune
   - type: Vocal
     wilhelm: "/Audio/_Goobstation/Voice/badtothebone.ogg" # Goobstation
-    wilhelmProbability: 0.1 # Goobstation
+    wilhelmProbability: 0.002 # Goobstation. Reduced chance by CorvaxGoob
     sounds:
       Male: Skeleton
       Female: Skeleton
@@ -177,6 +177,8 @@
     - DoorBumpOpener
     - AnomalyHost
     - Undead
+  - type: TypingIndicator
+    proto: skeleton
 
 - type: entity
   parent: BaseSpeciesDummy
