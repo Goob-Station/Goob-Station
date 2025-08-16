@@ -170,6 +170,7 @@
     - Service
     - Supply
     defaultChannel: Command
+    fontSizeIncrease: 18 # Goobstation - Loud command
   - type: Sprite
     layers:
     - state: crypt_gold

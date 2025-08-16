@@ -948,6 +948,13 @@ public sealed partial class ChatUIController : UIController
             }
         }
 
+        // Goobstation start - loud command
+        if (msg.Channel == ChatChannel.Radio && msg.FontSizeOverride.HasValue)
+        {
+            msg.WrappedMessage = $"[font size={msg.FontSizeOverride.Value}]{msg.WrappedMessage}[/font]";
+        }
+        // Goobstation end
+
         // Log all incoming chat to repopulate when filter is un-toggled
         if (!msg.HideChat)
         {

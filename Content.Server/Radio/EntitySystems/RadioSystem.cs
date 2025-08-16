@@ -168,7 +168,21 @@ public sealed class RadioSystem : EntitySystem
         //     ("channel", $"\\[{channel.LocalizedName}\\]"),
         //     ("name", name),
         //     ("message", content));
-        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language); // Einstein Engines - Language
+        // Goobstation start - Loud command
+        int? fontSizeIncrease = null;
+        if (TryComp<EncryptionKeyHolderComponent>(radioSource, out var holder))
+        {
+            foreach (var ent in holder.KeyContainer.ContainedEntities)
+            {
+                if (TryComp<EncryptionKeyComponent>(ent, out var key) && key.Channels.Contains(channel.ID))
+                {
+                    fontSizeIncrease = key.FontSizeIncrease;
+                    break;
+                }
+            }
+        }
+        // Goobstation end
+        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language);// Einstein Engines - Language
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         // var chat = new ChatMessage(
@@ -179,12 +193,18 @@ public sealed class RadioSystem : EntitySystem
         //     null);
         // var chatMsg = new MsgChatMessage { Message = chat };
         // var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg);
-        var msg = new ChatMessage(ChatChannel.Radio, content, wrappedMessage, NetEntity.Invalid, null); // Einstein Engines - Language
+        var msg = new ChatMessage(ChatChannel.Radio, content, wrappedMessage, NetEntity.Invalid, null) // Einstein Engines - Language
+        {
+            FontSizeOverride = fontSizeIncrease // Goobstation Loud command
+        };
 
         // Einstein Engines - Language begin
         var obfuscated = _language.ObfuscateSpeech(content, language);
         var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language);
-        var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, NetEntity.Invalid, null);
+        var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, NetEntity.Invalid, null)
+        {
+            FontSizeOverride = fontSizeIncrease // Goobstation Loud command
+        };
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
 

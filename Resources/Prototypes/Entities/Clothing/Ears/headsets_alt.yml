@@ -121,7 +121,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCargo
+      - EncryptionKeyCargoLoud # Goobstation - loud command
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
@@ -166,7 +166,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyEngineering
+      - EncryptionKeyEngineeringLoud # Goobstation - loud command
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
@@ -182,7 +182,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyMedical
+      - EncryptionKeyMedicalLoud # Goobstation - loud command
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
@@ -200,7 +200,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeySecurity
+      - EncryptionKeySecurityLoud # Goobstation - loud command
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
@@ -216,7 +216,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyScience
+      - EncryptionKeyScienceLoud # Goobstation - loud command
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
