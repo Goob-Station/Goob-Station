@@ -13229,3 +13229,11 @@ Entries:
       message: Borgs and sAI default to Asimov
   id: 1461
   time: '2025-08-16T17:46:32.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Tweak
+      message: >-
+        Nanotrasen HR has started enforcing stricter hiring policies for command
+        and security.
+  id: 1462
+  time: '2025-08-16T17:48:18.0000000+00:00'
