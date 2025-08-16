@@ -201,8 +201,8 @@ public sealed partial class BodySystem : SharedBodySystem // Shitmed change: mad
         List<string>? allowedContainers = null,
         List<string>? excludedContainers = null)
     {
-        var beforeEvent = new BeforeBodyDestructionEvent();
-        RaiseLocalEvent(bodyId, ref beforeEvent);  //Stores the body damages inside of the entity MindComponent
+        //var beforeEvent = new BeforeBodyDestructionEvent();
+        //RaiseLocalEvent(bodyId, ref beforeEvent);
 
         if (!Resolve(bodyId, ref body, logMissing: false)
             || TerminatingOrDeleted(bodyId)
