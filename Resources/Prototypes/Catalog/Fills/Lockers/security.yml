@@ -186,7 +186,14 @@
   components:
   - type: StorageFill
     contents: # heavily good edited
-      - id: BoxAutoinjectorCartidges
+#      - id: BoxAutoinjectorCartidges  REPLACED WITH BELOW CARTS DURING SIZE CHANGE, FUCK STORAGEFILLBRO # Goobstation start
+      - id: CartridgeSaline
+        amount: 3
+      - id: CartridgeBicaridine
+        amount: 3
+      - id: CartridgeDermaline
+        amount: 3
+# Goobstation end
       - id: ClothingBackpackDuffelSurgeryFilled
       - id: ClothingHandsGlovesLatex
       - id: ClothingOuterHardsuitBrigmedic
