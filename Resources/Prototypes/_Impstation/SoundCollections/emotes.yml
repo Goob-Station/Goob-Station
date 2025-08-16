@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: soundCollection
+  id: Bubbles
+  files:
+    - /Audio/_Impstation/Voice/Slime/s_bubble.ogg
+
+- type: soundCollection
+  id: Pops
+  files:
+    - /Audio/_Impstation/Voice/Slime/s_pop.ogg
+
+- type: soundCollection
+  id: Cracks
+  files:
+    - /Audio/_Impstation/Effects/Emotes/knuckles.ogg

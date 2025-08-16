@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Froffy025 <scotttaco025@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["s_bubble.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Audiolarx on freesound.org. Shortened and cut by lewcc."
+  source: "https://freesound.org/people/audiolarx/sounds/263945/"
+
+- files: ["s_pop.ogg"]
+  license: "CC0-1.0"
+  copyright: "greenvwbeetle on freesound.org"
+  source: "https://freesound.org/people/greenvwbeetle/sounds/244653/"
