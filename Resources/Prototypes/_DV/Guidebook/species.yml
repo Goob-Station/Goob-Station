@@ -15,3 +15,8 @@
   id: Oni
   name: species-name-oni
   text: "/ServerInfo/Guidebook/Mobs/_DV/Oni.xml"
+
+- type: guideEntry
+  id: Chitinid
+  name: species-name-chitinid
+  text: "/ServerInfo/Guidebook/Mobs/_DV/Chitinid.xml"

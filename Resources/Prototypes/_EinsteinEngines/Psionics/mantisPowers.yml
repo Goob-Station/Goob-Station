@@ -20,13 +20,14 @@
   - type: Sprite
     sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
     state: icon
-  - type: InstantAction
+  - type: Action
     useDelay: 20
     checkCanInteract: false
     itemIconStyle: BigAction
     icon:
       sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
       state: icon
+  - type: InstantAction
     event: !type:SummonEquipmentEvent
       speech: "thrusts their open hand to the side. A black blade forms from nothingness into their waiting hand. Whispering demonic voices echo around the sword..."
       invokeChatType: Emote
