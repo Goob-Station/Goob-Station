@@ -31,6 +31,23 @@
     sprite: Objects/Misc/bureaucracy.rsi
     state: contract-written
   - type: FaxableObject
+  - type: Food
+    requiresSpecialDigestion: true
+    delay: 12 # contracts take slightly longer to eat so shitters can't weaponize the explosions
+    forceFeedDelay: 12
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: FlavorProfile
+    flavors:
+    - paper
+    ignoreReagents:
+    - Fiber
   - type: Tag
     tags:
     - Document
