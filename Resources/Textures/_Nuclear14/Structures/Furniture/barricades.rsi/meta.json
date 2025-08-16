@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/c935466d94a1450d41b2b2a8a904b46d0f7dceab",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "sandbag_single",
+      "directions": 4
+    },
+    {
+      "name": "sandbag_horizontal",
+      "directions": 4
+    },
+    {
+      "name": "barbedwire_horizontal"
+    },
+    {
+      "name": "barbedwire_single",
+      "directions": 4
+    },
+    {
+      "name": "iron_barricade"
+    },
+    {
+      "name": "iron_barricadeA"
+    },
+    {
+      "name": "iron_barricade2"
+    },
+    {
+      "name": "iron_barricade2A"
+    },
+    {
+      "name": "locked"
+    },
+    {
+      "name": "boarded"
+    },
+    {
+      "name": "bars"
+    },
+    {
+      "name": "woodenbarricade"
+    },
+    {
+      "name": "woodenbarricade-old"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+- type: construction
+  id: N14WoodWallLog
+  graph: N14WoodWall
+  startNode: start
+  targetNode: logWall
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  hide: false
+  conditions:
+    - !type:TileNotBlocked
+
+# # Doors
+- type: construction
+  id: N14DoorWood
+  graph: N14DoorGraph
+  startNode: start
+  targetNode: woodDoorMakeshift
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  conditions:
+    - !type:TileNotBlocked

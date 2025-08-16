@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from desertrose at https://github.com/DesertRose2/desertrose/blob/704aa5e9e3b86d6e1dbf64a29ba976f7ef53a4ab/icons/fallout/flora/talltrees.dmi",
+  "size": {
+    "x": 64,
+    "y": 128
+  },
+  "states": [
+    {
+      "name": "tree_stump"
+    },
+    {
+      "name": "tree_1"
+    },
+    {
+      "name": "tree_2"
+    },
+    {
+      "name": "tree_3"
+    }
+  ]
+}

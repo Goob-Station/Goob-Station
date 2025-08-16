@@ -1,0 +1,155 @@
+- type: entity
+  parent: Bed
+  id: N14Bed
+  name: Bed
+  description: A clean mattress for sleeping on.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bed
+  - type: Construction
+    graph: N14Bed
+    node: bed
+
+- type: entity
+  parent: N14Bed
+  id: N14BedDirty
+  name: "Dirty Bed"
+  description: A bed that looks like it's seen better days.
+  components:
+  - type: Sprite
+    state: bed_dirty
+    snapCardinals: true
+
+- type: entity
+  parent: N14Bed
+  id: N14BedWood
+  name: "Wooden Bed"
+  description: A bed with a wooden frame.
+  components:
+  - type: Sprite
+    state: bed_wood
+  - type: Construction
+    graph: N14Bed
+    node: bedwood
+
+- type: entity
+  parent: N14Bed
+  id: N14BedWoodBunk
+  name: "Wooden Bunk Bed"
+  description: A bunk bed with a wooden frame.
+  components:
+  - type: Sprite
+    state: bed_wood_bunk
+
+# TODO: Reduce the healing rate of all these at some point compared to a proper bed.
+- type: entity
+  id: N14Bedroll
+  parent: RollerBed
+  name: bedroll
+  description: A bedroll for sleeping on the road. Not very comfy.
+  components:
+    - type: HealOnBuckle
+      damage:
+        types:
+          Poison: -0.05
+          Blunt: -0.05
+    - type: Sprite
+      sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+      noRot: true
+      layers:
+      - state: bedroll_unrolled
+        map: ["unfoldedLayer"]
+      - state: bedroll_rolled
+        map: ["foldedLayer"]
+      - state: bedroll_unrolled
+        map: ["buckledLayer"]
+        visible: false
+    - type: Appearance
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.2
+          density: 100
+          mask:
+          - TableMask
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                MaterialCloth1:
+                  min: 0
+                  max: 2
+    - type: Strap
+      enabled: True
+      position: Down
+      rotation: -90
+      buckleOffset: "0.05,-0.10"
+    - type: Construction
+      graph: N14Bed
+      node: bedroll
+
+- type: entity
+  parent: N14Bedroll
+  id: N14BedrollFolded
+  suffix: rolled
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
+
+- type: entity
+  parent: N14Bed
+  id: N14BedMattressDirty1
+  name: Mattress
+  description: A mattress on the floor. A little rough.
+  components:
+  - type: Sprite
+    state: mattress1
+    snapCardinals: true
+
+- type: entity
+  parent: N14BedMattressDirty1
+  id: N14BedMattressDirty2
+  name: Mattress
+  description: A mattress on the floor. Filthy.
+  components:
+  - type: Sprite
+    state: mattress2
+
+- type: entity
+  parent: N14BedMattressDirty1
+  id: N14BedMattressDirty3
+  name: Mattress
+  description: A mattress on the floor. Is that blood?
+  components:
+  - type: Sprite
+    state: mattress3
+
+- type: entity
+  parent: N14BedMattressDirty1
+  id: N14BedMattressDirty4
+  name: Mattress
+  description: A mattress on the floor. That's definitely blood.
+  components:
+  - type: Sprite
+    state: mattress4
+
+- type: entity
+  parent: N14BedMattressDirty1
+  id: N14BedMattressDirty5
+  suffix: mouldy
+  name: Mattress
+  description: A mattress on the floor. I'm not sleeping on that.
+  components:
+  - type: Sprite
+    state: mattress5

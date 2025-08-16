@@ -1,0 +1,101 @@
+- type: entity
+  id: N14BarricadeWindow
+  parent: BaseStructure
+  name: barricade
+  description: A makeshift barricade.
+  components:
+    - type: CanBuildWindowOnTop
+    - type: Sprite
+      netsync: false
+      drawdepth: Overdoors
+      sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+      state: boarded
+    - type: Icon
+      sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+      state: boarded
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Wood
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+              bounds: "-0.5,-0.5,0.5,0.5"
+          layer:
+          - GlassLayer
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+              
+- type: entity
+  parent: N14BarricadeWindow
+  id: N14BarricadeDoor
+  name: locked door
+  description: A locked door. Might have to break it down.
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+      state: locked
+    - type: Icon
+      sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+      state: locked
+
+- type: entity
+  id: N14WindowBars
+  parent: BaseStructure
+  name: window bars
+  description: Sturdy looking bars blocking access.
+  components:
+    - type: MeleeSound
+      soundGroups:
+        Brute:
+          path:
+            "/Audio/Weapons/grille_hit.ogg"
+    - type: Sprite
+      sprite: _Nuclear14/Structures/Windows/windowbars.rsi
+      state: icon
+    - type: Icon
+      sprite: _Nuclear14/Structures/Windows/windowbars.rsi
+      state: icon
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: PowerConsumer
+    - type: Electrified
+      requirePower: true
+      noWindowInTile: true
+      highVoltageNode: high
+      mediumVoltageNode: medium
+      lowVoltageNode: low
+    - type: NodeContainer
+      nodes:
+        high:
+          !type:CableDeviceNode
+          nodeGroupID: HVPower
+        medium:
+          !type:CableDeviceNode
+          nodeGroupID: MVPower
+        low:
+          !type:CableDeviceNode
+          nodeGroupID: Apc
+              
+- type: entity
+  id: N14WindowBars2
+  parent: N14WindowBars
+  components:
+    - type: Sprite
+      netsync: false
+      drawdepth: Overdoors
+      sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+      state: bars
+    - type: Icon
+      sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+      state: bars

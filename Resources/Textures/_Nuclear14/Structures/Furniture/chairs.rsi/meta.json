@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/40c2c333d114084533ab9c830f75c3f02f3a4355/mojave/icons/structure/chairs.dmi, modified by Peptide90 to 32x32",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ergo_chair",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_blue",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_blue_broken",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_blue_broken_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_blue_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_blue_unfinished",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_blue_unfinished_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_broken",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_broken_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_folding",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_folding_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_red",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_red_broken",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_red_broken_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_red_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_red_unfinished",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_red_unfinished_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_unfinished",
+	  "directions": 4
+    },
+    {
+      "name": "metal_chair_unfinished_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_blue",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_blue_broken",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_blue_broken_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_blue_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_broken",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_broken_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_green",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_green_broken",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_green_broken_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_green_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "office_chair_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "plastic_chair",
+	  "directions": 4
+    },
+    {
+      "name": "plastic_chair_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "retro_chair",
+	  "directions": 4
+    },
+    {
+      "name": "wood_chair",
+	  "directions": 4
+    },
+    {
+      "name": "wood_chair_padded",
+	  "directions": 4
+    },
+    {
+      "name": "wood_chair_padded_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "wood_chair_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "armchair",
+	  "directions": 4
+    },
+    {
+      "name": "barstool"
+    },
+    {
+      "name": "barstool_toppled",
+	  "directions": 4
+    },
+    {
+      "name": "captain_chair",
+	  "directions": 4
+    },
+    {
+      "name": "diner_chair",
+	  "directions": 4
+    }
+  ]
+}

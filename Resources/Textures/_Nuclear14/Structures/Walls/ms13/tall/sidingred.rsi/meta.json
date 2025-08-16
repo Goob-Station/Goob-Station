@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from MS13 and modified for SS14 by Kill_Me_I_Noobs",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "tallsidingred0",
+            "directions": 4
+        },
+        {
+            "name": "tallsidingred1",
+            "directions": 4
+        },
+        {
+            "name": "tallsidingred2",
+            "directions": 4
+        },
+        {
+            "name": "tallsidingred3",
+            "directions": 4
+        },
+        {
+            "name": "tallsidingred4",
+            "directions": 4
+        },
+        {
+            "name": "tallsidingred5",
+            "directions": 4
+        },
+        {
+            "name": "tallsidingred6",
+            "directions": 4
+        },
+        {
+            "name": "tallsidingred7",
+            "directions": 4
+        }
+    ]
+}

@@ -1,0 +1,331 @@
+- type: entity
+  parent: BaseStructure
+  id: N14WindowBase # use for single tile / standalone windows & broken windows
+  description: A window for seeing into places.
+  abstract: true
+  name: window
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: WallMount
+    arc: 360 # interact despite grilles
+  - type: Tag
+    tags:
+      - ForceFixRotations
+      - Window
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb {}
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Appearance
+
+- type: entity
+  parent: N14WindowBase
+  id: N14WindowBaseAirtight # use for single tile / standalone windows that are intact
+  description: A window for seeing into places.
+  abstract: true
+  components:
+  - type: Airtight
+  - type: DamageVisuals
+    thresholds: [4, 8, 12]
+    damageDivisor: 2
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _Nuclear14/Structures/Windows/slanted/cracks.rsi
+    allowedVerbs:
+    - KnockOn
+
+- type: entity
+  parent: N14WindowBase
+  id: N14WindowSmoothBase # Use for windows that smooth together
+  description: A window for seeing into places.
+  abstract: true
+  components:
+  - type: Sprite
+    netsync: false
+    drawdepth: WallTops
+    sprite: _Nuclear14/Structures/Windows/window.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window.rsi
+    state: full
+  - type: IconSmooth
+    key: windows
+    base: window
+
+- type: entity
+  parent: N14WindowSmoothBase
+  id: N14WindowSmoothBaseAirtight # use for windows that smooth together that are intact
+  description: A window for seeing into places.
+  abstract: true
+  components:
+  - type: Airtight
+  - type: Repairable
+  - type: InteractionPopup
+    interactSuccessString: comp-window-knock
+    messagePerceivedByOthers: comp-window-knock
+    interactSuccessSound:
+      path: /Audio/Effects/glass_knock.ogg
+  - type: DamageVisuals
+    thresholds: [4, 8, 12]
+    damageDivisor: 2
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _Nuclear14/Structures/Windows/slanted/cracks.rsi
+
+## Smooth Windows
+- type: entity
+  id: N14Window
+  parent: N14WindowSmoothBaseAirtight
+
+- type: entity
+  parent: N14WindowSmoothBase
+  id: N14WindowBroken
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/windowbroken.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/windowbroken.rsi
+    state: full
+
+## Single Windows
+# Ruins
+- type: entity
+  parent: N14WindowBaseAirtight
+  id: N14WindowRuins
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindow
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindow
+
+- type: entity
+  parent: N14WindowBaseAirtight
+  id: N14WindowRuinsVertical
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindowvertical
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindowvertical
+
+- type: entity
+  parent: N14WindowBase
+  id: N14WindowRuinsBroken
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindowbroken
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindowbroken
+
+- type: entity
+  parent: N14WindowBase
+  id: N14WindowRuinsVerticalBroken
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindowbrokenvertical
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindowbrokenvertical
+
+- type: entity
+  parent: N14WindowBase
+  id: N14WindowRuinsDestroyed
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindowdestroyed
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: ruinswindowdestroyed
+
+# Wood / House
+- type: entity
+  parent: N14WindowBaseAirtight
+  id: N14WindowHouse
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: housewindow
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: housewindow
+
+- type: entity
+  parent: N14WindowBaseAirtight
+  id: N14WindowHouseVertical
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: housewindowvertical
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: housewindowvertical
+
+- type: entity
+  parent: N14WindowBaseAirtight
+  id: N14WindowHouseWood
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: woodwindow
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: woodwindow
+
+- type: entity
+  parent: N14WindowBase
+  id: N14WindowHouseBroken
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: housewindowbroken
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: housewindowbroken
+
+- type: entity
+  parent: N14WindowBase
+  id: N14WindowHouseBrokenVertical
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: housewindowbrokenvertical
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: housewindowbrokenvertical
+
+- type: entity
+  parent: N14WindowBase
+  id: N14WindowHouseWoodBroken
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: woodwindowbroken
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: woodwindowbroken
+
+# Store windows
+- type: entity
+  parent: N14WindowBaseAirtight
+  id: N14WindowStoreLeft
+  suffix: left
+  name: store window
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowleft
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowleft
+
+- type: entity
+  parent: N14WindowStoreLeft
+  id: N14WindowStoreMiddleHorizontal
+  suffix: middle horizontal
+  name: store window
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowhorizontal
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowhorizontal
+
+- type: entity
+  parent: N14WindowStoreLeft
+  id: N14WindowStoreRight
+  suffix: right
+  name: store window
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowright
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowright
+
+- type: entity
+  parent: N14WindowStoreLeft
+  id: N14WindowStoreBottom
+  suffix: bottom
+  name: store window
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowbottom
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowbottom
+
+- type: entity
+  parent: N14WindowStoreLeft
+  id: N14WindowStoreMiddleVertical
+  suffix: middle vertical
+  name: store window
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowvertical
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowvertical
+
+- type: entity
+  parent: N14WindowStoreLeft
+  id: N14WindowStoreTop
+  suffix: top
+  name: store window
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowtop
+  - type: Icon
+    sprite: _Nuclear14/Structures/Windows/window_ruins.rsi
+    state: storewindowtop

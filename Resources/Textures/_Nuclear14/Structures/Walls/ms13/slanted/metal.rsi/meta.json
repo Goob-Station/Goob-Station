@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from MS13 and modified by Peptide90 for Nuclear14",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "slantedmetal0",
+            "directions": 4
+        },
+        {
+            "name": "slantedmetal1",
+            "directions": 4
+        },
+        {
+            "name": "slantedmetal2",
+            "directions": 4
+        },
+        {
+            "name": "slantedmetal3",
+            "directions": 4
+        },
+        {
+            "name": "slantedmetal4",
+            "directions": 4
+        },
+        {
+            "name": "slantedmetal5",
+            "directions": 4
+        },
+        {
+            "name": "slantedmetal6",
+            "directions": 4
+        },
+        {
+            "name": "slantedmetal7",
+            "directions": 4
+        }
+    ]
+}

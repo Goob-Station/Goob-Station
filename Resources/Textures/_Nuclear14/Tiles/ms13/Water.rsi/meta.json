@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/b35ff6e7f1b94108e0b934a1caf84d60066840be/mojave/icons/turf/water.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "sewer_deep"
+    },
+    {
+      "name": "sewer_medium"
+    },
+    {
+      "name": "sewer_shallow"
+    },
+    {
+      "name": "water_deep"
+    },
+    {
+      "name": "water_medium"
+    },
+    {
+      "name": "water_shallow"
+    }
+  ]
+}
