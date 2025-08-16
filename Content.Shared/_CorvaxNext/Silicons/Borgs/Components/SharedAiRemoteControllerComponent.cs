@@ -1,9 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Baptr0b0t <152836416+baptr0b0t@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 ImHoks <142083149+ImHoks@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ImHoks <imhokzzzz@gmail.com>
 // SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._EinsteinEngines.Language;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -17,6 +20,9 @@ public sealed partial class AiRemoteControllerComponent : Component
 
     [DataField] public string[]? PreviouslyTransmitterChannels;
     [DataField] public string[]? PreviouslyActiveRadioChannels;
+
+    [DataField] public List<ProtoId<LanguagePrototype>>? PreviouslySpokenLanguages;
+    [DataField] public List<ProtoId<LanguagePrototype>>? PreviouslyUnderstoodLanguages;
 
     [DataField] public EntProtoId BackToAiAction = "ActionBackToAi";
     [DataField] public EntityUid? BackToAiActionEntity;
