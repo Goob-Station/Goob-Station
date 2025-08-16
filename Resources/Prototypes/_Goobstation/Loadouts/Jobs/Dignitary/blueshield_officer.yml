@@ -165,7 +165,7 @@
 - type: loadout
   id: BlackCowboyBoots
   equipment:
-    shoes: ClothingShoesBootsCowboyBlackFilled
+    shoes: ClothingShoesBootsCowboyBlack
 
 - type: loadout
   id: SnowjacksBso

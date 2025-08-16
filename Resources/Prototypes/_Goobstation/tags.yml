@@ -439,6 +439,9 @@
   id: NonLethalGrenade
 
 - type: Tag
+  id: NoStatModifyingItems
+
+- type: Tag
   id: NukeOpsCommanderUplink
 
 - type: Tag
