@@ -160,6 +160,9 @@
       DisposalTube: !type:Container
   - type: StaticPrice
     price: 30
+  - type: Tag # Reserve edit - mapping editor
+    tags:
+    - Disposal
 
 - type: entity
   id: DisposalHolder

@@ -3,12 +3,52 @@
 # SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+# SPDX-FileCopyrightText: 2024 poemota <142114334+poeMota@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ReserveBot <211949879+ReserveBot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 nazrin <tikufaev@outlook.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: decal
+  id: Crayons
+  abstract: true
+
+- type: decal
+  id: Numbers
+  parent: Crayons
+  abstract: true
+
+- type: decal
+  id: Alphabet
+  parent: Crayons
+  abstract: true
+
+- type: decal
+  id: Graffiti
+  parent: Crayons
+  abstract: true
+
+- type: decal
+  id: Symbols
+  parent: Crayons
+  abstract: true
+
+- type: decal
+  id: Info
+  parent: Crayons
+  abstract: true
+
+- type: decal
+  id: Brushes
+  parent: Crayons
+  abstract: true
+
+- type: decal
   id: 0
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -19,6 +59,7 @@
 
 - type: decal
   id: 1
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -29,6 +70,7 @@
 
 - type: decal
   id: 2
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -39,6 +81,7 @@
 
 - type: decal
   id: 3
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -49,6 +92,7 @@
 
 - type: decal
   id: 4
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -59,6 +103,7 @@
 
 - type: decal
   id: 5
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -69,6 +114,7 @@
 
 - type: decal
   id: 6
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -79,6 +125,7 @@
 
 - type: decal
   id: 7
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -89,6 +136,7 @@
 
 - type: decal
   id: 8
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -99,6 +147,7 @@
 
 - type: decal
   id: 9
+  parent: Numbers
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -109,6 +158,7 @@
 
 - type: decal
   id: Blasto
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -119,6 +169,7 @@
 
 - type: decal
   id: Clandestine
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -129,6 +180,7 @@
 
 - type: decal
   id: Cyber
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -139,6 +191,7 @@
 
 - type: decal
   id: Diablo
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -149,6 +202,7 @@
 
 - type: decal
   id: Donk
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -159,6 +213,7 @@
 
 - type: decal
   id: Gene
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -169,6 +224,7 @@
 
 - type: decal
   id: Gib
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -179,6 +235,7 @@
 
 - type: decal
   id: Max
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -189,6 +246,7 @@
 
 - type: decal
   id: Newton
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -199,6 +257,7 @@
 
 - type: decal
   id: North
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -209,6 +268,7 @@
 
 - type: decal
   id: Omni
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -219,6 +279,7 @@
 
 - type: decal
   id: Osiron
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -229,6 +290,7 @@
 
 - type: decal
   id: Prima
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -239,6 +301,7 @@
 
 - type: decal
   id: Psyke
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -249,6 +312,7 @@
 
 - type: decal
   id: Sirius
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -259,6 +323,7 @@
 
 - type: decal
   id: Tunnel
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -269,6 +334,7 @@
 
 - type: decal
   id: Waffle
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -279,6 +345,7 @@
 
 - type: decal
   id: ampersand
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -289,6 +356,7 @@
 
 - type: decal
   id: amyjon
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -299,6 +367,7 @@
 
 - type: decal
   id: arrow
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -309,6 +378,7 @@
 
 - type: decal
   id: beepsky
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -319,6 +389,7 @@
 
 - type: decal
   id: biohazard
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -329,6 +400,7 @@
 
 - type: decal
   id: blueprint
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -339,6 +411,7 @@
 
 - type: decal
   id: body
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -349,6 +422,7 @@
 
 - type: decal
   id: bottle
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -359,6 +433,7 @@
 
 - type: decal
   id: brush
+  parent: Brushes
   tags: ["crayon", "crayon-1-brushes"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -369,6 +444,7 @@
 
 - type: decal
   id: carp
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -379,6 +455,7 @@
 
 - type: decal
   id: cat
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -389,6 +466,7 @@
 
 - type: decal
   id: chevron
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -399,6 +477,7 @@
 
 - type: decal
   id: clawprint
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -409,6 +488,7 @@
 
 - type: decal
   id: clown
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -419,6 +499,7 @@
 
 - type: decal
   id: comma
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -429,6 +510,7 @@
 
 - type: decal
   id: corgi
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -439,6 +521,7 @@
 
 - type: decal
   id: credit
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -449,6 +532,7 @@
 
 - type: decal
   id: cyka
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -459,6 +543,7 @@
 
 - type: decal
   id: danger
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -469,6 +554,7 @@
 
 - type: decal
   id: disk
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -479,6 +565,7 @@
 
 - type: decal
   id: dot
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -489,6 +576,7 @@
 
 - type: decal
   id: dwarf
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -499,6 +587,7 @@
 
 - type: decal
   id: electricdanger
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -509,6 +598,7 @@
 
 - type: decal
   id: end
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -519,6 +609,7 @@
 
 - type: decal
   id: engie
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -529,6 +620,7 @@
 
 - type: decal
   id: equals
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -539,6 +631,7 @@
 
 - type: decal
   id: evac
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -549,6 +642,7 @@
 
 - type: decal
   id: exclamationmark
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -559,6 +653,7 @@
 
 - type: decal
   id: face
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -569,6 +664,7 @@
 
 - type: decal
   id: fireaxe
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -579,6 +675,7 @@
 
 - type: decal
   id: firedanger
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -589,6 +686,7 @@
 
 - type: decal
   id: food
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -599,6 +697,7 @@
 
 - type: decal
   id: footprint
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -609,6 +708,7 @@
 
 - type: decal
   id: ghost
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -619,6 +719,7 @@
 
 - type: decal
   id: guy
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -629,6 +730,7 @@
 
 - type: decal
   id: heart
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -639,6 +741,7 @@
 
 - type: decal
   id: largebrush
+  parent: Brushes
   tags: ["crayon", "crayon-1-brushes"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -649,6 +752,7 @@
 
 - type: decal
   id: like
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -659,6 +763,7 @@
 
 - type: decal
   id: line
+  parent: Brushes
   tags: ["crayon", "crayon-1-brushes"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -669,6 +774,7 @@
 
 - type: decal
   id: matt
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -679,6 +785,7 @@
 
 - type: decal
   id: med
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -689,6 +796,7 @@
 
 - type: decal
   id: minus
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -699,6 +807,7 @@
 
 - type: decal
   id: nay
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -709,6 +818,7 @@
 
 - type: decal
   id: pawprint
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -719,6 +829,7 @@
 
 - type: decal
   id: peace
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -729,6 +840,7 @@
 
 - type: decal
   id: percent
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -739,6 +851,7 @@
 
 - type: decal
   id: plus
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -749,6 +862,7 @@
 
 - type: decal
   id: pound
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -759,6 +873,7 @@
 
 - type: decal
   id: prolizard
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -769,6 +884,7 @@
 
 - type: decal
   id: questionmark
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -779,6 +895,7 @@
 
 - type: decal
   id: radiation
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -789,6 +906,7 @@
 
 - type: decal
   id: revolution
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -799,6 +917,7 @@
 
 - type: decal
   id: rune1
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -809,6 +928,7 @@
 
 - type: decal
   id: rune2
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -819,6 +939,7 @@
 
 - type: decal
   id: rune3
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -829,6 +950,7 @@
 
 - type: decal
   id: rune4
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -839,6 +961,7 @@
 
 - type: decal
   id: rune5
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -849,6 +972,7 @@
 
 - type: decal
   id: rune6
+  parent: Graffiti
   tags: ["crayon", "crayon-5-graffiti"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -859,6 +983,7 @@
 
 - type: decal
   id: safe
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -869,6 +994,7 @@
 
 - type: decal
   id: scroll
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -879,6 +1005,7 @@
 
 - type: decal
   id: shop
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -889,6 +1016,7 @@
 
 - type: decal
   id: shortline
+  parent: Brushes
   tags: ["crayon", "crayon-1-brushes"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -899,6 +1027,7 @@
 
 - type: decal
   id: shotgun
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -909,6 +1038,7 @@
 
 - type: decal
   id: skull
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -919,6 +1049,7 @@
 
 - type: decal
   id: slash
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -929,6 +1060,7 @@
 
 - type: decal
   id: smallbrush
+  parent: Brushes
   tags: ["crayon", "crayon-1-brushes"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -939,6 +1071,7 @@
 
 - type: decal
   id: snake
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -949,6 +1082,7 @@
 
 - type: decal
   id: space
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -959,6 +1093,7 @@
 
 - type: decal
   id: splatter
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -969,6 +1104,7 @@
 
 - type: decal
   id: star
+  parent: Symbols
   tags: ["crayon", "crayon-3-symbols"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -979,6 +1115,7 @@
 
 - type: decal
   id: stickman
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -989,6 +1126,7 @@
 
 - type: decal
   id: taser
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -999,6 +1137,7 @@
 
 - type: decal
   id: thinline
+  parent: Brushes
   tags: ["crayon", "crayon-1-brushes"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1009,6 +1148,7 @@
 
 - type: decal
   id: toilet
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1019,6 +1159,7 @@
 
 - type: decal
   id: toolbox
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1029,6 +1170,7 @@
 
 - type: decal
   id: trade
+  parent: Info
   tags: ["crayon", "crayon-4-info"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1039,6 +1181,7 @@
 
 - type: decal
   id: uboa
+  parent: Crayons
   tags: ["crayon"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1049,6 +1192,7 @@
 
 - type: decal
   id: a
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1059,6 +1203,7 @@
 
 - type: decal
   id: b
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1069,6 +1214,7 @@
 
 - type: decal
   id: c
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1079,6 +1225,7 @@
 
 - type: decal
   id: d
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1089,6 +1236,7 @@
 
 - type: decal
   id: e
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1099,6 +1247,7 @@
 
 - type: decal
   id: f
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1109,6 +1258,7 @@
 
 - type: decal
   id: g
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1119,6 +1269,7 @@
 
 - type: decal
   id: h
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1129,6 +1280,7 @@
 
 - type: decal
   id: i
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1139,6 +1291,7 @@
 
 - type: decal
   id: j
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1149,6 +1302,7 @@
 
 - type: decal
   id: k
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1159,6 +1313,7 @@
 
 - type: decal
   id: l
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1169,6 +1324,7 @@
 
 - type: decal
   id: m
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1179,6 +1335,7 @@
 
 - type: decal
   id: n
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1189,6 +1346,7 @@
 
 - type: decal
   id: o
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1199,6 +1357,7 @@
 
 - type: decal
   id: p
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1209,6 +1368,7 @@
 
 - type: decal
   id: q
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1219,6 +1379,7 @@
 
 - type: decal
   id: r
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1229,6 +1390,7 @@
 
 - type: decal
   id: s
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1239,6 +1401,7 @@
 
 - type: decal
   id: t
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1249,6 +1412,7 @@
 
 - type: decal
   id: u
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1259,6 +1423,7 @@
 
 - type: decal
   id: v
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1269,6 +1434,7 @@
 
 - type: decal
   id: w
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1279,6 +1445,7 @@
 
 - type: decal
   id: x
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1289,6 +1456,7 @@
 
 - type: decal
   id: y
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true
@@ -1299,6 +1467,7 @@
 
 - type: decal
   id: z
+  parent: Alphabet
   tags: ["crayon", "crayon-2-alphanum"]
   defaultCleanable: true
   defaultCustomColor: true

@@ -1,0 +1,5 @@
+- type: Tag
+  id: Cable # For mapping editor
+
+- type: Tag
+  id: Disposal # For mapping editor
