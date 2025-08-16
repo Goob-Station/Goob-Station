@@ -26,6 +26,8 @@
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
@@ -72,6 +74,11 @@ using Robust.Shared.Timing;
 using Content.Shared._Shitmed.Damage;
 using Content.Shared._Shitmed.Targeting;
 
+// Language Change
+using Content.Server._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language.Components;
+using Content.Shared._EinsteinEngines.Language.Events;
 
 namespace Content.Server.Zombies
 {
@@ -89,6 +96,7 @@ namespace Content.Server.Zombies
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedRoleSystem _role = default!;
+        [Dependency] private readonly LanguageSystem _language = default!;
 
         public readonly ProtoId<NpcFactionPrototype> Faction = "Zombie";
 
@@ -125,6 +133,10 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<IncurableZombieComponent, MapInitEvent>(OnPendingMapInit);
 
             SubscribeLocalEvent<ZombifyOnDeathComponent, MobStateChangedEvent>(OnDamageChanged);
+
+            // Goob Edit - Prevent Zombies Speaking/Understanding Languages
+            SubscribeLocalEvent<ZombieComponent, DetermineEntityLanguagesEvent>(OnLanguageApply);
+            SubscribeLocalEvent<ZombieComponent, ComponentShutdown>(OnShutdown);
         }
 
         private void OnBeforeRemoveAnomalyOnDeath(Entity<PendingZombieComponent> ent, ref BeforeRemoveAnomalyOnDeathEvent args)
@@ -239,8 +251,17 @@ namespace Content.Server.Zombies
 
         private void OnStartup(EntityUid uid, ZombieComponent component, ComponentStartup args)
         {
-            if (component.EmoteSoundsId == null)
+            if (component.EmoteSoundsId == null
+                || TerminatingOrDeleted(uid)) // Goob Change
                 return;
+
+            // Goobstation Change Start
+            var comp = EnsureComp<LanguageSpeakerComponent>(uid); // Ensure they can speak language before adding language.
+            if (!string.IsNullOrEmpty(component.ForcedLanguage)) // Should never be false, but security either way.
+                comp.CurrentLanguage = component.ForcedLanguage;
+            _language.UpdateEntityLanguages(uid);
+            // Goobstation Change End
+
             _protoManager.TryIndex(component.EmoteSoundsId, out component.EmoteSounds);
         }
 
@@ -385,7 +406,37 @@ namespace Content.Server.Zombies
         // Remove the role when getting cloned, getting gibbed and borged, or leaving the body via any other method.
         private void OnMindRemoved(Entity<ZombieComponent> ent, ref MindRemovedMessage args)
         {
-            _role.MindRemoveRole<ZombieRoleComponent>((args.Mind.Owner,  args.Mind.Comp));
+            _role.MindRemoveRole<ZombieRoleComponent>((args.Mind.Owner, args.Mind.Comp));
         }
+
+        #region Goob Language Changes
+
+        /// <summary>
+        ///     This forces the languages to reset and apply only the current language for the entity based on Zombie Component.
+        /// </summary>
+        private void OnLanguageApply(Entity<ZombieComponent> ent, ref DetermineEntityLanguagesEvent args)
+        {
+            if (ent.Comp.LifeStage is ComponentLifeStage.Removing
+                or ComponentLifeStage.Stopping
+                or ComponentLifeStage.Stopped)
+                return;
+
+            // Clear the languages and then apply the forced language.
+            args.SpokenLanguages.Clear();
+            args.UnderstoodLanguages.Clear();
+            args.SpokenLanguages.Add(ent.Comp.ForcedLanguage);
+            args.UnderstoodLanguages.Add(ent.Comp.ForcedLanguage);
+        }
+
+        // When comp is removed, reset languages.
+        private void OnShutdown(Entity<ZombieComponent> ent, ref ComponentShutdown args)
+        {
+            if (TerminatingOrDeleted(ent))
+                return;
+
+            _language.UpdateEntityLanguages(ent.Owner); // This uses ent.Owner because UpdateEntityLanguages checks for <LanguageSpeakerComponent>.
+        }
+
+        #endregion
     }
 }
