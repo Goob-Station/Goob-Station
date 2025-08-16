@@ -55,12 +55,12 @@ cosmiccult-roundend-crewmajor = [color=green]Crew major victory![/color]
 cosmiccult-roundend-crewcomplete = [color=green]Crew complete victory![/color]
 
 cosmiccult-summary-cultcomplete = The cosmic cultists ushered in the end!
-cosmiccult-summary-cultmajor = The cosmic cultists' victory will be inevitable.
-cosmiccult-summary-cultminor = The Monument was completed, but not fully empowered.
-cosmiccult-summary-neutral = The cult will live to see another day.
-cosmiccult-summary-crewminor = The cult has been left stewardless.
+cosmiccult-summary-cultmajor = The cult's steward made it to Midpoint unnoticed. The cult will live to see another day.
+cosmiccult-summary-cultminor = Several cultists made it to Midpoint unnoticed. The cult will live to see another day.
+cosmiccult-summary-neutral = No cultists made it to midpoint, but some remain on the station. The struggle continues.
+cosmiccult-summary-crewminor = The Monument did not reach full power.
 cosmiccult-summary-crewmajor = All cosmic cultists were eliminated.
-cosmiccult-summary-crewcomplete = Every single cosmic cultist was deconverted!
+cosmiccult-summary-crewcomplete = All cosmic cultists were deconverted!
 
 cosmiccult-elimination-shuttle-call = Based on scans from our long-range sensors, the Λ-CDM anomaly has subsided. We thank you for your prudence. An emergency shuttle has been automatically called to the station for decontamination and debriefing procedures. ETA: {$time} {$units}.
 cosmiccult-elimination-announcement = Based on scans from our long-range sensors, the Λ-CDM anomaly has subsided. We thank you for your prudence. An emergency shuttle is already inbound. Return to CentComm safely for decontamination and debriefing procedures.
