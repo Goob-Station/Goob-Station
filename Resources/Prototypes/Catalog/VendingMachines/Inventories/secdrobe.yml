@@ -72,6 +72,7 @@
     ClothingHeadHelmetBasicAlt: 2
   contrabandInventory:
     ClothingMaskClownSecurity: 1
+    ClothingMaskMimeSecurity: 1
     ToyFigurineSecurity: 1
     ToyFigurineBrigmedic: 1 # Goobstation
     ToyFigurineWarden: 1
