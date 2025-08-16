@@ -26,6 +26,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._DV.Silicons.Laws; // Goob Edit - allows nt borgs to use radial
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -190,6 +191,7 @@ public abstract partial class SharedStationAiSystem
 
         if (!args.CanComplexInteract
             || !HasComp<StationAiHeldComponent>(args.User)
+            && !HasComp<SlavedBorgComponent>(args.User) // Goob Edit
             || !args.CanInteract)
         {
             return;
@@ -257,6 +259,8 @@ public abstract class BaseStationAiAction
 {
     [field:NonSerialized]
     public EntityUid User { get; set; }
+
+    public bool Cancelled; // Goob edit - make it cancellable
 }
 
 // No idea if there's a better way to do this.

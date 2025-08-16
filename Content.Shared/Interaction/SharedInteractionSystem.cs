@@ -136,6 +136,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Common.Interactions;
+using Content.Shared._DV.Silicons.Laws;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -157,6 +158,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Storage;
 using Content.Shared.Strip;
 using Content.Shared.Tag;
@@ -333,6 +335,9 @@ namespace Content.Shared.Interaction
 
         private bool UiRangeCheck(Entity<TransformComponent?> user, Entity<TransformComponent?> target, float range)
         {
+            if (HasComp<SlavedBorgComponent>(user.Owner)) // Goob edit - Lets borgs bypass range checks for door radial interaction I.E. bolt/electrify/EA
+                return true;
+
             if (!Resolve(target, ref target.Comp))
                 return false;
 

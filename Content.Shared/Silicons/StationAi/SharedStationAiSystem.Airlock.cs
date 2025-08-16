@@ -46,7 +46,7 @@ public abstract partial class SharedStationAiSystem
     /// </summary>
     private void OnAirlockBolt(EntityUid ent, DoorBoltComponent component, StationAiBoltEvent args)
     {
-        if (component.BoltWireCut)
+        if (component.BoltWireCut || args.Cancelled) // Goob edit - now Cancellable
         {
             ShowDeviceNotRespondingPopup(args.User);
             return;
@@ -64,7 +64,7 @@ public abstract partial class SharedStationAiSystem
     /// </summary>
     private void OnAirlockEmergencyAccess(EntityUid ent, AirlockComponent component, StationAiEmergencyAccessEvent args)
     {
-        if (!PowerReceiver.IsPowered(ent))
+        if (!PowerReceiver.IsPowered(ent) || args.Cancelled) // Goob edit - now Cancellable
         {
             ShowDeviceNotRespondingPopup(args.User);
             return;
@@ -81,7 +81,7 @@ public abstract partial class SharedStationAiSystem
         if (
             component.IsWireCut
             || !PowerReceiver.IsPowered(ent)
-        )
+            || args.Cancelled) // Goob edit - now Cancellable
         {
             ShowDeviceNotRespondingPopup(args.User);
             return;
