@@ -213,7 +213,7 @@ public sealed partial class ZombieSystem
         {
             // Groaning when damaged
             EnsureComp<EmoteOnDamageComponent>(target);
-            _emoteOnDamage.AddEmote(target, "Scream");
+            _emoteOnDamage.AddEmote(target, 60, "Scream"); // CorvaxGoob : Args changes
 
             // Random groaning
             EnsureComp<AutoEmoteComponent>(target);
