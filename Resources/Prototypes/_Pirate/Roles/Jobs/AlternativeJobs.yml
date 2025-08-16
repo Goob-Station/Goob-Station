@@ -256,6 +256,12 @@
 
 #region Security
 
+- type: alternativeJob # GOD(Void) allows this, pls dont kill me
+  id: AlternativeJobSecMaid
+  jobName: job-alternative-name-security-maid
+  jobDescription: job-description-warden
+  parentJobId: Warden
+
 - type: alternativeJob
   id: AlternativeJobPeacekeeper
   jobName: job-alternative-name-peacekeeper

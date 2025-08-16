@@ -6,19 +6,6 @@
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Pirate/wizard.yml
-  - type: AntagSelection
-    definitions:
-    - spawnerPrototype: SpawnPointPirateCaptain
-      pickPlayer: false
-      min: 5
-      max: 5
-      mindRoles:
-      - MindRolePirate
-      startingGear: PirateGear
-      components:
-      - type: RandomMetadata
-        nameSegments:
-        - NamesDeathCommando
   - type: Tag
     tags:
     - MidroundAntag

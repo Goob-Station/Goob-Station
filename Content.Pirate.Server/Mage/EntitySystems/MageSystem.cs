@@ -46,11 +46,12 @@ public sealed class MageSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, MageComponent component, ComponentStartup args)
     {
-        if (TryComp<StoreComponent>(uid, out var store))
-            _store.UpdateUserInterface(uid, uid, store);
+        if (!TryComp<StoreComponent>(uid, out var store))
+            return;
 
+        _store.UpdateUserInterface(uid, uid, store);
         _store.TryAddCurrency(new Dictionary<string, FixedPoint2>
-            { { component.ExperinceCurrencyPrototype, 10 } }, uid);
+            { { component.ExperinceCurrencyPrototype, 10 } }, uid, store);
     }
 
     private void OnExamine(EntityUid uid, MageComponent component, ExaminedEvent args)

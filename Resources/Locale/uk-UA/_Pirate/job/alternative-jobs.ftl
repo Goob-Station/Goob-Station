@@ -74,6 +74,7 @@ job-alternative-name-aspirant = Аспірант
 job-alternative-name-laborant = Лаборант
 
 # Security
+job-alternative-name-security-maid = Покоївка бригу
 job-alternative-name-peacekeeper = Миротворець
 job-alternative-name-inspector = Інспектор
 job-alternative-name-forensist = Слідчий
