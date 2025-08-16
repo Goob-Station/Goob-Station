@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "Resprited by DangerRevolution (GitHub) (excluding the security.png) from EmoGarbage404 (GitHub) for Space Station 14.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "security"
+    },
+    {
+	  "name": "icon-chase"
+	},
+	{
+	  "name": "icon-control"
+	},
+	{
+	  "name": "icon-detain"
+	},
+	{
+	  "name": "icon-hold"
+	},
+	{
+	  "name": "icon-patrol"
+	},
+	{
+	  "name": "icon-peacekeeper"
+	}
+
+  ]
+}
