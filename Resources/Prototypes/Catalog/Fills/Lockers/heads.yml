@@ -467,6 +467,7 @@
     - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
     - id: ClothingBeltGeminiHoloProjector # Goobstation - Who better to do science with than yourself?
     - id: MMI # Goobstation
+    - id: BinaryImplanterNT # Goobstation - binary encryption key but implant the collective mind :)
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
