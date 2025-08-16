@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Standing;
+using Content.Shared._White.Standing;
 
 namespace Content.Server._White.Traits.Assorted;
 
@@ -22,6 +23,6 @@ public sealed class LayingDownModifierSystem : EntitySystem
             return;
 
         layingDown.StandingUpTime *= component.LayingDownCooldownMultiplier;
-        layingDown.SpeedModify *= component.DownedSpeedMultiplierMultiplier;
+        layingDown.LyingSpeedModifier *= component.DownedSpeedMultiplierMultiplier;
     }
 }

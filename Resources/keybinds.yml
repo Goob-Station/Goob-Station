@@ -183,6 +183,10 @@ binds:
 - function: ToggleStanding
   type: State
   key: R
+- function: ToggleCrawlingUnder # Einstein Engines - Crawl Under Tables
+  type: State
+  mod1: Shift
+  key: R
 - function: ResistGrab
   type: State
   key: B

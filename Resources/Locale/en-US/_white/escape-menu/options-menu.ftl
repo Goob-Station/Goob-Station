@@ -6,3 +6,6 @@
 ui-options-log-in-chat = Log actions in the chat
 
 ui-options-function-auto-get-up = Automatically get up after falling
+
+ui-options-function-toggle-standing = Toggle Standing/Crawling
+ui-options-function-toggle-crawling-under = Toggle Crawling Under Furniture

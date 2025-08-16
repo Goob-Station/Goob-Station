@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System;
+using Content.Goobstation.Common.Standing;
 using Robust.Shared.Analyzers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
@@ -15,19 +16,31 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.ViewVariables;
 
-namespace Content.Goobstation.Common.Standing;
+namespace Content.Shared._White.Standing;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class LayingDownComponent : Component
 {
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float StandingUpTime { get; set; } = 1.5f;
+    public TimeSpan StandingUpTime { get; set; } = TimeSpan.FromSeconds(1.5f); // Einstein Engines - Crawling Under Tables
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float SpeedModify { get; set; } = .3f;
+    public float LyingSpeedModifier = .3f,
+                CrawlingUnderSpeedModifier = 0.5f; // Einstein Engines - Crawling Under Tables
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool AutoGetUp = true;
+
+    // Einstein Engines begin
+    /// <summary>
+    ///     If true, the entity is choosing to crawl under furniture. This is purely visual and has no effect on physics.
+    /// </summary>
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public bool IsCrawlingUnder = false;
+
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public int NormalDrawDepth = (int)DrawDepth.DrawDepth.Mobs,
+                CrawlingUnderDrawDepth = (int)DrawDepth.DrawDepth.SmallMobs;
 }
 
 [Serializable, NetSerializable]
