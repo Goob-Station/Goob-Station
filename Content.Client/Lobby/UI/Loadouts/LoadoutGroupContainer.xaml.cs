@@ -83,9 +83,6 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
 
         LoadoutsContainer.DisposeAllChildren();
 
-        // Get all loadout prototypes for this group.
-        var validProtos = _groupProto.Loadouts.Select(id => protoMan.Index(id));
-
         // CorvaxGoob-Loadouts-Start
         var groupLoadouts = _groupProto.Loadouts;
         if (collection.TryResolveType<ISharedLoadoutsManager>(out var loadoutsManager) && _groupProto.ID == "Inventory")

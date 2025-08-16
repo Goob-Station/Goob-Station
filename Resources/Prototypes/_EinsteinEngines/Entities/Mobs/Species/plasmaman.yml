@@ -98,7 +98,7 @@
     speechVerb: Skeleton
   - type: Vocal
     wilhelm: "/Audio/_Goobstation/Voice/badtothebone.ogg" # Goobstation
-    wilhelmProbability: 0.1 # Goobstation
+    wilhelmProbability: 0.002 # Goobstation. Reduced chance by CorvaxGoob
     sounds:
       Male: UnisexPlasmaman
       Female: UnisexPlasmaman

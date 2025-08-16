@@ -39,37 +39,12 @@
     - !type:NestedSelector
       rolls: !type:RangeNumberSelector
         range: 0, 2
-      children:
-      - id: BookAurora
-      - id: BookCafe
-      - id: BookEarth
-      - id: BookFeather
-      - id: BookIanAntarctica
-      - id: BookIanArctic
-      - id: BookIanCity
-      - id: BookIanDesert
-      - id: BookIanLostWolfPup
-      - id: BookIanMountain
-      - id: BookIanOcean
-      - id: BookIanRanch
-      - id: BookInspiration
-      - id: BookJourney
-      - id: BookMap
-      - id: BookMedicalOfficer
-      - id: BookMorgue
-      - id: BookNames
-      - id: BookNarsieLegend
-      - id: BookPossum
-      - id: BookRufus
-      - id: BookSlothClownMMD
-      - id: BookSlothClownPranks
-      - id: BookSlothClownSSS
-      - id: BookStruck
-      - id: BookSun
-      - id: BookTemple
-      - id: BookTruth
-      - id: BookWatched
-      - id: BookWorld
+      tableId: RandomGuidebookTable
+    # Handwritten books
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 3
+      tableId: RandomHandwrittenBookTable
     # CorvaxGoob-Lore-Start
     - !type:GroupSelector
       rolls: !type:RangeNumberSelector
@@ -106,12 +81,6 @@
         - id: BookMBS2
         - id: BookImplants
     # CorvaxGoob-Lore-End
-      tableId: RandomGuidebookTable
-    # Handwritten books
-    - !type:NestedSelector
-      rolls: !type:RangeNumberSelector
-        range: 0, 3
-      tableId: RandomHandwrittenBookTable
 
 - type: entityTable
   id: RandomHandwrittenBookTable
@@ -147,6 +116,7 @@
     - id: BookTruth
     - id: BookWatched
     - id: BookWorld
+    - id: BookBusido # CorvaxGoob-Books
 
 - type: entityTable
   id: RandomGuidebookTable

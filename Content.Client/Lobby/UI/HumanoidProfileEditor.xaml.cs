@@ -779,6 +779,10 @@ namespace Content.Client.Lobby.UI
             for (var i = 0; i < _species.Count; i++)
             {
                 var name = Loc.GetString(_species[i].Name);
+
+                if (_species[i].SponsorOnly) // CorvaxGoob-Sponsors
+                    name += " " + Loc.GetString("sponsor-only-text");
+
                 SpeciesButton.AddItem(name, i);
 
                 if (Profile?.Species.Equals(_species[i].ID) == true)

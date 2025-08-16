@@ -17,7 +17,7 @@
     !type:SyllableObfuscation
     minSyllables: 1
     maxSyllables: 5 # Goob Edit - Make it more chaotic.
-  replacement: # CorvaxGoob-Locale
+    replacement: # CorvaxGoob-Locale
     - блоб
     - плоп
     - плип
