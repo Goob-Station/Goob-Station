@@ -245,3 +245,14 @@
     nameSegments:
     - NamesShadowkin
     nameFormat: random-metadata-name-format-default
+
+- type: entity
+  parent: MobChitinid
+  id: MobChitinidRandom
+  name: Urist McAnt
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - NamesChitinidFirstMale

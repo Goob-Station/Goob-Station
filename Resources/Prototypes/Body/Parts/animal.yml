@@ -125,3 +125,29 @@
         Quantity: 10
       - ReagentId: Blood
         Quantity: 20
+
+- type: entity
+  parent: [ PartAnimalBase, BaseLeftHand ]
+  id: LeftHandSmartCorgi
+  name: corgi hand
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: l_hand
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+
+- type: entity
+  parent: [ PartAnimalBase, BaseRightHand ]
+  id: RightHandSmartCorgi
+  name: corgi hand
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: r_hand
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
