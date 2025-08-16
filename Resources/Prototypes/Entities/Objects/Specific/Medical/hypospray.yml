@@ -104,6 +104,7 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
 # SPDX-FileCopyrightText: 2025 EulogisticLullaby <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
@@ -111,6 +112,7 @@
 # SPDX-FileCopyrightText: 2025 RedMush1 <axmetvaliev1@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
+# SPDX-FileCopyrightText: 2025 Sera <karaadastra@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 War Pigeon <54217755+minus1over12@users.noreply.github.com>
@@ -279,6 +281,9 @@
   - type: SpaceGarbage
   - type: StaticPrice
     price: 75 # These are limited supply items.
+  - type: Tag
+    tags:
+    - Medipen
   - type: TrashOnSolutionEmpty
     solution: pen
 
@@ -310,6 +315,7 @@
           Quantity: 5
   - type: Tag
     tags:
+    - Medipen
     - EmergencyMedipen
     - Trash
 
@@ -652,6 +658,7 @@
             Quantity: 20
   - type: Tag
     tags:
+    - Medipen
     - SpaceMedipen
     - Trash
 

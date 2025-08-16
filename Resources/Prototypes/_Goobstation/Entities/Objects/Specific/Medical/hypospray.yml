@@ -6,6 +6,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 CometVoid <cometsstrile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -390,8 +392,6 @@
         reagents:
         - ReagentId: Stasizium
           Quantity: 10
-  - type: Tag
-    tags: []
 
 - type: entity
   name: centcomm advanced stimulant
@@ -423,8 +423,6 @@
     injectOnly: true
   - type: StaticPrice
     price: 500
-  - type: Tag
-    tags: []
 
 - type: entity
   name: biohazard medipen
@@ -453,6 +451,7 @@
           Quantity: 5
   - type: Tag
     tags:
+    - Medipen
     - EmergencyMedipen
 
 - type: entity
@@ -482,6 +481,7 @@
           Quantity: 15
   - type: Tag
     tags:
+    - Medipen
     - EmergencyMedipen
 
 # Actual hyposprays
