@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/15/2025 13:53:43
-  entityCount: 13886
+  time: 08/16/2025 00:08:55
+  entityCount: 13907
 maps:
 - 1
 grids:
@@ -4290,7 +4290,7 @@ entities:
             4: 2184
           -13,4:
             3: 2184
-            6: 546
+            5: 546
           -12,5:
             0: 1
             1: 3856
@@ -4299,7 +4299,7 @@ entities:
           -11,5:
             1: 784
           -11,4:
-            5: 546
+            6: 546
           -11,6:
             0: 49152
           -11,3:
@@ -4660,9 +4660,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
+          - 0
+          - 0
           - 6666.982
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -4679,9 +4679,9 @@ entities:
           temperature: 293.15
           moles:
           - 0
-          - 0
-          - 0
           - 6666.982
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11318,6 +11318,26 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -62.5,1.5
+      parent: 2
+- proto: BlastDoorOpen
+  entities:
+  - uid: 10924
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.5,53.5
+      parent: 2
+  - uid: 13889
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,53.5
+      parent: 2
+  - uid: 13890
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 11.5,53.5
       parent: 2
 - proto: BlockGameArcade
   entities:
@@ -61467,6 +61487,15 @@ entities:
           ents:
           - 9300
           - 9301
+- proto: Jukebox
+  entities:
+  - uid: 13470
+    components:
+    - type: MetaData
+      desc: there a note here saying "the ai is bored so we give em music - Bradley".
+    - type: Transform
+      pos: 10.5,56.5
+      parent: 2
 - proto: KalimbaInstrument
   entities:
   - uid: 12015
@@ -61845,6 +61874,44 @@ entities:
     - type: Transform
       pos: 22.50683,-38.57403
       parent: 2
+- proto: LightBulbCrystalRed
+  entities:
+  - uid: 13902
+    components:
+    - type: Transform
+      parent: 13895
+    - type: Physics
+      canCollide: False
+  - uid: 13903
+    components:
+    - type: Transform
+      parent: 13896
+    - type: Physics
+      canCollide: False
+  - uid: 13904
+    components:
+    - type: Transform
+      parent: 13897
+    - type: Physics
+      canCollide: False
+  - uid: 13905
+    components:
+    - type: Transform
+      parent: 13898
+    - type: Physics
+      canCollide: False
+  - uid: 13906
+    components:
+    - type: Transform
+      parent: 13899
+    - type: Physics
+      canCollide: False
+  - uid: 13907
+    components:
+    - type: Transform
+      parent: 13900
+    - type: Physics
+      canCollide: False
 - proto: Lighter
   entities:
   - uid: 9279
@@ -63351,13 +63418,6 @@ entities:
     - type: Transform
       pos: -32.481808,-7.2820773
       parent: 2
-  - uid: 13470
-    components:
-    - type: Transform
-      pos: -3.4773915,26.608383
-      parent: 2
-    - type: NetworkConfigurator
-      linkModeActive: False
   - uid: 13770
     components:
     - type: Transform
@@ -67258,6 +67318,102 @@ entities:
     - type: Transform
       pos: -61.5,-6.5
       parent: 2
+- proto: PoweredStrobeLightEmpty
+  entities:
+  - uid: 13895
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,52.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 13902
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    - type: DamageOnInteract
+      isDamageActive: False
+  - uid: 13896
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,52.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 13903
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    - type: DamageOnInteract
+      isDamageActive: False
+  - uid: 13897
+    components:
+    - type: Transform
+      pos: 10.5,56.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 13904
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    - type: DamageOnInteract
+      isDamageActive: False
+  - uid: 13898
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,43.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 13905
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    - type: DamageOnInteract
+      isDamageActive: False
+  - uid: 13899
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 15.5,45.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 13906
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    - type: DamageOnInteract
+      isDamageActive: False
+  - uid: 13900
+    components:
+    - type: Transform
+      pos: 6.5,47.5
+      parent: 2
+    - type: ContainerContainer
+      containers:
+        light_bulb: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 13907
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    - type: DamageOnInteract
+      isDamageActive: False
 - proto: ProtolatheMachineCircuitboard
   entities:
   - uid: 9974
@@ -71308,6 +71464,26 @@ entities:
     - type: Transform
       pos: -7.5,-27.5
       parent: 2
+  - uid: 13891
+    components:
+    - type: Transform
+      pos: 6.5,43.5
+      parent: 2
+  - uid: 13892
+    components:
+    - type: Transform
+      pos: 4.5,45.5
+      parent: 2
+  - uid: 13893
+    components:
+    - type: Transform
+      pos: 8.5,45.5
+      parent: 2
+  - uid: 13894
+    components:
+    - type: Transform
+      pos: 12.5,45.5
+      parent: 2
 - proto: ShuttleConsoleCircuitboard
   entities:
   - uid: 10734
@@ -71546,6 +71722,105 @@ entities:
         10690:
         - - Pressed
           - Forward
+  - uid: 13887
+    components:
+    - type: MetaData
+      name: blast door control
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.450632,52.68904
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13890:
+        - - Pressed
+          - Toggle
+        13889:
+        - - Pressed
+          - Toggle
+        10924:
+        - - Pressed
+          - Toggle
+  - uid: 13888
+    components:
+    - type: MetaData
+      name: shutter control
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.450632,52.433723
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13892:
+        - - Pressed
+          - Toggle
+        13893:
+        - - Pressed
+          - Toggle
+        10710:
+        - - Pressed
+          - Toggle
+        13894:
+        - - Pressed
+          - Toggle
+        13891:
+        - - Pressed
+          - Toggle
+  - uid: 13901
+    components:
+    - type: MetaData
+      name: funky light toggle
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.449415,52.167133
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13895:
+        - - Pressed
+          - Toggle
+        13896:
+        - - Pressed
+          - Toggle
+        13897:
+        - - Pressed
+          - Toggle
+        13898:
+        - - Pressed
+          - Toggle
+        13899:
+        - - Pressed
+          - Toggle
+        13900:
+        - - Pressed
+          - Toggle
+        9730:
+        - - Pressed
+          - Toggle
+        9726:
+        - - Pressed
+          - Toggle
+        9723:
+        - - Pressed
+          - Toggle
+        9725:
+        - - Pressed
+          - Toggle
+        9724:
+        - - Pressed
+          - Toggle
+        9727:
+        - - Pressed
+          - Toggle
+        9722:
+        - - Pressed
+          - Toggle
+        9729:
+        - - Pressed
+          - Toggle
+        9728:
+        - - Pressed
+          - Toggle
 - proto: SignalButtonDirectional
   entities:
   - uid: 10749
@@ -72635,13 +72910,6 @@ entities:
       parent: 2
 - proto: SMESBasic
   entities:
-  - uid: 10924
-    components:
-    - type: MetaData
-      name: AI satellite Backup SMES
-    - type: Transform
-      pos: 10.5,56.5
-      parent: 2
   - uid: 10925
     components:
     - type: MetaData
