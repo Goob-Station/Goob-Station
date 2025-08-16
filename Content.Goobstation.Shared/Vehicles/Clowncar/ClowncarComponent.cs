@@ -9,6 +9,7 @@
 //using Content.Shared.Actions.ActionTypes;
 
 using Content.Shared.Actions;
+using MvcContrib.UI.ParamBuilder;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -32,6 +33,9 @@ public sealed partial class ClowncarComponent : Component
     public EntProtoId QuietInTheBackAction = "ActionQuietBackThere";
 
     [DataField]
+    public EntProtoId DrunkDrivingAction = "ActionDrivingWithStyle";
+
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public int ThankCounter;
 
@@ -48,8 +52,16 @@ public sealed partial class ClowncarComponent : Component
     [DataField]
     public SoundSpecifier FartSound = new SoundPathSpecifier("/Audio/_Goobstation/Vehicle/Clowncar/clowncar_fart.ogg");
 
+    [DataField]
+    public SoundSpecifier ClownMusic =
+            new SoundPathSpecifier("/Audio/_Goobstation/Music/Asgore_runs_over_dess_short.ogg")
+            {
+                Params = AudioParams.Default
+                    .WithVolume(-2f)
+                    .WithRolloffFactor(8f)
+                    .WithMaxDistance(10f)
+            };
     #endregion
-
 }
 
 //public sealed partial class ThankRiderAction : InstantActionEvent { }
