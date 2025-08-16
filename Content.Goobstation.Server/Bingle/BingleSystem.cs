@@ -55,7 +55,6 @@ public sealed class BingleSystem : EntitySystem
             while (query.MoveNext(out var queryUid, out var _))
             {
                 Transform(queryUid).Coordinates.TryDistance(EntityManager, cords, out var closenessOfPit);
-                Log.Debug($"Checking for pits ${closestPitDistance} vs ${closenessOfPit}");
                 if (closenessOfPit < closestPitDistance)
                 {
                     closestPit = queryUid;
