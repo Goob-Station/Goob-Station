@@ -103,7 +103,7 @@
   suffix: procenyl lazide
   components:
   - type: Label
-    currentLabel: reagent-name-procenyllazide
+    currentLabel: reagent-name-procenyl-lazide
   - type: SolutionContainerManager
     solutions:
       beaker:
