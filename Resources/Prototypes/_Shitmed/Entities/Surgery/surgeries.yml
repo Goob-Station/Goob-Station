@@ -780,3 +780,170 @@
 #  - type: SurgeryMarkingCondition
 #    markingCategory: Tail
 #    matchString: FelinidTail
+
+## Augments
+
+- type: entity
+  abstract: true
+  parent: SurgeryBase
+  id: SurgeryOpenCavityBase
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepOpenOrganSlot
+  - type: SurgeryOrganSlotCondition
+    inverse: true
+  - type: SurgeryBodyCondition
+    accepted: [ IPC ]
+    inverse: true
+
+- type: entity
+  abstract: true
+  parent: SurgeryBase
+  id: SurgeryInstallAugmentBase
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+  - type: SurgeryOrganCondition
+    inverse: true
+    reattaching: true
+
+- type: entity
+  abstract: true
+  parent: SurgeryBase
+  id: SurgeryRemoveAugmentBase
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenRibcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveOrgan
+
+# Power Cell Slot
+
+- type: entity
+  parent: SurgeryInstallAugmentBase
+  id: SurgeryInsertPowerCellSlot
+  name: Insert Power Cell Slot
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertAugmentPowerCellSlot
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentPowerCellSlot
+  - type: SurgeryOrganSlotCondition
+    organSlot: powerCell
+
+- type: entity
+  parent: SurgeryOpenCavityBase
+  id: SurgeryOpenPowerCellSlot
+  name: Open Cavity For Power Cell Slot
+  components:
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganSlotCondition
+    organSlot: powerCell
+
+- type: entity
+  parent: SurgeryRemoveAugmentBase
+  id: SurgeryRemovePowerCellSlot
+  name: Remove Power Cell Slot
+  components:
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentPowerCellSlot
+
+# Power Cell Charger
+
+- type: entity
+  parent: SurgeryInstallAugmentBase
+  id: SurgeryInsertPowerCellCharger
+  name: Insert Internal Power Cell Charger
+  components:
+  - type: Surgery
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertAugmentPowerCellCharger
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentCharger
+  - type: SurgeryOrganSlotCondition
+    organSlot: charger
+
+- type: entity
+  parent: SurgeryOpenCavityBase
+  id: SurgeryOpenPowerCellCharger
+  name: Open Cavity For Power Cell Charger
+  components:
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganSlotCondition
+    organSlot: charger
+
+- type: entity
+  parent: SurgeryRemoveAugmentBase
+  id: SurgeryRemovePowerCellCharger
+  name: Remove Internal Power Cell Charger
+  components:
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentCharger
+
+# Arm
+
+- type: entity
+  parent: SurgeryOpenCavityBase
+  id: SurgeryOpenArmAugment
+  name: Open Cavity For Arm Augments
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision # no ribcage
+  - type: SurgeryPartCondition
+    part: Arm
+  - type: SurgeryOrganSlotCondition
+    organSlot: armImplant
+
+- type: entity
+  parent: SurgeryInstallAugmentBase
+  id: SurgeryInsertArmAugment
+  name: Insert Arm Augment
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision # no ribcage
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertAugmentArm
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    part: Arm
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentArm
+  - type: SurgeryOrganSlotCondition
+    organSlot: armImplant
+
+- type: entity
+  parent: SurgeryRemoveAugmentBase
+  id: SurgeryRemoveArmAugment
+  name: Remove Arm Augment
+  components:
+  - type: SurgeryPartCondition
+    part: Arm
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentArm

@@ -1,0 +1,21 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseAugment
+  components:
+  - type: Augment
+  - type: Organ
+    intCap: 30
+    integrity: 30
+    integrityThresholds:
+      Normal: 30
+      Damaged: 12
+      Destroyed: 0
+
+- type: entity
+  abstract: true
+  parent: BaseAction
+  id: BaseAugmentAction
+  components:
+  - type: InstantAction
+    event: !type:AugmentActionEvent
