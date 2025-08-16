@@ -105,6 +105,8 @@
         Blunt: 10
   - type: CargoSellBlacklist # Frontier
   - type: Food # Frontier - Moth food
+    delay: 7 # Goobstation - Mail should take as long as paper to eat
+    forceFeedDelay: 7
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
