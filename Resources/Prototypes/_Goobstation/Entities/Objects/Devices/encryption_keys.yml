@@ -38,7 +38,7 @@
   parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyCargoLoud
   name: cargo encryption key loudspeaker
-  description: An encryption key used by supply employees.
+  description: An encryption key used by the Quartermaster.
   components:
   - type: EncryptionKey
     channels:
@@ -57,7 +57,7 @@
   parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyEngineeringLoud
   name: engineering encryption key loudspeaker
-  description: An encryption key used by the engineers.
+  description: An encryption key used by the Chief Engineer.
   components:
   - type: EncryptionKey
     channels:
@@ -76,7 +76,7 @@
   parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyMedicalLoud
   name: medical encryption key loudspeaker
-  description: An encryption key used by those who save lives.
+  description: An encryption key used by the Chief Medical Officer.
   components:
   - type: EncryptionKey
     channels:
@@ -95,7 +95,7 @@
   parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeyScienceLoud
   name: science encryption key loudspeaker
-  description: An encryption key used by scientists. Maybe it is plasmaproof?
+  description: An encryption key used by the Research Director.
   components:
   - type: EncryptionKey
     channels:
@@ -114,7 +114,7 @@
   parent: [ EncryptionKey, BaseCentcommCommandContraband ]
   id: EncryptionKeySecurityLoud
   name: security encryption key Loudspeaker
-  description: An encryption key used by security.
+  description: An encryption key used by the Head of Security.
   components:
   - type: EncryptionKey
     channels:
