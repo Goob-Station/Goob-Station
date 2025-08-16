@@ -721,7 +721,7 @@
   description: Very foul creature. For those that feel like punching.
   components:
   - type: MovementSpeedModifier
-    baseSprintSpeed: 7.5
+    baseSprintSpeed: 5.5
     baseWalkSpeed: 4.5 # default walking speed
   - type: Sprite
     drawdepth: Mobs
@@ -736,7 +736,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.3
-        density: 15
+        density: 185
         mask:
         - MobMask
         layer:
@@ -777,4 +777,11 @@
     attributes:
       proper: true
       gender: male
+  - type: Sprinter
+    staminaDrainRate: 2
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.8
+      280: 0.6
+      260: 0.4
 
