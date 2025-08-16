@@ -82,7 +82,7 @@
   id: ChairOfficeLight
   graph: Seat
   startNode: start
-  targetNode: chairOffice
+  targetNode: rollingChairOffice # CorvaxGoob-OfficeChairsMappingFix
   category: construction-category-furniture
   objectType: Structure
   placementMode: SnapgridCenter
@@ -94,7 +94,7 @@
   id: ChairOfficeDark
   graph: Seat
   startNode: start
-  targetNode: chairOfficeDark
+  targetNode: rollingChairOfficeDark # CorvaxGoob-OfficeChairsMappingFix
   category: construction-category-furniture
   objectType: Structure
   placementMode: SnapgridCenter

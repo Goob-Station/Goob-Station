@@ -61,7 +61,7 @@
         state: white-icon
   - type: ConditionalSpawner
     prototypes:
-      - ChairOfficeLight
+      - RollingChairOfficeLight # CorvaxGoob-OfficeChairsMappingFix
 
 - type: entity
   name: dark office chair spawner
@@ -75,4 +75,4 @@
         state: dark-icon
   - type: ConditionalSpawner
     prototypes:
-      - ChairOfficeDark
+      - RollingChairOfficeDark # CorvaxGoob-OfficeChairsMappingFix

@@ -13,3 +13,27 @@
     - type: Sprite
       sprite: _CorvaxGoob/Structures/Furniture/chairs.rsi
       state: carp
+
+- type: entity
+  name: white office chair
+  id: RollingChairOfficeLight
+  parent: RollingOfficeChairBase
+  suffix: Vehicle
+  components:
+  - type: Sprite
+    state: office-white
+  - type: Construction
+    graph: Seat
+    node: rollingChairOffice
+
+- type: entity
+  name: dark office chair
+  id: RollingChairOfficeDark
+  parent: RollingOfficeChairBase
+  suffix: Vehicle
+  components:
+  - type: Sprite
+    state: office-dark
+  - type: Construction
+    graph: Seat
+    node: rollingChairOfficeDark
