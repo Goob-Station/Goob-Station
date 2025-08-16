@@ -275,6 +275,8 @@
           - ProjectileBatteryAmmoProvider
           - Stunbaton
           - PowerCell
+          tags:
+          - FitsInCharger # Goobstation
         blacklist:
           tags:
           - PotatoBattery
