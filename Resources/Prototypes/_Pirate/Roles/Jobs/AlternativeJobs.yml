@@ -39,6 +39,12 @@
   jobDescription: job-description-service-worker
   parentJobId: ServiceWorker
 
+- type: alternativeJob
+  id: AlternativeJobMaid
+  jobName: job-alternative-name-maid
+  jobDescription: job-description-janitor
+  parentJobId: Janitor
+
 # region Chaplain
 - type: alternativeJob
   id: AlternativeJobAtheist

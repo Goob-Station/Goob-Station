@@ -1,0 +1,21 @@
+- type: entity
+  name: holy grenade
+  description: All the grenade without any of the boom.
+  parent: GrenadeBase
+  id: HolyGrenadeDummy
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/holyhandgrenade.rsi
+  - type: OnUseTimerTrigger
+    delay: 3 # by canon
+  - type: PointLight
+    radius: 7
+    energy: 3
+    netsync: false
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/hallelujah.ogg
+  - type: Appearance
+  - type: SoundOnTrigger
+    sound:
+      path: /Audio/Effects/Emotes/parp1.ogg

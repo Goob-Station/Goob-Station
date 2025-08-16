@@ -6,6 +6,7 @@ job-alternative-name-Dungeon-Master = Майстер Підземелля
 job-alternative-name-flora-engineer = Флора-інженер
 job-alternative-name-prankster = Пранкер
 job-alternative-name-waiter = Офіціант
+job-alternative-name-maid = Покоївка
 
 # Священик
 job-alternative-name-holy-father = Святий Отець

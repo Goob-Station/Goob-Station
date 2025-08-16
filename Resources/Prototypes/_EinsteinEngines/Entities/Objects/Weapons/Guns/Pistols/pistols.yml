@@ -1,6 +1,6 @@
 - type: entity
   name: psi-breaker
-  parent: BaseWeaponPistol
+  parent: [ BaseWeaponPistol, BaseMantisContraband]
   id: WeaponPistolPsiBreaker
   description: A small, flashy pistol with a marble style grip. Provides no tactical advantage. Uses .38 special ammo.
   components:

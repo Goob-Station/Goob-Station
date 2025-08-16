@@ -18,6 +18,10 @@
   id: AdminAssistantJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtAdminAssistant
+- type: loadout
+  id: AdminAssistantHeadMaid
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHeadMaid
 # Back
 # OuterClothing
 # Gloves

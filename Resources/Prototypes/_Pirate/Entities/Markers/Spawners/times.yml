@@ -1,0 +1,25 @@
+- type: entity
+  id: SpawnPointGhostMage
+  name: точка появи ролі мага
+  suffix: wizard
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: Маг
+    description: Добрий космічний чаклун
+    rules: Ви [color=red]ДОБРИЙ[/color] космічний чаклун. Вам [color=red]ЗАБОРОНЕНО[/color] шкодити станції, створювати проблеми СБ чи іншим чином влаштовувати ХАОС. [color=green]Ваш персонаж РП чаклун, показуйте фокуси, допомагайте станції[/color]. Також вам [color=red]ЗАБОРОНЕНО[/color] руйнувати гру іншим антагоністам на ранніх стадіях.
+    requirements:
+    #  - !type:CharacterWhitelistRequirement
+    # - !type:CharacterOverallTimeRequirement
+    #   time: 10000 # PIRATE
+    # - !type:DepartmentTimeRequirement # DeltaV - Security dept time requirement
+    #   department: Security
+    #   time: 10000 # PIRATE
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanMage
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Structures/Wallmounts/signs.rsi
+      state: radiation
