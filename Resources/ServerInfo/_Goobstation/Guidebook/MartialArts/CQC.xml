@@ -1,72 +1,65 @@
 <Document>
 
-  # Close Quarters Combat
+  # Искусный лижний бой
 
   <Box>
     <GuideEntityEmbed Entity="CQCManual" Caption=""/>
   </Box>
 
-  Close Quarters Combat, or simply CQC, is a [textlink="martial art" link="MartialArts"] that focuses on swiftly and efficiently
-  dispatching your target, with simple but powerful combos that lack the more outlandish moves of other martial arts.
-  CQC is primarily an aggressive fighting style that focuses on dealing stamina damage to targets - designed to quickly subdue
-  opponents and overpower them with pressure technique and crushing blows. This art requires a thorough knowledge of intents.
+  Искусный ближний бой — это [textlink="боевое искусство" link="MartialArts"], сосредоточенное на быстром и эффективном устранении цели при помощи простых, но мощных комбо, лишённых экзотических приёмов других боевых искусств.
+  Это в первую очередь агрессивный стиль боя, направленный на нанесение урона выносливости, созданный для быстрого подавления противников напором и сокрушительными ударами. Это искусство требует глубокого понимания намерений.
 
-  It is usually used by Syndicate antagonists, however Chefs also get access to it. In Chef's case, CQC obviously stands
-  for Close Quarters Cooking, and Chefs don't cook outside of kitchen, so they are unable to use CQC away from it.
+  ## Особые способности
 
-  ## Special abilities
+  Пользователи лучше проводят разоружение, так как их толчки будут наносить противнику дополнительный урон выносливости.
 
-  CQC users are better at Disarm intent, as their shoves will deal extra stamina damage to the opponent.
+  ### Ответный удар
 
-  ### Riposte
+  Благодаря молниеносной реакции, мастер имеет шанс парировать любую входящую атаку в ближнем бою. В этот короткий момент противник остаётся уязвимым, и мастер автоматически наносит ответный удар и оглушает его, если только тот сам не является мастером. Это просчитанная, молниеносная реакция на любую атаку.
 
-  With lightning reflexes, a CQC master has a chance to parry any incoming melee attack. In that brief moment, the attacker is left vulnerable,
-  so the CQC master strikes back and stuns them automatically, unless they are also a CQC master. A calculated, deadly response to any assault.
+  ### Перелом шеи
 
-  ### Neck Snap
+  Нет спасения от захвата за горло мастером. Одним ударом по голове он ломает жертве шею, мгновенно убивая её. Никакая броня не защитит от этой смертельной точности. Конец приходит быстро и без пощады.
 
-  There is no escape from a choke grab of a CQC master. With a single Harm action to the head, the victim's neck breaks,
-  killing them instantly. No armor can shield against this deadly precision. The end comes swiftly, and without mercy.
+  ## Комбо-атаки
 
-  ## Combo attacks
-
-  ### Slam
+  ### Удар о землю
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Slams the opponent, knocking them down while dealing Blunt damage. Only works on standing opponents.
+  Швыряет противника о землю, сбивая с ног и нанося ушибы. Работает только на стоящих противников.
 
-  ### Kick
+  ### Пинок
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Knocks the opponent away and deals both Blunt and Stamina damage. If opponent is out of stamina, puts them to sleep.
+  Отбрасывает противника и наносит как ушибы, так и урон выносливости. Если у противника закончилась выносливость, то отправляет его в нокаут.
 
-  ### Restrain
+  ### Удержание
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Locks the opponent into a restraining position, knocking them down while dealing Stamina damage.
+  Фиксирует противника в удерживающей позиции, сбивая с ног и нанося урон выносливости.
 
-  ### Pressure
+  ### Давление
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Deals Stamina damage and steals whatever item the opponent is currently holding in their active hand.
+  Наносит урон выносливости и отбирает у противника предмет в активной руке.
 
-  ### Consecutive
+  ### Серия ударов
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
@@ -74,14 +67,14 @@
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Deals a lot of Stamina damage and some Blunt damage to the opponent.
+  Наносит много урона выносливости и немного ушибов противнику.
 
-  ### Leg Sweep
+  ### Подсечка
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Can only be performed while prone. Knocks the opponent down and forces the user back on their feet, even if they are manually crawling.
+  Может быть выполнена только лёжа. Сбивает противника с ног и автоматически поднимает пользователя, даже если он ползёт вручную.
 
 </Document>

@@ -13,4 +13,4 @@ ent-ClothingOuterArmorHereticBlade = { ent-ClothingOuterArmorHeretic }
     .suffix = Клинок
     .desc = { ent-ClothingOuterArmorHeretic.desc }
 ent-ClothingOuterArmorCloakVoid = плащ пустоты
-    .desc = Чёрный как смола, не отражающий света. Рунические символы у
+    .desc = Черный, как смола, не отражающий свет. Рунические символы выгравированы по всей поверхности. С каждой вспышкой ты теряешь понимание того, что видишь.

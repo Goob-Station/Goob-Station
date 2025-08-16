@@ -379,7 +379,7 @@ namespace Content.Server.Construction
                     {
                         var doAfterEv = new ConstructionInteractDoAfterEvent(EntityManager, interactUsing);
 
-                        var delay = step.DoAfter * (user is not null && !_skills.HasSkill(user.Value, Skills.AdvancedBuilding) && IsAdvancedMaterial(insert) ? DelayModifierWithoutSkill : 1); // CorvaxGoob-Skills
+                        var delay = step.DoAfter * (user is not null && _skills.IsSkillsEnabled() && !_skills.HasSkill(user.Value, Skills.AdvancedBuilding) && IsAdvancedMaterial(insert) ? DelayModifierWithoutSkill : 1); // CorvaxGoob-Skills
 
                         var doAfterEventArgs = new DoAfterArgs(EntityManager, interactUsing.User, delay, doAfterEv, uid, uid, interactUsing.Used) // CorvaxGoob-Skills
                         {

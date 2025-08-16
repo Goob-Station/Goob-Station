@@ -12,7 +12,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Construction
+  # Строительство
 
   <Box>
     <GuideEntityEmbed Entity="Bed" Caption=""/>
@@ -21,20 +21,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="Chair" Caption=""/>
   </Box>
 
+  Меню строительства используется для создания и сборки объектов в игре.
+  Оно открывается нажатием [color=yellow][bold][keybind="OpenCraftingMenu"][/bold][/color].
 
-  The Construction Menu is how you build and craft objects in the game.
-  It can be accessed by pressing [color=yellow][bold][keybind="OpenCraftingMenu"][/bold][/color].
+  При размещении объектов, которые "прилипают" к сетке, можно удерживать [color=yellow][bold][keybind="EditorLinePlace"][/bold][/color], чтобы разместить целую линию сразу, и [color=yellow][bold][keybind="EditorGridPlace"][/bold][/color], чтобы разместить целую сетку.
 
-  When placing objects that "snap" to the grid, you can hold [color=yellow][bold][keybind="EditorLinePlace"][/bold][/color] to place an entire line at a time, and [color=yellow][bold][keybind="EditorGridPlace"][/bold][/color] to place an entire grid at a time.
+  При создании объектов с большим количеством ингредиентов помните, что не обязательно держать всё сразу; вы можете просто разместить ингредиенты на полу, в рюкзаке или на столе рядом, и они будут использованы при крафте как обычно.
 
-  When crafting objects with a lot of ingredients, keep in mind you don't have to hold everything at once; you can simply place the ingredients on the floor, in your backpack or on a table near you, and they'll be used up during crafting like normal.
+  При размещении "призрака строения" нажмите [color=yellow][bold][keybind="EditorRotateObject"][/bold][/color], чтобы повернуть призрак по часовой стрелке.
+  Если вы строите отзеркаленный компонент (например: Газовые миксеры/фильтры), можно нажать [color=yellow][bold][keybind="EditorFlipObject"][/bold][/color], чтобы отразить призрак.
 
-  When placing a "building ghost" somewhere in the world, press [color=yellow][bold][keybind="EditorRotateObject"][/bold][/color] to rotate the ghost clockwise.
-  If you are building a mirrorable component (think: Gas Mixers/Filters), you can press [color=yellow][bold][keybind="EditorFlipObject"][/bold][/color] to flip the ghost.
-
-  You can also use [color=yellow][bold][keybind="RotateObjectClockwise"][/bold][/color] and [color=yellow][bold][keybind="RotateObjectCounterclockwise"][/bold][/color] to rotate an object clockwise or counterclockwise if it's already built, as long as it is unanchored (unwrenched).
-
-
-
+  Вы также можете использовать [color=yellow][bold][keybind="RotateObjectClockwise"][/bold][/color] и [color=yellow][bold][keybind="RotateObjectCounterclockwise"][/bold][/color], чтобы повернуть объект по часовой или против часовой стрелки, если он уже построен, при условии, что он не закреплен (не прикручен).
 
 </Document>

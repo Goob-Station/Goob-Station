@@ -1,4 +1,4 @@
-ent-BaseFishingSpot = suspicious waves
-    .desc = Something is floating here...
+ent-BaseFishingSpot = подозрительные волны
+    .desc = Здесь что-то плавает...
 ent-FishingSpotWater = { ent-BaseFishingSpot }
     .desc = { ent-BaseFishingSpot.desc }

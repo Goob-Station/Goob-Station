@@ -106,8 +106,10 @@
 
 - type: selectableSet
   id: BibleSet
-  name: The Holy Bible
-  description: Sever any tie, but the ties that bind me to your service and to your heart.
+  # Corvax-Goob-Localization-start
+  name: Святая Библия
+  description: Разорви все узы, кроме тех, что связывают меня с твоей службой и сердцем.
+  # Corvax-Goob-Localization-end
   sprite:
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
@@ -116,8 +118,10 @@
 
 - type: selectableSet
   id: QuaranSet
-  name: The Quaran
-  description: Then which of your Lord’s favours will you ˹humans and jinn˺ both deny?
+  # Corvax-Goob-Localization-start
+  name: Коран
+  description: Так какое же из милостей вашего Господа вы, "люди и джинны", отвергнете?
+  # Corvax-Goob-Localization-end
   sprite:
     sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
     state: icon
@@ -126,8 +130,10 @@
 
 - type: selectableSet
   id: TanakhSet
-  name: The Tanakh Scrolls
-  description: As you teach, you learn.
+  # Corvax-Goob-Localization-start
+  name: Свитки Танаха
+  description: Обучая других, ты учишься сам.
+  # Corvax-Goob-Localization-end
   sprite:
     sprite: _Goobstation/Wizard/Objects/scroll.rsi
     state: scroll2
@@ -225,11 +231,13 @@
     sprite: Objects/Specific/Chapel/necronomicon.rsi
 
 - type: entity
+  parent: BaseAction
   id: ActionBibleSummon
   name: Summon familiar
   description: Summon a familiar that will aid you and gain humanlike intelligence once inhabited by a soul.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: Clothing/Head/Hats/witch.rsi, state: icon }
-    event: !type:SummonActionEvent
     useDelay: 1
+  - type: InstantAction
+    event: !type:SummonActionEvent

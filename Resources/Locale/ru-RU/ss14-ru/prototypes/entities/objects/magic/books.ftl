@@ -1,12 +1,12 @@
 ent-BaseSpellbook = книга заклинаний
     .desc = { ent-BaseItem.desc }
-ent-WizardsGrimoire = гримуар волшебника
+ent-WizardsGrimoire = гримуар мага
     .suffix = Маг
     .desc = { ent-BaseItem.desc }
-ent-WizardsGrimoireGhost = призрачный гримуар волшебника
-    .desc = Модифицированный гримуар волшебника, которым может пользоваться более одного человека, и в котором больше визкоинов, но нельзя покупать некоторые заклинания.
+ent-WizardsGrimoireGhost = призрачный гримуар мага
+    .desc = Модифицированный гримуар мага, которым может пользоваться более одного человека, и в котором больше визкоинов, но нельзя покупать некоторые заклинания.
     .suffix = Маг
-ent-WizardsGrimoireNoRefund = гримуар волшебника
+ent-WizardsGrimoireNoRefund = гримуар мага
     .suffix = Маг, Без возврата средств
     .desc = { ent-WizardsGrimoire.desc }
 ent-SpawnSpellbook = книга заклинания призыв

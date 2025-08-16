@@ -27,6 +27,7 @@
   - Resomi # Sprites look shit on them.
   - Oni # Same as above, plus it fucks over ERTs.
   - Gingerbread # Soecusn
+  - Plasmaman
   - Reptilian
   - Moth
   - Shadowkin # One flash is all it takes...
@@ -51,6 +52,14 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 108000 # Thirty hours. Fuck you.
+  - type: Skills # CorvaxGoob-Skills
+    skills:
+      - ShuttleControl
+      - Shooting
+      - AdvancedBuilding
+      - Surgery
+      - MedicalEquipment
+      - Butchering
 
 # Navy Officer
 

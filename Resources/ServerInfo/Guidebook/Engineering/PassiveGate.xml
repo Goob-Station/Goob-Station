@@ -6,17 +6,17 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Passive Gate
-  The passive gate is a simple one-way valve that prevents gasses from flowing backwards.
+  # Пассивный клапан
+  Пассивный клапан — это простой односторонний клапан, который предотвращает обратный поток газов.
   <Box>
     <GuideEntityEmbed Entity="GasPassiveGate"/>
   </Box>
 
-  The valve's input is on the side of the [color=red]red[/color] circle.
-  The valve also shows the current flow rate of the pipe when examined.
+  Вход клапана находится со стороны [color=red]красного[/color] круга.
+  При осмотре клапан также показывает текущую скорость потока в трубе.
 
-  It's useful in many applications, for example:
-  - Preventing a pure gas from getting contaminated via a mixed gas flowing back through the pipe.
-  - Preventing pressure or temperature changes across two [textlink="pipenets" link="PipeNetworks"] in the opposite direction.
-  - Quickly checking the flow rate on a pipenet without needing a [textlink="gas analyzer" link="AtmosTools"].
+  Он полезен во многих случаях, например:
+  - Предотвращение загрязнения чистого газа через обратный поток смешанного газа в трубе.
+  - Предотвращение изменений давления или температуры между двумя [textlink="трубопроводами" link="PipeNetworks"] в противоположном направлении.
+  - Быстрая проверка скорости потока в трубной сети без использования [textlink="газового анализатора" link="AtmosTools"].
 </Document>

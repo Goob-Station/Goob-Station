@@ -1,4 +1,4 @@
-ent-BaseTranslatorImplanter = имплантер "переводчик Тау-Кита Бейсик"
+ent-BaseTranslatorImplanter = имплантер "переводчик Тау-Сети Бейсик"
     .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-BasicGalaticCommonTranslatorImplanter = имплантер "переводчик Межгалактический"
     .desc = { ent-BaseTranslatorImplanter.desc }
@@ -12,7 +12,7 @@ ent-DraconicTranslatorImplanter = имплантер "переводчик Си�
     .desc = { ent-BaseTranslatorImplanter.desc }
 ent-CanilunztTranslatorImplanter = имлпантер "переводчик Канилунцт"
     .desc = { ent-BaseTranslatorImplanter.desc }
-ent-SolCommonTranslatorImplanter = имплантер "переводчик Сол-Коммон"
+ent-SolCommonTranslatorImplanter = имплантер "переводчик Общесолнечный"
     .desc = { ent-BaseTranslatorImplanter.desc }
 ent-NovuNedericTranslatorImplanter = имплантер "переводчик Ново-Недирик"
     .desc = { ent-BaseTranslatorImplanter.desc }

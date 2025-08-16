@@ -1,8 +1,8 @@
-ent-PartSkeletonBase = skeleton body part
+ent-PartSkeletonBase = часть тела скелета
     .desc = { ent-BasePartInorganic.desc }
-ent-ChestSkeleton = skeleton chest
+ent-ChestSkeleton = грудь скелета
     .desc = { ent-PartSkeletonBase.desc }
-ent-GroinSkeleton = skeleton groin
+ent-GroinSkeleton = пах скелета
     .desc = { ent-PartSkeletonBase.desc }
 ent-HeadSkeleton = череп
     .desc = Бедный Йорик...

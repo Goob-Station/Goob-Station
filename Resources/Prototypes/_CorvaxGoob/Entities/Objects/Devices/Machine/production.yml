@@ -14,8 +14,6 @@
       Steel: 15
       CableHV: 5
       BSCrystal: 4
-      Capacitor: 5
-      MatterBin: 15
   - type: Item
     size: Normal
 
@@ -34,7 +32,6 @@
       Steel: 10
       CableHV: 30
       BSCrystal: 4
-      Capacitor: 15
   - type: Item
     size: Normal
 
@@ -64,5 +61,4 @@
       Cable: 6
       Silver: 2
       Steel: 6
-      Capacitor: 1
       Manipulator: 1

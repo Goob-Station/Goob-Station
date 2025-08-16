@@ -1,38 +1,38 @@
 <Document>
 
-  # Dragon Kung Fu
+  # Стиль Дракона (Кунг-фу)
 
   <Box>
     <GuideEntityEmbed Entity="BSOManual" Caption=""/>
   </Box>
 
-  Dragon Kung Fu is a Shaolin [textlink="martial art" link="MartialArts"] focused on defense and control.
-  Fluid movements and powerful strikes come with patience and resilience. Perfect for bodyguards, it strengthens defenses and counters with precision.
-  Blueshield Officers can select the manual of this martial art in their weaponry box.
+  Стиль Дракона (Кунг-фу) — это шаолиньское [textlink="боевое искусство" link="MartialArts"], сосредоточенное на защите и контроле.
+  Плавные движения и мощные удары сочетаются с терпением и стойкостью. Идеально подходит для телохранителей, укрепляя защиту и обеспечивая точные контратаки.
+  Офицеры Синего Щита могут выбрать руководство по этому боевому искусству в своём оружейном ящике.
 
-  ## Special abilities
+  ## Особые способности
 
-  ### Dragon Power
+  ### Сила дракона
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDragonPower" Caption=""/>
   </Box>
 
-  A moment of staying still unarmed turns the warrior into a living mountain, greatly lowering
-  the force of incoming melee strikes and boosting their own attacks, both armed and not.
+  Будучи невооруженным, мгновение неподвижности превращает воина в живую гору, значительно снижая
+  силу входящих ударов в ближнем бою и усиливая его собственные атаки — как с оружием, так и без него.
 
-  ## Combo attacks
+  ## Комбо-атаки
 
-  ### Dragon Claw
+  ### Коготь дракона
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
   </Box>
 
-  Deals massive Stamina damage and slows the opponent down significantly.
+  Наносит огромный урон выносливости и значительно замедляет противника.
 
-  ### Dragon Tail
+  ### Хвост дракона
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
@@ -40,9 +40,9 @@
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Deals Blunt and Stamina damage. Knocks the opponent down if they are standing, and applies a short stun otherwise.
+  Наносит ушибы и урон выносливости. Сбивает противника с ног, если он стоит, и накладывает кратковременное оглушение в противном случае.
 
-  ### Dragon Strike
+  ### Удар дракона
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
@@ -50,6 +50,6 @@
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Deals 40 damage and stuns for 2 seconds. Only works on downed opponents.
+  Наносит 40 урона и оглушает на 2 секунды. Работает только на поверженных противников.
 
 </Document>

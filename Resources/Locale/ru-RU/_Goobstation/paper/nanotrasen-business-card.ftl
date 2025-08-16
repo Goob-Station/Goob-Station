@@ -1,1 +1,1 @@
-nanotrasen-business-card-base = { "           " } Дьявол кроется в деталях.ы
+nanotrasen-business-card-base = { "               " } Дьявол кроется в деталях.

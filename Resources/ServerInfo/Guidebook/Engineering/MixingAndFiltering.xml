@@ -6,57 +6,57 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Mixing and Filtering
-  Gas mixers and filters are essential tools for manipulating the composition of gasses within a [textlink="pipe network" link="PipeNetworks"].
+  # Смешивание и фильтрация
+  Газовые смесители и фильтры являются необходимыми инструментами для изменения состава газов в [textlink="сети труб" link="PipeNetworks"].
   <Box>
     <GuideEntityEmbed Entity="GasMixer"/>
     <GuideEntityEmbed Entity="GasFilter"/>
   </Box>
 
-  ## Gas Mixer
-  Gas mixers are used to combine gasses in specific ratios within a [textlink="pipe network." link="PipeNetworks"]
-  They are essential for creating controlled gas mixtures for various applications.
+  ## Газовый смеситель
+  Газовые смесители используются для комбинирования газов в определённых пропорциях внутри [textlink="сети труб." link="PipeNetworks"]
+  Они необходимы для создания контролируемых газовых смесей для различных применений.
 
-  Gas mixers have 3 connections: 2 inputs and 1 output, as shown below:
+  Газовые смесители имеют 3 соединения: 2 входа и 1 выход, как показано ниже:
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Primary" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Основной" Rotation="90"/>
     <GuideEntityEmbed Entity="GasMixer" Caption="" Rotation="90"/>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Output" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Выход" Rotation="90"/>
   </Box>
-<Box>
-  <GuideEntityEmbed Entity="GasPipeStraight" Caption="Side"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Боковой"/>
+  </Box>
 
-  Gas mixers will still respect the requested gas mixture even if one of the input gasses is not available. For example:
-  - If the requested mixture is 22% oxygen and 78% nitrogen, but there is no available oxygen, the mixer will not work until oxygen is available.
-  - If oxygen is available, but at a pressure lower than required to create the proper mixture at the requested pressure, the mixer will still create the mixture, but the output will be at a lower pressure than requested.
+  Газовые смесители будут соблюдать запрошенную смесь газов, даже если один из входных газов недоступен. Например:
+  - Если запрошенная смесь составляет 22% кислорода и 78% азота, но кислород недоступен, смеситель не будет работать, пока кислород не станет доступен.
+  - Если кислород доступен, но давление ниже требуемого для создания правильной смеси при запрошенном давлении, смеситель всё равно создаст смесь, но выход будет при более низком давлении, чем требовалось.
 
-  Gas mixers also mix gasses based on pressure, not on mols. This can cause problems if the gasses are at different temperatures. For example:
-  - Presume a gas mixer was asked to mix Oxygen and Nitrogen at a ratio of 1:2 at a certain pressure.
-  - The Nitrogen in this case is double the temperature of the Oxygen.
-  - Hotter gas has more pressure, and thus fewer mols per volume than Oxygen.
-  - Because of this, Nitrogen will have half the mols compared to Oxygen when the gas mixer attempts to create the mix.
-  - The output will be 1:1 instead of 1:2. You'll have 1 mol of Nitrogen per 1 mol of Oxygen, instead of 2 mols of Nitrogen per 1 mol of Oxygen.
+  Газовые смесители также смешивают газы на основе давления, а не молей. Это может вызвать проблемы, если газы имеют разные температуры. Например:
+  - Предположим, что газовый смеситель должен смешать кислород и азот в соотношении 1:2 при определённом давлении.
+  - Азот в этом случае имеет вдвое более высокую температуру, чем кислород.
+  - Более горячий газ имеет большее давление и, следовательно, меньше молей на объём, чем кислород.
+  - Из-за этого у азота будет половина молей по сравнению с кислородом, когда газовый смеситель попытается создать смесь.
+  - На выходе получится соотношение 1:1 вместо 1:2. У вас будет 1 моль азота на 1 моль кислорода вместо 2 молей азота на 1 моль кислорода.
 
-  Gas mixers can be used in a variety of applications, for example:
-  - Mixing oxygen and nitrogen to create a breathable atmosphere
-  - Mixing oxygen and plasma for plasma burning to create Tritium
+  Газовые смесители могут использоваться для различных целей, например:
+  - Смешивание кислорода и азота для создания пригодной для дыхания атмосферы.
+  - Смешивание кислорода и плазмы для плазменного сжигания с целью создания трития.
 
-  ## Gas Filter
-  Gas filters are used to separate gasses from a mixture within a [textlink="pipe network." link="PipeNetworks"]
+  ## Газовый фильтр
+  Газовые фильтры используются для разделения газов из смеси внутри [textlink="сети труб." link="PipeNetworks"]
 
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Input" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Вход" Rotation="90"/>
     <GuideEntityEmbed Entity="GasFilter" Caption="" Rotation="90"/>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Output" Rotation="90"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Выход" Rotation="90"/>
   </Box>
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Filtered Output"/>
+    <GuideEntityEmbed Entity="GasPipeStraight" Caption="Отфильтрованный выход"/>
   </Box>
 
-  Gas filters will become blocked and will not filter gas if either output is blocked.
+  Газовые фильтры заблокируются и не будут фильтровать газ, если какой-либо выход заблокирован.
 
-  Gas filters can be used in a variety of applications, for example:
-  - Filtering out unwanted gasses from a [textlink="pipe network" link="PipeNetworks"]
-  - Separating specific gasses for storage in a station's recyclernet
+  Газовые фильтры могут использоваться в различных приложениях, например:
+  - Для фильтрации нежелательных газов из [textlink="трубопровода" link="PipeNetworks"]
+  - Для отделения определённых газов для хранения в автобусе станции
 </Document>

@@ -7,4 +7,4 @@ ent-MedkitBSOIPC = тактический ремонтный набор
 ent-MedkitCombatBlue = { ent-MedkitCombat }
     .desc = Содержит большинство лекарств, необходимых для восстановления после травм и болезней — всё в удобной форме таблеток.
 ent-MedkitCombatPurple = { ent-MedkitCombat }
-    .desc = Для ВКД среди нас.
+    .desc = Для КПБ среди нас.

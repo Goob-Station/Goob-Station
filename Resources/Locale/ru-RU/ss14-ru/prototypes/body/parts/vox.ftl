@@ -1,8 +1,8 @@
-ent-PartVoxBase = vox body part
+ent-PartVoxBase = часть тела вокса
     .desc = { ent-BasePart.desc }
-ent-ChestVox = vox chest
+ent-ChestVox = грудь вокса
     .desc = { ent-PartVoxBase.desc }
-ent-GroinVox = vox groin
+ent-GroinVox = пах вокса
     .desc = { ent-PartVoxBase.desc }
 ent-HeadVox = голова вокса
     .desc = { ent-PartVox.desc }

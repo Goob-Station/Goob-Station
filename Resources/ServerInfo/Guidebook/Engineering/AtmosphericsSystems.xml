@@ -6,12 +6,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Atmospherics Systems
-  Atmos has a wide variety of devices catered to moving, managing, and otherwise manipulating gas.
-  These devices often work together to maintain a safe, breathable atmosphere for the crew, or to achieve a common task.
+  # Атмосферные системы
+  Атмосферный техник имеет широкий спектр устройств, предназначенных для перемещения, управления и иной работы с газами.
+  Эти устройства часто работают вместе, чтобы поддерживать безопасную, пригодную для дыхания атмосферу для экипажа или выполнять общие задачи.
 
-  This section delves into the various systems that Atmos has at their disposal, how they interconnect, and how they are ideally used.
-
+  В этом разделе рассматриваются различные системы, доступные Атмосферному технику, их взаимосвязь и оптимальное использование.
 
   <Box>
     <GuideEntityEmbed Entity="GasPipeStraight" Caption=""/>
@@ -23,10 +22,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="GasVolumePump" Caption=""/>
   </Box>
   <Box>
-    ## Pipe Networks
+    ## Сетевые трубы
   </Box>
   <Box>
-    [color=#999999][italic]Interconnected pipes with a common task — commonly called Pipenets[italic][/color]
+    [color=#999999][italic]Взаимосвязанные трубы с общей задачей — обычно называемые сетью труб[italic][/color]
   </Box>
 
   <Box>
@@ -34,10 +33,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
   </Box>
   <Box>
-    ## Device Monitoring and Control
+    ## Мониторинг и управление устройствами
   </Box>
   <Box>
-    [color=#999999][italic]Monitoring and control over devices that manage a local atmosphere[italic][/color]
+    [color=#999999][italic]Мониторинг и управление устройствами, которые контролируют локальную атмосферу[italic][/color]
   </Box>
 
   <Box>
@@ -45,10 +44,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="FireAlarm" Caption=""/>
   </Box>
   <Box>
-    ## Fire and Gas Control
+    ## Контроль газа и пожара
   </Box>
   <Box>
-    [color=#999999][italic]Devices to control and prevent gas leaks and fires[italic][/color]
+    [color=#999999][italic]Устройства для контроля и предотвращения утечек газа и пожаров[italic][/color]
   </Box>
 
   <Box>
@@ -56,10 +55,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <GuideEntityEmbed Entity="AirCanister" Caption=""/>
   </Box>
   <Box>
-    ## Gas Mining and Storage
+    ## Добыча и хранение газа
   </Box>
   <Box>
-    [color=#999999][italic] Devices to mine new gas for the station to use, and store it for later[italic][/color]
+    [color=#999999][italic]Устройства для добычи нового газа для использования на станции и его хранения для последующего применения[italic][/color]
   </Box>
 
 </Document>

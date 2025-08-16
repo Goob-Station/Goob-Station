@@ -1,55 +1,53 @@
 <Document>
 
-  # Corporate Judo
+  # Корпоративное дзюдо
 
   <Box>
     <GuideEntityEmbed Entity="ClothingBeltCorporateJudo" Caption=""/>
   </Box>
 
-  Corporate Judo, or simply Judo, is a [textlink="martial art" link="MartialArts"] that focuses on restraining your opponent with more
-  complex but effective moves. You will see this style most used by Security Officers, as they get access to the belts in their department.
-  Harness the art and strike any tider that gets in your way. A good understanding of intents is required.
+  Корпоративное дзюдо, или просто дзюдо — это [textlink="боевое искусство" link="MartialArts"], сосредоточенное на обездвиживании противника при помощии более сложных, но эффективных приёмов. Чаще всего этот стиль используют офицеры службы безопасности, так как они имеют доступ к поясам в своём отделе.
+  Овладейте искусством и проучите любого грейтайда, вставшего у вас на пути. Требуется хорошее понимание намерений.
 
-  ## Special abilities
+  ## Особые способности
 
-  Judo users are better at Harm intent, as their unarmed attacks will deal extra damage to the opponent.
+  Пользователи дзюдо лучше владеют намерением "Вред". Их атаки без оружия будут наносить противнику дополнительный урон.
 
-  ### Stunbaton Scorn
+  ### Презрение к электрошокерам
 
-  A Judo user is unable to use stunbatons. A true master relies on technique, using the
-  body’s leverage and strength to subdue, leaving the need for electrified force behind.
+  Пользователь дзюдо не может использовать электрошокеры. Настоящий мастер полагается на технику, используя рычаги тела и силу, чтобы подавить противника, и не нуждается в электрическом воздействии.
 
-  ## Combo attacks
+  ## Комбо-атаки
 
-  ### Discombobulate
+  ### Оглушение
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Slows the opponent down and deals some Stamina damage.
+  Замедляет противника и наносит небольшой урон выносливости.
 
-  ### Eye Poke
+  ### Тыканье в глаза
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Blinds the opponent and blurs their vision, regardless of eye protection, and deals some Blunt damage.
+  Ослепляет противника и размывает его зрение, вне зависимости от защиты глаз, а также наносит небольшой урон ушибом.
 
-  ### Judo Throw
+  ### Бросок дзюдо
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
   </Box>
 
-  Can only be perfomed while standing. Only works on standing opponents, dealing Stamina damage and knocking them down.
-  Knockdown duration is affected by their Stamina resistance.
+  Может быть выполнен только стоя. Работает только на стоящих противников, нанося урон выносливости и сбивая их с ног.
+  Продолжительность нокдауна зависит от их сопротивляемости урону выносливости.
 
-  ### Armbar
+  ### Захват рычагом руки
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
@@ -57,10 +55,10 @@
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Only works on downed opponents. Inflicts Stamina damage, disarms them, and locks them in an armbar until they manage to stand up.
-  Armbar works similarly to a knockdown and choke grab, and its duration is affected by their Stamina resistance.
+  Работает только на поверженных противников. Наносит урон выносливости, обезоруживает их и удерживает в рычаге руки, пока они не смогут подняться.
+  Рычаг руки работает аналогично нокдауну и захвату за горло, а его длительность зависит от их сопротивляемости урону выносливости.
 
-  ### Wheel Throw
+  ### Колесо
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
@@ -68,7 +66,6 @@
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Only works on opponents locked in an armbar. Flips the opponent over the shoulder,
-  inflicting massive Stamina damage, and forces the user back on their feet.
+  Работает только на противниках, удерживаемых в руках. Перекидывает противника через плечо, нанося огромный урон выносливости, и заставляет пользователя снова подняться на ноги.
 
 </Document>

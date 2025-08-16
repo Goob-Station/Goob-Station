@@ -276,7 +276,9 @@
   loadouts:
   - EmergencyNitrogen
   - EmergencyOxygen
+  - EmergencyPlasma
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -727,7 +729,9 @@
   loadouts:
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
+  - EmergencyPlasmaClown
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 - type: loadoutGroup
   id: MimeHead
@@ -785,7 +789,9 @@
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
   - EmergencySpeciesMothMime
+  - EmergencyPlasmaMime
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -1094,7 +1100,9 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
+  - EmergencyPlasmaExtended
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 # Science
 - type: loadoutGroup
@@ -1397,7 +1405,9 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
+  - EmergencyPlasmaSecurity
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 - type: loadoutGroup
   id: SecurityStar
@@ -1614,7 +1624,9 @@
   loadouts:
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
+  - EmergencyPlasmaMedical
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 # Wildcards
 - type: loadoutGroup
@@ -1657,7 +1669,9 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
+  - EmergencyPlasmaSyndicate
   - LoadoutSpeciesVoxNitrogen
+  - LoadoutSpeciesPlasma # Goobstation
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

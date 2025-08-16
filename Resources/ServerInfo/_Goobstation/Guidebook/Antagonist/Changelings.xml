@@ -4,66 +4,67 @@ SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Ko4ergaPunk <nikitako4erga3i5@gmail.com>
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Changelings
+  # Генокрады
   <Box>
     <GuideEntityEmbed Entity="GuidebookChangelingFluff" Caption=""/>
   </Box>
-  A Changeling is an  alien creature able to morph into humanoids. Changelings nautral form is a headslug, but before a shift started, they killed someone and began imitating them.
-  The main weapons of the Changeling are its ability to internally synthesize dangerous chemicals, morph into other creatures that it has absorbed, and blend in with humans.
+  Генокрад — это инопланетное существо, способное превращаться в гуманоидов. Его естественная форма — слизнеобразная голова, но перед началом превращения он убивает кого-то и начинает имитировать это существо.
+  Основным оружием Генокрада являются способность внутренне синтезировать опасные химические вещества, превращаться в других существ, которых он поглотил, и сливаться с ними.
 
-  The changeling can be anyone it's absorbed, it can switch identities instantaneously, only absorbing takes time and peace. Unlike the Traitor, the Changeling's only objective is to survive until the shuttle arrives and escape on it while transformed into somebody else.
+  Генокрад может быть кем угодно, кого он поглотил, мгновенно менять личность, однако само поглощение требует времени и покоя. В отличие от Предателя, единственная цель Генокрада — выжить до прибытия шаттла эвакуации и сбежать на нём, будучи в образе другого человека.
 
-  Remember that Changelings are not obliged to work eachother as a team, and some may go solo/rogue depending on how they like it.
+  Помните, что Генокрады не обязаны работать в команде, и некоторые могут действовать в одиночку или врозь, в зависимости от своих предпочтений.
 
-  ## I've turned into myself, what do?
+  ## Я превратился в самого себя, что делать?
 
-  ### Chemicals
-  Chemicals are your source of abilities. Without them you won't be able to use your powers.
-  They regenerate slowly over time, and absorption will increase their max capacity.
+  ### Химикаты
+  Химикаты — ваш источник способностей. Без них вы не сможете использовать свои силы.
+  Они постепенно регенерируют со временем, а поглощение увеличивает их максимальную ёмкость.
 
-  ### DNA Absorption
-  Your main weapon is deception. Transform into other humanoid creatures to confuse the crew.
-  To do this, it must take ANY human, living or dead (even thrown away bodies from cloning), and absorb them using either the Absorb abliity, or the DNA Extraction Sting.
-  You can only have a maximum of 5 DNA strands at a time, and must transform to obtain more.
+  ### Поглощение ДНК
+  Ваше главное оружие — обман. Превращайтесь в других гуманоидных существ, чтобы запутать экипаж.
+  Для этого необходимо взять ЛЮБОГО человека, живого или мертвого (даже выброшенные тела от клонирования), и поглотить его с помощью поглощения или экстракции ДНК жалом.
+  Вы можете хранить максимум 5 цепочек ДНК одновременно и должны трансформироваться, чтобы получить больше.
 
-  Acquiring DNA via absorption requires the victim's incapacitation, critical condition or death. Simply, handcuff, put him into crit or kill him if you need to absorb him.
+  Поглощение ДНК требует, чтобы жертва была обездвижена, в критическом состоянии или мертва. Проще говоря, если нужно поглотить: заковать в наручники, довести до критического состояния или убить.
 
-  - Absorbing someone takes a lot of time, so prepare a safe spot or do it somewhere with the least amount of ears possible.
-  - Absorbing a victim will recover all of your biomass, increase your maximum chemical capacity and give you bonus evolution points to buy new abilities.
-  - Absorbing another changeling will, on top of that, increase your maximum biomass capacity, allowing you to stay alive for more time and give you even more chemicals and evolution points.
-  - [color=red]Absorbed victims cannot be cloned.[/color] On the other hand, they can still be turned into cyborgs.
+  - Поглощение занимает много времени, поэтому подготовьте безопасное место или делайте это там, где меньше всего свидетелей.
+  - Поглощение жертвы восстанавливает всю вашу биомассу, увеличивает максимальную ёмкость химикатов и даёт бонусные очки эволюции для покупки новых способностей.
+  - Поглощение другого Генокрада, кроме того, увеличивает вашу максимальную биомассу, позволяя дольше оставаться живым и получать ещё больше химикатов и очков эволюции.
+  - [color=red]Поглощённые жертвы не подлежат клонированию.[/color] С другой стороны, их всё ещё можно превратить в боргов.
 
-  ### You exclaim, "I am the only one here!"
-  Changelings are limited, however, to how much DNA they can absorb at once! If a changeling has 5 DNAs stored and attempts to gain another, they must purge the older DNA by transforming. Eventually, any changeling will have to be a twin of someone else on the station, living or dead.
-  The changeling can shift its appearance, making them look and sound exactly like a victim of which they have absorbed. This can be massive compromise in security, especially if command staff are absorbed and the changeling is able to imitate them.
-  Changelings can also, via their lesser form ability, transform into monkeys and do monkey things.
+  ### Вы восклицаете: "Я здесь один!"
+  Генокрады ограничены тем, сколько ДНК они могут поглотить за раз! Если у Генокрада уже хранится 5 цепочек ДНК и он пытается получить ещё одну, он должен избавиться от старой ДНК трансформировавшись. В итоге любой Генокрад должен быть двойником кого-то ещё на станции, живого или мертвого.
+  Генокрад может менять внешность, выглядя и звуча точно как поглощённая жертва. Это может серьёзно угрожать безопасности станции, особенно если поглощены руководители, и Генокрад может их имитировать.
+  Генокрады также могут, используя способность своей меньшей формы, превращаться в обезьян и имитировать их.
 
-  ### Regeneration
-  Also known as Regenerative Stasis, changelings have the ability to 'kill' themselves, and appear dead. After an uncertain amount of time, the changeling can revive at will, fully healed of all injuries and illness.
-  Entering stasis will start a timer that scales with damage taken, and leaving will cost 30 chemicals. Chemicals will still regenerate while a changeling is dead.
+  ### Регенерация
+  Также известная как Регенеративный Стазис, генокрады могут "убить" себя и казаться мёртвыми. Через неопределённое время Генокрад может возродиться по желанию, полностью исцелённый от всех ран и болезней.
+  Вход в стазис запускает таймер, который зависит от полученных повреждений, а выход из него стоит 30 химикатов. Химикаты продолжают регенерировать даже когда Генокрад мёртв.
 
-  Changelings can also choose to revive by defibrillator, making it even harder to tell if they are one or not.
+  Генокрады также могут возродиться при помощи дефибриллятора, что еще усложняет определение их присутствия.
 
-  This makes them nigh-unkillable, as they can fully regenerate themselves even from death if they have enough chemicals. Spaced changelings may also be able to make it back on station given enough time. The best way to permanently deal with a changeling is to cremate them, put them on mining colonies or in solitary confinement.
+  Это делает их почти неуязвимыми, так как они могут полностью восстановить себя даже после смерти, если у них достаточно химикатов. Генокрады, выброшенные в космос, также могут вернуться на станцию после прохождения достаточного времени. Лучший способ окончательно избавиться от Генокрада — кремировать, отправить на каторгу или в одиночную камеру.
 
-  ### Going Solo or Teaming Up
-  Like traitors, changelings operate individually and are in no way obligated to assist each other. It is not required for changelings to even reveal their identity to each other, as it's not uncommon for changelings to backstab each other to remove competition.
-  Even so, [color=red]a coordinated group of changelings is truly a terror to behold[/color].
+  ### Действовать в одиночку или объединиться
+  Как и Предатели, Генокрады действуют индивидуально и не обязаны помогать друг другу. Им даже не обязательно раскрывать свою личность, так как не редкость, когда Генокрады предают друг друга ради устранения конкурентов.
+  Тем не менее, [color=red]координированная группа Генокрадов — это настоящее ужасное зрелище[/color].
 
-  ## Identifying a changeling
-  Changelings have a different blood type. Even if a changeling is pretending to be a diona, vox or a moth person, they have one blood type.
-  Also, when put in a centrifuge, the changeling's blood reacts violently.
-  You cannot identify changelings in any other possible way, unless they're dead obvious and start going loud.
+  ## Как определить Генокрада
+  У Генокрадов другой тип крови. Даже если Генокрад притворяется дионой, воксом или нианом, у него один тип крови.
+  Также, если поместить кровь в центрифугу, кровь Генокрада реагирует агрессивно.
+  Других способов идентификации нет, если только они сами не слишком осторожны и не начинают действовать вызывающе.
 
-  ## Your true weakness...
-  [color=orange]Kill it with fire![/color]
-  - While on fire, they are [color=red]unable to use or toggle most of their combat, defensive and utility oriented abilities.[/color]
-  - Changelings also suffer a massive reduction to their chemical generation, being [color=red]reduced to a 1/4 of its current amount[/color] when on fire!
+  ## Ваша истинная слабость...
+  [color=orange]Сожгите![/color]
+  - Горящие Генокрады [color=red]не могут использовать или переключать большинство боевых, защитных и полезных способностей[/color].
+  - Генокрады также испытывают сильное уменьшение генерации химикатов, будучи [color=red]сокращёнными до 1/4 от текущей нормы[/color] во время горения.
 
-  [textlink="Learn about the changeling abilities." link="ChangelingsAbilities"]
+  [textlink="Узнать о способностях Генокрадов." link="ChangelingsAbilities"]
 </Document>

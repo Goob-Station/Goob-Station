@@ -3,26 +3,26 @@
   maps:
   # Highpop 55+
   - CorvaxAstra
-  #- CorvaxAvrite WIP
-  - CorvaxBox
-  #- CorvaxChloris WIP
-  - CorvaxDelta
+  #- CorvaxAvrite
+  #- CorvaxBox
+  - CorvaxChloris
+  #- CorvaxDelta
   - CorvaxGlacier
   - CorvaxPilgrim
 
   # Midpop 25–55
-  - CorvaxAmber
-  #- CorvaxAwesome WIP
+  #- CorvaxAmber
+  #- CorvaxAwesome
   - CorvaxBagel
-  - CorvaxMarathon
-  - CorvaxOutpost
-  - CorvaxPaper
-  - CorvaxPearl
-  - CorvaxVoid
+  #- CorvaxMarathon
+  #- CorvaxOutpost
+  #- CorvaxPaper
+  #- CorvaxPearl
+  #- CorvaxVoid
 
   # Lowpop 0–25
-  - CorvaxMaus
+  #- CorvaxMaus
   - CorvaxOmega
   - CorvaxPacked
-  #- CorvaxSilly WIP
-  - CorvaxTushkan
+  - CorvaxSilly
+  #- CorvaxTushkan

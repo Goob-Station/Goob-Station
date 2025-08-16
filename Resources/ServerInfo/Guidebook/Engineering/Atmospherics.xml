@@ -15,36 +15,36 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-	# Atmospherics
-	Atmospherics is the engineering subdepartment responsible for maintaining the station's atmosphere, and ensuring that it is safe and breathable for the crew.
+	# Атмосфера
+	Атмосферный отдел — это инженерное подразделение, ответственное за поддержание атмосферы станции в безопасном и пригодном для дыхания состоянии для экипажа.
 
-	Atmospherics is run by Atmospheric Technicians, who are overseen by the Chief Engineer.
+	Атмосферой управляют Атмосферные техники, подчиняющиеся Старшему Инженеру.
 
 	<Box>
-		<GuideEntityEmbed Entity="ToyFigurineAtmosTech" Caption="Atmosian"/>
-		<GuideEntityEmbed Entity="ToyFigurineChiefEngineer" Caption="CE"/>
+		<GuideEntityEmbed Entity="ToyFigurineAtmosTech" Caption="Атмосиан"/>
+		<GuideEntityEmbed Entity="ToyFigurineChiefEngineer" Caption="ГИ"/>
 	</Box>
 	<Box>
 		[color=#999999][italic][italic][/color]
 	</Box>
 
-	## Responsibilities
-	Generally, you'll be responding to [textlink="atmospheric upsets" link="AtmosphericUpsets"] throughout the station.
-	These can range from minor leaks to full-on [textlink="fires" link="Fires"] or [textlink="spacing" link="Spacing"] incidents.
+	## Обязанности
+	В основном вы будете реагировать на [textlink="атмосферные нарушения" link="AtmosphericUpsets"] по всей станции.
+	Они могут варьироваться от мелких утечек до серьёзных [textlink="пожаров" link="Fires"] или [textlink="разгерметизации" link="Spacing"].
 
-	People from other departments may also request [textlink="canned gasses" link="GasCanisters"] for their department duties, such as [textlink="plasma" link="Gasses"] for the [textlink="Research Department" link="Science"] or [textlink="carbon dioxide" link="Gasses"] for [textlink="Chemistry" link="Chemist"].
+	Сотрудники других отделов также могут запрашивать [textlink="баллоны с газом" link="GasCanisters"] для выполнения своих обязанностей, например, [textlink="плазму" link="Gasses"] для [textlink="Научного отдела" link="Science"] или [textlink="углекислый газ" link="Gasses"] для [textlink="Химии" link="Chemist"].
 
-	When there's no work to do, you may be expected to help regular Station Engineers with their tasks, and mentor new Station Engineers and Atmospheric Technicians.
-	In your downtime, you may seek to improve the station by setting up rooms with different atmospheres for [textlink="Voxes" link="Vox"] and other species, or by setting up production of [textlink="exotic gasses" link="Gasses"] for the station's needs.
+	Когда работы нет, от вас могут ожидать помощь обычным Инженерам станции с их задачами, а также наставничество новых Технических ассистентов и Атмосферных техников.
+	В свободное время вы можете улучшать станцию, создавая комнаты с разной атмосферой для [textlink="Воксов" link="Vox"] и других видов, или организовывать производство [textlink="экзотических газов" link="Gasses"] для нужд станции.
 	
-	## Reference Sheet
-	- Standard atmospheric mix is [color=#a4885c]78% N2 and 22% O2 at 101.24kPa.[/color]
-	- Gas obeys real math. You can use the equation:
+	## Справка
+	- Стандартная атмосферная смесь: [color=#a4885c]78% Азота и 22% Кислорода при 101.24 кПа.[/color]
+	- Газы подчиняются реальной математике. Вы можете использовать уравнение:
 	<Box>
 		[color=cyan]PV = nRT[/color]
 	</Box>
 	<Box>
-		([color=#a4885c]Pressure kPa * Volume L = Moles * R * Temperature K[/color])
-	</Box> to derive information you might need to know about a gas. R is approximately 8.31446.
+		([color=#a4885c]Давление kPa * Объём L = Моли * R * Температура K[/color])
+	</Box> для вычисления нужной информации о газе. R примерно равно 8.31446.
 
 </Document>

@@ -43,3 +43,18 @@
       - Surgery
       - MedicalEquipment
     #Corvax-Goob-brigmedic-loadout-update-end
+
+- type: chameleonOutfit
+  id: BrigmedicChameleonOutfit
+  job: Brigmedic
+  equipment:
+    eyes: ClothingEyesGlassesMed
+    mask: ClothingMaskSecurityMedicalRespirator #Corvax-Goob-brigmedic-loadout-update
+    ears: ClothingHeadsetBrigmedic
+    outerClothing: ClothingOuterCoatAMG
+    gloves: ClothingHandsGlovesColorWhite
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+    id: BrigmedicPDA
+    back: ClothingBackpackBrigmedic
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatBeretBrigmedic

@@ -13,10 +13,10 @@
 
 ghost-role-information-nukie-reinforcement-name = Ядерный Оперативник
 ghost-role-information-nukie-reinforcement-description = Ядерным оперативникам требуется подкрепление. Ты — агент подкрепления, который им поможет.
-ghost-role-information-nukie-reinforcement-rules = Ты — [color=red][bold]Командный антагонист[/bold][/color], помогайте оперативникам, которые вас вызвали.
+ghost-role-information-nukie-reinforcement-rules = Ты — [color=red][bold]командный антагонист[/bold][/color], помогайте оперативникам, которые вас вызвали.
 ghost-role-information-SyndiRoach-name = СиндиТаракан
 ghost-role-information-SyndiRoach-description = Ты — верный обученный питомец ядерных оперативников с микробомбой. Служи хозяину до смерти!
-ghost-role-information-SyndiRoach-rules = Ты — [color=red][bold]враг в команде[/bold][/color] с агентом, который тебя вызвал.
+ghost-role-information-SyndiRoach-rules = Ты — [color=red][bold]командный антагонист[/bold][/color] с агентом, который тебя вызвал.
 ghost-role-information-skibidi-toilet-name = Скибиди Туалет
 ghost-role-information-skibidi-toilet-description = Уничтожай людей своим скибиди-огайо риццем.
 ghost-role-information-skibidi-toilet-rules = Ты — [color=red][bold]враг[/bold][/color] с целью уничтожить как можно больше огайоан.
@@ -28,17 +28,17 @@ ghost-role-information-lootbug-description = Постарайся не стат�
 ghost-role-information-homunculus-name = Гомункул
 ghost-role-information-homunculus-description = Подчиняйся создателю. Если его нет — действуй по своей воле.
 ghost-role-information-huborg-name = Урист МакБорг
-ghost-role-information-huborg-description = Ты отвратительный киборг.
+ghost-role-information-huborg-description = Ты отвратительный борг.
 ghost-role-information-c4-name = Композиция C-4
 ghost-role-information-c4-description = Помогай своему пользователю взрывать вещи.
-ghost-role-information-derelict-cyborg-syndicate-name = Заброшенный Киборг Синдиката
+ghost-role-information-derelict-cyborg-syndicate-name = Заброшенный борг Синдиката
 ghost-role-information-derelict-cyborg-syndicate-description = Ты потерялся во время штурма станции. После долгих лет под воздействием ионных бурь оказался рядом со станцией.
 ghost-role-information-navy-captain-name = Капитан ВМС
 ghost-role-information-navy-captain-description = Секретно.
 ghost-role-information-navy-captain-rules = Ты ни перед кем не в ответе.
 ghost-role-information-special-operations-officer-name = Офицер Спецопераций
 ghost-role-information-special-operations-officer-description = Отправляй, инструктируй и управляй командами экстренного реагирования и другими силами Nanotrasen. Освободи ядерные коды — или нет.
-ghost-role-information-special-operations-officer-rules = Доставь представителя НаноТрейзен живым, остальные — просто потеря. Приказы [color=#yellow][bold]Капитана ВМС[/bold][/color] могут изменить этот порядок.
+ghost-role-information-special-operations-officer-rules = Доставь представителя Nanotrasen живым, остальные — просто потеря. Приказы [color=#yellow][bold]Капитана ВМС[/bold][/color] могут изменить этот порядок.
 ghost-role-information-navy-officer-name = Офицер ВМС
 ghost-role-information-navy-officer-description = Отвечай на факсы и радиосообщения Центрального Командования. Проводить расследования на станции и среди экипажа.
 ghost-role-information-navy-officer-rules = Следуй приказам [color=#yellow][bold]Капитана ВМС[/bold][/color]. При его отсутствии принимай собственные решения.
@@ -80,8 +80,8 @@ ghost-role-information-space-ninja-name-token = Космический Нинд�
 ghost-role-information-space-dragon-name-token = Космический Дракон (Токен)
 ghost-role-information-revenant-name-token = Призрак (Токен)
 ghost-role-information-loneop-name-token = Одинокий Оперативник (Токен)
-ghost-role-information-derelict-cyborg-syndicate-name-token = Заброшенный Штурмовой Киборг (Токен)
+ghost-role-information-derelict-cyborg-syndicate-name-token = Заброшенный Штурмовой Борг (Токен)
 ghost-role-information-bingle-name-token = Бингл (Токен)
 blob-carrier-role-name-token = Носитель Блоба (Токен)
-abductor-lone-ghost-role-name-token = Одинокий Похититель (Токен)
+abductor-lone-ghost-role-name-token = Одинокий Абдуктор (Токен)
 roles-wizard-name-token = Волшебник (Токен)

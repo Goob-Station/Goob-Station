@@ -9,76 +9,77 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <Document>
-  # Revealing conditions for antags
+  # Условия раскрытия мета брони для антагонистов
 
-  The following list provides revealing conditions for different antags you may see on the station
+  Следующий список показывает условия раскрытия мета брони для разных антагонистов, которых вы можете встретить на станции
 
-  ## Heretics
-  The revealing condition for this shield is any of the following:
-  - Finding a rune
-  - The chaplain sees a reality fracture and notifies security
-  - Witnessing a crewmember using their powers
+  ## Еретики
 
-  ## Cosmic Cult
+  Условие раскрытия мета брони — любое из следующих:
+  - Найти руну.
+  - Капеллан видит разлом реальности и уведомляет охрану.
+  - Стать свидетелем использования сил членом экипажа.
 
-  The revealing condition for this shield is any of the following:
-  - witnessing a crewmember with the telltale facemask
-  - Seeing a glyph
-  - witnessing a crewmember absorb a malign shift
-  - witnessing a crewmember use a cult-specific ability
-  - witnessing cult gear like entropic swords and armor
+  ## Космический культ
 
-  ## Devils
+  Условие раскрытия мета брони — любое из следующих:
+  - Увидеть члена экипажа с характерной маской.
+  - Увидеть глиф.
+  - Увидеть, как член экипажа поглощает зловещий разлом.
+  - Увидеть, как член экипажа использует способность, специфичную для культа.
+  - Увидеть снаряжение культа, например энтропийный клинок и броню.
 
-  The revealing condition for this shield is any of the following:
-  - You are a Devil.
-  - You are the Chaplain, a lawyer, or a member of Central Command. (Including BSO and NTR)
-  - You have made a deal with the Devil.
-  - You have witnessed someone make a deal.
+  ## Дьяволы
 
-  ## Zombies
+  Условие раскрытия мета брони — любое из следующих:
+  - Вы Дьявол.
+  - Вы Священник, Адвокат или Представитель Нанотрейзен (включая ОСЩ и ПНТ).
+  - Вы заключили сделку с Дьяволом.
+  - Вы стали свидетелем чьей-то сделки.
 
-  Revealing conditions to the "Zombie" Shield:
-  - You are a Nuclear Operative
-  - You are a Syndicate Agent
-  - You are a Zombie
-  - You have seen Zombies on the station
+  ## Зомби
 
-  ## Infections(Once the zombie virus is proven)
+  Условия раскрытия мета брони "Зомби":
+  - Вы Ядерный Оперативник.
+  - Вы Агент Синдиката.
+  - Вы Зомби.
+  - Вы видели Зомби на станции.
 
-  Revealing conditions to the "Infections" Shield:
-  - You are a Chemist
-  - You are a Chief Medical Officer
-  - Zombies are announced to be real and station-wide
+  ## Инфекции (после подтверждения вируса зомби)
 
-  ## Deathsquad
+  Условия раскрытия мета брони "Инфекции":
+  - Вы Химик.
+  - Вы Главный Врач.
+  - Зомби объявлены реальными и по всей станции.
 
-  Revealing conditions to the "Deathsquad" Shield:
-  - You'll know.
+  ## Эскадрон смерти
 
-  ## Implanted implants
+  Условия раскрытия мета брони "Эскадрон смерти":
+  - Вы узнаете сами.
 
-  The revealing condition for this shield is any of the following:
-  - discovering a non-NT implanter, used or unused
-  - discovering a non-NT implant box
-  - discovering use of a non-NT implant by anyone
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
+  ## Внедрённые импланты
 
-  ## Chameleon Items
+  Условие раскрытия мета брони — любое из следующих:
+  - Обнаружение не НТ имплантера, использованного или неиспользованного.
+  - Обнаружение не НТ коробки с имплантами.
+  - Обнаружение использования не НТ импланта кем-либо.
+  - Оказание в ситуации, где абсолютно нет другого объяснения.
+  - Обнаружение разблокированного аплинка.
 
-  The revealing condition for this shield is any of the following:
-  - seeing someone else cause any chameleon item to change
-  - finding holographic nanomachine fibers
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
+  ## Предметы хамелеона
 
-  ## Stealth Items
+  Условие раскрытия мета брони — любое из следующих:
+  - Увидеть, как кто-то изменяет любой хамелеоновый предмет.
+  - Найти голографические наномашинные волокна.
+  - Оказание в ситуации, где абсолютно нет другого объяснения.
+  - Обнаружение разблокированного аплинка.
 
-  The revealing condition for this shield is any of the following:
-  - seeing the item behave differently than the expected behavior for the item
-  - seeing the item used for its hidden purpose
-  - experiencing a situation where absolutely no other explanation is possible
-  - discovering an unlocked uplink
+  ## Скрытые предметы
+
+  Условие раскрытия мета брони — любое из следующих:
+  - Увидеть, что предмет ведёт себя иначе, чем ожидается.
+  - Увидеть использование предмета для его скрытой цели.
+  - Оказание в ситуации, где абсолютно нет другого объяснения.
+  - Обнаружение разблокированного аплинка.
 
 </Document>

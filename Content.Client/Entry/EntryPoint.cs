@@ -246,6 +246,8 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("stationGoal"); // CorvaxGoob-StationGoal
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
+            _prototypeManager.RegisterIgnore("codewordGenerator");
+            _prototypeManager.RegisterIgnore("codewordFaction");
             _prototypeManager.RegisterIgnore("story"); // Goobstation
             _prototypeManager.RegisterIgnore("storyBeat"); // Goobstation
 

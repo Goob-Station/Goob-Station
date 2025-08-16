@@ -1,5 +1,5 @@
 <Document>
-  <!-- Деконверсия -->
+  # Деконверсия
   <Box>
     <GuideEntityEmbed Entity="Bible" Caption=""/>
   </Box>
@@ -10,7 +10,7 @@
   - Заказав религиозные припасы через Карго. Они содержат две канистры Святой воды и Библию.
   - Использовав Библию: Священник может осветить большинство ёмкостей с водой, превратив их в Святую воду.
 
-  <!-- Методы подавления -->
+  ## Методы подавления
   <Box>
     <GuideEntityEmbed Entity="Bible" Caption=""/>
     <GuideEntityEmbed Entity="MindShieldImplanter" Caption=""/>

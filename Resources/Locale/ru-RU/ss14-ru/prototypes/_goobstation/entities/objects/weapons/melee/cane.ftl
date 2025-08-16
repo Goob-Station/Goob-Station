@@ -1,6 +1,6 @@
 ent-CaneBladeNanotrasen = трость-клинок
-    .desc = Острый клинок с рукоятью в форме трости, на лезвии выгравирован логотип Нанотрейзен.
-    .suffix = Нанотрейзен
+    .desc = Острый клинок с рукоятью в форме трости, на лезвии выгравирован логотип Nanotrasen.
+    .suffix = Nanotrasen
 ent-CaneSheathFilledNanotrasen = { ent-CaneSheath }
-    .suffix = Заполненный, Нанотрейзен
+    .suffix = Заполненный, Nanotrasen
     .desc = { ent-CaneSheath.desc }

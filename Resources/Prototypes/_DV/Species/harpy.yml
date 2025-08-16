@@ -18,7 +18,7 @@
 - type: species
   id: Harpy
   name: species-name-harpy
-  roundStart: false # CorvaxGoob Temporary hidden
+  roundStart: true
   prototype: MobHarpy
   sprites: MobHarpySprites
   markingLimits: MobHarpyMarkingLimits

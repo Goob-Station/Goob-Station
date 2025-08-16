@@ -11,7 +11,7 @@
 guide-entry-space-law = Космическое право
 guide-entry-medpatches = Медицинские пластыри
 guide-entry-rules-nrp = Правила NRP
-guide-entry-sm = Суперматер-двигатель
+guide-entry-sm = Суперматерия
 guide-entry-automation = Автоматизация
 # Goob SOP
 # - Основные разделы

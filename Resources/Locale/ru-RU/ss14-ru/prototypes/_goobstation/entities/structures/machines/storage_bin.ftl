@@ -1,2 +1,2 @@
-ent-StorageBin = storage bin
-    .desc = An electronically controlled storage bin intended for use with robotic arms.
+ent-StorageBin = ящик для хранения
+    .desc = Электронно управляемый ящик для хранения, предназначенный для использования с робо-рукой.
