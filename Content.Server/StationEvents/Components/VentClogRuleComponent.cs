@@ -26,8 +26,8 @@ public sealed partial class VentClogRuleComponent : Component
     [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<ReagentPrototype>))]
     public IReadOnlyList<string> SafeishVentChemicals = new[]
     {
-        "Water", "Blood", "Slime", "SpaceDrugs", "SpaceCleaner", "Nutriment", "Sugar", "SpaceLube", "Ephedrine", "Ale", "Beer", "Ephedrine", "Lead", "Cryptobiolin", "PulpedBananaPeel", "Tricordrazine", "Psicodine", "THC"
-    };
+        "Water", "Blood", "SpaceDrugs", "SpaceCleaner", "Nutriment", "Sugar", "Ephedrine", "ThickSmoke", "Cognizine", "Beer", "Ephedrine", "Lead", "Cryptobiolin", "PulpedBananaPeel", "Tricordrazine", "Psicodine", "THC"
+    }; /// Removed Lube, Slime, Glue, added ThickSmoke, Cognizine. Glory to RAE.
 
     /// <summary>
     /// Sound played when foam is being created.
@@ -39,8 +39,8 @@ public sealed partial class VentClogRuleComponent : Component
     /// The standard reagent quantity to put in the foam, modified by event severity.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public int ReagentQuantity = 100;
-
+    public int ReagentQuantity = 50;
+/// Nerfed for RAE
     /// <summary>
     /// The standard spreading of the foam, not modified by event severity.
     /// </summary>
@@ -51,22 +51,22 @@ public sealed partial class VentClogRuleComponent : Component
     /// How long the foam lasts for
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float Time = 20f;
-
+    public float Time = 15f;
+/// Nerfed for RAE
     /// <summary>
     /// Reagents that gets the weak numbers used instead of regular ones.
     /// </summary>
     [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<ReagentPrototype>))]
     public IReadOnlyList<string> WeakReagents = new[]
     {
-        "SpaceLube", "SpaceGlue"
+        "SpaceCleaner"
     };
-
+/// Nerfed for RAE
     /// <summary>
     /// Quantity of weak reagents to put in the foam.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public int WeakReagentQuantity = 50;
+    public int WeakReagentQuantity = 100;
 
     /// <summary>
     /// Spread of the foam for weak reagents.
