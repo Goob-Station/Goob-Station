@@ -64,6 +64,7 @@
 # SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SharkSnake98 <peanutbuttersharky@gmail.com>
+# SPDX-FileCopyrightText: 2025 cohanna <conornhanna@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 uhbg <uhbg@users.noreply.github.com>
 #
@@ -277,6 +278,13 @@
           groups:
             Brute: -1
             Burn: -1
+      - !type:ModifyBloodLevel # Goobstation
+        conditions:
+        - !type:ReagentThreshold
+          min: 3
+        - !type:OrganType
+          type: Dwarf
+        amount: 1
       - !type:ChemVomit
         probability: 0.04
         conditions:
