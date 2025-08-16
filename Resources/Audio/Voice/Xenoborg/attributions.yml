@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
+# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files:
   - xenoborg_ask.ogg
   - xenoborg_bike_horn.ogg
@@ -15,3 +22,9 @@
   license: "CC-BY-SA-4.0"
   copyright: "Recorded and mixed by DarkIcedCoffe (Discord)"
   source: "https://github.com/space-wizards/space-station-14/pull/36867"
+
+- files:
+  - cry_robot_xenoborg.ogg
+  license: "CC-BY-4.0"
+  copyright: "Modified version of cry_robot_1.ogg by MarkerWicker"
+  source: "https://github.com/Goob-Station/Goob-Station/blob/master/Resources/Audio/_EinsteinEngines/Voice/IPC/cry_robot_1.ogg"
