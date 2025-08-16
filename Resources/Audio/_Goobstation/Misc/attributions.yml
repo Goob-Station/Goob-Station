@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lumminal <81829924+Lumminal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -15,3 +17,18 @@
   license: "CC0-1.0"
   copyright: "ValentinPetiteau"
   source: "https://freesound.org/people/ValentinPetiteau/sounds/628659/"
+
+- files: ["scary_horn2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TG Station"
+  source: "https://github.com/tgstation/tgstation/commit/ce933a1a97dbc50e4bc57bc5a40707c91a5f63cf"
+
+- files: ["enter_blood.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TG Station"
+  source: "https://github.com/tgstation/tgstation/commit/ce933a1a97dbc50e4bc57bc5a40707c91a5f63cf"
+
+- files: ["exit_blood.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TG Station"
+  source: "https://github.com/tgstation/tgstation/commit/ce933a1a97dbc50e4bc57bc5a40707c91a5f63cf"

@@ -10,11 +10,17 @@
   - Capoeira
   - Ninjutsu
   - DragonKungFu
+  - HellRip
 
 - type: guideEntry
   id: CQC
   name: guide-entry-cqc
   text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/CQC.xml"
+
+- type: guideEntry
+  id: HellRip
+  name: guide-entry-hell-rip
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/HellRip.xml"
 
 - type: guideEntry
   id: SleepingCarp
