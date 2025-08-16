@@ -86,15 +86,18 @@
   equipment:
     head: ClothingHeadHatBeret
 
+
 - type: loadout
   id: MimeFrenchBeret
   equipment:
     head: ClothingHeadHatBeretFrench
 
+
 - type: loadout
   id: MimeCap
   equipment:
     head: ClothingHeadHatMimesoft
+
 
 # Mask
 - type: loadout
@@ -118,10 +121,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitMime
 
+
 - type: loadout
   id: MimeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMime
+
 
 # Back
 - type: loadout

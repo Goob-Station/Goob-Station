@@ -230,5 +230,11 @@ namespace Content.Shared.Abilities.Psionics
 
         [DataField]
         public Dictionary<string, float> AvailablePowers = new();
+
+        /// <summary>
+        /// Whether to ignore the stomach requirement for vampirism initialization. Timely, instead of trait requirements
+        /// </summary>
+        [DataField]
+        public bool IgnoreStomachRequirement = true;
     }
 }

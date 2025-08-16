@@ -176,6 +176,7 @@
           - DispelPower
           - MetapsionicPower
           - TelepathyPower
+      - type: Telepathy
 
 - type: startingGear
   id: ResearchDirectorGear
@@ -186,3 +187,15 @@
     back:
     - Flash
     - TelescopicBaton # Goobstation
+
+- type: chameleonOutfit
+  id: ResearchDirectorChameleonOutfit
+  job: ResearchDirector
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretRND
+    eyes: ClothingEyesGlasses
+    mask: ClothingMaskGas
+    neck: ClothingNeckCloakRd
+    outerClothing: ClothingOuterCoatRD
+    gloves: ClothingHandsGlovesColorPurple

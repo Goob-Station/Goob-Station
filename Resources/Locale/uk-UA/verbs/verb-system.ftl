@@ -40,3 +40,4 @@ verb-categories-power-level = Рівень потужності
 verb-categories-blood-cult = Культ крові
 verb-categories-select-faction = Обрати фракцію
 verb-categories-rename = Перейменувати
+verb-categories-adjust = Налаштувати

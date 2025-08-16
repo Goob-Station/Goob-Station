@@ -83,6 +83,7 @@
       powersToAdd:
         - TelepathyPower
         - AssayPower
+    - type: Telepathy
 
 - type: startingGear
   id: LibrarianGear
@@ -95,3 +96,14 @@
   storage:
     back:
     - BookRandom
+
+- type: chameleonOutfit
+  id: LibrarianChameleonOutfit
+  job: Librarian
+  equipment:
+    head: ClothingHeadHatCanadaBeanie
+    eyes: ClothingEyesGlassesJamjar
+    mask: ClothingMaskGas
+    neck: ClothingNeckScarfStripedGreen
+    outerClothing: ClothingOuterWinterColorGreen
+    gloves: ClothingHandsGlovesColorBlack

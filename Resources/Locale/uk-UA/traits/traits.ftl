@@ -45,3 +45,5 @@ trait-dementia-name = Деменція
 trait-dementia-desc = Я-... е-е, про що це було? А, точно! Ви іноді багато забуваєте
 trait-painnumbness-name = Оніміння
 trait-painnumbness-desc = У вас відсутнє почуття болю, ви не усвідомлюєте, наскільки можете бути поранені.
+trait-monochromancy-name = Монохромантія
+trait-monochromancy-desc = Ви абсолютно не розрізняєте кольорів, усе, що ви сприймаєте, коливається від чорного до білого.

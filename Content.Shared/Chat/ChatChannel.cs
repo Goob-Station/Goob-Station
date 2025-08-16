@@ -26,7 +26,7 @@ namespace Content.Shared.Chat
     /// <summary>
     ///     Represents chat channels that the player can filter chat tabs by.
     /// </summary>
-    [Flags]
+    [Flags, Serializable] // Serializable for Pirate from Pirate
     public enum ChatChannel : uint // Goobstation - Starlight collective mind port // surely changing the ushort to uint won't break anything :clueless:
     {
         None = 0,

@@ -92,6 +92,7 @@
     LotophagoiOil: 7
     Ichor: 2
     Wine: 1.2
+    Ectoplasm: 1
     Blood: 0.8
 
 - type: weightedRandom

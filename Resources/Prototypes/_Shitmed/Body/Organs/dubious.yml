@@ -43,6 +43,8 @@
           Airloss: -0.14
           Toxin: -0.14
           Genetic: -0.14
+    onRemove: # Pirate
+    - type: PassiveDamage
 
 - type: entity
   id: OrganDubiousAA
@@ -58,6 +60,9 @@
       - AllAccess
     - type: AccessReader
       access: [["Command"], ["Research"]]
+    onRemove: # Pirate
+    - type: Access
+    - type: AccessReader
 
 - type: entity
   id: OrganDubiousShock
@@ -75,6 +80,9 @@
       shootMaxInterval: 300
       shootRange: 5
       lightningPrototype: Lightning
+    onRemove: # Pirate
+    - type: Insulated
+    - type: LightningArcShooter
 
 - type: entity
   id: OrganDubiousInvisible
@@ -90,6 +98,9 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.25
       movementVisibilityRate: 0.25
+    onRemove: # Pirate
+    - type: Stealth
+    - type: StealthOnMove
 
 - type: entity
   id: OrganDubiousGoliath
@@ -100,6 +111,8 @@
   - type: Organ
     onAdd:
     - type: GoliathTentacle
+    onRemove: # Pirate
+    - type: GoliathTentacle
 
 - type: entity
   id: OrganDubiousSpaceAdaptation
@@ -109,6 +122,9 @@
     state: species
   - type: Organ
     onAdd:
+    - type: PressureImmunity
+    - type: BreathingImmunity
+    onRemove: # Pirate
     - type: PressureImmunity
     - type: BreathingImmunity
 
@@ -124,6 +140,11 @@
     - type: RandomStatusActivation
       statusEffects:
         ActivateArtifactEffect: ActivateArtifactEffect
+    onRemove: # Pirate
+    - type: RandomStatusActivation
+      statusEffects:
+        ActivateArtifactEffect: ActivateArtifactEffect
+    - type: XenoArtifact
 
 - type: entity
   id: OrganDubiousScrambleDna
@@ -136,6 +157,10 @@
     - type: RandomStatusActivation
       statusEffects:
         ScrambleDnaEffect: ScrambleDnaEffect
+    onRemove: # Pirate
+    - type: RandomStatusActivation
+      statusEffects:
+        ScrambleDnaEffect: ScrambleDnaEffect
 
 - type: entity
   id: OrganDubiousScrambleLocation
@@ -145,6 +170,10 @@
     state: vent
   - type: Organ
     onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        ScrambleLocationEffect: ScrambleLocationEffect
+    onRemove: # Pirate
     - type: RandomStatusActivation
       statusEffects:
         ScrambleLocationEffect: ScrambleLocationEffect
@@ -162,6 +191,10 @@
       maxActivationTime: 360
       statusEffects:
         SpawnSpiderEggs: SpawnSpiderEggs
+    onRemove: # Pirate
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnSpiderEggs: SpawnSpiderEggs
 
 - type: entity
   id: OrganDubiousSlimeEggs
@@ -176,6 +209,10 @@
       maxActivationTime: 360
       statusEffects:
         SpawnSlimes: SpawnSlimes
+    onRemove: # Pirate
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnSlimes: SpawnSlimes
 
 - type: entity
   id: OrganDubiousEMP
@@ -185,6 +222,10 @@
     state: emp
   - type: Organ
     onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnEmp: SpawnEmp
+    onRemove: # Pirate
     - type: RandomStatusActivation
       statusEffects:
         SpawnEmp: SpawnEmp
@@ -200,6 +241,10 @@
     - type: RandomStatusActivation
       statusEffects:
         SpawnGravityWell: SpawnGravityWell
+    onRemove: # Pirate
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnGravityWell: SpawnGravityWell
 
 - type: entity
   id: OrganDubiousFlash
@@ -209,6 +254,10 @@
     state: emp
   - type: Organ
     onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnFlash: SpawnFlash
+    onRemove: # Pirate
     - type: RandomStatusActivation
       statusEffects:
         SpawnFlash: SpawnFlash
@@ -224,6 +273,10 @@
     - type: RandomStatusActivation
       statusEffects:
         SpawnSmoke: SpawnSmoke
+    onRemove: # Pirate
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnSmoke: SpawnSmoke
 
 - type: entity
   id: OrganDubiousGas
@@ -233,6 +286,10 @@
     state: viral
   - type: Organ
     onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        ExpelGas: ExpelGas
+    onRemove: # Pirate
     - type: RandomStatusActivation
       statusEffects:
         ExpelGas: ExpelGas
@@ -256,7 +313,9 @@
         - SlipTile
         - SlipEntity
         - ContrabandDetector
-          
+    onRemove: # Pirate
+    - type: StepTriggerImmune
+
 - type: entity
   id: OrganDubiousVentcrawler
   parent: OrganDubiousBase
@@ -267,3 +326,5 @@
     onAdd:
     - type: VentCrawler
       allowInventory: false
+    onRemove: # Pirate
+    - type: VentCrawler

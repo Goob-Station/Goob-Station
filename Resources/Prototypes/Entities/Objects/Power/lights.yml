@@ -454,7 +454,7 @@
   id: LightTubeCrystalBlack
   components:
   - type: LightBulb
-    color: "#363636"
+    color: "#800080"
     lightEnergy: 1
     lightRadius: 8
   - type: Construction

@@ -189,6 +189,7 @@ loadout-group-detective-jumpsuit = Комбінезон детектива
 loadout-group-detective-outerclothing = Верхній одяг детектива
 
 loadout-group-security-cadet-jumpsuit = Комбінезон кадета служби безпеки
+loadout-group-cadet-outerclothing = Верхній одяг кадетів
 loadout-group-security-star = Зірка безпеки
 
 # Медицина

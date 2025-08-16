@@ -1,4 +1,4 @@
-﻿# Popups
+# Popups
 
 network-configurator-device-saved = Успішно збережено мережевий пристрій {$device} з адресою {$address}!
 network-configurator-device-failed = Не вдалося зберегти мережевий пристрій {$device}! Адреса не призначена!
@@ -43,3 +43,6 @@ network-configurator-examine-switch-modes = Натисніть {$key} для п�
 # стан елемента
 network-configurator-item-status-label = Поточний режим: {$mode}
     Перемкнути: {$keybinding}
+
+cmd-clearnetworklinkoverlays-desc = Очистити всі накладення мережевих з'єднань.
+cmd-clearnetworklinkoverlays-help = Використання: clearnetworklinkoverlays

@@ -51,3 +51,8 @@ shell-argument-username-hint = <ім'я користувача>
 shell-argument-username-optional-hint = [ім'я користувача]
 
 shell-entity-target-lacks-component = Цільова сутність не має компонента {$componentName}
+shell-must-have-body = Ви повинні мати тіло, щоб виконати цю команду.
+
+## Аргументи
+shell-need-exactly-zero-arguments = Ця команда не приймає аргументів.
+shell-missing-required-permission = Вам потрібен дозвіл {$perm} для цієї команди!

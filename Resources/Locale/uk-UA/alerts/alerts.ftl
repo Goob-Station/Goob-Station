@@ -14,7 +14,7 @@ alerts-high-pressure-name = [color=red]Високий Тиск[/color]
 alerts-high-pressure-desc = Повітря навколо [color=red]дуже щільне[/color]. [color=green]Скафандр[/color] може захистити вас.
 
 alerts-on-fire-name = [color=red]Горю![/color]
-alerts-on-fire-desc = Ви [color=red]горите[/color]. Натисність на повідомлння аби зупинитись, впасти та кататись, аби зупинити вогонь, або перейдіть до зони вакууму.
+alerts-on-fire-desc = Ви [color=red]горите[/color]. Натисність на повідомлення аби зупинитись, впасти та кататись, аби зупинити вогонь, або перейдіть до зони вакууму.
 
 alerts-too-cold-name = [color=cyan]Надто Холодно[/color]
 alerts-too-cold-desc = Вам [color=cyan]дуже холодно![/color] Перейдіть у тепліше місце і зніміть там ізоляційний одяг, наприклад скафандр.
@@ -81,7 +81,7 @@ alerts-vow-silence-name = Обітниця Мовчання
 alerts-vow-silence-desc = Ви дали обітницю мовчання, як частину посвячення у секту Містіко Тагма Мімон. Клацність, щоб порушити обітницю.
 
 alerts-vow-broken-name = Обітниця порушена
-alerts-vow-broken-desc = Ви порушилу свою обітницю серед усіх мімів. Ви можете говорити, але ви втратили свої здібності щонайменше на цілих 5 хвилин!!! Клацніть, щоб спробувати повторно прийняти обітницю.
+alerts-vow-broken-desc = Ви порушили свою обітницю серед усіх мімів. Ви можете говорити, але ви втратили свої здібності щонайменше на цілих 5 хвилин!!! Клацніть, щоб спробувати повторно прийняти обітницю.
 
 alerts-pulled-name = Вас тягнуть
 alerts-pulled-desc = Вас хтось тягне. Рухайтесь, щоб звільнитися.
@@ -117,9 +117,10 @@ alerts-deflecting-desc = У вас є шанс відхилити снаряди
 alerts-mana-name = Рівень мани
 alerts-mana-desc = Скільки мани ви можете витратити на свої здібності.
 mana-alert = [font size=12][color=purple]Мана: {$mana}/{$manaMax}[/color][/font]
-alerts-low-plasma-name = [color=red]Низька плазма[/color]
-alerts-low-plasma-desc = У повітрі, яким ви дихаєте, [color=red]недостатньо плазми[/color]. Вдягніть [color=green]внутрішні засоби[/color].
-alerts-high-oxygen-name = [color=red]Високий вміст кисню[/color]
-alerts-high-oxygen-desc = У повітрі, яким ви дихаєте, [color=red]забагато кисню[/color]. Одягніть [color=green]внутрішні засоби[/color].
 alerts-adrenaline-name = [color=red]Адреналін[/color]
 alerts-adrenaline-desc = Ви сповнені адреналіну: біль вас не сповільнить.
+alerts-rooted-name = Вкорінений
+alerts-rooted-desc = Ви прикріплені до землі. Ви не можете послизнутися, але поглинаєте рідини під собою.
+
+alerts-stealthy-name = Кишенькова крадіжка
+alerts-stealthy-desc = Показує, чи ви зараз здійснюєте кишенькову крадіжку. Натисніть, щоб перемкнути.
