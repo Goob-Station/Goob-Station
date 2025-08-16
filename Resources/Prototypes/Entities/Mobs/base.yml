@@ -216,7 +216,6 @@
     - Caustic
     - Asphyxiation
     - Radiation
-  - type: MindRememberBody
   - type: DamageOnHighSpeedImpact
     damage:
       types:
