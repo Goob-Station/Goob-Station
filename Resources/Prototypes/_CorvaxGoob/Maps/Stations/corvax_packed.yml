@@ -1,6 +1,6 @@
 - type: gameMap
   id: CorvaxPacked
-  mapName: 'NTVG Пакет'
+  mapName: 'NTJU Пакет'
   mapPath: /Maps/_CorvaxGoob/Stations/Packed/corvax_packed.yml
   maxRandomOffset: 0
   randomRotation: false
@@ -14,7 +14,7 @@
           mapNameTemplate: '{0} Пакет {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'VG'
+            prefixCreator: 'JU'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_CorvaxGoob/Stations/Packed/Shuttles/corvax_emergency_packed.yml
         - type: StationJobs
@@ -35,6 +35,7 @@
             Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             Surgeon: [ 1, 1 ]
+            Psychologist: [ 1, 1 ]
             # science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 4 ]
@@ -43,7 +44,7 @@
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             WardenHelper: [ 1, 1 ]
-            SecurityOfficer: [ 4, 4 ]
+            SecurityOfficer: [ 3, 3 ]
             SecurityCadet: [ 2, 2 ]
             Detective: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
@@ -54,12 +55,12 @@
             # service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
-            Botanist: [ 2, 2 ]
+            Botanist: [ 1, 2 ]
             Boxer: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 1, 1 ]
             Clown: [ 1, 1 ]
-            Janitor: [ 2, 2 ]
+            Janitor: [ 1, 2 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
@@ -67,7 +68,20 @@
             Passenger: [ -1, -1 ]
             # silicon
             StationAi: [ 1, 1 ]
-            Borg: [ 1, 1 ]
+            Borg: [ 2, 2 ]
+        - type: StationGoal
+          goals:
+          - SolarPanels
+          - Artifacts
+          - Bank
+          - Zoo
+          - MiningOutpost
+          - SecurityTraining
+          - ShuttleSec
+          - ShuttleRnd
+          - ShuttleSrv
+          - Bunker
+          - BluespaceHarvest
         - type: StationBlobConfig
           stageBegin: 20
           stageCritical: 300
