@@ -153,6 +153,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Popups;
@@ -352,7 +353,10 @@ namespace Content.Shared.Interaction
         ///
         private void OnRemoveAttempt(EntityUid uid, UnremoveableComponent item, ContainerGettingRemovedAttemptEvent args)
         {
-            args.Cancel();
+            // don't prevent the server state for the container from being applied to the client correctly
+            // otherwise this will cause an error if the client predicts adding UnremoveableComponent
+            if (!_gameTiming.ApplyingState)
+                args.Cancel();
         }
 
         /// <summary>
@@ -704,8 +708,11 @@ namespace Content.Shared.Interaction
             if (_transform.GetMapId(coordinates) != Transform(user).MapID)
                 return false;
 
-            if (!HasComp<NoRotateOnInteractComponent>(user))
+            // Only rotate to face if they're not moving.
+            if (!HasComp<NoRotateOnInteractComponent>(user) && (!TryComp(user, out InputMoverComponent? mover) || (mover.HeldMoveButtons & MoveButtons.AnyDirection) == 0x0))
+            {
                 _rotateToFaceSystem.TryFaceCoordinates(user, _transform.ToMapCoordinates(coordinates).Position);
+            }
 
             return true;
         }

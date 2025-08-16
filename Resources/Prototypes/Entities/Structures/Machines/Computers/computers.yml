@@ -1153,7 +1153,7 @@
     account: Engineering
     announcementChannel: Engineering
     removeLimitAccess: [ "ChiefEngineer" ]
-    slipPrinter: false # goob
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Engineering
@@ -1186,7 +1186,7 @@
     account: Medical
     announcementChannel: Medical
     removeLimitAccess: [ "ChiefMedicalOfficer" ]
-    slipPrinter: false # goob
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Medical
@@ -1219,7 +1219,7 @@
     account: Science
     announcementChannel: Science
     removeLimitAccess: [ "ResearchDirector" ]
-    slipPrinter: false # goob
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Science
@@ -1252,7 +1252,7 @@
     account: Security
     announcementChannel: Security
     removeLimitAccess: [ "HeadOfSecurity" ]
-    slipPrinter: false # goob
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Security
@@ -1285,7 +1285,7 @@
     account: Service
     announcementChannel: Service
     removeLimitAccess: [ "HeadOfPersonnel" ]
-    slipPrinter: false # goob
+    mode: SendToPrimary
   - type: ActiveRadio
     channels:
     - Service
