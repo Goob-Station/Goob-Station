@@ -31,7 +31,7 @@
     table: !type:GroupSelector
       children:
       - id: MobBingle
-        weight: 1    # 49/50
+        weight: 49    # 49/50
       - id: MobTurkle
         weight: 1     # 01/50
 
