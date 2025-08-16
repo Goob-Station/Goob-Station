@@ -260,7 +260,7 @@
   - type: EmagSiliconLaw
     stunTime: 5
   - type: SiliconLawProvider
-    laws: Crewsimov
+    laws: Asimov
   - type: Inventory
     templateId: borg
   - type: Hands
@@ -429,10 +429,10 @@
     - Robotics
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
-    - TauCetiBasic
+    - SolCommon
     - RobotTalk
     understands:
-    - TauCetiBasic
+    - SolCommon
     - RobotTalk
   - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection
@@ -511,7 +511,7 @@
     factions:
     - NanoTrasen
   - type: SiliconLawProvider
-    laws: CrewsimovBorg # Goobstation - AI/borg law changes - borgs obeying AI
+    laws: Asimov # Goobstation - AI/borg law changes - borgs obeying AI
   - type: Access
     enabled: false
     groups:
