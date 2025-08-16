@@ -27,7 +27,7 @@
 - type: marking
   id: ResomiLArmFeathers
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi
@@ -36,7 +36,7 @@
 - type: marking
   id: ResomiLLegFeathers
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: LeftFoot
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi
@@ -45,7 +45,7 @@
 - type: marking
   id: ResomiRArmFeathers
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi
@@ -54,7 +54,7 @@
 - type: marking
   id: ResomiRLegFeathers
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightFoot
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _Floofstation/Mobs/Customization/resomi_parts.rsi

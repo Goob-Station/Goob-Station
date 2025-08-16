@@ -253,7 +253,7 @@
 - type: marking
   id: DwarfMarkKangarooLHand
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: LeftHand
   speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
@@ -285,7 +285,7 @@
 - type: marking
   id: DwarfMarkKangarooRHand
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightHand
   speciesRestriction: [ Dwarf, Human, Oni ]
   coloring:
     default:
