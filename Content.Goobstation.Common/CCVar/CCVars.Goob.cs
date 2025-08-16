@@ -340,6 +340,10 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
+    // used by secret+
+    public static readonly CVarDef<float> RoundstartChaosScoreMultiplier =
+        CVarDef.Create("gamedirector.roundstart_chaos_score_multiplier", 1f, CVar.SERVERONLY);
+
     public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
         CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
 
