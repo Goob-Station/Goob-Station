@@ -298,7 +298,8 @@
             - tool: Cutting
               doAfter: 1
             - tool: Screwing
-              doAfter: 1    - node: blueComfBench
+              doAfter: 1
+    - node: blueComfBench
       entity: BenchBlueComfy
       edges:
         - to: start
