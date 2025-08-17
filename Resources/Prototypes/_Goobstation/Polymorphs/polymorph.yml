@@ -92,17 +92,6 @@
     revertOnCrit: false
 
 - type: polymorph
-  id: TurklePolymorph
-  configuration:
-    entity: MobTurkleUpgraded
-    forced: true
-    transferName: true
-    transferHumanoidAppearance: false
-    inventory: Drop
-    revertOnDeath: false
-    revertOnCrit: false
-
-- type: polymorph
   id: ShadowJaunt
   configuration:
     entity: PolymorphShadowJaunt

@@ -43,7 +43,7 @@
   description: bingle
   components:
   - type: Bingle
-    polymorphName: BinglePolymorph
+    upgradedID: MobBingleUpgraded
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bingle-name
@@ -197,7 +197,7 @@
   description: a bingle but far worse
   components:
   - type: Bingle
-    polymorphName: TurklePolymorph
+    upgradedID: MobTurkleUpgraded
   - type: Sprite
     drawdepth: Mobs
     sprite: _Goobstation/Mobs/Bingle/turkle.rsi
