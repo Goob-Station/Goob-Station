@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ark <189933909+ark1368@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: body
+  id: Chitinid
+  name: "chitinid"
+  root: chest
+  slots:
+    head:
+      part: HeadChitinid
+      connections:
+      - chest
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    chest:
+      part: ChestChitinid
+      connections: # Goobstation - fix some species having their hands the wrong way around
+      - groin
+      - right arm
+      - left arm
+      - head # Shitmed Change
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganHumanLungs
+    groin:
+      part: GroinChitinid
+      connections:
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganChitinidStomach
+        liver: OrganChitinidLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmChitinid
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmChitinid
+      connections:
+      - left hand
+    right hand:
+      part: RightHandChitinid
+    left hand:
+      part: LeftHandChitinid
+    right leg:
+      part: RightLegChitinid
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegChitinid
+      connections:
+      - left foot
+    right foot:
+      part: RightFootChitinid
+    left foot:
+      part: LeftFootChitinid

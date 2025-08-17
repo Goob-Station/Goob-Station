@@ -160,6 +160,9 @@ public abstract partial class SharedBuckleSystem
         }
         else
         {
+            if (!CanBuckle(args.Dragged, args.User, uid, true, out var _, buckle))
+                return;
+
             var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.BuckleDoafterTime, new BuckleDoAfterEvent(), args.Dragged, args.Dragged, uid)
             {
                 BreakOnMove = true,
@@ -323,6 +326,9 @@ public abstract partial class SharedBuckleSystem
     private void AddUnbuckleVerb(EntityUid uid, BuckleComponent component, GetVerbsEvent<InteractionVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract || !component.Buckled)
+            return;
+
+        if (!CanUnbuckle((uid, component), args.User, false))
             return;
 
         InteractionVerb verb = new()
