@@ -4,8 +4,8 @@ meta:
   engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/17/2025 11:27:17
-  entityCount: 6217
+  time: 08/17/2025 12:03:58
+  entityCount: 6216
 maps:
 - 1
 grids:
@@ -2389,7 +2389,8 @@ entities:
             1: 34824
           -3,-3:
             0: 3
-            1: 48012
+            1: 39820
+            2: 8192
           -3,-2:
             1: 48059
           -3,-1:
@@ -2679,7 +2680,7 @@ entities:
             1: 13056
           4,-8:
             1: 1019
-            2: 34816
+            3: 34816
           4,-7:
             1: 49075
           4,-6:
@@ -2688,7 +2689,7 @@ entities:
             1: 32768
           5,-8:
             1: 61183
-            2: 4352
+            3: 4352
           5,-7:
             1: 49080
           5,-6:
@@ -2697,7 +2698,7 @@ entities:
             1: 61440
           6,-8:
             1: 35000
-            3: 13056
+            4: 13056
           6,-7:
             1: 65528
           6,-6:
@@ -2930,6 +2931,25 @@ entities:
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.6852
+          - 81.57766
           - 0
           - 0
           - 0
@@ -15902,6 +15922,20 @@ entities:
     - type: Transform
       pos: 16.771233,32.575424
       parent: 1668
+- proto: ClothingHeadsetCentCom
+  entities:
+  - uid: 744
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.339632,-9.205291
+      parent: 1668
+  - uid: 756
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.324007,-5.205291
+      parent: 1668
 - proto: ClothingMaskGasAtmos
   entities:
   - uid: 5346
@@ -16773,8 +16807,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -16795,17 +16829,17 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 2075
           - 2072
-          - 2070
-          - 2059
-          - 2058
-          - 1954
-          - 1953
-          - 1952
-          - 1951
-          - 1950
           - 1949
+          - 1950
+          - 1951
+          - 1952
+          - 1953
+          - 1954
+          - 2058
+          - 2059
+          - 2070
+          - 2075
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -16924,7 +16958,7 @@ entities:
       pos: -11.5,-22.5
       parent: 1668
     - type: Door
-      secondsUntilStateChange: -1678.633
+      secondsUntilStateChange: -2152.3076
       state: Closing
 - proto: CurtainsOrangeOpen
   entities:
@@ -24046,13 +24080,6 @@ entities:
     - type: Transform
       pos: -3.4985683,16.513187
       parent: 1668
-- proto: HeadSkeleton
-  entities:
-  - uid: 744
-    components:
-    - type: Transform
-      pos: -4.708845,6.5727725
-      parent: 1668
 - proto: HealingToolbox
   entities:
   - uid: 248
@@ -24389,13 +24416,6 @@ entities:
     components:
     - type: Transform
       pos: 8.5,25.5
-      parent: 1668
-- proto: LockerHeadOfSecurityFilled
-  entities:
-  - uid: 756
-    components:
-    - type: Transform
-      pos: -5.5,6.5
       parent: 1668
 - proto: LockerMedical
   entities:
@@ -24971,23 +24991,6 @@ entities:
     - type: Transform
       pos: -26.420057,-3.3572268
       parent: 1668
-  - uid: 1720
-    components:
-    - type: Transform
-      pos: -6.03363,6.3890653
-      parent: 1668
-    - type: Paper
-      stampState: paper_stamp-centcom
-      stampedBy:
-      - stampedColor: '#006600FF'
-        stampedName: stamp-component-stamped-name-centcom
-      - stampedColor: '#2F4F4FFF'
-        stampedName: Goob mapping
-      content: >-
-        Yes I reworked this map. YES I could have removed this. But alas I like having this. 
-
-
-        - With reguards goob mapping
 - proto: ParamedHypo
   entities:
   - uid: 121
