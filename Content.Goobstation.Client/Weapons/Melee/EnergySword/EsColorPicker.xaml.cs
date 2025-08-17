@@ -65,7 +65,7 @@ namespace Content.Goobstation.Client.Weapons.Melee.EnergySword
         private void ColorValueChanged(Color newColor)
         {
             if (_entManager.TryGetComponent<AppearanceComponent>(_uid, out var appearance))
-                _appearance.SetData(_uid, ToggleableLightVisuals.Color, newColor, appearance);
+                _appearance.SetData(_uid, ToggleableVisuals.Color, newColor, appearance);
         }
 
         public void SetEntity(EntityUid entity, EntityUid owner)
@@ -76,8 +76,8 @@ namespace Content.Goobstation.Client.Weapons.Melee.EnergySword
 
             if (_entManager.TryGetComponent<AppearanceComponent>(entity, out var appearance))
             {
-                _appearance.SetData(entity, ToggleableLightVisuals.Enabled, true, appearance);
-                _appearance.SetData(entity, ToggleableLightVisuals.Color, energySwordOwner.ActivatedColor, appearance);
+                _appearance.SetData(entity, ToggleableVisuals.Enabled, true, appearance);
+                _appearance.SetData(entity, ToggleableVisuals.Color, energySwordOwner.ActivatedColor, appearance);
             }
 
             _rgbColorSelector.Color = energySwordOwner.ActivatedColor;
