@@ -77,7 +77,7 @@
     eventType: FriendlySpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -70
+    chaosScore: -140
   - type: RuleGrids
   - type: LoadMapRule
 
@@ -124,7 +124,7 @@
     eventType: Chaotic # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -40
+    chaosScore: -80
   - type: LoadMapRule
     preloadedGrid: Honki
 
@@ -163,7 +163,7 @@
     eventType: FriendlySpawn # Goobstation
   # Goobstation
   - type: GameRule
-    chaosScore: -180
+    chaosScore: -150
   - type: LoadMapRule
     preloadedGrid: Cruiser
 
@@ -207,7 +207,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
-    weight: 5 # Its just a big ship, so it needs to be rarer to be interesting.
+    weight: 3 # Its just a big ship, so it needs to be rarer to be interesting.
   - type: LoadMapRule
     preloadedGrid: Gym
 
