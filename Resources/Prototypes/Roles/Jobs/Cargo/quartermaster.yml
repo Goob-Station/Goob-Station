@@ -139,6 +139,9 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 36000 #10 hours
+    - !type:SpeciesRequirement
+      species:
+      - Human
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
@@ -174,3 +177,15 @@
     back:
     - Flash
     - TelescopicBaton # Goobstation
+
+- type: chameleonOutfit
+  id: QuartermasterChameleonOutfit
+  job: Quartermaster
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatQMsoft
+    eyes: ClothingEyesGlassesSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterQM
+    neck: ClothingNeckCloakQm
+    gloves: ClothingHandsKnuckleDustersQM

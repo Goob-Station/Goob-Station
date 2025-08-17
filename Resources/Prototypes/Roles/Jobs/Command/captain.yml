@@ -157,6 +157,9 @@
       #any MRP using our code might eventually want to use it
     # - !type:SaturationRequirement # MisandryBox - no neon hair on captain
     #   hairColorSaturation: 0.30
+    - !type:SpeciesRequirement
+      species:
+      - Human
   goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear
@@ -188,3 +191,13 @@
     - Flash
     - TelescopicBaton # Goobstation
     # - StationCharter
+
+- type: chameleonOutfit
+  id: CaptainChameleonOutfit
+  job: Captain
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatCapcap
+    eyes: ClothingEyesGlassesCommand
+    mask: ClothingMaskGasCaptain
+    neck: ClothingNeckCloakCap
