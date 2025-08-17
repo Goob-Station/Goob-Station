@@ -11,6 +11,7 @@ shell-must-be-attached-to-entity = Для выполнения этой кома
 
 ## Arguments
 
+shell-must-have-body = У вас должно быть тело для использования этой команды.
 shell-need-exactly-one-argument = Нужен ровно один аргумент.
 shell-wrong-arguments-number-need-specific =
     Нужно { $properAmount } { $properAmount ->
@@ -29,10 +30,12 @@ shell-need-between-arguments = Нужно от { $lower } до { $upper } арг
 shell-need-minimum-arguments = Нужно не менее { $minimum } аргументов!
 shell-need-minimum-one-argument = Нужен хотя бы один аргумент!
 shell-argument-uid = EntityUid
+shell-need-exactly-zero-arguments = Эта команда принимает ноль аргументов.
 
 ## Guards
 
 shell-entity-is-not-mob = Целевая сущность не является мобом!
+shell-missing-required-permission = Вам нужен { $perm } для этой команды!
 shell-invalid-entity-id = Недопустимый ID сущности.
 shell-invalid-grid-id = Недопустимый ID сетки.
 shell-invalid-map-id = Недопустимый ID карты.

@@ -28,3 +28,5 @@ ent-VoxCube = воксный кубик
     .desc = { ent-MonkeyCube.desc }
 ent-ShadowkinCube = шедоукиный кубик
     .desc = { ent-MonkeyCube.desc }
+ent-ChitinidCube = хитинидовый кубик
+    .desc = { ent-MonkeyCube.desc }

@@ -64,3 +64,5 @@ traitor-nvf-goal = Федерация Космических Магов хоче
 traitor-nvf-allies = Члены Федерации Космических Магов и другие провидцы надёжны. Остальные агенты Синдиката — на ваше усмотрение.
 traitor-nvf-uplink = Федерация предоставила вам аплинк в вашем КПК. Используйте его с умом.
 traitor-nvf-roundend = [color=violet]провидец Федерации[/color]
+issuers-corporate-flavor-1 = Nanotrasen
+issuers-corporate-flavor-2 = Центральное Командование

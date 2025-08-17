@@ -38,3 +38,5 @@ ent-CrateRPD = ящик РФУ
     .desc = Ящик, содержащий РФУ.
 ent-CrateEngineeringFirefighterBackpackTank = ящик пожарного
     .desc = Содержит водяной бак пожарного рюкзака.
+ent-CrateAirGrenade = ящик воздушных гранат
+    .desc = Ящик, содержащий 3 воздушные гранаты.

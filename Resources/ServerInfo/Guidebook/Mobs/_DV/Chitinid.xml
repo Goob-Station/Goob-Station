@@ -1,27 +1,27 @@
 <Document>
-  # Chitinid
+  # Хитиниды
 
   <Box>
     <GuideEntityEmbed Entity="MobChitinid" Caption=""/>
   </Box>
 
-  An industrious hymenoptera species, the Chitinid are strong and diligent. Thanks to evolution, they have grown an acute resistance to radiation, but not without its side effects.
+  Трудолюбивый вид перепончатокрылых, хитиниды сильны и усердны. Благодаря эволюции они приобрели острую устойчивость к радиации, но не без побочных эффектов.
 
-  ## Diet
-  - Can eat raw meat.
+  ## Диета
+  - Могут есть сырое мясо.
 
-  ## Benefits
-  - Takes 80% less Radiation, 10% less Slash Blunt and Piercing.
-  - Their bodies naturally recover from light radiation damage up to a point, once they accumulate enough radiation they must purge it from their systems in the form of a small rock [color=#ff0f0f]WARNING:The Chitzite they expel is slightly radioactive [/color].
-  - They are Better at pulling and carrying things.
-  - They possess a bio light.
+  ## Преимущества
+  - Получают на 80% меньше урона от радиации, на 10% меньше от режущего, урона ушибами и колющего.
+  - Их тела естественным образом восстанавливаются от лёгкого радиационного урона до определённого предела, после чего они должны очиститься от накопленной радиации, выделяя небольшой камень [color=#ff0f0f]ПРЕДУПРЕЖДЕНИЕ: выделяемый хитцит слегка радиоактивен[/color].
+  - Лучше тянут и переносят предметы.
+  - Обладают биосветом.
 
-  ## Drawbacks
-  - They take 15% more Shock damage due to their biology.
-  - Due to their hard shells normal syringes can not pierce them, requiring hypos to bypass the toughness.
-  - Thanks to their overactive systems they get hungry 33% faster.
-  - The cold does not agree with their biology and makes their movement sluggish the colder it gets, the cold also harms them more than others causing them to take 25% more damage from it.
-  - They are deceptively heavy due to their lifestyle and diet.
-  - Bug Blood.
+  ## Недостатки
+  - Получают на 15% больше урона от электричества из-за своей биологии.
+  - Их прочный панцирь не позволяет обычным шприцам их проколоть, для этого нужны гипоспреи.
+  - Благодаря их активному метаболизму они голодают на 33% быстрее.
+  - Холод плохо сочетается с их биологией и замедляет их передвижение, чем холоднее, тем сильнее замедление. Холод также вредит им больше, чем другим, из-за чего они получают на 25% больше урона от него.
+  - Обманчиво тяжёлые из-за образа жизни и диеты.
+  - Насекомья кровь.
 
 </Document>

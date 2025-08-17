@@ -10,6 +10,8 @@ permanent-blindness-trait-examined = [color=lightblue]{ CAPITALIZE(POSS-ADJ($tar
 trait-lightweight-name = Быстрое опьянение
 trait-lightweight-desc = Алкоголь оказывает на вас более сильное воздействие
 trait-muted-name = Немота
+trait-monochromancy-name = Монохромансия
+trait-monochromancy-desc = У вас полная цветовая слепота. Вы видите только оттенки серого.
 trait-muted-desc = Вы не можете говорить
 trait-paracusia-name = Паракузия
 trait-unrevivable-name = Невозрождаемость

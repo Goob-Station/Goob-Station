@@ -117,7 +117,6 @@ names-plasmaman-dataset-115 = Иттербий
 names-plasmaman-dataset-116 = Иттрий
 names-plasmaman-dataset-117 = Цинк
 names-plasmaman-dataset-118 = Цирконий
-
 # Группы периодической таблицы
 names-plasmaman-dataset-119 = Металлоид
 names-plasmaman-dataset-120 = Щелочной
@@ -128,17 +127,14 @@ names-plasmaman-dataset-124 = Халькоген
 names-plasmaman-dataset-125 = Пниктоген
 names-plasmaman-dataset-126 = Галоген
 names-plasmaman-dataset-127 = Благородный
-
 # Серии периодической таблицы
 names-plasmaman-dataset-128 = Лантаноид
 names-plasmaman-dataset-129 = Актиноид
-
 # Полиатомные катионы
 names-plasmaman-dataset-130 = Аммоний
 names-plasmaman-dataset-131 = Оксоний
 names-plasmaman-dataset-132 = Нитроний
 names-plasmaman-dataset-133 = Пирилий
-
 # Анионы
 names-plasmaman-dataset-134 = Гидрид
 names-plasmaman-dataset-135 = Оксид
@@ -163,7 +159,6 @@ names-plasmaman-dataset-153 = Феноксид
 names-plasmaman-dataset-154 = Пероксид
 names-plasmaman-dataset-155 = Супероксид
 names-plasmaman-dataset-156 = Ацетиленид
-
 # Оксоанионы
 names-plasmaman-dataset-157 = Сульфат
 names-plasmaman-dataset-158 = Сульфит
@@ -211,7 +206,6 @@ names-plasmaman-dataset-199 = Перманганат
 names-plasmaman-dataset-200 = Сульфонат
 names-plasmaman-dataset-201 = Изоцианат
 names-plasmaman-dataset-202 = Карбамат
-
 # Анионы органических кислот
 names-plasmaman-dataset-203 = Ацетат
 names-plasmaman-dataset-204 = Формиат
@@ -219,7 +213,6 @@ names-plasmaman-dataset-205 = Оксалат
 names-plasmaman-dataset-206 = Пропионат
 names-plasmaman-dataset-207 = Бутират
 names-plasmaman-dataset-208 = Малат
-
 # Изотопы
 names-plasmaman-dataset-209 = Протий
 names-plasmaman-dataset-210 = Дейтерий
@@ -228,7 +221,6 @@ names-plasmaman-dataset-212 = Уран-235
 names-plasmaman-dataset-213 = Уран-238
 names-plasmaman-dataset-214 = Радон-222
 names-plasmaman-dataset-215 = Торий-232
-
 # Соединения
 names-plasmaman-dataset-216 = Аммиак
 names-plasmaman-dataset-217 = Метан
@@ -237,7 +229,6 @@ names-plasmaman-dataset-219 = Этанол
 names-plasmaman-dataset-220 = Формальдегид
 names-plasmaman-dataset-221 = Ацетилен
 names-plasmaman-dataset-222 = Толуол
-
 # Химикаты SS14
 names-plasmaman-dataset-223 = Бананиум
 names-plasmaman-dataset-224 = Фрезиум
@@ -258,7 +249,6 @@ names-plasmaman-dataset-238 = Сигинат
 names-plasmaman-dataset-239 = Ноктюрин
 names-plasmaman-dataset-240 = Импедрезин
 names-plasmaman-dataset-241 = Эфедрин
-
 # Названия костей из skeleton_first.yml - двойной вес
 names-plasmaman-dataset-242 = Грудина
 names-plasmaman-dataset-243 = Грудина
@@ -312,7 +302,6 @@ names-plasmaman-dataset-290 = Слезная кость
 names-plasmaman-dataset-291 = Слезная кость
 names-plasmaman-dataset-292 = Кость
 names-plasmaman-dataset-293 = Кость
-
 # Дополнительные названия костей
 names-plasmaman-dataset-294 = Череп
 names-plasmaman-dataset-295 = Череп

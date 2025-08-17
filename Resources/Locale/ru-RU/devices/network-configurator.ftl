@@ -45,3 +45,6 @@ network-configurator-examine-switch-modes = Нажмите { $key } чтобы �
 network-configurator-item-status-label =
     Режим: { $mode }
     Переключить: { $keybinding }
+# command
+cmd-clearnetworklinkoverlays-desc = Очистить все наложения сетевых соединений.
+cmd-clearnetworklinkoverlays-help = Использование: clearnetworklinkoverlays

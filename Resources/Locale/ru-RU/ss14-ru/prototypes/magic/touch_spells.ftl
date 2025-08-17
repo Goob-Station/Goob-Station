@@ -1,3 +1,7 @@
+ent-BaseEntitySpellAction = { ent-BaseAction }
+    .desc = { ent-BaseAction.desc }
+ent-BaseSmiteAction = { ent-BaseEntitySpellAction }
+    .desc = { ent-BaseEntitySpellAction.desc }
 ent-ActionSmiteNoReq = { ent-ActionSmite }
     .desc = { ent-ActionSmite.desc }
 ent-ActionCluwne = Проклятие КлУвНи

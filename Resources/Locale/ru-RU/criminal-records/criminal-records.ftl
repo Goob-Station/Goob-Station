@@ -20,7 +20,7 @@ criminal-records-console-wanted-reason = Причина розыска
 criminal-records-status-dangerous = Опасен
 criminal-records-status-search = Пропал
 criminal-records-status-perma = Пермабриг
-criminal-records-console-suspected-reason = Причина
+criminal-records-console-suspected-reason = Причина подозрения
 criminal-records-console-reason = Причина
 criminal-records-console-search-reason = Причина поиска
 criminal-records-console-dangerous-reason = Причина
@@ -59,6 +59,8 @@ criminal-records-filter-placeholder = Введите текст и нажмит�
 criminal-records-name-filter = Имя
 criminal-records-prints-filter = Отпечатки пальцев
 criminal-records-dna-filter = ДНК
+criminal-records-job-filter = Должность
+criminal-records-species-filter = Вид
 
 ## Arrest auto history lines
 

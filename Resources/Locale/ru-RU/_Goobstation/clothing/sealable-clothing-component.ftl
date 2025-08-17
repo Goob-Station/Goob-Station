@@ -20,6 +20,7 @@ sealable-clothing-seal-down-boots = { $partName } расслабляет зах�
 sealable-clothing-sealed-process-toggle-fail = Костюм уже отключается!
 sealable-clothing-unsealed-process-toggle-fail = Костюм уже запускается!
 sealable-clothing-sealed-toggle-fail = Сначала деактивируйте костюм!
+sealable-clothing-seal-was-broken = Печать на костюме разорвана!
 sealable-clothing-not-powered = Костюм не включён!
 sealable-clothing-open-sealed-panel-fail = Панель проводки слишком плотно запечатана!
 sealable-clothing-close-panel-first = Сначала закройте панель проводки!

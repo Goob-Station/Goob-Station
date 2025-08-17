@@ -6,5 +6,5 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-species-name-felinid = Felinid
-species-name-oni = Oni
+species-name-felinid = Фелинид
+species-name-oni = Они

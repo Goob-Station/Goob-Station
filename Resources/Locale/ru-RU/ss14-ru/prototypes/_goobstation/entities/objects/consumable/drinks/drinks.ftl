@@ -6,3 +6,5 @@ ent-DrinkFitnessShakerRed = { ent-DrinkFitnessShakerBlack }
     .desc = { ent-DrinkFitnessShakerBlack.desc }
 ent-DrinkFitnessShakerBlue = { ent-DrinkFitnessShakerBlack }
     .desc = { ent-DrinkFitnessShakerBlack.desc }
+ent-DrinkMilkBottleFull = стакан молока
+    .desc = А как плазмалюды пьют из него?

@@ -21,6 +21,9 @@ cmd-roleban-hint-duration-6 = 1 месяц
 
 cmd-roleunban-desc = Возвращает пользователю возможность играть на роли
 cmd-roleunban-help = Использование: roleunban <role ban id>
+cmd-roleunban-unable-to-parse-id =
+    Не удалось спарсить { $id } как ban id integer.
+    { $help }
 
 ## Completion result hints
 
@@ -35,7 +38,7 @@ cmd-rolebanlist-help = Использование: <name or user ID> [include un
 
 cmd-rolebanlist-hint-1 = <name or user ID>
 cmd-rolebanlist-hint-2 = [include unbanned]
-cmd-roleban-minutes-parse = { $time } - недопустимое количество минут.\n{ $help }
+cmd-roleban-minutes-parse = { $time } — недопустимое количество минут.\n{ $help }
 cmd-roleban-severity-parse = ${ severity } не является валидной тяжестью\n{ $help }.
 cmd-roleban-arg-count = Недопустимое количество аргументов.
 cmd-roleban-job-parse = Работа { $job } не существует.
