@@ -88,14 +88,6 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 9000 #2.5 hrs
-    - !type:SpeciesRequirement
-      inverted: true
-      species:
-      - Tajaran
-      - Resomi
-      - Shadowkin
-      - Rodentia
-      - Harpy
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
