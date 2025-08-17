@@ -13,40 +13,46 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionOpenRadioImplant
   name: Open Radio Implant
   description: Opens the bluespace key compartment of the radio implant embedded in your skull.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     priority: -20
     icon:
       sprite: Clothing/Ears/Headsets/base.rsi
       state: icon
+  - type: InstantAction
     event: !type:OpenStorageImplantEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionOpenMouthStorage
   name: Open cheek storage
   description: Allows you to store items in your cheeks.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     priority: -10
     icon: _DV/Interface/Actions/mouthStorageOpen.png
+  - type: InstantAction
     event: !type:OpenStorageImplantEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionToggleSneakMode
   name: Toggle sneak mode
   description: Sneak underneath tables.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigAction
     useDelay: 3
     icon:
       sprite: Structures/Furniture/Tables/generic.rsi
       state: full
+  - type: InstantAction
     event: !type:ToggleCrawlingStateEvent
 
 - type: entity
@@ -54,8 +60,11 @@
   name: Cough Up Chitzite
   description: Purge the excess radiation build-up from your body, and gain a cool danger rock.
   components:
-  - type: InstantAction
+  - type: Action
     enabled: false
-    icon: { sprite: _DV/Objects/Specific/Species/chitinid.rsi, state: chitzite }
+    icon:
+      sprite: _DV/Objects/Specific/Species/chitinid.rsi
+      state: chitzite
     useDelay: 300
+  - type: InstantAction
     event: !type:CoughItemActionEvent
