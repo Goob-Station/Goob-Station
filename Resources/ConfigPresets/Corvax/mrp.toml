@@ -16,7 +16,7 @@ max_explosion_range = 10.0
 
 [shuttle]
 emergency_early_launch_allowed = true
-arrivals_map = "/Maps/_CorvaxGoob/Misc/corvax_terminal.yml"
+arrivals_map = "/Maps/_CorvaxGoob/Base/Misc/corvax_terminal.yml"
 auto_call_time = 150
 
 [vote]
