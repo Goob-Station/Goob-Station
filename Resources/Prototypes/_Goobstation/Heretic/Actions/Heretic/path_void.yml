@@ -8,57 +8,64 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  parent: BaseAction
   id: ActionHereticVoidBlast
   name: Void Blast
   description: Fire off a cone of ice in front of you.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
+    checkCanInteract: false
     useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_blast
+  - type: InstantAction
     event: !type:HereticVoidBlastEvent
-    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-void-blast
 
 - type: entity
+  parent: BaseAction
   id: ActionHereticVoidPhase
   name: Void Phase
   description: Shift through the void, knocking down everyone around you.
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
+  - type: Action
+    checkCanInteract: false
     useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_phase
-    event: !type:HereticVoidBlinkEvent
+  - type: TargetAction
     checkCanAccess: false
     range: 0
-    checkCanInteract: false
+  - type: WorldTargetAction
+    event: !type:HereticVoidBlinkEvent
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-void-phase
 
 - type: entity
+  parent: BaseAction
   id: ActionHereticVoidPull
   name: Void Pull
   description: Pull and damage nearby heathens.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 20
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_pull
+  - type: InstantAction
     event: !type:HereticVoidPullEvent
-    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-void-pull
