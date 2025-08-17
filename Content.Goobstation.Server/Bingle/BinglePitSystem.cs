@@ -76,6 +76,7 @@ public sealed class BinglePitSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     private EntityQuery<BingleComponent> _query;
     private EntityQuery<BinglePitFallingComponent> _fallingQuery;
@@ -153,10 +154,10 @@ public sealed class BinglePitSystem : EntitySystem
 
         StartFalling(uid, component, args.Tripper);
 
-        if (component.BinglePoints >=( component.SpawnNewAt * component.Level))
+        if (component.BinglePoints >= (component.SpawnNewAt * component.Level))
         {
             SpawnBingle(uid, component);
-            component.BinglePoints -= ( component.SpawnNewAt * component.Level);
+            component.BinglePoints -= (component.SpawnNewAt * component.Level);
         }
     }
 
@@ -191,7 +192,7 @@ public sealed class BinglePitSystem : EntitySystem
     public void SpawnBingle(EntityUid uid, BinglePitComponent component)
     {
         Spawn(component.GhostRoleToSpawn, Transform(uid).Coordinates);
-        OnSpawnTile(uid,component.Level*2);
+        OnSpawnTile(uid, component.Level * 2, component);
 
         component.MinionsMade++;
         if (component.MinionsMade < component.UpgradeMinionsAfter)
@@ -303,25 +304,35 @@ public sealed class BinglePitSystem : EntitySystem
         ev.AddLine("");
     }
 
-    private void OnSpawnTile(EntityUid uid, float radius)
+    private void OnSpawnTile(EntityUid uid, float radius, BinglePitComponent component)
     {
         var tgtPos = Transform(uid);
         if (tgtPos.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
             return;
 
         var tileEnumerator = _map.GetLocalTilesEnumerator(gridUid, mapGrid, new Box2(tgtPos.Coordinates.Position + new Vector2(-radius, -radius), tgtPos.Coordinates.Position + new Vector2(radius, radius)));
-        var convertTile = (ContentTileDefinition)_tiledef[FloorTile];
+        var convertTile = (ContentTileDefinition) _tiledef[FloorTile];
 
         while (tileEnumerator.MoveNext(out var tile))
         {
-            if (tile.Tile.TypeId == convertTile.TileId)
+            if (tile.Tile.TypeId == convertTile.TileId
+                || tile.GetContentTileDefinition().Name == convertTile.Name ||
+                !_random.Prob(0.1f))
                 continue;
-            if (tile.GetContentTileDefinition().Name != convertTile.Name &&
-                _random.Prob(0.1f)) // 10% probability to transform tile
+
+            var coords = _map.GridTileToLocal(gridUid, mapGrid, tile.GridIndices);
+
+            if (
+                !_lookup.AnyEntitiesInRange(coords, 1, LookupFlags.Static)
+                && component.Level >= component.LevelForBungus
+                && component.TilesUntilNextBungus-- <= 0)
             {
-                _tile.ReplaceTile(tile, convertTile);
-                _tile.PickVariant(convertTile);
+                Spawn(_random.Pick(component.BungusPrototypes), coords);
+                component.TilesUntilNextBungus = component.TilesPerBungus;
             }
+
+            _tile.ReplaceTile(tile, convertTile);
+            _tile.PickVariant(convertTile);
         }
 
     }

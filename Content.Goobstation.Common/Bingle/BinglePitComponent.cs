@@ -70,6 +70,18 @@ public sealed partial class BinglePitComponent : Component
     [DataField]
     public EntProtoId GhostRoleToSpawn = "SpawnPointGhostBingle";
 
+    [DataField]
+    public List<EntProtoId> BungusPrototypes;
+
+    [DataField]
+    public int LevelForBungus = 3;
+
+    [DataField]
+    public int TilesPerBungus = 3;
+
+    [DataField]
+    public int TilesUntilNextBungus = 3;
+
     /// <summary>
     /// how many bingles to spawn on pit spawn
     /// </summary>
