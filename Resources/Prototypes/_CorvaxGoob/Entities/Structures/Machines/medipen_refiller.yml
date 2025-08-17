@@ -5,7 +5,7 @@
   description: Fills in and repaints medipens.
   components:
   - type: Sprite
-    sprite: _CorvaxNext/Structures/Machines/medipen_refiller.rsi
+    sprite: _CorvaxGoob/Structures/Machines/medipen_refiller.rsi
     noRot: true
     layers:
     - state: icon

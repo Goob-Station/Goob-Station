@@ -5,7 +5,7 @@
   id: FillableMedipen
   components:
   - type: Sprite
-    sprite: _CorvaxNext/Objects/Specific/Medical/medipen.rsi
+    sprite: _CorvaxGoob/Objects/Specific/Medical/medipen.rsi
     layers:
     - state: medipen
       map: ["enum.MedipenVisualLayer.Fill"]
@@ -41,7 +41,7 @@
     changeColor: true
   - type: Medipen
   - type: Item
-    sprite: _CorvaxNext/Objects/Specific/Medical/medipen.rsi
+    sprite: _CorvaxGoob/Objects/Specific/Medical/medipen.rsi
     inhandVisuals:
       left:
       - state: base-needle-inhand-left
@@ -78,7 +78,7 @@
   id: FillableMicrostimpen
   components:
   - type: Sprite
-    sprite: _CorvaxNext/Objects/Specific/Medical/medipen.rsi
+    sprite: _CorvaxGoob/Objects/Specific/Medical/medipen.rsi
     layers:
     - state: microstimpen
       map: ["enum.MedipenVisualLayer.Fill"]

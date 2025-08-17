@@ -62,3 +62,22 @@
       Silver: 2
       Steel: 6
       Manipulator: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: MachineMedipenRefillerCircuitboard
+  name: medipen refiller board
+  description: A machine board for a medipen refiller
+  components:
+  - type: Sprite
+    state: medical
+  - type: MachineBoard
+    prototype: MedipenRefiller
+    stackRequirements:
+      Manipulator: 5
+    tagRequirements:
+      GlassBeaker:
+        amount: 3
+        defaultPrototype: Beaker
+  - type: Item
+    size: Normal
