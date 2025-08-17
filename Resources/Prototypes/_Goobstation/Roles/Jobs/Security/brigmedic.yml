@@ -15,6 +15,14 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10 hrs
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Tajaran
+    - Resomi
+    - Shadowkin
+    - Rodentia
+    - Harpy
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
