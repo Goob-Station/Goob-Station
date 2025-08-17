@@ -9,7 +9,7 @@
 - type: entity
   id: PartChitinidBase
   parent: [BaseItem, BasePart]
-  name: "Хітинідна частина тіла"
+  name: "Chitinid body part"
   abstract: true
   components:
   - type: Sprite
@@ -33,7 +33,7 @@
 
 - type: entity
   id: ChestChitinid
-  name: "груди хітиніда"
+  name: "chitinid chest"
   parent: [PartChitinidBase, BaseChest]
   components:
   - type: Sprite
@@ -49,7 +49,7 @@
 - type: entity
   parent: [ PartChitinidBase, BaseGroin ]
   id: GroinChitinid
-  name: "пах хітиніда"
+  name: "chitinid groin"
   components:
   - type: Sprite
     state: "groin_m"
@@ -58,7 +58,7 @@
 
 - type: entity
   id: HeadChitinid
-  name: "хітинідна головка"
+  name: "chitinid head"
   parent: [PartChitinidBase, BaseHead]
   components:
   - type: Sprite
@@ -73,7 +73,7 @@
 
 - type: entity
   id: LeftArmChitinid
-  name: "ліва хітинідна рука"
+  name: "left chitinid arm"
   parent: [PartChitinidBase, BaseLeftArm]
   components:
   - type: Sprite
@@ -81,7 +81,7 @@
 
 - type: entity
   id: RightArmChitinid
-  name: "права хітинідна рука"
+  name: "right chitinid arm"
   parent: [PartChitinidBase, BaseRightArm]
   components:
   - type: Sprite
@@ -89,7 +89,7 @@
 
 - type: entity
   id: LeftHandChitinid
-  name: "ліва хітинідна рука"
+  name: "left chitinid hand"
   parent: [PartChitinidBase, BaseLeftHand]
   components:
   - type: Sprite
@@ -97,7 +97,7 @@
 
 - type: entity
   id: RightHandChitinid
-  name: "права хітинідна рука"
+  name: "right chitinid hand"
   parent: [PartChitinidBase, BaseRightHand]
   components:
   - type: Sprite
@@ -105,7 +105,7 @@
 
 - type: entity
   id: LeftLegChitinid
-  name: "ліва хітинідна нога"
+  name: "left chitinid leg"
   parent: [PartChitinidBase, BaseLeftLeg]
   components:
   - type: Sprite
@@ -113,7 +113,7 @@
 
 - type: entity
   id: RightLegChitinid
-  name: "права хітинідна нога"
+  name: "right chitinid leg"
   parent: [PartChitinidBase, BaseRightLeg]
   components:
   - type: Sprite
@@ -121,7 +121,7 @@
 
 - type: entity
   id: LeftFootChitinid
-  name: "ліва хітинідна стопа"
+  name: "left chitinid foot"
   parent: [PartChitinidBase, BaseLeftFoot]
   components:
   - type: Sprite
@@ -129,7 +129,7 @@
 
 - type: entity
   id: RightFootChitinid
-  name: "права хітинідна стопа"
+  name: "right chitinid foot"
   parent: [PartChitinidBase, BaseRightFoot]
   components:
   - type: Sprite

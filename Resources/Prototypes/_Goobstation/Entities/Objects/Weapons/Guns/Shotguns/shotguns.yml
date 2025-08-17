@@ -10,11 +10,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "Антилопа" # Saiga-12 reference (saiga is a genus of antelopes)
+  name: Antelope # Saiga-12 reference (saiga is a genus of antelopes)
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunAntelope
-  description: "Дробовик з магазинним живленням, призначений для нейтралізації загроз та утримання злочинців на відстані за допомогою нищівної сили."
+  description: A mag-fed shotgun designed for neutralizing threats and keeping criminals at bay with overwhelming force.
   suffix: DO NOT MAP # This should be made obtainable at some point.
   components:
   - type: Sprite
@@ -76,10 +76,10 @@
     price: 500
 
 - type: entity
-  name: "'Боєвич' бойовий дробовик"
+  name: "'Bojevic' combat shotgun"
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunCombat
-  description: "Стара конструкція з потужнішою гільзою, призначена для відбиття абордажних груп; цього разу абордажна група - це ви. На стволі вибито '8-Й КАЛІБР'."
+  description: An old design with a beefier shell intended to repell boarding parties; this time, you are the boarding party. '8 GUAGE' is stamped on the barrel.
   components:
   - type: Item
     size: Large
@@ -104,10 +104,10 @@
     autoCycle: false
 
 - type: entity
-  name: "NZ CSG-242"
+  name: NZ CSG-242
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunHeavy
-  description: "Важкий дробовик з магазинним живленням на 3 патрони для повного знищення. Використовує боєприпаси 2-го калібру."
+  description: A 3-round burst magazine-fed heavy shotgun for total extermination. Uses 2 gauge ammunition.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi

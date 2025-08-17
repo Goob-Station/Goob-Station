@@ -40,8 +40,8 @@
 - type: entity
   parent: BaseAction
   id: ActionEvolutionMenu
-  name: "Відкрити меню еволюції"
-  description: "Відкриває меню еволюції."
+  name: Open evolution menu
+  description: Opens the evolution menu.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -58,8 +58,8 @@
 - type: entity
   parent: BaseAction
   id: ActionAbsorbDNA
-  name: "Поглинати ДНК"
-  description: "Поглинаєте ДНК цілі, вилущуючи її в процесі. Коштує 25 хімікатів."
+  name: Absorb DNA
+  description: Absorb the target's DNA, husking them in the process. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -83,8 +83,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStingExtractDNA
-  name: "жало екстракції ДНК"
-  description: "Викрадаєте генетичну інформацію вашої цілі. Коштує 25 хімікатів."
+  name: Extract DNA sting
+  description: Steal your target's genetic information. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -108,8 +108,8 @@
 - type: entity
   parent: BaseAction
   id: ActionChangelingTransformCycle
-  name: "Прокрутити ДНК"
-  description: "Прокрутити вашї доступні ДНК."
+  name: Cycle DNA
+  description: Cycle your available DNA.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -126,8 +126,8 @@
 - type: entity
   parent: BaseAction
   id: ActionChangelingTransform
-  name: "Перетворитися"
-  description: "Перетворитися на іншого гуманоїда. Одяг не додається. Коштує 5 хімікатів."
+  name: Transform
+  description: Transform into another humanoid. Doesn't come with clothes. Costs 5 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -146,8 +146,8 @@
 - type: entity
   parent: BaseAction
   id: ActionEnterStasis
-  name: "Увійти в регенеративний стазис"
-  description: "Імітуйте свою смерть і почніть регенерувати. Безкоштовно."
+  name: Enter regenerative stasis
+  description: Fake your death and start regenerating. Cost free.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -166,8 +166,8 @@
 - type: entity
   parent: BaseAction
   id: ActionExitStasis
-  name: "Вийти зі стазису"
-  description: "Повстаньте з мертвих з повним здоров'ям. Вартість 30 хімікатів."
+  name: Exit stasis
+  description: Rise from the dead with full health. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -188,8 +188,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleArmblade
-  name: "Ручне Лезо"
-  description: "Перетворіть одну з ваших рук на міцне лезо, що складається з кісток і плоті. Втягується при повторному використанні. Коштує 15 хімікатів."
+  name: Toggle Arm Blade
+  description: Reform one of your arms into a strong blade, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -206,8 +206,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleHammer
-  name: "Молоток з перекидним важелем"
-  description: "Перетворіть одну з ваших рук на міцний молот, що складається з кісток і плоті. Втягується при вторинному використанні. Коштує 15 хімікатів."
+  name: Toggle Arm Hammer
+  description: Reform one of your arms into a strong hammer, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -224,8 +224,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleClaw
-  name: "Кіготь перекидного важеля"
-  description: "Перетворіть одну з ваших рук на міцний кіготь, що складається з кістки та плоті. Втягується при вторинному використанні. Коштує 15 хімікатів."
+  name: Toggle Arm Claw
+  description: Reform one of your arms into a strong claw, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -242,8 +242,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleDartGun
-  name: "Рушниця з перекидним дротиком"
-  description: "Переробіть одну з ваших рук на рушницю для дротиків, що складається з кісток і плоті. Втягується при вторинному використанні. Коштує 15 хімікатів."
+  name: Toggle Dart Gun
+  description: Reform one of your arms into a dart gun, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -260,8 +260,8 @@
 - type: entity
   parent: BaseAction
   id: ActionCreateBoneShard
-  name: "Сформувати Кістковий Осколок"
-  description: "Відламайте уламки своєї кістки і сформуйте з них метальну зірку. Коштує 15 хімікатів."
+  name: Form Bone Shard
+  description: Break off shards of your bone and shape them into a throwing star. Costs 15 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -278,8 +278,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleChitinousArmor
-  name: "Перемкнути Броню"
-  description: "Надуває ваше тіло у всепоглинаючу масу хітину. Коштує 25 хімікатів."
+  name: Toggle Armor
+  description: Inflate your body into an all-consuming chitinous mass of armor. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -297,8 +297,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleOrganicShield
-  name: "Сформувати Щит"
-  description: "Перетворіть одну з ваших рук на великий, м'ясистий щит. Коштує 20 хімікатів."
+  name: Form Shield
+  description: Reform one of your arms into a large, fleshy shield. Costs 20 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -316,8 +316,8 @@
 - type: entity
   parent: BaseAction
   id: ActionShriekDissonant
-  name: "Дисонуючий Крик"
-  description: "Випромінюйте електромагнітний вибух, використовуючи лише голос. Коштує 30 хімікатів."
+  name: Dissonant Shriek
+  description: Emit an EMP blast, with just your voice. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -337,8 +337,8 @@
 - type: entity
   parent: BaseAction
   id: ActionShriekResonant
-  name: "Резонансний Крик"
-  description: "Дезорієнтуйте людей і розбивайте світло одним лише голосом. Коштує 30 хімікатів."
+  name: Resonant Shriek
+  description: Disorient people and break lights, with just your voice. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -358,8 +358,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleStrainedMuscles
-  name: "Напружити М'язи"
-  description: "Пересуватися з надзвичайно високою швидкістю. Завдає шкоди витривалості."
+  name: Strain Muscles
+  description: Move at extremely fast speeds. Deals stamina damage.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -379,8 +379,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStingBlind
-  name: "Осліплююче Жало"
-  description: "Безшумно жалить ціль, засліплюючи її на короткий час і роблячи її короткозорою. Коштує 25 хімікатів."
+  name: Blind Sting
+  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -407,8 +407,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStingCryo
-  name: "Кріогенне Жало"
-  description: "Безшумно жалить вашу ціль, постійно сповільнюючи і заморожуючи її. Коштує 25 хімікатів."
+  name: Cryogenic Sting
+  description: Silently sting your target, constantly slowing and freezing them. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -435,8 +435,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStingLethargic
-  name: "Летаргічне жало"
-  description: "Тихо введіть коктейль анестетиків у ціль. Вартість 30 одиниць хімікатів."
+  name: Lethargic Sting
+  description: Silently inject a cocktail of anesthetics into the target. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -463,8 +463,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStingMute
-  name: "Мовчазне Жало"
-  description: "Безшумно жалить вашу ціль, повністю примушуючи її замовкнути на короткий час. Коштує 25 хімікатів."
+  name: Mute Sting
+  description: Silently sting your target, completely silencing them for a short time. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -491,8 +491,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStingFakeArmblade
-  name: "Фальшиве лезо-рука"
-  description: "Тихо вжальте свою ціль, змусивши її на короткий час виростити тупе лезо-руку. Вартість 30 одиниць хімікатів."
+  name: Fake Armblade Sting
+  description: Silently sting your target, making them grow a dull armblade for a short time. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -516,8 +516,8 @@
 - type: entity
   parent: BaseAction
   id: ActionStingTransform
-  name: "Трансформаційне Жало"
-  description: "Безшумно жалить вашу ціль, перетворюючи її на людину за вашим вибором. Коштує 75 хімікатів."
+  name: Transformation Sting
+  description: Silently sting your target, transforming them into a person of your choosing. Costs 75 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -541,8 +541,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLayEgg
-  name: "Нести Яйце"
-  description: "Посади яйце в мертве тіло, яке визріє в нову для нас форму."
+  name: Lay Egg
+  description: Plant an egg in a dead corpse which will mature into a new form for us.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -566,8 +566,8 @@
 - type: entity
   parent: BaseAction
   id: ActionAnatomicPanacea
-  name: "Анатомічна Панацея"
-  description: "Вилікуйте себе від хвороб, інвалідності, радіації, токсинів, пияцтва та пошкоджень мозку. Коштує 30 хімікатів."
+  name: Anatomic Panacea
+  description: Cure yourself of diseases, disabilities, radiation, toxins, drunkedness and brain damage. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -587,8 +587,8 @@
 - type: entity
   parent: BaseAction
   id: ActionAugmentedEyesight
-  name: "Розширений Зір"
-  description: "Увімкнути теплове бачення."
+  name: Augmented Eyesight
+  description: Toggle thermal vision.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -604,8 +604,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBiodegrade
-  name: "Біологічне розкладання"
-  description: "Виплюнути їдку речовину на будь-які обмежувачі або на чиєсь обличчя. Коштує 30 хімікатів."
+  name: Biodegrade
+  description: Vomit a caustic substance onto any restraints, or someone's face. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -624,8 +624,8 @@
 - type: entity
   parent: BaseAction
   id: ActionChameleonSkin
-  name: "Шкіра Хамелеона"
-  description: "Повільно зливається з навколишнім середовищем. Коштує 25 хімікатів."
+  name: Chameleon Skin
+  description: Slowly blend in with the environment. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -644,8 +644,8 @@
 - type: entity
   parent: BaseAction
   id: ActionVoidAdapt
-  name: "Перемкнути адаптацію до порожнечі"
-  description: "Адаптуйтеся до суворих умов космосу, усуваючи потребу в кисні або костюмі. Безкоштовно."
+  name: Toggle Void Adaption
+  description: Adapt to the harsh environment of space, removing the need for oxygen or a suit. Cost free.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -666,8 +666,8 @@
 - type: entity
   parent: BaseAction
   id: ActionAdrenalineReserves
-  name: "Резерви адреналіну"
-  description: "Вивільніть потужний адреналін зі своїх залоз. Вартість 30 одиниць хімікатів."
+  name: Adrenaline Reserves
+  description: Release powerful adrenaline from your glands. Costs 30 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -687,8 +687,8 @@
 - type: entity
   parent: BaseAction
   id: ActionFleshmend
-  name: "Латати Шкіру"
-  description: "Швидко вилікувати себе. Коштує 35 хімікатів."
+  name: Fleshmend
+  description: Rapidly heal yourself. Costs 35 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -708,8 +708,8 @@
 - type: entity
   parent: BaseAction
   id: ActionLastResort
-  name: "Остання Надія"
-  description: "Покиньте своє поточне тіло і втечіть у вигляді хедслега. Коштує 20 хімікатів."
+  name: Last Resort
+  description: Abandon your current body and escape in the form of a headslug. Costs 20 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -731,8 +731,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleLesserForm
-  name: "Менша Форма"
-  description: "Відмовтеся від своєї поточної форми і перетворіться на мавпу. Коштує 20 хімікатів."
+  name: Lesser Form
+  description: Abandon your current form and transform into a monkey. Costs 20 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -750,8 +750,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHivemindAccess
-  name: "Доступ до Колективного Розуму"
-  description: "Налаштуйте свої хімічні рецептори на спілкування з людським розумом."
+  name: Hivemind Access
+  description: Tune your chemical receptors for hivemind communication.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -770,8 +770,8 @@
 - type: entity
   parent: BaseAction
   id: ActionAbsorbBiomatter
-  name: "Поглинання біомаси"
-  description: "Поглинайте їжу, щоб відновити деякі хімічні речовини."
+  name: Absorb Biomatter
+  description: Absorb a food item to regain some chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

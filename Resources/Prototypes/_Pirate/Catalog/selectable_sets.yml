@@ -2,7 +2,7 @@
 
 - type: selectableSet
   id: IPSpecialForces
-  name: "Набір щитовика"
+  name: Набір щитовика
   description: selectable-set-thief-anatomy-description
   sprite:
     sprite: Objects/Weapons/Melee/shields.rsi
@@ -17,8 +17,8 @@
 
 - type: selectableSet
   id: IPAdvancedDetentionTools
-  name: "Розширені інструменти для затримання"
-  description: "Набір для швидкого затримання порушників"
+  name: Розширені інструменти для затримання
+  description: Набір для швидкого затримання порушників
   sprite:
     sprite: _Goobstation/Objects/Weapons/Melee/contractor_baton.rsi
     state: uplink
@@ -28,8 +28,8 @@
 
 - type: selectableSet
   id: IPESword
-  name: "Енергетичний меч"
-  description: "Смертельне та стильне знешкодження порушників"
+  name: Енергитичний меч
+  description: Смертельне та стильне знешкодження порушників
   sprite:
     sprite: Objects/Weapons/Melee/e_sword.rsi
     state: icon
@@ -38,8 +38,8 @@
 
 - type: selectableSet
   id: IPAdvancedProtect
-  name: "Покращений захист"
-  description: "Непоганий броньований жилет, з ним ви проживете трішки більше часу"
+  name: Покращений захист
+  description: Непоганий броньований жилет, з ним ви проживете трішки більше часу
   sprite:
     sprite: _Goobstation/Clothing/Armor/bso_armour.rsi
     state: icon
@@ -48,8 +48,8 @@
   
 - type: selectableSet
   id: IPCQCManual
-  name: "CQC"
-  description: "Посібник з ближнього бою (Close Quarters Combat)"
+  name: CQC
+  description: Книга по CQC
   sprite:
     sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
     state: icon
@@ -59,8 +59,8 @@
 # Interdyne MED
 - type: selectableSet
   id: IPFullMedicalKit
-  name: "Повний медичний набір"
-  description: "Набір з трьох аптечок, розрахованих на усі можливі пошкодження. Краще, ніж нічого"
+  name: Набір з трьох аптечок, розрахованих на усі можливі пошкодження
+  description: Краще чим нічого
   sprite:
     sprite: Objects/Specific/Medical/firstaidkits.rsi
     state: blackkit
@@ -71,8 +71,8 @@
   
 - type: selectableSet
   id: IPSuperKit
-  name: "Супер-набір медика"
-  description: "Набір бойових аптечок та медіпенів різних типів. Містить портативний дефібрилятор Interdyne, досить корисний набір, має всі найкращі ліки"
+  name: Набір бойових аптечок та медіпенів різних типів
+  description: Носить портативний деібрилятор Інтердайну, досить корисний набір, має всі найкращі ліки
   sprite:
     sprite: Objects/Specific/Medical/defibsyndi.rsi
     state: icon
@@ -81,8 +81,8 @@
   
 - type: selectableSet
   id: IPStimKit
-  name: "Набір з інжекторами Гіперзіну"
-  description: "Використовуйте при дуже тяжких умовах, щоб втекти від загрози"
+  name: Набір з інжекторами Гіперзіну
+  description: При дуже тяжких умовах, щоб втікти від загрози
   sprite:
     sprite: Objects/Specific/Medical/medipen.rsi
     state: microstimpen
@@ -91,8 +91,8 @@
   
 - type: selectableSet
   id: IPSurgeon
-  name: "Набір хірурга"
-  description: "Набір хірургічних інструментів. В комплект також входить компактний дефібрилятор Interdyne!"
+  name: Набір хірургічних інструментів
+  description: В комплект також йде компактний дефібрилятор інтердайну!
   sprite:
     sprite: Clothing/Back/Duffels/syndicate.rsi
     state: icon-med
@@ -101,8 +101,8 @@
   
 - type: selectableSet
   id: IPMedicalGlasses
-  name: "Медичні окуляри з інтерфейсом"
-  description: "Показують професію та медичний стан, а також захищають ваш зір від спалахів"
+  name: Універсальні очки з інтерфейсом
+  description: Показують професію та медичний стан, і захищають ваш зір від спалахів
   sprite:
     sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
     state: icon
@@ -111,8 +111,8 @@
   
 - type: selectableSet
   id: IPMedicalBeamGunSyndicate
-  name: "Медична променева гармата"
-  description: "Гармата для пасивного лікування. НЕ СХРЕЩУВАТИ ПРОМЕНІ!"
+  name: Гармата для пасивного лікування
+  description: НЕ СХРЕЩУВАТИ ЛУЧІ!
   sprite:
     sprite: _Goobstation/Objects/Specific/Medical/syndicate_medigun.rsi
     state: icon
@@ -122,8 +122,8 @@
 # Interdyne ENG
 - type: selectableSet
   id: IPClothingBeltCE
-  name: "Пояс головного інженера"
-  description: "Пояс з просунутими інструментами для головного інженера"
+  name: Пояс з просунутими інструмментами
+  description: Пояс СЕ
   sprite:
     sprite: Clothing/Belt/ce.rsi
     state: icon
@@ -133,8 +133,8 @@
 # Interdyne Pilot
 - type: selectableSet
   id: IPHitman
-  name: "Набір найманця"
-  description: "Улюблений набір усього Interdyne"
+  name: Набір Хітмана 
+  description: Улюблений набір усього Інтердайну
   sprite:
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
     state: base
@@ -143,8 +143,8 @@
   
 - type: selectableSet
   id: IPNutrimentImplanter
-  name: "Імплантатор поживних речовин"
-  description: "Насичує ваш організм, не даючи вам відчувати голод"
+  name: Споживна помпа
+  description: Насищає ваш організм не даючи вам бути голодними
   sprite:
     sprite: Objects/Specific/Medical/syndi_implanter.rsi
     state: implanter0
@@ -153,8 +153,8 @@
   
 - type: selectableSet
   id: IPPilot
-  name: "Набір пілота"
-  description: "Містить в собі EVA-скафандр, набір медикаментів та \"щелепи життя\". А для самозахисту надається револьвер \"Декард\""
+  name: Набір пілота
+  description: Має в собі EVA скафандр, набір медицини, та щелепи життя. А для самозахисту наданий револьвер Декард
   sprite:
     sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
     state: control
@@ -167,8 +167,8 @@
 # Interdyne
 - type: selectableSet
   id: IPAdmin
-  name: "Набір адміністратора"
-  description: "Візор, що показує тільки професію і не виявляє членів Синдикату. Також сюди входить ручка \"Кіберсан\"."
+  name: Набір адміністратора
+  description: Візор показуючий тільки професію, не показує присутність МЩ, також сюди входить ручка Кіберсану.
   sprite:
     sprite: Clothing/Eyes/Hud/command.rsi
     state: icon
@@ -183,8 +183,8 @@
   
 - type: selectableSet
   id: IPBeltUtility
-  name: "Універсальний пояс"
-  description: "Якщо хочете допомагати з дрібними справами"
+  name: Пояс інструментів
+  description: Якщо хочете допомагати по мілочі
   sprite:
     sprite: Clothing/Belt/utility.rsi
     state: icon
@@ -194,8 +194,8 @@
 # Interdyne Service
 - type: selectableSet
   id: IPChef
-  name: "Набір кухаря"
-  description: "Якщо хочете допомагати з дрібними справами"
+  name: Набір повара
+  description: Якщо хочете допомагати по мілочі
   sprite:
     sprite: Clothing/Belt/chef.rsi
     state: icon
@@ -212,8 +212,8 @@
   
 - type: selectableSet
   id: IPJanitor
-  name: "Набір прибиральника"
-  description: "Якщо хочете допомагати з дрібними справами"
+  name: Набір прибиральника
+  description: Якщо хочете допомагати по мілочі
   sprite:
     sprite: Clothing/Belt/janitor.rsi
     state: icon
@@ -229,8 +229,8 @@
 # Interdyne Shaft Miners
 - type: selectableSet
   id: IPMiner
-  name: "Базовий набір шахтаря"
-  description: "Містить захисний костюм \"Лавріон\" та ваучер на різак"
+  name: Базовий набір шахтаря
+  description: Містить захисний костюм "Лавріон", та ваунчер з різаком
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/cutter.rsi
     state: icon
@@ -242,8 +242,8 @@
   
 - type: selectableSet
   id: IPMinerAdvenced
-  name: "Просунутий набір шахтаря"
-  description: "Містить блюспейс-сумку для руди та просунутий мінеральний сканер"
+  name: Просунутий набір для добування руди
+  description: Містить блюспейс сумку для руди, та просунутий мінеральний сканер
   sprite:
     sprite: Objects/Specific/Mining/ore_bag_holding.rsi
     state: orebag_off
@@ -253,8 +253,8 @@
   
 - type: selectableSet
   id: IPLuxuryMedipen
-  name: "Набір люксових медіпенів"
-  description: "Врятують із найтяжчих ситуацій"
+  name: Набір люксових медіпенів 
+  description: Врятують з самих тяжких ситуацій
   sprite:
     sprite: _Lavaland/Objects/Specific/Medical/luxmedipen.rsi
     state: luxpen
@@ -267,8 +267,8 @@
   
 - type: selectableSet
   id: IPPickaxe
-  name: "Компактна світлова кирка"
-  description: "Усі шахтарі мріють про неї"
+  name: Компактна світова кірка
+  description: Усі шахтарі мріють про ню
   sprite:
     sprite: _NF/Objects/Weapons/Melee/energy_pickaxe.rsi
     state: icon
@@ -278,8 +278,8 @@
 #  Interdyne Deputy
 - type: selectableSet
   id: IPDeputy
-  name: "Набір заступника Interdyne"
-  description: "Основний набір, щоб виглядати крутим"
+  name: Набір заступника Інтердайну 
+  description: Основний набір щоб виглядати крутим
   sprite:
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
     state: icon
@@ -298,8 +298,8 @@
   
 - type: selectableSet
   id: IPCyberpunk
-  name: "Набір кіберпанка"
-  description: "Набір імплантів"
+  name: Набір кіберпанку 
+  description: Набір імплантів
   sprite:
     sprite: _Goobstation/Clothing/OuterClothing/Coats/david_jacket.rsi
     state: icon
@@ -313,8 +313,8 @@
 #  Interdyne Officer
 - type: selectableSet
   id: IPOfficer
-  name: "Набір офіцера Interdyne"
-  description: "Набір головного керівника Interdyne"
+  name: Набір офіцера Інтердайну
+  description: Набір головного керівника інтердайну
   sprite:
     sprite: Clothing/Belt/sheath.rsi
     state: sheath-sabre

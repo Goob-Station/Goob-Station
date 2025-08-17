@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseAction
   id: ActionGoliathTentacleCrew
-  name: "[color=red]Удар щупальцем[/color]"
-  description: "Використовуйте свої щупальця, щоб схопити та оглушити цільового гравця!"
+  name: "[color=red]Tentacle Slam[/color]"
+  description: Use your tentacles to grab and stun a target player!
   components:
   - type: Action
     useDelay: 80

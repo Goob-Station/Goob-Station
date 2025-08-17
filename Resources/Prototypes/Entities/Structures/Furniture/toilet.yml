@@ -94,10 +94,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "унітаз"
+  name: toilet
   id: BaseToilet
   parent: [ DisposalUnitBase, SeatBase ]
-  description: "HT-451, пристрій для утилізації дрібних відходів на основі обертання крутного моменту. Цей здається напрочуд чистим."
+  description: The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean.
   abstract: true
   components:
   - type: Sprite
@@ -223,8 +223,8 @@
           Closed: { state: disposal-closed }
 
 - type: entity
-  name: "унітаз"
-  description: "HT-451, пристрій для утилізації дрібних відходів на основі обертання крутного моменту. Цей здається напрочуд чистим."
+  name: toilet
+  description: The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean.
   id: ToiletEmpty
   parent: BaseToilet
   suffix: Empty
@@ -253,8 +253,8 @@
 - type: entity
   id: ToiletGoldenEmpty
   parent: BaseToilet
-  name: "золотий унітаз"
-  description: "HT-451G - це золота версія пристрою. Збоку написано, що він виготовлений з найчистішого меркуріанського золота та має сидіння з натуральної шкіри."
+  name: golden toilet
+  description: The HT-451G is the gold version of the device. It says on the side that it is made of the purest Mercurian gold and a real leather seat.
   suffix: Empty
   components:
   - type: Sprite

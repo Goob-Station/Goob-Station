@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "палка уєбалка"
+  name: bang severer
   parent: BaseItem
   id: MeleeDebugSever
-  description: "ярр, через тиждень розірвемо на частини"
+  description: sever yer parts a week from now
   suffix: DEBUG
   components:
   - type: Tag
@@ -26,7 +26,7 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: "палка уєбалка 100дмг"
+  name: bang severer 100dmg
   parent: MeleeDebugSever
   id: MeleeDebugSever100
   components:
@@ -39,7 +39,7 @@
         Slash: 100
 
 - type: entity
-  name: "палка уєбалка 200дмг"
+  name: bang severer 200dmg
   parent: MeleeDebugSever
   id: MeleeDebugSever200
   components:
@@ -52,10 +52,10 @@
         Slash: 200
 
 - type: entity
-  name: "вибуховий пальник\""
+  name: bang burner
   parent: BaseItem
   id: MeleeDebugBurner
-  description: "деталі пальника"
+  description: burn yer parts
   suffix: DEBUG
   components:
   - type: Tag
@@ -74,7 +74,7 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: "bang burner 200дмг"
+  name: bang burner 200dmg
   parent: MeleeDebugBurner
   id: MeleeDebugBurner200
   components:

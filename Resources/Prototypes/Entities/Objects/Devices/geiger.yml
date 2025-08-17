@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseItem
   id: GeigerCounter
-  name: "Лічильник Гейгера"
-  description: "Портативний пристрій, що використовується для виявлення та вимірювання радіаційних імпульсів."
+  name: Geiger counter
+  description: A handheld device used for detecting and measuring radiation pulses.
   components:
   - type: Sprite
     sprite: Objects/Tools/geiger.rsi

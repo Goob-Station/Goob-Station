@@ -233,8 +233,8 @@
 - type: entity
   parent: [ReagentPacketBase, ItemHeftyBase]
   id: ReagentContainerFlour
-  name: "мішок борошна"
-  description: "Великий мішок борошна. Добре для випічки!"
+  name: flour bag
+  description: A big bag of flour. Good for baking!
   components:
   - type: Sprite
     state: flour-big
@@ -249,8 +249,8 @@
 - type: entity
   parent: [ReagentPacketBase, ItemHeftyBase]
   id: ReagentContainerFlourSmall
-  name: "пачка борошна"
-  description: "Пачка борошна. Добре підходить для випічки!"
+  name: flour pack
+  description: A pack of flour. Good for baking!
   components:
   - type: Sprite
     state: flour-small
@@ -265,8 +265,8 @@
 - type: entity
   parent: ReagentPacketBase
   id: ReagentContainerCornmeal
-  name: "мішок кукурудзяного борошна"
-  description: "Великий мішок кукурудзяного борошна. Згодиться для приготування їжі!"
+  name: cornmeal bag
+  description: A big bag of cornmeal. Good for cooking!
   components:
   - type: Sprite
     state: cornmeal-big
@@ -280,8 +280,8 @@
 - type: entity
   parent: ReagentPacketBase
   id: ReagentContainerCornmealSmall
-  name: "пачка кукурудзяного борошна"
-  description: "Пачка кукурудзяного борошна. Згодиться для приготування їжі!"
+  name: cornmeal pack
+  description: A pack of cornmeal. Good for cooking!
   components:
   - type: Sprite
     state: cornmeal
@@ -296,8 +296,8 @@
 - type: entity
   parent: ReagentPacketBase
   id: ReagentContainerRice
-  name: "мішок з рисом"
-  description: "Великий мішок рису. Гарний для приготування їжі!"
+  name: rice bag
+  description: A big bag of rice. Good for cooking!
   components:
   - type: Sprite
     state: rice-big
@@ -311,8 +311,8 @@
 - type: entity
   parent: ReagentPacketBase
   id: ReagentContainerRiceSmall
-  name: "пачка рису"
-  description: "Пачка рису. Чудово підходить для приготування їжі!"
+  name: rice pack
+  description: A pack of rice. Good for cooking!
   components:
   - type: Sprite
     state: rice-small
@@ -327,8 +327,8 @@
 - type: entity
   parent: ReagentPacketBase
   id: ReagentContainerSugar
-  name: "пакетик цукру"
-  description: "Великий мішок смачного космічного цукру."
+  name: sugar bag
+  description: A big bag of tasty spacey sugar.
   components:
   - type: Sprite
     state: sugar-big
@@ -342,8 +342,8 @@
 - type: entity
   parent: ReagentPacketBase
   id: ReagentContainerSugarSmall
-  name: "пачка цукру"
-  description: "Пачка смачного космічного цукру."
+  name: sugar pack
+  description: A pack of tasty spacey sugar.
   components:
   - type: Sprite
     state: sugar-small
@@ -360,8 +360,8 @@
 - type: entity
   parent: ReagentPacketBase
   id: ReagentContainerOliveoil
-  name: "оливкова олія"
-  description: "Оливкова олія. З космічних оливок, мабуть."
+  name: olive oil
+  description: Olive oil. From space olives presumably.
   components:
   - type: Sprite
     state: oliveoil
@@ -376,8 +376,8 @@
 - type: entity
   parent: ReagentPacketBase
   id: ReagentContainerMayo
-  name: "майонез"
-  description: "Пляшка майонезу."
+  name: mayonnaise
+  description: Bottle of mayonnaise.
   components:
   - type: Sprite
     state: mayo
@@ -413,7 +413,7 @@
   abstract: true
   parent: FoodBase
   id: FoodBakingBase
-  description: "Використовується в різних рецептах."
+  description: Used in various recipes.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/ingredients.rsi
@@ -429,10 +429,10 @@
       - Ingredient
 
 - type: entity
-  name: "тісто"
+  name: dough
   parent: FoodBakingBase
   id: FoodDough
-  description: "Шматок тіста."
+  description: A piece of dough.
   components:
   - type: FlavorProfile
     flavors:
@@ -447,10 +447,10 @@
     node: start
 
 - type: entity
-  name: "шматочок тіста"
+  name: dough slice
   parent: FoodBakingBase
   id: FoodDoughSlice
-  description: "Шматочок тіста. Можна приготувати булочку."
+  description: A slice of dough. Can be cooked into a bun.
   components:
   - type: FlavorProfile
     flavors:
@@ -472,10 +472,10 @@
           Quantity: 5
 
 - type: entity
-  name: "мотузка з тіста"
+  name: dough rope
   parent: FoodBakingBase
   id: FoodDoughRope
-  description: "Тонка локшина з тіста. Можна приготувати бублик."
+  description: A thin noodle of dough. Can be cooked into a bagel.
   components:
   - type: FlavorProfile
     flavors:
@@ -494,10 +494,10 @@
           Quantity: 5
 
 - type: entity
-  name: "тісто з кукурудзяного борошна"
+  name: cornmeal dough
   parent: FoodBakingBase
   id: FoodDoughCornmeal
-  description: "Шматок тіста з кукурудзяного борошна."
+  description: A piece of cornmeal dough.
   components:
   - type: FlavorProfile
     flavors:
@@ -510,10 +510,10 @@
     slice: FoodDoughCornmealSlice
 
 - type: entity
-  name: "шматочок тіста з кукурудзяного борошна"
+  name: cornmeal dough slice
   parent: FoodBakingBase
   id: FoodDoughCornmealSlice
-  description: "Шматочок тіста з кукурудзяного борошна."
+  description: A slice of cornmeal dough.
   components:
   - type: FlavorProfile
     flavors:
@@ -526,10 +526,10 @@
     - Slice
 
 - type: entity
-  name: "тісто для тортильї"
+  name: tortilla dough
   parent: FoodBakingBase
   id: FoodDoughTortilla
-  description: "Шматок тіста для тортильї."
+  description: A piece of tortilla dough.
   components:
   - type: FlavorProfile
     flavors:
@@ -542,10 +542,10 @@
     slice: FoodDoughTortillaSlice
 
 - type: entity
-  name: "шматочок тіста тортильї"
+  name: tortilla dough slice
   parent: FoodBakingBase
   id: FoodDoughTortillaSlice
-  description: "Шматочок тіста для тортильї."
+  description: A slice of tortilla dough.
   components:
   - type: FlavorProfile
     flavors:
@@ -561,10 +561,10 @@
     - Slice
 
 - type: entity
-  name: "розплющене тісто для тортильї"
+  name: flattened tortilla dough
   parent: FoodBakingBase
   id: FoodDoughTortillaFlat
-  description: "Розплющений шматочок тіста для тортильї, приготуйте так, щоб вийшла тортилья для тако."
+  description: A flattened slice of tortilla dough, cook this to get a taco shell.
   components:
   - type: FlavorProfile
     flavors:
@@ -577,10 +577,10 @@
     node: flat
 
 - type: entity
-  name: "бавовняне тісто"
+  name: cotton dough
   parent: FoodBakingBase
   id: FoodDoughCotton
-  description: "Шматок тканинного тіста."
+  description: A piece of fabric dough.
   components:
   - type: FlavorProfile
     flavors:
@@ -609,10 +609,10 @@
           Quantity: 10
 
 - type: entity
-  name: "шматок бавовняного тіста"
+  name: cotton dough slice
   parent: FoodBakingBase
   id: FoodDoughCottonSlice
-  description: "Шматок бавовняного тіста."
+  description: A slice of cotton dough.
   components:
   - type: FlavorProfile
     flavors:
@@ -638,10 +638,10 @@
           Quantity: 3.5
 
 - type: entity
-  name: "мотузка з бавовняного тіста"
+  name: cotton dough rope
   parent: FoodBakingBase
   id: FoodDoughCottonRope
-  description: "Тонка локшина з бавовняного тіста. Можна приготувати бавовняний бублик."
+  description: A thin noodle of cotton dough. Can be cooked into a cotton bagel.
   components:
   - type: FlavorProfile
     flavors:
@@ -667,37 +667,37 @@
      - Ingredient
 
 - type: entity
-  name: "сира тістова основа"
+  name: raw pastry base
   parent: FoodBakingBase
   id: FoodDoughPastryBaseRaw
-  description: "Перед вживанням необхідно приготувати."
+  description: Must be cooked before use.
   components:
   - type: Sprite
     state: dough-pastry
 
 - type: entity
-  name: "тістова основа"
+  name: pastry base
   parent: FoodBakingBase
   id: FoodDoughPastryBase
-  description: "Основа для будь-якої поважаючої себе випічки."
+  description: A base for any self-respecting pastry.
   components:
   - type: Sprite
     state: dough-pastry-baked
 
 - type: entity
-  name: "тісто для пирога"
+  name: pie dough
   parent: FoodBakingBase
   id: FoodDoughPie
-  description: "Приготуйте його, щоб вийшов пиріг."
+  description: Cook it to get a pie.
   components:
   - type: Sprite
     state: dough-pie
 
 - type: entity
-  name: "плоске тісто"
+  name: flat dough
   parent: FoodBakingBase
   id: FoodDoughFlat
-  description: "Розплющуємо тісто."
+  description: A flattened dough.
   components:
   - type: Sprite
     state: dough-flat
@@ -709,10 +709,10 @@
     slice: FoodCroissantRaw
 
 - type: entity
-  name: "пласке бавовняне тісто"
+  name: flat cotton dough
   parent: FoodBakingBase
   id: FoodDoughCottonFlat
-  description: "Розкатане бавовняне тісто."
+  description: A flattened cotton dough.
   components:
   - type: Sprite
     state: cotton-dough-flat
@@ -724,19 +724,19 @@
     slice: FoodCroissantRawCotton
 
 - type: entity
-  name: "хліб для піци"
+  name: pizza bread
   parent: FoodBakingBase
   id: FoodDoughPizzaBaked
-  description: "Додайте інгредієнти для приготування піци."
+  description: Add ingredients to make a pizza.
   components:
   - type: Sprite
     state: pizzabread
 
 - type: entity
-  name: "тісто для торта"
+  name: cake batter
   parent: FoodBakingBase
   id: FoodCakeBatter
-  description: "Випікаємо, щоб вийшов пиріг."
+  description: Cook it to get a cake.
   components:
   - type: FlavorProfile
     flavors:
@@ -745,10 +745,10 @@
     state: cakebatter
 
 - type: entity
-  name: "шматочок вершкового масла"
+  name: stick of butter
   parent: FoodBakingBase
   id: FoodButter
-  description: "Паличка смачної, золотистої, жирної смакоти."
+  description: A stick of delicious, golden, fatty goodness.
   components:
   - type: Sprite
     state: butter
@@ -787,10 +787,10 @@
     slice: FoodButterSlice
 
 - type: entity
-  name: "шматочок вершкового масла"
+  name: butter slice
   parent: FoodBakingBase
   id: FoodButterSlice
-  description: "Шматочок смачної, золотистої, жирної смакоти."
+  description: A pat of delicious, golden, fatty goodness.
   components:
   - type: Sprite
     state: butter-slice
@@ -806,10 +806,10 @@
     - Slice
 
 - type: entity
-  name: "паличка конопляної олії"
+  name: stick of cannabis butter
   parent: FoodButter
   id: FoodCannabisButter
-  description: "Додайте його до вашої улюбленої випічки, щоб завжди мати під рукою."
+  description: Add this to your favorite baked goods for an irie time.
   components:
   - type: Sprite
     state: butter
@@ -827,10 +827,10 @@
     grindableSolutionName: food
 
 - type: entity
-  name: "сирне колесо"
+  name: cheese wheel
   parent: FoodBakingBase
   id: FoodCheese
-  description: "Велике колесо смачного Чеддеру."
+  description: A big wheel of delicious Cheddar.
   components:
   - type: Item
     size: Normal
@@ -844,10 +844,10 @@
     slice: FoodCheeseSlice
 
 - type: entity
-  name: "сирний клин"
+  name: cheese wedge
   parent: FoodBakingBase
   id: FoodCheeseSlice
-  description: "Скибочка смачного Чеддеру. Сирне колесо, з якого його відрізали, не могло далеко піти."
+  description: A wedge of delicious Cheddar. The cheese wheel it was cut from can't have gone far.
   components:
   - type: FlavorProfile
     flavors:
@@ -881,10 +881,10 @@
       - state: cheesewedge-inhand-right
 
 - type: entity
-  name: "шеврова колода"
+  name: chèvre log
   parent: FoodBakingBase
   id: FoodChevre
-  description: "М'яке поліно вершкового шевру."
+  description: A soft log of creamy Chèvre.
   components:
   - type: FlavorProfile
     flavors:
@@ -906,10 +906,10 @@
           Quantity: 0.6
 
 - type: entity
-  name: "шевровий диск"
+  name: chèvre disk
   parent: FoodBakingBase
   id: FoodChevreSlice
-  description: "Невеликий диск вершкового шевру. Ідеальна прикраса для французьких гарнірів."
+  description: A small disk of creamy Chèvre. An ideal adornment for French side dishes.
   components:
   - type: FlavorProfile
     flavors:
@@ -940,10 +940,10 @@
         name: food-sequence-content-chevre
 
 - type: entity
-  name: "тофу"
+  name: tofu
   parent: FoodBakingBase
   id: FoodTofu
-  description: "Суцільний білий блок з тонким ароматом."
+  description: Solid white block with a subtle flavor.
   components:
   - type: FlavorProfile
     flavors:
@@ -964,10 +964,10 @@
     slice: FoodTofuSlice
 
 - type: entity
-  name: "шматочок тофу"
+  name: tofu slice
   parent: FoodBakingBase
   id: FoodTofuSlice
-  description: "Шматочок тофу. Інгредієнт різних вегетаріанських страв."
+  description: A slice of tofu. Ingredient of various vegetarian dishes.
   components:
   - type: FlavorProfile
     flavors:
@@ -997,10 +997,10 @@
         name: food-sequence-content-tofu
 
 - type: entity
-  name: "обгоріле місиво"
+  name: burned mess
   parent: FoodBakingBase
   id: FoodBadRecipe
-  description: "За це когось треба звільнити з посади кухаря."
+  description: Someone should be demoted from cook for this.
   components:
   - type: FlavorProfile
     flavors:
@@ -1021,10 +1021,10 @@
     - Trash
 
 - type: entity
-  name: "какао-боби"
+  name: cocoa beans
   parent: FoodProduceBase
   id: FoodCocoaBeans
-  description: "Шоколаду ніколи не буває забагато!"
+  description: You can never have too much chocolate!
   components:
   - type: FlavorProfile
     flavors:
@@ -1062,10 +1062,10 @@
         name: food-sequence-content-cocoa
 
 - type: entity
-  name: "сирий круасан"
+  name: raw croissant
   parent: FoodBakingBase
   id: FoodCroissantRaw
-  description: "Масляниста, пластівчаста смакота, яка чекає, щоб статися."
+  description: Buttery, flaky goodness waiting to happen.
   components:
   - type: FlavorProfile
     flavors:
@@ -1081,10 +1081,10 @@
           Quantity: 3
 
 - type: entity
-  name: "сирий бавовняний круасан"
+  name: raw cotton croissant
   parent: FoodCroissantRaw
   id: FoodCroissantRawCotton
-  description: "Масляна, листкова, волокниста смакота, що чекає свого часу."
+  description: Buttery, flaky, fibery goodness waiting to happen.
   components:
   - type: FlavorProfile
     flavors:

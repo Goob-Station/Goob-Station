@@ -111,10 +111,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Hacky for the stress test so don't even consider adding to this
 - type: entity
-  name: "Норовик"
+  name: Burrower
   id: MobXeno
   parent: SimpleSpaceMobBase
-  description: "Вони здебільшого приходять вночі. Здебільшого."
+  description: They mostly come at night. Mostly.
   components:
   - type: Insulated
   - type: CombatMode
@@ -244,7 +244,7 @@
     deactivateSound: null
 
 - type: entity
-  name: "преторіанець"
+  name: praetorian
   parent: MobXeno
   id: MobXenoPraetorian
   components:
@@ -277,7 +277,7 @@
         - MobLayer
 
 - type: entity
-  name: "дрон"
+  name: drone
   parent: MobXeno
   id: MobXenoDrone
   components:
@@ -314,7 +314,7 @@
         - MobLayer
 
 - type: entity
-  name: "Королева"
+  name: Queen
   parent: MobXeno
   id: MobXenoQueen
   components:
@@ -360,7 +360,7 @@
     - Xeno
 
 - type: entity
-  name: "спустошувач"
+  name: ravager
   parent: MobXeno
   id: MobXenoRavager
   components:
@@ -397,7 +397,7 @@
         - MobLayer
 
 - type: entity
-  name: "бігун"
+  name: runner
   parent: MobXeno
   id: MobXenoRunner
   components:
@@ -427,7 +427,7 @@
         - MobLayer
 
 - type: entity
-  name: "рауні"
+  name: rouny
   parent: MobXenoRunner
   id: MobXenoRouny
   components:
@@ -442,7 +442,7 @@
       amount: 3
 
 - type: entity
-  name: "плювальник"
+  name: spitter
   parent: MobXeno
   id: MobXenoSpitter
   components:
@@ -489,10 +489,10 @@
         - MobLayer
 
 - type: entity
-  name: "просторовий суматор"
+  name: space adder
   parent: SimpleSpaceMobBase
   id: MobPurpleSnake
-  description: "Загрозлива фіолетова змія з Kepler-283c."
+  description: A menacing purple snake from Kepler-283c.
   components:
   - type: Body # Shitmed Change
     prototype: SpaceAdder
@@ -565,11 +565,11 @@
     - FootstepSound
 
 - type: entity
-  name: "просторовий суматор"
+  name: space adder
   parent: MobPurpleSnake
   id: MobSmallPurpleSnake
   suffix: small
-  description: "Зменшена версія загрозливої фіолетової змії з Kepler-283c."
+  description: A smaller version of the menacing purple snake from Kepler-283c.
   components:
   - type: Body # Shitmed Change
     prototype: SpaceAdder

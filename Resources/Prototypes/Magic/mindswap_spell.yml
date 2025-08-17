@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseEntitySpellAction
   id: ActionMindSwap
-  name: "Обмін розумом"
-  description: "Обміняйтеся тілами з іншою людиною!"
+  name: Mind Swap
+  description: Exchange bodies with another person!
   components:
   - type: Action
     useDelay: 60

@@ -28,7 +28,7 @@
 
 - type: entity
   id: BulletCaselessRifle
-  name: "куля (9.5мм HP)" # Goobstation edit
+  name: bullet (9.5mm HP) # Goobstation edit
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -40,7 +40,7 @@
 
 - type: entity
   id: BulletCaselessRiflePractice
-  name: "куля (9.5мм тренувальна)" # Goobstation edit
+  name: bullet (9.5mm practice) # Goobstation edit
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
   components:

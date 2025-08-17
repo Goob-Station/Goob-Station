@@ -8,7 +8,7 @@
   parent: BaseItem
   abstract: true
   id: BaseMail
-  name: "пошта"
+  name: mail
   components:
   - type: Item
 #    size: Normal # Frontier

@@ -131,9 +131,9 @@
 # Does not inherit from simplemob
 - type: entity
   abstract: true
-  name: "GuardianBase"
+  name: GuardianBase
   id: MobGuardianBase
-  description: "опікун"
+  description: guardian
   save: false
   components:
     - type: LagCompensation
@@ -250,10 +250,10 @@
 
 # From the uplink injector
 - type: entity
-  name: "Голопаразит"
+  name: Holoparasite
   id: MobHoloparasiteGuardian
   parent: MobGuardianBase
-  description: "Заворожуючий вихор жорстких світлових візерунків виплітає дивовижний, але напрочуд знайомий образ. Він стоїть гордо, підлаштовуючись під життя свого власника, щоб підтримувати себе."
+  description: A mesmerising whirl of hard-light patterns weaves a marvelous, yet oddly familiar visage. It stands proud, tuning into its owner's life to sustain itself.
   components:
     - type: GhostRole
       allowMovement: true
@@ -283,10 +283,10 @@
 
 # From Wizard deck of cards
 - type: entity
-  name: "Іфрит"
+  name: Ifrit
   parent: MobGuardianBase
   id: MobIfritGuardian
-  description: "Зіпсований джин, вирваний з фітри, щоб служити дріб'язковим потребам чарівника. Він стоїть злий, налаштовуючись на життя свого власника, щоб підтримувати себе."
+  description: A corrupted jinn, ripped from fitra to serve the wizard's petty needs. It stands wicked, tuning into its owner's life to sustain itself.
   components:
     - type: GhostRole
       allowMovement: true
@@ -322,10 +322,10 @@
         - ShowWizardIcons
 
 - type: entity
-  name: "ГолоКлоун"
+  name: HoloClown
   id: MobHoloClownGuardian
   parent: [MobGuardianBase, InventoryBase]
-  description: "Заворожуючий вихор жорстких світлових візерунків плете блакитний клоун сумнівного походження."
+  description: A mesmerising whirl of hard-light patterns weaves a blue colored clown of dubious origin.
   components:
     - type: GhostRole
       allowMovement: true
@@ -409,8 +409,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionToggleGuardian
-  name: "пермкнути охоронця"
-  description: "Або проявляє охоронця, або відкликає його назад у своє тіло"
+  name: Toggle Guardian
+  description: Either manifests the guardian or recalls it back into your body
   components:
   - type: Action
     icon: Interface/Actions/manifest.png
@@ -424,8 +424,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionSelfToggleGuardian
-  name: "Відкликати себе"
-  description: "Відкликає вас назад у тіло вашого господаря"
+  name: Recall Self
+  description: Recalls yourself back into your host's body
   components:
   - type: Action
     icon: Interface/Actions/manifest.png

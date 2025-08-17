@@ -1,7 +1,7 @@
 - type: job
   id: InterdyneDeputy
-  name: "заступник офіцера Interdyne"
-  description: "допомагайте офіцеру в управлінні операціями та командуванні персоналом"
+  name: job-name-interdyne-deputy
+  description: job-description-interdyne-deputy
   icon: "JobIconInterdyneDeputy"
   canBeAntag: false
   playTimeTracker: JobInterdyneDeputy

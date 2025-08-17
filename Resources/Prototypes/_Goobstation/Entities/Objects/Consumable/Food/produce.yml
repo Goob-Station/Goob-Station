@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "дивні ягоди"
+  name: strange berries
   parent: FoodProduceBase
   id: FoodStrangeBerries
-  description: "Жменя дивних ягід."
+  description: A handful of strange berries.
   components:
   - type: FlavorProfile
     flavors:
@@ -33,8 +33,8 @@
         Quantity: 5
 
 - type: entity
-  name: "колода невкотти"
-  description: "При посадці поза природним середовищем існування, вона виростає в зовсім іншу рослину."
+  name: nevcotta log
+  description: When planted out of it's native habitat, it grows into an entirely different plant.
   id: Nevcotta
   parent: ProduceBase
   components:
@@ -49,8 +49,8 @@
     spawnCount: 2
 
 - type: entity
-  name: "кора невкотти"
-  description: "Кора дерева Невкотта."
+  name: nevcotta bark
+  description: The bark of a Nevcotta tree.
   id: NevcottaBark
   parent: BaseItem
   components:

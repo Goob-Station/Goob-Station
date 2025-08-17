@@ -91,8 +91,8 @@
 - type: entity
   abstract: true
   id: BaseAnomaly
-  name: "аномалія"
-  description: "Неможливий об'єкт. Чи варто стояти так близько до нього?"
+  name: anomaly
+  description: An impossible object. Should you be standing this close to it?
   components:
   - type: Anomaly
     offset: 0, 0.15
@@ -901,9 +901,9 @@
 
 - type: entity
   id: AnomalyFloraBulb
-  name: "сяюча дивна ягода"
+  name: strange glowing berry
   parent: BaseStructure
-  description: "Це красива дивна ягода, що світиться. Здається, всередині неї щось росте..."
+  description: It's a beautiful strange glowing berry. It seems to have something growing inside it...
   suffix: Flora Anomaly
   components:
   - type: Transform

@@ -63,8 +63,8 @@
 - type: entity
   id: ClosetBase
   parent: BaseStructureDynamic
-  name: "шафа"
-  description: "Стандартний контейнер для зберігання від компанії Нанотрейзен."
+  name: closet
+  description: A standard-issue Nanotrasen storage unit.
   abstract: true
   components:
   - type: Animateable
@@ -196,8 +196,8 @@
   placement:
     mode: SnapgridCenter
   abstract: true
-  name: "настінна шафа"
-  description: "Стандартний контейнер для зберігання від компанії Нанотрейзен, тепер на стінах."
+  name: wall closet
+  description: A standard-issue Nanotrasen storage unit, now on walls.
   components:
   - type: InteractionOutline
   - type: Clickable
@@ -299,8 +299,8 @@
 - type: entity
   id: SuitStorageBase
   parent: BaseStructure
-  name: "шафа для зберігання костюмів"
-  description: "Химерна високотехнологічна шафа для зберігання скафандрів."
+  name: suit storage unit
+  description: A fancy hi-tech storage unit made for storing space suits.
   components:
   - type: AccessReader
   - type: Lock

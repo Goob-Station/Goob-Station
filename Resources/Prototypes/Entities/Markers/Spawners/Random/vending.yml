@@ -14,7 +14,7 @@
 
 - type: entity
   id: RandomVending
-  name: "випадковий генератор торгових автоматів"
+  name: random vending machine spawner
   suffix: Any
   parent: MarkerBase
   components:
@@ -65,7 +65,7 @@
 
 - type: entity
   id: RandomVendingClothing
-  name: "випадковий генератор торгових автоматів"
+  name: random vending machine spawner
   suffix: Clothing
   parent: MarkerBase
   components:

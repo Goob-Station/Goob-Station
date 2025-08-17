@@ -79,8 +79,8 @@
 - type: entity
   abstract: true
   id: ShelfBase
-  name: "полиця"
-  description: "Дивне місце, щоб розмістити, ну, що завгодно. Ви відчуваєте, що не повинні цього бачити."
+  name: shelf
+  description: A strange place to place, well, anything really. You feel like you shouldn't be seeing this.
   placement:
     mode: SnapgridCenter
     snap:
@@ -128,8 +128,8 @@
   abstract: true
   id: ShelfBaseReinforced
   parent: ShelfBase
-  name: "укріплена полиця"
-  description: "Вона виглядає такою ж сильною, як і сама реальність."
+  name: reinforced shelf
+  description: It looks as strong as reality itself.
   components:
   - type: Lock
   - type: LockVisuals
@@ -157,8 +157,8 @@
 - type: entity
   id: ShelfWood
   parent: ShelfBase
-  name: "дерев'яна полиця"
-  description: "Зручне місце, щоб розмістити, ну, що завгодно."
+  name: wooden shelf
+  description: A convenient place to place, well, anything really.
   components:
   - type: Destructible
     thresholds:
@@ -196,8 +196,8 @@
 - type: entity
   id: ShelfMetal
   parent: ShelfBase
-  name: "металева полиця"
-  description: "Міцне місце, де можна розмістити, ну, що завгодно."
+  name: metal shelf
+  description: A sturdy place to place, well, anything really.
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/metal.rsi
@@ -237,8 +237,8 @@
 - type: entity
   id: ShelfGlass
   parent: ShelfBase
-  name: "скляна полиця"
-  description: "Крихке місце для розміщення чого завгодно."
+  name: glass shelf
+  description: A fragile place to place, well, anything really.
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/glass.rsi
@@ -279,8 +279,8 @@
 - type: entity
   id: ShelfRWood
   parent: ShelfBaseReinforced
-  name: "міцна дерев'яна полиця"
-  description: "Безпечне місце, щоб поставити вашу улюблену пляшку віскі."
+  name: sturdy wood shelf
+  description: A safe place to put your favorite bottle of whiskey.
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/wood.rsi
@@ -325,8 +325,8 @@
 - type: entity
   id: ShelfRMetal
   parent: ShelfBaseReinforced
-  name: "міцна металева полиця"
-  description: "Міцне та блискуче місце для зберігання всіх ваших пробірок."
+  name: sturdy metal shelf
+  description: A strong & shiny place to keep all your vials safe.
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/metal.rsi
@@ -368,8 +368,8 @@
 - type: entity
   id: ShelfRGlass
   parent: ShelfBaseReinforced
-  name: "міцна скляна полиця"
-  description: "Кришталево прозорі двері з армованого скла, щоб продемонструвати всі ваші вишукані пляшки, за які ви точно не продали улюблену таргана колеги."
+  name: sturdy glass shelf
+  description: Crystal clear reinforced glass doors to show off all your fancy bottles you definitely didn't sell a co-worker's favorite mothroach for.
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/glass.rsi
@@ -412,8 +412,8 @@
 - type: entity
   id: ShelfBar
   parent: ShelfBase
-  name: "барна стійка"
-  description: "Виготовлені з найкращої синтетичної деревини для всіх потреб зберігання алкоголю."
+  name: bar shelf
+  description: Made out of the finest synthetic wood for all alcohol holding needs.
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/Departments/Service/bar.rsi
@@ -462,8 +462,8 @@
 - type: entity
   id: ShelfKitchen
   parent: ShelfBase
-  name: "кухонна полиця"
-  description: "Тримає ножі, спеції та все хороше!"
+  name: kitchen shelf
+  description: Holds knifes, spice, and everything nice!
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/Departments/Service/kitchen.rsi
@@ -518,8 +518,8 @@
 - type: entity
   id: ShelfChemistry
   parent: ShelfBaseReinforced
-  name: "хімічний полигон"
-  description: "Зберігає всі ваші хімікати в безпеці та не потрапляє до чужих рук!"
+  name: chemical shelf
+  description: Keeps all your chemicals safe and out of the clow- er, public hands!
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/Departments/Medical/chemistry.rsi

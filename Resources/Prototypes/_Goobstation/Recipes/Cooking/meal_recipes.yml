@@ -5,7 +5,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeLollypop
-  name: "рецепт льодяника"
+  name: lollypop recipe
   result: FoodSnackLollypop
   time: 5
   solids:

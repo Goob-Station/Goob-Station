@@ -1,8 +1,8 @@
 - type: entity
   id: AsimovCircuitBoard
   parent: BaseElectronics
-  name: "плата законів (Азімов)"
-  description: "Електронна плата, що містить набір законів Азімова."
+  name: law board (Asimov)
+  description: An electronics board containing the Asimov lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

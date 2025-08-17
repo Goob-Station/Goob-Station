@@ -1,7 +1,7 @@
 - type: entity
   id: PolymorphShadowJauntAnimation
-  name: "Невідомо"
-  description: "Ви не можете зрозуміти, що це."
+  name: Unknown
+  description: You can't figure out what that is.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -14,8 +14,8 @@
 
 - type: entity
   id: PolymorphShadowJauntEndAnimation
-  name: "Невідомо"
-  description: "Ви не можете зрозуміти, що це."
+  name: Unknown
+  description: You can't figure out what that is.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -28,8 +28,8 @@
 
 - type: entity
   id: PolymorphShadowJaunt
-  name: "Невідомо"
-  description: "Ви не можете зрозуміти, що це."
+  name: Unknown
+  description: You can't figure out what that is.
   parent: BaseMobJaunt
   categories: [ HideSpawnMenu ]
   components:

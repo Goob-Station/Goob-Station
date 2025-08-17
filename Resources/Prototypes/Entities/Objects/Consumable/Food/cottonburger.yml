@@ -3,8 +3,8 @@
 - type: entity
   parent: FoodBreadSliceBase
   id: FoodCottonBun
-  name: "бавовняна булочка"
-  description: "Бавовняна булочка для гамбургера. М'яка, кругла та зручна для тримання."
+  name: cotton bun
+  description: A cotton hamburger bun. Soft, round and convenient to hold.
   components:
   - type: Food
     requiresSpecialDigestion: true
@@ -38,8 +38,8 @@
 - type: entity
   parent: FoodBreadSliceBase
   id: FoodCottonBunBottom
-  name: "нижня бавовняна булочка"
-  description: "Настав час для молі спробувати вежу з бургерів."
+  name: cotton bottom bun
+  description: It's time for moths to experience the burger tower.
   components:
   - type: Item
     size: Normal #patch until there is an adequate resizing system in place
@@ -81,8 +81,8 @@
 - type: entity
   parent: FoodBreadSliceBase
   id: FoodCottonBunTop
-  name: "верхня бавовняна булочка"
-  description: "Ідеальне завершення вашої волокнистої вежі з бургерів."
+  name: cotton top bun
+  description: The perfect finish for your fibrous burger tower.
   components:
   - type: Food
     requiresSpecialDigestion: true

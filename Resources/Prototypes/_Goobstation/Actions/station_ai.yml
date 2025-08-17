@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: ActionOpenCameraWarpMenu
-  name: "Перейти до камери"
-  description: "Швидко переміщуйтеся до камери на станції для полегшення навігації!"
+  name: Jump to camera
+  description: Quickly jump to a camera on the station for ease of navigation!
   components:
   - type: Action
     checkConsciousness: false

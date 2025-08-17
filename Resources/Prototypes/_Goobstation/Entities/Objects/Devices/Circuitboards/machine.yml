@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: RoboticArmCircuitboard
-  name: "плата роботизованої руки"
-  description: "Друкована плата для роботизованої руки."
+  name: robotic arm machine board
+  description: A machine printed circuit board for a robotic arm.
   components:
   - type: Sprite
     state: engineering
@@ -29,8 +29,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: ConstructorCircuitboard
-  name: "плата конструктора"
-  description: "Друкована плата для конструктора."
+  name: constructor machine board
+  description: A machine printed circuit board for a constructor.
   components:
   - type: Sprite
     state: engineering
@@ -48,8 +48,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: StorageBinCircuitboard
-  name: "плата контейнера для зберігання"
-  description: "Друкована плата для контейнера для зберігання."
+  name: storage bin machine board
+  description: A machine printed circuit board for a storage bin.
   components:
   - type: MachineBoard
     prototype: StorageBin
@@ -60,8 +60,8 @@
 - type: entity
   parent: BaseMachineCircuitboard
   id: InteractorCircuitboard
-  name: "плата інтерактора"
-  description: "Друкована плата для інтерактора."
+  name: interactor machine board
+  description: A machine printed circuit board for an interactor.
   components:
   - type: Sprite
     state: engineering

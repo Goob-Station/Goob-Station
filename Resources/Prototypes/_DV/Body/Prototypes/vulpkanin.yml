@@ -12,7 +12,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: body
-  name: "species-name-vulpkanin"
+  name: "vulpkanin"
   id: Vulpkanin
   root: chest
   slots:

@@ -62,8 +62,8 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
-  name: "шлунок"
-  description: "Гидота. Це складно переварити."
+  name: stomach
+  description: "Gross. This is hard to stomach."
   components:
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
@@ -101,8 +101,8 @@
 - type: entity
   id: OrganArachnidLungs
   parent: BaseArachnidOrgan
-  name: "легені"
-  description: "Фільтрує кисень з атмосфери... просто більш жадібно."
+  name: lungs
+  description: "Filters oxygen from an atmosphere... just more greedily."
   components:
   - type: Sprite
     layers:
@@ -149,8 +149,8 @@
 - type: entity
   id: OrganArachnidHeart
   parent: BaseArachnidOrgan
-  name: "серце"
-  description: "Огидно наполегливий маленький біологічний насос, створений для павуків."
+  name: heart
+  description: "A disgustingly persistent little biological pump made for spiders."
   components:
   - type: Sprite
     state: heart-on
@@ -183,8 +183,8 @@
 - type: entity
   id: OrganArachnidLiver
   parent: BaseHumanOrgan
-  name: "печінка"
-  description: "Поєднання: к'янті та квасоля фава."
+  name: liver
+  description: "Pairing suggestion: chianti and fava beans."
   categories: [ HideSpawnMenu ]
   components:
   - type: Item
@@ -217,8 +217,8 @@
 - type: entity
   id: OrganArachnidKidneys
   parent: BaseHumanOrgan
-  name: "нирки"
-  description: "Фільтрує токсини з кровотоку."
+  name: kidneys
+  description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
   - type: Organ # Shitmed
@@ -251,8 +251,8 @@
 - type: entity
   id: OrganArachnidEyes
   parent: BaseArachnidOrgan
-  name: "очі"
-  description: "Двох було вже забагато."
+  name: eyes
+  description: "Two was already too many."
   components:
   - type: Sprite
     layers:
@@ -279,8 +279,8 @@
 - type: entity
   id: OrganArachnidTongue
   parent: BaseArachnidOrgan
-  name: "язик"
-  description: "М'яз із плоті, який здебільшого використовується для брехні."
+  name: tongue
+  description: "A fleshy muscle mostly used for lying."
   components:
   - type: Sprite
     state: tongue

@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "павутинний кокон"
-  description: "Міцний павутинний кокон, що використовується для утримання здобичі або просто злочинців."
+  name: web cocoon
+  description: Strong web cocoon used to restrain preys or just criminals.
   id: WebCocoon
   parent: Handcuffs
   components:

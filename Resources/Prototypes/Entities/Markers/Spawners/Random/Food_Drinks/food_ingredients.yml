@@ -8,7 +8,7 @@
 #Spawners
 - type: entity
   id: RandomIngredient
-  name: "спавнер випадкових інгредієнтів"
+  name: random ingredient spawner
   suffix: Non-Plant
   parent: MarkerBase
   placement:

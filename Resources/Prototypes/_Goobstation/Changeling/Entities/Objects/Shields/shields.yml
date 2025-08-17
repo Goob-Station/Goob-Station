@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseShield
   id: ChangelingShield
-  name: "органічний щит"
-  description: "Великий, м'ясистий щит."
+  name: organic shield
+  description: A large, fleshy shield.
   suffix: Unremoveable
   components:
     - type: Unremoveable

@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: ActionActivateMedigunUber
-  name: "Активувати Убер-режим"
-  description: "Убер-режим лікує цілі швидше, але вмикається лише на 10 секунд і швидше розряджає батарею."
+  name: Activate Uber mode
+  description: Uber mode heals targets faster, but is enabled only for 10 seconds and drains battery faster.
   components:
   - type: Action
     icon:

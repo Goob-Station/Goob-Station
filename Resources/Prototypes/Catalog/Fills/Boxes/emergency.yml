@@ -56,8 +56,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxSurvival
-  name: "коробка для виживання"
-  description: "Це коробка з базовим респіратором та аварійним кисневим балоном всередині."
+  name: survival box
+  description: It's a box with basic internals inside.
   suffix: Standard
   components:
   - type: StorageFill
@@ -96,8 +96,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxSurvivalEngineering
-  name: "коробка для подовженого виживання"
-  description: "Це коробка з базовим респіратором та кисневим балоном збільшеної місткості всередині."
+  name: extended-capacity survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Extended
   components:
   - type: StorageFill
@@ -137,8 +137,8 @@
 
   parent: BoxCardboard
   id: BoxSurvivalSecurity
-  name: "коробка для виживання"
-  description: "Це коробка з базовим респіратором та аварійним кисневим балоном всередині."
+  name: survival box
+  description: It's a box with basic internals inside.
   suffix: Security
   components:
   - type: StorageFill
@@ -178,8 +178,8 @@
 
   parent: BoxCardboard
   id: BoxSurvivalMedical
-  name: "коробка для виживання"
-  description: "Це коробка з базовим респіратором та аварійним кисневим балоном всередині."
+  name: survival box
+  description: It's a box with basic internals inside.
   suffix: Medical
   components:
   - type: StorageFill
@@ -218,8 +218,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxHug
-  name: "коробка обіймів"
-  description: "Спеціальна коробка для чутливих людей."
+  name: box of hugs
+  description: A special box for sensitive people.
   suffix: Emergency
   components:
   - type: Sprite
@@ -307,8 +307,8 @@
 - type: entity
   parent: BoxCardboard
   id: BoxSurvivalSyndicate
-  name: "коробка для подовженого виживання"
-  description: "Це коробка з базовим респіратором та кисневим балоном збільшеної місткості всередині."
+  name: extended-capacity survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
   suffix: Syndicate
   components:
   - type: StorageFill

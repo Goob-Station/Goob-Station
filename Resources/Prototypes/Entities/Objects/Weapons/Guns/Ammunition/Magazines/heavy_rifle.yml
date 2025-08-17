@@ -20,7 +20,7 @@
 
 - type: entity
   id: BaseMagazineHeavyRifle
-  name: "магазин (гвинтівка калібру .20)"
+  name: "magazine (.20 rifle)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:

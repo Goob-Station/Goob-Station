@@ -1,8 +1,8 @@
 - type: entity
   parent: Bible
   id: BibleMystagogue
-  name: "книга таємниць"
-  description: "Книга виклику фамільяра."
+  name: book of mysteries
+  description: Книга виклику фамільяра.
   components:
   - type: Summonable
     specialItem: SpawnPointGhostIfrit

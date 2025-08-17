@@ -79,7 +79,7 @@
 - type: entity
   parent: BaseFoam
   id: Smoke
-  name: "дим"
+  name: smoke
   categories: [ HideSpawnMenu ]
   components:
   - type: Occluder
@@ -95,7 +95,7 @@
 - type: entity
   parent: BaseFoam
   id: TearGasSmoke
-  name: "сльозогінний газ"
+  name: tear gas
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -118,7 +118,7 @@
 - type: entity
   parent: Smoke
   id: WizardSmoke
-  name: "дим"
+  name: smoke
   categories: [ HideSpawnMenu ]
   components:
   - type: Smoke
@@ -127,7 +127,7 @@
 - type: entity
   parent: BaseFoam
   id: Foam
-  name: "піна"
+  name: foam
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -161,7 +161,7 @@
 
 - type: entity
   id: MetalFoam
-  name: "металева піна"
+  name: metal foam
   categories: [ HideSpawnMenu ]
   parent: Foam
   components:
@@ -187,7 +187,7 @@
 
 - type: entity
   id: IronMetalFoam
-  name: "залізна піна"
+  name: iron metal foam
   categories: [ HideSpawnMenu ]
   parent: MetalFoam
   components:
@@ -196,7 +196,7 @@
 
 - type: entity
   id: AluminiumMetalFoam
-  name: "алюмінієва піна"
+  name: aluminium metal foam
   categories: [ HideSpawnMenu ]
   parent: MetalFoam
   components:
@@ -205,7 +205,7 @@
 
 - type: entity
   id: BaseFoamedMetal
-  name: "основа зі спіненого металу"
+  name: base foamed metal
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -260,8 +260,8 @@
 
 - type: entity
   id: FoamedIronMetal
-  name: "метал з спіненого заліза"
-  description: "Для герметизації пробоїн в корпусі."
+  name: foamed iron metal
+  description: "For sealing hull breaches."
   parent: BaseFoamedMetal
   components:
   - type: Sprite
@@ -282,8 +282,8 @@
 
 - type: entity
   id: FoamedAluminiumMetal
-  name: "алюмінієва піна"
-  description: "Залишки розрідженої піни від гранати з алюмінієвою піною. Легко руйнується."
+  name: foamed aluminium metal
+  description: "Leftover sparse foam from an aluminum foam grenade. Easily destroyed."
   parent: BaseFoamedMetal
   components:
   - type: Sprite
@@ -331,7 +331,7 @@
 - type: entity
   parent: BaseFoam
   id: Resin
-  name: "смола"
+  name: resin
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

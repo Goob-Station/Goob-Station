@@ -90,8 +90,8 @@
 #START SET SELECTION
 - type: entity
   id: ChaplainUndeterminedBible
-  name: "маяк блюспейс-писання"
-  description: "Хоч я і йду долиною тіні смертної, не злякаюся зла, бо Ти зі мною."
+  name: bluespace scripture beacon
+  description: Though I walk through the valley of the shadow of death I will fear no evil, for you are with me.
   parent: [ BaseItem, BaseSetSelector ]
   components:
   - type: Sprite
@@ -107,8 +107,8 @@
 
 - type: selectableSet
   id: BibleSet
-  name: "Свята Біблія"
-  description: "Розірви будь-який зв'язок, крім тих, що прив'язують мене до твоєї служби і до твого серця."
+  name: The Holy Bible
+  description: Sever any tie, but the ties that bind me to your service and to your heart.
   sprite:
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
@@ -117,8 +117,8 @@
 
 - type: selectableSet
   id: QuaranSet
-  name: "Коран"
-  description: "Тож які з милостей Господа вашого ви ˹люди і джини˺ обидва заперечите?"
+  name: The Quaran
+  description: Then which of your Lord’s favours will you ˹humans and jinn˺ both deny?
   sprite:
     sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
     state: icon
@@ -127,8 +127,8 @@
 
 - type: selectableSet
   id: TanakhSet
-  name: "Свитки Танаху"
-  description: "Навчаючи, ти вчишся."
+  name: The Tanakh Scrolls
+  description: As you teach, you learn.
   sprite:
     sprite: _Goobstation/Wizard/Objects/scroll.rsi
     state: scroll2
@@ -137,8 +137,8 @@
 ##END SET SELECTION
 
 - type: entity
-  name: "біблія"
-  description: "Нова міжзоряна версія 2340."
+  name: bible
+  description: New Interstellar Version 2340.
   parent: BaseStorageItem
   id: Bible
   components:
@@ -199,8 +199,8 @@
 
 - type: entity
   parent: [Bible, BaseSyndicateContraband]
-  name: "некрономікон"
-  description: "Там є примітка: Klatuu, Verata, Nikto - не забудьте її знову!"
+  name: necronomicon
+  description: "There's a note: Klatuu, Verata, Nikto -- Don't forget it again!"
   id: BibleNecronomicon
   components:
   - type: Bible
@@ -228,8 +228,8 @@
 - type: entity
   parent: BaseAction
   id: ActionBibleSummon
-  name: "Викликати фамільяра"
-  description: "Викличте фамільяра, який допомагатиме вам і отримає розум подібний до людського, колись наділений душею."
+  name: Summon familiar
+  description: Summon a familiar that will aid you and gain humanlike intelligence once inhabited by a soul.
   components:
   - type: Action
     icon: { sprite: Clothing/Head/Hats/witch.rsi, state: icon }

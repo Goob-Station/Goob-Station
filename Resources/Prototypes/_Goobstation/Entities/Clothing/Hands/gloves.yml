@@ -107,8 +107,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesChronoLegioneer
-  name: "футуристичні рукавички"
-  description: "Футуристичні рукавички з невідомого матеріалу, який не залишає слідів"
+  name: futuristic gloves
+  description: Futuristic gloves made of an unknown material that doesn't leave any trace
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
@@ -152,8 +152,8 @@
   parent: [ClothingHandsGlovesCombat, BaseCentcommContraband]
   id: ClothingHandsGlovesDeathsquad
   suffix: DO NOT MAP # Just don't...
-  name: "силові рукавиці \"редактор\" mk-3"
-  description: "Пара високотехнологічних рукавиць, здатних розривати двері. Їхні висувні кігті просякнуті потужним нейротоксином."
+  name: mk-3 "redactor" power gloves
+  description: A pair of highly-advanced gauntlets capable of ripping open doors. Its retractable claws are laced with a potent neurotoxin.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
@@ -249,8 +249,8 @@
 - type: entity
   parent: [ClothingHandsGlovesColorYellow, BaseEngineeringContraband]
   id: ClothingHandsGlovesAtmosInsulated
-  name: "ізольовані рукавиці атмос-техніка"
-  description: "Як звичайні ізольовані рукавиці, але просто кращі завдяки тому, що вони з відділу атмосферики."
+  name: insulated atmos gloves
+  description: Like normal insulated gloves, but simply better by virtue of being from the Atmospherics department.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
@@ -262,8 +262,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesHeavyGoldenTrim
-  name: "важкі рукавиці з золотим оздобленням"
-  description: "Пара рукавиць з золотим оздобленням для персоналу Центрального Командування. Ці ізольовані."
+  name: heavy gold-trimmed gloves
+  description: A pair of gold-trimmed gloves made for Central Command staff. These ones are insulated.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
@@ -277,8 +277,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesGoldenTrim
-  name: "рукавиці з золотим оздобленням"
-  description: "Пара рукавиць з золотим оздобленням для персоналу Центрального Командування. Не ізольовані."
+  name: gold-trimmed gloves
+  description: A pair of gold-trimmed gloves made for Central Command staff. Not insulated.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
@@ -291,8 +291,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesConquest
-  name: "вільтрумітовий протез"
-  description: "Готуйся до мого прибуття, черв'як."
+  name: viltrumite prosthetic
+  description: Stand ready for my arrival, worm.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
@@ -318,8 +318,8 @@
   parent: ClothingHandsGlovesConquest
   id: ClothingHandsGlovesConquestUnremovable
   suffix: Unremovable
-  name: "вільтрумітовий протез"
-  description: "Готуйся до мого прибуття, черв'як."
+  name: viltrumite prosthetic
+  description: Stand ready for my arrival, worm.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
@@ -363,14 +363,14 @@
 - type: entity
   parent: [ClothingHandsKnuckleDustersBase, BaseMinorContraband]
   id: ClothingHandsKnuckleDusters
-  name: "кастет"
-  description: "Міцний пластиковий кастет. Додає значно більше ваги вашим ударам."
+  name: knuckle dusters
+  description: Sturdy plasteel knuckle-dusters. Adds a whole lot more weight to your punches.
 
 - type: entity
   parent: [ClothingHandsKnuckleDustersBase, BaseMinorContraband] # Craftable Version
   id: ClothingHandsKnuckleDustersBrass
-  name: "латунний кастет"
-  description: "Латунний кастет. Такі, як робили раніше, і б'ють так само сильно."
+  name: brass knuckle dusters
+  description: Brass knuckle dusters. Just like how they used to make em, and still hit just as hard.
   components:
   - type: Sprite
     state: brassknuckleduster
@@ -381,8 +381,8 @@
 - type: entity
   parent: [ClothingHandsKnuckleDustersBase, BaseSyndicateContraband]
   id: ClothingHandsKnuckleDustersSyndicate
-  name: "кастет синдикату"
-  description: "Пластитанові кастети з логотипом синдикату. Ними справжній чоловік забиває когось на смерть."
+  name: syndicate knuckle dusters
+  description: Plastitanium knuckle dusters branded with the syndicate logo. A real man beats someone to death with these.
   components:
   - type: Sprite
     state: syndicateknuckleduster
@@ -395,8 +395,8 @@
   parent: [ClothingHandsKnuckleDustersBase, BaseGrandTheftContraband]
   id: ClothingHandsKnuckleDustersQM
   suffix: DO NOT MAP
-  name: "гравійований кастет квартирмейстера"
-  description: "Викуваний найкращими майстрами на замовлення квартирмейстера, цей твердий і щільний кастет призначений для нанесення нищівних ударів та пошкодження внутрішніх органів нещасної жертви."
+  name: quartermaster's engraved knuckleduster
+  description: Forged by the finest craftsmen at the Quartermaster's request, this hard and dense knuckle-duster is designed to deliver bone-crushing blows and damage the internal organs of the unfortunate victim.
   components:
   - type: Sprite
     state: goldenknuckleduster
@@ -421,8 +421,8 @@
 - type: entity
   parent: [ClothingHandsKnuckleDustersBase, BaseCentcommContraband]
   id: ClothingHandsKnuckleBoneCrushers
-  name: "кісткотрощі"
-  description: "Благословенні Богами, щоб ламати всіх, хто не слухається."
+  name: bone crushers
+  description: "Blessed by the Gods to break all those who don't obey."
   components:
   - type: Sprite
     state: goldenknuckleduster

@@ -353,8 +353,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkAbsintheBottleFull
-  name: "Jailbreaker Verte"
-  description: "Один ковток - і ви точно знаєте, що добре проведете час."
+  name: Jailbreaker Verte
+  description: One sip of this and you just know you're gonna have a good time.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -371,8 +371,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkBlueCuracaoBottleFull
-  name: "Міс Блю Кюрасао"
-  description: "Фруктовий, надзвичайно блакитний напій. Не дозволяє тому, хто його випив, використовувати п'яту магію."
+  name: Miss Blue Curaçao
+  description: A fruity, exceptionally azure drink. Does not allow the imbiber to use the fifth magic.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -397,8 +397,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
   id: DrinkBottleOfNothingFull
-  name: "пляшка нічого"
-  description: "Пляшка, наповнена порожнечею."
+  name: bottle of nothing
+  description: A bottle filled with nothing.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -415,8 +415,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
   id: DrinkChampagneBottleFull
-  name: "пляшка шампанського"
-  description: "Тільки люди, позбавлені уяви, можуть не знайти виправдання для шампанського."
+  name: champagne bottle
+  description: Only people devoid of imagination can't find an excuse for champagne.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -434,8 +434,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkCognacBottleFull
-  name: "пляшка коньяку"
-  description: "Солодкий та міцний алкогольний напій, виготовлений після численних дистиляцій та років витримки. Цього разу ви могли б і не кричати 'ЛАЙНОБЕЗПЕКА'."
+  name: cognac bottle
+  description: A sweet and strongly alcoholic drink, made after numerous distillations and years of maturing. You might as well not scream 'SHITCURITY' this time.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -452,8 +452,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkGrenadineBottleFull
-  name: "пляшка гренадинового сиропу \"Тернова троянда"
-  description: "Солодкий і терпкий, барний сироп, що використовується для додання кольору або смаку напоям."
+  name: Briar Rose grenadine syrup bottle
+  description: Sweet and tangy, a bar syrup used to add color or flavor to drinks.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -471,8 +471,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkGinBottleFull
-  name: "Джин Griffeater"
-  description: "Пляшка високоякісного джину, виробленого на космічній станції \"Новий Лондон\"."
+  name: Griffeater gin
+  description: A bottle of high quality gin, produced in the New London Space Station.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -489,8 +489,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkGildlagerBottleFull
-  name: "пляшка Gildlager"
-  description: "50-градусний коричний шнапс, створений для неповнолітніх дівчат-алкоголічок на весняних канікулах."
+  name: Gildlager bottle
+  description: 100 proof cinnamon schnapps, made for alcoholic teen girls on spring break.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -507,8 +507,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
   id: DrinkCoffeeLiqueurBottleFull
-  name: "пляшка кавового лікеру"
-  description: "Чудовий смак кави без жодної користі."
+  name: coffee liqueur bottle
+  description: The great taste of coffee with none of the benifits.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -525,8 +525,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkMelonLiquorBottleFull
-  name: "диний лікер Emeraldine"
-  description: "Пляшка 23-градусного динного лікеру Emeraldine. Солодкий і легкий."
+  name: Emeraldine melon liquor
+  description: A bottle of 46 proof Emeraldine melon liquor. Sweet and light.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -551,8 +551,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkPatronBottleFull
-  name: "пляшка Patrón від Wrapp Artiste"
-  description: "Срібна текіла, що подається в космічних нічних клубах по всій галактиці."
+  name: Wrapp Artiste Patrón bottle
+  description: Silver laced tequila, served in space night clubs across the galaxy.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -568,8 +568,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
   id: DrinkPoisonWinebottleFull
-  name: "пляшка \"Оксамит Чорнокнижника"
-  description: "Яка чудова упаковка для безперечно якісного вина! Витримка, мабуть, дивовижна!"
+  name: Warlock's Velvet bottle
+  description: What a delightful packaging for a surely high quality wine! The vintage must be amazing!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -588,8 +588,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkRumBottleFull
-  name: "кубинський пряний ром капітана Піта"
-  description: "Це не просто ром, о ні. Це практично ГРІФФ у пляшці."
+  name: Captain Pete's Cuban spiced rum
+  description: This isn't just rum, oh no. It's practically GRIFF in a bottle.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -606,8 +606,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkTequilaBottleFull
-  name: "пляшка текіли гарантованої якості Caccavo"
-  description: "Виготовлено з першокласних нафтових дистилятів, чистого талідоміду та інших високоякісних інгредієнтів!"
+  name: Caccavo Guaranteed Quality tequila bottle
+  description: Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -624,8 +624,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkVermouthBottleFull
-  name: "пляшка вермуту Goldeneye"
-  description: "Солодка, солодка сухість!"
+  name: Goldeneye vermouth bottle
+  description: Sweet, sweet dryness!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -642,8 +642,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkVodkaBottleFull
-  name: "пляшка горілки"
-  description: "Горілка. Основний вибір напою та пального для росіян у всьому світі."
+  name: vodka bottle
+  description: Aah, vodka. Prime choice of drink AND fuel by Russians worldwide.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -660,8 +660,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkWhiskeyBottleFull
-  name: "особливий резерв дядька Гіта"
-  description: "Односолодове віскі преміум-класу, що м'яко дозрівало в тунелях ядерного сховища. ТУНЕЛЬНЕ ВІСКІ РУЛИТЬ."
+  name: Uncle Git's Special Reserve
+  description: A premium single-malt whiskey, gently matured inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -678,8 +678,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassBaseFull]
   id: DrinkWineBottleFull
-  name: "пляшка вина \"Особливе Двобороде Бородате"
-  description: "Пляшку оточує ледь помітна аура неспокою та дупоболю."
+  name: Doublebearded Bearded Special wine bottle
+  description: A faint aura of unease and asspainery surrounds the bottle.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -700,8 +700,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkBeerGrowler # Needs to be renamed DrinkBeerBottleFull
-  name: "гроулер пива"  # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
-  description: "Алкогольний напій, виготовлений із солодових зерен, хмелю, дріжджів та води. Пляшка XL."
+  name: beer growler  # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
+  description: An alcoholic beverage made from malted grains, hops, yeast, and water. XL growler bottle.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -724,8 +724,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkAleBottleFullGrowler
-  name: "гроулер Магм-Елю"
-  description: "Напій, якому надає перевагу справжній дворф. Пляшка XL."
+  name: Magm-Ale growler
+  description: A true dorf's drink of choice. XL growler bottle.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -746,8 +746,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
   id: DrinkColaBottleFull
-  name: "пляшка Космічної Коли"
-  description: "Кола. У кооосмосі!"
+  name: Space Cola bottle
+  description: Cola. In spaaace!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -764,8 +764,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
   id: DrinkSpaceMountainWindBottleFull
-  name: "пляшка \"Космічний сонячний вітер"
-  description: "Продуває наскрізь, як сонячний вітер."
+  name: Space Solar Wind bottle
+  description: Blows right through you like a solar wind.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -782,8 +782,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
   id: DrinkSpaceUpBottleFull
-  name: "пляшка Space-Up"
-  description: "На смак як пробоїна в корпусі у вашому роті."
+  name: Space-Up bottle
+  description: Tastes like a hull breach in your mouth.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -800,8 +800,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
   id: DrinkSodaWaterBottleFull
-  name: "пляшка газованої води"
-  description: "Як вода, але сердита!"
+  name: soda water bottle
+  description: Like water, but angry!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -819,8 +819,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
   id: DrinkTonicWaterBottleFull
-  name: "пляшка тонізуючої води"
-  description: "Як газована вода, але, можливо, зліша? Часто солодша."
+  name: tonic water bottle
+  description: Like soda water, but angrier maybe? Often sweeter.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -840,8 +840,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticSmallBaseFull]
   id: DrinkWaterBottleFull
-  name: "пляшка з водою"
-  description: "Проста чиста вода невідомого походження. Ви думаєте, що, можливо, ви не хочете цього знати."
+  name: water bottle
+  description: Simple clean water of unknown origin. You think that maybe you dont want to know it.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -864,8 +864,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassSmallBaseFull]
   id: DrinkBeerBottleFull
-  name: "пляшка пива" # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
-  description: "Алкогольний напій, виготовлений із солодових зерен, хмелю, дріжджів та води."
+  name: beer bottle # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
+  description: An alcoholic beverage made from malted grains, hops, yeast, and water.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -886,8 +886,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassSmallBaseFull]
   id: DrinkAleBottleFull
-  name: "пляшка Магм-Елю"
-  description: "Напій, якому надає перевагу справжній дворф."
+  name: Magm-Ale bottle
+  description: A true dorf's drink of choice.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -905,8 +905,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottleGlassSmallBaseFull]
   id: DrinkSakeBottleFull
-  name: "маленька пляшка саке"
-  description: "Здається, жаль про наступний ранок теж гризе пляшку."
+  name: small sake bottle
+  description: The regret of the next morning seems to be nipping on the bottle too.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -925,8 +925,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkJuiceLimeCartonXL
-  name: "сік лайма XL"
-  description: "Солодко-кисла смакота."
+  name: lime juice XL
+  description: Sweet-sour goodness.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -944,8 +944,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkJuiceOrangeCartonXL
-  name: "апельсиновий сік XL"
-  description: "Повно вітамінів і смакоти!"
+  name: orange juice XL
+  description: Full of vitamins and deliciousness!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -963,8 +963,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkCreamCartonXL
-  name: "вершки XL"
-  description: "Це вершки. Зроблені з молока. А що ще ви думали тут знайти?"
+  name: milk cream XL
+  description: It's cream. Made from milk. What else did you think you'd find in there?
   components:
   - type: SolutionContainerManager
     solutions:
@@ -984,9 +984,9 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkSugarJug
-  name: "глечик з цукром"
+  name: sugar jug
   suffix: For Drinks, Full
-  description: "Деякі люди додають це до своєї кави..."
+  description: Some people put this in their coffee...
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1002,8 +1002,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkLemonLimeJug
-  name: "глечик \"Smite"
-  description: "Подвійна цитрусова сенсація."
+  name: Smite jug
+  description: A dual citrus sensation.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1019,8 +1019,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkMeadJug
-  name: "глечик з медом"
-  description: "Зберігання меду в пластиковому глечику має бути злочином."
+  name: mead jug
+  description: Storing mead in a plastic jug should be a crime.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1036,8 +1036,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkIceJug
-  name: "глечик з льодом"
-  description: "Вперта вода. Досить круто."
+  name: ice jug
+  description: Stubborn water. Pretty cool.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1053,8 +1053,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkCoconutWaterJug
-  name: "колба кокосової води"
-  description: "Цінною є саме внутрішня частина кокосового горіха."
+  name: coconut water jug
+  description: It's on the inside of the coconut that counts.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1070,8 +1070,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkCoffeeJug
-  name: "глечик з кавою"
-  description: "Сік для пробудження, гарячий."
+  name: coffee jug
+  description: Wake up juice, of the heated kind.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1087,8 +1087,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkTeaJug
-  name: "глечик з чаєм"
-  description: "Напій, який обирають британці та хіпстери."
+  name: tea jug
+  description: The drink of choice for the Bri'ish and hipsters.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1104,8 +1104,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkGreenTeaJug
-  name: "глечик з зеленим чаєм"
-  description: "Це як чай... але зелений! чудово заспокоює шлунок."
+  name: green tea jug
+  description: It's like tea... but green! great for settling the stomach.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1121,8 +1121,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkIcedTeaJug
-  name: "глечик з холодним чаєм"
-  description: "Коли звичайний чай для вас занадто гарячий. Невдаха."
+  name: iced tea jug
+  description: For when the regular tea is too hot for you. Boohoo.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1138,8 +1138,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkDrGibbJug
-  name: "глечик \"Dr. Gibb"
-  description: "42 різних смаки... в глечику!"
+  name: Dr. Gibb jug
+  description: 42 different flavours... in a jug!
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1155,8 +1155,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkRootBeerJug
-  name: "глечик з кореневим пивом"
-  description: "Цей напій змушує австралійців хихикати."
+  name: root beer jug
+  description: This drink makes Australians giggle.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1172,8 +1172,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkWaterMelonJuiceJug
-  name: "глечик з кавуновим соком"
-  description: "Може містити залишки насіння."
+  name: watermelon juice jug
+  description: May include leftover seeds.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1189,8 +1189,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkEnergyDrinkJug
-  name: "глечик з енергетиком \"Red Bool"
-  description: "Глечик Red Bool, з достатньою кількістю кофеїну, щоб убити цілу станцію."
+  name: Red Bool jug
+  description: A jug of Red Bool, with enough caffeine to kill a whole station.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -1206,8 +1206,8 @@
 - type: entity
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: CustomDrinkJug
-  name: "колба напоїв"
-  description: "Колба для зберігання напоїв на замовлення."
+  name: beverage jug
+  description: A jug for storing custom made drinks.
   components:
   - type: SolutionContainerManager
     solutions:

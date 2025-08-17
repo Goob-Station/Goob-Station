@@ -13,8 +13,8 @@
 - type: entity
   parent: BaseElectronics
   id: StationMapCircuitboard
-  name: "електроніка карти станції"
-  description: "Електронна плата, що використовується в мапах станцій."
+  name: station map electronics
+  description: An electronics board used in station maps.
   components:
   - type: Item
     storedRotation: 0

@@ -85,10 +85,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: "ручка"
+  name: pen
   parent: BaseItem
   id: Pen
-  description: "Ручка з темним чорнилом."
+  description: A dark ink pen.
   components:
   - type: Sprite
     sprite: Objects/Misc/pens.rsi
@@ -135,10 +135,10 @@
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 
 - type: entity
-  name: "розкішна ручка"
+  name: luxury pen
   parent: Pen
   id: LuxuryPen
-  description: "Модна і дорога ручка, на яку ви заслуговуєте лише в тому випадку, якщо маєте достатню кваліфікацію для роботи з великими обсягами паперової документації."
+  description: A fancy and expensive pen that you only deserve to own if you're qualified to handle vast amounts of paperwork.
   components:
   - type: Sprite
     state: luxury_pen
@@ -175,10 +175,10 @@
         Piercing: 20 # Goobstation - ow
 
 - type: entity
-  name: "Ручка Cybersun"
+  name: Cybersun pen
   parent: [BaseAdvancedPen, BaseSyndicateContraband]
   id: CyberPen
-  description: "Високотехнологічна ручка від юридичного відділу Cybersun, здатна заломлювати тверде світло під неможливими кутами через алмазний наконечник, щоб писати. Настільки потужна, що навіть здатна переписувати офіційні документи з печаткою, якщо виникне така потреба."
+  description: A high-tech pen straight from Cybersun's legal department, capable of refracting hard-light at impossible angles through its diamond tip in order to write. So powerful, it's even able to rewrite officially stamped documents should the need arise.
   components:
   - type: Sprite
     state: overpriced_pen
@@ -188,10 +188,10 @@
     price: 500
 
 - type: entity
-  name: "ручка ЦентКому"
+  name: CentComm pen
   parent: [BaseAdvancedPen, BaseCentcommContraband]
   id: PenCentcom
-  description: "Намагаючись не відставати від \"влади\" кіберсонячної бюрократії, НТ створила копію кібер-ручки у своєму корпоративному стилі."
+  description: In an attempt to keep up with the "power" of the cybersun bureaucracy, NT made a replica of cyber pen, in their corporate style.
   components:
   - type: Sprite
     state: pen_centcom
@@ -199,30 +199,30 @@
     heldPrefix: pen_centcom
 
 - type: entity
-  name: "капітанська авторучка"
+  name: captain's fountain pen
   # Goobstation - Return pen embeddability
   parent: Pen
   id: PenCap
-  description: "Розкішна авторучка для капітана станції."
+  description: A luxurious fountain pen for the captain of the station.
   components:
   - type: Sprite
     state: pen_cap
 
 - type: entity
-  name: "пір'яна ручка Хмеля"
+  name: hop's fountain pen
   # Goobstation - Return pen embeddability
   parent: Pen
   id: PenHop
-  description: "Розкішна авторучка для хмелю станції."
+  description: A luxurious fountain pen for the hop of the station.
   components:
   - type: Sprite
     state: pen_hop
 
 - type: entity
-  name: "чарівна ручка чарівника"
+  name: wizard's magical pen
   parent: [ Pen, BaseMagicalContraband ]
   id: PenWiz
-  description: "Розкішна авторучка. Здається, має чарівну кришталеву гумку."
+  description: A luxurious fountain pen. Seems to have a magical crystal eraser.
   components:
   - type: Sprite
     state: pen_wizard
