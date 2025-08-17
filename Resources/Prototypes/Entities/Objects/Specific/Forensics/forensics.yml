@@ -14,9 +14,9 @@
 
 - type: entity
   id: ForensicPad
-  name: forensic pad
+  name: "блокнот криміналіста"
   parent: BaseItem
-  description: A forensic pad for collecting fingerprints or fibers.
+  description: "Криміналістичний блокнот для збору відбитків пальців або волокон."
   components:
   - type: Item
     size: Tiny

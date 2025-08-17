@@ -29,8 +29,8 @@
 - type: entity
   parent: BaseItem
   id: Holoprojector
-  name: holographic sign projector
-  description: A handy-dandy holographic projector that displays a janitorial sign.
+  name: "голографічний проектор"
+  description: "Зручний голографічний проектор, який відображає знак прибиральника."
   components:
   - type: Item
     storedRotation: -90
@@ -71,8 +71,8 @@
   parent: Holoprojector
   id: HoloprojectorBorg
   suffix: borg
-  name: holosign projector
-  description: A modified holographic sign projector for use in custodial cyborgs. Automatically self-charges.
+  name: "проектор голознаків"
+  description: "Модифікований проектор голографічних знаків для використання в кіборгах-прибиральниках. Автоматично самозаряджається."
   components:
   - type: HolosignProjector
     chargeUse: 240
@@ -87,8 +87,8 @@
 - type: entity
   parent: BaseItem # DeltaV - remove powercell requirement
   id: HolofanProjector
-  name: holofan projector
-  description: Stop suicidal passengers from killing everyone during atmos emergencies.
+  name: "голофазний проектор"
+  description: "Не дайте пасажирам-самогубцям вбити всіх під час надзвичайних ситуацій в атмосфері."
   components:
   - type: ChargeHolosignProjector # DeltaV - different implementation using charges
     signProto: HoloFan
@@ -136,8 +136,8 @@
 - type: entity
   parent: Holoprojector
   id: HoloprojectorField
-  name: force field projector
-  description: Creates an impassable forcefield that won't let anything through. Close proximity may or may not cause cancer.
+  name: "проектор силового поля"
+  description: "Створює непрохідне силове поле, яке нічого не пропускає. Близьке сусідство може викликати, а може і не викликати рак."
   components:
     - type: HolosignProjector
       signProto: HolosignForcefield
@@ -164,8 +164,8 @@
 - type: entity
   parent: Holoprojector
   id: HoloprojectorSecurity
-  name: holobarrier projector
-  description: Creates a solid but fragile holographic barrier.
+  name: "голобар'єрний проектор"
+  description: "Створює міцний, але крихкий голографічний бар'єр."
   components:
     - type: HolosignProjector
       signProto: HolosignSecurity

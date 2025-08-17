@@ -1,8 +1,8 @@
 - type: entity
   parent: Paper
   id: StationGoalPaper
-  name: station goal
-  description: It looks like you have a lot of work to do.
+  name: "мета станції"
+  description: "Схоже, у вас багато роботи."
   components:
     - type: Paper
       stampState: paper_stamp-centcom

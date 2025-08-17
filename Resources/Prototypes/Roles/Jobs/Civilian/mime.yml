@@ -154,8 +154,8 @@
 - type: entity
   parent: BaseAction
   id: ActionMimeInvisibleWall
-  name: Create Invisible Wall
-  description: Create an invisible wall in front of you, if placeable there.
+  name: "Створити невидиму стіну"
+  description: "Створити невидиму стіну перед собою, якщо це можливо."
   components:
   - type: Action
     priority: -1

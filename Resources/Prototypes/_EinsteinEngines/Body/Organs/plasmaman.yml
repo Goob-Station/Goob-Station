@@ -30,8 +30,8 @@
 - type: entity
   id: OrganPlasmamanLungs
   parent: [ BasePlasmamanOrgan, OrganHumanLungs ]
-  name: plasmaman lungs
-  description: The lungs yearn for the plasma. Only plasma gas can satiate these lungs, and oxygen is lethally toxic.
+  name: "легені плазмомена"
+  description: "Легені прагнуть плазми. Тільки плазмовий газ може наситити ці легені, а кисень смертельно токсичний."
   components:
   - type: Sprite
     layers:
@@ -60,8 +60,8 @@
 - type: entity
   id: OrganPlasmamanStomach
   parent: [ BasePlasmamanOrgan, OrganHumanStomach ]
-  name: plasmaman stomach
-  description: Why do plasmamen have stomachs if they don't need to eat?
+  name: "плазматичний шлунок"
+  description: "Навіщо плазмаменам шлунок, якщо їм не потрібно їсти?"
   components:
   - type: Metabolizer
     metabolizerTypes: [ Plasmaman ]
@@ -89,7 +89,7 @@
 - type: entity
   id: OrganPlasmamanEyes
   parent: [ BasePlasmamanOrgan, OrganHumanEyes ]
-  name: plasmaman eyes
+  name: "очі плазмомена"
   components:
   - type: Sprite
     layers:
@@ -98,7 +98,7 @@
 - type: entity
   id: OrganPlasmamanLiver
   parent: [ BasePlasmamanOrgan, OrganHumanLiver ]
-  name: plasmaman liver
+  name: "плазмаман печінки"
   components:
   - type: Metabolizer
     metabolizerTypes: [ Plasmaman ]
@@ -106,12 +106,12 @@
 - type: entity
   id: OrganPlasmamanTongue
   parent: [ BasePlasmamanOrgan, OrganHumanTongue ]
-  name: plasmaman tongue
+  name: "плазматичний язик"
 
 - type: entity
   id: OrganPlasmamanKidneys
   parent: [ BasePlasmamanOrgan, OrganHumanKidneys ]
-  name: plasmaman kidneys
+  name: "нирки плазмаман"
   components:
   - type: Sprite
     layers:
@@ -122,8 +122,8 @@
 - type: entity
   id: OrganPlasmamanHeart
   parent: [ BasePlasmamanOrgan, OrganHumanHeart ]
-  name: plasmaman heart
-  description: It pulses with plasma even outside the body.
+  name: "плазматичне серце"
+  description: "Він пульсує плазмою навіть поза тілом."
   components:
   - type: Metabolizer
     metabolizerTypes: [ Plasmaman ]
@@ -131,7 +131,7 @@
 - type: entity
   id: OrganPlasmamanBrain
   parent: [ BasePlasmamanOrgan, OrganHumanBrain ]
-  name: plasmaman brain
+  name: "плазматичний мозок"
   components:
   - type: SolutionContainerManager
     solutions:

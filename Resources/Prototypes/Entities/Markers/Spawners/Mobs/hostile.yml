@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnClownSpider
-  name: clown spider spawner
+  name: "нерест павука-клоуна"
   components:
   - type: Sprite
     layers:
@@ -15,7 +15,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobBear
-  name: Space Bear Spawner
+  name: "Спавнер Космічного Ведмедя"
   components:
   - type: Sprite
     layers:
@@ -29,7 +29,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobBehonker
-  name: behonker Spawner
+  name: "спавнер Біхонкера"
   components:
   - type: Sprite
     layers:
@@ -46,7 +46,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobBoxingKangaroo
-  name: Boxing Kangaroo Spawner
+  name: "Спавнер Боксерського Кенгуру"
   suffix: Hostile
   components:
   - type: Sprite
@@ -61,7 +61,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobHellspawn
-  name: Hellspawn Spawner
+  name: "Спавнер Пекельного Відроддя"
   components:
   - type: Sprite
     layers:
@@ -75,7 +75,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobKangaroo
-  name: Space Kangaroo Spawner
+  name: "Спавнер Космічних Кенгуру"
   components:
   - type: Sprite
     layers:
@@ -89,7 +89,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobLuminousEntity
-  name: luminous entity spawner
+  name: "спавнер ентіті, що світяться"
   components:
   - type: Sprite
     layers:
@@ -103,7 +103,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobLuminousObject
-  name: luminous object spawner
+  name: "спавнер об'єктів, що світяться"
   components:
   - type: Sprite
     layers:
@@ -117,7 +117,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobLuminousPerson
-  name: luminous person spawner
+  name: "спавнер людини, що світиться"
   components:
   - type: Sprite
     layers:
@@ -131,7 +131,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobOreCrab
-  name: ore crab spawner
+  name: "спавнер рудного краба"
   components:
   - type: Sprite
     layers:
@@ -151,7 +151,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobPurpleSnake
-  name: Purple Snake Spawner
+  name: "Спавнер Пурпурної Змії"
   components:
   - type: Sprite
     layers:
@@ -165,7 +165,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobSmallPurpleSnake
-  name: Small Purple Snake Spawner
+  name: "Спавнер Малої Пурпурної Змії"
   components:
   - type: Sprite
     layers:
@@ -179,7 +179,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobSpaceCobra
-  name: Space Cobra Spawner
+  name: "Спавнер Космічної Кобри"
   components:
   - type: Sprite
     layers:
@@ -193,7 +193,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobSpaceSpider
-  name: Space Spider Spawner
+  name: "Спавнер Космічного Павука"
   components:
   - type: Sprite
     layers:
@@ -207,7 +207,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobWatcherIcewing
-  name: Watcher Icewing Spawner
+  name: "Спавнер Крижаного Спостерігача"
   components:
   - type: Sprite
     layers:
@@ -223,7 +223,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobWatcherLavaland
-  name: Watcher Lavaland Spawner
+  name: "Спавнер Лавового Спостерігача"
   components:
   - type: Sprite
     layers:
@@ -239,7 +239,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobWatcherMagmawing
-  name: Watcher Magmawing Spawner
+  name: "Спавнер Магмового Спостерігача"
   components:
   - type: Sprite
     layers:
@@ -255,7 +255,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobWatcherPride
-  name: Watcher Pride Spawner
+  name: "Спавнер Гордого Спостерігача"
   components:
   - type: Sprite
     layers:

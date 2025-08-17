@@ -1,6 +1,6 @@
 - type: body
   id: Lepidodent
-  name: "lepidodent"
+  name: "лепідодент"
   root: torso
   slots:
     torso:

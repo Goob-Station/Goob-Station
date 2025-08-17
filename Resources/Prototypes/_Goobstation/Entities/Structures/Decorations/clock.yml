@@ -6,8 +6,8 @@
 - type: entity
   id: Clock
   parent: BaseStructure
-  name: wall clock
-  description: Would you look at the time!
+  name: "настінний годинник"
+  description: "Погляньте на час!"
   placement:
     mode: SnapgridCenter
   components:

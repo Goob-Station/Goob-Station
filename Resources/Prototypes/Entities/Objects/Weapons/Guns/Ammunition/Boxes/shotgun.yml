@@ -62,7 +62,7 @@
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BoxBeanbag
-  name: ammunition box (12 Gauge beanbag) # Goob edit
+  name: "коробка з патронами (12 калібр, з мішечками)" # Goob edit
   components:
     - type: BallisticAmmoProvider
       proto: ShellShotgunBeanbag
@@ -75,7 +75,7 @@
       - state: beanbag
 
 - type: entity
-  name: ammunition box (12 Gauge pellet) # Goob edit
+  name: "коробка з патронами (12 калібр, картеч)" # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxLethalshot
   components:
@@ -90,7 +90,7 @@
       - state: lethal
 
 - type: entity
-  name: ammunition box (12 Gauge slug) # Goob edit
+  name: "коробка з патронами (12 калібр, куля)" # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunSlug
   components:
@@ -109,7 +109,7 @@
       - state: slug
 
 - type: entity
-  name: ammunition box (12 Gauge flare) # Goob edit
+  name: "коробка з патронами (12 калібр, сигнальна ракета)" # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunFlare
   components:
@@ -124,7 +124,7 @@
       - state: flare
 
 - type: entity
-  name: ammunition box (12 Gauge incendiary) # Goob edit
+  name: "коробка з патронами (12 калібр, запалювальні)" # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunIncendiary
   components:
@@ -139,7 +139,7 @@
       - state: incendiary
 
 - type: entity
-  name: ammunition box (12 Gauge uranium) # Goob edit
+  name: "коробка з патронами (12 калібр, уранові)" # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunUranium
   components:
@@ -158,7 +158,7 @@
       - state: uranium
 
 - type: entity
-  name: ammunition box (12 Gauge practice) # Goob edit
+  name: "коробка з патронами (12 калібр, тренувальні)" # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShotgunPractice
   components:
@@ -173,7 +173,7 @@
       - state: practice
 
 - type: entity
-  name: ammunition box (12 Gauge tranquilizer) # Goob edit
+  name: "коробка з патронами (12 калібр, транквілізатор)" # Goob edit
   parent: AmmoProviderShotgunShell
   id: BoxShellTranquilizer
   components:

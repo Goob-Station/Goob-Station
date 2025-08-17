@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitAdminAssistant
-  name: administrative assistant's jumpsuit
-  description: A suit worn by the Administrative Assistant. Smells of burnt coffee.
+  name: "комбінезон адміністративного асистента"
+  description: "Костюм, який носить адміністративний асистент. Пахне горілою кавою."
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpsuit/admin_assistant.rsi
@@ -12,8 +12,8 @@
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitCadet
-  name: футболка кадета
-  description: Футболка зроблена з міцної тканини, використовується кадетами Служби Безпеки
+  name: "футболка кадета"
+  description: "Футболка зроблена з міцної тканини, використовується кадетами Служби Безпеки"
   components:
   - type: Sprite
     sprite: _Pirate/Clothing/Uniforms/Jumpsuit/security_cadet.rsi

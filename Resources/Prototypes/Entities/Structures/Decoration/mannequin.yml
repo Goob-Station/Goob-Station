@@ -70,8 +70,8 @@
 - type: entity
   id: Mannequin
   parent: [BaseStructureDynamic, StripableInventoryBase]
-  name: mannequin
-  description: It can wear any clothing with style.
+  name: "манекен"
+  description: "Він може носити будь-який одяг зі стилем."
   components:
   - type: Appearance
   - type: Sprite

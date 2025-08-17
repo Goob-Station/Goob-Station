@@ -45,10 +45,10 @@
     - GunCanAimShooter
 
 - type: entity
-  name: syringe gun
+  name: "шприцемет"
   parent: [ BaseSyringeGun, BaseMedicalContraband ]
   id: SyringeGun
-  description: A gun that allows you to fire syringes to slowly inject their contents on a target.
+  description: "Зброя, що дозволяє стріляти шприцами для повільного введення їх вмісту в ціль."
   components:
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
@@ -58,10 +58,10 @@
     quickEquip: false
 
 - type: entity
-  name: rapid syringe gun
+  name: "швидкісний шприцемет"
   parent: [ BaseSyringeGun, BaseGrandTheftContraband ]
   id: RapidSyringeGun
-  description: A finely-tuned syringe gun featuring a faster fire rate and more room for ammo, made for the most experienced medical officers.
+  description: "Тонко налаштований шприцемет з вищою скорострільністю та більшим боєзапасом, створений для найдосвідченіших медичних офіцерів."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
@@ -90,10 +90,10 @@
     - GunCanAimShooter
 
 - type: entity
-  name: syringe pistol
+  name: "шприц-пістолет"
   parent: [ BaseSyringeGun, BaseSyndicateContraband ]
   id: SyringePistol
-  description: An illegally modified syringe gun that pierces the skin better and can fit in pockets.
+  description: "Незаконно модифікований шприц-пістолет, який краще проколює шкіру і може поміститися в кишені."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi

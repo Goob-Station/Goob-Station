@@ -14,8 +14,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingUnderSocksBee
-  name: bee socks
-  description: Make them loins buzz!
+  name: "бджолині шкарпетки"
+  description: "Змусьте їхні стегна дзижчати!"
   components:
   - type: Sprite
     sprite: Clothing/Under/Socks/bee.rsi
@@ -25,8 +25,8 @@
 - type: entity
   parent: ClothingShoesBase
   id: ClothingUnderSocksCoder
-  name: coder socks
-  description: It's time to code sisters!!11!
+  name: "шкарпетки для кодерів"
+  description: "Час кодити, сестри!!! 11!"
   components:
   - type: Sprite
     sprite: Clothing/Under/Socks/coder.rsi

@@ -6,6 +6,6 @@
 
 - type: entity
   save: false
-  name: Urist McPotassium
+  name: "Уріст Маккалій"
   parent: BaseMobBananaMen
   id: MobBananaMen

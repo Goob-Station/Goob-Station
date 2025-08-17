@@ -17,8 +17,8 @@
   abstract: true
   parent: BaseItem
   id: ShardCrystalBase
-  name: crystal shard
-  description:  A small piece of crystal.
+  name: "уламок кришталю"
+  description: "Маленький шматочок кришталю."
   components:
   - type: Sharp
   - type: Execution
@@ -58,8 +58,8 @@
 - type: entity
   parent: ShardCrystalBase
   id: ShardCrystalCyan
-  name: cyan crystal shard
-  description: A small piece of crystal.
+  name: "уламок блакитного кришталю"
+  description: "Маленький шматочок кришталю."
   components:
   - type: Sprite
     color: "#47f8ff"
@@ -74,7 +74,7 @@
 
 - type: entity
   parent: ShardCrystalBase
-  name: blue crystal shard
+  name: "уламок синього кришталю"
   id: ShardCrystalBlue
   components:
   - type: Sprite
@@ -90,7 +90,7 @@
 
 - type: entity
   parent: ShardCrystalBase
-  name: yellow crystal shard
+  name: "жовтий кришталевий уламок"
   id: ShardCrystalYellow
   components:
   - type: Sprite
@@ -107,7 +107,7 @@
 - type: entity
   parent: ShardCrystalBase
   id: ShardCrystalOrange
-  name: orange crystal shard
+  name: "уламок помаранчевого кришталю"
   components:
   - type: Sprite
     color: "#ff8227"
@@ -122,7 +122,7 @@
 
 - type: entity
   parent: ShardCrystalBase
-  name: black crystal shard
+  name: "чорний кришталевий уламок"
   id: ShardCrystalBlack
   components:
   - type: Sprite
@@ -139,7 +139,7 @@
 - type: entity
   parent: ShardCrystalBase
   id: ShardCrystalPink
-  name: pink crystal shard
+  name: "уламок рожевого кришталю"
   components:
   - type: Sprite
     color: "#ff66cc"
@@ -155,7 +155,7 @@
 - type: entity
   parent: ShardCrystalBase
   id: ShardCrystalGreen
-  name: green crystal shard
+  name: "уламок зеленого кришталю"
   components:
   - type: Sprite
     color: "#52ff39"
@@ -171,7 +171,7 @@
 - type: entity
   parent: ShardCrystalBase
   id: ShardCrystalRed
-  name: red crystal shard
+  name: "уламок червоного кришталю"
   components:
   - type: Sprite
     color: "#fb4747"
@@ -187,7 +187,7 @@
 - type: entity
   parent: ShardCrystalBase
   id: ShardCrystalRandom
-  name: random crystal shard
+  name: "випадковий кришталевий осколок"
   components:
   - type: RandomSpawner
     prototypes:

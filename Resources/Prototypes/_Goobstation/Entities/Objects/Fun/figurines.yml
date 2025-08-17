@@ -7,8 +7,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineDevil
-  name: demon figure
-  description: A figurine depicting a Demon sporting a freshly tailored suit.
+  name: "фігурка демона"
+  description: "Фігурка, що зображує Демона у свіжопошитому костюмі."
   components:
   - type: Sprite
     state: lawyer
@@ -18,8 +18,8 @@
 - type: entity
   parent: BaseFigurine
   id: ToyFigurineBrigmedic
-  name: brigmedic figurine
-  description: A figurine depicting a Brigmedic holding a combat medkit, poised to pois... treat prisoners.
+  name: "фігурка бригмедика"
+  description: "Фігурка, що зображує Бригмедика з бойовою аптечкою, готового отруї... лікувати в'язнів."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/figurines.rsi

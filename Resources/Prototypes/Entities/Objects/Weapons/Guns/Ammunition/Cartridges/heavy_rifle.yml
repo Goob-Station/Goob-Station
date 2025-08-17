@@ -28,7 +28,7 @@
 
 - type: entity
   id: BaseCartridgeHeavyRifle
-  name: cartridge (.20 rifle)
+  name: "патрон (гвинтівка .20)"
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -50,7 +50,7 @@
 
 - type: entity
   id: CartridgeMinigun
-  name: cartridge (.10 rifle)
+  name: "патрон (гвинтівка .10)"
   parent: BaseCartridgeHeavyRifle
   components:
   - type: CartridgeAmmo

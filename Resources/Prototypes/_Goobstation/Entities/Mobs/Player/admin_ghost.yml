@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: ActionAGhostShowStationMap
-  name: Station Map Interface
-  description: View a Station Map Interface.
+  name: "Інтерфейс карти станції"
+  description: "Переглянути інтерфейс карти станції."
   components:
   - type: Action
     # TODO: Make a sprite for the station map interface.

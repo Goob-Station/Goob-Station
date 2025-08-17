@@ -89,8 +89,8 @@
 
 - type: entity
   id: ProjectileFireball
-  name: fireball
-  description: You better GITTAH WEIGH.
+  name: "вогняна куля"
+  description: "Тобі краще зважитися."
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -138,8 +138,8 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   id: ProjectileDragonsBreath
-  name: dragon's breath
-  description: Try not to get toasted.
+  name: "дихання дракона"
+  description: "Намагайтеся не підсмажитися."
   components:
   - type: PointLight
     color: "#E25822"
@@ -171,8 +171,8 @@
 
 - type: entity
   id: ProjectileAnomalyFireball
-  name: fireball
-  description: Hovering blob of flame.
+  name: "вогняна куля"
+  description: "Згусток полум'я, що висить у повітрі."
   parent: ProjectileFireball
   categories: [ HideSpawnMenu ]
   components:
@@ -189,8 +189,8 @@
 
 - type: entity
   id: ProjectileLocker
-  name: cursed locker
-  description: A cursed magical locker! Can you resist?
+  name: "проклята шафка"
+  description: "Проклята магічна шафка! Зможеш встояти?"
   parent: ClosetSteelBase
   categories: [ HideSpawnMenu ]
   components:
@@ -305,8 +305,8 @@
 - type: entity
   id: ProjectilePolyboltCarp
   parent: ProjectilePolyboltBase
-  name: carp polybolt
-  description: Nooo, I don't wanna be fish!
+  name: "короповий поліболт"
+  description: "Ні, я не хочу бути рибою!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective
@@ -321,8 +321,8 @@
 - type: entity
   id: ProjectilePolyboltMonkey
   parent: ProjectilePolyboltBase
-  name: monkey polybolt
-  description: Nooo, I don't wanna be monkey!
+  name: "мавпячий поліболт"
+  description: "Ні, я не хочу бути мавпою!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective
@@ -337,8 +337,8 @@
 - type: entity
   id: ProjectilePolyboltDoor
   parent: ProjectilePolyboltBase
-  name: door polybolt
-  description: Nooo, I don't wanna be door!
+  name: "дверний засув"
+  description: "Ні, я не хочу бути дверима!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -360,8 +360,8 @@
 
 - type: entity
   id: ProjectileHealingBolt
-  name: healing bolt
-  description: I COMMAND YOU TO LIVE!
+  name: "цілющий болт"
+  description: "Я НАКАЗУЮ ТОБІ ЖИТИ!"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -399,10 +399,10 @@
 
 - type: entity
   id: BulletInstakillMagic
-  name: magical lead cylinder
+  name: "магічний свинцевий циліндр"
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
-  description: This looks familiar.
+  description: "Виглядає знайомо."
   components:
   - type: Projectile
     damage:
@@ -415,8 +415,8 @@
 - type: entity
   id: ProjectilePolyboltCluwne
   parent: ProjectilePolyboltBase
-  name: cluwne polybolt
-  description: KnoH KnoH!
+  name: "клоунський поліболт"
+  description: "Тук-тук!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective
@@ -431,8 +431,8 @@
 - type: entity
   id: ProjectileIcicle
   parent: BaseBullet
-  name: icicle
-  description: Brrrrr.
+  name: "бурулька"
+  description: "Брррр."
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective
@@ -449,8 +449,8 @@
 - type: entity
   parent: ProjectilePolyboltBase
   id: ProjectilePolyboltBread
-  name: bread polybolt
-  description: Nooo, I don't wanna be bread!
+  name: "хлібний поліболт"
+  description: "Ні, я не хочу бути хлібом!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective

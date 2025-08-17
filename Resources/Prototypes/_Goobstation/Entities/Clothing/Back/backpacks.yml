@@ -11,8 +11,8 @@
 - type: entity
   parent: [ BaseCentcommContraband , ClothingBackpack ]
   id: ClothingBackpackCentcomm
-  name: centcomm backpack
-  description: A luxurious backpack, smells like money.
+  name: "рюкзак центкому"
+  description: "Розкішний рюкзак, пахне грошима."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/centcom.rsi
@@ -20,8 +20,8 @@
 - type: entity
   parent: [ClothingBackpack, BaseCentcommContraband]
   id: ClothingBackpackBlueshield
-  name: blueshield backpack
-  description: A very protective backpack, smells like energy gun.
+  name: "рюкзак blueshield"
+  description: "Не їстівне, нажаль..."
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/blueshield.rsi

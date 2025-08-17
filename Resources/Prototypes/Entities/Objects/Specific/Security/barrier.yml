@@ -20,9 +20,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: deployable barrier
+  name: "розкладний бар'єр"
   id: DeployableBarrier
-  description: A deployable barrier. Swipe your ID card to lock/unlock it.
+  description: "бар'єр, що розгортається. Проведіть посвідченням особи, щоб заблокувати/розблокувати його."
   parent: BaseStructure
   components:
   - type: Transform

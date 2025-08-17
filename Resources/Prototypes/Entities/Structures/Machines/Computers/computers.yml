@@ -204,8 +204,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerAlert
-  name: atmospheric alerts computer
-  description: Used to access the station's atmospheric automated alert system.
+  name: "комп'ютер атмосферних сповіщень"
+  description: "Використовується для доступу до автоматизованої системи атмосферних сповіщень станції."
   components:
   - type: Computer
     board: AlertsComputerCircuitboard
@@ -259,8 +259,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerAtmosMonitoring
-  name: atmospheric network monitor
-  description: Used to monitor the station's atmospheric networks.
+  name: "монітор атмосферної мережі"
+  description: "Використовується для моніторингу атмосферних мереж станції."
   components:
   - type: Computer
     board: AtmosMonitoringComputerCircuitboard
@@ -296,8 +296,8 @@
 - type: entity
   parent: BaseComputer
   id: ComputerEmergencyShuttle
-  name: emergency shuttle console
-  description: Handles authorization to early launch the shuttle.
+  name: "консоль аварійного шатлу"
+  description: "Забезпечує дозвіл на достроковий запуск шатла."
   components:
   - type: AccessReader
     access:
@@ -330,8 +330,8 @@
 - type: entity
   parent: BaseComputer
   id: BaseComputerShuttle
-  name: shuttle console
-  description: Used to pilot a shuttle.
+  name: "консоль шатлу"
+  description: "Був пілотом шатла."
   abstract: true
   components:
   - type: ShuttleConsole
@@ -373,8 +373,8 @@
 - type: entity
   parent: BaseComputerShuttle
   id: ComputerShuttle
-  name: shuttle console
-  description: Used to pilot a shuttle.
+  name: "консоль шатлу"
+  description: "Був пілотом шатла."
   components:
   - type: Sprite
     layers:
@@ -394,8 +394,8 @@
 - type: entity
   parent: BaseComputerShuttle
   id: ComputerShuttleSyndie
-  name: syndicate shuttle console
-  description: Used to pilot a syndicate shuttle.
+  name: "консоль синдикатського шатлу"
+  description: "Використовувався для пілотування шатлу синдикату."
   components:
   - type: Sprite
     layers:
@@ -426,8 +426,8 @@
 - type: entity
   parent: BaseComputerShuttle
   id: ComputerShuttleCargo
-  name: cargo shuttle console
-  description: Used to pilot the cargo shuttle.
+  name: "консоль вантажного шатлу"
+  description: "Використовувався для пілотування вантажного шатлу."
   components:
   - type: Sprite
     layers:
@@ -458,8 +458,8 @@
 - type: entity
   parent: BaseComputerShuttle
   id: ComputerShuttleSalvage
-  name: salvage shuttle console
-  description: Used to pilot the salvage shuttle.
+  name: "консоль утилізаторського шатлу"
+  description: "Використовується для пілотування шатлу утилізаторів."
   components:
     - type: Sprite
       layers:
@@ -488,8 +488,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerIFF
-  name: IFF computer
-  description: Allows you to control the IFF characteristics of this vessel.
+  name: "консоль IFF"
+  description: "Дозволяє контролювати IFF-характеристики цього судна."
   components:
   - type: IFFConsole
   - type: Sprite
@@ -519,9 +519,9 @@
 - type: entity
   parent: ComputerIFF
   id: ComputerIFFSyndicate
-  name: IFF computer
+  name: "консоль IFF"
   suffix: Syndicate
-  description: Allows you to control the IFF and stealth characteristics of this vessel.
+  description: "Дозволяє контролювати IFF і стелс-характеристики цього судна."
   components:
   - type: IFFConsole
     allowedFlags:
@@ -541,8 +541,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerPowerMonitoring
-  name: power monitoring computer
-  description: It monitors power levels across the station.
+  name: "консоль для моніторингу енергоспоживання"
+  description: "Він контролює рівень потужності на всій станції."
   components:
   - type: Sprite
     layers:
@@ -583,8 +583,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerMedicalRecords
-  name: medical records computer
-  description: This can be used to check medical records.
+  name: "консоль медичної документації"
+  description: "Це може бути використано для перевірки медичної документації."
   components:
   - type: Sprite
     layers:
@@ -608,8 +608,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerCriminalRecords
-  name: criminal records computer
-  description: This can be used to check criminal records. Only security can modify them.
+  name: "консольна база даних судимостей"
+  description: "Це може бути використано для перевірки судимостей. Змінювати їх може лише служба безпеки."
   components:
   - type: CriminalRecordsConsole
   - type: UserInterface
@@ -647,8 +647,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerStationRecords
-  name: station records computer
-  description: This can be used to check station records.
+  name: "консоль для записів станції"
+  description: "Це може бути використано для перевірки записів станції."
   components:
   - type: GeneralStationRecordConsole
   - type: UserInterface
@@ -672,8 +672,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerCrewMonitoring
-  name: crew monitoring console
-  description: Used to monitor active health sensors built into most of the crew's uniforms.
+  name: "консоль моніторингу екіпажу"
+  description: "Використовується для моніторингу активних датчиків здоров'я, вбудованих у більшість уніформи екіпажу."
   components:
   - type: Sprite
     layers:
@@ -711,8 +711,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerResearchAndDevelopment
-  name: R&D computer
-  description: A computer used to interface with R&D tools.
+  name: "консоль для досліджень і розробок"
+  description: "Комп'ютер, що використовується для взаємодії з інструментами R&D."
   components:
   - type: Sprite
     layers:
@@ -759,8 +759,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerAnalysisConsole
-  name: analysis console
-  description: A computer used to interface with the artifact analyzer.
+  name: "консоль аналізу"
+  description: "Комп'ютер, що використовується для взаємодії з аналізатором артефактів."
   components:
   - type: Sprite
     layers:
@@ -808,8 +808,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerId
-  name: ID card computer
-  description: Terminal for programming Nanotrasen employee ID cards to access parts of the station.
+  name: "консоль ID карток"
+  description: "Термінал для програмування ідентифікаційних карток співробітників Nanotrasen для доступу до частин станції."
   components:
   - type: IdCardConsole
     privilegedIdSlot:
@@ -874,8 +874,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: computerBodyScanner
-  name: body scanner computer
-  description: A body scanner.
+  name: "консоль сканера тіла"
+  description: "Сканер тіла."
   components:
   - type: ApcPowerReceiver
     powerLoad: 500
@@ -889,8 +889,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerComms
-  name: communications computer
-  description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
+  name: "консоль комунікації"
+  description: "Комп'ютер, за допомогою якого з клавіатури робилися загальностанційні оголошення, встановлювався відповідний рівень тривоги і викликався аварійний шаттл."
   components:
   - type: Sprite
     layers:
@@ -931,8 +931,8 @@
 - type: entity
   parent: ComputerComms
   id: SyndicateComputerComms
-  name: syndicate communications computer
-  description: A computer capable of remotely hacking into the station's communications systems. Using this to make an announcement will alert the station to your presence.
+  name: "консоль зв'язку синдикату"
+  description: "Комп'ютер, здатний віддалено зламати комунікаційні системи станції. Використання його для оголошення сповістить станцію про вашу присутність."
   components:
   - type: Sprite
     layers:
@@ -965,8 +965,8 @@
 - type: entity
   parent: ComputerComms
   id: CentcommComputerComms
-  name: central command communications computer
-  description: A computer used to make world wide announcements via keyboard. The superior cousin of the regular communications computer.
+  name: "комунікаційний комп'ютер центрального командування"
+  description: "Комп'ютер, що використовується для оголошень на весь світ за допомогою клавіатури. Вищий родич звичайного комунікаційного комп'ютера."
   components:
   - type: Sprite
     layers:
@@ -997,8 +997,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerSolarControl
-  name: solar control computer
-  description: A controller for solar panel arrays.
+  name: "консоль управління сонячною енергією"
+  description: "Контролер для масивів сонячних панелей."
   components:
   - type: Sprite
     layers:
@@ -1038,8 +1038,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerRadar
-  name: mass scanner computer
-  description: A computer for detecting nearby bodies, displaying them by position and mass.
+  name: "консоль сканування тіл"
+  description: "Комп'ютер для виявлення тіл, що знаходяться поблизу, з відображенням їх за положенням і масою."
   components:
   - type: Sprite
     layers:
@@ -1072,8 +1072,8 @@
 - type: entity
   id: ComputerCargoOrders
   parent: BaseComputerAiAccess
-  name: cargo request computer
-  description: Used to order supplies and approve requests.
+  name: "консоль запитів на вантаж"
+  description: "Використовується для замовлення матеріалів та затвердження запитів."
   components:
   - type: Sprite
     layers:
@@ -1125,8 +1125,8 @@
 - type: entity
   id: ComputerCargoOrdersEngineering
   parent: ComputerCargoOrders
-  name: engineering request computer
-  description: Used by the engineering department to order supplies.
+  name: "комп'ютер інженерних замовлень"
+  description: "Використовується інженерним відділом для замовлення припасів."
   components:
   - type: Sprite
     layers:
@@ -1158,8 +1158,8 @@
 - type: entity
   id: ComputerCargoOrdersMedical
   parent: ComputerCargoOrders
-  name: medical request computer
-  description: Used by the medical department to order supplies.
+  name: "комп'ютер медичних замовлень"
+  description: "Використовується медичним відділом для замовлення припасів."
   components:
   - type: Sprite
     layers:
@@ -1191,8 +1191,8 @@
 - type: entity
   id: ComputerCargoOrdersScience
   parent: ComputerCargoOrders
-  name: science request computer
-  description: Used by the science department to order supplies.
+  name: "комп'ютер наукових замовлень"
+  description: "Використовується науковим відділом для замовлення припасів."
   components:
   - type: Sprite
     layers:
@@ -1224,8 +1224,8 @@
 - type: entity
   id: ComputerCargoOrdersSecurity
   parent: ComputerCargoOrders
-  name: security request computer
-  description: Used by the security department to order supplies.
+  name: "комп'ютер замовлень служби безпеки"
+  description: "Використовується службою безпеки для замовлення припасів."
   components:
   - type: Sprite
     layers:
@@ -1257,8 +1257,8 @@
 - type: entity
   id: ComputerCargoOrdersService
   parent: ComputerCargoOrders
-  name: service request computer
-  description: Used by the service department to order supplies.
+  name: "комп'ютер замовлень обслуговування"
+  description: "Використовується відділом обслуговування для замовлення припасів."
   components:
   - type: Sprite
     layers:
@@ -1290,8 +1290,8 @@
 - type: entity
   id: ComputerCargoBounty
   parent: BaseComputerAiAccess
-  name: cargo bounty computer
-  description: Used to manage currently active bounties.
+  name: "консоль завдань на вантаж"
+  description: "Використовується для керування поточними активними завданнями з ЦК."
   components:
   - type: Sprite
     layers:
@@ -1330,8 +1330,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerFundingAllocation
-  name: funding allocation computer
-  description: Terminal for controlling the distribution of funds and pay to departments.
+  name: "комп'ютер розподілу фінансування"
+  description: "Термінал для контролю за розподілом коштів та зарплат по відділах."
   components:
   - type: Sprite
     layers:
@@ -1367,8 +1367,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerCloningConsole
-  name: cloning console computer
-  description: The centerpiece of the cloning system, medicine's greatest accomplishment. It has lots of ports and wires.
+  name: "консоль консолі клонування"
+  description: "Центральний елемент системи клонування, найбільше досягнення медицини. Він має багато портів і дротів."
   components:
   - type: CloningConsole
   - type: DeviceList
@@ -1420,8 +1420,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerSalvageJobBoard
-  name: salvage job board
-  description: Console for accessing salvage jobs, if you're tough enough.
+  name: "дошка замовлень на утилізацію"
+  description: "Консоль для доступу до замовлень на утилізацію, якщо ви достатньо круті."
   components:
   - type: Sprite
     layers:
@@ -1456,8 +1456,8 @@
 - type: entity
   id: ComputerSalvageExpedition
   parent: BaseComputerAiAccess
-  name: salvage expeditions computer
-  description: Used to accept salvage missions, if you're tough enough.
+  name: "консоль утилізаторських експедицій"
+  description: "Використовуйте для утилізаторських експедицій, якщо ви достатньо витривалі."
   components:
     - type: Sprite
       layers:
@@ -1509,8 +1509,8 @@
 - type: entity
   parent: BaseComputer
   id: ComputerSurveillanceCameraMonitor
-  name: camera monitor
-  description: A surveillance camera monitor. You're watching them. Maybe.
+  name: "монітор камер спостереження"
+  description: "Монітор камери спостереження. Ти стежиш за ними. Можливо."
   components:
   - type: Sprite
     layers:
@@ -1548,8 +1548,8 @@
 - type: entity
   parent: BaseComputer
   id: ComputerSurveillanceWirelessCameraMonitor
-  name: wireless camera monitor
-  description: A wireless surveillance camera monitor. You're watching them. Maybe.
+  name: "монітор бездротових камер спостереження"
+  description: "Монітор бездротових камер спостереження. Ти стежиш за ними. Можливо."
   components:
   - type: Sprite
     layers:
@@ -1589,8 +1589,8 @@
 - type: entity
   id: ComputerPalletConsole
   parent: BaseComputerAiAccess
-  name: cargo sale computer
-  description: Used to sell goods loaded onto cargo pallets.
+  name: "комп'ютер для продажу з піддонів"
+  description: "Використовується для продажу товарів, завантажених на вантажні піддони."
   components:
   - type: Sprite
     layers:
@@ -1629,8 +1629,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerMassMedia
-  name: news manager console
-  description: Write your message to the world!
+  name: "консоль менеджменту новин"
+  description: "Напишіть своє послання світу!"
   components:
   - type: Sprite
     layers:
@@ -1665,8 +1665,8 @@
 - type: entity
   parent: BaseComputer
   id: ComputerSensorMonitoring
-  name: sensor monitoring computer
-  description: A flexible console for monitoring all kinds of sensors.
+  name: "консоль моніторингу датчиків"
+  description: "Гнучка консоль для моніторингу всіх видів датчиків."
   # Putting this as "DO NOT MAP" until the performance issues are fixed.
   # And it's more fleshed out.
   suffix: TESTING, DO NOT MAP
@@ -1713,8 +1713,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerRoboticsControl
-  name: robotics control console
-  description: Used to remotely monitor, disable and destroy the station's cyborgs.
+  name: "консоль управління робототехнікою"
+  description: "Використовується для дистанційного моніторингу, виведення з ладу та знищення кіборгів станції."
   components:
   - type: Sprite
     layers:
@@ -1756,8 +1756,8 @@
 - type: entity
   id: StationAiUploadComputer
   parent: BaseComputer
-  name: AI upload console
-  description: Used to update the laws of the station AI.
+  name: "Консоль завантаження ШІ"
+  description: "Використовується для оновлення законів станції ШІ."
   components:
   - type: Sprite
     layers:

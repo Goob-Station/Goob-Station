@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: station warrant
+  name: "ордер на арешт"
   parent: Paper
   id: PaperStationWarrant
-  description: 'A paper warrant issued by the justice department.'
+  description: "Паперовий ордер, виданий відділом правосуддя."
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
@@ -33,11 +33,11 @@
 - type: entity
   parent: PaperStationWarrant
   id: PaperFugitiveReport
-  name: fugitive report
-  description: An arrest warrant for a space fugitive sent from GALPOL.
+  name: "звіт про втікача"
+  description: "Ордер на арешт космічного втікача, надісланий з ГАЛПОЛу."
 
 - type: entity
   parent: Paper
   id: TapeRecorderTranscript
-  name: record transcript
+  name: "стенограма запису"
   # TODO: could have a unique sprite in the future

@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: Oracle
-  name: Oracle
-  description: She asks for items in exchange for knowledge. No one knows how she works.
+  name: "Оракул"
+  description: "Вона просить речі в обмін на знання. Ніхто не знає, як вона працює."
   components:
   - type: Sprite
     noRot: true

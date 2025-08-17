@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRetractableItemArmBlade
-  name: Arm Blade
-  description: Shed your flesh and reform it into a fleshy blade.
+  name: "Лезо-рука"
+  description: "Скиньте свою плоть і перетворіть її на м'ясисте лезо."
   components:
   - type: Action
     useDelay: 2

@@ -18,17 +18,17 @@
 
 - type: deviceFrequency
   id: ShuttleTimer
-  name: device-frequency-prototype-name-shuttle-timer
+  name: "device-frequency-prototype-name-shuttle-timer"
   frequency: 2450
 
 - type: deviceFrequency
   id: ArrivalsShuttleTimer
-  name: device-frequency-prototype-name-arrivals-shuttle-timer
+  name: "пристрій-частота-прототип-назва-прибуття-шатл-таймер"
   frequency: 2451
 
 - type: deviceFrequency
   id: SurveillanceCamera
-  name: device-frequency-prototype-name-surveillance-camera
+  name: "device-frequency-prototype-name-surveillance-camera"
   frequency: 1926 # i only have so many of these, y'know?
 
 - type: deviceFrequency

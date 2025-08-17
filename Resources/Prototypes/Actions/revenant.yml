@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevenantShop
-  name: Shop
-  description: Opens the ability shop.
+  name: "Магазин"
+  description: "Відкриває крамницю здібностей."
   components:
   - type: Action
     icon: Interface/Actions/shop.png
@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevenantDefile
-  name: Defile
-  description: Breaks windows, tiles, and opens nearby containers. Costs 30 Essence. #Goob edit
+  name: "Осквернити"
+  description: "Розбиває вікна, плитку та відкриває сусідні контейнери. Вартість 30 есенції." #Goob edit
   components:
   - type: Action
     useDelay: 15
@@ -34,8 +34,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevenantOverloadLights
-  name: Overload Lights
-  description: Summons lightning from nearby lights. Costs 40 Essence. #Goob edit
+  name: "Перевантажити світло"
+  description: "Викликає блискавку з найближчих джерел світла. Вартість 40 есенції." #Goob edit
   components:
   - type: Action
     icon: Interface/Actions/overloadlight.png
@@ -58,8 +58,8 @@
 - type: entity
   parent: BaseAction
   id: ActionRevenantMalfunction
-  name: Malfunction
-  description: Causes nearby mechanisms to malfunction. Costs 60 Essence. #Goob edit
+  name: "Спричинити несправність"
+  description: "Спричиняє несправність найближчих механізмів. Вартість 60 есенції." #Goob edit
   components:
   - type: Action
     icon: Interface/Actions/malfunction.png

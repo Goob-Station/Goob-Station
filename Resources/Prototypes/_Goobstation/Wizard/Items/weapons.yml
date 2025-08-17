@@ -9,10 +9,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: arcane barrage
+  name: "таємничий загороджувальний бар'єр"
   parent: BaseItem
   id: ArcaneBarrage
-  description: Pew Pew Pew.
+  description: "П'ю П'ю П'ю."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/arcane_barrage.rsi
@@ -49,10 +49,10 @@
   - type: AmmoCounter
 
 - type: entity
-  name: enchanted bolt action rifle
+  name: "гвинтівка з зачарованим затвором"
   parent: [BaseWeaponSniper, BaseGunWieldable]
   id: WeaponBoltActionEnchanted
-  description: Careful not to lose your head.
+  description: "Обережно, не втрачайте голову."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
@@ -88,10 +88,10 @@
   - type: EnchantedBoltActionRifle
 
 - type: entity
-  name: supermatter halberd
+  name: "алебарда з надматерії"
   parent: [BaseItem, BaseMagicalContraband]
   id: SupermatterHalberd
-  description: The revered weapon of Oblivion Enforcers, used to enforce the Order's will.
+  description: "Шанована зброя Примусових Забуття, що використовується для виконання волі Ордену."
   components:
   - type: Sharp
   - type: Sprite
@@ -156,7 +156,7 @@
     price: 50000
 
 - type: entity
-  name: gohei
+  name: "гохей"
   parent: Gohei
   id: GoheiWizard
   suffix: Wizard
@@ -169,10 +169,10 @@
     size: Normal
 
 - type: entity
-  name: tape staff
+  name: "стрічковий посох"
   parent: BaseItem
   id: StaffTape
-  description: A roll of tape snugly attached to a stick.
+  description: "Рулон стрічки, щільно прикріплений до палиці."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/tapestaff.rsi
@@ -187,10 +187,10 @@
     sprite: _Goobstation/Wizard/Objects/Weapons/tapestaff.rsi
 
 - type: entity
-  name: high frequency blade
+  name: "високочастотне лезо"
   parent: [BaseSword, BaseMagicalContraband]
   id: HighFrequencyBlade
-  description: A sword reinforced by a powerful alternating current and resonating at extremely high vibration frequencies. This oscillation weakens the molecular bonds of anything it cuts, thereby increasing its cutting ability.
+  description: "Меч, посилений потужним змінним струмом і резонуючий на надзвичайно високих частотах вібрації. Ці коливання послаблюють молекулярні зв'язки всього, що він розрізає, тим самим збільшуючи його ріжучу здатність."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/hfrequency.rsi
@@ -238,10 +238,10 @@
     price: 50000
 
 - type: entity
-  name: spellblade
+  name: "лезо заклинання"
   parent: [BaseSword, BaseMagicalContraband]
   id: Spellblade
-  description: An enchanted blade with a series of runes along the side.
+  description: "Магічний клинок, що завдає значної шкоди, яким можна вистрілити магічним вогняним болтом."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/spellblade.rsi

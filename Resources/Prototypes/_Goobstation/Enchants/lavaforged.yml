@@ -2,7 +2,7 @@
 - type: entity
   parent: BaseEnchant
   id: EnchantLavaforged
-  name: Lavaforged
+  name: "Викуваний у лаві"
   components:
   - type: Enchant
     whitelist:

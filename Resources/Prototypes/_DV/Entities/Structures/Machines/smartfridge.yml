@@ -13,8 +13,8 @@
 - type: entity
   parent: BaseMachinePowered
   id: DVSmartFridge
-  name: SmartFridge
-  description: A refrigerated storage unit for keeping items cold and fresh.
+  name: "Розумний холодильник"
+  description: "Холодильний пристрій для зберігання предметів холодними та свіжими."
   components:
   - type: StationAiWhitelist
   - type: Advertise
@@ -104,8 +104,8 @@
 - type: entity
   parent: DVSmartFridge
   id: DVSmartFridgeMedical
-  name: Medical SmartFridge
-  description: A refrigerated storage unit for keeping lifesaving medications cold and fresh.
+  name: "Медичний розумний холодильник"
+  description: "Холодильний пристрій для зберігання життєво важливих медикаментів холодними та свіжими."
   components:
   - type: AccessReader
     access: [["Medical"]]

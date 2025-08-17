@@ -15,8 +15,8 @@
 - type: entity
   id: TeslaCoil
   parent: ConstructibleMachine # Goobstation
-  name: tesla coil
-  description: A machine that converts lightning strikes into an electric current.
+  name: "котушка Тесли"
+  description: "Машина, яка перетворює удари блискавки в електричний струм."
   placement:
     mode: SnapgridCenter
   components:
@@ -134,8 +134,8 @@
 
 - type: entity
   id: TeslaGroundingRod
-  name: grounding rod
-  description: A machine that keeps lightning from striking too far away.
+  name: "заземлювач"
+  description: "Машина, яка не дає блискавці вдарити занадто далеко."
   placement:
     mode: SnapgridCenter
   components:

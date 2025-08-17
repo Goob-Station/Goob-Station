@@ -23,8 +23,8 @@
 - type: entity
   parent: [ BaseKey, BaseSecurityContraband ]
   id: VehicleKeySecway
-  name: secway keys
-  description: The keys to the future.
+  name: "ключі від секвею"
+  description: "Ключі до майбутнього."
   components:
   - type: Sprite
     sprite: Objects/Vehicles/secway.rsi
@@ -37,8 +37,8 @@
 - type: entity
   parent: [ BaseKey, BaseSyndicateContraband ]
   id: VehicleKeySyndicateSegway
-  name: syndicate segway keys
-  description: Patterned after the iconic EMAG design.
+  name: "синдикат ключів від сегвея"
+  description: "За зразком культового дизайну EMAG."
   components:
   - type: Sprite
     sprite: Objects/Vehicles/syndicatesegway.rsi
@@ -51,8 +51,8 @@
 - type: entity
   parent: BaseKey
   id: VehicleKeyATV
-  name: ATV keys
-  description: Think this looks like just one key? ATV keys means "actually two vehicle keys."
+  name: "ключі від квадроцикла"
+  description: "Думаєте, що це схоже на один ключ? ATV ключі означає \"фактично два ключі від транспортного засобу\""
   components:
   - type: Sprite
     sprite: Objects/Vehicles/atv.rsi
@@ -65,8 +65,8 @@
 - type: entity
   parent: BaseKey
   id: VehicleKeyJanicart
-  name: janicart keys
-  description: Interesting design.
+  name: "ключі від дженікарта"
+  description: "Цікавий дизайн."
   components:
   - type: Sprite
     sprite: Objects/Vehicles/janicart.rsi

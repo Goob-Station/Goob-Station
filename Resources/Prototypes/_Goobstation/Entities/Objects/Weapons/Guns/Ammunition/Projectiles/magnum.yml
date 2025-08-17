@@ -10,7 +10,7 @@
 
 - type: entity
   id: BulletMagnumNeurotoxin
-  name: bullet (.45 subsonic neurotoxin)
+  name: "куля (.45 дозвукова нейротоксин)"
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:

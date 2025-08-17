@@ -81,7 +81,7 @@
 
 - type: entity
   id: LandMineKickUnarmed
-  name: kick mine
+  name: "міна, що активується ударом"
   parent: BaseLandMine
   components:
   - type: GhostKickUserOnTrigger
@@ -98,8 +98,8 @@
   - type: Armable
 
 - type: entity
-  name: modular mine
-  description: This bad boy could be packing any number of dangers. Or a bike horn.
+  name: "модульна міна"
+  description: "Цей поганий хлопець може нести будь-яку кількість небезпек. Або велосипедний гудок."
   parent: BaseLandMine
   id: LandMineModularUnarmed
   components:
@@ -119,7 +119,7 @@
   - type: Armable
 
 - type: entity
-  name: explosive mine
+  name: "вибухова міна"
   parent: BaseLandMine
   id: LandMineExplosiveUnarmed
   components:

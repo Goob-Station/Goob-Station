@@ -12,7 +12,7 @@
 
 - type: entity
   id: MobSpawnCrabQuartz
-  name: mobspawner quartzcrab
+  name: "спавнер кварцового крабу"
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Transform
@@ -42,7 +42,7 @@
 - type: entity
   id: MobSpawnCrabIron
   parent: MobSpawnCrabQuartz
-  name: mobspawner ironcrab
+  name: "спавнер залізного крабу"
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
@@ -54,7 +54,7 @@
 - type: entity
   id: MobSpawnCrabCoal
   parent: MobSpawnCrabQuartz
-  name: mobspawner coalcrab
+  name: "спавнер вугільного краба"
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
@@ -66,7 +66,7 @@
 - type: entity
   id: MobSpawnCrabSilver
   parent: MobSpawnCrabQuartz
-  name: mobspawner silvercrab
+  name: "спавнер срібляного крабу"
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
@@ -78,7 +78,7 @@
 - type: entity
   id: MobSpawnCrabGold
   parent: MobSpawnCrabQuartz
-  name: mobspawner goldcrab
+  name: "спавнер золотого краба"
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
@@ -90,7 +90,7 @@
 - type: entity
   id: MobSpawnCrabUranium
   parent: MobSpawnCrabQuartz
-  name: mobspawner uraniumcrab
+  name: "спавнер уранового крабу"
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite
@@ -102,7 +102,7 @@
 - type: entity
   id: MobSpawnCrabBananium
   parent: MobSpawnCrabQuartz
-  name: mobspawner bananiumcrab
+  name: "спавнер бананієвого краба"
   categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: Sprite

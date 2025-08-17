@@ -7,8 +7,8 @@
 - type: entity
   id: FirefighterNozzle
   parent: BaseItem
-  name: firefighter nozzle
-  description: A specialized nozzle intended to fight fires. 
+  name: "насадка пожежника"
+  description: "Спеціалізована насадка, призначена для гасіння пожеж."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
@@ -65,8 +65,8 @@
   parent: [ BaseCivilianContraband, SmokeGrenade ]
   categories: [ HideSpawnMenu ]
   id: AtmosResin
-  name: atmos resin
-  description: Special grenade for atmosians.
+  name: "атмос-смола"
+  description: "Спеціальна граната для атмос-техніків."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/frozen-smoke-capsule.rsi

@@ -5,7 +5,7 @@
 
 - type: entity
   id: PelletClusterLethalWeak
-  name: pellet (ball, lethal)
+  name: "дріб (куля, летальний)"
   categories: [ HideSpawnMenu ]
   parent: PelletClusterLethal
   components:

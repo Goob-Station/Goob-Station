@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerPsionicsRecords
-  name: psionics registry computer
-  description: This can be used to check psionics registry records. Only epistemics can modify them.
+  name: "консоль регістру псионіків"
+  description: "Це може бути використано для перевірки записів реєстру псионіки. Тільки епістеміки можуть їх змінювати."
   components:
   - type: PsionicsRecordsConsole
   - type: UserInterface

@@ -13,7 +13,7 @@
 
 - type: job
   id: NavyOfficer
-  name: job-name-navy-officer
+  name: "офіцер флоту"
   description: job-description-navy-officer
   playTimeTracker: JobNavyOfficer
   setPreference: false
@@ -50,7 +50,7 @@
 
 - type: job
   id: NavyCaptain
-  name: job-name-navy-captain
+  name: "капітан флоту"
   description: job-description-navy-captain
   playTimeTracker: JobNavyCaptain
   setPreference: false
@@ -133,8 +133,8 @@
 
 - type: job
   id: SpecialOperationsOfficer
-  name: job-name-special-operations-officer
-  description: job-description-operations-officer
+  name: "офіцер спецоперацій"
+  description: "елітний оперативник, відправлений для виконання критично важливих завдань та усунення загроз високого рівня"
   playTimeTracker: JobSpecialOperationsOfficer
   setPreference: false
   startingGear: SpecialOperationsOfficerGear
@@ -214,7 +214,7 @@
 - type: job
   id: Inspector
   name: job-name-inspector
-  description: job-description-inspector
+  description: "аудитор, відправлений Центральним Командуванням для перевірки відповідності станції протоколам та виявлення будь-яких порушень"
   playTimeTracker: JobInspector
   setPreference: false
   startingGear: InspectorGear

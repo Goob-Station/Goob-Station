@@ -9,8 +9,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltQuiver
-  name: quiver
-  description: Can hold up to 15 arrows, and fits snug around your waist.
+  name: "сагайдак"
+  description: "Вміщує до 15 стріл і щільно облягає талію."
   components:
   - type: Sprite
     sprite: Clothing/Belt/quiver.rsi

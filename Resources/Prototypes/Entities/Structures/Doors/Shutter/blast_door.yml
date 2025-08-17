@@ -23,8 +23,8 @@
 - type: entity
   id: BlastDoor
   parent: BaseShutter
-  name: blast door
-  description: This one says 'BLAST DONGER'.
+  name: "вибухові двері"
+  description: "На цьому написано \"Вибуховий пристрій\"."
   components:
   - type: AccessReader
     containerAccessProvider: board
@@ -93,8 +93,8 @@
 - type: entity
   id: BlastDoorFrame
   parent: BaseStructureDynamic
-  name: blast door frame
-  description: This one says 'BLAST DONGER'.
+  name: "рама противибухових дверей"
+  description: "На цьому написано \"Вибуховий пристрій\"."
   components:
   - type: Sprite
     sprite: Structures/Doors/Shutters/blastdoor.rsi

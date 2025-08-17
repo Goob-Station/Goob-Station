@@ -11,8 +11,8 @@
 - type: entity
   parent: BaseMentalAction # allow reading laws when crit
   id: ActionViewLaws
-  name: View Laws
-  description: View the laws that you must follow.
+  name: "Переглянути закони"
+  description: "Ознайомтеся з законами, яких ви повинні дотримуватися."
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -26,7 +26,7 @@
 - type: entity
   parent: BaseAction
   id: ActionSelectBorgType
-  name: Select Cyborg Type
+  name: "Обрати Тип Кіборга"
   components:
   - type: Action
     itemIconStyle: NoItem

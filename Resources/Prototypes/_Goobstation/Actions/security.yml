@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionActivateAutoinjector
-  name: Activate Auto-injector
-  description: Activate your auto injector to administer chemicals into your bloodstream.
+  name: "Активувати автоін'єктор"
+  description: "Активуйте свій автоін'єктор, щоб ввести хімікати у кров."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

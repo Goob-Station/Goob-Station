@@ -1,8 +1,8 @@
 - type: entity
-  name: lepidodent
+  name: "лепідодент"
   parent: MobMouse
   id: MobLepidodent
-  description: An unstoppable eating machine.
+  description: "Невпинна машина для поїдання."
   components:
   - type: Body
     prototype: Lepidodent

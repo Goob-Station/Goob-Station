@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingHeadsetGrey
   id: ClothingHeadsetChameleon
-  name: passenger headset
-  description: An updated, modular intercom that fits over the head. Takes encryption keys.
+  name: "пасажирська гарнітура"
+  description: "Оновлений модульний інтерком, який одягається на голову. Приймає ключі шифрування."
   suffix: Chameleon
   components:
     - type: Tag

@@ -1,8 +1,8 @@
 - type: entity
   id: CartridgeBazookaExp
-  name: Leviathan explosive rocket
+  name: "Вибухова ракета Левіафана"
   parent: [BaseItem, BaseSyndicateContraband]
-  description: Guaranteed to ruin someone's day.
+  description: "Гарантовано зіпсує комусь день."
   components:
   - type: Tag
     tags:
@@ -22,9 +22,9 @@
 
 - type: entity
   id: CartridgeBazookaCon
-  name: Leviathan concussion rocket
+  name: "Контузійна ракета Левіафана"
   parent: CartridgeBazookaExp
-  description: Guaranteed to ruin someone's day.
+  description: "Гарантовано зіпсує комусь день."
   components:
   - type: Tag
     tags:
@@ -44,9 +44,9 @@
 
 - type: entity
   id: CartridgeBazookaInc
-  name: Leviathan incendiary rocket
+  name: "Запалювальна ракета Левіафана"
   parent: CartridgeBazookaExp
-  description: Guaranteed to ruin someone's day.
+  description: "Гарантовано зіпсує комусь день."
   components:
   - type: Tag
     tags:

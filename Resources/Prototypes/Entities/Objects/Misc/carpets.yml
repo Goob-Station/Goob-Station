@@ -12,7 +12,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # TODO once tiles can be smoothed and carpets ported over to that, add them to the FloorTile outputs
 - type: entity
-  name: carpet
+  name: "килим"
   parent: FloorTileItemBase
   id: FloorCarpetItemRed
   suffix: Red

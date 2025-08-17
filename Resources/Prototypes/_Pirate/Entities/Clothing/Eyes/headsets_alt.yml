@@ -2,7 +2,7 @@
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltInterdyne
   name: "Наушник персоналу Інтердайну"
-  description: Гарнітура Інтердайну.
+  description: "Гарнітура Інтердайну."
   components:
   - type: ContainerFill
     containers:
@@ -18,7 +18,7 @@
   parent: ClothingHeadsetAltInterdyne
   id: ClothingHeadsetInterdyneCommandAlt
   name: "Наушник керівництва Інтердайну"
-  description: Гарнітура Інтердайну.
+  description: "Гарнітура Інтердайну."
   components:
   - type: ContainerFill
     containers:

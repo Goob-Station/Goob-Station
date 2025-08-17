@@ -4,8 +4,8 @@
 - type: entity
   parent: BaseStructure
   id: CosmicConstructPylon
-  name: Vacuous Chantry
-  description: Lorem Ipsum
+  name: "Порожня Каплиця"
+  description: "Lorem Ipsum"
   placement:
     mode: AlignTileAny
   components:
@@ -69,7 +69,7 @@
 
 - type: entity
   id: CosmicConstructPylonSpawnIn
-  name: Vacuous Chantry
+  name: "Порожня Каплиця"
   parent: BaseStructure
   suffix: Spawn, DO NOT MAP
   components:

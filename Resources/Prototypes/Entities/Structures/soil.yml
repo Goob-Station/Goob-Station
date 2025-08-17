@@ -30,8 +30,8 @@
 
 - type: entity
   id: hydroponicsSoil
-  name: soil
-  description: A mix of organic matter and minerals creating a soil to grow your plant in space. Seems to be dry.
+  name: "ґрунт"
+  description: "Суміш органічних речовин і мінералів, що створює ґрунт для вирощування рослин у космосі. Здається, він сухий."
   placement:
     mode: SnapgridCenter
   components:
@@ -90,8 +90,8 @@
 - type: entity
   parent: hydroponicsSoil
   id: FungalSoil
-  name: fungal soil
-  description: A mix of organic matter and fungal root creating a soil to grow your plant in space. Seems to be dry.
+  name: "грибний ґрунт"
+  description: "Суміш органічних речовин та грибкового коріння, що створює ґрунт для вирощування рослин у космосі. Здається, він сухий."
   components:
   - type: Construction
     graph: Soil

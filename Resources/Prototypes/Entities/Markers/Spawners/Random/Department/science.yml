@@ -5,7 +5,7 @@
 # Minor science loot spawner
 # Use case: Common areas that aren't science
 - type: entity
-  name: science supplies spawner
+  name: "спавнер наукового приладдя"
   id: LootSpawnerScienceMinor
   parent: MarkerBase
   suffix: Minor, 80%
@@ -78,7 +78,7 @@
 # Major science loot spawner
 # Use case: Loot in science areas only
 - type: entity
-  name: science supplies spawner
+  name: "спавнер наукового приладдя"
   id: LootSpawnerScienceMajor
   parent: MarkerBase
   suffix: Major
@@ -96,7 +96,7 @@
 # Borg Module Spawner
 # Use case: One or two in robotics or as valuable loot
 - type: entity
-  name: robotics board spawner
+  name: "спавнер плат для робототехніки"
   id: LootSpawnerRoboticsBorgModule
   parent: MarkerBase
   components:

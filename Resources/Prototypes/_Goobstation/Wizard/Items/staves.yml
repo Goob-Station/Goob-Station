@@ -4,10 +4,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: staff of change
+  name: "персонал змін"
   parent: WeaponStaffBase
   id: WeaponStaffChange
-  description: An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself.
+  description: "Артефакт, що випльовує блискавки роз'їдаючої енергії, які змушують змінювати саму форму цілі."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/change.rsi
@@ -26,10 +26,10 @@
     rechargeCooldown: 8
 
 - type: entity
-  name: staff of chaos
+  name: "персонал хаосу"
   parent: WeaponStaffBase
   id: WeaponStaffChaos
-  description: An artefact that spits bolts of chaotic magic that can potentially do anything.
+  description: "Артефакт, що випльовує блискавки хаотичної магії, які потенційно можуть зробити все, що завгодно."
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/chaos.rsi
@@ -50,10 +50,10 @@
     rechargeCooldown: 2
 
 - type: entity
-  name: staff of slipping
+  name: "персонал по ковзанню"
   parent: WeaponStaffBase
   id: WeaponStaffSlipping
-  description: An artefact that spits... bananas?
+  description: "Артефакт, який плює... бананами?"
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/Staves/slipping.rsi

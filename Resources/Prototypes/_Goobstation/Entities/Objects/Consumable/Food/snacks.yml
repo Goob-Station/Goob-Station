@@ -82,8 +82,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackProteinbar
-  name: protein bar
-  description: SwoleMAX brand protein bars, guaranteed to get you feeling perfectly overconfident.
+  name: "протеїновий батончик"
+  description: "Протеїнові батончики бренду SwoleMAX гарантовано додадуть вам впевненості у власних силах."
   components:
   - type: FlavorProfile
     flavors:
@@ -113,8 +113,8 @@
 - type: entity
   parent: BaseItem
   id: FoodSnackLunacakeWrapped
-  name: wrapped lunacake
-  description: Now with 20% less lawsuit enabling rhegolith!
+  name: "загорнутий лунакейк"
+  description: "Тепер на 20% менше судових позовів для отримання реголіту!"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
@@ -135,8 +135,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackLunacake
-  name: lunacake
-  description: Now with 20% less lawsuit enabling rhegolith!
+  name: "лунакейк"
+  description: "Тепер на 20% менше судових позовів для отримання реголіту!"
   components:
   - type: FlavorProfile
     flavors:
@@ -149,8 +149,8 @@
 - type: entity
   parent: BaseItem
   id: FoodSnackMochicakeWrapped
-  name: wrapped mochicake
-  description: Konnichiwa! Many go lucky rice cakes in future!
+  name: "загорнутий мочікейк"
+  description: "Коннічіва! Багатьом приносять удачу рисові коржі в майбутньому!"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
@@ -171,8 +171,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackMochicake
-  name: mochicake
-  description: Konnichiwa! Many go lucky rice cakes in future!
+  name: "мочікейк"
+  description: "Коннічіва! Багатьом приносять удачу рисові коржі в майбутньому!"
   components:
   - type: FlavorProfile
     flavors:
@@ -185,8 +185,8 @@
 - type: entity
   parent: BaseItem
   id: FoodSnackMooncakeWrapped
-  name: wrapped mooncake
-  description: Explore the dark side! May contain trace amounts of reconstituted cocoa.
+  name: "загорнутий мункейк"
+  description: "Відкрий для себе темну сторону! Може містити незначну кількість відновленого какао."
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_food.rsi
@@ -207,8 +207,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackMooncake
-  name: mooncake
-  description: Explore the dark side! May contain trace amounts of reconstituted cocoa.
+  name: "мункейк"
+  description: "Відкрий для себе темну сторону! Може містити незначну кількість відновленого какао."
   components:
   - type: FlavorProfile
     flavors:
@@ -221,8 +221,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackTidegobs
-  name: tide gobs
-  description: Contains over 9000% of your daily recommended intake of salt.
+  name: "приливні качки"
+  description: "Містить понад 9000% рекомендованої добової норми солі."
   components:
   - type: FlavorProfile
     flavors:
@@ -238,8 +238,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackSaturnos
-  name: saturn-os
-  description: A day ration of salt, styrofoam and possibly sawdust.
+  name: "сатурн-ос"
+  description: "Денний раціон солі, пінопласту і, можливо, тирси."
   components:
   - type: FlavorProfile
     flavors:
@@ -255,8 +255,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackJoveGello
-  name: jove gello
-  description: By Joove! It's some kind of gel.
+  name: "джов Гелло"
+  description: "Від Джооов! Це якийсь гель."
   components:
   - type: FlavorProfile
     flavors:
@@ -272,8 +272,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackPlutoniumrods
-  name: plutonium rods
-  description: Baseless tasteless nutrithick rods to get you through the day. Now even less rash inducing!
+  name: "плутонієві стрижні"
+  description: "Безглузді несмачні поживні палички, які допоможуть вам протриматися цілий день. Тепер ще менше провокують висип!"
   components:
   - type: FlavorProfile
     flavors:
@@ -289,8 +289,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackMarsFrouka
-  name: frouka
-  description: Celebrate founding day with a steaming self-heated bowl of sweet eggs and taters!
+  name: "фроука"
+  description: "Відсвяткуйте день заснування з паруючою самопідігрітою мискою солодких яєць і картоплі!"
   components:
   - type: FlavorProfile
     flavors:
@@ -308,8 +308,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackVenusianhotcakes
-  name: venusian hot cakes
-  description: Hot takes on hot cakes, a timeless classic now finally fit for human consumption!
+  name: "венеріанські гарячі пиріжки"
+  description: "Гаряче - це гарячі пиріжки, вічна класика, яка тепер нарешті придатна для споживання людиною!"
   components:
   - type: FlavorProfile
     flavors:
@@ -325,8 +325,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackOortrocks
-  name: oort cloud rocks
-  description: Pop rocks themed on the most important industrial sector in Sol, new formula guarantees fewer shrapnel induced oral injury.
+  name: "хмарні скелі Оорта"
+  description: "Поп-рок, присвячений найважливішому промисловому сектору в Солі, нова формула гарантує менше травм ротової порожнини, спричинених осколками."
   components:
   - type: FlavorProfile
     flavors:
@@ -344,8 +344,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackRedalertnuts
-  name: red alert nuts
-  description: A bag of Red Alert! brand spicy nuts. Goes well with your beer!
+  name: "горішки \"Червона тривога!\" "
+  description: "Пакетик пряних горішків \"Червона тривога!\". Дуже смакує до пива!"
   components:
   - type: FlavorProfile
     flavors:
@@ -361,8 +361,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackRicecake
-  name: rice cake
-  description: Ancient earth snack food made from balled up rice.
+  name: "рисовий пиріг"
+  description: "Стародавня земна закуска, виготовлена зі спресованого рису."
   components:
   - type: FlavorProfile
     flavors:
@@ -375,8 +375,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackPokeysticks
-  name: pokey sticks
-  description: A bundle of chocolate coated bisquit sticks.
+  name: "палички покі"
+  description: "В'язка бісквітних паличок в шоколаді."
   components:
   - type: FlavorProfile
     flavors:
@@ -390,8 +390,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackChocobanana
-  name: chocobanana
-  description: A chocolate and sprinkles coated banana. On a stick
+  name: "чокобанана"
+  description: "Банан, вкритий шоколадом і посипкою. На паличці"
   components:
   - type: FlavorProfile
     flavors:
@@ -408,8 +408,8 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackDango
-  name: dango
-  description: Food dyed rice dumplings on a stick.
+  name: "данго"
+  description: "Харчові фарбовані рисові пельмені на паличці."
   components:
   - type: FlavorProfile
     flavors:
@@ -427,9 +427,9 @@
 - type: entity
   parent: FoodSnackBase
   id: FoodSnackAncientBurger
-  name: space burger
+  name: "космічний бургер"
   suffix: ancient
-  description: At some point in time this probably looked delicious.
+  description: "Напевно, колись це виглядало дуже смачно."
   components:
   - type: FlavorProfile
     flavors:
@@ -452,8 +452,8 @@
 - type: entity
   parent: FoodSnackAncientBurger
   id: FoodSnackAncientPizza
-  name: space pizza
-  description: At some point in time this probably looked delicious.
+  name: "космічна піца"
+  description: "Напевно, колись це виглядало дуже смачно."
   components:
   - type: Sprite
     state: ancient_pizza
@@ -461,8 +461,8 @@
 - type: entity
   parent: FoodSnackAncientBurger
   id: FoodSnackAncientFries
-  name: space fries
-  description: The salt appears to have preserved these, still stale and gross.
+  name: "картопля фрі"
+  description: "Здається, сіль зберегла їх, все ще несвіжими і грубими."
   components:
   - type: Sprite
     state: ancient_fries
@@ -470,8 +470,8 @@
 - type: entity
   parent: FoodSnackAncientBurger
   id: FoodSnackAncientHotdog
-  name: space dog
-  description: This one is probably only marginally less safe to eat than when it was first created..
+  name: "космічний пес"
+  description: "Напевно, він лише трохи менш безпечний для вживання в їжу, ніж тоді, коли його вперше створили..."
   components:
   - type: Sprite
     state: ancient_hotdog
@@ -479,8 +479,8 @@
 - type: entity
   parent: FoodSnackAncientBurger
   id: FoodSnackAncientTaco
-  name: space taco
-  description: Interestingly, the shell has gone soft and the contents have gone stale.
+  name: "космічний тако"
+  description: "Цікаво, що оболонка стала м'якою, а вміст - несвіжим."
   components:
   - type: Sprite
     state: ancient_taco
@@ -490,7 +490,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketLunacakeTrash
-  name: lunacake wrapper
+  name: "обгортка для луна-кексів"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Consumable/Food/bay_trash.rsi
@@ -501,7 +501,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketMochicakeTrash
-  name: mochicake wrapper
+  name: "обгортка для печива"
   components:
   - type: Sprite
     state: mochicakewrap
@@ -511,7 +511,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketMooncakeTrash
-  name: mooncake wrapper
+  name: "обгортка для місячного кексу"
   components:
   - type: Sprite
     state: mooncakewrap
@@ -521,7 +521,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketTidegobsTrash
-  name: tidegobs trash
+  name: "сміття tidegobs"
   components:
   - type: Sprite
     state: tidegobs
@@ -531,7 +531,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketSaturnosTrash
-  name: saturn-os trash
+  name: "сатурн-ос сміття"
   components:
   - type: Sprite
     state: saturno
@@ -541,7 +541,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketJoveGelloTrash
-  name: jove gello trash
+  name: "jove gello trash"
   components:
   - type: Sprite
     state: jupiter
@@ -551,7 +551,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketPlutoniumrodsTrash
-  name: plutonium rods trash
+  name: "відходи плутонієвих стрижнів"
   components:
   - type: Sprite
     state: pluto
@@ -561,7 +561,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketMarsFroukaTrash
-  name: mars frouka trash
+  name: "марс фрука сміття"
   components:
   - type: Sprite
     state: mars
@@ -571,7 +571,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketVenusTrash
-  name: venus hot cakes trash
+  name: "венера гарячі пиріжки сміття"
   components:
   - type: Sprite
     state: venus
@@ -581,7 +581,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketOortrocksTrash
-  name: oort rocks trash
+  name: "оорт каміння сміття"
   components:
   - type: Sprite
     state: oort
@@ -592,7 +592,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketRedalertnutsTrash
-  name: red alert nuts packet
+  name: "пачка червоної тривоги"
   components:
   - type: Sprite
     state: weebonuts
@@ -602,7 +602,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketStickTrash
-  name: stick
+  name: "палиця"
   components:
   - type: Sprite
     state: stick
@@ -613,7 +613,7 @@
   categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketProteinbarTrash
-  name: protein bar wrapper
+  name: "обгортка протеїнового батончика"
   components:
   - type: Sprite
     state: proteinbar

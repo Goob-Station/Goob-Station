@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: base balloon
+  name: "базова кулька"
   parent: BaseStructureDynamic
   id: BaseBalloon       # Base balloon
   abstract: true # Make sure it doesn't appear
@@ -41,9 +41,9 @@
 
 # Red Balloon
 - type: entity
-  name: red balloon
+  name: "червона кулька"
   parent: BaseBalloon
-  description: The weakest balloon.
+  description: "Найслабша кулька."
   id: redBalloon
   components:
   - type: Sprite
@@ -76,9 +76,9 @@
 
 # Blue Balloon
 - type: entity
-  name: blue balloon
+  name: "синя кулька"
   parent: BaseBalloon
-  description: A pretty chill balloon.
+  description: "Досить спокійна кулька."
   id: blueBalloon
   components:
   - type: Sprite
@@ -114,9 +114,9 @@
 
 # Green Balloon
 - type: entity
-  name: green balloon
+  name: "зелена кулька"
   parent: BaseBalloon
-  description: The most strategically minded balloon of the bunch. Capable of planning advanced waves, if only it had a track to follow.
+  description: "Найбільш стратегічно мисляча кулька з усіх. Здатна планувати просунуті хвилі, якби тільки мала шлях для проходження."
   id: greenBalloon
   components:
   - type: Sprite
@@ -152,9 +152,9 @@
 
 # Yellow Balloon
 - type: entity
-  name: yellow balloon
+  name: "жовта кулька"
   parent: BaseBalloon
-  description: The greediest balloon, always flaunting its wealth to the other balloons.
+  description: "Найжадібніша кулька, завжди хизується своїм багатством перед іншими кульками."
   id: yellowBalloon
   components:
   - type: Sprite
@@ -190,9 +190,9 @@
 
 # Pink Balloon
 - type: entity
-  name: pink balloon
+  name: "рожева кулька"
   parent: BaseBalloon
-  description: The most annoying and insufferable balloon.
+  description: "Найбільш надокучлива і нестерпна кулька."
   id: pinkBalloon
   components:
   - type: Sprite
@@ -228,9 +228,9 @@
 
 # Black Balloon
 - type: entity
-  name: black balloon
+  name: "чорна кулька"
   parent: BaseBalloon
-  description: The edgiest balloon, never grew out of its emo phase. Immune to heat and shock damage!
+  description: "Найгостріша кулька, так і не вийшла зі своєї емо-фази. Імунітет до теплової та шокової шкоди!"
   id: blackBalloon
   components:
   - type: Sprite
@@ -267,9 +267,9 @@
         acts: [ "Destruction" ]
 # White Balloon
 - type: entity
-  name: white balloon
+  name: "біла кулька"
   parent: BaseBalloon
-  description: The most emotionless balloon. Isn't even given a proper name, only a purpose. Immune to cold damage!
+  description: "Найбільш беземоційна кулька. Їй навіть не дали власного імені, лише мету. Імунітет до холодової шкоди!"
   id: whiteBalloon
   components:
   - type: Sprite
@@ -307,9 +307,9 @@
 
 # Zebra Balloon
 - type: entity
-  name: zebra balloon
+  name: "кулька-зебра"
   parent: BaseBalloon
-  description: Belongs in a zoo. Immune to all burn damage!
+  description: "Їй місце в зоопарку. Імунітет до будь-якої шкоди від опіків!"
   id: zebraBalloon
   components:
   - type: Sprite
@@ -350,9 +350,9 @@
 
 # steel balloon
 - type: entity
-  name: steel balloon
+  name: "сталева кулька"
   parent: BaseBalloon
-  description: The most armored balloon. So feared that even animals don't attack it. Immune to brute damage!
+  description: "Найбільш броньована кулька. Настільки страшна, що навіть тварини на неї не нападають. Імунітет до грубої шкоди!"
   id: steelBalloon
   components:
   - type: Sprite
@@ -387,9 +387,9 @@
 
 # rainbow balloon
 - type: entity
-  name: rainbow balloon
+  name: "райдужна кулька"
   parent: BaseBalloon
-  description: The most evil balloon of them all. Don't let the pretty colors fool you.
+  description: "Найзліша кулька з усіх. Не дозволяйте гарним кольорам обдурити вас."
   id: rainbowBalloon
   components:
   - type: Sprite

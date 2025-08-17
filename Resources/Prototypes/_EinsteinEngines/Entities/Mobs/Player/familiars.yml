@@ -68,10 +68,10 @@
         Heat: 100
 
 - type: entity
-  name: imp familiar
+  name: "імп-фамільяр"
   parent: BaseMobPsionicFamiliar
   id: MobPsionicFamiliarImp
-  description: A living mote of flame summoned from Gehenna.
+  description: "Жива крихта полум'я, викликана з Геєни."
   components:
   - type: Sprite
     drawdepth: Mobs

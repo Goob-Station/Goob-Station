@@ -1,9 +1,9 @@
 - type: entity
   id: MountainRock
   parent: BaseStructure
-  name: Гірська порода
+  name: "Гірська порода"
   suffix: Un-mineable
-  description: Скеляста гірська стіна. Її надто важко видобути.
+  description: "Скеляста гірська стіна. Її надто важко видобути."
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Walls/mountain_rock.rsi

@@ -1,8 +1,8 @@
 - type: entity
-  name: Ouroboros
+  name: "Уроборос"
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSpecialOuroboros
-  description: You can feel a murderous hunger buzzing from deep within the weapon's frame. Its contained creatures demands food for its services.
+  description: "Ви можете відчути вбивчий голод, що гуде глибоко в корпусі зброї. Істоти, що містяться в ній, вимагають їжі за свої послуги."
   components:
   - type: Sprite
     sprite: _Pirate/Objects/Weapons/Guns/Special/ouroboros.rsi

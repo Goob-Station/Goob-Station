@@ -21,10 +21,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: survival medipen
+  name: "медичний шприц виживання"
   parent: ChemicalMedipen
   id: SurvivalMedipen
-  description: A cocktail of powerful healing chemicals. Contains Leporazine, and Miner's Salve. Slowly heals damage and stabilizes body temperature. You can overdose on these if you use more than one in quick succession.
+  description: "Коктейль з потужних лікувальних хімікатів. Містить лепоразин та шахтарську мазь. Повільно лікує пошкодження та стабілізує температуру тіла. Ви можете отримати передозування, якщо використаєте більше одного за короткий проміжок часу."
   components:
   - type: Sprite
     sprite: /Textures/_Lavaland/Objects/Specific/Medical/medipen.rsi
@@ -55,10 +55,10 @@
 
 # doesn't get any better than this
 - type: entity
-  name: luxury medipen
+  name: "розкішна медична ручка"
   parent: ChemicalMedipen
   id: LuxuryMedipen
-  description: Cutting edge bluespace technology allowed Nanotrasen to compact 180u of volume into a single medipen. Contains rare and powerful chemicals used to aid in exploration of harsh environments. Chemicals relatively harmful and not as effective when used outside of low pressure.
+  description: "Передова технологія блюспейс дозволила Nanotrasen вмістити 180u об'єму в одну медичну ручку. Містить рідкісні та потужні хімікати, що використовуються для допомоги в дослідженні суворих середовищ. Хімікати відносно шкідливі та не настільки ефективні при використанні поза низьким тиском."
   components:
   - type: Sprite
     sprite: /Textures/_Lavaland/Objects/Specific/Medical/luxmedipen.rsi

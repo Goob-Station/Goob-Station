@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSpiderWeb
-  name: Spider Web
-  description: Spawns a web that slows your prey down.
+  name: "Павутиння"
+  description: "Створює павутину, яка уповільнює вашу здобич."
   components:
   - type: Action
     icon: Interface/Actions/web.png
@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseAction
   id: ActionSericulture
-  name: Weave silk
-  description: Weave a bit of silk for use in arts and crafts.
+  name: "Ткати шовк"
+  description: "Сплетіть трохи шовку для використання в декоративно-прикладному мистецтві."
   components:
   - type: Action
     icon: Interface/Actions/web.png

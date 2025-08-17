@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticOpenStore
-  name: Open Knowledge Store
-  description: Open the Knowledge Store.
+  name: "Відкрите сховище знань"
+  description: "Відкрийте Сховище знань."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -29,8 +29,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticMansusGrasp
-  name: Mansus Grasp
-  description: Channel the power of the Old Gods through your grip.
+  name: "Мансусова хватка"
+  description: "Спрямуйте силу Старих Богів через свою руку."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -46,8 +46,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticLivingHeart
-  name: Living Heart
-  description: Use your heart to get your sacrifice targets location.
+  name: "Живе серце"
+  description: "Використовуйте своє серце, щоб визначити місцезнаходження жертви."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -64,8 +64,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticMansusLink
-  name: Manse Link
-  description: Pierce through reality and connect minds to one another. Default key is +m
+  name: "Зв'язок з Мансусом"
+  description: "Пробийтеся крізь реальність і з'єднайте розуми один з одним. Клавіша за замовчуванням - +m"
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -84,8 +84,8 @@
 - type: entity
   parent: BaseAction
   id: ActionHereticShadowCloak
-  name: Cloak of Shadow
-  description: Completely conceals your identity, but does not make you invisible. Can be activated early to disable it. While cloaked, you move faster, but undergo actions much slower. Taking damage while cloaked may cause it to lift suddenly.
+  name: "Плащ Тіні"
+  description: "Повністю приховує вашу особистість, але не робить вас невидимим. Можна активувати завчасно, щоб вимкнути. Під час дії плаща ви рухаєтеся швидше, але виконуєте дії набагато повільніше. Отримання шкоди під час дії плаща може призвести до його раптового зникнення."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

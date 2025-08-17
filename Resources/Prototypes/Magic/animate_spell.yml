@@ -9,8 +9,8 @@
 - type: entity
   parent: BaseEntitySpellAction
   id: ActionAnimateSpell
-  name: Animate
-  description: Bring an inanimate object to life!
+  name: "Оживити"
+  description: "Оживіть неживий предмет!"
   components:
   - type: Action
     useDelay: 0

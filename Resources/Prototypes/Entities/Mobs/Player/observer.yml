@@ -124,7 +124,7 @@
   id: Incorporeal
   save: false
   abstract: true
-  description: Mobs without physical bodies
+  description: "Натовпи без фізичних тіл"
   components:
   - type: Sprite
     noRot: true
@@ -157,8 +157,8 @@
   - BaseMob
   id: MobObserverBase
   abstract: true
-  name: observer
-  description: Boo!
+  name: "спостерігач"
+  description: "Бу!"
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -236,8 +236,8 @@
 # Goobstation
 - type: entity
   id: ActionGhostShowRadar
-  name: Mass Scanner Interface
-  description: View a Mass Scanner Interface.
+  name: "Інтерфейс масового сканера"
+  description: "Переглянути інтерфейс масового сканера."
   components:
   - type: Action
     icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
@@ -251,8 +251,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionGhostBoo
-  name: Boo!
-  description: Scare your crew members because of boredom!
+  name: "Бу!"
+  description: "Налякайте членів екіпажу нудьгою!"
   components:
   - type: Action
     icon: Interface/Actions/scream.png
@@ -265,8 +265,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionToggleLighting
-  name: Toggle Lighting
-  description: Toggle light rendering to better observe dark areas.
+  name: "Перемкнути Освітлення"
+  description: "Перемкнути рендеринг світла для кращого огляду темних зон."
   components:
   - type: Action
     icon: Interface/VerbIcons/light.svg.192dpi.png
@@ -279,8 +279,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionToggleFov
-  name: Toggle FoV
-  description: Toggles field-of-view in order to see what players see.
+  name: "Toggle FoV"
+  description: "Перемикає поле зору, щоб бачити те, що бачать гравці."
   components:
   - type: Action
     icon: Interface/VerbIcons/vv.svg.192dpi.png
@@ -293,8 +293,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionToggleGhosts
-  name: Toggle Ghosts
-  description: Toggle the visibility of other ghosts.
+  name: "Перемикання привидів"
+  description: "Перемикання видимості інших привидів."
   components:
   - type: Action
     icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
@@ -307,8 +307,8 @@
 - type: entity
   parent: BaseMentalAction
   id: ActionToggleGhostHearing
-  name: Toggle Ghost Hearing
-  description: Toggle between hearing all messages and hearing only radio & nearby messages.
+  name: "Ввімкнути слух привидів"
+  description: "Перемикайтеся між прослуховуванням усіх повідомлень і прослуховуванням лише радіо та повідомлень поблизу."
   components:
   - type: Action
     icon:
