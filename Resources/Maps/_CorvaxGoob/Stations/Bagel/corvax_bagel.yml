@@ -85,9 +85,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: Parallax
@@ -491,7 +489,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: Bagel
+      id: CorvaxBagel
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg

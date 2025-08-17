@@ -95464,8 +95464,6 @@ entities:
       pos: -29.5,2.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10680
     - type: AtmosPipeColor
@@ -97622,8 +97620,6 @@ entities:
       pos: -29.5,4.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 10680
   - uid: 19983

@@ -260,11 +260,11 @@
       - Surgery
       - MedicalEquipment
       - Butchering
-  # Corvax-Start
+  # Corvax-Goob-start
   - type: MovementSpeedModifier
-    baseSprintSpeed: 12
-    baseWalkSpeed: 30
-  # Corvax-End
+    baseSprintSpeed: 30
+    baseWalkSpeed: 12
+  # Corvax-Goob-end
 
 - type: entity
   abstract: true
