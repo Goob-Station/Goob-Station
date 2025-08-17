@@ -19,7 +19,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.StatusEffect;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Changeling.Actions;
 
@@ -78,7 +80,14 @@ public sealed partial class ActionAnatomicPanaceaEvent : InstantActionEvent { }
 public sealed partial class ActionBiodegradeEvent : InstantActionEvent { }
 public sealed partial class ActionChameleonSkinEvent : InstantActionEvent { }
 public sealed partial class ActionAdrenalineReservesEvent : InstantActionEvent { }
-public sealed partial class ActionFleshmendEvent : InstantActionEvent { }
+public sealed partial class ActionFleshmendEvent : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<StatusEffectPrototype> StatusID = "Fleshmend";
+
+    [DataField]
+    public TimeSpan Duration = TimeSpan.FromSeconds(10);
+}
 public sealed partial class ActionLastResortEvent : InstantActionEvent { }
 public sealed partial class ActionLesserFormEvent : InstantActionEvent { }
 public sealed partial class ActionVoidAdaptEvent : InstantActionEvent { }

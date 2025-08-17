@@ -693,9 +693,7 @@
   - type: Item
     size: Small
     heldPrefix: evil
-  - type: HeldGrantComponent
-    components:
-    - type: SurgeryIgnoreClothing
+  - type: SurgeryIgnoreClothing
 
 - type: entity
   id: OmnimedToolDebug
@@ -725,6 +723,3 @@
     speed: 10
   - type: Stitches
     speed: 10
-  - type: HeldGrantComponent
-    components:
-    - type: SurgeryIgnoreClothing

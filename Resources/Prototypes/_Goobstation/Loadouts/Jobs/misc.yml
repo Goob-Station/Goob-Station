@@ -3,6 +3,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -63,5 +65,30 @@
 # Cheap Sunglasses
 - type: loadout
   id: CheapSunglasses
-  equipment: 
+  equipment:
     eyes: ClothingEyesGlassesCheapSunglasses
+
+# Animals
+- type: loadout
+  id: Squackroach
+  storage:
+    back:
+    - MobSquackroach
+
+- type: loadout
+  id: Mouse
+  storage:
+    back:
+    - MobMouse
+
+- type: loadout
+  id: Mothroach
+  storage:
+    back:
+    - MobMothroach
+
+- type: loadout
+  id: Goldfish
+  storage:
+    back:
+    - MobCarpGoldfish

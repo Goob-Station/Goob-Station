@@ -9,6 +9,7 @@
 
 using Content.Server.Abilities.Mime;
 using Content.Server.Chat.Systems;
+using Content.Server._EinsteinEngines.Language;
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Chat.Prototypes;
@@ -20,12 +21,14 @@ namespace Content.Server.Speech.Muting
 {
     public sealed class MutingSystem : EntitySystem
     {
+        [Dependency] private readonly LanguageSystem _languages = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<MutedComponent, SpeakAttemptEvent>(OnSpeakAttempt);
-            SubscribeLocalEvent<MutedComponent, EmoteEvent>(OnEmote, before: new[] { typeof(VocalSystem) });
+            SubscribeLocalEvent<MutedComponent, EmoteEvent>(OnEmote, before: new[] { typeof(VocalSystem), typeof(MumbleAccentSystem) });
             SubscribeLocalEvent<MutedComponent, ScreamActionEvent>(OnScreamAction, before: new[] { typeof(VocalSystem) });
         }
 
@@ -56,6 +59,10 @@ namespace Content.Server.Speech.Muting
         private void OnSpeakAttempt(EntityUid uid, MutedComponent component, SpeakAttemptEvent args)
         {
             // TODO something better than this.
+
+            var language = _languages.GetLanguage(uid);
+            if (!language.SpeechOverride.RequireSpeech)
+                return; // Cannot mute if there's no speech involved
 
             if (HasComp<MimePowersComponent>(uid))
                 _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
