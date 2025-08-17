@@ -13147,3 +13147,93 @@ Entries:
         take ghost roles before shuttle FTL
   id: 1456
   time: '2025-08-11T05:45:55.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: His Grace being undroppable has been removed pending bugfixes.
+    - type: Fix
+      message: Gemini's are no longer clonable but for real this time.
+    - type: Fix
+      message: You can no longer peform surgery on Gemini's.
+  id: 1457
+  time: '2025-08-11T07:40:09.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Secret+ should now be more stable in terms of roundstart antag count.
+  id: 1458
+  time: '2025-08-11T16:46:43.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Capped maximum speed at about 12-13 via a CVAR.
+    - type: Fix
+      message: Fixed mechs and vehicles being able to sprint.
+    - type: Fix
+      message: >-
+        Fixed harpies being able to sprint into flying without disabling one of
+        them, all it'd do is just drain 2x stamina while weightless.
+    - type: Fix
+      message: >-
+        Fixed the default sprint binding being set to shift instead of C unlike
+        stated in the changelog :wellregardedindividual:
+    - type: Tweak
+      message: Capoeira wont rip off heads in one hit anymore.
+    - type: Tweak
+      message: Capoeira doesn't regenerate stamina anymore.
+    - type: Tweak
+      message: Sprinting now is a 40% speed modifier instead of 60%.
+    - type: Tweak
+      message: Slipping while sprinting now deals 10 damage.
+    - type: Tweak
+      message: Moth dash now consumes 30 stamina
+    - type: Tweak
+      message: >-
+        Ninjutsu cant make you swing faster than light now. (Assassinate damage
+        nerf incoming in another PR).
+    - type: Tweak
+      message: >-
+        Ninjas boots dont give innate fast-walk speed anymore, they now make
+        your slow walk 1.3x faster though.
+    - type: Tweak
+      message: >-
+        Due to supercode, realignment has been changed to not reset your stamina
+        component, and instead apply a persistent 12 stamina regeneration while
+        active.
+    - type: Tweak
+      message: >-
+        Realignment's cooldown has changed from 10s to 15s, which removes the
+        ability to sprint infinitely, and instead lets you do it for about 2
+        procs back-to-back before stamcritting.
+    - type: Fix
+      message: >-
+        Fixed negative stamina drains such as the one on cybernetic lungs
+        disabling normal stamina regeneration.
+    - type: Fix
+      message: >-
+        Things that shouldn't be able to sprint now behave as expected
+        :clueless: player ghosts are still able to sprint.
+  id: 1459
+  time: '2025-08-11T18:39:15.0000000+00:00'
+- author: ImWeax
+  changes:
+    - type: Add
+      message: Space Italian! The language of the kitchen!
+  id: 1460
+  time: '2025-08-12T12:05:40.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added Asimov Lawset
+    - type: Tweak
+      message: Borgs and sAI default to Asimov
+  id: 1461
+  time: '2025-08-16T17:46:32.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Tweak
+      message: >-
+        Nanotrasen HR has started enforcing stricter hiring policies for command
+        and security.
+  id: 1462
+  time: '2025-08-16T17:48:18.0000000+00:00'
