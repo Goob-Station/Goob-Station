@@ -64,7 +64,7 @@
     - BaseStationMagnet
     - BaseStationExpeditions
     - BaseStationSalvageJobs
-    - BaseStationSiliconLawCrewsimov
+    - BaseStationSiliconLawAsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
     - BaseStationMail # Nyano component, required for station mail to function
@@ -93,4 +93,3 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform
-

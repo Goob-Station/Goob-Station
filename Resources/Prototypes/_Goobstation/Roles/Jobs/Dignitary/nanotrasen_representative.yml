@@ -141,7 +141,6 @@
   equipment:
     id: NanotrasenRepresentativePDA
     ears: ClothingHeadsetAltCentCom
-    gloves: ClothingHandsGlovesGoldenTrim # Psst. I might as well add this here.
     pocket1: UniqueNanorepLockerTeleporter
   storage:
     back:
@@ -149,3 +148,18 @@
     - TelescopicBaton
   # inhand:
   #   - ExecutiveBriefcaseEmpty # TODO: Maybe change this to not-empty, so that ntr wouldn't be poor at the start of every shift but whatever
+
+- type: chameleonOutfit
+  id: NanotrasenRepresentativeChameleonOutfit
+  job: NanotrasenRepresentative
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+    mask: ClothingMaskBreath
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesHeavyGoldenTrim
+    jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
+    id: NanotrasenRepresentativePDA
+    back: ClothingBackpackCentcomm
+    shoes: ClothingShoesBootsLaceup
+    head: ClothingHeadHatTophat
+    neck: ClothingNeckScarfStripedCentcom
