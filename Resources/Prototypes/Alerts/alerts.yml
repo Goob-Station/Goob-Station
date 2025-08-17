@@ -170,6 +170,7 @@
     - alertType: Magboots
     - alertType: Rooted
     - alertType: Pacified
+    - alertType: Stealthy
     - alertType: ShadowCloak # Goobstation
     - alertType: DragonPower # Goobstation
     - category: Ninjutsu # Goobstation
