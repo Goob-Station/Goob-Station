@@ -508,7 +508,7 @@
     SheetPrinter: 100
 
 - type: latheRecipe
-  id: PrintedDocumentStatementHealtheRecipe
+  id: PrintedDocumentStatementHealthRecipe
   result: PrintedDocumentStatementHealth
   category: ConclusionsAndDecisions
   completetime: 2
