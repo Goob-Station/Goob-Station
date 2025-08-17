@@ -141,6 +141,14 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 #10 hrs
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Tajaran
+      - Resomi
+      - Shadowkin
+      - Rodentia
+      - Harpy
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
