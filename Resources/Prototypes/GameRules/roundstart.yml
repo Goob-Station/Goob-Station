@@ -230,9 +230,6 @@
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
-  # Goobstation
-  - type: GameRule
-    chaosScore: 1200
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
@@ -258,6 +255,7 @@
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFull
       unequipOldGear: true
+      chaosScore: 300 # Goobstation
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -276,6 +274,7 @@
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFull
       unequipOldGear: true
+      chaosScore: 300 # Goobstation
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -296,6 +295,7 @@
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 16 # Goobstation
+      chaosScore: 300 # Goobstation
       startingGear: SyndicateOperativeGearFull
       unequipOldGear: true
       roleLoadout:
@@ -319,9 +319,6 @@
   id: BaseTraitorRuleNoObjectives
   components:
   - type: TraitorRule
-  # Goobstation
-  - type: GameRule
-    chaosScore: 900
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagSelection
@@ -351,6 +348,9 @@
     selectionTime: PostPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
+      blacklist: # Goobstation
+        components:
+        - CommandStaff
       mindRoles:
       - MindRoleTraitorReinforcement
 
@@ -366,9 +366,10 @@
     - prefRoles: [ Traitor ]
       max: 8
       playerRatio: 10
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      chaosScore: 150 # Goobstation
       blacklist:
         components:
+        - CommandStaff # Goobstation
         - AntagImmune
         - Changeling # Goobstation
       lateJoinAdditional: true
@@ -381,7 +382,7 @@
   components:
   - type: GameRule
     minPlayers: 15
-    chaosScore: 1000 # Goobstation
+    chaosScore: 1000 # Goobstation - intentionally not per-antag
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation
@@ -389,7 +390,10 @@
     - prefRoles: [ HeadRev ]
       max: 3
       playerRatio: 15
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative, Mime ] # Goobstation
+      blacklist:
+        components:
+        - CommandStaff # Goobstation
+      jobBlacklist: [ Mime ] # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -485,9 +489,10 @@
     - prefRoles: [ InitialInfected ]
       max: 4
       playerRatio: 15
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
+        - CommandStaff # Goobstation
         - ZombieImmune
       briefing:
         text: zombie-patientzero-role-greeting
@@ -649,3 +654,11 @@
       prob: 0.90
     - id: SolarPanelDamageVariationPass
     - id: SolarPanelEmptyVariationPass
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBrunsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
