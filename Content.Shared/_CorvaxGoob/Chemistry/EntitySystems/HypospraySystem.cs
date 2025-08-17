@@ -15,10 +15,10 @@ public sealed class AfterHyposprayInjectsTargetEvent : HandledEntityEventArgs
         Hypospray = hypospray;
         Target = target;
     }
+}
 
-    [Serializable, NetSerializable]
-    public sealed partial class HyposprayTryInjectDoAfterEvent : SimpleDoAfterEvent
-    {
+[Serializable, NetSerializable]
+public sealed partial class HyposprayTryInjectDoAfterEvent : SimpleDoAfterEvent
+{
 
-    }
 }
