@@ -1,0 +1,43 @@
+# - type: entity
+#   name: xeno hornet
+#   parent: [ MobBee, MobCombat ]
+#   id: MobBeeroboros
+#   description: Short-lived, but no less dangerous.
+#   components:
+#   - type: Sprite
+#     drawdepth: Mobs
+#     layers:
+#     - map: ["enum.DamageStateVisualLayers.Base"]
+#       state: 0
+#       sprite: _Impstation/Mobs/Animals/beeroboros.rsi
+#   - type: TimedDespawn
+#     lifetime: 5
+#   - type: MobThresholds
+#     thresholds:
+#       0: Alive
+#       5: Dead
+#   - type: Stamina
+#     critThreshold: 5
+#   - type: PointLight
+#     radius: 1.5
+#     color: "#d63b28"
+#     energy: 10.0
+#   - type: CombatMode
+#   - type: MeleeWeapon
+#     angle: 0
+#     animation: WeaponArcBite
+#     damage:
+#       types:
+#         Piercing: 3
+#         Heat: 2
+#   - type: InputMover
+#   - type: MobMover
+#   - type: HTN
+#     rootTask:
+#       task: SimpleHostileCompound
+#   - type: NpcFactionMember
+#     factions:
+#     - Syndicate
+#   - type: Bloodstream
+#     bloodMaxVolume: 0.1
+#   - type: ZombieImmune

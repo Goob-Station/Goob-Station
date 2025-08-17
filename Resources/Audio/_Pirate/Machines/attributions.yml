@@ -1,0 +1,15 @@
+- files: ["echion.ogg"]
+  license: CC-BY-3.0
+  copyright: "Made by jalastram on opengameart"
+  source: "https://opengameart.org/content/collaboration-sound-effects-machine-001"
+
+- files: ["echion_off.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Q009 on opengameart"
+  source: "https://opengameart.org/content/q009s-weapon-sounds"
+
+- files: ["echion_on.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Q009 on opengameart"
+  source: "https://opengameart.org/content/q009s-weapon-sounds"
+
