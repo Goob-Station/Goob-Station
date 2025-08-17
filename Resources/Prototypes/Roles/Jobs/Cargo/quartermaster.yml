@@ -139,6 +139,9 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 36000 #10 hours
+    - !type:SpeciesRequirement
+      species:
+      - Human
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
