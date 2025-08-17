@@ -209,8 +209,8 @@ public sealed partial class DevilContractSystem : EntitySystem
         contract.Comp.IsDevilSigned = true;
         _popupSystem.PopupEntity(Loc.GetString("contract-devil-signed"), signed, signer);
 
-        if (_mind.TryGetMind(signer, out var mindId, out var mind) &&
-            _mind.TryGetObjectiveComp<MeetContractWeightConditionComponent>(mindId, out var objectiveComp, mind))
+        if (_mind.TryGetMind(signer, out var mindId, out var mind)
+            && _mind.TryGetObjectiveComp<MeetContractWeightConditionComponent>(mindId, out var objectiveComp, mind))
             objectiveComp.ContractWeight += contract.Comp.ContractWeight;
     }
 
