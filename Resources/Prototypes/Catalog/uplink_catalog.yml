@@ -1010,7 +1010,10 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkDeception
-
+  conditions: # EE Plasmeme Change: Plasmamen get another listing.
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Plasmaman
 
 # - type: listing
 #   id: UplinkGigacancerScanner

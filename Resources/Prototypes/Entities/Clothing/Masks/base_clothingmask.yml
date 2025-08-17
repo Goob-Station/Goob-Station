@@ -33,9 +33,16 @@
     size: Small
   - type: Clothing
     slots: [mask]
-  - type: Tag # goob edit
-    tags:
-    - Mask
+  # Goobstation edit start
+    equipSound:
+      collection: GenericEquip
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/generic_small_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/generic_small_drop.ogg
+  # Goobstation edit end
   - type: StaticPrice
     price: 25
   - type: AltClothingLayer # Goobstation
@@ -57,6 +64,9 @@
       BoneDamage: 0.05
       VeinsDamage: 0
       NerveDamage: 0
+  - type: Tag # goob edit
+    tags:
+    - Mask
 
 - type: entity
   abstract: true
@@ -66,13 +76,15 @@
   - type: Mask
 
 - type: entity
+  parent: BaseAction
   id: ActionToggleMask
   name: Toggle Mask
   description: Handy, but prevents insertion of pie into your pie hole.
   components:
-  - type: InstantAction
+  - type: Action
     icon: { sprite: Clothing/Mask/gas.rsi, state: icon }
     iconOn: Interface/Default/blocked.png
+  - type: InstantAction
     event: !type:ToggleMaskEvent
 
 - type: entity
