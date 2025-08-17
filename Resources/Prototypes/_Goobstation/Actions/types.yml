@@ -4,8 +4,10 @@
 # SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -16,7 +18,7 @@
   name: Activate Bluespace Lifeline
   description: Activates your bluespace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: BigAction
@@ -24,51 +26,53 @@
     icon:
       sprite: _Goobstation/Effects/bluespace_lifeline.rsi
       state: bluespace_lifeline
+  - type: InstantAction
     event: !type:ActivateImplantEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionHorn
   name: Honk!
   description: Beep the horn at whoever you will run over.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 1
     icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
+  - type: InstantAction
     event: !type:HornActionEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionSiren
   name: Siren
   description: Alert your victim to your presence.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 1
     icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
+  - type: InstantAction
     event: !type:SirenActionEvent
 
 - type: entity
+  parent: BaseImplantAction
   id: ActivateSmokeImplant
   name: Release a cloud of smoke
   description: Releases a cloud of smoke around you.
   components:
-  - type: InstantAction
+  - type: Action
     useDelay: 30
-    itemIconStyle: BigAction
-    priority: -20
     icon:
       sprite: Objects/Weapons/Grenades/smoke.rsi
       state: icon
-    event: !type:ActivateImplantEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionDashMoth
   name: Wing dash
   description: Sharply flap your wings, dashing to the side!
   categories: [ HideSpawnMenu ]
   components:
-  - type: WorldTargetAction
-    checkCanAccess: false
-    range: 0
+  - type: Action
     useDelay: 6.5
     icon: { sprite: _Goobstation/Actions/dash.rsi, state: icon }
     itemIconStyle: NoItem
@@ -76,45 +80,50 @@
       path: /Audio/_Goobstation/Effects/moth_wings.ogg
       params:
         volume: 6.5
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: WorldTargetAction
     event: !type:DashActionEvent
+      staminaDrain: 30
+
 
 - type: entity
+  parent: BaseAction
   id: ActionToggleRightMantisBlade
   name: Toggle Right Mantis Blade
   description: Extend or retract the mantis blade in your right arm.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     useDelay: 2
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon }
     itemIconStyle: NoItem
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/unsheath.ogg
+  - type: InstantAction
     event: !type:ToggleMantisBladeEvent
 
 - type: entity
+  parent: ActionToggleRightMantisBlade
   id: ActionToggleLeftMantisBlade
   name: Toggle Left Mantis Blade
   description: Extend or retract the mantis blade in your left arm.
-  categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    useDelay: 2
+  - type: Action
     icon: { sprite: _Goobstation/Objects/Weapons/Melee/mantis_blade.rsi, state: icon-mirrored }
-    itemIconStyle: NoItem
-    event: !type:ToggleMantisBladeEvent
 
 - type: entity
+  parent: BaseAction
   id: ActionToggleSandevistan
   name: Toggle Sandevistan
   description: Enable or disable your improved reflexes provided by the Sandevistan.
-  categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     useDelay: 3
     icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
     itemIconStyle: NoItem
+  - type: InstantAction
     event: !type:ToggleSandevistanEvent

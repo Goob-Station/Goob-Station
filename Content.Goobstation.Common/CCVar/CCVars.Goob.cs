@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
@@ -133,6 +134,12 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
     #region MisandryBox
+
+    /// <summary>
+    ///     Is sprint enabled.
+    /// </summary>
+    public static readonly CVarDef<bool> ToggleSprint =
+        CVarDef.Create("control.toggle_sprint", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     ///     Enable Dorm Notifier
@@ -412,24 +419,6 @@ public sealed partial class GoobCVars
     #region Chat
 
     /// <summary>
-    /// A string containing a list of newline-separated words to be highlighted in the chat.
-    /// </summary>
-    public static readonly CVarDef<string> ChatHighlights =
-        CVarDef.Create("chat.highlights", "", CVar.CLIENTONLY | CVar.ARCHIVE, "A list of newline-separated words to be highlighted in the chat.");
-
-    /// <summary>
-    /// An option to toggle the automatic filling of the highlights with the character's info, if available.
-    /// </summary>
-    public static readonly CVarDef<bool> ChatAutoFillHighlights =
-        CVarDef.Create("chat.auto_fill_highlights", false, CVar.CLIENTONLY | CVar.ARCHIVE, "Toggles automatically filling the highlights with the character's information.");
-
-    /// <summary>
-    /// The color in which the highlights will be displayed.
-    /// </summary>
-    public static readonly CVarDef<string> ChatHighlightsColor =
-        CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
-
-    /// <summary>
     /// Whether or not to log actions in the chat.
     /// </summary>
     public static readonly CVarDef<bool> LogInChat =
@@ -534,6 +523,13 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> AdminOverlayShowJob =
         CVarDef.Create("ui.admin_overlay_show_job", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    #endregion
+
+    #region Movement
+
+    public static readonly CVarDef<float> MaxSpeed =
+        CVarDef.Create("movement.max_speed", 2.7f, CVar.SERVER | CVar.REPLICATED);
 
     #endregion
 
