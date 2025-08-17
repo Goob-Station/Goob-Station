@@ -72,6 +72,14 @@
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
     time: 18000 #5 hrs
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Tajaran
+    - Resomi
+    - Shadowkin
+    - Rodentia
+    - Harpy
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
