@@ -54,7 +54,11 @@
     - AmbuzolMedipen # Injectors are cooler.
     - MedkitCombatFilled # Ah yes, let's send them in with ZERO meds. Good luck!
     - CburnSpear # SPEAAR
-    - ERTSecurityUndeterminedWeapon # Pirate changes
+    # Pirate VVV
+    - ERTSecurityUndeterminedWeapon
+  inhand:
+    - WeaponFlamerXiuhcoatl
+    # Pirate ^^^
 # Goobstation - End - Sol
 
 - type: chameleonOutfit
