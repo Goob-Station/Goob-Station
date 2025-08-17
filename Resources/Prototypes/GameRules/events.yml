@@ -902,7 +902,7 @@
       blacklist:
         components:
         - AntagImmune
-        - Commandstaff
+        - CommandStaff
       mindRoles:
       - MindRoleTraitorSleeper
 
