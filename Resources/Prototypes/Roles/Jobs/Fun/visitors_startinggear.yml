@@ -757,7 +757,7 @@
 - type: startingGear
   id: VisitorParamedic
   equipment:
-    jumpsuit: ClothingUniformJumpsuitParamedicNT
+    jumpsuit: ClothingUniformJumpsuitParamedic
     shoes: ClothingShoesSwat
     gloves: ClothingHandsGlovesLatex
     head: ClothingHeadHatParamedicsoft
