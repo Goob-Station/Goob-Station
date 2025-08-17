@@ -391,7 +391,7 @@ namespace Content.Server.Kitchen.EntitySystems
             butcherable.BeingButchered = true;
             component.InUse = true;
 
-            var doAfterArgs = new DoAfterArgs(EntityManager, userUid, (component.SpikeDelay + butcherable.ButcherDelay) * (_skills.IsSkillsEnabled() && !_skills.HasSkill(userUid, Skills.Butchering) ? ButcherDelayModifierWithoutSkill : 1), new SpikeDoAfterEvent(), uid, target: victimUid, used: uid) // CorvaxGoob-Skills
+            var doAfterArgs = new DoAfterArgs(EntityManager, userUid, (component.SpikeDelay + butcherable.ButcherDelay) * (!_skills.HasSkill(userUid, Skills.Butchering) ? ButcherDelayModifierWithoutSkill : 1), new SpikeDoAfterEvent(), uid, target: victimUid, used: uid) // CorvaxGoob-Skills
             {
                 BreakOnDamage = true,
                 BreakOnMove = true,

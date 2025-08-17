@@ -405,7 +405,7 @@ public sealed class MoverController : SharedMoverController
                     // CorvaxGoob-Skills-Start
                     var vec = offsetRotation.RotateVec(strafe);
 
-                    if (_skills.IsSkillsEnabled() && !_skills.HasSkill(pilotUid, Skills.ShuttleControl))
+                    if (!_skills.HasSkill(pilotUid, Skills.ShuttleControl))
                         vec = (vec + new Angle(_timer * MathHelper.Pi / Period).RotateVec(new(0, 1.2f))).Normalized() / 2;
 
                     linearInput += vec;

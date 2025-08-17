@@ -181,7 +181,7 @@ public sealed class SharpSystem : EntitySystem
         var needHand = user != knife;
 
         // CorvaxGoob-Skills-Start
-        var delayModifier = hasMobState && _skills.IsSkillsEnabled() && !_skills.HasSkill(user, Skills.Butchering) ? ButcherDelayModifierWithoutSkill : 1;
+        var delayModifier = hasMobState && !_skills.HasSkill(user, Skills.Butchering) ? ButcherDelayModifierWithoutSkill : 1;
 
         var doAfter = new DoAfterArgs(
             EntityManager,
