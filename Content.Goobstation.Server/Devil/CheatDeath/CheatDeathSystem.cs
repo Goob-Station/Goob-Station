@@ -46,7 +46,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
 
     private void OnInit(Entity<CheatDeathComponent> ent, ref MapInitEvent args) =>
         _actionsSystem.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.ActionCheatDeath);
-
+        
     private void OnRemoval(Entity<CheatDeathComponent> ent, ref ComponentRemove args) =>
         _actionsSystem.RemoveAction(ent, ent.Comp.ActionEntity);
 

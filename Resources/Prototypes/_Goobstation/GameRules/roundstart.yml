@@ -36,7 +36,6 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
-    chaosScore: 800
   - type: AntagRandomObjectives
     sets:
     - groups: ChangelingObjectiveGroups
@@ -54,7 +53,11 @@
     - prefRoles: [ Changeling ]
       max: 4
       playerRatio: 12
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # GOOBSTATION
+      chaosScore: 200
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
+      blacklist:
+        components:
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -77,16 +80,19 @@
     delay:
       min: 465
       max: 665 # Delay is so the heads help their department get set up.
-    chaosScore: 500 # It's just one to two people with less tc even if they may be command
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
       max: 2
       playerRatio: 25
+      chaosScore: 300
       jobBlacklist: [ NanotrasenRepresentative ]
       whitelist:
         components:
         - CommandStaff
+      blacklist:
+        components:
+        - Condemned # Stops the NTR from rolling it
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -97,16 +103,15 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 700
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
       max: 3
       playerRatio: 15
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
         - Changeling
       lateJoinAdditional: true
@@ -122,7 +127,6 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 450
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
@@ -130,6 +134,9 @@
     - prefRoles: [ Changeling ]
       max: 2
       playerRatio: 15
+      blacklist:
+        components:
+        - CommandStaff
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -143,7 +150,6 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 1000
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -213,7 +219,6 @@
   components:
   - type: GameRule
     minPlayers: 30
-    chaosScore: 700
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -221,7 +226,9 @@
     - prefRoles: [ HeadRev ]
       max: 1
       playerRatio: 20
-      jobBlacklist: [ ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      blacklist:
+        components:
+        - CommandStaff
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
@@ -259,9 +266,10 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
-      jobBlacklist: [ Chaplain, ChiefEngineer, ResearchDirector, Quartermaster, NanotrasenRepresentative ] # Goobstation
+      jobBlacklist: [ Chaplain ] # Goobstation
       blacklist:
         components:
+        - CommandStaff
         - AntagImmune
       briefing:
         text: blob-carrier-role-greeting
@@ -375,7 +383,6 @@
   components:
   - type: DevilRule
   - type: GameRule
-    chaosScore: 350 # low since they tend to revive people and stuff
     minPlayers: 15
   - type: AntagObjectives
     objectives:
@@ -388,6 +395,7 @@
     - prefRoles: [ Devil ]
       max: 1
       playerRatio: 20
+      chaosScore: 150
       jobBlacklist: [ Chaplain, Mime, ChiefEngineer, ResearchDirector, Quartermaster ] #chaplain is obvious, mime can't write.
       mindRoles:
       - DevilMindRole
