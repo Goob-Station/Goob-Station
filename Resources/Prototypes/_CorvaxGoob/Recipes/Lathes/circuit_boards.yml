@@ -62,3 +62,4 @@
   parent: BaseCircuitboardRecipe
   id: MachineMedipenRefillerCircuitboard
   result: MachineMedipenRefillerCircuitboard
+  icon: { sprite:  _CorvaxGoob/Structures/Machines/medipen_refiller.rsi, state: icon }

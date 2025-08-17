@@ -1,5 +1,3 @@
-# Tier 2
-
 - type: technology
   id: MedipenFilling
   name: research-technology-injectors-filling
@@ -7,7 +5,10 @@
     sprite: _CorvaxGoob/Structures/Machines/medipen_refiller.rsi
     state: icon
   discipline: CivilianServices
-  tier: 1
+  tier: 2
+  position: 3, 7
+  technologyPrerequisites:
+  - BiochemicalStasis
   cost: 10000
   recipeUnlocks:
   - FillableMedipen

@@ -55,6 +55,8 @@
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
+    selfDelay: 1
+    otherDelay: 2
     solutionName: pen
     transferAmount: 15 # recommend to use same value of transfer amount and maximum solution volume
     onlyAffectsMobs: true
@@ -103,7 +105,7 @@
     solution: pen
   - type: Hypospray
     solutionName: pen
-    transferAmount: 15
+    transferAmount: 10
     onlyAffectsMobs: true
     injectOnly: true
   - type: SolutionContainerManager

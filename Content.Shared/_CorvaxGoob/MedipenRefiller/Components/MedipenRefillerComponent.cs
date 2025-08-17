@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._CorvaxNext.MedipenRefiller;
+namespace Content.Shared._CorvaxGoob.MedipenRefiller;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MedipenRefillerComponent : Component

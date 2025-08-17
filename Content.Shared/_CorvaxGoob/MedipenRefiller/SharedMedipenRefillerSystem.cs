@@ -1,7 +1,7 @@
 using Content.Shared.Chemistry;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._CorvaxNext.MedipenRefiller;
+namespace Content.Shared._CorvaxGoob.MedipenRefiller;
 
 [Serializable, NetSerializable]
 public sealed class MedipenFillerRefillMedipenMessage : BoundUserInterfaceMessage

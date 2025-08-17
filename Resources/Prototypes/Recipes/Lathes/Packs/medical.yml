@@ -105,8 +105,6 @@
   - SyringeBluespace
   - BluespaceBodyBag # Corvax-Goob-AdvancedBodyBags
   - MedkitCombat #goob - Move combat kit to research
-  - LauncherSyringe
-  - MiniSyringe
   - FillableMedipen # CorvaxGoob-RefillableMedipens
 
 - type: latheRecipePack

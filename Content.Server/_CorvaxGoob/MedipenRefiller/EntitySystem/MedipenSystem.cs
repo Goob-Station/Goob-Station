@@ -1,10 +1,10 @@
 using Content.Shared.Chemistry.Hypospray.Events;
-using Content.Shared._CorvaxNext.MedipenRefiller;
+using Content.Shared._CorvaxGoob.MedipenRefiller;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._CorvaxNext.MedipenRefiller;
+namespace Content.Server._CorvaxGoob.MedipenRefiller;
 
 public sealed class MedipenSystem : EntitySystem
 {

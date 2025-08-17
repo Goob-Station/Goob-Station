@@ -1,8 +1,8 @@
-using Content.Shared._CorvaxNext.MedipenRefiller;
+using Content.Shared._CorvaxGoob.MedipenRefiller;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._CorvaxNext.MedipenRefiller;
+namespace Content.Client._CorvaxGoob.MedipenRefiller;
 
 [UsedImplicitly]
 public sealed class MedipenRefillerUserInterface : BoundUserInterface

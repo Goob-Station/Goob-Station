@@ -1,4 +1,4 @@
-namespace Content.Shared._CorvaxNext.MedipenRefiller;
+namespace Content.Shared._CorvaxGoob.MedipenRefiller;
 
 [RegisterComponent]
 public sealed partial class MedipenComponent : Component

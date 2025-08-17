@@ -1,3 +1,6 @@
+using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
+
 namespace Content.Shared.Chemistry.Hypospray.Events;
 
 public sealed class AfterHyposprayInjectsTargetEvent : HandledEntityEventArgs
@@ -11,5 +14,11 @@ public sealed class AfterHyposprayInjectsTargetEvent : HandledEntityEventArgs
         User = user;
         Hypospray = hypospray;
         Target = target;
+    }
+
+    [Serializable, NetSerializable]
+    public sealed partial class HyposprayTryInjectDoAfterEvent : SimpleDoAfterEvent
+    {
+
     }
 }

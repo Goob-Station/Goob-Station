@@ -1,7 +1,7 @@
-using Content.Shared._CorvaxNext.MedipenRefiller;
+using Content.Shared._CorvaxGoob.MedipenRefiller;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._CorvaxNext.MedipenRefiller;
+namespace Content.Client._CorvaxGoob.MedipenRefiller;
 
 public sealed class MedipenSystem : EntitySystem
 {

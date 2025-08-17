@@ -1,4 +1,4 @@
-using Content.Shared._CorvaxNext.MedipenRefiller;
+using Content.Shared._CorvaxGoob.MedipenRefiller;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -9,7 +9,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
-namespace Content.Server._CorvaxNext.MedipenRefiller;
+namespace Content.Server._CorvaxGoob.MedipenRefiller;
 
 public sealed class MedipenRefillerSystem : EntitySystem
 {
