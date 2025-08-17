@@ -25,3 +25,6 @@ changelog-button-new-entries = Changelog (new!)
 changelog-tab-title-Changelog = Wizden
 changelog-tab-title-Admin = Admin
 changelog-tab-title-Maps = Maps
+
+cmd-changelog-desc = Opens the changelog.
+cmd-changelog-help = Usage: changelog
