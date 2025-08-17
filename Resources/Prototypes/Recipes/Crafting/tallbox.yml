@@ -24,6 +24,7 @@
 
 - type: construction
   id: ClosetFreezer
+  name: construction-recipe-closet-freezer
   graph: ClosetFreezer
   startNode: start
   targetNode: done

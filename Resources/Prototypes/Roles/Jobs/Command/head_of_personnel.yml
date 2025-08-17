@@ -197,10 +197,22 @@
   equipment:
     shoes: ClothingShoesColorBrown
     id: HoPPDA
-    gloves: ClothingHandsGlovesHop
+    #gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
     belt: BoxFolderClipboard
   storage:
     back:
     - Flash
     - TelescopicBaton # Goobstation
+
+- type: chameleonOutfit
+  id: HeadOfPersonnelChameleonOutfit
+  job: HeadOfPersonnel
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatHopcap
+    eyes: ClothingEyesHudCommand
+    mask: ClothingMaskNeckGaiterRed
+    neck: ClothingNeckCloakHop
+    outerClothing: ClothingOuterWinterHoP
+

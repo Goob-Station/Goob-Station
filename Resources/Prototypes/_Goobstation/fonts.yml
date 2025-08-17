@@ -1,4 +1,6 @@
+
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 CerberusWolfie <wb.johnb.willis@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 #
@@ -11,3 +13,12 @@
 - type: font
   id: Eatday
   path: /Fonts/Eatday/Eatday.ttf
+
+- type: font # Bubblish (Slimes)
+  id: SourGummy
+  path: /Fonts/_Goobstation/Sour_Gummy/SourGummy-Regular.ttf
+
+- type: font # Valyrian Standard (Harpies/Squackroaches)
+  id: Delius
+  path: /Fonts/_Goobstation/Delius/Delius-Regular.ttf
+

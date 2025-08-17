@@ -25,6 +25,23 @@
   parent: Clothing
   id: ClothingBeltBase
   components:
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/toolbelt_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/toolbelt_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Items/handling/toolbelt_drop.ogg
+      params:
+        volume: -4
+  # Goobstation edit end
   - type: Sprite
     state: icon
   - type: Item

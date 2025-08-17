@@ -922,3 +922,11 @@
       tags:
       - Pill
   - type: Dumpable
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/pillbottle_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/pillbottle_drop.ogg
+  # Goobstation edit end
