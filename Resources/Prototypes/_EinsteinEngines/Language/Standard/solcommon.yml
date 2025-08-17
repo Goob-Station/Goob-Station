@@ -10,7 +10,7 @@
   isVisibleLanguage: true
   speech:
     color: "#8282fbaa"
-    fontId: NotoSansSC
+    fontId: NotoSansSC # Goob Edit - Chinese Characters Font
     boldFontId: NotoSansSCBold
   obfuscation:
     !type:SyllableObfuscation
