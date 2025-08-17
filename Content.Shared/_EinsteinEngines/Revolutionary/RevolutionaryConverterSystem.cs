@@ -98,12 +98,12 @@ public sealed class RevolutionaryConverterSystem : EntitySystem
             used: converter.Owner,
             showTo: converter.Owner)
         {
-            Hidden = !converter.Comp.VisibleDoAfter,
-            BreakOnMove = false,
-            BreakOnWeightlessMove = false,
+            ///Hidden = !converter.Comp.VisibleDoAfter,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
             BreakOnDamage = true,
             NeedHand = true,
-            BreakOnHandChange = false,
+            BreakOnHandChange = true,
         });
     }
 }
