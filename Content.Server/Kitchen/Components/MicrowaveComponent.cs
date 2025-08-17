@@ -1,14 +1,71 @@
-using Content.Shared.Construction.Prototypes;
+// SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Clyybber <darkmine956@gmail.com>
+// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
+// SPDX-FileCopyrightText: 2020 FL-OZ <58238103+FL-OZ@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 FL-OZ <anotherscuffed@gmail.com>
+// SPDX-FileCopyrightText: 2020 FL-OZ <yetanotherscuffed@gmail.com>
+// SPDX-FileCopyrightText: 2020 FLOZ <anotherscuffed@gmail.com>
+// SPDX-FileCopyrightText: 2020 GlassEclipse <32942106+GlassEclipse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 GlassEclipse <tsymall5@gmail.com>
+// SPDX-FileCopyrightText: 2020 Leo <lzimann@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Memory <58238103+FL-OZ@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
+// SPDX-FileCopyrightText: 2020 derek <xderek.luix@gmail.com>
+// SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2021 py01 <60152240+collinlunn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 py01 <pyronetics01@gmail.com>
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 James Simonson <jamessimo89@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TinManTim <73014819+Tin-Man-Tim@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 degradka <degradka@gmail.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.DeviceLinking;
 using Content.Shared.Item;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Kitchen; // Frontier
-using Robust.Shared.Serialization; // Frontier
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Shared.Kitchen.Components; // Frontier
 
 namespace Content.Server.Kitchen.Components
 {
@@ -17,12 +74,7 @@ namespace Content.Server.Kitchen.Components
     {
         [DataField("cookTimeMultiplier"), ViewVariables(VVAccess.ReadWrite)]
         public float CookTimeMultiplier = 1;
-        [DataField("machinePartCookTimeMultiplier")] // Frontier: machine parts
-        public ProtoId<MachinePartPrototype> MachinePartCookTimeMultiplier = "Capacitor"; // Frontier: machine parts
-        [ViewVariables(VVAccess.ReadOnly)]
-        public float FinalCookTimeMultiplier = 1.0f; // Frontier: machine parts
-        [DataField("cookTimeScalingConstant")]
-        public float CookTimeScalingConstant = 0.5f;
+
         [DataField("baseHeatMultiplier"), ViewVariables(VVAccess.ReadWrite)]
         public float BaseHeatMultiplier = 100;
 
@@ -119,61 +171,17 @@ namespace Content.Server.Kitchen.Components
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public bool CanMicrowaveIdsSafely = true;
-
-        // Frontier: recipe type
-        /// <summary>
-        /// the types of recipes that this "microwave" can handle.
-        /// </summary>
-        [DataField(customTypeSerializer: typeof(FlagSerializer<MicrowaveRecipeTypeFlags>)), ViewVariables(VVAccess.ReadWrite)]
-        public int ValidRecipeTypes = (int)MicrowaveRecipeType.Microwave;
-
-        /// <summary>
-        /// If true, events sent off by the microwave will state that the object is being heated.
-        /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public bool CanHeat = true;
-
-        /// <summary>
-        /// If true, events sent off by the microwave will state that the object is being irradiated.
-        /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public bool CanIrradiate = true;
-
-        /// <summary>
-        /// The localization string to be displayed when something that's too large is inserted.
-        /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public string TooBigPopup = "microwave-component-interact-item-too-big";
-
-        /// <summary>
-        /// The sound that is played when a set of ingredients does not match an assembly recipe.
-        /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public SoundSpecifier NoRecipeSound = new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
-
-        /// <summary>
-        /// The sound that is played when a set of ingredients does not match an assembly recipe.
-        /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadOnly)]
-        public MicrowaveUiKey Key = MicrowaveUiKey.Key;
-        // End Frontier
     }
 
     public sealed class BeingMicrowavedEvent : HandledEntityEventArgs
     {
         public EntityUid Microwave;
         public EntityUid? User;
-        // Frontier: fields for whether or not the object is actually being heated or irradiated.
-        public bool BeingHeated;
-        public bool BeingIrradiated;
-        // End Frontier
 
-        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user, bool heating, bool irradiating) // Frontier: added heating, irradiating
+        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user)
         {
             Microwave = microwave;
             User = user;
-            BeingHeated = heating;
-            BeingIrradiated = irradiating;
         }
     }
 }

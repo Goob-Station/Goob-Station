@@ -1,3 +1,31 @@
+// SPDX-FileCopyrightText: 2020 FL-OZ <58238103+FL-OZ@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 FL-OZ <anotherscuffed@gmail.com>
+// SPDX-FileCopyrightText: 2020 FL-OZ <yetanotherscuffed@gmail.com>
+// SPDX-FileCopyrightText: 2020 FLOZ <anotherscuffed@gmail.com>
+// SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 James Simonson <jamessimo89@gmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Kitchen.Components;
 using JetBrains.Annotations;
@@ -5,7 +33,6 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Timing;
 
 namespace Content.Client.Kitchen.UI
 {
@@ -21,24 +48,8 @@ namespace Content.Client.Kitchen.UI
         [ViewVariables]
         private readonly Dictionary<int, ReagentQuantity> _reagents = new();
 
-        // Frontier: UI parameters
-        private readonly string _menuTitle;
-        private readonly string _leftFlavorText;
-
         public MicrowaveBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
-            // Frontier: switch UI params based on key
-            if ((MicrowaveUiKey)uiKey == MicrowaveUiKey.ElectricRangeKey)
-            {
-                _menuTitle = "microwave-menu-range-title";
-                _leftFlavorText = "microwave-menu-range-footer-flavor-left";
-            }
-            else
-            {
-                _menuTitle = "microwave-menu-title";
-                _leftFlavorText = "microwave-menu-footer-flavor-left";
-            }
-            // End Frontier
         }
 
         protected override void Open()
@@ -76,11 +87,6 @@ namespace Content.Client.Kitchen.UI
                                                          ("time", Loc.GetString("microwave-menu-instant-button")));
                 }
             };
-
-            // Frontier: UI customization
-            _menu.Title = Loc.GetString(_menuTitle);
-            _menu.LeftFooter.Text = Loc.GetString(_leftFlavorText);
-            // End Frontier
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
