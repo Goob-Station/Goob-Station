@@ -120,7 +120,6 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 3
@@ -229,7 +228,6 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
@@ -324,7 +322,6 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
@@ -404,7 +401,6 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
@@ -487,7 +483,6 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
@@ -584,7 +579,6 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
@@ -674,7 +668,6 @@
       heatingCoefficient: 0.01
       coolingCoefficient: 0.01
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
@@ -777,7 +770,6 @@
       - HeadTop
       - HeadSide
   #THIS WILL BE REPLACED WITH MODULE ↓↓
-  - type: ToggleableLightVisuals
   - type: PointLight
     enabled: false
     radius: 5
