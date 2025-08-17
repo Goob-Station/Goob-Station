@@ -35,6 +35,7 @@ using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
+using Robust.Shared.Audio;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -64,7 +65,8 @@ public abstract class SharedChatSystem : EntitySystem
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
-    public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
+    public static readonly SoundSpecifier DefaultAnnouncementSound
+        = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
 
     public static readonly ProtoId<RadioChannelPrototype> CommonChannel = "Common";
 
