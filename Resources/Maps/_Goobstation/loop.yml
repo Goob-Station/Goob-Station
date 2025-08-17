@@ -121,9 +121,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -5204,68 +5202,6 @@ entities:
     - type: Transform
       pos: -17.44476,38.603394
       parent: 2
-- proto: ActionToggleInternals
-  entities:
-  - uid: 10
-    components:
-    - type: Transform
-      parent: 9
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 9
-  - uid: 13
-    components:
-    - type: Transform
-      parent: 12
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 12
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 11
-    components:
-    - type: Transform
-      parent: 9
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 9
-  - uid: 14
-    components:
-    - type: Transform
-      parent: 12
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 12
-- proto: ActionToggleLight
-  entities:
-  - uid: 22
-    components:
-    - type: Transform
-      parent: 21
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 21
-  - uid: 24
-    components:
-    - type: Transform
-      parent: 23
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 23
-  - uid: 26
-    components:
-    - type: Transform
-      parent: 25
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 25
-  - uid: 28
-    components:
-    - type: Transform
-      parent: 27
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 27
 - proto: AirAlarm
   entities:
   - uid: 29
@@ -52829,39 +52765,11 @@ entities:
     - type: Transform
       pos: -21.436565,3.4491062
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 26
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 26
-    - type: ActionsContainer
   - uid: 27
     components:
     - type: Transform
       pos: -21.636318,3.7964506
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 28
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 28
-    - type: ActionsContainer
   - uid: 8247
     components:
     - type: Transform
@@ -76742,33 +76650,11 @@ entities:
     - type: Transform
       pos: -26.550102,62.775665
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 10
-    - type: Jetpack
-      toggleActionEntity: 11
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 11
-          - 10
   - uid: 12
     components:
     - type: Transform
       pos: -26.409477,62.431915
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 13
-    - type: Jetpack
-      toggleActionEntity: 14
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 14
-          - 13
 - proto: JetpackSecurityFilled
   entities:
   - uid: 17915
@@ -76914,43 +76800,11 @@ entities:
     - type: Transform
       pos: -10.649839,25.551523
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 22
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 22
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
   - uid: 23
     components:
     - type: Transform
       pos: -6.7891417,11.615683
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 24
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 24
-    - type: Physics
-      canCollide: True
-    - type: ActionsContainer
   - uid: 11613
     components:
     - type: Transform
