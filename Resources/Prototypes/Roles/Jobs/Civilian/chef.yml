@@ -67,7 +67,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 ImWeax <59857479+ImWeax@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -92,11 +97,13 @@
   - Hydroponics
   - Bar
   special: # Goobstation - Martial Arts
-  - !type:AddComponentSpecial # Goobstation - Martial Arts
-    components: # Goobstation - Martial Arts
-      - type: GrantCqc # Goobstation - Martial Arts
-        startingStage: Hard # Goobstation - Martial Arts
-        isBlocked: true # Goobstation - Martial Arts
+  - !type:AddComponentSpecial
+    components:
+      - type: GrantCqc
+        startingStage: Hard
+        isBlocked: true
+  - !type:AddImplantSpecial # Chefs speak space italian
+    implants: [ SpaceItalianTranslatorImplant ]
 
 - type: startingGear
   id: ChefGear
@@ -108,3 +115,15 @@
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: ChefChameleonOutfit
+  job: Chef
+  equipment:
+    head: ClothingHeadHatChef
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskItalianMoustache
+    neck: ClothingNeckScarfStripedBrown
+    outerClothing: ClothingOuterJacketChef
+    gloves: ClothingHandsGlovesColorWhite
+    shoes: ClothingShoesChef
