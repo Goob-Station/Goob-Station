@@ -529,7 +529,7 @@
     description: ghost-role-information-ancient-xeno-description
     rules: ghost-role-information-xeno-rules
     raffle:
-      settings: default
+      settings: short
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -545,7 +545,7 @@
     description: ghost-role-information-ancient-xeno-description
     rules: ghost-role-information-xeno-rules
     raffle:
-      settings: default
+      settings: short
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -561,7 +561,7 @@
     description: ghost-role-information-ancient-xeno-description
     rules: ghost-role-information-xeno-rules
     raffle:
-      settings: default
+      settings: short
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -577,7 +577,7 @@
     description: ghost-role-information-ancient-xeno-description
     rules: ghost-role-information-xeno-rules
     raffle:
-      settings: default
+      settings: short
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -593,7 +593,7 @@
     description: ghost-role-information-ancient-xeno-description
     rules: ghost-role-information-xeno-rules
     raffle:
-      settings: default
+      settings: short
   - type: GhostTakeoverAvailable
 
 - type: entity
