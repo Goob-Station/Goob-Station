@@ -1,0 +1,26 @@
+- type: loadout
+  id: ResearchDirectorEnvirosuit
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitResearchDirector
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ResearchDirectorEnvirohelm
+  equipment:
+    head: ClothingHeadEnvirohelmResearchDirector
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
+
+- type: loadout
+  id: ResearchDirectorEnvirogloves
+  equipment:
+    gloves: ClothingHandsGlovesEnviroglovesResearchDirector
+  effects:
+  - !type:SpeciesLoadoutEffect # Goobstation - EE Plasmeme Change.
+    species:
+    - Plasmaman
