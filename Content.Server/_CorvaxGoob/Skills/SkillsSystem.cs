@@ -41,4 +41,15 @@ public sealed class SkillsSystem : SharedSkillsSystem
     {
         return _skillsEnabled;
     }
+
+    public bool HasSkill(EntityUid entity, Shared._CorvaxGoob.Skills.Skills skill, SkillsComponent? component = null)
+    {
+        if (!_skillsEnabled)
+            return true;
+
+        if (!Resolve(entity, ref component, false))
+            return false;
+
+        return component.Skills.Contains(skill);
+    }
 }

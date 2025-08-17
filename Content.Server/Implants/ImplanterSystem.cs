@@ -93,7 +93,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
 
 
             //Implant self instantly, otherwise try to inject the target.
-            if (args.User == target && _skills.IsSkillsEnabled() && _skills.HasSkill(args.User, Skills.Surgery)) // CorvaxGoob-Skills
+            if (args.User == target && _skills.HasSkill(args.User, Skills.Surgery)) // CorvaxGoob-Skills
                 Implant(target, target, uid, component);
             else if (implantComp != null)
                 TryImplant(component, args.User, target, uid, implantComp.ImplantationTimeMultiplier); // Goobstation - allow traitors to buy suicide implants (add time multiplier)
@@ -112,7 +112,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
     // Goobstation - allow traitors to buy suicide implants (add time multiplier)
     public void TryImplant(ImplanterComponent component, EntityUid user, EntityUid target, EntityUid implanter, float timeMultiplier = 1)
     {
-        var delay = component.ImplantTime * (_skills.IsSkillsEnabled() && !_skills.HasSkill(user, Skills.Surgery) ? ImplantDelayModifierWithoutSkill : 1); // CorvaxGoob-Skills
+        var delay = component.ImplantTime * (!_skills.HasSkill(user, Skills.Surgery) ? ImplantDelayModifierWithoutSkill : 1); // CorvaxGoob-Skills
 
         var args = new DoAfterArgs(EntityManager, user, delay, new ImplantEvent(), implanter, target: target, used: implanter) // CorvaxGoob-Skills
         {
@@ -145,7 +145,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
     //TODO: Remove when surgery is in
     public void TryDraw(ImplanterComponent component, EntityUid user, EntityUid target, EntityUid implanter)
     {
-        var delay = component.DrawTime * (_skills.IsSkillsEnabled() && !_skills.HasSkill(user, Skills.Surgery) ? DrawDelayModifierWithoutSkill : 1); // CorvaxGoob-Skills
+        var delay = component.DrawTime * (!_skills.HasSkill(user, Skills.Surgery) ? DrawDelayModifierWithoutSkill : 1); // CorvaxGoob-Skills
 
         var args = new DoAfterArgs(EntityManager, user, delay, new DrawEvent(), implanter, target: target, used: implanter) // CorvaxGoob-Skills
         {

@@ -13,6 +13,7 @@
   - type: Action
     priority: -20
     itemIconStyle: BigAction
+    checkCanInteract: false # CorvaxGoob Delete it on goobfix 
     icon:
       sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
       state: exit
@@ -27,6 +28,7 @@
   components:
   - type: Action
     itemIconStyle: BigAction
+    checkCanInteract: false # CorvaxGoob Delete it on goobfix 
     icon:
       sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
       state: send-yourself

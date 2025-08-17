@@ -239,7 +239,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
         }
 
         // CorvaxGoob-Skills-Start
-        if (_skills.IsSkillsEnabled() && !_skills.HasSkill(user, Skills.MedicalEquipment))
+        if (!_skills.HasSkill(user, Skills.MedicalEquipment))
             actualDelay *= DelayModifierWithoutSkill;
         // CorvaxGoob-Skills-End
 
