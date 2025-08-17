@@ -1,184 +1,3 @@
-# SPDX-FileCopyrightText: 2020 FL-OZ <58238103+FL-OZ@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 FL-OZ <anotherscuffed@gmail.com>
-# SPDX-FileCopyrightText: 2020 FL-OZ <yetanotherscuffed@gmail.com>
-# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Ephememory <66768086+Ephememory@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Matz05 <Matz05@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 SweptWasTaken <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
-# SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DoubleRiceEddiedd <149714181+DoubleRiceEddiedd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Feluk6174 <77207907+Feluk6174@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Fluffiest Floofers <thebluewulf@gmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2023 SonicHDC <100022571+SonicHDC@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Timothy Teakettle <59849408+timothyteakettle@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 dahnte <70238020+dahnte@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 forthbridge <79264743+forthbridge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 nmajask <nmajask@gmail.com>
-# SPDX-FileCopyrightText: 2023 phunnyguy <90366172+phunnyguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArkiveDev <95712736+ArkiveDev@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 August Sun <45527070+august-sun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CheddaCheez <cheddacheezy@gmail.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DieselMohawk <gavin.drinka@gmail.com>
-# SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Doomsdrayk <robotdoughnut@comcast.net>
-# SPDX-FileCopyrightText: 2024 DrEnzyme <DrEnzyme@gmail.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Elysium206 <151651971+Elysium206@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Floofi <126319569+Shadowtheprotogen546@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 GreyMario <mariomister541@gmail.com>
-# SPDX-FileCopyrightText: 2024 Gyrandola <pasta.frollagg@gmail.com>
-# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 MetalSage <74924875+MetalSage@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MetalSage <metalsage.official@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MisterMecky <mrmecky@hotmail.com>
-# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
-# SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 TheKittehJesus <29379890+SamGithubAccount@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TurboTrackerss14 <130304754+TurboTrackerss14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unisol <1929445+Unisol@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 WarMechanic <69510347+WarMechanic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 august-sun <45527070+august.sun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 coolboy911 <85909253+coolboy911@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 goet <6637097+goet@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 marbow <152051971+marboww@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 mhamster <81412348+mhamsterr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 mkanke-real <mikekanke@gmail.com>
-# SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 osjarw <oskariwjarvinen@gmail.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SG6732 <151011904+SG6732@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
-# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: microwaveMealRecipe
   id: RecipeBun
   name: bun recipe
@@ -187,6 +6,7 @@
   group: Breads
   solids:
     FoodDoughSlice: 1 # one third of a standard bread dough recipe
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCottonBun
@@ -196,6 +16,7 @@
   group: Breads
   solids:
     FoodDoughCottonSlice: 1
+  recipeType: Oven # Frontier
 
 #Bagels
 - type: microwaveMealRecipe
@@ -206,6 +27,7 @@
   group: Breads
   solids:
     FoodDoughRope: 1 # created by rolling a dough slice.
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBagelPoppy
@@ -216,6 +38,7 @@
   solids:
     FoodDoughRope: 1
     PoppySeeds: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBagelCotton
@@ -225,6 +48,7 @@
   group: Moth
   solids:
     FoodDoughCottonRope: 1
+  recipeType: Oven # Frontier
 
 #Burgers
 
@@ -237,6 +61,7 @@
   solids:
     FoodBreadBun: 1
     OrganHumanAppendix: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBaconBurger
@@ -248,6 +73,7 @@
     FoodBreadBun: 1
     FoodMeatBacon: 1
     FoodCheeseSlice: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBaseballBurger
@@ -258,6 +84,7 @@
   solids:
     FoodBreadBun: 1
     BaseBallBat: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBearger
@@ -268,6 +95,7 @@
   solids:
     FoodBreadBun: 1
     FoodMeatBear: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBigBiteBurger
@@ -281,8 +109,9 @@
     FoodCheeseSlice: 1
     FoodTomato: 1
     FoodOnionSlice: 2
+  recipeType: Oven # Frontier
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeBrainBurger
   name: brain burger recipe
   result: FoodBurgerBrain
@@ -291,6 +120,7 @@
   solids:
     FoodBreadBun: 1
     OrganHumanBrain: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCatBurger
@@ -302,8 +132,9 @@
     FoodBreadBun: 1
     FoodMeat: 1
     ClothingHeadHatCatEars: 1
+  recipeType: Oven # Frontier
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeCheeseburger
   name: cheeseburger recipe
   result: FoodBurgerCheese
@@ -313,8 +144,9 @@
     FoodBreadBun: 1
     FoodMeat: 1
     FoodCheeseSlice: 1
+  recipeType: Oven # Frontier
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeChickenSandwich
   name: chicken sandwich recipe
   result: FoodBurgerChicken
@@ -325,6 +157,7 @@
   solids:
     FoodBreadBun: 1
     FoodMeatChicken: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeClownBurger
@@ -335,6 +168,7 @@
   solids:
     FoodBreadBun: 1
     ClothingMaskClown: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCorgiBurger
@@ -345,8 +179,9 @@
   solids:
     FoodBreadBun: 1
     FoodMeatCorgi: 1
+  recipeType: Oven # Frontier
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeCrabBurger
   name: crab burger recipe
   result: FoodBurgerCrab
@@ -355,6 +190,7 @@
   solids:
     FoodBreadBun: 1
     FoodMeatCrab: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCrazyHamburger
@@ -372,8 +208,9 @@
     FoodCabbage: 1
     CrayonGreen: 1
     Flare: 1
+  recipeType: Oven # Frontier
 
-- type: microwaveMealRecipe
+- type: microwaveMealRecipe #Added to metamorph recipes
   id: RecipeDuckBurger
   name: duck sandwich recipe
   result: FoodBurgerDuck
@@ -383,6 +220,7 @@
     FoodBreadBun: 1
     FoodMeatDuck: 1
     FoodCheeseSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeEmpoweredBurger
@@ -393,6 +231,7 @@
   solids:
     FoodBreadBun: 1
     SheetPlasma1: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCarpBurger
@@ -404,6 +243,7 @@
     FoodBreadBun: 1
     FoodMeatFish: 1
     FoodCheeseSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeFiveBurger
@@ -415,6 +255,7 @@
     FoodBreadBun: 1
     FoodMeat: 1
     FoodChiliPepper: 3
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeGhostBurger
@@ -425,6 +266,7 @@
   solids:
     FoodBreadBun: 1
     Ectoplasm: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeHumanBurger
@@ -435,6 +277,7 @@
   solids:
     FoodBreadBun: 1
     FoodMeatHuman: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeJellyBurger
@@ -445,6 +288,7 @@
   solids:
     FoodBreadBun: 1
     FoodJellyAmanita: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBurgerMcguffin
@@ -457,6 +301,7 @@
   solids:
     FoodBreadBun: 1
     FoodCheeseSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBurgerMcrib
@@ -468,6 +313,7 @@
     FoodBreadBun: 1
     FoodMealRibs: 1
     FoodOnionSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMimeBurger
@@ -478,6 +324,7 @@
   solids:
     FoodBreadBun: 1
     ClothingMaskMime: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipePlainBurger
@@ -488,6 +335,7 @@
   solids:
     FoodBreadBun: 1
     FoodMeat: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeRatBurger
@@ -498,6 +346,7 @@
   solids:
     FoodBreadBun: 1
     FoodMeatRat: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeRobotBurger
@@ -509,6 +358,7 @@
     FoodBreadBun: 1
     MicroManipulatorStockPart: 2
     # i would add steel to this recipe but the microwave explodes
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeSoylentBurger
@@ -520,6 +370,7 @@
     FoodBreadBun: 1
     FoodCheeseSlice: 2
     FoodSoybeans: 2 #replace with soylent green when those become craftable
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeSpellBurger
@@ -530,6 +381,7 @@
   solids:
     FoodBreadBun: 1
     ClothingHeadHatWizard: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeSuperBiteBurger
@@ -545,6 +397,7 @@
     FoodMeat: 2
     FoodCheeseSlice: 2
     FoodTomato: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeTofuBurger
@@ -555,6 +408,7 @@
   solids:
     FoodBreadBun: 1
     FoodTofuSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeXenoburger
@@ -565,6 +419,7 @@
   solids:
     FoodBreadBun: 1
     FoodMeatXeno: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMothRoachburger
@@ -574,6 +429,7 @@
   solids:
     FoodBreadBun: 1
     MobMothroach: 1
+  recipeType: Oven # Frontier
 
 #Breads & Sandwiches
 
@@ -586,6 +442,7 @@
   solids:
     FoodDough: 1
     FoodBanana: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCornbread
@@ -595,6 +452,7 @@
   group: Breads
   solids:
     FoodDoughCornmeal: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCreamCheeseBread
@@ -607,6 +465,7 @@
   solids:
     FoodDough: 1
     FoodCheeseSlice: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMeatBread
@@ -618,6 +477,7 @@
     FoodDough: 1
     FoodMeatCutlet: 2
     FoodCheeseSlice: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMimanaBread
@@ -630,6 +490,7 @@
   solids:
     FoodDough: 1
     FoodMimana: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBread
@@ -639,6 +500,7 @@
   group: Breads
   solids:
     FoodDough: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBreadCotton
@@ -648,6 +510,8 @@
   group: Moth
   solids:
     FoodDoughCotton: 1
+  recipeType: # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeSausageBread
@@ -658,6 +522,7 @@
   solids:
     FoodDough: 1
     FoodMeat: 1 #replace with sausage
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeSpiderMeatBread
@@ -669,6 +534,7 @@
     FoodDough: 1
     FoodMeatSpiderCutlet: 2
     FoodCheeseSlice: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeTofuBread
@@ -679,6 +545,7 @@
   solids:
     FoodDough: 1
     FoodTofu: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeXenoMeatBread
@@ -690,6 +557,7 @@
     FoodDough: 1
     FoodMeatXenoCutlet: 2
     FoodCheeseSlice: 2
+  recipeType: Oven # Frontier
 
 #Slices Only
 
@@ -704,6 +572,7 @@
     Blackpepper: 5
   solids:
     FoodDough: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBaguetteCotton
@@ -716,6 +585,7 @@
     Blackpepper: 5
   solids:
     FoodDoughCotton: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBaguetteSword
@@ -730,6 +600,7 @@
   solids:
     FoodDough: 1
     PartRodMetal1: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeButteredToast
@@ -740,6 +611,7 @@
   solids:
     FoodBreadPlainSlice: 1
     FoodButterSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeFrenchToast
@@ -752,6 +624,7 @@
     Egg: 12
   solids:
     FoodBreadPlainSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeGarlicBread
@@ -763,6 +636,7 @@
     FoodBreadPlainSlice: 1
     FoodGarlic: 1
     FoodButterSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeJellyToast
@@ -773,6 +647,7 @@
   solids:
     FoodBreadPlainSlice: 1
     FoodJellyAmanita: 1 #replace with jelly
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMoldyBreadSlice
@@ -783,6 +658,7 @@
   solids:
     FoodBreadPlainSlice: 1
     FoodFlyAmanita: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeTwoBreadSlice
@@ -794,6 +670,7 @@
     Wine: 5
   solids:
     FoodBreadPlainSlice: 2
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeOnionRings
@@ -802,7 +679,8 @@
   time: 15
   group: Savory
   solids:
-    FoodOnionSlice: 1
+    FoodOnionRingsBattered: 1 # Frontier FoodOnionSlice<FoodOnionRingsBattered
+  recipeType: Oven # Frontier
 
 #Pizzas TODO: contruction graph based pizza
 - type: microwaveMealRecipe
@@ -815,6 +693,7 @@
     FoodDoughFlat: 1
     FoodCheeseSlice: 1
     FoodTomato: 4
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMushroomPizza
@@ -825,6 +704,7 @@
   solids:
     FoodDoughFlat: 1
     FoodMushroom: 5
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMeatPizza
@@ -837,6 +717,7 @@
     FoodMeat: 3
     FoodCheeseSlice: 1
     FoodTomato: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeVegetablePizza
@@ -850,6 +731,7 @@
     FoodCarrot: 1
     FoodCorn: 1
     FoodTomato: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeHawaiianPizza
@@ -861,6 +743,7 @@
     FoodDoughFlat: 1
     FoodMeatChickenCutlet: 3
     FoodPineappleSlice: 5
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDankPizza
@@ -873,6 +756,7 @@
     LeavesCannabis: 2
     FoodCheeseSlice: 1
     FoodTomato: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketPizza
@@ -885,6 +769,7 @@
     FoodDonkpocketWarm: 3
     FoodCheeseSlice: 1
     FoodTomato: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeUraniumPizza
@@ -897,6 +782,7 @@
     FoodChiliPepper: 2
     FoodTomato: 2
     SheetUranium1: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCottonPizza
@@ -907,6 +793,7 @@
   solids:
     FoodDoughCottonFlat: 1
     CottonBol: 4
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWorldpeasPizza
@@ -916,6 +803,7 @@
   solids:
     FoodDoughFlat: 1
     FoodWorldPeas: 3
+  recipeType: Oven # Frontier
 
 #Italian
 - type: microwaveMealRecipe
@@ -928,6 +816,7 @@
     Flour: 15
     Egg: 6
     OilOlive: 5
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipePastaTomato
@@ -938,6 +827,7 @@
   solids:
     FoodNoodlesBoiled: 1
     FoodTomato: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMeatballSpaghetti
@@ -948,6 +838,7 @@
   solids:
     FoodNoodlesBoiled: 1
     FoodMeatMeatball: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeButterNoodles
@@ -958,6 +849,7 @@
   solids:
     FoodNoodlesBoiled: 1
     FoodButter: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeChowMein
@@ -972,6 +864,7 @@
     FoodEggplant: 1
     FoodCarrot: 1
     FoodCorn: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeOatmeal
@@ -984,6 +877,7 @@
     Water: 10
   solids:
     FoodBowlBig: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBoiledRice
@@ -996,6 +890,7 @@
     Water: 10
   solids:
     FoodBowlBig: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeRicePudding
@@ -1009,6 +904,7 @@
     Sugar: 5
   solids:
     FoodBowlBig: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeRicePork
@@ -1019,6 +915,7 @@
   solids:
     FoodRiceBoiled: 1
     FoodMeatCutlet: 3
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeRiceGumbo
@@ -1030,6 +927,7 @@
     FoodRiceBoiled: 1
     FoodMeatCutlet: 3
     FoodChiliPepper: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeEggRice
@@ -1042,6 +940,7 @@
   solids:
     FoodRiceBoiled: 1
     FoodCarrot: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCopypasta
@@ -1052,6 +951,7 @@
   solids:
     FoodNoodles: 2
     FoodPlateSmall: 2
+  recipeType: Oven # Frontier
 
 #Soups & Stew
 - type: microwaveMealRecipe
@@ -1067,6 +967,7 @@
     FoodTomato: 1
     FoodMushroom: 1
     FoodMeatFish: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMeatballSoup
@@ -1081,6 +982,7 @@
     FoodMeatMeatball: 1
     FoodCarrot: 1
     FoodPotato: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeNettleSoup
@@ -1095,6 +997,7 @@
     FoodBowlBig: 1
     Nettle: 1
     FoodPotato: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeEyeballSoup
@@ -1109,6 +1012,7 @@
     OrganHumanEyes: 1
     FoodCarrot: 1
     FoodPotato: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeAmanitaJelly
@@ -1121,6 +1025,7 @@
     Vodka: 5
   solids:
     FoodFlyAmanita: 3
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeOnionSoup
@@ -1134,6 +1039,7 @@
     FoodBowlBig: 1
     FoodOnionSlice: 5
     FoodCheeseSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMushroomSoup
@@ -1147,6 +1053,7 @@
   solids:
     FoodBowlBig: 1
     FoodMushroom: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeStewSoup
@@ -1164,6 +1071,7 @@
     FoodCarrot: 1
     FoodEggplant: 1
     FoodMushroom: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeTomatoSoup
@@ -1176,6 +1084,7 @@
   solids:
     FoodBowlBig: 1
     FoodTomato: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeTomatoBloodSoup
@@ -1188,6 +1097,7 @@
   solids:
     FoodBowlBig: 1
     FoodBloodTomato: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWingFangChuSoup
@@ -1200,6 +1110,7 @@
   solids:
     FoodBowlBig: 1
     FoodMeatXenoCutlet: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWingFangChuSoupSpider
@@ -1212,6 +1123,7 @@
   solids:
     FoodBowlBig: 1
     FoodMeatSpider: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeVegetableSoup
@@ -1227,6 +1139,7 @@
     FoodCarrot: 1
     FoodPotato: 1
     FoodEggplant: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeClownTearsSoup
@@ -1241,6 +1154,7 @@
     FoodBanana: 1
     ShardGlass: 1
     #idk probably replace shard with someting bananium when #14663 merged
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMonkeysDelightSoup
@@ -1256,6 +1170,7 @@
     FoodBowlBig: 1
     FoodBanana: 1
     MonkeyCube: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBungoSoup
@@ -1265,10 +1180,12 @@
   group: Soup
   reagents:
     Water: 5
+    Everyspice: 5 # Frontier
   solids:
     FoodBowlBig: 1
     FoodBungo: 2
     FoodChiliPepper: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBoiledSnail
@@ -1280,6 +1197,8 @@
     Water: 10
   solids:
     FoodMeatSnail: 1
+  recipeType: # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeEscargotSoup
@@ -1294,6 +1213,7 @@
     FoodOnionSlice: 1
     FoodButter: 1
     FoodMeatSnailCooked: 1
+  recipeType: Oven # Frontier
 
 #Pies
 
@@ -1307,6 +1227,7 @@
     FoodDoughPie: 1
     FoodFlyAmanita: 1
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeApplePie
@@ -1318,6 +1239,7 @@
     FoodDoughPie: 1
     FoodApple: 3
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBaklava
@@ -1329,6 +1251,7 @@
     FoodDoughPie: 1
     FoodSnackPistachios: 1 #i'd rather use a botany crop but we don't have nuts yet
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBananaCreamPie
@@ -1340,6 +1263,7 @@
     FoodDoughPie: 1
     FoodBanana: 3
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBerryClafoutis
@@ -1351,6 +1275,7 @@
     FoodDoughPie: 1
     FoodBerries: 3
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCherryPie
@@ -1362,6 +1287,7 @@
     FoodDoughPie: 1
     FoodCherry: 5
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeFrostyPie
@@ -1373,6 +1299,7 @@
     FoodDoughPie: 1
     FoodChillyPepper: 3
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMeatPie
@@ -1384,6 +1311,7 @@
     FoodDoughPie: 1
     FoodMeat: 3
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipePumpkinPie
@@ -1395,6 +1323,7 @@
     FoodDoughPie: 1
     FoodPumpkin: 1
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 #- type: microwaveMealRecipe
 #  id: RecipePlumpPie
@@ -1405,6 +1334,7 @@
 #    FoodDoughPie: 1
 #    FoodPlumpHelmet: 3 #a big part of me wants to veto this because the item description is a dick joke but i'll write the placeholder anyway
 #    FoodPlateTin: 1
+#  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeXenoPie
@@ -1416,6 +1346,7 @@
     FoodDoughPie: 1
     FoodMeatXeno: 3
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 #Tarts
 
@@ -1432,6 +1363,7 @@
     FoodDoughPie: 1
     FoodSnackChocolateBar: 3
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeGappleTart
@@ -1447,6 +1379,7 @@
     FoodDoughPie: 1
     FoodApple: 2 #in absence of the real gapple i'm substituting one apple with 10u gold (one ingot)
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeGrapeTart
@@ -1461,6 +1394,7 @@
     FoodDoughPie: 1
     FoodGrape: 3
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMimeTart
@@ -1475,6 +1409,7 @@
     FoodDoughPie: 1
     FoodMimana: 3
     FoodPlateTin: 1
+  recipeType: Oven # Frontier
 
 #Other
 
@@ -1489,6 +1424,7 @@
     FoodCheeseSlice: 2
     FoodChiliPepper: 1
     FoodMeatFish: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeSashimi
@@ -1500,6 +1436,7 @@
     TableSalt: 1
   solids:
     FoodMeatFish: 2
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMisoColaSoup
@@ -1511,6 +1448,7 @@
     Cola: 5
   solids:
     FoodSoupMiso: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeLoadedBakedPotato
@@ -1521,6 +1459,7 @@
   solids:
     FoodPotato: 1
     FoodCheeseSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeFries
@@ -1532,6 +1471,7 @@
     TableSalt: 5
   solids:
     FoodPotato: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCheesyFries
@@ -1544,6 +1484,7 @@
   solids:
     FoodPotato: 1
     FoodCheeseSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCarrotFries
@@ -1555,6 +1496,7 @@
     TableSalt: 5
   solids:
     FoodCarrot: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeNachos
@@ -1567,6 +1509,8 @@
   solids:
     FoodDoughTortillaFlat: 1
     FoodPlateSmall: 1
+  recipeType: # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeNachosCheesy
@@ -1580,6 +1524,8 @@
     FoodCheeseSlice: 1
     FoodDoughTortillaFlat: 1
     FoodPlateSmall: 1
+  recipeType: # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeNachosCuban
@@ -1593,6 +1539,8 @@
     FoodChiliPepper: 1
     FoodDoughTortillaFlat: 1
     FoodPlateSmall: 1
+  recipeType: # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipePopcorn
@@ -1602,6 +1550,9 @@
   group: Savory
   solids:
     FoodCorn: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipePancake
@@ -1613,6 +1564,7 @@
     Flour: 5
     Milk: 5
     Egg: 6
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBlueberryPancake
@@ -1626,6 +1578,7 @@
     Egg: 6
   solids:
     FoodBerries: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWaffles
@@ -1638,6 +1591,7 @@
     Milk: 5
     Egg: 6
     SodaWater: 5
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWaffleSoy
@@ -1650,12 +1604,14 @@
     MilkSoy: 5
     Egg: 6
     SodaWater: 5
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCookie
   name: cookie recipe
   result: FoodBakedCookie
-  time: 5
+  resultCount: 3 # Frontier
+  time: 10 # Frontier - 5<10
   group: BarsAndCookies
   reagents:
     Flour: 5
@@ -1663,42 +1619,50 @@
   solids:
     FoodButterSlice: 1
     FoodSnackChocolateBar: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeSugarCookie
   name: sugar cookie recipe
   result: FoodBakedCookieSugar
-  time: 5
+  resultCount: 2 # Frontier
+  time: 10 # Frontier - 5<10
   group: BarsAndCookies
   reagents:
     Flour: 5
     Sugar: 10
   solids:
     FoodButterSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeRaisinCookie
   name: raisin cookie recipe
   result: FoodBakedCookieRaisin
-  time: 5
+  resultCount: 2 # Frontier
+  time: 10 # Frontier - 5<10
   group: BarsAndCookies
   reagents:
     Flour: 5
     Sugar: 5
-  solids:
-    FoodSnackRaisins: 1
+    Raisins: 10 # Frontier
+  # solids: # Frontier
+    # FoodSnackRaisins: 1 # Frontier
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCookieOatmeal
   name: oatmeal cookie recipe
   result: FoodBakedCookieOatmeal
-  time: 5
+  resultCount: 2 # Frontier
+  time: 10 # Frontier - 5<10
   group: BarsAndCookies
   reagents:
     Oats: 5
     Sugar: 5
   solids:
     FoodButterSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeChocolateChipPancake
@@ -1712,6 +1676,7 @@
     Egg: 6
   solids:
     FoodSnackChocolateBar: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeAppleCake
@@ -1722,6 +1687,7 @@
   solids:
     FoodCakePlain: 1
     FoodApple: 3
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCarrotCake
@@ -1732,6 +1698,7 @@
   solids:
     FoodCakePlain: 1
     FoodCarrot: 3
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeLemonCake
@@ -1742,6 +1709,7 @@
   solids:
     FoodCakePlain: 1
     FoodLemon: 3
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeLemoonCake
@@ -1753,6 +1721,7 @@
     FoodCakePlain: 1
     FoodLemoon: 2
     FoodBerries: 1 #dark colouring
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeOrangeCake
@@ -1763,6 +1732,7 @@
   solids:
     FoodCakePlain: 1
     FoodOrange: 3
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBlueberryCake
@@ -1773,6 +1743,7 @@
   solids:
     FoodCakePlain: 1
     FoodBerries: 3
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeLimeCake
@@ -1783,6 +1754,7 @@
   solids:
     FoodCakePlain: 1
     FoodLime: 3
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCheeseCake
@@ -1795,6 +1767,7 @@
   solids:
     FoodCakePlain: 1
     FoodCheeseSlice: 3
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipePumpkinCake
@@ -1802,9 +1775,12 @@
   result: FoodCakePumpkin
   time: 5
   group: Cake
+  reagents: # Frontier
+    Everyspice: 5 # Frontier
   solids:
     FoodCakePlain: 1
     FoodPumpkin: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeClownCake
@@ -1815,6 +1791,7 @@
   solids:
     ClothingMaskClown: 1
     FoodCakePlain: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCake
@@ -1824,6 +1801,7 @@
   group: Cake
   solids:
     FoodCakeBatter: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBirthdayCake
@@ -1835,6 +1813,7 @@
     Cream: 5
   solids:
     FoodCakePlain: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeChocolateCake
@@ -1845,6 +1824,7 @@
   solids:
     FoodCakePlain: 1
     FoodSnackChocolateBar: 2
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBrainCake
@@ -1855,6 +1835,7 @@
   solids:
     FoodCakePlain: 1
     OrganHumanBrain: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeSlimeCake
@@ -1866,6 +1847,7 @@
     Slime: 15
   solids:
     FoodCakePlain: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCatCake
@@ -1875,11 +1857,13 @@
   group: Cake
   reagents:
     Milk: 15
+    Raisins: 10 # Frontier
     Cognizine: 5
   solids:
     FoodCakePlain: 1
-    FoodSnackRaisins: 1
+    # FoodSnackRaisins: 1 # Frontier
     OrganAnimalHeart: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBreadDog
@@ -1893,6 +1877,7 @@
     FoodBreadSausage: 1
     OrganAnimalHeart: 1
     FoodSpaceshroomCooked: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDumplings
@@ -1905,6 +1890,7 @@
     UncookedAnimalProteins: 6
   solids:
     FoodDoughSlice: 3
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBrownies
@@ -1919,6 +1905,7 @@
   solids:
     FoodButter: 2
     FoodSnackChocolateBar: 2
+  recipeType: Oven # Frontier
 
 #Donks i guess
 - type: microwaveMealRecipe
@@ -1929,6 +1916,7 @@
   group: Savory
   solids:
     FoodDonkpocket: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWarmDankpocket
@@ -1938,6 +1926,7 @@
   group: Savory
   solids:
     FoodDonkpocketDank: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocketSpicy
@@ -1947,6 +1936,7 @@
   group: Savory
   solids:
     FoodDonkpocketSpicy: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocketTeriyaki
@@ -1956,6 +1946,7 @@
   group: Savory
   solids:
     FoodDonkpocketTeriyaki: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocketPizza
@@ -1965,6 +1956,7 @@
   group: Savory
   solids:
     FoodDonkpocketPizza: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketHonk
@@ -1974,6 +1966,7 @@
   group: Savory
   solids:
     FoodDonkpocketHonk: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketBerry
@@ -1983,6 +1976,7 @@
   group: Savory
   solids:
     FoodDonkpocketBerry: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketStonk
@@ -1992,6 +1986,7 @@
   group: Savory
   solids:
     FoodDonkpocketStonk: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketCarp
@@ -2001,6 +1996,7 @@
   group: Savory
   solids:
     FoodDonkpocketCarp: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDonkpocketMoth
@@ -2009,6 +2005,7 @@
   time: 5
   solids:
     FoodDonkpocketMoth: 1
+  recipeType: Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeHotChili
@@ -2022,6 +2019,7 @@
     FoodMeatCutlet: 1
     FoodOnionSlice: 1
     FoodTomato: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeColdChili
@@ -2033,6 +2031,7 @@
     Nitrogen: 5
   solids:
     FoodSoupChiliHot: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeClownTears
@@ -2045,6 +2044,7 @@
     FoodOnionSlice: 1
     FoodTomato: 1
     BikeHorn: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeChiliClown
@@ -2059,6 +2059,7 @@
     FoodOnionSlice: 1
     FoodTomato: 1
     ClothingShoesClown: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeQueso
@@ -2072,6 +2073,7 @@
   solids:
     FoodChiliPepper: 1
     FoodCheeseSlice: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeRibs
@@ -2084,6 +2086,7 @@
   solids:
     FoodMeat: 2
     FoodKebabSkewer: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeEnchiladas
@@ -2095,6 +2098,7 @@
     FoodChiliPepper: 2
     FoodMeatCutlet: 1
     FoodCorn: 1
+  recipeType: Oven # Frontier
 
 # SALADS: These should be moved out of the microwave as soon as possible
 - type: microwaveMealRecipe
@@ -2107,6 +2111,7 @@
     FoodBowlBig: 1
     FoodAmbrosiaVulgaris: 3
     FoodApple: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeValidSalad
@@ -2119,6 +2124,7 @@
     FoodAmbrosiaVulgaris: 3
     FoodPotato: 1
     FoodMeatMeatball: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeColeslaw
@@ -2132,6 +2138,7 @@
     FoodBowlBig: 1
     FoodOnionRed: 1
     FoodCabbage: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCaesarSalad
@@ -2147,6 +2154,7 @@
     FoodBreadPlainSlice: 1
     FoodCheeseSlice: 1
     FoodCabbage: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCitrusSalad
@@ -2159,6 +2167,7 @@
     FoodOrange: 1
     FoodLemon: 1
     FoodLime: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeKimchiSalad
@@ -2173,6 +2182,7 @@
     FoodCarrot: 1
     FoodCabbage: 1
     FoodGarlic: 1
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeFruitSalad
@@ -2186,6 +2196,7 @@
     FoodApple: 1
     FoodGrape: 1
     FoodWatermelonSlice: 2
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeJungleSalad
@@ -2199,6 +2210,7 @@
     FoodApple: 1
     FoodGrape: 1
     FoodWatermelonSlice: 2
+  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeWatermelonFruitBowlSalad
@@ -2213,6 +2225,7 @@
     FoodLemon: 1
     FoodOrange: 1
     FoodAmbrosiaVulgaris: 1
+  recipeType: Assembler # Frontier
 
 # Muffins
 
@@ -2227,6 +2240,7 @@
     FoodDoughSlice: 1
   reagents:
     Sugar: 10
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMuffinChocolate
@@ -2240,6 +2254,7 @@
     FoodSnackChocolateBar: 1
   reagents:
     Sugar: 10
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMuffinBerry
@@ -2253,6 +2268,7 @@
     FoodBerries: 1
   reagents:
     Sugar: 10
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMuffinBanana
@@ -2266,6 +2282,7 @@
     FoodBanana: 1
   reagents:
     Sugar: 10
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeMuffinCherry
@@ -2279,6 +2296,7 @@
     FoodCherry: 3
   reagents:
     Sugar: 10
+  recipeType: Oven # Frontier
 
 # NOT ACTUAL FOOD
 
@@ -2289,6 +2307,9 @@
   time: 10
   solids:
     LeavesTea: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDriedTobacco
@@ -2298,6 +2319,9 @@
   group: Medicinal
   solids:
     LeavesTobacco: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDriedCannabis
@@ -2307,6 +2331,9 @@
   group: Medicinal
   solids:
     LeavesCannabis: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeDriedCannabisRainbow
@@ -2316,6 +2343,9 @@
   group: Medicinal
   solids:
     LeavesCannabisRainbow: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeTrashBakedBananaPeel
@@ -2324,6 +2354,9 @@
   time: 5
   solids:
     TrashBananaPeel: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 # Suppermatter
 - type: microwaveMealRecipe
@@ -2337,6 +2370,8 @@
     Sugar: 30
     Nitrogen: 10
     Plasma: 10
+  recipeType: # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeFoodBakedChevreChaud
@@ -2347,16 +2382,21 @@
   solids:
     FoodChevreSlice: 1
     FoodBreadBaguetteSlice: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
-  id: RecipeFoodBakedChevreChaudCotton
-  name: cotton chevre chaud recipe
-  result: FoodBakedChevreChaudCotton
+  id: RecipeCookedSpaceshroom
+  name: cooked spaceshroom recipe
+  result: FoodSpaceshroomCooked
   time: 5
   group: Moth
   solids:
-    FoodChevreSlice: 1
-    FoodBreadBaguetteCottonSlice: 1
+    FoodSpaceshroom: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCannabisButter
@@ -2366,6 +2406,8 @@
   solids:
     FoodButter: 1
     LeavesCannabis: 6
+  recipeType: # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCannabisBrownies
@@ -2380,6 +2422,7 @@
   solids:
     FoodCannabisButter: 2
     FoodSnackChocolateBar: 2
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCornInButter
@@ -2391,6 +2434,9 @@
     FoodCorn: 1
     FoodPlate: 1
     FoodButter: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipePeaSoup
@@ -2403,6 +2449,9 @@
     FoodBowlBig: 1
   reagents:
     Water: 10
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeTacoShell
@@ -2412,81 +2461,108 @@
   group: Breads
   solids:
     FoodDoughTortillaFlat: 1 # one third of a standard bread dough recipe
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier
 
-# Goobstation - I'm not reverting whatever shitcode changes piras did in wizden namespace. Feel free to do it on your own. Commit 9245deef
-#- type: microwaveMealRecipe
-#  id: RecipeTacoBeef
-#  name: beef taco recipe
-#  result: FoodTacoBeef
-#  time: 10
-#  group: Savory
-#  solids:
-#    FoodTacoShell: 1
-#    FoodMeatCutlet: 1
-#    FoodCheeseSlice: 1
-#
-#- type: microwaveMealRecipe
-#  id: RecipeTacoChicken
-#  name: chicken taco recipe
-#  result: FoodTacoChicken
-#  time: 10
-#  group: Savory
-#  solids:
-#    FoodTacoShell: 1
-#    FoodMeatChickenCutlet: 1
-#    FoodCheeseSlice: 1
-#
-#- type: microwaveMealRecipe
-#  id: RecipeTacoFish
-#  name: fish taco recipe
-#  result: FoodTacoFish
-#  time: 10
-#  group: Savory
-#  solids:
-#    FoodTacoShell: 1
-#    FoodMeatFish: 1
-#    FoodOnionSlice: 2
-#    FoodTomato: 1
-#    FoodCabbage: 1
+- type: microwaveMealRecipe
+  id: RecipeTacoBeef
+  name: beef taco recipe
+  result: FoodTacoBeef
+  time: 10
+  group: Savory
+  solids:
+    FoodTacoShell: 1
+    FoodMeatCutlet: 1
+    FoodCheeseSlice: 1
+  recipeType: # Frontier
+  - Oven # Frontier
 
-#- type: microwaveMealRecipe
-#  id: RecipeTacoRat
-#  name: rat taco recipe
-#  result: FoodTacoRat
-#  time: 10
-#  group: Savory
-#  solids:
-#    FoodTacoShell: 1
-#    FoodCheeseSlice: 1
-#    FoodMeatRat: 1
+- type: microwaveMealRecipe
+  id: RecipeTacoChicken
+  name: chicken taco recipe
+  result: FoodTacoChicken
+  time: 10
+  group: Savory
+  solids:
+    FoodTacoShell: 1
+    FoodMeatChickenCutlet: 1
+    FoodCheeseSlice: 1
+  recipeType: # Frontier
+  - Oven # Frontier
 
-#- type: microwaveMealRecipe
-#  id: RecipeTacoBeefSupreme
-#  name: beef taco supreme recipe
-#  result: FoodTacoBeefSupreme
-#  time: 10
-#  group: Savory
-#  solids:
-#    FoodTacoShell: 1
-#    FoodCheeseSlice: 1
-#    FoodMeatCutlet: 1
-#    FoodTomato: 1
-#    FoodCabbage: 1
-#    FoodOnionSlice: 2
-#
-#- type: microwaveMealRecipe
-#  id: RecipeTacoChickenSupreme
-#  name: beef taco supreme recipe
-#  result: FoodTacoChickenSupreme
-#  time: 10
-#  group: Savory
-#  solids:
-#    FoodTacoShell: 1
-#    FoodCheeseSlice: 1
-#    FoodMeatChickenCutlet: 1
-#    FoodTomato: 1
-#    FoodCabbage: 1
-#    FoodOnionSlice: 2
+- type: microwaveMealRecipe
+  id: RecipeTacoFish
+  name: fish taco recipe
+  result: FoodTacoFish
+  time: 10
+  group: Savory
+  solids:
+    FoodTacoShell: 1
+    FoodMeatFish: 1
+    FoodOnionSlice: 2
+    FoodTomato: 1
+    FoodCabbage: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeTacoRat
+  name: rat taco recipe
+  result: FoodTacoRat
+  time: 10
+  group: Savory
+  solids:
+    FoodTacoShell: 1
+    FoodCheeseSlice: 1
+    FoodMeatRat: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeTacoBeefSupreme
+  name: beef taco supreme recipe
+  result: FoodTacoBeefSupreme
+  time: 10
+  group: Savory
+  solids:
+    FoodTacoShell: 1
+    FoodCheeseSlice: 1
+    FoodMeatCutlet: 1
+    FoodTomato: 1
+    FoodCabbage: 1
+    FoodOnionSlice: 2
+  recipeType: # Frontier
+  - Oven # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeTacoChickenSupreme
+  name: beef taco supreme recipe
+  result: FoodTacoChickenSupreme
+  time: 10
+  group: Savory
+  solids:
+    FoodTacoShell: 1
+    FoodCheeseSlice: 1
+    FoodMeatChickenCutlet: 1
+    FoodTomato: 1
+    FoodCabbage: 1
+    FoodOnionSlice: 2
+  recipeType: # Frontier
+  - Oven # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeTacoDragon
+  name: draco recipe
+  result: FoodTacoDragon
+  time: 10
+  group: Savory
+  solids:
+    FoodTacoShell: 1
+    FoodMeatDragonCutlet: 2
+    FoodChiliPepper: 1
+  recipeType: # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCroissant
@@ -2497,6 +2573,8 @@
   solids:
     FoodCroissantRaw: 1
     FoodButterSlice: 1
+  recipeType: # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeCroissantCotton
@@ -2507,6 +2585,7 @@
   solids:
     FoodCroissantRawCotton: 1
     FoodButterSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeThrowingCroissant
@@ -2519,6 +2598,8 @@
     FoodCroissantRaw: 1
     FoodButterSlice: 1
     ShardGlass: 1
+  recipeType: Oven # Frontier
+
 
 - type: microwaveMealRecipe
   id: RecipeInertAnomalyMeat
@@ -2528,6 +2609,9 @@
   group: Savory
   solids:
     AnomalyCoreFleshInert: 1
+  recipeType: # Frontier
+  - Microwave # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeAnomalyMeat
@@ -2537,6 +2621,9 @@
   group: Savory
   solids:
     AnomalyCoreFlesh: 1
+  recipeType: # Frontier
+  - Microwave # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeAnomalyMeatCooked
@@ -2546,6 +2633,9 @@
   group: Savory
   solids:
     FoodMeatAnomaly: 1
+  recipeType: # Frontier
+  - Microwave # Frontier
+  - Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeGrilledCheeseSandwich
@@ -2556,6 +2646,7 @@
     FoodBreadPlainSlice: 2
     FoodCheeseSlice: 1
     FoodButterSlice: 1
+  recipeType: Oven # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeGrilledCheeseSandwichCotton
@@ -2566,30 +2657,4 @@
     FoodBreadCottonSlice: 2
     FoodCheeseSlice: 1
     FoodButterSlice: 1
-
-- type: microwaveMealRecipe
-  id: RecipeBreakfastAmerican
-  name: full american breakfast recipe
-  result: FoodBreakfastAmerican
-  time: 30
-  group: Savory
-  reagents:
-    Egg: 12
-  solids:
-    FoodMeatBacon: 2
-    FoodPotato: 1
-    FoodBakedPancake: 2
-
-- type: microwaveMealRecipe
-  id: RecipeBreakfastEnglish
-  name: full english breakfast recipe
-  result: FoodBreakfastEnglish
-  time: 30
-  group: Savory
-  reagents:
-    Egg: 12
-  solids:
-    FoodMeatBacon: 1
-    FoodMeat: 1
-    FoodTomato: 1
-    FoodSoybeans: 2 # replace these with green beans once those become a thing
+  recipeType: Oven # Frontier

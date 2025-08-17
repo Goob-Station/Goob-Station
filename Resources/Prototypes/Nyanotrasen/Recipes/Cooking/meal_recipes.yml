@@ -1,0 +1,23 @@
+- type: microwaveMealRecipe
+  id: RecipeMoldyBread
+  name: moldy bread recipe
+  result: FoodBreadMoldy
+  group: Breads # Frontier: yummy
+  time: 20
+  solids:
+    FoodBreadPlain: 1
+    FoodFlyAmanita: 3
+  recipeType: # Frontier
+  - Microwave # Frontier
+
+- type: microwaveMealRecipe
+  id: RecipeCheeseCurds
+  name: cheese curds recipe
+  result: FoodCheeseCurds
+  time: 5
+  group: Savory # Frontier: TODO - move to ingredients
+  solids:
+    FoodCurdCheese: 1
+  recipeType: # Frontier
+  - Oven # Frontier
+  - Microwave # Frontier

@@ -1,17 +1,6 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Placeable;
 
@@ -53,6 +42,8 @@ public sealed class ItemPlacerSystem : EntitySystem
         if (comp.MaxEntities > 0 && count >= (comp.MaxEntities - 1))
         {
             // Don't let any more items be placed if it's reached its limit.
+            if (TryComp<PlaceableSurfaceComponent>(uid, out var placeable)) // Frontier: cache last placeable status
+                comp.LastPlaceable = placeable.IsPlaceable; // Frontier
             _placeableSurface.SetPlaceable(uid, false);
         }
     }
@@ -67,7 +58,14 @@ public sealed class ItemPlacerSystem : EntitySystem
         var ev = new ItemRemovedEvent(args.OtherEntity);
         RaiseLocalEvent(uid, ref ev);
 
-        _placeableSurface.SetPlaceable(uid, true);
+        // Frontier: reset placeable status to last known value
+        if (comp.LastPlaceable != null)
+        {
+            _placeableSurface.SetPlaceable(uid, comp.LastPlaceable.Value);
+            comp.LastPlaceable = null;
+        }
+        // End Frontier
+        //_placeableSurface.SetPlaceable(uid, true); // Frontier
     }
 }
 
