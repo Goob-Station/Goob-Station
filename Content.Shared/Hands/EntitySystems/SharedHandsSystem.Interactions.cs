@@ -131,32 +131,35 @@ public abstract partial class SharedHandsSystem : EntitySystem
 
     private bool DropPressed(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity)
     {
-        if (TryComp(session?.AttachedEntity, out HandsComponent? hands) && hands.ActiveHand != null)
+        if (session != null
+            && session.AttachedEntity != null
+            && TryGetActiveItem(session.AttachedEntity.Value, out var activeItem))
         {
             // Goobstation start
-            if (_net.IsServer && HasComp<DeleteOnDropAttemptComponent>(hands.ActiveHandEntity))
+            if (_net.IsServer && HasComp<DeleteOnDropAttemptComponent>(activeItem))
             {
-                QueueDel(hands.ActiveHandEntity.Value);
+                QueueDel(activeItem);
                 return false;
             }
 
-            if (session != null)
+            if (session is not { AttachedEntity: not null })
+                return false;
+
+            var ent = session.AttachedEntity.Value;
+
+            if (TryGetActiveItem(ent, out var item) && TryComp<VirtualItemComponent>(item, out var virtComp))
             {
-                var ent = session.AttachedEntity.Value;
+                var userEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
+                RaiseLocalEvent(ent, userEv);
 
-                if (TryGetActiveItem(ent, out var item) && TryComp<VirtualItemComponent>(item, out var virtComp))
-                {
-                    var userEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
-                    RaiseLocalEvent(ent, userEv);
+                var targEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
+                RaiseLocalEvent(virtComp.BlockingEntity, targEv);
 
-                    var targEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
-                    RaiseLocalEvent(virtComp.BlockingEntity, targEv);
-
-                    if (userEv.Cancelled || targEv.Cancelled)
-                        return false;
-                }
-                TryDrop(ent, hands.ActiveHand, coords, handsComp: hands);
+                if (userEv.Cancelled || targEv.Cancelled)
+                    return false;
             }
+            var activeHand = GetActiveHand(session.AttachedEntity.Value);
+            TryDrop(ent, activeHand!, coords); // Supress nullable, because if active hand has something, it exists.
             // Goobstation end
         }
 

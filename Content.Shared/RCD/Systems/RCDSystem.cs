@@ -49,6 +49,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using System.Linq;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Hands.Components;
 
 namespace Content.Shared.RCD.Systems;
 
@@ -354,8 +355,8 @@ public sealed class RCDSystem : EntitySystem
         if (session.SenderSession.AttachedEntity == null)
             return;
 
-        if (!TryComp<HandsComponent>(session.SenderSession.AttachedEntity, out var hands) ||
-            uid != hands.ActiveHand?.HeldEntity)
+        if (_hands.TryGetActiveItem(session.SenderSession.AttachedEntity.Value, out var held)
+            || uid != held)
             return;
 
         if (!TryComp<RCDComponent>(uid, out var rcd))

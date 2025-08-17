@@ -31,9 +31,9 @@ public sealed class AddBodyPartCommand : LocalizedEntityCommands
 {
     [Dependency] private readonly BodySystem _bodySystem = default!;
 
-        public string Command => "addbodypart";
-        public string Description => "Adds a given entity to a containing body.";
-        public string Help => "Usage: addbodypart <entity uid> <body uid> <part slot> <part type> <part symmetry>"; // Shitmed Change: part symmetry
+    public override string Command => "addbodypart";
+    public override string Description => "Adds a given entity to a containing body.";
+    public override string Help => "Usage: addbodypart <entity uid> <body uid> <part slot> <part type> <part symmetry>"; // Shitmed Change: part symmetry
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
@@ -59,9 +59,9 @@ public sealed class AddBodyPartCommand : LocalizedEntityCommands
             Enum.TryParse<BodyPartSymmetry>(args[4], out var symmetry) && //Shitmed Change: part symmetry
             _bodySystem.TryCreatePartSlotAndAttach(parentId.Value, args[2], childId.Value, partType, symmetry))
         {
-            shell.WriteLine($@"Added {childId} to {parentId}.");
+            shell.WriteLine($"Added {childId} to {parentId}.");
         }
         else
-            shell.WriteError($@"Could not add {childId} to {parentId}.");
+            shell.WriteError($"Could not add {childId} to {parentId}.");
     }
 }

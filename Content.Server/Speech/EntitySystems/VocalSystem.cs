@@ -81,13 +81,13 @@ public sealed class VocalSystem : EntitySystem
         var getSoundEv = new GetEmoteSoundsEvent();
         RaiseLocalEvent(uid, ref getSoundEv);
         if (getSoundEv.EmoteSoundProtoId != null &&
-            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? sounds))
+            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? evSounds))
         {
-            args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
+            args.Handled = _chat.TryPlayEmoteSound(uid, evSounds, args.Emote);
             return;
         }
         // Goobstation end
-        
+
         if (component.EmoteSounds is not { } sounds)
             return;
 
@@ -110,8 +110,8 @@ public sealed class VocalSystem : EntitySystem
         var getSoundEv = new GetEmoteSoundsEvent();
         RaiseLocalEvent(uid, ref getSoundEv);
         if (getSoundEv.EmoteSoundProtoId != null &&
-            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? sounds))
-            return _chat.TryPlayEmoteSound(uid, sounds, component.ScreamId);
+            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? evSounds))
+            return _chat.TryPlayEmoteSound(uid, evSounds, component.ScreamId);
         // Goobstation end
 
         if (_random.Prob(component.WilhelmProbability))

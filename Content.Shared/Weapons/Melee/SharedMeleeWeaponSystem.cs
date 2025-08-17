@@ -1062,8 +1062,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        EntityUid? inTargetHand = null;
-
         if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
 
@@ -1098,14 +1096,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             }
         }
 
-        if (!InRange(user, target.Value, component.Range, session))
+        if (!InRange(user, target, component.Range, session))
         {
             return false;
         }
 
         EntityUid? inTargetHand = null;
 
-        if (_hands.TryGetActiveItem(target.Value, out var activeHeldEntity))
+        if (_hands.TryGetActiveItem(target, out var activeHeldEntity))
         {
             inTargetHand = activeHeldEntity.Value;
         }

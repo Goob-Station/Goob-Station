@@ -152,6 +152,7 @@ using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Stacks;
@@ -258,8 +259,7 @@ namespace Content.Server.Hands.Systems
         // Shitmed Change Start
         private void TryAddHand(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, string slot)
         {
-            if (part.Comp is null
-                || part.Comp.PartType != BodyPartType.Hand)
+            if (part.Comp.PartType != BodyPartType.Hand)
                 return;
 
             // If this annoys you, which it should.
@@ -278,10 +278,9 @@ namespace Content.Server.Hands.Systems
                 AddHand(uid, slot, location);
         }
 
-        private void HandleBodyPartAdded(EntityUid uid, HandsComponent component, ref BodyPartAddedEvent args)
+        private void HandleBodyPartAdded(Entity<HandsComponent> ent, ref BodyPartAddedEvent args)
         {
-            TryAddHand(uid, component, args.Part, args.Slot);
-            AddHand(ent.AsNullable(), args.Slot, location);
+            TryAddHand(ent.Owner, ent.Comp, args.Part, args.Slot);
         }
 
         private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args)
@@ -344,10 +343,10 @@ namespace Content.Server.Hands.Systems
 
             if (TryComp<VirtualItemComponent>(throwEnt, out var virt))
             {
-                var userEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt, direction);
+                var userEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt.Value, direction);
                 RaiseLocalEvent(player, userEv);
 
-                var targEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt, direction);
+                var targEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt.Value, direction);
                 RaiseLocalEvent(virt.BlockingEntity, targEv);
             }
             // Goobstation end

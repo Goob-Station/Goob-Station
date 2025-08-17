@@ -1142,7 +1142,7 @@ public sealed class PullingSystem : EntitySystem
         {
             for (var i = 0; i < delta; i++)
             {
-                var emptyHand = _handsSystem.TryGetEmptyHand(puller, out _);
+                var emptyHand = _handsSystem.TryGetEmptyHand(puller.Owner, out _);
                 if (!emptyHand)
                 {
                     if (_netManager.IsServer)

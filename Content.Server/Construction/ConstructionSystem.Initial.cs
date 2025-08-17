@@ -428,7 +428,7 @@ namespace Content.Server.Construction
             if (!_actionBlocker.CanInteract(user, null))
                 return false;
 
-            if (HasComp<MindContainerComponent>(user) 
+            if (HasComp<MindContainerComponent>(user)
                 && !HasComp<HandsComponent>(user)) // goobstation - don't require hands for constructor
                 return false;
 
@@ -559,7 +559,7 @@ namespace Content.Server.Construction
 
             // Goobstation - can only realistically happen for sus clients, but ignore this for constructor
             HandsComponent? hands = null;
-            if (senderSession != null && !TryComp<HandsComponent>(user, out hands))
+            if (senderSession != null && !TryComp(user, out hands))
                 return false;
 
             foreach (var condition in constructionPrototype.Conditions)
@@ -593,12 +593,10 @@ namespace Content.Server.Construction
             }
             else if (hands != null)
             {
-                entWith = hands.ActiveHandEntity;
+                entWith = _handsSystem.GetActiveItem((user, hands));
             }
 
-            if (!_actionBlocker.CanInteract(user, null)
-                || (senderSession != null && entWith == null)) // Goobstation
-                || !TryComp(user, out HandsComponent? hands) || _handsSystem.GetActiveItem((user, hands)) == null)
+            if (!_actionBlocker.CanInteract(user, null))
             {
                 Cleanup();
                 return false;
@@ -621,14 +619,12 @@ namespace Content.Server.Construction
             if(edge == null)
                 throw new InvalidDataException($"Can't find edge from starting node to the next node in pathfinding! Recipe: {prototypeName}");
 
-            var valid = false;
-
-            if (_handsSystem.GetActiveItem((user, hands)) is not {Valid: true} holding
+            if (_handsSystem.GetActiveItem((user, hands)) is {} holding
                 && senderSession != null) // Goobstation - don't check this for constructor machine
             {
                 var valid = false;
 
-                if (entWith is not {Valid: true} holding) // Goobstation - don't check for constructor machine
+                if (entWith == null) // Goobstation - don't check for constructor machine
                 {
                     Cleanup();
                     return false;

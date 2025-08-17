@@ -372,7 +372,7 @@ namespace Content.Shared.StatusEffect
         /// <param name="key">The status effect ID to check for</param>
         /// <param name="status">The status effect component, should you already have it.</param>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
-        public bool CanApplyEffect(EntityUid uid, string key, StatusEffectsComponent? status = null)
+        public bool CanApplyEffect(EntityUid uid, string key, StatusEffectsComponent? status = null, bool raiseEvent = true)
         {
             // don't log since stuff calling this prolly doesn't care if we don't actually have it
             if (!Resolve(uid, ref status, false))
@@ -381,7 +381,7 @@ namespace Content.Shared.StatusEffect
             // Goob edit start
             if (raiseEvent)
             {
-                var ev = new BeforeStatusEffectAddedEvent(key);
+                var ev = new OldBeforeStatusEffectAddedEvent(key);
                 RaiseLocalEvent(uid, ref ev);
                 if (ev.Cancelled)
                     return false;
@@ -510,6 +510,12 @@ namespace Content.Shared.StatusEffect
             return true;
         }
     }
+
+    /// <summary>
+    /// Goob edit
+    /// </summary>
+    [ByRefEvent]
+    public record struct OldBeforeStatusEffectAddedEvent(string Key, bool Cancelled=false);
 
     public readonly struct StatusEffectAddedEvent
     {

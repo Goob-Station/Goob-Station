@@ -71,7 +71,6 @@ namespace Content.Server.Mail
     public sealed class MailSystem : EntitySystem
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
@@ -232,7 +231,7 @@ namespace Content.Server.Mail
                     return;
                 }
 
-                if (!_accessSystem.IsAllowed(args.User, uid))
+                if (!_accessReader.IsAllowed(args.User, uid))
                 {
                     _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, args.User);
                     return;

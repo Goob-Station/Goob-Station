@@ -528,13 +528,11 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         }
 
-        if (!TryComp(ev.Performer, out HandsComponent? hands) || hands.ActiveHandEntity == null)
+        if (!Hands.TryGetActiveItem(ev.Performer, out var item))
         {
             Popup(ev.Performer, "spell-fail-no-held-entity");
             return;
         }
-
-        var item = hands.ActiveHandEntity.Value;
 
         if (HasComp<UnremoveableComponent>(item) || !HasComp<ItemComponent>(item))
         {
@@ -548,7 +546,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         }
 
-        BindSoul(ev, item, mind, mindComponent);
+        BindSoul(ev, item.Value, mind, mindComponent);
         ev.Handled = true;
     }
 
@@ -778,12 +776,10 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Action, out InstantSummonsActionComponent? summons))
             return;
 
-        if (!TryComp(ev.Performer, out HandsComponent? hands))
+        if (!Hands.TryGetActiveItem(ev.Performer, out var held))
             return;
 
-        var held = hands.ActiveHandEntity;
-
-        if (held != null && held == summons.Entity)
+        if ( held == summons.Entity)
             return;
 
         bool ItemValid([NotNullWhen(true)] EntityUid? item)
@@ -853,7 +849,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         TransformSystem.SetMapCoordinates(item, TransformSystem.GetMapCoordinates(ev.Performer));
         TransformSystem.AttachToGridOrMap(item);
 
-        Hands.TryForcePickupAnyHand(ev.Performer, item, handsComp: hands);
+        Hands.TryForcePickupAnyHand(ev.Performer, item);
     }
 
     private void OnTeleport(WizardTeleportEvent ev)
@@ -955,33 +951,31 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (!TryComp(ev.Performer, out HandsComponent? hands))
+        if (!Hands.TryGetActiveItem(ev.Performer, out var held))
             return;
 
-        if (!HasComp<ItemComponent>(hands.ActiveHandEntity))
+        if (!HasComp<ItemComponent>(held))
         {
             Popup(ev.Performer, "spell-fail-sanguine-strike-no-item");
             return;
         }
 
-        var item = hands.ActiveHandEntity.Value;
-
-        if (HasComp<VirtualItemComponent>(item))
+        if (HasComp<VirtualItemComponent>(held))
             return;
 
-        if (HasComp<SanguineStrikeComponent>(item))
+        if (HasComp<SanguineStrikeComponent>(held))
         {
             Popup(ev.Performer, "spell-fail-sanguine-strike-already-empowered");
             return;
         }
 
-        if (!TryComp(item, out MeleeWeaponComponent? weapon) || weapon.Damage.GetTotal() == FixedPoint2.Zero)
+        if (!TryComp(held, out MeleeWeaponComponent? weapon) || weapon.Damage.GetTotal() == FixedPoint2.Zero)
         {
-            PopupLoc(ev.Performer, Loc.GetString("spell-fail-sanguine-strike-not-weapon", ("item", item)));
+            PopupLoc(ev.Performer, Loc.GetString("spell-fail-sanguine-strike-not-weapon", ("item", held)));
             return;
         }
 
-        AddComp<SanguineStrikeComponent>(item);
+        AddComp<SanguineStrikeComponent>(held.Value);
 
         ev.Handled = true;
     }
@@ -1164,7 +1158,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Performer, out HandsComponent? hands))
             return;
 
-        foreach (var item in Hands.EnumerateHeld(ev.Performer, hands))
+        foreach (var item in Hands.EnumerateHeld((ev.Performer, hands)))
         {
             if (Tag.HasAnyTag(item, ev.RechargeTags) &&
                 TryComp<BasicEntityAmmoProviderComponent>(item, out var basicAmmoComp) &&
@@ -1356,7 +1350,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(user, out HandsComponent? hands))
             return null;
 
-        if (!Hands.TryGetEmptyHand(user, out var hand, hands))
+        if (!Hands.TryGetEmptyHand((user, hands), out var hand))
         {
             Popup(user, "spell-fail-hands-occupied");
             return null;
@@ -1366,7 +1360,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             return null;
 
         var item = Spawn(proto, Transform(user).Coordinates);
-        if (Hands.TryPickup(user, item, hand, false, false, hands))
+        if (Hands.TryPickup(user, item, hand, false))
             return item;
 
         QueueDel(item);

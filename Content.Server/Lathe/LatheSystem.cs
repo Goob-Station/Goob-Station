@@ -465,12 +465,12 @@ namespace Content.Server.Lathe
         {
             if (component.Queue.Count > 0)
             {
-                var allMaterials = component.Queue.SelectMany(q => q.Materials);
+                var allMaterials = component.Queue.SelectMany(q => _proto.Index(q).Materials);
                 var totalMaterials = new Dictionary<string, int>();
 
                 foreach (var (mat, amount) in allMaterials)
                 {
-                    if(!totalMaterials.ContainsKey(mat)) 
+                    if(!totalMaterials.ContainsKey(mat))
                         totalMaterials[mat] = 0;
                     totalMaterials[mat] += amount;
                 }

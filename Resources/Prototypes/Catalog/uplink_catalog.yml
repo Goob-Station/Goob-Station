@@ -276,12 +276,9 @@
   name: uplink-hypereutatic-blade-name
   description: uplink-hypereutatic-blade-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 13
   productEntity: HyperEutaticBlade
   cost:
-    Telecrystal: 16
+    Telecrystal: 74 # goob - same as double energy sword
   categories:
   - UplinkWeaponry
   conditions:

@@ -373,7 +373,7 @@ internal sealed class AdminNameOverlay : Overlay
                         : string.Empty;
                     break;
                 case AdminOverlayAntagFormat.Off: // Goobstation
-                    color = playerInfo.RoleProto.Color;
+                    color = roleColor;
                     symbol = string.Empty;
                     text = string.Empty;
                     break;

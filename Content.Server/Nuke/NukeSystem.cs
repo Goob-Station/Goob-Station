@@ -398,8 +398,8 @@ public sealed class NukeSystem : EntitySystem
                 _popups.PopupEntity(msg, uid, args.Actor, PopupType.MediumCaution);
                 return;
             }
-            
-            DisarmBombDoafter(uid, args.Actor, component);
+
+            DisarmBombDoAfter(uid, args.Actor, component);
         }
     }
 

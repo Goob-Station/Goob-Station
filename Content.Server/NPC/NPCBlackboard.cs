@@ -199,13 +199,12 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
             case ActiveHandEntity: // Goobstation
             {
                 if (!TryGetValue(Owner, out owner, entManager) ||
-                    !entManager.TryGetComponent<HandsComponent>(owner, out var hands) ||
-                    hands.ActiveHandEntity == null)
+                    !handSys.TryGetActiveItem(owner, out var item))
                 {
                     return false;
                 }
 
-                value = hands.ActiveHandEntity;
+                value = item;
                 return true;
             }
             case ActiveHandFree:

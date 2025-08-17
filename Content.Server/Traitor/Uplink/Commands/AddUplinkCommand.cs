@@ -96,7 +96,7 @@ public sealed class AddUplinkCommand : LocalizedEntityCommands
         }
 
         // Finally add uplink
-        if (!_uplinkSystem.AddUplink(user, 100, uplinkEntity: uplinkEntity, giveDiscounts: false)) // Goob edit - 100 TC and no discounts!!!!!1!
+        if (!_uplinkSystem.AddUplink(user, 100, uplinkEntity: uplinkEntity)) // Goob edit - 100 TC
             shell.WriteLine(Loc.GetString("add-uplink-command-error-2"));
     }
 

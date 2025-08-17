@@ -33,7 +33,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly IPlacementManager _placementManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
-    
+
     private Direction _placementDirection = default;
     private bool _useMirrorPrototype = false;
     public event EventHandler? FlipConstructionPrototype;
@@ -135,7 +135,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
-            MobUid = heldEntity.Value,
+            MobUid = uid,
             PlacementOption = PlacementMode,
             EntityType = prototype,
             Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
