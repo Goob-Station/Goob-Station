@@ -13605,3 +13605,9 @@ Entries:
         pop idol.
   id: 1511
   time: '2025-08-18T03:53:06.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Remove
+      message: Removed the ability to burger pet carriers and backpacks/belts.
+  id: 1512
+  time: '2025-08-18T03:53:14.0000000+00:00'
