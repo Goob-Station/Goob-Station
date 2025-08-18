@@ -13719,3 +13719,15 @@ Entries:
       message: Cog Station
   id: 1525
   time: '2025-08-18T05:21:37.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Tweak
+      message: >-
+        Amber, Packed and Omega now up to date with map content. and also public
+        lavaland soon...
+    - type: Tweak
+      message: also the silo has change nationality to cargonia. dont ask me why.
+    - type: Fix
+      message: 'Deathmatch map dm-entryway.yml no longer be cursed with darkness. '
+  id: 1526
+  time: '2025-08-18T05:23:45.0000000+00:00'
